@@ -1,0 +1,546 @@
+# // DESIGN-GAP: 组合采用独立中英文编辑片段；意象用于生活观察，不充当事件预告。
+- id: vedic.yoga.gajakesari
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: gajakesari
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Gajakesari：让理解与情绪互相支持
+    summary: 你可以让理解与情绪互相支持，把格局当作观察联系的提示。
+    body: 你可以让理解与情绪互相支持。Gajakesari（把月亮与木星的位置联系起来的格局）在你的盘里由木星相对月亮处于第一、四、七或十个星座位置触发。这是以月亮为起点的角位（Kendra，四个相隔三个星座的位置），不等于实际宫位。这里可以观察学习视角怎样帮助你理解感受。比如意见不合时，你先听清对方的经验，再区分情绪和待处理问题。建议把宽阔理解化成一个具体回应，也给自己整理感受的时间；格局只提供联系，不衡量智慧或社会成就。你可以不认同别人的结论，同时认真理解对方为什么这样想。
+    advice:
+      - 遇到不同意见时，先询问对方的具体经验。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Gajakesari: connect perspective with everyday responses'
+    summary: You can connect perspective with everyday responses through an ordinary, reviewable action.
+    body:
+      You can connect perspective with everyday responses. Gajakesari — a pattern connecting the Moon and Jupiter
+      — is recorded because Jupiter occupies a first, fourth, seventh, or tenth sign position counted from the Moon.
+      These are relative Kendra positions, not necessarily the numbered houses of the birth chart. You can use the
+      pattern to ask how a wider perspective helps you understand an immediate response. For instance, hearing the
+      experience behind another person’s opinion may make a disagreement easier to describe. Consider separating
+      the feeling from the practical question before offering guidance. The link does not rank wisdom or achievement;
+      real listening and useful feedback show whether your perspective contributes to the exchange. You can take
+      a feeling seriously while leaving room to disagree with the conclusion attached to it.
+    advice:
+      - Ask about the experience behind an opinion before offering guidance.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.budha_aditya
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: budha_aditya
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Budha-Aditya：让立场与说明配合
+    summary: 你可以让立场与说明配合，把格局当作观察联系的提示。
+    body: 你可以让立场与说明配合。Budha-Aditya（把太阳与水星放在一起观察的格局）在你的盘里由两者处于同一恒星星座触发。同座（共享一个黄道星座区域）不等于黄经度数完全相同，也不自动表示水星没有焦伤。这里适合比较个人立场与信息表达怎样配合。比如你提出一个改进建议，先说希望解决的问题，再用简单例子说明方法。建议请听者复述理解，确认清楚之后再补细节；有想法与说得有效仍需要练习，不能用格局名称替你评估沟通能力。说得流畅与说明清楚是不同体验，可以让听者的实际回应帮助你区分。
+    advice:
+      - 提出建议后，先核对听者理解再补充细节。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Budha-Aditya: coordinate direction and explanation'
+    summary: You can coordinate direction and explanation through an ordinary, reviewable action.
+    body:
+      'You can coordinate direction and explanation. Budha-Aditya — a pattern linking the Sun and Mercury —
+      is triggered here by their presence in the same sidereal sign. Sharing a sign does not mean an exact conjunction
+      in degrees, and this rule does not remove a separate combustion label. You can reflect on how a personal direction
+      becomes an explanation someone else can use. Imagine proposing a small improvement: naming the problem and
+      showing a simple example gives the listener a practical entry. Try asking what they understood before adding
+      more detail. The pattern is a symbolic connection, while practice and the response of actual listeners supply
+      evidence about the clarity of your communication. An explanation can sound fluent and still need a simpler
+      example, so let the listener’s actual response guide refinement.'
+    advice:
+      - Check what a listener understood before expanding your explanation.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.chandra_mangala
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: chandra_mangala
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Chandra-Mangala：把感受转成有边界的行动
+    summary: 你可以把感受转成有边界的行动，把格局当作观察联系的提示。
+    body: 你可以把感受转成有边界的行动。Chandra-Mangala（把月亮反应与火星行动联系起来的格局）在你的盘里由月亮与火星处于同一恒星星座触发。它不是对情绪强弱或财富规模的测量，只提供感受与行动可能相接的观察角度。比如发现共同空间不够整齐，你先说明自己的需要，再邀请其他人讨论怎样分工，而不是立即替大家决定。建议把想做的事限定为一个可撤回的步骤，并在回应之后再调整；行动可以及时，也需要照顾参与者的意愿。先完成一个小动作，再决定是否需要增加力度，能让合作保留调整空间。
+    advice:
+      - 行动前先说明需要，并确认参与者愿意尝试。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Chandra-Mangala: translate a response into bounded action'
+    summary: You can translate a response into bounded action through an ordinary, reviewable action.
+    body:
+      You can translate a response into bounded action. Chandra-Mangala — a pattern connecting the Moon with
+      Mars — is recorded when they share a sidereal sign. It invites reflection on the route from an immediate response
+      to action, without measuring emotional intensity or financial prospects. If a shared area feels inconvenient,
+      explaining what you need can be more useful than reorganizing it for everyone at once. You can propose a small
+      change and ask whether the other users want to try it. Consider leaving the first step reversible, then review
+      the responses before continuing. Prompt action can support a group when it remains attentive to consent, scope,
+      and the real circumstances of those involved. A first action can remain small enough to revise, giving everyone
+      involved time to respond before the scope grows.
+    advice:
+      - Explain the need behind an action and check willingness to try it.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.ruchaka
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: ruchaka
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Ruchaka：让行动有清楚用途
+    summary: 你可以让行动有清楚用途，把格局当作观察联系的提示。
+    body: 你可以让行动有清楚用途。Ruchaka（五种主要行星强势角宫格局之一）在你的盘里由火星处于角宫（第一、四、七或十宫），同时带有自宫（自己守护的星座）、旺（传统较顺手的位置）或本源三角（度数限定的支持区间）状态触发。这些状态是传统位置标记，不是力量测试。这里可以观察你怎样把行动投入明确的任务。比如面对积压工作，你先分出最值得处理的一步，再确认能否获得所需协助。建议以可完成的事项承接热情，给合作对象表达不同节奏的空间；主动并不要求每次竞争，也不能由格局推断职位。任务的优先次序要结合真实期限与资源，热情不必承担所有部分。
+    advice:
+      - 从积压任务里挑出一个可完成的步骤。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Ruchaka: give assertive effort a clear use'
+    summary: You can give assertive effort a clear use through an ordinary, reviewable action.
+    body:
+      'You can give assertive effort a clear use. Ruchaka — one of five major strong-planet patterns — is recorded
+      when Mars is in a Kendra house, numbered one, four, seven, or ten, with a traditional state of domicile (its
+      own sign), exaltation (a supportive sign), or moolatrikona (a supportive degree range). Those are traditional
+      positional categories, not a test of physical strength or leadership. You can ask how effort becomes useful
+      when a task needs movement. A backlog offers a simple scene: identifying one actionable item and the support
+      it requires can make initiative shareable. Consider checking the scope before starting, and let collaborators
+      set a pace they can maintain. The pattern does not assign a job title; completed work and actual cooperation
+      give your effort its practical meaning. Actual deadlines and available resources help establish priorities,
+      and enthusiasm does not require you to take every part yourself.'
+    advice:
+      - Select one actionable step and confirm the support it needs.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.bhadra
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: bhadra
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Bhadra：把分析变成易用的方法
+    summary: 你可以把分析变成易用的方法，把格局当作观察联系的提示。
+    body: 你可以把分析变成易用的方法。Bhadra（五种主要行星强势角宫格局之一）在你的盘里由水星处于第一、四、七或十宫，并带有自宫（自己守护的星座）、旺（传统较顺手的位置）或本源三角（度数限定的支持区间）状态触发。位置标记只是传统模型的分类，不测量智力或学历。这里可以观察你如何把信息整理成容易使用的步骤。比如向同伴介绍一个工具，你先用最常见任务做示范，再让对方亲自试一遍。建议根据实际反馈修改说明，区分需要精确与可以简化的部分；分析要服务用途，不必把每次交流都变成全面讲解。你可以保留分析的细致，也给接收信息的人选择解释深度的机会。
+    advice:
+      - 示范一个常见任务，再让使用者试做。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Bhadra: make analysis usable'
+    summary: You can make analysis usable through an ordinary, reviewable action.
+    body:
+      You can make analysis usable. Bhadra — one of the five major strong-planet patterns — requires Mercury
+      in house one, four, seven, or ten with a traditional state of domicile (its own sign), exaltation (a supportive
+      sign), or moolatrikona (a supportive degree range). The rule classifies a symbolic placement; it does not
+      assess intelligence or education. You can use it to review how analysis becomes a usable method. When introducing
+      a tool, demonstrating the most common task and letting the learner try it can reveal more than explaining
+      every feature. Consider changing the instructions in response to their actual questions. Accuracy matters
+      where it helps the task, while simplification can make the method accessible. The usefulness of your explanation
+      comes from practice and feedback rather than the pattern’s name. You can keep the analysis careful while giving
+      the person receiving it a choice about how much detail to explore.
+    advice:
+      - Demonstrate a common task and observe someone trying it.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.hamsa
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: hamsa
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Hamsa：让引导以真实经验为基础
+    summary: 你可以让引导以真实经验为基础，把格局当作观察联系的提示。
+    body: 你可以让引导以真实经验为基础。Hamsa（五种主要行星强势角宫格局之一）在你的盘里由木星处于第一、四、七或十宫，且带有自宫（自己守护的星座）、旺（传统较顺手的位置）或本源三角（度数限定的支持区间）状态触发。这里用它讨论学习与引导，不认定你具有特别权威。比如朋友询问一项你熟悉的活动，你先分享自己的经验，再说明不同条件可能需要不同做法。建议把建议表达成可选择的选项，并询问对方实际需要什么；广阔视角可以帮助理解，但不能替他人决定，也不由格局衡量品德。你不必每次都给答案，陪对方整理问题也是一种有用的参与。
+    advice:
+      - 分享经验时，说明适用条件并给对方选择。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Hamsa: ground guidance in experience'
+    summary: You can ground guidance in experience through an ordinary, reviewable action.
+    body:
+      You can ground guidance in experience. Hamsa — a major pattern involving a strongly placed Jupiter — is
+      recorded for house one, four, seven, or ten together with a traditional state of domicile (its own sign),
+      exaltation (a supportive sign), or moolatrikona (a supportive degree range). It offers a learning and guidance
+      theme without establishing special authority. If someone asks about an activity you know, sharing what you
+      encountered and what may differ for them can keep the discussion grounded. You can offer options and ask which
+      information serves their present question. Consider allowing the other person to choose a route rather than
+      turning experience into an instruction they must follow. A positional pattern cannot evaluate character; openness
+      to feedback keeps guidance useful in a real exchange. You do not need to supply an answer every time; helping
+      someone frame a clearer question can be a useful contribution.
+    advice:
+      - Offer experience with its limits and let the listener choose.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.malavya
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: malavya
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Malavya：让愉悦与互惠一起发生
+    summary: 你可以让愉悦与互惠一起发生，把格局当作观察联系的提示。
+    body: 你可以让愉悦与互惠一起发生。Malavya（五种主要行星强势角宫格局之一）在你的盘里由金星处于第一、四、七或十宫，并带有自宫（自己守护的星座）、旺（传统较顺手的位置）或本源三角（度数限定的支持区间）状态触发。这个组合提供审美、体验和协调的观察主题，不说明伴侣身份或物质条件。比如邀请人一起做喜欢的活动，你先询问对方是否感兴趣，再讨论方便的安排。建议把享受建立在双向回应上，保留各自不同偏好；关系状态不影响这一原则，也不需要为了符合格局而追求某种生活形象。偏好可以相近也可以不同，重要的是彼此能否自由表达和选择。
+    advice:
+      - 先确认共同兴趣，再安排轻量的共享活动。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Malavya: combine enjoyment with reciprocity'
+    summary: You can combine enjoyment with reciprocity through an ordinary, reviewable action.
+    body:
+      You can combine enjoyment with reciprocity. Malavya — a major pattern involving Venus in a supportive
+      condition — requires house one, four, seven, or ten with a traditional state of domicile (its own sign), exaltation
+      (a supportive sign), or moolatrikona (a supportive degree range). You can reflect on enjoyment, preferences,
+      and coordination without inferring a partner’s identity or material circumstances. Before inviting someone
+      to an activity you enjoy, checking whether they want to participate gives the experience a basis in reciprocity.
+      Try discussing convenience as well as enthusiasm, and leave room for different tastes. The same approach applies
+      regardless of relationship status. A symbolic pattern does not require you to pursue an idealized lifestyle;
+      actual willingness and shared comfort shape the quality of the experience. Preferences may overlap or differ,
+      and both people should have room to state what they actually want without pressure.
+    advice:
+      - Check shared interest before arranging an enjoyable activity.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.shasha
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: shasha
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Shasha：让可靠包含可承担的边界
+    summary: 你可以让可靠包含可承担的边界，把格局当作观察联系的提示。
+    body: 你可以让可靠包含可承担的边界。Shasha（五种主要行星强势角宫格局之一）在你的盘里由土星处于第一、四、七或十宫，同时带有自宫（自己守护的星座）、旺（传统较顺手的位置）或本源三角（度数限定的支持区间）状态触发。这里用它观察责任、时间与耐心，不以格局说明你应该承受多少压力。比如负责长期资料维护，你先写明更新频率和交接人，再安排定期回看。建议把可靠做成可以共享的流程，也给休息留位置；边界不会削弱认真，实际任务需要什么仍要结合资源和参与者的能力。你可以认真维护承诺，同时在条件变化时及时讨论新的分工。
+    advice:
+      - 为长期责任写明更新频率与交接人。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Shasha: include limits in reliability'
+    summary: You can include limits in reliability through an ordinary, reviewable action.
+    body:
+      You can include limits in reliability. Shasha — a major pattern involving a strongly placed Saturn — is
+      recorded for house one, four, seven, or ten with a traditional state of domicile (its own sign), exaltation
+      (a supportive sign), or moolatrikona (a supportive degree range). It supplies a theme of responsibility and
+      continuity, not a standard for how much pressure you should tolerate. Maintaining a shared resource can involve
+      a clear update schedule and a named substitute. You can make the process reliable without remaining personally
+      available at all times. Consider setting a review point and a rest interval alongside the task. Boundaries
+      belong to dependable work, while actual resources, skills, and agreements determine what responsibilities
+      are appropriate in your situation. You can care about a commitment and still discuss a different division
+      of responsibility when practical conditions have changed.
+    advice:
+      - Name an update rhythm and a substitute for recurring work.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.raja_yoga
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: raja_yoga
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Raja Yoga：把稳定与探索连接起来
+    summary: 你可以把稳定与探索连接起来，把格局当作观察联系的提示。
+    body: 你可以把稳定与探索连接起来。Raja Yoga（把不同生活领域主星的联系归为一类的格局）在你的盘里采用简化判定：角宫（第一、四、七或十宫）的主星与第五或九宫的另一颗主星处于同一星座。两颗主星必须不同，这里也不宣称涵盖所有传统条件。你可以观察日常责任怎样与创作、学习相接。比如安排一个内部分享，用手边经验回应大家正在遇到的问题。建议先做一个小范围尝试，以反馈调整内容；这个名称不表示社会身份或职位，也不预告某种成功。学习和工作能互相提供材料，也要留意两者是否争用了休息时间。
+    advice:
+      - 用现有经验做一次回应真实问题的小分享。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Raja Yoga: connect continuity and exploration'
+    summary: You can connect continuity and exploration through an ordinary, reviewable action.
+    body:
+      You can connect continuity and exploration. Raja Yoga — a family of patterns linking functional house
+      rulers — uses a simplified rule here. A ruler of house one, four, seven, or ten shares a sign with a different
+      ruler of house five or nine. This does not claim to include every traditional condition. You can ask how a
+      stable responsibility connects with learning or creative exploration. A short internal demonstration, built
+      around a problem colleagues actually face, provides a useful experiment. Consider inviting feedback before
+      extending the format. The historical name does not establish social standing or predict advancement; skills,
+      opportunity, and the value of your actual contribution remain the practical basis for work decisions. Work
+      and learning can provide material for each other, but checking their shared demands also leaves room for rest.
+    advice:
+      - Try a small demonstration that addresses a real shared question.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.dhana_yoga
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: dhana_yoga
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Dhana Yoga：把资源投入与学习目标对齐
+    summary: 你可以把资源投入与学习目标对齐，把格局当作观察联系的提示。
+    body: 你可以把资源投入与学习目标对齐。Dhana Yoga（把资源领域与学习创作领域主星联系起来的格局）在你的盘里用简化规则触发：第二或十一宫主星与第五或九宫的另一颗主星处于同一星座。这里不包含所有传统财富条件，也不推测收入与收益。你可以观察日常投入是否符合自己的学习和共同目标。比如参加一项活动，先比较时间、费用和实际用途，再决定是否合适。建议记录普通开支与使用体验，不依据格局选择投资标的；有关具体财务事项，应另行核对可靠信息。把预算与活动体验分别记录，能帮助你看清实际投入是否合适。
+    advice:
+      - 记录一项活动的时间、费用和实际用途。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Dhana Yoga: align ordinary resources with a learning aim'
+    summary: You can align ordinary resources with a learning aim through an ordinary, reviewable action.
+    body:
+      You can align ordinary resources with a learning aim. Dhana Yoga — a pattern connecting rulers associated
+      with resources and learning — uses a simplified same-sign rule in this implementation. A ruler of house two
+      or eleven must share a sign with a different ruler of house five or nine. It does not estimate earnings or
+      include every traditional wealth condition. You can compare ordinary commitments with an actual learning or
+      shared aim. Before joining an activity, listing its time, fee, and intended use can make the choice clearer.
+      Try reviewing whether you used what you paid for. Financial suitability needs reliable information about your
+      circumstances; this symbolic link cannot choose an investment or forecast a return. Recording the cost of
+      an activity separately from your experience of it can make the actual commitment easier to review.
+    advice:
+      - Compare a routine commitment with its actual use afterward.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.kemadruma
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: kemadruma
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Kemadruma：主动安排可用的支持
+    summary: 你可以主动安排可用的支持，把格局当作观察联系的提示。
+    body: 你可以主动安排可用的支持。Kemadruma（按月亮相邻星座是否有其他传统行星排列的格局）在你的盘里由相邻两侧没有火、水、木、金、土五颗行星触发；太阳与节点不参与这项简化检查，也未加入进阶解除规则。这个名称不能说明现实中是否有人关心你。它可以提醒你把需要的支持说清楚。比如准备独立任务时，先找一个愿意提供反馈的同伴，约好交流时间。建议给独处保留价值，也主动搭建联系；不过，命盘中的空位置不是生活中的缺失，不必拿它定义自己。你可以主动发出一次具体邀请，也尊重别人当下能够投入的程度。
+    advice:
+      - 独立做事前，约好一次明确的反馈交流。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Kemadruma: make support deliberately accessible'
+    summary: You can make support deliberately accessible through an ordinary, reviewable action.
+    body:
+      'You can make support deliberately accessible. Kemadruma — a pattern based on the signs adjacent to the
+      Moon — is recorded when Mars, Mercury, Jupiter, Venus, and Saturn are absent from those two neighbouring signs.
+      The Sun and nodes are excluded, and advanced cancellation rules are outside this simplified check. The label
+      cannot determine whether anyone cares about you. It can prompt you to make useful support explicit: before
+      an independent task, ask a willing colleague for feedback at an agreed time. You can value solitude and create
+      a route to connection. Consider stating one concrete need rather than expecting the chart’s empty positions
+      to describe your relationships. Actual care comes from real people and their responses. A specific invitation
+      can create an opening for contact while leaving another person free to decide what they can offer.'
+    advice:
+      - Arrange a specific feedback conversation for an independent task.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.yoga.neecha_bhanga
+  system: vedic
+  section: yogas
+  topic: yoga
+  when:
+    path: yogas[*].key
+    eq: neecha_bhanga
+  weight: 78
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: Neecha Bhanga：把不顺手的部分放回整体看
+    summary: 你可以把不顺手的部分放回整体看，把格局当作观察联系的提示。
+    body: 你可以把不顺手的部分放回整体看。Neecha Bhanga（传统把落的状态放回其他支持条件下理解的格局）在你的盘里采用简化规则：至少一颗标为落（较不顺手的位置）的行星，其所在星座的守护星处于第一、四、七或十宫。这里不覆盖所有解除条件，也不把原有位置变成自动有利。你可以观察一项困难是否能通过改变环境或获得协助缓和。比如初学一项技能，换一个清楚的示范再练习。建议比较实际效果，保留有效支持；整体关系提供语境，不替你评价结果或预测转折。改善条件之后仍要观察实际过程，不把新的支持当成已经确定的结果。
+    advice:
+      - 给一项困难换一种示范方式，再比较体验。
+    do:
+      - 小步验证
+    dont:
+      - 追逐标签
+  en:
+    title: 'Neecha Bhanga: put an awkward condition back in context'
+    summary: You can put an awkward condition back in context through an ordinary, reviewable action.
+    body:
+      You can put an awkward condition back in context. Neecha Bhanga — a pattern that places a debilitated
+      dignity label in a wider context — uses a simplified rule here. At least one planet marked debilitated has
+      its sign ruler in house one, four, seven, or ten. The check does not include every traditional cancellation
+      condition or turn the original state into automatic success. You can ask whether an awkward task becomes more
+      manageable with a different setting or better support. For a new skill, another demonstration may reveal a
+      step you had missed. Consider comparing the actual results of the adjustment. Context broadens the symbolic
+      reading, while experience determines whether a method helps you proceed. After changing a condition, continue
+      to observe the process rather than treating a new source of support as an established outcome.
+    advice:
+      - Test a different example for a difficult step and compare the result.
+    do:
+      - Test a step
+    dont:
+      - Chase labels
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

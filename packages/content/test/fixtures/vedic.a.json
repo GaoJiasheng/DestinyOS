@@ -1,0 +1,860 @@
+{
+  "noonChart": false,
+  "ayanamsa": 23.72253030741415,
+  "jdUT": 2448026.4791666665,
+  "lagna": {
+    "sidLon": 68.64253857120494,
+    "sign": "gemini",
+    "nakshatra": "ardra",
+    "pada": 1,
+    "navamsaSign": "sagittarius"
+  },
+  "bodies": [
+    {
+      "key": "surya",
+      "sidLon": 30.171058729854405,
+      "sign": "taurus",
+      "degInSign": 0.17105872985440485,
+      "house": 12,
+      "nakshatra": "krittika",
+      "pada": 2,
+      "retro": false,
+      "combust": false,
+      "dignity": "enemy",
+      "navamsaSign": "capricorn"
+    },
+    {
+      "key": "chandra",
+      "sidLon": 267.03474160315386,
+      "sign": "sagittarius",
+      "degInSign": 27.03474160315386,
+      "house": 7,
+      "nakshatra": "uttara_ashadha",
+      "pada": 1,
+      "retro": false,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "sagittarius"
+    },
+    {
+      "key": "mangala",
+      "sidLon": 324.2246529443251,
+      "sign": "aquarius",
+      "degInSign": 24.2246529443251,
+      "house": 9,
+      "nakshatra": "purva_bhadrapada",
+      "pada": 2,
+      "retro": false,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "taurus"
+    },
+    {
+      "key": "budha",
+      "sidLon": 14.36243589955917,
+      "sign": "aries",
+      "degInSign": 14.36243589955917,
+      "house": 11,
+      "nakshatra": "bharani",
+      "pada": 1,
+      "retro": true,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "leo"
+    },
+    {
+      "key": "guru",
+      "sidLon": 75.72091821321689,
+      "sign": "gemini",
+      "degInSign": 15.72091821321689,
+      "house": 1,
+      "nakshatra": "ardra",
+      "pada": 3,
+      "retro": false,
+      "combust": false,
+      "dignity": "enemy",
+      "navamsaSign": "aquarius"
+    },
+    {
+      "key": "shukra",
+      "sidLon": 348.5019984755831,
+      "sign": "pisces",
+      "degInSign": 18.501998475583093,
+      "house": 10,
+      "nakshatra": "revati",
+      "pada": 1,
+      "retro": false,
+      "combust": false,
+      "dignity": "exalted",
+      "navamsaSign": "sagittarius"
+    },
+    {
+      "key": "shani",
+      "sidLon": 271.5354490688574,
+      "sign": "capricorn",
+      "degInSign": 1.5354490688574174,
+      "house": 8,
+      "nakshatra": "uttara_ashadha",
+      "pada": 2,
+      "retro": true,
+      "combust": false,
+      "dignity": "own",
+      "navamsaSign": "capricorn"
+    },
+    {
+      "key": "rahu",
+      "sidLon": 287.6409293693686,
+      "sign": "capricorn",
+      "degInSign": 17.64092936936862,
+      "house": 8,
+      "nakshatra": "shravana",
+      "pada": 3,
+      "retro": true,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "gemini"
+    },
+    {
+      "key": "ketu",
+      "sidLon": 107.64092936936862,
+      "sign": "cancer",
+      "degInSign": 17.64092936936862,
+      "house": 2,
+      "nakshatra": "ashlesha",
+      "pada": 1,
+      "retro": true,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "sagittarius"
+    }
+  ],
+  "houses": [
+    {
+      "index": 1,
+      "sign": "gemini",
+      "lord": "budha",
+      "occupants": ["guru"]
+    },
+    {
+      "index": 2,
+      "sign": "cancer",
+      "lord": "chandra",
+      "occupants": ["ketu"]
+    },
+    {
+      "index": 3,
+      "sign": "leo",
+      "lord": "surya",
+      "occupants": []
+    },
+    {
+      "index": 4,
+      "sign": "virgo",
+      "lord": "budha",
+      "occupants": []
+    },
+    {
+      "index": 5,
+      "sign": "libra",
+      "lord": "shukra",
+      "occupants": []
+    },
+    {
+      "index": 6,
+      "sign": "scorpio",
+      "lord": "mangala",
+      "occupants": []
+    },
+    {
+      "index": 7,
+      "sign": "sagittarius",
+      "lord": "guru",
+      "occupants": ["chandra"]
+    },
+    {
+      "index": 8,
+      "sign": "capricorn",
+      "lord": "shani",
+      "occupants": ["shani", "rahu"]
+    },
+    {
+      "index": 9,
+      "sign": "aquarius",
+      "lord": "shani",
+      "occupants": ["mangala"]
+    },
+    {
+      "index": 10,
+      "sign": "pisces",
+      "lord": "guru",
+      "occupants": ["shukra"]
+    },
+    {
+      "index": 11,
+      "sign": "aries",
+      "lord": "mangala",
+      "occupants": ["budha"]
+    },
+    {
+      "index": 12,
+      "sign": "taurus",
+      "lord": "shukra",
+      "occupants": ["surya"]
+    }
+  ],
+  "moon": {
+    "nakshatra": "uttara_ashadha",
+    "pada": 1,
+    "lord": "surya",
+    "rashi": "sagittarius"
+  },
+  "dasha": {
+    "sequence": [
+      {
+        "lord": "surya",
+        "from": "1990-05-14T23:30:00.000Z",
+        "to": "1996-03-14T23:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "surya",
+            "from": "1990-05-14T23:30:00.000Z",
+            "to": "1990-07-03T01:21:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "1990-07-03T01:21:17.273Z",
+            "to": "1991-01-01T16:21:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "1991-01-01T16:21:17.273Z",
+            "to": "1991-05-09T12:27:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "1991-05-09T12:27:17.273Z",
+            "to": "1992-04-02T05:51:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "1992-04-02T05:51:17.273Z",
+            "to": "1993-01-19T10:39:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "1993-01-19T10:39:17.273Z",
+            "to": "1994-01-01T10:21:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "1994-01-01T10:21:17.273Z",
+            "to": "1994-11-07T21:27:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "1994-11-07T21:27:17.273Z",
+            "to": "1995-03-15T17:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "1995-03-15T17:33:17.273Z",
+            "to": "1996-03-14T23:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "chandra",
+        "from": "1996-03-14T23:33:17.273Z",
+        "to": "2006-03-15T11:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "chandra",
+            "from": "1996-03-14T23:33:17.273Z",
+            "to": "1997-01-13T08:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "1997-01-13T08:33:17.273Z",
+            "to": "1997-08-14T10:03:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "1997-08-14T10:03:17.273Z",
+            "to": "1999-02-13T07:03:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "1999-02-13T07:03:17.273Z",
+            "to": "2000-06-14T07:03:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "2000-06-14T07:03:17.273Z",
+            "to": "2002-01-13T14:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "2002-01-13T14:33:17.273Z",
+            "to": "2003-06-15T01:03:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "2003-06-15T01:03:17.273Z",
+            "to": "2004-01-14T02:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "2004-01-14T02:33:17.273Z",
+            "to": "2005-09-13T20:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "surya",
+            "from": "2005-09-13T20:33:17.273Z",
+            "to": "2006-03-15T11:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "mangala",
+        "from": "2006-03-15T11:33:17.273Z",
+        "to": "2013-03-15T05:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "mangala",
+            "from": "2006-03-15T11:33:17.273Z",
+            "to": "2006-08-11T15:00:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "2006-08-11T15:00:17.273Z",
+            "to": "2007-08-30T03:18:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "2007-08-30T03:18:17.273Z",
+            "to": "2008-08-05T00:54:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "2008-08-05T00:54:17.273Z",
+            "to": "2009-09-13T20:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "2009-09-13T20:33:17.273Z",
+            "to": "2010-09-11T01:30:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "2010-09-11T01:30:17.273Z",
+            "to": "2011-02-07T04:57:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "2011-02-07T04:57:17.273Z",
+            "to": "2012-04-08T07:57:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "surya",
+            "from": "2012-04-08T07:57:17.273Z",
+            "to": "2012-08-14T04:03:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "2012-08-14T04:03:17.273Z",
+            "to": "2013-03-15T05:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "rahu",
+        "from": "2013-03-15T05:33:17.273Z",
+        "to": "2031-03-15T17:33:17.273Z",
+        "current": true,
+        "antar": [
+          {
+            "lord": "rahu",
+            "from": "2013-03-15T05:33:17.273Z",
+            "to": "2015-11-26T09:45:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "2015-11-26T09:45:17.273Z",
+            "to": "2018-04-21T00:09:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "2018-04-21T00:09:17.273Z",
+            "to": "2021-02-24T23:15:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "2021-02-24T23:15:17.273Z",
+            "to": "2023-09-14T08:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "2023-09-14T08:33:17.273Z",
+            "to": "2024-10-01T20:51:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "2024-10-01T20:51:17.273Z",
+            "to": "2027-10-02T14:51:17.273Z",
+            "current": true
+          },
+          {
+            "lord": "surya",
+            "from": "2027-10-02T14:51:17.273Z",
+            "to": "2028-08-26T08:15:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "2028-08-26T08:15:17.273Z",
+            "to": "2030-02-25T05:15:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "2030-02-25T05:15:17.273Z",
+            "to": "2031-03-15T17:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "guru",
+        "from": "2031-03-15T17:33:17.273Z",
+        "to": "2047-03-15T17:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "guru",
+            "from": "2031-03-15T17:33:17.273Z",
+            "to": "2033-05-02T22:21:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "2033-05-02T22:21:17.273Z",
+            "to": "2035-11-14T05:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "2035-11-14T05:33:17.273Z",
+            "to": "2038-02-19T03:09:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "2038-02-19T03:09:17.273Z",
+            "to": "2039-01-26T00:45:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "2039-01-26T00:45:17.273Z",
+            "to": "2041-09-26T00:45:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "surya",
+            "from": "2041-09-26T00:45:17.273Z",
+            "to": "2042-07-15T05:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "2042-07-15T05:33:17.273Z",
+            "to": "2043-11-14T05:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "2043-11-14T05:33:17.273Z",
+            "to": "2044-10-20T03:09:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "2044-10-20T03:09:17.273Z",
+            "to": "2047-03-15T17:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "shani",
+        "from": "2047-03-15T17:33:17.273Z",
+        "to": "2066-03-15T11:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "shani",
+            "from": "2047-03-15T17:33:17.273Z",
+            "to": "2050-03-18T12:36:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "2050-03-18T12:36:17.273Z",
+            "to": "2052-11-25T15:45:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "2052-11-25T15:45:17.273Z",
+            "to": "2054-01-04T11:24:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "2054-01-04T11:24:17.273Z",
+            "to": "2057-03-06T02:24:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "surya",
+            "from": "2057-03-06T02:24:17.273Z",
+            "to": "2058-02-16T02:06:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "2058-02-16T02:06:17.273Z",
+            "to": "2059-09-17T09:36:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "2059-09-17T09:36:17.273Z",
+            "to": "2060-10-26T05:15:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "2060-10-26T05:15:17.273Z",
+            "to": "2063-09-02T04:21:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "2063-09-02T04:21:17.273Z",
+            "to": "2066-03-15T11:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "budha",
+        "from": "2066-03-15T11:33:17.273Z",
+        "to": "2083-03-15T17:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "budha",
+            "from": "2066-03-15T11:33:17.273Z",
+            "to": "2068-08-11T03:00:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "2068-08-11T03:00:17.273Z",
+            "to": "2069-08-08T07:57:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "2069-08-08T07:57:17.273Z",
+            "to": "2072-06-08T04:57:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "surya",
+            "from": "2072-06-08T04:57:17.273Z",
+            "to": "2073-04-14T16:03:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "2073-04-14T16:03:17.273Z",
+            "to": "2074-09-14T02:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "2074-09-14T02:33:17.273Z",
+            "to": "2075-09-11T07:30:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "2075-09-11T07:30:17.273Z",
+            "to": "2078-03-30T16:48:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "2078-03-30T16:48:17.273Z",
+            "to": "2080-07-05T14:24:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "2080-07-05T14:24:17.273Z",
+            "to": "2083-03-15T17:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "ketu",
+        "from": "2083-03-15T17:33:17.273Z",
+        "to": "2090-03-15T11:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "ketu",
+            "from": "2083-03-15T17:33:17.273Z",
+            "to": "2083-08-11T21:00:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shukra",
+            "from": "2083-08-11T21:00:17.273Z",
+            "to": "2084-10-11T00:00:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "surya",
+            "from": "2084-10-11T00:00:17.273Z",
+            "to": "2085-02-15T20:06:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "2085-02-15T20:06:17.273Z",
+            "to": "2085-09-16T21:36:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "2085-09-16T21:36:17.273Z",
+            "to": "2086-02-13T01:03:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "2086-02-13T01:03:17.273Z",
+            "to": "2087-03-03T13:21:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "2087-03-03T13:21:17.273Z",
+            "to": "2088-02-07T10:57:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "2088-02-07T10:57:17.273Z",
+            "to": "2089-03-18T06:36:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "2089-03-18T06:36:17.273Z",
+            "to": "2090-03-15T11:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "shukra",
+        "from": "2090-03-15T11:33:17.273Z",
+        "to": "2110-03-16T11:33:17.273Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "shukra",
+            "from": "2090-03-15T11:33:17.273Z",
+            "to": "2093-07-14T23:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "surya",
+            "from": "2093-07-14T23:33:17.273Z",
+            "to": "2094-07-15T05:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "chandra",
+            "from": "2094-07-15T05:33:17.273Z",
+            "to": "2096-03-14T23:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "mangala",
+            "from": "2096-03-14T23:33:17.273Z",
+            "to": "2097-05-15T02:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "rahu",
+            "from": "2097-05-15T02:33:17.273Z",
+            "to": "2100-05-15T20:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "guru",
+            "from": "2100-05-15T20:33:17.273Z",
+            "to": "2103-01-14T20:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "shani",
+            "from": "2103-01-14T20:33:17.273Z",
+            "to": "2106-03-16T11:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "budha",
+            "from": "2106-03-16T11:33:17.273Z",
+            "to": "2109-01-14T08:33:17.273Z",
+            "current": false
+          },
+          {
+            "lord": "ketu",
+            "from": "2109-01-14T08:33:17.273Z",
+            "to": "2110-03-16T11:33:17.273Z",
+            "current": false
+          }
+        ]
+      },
+      {
+        "lord": "surya",
+        "from": "2110-03-16T11:33:17.273Z",
+        "to": "2110-05-15T23:30:00.000Z",
+        "current": false,
+        "antar": [
+          {
+            "lord": "surya",
+            "from": "2110-03-16T11:33:17.273Z",
+            "to": "2110-05-15T23:30:00.000Z",
+            "current": false
+          }
+        ]
+      }
+    ]
+  },
+  "yogas": [
+    {
+      "key": "gajakesari",
+      "bodies": ["chandra", "guru"],
+      "houses": [7, 1]
+    },
+    {
+      "key": "malavya",
+      "bodies": ["shukra"],
+      "houses": [10]
+    }
+  ],
+  "panchangAtBirth": {
+    "date": "1990-05-15",
+    "tz": "Asia/Shanghai",
+    "sunrise": "1990-05-14T21:00:04.215Z",
+    "sunset": "1990-05-15T11:21:52.395Z",
+    "tithi": {
+      "index": 20,
+      "key": "panchami",
+      "endsAt": "1990-05-15T06:09:25.757Z"
+    },
+    "nakshatra": {
+      "index": 20,
+      "key": "uttara_ashadha",
+      "endsAt": "1990-05-16T00:40:42.235Z"
+    },
+    "yoga": {
+      "index": 22,
+      "key": "shubha",
+      "endsAt": "1990-05-15T16:35:39.107Z"
+    },
+    "karana": {
+      "index": 39,
+      "key": "taitila",
+      "endsAt": "1990-05-15T06:09:25.757Z"
+    },
+    "vara": {
+      "index": 2,
+      "key": "mangalawara",
+      "endsAt": "1990-05-15T20:59:08.677Z"
+    },
+    "transitions": [
+      {
+        "limb": "tithi",
+        "index": 21,
+        "key": "shashthi",
+        "startsAt": "1990-05-15T06:09:25.757Z",
+        "endsAt": "1990-05-16T07:17:07.797Z"
+      },
+      {
+        "limb": "karana",
+        "index": 40,
+        "key": "garaja",
+        "startsAt": "1990-05-15T06:09:25.757Z",
+        "endsAt": "1990-05-15T18:47:37.038Z"
+      },
+      {
+        "limb": "yoga",
+        "index": 23,
+        "key": "shukla",
+        "startsAt": "1990-05-15T16:35:39.107Z",
+        "endsAt": "1990-05-16T16:18:12.694Z"
+      },
+      {
+        "limb": "karana",
+        "index": 41,
+        "key": "vanija",
+        "startsAt": "1990-05-15T18:47:37.038Z",
+        "endsAt": "1990-05-16T07:17:07.797Z"
+      }
+    ]
+  }
+}

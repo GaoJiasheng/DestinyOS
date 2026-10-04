@@ -266,45 +266,70 @@ export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
       { zh: textGrams(unit.zh.body), en: textGrams(unit.en.body) },
     ]),
   );
-  // Accumulate exact intersections by inverted gram index. This preserves Dice scores
-  // and the 0.6 threshold without repeating string-set lookups for every corpus pair.
-  const systems = new Map<string, LocatedUnit[]>();
+  // DESIGN-GAP: Full editorial corpora outgrew pairwise Set lookups. An inverted
+  // index counts the exact same shared trigrams; Dice scores and the 0.6 threshold
+  // remain unchanged, including duplicate-ID diagnostics and warning order.
+  const groups = new Map<string, LocatedUnit[]>();
   for (const item of units) {
-    const group = systems.get(item.unit.system) ?? [];
+    const group = groups.get(item.unit.system) ?? [];
     group.push(item);
-    systems.set(item.unit.system, group);
+    groups.set(item.unit.system, group);
   }
-  for (const group of systems.values()) {
+  const comparisons = new Map<
+    string,
+    {
+      size: number;
+      lengths: Record<'zh' | 'en', number[]>;
+      overlaps: Record<'zh' | 'en', Uint32Array>;
+    }
+  >();
+  const positions = new Map<LocatedUnit, number>();
+  for (const [system, group] of groups) {
     const size = group.length;
+    const lengths = { zh: [] as number[], en: [] as number[] };
     const overlaps = { zh: new Uint32Array(size * size), en: new Uint32Array(size * size) };
+    group.forEach((item, index) => positions.set(item, index));
     for (const locale of ['zh', 'en'] as const) {
-      const owners = new Map<string, number[]>();
+      const postings = new Map<string, number[]>();
       group.forEach((item, index) => {
-        for (const gram of grams.get(item.unit.id)![locale]) {
-          const indexes = owners.get(gram);
-          if (indexes) indexes.push(index);
-          else owners.set(gram, [index]);
+        const fingerprint = grams.get(item.unit.id)![locale];
+        lengths[locale].push(fingerprint.size);
+        for (const gram of fingerprint) {
+          const posting = postings.get(gram);
+          if (posting) posting.push(index);
+          else postings.set(gram, [index]);
         }
       });
-      const counts = overlaps[locale];
-      for (const indexes of owners.values())
-        for (let left = 0; left < indexes.length; left++) {
-          const row = indexes[left]! * size;
-          for (let right = left + 1; right < indexes.length; right++)
-            counts[row + indexes[right]!]!++;
+      for (const posting of postings.values())
+        for (let a = 0; a < posting.length; a++) {
+          const row = posting[a]! * size;
+          for (let b = a + 1; b < posting.length; b++) {
+            const at = row + posting[b]!;
+            overlaps[locale][at] = overlaps[locale][at]! + 1;
+          }
         }
     }
-    for (let i = 0; i < size; i++)
-      for (let j = i + 1; j < size; j++) {
-        const a = group[i]!,
-          b = group[j]!;
-        for (const locale of ['zh', 'en'] as const) {
-          const total = grams.get(a.unit.id)![locale].size + grams.get(b.unit.id)![locale].size;
-          if ((2 * overlaps[locale][i * size + j]!) / (total || 1) > 0.6)
-            add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
-        }
-      }
+    comparisons.set(system, { size, lengths, overlaps });
   }
+  for (let i = 0; i < units.length; i++)
+    for (const b of units.slice(i + 1)) {
+      const a = units[i];
+      if (!a || a.unit.system !== b.unit.system) continue;
+      const comparison = comparisons.get(a.unit.system)!;
+      const left = positions.get(a)!;
+      const right = positions.get(b)!;
+      for (const locale of ['zh', 'en'] as const)
+        if (
+          left === right ||
+          (2 *
+            comparison.overlaps[locale][
+              Math.min(left, right) * comparison.size + Math.max(left, right)
+            ]!) /
+            (comparison.lengths[locale][left]! + comparison.lengths[locale][right]! || 1) >
+            0.6
+        )
+          add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
+    }
   return diagnostics;
 }
 export function validateGlossary(file: string, source: string) {

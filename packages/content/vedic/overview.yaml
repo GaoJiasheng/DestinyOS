@@ -1,0 +1,576 @@
+# // DESIGN-GAP: 组合采用独立中英文编辑片段；意象用于生活观察，不充当事件预告。
+- id: vedic.overview.moon.aries
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: aries
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 白羊月亮：先试一步
+    summary: 你可以用先试一步理解日常节奏。
+    body: 你可以从先试一步观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是白羊，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 先约定试做范围，再决定是否扩大投入。
+    do:
+      - 小步启动
+    dont:
+      - 催促他人
+  en:
+    title: 'Aries Moon: an everyday reference'
+    summary: You can observe how you start with a small experiment in daily life.
+    body:
+      You can begin by noticing how you start with a small experiment in everyday life. Your Moon Rashi — the
+      sidereal zodiac sign occupied by the Moon — is Aries. This is a reference for reflection on your responses,
+      not a complete description of who you are. The lunar sector and its quarter add another perspective in the
+      next chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open.
+      For example, review a recent change to your weekly routine and note what helped you adapt. You can compare
+      that observation with the period themes later in the report. Consider choosing one modest action that suits
+      your present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Set a clear stopping point for an initial trial.
+    do:
+      - Start small
+    dont:
+      - Rush others
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.taurus
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: taurus
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 金牛月亮：建立稳定的手感
+    summary: 你可以用建立稳定的手感理解日常节奏。
+    body: 你可以从建立稳定的手感观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是金牛，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 保留稳定习惯，每次只调整一个细节。
+    do:
+      - 稳步练习
+    dont:
+      - 拒绝变化
+  en:
+    title: 'Taurus Moon: an everyday reference'
+    summary: You can observe how you find a repeatable pace in daily life.
+    body:
+      You can begin by noticing how you find a repeatable pace in everyday life. Your Moon Rashi — the sidereal
+      zodiac sign occupied by the Moon — is Taurus. This is a reference for reflection on your responses, not a
+      complete description of who you are. The lunar sector and its quarter add another perspective in the next
+      chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open. For
+      example, review a recent change to your weekly routine and note what helped you adapt. You can compare that
+      observation with the period themes later in the report. Consider choosing one modest action that suits your
+      present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Compare one familiar routine with a modest alternative.
+    do:
+      - Practise steadily
+    dont:
+      - Reject changes
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.gemini
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: gemini
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 双子月亮：把好奇变成问题
+    summary: 你可以用把好奇变成问题理解日常节奏。
+    body: 你可以从把好奇变成问题观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是双子，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 探索结束后写下一个决定和待核对的问题。
+    do:
+      - 整理问题
+    dont:
+      - 分散注意
+  en:
+    title: 'Gemini Moon: an everyday reference'
+    summary: You can observe how you turn curiosity into clear questions in daily life.
+    body:
+      You can begin by noticing how you turn curiosity into clear questions in everyday life. Your Moon Rashi
+      — the sidereal zodiac sign occupied by the Moon — is Gemini. This is a reference for reflection on your responses,
+      not a complete description of who you are. The lunar sector and its quarter add another perspective in the
+      next chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open.
+      For example, review a recent change to your weekly routine and note what helped you adapt. You can compare
+      that observation with the period themes later in the report. Consider choosing one modest action that suits
+      your present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Give an open enquiry a time to narrow into action.
+    do:
+      - Organize questions
+    dont:
+      - Scatter attention
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.cancer
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: cancer
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 巨蟹月亮：照顾需要也照顾边界
+    summary: 你可以用照顾需要也照顾边界理解日常节奏。
+    body: 你可以从照顾需要也照顾边界观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是巨蟹，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 表达关心时，也说明你能投入的时间。
+    do:
+      - 明确边界
+    dont:
+      - 过度承担
+  en:
+    title: 'Cancer Moon: an everyday reference'
+    summary: You can observe how you make care sustainable in daily life.
+    body:
+      You can begin by noticing how you make care sustainable in everyday life. Your Moon Rashi — the sidereal
+      zodiac sign occupied by the Moon — is Cancer. This is a reference for reflection on your responses, not a
+      complete description of who you are. The lunar sector and its quarter add another perspective in the next
+      chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open. For
+      example, review a recent change to your weekly routine and note what helped you adapt. You can compare that
+      observation with the period themes later in the report. Consider choosing one modest action that suits your
+      present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Name one practical condition that helps you feel settled.
+    do:
+      - Name boundaries
+    dont:
+      - Overextend yourself
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.leo
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: leo
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 狮子月亮：让表达有清楚的方向
+    summary: 你可以用让表达有清楚的方向理解日常节奏。
+    body: 你可以从让表达有清楚的方向观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是狮子，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 展示成果后，请别人反馈一个具体细节。
+    do:
+      - 分享舞台
+    dont:
+      - 争抢认可
+  en:
+    title: 'Leo Moon: an everyday reference'
+    summary: You can observe how you give expression a useful purpose in daily life.
+    body:
+      You can begin by noticing how you give expression a useful purpose in everyday life. Your Moon Rashi —
+      the sidereal zodiac sign occupied by the Moon — is Leo. This is a reference for reflection on your responses,
+      not a complete description of who you are. The lunar sector and its quarter add another perspective in the
+      next chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open.
+      For example, review a recent change to your weekly routine and note what helped you adapt. You can compare
+      that observation with the period themes later in the report. Consider choosing one modest action that suits
+      your present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Ask what your presentation helped someone notice.
+    do:
+      - Share attention
+    dont:
+      - Demand praise
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.virgo
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: virgo
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 处女月亮：用细节改善流程
+    summary: 你可以用用细节改善流程理解日常节奏。
+    body: 你可以从用细节改善流程观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是处女，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 只优先修正最影响使用的一个问题。
+    do:
+      - 明确标准
+    dont:
+      - 反复苛求
+  en:
+    title: 'Virgo Moon: an everyday reference'
+    summary: You can observe how you make details serve the task in daily life.
+    body:
+      You can begin by noticing how you make details serve the task in everyday life. Your Moon Rashi — the
+      sidereal zodiac sign occupied by the Moon — is Virgo. This is a reference for reflection on your responses,
+      not a complete description of who you are. The lunar sector and its quarter add another perspective in the
+      next chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open.
+      For example, review a recent change to your weekly routine and note what helped you adapt. You can compare
+      that observation with the period themes later in the report. Consider choosing one modest action that suits
+      your present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Fix the detail that removes the largest practical obstacle.
+    do:
+      - Define completion
+    dont:
+      - Overpolish details
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.libra
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: libra
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 天秤月亮：通过协商找平衡
+    summary: 你可以用通过协商找平衡理解日常节奏。
+    body: 你可以从通过协商找平衡观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是天秤，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 协商前分别写下底线与可调整部分。
+    do:
+      - 说清立场
+    dont:
+      - 拖延决定
+  en:
+    title: 'Libra Moon: an everyday reference'
+    summary: You can observe how you build workable agreements in daily life.
+    body:
+      You can begin by noticing how you build workable agreements in everyday life. Your Moon Rashi — the sidereal
+      zodiac sign occupied by the Moon — is Libra. This is a reference for reflection on your responses, not a complete
+      description of who you are. The lunar sector and its quarter add another perspective in the next chapter.
+      A known birth time also allows a rising-sign reading; an unknown time leaves that part open. For example,
+      review a recent change to your weekly routine and note what helped you adapt. You can compare that observation
+      with the period themes later in the report. Consider choosing one modest action that suits your present circumstances,
+      then checking the result against experience rather than trying to make every description fit.
+    advice:
+      - State your preference alongside what you can adjust.
+    do:
+      - State preferences
+    dont:
+      - Delay decisions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.scorpio
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: scorpio
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 天蝎月亮：深入了解但保留空间
+    summary: 你可以用深入了解但保留空间理解日常节奏。
+    body: 你可以从深入了解但保留空间观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是天蝎，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 把担心改写成可核对的问题，并尊重回应范围。
+    do:
+      - 核对事实
+    dont:
+      - 过度试探
+  en:
+    title: 'Scorpio Moon: an everyday reference'
+    summary: You can observe how you explore depth with consent in daily life.
+    body:
+      You can begin by noticing how you explore depth with consent in everyday life. Your Moon Rashi — the sidereal
+      zodiac sign occupied by the Moon — is Scorpio. This is a reference for reflection on your responses, not a
+      complete description of who you are. The lunar sector and its quarter add another perspective in the next
+      chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open. For
+      example, review a recent change to your weekly routine and note what helped you adapt. You can compare that
+      observation with the period themes later in the report. Consider choosing one modest action that suits your
+      present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Ask about an observable obstacle before inferring motives.
+    do:
+      - Check facts
+    dont:
+      - Test people
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.sagittarius
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: sagittarius
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 射手月亮：让探索连接实际经验
+    summary: 你可以用让探索连接实际经验理解日常节奏。
+    body: 你可以从让探索连接实际经验观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是射手，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 把远期愿望拆成一项本周可体验的行动。
+    do:
+      - 开放探索
+    dont:
+      - 夸大承诺
+  en:
+    title: 'Sagittarius Moon: an everyday reference'
+    summary: You can observe how you connect exploration with experience in daily life.
+    body:
+      You can begin by noticing how you connect exploration with experience in everyday life. Your Moon Rashi
+      — the sidereal zodiac sign occupied by the Moon — is Sagittarius. This is a reference for reflection on your
+      responses, not a complete description of who you are. The lunar sector and its quarter add another perspective
+      in the next chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part
+      open. For example, review a recent change to your weekly routine and note what helped you adapt. You can compare
+      that observation with the period themes later in the report. Consider choosing one modest action that suits
+      your present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Bring one observation from an unfamiliar setting into daily practice.
+    do:
+      - Explore openly
+    dont:
+      - Overpromise results
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.capricorn
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: capricorn
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 摩羯月亮：让责任有可持续的节奏
+    summary: 你可以用让责任有可持续的节奏理解日常节奏。
+    body: 你可以从让责任有可持续的节奏观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是摩羯，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 为长期任务写明交接人和休息安排。
+    do:
+      - 安排节奏
+    dont:
+      - 独自硬撑
+  en:
+    title: 'Capricorn Moon: an everyday reference'
+    summary: You can observe how you pace responsibility over time in daily life.
+    body:
+      You can begin by noticing how you pace responsibility over time in everyday life. Your Moon Rashi — the
+      sidereal zodiac sign occupied by the Moon — is Capricorn. This is a reference for reflection on your responses,
+      not a complete description of who you are. The lunar sector and its quarter add another perspective in the
+      next chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open.
+      For example, review a recent change to your weekly routine and note what helped you adapt. You can compare
+      that observation with the period themes later in the report. Consider choosing one modest action that suits
+      your present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Build a substitute and a review date into a recurring task.
+    do:
+      - Pace commitments
+    dont:
+      - Carry everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.aquarius
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: aquarius
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 水瓶月亮：把想法放进共同讨论
+    summary: 你可以用把想法放进共同讨论理解日常节奏。
+    body: 你可以从把想法放进共同讨论观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是水瓶，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 改规则前先询问使用者最需要解决的问题。
+    do:
+      - 邀请反馈
+    dont:
+      - 强推改动
+  en:
+    title: 'Aquarius Moon: an everyday reference'
+    summary: You can observe how you test ideas with a group in daily life.
+    body:
+      You can begin by noticing how you test ideas with a group in everyday life. Your Moon Rashi — the sidereal
+      zodiac sign occupied by the Moon — is Aquarius. This is a reference for reflection on your responses, not
+      a complete description of who you are. The lunar sector and its quarter add another perspective in the next
+      chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open. For
+      example, review a recent change to your weekly routine and note what helped you adapt. You can compare that
+      observation with the period themes later in the report. Consider choosing one modest action that suits your
+      present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Ask the people affected which part of a process blocks participation.
+    do:
+      - Invite feedback
+    dont:
+      - Impose changes
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.overview.moon.pisces
+  system: vedic
+  section: overview
+  topic: overview
+  when:
+    path: moon.rashi
+    eq: pisces
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - career
+    - social
+    - love
+  exclusive_with: []
+  zh:
+    title: 双鱼月亮：给感受一个表达容器
+    summary: 你可以用给感受一个表达容器理解日常节奏。
+    body: 你可以从给感受一个表达容器观察自己的日常反应。月亮星座（Rashi，月亮所处的恒星黄道星座）在你的盘里是双鱼，这里把它作为心绪节奏的线索。星宿（沿黄道划分的月亮区域）与分段还会补充细节；有时辰时再结合上升，无时辰就保留不确定性。例如回看最近一次计划变动，比较什么安排让你更容易适应。建议把报告当作观察提示，选择一个小行动，再以真实体验决定是否保留。
+    advice:
+      - 先整理自己的感受，再向对方核对理解。
+    do:
+      - 清楚表达
+    dont:
+      - 代人决定
+  en:
+    title: 'Pisces Moon: an everyday reference'
+    summary: You can observe how you give impressions a clear form in daily life.
+    body:
+      You can begin by noticing how you give impressions a clear form in everyday life. Your Moon Rashi — the
+      sidereal zodiac sign occupied by the Moon — is Pisces. This is a reference for reflection on your responses,
+      not a complete description of who you are. The lunar sector and its quarter add another perspective in the
+      next chapter. A known birth time also allows a rising-sign reading; an unknown time leaves that part open.
+      For example, review a recent change to your weekly routine and note what helped you adapt. You can compare
+      that observation with the period themes later in the report. Consider choosing one modest action that suits
+      your present circumstances, then checking the result against experience rather than trying to make every description
+      fit.
+    advice:
+      - Describe an impression and invite the other person to clarify it.
+    do:
+      - Clarify impressions
+    dont:
+      - Assume needs
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
