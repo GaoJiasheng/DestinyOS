@@ -2723,3 +2723,329 @@ meter {
   min-height: 0;
   overflow-y: auto;
 }
+
+/* DESIGN-GAP: Ritual geometry and timings use semantic tokens where 03 provides no size. */
+:root {
+  --coin-size: 72px;
+  --coin-depth: 2px;
+  --coin-perspective: 600px;
+  --hexagram-width: 112px;
+  --ritual-duration: var(--duration-ritual-max);
+  --method-card-width: 280px;
+  --number-pad-width: 360px;
+  --compass-size: 300px;
+  --palace-layer-duration: var(--duration-enter-min);
+  --ritual-fade: var(--duration-reduced);
+}
+.method-cards {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--method-card-width)), 1fr));
+}
+.divination-shell textarea {
+  min-height: var(--space-12);
+  resize: vertical;
+}
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block: var(--space-3);
+}
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  max-width: var(--number-pad-width);
+  margin: var(--space-4) auto;
+}
+.number-pad button {
+  min-height: var(--space-10);
+  font-size: var(--size-h2);
+}
+.hexagram-set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+.hexagram-figure {
+  margin: var(--space-4) 0;
+  text-align: center;
+}
+.hexagram-lines {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-3);
+  width: var(--hexagram-width);
+  margin: var(--space-5) auto;
+}
+.hexagram-line {
+  position: relative;
+  height: var(--space-1);
+}
+.yang-line,
+.yin-line {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+}
+.yin-line {
+  background: linear-gradient(to right, var(--gold) 42%, transparent 42% 58%, var(--gold) 58%);
+}
+.moving-mark {
+  position: absolute;
+  left: calc(100% + var(--space-1));
+  top: calc(-1 * var(--space-2));
+  color: var(--gold-soft);
+}
+.moving-line {
+  box-shadow: var(--glow-gold);
+}
+.hexagram-enter .hexagram-line {
+  animation: hexagram-appear var(--duration-enter-min) var(--ease-out) both;
+}
+.hexagram-enter .moving-mark {
+  outline: 1px dashed var(--gold);
+  border-radius: var(--r-pill);
+  animation: moving-ring var(--ritual-duration) linear infinite;
+}
+.hexagram-flip {
+  animation: hexagram-flip var(--ritual-duration) var(--ease-out) both;
+}
+.divination-table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.divination-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--size-small);
+  margin-block: var(--space-4);
+}
+.divination-table caption {
+  color: var(--gold-soft);
+  padding: var(--space-3);
+}
+.divination-table th,
+.divination-table td {
+  text-align: start;
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--line-2);
+}
+.coin-toss {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-5);
+  padding: var(--space-7) 0;
+}
+.coin-perspective {
+  perspective: var(--coin-perspective);
+  width: var(--coin-size);
+  height: var(--coin-size);
+}
+.coin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.coin-reverse {
+  transform: rotateY(180deg);
+}
+.coin-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-pill);
+  border: var(--space-1) double var(--gold-soft);
+  background: var(--gold);
+  color: var(--ink);
+  backface-visibility: hidden;
+  box-shadow: var(--glow-gold);
+}
+.coin-front {
+  transform: translateZ(var(--coin-depth));
+}
+.coin-front span {
+  font-size: var(--size-caption);
+  letter-spacing: var(--space-1);
+  text-align: center;
+}
+.coin-back {
+  transform: rotateY(180deg) translateZ(var(--coin-depth));
+}
+.coin-back svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.coin-face i {
+  width: var(--space-3);
+  height: var(--space-3);
+  background: var(--surface-1);
+  border: 1px solid var(--ink);
+}
+.coin-back i {
+  position: absolute;
+}
+.coin-falling {
+  animation: coin-drop var(--ritual-duration) var(--ease-out) both;
+}
+.coin-falling.coin-reverse {
+  animation-name: coin-drop-reverse;
+}
+.qimen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-block: var(--space-4);
+  border: 1px solid var(--line-2);
+}
+.qimen-palace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background: var(--surface-1);
+  border: 1px solid var(--line-2);
+  color: var(--text-1);
+  text-align: center;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.qimen-palace strong {
+  color: var(--gold-soft);
+  font-size: var(--size-small);
+}
+.qimen-palace small,
+.qimen-palace span {
+  font-size: var(--size-caption);
+}
+.use-god-palace {
+  border-color: var(--gold);
+  box-shadow: inset 0 0 var(--space-2) var(--accent-glow);
+}
+.use-god-label {
+  color: var(--gold-soft);
+}
+.qimen-enter .qimen-layer {
+  animation: palace-light var(--palace-layer-duration) var(--ease-out) both;
+}
+.qimen-compass {
+  text-align: center;
+  margin: var(--space-4) 0;
+}
+.qimen-compass svg {
+  width: 100%;
+  max-width: var(--compass-size);
+}
+.qimen-compass text {
+  fill: var(--text-1);
+  font-size: var(--size-caption);
+}
+.compass-sector {
+  fill: var(--surface-1);
+  stroke: var(--line-2);
+}
+.favorable-sector {
+  fill: var(--success);
+  fill-opacity: 0.3;
+  stroke: var(--success);
+}
+@keyframes hexagram-appear {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-3));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes moving-ring {
+  to {
+    outline-offset: var(--space-1);
+    transform: rotate(360deg);
+  }
+}
+@keyframes hexagram-flip {
+  from {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+@keyframes palace-light {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes coin-drop {
+  from {
+    transform: translateY(calc(-1 * var(--space-8))) rotateX(720deg) rotateY(720deg);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes coin-drop-reverse {
+  from {
+    transform: translateY(calc(-1 * var(--space-8))) rotateX(720deg) rotateY(900deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .coin-falling,
+  .hexagram-flip,
+  .hexagram-enter .hexagram-line,
+  .hexagram-enter .moving-mark,
+  .qimen-enter .qimen-layer {
+    animation: palace-light var(--ritual-fade) var(--ease-out) both;
+  }
+}
+.throw-preview {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.hexagram-enter .hexagram-line::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 50%;
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  animation: ink-drop var(--duration-enter-max) var(--ease-out) both;
+  animation-delay: inherit;
+}
+@keyframes ink-drop {
+  from {
+    opacity: 0.8;
+    transform: translateY(calc(-1 * var(--space-5)));
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--space-3)) scale(2);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hexagram-enter .hexagram-line::after {
+    display: none;
+  }
+}
+.cast-fields {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}

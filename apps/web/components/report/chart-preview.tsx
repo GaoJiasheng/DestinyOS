@@ -1,6 +1,12 @@
 'use client';
-import { BaziChartSchema, ZiweiChartSchema } from '@tianji/shared';
+import {
+  BaziChartSchema,
+  ZiweiChartSchema,
+  IchingChartSchema,
+  QimenChartSchema,
+} from '@tianji/shared';
 import { ZiweiGrid, ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
+import { DivinationChart } from '@/components/charts/divination-chart';
 import { useCopy } from '@/i18n/use-copy';
 import { BaziPillars } from '@/components/charts/bazi-pillars';
 import { ElementRing } from '@/components/charts/element-ring';
@@ -39,6 +45,18 @@ export function ChartPreview({
       </div>
     );
   if (system === 'ziwei') return <ZiweiTimeRequired />;
+  const iching = IchingChartSchema.safeParse(chart);
+  const qimen = QimenChartSchema.safeParse(chart);
+  if (iching.success || qimen.success)
+    return (
+      <div
+        id="chart-root"
+        data-highlight={highlight}
+        className={highlight ? 'evidence-highlight' : undefined}
+      >
+        <DivinationChart chart={iching.success ? iching.data : qimen.data!} onSelect={onSelect} />
+      </div>
+    );
   const parsed = BaziChartSchema.safeParse(chart);
   if (!parsed.success)
     return (

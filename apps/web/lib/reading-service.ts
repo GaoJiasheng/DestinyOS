@@ -13,6 +13,7 @@ import {
 } from '@tianji/shared';
 import { getDb } from './db';
 import { loadKnowledge } from './knowledge';
+import { computeDivinationResult } from './divination';
 import { stripPII } from './strip-pii';
 import { isUnderThirteen } from './birth-form';
 import { ApiError } from './api-error';
@@ -61,17 +62,22 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
       ...(typeof text === 'string' ? { question: text } : {}),
     };
   }
-  const result = compute({
-    system: req.system,
-    birth,
-    now,
-    options: req.options,
-    question,
-    seed: req.seed ?? digest(req.idempotencyKey),
-    spread: req.spread ? SpreadKeySchema.parse(req.spread) : undefined,
-    category:
-      req.system === 'tarot' && req.category ? CategorySchema.parse(req.category) : undefined,
-  });
+  const result =
+    ['iching', 'qimen'].includes(req.system) &&
+    typeof req.question === 'object' &&
+    ('at' in req.question || 'meihua' in req.question)
+      ? computeDivinationResult(req)
+      : compute({
+          system: req.system,
+          birth,
+          now,
+          options: req.options,
+          question,
+          seed: req.seed ?? digest(req.idempotencyKey),
+          spread: req.spread ? SpreadKeySchema.parse(req.spread) : undefined,
+          category:
+            req.system === 'tarot' && req.category ? CategorySchema.parse(req.category) : undefined,
+        });
   const knowledge = await loadKnowledge(req.system, req.locale);
   const report = interpret({
     system: req.system,

@@ -17,6 +17,7 @@ export default async function NewReading({
   setRequestLocale(locale);
   if (!Object.values(System).includes(system as System) || system === 'daily') notFound();
   if ((await cookies()).get('age_gate')?.value === 'blocked') redirect(`/${locale}/age-restricted`);
+  if (system === 'iching' || system === 'qimen') redirect(`/${locale}/${system}`);
   const session = await auth();
   const profile = session ? await getProfileAction() : null;
   return (

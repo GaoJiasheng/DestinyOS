@@ -15,6 +15,7 @@ vi.mock('../lib/db', () => ({
 const redis = new RedisMock();
 vi.mock('../lib/redis', () => ({ getLocalRedis: () => redis, getUpstashRedis: () => redis }));
 import { generateReading, idempotentCreate, digest } from '../lib/reading-service';
+import { computeDivination } from '../lib/divination';
 import { parseReadingChart } from '../lib/reading-schema';
 import type { ReadingRequest } from '../lib/reading-schema';
 const birth = {
@@ -87,6 +88,42 @@ describe('reading pipeline and idempotency', () => {
     ]) {
       const result = await generateReading(req, '2026-10-04T00:00:00Z');
       expect(() => parseReadingChart(req.system, result.chart)).not.toThrow();
+      expect(result.report.system).toBe(req.system);
+    }
+  });
+
+  it('persists the ritual chart with its selected civil clock instead of the later server clock', async () => {
+    const at = '2026-10-04T15:30:00+08:00[Asia/Shanghai]';
+    for (const req of [
+      {
+        system: 'iching' as const,
+        locale: 'zh' as const,
+        method: 'meihua',
+        category: 'career',
+        question: { text: 'private', meihua: { castBy: 'numbers', numbers: [3, 5, 1], at } },
+        seed: 't35',
+        idempotencyKey: crypto.randomUUID(),
+      },
+      {
+        system: 'iching' as const,
+        locale: 'en' as const,
+        method: 'liuyao',
+        category: 'wealth',
+        question: { at },
+        seed: 't35',
+        idempotencyKey: crypto.randomUUID(),
+      },
+      {
+        system: 'qimen' as const,
+        locale: 'zh' as const,
+        category: 'travel',
+        question: { at },
+        seed: 't35',
+        idempotencyKey: crypto.randomUUID(),
+      },
+    ]) {
+      const result = await generateReading(req, '2026-10-06T00:00:00Z');
+      expect(result.chart).toEqual(computeDivination(req));
       expect(result.report.system).toBe(req.system);
     }
   });

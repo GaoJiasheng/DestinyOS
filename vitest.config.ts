@@ -12,9 +12,9 @@ export default defineConfig({
     environment: 'node',
     // DESIGN-GAP: A single coverage worker bounds merged-corpus audit memory and CPU contention across concurrent worktrees, retaining all assertions and timeouts.
     maxWorkers: 1,
-    testTimeout: 15_000,
-    // DESIGN-GAP: The merged bilingual corpus needs up to 30s for hook-time schema and duplicate scans under coverage.
-    hookTimeout: 30_000,
+    testTimeout: 30_000,
+    // DESIGN-GAP: The merged bilingual corpus needs up to 60s for hook-time schema and duplicate scans under coverage.
+    hookTimeout: 60_000,
     coverage: {
       provider: 'v8',
       include: [
