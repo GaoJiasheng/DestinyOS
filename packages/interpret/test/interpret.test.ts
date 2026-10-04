@@ -222,4 +222,10 @@ describe('deterministic interpretation', () => {
     const english = termMarker(knowledge.glossary, 'en');
     expect(english('Hollywood Wood')).toBe('Hollywood [[term:element.wood]]');
   });
+  it('preserves Markdown links containing glossary aliases and marks later prose normally', () => {
+    const mark = termMarker(knowledge.glossary, 'en');
+    expect(mark('[Wood](/en/learn/Wood) Wood')).toBe(
+      '[Wood](/en/learn/Wood) [[term:element.wood]]',
+    );
+  });
 });

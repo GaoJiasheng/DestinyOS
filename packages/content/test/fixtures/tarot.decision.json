@@ -1,0 +1,52 @@
+{
+  "spread": "decision",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "situation",
+      "cardKey": "wands_07",
+      "reversed": true,
+      "order": 0
+    },
+    {
+      "position": "option_a",
+      "cardKey": "major_03_empress",
+      "reversed": false,
+      "order": 1
+    },
+    {
+      "position": "option_a_outcome",
+      "cardKey": "swords_03",
+      "reversed": false,
+      "order": 2
+    },
+    {
+      "position": "option_b",
+      "cardKey": "pentacles_07",
+      "reversed": true,
+      "order": 3
+    },
+    {
+      "position": "option_b_outcome",
+      "cardKey": "cups_07",
+      "reversed": true,
+      "order": 4
+    }
+  ],
+  "stats": {
+    "majorPct": 20,
+    "elements": {
+      "fire": 1,
+      "earth": 2,
+      "air": 1,
+      "water": 1
+    },
+    "courtCount": 0,
+    "reversedPct": 60,
+    "repeatedNumbers": [3, 7],
+    "missingElements": []
+  },
+  "combos": ["reversed_theme", "repeated_3", "repeated_7"],
+  "seed": "t23-tarot-fixture-decision"
+}

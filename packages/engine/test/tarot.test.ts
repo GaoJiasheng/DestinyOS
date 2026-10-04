@@ -296,7 +296,7 @@ describe('statistics, thresholds, 30 pairs and positional dynamics', () => {
     expect(TarotChartSchema.safeParse(celtic).success).toBe(false);
   });
 });
-const bilingual = { zh: '', en: '' };
+type Bilingual = { zh: string; en: string };
 const contentCardSchemaKeys = [
   'key',
   'number',
@@ -315,8 +315,8 @@ const contentCardSchemaKeys = [
   'advice',
   'byCategory',
 ];
-describe('78 card skeletons and eight spread sources', () => {
-  it('has complete bilingual structural data; prose intentionally stays empty until T-23', () => {
+describe('78 completed cards and eight spread sources', () => {
+  it('has complete bilingual structural data and editorial prose', () => {
     const cards = parse(
       readFileSync('packages/content/tarot/cards.yaml', 'utf8')
         .split('\n')
@@ -327,11 +327,11 @@ describe('78 card skeletons and eight spread sources', () => {
       name: { zh: string; en: string };
       keywordsUpright: Record<string, string[]>;
       keywordsReversed: Record<string, string[]>;
-      meaningUpright: typeof bilingual;
-      meaningReversed: typeof bilingual;
-      imagery: typeof bilingual;
-      advice: typeof bilingual;
-      byCategory: Record<string, Record<string, typeof bilingual>>;
+      meaningUpright: Bilingual;
+      meaningReversed: Bilingual;
+      imagery: Bilingual;
+      advice: Bilingual;
+      byCategory: Record<string, Record<string, Bilingual>>;
     }[];
     expect(cards).toHaveLength(78);
     expect(new Set(cards.map((c) => c.key)).size).toBe(78);
@@ -350,10 +350,15 @@ describe('78 card skeletons and eight spread sources', () => {
         }
       }
       for (const field of ['meaningUpright', 'meaningReversed', 'imagery', 'advice'] as const)
-        expect(card[field]).toEqual(bilingual);
+        for (const locale of ['zh', 'en'] as const)
+          expect(card[field][locale].trim().length).toBeGreaterThan(0);
       expect(Object.keys(card.byCategory)).toHaveLength(6);
-      for (const category of Object.values(card.byCategory))
-        expect(category).toEqual({ upright: bilingual, reversed: bilingual });
+      for (const category of Object.values(card.byCategory)) {
+        expect(Object.keys(category).sort()).toEqual(['reversed', 'upright']);
+        for (const orientation of ['upright', 'reversed'])
+          for (const locale of ['zh', 'en'] as const)
+            expect(category[orientation]![locale].trim().length).toBeGreaterThan(0);
+      }
     }
   });
   it('matches compiled spread keys/positions/coordinates and provides bilingual reading hints', () => {
@@ -371,9 +376,9 @@ describe('78 card skeletons and eight spread sources', () => {
         y: number;
         rotation: number;
         readUpright: boolean;
-        name: typeof bilingual;
-        meaning: typeof bilingual;
-        readingTip: typeof bilingual;
+        name: Bilingual;
+        meaning: Bilingual;
+        readingTip: Bilingual;
       }[];
     }[];
     expect(spreads).toHaveLength(8);

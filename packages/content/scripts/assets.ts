@@ -34,15 +34,15 @@ const cards = array(
         name: label,
         keywordsUpright: object({ zh: keywords, en: keywords }),
         keywordsReversed: object({ zh: keywords, en: keywords }),
-        meaningUpright: bilingual,
-        meaningReversed: bilingual,
-        imagery: bilingual,
-        advice: bilingual,
+        meaningUpright: label,
+        meaningReversed: label,
+        imagery: label,
+        advice: label,
         byCategory: object(
           Object.fromEntries(
             ['love', 'career', 'wealth', 'decision', 'self', 'general'].map((key) => [
               key,
-              object({ upright: bilingual, reversed: bilingual }),
+              object({ upright: label, reversed: label }),
             ]),
           ),
         ),
@@ -123,7 +123,7 @@ const sources = object({
   images: object({ status: nonempty, deck: nonempty }),
 });
 // DESIGN-GAP: Documented card/spread/hexagram data tables share system folders with KU arrays.
-// Tarot prose remains draft; the completed I Ching editorial fields must pass prose checks.
+// Both completed editorial tables must pass nonempty, length and prohibited-language checks.
 const validators = new Map([
   ['tarot/cards.yaml', ajv.compile(cards)],
   ['tarot/spreads.yaml', ajv.compile(spreads)],
@@ -171,6 +171,49 @@ export function validateAsset(
           });
       }
     });
+    if (relative === 'tarot/cards.yaml') {
+      // This structural type is used only after the exhaustive card asset schema succeeds.
+      const rows = parsed.data as Array<{
+        meaningUpright: { zh: string; en: string };
+        meaningReversed: { zh: string; en: string };
+        imagery: { zh: string; en: string };
+        advice: { zh: string; en: string };
+        byCategory: Record<string, Record<string, { zh: string; en: string }>>;
+      }>;
+      rows.forEach((row, index) => {
+        const prose = (
+          value: { zh: string; en: string },
+          path: (string | number)[],
+          range?: readonly [number, number],
+        ) => {
+          for (const locale of ['zh', 'en'] as const) {
+            const body = value[locale];
+            const size = (locale === 'zh' ? zhChars : enWords)(body);
+            if (!body.trim()) error([...path, locale], 'Empty tarot editorial prose');
+            if (range && (size < range[0] || size > range[1]))
+              error([...path, locale], `Editorial length ${size} outside ${range.join('–')}`);
+            for (const word of banned[locale])
+              if (
+                locale === 'zh'
+                  ? body.includes(word)
+                  : new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(
+                      body,
+                    )
+              )
+                error([...path, locale], `Banned editorial phrase: ${word}`);
+          }
+        };
+        // DESIGN-GAP: English lengths count words, matching 05 §2; the approximate 80-unit
+        // imagery target allows 75–110. Canonical names (e.g. Death) are metadata, not prose.
+        prose(row.meaningUpright, [index, 'meaningUpright'], [120, 180]);
+        prose(row.meaningReversed, [index, 'meaningReversed'], [120, 180]);
+        prose(row.imagery, [index, 'imagery'], [75, 110]);
+        prose(row.advice, [index, 'advice']);
+        for (const [category, orientations] of Object.entries(row.byCategory))
+          for (const [orientation, text] of Object.entries(orientations))
+            prose(text, [index, 'byCategory', category, orientation], [40, 60]);
+      });
+    }
     if (relative === 'iching/hexagrams.yaml') {
       // This structural type is safe only after the distinct asset schema succeeds above.
       const rows = parsed.data as Array<{

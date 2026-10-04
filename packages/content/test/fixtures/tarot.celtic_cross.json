@@ -1,0 +1,91 @@
+{
+  "spread": "celtic_cross",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "present",
+      "cardKey": "cups_king",
+      "reversed": false,
+      "order": 0
+    },
+    {
+      "position": "challenge",
+      "cardKey": "pentacles_02",
+      "reversed": false,
+      "order": 1
+    },
+    {
+      "position": "foundation",
+      "cardKey": "wands_04",
+      "reversed": true,
+      "order": 2
+    },
+    {
+      "position": "past",
+      "cardKey": "pentacles_05",
+      "reversed": true,
+      "order": 3
+    },
+    {
+      "position": "crown",
+      "cardKey": "major_05_hierophant",
+      "reversed": true,
+      "order": 4
+    },
+    {
+      "position": "near_future",
+      "cardKey": "cups_knight",
+      "reversed": false,
+      "order": 5
+    },
+    {
+      "position": "self",
+      "cardKey": "pentacles_knight",
+      "reversed": false,
+      "order": 6
+    },
+    {
+      "position": "environment",
+      "cardKey": "pentacles_03",
+      "reversed": true,
+      "order": 7
+    },
+    {
+      "position": "hopes_fears",
+      "cardKey": "pentacles_09",
+      "reversed": true,
+      "order": 8
+    },
+    {
+      "position": "outcome",
+      "cardKey": "cups_09",
+      "reversed": true,
+      "order": 9
+    }
+  ],
+  "stats": {
+    "majorPct": 10,
+    "elements": {
+      "fire": 1,
+      "earth": 6,
+      "air": 0,
+      "water": 3
+    },
+    "courtCount": 3,
+    "reversedPct": 60,
+    "repeatedNumbers": [5, 9],
+    "dominantElement": "earth",
+    "missingElements": ["air"]
+  },
+  "combos": [
+    "dominant_earth",
+    "missing_air",
+    "court_roles",
+    "reversed_theme",
+    "repeated_5",
+    "repeated_9",
+    "present_outcome_orientation_shift"
+  ],
+  "seed": "t23-tarot-fixture-celtic_cross"
+}

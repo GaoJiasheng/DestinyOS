@@ -1,0 +1,99 @@
+- key: tarot.action
+  system: tarot
+  zh:
+    term: 行动
+    short: 把注意力转成可执行的小步骤
+    long: 把注意力转成可执行的小步骤
+  en:
+    term: Action
+    short: A small step you can actually try.
+    long: A small step you can actually try.
+  aliases: []
+- key: tarot.reflection
+  system: tarot
+  zh:
+    term: 思考
+    short: 留一点时间分辨经验与自己的解释
+    long: 留一点时间分辨经验与自己的解释
+  en:
+    term: Reflection
+    short: Time to distinguish an observation from your interpretation.
+    long: Time to distinguish an observation from your interpretation.
+  aliases: []
+- key: tarot.communication
+  system: tarot
+  zh:
+    term: 沟通
+    short: 通过表达与倾听补充真实信息
+    long: 通过表达与倾听补充真实信息
+  en:
+    term: Communication
+    short: Sharing a clear question and listening to a direct response.
+    long: Sharing a clear question and listening to a direct response.
+  aliases: []
+- key: tarot.boundaries
+  system: tarot
+  zh:
+    term: 边界
+    short: 说清自己愿意承担的范围
+    long: 说清自己愿意承担的范围
+  en:
+    term: Boundaries
+    short: The scope you are comfortable offering or accepting.
+    long: The scope you are comfortable offering or accepting.
+  aliases: []
+- key: tarot.review
+  system: tarot
+  zh:
+    term: 复盘
+    short: 用后来得到的消息回看原先的安排
+    long: 用后来得到的消息回看原先的安排
+  en:
+    term: Review
+    short: Looking back at a plan with information gained afterwards.
+    long: Looking back at a plan with information gained afterwards.
+  aliases: []
+- key: tarot.preparation
+  system: tarot
+  zh:
+    term: 准备
+    short: 确认行动所需的时间与资源
+    long: 确认行动所需的时间与资源
+  en:
+    term: Preparation
+    short: Checking the time and resources a step needs.
+    long: Checking the time and resources a step needs.
+  aliases: []
+- key: tarot.cooperation
+  system: tarot
+  zh:
+    term: 合作
+    short: 用清楚分工与相互回应完成共同事项
+    long: 用清楚分工与相互回应完成共同事项
+  en:
+    term: Cooperation
+    short: Shared work supported by clear roles and mutual response.
+    long: Shared work supported by clear roles and mutual response.
+  aliases: []
+- key: tarot.choice
+  system: tarot
+  zh:
+    term: 选择
+    short: 根据需要与已知条件决定下一步
+    long: 根据需要与已知条件决定下一步
+  en:
+    term: Choice
+    short: A next step considered in light of needs and known conditions.
+    long: A next step considered in light of needs and known conditions.
+  aliases: []
+- key: tarot.feelings
+  system: tarot
+  zh:
+    term: 感受
+    short: 关注当前经验带来的情绪与舒适程度
+    long: 关注当前经验带来的情绪与舒适程度
+  en:
+    term: Feelings
+    short: The emotional experience and comfort you notice in a situation.
+    long: The emotional experience and comfort you notice in a situation.
+  aliases: []

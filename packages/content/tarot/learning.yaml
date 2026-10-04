@@ -1,0 +1,547 @@
+# // DESIGN-GAP: Per-spread variables expand all drawn-card encyclopedia links, including 13 annual cards, within the existing six-KU chapter cap.
+- id: tarot.learn.single
+  system: tarot
+  section: learn
+  topic: learn.single
+  when:
+    path: spread
+    eq: single
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  variables:
+    zh_entries: '[核心指引](/zh/learn/tarot/{{cards[position=focus].cardKey}})'
+    en_entries: '[Focus](/en/learn/tarot/{{cards[position=focus].cardKey}})'
+  zh:
+    title: 单张指引：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以从一个细节开始学习单张牌。核心指引位（只为当前问题保留一个焦点）让你把图像和具体经验放在一起，牌库条目则补充正逆位主题。不要急着把全部象征都对应到自己的生活；选择最有共鸣的一处，往往已经足够提出一个新的问题。例如，一次体验之后回看原先的记录，你可能发现画面某部分帮助了提问，另一部分只是你自己的期待。建议把两者分开写下，再用实际观察修正理解。下方链接对应本次实际抽到的牌，可以用于重看图像与类别读法；每次复盘只增加一项新的认识，让学习保持具体而轻松。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'One Card: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can learn from a single card by returning to one visible detail. Begin with the picture
+      and the ordinary or reversed theme, then compare both with the focus question you wrote down.
+      A small reading makes it easier to notice which part of your response came from the image and
+      which part came from an expectation. Imagine revisiting the note after a first practice
+      session: you might find the picture helpful in one respect and irrelevant in another. Try
+      keeping that distinction rather than searching for a perfect match. The encyclopedia entry
+      below provides a place to look again at the actual card you drew. Use it to ask a more precise
+      question next time, while allowing your experience to add something the description did not
+      anticipate.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.learn.yes_no
+  system: tarot
+  section: learn
+  topic: learn.yes_no
+  when:
+    path: spread
+    eq: yes_no
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  variables:
+    zh_entries: '[回应](/zh/learn/tarot/{{cards[position=answer].cardKey}})'
+    en_entries: '[Answer](/en/learn/tarot/{{cards[position=answer].cardKey}})'
+  zh:
+    title: 是非一问：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以先了解是非提示怎样形成，再决定它对当前问题有多少帮助。回答位（单张牌提供象征倾向的位置）需要与正逆位主题一起看；牌库链接帮助你回查图像，但不会替你核实外部条件。数值表示规则中的提示强度，不是现实事件的成功率，也不需要靠不断重抽让它变得确定。例如，你问是否参加一项活动，可以同时记录自己的意愿、牌面提示和组织者确认的安排。建议把这三部分分开，不让一个标签盖住另外两种信息。几天后再看记录，实际回应会帮助你判断哪一处解释有用；与预想不同的体验也可以成为学习材料。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'Yes or No: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can learn how an answer was formed before giving its label too much weight. The
+      encyclopedia entry explains the drawn card, including the quality highlighted upright and the
+      possible adjustment suggested in reversal. Compare that material with the position devoted to
+      your question. The leaning and its confidence value belong to a symbolic rule, without
+      measuring a real event. If you asked about an invitation, reviewing the card might suggest a
+      useful condition to check, but the organiser still supplies the actual details. Consider
+      recording the original question, the label and one confirmed condition in separate lines. This
+      keeps the reading understandable and makes a later review easier. A different response in
+      everyday life remains new information rather than a reason to reinterpret every symbol until
+      it agrees.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.learn.three_ppf
+  system: tarot
+  section: learn
+  topic: learn.three_ppf
+  when:
+    path: spread
+    eq: three_ppf
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  variables:
+    zh_entries: '[过去](/zh/learn/tarot/{{cards[position=past].cardKey}})；
+      [现在](/zh/learn/tarot/{{cards[position=present].cardKey}})；
+      [未来](/zh/learn/tarot/{{cards[position=future].cardKey}})'
+    en_entries: '[Past](/en/learn/tarot/{{cards[position=past].cardKey}});
+      [Present](/en/learn/tarot/{{cards[position=present].cardKey}});
+      [Future](/en/learn/tarot/{{cards[position=future].cardKey}})'
+  zh:
+    title: 过去·现在·未来：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以通过三个不同的问题学习时间序列。过去位（前一阶段的影响）、现在位（目前的条件）和未来位（条件延续时可观察的方向）各有任务，不能把三份牌义当成三个确定事件。下方链接帮助你查看实际抽到的图像，再把每个主题放回相应位置。例如，学习计划里的旧估算、当前时间与下一次尝试，可以分别记录，不必强求同一个解释。建议先为每个位置写一条具体观察，再比较共同点与变化；如果画面之间有差异，就把差异留作需要确认的问题。完成一次真实尝试后回看记录，会比只记住一个预测更容易积累自己的理解。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'Past-Present-Future: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can study a sequence by comparing what each position is asking. Past concerns an earlier
+      influence, present addresses the current setting, and future offers a direction to review if
+      conditions continue. Visit the encyclopedia entries with those roles in mind rather than
+      reading each description as an isolated verdict. For a learning routine, an earlier estimate,
+      today’s available time and the next trial may be three different parts of the same question.
+      Try making a note for each part before describing a trend. If the pictures differ, preserve
+      the contrast; it may show another need to examine. Reviewing the note after a real trial can
+      help you distinguish the sequence you imagined from the experience that actually unfolded.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.learn.three_sao
+  system: tarot
+  section: learn
+  topic: learn.three_sao
+  when:
+    path: spread
+    eq: three_sao
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  variables:
+    zh_entries: '[情境](/zh/learn/tarot/{{cards[position=situation].cardKey}})；
+      [行动](/zh/learn/tarot/{{cards[position=action].cardKey}})；
+      [结果](/zh/learn/tarot/{{cards[position=outcome].cardKey}})'
+    en_entries: '[Situation](/en/learn/tarot/{{cards[position=situation].cardKey}});
+      [Action](/en/learn/tarot/{{cards[position=action].cardKey}});
+      [Outcome](/en/learn/tarot/{{cards[position=outcome].cardKey}})'
+  zh:
+    title: 情境·行动·结果：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以用情境、行动与反馈三层来学习这个牌阵。情境位（当前条件）说明行动需要什么背景，行动位（你可以调整的回应）提出尝试角度，结果位（随后值得观察的反馈）需要与前两者一起读。牌库链接解释各张图像，但实际问题决定它们在这里的重点。例如，共同活动的场地、邀请方式和参与者回复，属于不同环节，不能用其中一个替代全部。建议把三层分别写下，再检查行动是否适合已有条件；不合适时可以缩小尝试，而不是让结果图像补足准备。后续再记一条实际消息，逐渐分辨图像启发与现实反馈怎样共同帮助你理解问题。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'Situation-Action-Outcome: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can learn to connect an action with its setting and feedback. In this spread, situation
+      describes conditions, action explores a response and outcome raises a question about what may
+      follow. The linked encyclopedia entries explain each picture, but their meaning here depends
+      on those different jobs. Think of a shared activity: the available room belongs to its
+      setting, an invitation is an action, and participants’ replies supply feedback. Consider
+      writing the three parts separately, then checking whether your proposed response fits the
+      stated conditions. If it does not, revise the action instead of asking the outcome card to
+      compensate. A later note about what happened gives you material for learning from the spread
+      without treating any description as a promise.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.learn.relationship
+  system: tarot
+  section: learn
+  topic: learn.relationship
+  when:
+    path: spread
+    eq: relationship
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  variables:
+    zh_entries: '[你](/zh/learn/tarot/{{cards[position=you].cardKey}})；
+      [对方](/zh/learn/tarot/{{cards[position=them].cardKey}})；
+      [联系](/zh/learn/tarot/{{cards[position=connection].cardKey}})；
+      [挑战](/zh/learn/tarot/{{cards[position=challenge].cardKey}})；
+      [潜力](/zh/learn/tarot/{{cards[position=potential].cardKey}})'
+    en_entries: '[You](/en/learn/tarot/{{cards[position=you].cardKey}});
+      [Them](/en/learn/tarot/{{cards[position=them].cardKey}});
+      [Connection](/en/learn/tarot/{{cards[position=connection].cardKey}});
+      [Challenge](/en/learn/tarot/{{cards[position=challenge].cardKey}});
+      [Potential](/en/learn/tarot/{{cards[position=potential].cardKey}})'
+  zh:
+    title: 关系牌阵：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以学习关系牌阵，同时给每个人保留直接表达的空间。你与对方的牌位（各自回应的角度）不同于连接位（共同形成的互动）；挑战位提出讨论点，潜力位关注发展条件。下方牌库链接让你查看每个图像，并不提供另一人的思想。例如，一张交流主题的牌在你的牌位可能提示表达需要，在连接位则可能提示确认双方已经形成的节奏。建议把亲眼观察的事情和仍需询问的部分分开，选择一个对方容易回答的问题进行沟通。学习也包括允许不同意见留下来；不需要把每张牌都对上某个人，才能从这次安排中得到有用的认识。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'Relationship: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can study a relationship spread without turning pictures into private portraits. Your role
+      and the other person’s role are two perspectives; connection concerns a shared rhythm,
+      challenge identifies a point for discussion, and potential considers room for development.
+      Read the encyclopedia links alongside those tasks. A scene of exchange, for example, may
+      prompt a question about communication in one position and about personal expectations in
+      another. Try noting what you can describe directly and what would require the other person’s
+      own account. The distinction matters more than identifying every figure in the pictures.
+      Learning this arrangement includes leaving room for another person to disagree, decline or
+      offer information that changes how you understand the connection.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.learn.decision
+  system: tarot
+  section: learn
+  topic: learn.decision
+  when:
+    path: spread
+    eq: decision
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  variables:
+    zh_entries: '[情境](/zh/learn/tarot/{{cards[position=situation].cardKey}})； [选择
+      A](/zh/learn/tarot/{{cards[position=option_a].cardKey}})； [选择 A
+      的结果](/zh/learn/tarot/{{cards[position=option_a_outcome].cardKey}})； [选择
+      B](/zh/learn/tarot/{{cards[position=option_b].cardKey}})； [选择 B
+      的结果](/zh/learn/tarot/{{cards[position=option_b_outcome].cardKey}})'
+    en_entries: '[Situation](/en/learn/tarot/{{cards[position=situation].cardKey}}); [Option
+      A](/en/learn/tarot/{{cards[position=option_a].cardKey}}); [Option A
+      Outcome](/en/learn/tarot/{{cards[position=option_a_outcome].cardKey}}); [Option
+      B](/en/learn/tarot/{{cards[position=option_b].cardKey}}); [Option B
+      Outcome](/en/learn/tarot/{{cards[position=option_b_outcome].cardKey}})'
+  zh:
+    title: 抉择牌阵：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以从比较的公平性学习抉择牌阵。中心位（两种方案共同面对的需要）设定目标，两边的行动与结果位分别提出要求和反馈问题；先读清这些角色，再查看下方实际牌面的百科条目。一个看起来吸引人的结果图像，不会取消同一路径所需的时间与准备。例如，两个课程都可以从时间、支持方式和练习要求进行核实，不要只研究你已经偏好的那一个。建议用同一套问题询问两边，把已知与未知信息列在一起；通过一次交流或小尝试补充条件后，再决定当前更合适的安排。图片可以组织比较，真实反馈则帮助你给比较一个可靠的起点。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'Decision: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can learn a decision spread by keeping the comparison balanced. The central situation sets
+      the need, while the two option paths examine approaches and possible feedback. Use the linked
+      descriptions to form questions about each route, applying the same criteria to both. An
+      attractive result picture does not remove the effort required by the neighbouring option card.
+      For two courses, ask about time and support on both sides instead of researching only the one
+      you already prefer. Consider keeping a small table of confirmed details and open questions.
+      Return to it after a trial or a conversation. This lets the images organise your exploration
+      while the practical information determines which arrangement currently fits your needs.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.learn.celtic_cross
+  system: tarot
+  section: learn
+  topic: learn.celtic_cross
+  when:
+    path: spread
+    eq: celtic_cross
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  variables:
+    zh_entries: '[现在](/zh/learn/tarot/{{cards[position=present].cardKey}})；
+      [挑战](/zh/learn/tarot/{{cards[position=challenge].cardKey}})；
+      [基础](/zh/learn/tarot/{{cards[position=foundation].cardKey}})；
+      [过去](/zh/learn/tarot/{{cards[position=past].cardKey}})；
+      [目标](/zh/learn/tarot/{{cards[position=crown].cardKey}})；
+      [近期发展](/zh/learn/tarot/{{cards[position=near_future].cardKey}})；
+      [自我](/zh/learn/tarot/{{cards[position=self].cardKey}})；
+      [环境](/zh/learn/tarot/{{cards[position=environment].cardKey}})；
+      [希望与恐惧](/zh/learn/tarot/{{cards[position=hopes_fears].cardKey}})；
+      [结果](/zh/learn/tarot/{{cards[position=outcome].cardKey}})'
+    en_entries: '[Present](/en/learn/tarot/{{cards[position=present].cardKey}});
+      [Challenge](/en/learn/tarot/{{cards[position=challenge].cardKey}});
+      [Foundation](/en/learn/tarot/{{cards[position=foundation].cardKey}});
+      [Past](/en/learn/tarot/{{cards[position=past].cardKey}});
+      [Crown](/en/learn/tarot/{{cards[position=crown].cardKey}}); [Near
+      Future](/en/learn/tarot/{{cards[position=near_future].cardKey}});
+      [Self](/en/learn/tarot/{{cards[position=self].cardKey}});
+      [Environment](/en/learn/tarot/{{cards[position=environment].cardKey}}); [Hopes
+      Fears](/en/learn/tarot/{{cards[position=hopes_fears].cardKey}});
+      [Outcome](/en/learn/tarot/{{cards[position=outcome].cardKey}})'
+  zh:
+    title: 凯尔特十字：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以先理解每个位置的任务，再学习凯尔特十字之间的联系。现状位（当前焦点）居中，横置挑战牌采用正位主题，强调此处的阻力；基础、过去、目标与环境等位置补充条件，结果位不能盖过它们。下方百科链接对应这次实际出现的每张牌，方便你重看画面，而不是只凭牌名记忆结论。例如，你可以比较自己的回应方式与环境限制，看看哪一个日常安排需要问清。建议每次只选一条与最初问题有关的联系，在现实中核实后再记下变化；十张牌不需要讲成没有缝隙的故事，有些位置暂时没有共鸣也可以保留。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'Celtic Cross: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can study the Celtic Cross by giving each position a clear role before connecting the
+      whole arrangement. Keep the present issue at the centre and read the crossing challenge
+      through the upright theme, as this spread’s convention requires. Foundation and past add
+      context; crown describes an aim; the remaining positions explore development, response,
+      surroundings and mixed expectations. Use the encyclopedia links to inspect the pictures
+      without letting the outcome erase those conditions. Try selecting one connection relevant to
+      the original issue, such as how your response meets an environmental limit. Ask an ordinary
+      question about that connection outside the reading. A complete spread can support learning
+      through one careful comparison rather than through a dramatic story that accounts for every
+      visual detail.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.learn.year_ahead
+  system: tarot
+  section: learn
+  topic: learn.year_ahead
+  when:
+    path: spread
+    eq: year_ahead
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  variables:
+    zh_entries: '[年度主题](/zh/learn/tarot/{{cards[position=theme].cardKey}})；
+      [01月](/zh/learn/tarot/{{cards[position=m01].cardKey}})；
+      [02月](/zh/learn/tarot/{{cards[position=m02].cardKey}})；
+      [03月](/zh/learn/tarot/{{cards[position=m03].cardKey}})；
+      [04月](/zh/learn/tarot/{{cards[position=m04].cardKey}})；
+      [05月](/zh/learn/tarot/{{cards[position=m05].cardKey}})；
+      [06月](/zh/learn/tarot/{{cards[position=m06].cardKey}})；
+      [07月](/zh/learn/tarot/{{cards[position=m07].cardKey}})；
+      [08月](/zh/learn/tarot/{{cards[position=m08].cardKey}})；
+      [09月](/zh/learn/tarot/{{cards[position=m09].cardKey}})；
+      [10月](/zh/learn/tarot/{{cards[position=m10].cardKey}})；
+      [11月](/zh/learn/tarot/{{cards[position=m11].cardKey}})；
+      [12月](/zh/learn/tarot/{{cards[position=m12].cardKey}})'
+    en_entries: '[Theme](/en/learn/tarot/{{cards[position=theme].cardKey}}); [Month
+      1](/en/learn/tarot/{{cards[position=m01].cardKey}}); [Month
+      2](/en/learn/tarot/{{cards[position=m02].cardKey}}); [Month
+      3](/en/learn/tarot/{{cards[position=m03].cardKey}}); [Month
+      4](/en/learn/tarot/{{cards[position=m04].cardKey}}); [Month
+      5](/en/learn/tarot/{{cards[position=m05].cardKey}}); [Month
+      6](/en/learn/tarot/{{cards[position=m06].cardKey}}); [Month
+      7](/en/learn/tarot/{{cards[position=m07].cardKey}}); [Month
+      8](/en/learn/tarot/{{cards[position=m08].cardKey}}); [Month
+      9](/en/learn/tarot/{{cards[position=m09].cardKey}}); [Month
+      10](/en/learn/tarot/{{cards[position=m10].cardKey}}); [Month
+      11](/en/learn/tarot/{{cards[position=m11].cardKey}}); [Month
+      12](/en/learn/tarot/{{cards[position=m12].cardKey}})'
+  zh:
+    title: 年度牌阵：从本次牌面学习
+    summary: 你可以用真实记录与牌库条目一起学习这次读法。
+    body: |-
+      你可以把年度牌阵学成一份持续更新的记录。主题位（全年反复回看的问题）与十二个月牌位（分段观察窗口）提供组织方式，不把任何图像绑定成某月一定发生的事件。下方链接对应实际抽到的所有牌，可以在每次复盘时重看正逆位与类别主题。例如，你希望安排更有余裕，有的月份适合检查维护事务，有的月份适合讨论承诺范围，具体仍要看真实情况。建议每个月留一条简短观察，允许例外和新消息出现；年底先比较记录，再整理一个可带走的经验。学习的价值在于更清楚地提问与调整，不需要用每张牌预先替整年写好结局。
+
+      {{zh_entries}}
+    advice:
+      - 复盘后写下一项新的认识。
+    do:
+      - 回看记录
+    dont:
+      - 生搬牌义
+  en:
+    title: 'Year Ahead: learn from this draw'
+    summary: You can connect the encyclopedia entries with an observation of your own.
+    body: >-
+      You can learn an annual spread through repeated review rather than through a calendar of
+      predicted events. The theme card supplies a common question, and the twelve monthly roles
+      provide different occasions to return to it. The encyclopedia links let you inspect every
+      drawn image, while your own notes show what the year actually contains. For a wish to make
+      more room in your routine, one month may prompt a maintenance check and another a conversation
+      about commitments. Consider writing a brief observation at each review and allowing exceptions
+      to remain visible. At the end, compare the notes before drawing a larger conclusion. This
+      approach lets the arrangement become a learning record without requiring each month to produce
+      a particular event.
+
+
+      You can add one brief note from your next review.
+
+      {{en_entries}}
+    advice:
+      - Review one observation alongside the card description.
+    do:
+      - Review a note
+    dont:
+      - Force a match
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

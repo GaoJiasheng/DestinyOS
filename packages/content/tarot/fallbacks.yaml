@@ -1,0 +1,299 @@
+# // DESIGN-GAP: Weak predicates use required seed; the engine provides no features object.
+- id: tarot.fallback.overview
+  system: tarot
+  section: overview
+  topic: fallback.overview
+  when:
+    path: seed
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.choice
+    - tarot.preparation
+  exclusive_with: []
+  zh:
+    title: 把牌阵当成一次有边界的观察
+    summary: 你可以先辨认当下最需要照顾的主题。
+    body: 你可以把这次牌阵当成整理问题的入口。牌位（每张牌在本次阅读中承担的观察角度）帮助你分开情境、行动与可能的发展；同一张牌放在不同位置，重点也会不同。正逆位（牌面朝向）提供补充角度，不是对你个人好坏的评价。例如，你面对一个新安排，可以先确认真正关心的是沟通、时间还是资源。建议把问题缩成一句可核实的话，再阅读细节并保留修改判断的空间。
+    advice:
+      - 记录一项可以核实的观察。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Begin with a question you can revisit
+    summary: You can use the spread to give your current question a clearer shape.
+    body: 'You can begin by naming what deserves attention in your current situation. A spread is an
+      arrangement of positions, each giving a card a particular role in the reading. Orientation
+      adds another angle, while your question determines which details are relevant. Neither feature
+      ranks your worth or decides an outcome for you. Think of a new invitation: perhaps the useful
+      question concerns available time, the kind of contact you want, or an expectation you have not
+      discussed. Those are different questions even when they concern the same event. Try writing
+      one sentence about what you want to understand before reading further. Keep it beside a note
+      of what you actually observe afterwards. This gives you a way to use the reading thoughtfully
+      and change your interpretation when circumstances become clearer.'
+    advice:
+      - Write down one observation you can check.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.fallback.cards
+  system: tarot
+  section: cards
+  topic: fallback.cards
+  when:
+    path: seed
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 把每张牌放回它的位置
+    summary: 你适合先读牌位，再看牌面主题与类别。
+    body: 你可以按牌位而不是单凭牌名理解每张牌。正位（牌面正常朝向）常突出较容易外用的品质，逆位（牌面倒转）常提示内收、延迟或用力过度；这两种读法都要与当前类别一起考虑。牌义是象征的方向，同一个画面也可以让不同的人注意到不同细节，并不等于某件现实事件已经发生。例如，你看到与合作有关的图像，可以想想最近是否明确过分工，而不是替另一人推断动机。建议先记录这张牌最接近你经验的一处，再标出仍缺信息的地方；有共鸣的部分可用于提问，没有共鸣的部分可以暂时放下。
+    advice:
+      - 记录一项可以核实的观察。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Read the role before the image
+    summary: You can connect each image to its position and to the question you actually asked.
+    body:
+      You can understand a card more clearly by reading its position before deciding what the image
+      means. Upright is its ordinary orientation; reversed is an invitation to consider a quality
+      that may be inward, delayed or excessive. These are lenses, and the category of your question
+      supplies a practical context. A picture concerned with exchange might lead you to examine a
+      conversation, shared work or everyday resources. It does not establish what someone else
+      thinks. Imagine noticing a scene of collaboration while reflecting on a group task. Asking
+      whether responsibilities were clear is more useful than inventing a hidden motive for a
+      colleague. Try noting one detail that resembles your experience and one detail that does not.
+      Keep the latter open rather than forcing a match, and check your reading against information
+      you can obtain directly.
+    advice:
+      - Write down one observation you can check.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.fallback.dynamics
+  system: tarot
+  section: dynamics
+  topic: fallback.dynamics
+  when:
+    path: seed
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 先区分联系与巧合
+    summary: 你可以比较各牌的主题，保留差异而不强求一个故事。
+    body: 你可以先把牌之间的联系看成多种观察角度的并置。元素（火、水、风、土四类象征）分别便于讨论行动、感受、思考与实际安排；某类出现较多只是这次牌阵的侧重，不是你的固定性格。大牌（以重要主题为中心的二十二张牌）和宫廷牌（以角色方式呈现主题的牌）也提供统计线索，不能单独用来判断外部事件。例如，工作问题里既有沟通又有资源安排时，你可以分别列出缺少的消息和可用的工具，而不是把两者混成一个原因。建议选两张最相关的牌，写出它们共同提醒的事情以及彼此不同的地方，再用现实信息检查这个联系。
+    advice:
+      - 记录一项可以核实的观察。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Compare themes without forcing a plot
+    summary: You can look for a useful connection while allowing the cards to disagree.
+    body:
+      You can compare the cards without requiring them to tell a single seamless story. Elemental
+      groups offer shorthand for action, feeling, thinking and practical arrangements. A numerical
+      emphasis describes this draw, not a permanent personality. Major cards focus on broad themes;
+      court cards present different ways of occupying a role. When the spread has no striking
+      pattern, the individual positions remain enough to support reflection. Suppose a work question
+      raises both communication and material preparation. You might list missing information
+      separately from missing equipment instead of treating them as one obstacle. Try comparing the
+      two cards most relevant to those lists. Name one point they share and one way they pull in
+      different directions. That distinction can help you choose a next step while leaving space for
+      details the spread does not address.
+    advice:
+      - Write down one observation you can check.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.fallback.answer
+  system: tarot
+  section: answer
+  topic: fallback.answer
+  when:
+    path: seed
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.choice
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 让回应接近你能处理的问题
+    summary: 你可以把宽泛提问收拢到一个现实中可回应的环节。
+    body: 你适合把这次阅读的回应理解成一个可执行的问题，而不是对未来的定论。类别（爱情、工作、资源、选择、自我或一般问题）决定叙述的侧重，但不会补出牌面之外的事实。回答应同时照顾你自己的需要、可以取得的信息以及他人保留的选择空间；遇到模糊之处，也可以暂时不作判断。例如，你关心一个合作是否合适，可以先谈清双方能投入的时间，再决定是否进行一次小范围尝试。建议用“我现在可以了解什么”改写问题，列出一条已知事实与一条待确认条件；让后续交流补全条件，而不是依赖反复抽牌寻求同一种回应。
+    advice:
+      - 记录一项可以核实的观察。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Turn an answer into a workable question
+    summary: You can focus on a part of the situation that a real conversation or observation could clarify.
+    body:
+      You can make this reading useful by turning a broad question into something you can address.
+      Its category sets the area of attention, but it cannot supply facts that were never provided.
+      Your needs, other people’s choices and the information still missing all deserve space in the
+      response. For a possible collaboration, a useful first question might concern how much time
+      each person can offer. One trial task may reveal more than asking for a prediction about the
+      entire relationship. Consider separating what you know from what you need to confirm, then
+      choose an ordinary way to obtain the missing detail. If the cards feel ambiguous, you can
+      leave the matter open until there is something new to observe. Returning to the question with
+      fresh information helps reflection stay connected to lived experience.
+    advice:
+      - Write down one observation you can check.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.fallback.advice
+  system: tarot
+  section: advice
+  topic: fallback.advice
+  when:
+    path: seed
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.action
+    - tarot.review
+    - tarot.preparation
+  exclusive_with: []
+  zh:
+    title: 给建议一个时间与范围
+    summary: 你可以用三个小步骤检验这次阅读，而不急着改变全部生活。
+    body: 你可以先记录事实，再进行一次沟通，最后选择一个能复盘的小行动。这三个步骤让建议有起点、范围和反馈；它们不需要你把牌面当成命令，也不要求你用一次尝试证明整份解读。阅读中较刺耳的部分可以转成温和的问题，并给自己保留停止或修改安排的空间。例如，你想改善共同工作的节奏，可以记录本周最费力的环节，向伙伴询问需求，再试行一个更清楚的交接办法。建议为尝试约定结束时间，之后比较感受与实际变化。值得反思的问题是：如果没有这次抽牌，你已经知道哪件小事值得照顾？
+    advice:
+      - 记录一条相关事实。
+      - 进行一次清楚沟通。
+      - 尝试一个小调整。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Give your next step a boundary
+    summary: You can record, communicate and try one modest action before reviewing the reading.
+    body:
+      'You can use three small actions to bring the reading into everyday life: record one relevant
+      fact, ask one clear question and try one bounded adjustment. This gives a suggestion a
+      beginning and a review point. You do not have to remake a whole routine to test whether an
+      idea helps. If a sentence feels uncomfortable, turn it into a kinder question and keep room to
+      decline it. Imagine improving a shared working rhythm. First note which handover felt
+      difficult, then ask a colleague what would make it clearer, and finally try a short checklist
+      for one week. Consider comparing your experience at the end rather than judging yourself every
+      day. A question worth reflecting on is this: which small need would you already recognise even
+      if you had never drawn these cards?'
+    advice:
+      - Record one relevant fact.
+      - Ask one clear question.
+      - Try a bounded adjustment.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.fallback.learn
+  system: tarot
+  section: learn
+  topic: fallback.learn
+  when:
+    path: seed
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.review
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 用图像与记录慢慢学习
+    summary: 你可以从一处图像细节与一次真实经验开始积累理解。
+    body: 你可以把学习重点放在画面、牌位和自己的记录之间的联系。牌库百科（每张牌的独立介绍）提供名称、正逆位主题与画面象征；牌阵读法说明每个位置正在讨论什么。两者应一起阅读，牌位提出问题，牌义提供角度，不需要先背下所有解释才开始使用。例如，你记下一张牌在行动位让你想到的安排，几天后再看实际做法，就能区分画面的启发与自己补上的想象。建议每次只比较一个细节，保留当时的问题和后来得到的消息；如果同一张牌在别的位置出现，再看看关注点如何变化。学习的目标是更清楚地提问，而不是追求对所有结果的预判。
+    advice:
+      - 记录一项可以核实的观察。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Learn through an image and an observation
+    summary: You can build understanding by comparing a card’s role with your own notes.
+    body: 'You can learn gradually by connecting a picture, its position and a real observation. The
+      card encyclopedia explains each image and its ordinary or reversed themes, while the spread
+      guide describes the question posed by a position. Read them together: the position sets a task
+      and the image supplies a perspective. You do not need to memorise every interpretation before
+      making a useful note. For example, record what an action position prompted you to try, then
+      revisit the note after you have actually done it. You may find that one visual detail helped
+      while another reflected an assumption you brought to the reading. Try following one such
+      distinction at a time. Keep the original question and later information together so your
+      understanding grows from experience rather than from a search for perfect predictions.'
+    advice:
+      - Write down one observation you can check.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

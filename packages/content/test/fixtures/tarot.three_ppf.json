@@ -1,0 +1,48 @@
+{
+  "spread": "three_ppf",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "past",
+      "cardKey": "major_14_temperance",
+      "reversed": true,
+      "order": 0
+    },
+    {
+      "position": "present",
+      "cardKey": "major_19_sun",
+      "reversed": false,
+      "order": 1
+    },
+    {
+      "position": "future",
+      "cardKey": "wands_08",
+      "reversed": true,
+      "order": 2
+    }
+  ],
+  "stats": {
+    "majorPct": 66.66666666666666,
+    "elements": {
+      "fire": 3,
+      "earth": 0,
+      "air": 0,
+      "water": 0
+    },
+    "courtCount": 0,
+    "reversedPct": 66.66666666666666,
+    "repeatedNumbers": [],
+    "dominantElement": "fire",
+    "missingElements": ["earth", "air", "water"]
+  },
+  "combos": [
+    "major_theme",
+    "dominant_fire",
+    "missing_earth",
+    "missing_air",
+    "missing_water",
+    "reversed_theme"
+  ],
+  "seed": "t23-tarot-fixture-three_ppf"
+}
