@@ -7,8 +7,10 @@ import { spawn } from 'node:child_process';
 
 // DESIGN-GAP: PGlite and ioredis-mock are isolated test substitutes, exposed through PostgreSQL/RESP
 // so E2E exercises the real Prisma client and local Redis limiter without application mock branches.
-// DESIGN-GAP: Port overrides isolate concurrent worktree E2E runs; existing suites keep their defaults.
-const portOffset = Number(process.env.TEST_PORT_OFFSET ?? 0);
+// DESIGN-GAP: Explicit service ports override the shared offset so all merged E2E suites retain their isolated endpoints.
+const portOffset = Number(process.env.TEST_SERVICE_PORT_OFFSET ?? 0);
+if (!Number.isInteger(portOffset) || portOffset < 0 || portOffset > 5000)
+  throw new Error('Invalid test service port offset');
 const testPorts = {
   postgres: Number(process.env.TEST_POSTGRES_PORT ?? 55432 + portOffset),
   shadow: Number(process.env.TEST_SHADOW_PORT ?? 55433 + portOffset),
@@ -135,6 +137,7 @@ if (process.argv.includes('--web')) {
     env: production
       ? {
           ...process.env,
+          TEST_WEB_MODE: 'production',
           NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}`,
         }
       : process.env,
