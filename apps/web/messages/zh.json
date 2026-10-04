@@ -125,5 +125,16 @@
   "dev.tokens.value": "{value}",
   "common.brandTitle": "{nameZh} · {nameEn}",
   "common.number": "{value, number}",
-  "dev.tokens.termBilingual": "术语示例 · Term example"
+  "dev.tokens.termBilingual": "术语示例 · Term example",
+  "engine.errors.E_INVALID_INPUT": "输入信息无效，请检查日期、时间和时区。",
+  "engine.errors.E_DATE_OUT_OF_RANGE": "支持的出生年份为 1900 至 2100 年。",
+  "engine.errors.E_LUNAR_NO_LEAP_MONTH": "该年份没有指定的农历闰月。",
+  "engine.errors.E_REQUIRES_BIRTH_TIME": "此体系需要准确的出生时间。",
+  "engine.errors.E_REQUIRES_PLACE": "此排盘模式需要出生地点。",
+  "engine.errors.E_UNSUPPORTED_SCHOOL": "暂不支持所选流派参数。",
+  "engine.errors.E_EPHEMERIS": "星历计算失败，请稍后重试。",
+  "engine.warnings.W_DST_PERIOD": "出生时处于夏令时期间，请确认出生证明时间是否已包含夏令时。",
+  "engine.warnings.W_NO_PLACE": "未提供出生地点，已使用默认时区，不作真太阳时修正。",
+  "engine.warnings.W_NO_HOUR_PILLAR": "出生时辰未知，命盘不含时柱，结果置信度降低。",
+  "engine.warnings.W_NOON_CHART": "出生时间未知，按当地正午计算，不显示宫位与四轴。"
 }

@@ -125,5 +125,16 @@
   "dev.tokens.value": "{value}",
   "common.brandTitle": "{nameZh} · {nameEn}",
   "common.number": "{value, number}",
-  "dev.tokens.termBilingual": "术语示例 · Term example"
+  "dev.tokens.termBilingual": "术语示例 · Term example",
+  "engine.errors.E_INVALID_INPUT": "Invalid input. Check the date, time and time zone.",
+  "engine.errors.E_DATE_OUT_OF_RANGE": "Supported birth years are 1900 through 2100.",
+  "engine.errors.E_LUNAR_NO_LEAP_MONTH": "The specified lunar leap month does not exist in this year.",
+  "engine.errors.E_REQUIRES_BIRTH_TIME": "This system requires an accurate birth time.",
+  "engine.errors.E_REQUIRES_PLACE": "This chart mode requires a birthplace.",
+  "engine.errors.E_UNSUPPORTED_SCHOOL": "The selected school parameters are not supported yet.",
+  "engine.errors.E_EPHEMERIS": "Ephemeris calculation failed. Please try again later.",
+  "engine.warnings.W_DST_PERIOD": "Daylight saving time was in effect. Please confirm whether the birth certificate time includes it.",
+  "engine.warnings.W_NO_PLACE": "No birthplace was provided. The default time zone is used without apparent solar time correction.",
+  "engine.warnings.W_NO_HOUR_PILLAR": "Birth time is unknown. The hour pillar is omitted and confidence is reduced.",
+  "engine.warnings.W_NOON_CHART": "Birth time is unknown. The chart uses local noon without houses or angles."
 }
