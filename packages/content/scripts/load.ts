@@ -1,5 +1,5 @@
 import { readdir, readFile } from 'node:fs/promises';
-import { join, dirname } from 'node:path';
+import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { System } from '@tianji/shared';
 import {
@@ -10,6 +10,7 @@ import {
 } from './validation';
 import type { LocatedUnit, Diagnostic } from './validation';
 import type { GlossaryEntry } from '../src';
+import { validateAsset } from './assets';
 export const root = dirname(dirname(fileURLToPath(import.meta.url)));
 export async function files(directory: string, suffix: string): Promise<string[]> {
   try {
@@ -40,7 +41,13 @@ export async function loadContent() {
   for (const system of [...Object.values(System), 'common'])
     for (const file of await files(join(root, system), '.yaml')) {
       if (file.endsWith('/transitions.yaml')) continue;
-      const result = validateSource(file, await readFile(file, 'utf8'), fixtures);
+      const source = await readFile(file, 'utf8');
+      const assetDiagnostics = validateAsset(relative(root, file), file, source);
+      if (assetDiagnostics) {
+        diagnostics.push(...assetDiagnostics);
+        continue;
+      }
+      const result = validateSource(file, source, fixtures);
       units.push(...result.units);
       diagnostics.push(...result.diagnostics);
     }

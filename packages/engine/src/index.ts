@@ -31,6 +31,9 @@ import { computeBazi, BaziSchoolSchema, baziWarnings } from './bazi';
 export * from './ziwei';
 export * from './tarot';
 export * from './astrology';
+// DESIGN-GAP: Both Ziwei and Qimen define detectPatterns; preserve Ziwei's earlier root API and expose the Qimen variant by a qualified alias.
+export { detectPatterns } from './ziwei';
+export { detectPatterns as detectQimenPatterns } from './qimen';
 import { computeAstrology, computeVedic, YOGA_CONDITIONS } from './astrology';
 export const ENGINE_VERSION = version;
 const chartSchemas = {

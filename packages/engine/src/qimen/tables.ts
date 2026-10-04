@@ -2,7 +2,7 @@ import {
   type SolarTerm,
   type Stem,
   type Branch,
-  type StarKey,
+  type QimenStarKey as StarKey,
   type GateKey,
   type DeityKey,
   type Trigram,

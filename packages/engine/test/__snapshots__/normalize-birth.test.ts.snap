@@ -1,7 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`document birth fixtures > preserves F as an invalid leap month instead of changing its year 1`] = `[EngineError: engine.errors.E_LUNAR_NO_LEAP_MONTH]`;
-
 exports[`document birth fixtures > snapshots A deterministically 1`] = `
 {
   "gender": "male",
@@ -237,6 +235,53 @@ exports[`document birth fixtures > snapshots E deterministically 1`] = `
   },
   "timeUnknown": true,
   "utc": "1995-08-20T02:00:00Z",
+  "warnings": [],
+}
+`;
+
+exports[`document birth fixtures > snapshots F deterministically 1`] = `
+{
+  "gender": "unspecified",
+  "jd": 2449113.4166666665,
+  "local": {
+    "day": 6,
+    "hour": 6,
+    "minute": 0,
+    "month": 5,
+    "tz": "Asia/Shanghai",
+    "year": 1993,
+  },
+  "lunar": {
+    "day": 15,
+    "isLeap": true,
+    "month": 3,
+    "year": 1993,
+    "yearGanZhi": {
+      "branch": "you",
+      "stem": "gui",
+    },
+  },
+  "place": {
+    "lat": 30.67,
+    "lng": 104.06,
+    "name": "Chengdu",
+    "tz": "Asia/Shanghai",
+  },
+  "solarTime": {
+    "enabled": true,
+    "equationOfTimeMinutes": 3.361982740461576,
+    "local": {
+      "day": 6,
+      "hour": 4,
+      "minute": 59,
+      "month": 5,
+      "year": 1993,
+    },
+    "longitudeCorrectionMinutes": -63.75999999999999,
+    "offsetMinutes": -60.39801725953841,
+  },
+  "timeUnknown": false,
+  "utc": "1993-05-05T22:00:00Z",
   "warnings": [],
 }
 `;

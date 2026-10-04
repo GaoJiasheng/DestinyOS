@@ -23,8 +23,7 @@ import goldens from './fixtures/ziwei/goldens.json';
 import goldenA from './fixtures/ziwei/A.json';
 import goldenB from './fixtures/ziwei/B.json';
 import goldenF from './fixtures/ziwei/F-valid.json';
-// DESIGN-GAP: 1992 has no leap month; preserve F's error and use 2017 leap June for the requested rules.
-const validF = { ...F, year: 2017 };
+const validF = F;
 vi.mock('iztro', async (importOriginal) => {
   const original = await importOriginal<typeof import('iztro')>();
   return { ...original, astro: { ...original.astro, bySolar: vi.fn(original.astro.bySolar) } };
@@ -159,14 +158,16 @@ describe('iztro adapter golden fixtures and late Zi/leap handling', () => {
     const reference = astro.bySolar('1985-11-2', 12, '女', true, 'zh-CN');
     expect(late.basics.soulPalaceBranch).toBe(mapBranch(reference.earthlyBranchOfSoulPalace));
   });
-  it('Fixture F is invalid; real leap June splits at fifteen and as_next differs', () => {
-    expect(() => run(F)).toThrow(expect.objectContaining({ code: 'E_LUNAR_NO_LEAP_MONTH' }));
+  it('Fixture F leap March splits at fifteen and as_next differs', () => {
+    expect(() => run({ ...F, year: 1992, month: 6 })).toThrow(
+      expect.objectContaining({ code: 'E_LUNAR_NO_LEAP_MONTH' }),
+    );
     expect(run(validF)).toEqual(run(validF, { leapMonth: 'as_prev' }));
     expect(run(validF, { leapMonth: 'as_next' }).basics.soulPalaceBranch).not.toBe(
       run(validF).basics.soulPalaceBranch,
     );
-    const last = run({ ...validF, day: 30 }, { leapMonth: 'as_next' });
-    expect(last).toEqual(run({ ...validF, day: 30 }));
+    const last = run({ ...validF, day: 29 }, { leapMonth: 'as_next' });
+    expect(last).toEqual(run({ ...validF, day: 29 }));
     const later = { ...validF, day: 16 };
     expect(run(later).palaces.map((p) => p.majorStars)).toEqual(
       run(later, { leapMonth: 'as_next' }).palaces.map((p) => p.majorStars),
@@ -267,6 +268,7 @@ describe('§9 independent calendar and star-table checks', () => {
       }
     expect(seen.size).toBe(60);
   });
+  // DESIGN-GAP: Exhaustive 150-chart placement checks need a longer per-test deadline under combined V8 coverage.
   it('Zi Wei placement covers five bureaus × all thirty lunar days; decades cover five bureaus × both directions', () => {
     const candidates = new Map<number, { year: number; hour: number }>();
     for (let year = 1990; year < 2000; year++)
@@ -305,7 +307,7 @@ describe('§9 independent calendar and star-table checks', () => {
           ).toBe(bureau + i * 10);
       }
     }
-  });
+  }, 30_000);
   it.each(
     [
       '廉贞 破军 武曲 太阳',

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { Temporal } from '@js-temporal/polyfill';
-import { Lunar, LunarYear } from 'lunar-typescript';
+import { Lunar } from 'lunar-typescript';
 import { BirthInputSchema, NormalizedBirthSchema } from '@tianji/shared';
 import {
   normalizeBirth,
@@ -29,7 +29,7 @@ const errorCode = (input: unknown, code: string) => {
 // DESIGN-GAP: F/G omit gender and coordinates; use unspecified and approximate city centers.
 // DESIGN-GAP: B's apparent solar clock crosses midnight (00:02); retain it rather than force a late-zi boundary.
 describe('document birth fixtures', () => {
-  for (const [name, input] of Object.entries({ A, B, C, D, E, G })) {
+  for (const [name, input] of Object.entries({ A, B, C, D, E, F, G })) {
     it(`snapshots ${name} deterministically`, () => {
       const result = normalizeBirth(input);
       expect(result).toMatchSnapshot();
@@ -37,15 +37,8 @@ describe('document birth fixtures', () => {
       expect(NormalizedBirthSchema.safeParse(result).success).toBe(true);
     });
   }
-  it('preserves F as an invalid leap month instead of changing its year', () => {
-    // DESIGN-GAP: Document F is impossible: 1992 has no leap month. Keep its input and snapshot its specified validation error.
-    expect(LunarYear.fromYear(F.year).getLeapMonth()).toBe(0);
-    try {
-      normalizeBirth(F);
-    } catch (error) {
-      expect(error).toMatchSnapshot();
-    }
-    errorCode(F, 'E_LUNAR_NO_LEAP_MONTH');
+  it('rejects the nonexistent 1992 leap month as a separate regression', () => {
+    errorCode({ ...F, year: 1992, month: 6 }, 'E_LUNAR_NO_LEAP_MONTH');
   });
   // DESIGN-GAP: Fixture A follows historical IANA DST per 04; the bazi example omits the extra hour.
   it('observes mainland DST for fixture A despite the example correction in bazi §9', () => {
