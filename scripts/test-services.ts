@@ -7,6 +7,7 @@ import { spawn } from 'node:child_process';
 
 // DESIGN-GAP: PGlite and ioredis-mock are isolated test substitutes, exposed through PostgreSQL/RESP
 // so E2E exercises the real Prisma client and local Redis limiter without application mock branches.
+// DESIGN-GAP: Optional port overrides isolate concurrent worktrees; defaults preserve existing test configurations.
 const pg = new PGlite();
 const shadow = new PGlite();
 // DESIGN-GAP: PGlite multiplexes sessions; clear session-local prepared statements on startup.
@@ -28,8 +29,16 @@ for (const database of [pg, shadow]) {
 }
 await pg.waitReady;
 await shadow.waitReady;
-const postgres = new PGLiteSocketServer({ db: pg, port: 55432, maxConnections: 20 });
-const shadowServer = new PGLiteSocketServer({ db: shadow, port: 55433, maxConnections: 10 });
+const postgres = new PGLiteSocketServer({
+  db: pg,
+  port: Number(process.env.TEST_POSTGRES_PORT ?? 55432),
+  maxConnections: 20,
+});
+const shadowServer = new PGLiteSocketServer({
+  db: shadow,
+  port: Number(process.env.TEST_SHADOW_PORT ?? 55433),
+  maxConnections: 10,
+});
 await postgres.start();
 await shadowServer.start();
 const redis = new RedisMock();
@@ -82,7 +91,9 @@ const cache = createTcpServer((socket) => {
     }
   });
 });
-await new Promise<void>((resolve) => cache.listen(56379, '127.0.0.1', resolve));
+await new Promise<void>((resolve) =>
+  cache.listen(Number(process.env.TEST_REDIS_PORT ?? 56379), '127.0.0.1', resolve),
+);
 const outbox: unknown[] = [];
 const mail = createHttpServer((request, response) => {
   if (request.method === 'POST' && request.url === '/mail') {
@@ -105,7 +116,9 @@ const mail = createHttpServer((request, response) => {
     response.end();
   }
 });
-await new Promise<void>((resolve) => mail.listen(58081, '127.0.0.1', resolve));
+await new Promise<void>((resolve) =>
+  mail.listen(Number(process.env.TEST_MAIL_PORT ?? 58081), '127.0.0.1', resolve),
+);
 console.log('Test PostgreSQL, shadow database, Redis and mail sink are ready.');
 
 let child: ReturnType<typeof spawn> | undefined;
@@ -113,10 +126,27 @@ if (process.argv.includes('--web')) {
   const migrate = spawn('pnpm', ['db:deploy'], { stdio: 'inherit', env: process.env });
   const code = await new Promise<number | null>((resolve) => migrate.on('exit', resolve));
   if (code !== 0) throw new Error('Test database migration failed');
-  child = spawn('pnpm', ['--filter', '@tianji/web', 'dev', '--port', '3100'], {
-    stdio: 'inherit',
-    env: process.env,
-  });
+  child = spawn(
+    'pnpm',
+    [
+      '--filter',
+      '@tianji/web',
+      // DESIGN-GAP: Production E2E avoids transient webpack development chunk failures; other suites retain dev.
+      process.env.TEST_WEB_MODE === 'production' ? 'start' : 'dev',
+      '--port',
+      process.env.TEST_WEB_PORT ?? '3100',
+    ],
+    {
+      stdio: 'inherit',
+      env:
+        process.env.TEST_WEB_MODE === 'production'
+          ? {
+              ...process.env,
+              NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}`,
+            }
+          : process.env,
+    },
+  );
 }
 async function stop() {
   child?.kill('SIGTERM');

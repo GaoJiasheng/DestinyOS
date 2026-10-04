@@ -13,6 +13,7 @@ import {
   type ActionResult,
 } from '@/lib/reading-schema';
 import {
+  generateReading,
   actionError,
   resolveBirth,
   idempotentCreate,
@@ -399,5 +400,61 @@ export async function getReadingBirthAction(raw: string) {
     });
     if (!row) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
     return ReadingRequestSchema.parse(JSON.parse(row.encInput)).birth ?? null;
+  });
+}
+
+/** Preview a different natal house system with matching interpretation; saved snapshots remain immutable. */
+export async function previewAstrologyHousesAction(raw: unknown) {
+  return run(async () => {
+    await guardAge();
+    const input = z
+      .object({
+        readingId: idSchema.optional(),
+        request: ReadingRequestSchema.optional(),
+        createdAt: z.string().datetime().optional(),
+        locale: z.enum(['zh', 'en']),
+        houseSystem: z.enum(['placidus', 'whole_sign', 'equal']),
+      })
+      .strict()
+      .refine((value) => Boolean(value.readingId) !== Boolean(value.request))
+      .parse(raw);
+    const session = await auth();
+    let request = input.request;
+    let now = input.createdAt;
+    if (input.readingId) {
+      const row = await getDb().reading.findUnique({ where: { id: input.readingId } });
+      if (!row) throw new ApiError('E_NOT_FOUND', 'Reading not found', 404);
+      if (row.userId !== session?.user.id && !row.isPublic)
+        throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+      request = ReadingRequestSchema.parse(JSON.parse(row.encInput));
+      now = row.createdAt.toISOString();
+    }
+    if (!request?.birth || request.system !== 'astrology' || !now)
+      throw new ApiError('E_INVALID_INPUT', 'Natal birth snapshot required', 400);
+    checkAge(request.birth, input.locale);
+    const ip = (await headers()).get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    assertRateLimit(
+      await ratelimit(
+        session?.user.id
+          ? session.user.plan === 'pro'
+            ? 'reading.pro'
+            : 'reading.free'
+          : 'reading.anon',
+        session?.user.id ?? ip,
+      ),
+    );
+    // DESIGN-GAP: House switching is a read-only preview, with chart/report/meta changed together; no new reading is persisted.
+    const generated = await generateReading(
+      {
+        ...request,
+        locale: input.locale,
+        options: {
+          ...request.options,
+          school: { ...request.options?.school, houseSystem: input.houseSystem },
+        },
+      },
+      now,
+    );
+    return { chart: generated.chart, report: generated.report, meta: generated.meta };
   });
 }

@@ -2123,3 +2123,255 @@ meter {
   top: 0;
   background: var(--surface-2);
 }
+
+/* T-37: SVG charts share the documented theme and semantic color tokens. */
+.natal-wheel,
+.vedic-chart {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: var(--space-4) auto;
+  overflow: visible;
+}
+.natal-wheel text,
+.vedic-chart text {
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--gold-soft);
+  font-family: var(--font-data), 'Arial Unicode MS', sans-serif;
+  pointer-events: none;
+}
+.zodiac-glyph {
+  font-size: 22px;
+}
+.planet-glyph {
+  font-size: 18px;
+}
+.house-number {
+  font-size: 10px;
+}
+.axis-label {
+  font-size: 8px;
+}
+.natal-wheel [role='button'],
+.vedic-chart [role='button'] {
+  cursor: pointer;
+}
+.chart-selected text,
+.natal-wheel [role='button']:focus text,
+.vedic-chart [role='button']:focus text {
+  fill: var(--text-1);
+  font-weight: 700;
+}
+.chart-selected circle,
+.natal-wheel [role='button']:focus circle,
+.vedic-chart [role='button']:focus rect,
+.vedic-chart .chart-selected rect {
+  stroke: var(--accent-2);
+  stroke-width: 2;
+  fill: var(--surface-2);
+}
+.vedic-sign {
+  font-size: 10px;
+}
+.vedic-body {
+  font-size: 9px;
+}
+.vedic-center {
+  font-size: 18px;
+}
+.vedic-center-small {
+  font-size: 11px;
+}
+.chart-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.chart-controls label {
+  display: grid;
+  gap: var(--space-2);
+  font-size: 13px;
+}
+.chart-controls select,
+.chart-toggle {
+  background: var(--surface-2);
+  color: var(--text-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  padding: var(--space-2) var(--space-3);
+  min-height: 44px;
+  max-width: 100%;
+}
+.chart-toggle[aria-pressed='true'] {
+  border-color: var(--accent-2);
+  color: var(--gold-soft);
+}
+.chart-controls :disabled {
+  opacity: 0.55;
+}
+.division-controls {
+  display: flex;
+  gap: var(--space-2);
+}
+.vedic-division {
+  display: none;
+  margin: 0;
+  min-width: 0;
+}
+.vedic-division.active {
+  display: block;
+}
+.vedic-division figcaption {
+  color: var(--gold-soft);
+  text-align: center;
+}
+.planet-table caption,
+.aspect-table caption,
+.technical-table caption {
+  text-align: left;
+  font-size: 14px;
+  color: var(--gold-soft);
+  padding: var(--space-3) 0;
+}
+.technical-table button {
+  color: var(--gold-soft);
+  text-align: left;
+  min-height: 44px;
+}
+.aspect-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: var(--space-2);
+  border-radius: var(--r-pill);
+}
+.nakshatra-card {
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+}
+.nakshatra-title {
+  color: var(--gold-soft);
+  font-size: 22px;
+  min-height: 44px;
+}
+.dasha-timeline {
+  margin-top: var(--space-5);
+}
+.dasha-scroll {
+  overflow-x: auto;
+  padding: var(--space-3) 0;
+}
+.dasha-track {
+  position: relative;
+  display: flex;
+  min-width: 900px;
+}
+.dasha-track button {
+  flex-basis: 0;
+  padding: var(--space-2) var(--space-1);
+  border-top: 4px solid;
+  min-width: 0;
+  font-size: 11px;
+  color: var(--text-1);
+}
+.dasha-track button[aria-expanded='true'] {
+  outline: 1px solid var(--gold-soft);
+  outline-offset: -1px;
+}
+.dasha-track small {
+  display: block;
+  font-size: 9px;
+  color: var(--text-2);
+}
+.dasha-pointer {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: 2px;
+  background: var(--gold-soft);
+  pointer-events: none;
+}
+.dasha-pointer::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin-left: -3px;
+  background: var(--gold-soft);
+  transform: rotate(45deg);
+}
+.antar-table {
+  margin-top: var(--space-3);
+}
+.antar-table tr[aria-current='date'] {
+  background: var(--surface-2);
+  color: var(--gold-soft);
+}
+/* DESIGN-GAP: Long chart controls and tables must remain reachable through page scrolling. */
+.report-layout:has(.astrology-report-chart) .report-chart,
+.report-layout:has(.vedic-report-chart) .report-chart {
+  position: static;
+}
+@media (min-width: 1024px) {
+  .report-layout:has(.vedic-report-chart) .report-columns {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'headline' 'chart' 'body';
+  }
+  .vedic-divisions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+  .vedic-division {
+    display: block;
+  }
+  .division-controls {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .zodiac-ring {
+    animation: wheel-arrive 800ms var(--ease-out);
+    transform-origin: 200px 200px;
+  }
+  .planet-ring {
+    animation: chart-arrive 500ms var(--ease-out) 800ms both;
+  }
+  .aspect-lines {
+    animation: chart-arrive 500ms var(--ease-out) 1200ms both;
+  }
+  .vedic-division.active {
+    animation: chart-arrive 300ms var(--ease-out);
+  }
+}
+@keyframes wheel-arrive {
+  from {
+    opacity: 0;
+    transform: rotate(-30deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+@keyframes chart-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.birth-controls {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}

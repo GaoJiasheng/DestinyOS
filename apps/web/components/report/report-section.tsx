@@ -110,7 +110,7 @@ export function ReportSection({
   readingId?: string;
 }) {
   return (
-    <section id={`section-${section.key}`} className="report-section report-card">
+    <section id={`section-${section.key}`} className="report-section report-card" tabIndex={-1}>
       <h2 className="type-h2">
         <ReportText text={section.title} />
       </h2>

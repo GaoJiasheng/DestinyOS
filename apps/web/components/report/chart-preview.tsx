@@ -1,6 +1,8 @@
 'use client';
-import { BaziChartSchema } from '@tianji/shared';
+import { AstroChartSchema, VedicChartSchema, BaziChartSchema } from '@tianji/shared';
 import { useTranslations } from 'next-intl';
+import { NatalWheel } from '../charts/natal-wheel';
+import { VedicSouthChart } from '../charts/vedic-south-chart';
 import { useCopy } from '@/i18n/use-copy';
 /** Accessible first-system chart table; detailed chart visualizations continue in T-33. */
 export function ChartPreview({
@@ -14,6 +16,12 @@ export function ChartPreview({
 }) {
   const t = useCopy();
   const translations = useTranslations();
+  const astro = AstroChartSchema.safeParse(chart);
+  const vedic = VedicChartSchema.safeParse(chart);
+  if (astro.success)
+    return <NatalWheel chart={astro.data} highlight={highlight} onSelect={onSelect} />;
+  if (vedic.success)
+    return <VedicSouthChart chart={vedic.data} highlight={highlight} onSelect={onSelect} />;
   const parsed = BaziChartSchema.safeParse(chart);
   if (!parsed.success)
     return (
@@ -23,11 +31,7 @@ export function ChartPreview({
     );
   const bazi = parsed.data;
   return (
-    <div
-      id="chart-root"
-      data-highlight={highlight}
-      className={highlight ? 'evidence-highlight' : undefined}
-    >
+    <div data-highlight={highlight} className={highlight ? 'evidence-highlight' : undefined}>
       <table className="pillar-table">
         <caption>{t('report.chart')}</caption>
         <thead>
