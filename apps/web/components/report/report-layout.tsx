@@ -130,7 +130,7 @@ export function ReportLayout({
     }
   };
   return (
-    <article className="report-layout">
+    <article className={`report-layout${view.system === 'tarot' ? ' tarot-report' : ''}`}>
       <header className="report-toolbar">
         <div>
           <p className="eyebrow">{t(`nav.${view.system}` as MessageKey)}</p>

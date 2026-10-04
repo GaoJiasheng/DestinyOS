@@ -68,6 +68,8 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
     options: req.options,
     question,
     seed: req.seed ?? digest(req.idempotencyKey),
+    allowReversed: req.allowReversed,
+    pickedIndices: req.pickedIndices,
     spread: req.spread ? SpreadKeySchema.parse(req.spread) : undefined,
     category:
       req.system === 'tarot' && req.category ? CategorySchema.parse(req.category) : undefined,

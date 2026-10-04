@@ -1,5 +1,6 @@
 'use client';
-import { BaziChartSchema } from '@tianji/shared';
+import { SpreadLayout } from '@/components/tarot/spread-layout';
+import { BaziChartSchema, TarotChartSchema } from '@tianji/shared';
 import { useTranslations } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
 /** Accessible first-system chart table; detailed chart visualizations continue in T-33. */
@@ -14,6 +15,13 @@ export function ChartPreview({
 }) {
   const t = useCopy();
   const translations = useTranslations();
+  const tarot = TarotChartSchema.safeParse(chart);
+  if (tarot.success)
+    return (
+      <div id="chart-root">
+        <SpreadLayout spread={tarot.data.spread} cards={tarot.data.cards} />
+      </div>
+    );
   const parsed = BaziChartSchema.safeParse(chart);
   if (!parsed.success)
     return (
