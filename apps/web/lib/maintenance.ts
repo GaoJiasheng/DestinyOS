@@ -3,8 +3,12 @@ import { scrubText } from './privacy';
 /** Scrub anonymous retained feedback in bounded batches; identifiers of the former owner are never audited. */
 export async function scrubFeedback() {
   const db = getDb();
+  const expired = await db.feedback.updateMany({
+    where: { createdAt: { lt: new Date(Date.now() - 30 * 86400000) }, text: { not: null } },
+    data: { text: null },
+  });
   let cursor: string | undefined,
-    count = 0;
+    count = expired.count;
   // DESIGN-GAP: Anonymous feedback is scrubbed nightly; existing ISO dates/email rules are extended to phones and coordinates.
   for (;;) {
     const rows = await db.feedback.findMany({

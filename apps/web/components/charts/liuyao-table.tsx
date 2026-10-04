@@ -8,7 +8,7 @@ export function LiuyaoTable({ chart }: { chart: IchingChart }) {
   const l = chart.liuyao;
   if (!l) return null;
   return (
-    <div className="divination-table-scroll" data-testid="liuyao-table">
+    <div className="divination-table-scroll" data-testid="liuyao-table" tabIndex={0}>
       <p>
         {t('useGod')} · {t(`relatives.${l.useGod.relative}`)} · {t(`states.${l.useGod.state}`)}
       </p>

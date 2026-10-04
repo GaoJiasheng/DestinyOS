@@ -15,6 +15,15 @@ export default function middleware(request: NextRequest) {
   const nonce = btoa(crypto.randomUUID());
   const csp = reportOnlyCsp(nonce);
   request.headers.set('x-nonce', nonce);
+  if (/^\/admin(?:\/|$)/.test(request.nextUrl.pathname))
+    request.headers.set(
+      'x-next-intl-locale',
+      request.cookies.get('admin_locale')?.value === 'en' ? 'en' : 'zh',
+    );
+  if (/^\/s\//.test(request.nextUrl.pathname)) {
+    const locale = request.nextUrl.searchParams.get('locale');
+    request.headers.set('x-share-locale', locale === 'zh' || locale === 'en' ? locale : '');
+  }
   request.headers.set('Content-Security-Policy', csp);
   const excluded =
     /^\/(api|admin|s)(?:\/|$)/.test(request.nextUrl.pathname) ||

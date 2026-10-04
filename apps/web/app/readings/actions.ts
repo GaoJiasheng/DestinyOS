@@ -3,6 +3,7 @@ import { cookies, headers } from 'next/headers';
 import { getLocale } from 'next-intl/server';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';
+import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
@@ -72,7 +73,18 @@ export async function createReadingAction(raw: unknown) {
         id ?? ip,
       ),
     );
-    return idempotentCreate(resolved.req, id ?? ip, id, resolved.profile);
+    try {
+      const result = await idempotentCreate(resolved.req, id ?? ip, id, resolved.profile);
+      return result;
+    } catch (error) {
+      await recordEvent('reading.failed', {
+        userId: id,
+        system: req.system,
+        locale: req.locale,
+        plan: session?.user.plan ?? 'free',
+      });
+      throw error;
+    }
   });
 }
 /** Read owner-only snapshots; public tokens use a separate privacy projection. */

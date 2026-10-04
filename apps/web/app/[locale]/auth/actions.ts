@@ -62,6 +62,7 @@ export async function confirmLoginAction(
   locale: string,
   token: string,
   email: string,
+  returnTo?: string,
 ): Promise<void> {
   const parsed = verificationSchema.safeParse({ locale, token, email });
   if (!parsed.success) redirect(`/${locale === 'en' ? 'en' : 'zh'}/auth/login?error=Verification`);
@@ -72,7 +73,7 @@ export async function confirmLoginAction(
   callback.search = new URLSearchParams({
     token: parsed.data.token,
     email: parsed.data.email,
-    callbackUrl: `/${parsed.data.locale}`,
+    callbackUrl: returnTo === '/admin' ? '/admin' : `/${parsed.data.locale}`,
   }).toString();
   // DESIGN-GAP: Consume through Auth.js inside the CSRF-protected action. Public email GET callbacks
   // only show confirmation; redirecting via a Route Handler breaks Server Action router navigation.

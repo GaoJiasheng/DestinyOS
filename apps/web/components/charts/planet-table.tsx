@@ -16,7 +16,7 @@ export function PlanetTable({
   const vedic = 'ayanamsa' in chart;
   const selected = bodyFromEvidence(chart.bodies, highlight);
   return (
-    <div className="technical-table-wrap">
+    <div className="technical-table-wrap" tabIndex={0}>
       <table className="technical-table planet-table">
         <caption>{t('charts.planets')}</caption>
         <thead>
@@ -94,7 +94,7 @@ export function HouseTable({ chart }: { chart: AstroChart }) {
   const t = useTranslations();
   if (chart.noonChart || !chart.houses) return <p>{t('charts.noHouses')}</p>;
   return (
-    <div className="technical-table-wrap">
+    <div className="technical-table-wrap" tabIndex={0}>
       <table className="technical-table">
         <caption>{t('charts.houses')}</caption>
         <thead>

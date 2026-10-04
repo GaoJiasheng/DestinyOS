@@ -1,0 +1,137 @@
+/* DESIGN-GAP: Minimal admin styling shares public tokens and semantic shadcn primitives. */
+.admin-header,
+.admin-nav,
+.admin-main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+.admin-header,
+.admin-header form,
+.admin-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.admin-header {
+  justify-content: space-between;
+}
+.admin-main h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.admin-main h2 {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+.admin-main h3 {
+  font-size: 1.1rem;
+}
+.admin-main p {
+  margin: 0.6rem 0;
+}
+.admin-main a,
+.admin-nav a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.admin-main form {
+  margin-bottom: 12px;
+}
+.admin-main input,
+.admin-main textarea,
+.admin-main select,
+.admin-header select {
+  padding: 10px;
+  background: var(--bg-card, #151827);
+  color: var(--text-primary, #ececf1);
+  border: 1px solid #9b9bad;
+  border-radius: 8px;
+  max-width: 100%;
+}
+.admin-main textarea {
+  width: 100%;
+  min-height: 160px;
+}
+.admin-main label {
+  display: block;
+  margin: 12px 0 4px;
+}
+.admin-main input[type='checkbox'] {
+  margin-right: 8px;
+}
+.admin-table-scroll {
+  overflow: auto;
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #545467;
+  vertical-align: top;
+}
+.admin-table caption {
+  text-align: left;
+  padding: 10px 0;
+}
+.admin-grid,
+.admin-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.admin-panel {
+  border: 1px solid #545467;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-wrap: anywhere;
+}
+.admin-action-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.admin-action-form p {
+  flex-basis: 100%;
+}
+.admin-yaml {
+  min-height: 600px !important;
+  font-family: monospace;
+}
+.admin-diagnostics {
+  max-height: 250px;
+  overflow: auto;
+}
+.admin-matched {
+  border-left: 4px solid #dbb87c;
+  padding-left: 12px;
+}
+.admin-preview {
+  max-height: 700px;
+  overflow: auto;
+}
+.admin-main pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .admin-grid,
+  .admin-editor-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-header,
+  .admin-main,
+  .admin-nav {
+    padding: 16px;
+  }
+}
+
+.admin-main .button-primary {
+  color: #151827;
+}

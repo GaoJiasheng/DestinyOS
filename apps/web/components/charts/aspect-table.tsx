@@ -15,7 +15,7 @@ export function AspectTable({
   const t = useTranslations();
   const selected = bodyFromEvidence(chart.bodies, highlight);
   return (
-    <div className="technical-table-wrap">
+    <div className="technical-table-wrap" tabIndex={0}>
       <table className="technical-table aspect-table">
         <caption>{t('charts.aspects')}</caption>
         <thead>

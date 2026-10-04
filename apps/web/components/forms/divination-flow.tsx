@@ -96,6 +96,12 @@ export function DivinationFlow({
       if (
         anchor &&
         anchor.origin === location.origin &&
+        // DESIGN-GAP: Same-page anchors (including the skip link) move focus without leaving the ritual.
+        !(
+          anchor.pathname === location.pathname &&
+          anchor.search === location.search &&
+          anchor.hash
+        ) &&
         !completed.current &&
         !event.ctrlKey &&
         !event.metaKey

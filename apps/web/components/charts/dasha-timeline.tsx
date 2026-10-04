@@ -96,6 +96,7 @@ export function DashaTimeline({
                 key={period.from}
                 id={`antar-${all ? 'all' : 'chart'}-${i}`}
                 className="technical-table-wrap antar-table"
+                tabIndex={0}
               >
                 <table className="technical-table">
                   <caption>

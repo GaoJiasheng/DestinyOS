@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { toast } from 'sonner';
 import { normalizeBirth } from '@tianji/engine/common';
@@ -32,8 +32,13 @@ export function BirthForm({
   const t = useCopy();
   const locale = useLocale() as Locale;
   const router = useRouter();
-  const [birth, setBirth] = useState<BirthInput>(
-    initial ?? {
+  const [birth, setBirth] = useState<BirthInput>(() => {
+    if (initial) {
+      const { calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown, place, gender } =
+        initial;
+      return { calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown, place, gender };
+    }
+    return {
       calendar: 'gregorian',
       year: 0,
       month: 1,
@@ -42,9 +47,16 @@ export function BirthForm({
       minute: 0,
       timeUnknown: false,
       gender: 'unspecified',
-    },
-  );
+    };
+  });
   const [step, setStep] = useState(1);
+  const stepHeading = useRef<HTMLHeadingElement | null>(null);
+  const previousStep = useRef(1);
+  // DESIGN-GAP: Move keyboard focus to the new step heading only after a step change, never on initial page load.
+  useEffect(() => {
+    if (previousStep.current !== step) stepHeading.current?.focus();
+    previousStep.current = step;
+  }, [step]);
   const [touched, setTouched] = useState(false);
   const [precise, setPrecise] = useState(Boolean(initial));
   const [name, setName] = useState(initial?.displayName ?? '');
@@ -229,7 +241,7 @@ export function BirthForm({
         }}
       >
         <fieldset disabled={!hydrated || busy} className="birth-controls">
-          <h2 className="type-h2">
+          <h2 className="type-h2" ref={stepHeading} tabIndex={-1}>
             {t(step === 1 ? 'form.birth.dateTime' : 'form.birth.placeGender')}
           </h2>
           {step === 1 ? (

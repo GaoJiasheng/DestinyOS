@@ -3,6 +3,7 @@ import type Stripe from 'stripe';
 import { createTranslator } from 'next-intl';
 import { Resend } from 'resend';
 import { getDb } from './db';
+import { eventIdentity, incrementEventCounter } from './events';
 import { getStripe, subscriptionPlan } from './stripe';
 import { getLocalRedis, getUpstashRedis } from './redis';
 import { ApiError } from './api-error';
@@ -42,11 +43,14 @@ async function synchronize(subscriptionId: string, customerId: string | null, us
   const owner = userId ?? existing?.userId;
   // DESIGN-GAP: Unknown customers are ignored; deletion retries must never resurrect a deleted account.
   if (!owner) return;
-  await db.$transaction(
+  const transition = await db.$transaction(
     async (tx) => {
       // DESIGN-GAP: Serialize subscription changes per owner, then retrieve current Stripe state so out-of-order events cannot restore stale entitlements.
       await tx.$queryRaw`SELECT id FROM "User" WHERE id = ${owner} FOR UPDATE`;
-      const user = await tx.user.findUnique({ where: { id: owner }, select: { deletedAt: true } });
+      const user = await tx.user.findUnique({
+        where: { id: owner },
+        select: { deletedAt: true, plan: true, locale: true },
+      });
       if (!user || user.deletedAt) return;
       const sub = await getStripe().subscriptions.retrieve(subscriptionId);
       const customer = objectId(sub.customer);
@@ -66,10 +70,23 @@ async function synchronize(subscriptionId: string, customerId: string | null, us
         create: { userId: owner, ...data },
         update: data,
       });
-      await tx.user.update({ where: { id: owner }, data: { plan: subscriptionPlan(sub.status) } });
+      const plan = subscriptionPlan(sub.status);
+      await tx.user.update({ where: { id: owner }, data: { plan } });
+      if (plan !== user.plan) {
+        await tx.event.create({
+          data: {
+            ...eventIdentity(owner),
+            name: plan === 'pro' ? 'sub.started' : 'sub.ended',
+            locale: user.locale,
+            plan,
+          },
+        });
+        return plan === 'pro' ? ('sub.started' as const) : ('sub.ended' as const);
+      }
     },
     { timeout: 20000 },
   );
+  if (transition) await incrementEventCounter(transition);
 }
 async function processEvent(event: Stripe.Event) {
   switch (event.type) {

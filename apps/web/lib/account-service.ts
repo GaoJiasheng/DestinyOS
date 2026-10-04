@@ -72,7 +72,11 @@ export async function reserveExport(userId: string) {
     });
 }
 /** Cancel billing before the atomic soft delete, allowing safe retries if Stripe is unavailable. */
-export async function softDeleteAccount(userId: string, deleteFeedback = false) {
+export async function softDeleteAccount(
+  userId: string,
+  deleteFeedback = false,
+  actor = 'system:account',
+) {
   const db = getDb();
   const subscription = await db.subscription.findUnique({ where: { userId } });
   if (subscription?.stripeSubscriptionId && subscription.status !== 'canceled') {
@@ -101,7 +105,12 @@ export async function softDeleteAccount(userId: string, deleteFeedback = false) 
     else
       await tx.feedback.updateMany({ where: { userId }, data: { userId: null, readingId: null } });
     await tx.adminAuditLog.create({
-      data: { adminId: 'system:account', action: 'user.soft_delete', diff: { deleteFeedback } },
+      data: {
+        adminId: actor,
+        action: 'user.soft_delete',
+        ...(actor === 'system:account' ? {} : { target: userId }),
+        diff: { deleteFeedback },
+      },
     });
     if (subscription)
       await tx.subscription.update({

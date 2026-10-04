@@ -1,7 +1,9 @@
 'use server';
 import { z } from 'zod';
 import { headers } from 'next/headers';
+import { getLocale } from 'next-intl/server';
 import { auth } from '@/lib/auth';
+import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
 import { actionError } from '@/lib/reading-service';
@@ -50,6 +52,12 @@ export async function createShareLinkAction(raw: unknown) {
       });
       await tx.reading.update({ where: { id: reading.id }, data: { isPublic: true } });
     });
+    await recordEvent('share.created', {
+      userId: session.user.id,
+      system: reading.system,
+      locale: (await getLocale()) === 'en' ? 'en' : 'zh',
+      plan: session.user.plan,
+    });
     const origin = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`;
     return { ok: true as const, data: { token, url: `${origin}/s/${token}` } };
   } catch (error) {
@@ -91,6 +99,12 @@ export async function signDailyCardAction(raw: unknown) {
     const ip = (await headers()).get('x-forwarded-for')?.split(',')[0] ?? 'unknown';
     assertRateLimit(await ratelimit('share', session?.user.id ?? ip));
     const signed = signDailyCard(input);
+    await recordEvent('share.created', {
+      userId: session?.user.id,
+      system: 'daily',
+      locale: input.locale,
+      plan: session?.user.plan ?? 'free',
+    });
     return {
       ok: true as const,
       data: { url: `/api/v1/og/daily?payload=${signed.payload}&signature=${signed.signature}` },

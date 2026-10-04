@@ -1,7 +1,7 @@
 'use client';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { X } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
 import { useCopy } from '@/i18n/use-copy';
 /** Accessible modal with focus trapping, labelled content, and translated controls. */
 export function Dialog({
@@ -22,6 +22,8 @@ export function Dialog({
   className?: string;
 }) {
   const t = useCopy();
+  // DESIGN-GAP: Controlled dialogs use external buttons instead of Radix Trigger; preserve their actual opener for keyboard focus restoration.
+  const opener = useRef<HTMLElement | null>(null);
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
@@ -29,6 +31,14 @@ export function Dialog({
         <DialogPrimitive.Content
           className={`dialog-content${className ? ` ${className}` : ''}`}
           {...(!description ? { 'aria-describedby': undefined } : {})}
+          onOpenAutoFocus={() => {
+            opener.current =
+              document.activeElement instanceof HTMLElement ? document.activeElement : null;
+          }}
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            if (opener.current?.isConnected) opener.current.focus();
+          }}
           onEscapeKeyDown={required ? (event) => event.preventDefault() : undefined}
           onPointerDownOutside={required ? (event) => event.preventDefault() : undefined}
         >

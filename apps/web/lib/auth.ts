@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth';
+import { cookies } from 'next/headers';
 import Google from 'next-auth/providers/google';
 import Resend from 'next-auth/providers/resend';
 import { PrismaAdapter } from '@auth/prisma-adapter';
@@ -7,6 +8,7 @@ import { getDb } from './db';
 import { roleForEmail } from './auth-role';
 import { sendMagicEmail } from './auth-email';
 import { logger } from './logger';
+import { recordEvent } from './events';
 
 export const { auth, handlers, signIn, signOut } = NextAuth(() => {
   const db = getDb();
@@ -21,7 +23,13 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
           name: data.name,
           image: data.image,
           role: roleForEmail(data.email),
+          locale: (await cookies()).get('NEXT_LOCALE')?.value === 'en' ? 'en' : 'zh',
         },
+      });
+      await recordEvent('user.registered', {
+        userId: user.id,
+        locale: user.locale,
+        plan: user.plan,
       });
       return { ...user, email: data.email };
     },
@@ -50,6 +58,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
           const confirmation = new URL(`/${locale}/auth/verify`, original.origin);
           confirmation.searchParams.set('token', original.searchParams.get('token') ?? '');
           confirmation.searchParams.set('email', identifier);
+          if (new URL(callbackUrl, original.origin).pathname === '/admin')
+            confirmation.searchParams.set('returnTo', '/admin');
           await sendMagicEmail(identifier, locale, confirmation.toString());
         },
       }),
@@ -78,11 +88,28 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
         session.user.role =
           roleForEmail(user.email) === 'admin' && current.role === 'admin' ? 'admin' : 'user';
         session.user.plan = current.plan;
+        await recordEvent('user.active', { userId: user.id });
+        await db.user.updateMany({
+          where: {
+            id: user.id,
+            OR: [{ lastActiveAt: null }, { lastActiveAt: { lt: new Date(Date.now() - 60000) } }],
+          },
+          data: { lastActiveAt: new Date() },
+        });
         return session;
       },
     },
     logger: {
-      error: (error) => logger.error({ err: error }, 'Authentication error'),
+      error: (error) => {
+        const raw = error.cause;
+        const cause =
+          raw && typeof raw === 'object' && 'err' in raw && raw.err instanceof Error
+            ? raw.err
+            : undefined;
+        const causeCode =
+          cause && 'code' in cause && typeof cause.code === 'string' ? cause.code : undefined;
+        logger.error({ err: error, causeCode, causeName: cause?.name }, 'Authentication error');
+      },
       warn: (code) => logger.warn({ code }, 'Authentication warning'),
       debug: () => undefined,
     },

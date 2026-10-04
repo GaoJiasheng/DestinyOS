@@ -1,0 +1,151 @@
+import { expect, type Page, type APIRequestContext } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { PrismaClient } from '@prisma/client';
+import { randomUUID } from 'node:crypto';
+import { generateReading, json } from '../lib/reading-service';
+import { encryptField } from '../lib/crypto';
+import { BirthInputSchema, type System } from '@tianji/shared';
+import zh from '../messages/zh.json';
+import en from '../messages/en.json';
+export const db = new PrismaClient({
+  datasourceUrl:
+    'postgresql://postgres:postgres@127.0.0.1:57552/postgres?connection_limit=1&statement_cache_size=0&pgbouncer=true',
+});
+export const copies = { zh, en };
+export const birth = BirthInputSchema.parse({
+  calendar: 'gregorian',
+  year: 1990,
+  month: 5,
+  day: 15,
+  hour: 8,
+  minute: 30,
+  timeUnknown: false,
+  gender: 'male',
+  place: { name: 'Beijing', lat: 39.9, lng: 116.4, tz: 'Asia/Shanghai' },
+});
+process.env.FIELD_ENCRYPTION_KEYS = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
+/** Sign in through real email delivery/confirmation; fetching the verification page alone cannot authenticate. */
+export async function login(
+  page: Page,
+  request: APIRequestContext,
+  locale: 'zh' | 'en',
+  email = `m5-${randomUUID()}@example.test`,
+) {
+  const copy = copies[locale];
+  await page.goto(`/${locale}/auth/login`);
+  const signOut = page.getByRole('button', { name: copy['auth.login.signOut'], exact: true });
+  if (await signOut.isVisible()) await signOut.click();
+  await page.getByLabel(copy['auth.login.email']).fill(email);
+  await page.getByRole('button', { name: copy['auth.login.send'], exact: true }).click();
+  await expect(page.getByRole('status').filter({ hasText: email })).toBeVisible();
+  const link = await mailLink(request, email);
+  await page.goto(link);
+  await expect(
+    page.getByRole('button', { name: copy['auth.verify.confirm'], exact: true }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: copy['auth.verify.confirm'], exact: true }).click();
+  await expect(page).toHaveURL(new RegExp(`/${locale}$`));
+  return db.user.findUniqueOrThrow({ where: { email } });
+}
+/** Retrieve only the newest test email's link from the isolated loopback sink. */
+export async function mailLink(request: APIRequestContext, email: string) {
+  const outbox = (await (await request.get('http://127.0.0.1:60201/mail')).json()) as {
+    to: string;
+    text: string;
+  }[];
+  const link = outbox
+    .filter((mail) => mail.to === email)
+    .at(-1)
+    ?.text.match(/http:\/\/[^\s]+/)?.[0];
+  if (!link) throw new Error('Missing isolated test mail link');
+  return link;
+}
+/** Scan the entire current document without exclusions or disabled rules; include selectors in failures. */
+export async function audit(page: Page, soft = false) {
+  await page.locator('main').waitFor();
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    await Promise.race([
+      new Promise<void>((resolve) => setTimeout(resolve, 1000)),
+      Promise.all(
+        document
+          .getAnimations()
+          .filter((animation) => animation.effect?.getComputedTiming().iterations !== Infinity)
+          .map((animation) => animation.finished.catch(() => undefined)),
+      ),
+    ]);
+  });
+  const result = await new AxeBuilder({ page }).analyze();
+  const violations = result.violations.filter(
+    (v) => v.impact === 'serious' || v.impact === 'critical',
+  );
+  const check = soft ? expect.soft : expect;
+  check(
+    violations.map((v) => ({
+      id: v.id,
+      impact: v.impact,
+      nodes: v.nodes.map((n) => ({ target: n.target, summary: n.failureSummary })),
+    })),
+    `axe: ${page.url()}`,
+  ).toEqual([]);
+  return result;
+}
+/** Exercise the real birth form rather than injecting application/browser storage. */
+export async function fillBirth(page: Page, locale: 'zh' | 'en') {
+  const copy = copies[locale];
+  await page.getByLabel(copy['form.birth.year'], { exact: true }).fill('1990');
+  await page.getByLabel(copy['form.birth.month'], { exact: true }).fill('5');
+  await page.getByLabel(copy['form.birth.day'], { exact: true }).fill('15');
+  await page.getByLabel(copy['form.birth.precise'], { exact: true }).check();
+  await page.getByLabel(copy['form.birth.time'], { exact: true }).fill('08:30');
+  await page.getByRole('button', { name: copy['form.birth.next'], exact: true }).click();
+  await expect(
+    page.getByRole('heading', { name: copy['form.birth.placeGender'], exact: true }),
+  ).toBeFocused();
+  await page.getByLabel(copy['form.birth.city'], { exact: true }).fill('Beijing');
+  await page.getByRole('option').filter({ hasText: 'Asia/Shanghai' }).first().click();
+  await page.getByLabel(copy['form.birth.gender'], { exact: true }).selectOption('male');
+}
+/** Seed encrypted snapshots through actual engine/interpretation results for route-wide accessibility scans. */
+export async function seedReading(
+  userId: string,
+  system: Exclude<System, 'daily'>,
+  locale: 'zh' | 'en',
+) {
+  const request = {
+    system,
+    locale,
+    birth,
+    idempotencyKey: randomUUID(),
+    seed: 'm5-golden',
+    ...(system === 'tarot' ? { spread: 'three_ppf' as const } : {}),
+    ...(system === 'qimen'
+      ? {
+          question: {
+            at: '2026-10-04T12:00:00Z[UTC]',
+            place: { lng: birth.place!.lng, tz: birth.place!.tz },
+            category: 'general',
+          },
+        }
+      : {}),
+    ...(system === 'iching'
+      ? { method: 'meihua' as const, numbers: [8, 5, 3] as [number, number, number] }
+      : {}),
+  };
+  const result = await generateReading(request, '2026-10-04T00:00:00Z');
+  return db.reading.create({
+    data: {
+      userId,
+      system,
+      encInput: encryptField(JSON.stringify(request), 'Reading.encInput', userId),
+      chart: json(result.chart),
+      reportZh: locale === 'zh' ? json(result.report) : undefined,
+      reportEn: locale === 'en' ? json(result.report) : undefined,
+      schoolUsed: json(result.meta.schoolUsed),
+      engineVersion: result.report.engineVersion,
+      interpretVersion: result.report.interpretVersion,
+      knowledgeVersion: result.report.knowledgeVersion,
+      createdAt: new Date('2026-10-04T00:00:00Z'),
+    },
+  });
+}

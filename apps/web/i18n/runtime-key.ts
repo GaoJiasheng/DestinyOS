@@ -25,6 +25,8 @@ const parentMessages = new Set([
   'me.billing',
   'me.language',
   'me.delete',
+  'admin.range',
+  'admin.error',
 ]);
 /** Resolve the documented parent-message/namespace collisions without bundling a catalog. */
 export function runtimeKey(key: string, catalog?: Record<string, string>): string {

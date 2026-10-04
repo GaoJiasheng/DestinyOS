@@ -47,7 +47,33 @@ export async function startStripeMock(port: number, site: string) {
     void (async () => {
       const url = new URL(request.url ?? '/', origin);
       response.setHeader('Content-Type', 'application/json');
-      if (url.pathname === '/v1/checkout/sessions') {
+      if (url.pathname === '/v1/subscriptions' && request.method === 'GET') {
+        response.end(
+          JSON.stringify({
+            object: 'list',
+            has_more: false,
+            url: '/v1/subscriptions',
+            data: [...subscriptions.values()].map((sub) => ({
+              ...sub,
+              items: {
+                data: sub.items.data.map((item) => ({
+                  ...item,
+                  quantity: 1,
+                  price: {
+                    ...item.price,
+                    currency: 'usd',
+                    unit_amount: item.price.id === 'price_yearly_test' ? 2499 : 299,
+                    recurring: {
+                      interval: item.price.id === 'price_yearly_test' ? 'year' : 'month',
+                      interval_count: 1,
+                    },
+                  },
+                })),
+              },
+            })),
+          }),
+        );
+      } else if (url.pathname === '/v1/checkout/sessions') {
         const input = await body(request);
         const id = `cs_${randomUUID()}`;
         checkouts.set(id, {

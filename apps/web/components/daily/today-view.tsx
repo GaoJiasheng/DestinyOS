@@ -7,7 +7,7 @@ import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
-import { getDailyAction } from '@/app/today/actions';
+import { getDailyAction, recordAnonymousDailyViewAction } from '@/app/today/actions';
 import { submitFeedbackAction } from '@/app/readings/actions';
 import { readAnonymous } from '@/lib/anonymous-storage';
 import { localToday, type DailyReport } from '@/lib/daily-compute';
@@ -31,11 +31,13 @@ export function TodayView({
   tz,
   plan,
   vedicUsed,
+  panchangDefaultOpen = false,
 }: {
   signedIn: boolean;
   tz?: string | null;
   plan: 'free' | 'pro';
   vedicUsed: boolean;
+  panchangDefaultOpen?: boolean;
 }) {
   const t = useCopy(),
     intl = useTranslations(),
@@ -48,7 +50,7 @@ export function TodayView({
     [error, setError] = useState(false),
     [busy, setBusy] = useState(true),
     [retry, setRetry] = useState(0),
-    [panchang, setPanchang] = useState(vedicUsed),
+    [panchang, setPanchang] = useState(vedicUsed || panchangDefaultOpen),
     [flipped, setFlipped] = useState(false),
     [vote, setVote] = useState<number | null>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
@@ -105,6 +107,7 @@ export function TodayView({
       if (active) {
         setValue(computed);
         setExample(!data?.profile);
+        void recordAnonymousDailyViewAction(locale).catch(() => undefined);
         window.dispatchEvent(new CustomEvent('tianji:event', { detail: { name: 'daily.view' } }));
         if (
           localStorage.getItem('tianji-panchang') === null &&
@@ -241,8 +244,13 @@ export function TodayView({
               <h2>{t('daily.ratings')}</h2>
               <div
                 className={`daily-overall band-${chart.scores.overall >= 70 ? 'good' : 'mixed'}`}
-                aria-label={t('daily.overall')}
-              />
+                role="img"
+                aria-label={`${t('daily.overall')} · ${t(`daily.rating.${stars(chart.scores.overall)}` as MessageKey)}`}
+              >
+                <span aria-hidden>
+                  {t(`daily.rating.${stars(chart.scores.overall)}` as MessageKey)}
+                </span>
+              </div>
               <div className="daily-grid">
                 {(['career', 'wealth', 'love', 'health', 'social'] as const).map((k) => (
                   <div key={k}>

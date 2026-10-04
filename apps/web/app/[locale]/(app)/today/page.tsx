@@ -1,3 +1,4 @@
+import { siteConfig } from '@/lib/site-config';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { TarotMessages } from '@/components/tarot/tarot-messages';
@@ -28,6 +29,7 @@ export default async function TodayPage() {
         tz={user?.tz}
         plan={user?.plan ?? 'free'}
         vedicUsed={vedicUsed}
+        panchangDefaultOpen={(await siteConfig())['feature.panchangDefaultOpen']}
       />
     </TarotMessages>
   );

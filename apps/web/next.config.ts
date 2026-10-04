@@ -11,12 +11,23 @@ const config: NextConfig = {
     '/*': [
       './resources/**/*',
       '../../packages/content/dist/*.json',
+      '../../packages/content/test/fixtures/*.json',
+      '../../packages/engine/test/fixtures/birth/*.json',
       './node_modules/geo-tz/data/**/*',
     ],
   },
   poweredByHeader: false,
   async headers() {
-    return [{ source: '/:path*', headers: securityHeaders() }];
+    return [
+      { source: '/:path*', headers: securityHeaders() },
+      {
+        source: '/admin/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+          { key: 'Cache-Control', value: 'private, no-store' },
+        ],
+      },
+    ];
   },
 };
 export default createNextIntlPlugin('./i18n/request.ts')(config);

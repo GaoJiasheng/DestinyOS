@@ -1023,11 +1023,11 @@
     padding-bottom: var(--space-8);
   }
 }
+/* DESIGN-GAP: Reduce existing animations without assigning fade-in to every nested element, which compounds opacity and breaks text contrast. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-name: fade-in !important;
     animation-duration: var(--duration-reduced) !important;
     animation-iteration-count: 1 !important;
     transition-duration: var(--duration-reduced) !important;
@@ -2530,7 +2530,7 @@ meter {
 }
 .ziwei-adjective,
 .ziwei-empty {
-  color: var(--text-3);
+  color: var(--text-2);
 }
 .ziwei-brightness {
   color: var(--text-2);
@@ -4144,6 +4144,10 @@ html[data-reduced-motion='true'] .system-symbol * {
   align-items: center;
 }
 .daily-overall {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: var(--size-caption);
   width: 72px;
   height: 72px;
   border: 8px solid #bca36d;
@@ -4331,4 +4335,10 @@ html[data-reduced-motion='true'] *::after {
   .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+.report-card p a,
+.report-card li a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

@@ -15,7 +15,7 @@
     "test": "vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
@@ -47,7 +47,8 @@
     "stripe:products": "tsx scripts/stripe-products.ts",
     "licenses:check": "tsx scripts/license-check.ts",
     "security:policy": "tsx scripts/security-policy.ts",
-    "test:m4:e2e": "playwright test --config playwright.m4.config.ts"
+    "test:m4:e2e": "playwright test --config playwright.m4.config.ts",
+    "test:m5:e2e": "playwright test --config playwright.m5.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

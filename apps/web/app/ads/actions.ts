@@ -1,12 +1,13 @@
 'use server';
 import { cookies } from 'next/headers';
 import { auth } from '@/lib/auth';
+import { siteConfig } from '@/lib/site-config';
 import { getDb } from '@/lib/db';
 import type { AdPolicy } from '@/lib/ads';
 /** Return only low-sensitivity ad eligibility; never send birth information to Google. */
 export async function getAdPolicyAction(): Promise<AdPolicy> {
   const fallback: AdPolicy = { enabled: false, plan: 'free', underAge: false, blocked: false };
-  if (process.env.FEATURE_ADS !== 'true' || !process.env.NEXT_PUBLIC_ADSENSE_CLIENT)
+  if (!(await siteConfig())['ads.enabled'] || !process.env.NEXT_PUBLIC_ADSENSE_CLIENT)
     return fallback;
   const blocked = (await cookies()).get('age_gate')?.value === 'blocked';
   if (blocked) return { ...fallback, blocked: true };

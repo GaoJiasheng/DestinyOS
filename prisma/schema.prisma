@@ -69,6 +69,8 @@ model User {
   anonId               String?        @unique // 导入匿名数据时记录来源，去重
   createdAt            DateTime       @default(now())
   updatedAt            DateTime       @updatedAt
+  // DESIGN-GAP: Explicit activity timestamp avoids treating preference edits as sign-ins.
+  lastActiveAt         DateTime?
   deletedAt            DateTime? // 软删除；7 天后 cron 硬删除
   accounts             Account[]
   sessions             Session[]
@@ -101,11 +103,13 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id              String   @id @default(cuid())
+  sessionToken    String   @unique
+  userId          String
+  expires         DateTime
+  // DESIGN-GAP: Session creation time supplies the ten-minute administrator re-auth gate.
+  authenticatedAt DateTime @default(now())
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
@@ -225,19 +229,23 @@ model KnowledgeRelease {
   notes     String?
   createdBy String
   createdAt DateTime @default(now())
+  // DESIGN-GAP: Immutable bundle snapshots support rollback and delayed report translation.
+  bundles   Json?
 }
 
 model Feedback {
-  id         String   @id @default(cuid())
-  userId     String?
-  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
-  readingId  String?
-  reading    Reading? @relation(fields: [readingId], references: [id], onDelete: SetNull)
-  unitId     String? // 针对某段 KU 的反馈
-  sectionKey String?
-  vote       Int // +1 / -1
-  text       String? // ≤ 500 字，前端提示勿含个人信息；后台可删
-  createdAt  DateTime @default(now())
+  id          String    @id @default(cuid())
+  userId      String?
+  user        User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  readingId   String?
+  reading     Reading?  @relation(fields: [readingId], references: [id], onDelete: SetNull)
+  unitId      String? // 针对某段 KU 的反馈
+  sectionKey  String?
+  vote        Int // +1 / -1
+  text        String? // ≤ 500 字，前端提示勿含个人信息；后台可删
+  createdAt   DateTime  @default(now())
+  // DESIGN-GAP: Feedback moderation needs a persisted processed marker.
+  processedAt DateTime?
 
   @@index([unitId])
 }
@@ -267,6 +275,20 @@ model Event {
   plan     Plan?
   userHash String? // sha256(userId + daySalt)，仅用于日 DAU 去重
   props    Json?
+
+  @@index([day, name])
+}
+
+// DESIGN-GAP: A deterministic grouping ID preserves nullable dimensions without PostgreSQL NULL uniqueness ambiguity.
+model EventDaily {
+  id      String   @id
+  day     DateTime @db.Date
+  name    String
+  system  System?
+  locale  Locale?
+  plan    Plan?
+  count   Int
+  uniques Int
 
   @@index([day, name])
 }

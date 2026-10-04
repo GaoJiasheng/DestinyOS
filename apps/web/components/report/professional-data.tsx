@@ -12,7 +12,7 @@ function rows(value: unknown, path = ''): Array<{ path: string; value: string }>
 export function ProfessionalData({ value }: { value: unknown }) {
   const t = useCopy();
   return (
-    <div className="technical-table-wrap">
+    <div className="technical-table-wrap" tabIndex={0}>
       <table className="technical-table">
         <thead>
           <tr>

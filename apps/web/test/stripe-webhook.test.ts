@@ -9,6 +9,7 @@ const mock = vi.hoisted(() => ({
   userUpdate: vi.fn(),
   query: vi.fn(),
   mail: vi.fn(),
+  event: vi.fn(),
 }));
 const redis = new RedisMock();
 vi.mock('../lib/redis', () => ({ getLocalRedis: () => redis }));
@@ -17,6 +18,7 @@ vi.mock('../lib/db', () => {
     $queryRaw: mock.query,
     user: { findUnique: mock.user, update: mock.userUpdate },
     subscription: { upsert: mock.upsert },
+    event: { create: mock.event },
   };
   return {
     getDb: () => ({
@@ -55,11 +57,12 @@ function event(type: string, object: object, id = 'evt_test'): Stripe.Event {
 beforeEach(async () => {
   vi.clearAllMocks();
   await redis.flushall();
+  vi.stubEnv('AUTH_SECRET', 'isolated-unit-event-secret');
   vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');
   vi.stubEnv('STRIPE_WEBHOOK_SECRET', 'whsec_test');
   vi.stubEnv('UPSTASH_REDIS_REST_URL', '');
   mock.subscription.mockResolvedValue({ userId: 'owner' });
-  mock.user.mockResolvedValue({ deletedAt: null });
+  mock.user.mockResolvedValue({ deletedAt: null, plan: 'free', locale: 'zh' });
   mock.retrieve.mockResolvedValue({
     id: 'sub_test',
     customer: 'cus_test',

@@ -14,6 +14,7 @@ import {
   CategorySchema,
 } from '@tianji/shared';
 import { getDb } from './db';
+import { recordEvent } from './events';
 import { loadKnowledge } from './knowledge';
 import { computeDivinationResult } from './divination';
 import { stripPII } from './strip-pii';
@@ -118,7 +119,7 @@ export async function readingView(
         system: row.system,
         chart: row.chart,
         locale,
-        knowledge: await loadKnowledge(row.system, locale),
+        knowledge: await loadKnowledge(row.system, locale, row.knowledgeVersion),
         context: {
           now: row.createdAt.toISOString(),
           profileHasTime: !snapshot.birth?.timeUnknown,
@@ -192,6 +193,7 @@ export async function persistReading(
   profile?: { id: string; version: number },
 ) {
   const generated = await generateReading(req, now, userId);
+  let plan: 'free' | 'pro' = 'free';
   const row = await getDb().$transaction(async (tx) => {
     const saved = await tx.reading.create({
       data: {
@@ -212,6 +214,7 @@ export async function persistReading(
       },
     });
     const user = await tx.user.findUniqueOrThrow({ where: { id: userId }, select: { plan: true } });
+    plan = user.plan;
     if (user.plan === 'free') {
       const rows = await tx.reading.findMany({
         where: { userId },
@@ -226,6 +229,7 @@ export async function persistReading(
     }
     return saved;
   });
+  await recordEvent('reading.created', { userId, system: req.system, locale: req.locale, plan });
   return { readingId: row.id, ...generated };
 }
 /** Expand the current encrypted profile when a signed-in request omits birth. */
@@ -287,6 +291,12 @@ export async function idempotentCreate(
       : userId
         ? await persistReading(userId, req, now, id, profile)
         : await generateReading(req, now);
+    if (!userId)
+      await recordEvent('reading.created', {
+        system: req.system,
+        locale: req.locale,
+        plan: 'free',
+      });
     const record = {
       fingerprint,
       now,

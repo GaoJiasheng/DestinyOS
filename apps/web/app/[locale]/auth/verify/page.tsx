@@ -21,13 +21,14 @@ export default async function VerifyPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ token?: string; email?: string }>;
+  searchParams: Promise<{ token?: string; email?: string; returnTo?: string }>;
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
   const t = await getCopy();
-  const parsed = verificationSchema.safeParse({ ...(await searchParams), locale });
+  const query = await searchParams;
+  const parsed = verificationSchema.safeParse({ ...query, locale });
   return (
     <section className="auth-panel">
       <h1>{t('auth.verify.confirm')}</h1>
@@ -35,7 +36,13 @@ export default async function VerifyPage({
         <>
           <p>{t('auth.verify.description')}</p>
           <form
-            action={confirmLoginAction.bind(null, locale, parsed.data.token, parsed.data.email)}
+            action={confirmLoginAction.bind(
+              null,
+              locale,
+              parsed.data.token,
+              parsed.data.email,
+              query.returnTo,
+            )}
           >
             <ConfirmButton />
           </form>

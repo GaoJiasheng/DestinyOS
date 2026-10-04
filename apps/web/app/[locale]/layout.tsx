@@ -12,6 +12,9 @@ import { Starfield } from '@/components/starfield';
 import { FontLoader } from '@/components/pwa/font-loader';
 import { InstallPrompt } from '@/components/pwa/install-prompt';
 import { Disclaimer } from '@/components/disclaimer';
+import { siteConfig } from '@/lib/site-config';
+import { SiteNotice } from '@/components/site-notice';
+import { SiteMaintenance } from '@/components/site-maintenance';
 import { AdsProvider } from '@/components/ads/ads-provider';
 import './fonts.css';
 import '@fontsource/cinzel/600.css';
@@ -60,6 +63,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  const settings = await siteConfig();
   const messages = await getMessages();
   const t = await getCopy();
   return (
@@ -74,7 +78,8 @@ export default async function LocaleLayout({
               </a>
               <Navigation />
               <main id="main" tabIndex={-1}>
-                {children}
+                <SiteNotice announcement={settings.announcement} />
+                <SiteMaintenance enabled={settings.maintenance}>{children}</SiteMaintenance>
               </main>
               <Footer />
               <Disclaimer />

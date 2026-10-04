@@ -1,8 +1,9 @@
 'use server';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { auth } from '@/lib/auth';
+import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
 import { dailyForUser } from '@/lib/daily-service';
 import { localToday } from '@/lib/daily-compute';
@@ -54,8 +55,27 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
         400,
       );
     assertRateLimit(await ratelimit('daily', user.id));
-    return { ok: true, data: await dailyForUser(user.id, date, tz, input.locale ?? user.locale) };
+    const data = await dailyForUser(user.id, date, tz, input.locale ?? user.locale);
+    await recordEvent('daily.viewed', {
+      userId: user.id,
+      system: 'daily',
+      locale: input.locale ?? user.locale,
+      plan: user.plan,
+    });
+    return { ok: true, data };
   } catch (error) {
     return { ok: false, error: { code: actionError(error) } };
+  }
+}
+
+/** Record a local anonymous daily visit using dimensions only; no birth or device identifier leaves the browser. */
+export async function recordAnonymousDailyViewAction(locale: string) {
+  try {
+    const language = z.enum(['zh', 'en']).parse(locale);
+    const ip = (await headers()).get('x-forwarded-for')?.split(',')[0] ?? 'unknown';
+    if (!(await ratelimit('daily', ip)).success) return;
+    await recordEvent('daily.viewed', { system: 'daily', locale: language, plan: 'free' });
+  } catch {
+    /* Offline anonymous calculation remains fully usable. */
   }
 }
