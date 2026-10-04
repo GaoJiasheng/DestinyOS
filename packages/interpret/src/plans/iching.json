@@ -1,0 +1,50 @@
+[
+  {
+    "key": "overview",
+    "title": {
+      "zh": "卦象速读",
+      "en": "The Reading"
+    },
+    "maxUnits": 3
+  },
+  {
+    "key": "hexagram",
+    "title": {
+      "zh": "本卦解析",
+      "en": "Primary Hexagram"
+    },
+    "maxUnits": 6
+  },
+  {
+    "key": "moving_lines",
+    "title": {
+      "zh": "动爻与变化",
+      "en": "Moving Lines"
+    },
+    "maxUnits": 6
+  },
+  {
+    "key": "process_outcome",
+    "title": {
+      "zh": "过程与结果",
+      "en": "Process & Outcome"
+    },
+    "maxUnits": 6
+  },
+  {
+    "key": "advice",
+    "title": {
+      "zh": "行动建议",
+      "en": "Advice"
+    },
+    "maxUnits": 6
+  },
+  {
+    "key": "pro_view",
+    "title": {
+      "zh": "专业视图",
+      "en": "Technical Details"
+    },
+    "maxUnits": 6
+  }
+]

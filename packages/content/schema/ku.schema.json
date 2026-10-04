@@ -1,0 +1,319 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tianji.gavin.pub/schema/ku.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(bazi|ziwei|iching|qimen|tarot|astrology|vedic|daily|common)\\.[a-z0-9_]+(?:\\.[a-z0-9_]+)*$"
+    },
+    "system": {
+      "enum": ["bazi", "ziwei", "iching", "qimen", "tarot", "astrology", "vedic", "daily", "common"]
+    },
+    "section": {
+      "type": "string",
+      "minLength": 1
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "when": {
+      "$ref": "#/$defs/when"
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "polarity": {
+      "enum": ["positive", "negative", "neutral", "mixed"]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "exclusive_with": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "career": {
+          "type": "integer",
+          "minimum": -3,
+          "maximum": 3
+        },
+        "wealth": {
+          "type": "integer",
+          "minimum": -3,
+          "maximum": 3
+        },
+        "love": {
+          "type": "integer",
+          "minimum": -3,
+          "maximum": 3
+        },
+        "health": {
+          "type": "integer",
+          "minimum": -3,
+          "maximum": 3
+        },
+        "social": {
+          "type": "integer",
+          "minimum": -3,
+          "maximum": 3
+        }
+      },
+      "required": []
+    },
+    "variables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "zh": {
+      "$ref": "#/$defs/localized"
+    },
+    "en": {
+      "$ref": "#/$defs/localized"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed_by": {
+          "type": ["string", "null"]
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": ["draft", "published", "deprecated"]
+        }
+      },
+      "required": ["author", "reviewed_by", "version", "status"]
+    }
+  },
+  "required": [
+    "id",
+    "system",
+    "section",
+    "topic",
+    "when",
+    "weight",
+    "polarity",
+    "tags",
+    "exclusive_with",
+    "zh",
+    "en",
+    "meta"
+  ],
+  "$defs": {
+    "when": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "eq": {}
+          },
+          "required": ["path", "eq"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "in": {
+              "type": "array",
+              "minItems": 1
+            }
+          },
+          "required": ["path", "in"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "gte": {
+              "type": "number"
+            }
+          },
+          "required": ["path", "gte"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "lte": {
+              "type": "number"
+            }
+          },
+          "required": ["path", "lte"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "contains": {}
+          },
+          "required": ["path", "contains"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "exists": {
+              "type": "boolean"
+            }
+          },
+          "required": ["path", "exists"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "all": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/when"
+              }
+            }
+          },
+          "required": ["all"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "any": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/when"
+              }
+            }
+          },
+          "required": ["any"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/when"
+            }
+          },
+          "required": ["not"]
+        }
+      ]
+    },
+    "localized": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body": {
+          "type": "string",
+          "minLength": 1
+        },
+        "advice": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "maxItems": 3
+        },
+        "do": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "dont": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "from": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": ["text", "from"]
+          }
+        }
+      },
+      "required": ["title", "summary", "body", "advice", "do", "dont"]
+    }
+  }
+}

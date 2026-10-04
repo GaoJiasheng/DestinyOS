@@ -1,0 +1,27 @@
+zh:
+  continuation:
+    [与此同时，, 更进一步看，, 另一个值得注意的地方是，, 从日常生活来看，, 再看另一个方面，]
+  concession: [不过，, 但也要看到，, 话虽如此，, 同时也需留意，, 换个角度来看，]
+  evidence: [这一点来自, 之所以这样说，是因为]
+  advice: [可以试试：, 实际做法上，]
+  low_confidence: [倾向于, 大概率, 在缺少时辰的情况下，这只是一个方向：]
+en:
+  continuation:
+    [
+      'At the same time,',
+      'Looking further,',
+      'Another notable point:',
+      'In everyday life,',
+      'From another angle,',
+    ]
+  concession:
+    [
+      'That said,',
+      'Still,',
+      'On the other hand,',
+      'There is also a balancing point:',
+      'Another consideration:',
+    ]
+  evidence: ['This comes from', 'The reason is']
+  advice: ['Try this:', 'In practice,']
+  low_confidence: ['tends to', 'likely', 'Without a birth time, treat this as directional:']
