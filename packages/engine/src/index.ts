@@ -30,6 +30,8 @@ export * from './bazi';
 import { computeBazi, BaziSchoolSchema, baziWarnings } from './bazi';
 export * from './ziwei';
 export * from './tarot';
+export * from './astrology';
+import { computeAstrology, computeVedic, YOGA_CONDITIONS } from './astrology';
 export const ENGINE_VERSION = version;
 const chartSchemas = {
   bazi: BaziChartSchema,
@@ -84,7 +86,7 @@ export function compute(raw: ComputeInput): EngineResult {
     else throw new EngineError('E_INVALID_INPUT');
   }
   if (
-    !['bazi', 'ziwei', 'iching', 'qimen'].includes(input.system) &&
+    !['bazi', 'ziwei', 'iching', 'qimen', 'astrology', 'vedic'].includes(input.system) &&
     Object.keys(input.options?.school ?? {}).length
   )
     throw new EngineError('E_UNSUPPORTED_SCHOOL');
@@ -198,6 +200,87 @@ export function compute(raw: ComputeInput): EngineResult {
     });
     chart = computeQimen(cast);
     schoolUsed = { ...cast.options.school, ziHour: 'zi_unified' };
+  }
+  if (birth && (input.system === 'astrology' || input.system === 'vedic')) {
+    // DESIGN-GAP: School option names follow the chart fields; expose node/rulership as explicit professional-view choices.
+    const school = input.options?.school ?? {};
+    const allowed =
+      input.system === 'astrology'
+        ? ['houseSystem', 'node', 'rulership', 'zodiac']
+        : ['ayanamsa', 'houseSystem', 'node', 'dasha'];
+    if (
+      Object.keys(school).some((key) => !allowed.includes(key)) ||
+      (school.node !== undefined && !['mean', 'true'].includes(String(school.node))) ||
+      (input.system === 'astrology' &&
+        ((school.houseSystem !== undefined &&
+          !['placidus', 'whole_sign', 'equal'].includes(String(school.houseSystem))) ||
+          (school.rulership !== undefined &&
+            !['modern', 'traditional'].includes(String(school.rulership))) ||
+          (school.zodiac !== undefined && school.zodiac !== 'tropical'))) ||
+      (input.system === 'vedic' &&
+        ((school.ayanamsa !== undefined && school.ayanamsa !== 'lahiri') ||
+          (school.houseSystem !== undefined && school.houseSystem !== 'whole_sign') ||
+          (school.dasha !== undefined && school.dasha !== 'vimshottari')))
+    )
+      throw new EngineError('E_UNSUPPORTED_SCHOOL');
+    const node =
+      school.node === 'mean'
+        ? 'mean'
+        : school.node === 'true'
+          ? 'true'
+          : input.system === 'vedic'
+            ? 'mean'
+            : 'true';
+    if (input.system === 'astrology') {
+      const chart = computeAstrology(birth, {
+        houseSystem:
+          school.houseSystem === 'equal'
+            ? 'equal'
+            : school.houseSystem === 'whole_sign'
+              ? 'whole_sign'
+              : 'placidus',
+        node,
+        rulership: school.rulership === 'traditional' ? 'traditional' : 'modern',
+      });
+      if (
+        (school.houseSystem === undefined || school.houseSystem === 'placidus') &&
+        chart.houseSystem === 'whole_sign'
+      )
+        warnings.push({
+          code: 'W_HOUSE_SYSTEM_FALLBACK',
+          messageKey: 'engine.warnings.W_HOUSE_SYSTEM_FALLBACK',
+        });
+      return {
+        system: input.system,
+        engineVersion: ENGINE_VERSION,
+        computedAt,
+        input: birth,
+        chart,
+        meta: {
+          schoolUsed: {
+            houseSystem: chart.houseSystem,
+            zodiac: 'tropical',
+            node,
+            rulership: school.rulership ?? 'modern',
+          },
+          warnings,
+          debug: { jdUT: chart.jdUT, obliquity: chart.obliquity, chironApproximate: true },
+        },
+      };
+    }
+    const chart = computeVedic(birth, computedAt, { node });
+    return {
+      system: input.system,
+      engineVersion: ENGINE_VERSION,
+      computedAt,
+      input: birth,
+      chart,
+      meta: {
+        schoolUsed: { ayanamsa: 'lahiri', houseSystem: 'whole_sign', node, dasha: 'vimshottari' },
+        warnings,
+        debug: { jdUT: chart.jdUT, ayanamsa: chart.ayanamsa, yogaConditions: YOGA_CONDITIONS },
+      },
+    };
   }
   return EngineResultSchema.parse({
     system: input.system,

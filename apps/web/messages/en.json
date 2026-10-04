@@ -289,5 +289,9 @@
   "bazi.solarTerms.li_dong": "Start of Winter",
   "bazi.solarTerms.xiao_xue": "Minor Snow",
   "bazi.solarTerms.da_xue": "Major Snow",
-  "engine.errors.E_ENGINE_INTERNAL": "Chart integrity validation failed. Please try again later."
+  "engine.errors.E_ENGINE_INTERNAL": "Chart integrity validation failed. Please try again later.",
+  "engine.warnings.W_HOUSE_SYSTEM_FALLBACK": "The latitude exceeds 66°. Placidus houses have fallen back to Whole Sign.",
+  "engine.astrology.chironApproximate": "Chiron uses a simplified orbit; its position is approximate.",
+  "engine.astrology.moonUncertainty": "With an unknown birth time, the Moon longitude has approximately ±6° uncertainty.",
+  "engine.vedic.nakshatraUncertainty": "With an unknown birth time, the Moon may cross adjacent Nakshatras during the day."
 }

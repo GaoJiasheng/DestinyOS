@@ -289,5 +289,9 @@
   "bazi.solarTerms.li_dong": "立冬",
   "bazi.solarTerms.xiao_xue": "小雪",
   "bazi.solarTerms.da_xue": "大雪",
-  "engine.errors.E_ENGINE_INTERNAL": "命盘完整性校验失败，请稍后重试。"
+  "engine.errors.E_ENGINE_INTERNAL": "命盘完整性校验失败，请稍后重试。",
+  "engine.warnings.W_HOUSE_SYSTEM_FALLBACK": "出生地纬度超过 66°，Placidus 宫位制已回退为整宫制。",
+  "engine.astrology.chironApproximate": "凯龙位置使用简化轨道计算，为近似值。",
+  "engine.astrology.moonUncertainty": "出生时间未知，月亮黄经约有 ±6° 不确定性。",
+  "engine.vedic.nakshatraUncertainty": "出生时间未知，月亮在当天可能跨越相邻星宿。"
 }

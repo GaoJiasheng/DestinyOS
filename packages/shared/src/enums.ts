@@ -156,6 +156,10 @@ export const Aspect = {
   square: 'square',
   trine: 'trine',
   opposition: 'opposition',
+  semisextile: 'semisextile',
+  semisquare: 'semisquare',
+  sesquiquadrate: 'sesquiquadrate',
+  quincunx: 'quincunx',
 } as const;
 export type Aspect = (typeof Aspect)[keyof typeof Aspect];
 export const Angle = {
@@ -327,5 +331,41 @@ export const EngineWarningCode = {
   // DESIGN-GAP: Explicit warnings for the documented gender fallback and tentative 从格.
   W_GENDER_DEFAULTED: 'W_GENDER_DEFAULTED',
   W_SUSPECTED_CONG: 'W_SUSPECTED_CONG',
+  W_HOUSE_SYSTEM_FALLBACK: 'W_HOUSE_SYSTEM_FALLBACK',
 } as const;
 export type EngineWarningCode = (typeof EngineWarningCode)[keyof typeof EngineWarningCode];
+
+// DESIGN-GAP: Unspecified astronomical identifiers use English snake case; VBody reuses the documented Graha values.
+export type Body = Planet;
+export type VBody = Graha;
+export type AspectType = Aspect;
+export const Nakshatra = [
+  'ashwini',
+  'bharani',
+  'krittika',
+  'rohini',
+  'mrigashira',
+  'ardra',
+  'punarvasu',
+  'pushya',
+  'ashlesha',
+  'magha',
+  'purva_phalguni',
+  'uttara_phalguni',
+  'hasta',
+  'chitra',
+  'swati',
+  'vishakha',
+  'anuradha',
+  'jyeshtha',
+  'mula',
+  'purva_ashadha',
+  'uttara_ashadha',
+  'shravana',
+  'dhanishta',
+  'shatabhisha',
+  'purva_bhadrapada',
+  'uttara_bhadrapada',
+  'revati',
+] as const;
+export type Nakshatra = (typeof Nakshatra)[number];

@@ -8,7 +8,8 @@
     "./common": "./src/common/index.ts",
     "./bazi": "./src/bazi/index.ts",
     "./ziwei": "./src/ziwei/index.ts",
-    "./tarot": "./src/tarot/index.ts"
+    "./tarot": "./src/tarot/index.ts",
+    "./astrology": "./src/astrology/index.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -21,6 +22,7 @@
     "@tianji/shared": "workspace:*",
     "iztro": "2.6.1",
     "lunar-typescript": "1.8.6",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "astronomy-engine": "2.1.19"
   }
 }

@@ -18,7 +18,8 @@ const now = '2026-10-04T00:00:00Z';
 describe('uniform dispatch and safe errors', () => {
   it.each(
     Object.values(System).filter(
-      (system) => !['bazi', 'ziwei', 'tarot', 'iching', 'qimen'].includes(system),
+      (system) =>
+        !['bazi', 'ziwei', 'tarot', 'iching', 'qimen', 'astrology', 'vedic'].includes(system),
     ),
   )('registers %s with a valid placeholder result envelope', (system) => {
     const birth = normalizeBirth(A);

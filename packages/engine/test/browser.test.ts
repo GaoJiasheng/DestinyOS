@@ -83,3 +83,35 @@ it('bundles and executes without Node globals, network, clock or unseeded random
     }).chart.ju,
   ).toBe(4);
 });
+
+// The astronomy engine must also execute inside a browser realm with clock/network access disabled.
+it('computes Western and Vedic Fixture A in a browser realm with explicit time only', async () => {
+  const bundle = await build({
+    entryPoints: ['packages/engine/src/index.ts'],
+    bundle: true,
+    platform: 'browser',
+    format: 'iife',
+    globalName: 'TianjiEngine',
+    write: false,
+    logLevel: 'silent',
+  });
+  const context: {
+    TextEncoder: typeof TextEncoder;
+    TextDecoder: typeof TextDecoder;
+    TianjiEngine?: { compute: typeof computeType; normalizeBirth: typeof normalizeType };
+  } = { TextEncoder, TextDecoder };
+  runInNewContext(bundle.outputFiles[0]!.text, context);
+  runInNewContext(
+    "Date.now = () => { throw new Error('system clock'); }; Math.random = () => { throw new Error('unseeded randomness'); }; globalThis.fetch = () => { throw new Error('network'); };",
+    context,
+  );
+  const engine = context.TianjiEngine!,
+    birth = engine.normalizeBirth(A);
+  for (const system of ['astrology', 'vedic'] as const) {
+    const first = engine.compute({ system, birth, now: '2026-10-04T00:00:00Z' });
+    expect(first.chart.bodies).toHaveLength(system === 'astrology' ? 13 : 9);
+    expect(JSON.stringify(engine.compute({ system, birth, now: '2026-10-04T00:00:00Z' }))).toBe(
+      JSON.stringify(first),
+    );
+  }
+});
