@@ -30,7 +30,13 @@ function opposite(a: KnowledgeUnit, b: KnowledgeUnit): boolean {
   );
 }
 export function interpret(input: InterpretInput): Report {
-  const { system, chart, locale, knowledge, context } = input;
+  const { system, chart, locale, context } = input;
+  // A caller can load the complete offline corpus; unrelated system terms must
+  // not annotate this report or inflate its terminology-density check.
+  const knowledge = {
+    ...input.knowledge,
+    glossary: input.knowledge.glossary.filter((g) => g.system === system || g.system === 'common'),
+  };
   const config = { ...systemConfigs[system], ...input.config };
   const plan = input.sectionPlan ?? config.sectionPlan;
   const keys = new Set(plan.map((s) => s.key));

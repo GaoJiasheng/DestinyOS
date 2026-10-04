@@ -1,0 +1,320 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+# // DESIGN-GAP: Hemisphere concentration uses >=6 of ten planets; quadrant concentration uses >=5. JSONPath-lite has no numeric indices, so a wildcard detects concentration and the prose invites comparison of all four counts.
+- id: astrology.hemisphere.upper
+  system: astrology
+  section: patterns
+  topic: hemisphere_upper
+  when:
+    path: stats.hemispheres.upper
+    gte: 6
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: &id001 []
+  zh:
+    title: 上半球：观察生活关注
+    summary: 你可以从公共参与与被看见的活动观察上半球集中分布。
+    body: 你可以从公共参与与被看见的活动观察经验，而不把分布当成性格等级。上半球（至少六颗行星处于第七至十二宫）在这张盘中计数较集中，提示一种生活关注的可能入口；这是十颗行星的空间统计，需要出生时间与宫位，不能用来判断你应当选择什么生活方式。不同领域仍可被练习，分布较少也不表示缺少能力。比如，展示成果时，你可以确认想让谁了解哪一部分，而不是把每件事都公开，再看看安排是否适合真实参与者。注意让公开反馈成为唯一参照是否让选择变窄；可以保留一个不需公开评价的活动，一周后回看反馈，把有帮助的部分保留，让环境和实际需要补充统计线索。
+    advice:
+      - 保留一个不需公开评价的活动
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Upper hemisphere: a perspective on attention'
+    summary: You can explore public participation as one perspective.
+    body:
+      'You can explore public participation without treating distribution as a rating of personality.
+      The Upper hemisphere — defined here by at least six planets in Houses Seven through Twelve —
+      has a concentrated count in this chart. This is a spatial tally of ten planets and needs a birth
+      time and houses; it cannot prescribe a way of living. Other areas remain available for practice,
+      and a smaller count does not remove an ability. For example, when sharing work, decide which
+      part needs an audience and which part remains private. Notice whether making public feedback
+      your only point of reference narrows the choice. Try this: keep one activity that needs no public
+      evaluation, then review the response after an ordinary week. Keep what helps while letting the
+      needs of the people involved add context to the symbolic distribution.'
+    advice:
+      - Keep one activity that needs no public evaluation
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.hemisphere.lower
+  system: astrology
+  section: patterns
+  topic: hemisphere_lower
+  when:
+    path: stats.hemispheres.lower
+    gte: 6
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 下半球：观察生活关注
+    summary: 你可以从私人经验与基础准备观察下半球集中分布。
+    body: 你可以从私人经验与基础准备观察经验，而不把分布当成性格等级。下半球（至少六颗行星处于第一至第六宫）在这张盘中计数较集中，提示一种生活关注的可能入口；这是十颗行星的空间统计，需要出生时间与宫位，不能用来判断你应当选择什么生活方式。不同领域仍可被练习，分布较少也不表示缺少能力。比如，准备参与一个活动时，你可以先整理自己需要的条件，再决定何时分享想法，再看看安排是否适合真实参与者。注意等所有准备完才愿意参与是否让选择变窄；可以给准备安排一个与人交流的节点，一周后回看反馈，把有帮助的部分保留，让环境和实际需要补充统计线索。
+    advice:
+      - 给准备安排一个与人交流的节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lower hemisphere: a perspective on attention'
+    summary: You can explore private experience and preparation as one perspective.
+    body:
+      'You can explore private experience and preparation without treating distribution as a rating
+      of personality. The Lower hemisphere — defined here by at least six planets in Houses One through
+      Six — has a concentrated count in this chart. This is a spatial tally of ten planets and needs
+      a birth time and houses; it cannot prescribe a way of living. Other areas remain available for
+      practice, and a smaller count does not remove an ability. For example, before joining an activity,
+      make room to prepare and then choose a point to share your idea. Notice whether waiting for
+      complete preparation before any participation narrows the choice. Try this: set a point to discuss
+      the work during preparation, then review the response after an ordinary week. Keep what helps
+      while letting the needs of the people involved add context to the symbolic distribution.'
+    advice:
+      - Set a point to discuss the work during preparation
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.hemisphere.eastern
+  system: astrology
+  section: patterns
+  topic: hemisphere_eastern
+  when:
+    path: stats.hemispheres.eastern
+    gte: 6
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 东半球：观察生活关注
+    summary: 你可以从主动选择与自行启动观察东半球集中分布。
+    body: 你可以从主动选择与自行启动观察经验，而不把分布当成性格等级。东半球（至少六颗行星处于第十至十二及第一至三宫）在这张盘中计数较集中，提示一种生活关注的可能入口；这是十颗行星的空间统计，需要出生时间与宫位，不能用来判断你应当选择什么生活方式。不同领域仍可被练习，分布较少也不表示缺少能力。比如，开始项目时，你可以先提出愿意承担的部分，再邀请伙伴补充条件，再看看安排是否适合真实参与者。注意独自安排所有人的节奏是否让选择变窄；可以在启动前邀请一次实际反馈，一周后回看反馈，把有帮助的部分保留，让环境和实际需要补充统计线索。
+    advice:
+      - 在启动前邀请一次实际反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Eastern hemisphere: a perspective on attention'
+    summary: You can explore self-directed choices as one perspective.
+    body:
+      "You can explore self-directed choices without treating distribution as a rating of personality.
+      The Eastern hemisphere — defined here by at least six planets in Houses Ten through Three across
+      the chart boundary — has a concentrated count in this chart. This is a spatial tally of ten
+      planets and needs a birth time and houses; it cannot prescribe a way of living. Other areas
+      remain available for practice, and a smaller count does not remove an ability. For example,
+      when beginning a project, name what you can own and invite another person's conditions before
+      deciding the whole plan. Notice whether setting everybody's pace without asking narrows the
+      choice. Try this: invite practical feedback before initiating a shared plan, then review the
+      response after an ordinary week. Keep what helps while letting the needs of the people involved
+      add context to the symbolic distribution."
+    advice:
+      - Invite practical feedback before initiating a shared plan
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.hemisphere.western
+  system: astrology
+  section: patterns
+  topic: hemisphere_western
+  when:
+    path: stats.hemispheres.western
+    gte: 6
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 西半球：观察生活关注
+    summary: 你可以从互动协商与通过回应调整观察西半球集中分布。
+    body: 你可以从互动协商与通过回应调整观察经验，而不把分布当成性格等级。西半球（至少六颗行星处于第四至第九宫）在这张盘中计数较集中，提示一种生活关注的可能入口；这是十颗行星的空间统计，需要出生时间与宫位，不能用来判断你应当选择什么生活方式。不同领域仍可被练习，分布较少也不表示缺少能力。比如，伙伴提出安排时，你可以先写下自己的偏好，再比较怎样共同调整，再看看安排是否适合真实参与者。注意等别人提议才承认自己的需要是否让选择变窄；可以协商时说出自己的一项偏好，一周后回看反馈，把有帮助的部分保留，让环境和实际需要补充统计线索。
+    advice:
+      - 协商时说出自己的一项偏好
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Western hemisphere: a perspective on attention'
+    summary: You can explore learning through interactions as one perspective.
+    body: "You can explore learning through interactions without treating distribution as a rating
+      of personality. The Western hemisphere — defined here by at least six planets in Houses Four
+      through Nine — has a concentrated count in this chart. This is a spatial tally of ten planets
+      and needs a birth time and houses; it cannot prescribe a way of living. Other areas remain available
+      for practice, and a smaller count does not remove an ability. For example, when someone offers
+      a plan, identify your own preference before working out the changes together. Notice whether
+      waiting for another person's proposal before naming a need narrows the choice. Try this: state
+      one preference of your own during negotiation, then review the response after an ordinary week.
+      Keep what helps while letting the needs of the people involved add context to the symbolic distribution."
+    advice:
+      - State one preference of your own during negotiation
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.context.mutual_reception
+  system: astrology
+  section: patterns
+  topic: context_mutual_reception
+  when:
+    path: rulers.mutualReceptions.length
+    gte: 1
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 互容：从位置提出问题
+    summary: 你可以从互容提出一个可观察的问题。
+    body: 你可以从不同面向可以借对方的方式寻找支持的方向提出问题，不急于作确定结论。互容（两颗行星分别落在对方守护的星座）在这张盘中出现，属于传统解释框架里的位置关系；这里用它提供观察线索，不把名称当成事件的时间表或能力高低的评价。它需要与相关行星、宫位及真实背景一起看，单独一条记录不能概括所有体验。例如，你擅长组织，但也需要通过聆听伙伴来确认组织是否有用，再比较两种安排各自回应了什么。注意以配合为理由跳过需要的澄清的情况；建议分别说出能提供与需要获得的支持，把一次试行的回应记下来，再决定是否保留做法，让生活经验持续修正对位置的理解。
+    advice:
+      - 分别说出能提供与需要获得的支持
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Mutual reception: a question to explore'
+    summary: You can explore different functions finding support through each other's style.
+    body: "You can ask about different functions finding support through each other's style without
+      rushing to a firm conclusion. This chart contains Mutual reception — two planets each placed
+      in a sign ruled by the other — a relationship used within a traditional interpretation framework.
+      Here it offers a question, rather than a timetable of events or a ranking of ability. The relevant
+      bodies, houses when available, and actual circumstances remain necessary context; a single record
+      cannot summarize all your experience. Imagine that you organize something effectively but need
+      a listener's feedback to see whether the arrangement actually helps. Compare which need each
+      arrangement answers before drawing a conclusion. Watch for using cooperation as a reason to
+      skip necessary clarification. Try this: name what support you can offer and what you need, then
+      record the response to a limited trial. Keep your interpretation open to revision through experience
+      rather than trying to make every event match the name of a placement."
+    advice:
+      - Name what support you can offer and what you need
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.context.anaretic
+  system: astrology
+  section: patterns
+  topic: context_anaretic
+  when:
+    path: bodies[anaretic=true].key
+    exists: true
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 末度位置：从位置提出问题
+    summary: 你可以从末度位置提出一个可观察的问题。
+    body: 你可以从可以关注收尾与下一步之间的调整的方向提出问题，不急于作确定结论。末度位置（某个命盘天体在星座内二十九度及以后）在这张盘中出现，属于传统解释框架里的位置关系；这里用它提供观察线索，不把名称当成事件的时间表或能力高低的评价。它需要与相关行星、宫位及真实背景一起看，单独一条记录不能概括所有体验。例如，你快完成一个任务，却又接到新的要求，适合先交代已完成与未完成部分，再比较两种安排各自回应了什么。注意把接近边界解释成迫在眉睫的事件的情况；建议写清一项收尾与一项后续动作，把一次试行的回应记下来，再决定是否保留做法，让生活经验持续修正对位置的理解。
+    advice:
+      - 写清一项收尾与一项后续动作
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Anaretic placement: a question to explore'
+    summary: You can explore attention to the transition between finishing and beginning.
+    body:
+      'You can ask about attention to the transition between finishing and beginning without rushing
+      to a firm conclusion. This chart contains Anaretic placement — a chart body at twenty-nine degrees
+      or later within its sign — a relationship used within a traditional interpretation framework.
+      Here it offers a question, rather than a timetable of events or a ranking of ability. The relevant
+      bodies, houses when available, and actual circumstances remain necessary context; a single record
+      cannot summarize all your experience. Imagine that you are finishing a task when a new request
+      arrives, and need to distinguish a completed part from a new responsibility. Compare which need
+      each arrangement answers before drawing a conclusion. Watch for reading a boundary as an imminent
+      event. Try this: name one closing step and one next action, then record the response to a limited
+      trial. Keep your interpretation open to revision through experience rather than trying to make
+      every event match the name of a placement.'
+    advice:
+      - Name one closing step and one next action
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.quadrant.concentration
+  system: astrology
+  section: patterns
+  topic: quadrant_concentration
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: stats.quadrants[*]
+        gte: 5
+  weight: 58
+  polarity: neutral
+  tags: [plain, astrology.keyword.curiosity]
+  exclusive_with: []
+  zh:
+    title: 象限集中：比较生活关注的入口
+    summary: 你可以比较四组相邻宫位的计数，再用实际经历检验关注方向。
+    body: 你可以比较生活关注的不同入口，避免让一组集中分布概括全部经验。象限（每三个相邻宫位组成的一组）把十二宫分成四组；这张盘有一组容纳至少五颗统计用行星，表示十颗行星中至少一半集中在该范围。第一组关注主动性与基础学习，第二组关注私人根基与日常维护，第三组关注伙伴经验与更大视野，第四组关注公共贡献与群体参与；它们都需要出生时间和宫位，不是能力分级。比如，回看一周活动时，你可以对照四组计数，记录较集中的范围是否也占据了较多实际注意力。建议给较少关注的一组安排一次低压力尝试，再看是否需要改变投入；统计与体验不一致也可以保留，它提醒你环境和个人选择仍会影响日常节奏。
+    advice: [给较少关注的领域安排一次低压力尝试]
+    do: [比较计数]
+    dont: [固定标签]
+  en:
+    title: 'Quadrant concentration: compare areas of attention'
+    summary: You can compare the four groups of adjacent houses with the attention they receive in your week.
+    body: You can compare different areas of attention without letting a concentration describe your whole experience. A quadrant — a group of three adjacent houses — divides the twelve houses into four ranges. In this chart, at least five of the ten counted planets occupy one range, so half or more are grouped there. The first concerns initiative and learning, the second private foundations and routines, the third partnership and wider perspective, and the fourth public contribution and group participation; all require a birth time and houses, and none ranks ability. When reviewing a week, compare the four counts with where your attention actually went. The tally and the experience may differ, which is useful information about your present circumstances. Try one low-pressure activity in an area you have given less attention, then decide whether a change of emphasis would help. Keep the comparison open rather than treating the largest count as a permanent instruction.
+    advice: [Try one modest activity in an area you have given less attention]
+    do: [Compare counts]
+    dont: [Fix a label]
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

@@ -1,0 +1,627 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+- id: astrology.planet_house.saturn.h1
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 1
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: &id001 []
+  zh:
+    title: 土星在第一宫：日常呈现与主动回应
+    summary: 你可以从日常呈现与主动回应观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在日常呈现与主动回应的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第一宫（观察自我呈现与开始方式的领域），把这个面向与该生活领域连接起来；这个生活领域把注意力带到你如何进入新场景；别人看到的第一反应只是你的一部分。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，进入陌生团队时，你可能先观察自己怎样开口介绍，也留意是否给别人提问的机会，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与用第一印象限制后续认识的情况；可以先用一次真实互动修正自我印象，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 用一次真实互动修正自我印象
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the First House
+    summary: You may explore responsibility and sustained practice through everyday presence and initiative.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      everyday presence and initiative. Saturn — the chart factor associated with responsibility and
+      sustained practice — falls in the First House — the area associated with everyday presence.
+      This area concerns how you enter a situation. First impressions give useful feedback but leave
+      much of your experience unseen. You may take commitments seriously and prefer progress that
+      survives a difficult week; a limit can clarify priorities without describing the full extent
+      of your ability. For example, on joining a new group, pay attention to the way you introduce
+      yourself and to the room you leave for other people to respond. Watch for reading a temporary
+      difficulty as a verdict on personal worth, especially alongside allowing a first impression
+      to restrict later understanding. Try this: use a real interaction to revise a first impression,
+      and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h2
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 2
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第二宫：资源、习惯与价值选择
+    summary: 你可以从资源、习惯与价值选择观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在资源、习惯与价值选择的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第二宫（观察个人资源与价值感的领域），把这个面向与该生活领域连接起来；这个生活领域关注你怎样使用时间、物品和已有能力；这不是收入水平或财务结果的预测。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，整理一周安排时，你可以比较哪些投入真正支持生活，哪些只是为了与人比较，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与用拥有多少评价自己的情况；可以先列出已经能使用的三项资源，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 列出已经能使用的三项资源
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Second House
+    summary: You may explore responsibility and sustained practice through resources and everyday
+      priorities.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      resources and everyday priorities. Saturn — the chart factor associated with responsibility
+      and sustained practice — falls in the Second House — the area of resources and personal priorities.
+      This area asks how you use time, possessions, and skills. It describes a symbolic area of attention
+      rather than predicting an income or a financial result. You may take commitments seriously and
+      prefer progress that survives a difficult week; a limit can clarify priorities without describing
+      the full extent of your ability. For example, when reviewing your week, compare where you spent
+      time with what you say matters; an ordinary calendar can reveal a priority more clearly than
+      a label. Watch for reading a temporary difficulty as a verdict on personal worth, especially
+      alongside measuring personal worth by the amount you possess. Try this: list three resources
+      already available to you, and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h3
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 3
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第三宫：交流、学习与身边连接
+    summary: 你可以从交流、学习与身边连接观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在交流、学习与身边连接的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第三宫（观察日常交流与基础学习的领域），把这个面向与该生活领域连接起来；这个生活领域关注信息怎样在你和身边人之间流动；理解的深浅需要通过具体回应确认。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，向同事说明步骤时，你可以请对方实际演示一次，看看遗漏的是哪个环节，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与把熟悉误认为理解一致的情况；可以先用一个例子确认理解，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 用一个例子确认理解
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Third House
+    summary: You may explore responsibility and sustained practice through learning and nearby connections.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      learning and nearby connections. Saturn — the chart factor associated with responsibility and
+      sustained practice — falls in the Third House — the area of everyday communication and learning.
+      This area concerns the movement of information around you. Familiarity with a subject does not
+      automatically mean that another person received your explanation. You may take commitments seriously
+      and prefer progress that survives a difficult week; a limit can clarify priorities without describing
+      the full extent of your ability. For example, when explaining an everyday task, ask the listener
+      to show you the next step; their demonstration can identify a missing link without turning the
+      exchange into a test. Watch for reading a temporary difficulty as a verdict on personal worth,
+      especially alongside assuming shared familiarity means shared understanding. Try this: check
+      understanding with one practical example, and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h4
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 4
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第四宫：私人空间、归属与根基
+    summary: 你可以从私人空间、归属与根基观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在私人空间、归属与根基的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第四宫（观察私人生活与归属的领域），把这个面向与该生活领域连接起来；这个生活领域关注你怎样建立能够放松的根基；家可以是自己选择的空间与关系，不限一种生活形态。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，回到住处时，你可以观察哪项小习惯让自己松下来，再和同住者协商空间使用，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与把熟悉的安排强加给别人的情况；可以先商量一项让彼此自在的安排，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 商量一项让彼此自在的安排
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Fourth House
+    summary: You may explore responsibility and sustained practice through private space and belonging.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      private space and belonging. Saturn — the chart factor associated with responsibility and sustained
+      practice — falls in the Fourth House — the area of private life and belonging. This area concerns
+      the conditions in which you can settle. A supportive home can be a chosen space or connection,
+      without following one prescribed family arrangement. You may take commitments seriously and
+      prefer progress that survives a difficult week; a limit can clarify priorities without describing
+      the full extent of your ability. For example, after returning home, notice which small arrangement
+      helps you settle, then discuss how it fits the needs of anyone who shares the space. Watch for
+      reading a temporary difficulty as a verdict on personal worth, especially alongside expecting
+      another person to adopt every familiar household habit. Try this: agree on one arrangement that
+      makes shared space easier, and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h5
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 5
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第五宫：创造、玩乐与自发表达
+    summary: 你可以从创造、玩乐与自发表达观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在创造、玩乐与自发表达的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第五宫（观察创造与自发乐趣的领域），把这个面向与该生活领域连接起来；这个生活领域关注你怎样表达喜爱并享受参与；爱好与亲密体验无需承担表现优秀的任务。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，尝试新爱好时，你可以先做一件没有评比的小作品，再决定是否继续投入，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与把乐趣全部变成成绩的情况；可以先留一段没有评比的玩乐时间，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 留一段没有评比的玩乐时间
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Fifth House
+    summary: You may explore responsibility and sustained practice through play and creative expression.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      play and creative expression. Saturn — the chart factor associated with responsibility and sustained
+      practice — falls in the Fifth House — the area of play and creative expression. This area concerns
+      enjoyment that starts from a personal impulse. A hobby or affectionate exchange can matter without
+      becoming a performance or a plan for recognition. You may take commitments seriously and prefer
+      progress that survives a difficult week; a limit can clarify priorities without describing the
+      full extent of your ability. For example, when trying a hobby, make something you do not need
+      to show anyone; notice whether enjoyment changes when the result no longer has to earn approval.
+      Watch for reading a temporary difficulty as a verdict on personal worth, especially alongside
+      turning every enjoyable activity into a performance target. Try this: set aside time for an
+      activity with no ranking, and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h6
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 6
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第六宫：日常流程、分工与作息
+    summary: 你可以从日常流程、分工与作息观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在日常流程、分工与作息的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第六宫（观察日常工作与生活维护的领域），把这个面向与该生活领域连接起来；这个生活领域关注可重复的安排；涉及身体时只讨论作息与保养习惯，不能据此判断疾病。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，忙碌的一周里，你可以调整一项反复打断休息的安排，并与伙伴谈清分工，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与把持续忙碌视为唯一的价值的情况；可以先固定一个可持续的休息节点，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 固定一个可持续的休息节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Sixth House
+    summary: You may explore responsibility and sustained practice through routines and practical
+      upkeep.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      routines and practical upkeep. Saturn — the chart factor associated with responsibility and
+      sustained practice — falls in the Sixth House — the area of routines and practical upkeep. This
+      area concerns repeatable arrangements. In matters of wellbeing, the reading stays with rest
+      and everyday habits and cannot assess a medical condition. You may take commitments seriously
+      and prefer progress that survives a difficult week; a limit can clarify priorities without describing
+      the full extent of your ability. For example, during a crowded week, find one recurring interruption
+      to rest and discuss whether a task can be moved, shared, or simplified without judging yourself
+      for needing a pause. Watch for reading a temporary difficulty as a verdict on personal worth,
+      especially alongside using uninterrupted busyness as the measure of a worthwhile day. Try this:
+      create a repeatable pause within your daily routine, and review what changed before adding another
+      task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h7
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 7
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第七宫：伙伴关系与平等协商
+    summary: 你可以从伙伴关系与平等协商观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在伙伴关系与平等协商的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第七宫（观察一对一伙伴关系的领域），把这个面向与该生活领域连接起来；这个生活领域关注你如何与别人协商承诺；伴侣、朋友或合作伙伴都可成为观察场景，不催促任何关系形式。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，一起做决定时，你可以分别说出需要，再找一个双方愿意试行的安排，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与把配合当成放弃自己的情况；可以先约定双方都能提出修改的规则，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 约定双方都能提出修改的规则
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Seventh House
+    summary: You may explore responsibility and sustained practice through partnership and mutual
+      agreements.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      partnership and mutual agreements. Saturn — the chart factor associated with responsibility
+      and sustained practice — falls in the Seventh House — the area of one-to-one partnership. This
+      area concerns negotiation and mutual commitments. You can explore it through a partner, friend,
+      or collaborator without needing a particular relationship status. You may take commitments seriously
+      and prefer progress that survives a difficult week; a limit can clarify priorities without describing
+      the full extent of your ability. For example, when making a shared decision, give each person
+      time to state a need before looking for an agreement; a workable trial can be more revealing
+      than an ideal description of partnership. Watch for reading a temporary difficulty as a verdict
+      on personal worth, especially alongside treating cooperation as a requirement to erase your
+      preference. Try this: make an agreement that either person can request to revise, and review
+      what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h8
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 8
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第八宫：共享资源、信任与变化
+    summary: 你可以从共享资源、信任与变化观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在共享资源、信任与变化的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第八宫（观察共享资源与深层信任的领域），把这个面向与该生活领域连接起来；这个生活领域关注边界清楚的合作；这里只谈协商与心理体验，不推断损失、事件或他人的动机。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，共享物品或共同承担任务时，你可以先写清使用范围，再约定怎样退出或修改，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与用信任代替必要沟通的情况；可以先写清共享安排的责任边界，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 写清共享安排的责任边界
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Eighth House
+    summary: You may explore responsibility and sustained practice through shared responsibilities
+      and trust.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      shared responsibilities and trust. Saturn — the chart factor associated with responsibility
+      and sustained practice — falls in the Eighth House — the area of shared resources and deeper
+      trust. This area concerns responsibilities that cross personal boundaries. This is a prompt
+      for clarifying an agreement, not a forecast of loss or a claim about hidden motives. You may
+      take commitments seriously and prefer progress that survives a difficult week; a limit can clarify
+      priorities without describing the full extent of your ability. For example, before sharing an
+      important resource or responsibility, clarify access, expectations, and a way to change the
+      arrangement; trust grows more comfortably when ordinary questions remain welcome. Watch for
+      reading a temporary difficulty as a verdict on personal worth, especially alongside using trust
+      as a reason to skip clear communication. Try this: clarify responsibilities in a shared arrangement,
+      and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h9
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 9
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第九宫：远方经验、学习与意义
+    summary: 你可以从远方经验、学习与意义观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在远方经验、学习与意义的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第九宫（观察进阶学习与更大视野的领域），把这个面向与该生活领域连接起来；这个生活领域关注你如何理解不同经验；信念可以提供方向，也可以在新证据出现时更新。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，读到不同文化的观点时，你可以问它在怎样的生活背景下形成，再与自己的经验比较，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与把自己的背景当成唯一标准的情况；可以先给一种不同观点写下背景说明，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 给一种不同观点写下背景说明
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Ninth House
+    summary: You may explore responsibility and sustained practice through wider learning and perspective.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      wider learning and perspective. Saturn — the chart factor associated with responsibility and
+      sustained practice — falls in the Ninth House — the area of wider learning and perspective.
+      This area concerns the frameworks you use to make sense of unfamiliar experience. A belief can
+      guide exploration while remaining open to revision through contact with others. You may take
+      commitments seriously and prefer progress that survives a difficult week; a limit can clarify
+      priorities without describing the full extent of your ability. For example, when reading an
+      unfamiliar viewpoint, ask what everyday conditions helped produce it before comparing it with
+      your own experience; context can make a disagreement easier to understand. Watch for reading
+      a temporary difficulty as a verdict on personal worth, especially alongside making your background
+      the only standard for understanding others. Try this: describe the context of a viewpoint different
+      from yours, and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h10
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 10
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第十宫：公共角色、工作方向与责任
+    summary: 你可以从公共角色、工作方向与责任观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在公共角色、工作方向与责任的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第十宫（观察公共角色与工作方向的领域），把这个面向与该生活领域连接起来；这个生活领域关注你希望承担怎样的贡献；角色会随环境调整，这不是职位高低或职业成果的承诺。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，准备展示成果时，你可以说明自己承担了什么，也把协作者的贡献说清楚，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与让外界评价占满全部生活的情况；可以先用一项具体贡献定义近期方向，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 用一项具体贡献定义近期方向
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Tenth House
+    summary: You may explore responsibility and sustained practice through public contribution and
+      work direction.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      public contribution and work direction. Saturn — the chart factor associated with responsibility
+      and sustained practice — falls in the Tenth House — the area of public contribution and work
+      direction. This area concerns the role you choose to build. It offers questions about responsibility
+      rather than promising a position, status, or career outcome. You may take commitments seriously
+      and prefer progress that survives a difficult week; a limit can clarify priorities without describing
+      the full extent of your ability. For example, when presenting work, identify the responsibility
+      you actually carried and acknowledge contributions from others; the public account should help
+      people understand the work rather than simply elevate your image. Watch for reading a temporary
+      difficulty as a verdict on personal worth, especially alongside allowing public evaluation to
+      take over every area of life. Try this: define your next work goal through a concrete contribution,
+      and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h11
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 11
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第十一宫：群体参与、友谊与共同愿景
+    summary: 你可以从群体参与、友谊与共同愿景观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在群体参与、友谊与共同愿景的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第十一宫（观察群体与共同愿景的领域），把这个面向与该生活领域连接起来；这个生活领域关注你如何参与比个人更大的计划；共同目标也需要允许成员保留差异。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，参与社区活动时，你可以选择一项能持续的分工，并问新人是否容易加入，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与为了归属而忽略真实立场的情况；可以先选择一项能持续的群体贡献，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 选择一项能持续的群体贡献
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Eleventh House
+    summary: You may explore responsibility and sustained practice through groups and shared hopes.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      groups and shared hopes. Saturn — the chart factor associated with responsibility and sustained
+      practice — falls in the Eleventh House — the area of groups and shared hopes. This area concerns
+      participation in a purpose beyond one person. Belonging can include disagreement, especially
+      when the group makes space for different forms of contribution. You may take commitments seriously
+      and prefer progress that survives a difficult week; a limit can clarify priorities without describing
+      the full extent of your ability. For example, when joining a community project, choose a contribution
+      you can sustain and notice how newcomers are welcomed; a shared aim becomes practical through
+      ordinary arrangements for participation. Watch for reading a temporary difficulty as a verdict
+      on personal worth, especially alongside suppressing a real concern in order to remain accepted
+      by a group. Try this: choose a contribution to a group that you can sustain, and review what
+      changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_house.saturn.h12
+  system: astrology
+  section: planets
+  topic: saturn_house
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: bodies[key=saturn].house
+        eq: 12
+  weight: 68
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土星在第十二宫：独处、整理与后台支持
+    summary: 你可以从独处、整理与后台支持观察责任、限制与长期练习。
+    body: 你对责任、限制与长期练习的体验，容易在独处、整理与后台支持的场景里变得具体。土星（象征责任、限制与长期练习的命盘要素）落入第十二宫（观察独处与幕后整理的领域），把这个面向与该生活领域连接起来；这个生活领域关注不易被外界看见的经验；安静时间可以帮助消化事情，不意味着你需要远离所有连接。你对承诺和标准可能较为认真，愿意反复打磨；现实限制可以帮助排序，也容易被误读为能力上限。例如，一段活动结束后，你可以留时间整理感受，再决定哪些需要与可信任的人分享，留意自己的习惯是否帮助你理解当下需要。也要注意把暂时做不到解释为自己不够好与把所有需要都藏起来的情况；可以先留出安静整理并保留支持渠道，再尝试把标准拆成可练习的步骤，把一次观察当作练习材料，给环境变化与其他命盘要素留出解释空间。
+    advice:
+      - 留出安静整理并保留支持渠道
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Saturn in the Twelfth House
+    summary:
+      You may explore responsibility and sustained practice through quiet reflection and unseen
+      work.
+    body: 'You may notice responsibility and sustained practice most clearly in situations involving
+      quiet reflection and unseen work. Saturn — the chart factor associated with responsibility and
+      sustained practice — falls in the Twelfth House — the area of quiet reflection and unseen work.
+      This area concerns experiences that do not immediately become public. Time alone can help you
+      process a day while remaining compatible with companionship and practical support. You may take
+      commitments seriously and prefer progress that survives a difficult week; a limit can clarify
+      priorities without describing the full extent of your ability. For example, after a demanding
+      event, give yourself time to sort what happened before deciding which part to discuss with someone
+      you trust; private reflection and asking for help can support each other. Watch for reading
+      a temporary difficulty as a verdict on personal worth, especially alongside keeping every need
+      invisible to people who could respond. Try this: make room for quiet while keeping a route to
+      support, and review what changed before adding another task.'
+    advice:
+      - Break a demanding standard into skills you can practice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

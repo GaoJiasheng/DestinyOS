@@ -165,6 +165,44 @@ describe('knowledge validation', () => {
 
 // Corpus comparisons must retain the documented Dice score while reusing tokenization.
 describe('cached duplicate comparison', () => {
+  it('preserves exhaustive Set-based warning decisions with packed corpus intersections', async () => {
+    const { similarity } = await import('../src');
+    const texts = [
+      '甲乙丙丁木火土金水。你可以比较实际经验，再调整一项生活安排。',
+      '甲乙丙丁木火土金水。你可以比较实际经历，再调整一项生活安排。',
+      'Try comparing the actual experience before adjusting one part of a routine.',
+      'Try comparing the actual response before adjusting one part of a routine.',
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+      '不同的观察提供不同的问题，允许根据真实反馈修改选择。',
+      '',
+      '甲',
+      'ab',
+    ];
+    const located = texts.map((text, index) => ({
+      file: 'packed-test.yaml',
+      locate: () => ({ line: 1, column: 1 }),
+      unit: {
+        ...sample(),
+        id: `bazi.packed.u${index}`,
+        exclusive_with: [],
+        zh: { ...sample().zh, body: text },
+        en: { ...sample().en, body: texts[texts.length - index - 1]! },
+      },
+    }));
+    const expected: string[] = [];
+    for (let i = 0; i < located.length; i++)
+      for (const b of located.slice(i + 1))
+        for (const locale of ['zh', 'en'] as const) {
+          const a = located[i]!.unit;
+          if (similarity(a[locale].body, b.unit[locale].body) > 0.6)
+            expected.push(`Similar 3-grams: ${a.id} / ${b.unit.id} (${locale})`);
+        }
+    expect(
+      validateRelations(located)
+        .filter((d) => d.severity === 'warning')
+        .map((d) => d.message),
+    ).toEqual(expected);
+  });
   it('matches the direct comparator for repeated bilingual and short inputs', async () => {
     const { createSimilarityComparator, similarity } = await import('../src');
     const cached = createSimilarityComparator();

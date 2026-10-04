@@ -70,8 +70,11 @@ export function resolvePath(chart: unknown, path: string, shapeOnly = false): un
       }
       if (token.kind === 'wildcard')
         return Array.isArray(value) ? value : record(value) ? Object.values(value) : [];
-      if (!Array.isArray(value)) return [];
-      return value.filter(
+      // DESIGN-GAP: Consecutive selectors narrow the same record (e.g. an aspect's
+      // a, b and type); the parser already accepts them. Do not join independent
+      // existential matches from different array entries.
+      const candidates = Array.isArray(value) ? value : record(value) ? [value] : [];
+      return candidates.filter(
         (item) =>
           record(item) &&
           Object.hasOwn(item, token.key) &&

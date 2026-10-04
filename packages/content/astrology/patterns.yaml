@@ -1,0 +1,283 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+# // DESIGN-GAP: Six documented structures mean five detected aspect patterns plus the engine’s stellium statistic; no absent features path is introduced.
+- id: astrology.pattern.grand_trine
+  system: astrology
+  section: aspects
+  topic: pattern_grand_trine
+  when:
+    path: patterns[key=grand_trine].key
+    eq: grand_trine
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: &id001 []
+  zh:
+    title: 大三角：让结构成为提问
+    summary: 你可以从大三角观察不同需要如何配合。
+    body: 你可以把大三角（三颗行星以三分相相连的结构）看成协调不同需要的线索，而不是人生等级或事件预告。大三角在这张命盘中被检测到，说明几个面向以特定角度或集中位置联系起来；它象征容易形成顺手的循环，但舒服也可能减少尝试新方法的动力，具体表现仍取决于参与的行星与实际环境。比如，一项熟悉的工作总能很快完成，却迟迟没有把做法分享给伙伴，这时可以先区分哪些是自己的习惯，哪些是当下情境的要求。不要让结构名称替代观察，建议把一个顺手技巧教给别人，借反馈拓宽用法，再看一周后的回应是否更清楚；模式不是必须反复发生的故事，你仍可以通过练习与协商改变安排。
+    advice:
+      - 把一个顺手技巧教给别人，借反馈拓宽用法
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Grand trine: a question about coordination'
+    summary: You can explore a familiar flow that can become a closed routine.
+    body: 'You can use the Grand trine — three planets connected through trines — as a prompt for
+      coordinating needs, without treating it as a ranking or a forecast. The engine detects this
+      structure in your chart. Symbolically, it points toward a familiar flow that can become a closed
+      routine; the participating planets and your actual setting still matter. Imagine that a familiar
+      task feels easy enough that you have stopped noticing how you do it. Before deciding what the
+      pattern means for you, separate a habitual response from a demand created by the present situation.
+      Try this: teach someone a familiar technique and use their question to broaden it. A geometric
+      arrangement does not require you to repeat a particular story, and an ordinary conversation
+      can be more useful than trying to live up to the name of a pattern.'
+    advice:
+      - Teach someone a familiar technique and use their question to broaden it
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.pattern.t_square
+  system: astrology
+  section: aspects
+  topic: pattern_t_square
+  when:
+    path: patterns[key=t_square].key
+    eq: t_square
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: T三角：让结构成为提问
+    summary: 你可以从T三角观察不同需要如何配合。
+    body: 你可以把T三角（一组对冲的两端同时与第三颗行星形成四分相）看成协调不同需要的线索，而不是人生等级或事件预告。T三角在这张命盘中被检测到，说明几个面向以特定角度或集中位置联系起来；它象征容易把两端的张力集中到第三个面向，适合分步协调需求，具体表现仍取决于参与的行星与实际环境。比如，同时答应两个方向不同的请求，最后把全部压力放在执行阶段，这时可以先区分哪些是自己的习惯，哪些是当下情境的要求。不要让结构名称替代观察，建议分别列出两端需要，再给中间环节减一项负担，再看一周后的回应是否更清楚；模式不是必须反复发生的故事，你仍可以通过练习与协商改变安排。
+    advice:
+      - 分别列出两端需要，再给中间环节减一项负担
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'T-square: a question about coordination'
+    summary: You can explore pressure gathered around a third concern that needs its own space.
+    body: 'You can use the T-square — an opposition whose endpoints both square a third planet — as
+      a prompt for coordinating needs, without treating it as a ranking or a forecast. The engine
+      detects this structure in your chart. Symbolically, it points toward pressure gathered around
+      a third concern that needs its own space; the participating planets and your actual setting
+      still matter. Imagine that two competing requests leave you trying to solve everything through
+      one overworked response. Before deciding what the pattern means for you, separate a habitual
+      response from a demand created by the present situation. Try this: separate the competing needs
+      and reduce one demand on the mediating task. A geometric arrangement does not require you to
+      repeat a particular story, and an ordinary conversation can be more useful than trying to live
+      up to the name of a pattern.'
+    advice:
+      - Separate the competing needs and reduce one demand on the mediating task
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.pattern.grand_cross
+  system: astrology
+  section: aspects
+  topic: pattern_grand_cross
+  when:
+    path: patterns[key=grand_cross].key
+    eq: grand_cross
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 大十字：让结构成为提问
+    summary: 你可以从大十字观察不同需要如何配合。
+    body: 你可以把大十字（四颗行星以对冲和四分相连成的结构）看成协调不同需要的线索，而不是人生等级或事件预告。大十字在这张命盘中被检测到，说明几个面向以特定角度或集中位置联系起来；它象征不同需求容易同时出现，先排序比同时处理每一面更有帮助，具体表现仍取决于参与的行星与实际环境。比如，一天里工作、朋友与独处都需要时间，却把每项都排在同一个时段，这时可以先区分哪些是自己的习惯，哪些是当下情境的要求。不要让结构名称替代观察，建议明确今天先处理的一项，其余另约检查点，再看一周后的回应是否更清楚；模式不是必须反复发生的故事，你仍可以通过练习与协商改变安排。
+    advice:
+      - 明确今天先处理的一项，其余另约检查点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Grand cross: a question about coordination'
+    summary: You can explore several priorities arriving together and needing an order.
+    body: 'You can use the Grand cross — four planets linked through oppositions and squares — as
+      a prompt for coordinating needs, without treating it as a ranking or a forecast. The engine
+      detects this structure in your chart. Symbolically, it points toward several priorities arriving
+      together and needing an order; the participating planets and your actual setting still matter.
+      Imagine that several commitments feel equally pressing even though the day has only one available
+      interval. Before deciding what the pattern means for you, separate a habitual response from
+      a demand created by the present situation. Try this: choose one priority for today and set review
+      points for the others. A geometric arrangement does not require you to repeat a particular story,
+      and an ordinary conversation can be more useful than trying to live up to the name of a pattern.'
+    advice:
+      - Choose one priority for today and set review points for the others
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.pattern.kite
+  system: astrology
+  section: aspects
+  topic: pattern_kite
+  when:
+    path: patterns[key=kite].key
+    eq: kite
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 风筝：让结构成为提问
+    summary: 你可以从风筝观察不同需要如何配合。
+    body: 你可以把风筝（大三角加入一颗与其中一点对冲、与另两点六分相的行星）看成协调不同需要的线索，而不是人生等级或事件预告。风筝在这张命盘中被检测到，说明几个面向以特定角度或集中位置联系起来；它象征熟悉的配合可能借一处张力找到出口，适合把舒适区接到具体任务，具体表现仍取决于参与的行星与实际环境。比如，你已有稳定技巧，却需要回应伙伴的新要求才愿意把它用在更大场景，这时可以先区分哪些是自己的习惯，哪些是当下情境的要求。不要让结构名称替代观察，建议选一项真实需求，把已有技巧接到它上面，再看一周后的回应是否更清楚；模式不是必须反复发生的故事，你仍可以通过练习与协商改变安排。
+    advice:
+      - 选一项真实需求，把已有技巧接到它上面
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Kite: a question about coordination'
+    summary: You can explore a familiar strength finding a practical outlet through a contrasting
+      demand.
+    body:
+      'You can use the Kite — a grand trine joined by an opposition and two sextiles — as a prompt
+      for coordinating needs, without treating it as a ranking or a forecast. The engine detects this
+      structure in your chart. Symbolically, it points toward a familiar strength finding a practical
+      outlet through a contrasting demand; the participating planets and your actual setting still
+      matter. Imagine that a reliable skill gains a new use when another person asks you to solve
+      an unfamiliar problem. Before deciding what the pattern means for you, separate a habitual response
+      from a demand created by the present situation. Try this: connect an established skill with
+      one real request. A geometric arrangement does not require you to repeat a particular story,
+      and an ordinary conversation can be more useful than trying to live up to the name of a pattern.'
+    advice:
+      - Connect an established skill with one real request
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.pattern.yod
+  system: astrology
+  section: aspects
+  topic: pattern_yod
+  when:
+    path: patterns[key=yod].key
+    eq: yod
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: Yod：让结构成为提问
+    summary: 你可以从Yod观察不同需要如何配合。
+    body: 你可以把Yod（两颗六分相行星同时与第三颗形成梅花相的结构）看成协调不同需要的线索，而不是人生等级或事件预告。Yod在这张命盘中被检测到，说明几个面向以特定角度或集中位置联系起来；它象征表达条件可能不容易同步，适合小步校准而不是寻找特殊使命，具体表现仍取决于参与的行星与实际环境。比如，一个安排在两处都合适，换到第三个场景却需要重新设定节奏，这时可以先区分哪些是自己的习惯，哪些是当下情境的要求。不要让结构名称替代观察，建议每次只改一个条件，记录改变后的实际反馈，再看一周后的回应是否更清楚；模式不是必须反复发生的故事，你仍可以通过练习与协商改变安排。
+    advice:
+      - 每次只改一个条件，记录改变后的实际反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Yod: a question about coordination'
+    summary: You can explore different conditions needing repeated adjustment rather than a special
+      mission.
+    body: 'You can use the Yod — two sextile-linked planets both forming quincunxes to a third — as
+      a prompt for coordinating needs, without treating it as a ranking or a forecast. The engine
+      detects this structure in your chart. Symbolically, it points toward different conditions needing
+      repeated adjustment rather than a special mission; the participating planets and your actual
+      setting still matter. Imagine that an arrangement works in two settings but needs a different
+      pace in a third. Before deciding what the pattern means for you, separate a habitual response
+      from a demand created by the present situation. Try this: change one condition at a time and
+      record the response. A geometric arrangement does not require you to repeat a particular story,
+      and an ordinary conversation can be more useful than trying to live up to the name of a pattern.'
+    advice:
+      - Change one condition at a time and record the response
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.pattern.stellium
+  system: astrology
+  section: patterns
+  topic: pattern_stellium
+  when:
+    path: stats.stelliums.length
+    gte: 1
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 星群：让结构成为提问
+    summary: 你可以从星群观察不同需要如何配合。
+    body: 你可以把星群（至少三颗行星集中在同一星座或同一宫位）看成协调不同需要的线索，而不是人生等级或事件预告。星群在这张命盘中被检测到，说明几个面向以特定角度或集中位置联系起来；它象征某种表达或生活领域比较集中，但其他面向仍值得被看见，具体表现仍取决于参与的行星与实际环境。比如，你常从同一个角度理解事情，伙伴的补充却提醒你还有别的入口，这时可以先区分哪些是自己的习惯，哪些是当下情境的要求。不要让结构名称替代观察，建议请伙伴补充一个不同角度，再比较能否并用，再看一周后的回应是否更清楚；模式不是必须反复发生的故事，你仍可以通过练习与协商改变安排。
+    advice:
+      - 请伙伴补充一个不同角度，再比较能否并用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Stellium: a question about coordination'
+    summary: You can explore a concentration of attention that still leaves other needs relevant.
+    body: 'You can use the Stellium — at least three planets gathered in one sign or house — as a
+      prompt for coordinating needs, without treating it as a ranking or a forecast. The engine detects
+      this structure in your chart. Symbolically, it points toward a concentration of attention that
+      still leaves other needs relevant; the participating planets and your actual setting still matter.
+      Imagine that you repeatedly reach for one explanation until somebody offers a perspective from
+      a different area. Before deciding what the pattern means for you, separate a habitual response
+      from a demand created by the present situation. Try this: invite an alternative perspective
+      and see whether both can contribute. A geometric arrangement does not require you to repeat
+      a particular story, and an ordinary conversation can be more useful than trying to live up to
+      the name of a pattern.'
+    advice:
+      - Invite an alternative perspective and see whether both can contribute
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

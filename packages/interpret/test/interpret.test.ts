@@ -86,6 +86,25 @@ describe('deterministic interpretation', () => {
       interpret({ ...value, knowledge: { ...knowledge, units: [...knowledge.units].reverse() } }),
     ).toEqual(original);
   });
+  it('ignores another system’s glossary when a complete offline corpus is supplied', () => {
+    const original = interpret(input('en'));
+    const otherTerm = {
+      key: 'astrology.unrelated',
+      system: 'astrology' as const,
+      zh: { term: '实际', short: '另一体系的词条', long: '另一体系的词条' },
+      en: { term: 'you', short: 'An unrelated entry', long: 'An unrelated entry' },
+      aliases: [],
+    };
+    expect(
+      interpret({
+        ...input('en'),
+        knowledge: {
+          ...knowledge,
+          glossary: [...knowledge.glossary, otherTerm],
+        },
+      }),
+    ).toEqual(original);
+  });
   it('uses matched evidence and specificity plus system multipliers', () => {
     const report = interpret({ ...input(), config: { weightMultiplier: () => 2 } });
     const hit = report.hits.find((h) => h.unitId === 'bazi.nature.precise');

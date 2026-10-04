@@ -21,6 +21,7 @@
     "engine:bundle": "tsx scripts/engines/bundle.ts",
     "content:qimen:coverage": "pnpm --filter @tianji/content coverage:qimen",
     "content:tarot:coverage": "pnpm --filter @tianji/content coverage:tarot",
+    "content:astrology:coverage": "pnpm --filter @tianji/content coverage:astrology",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
