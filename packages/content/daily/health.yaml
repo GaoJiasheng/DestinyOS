@@ -1,0 +1,1043 @@
+# T-23 original bilingual daily content.
+# // DESIGN-GAP: Shared domain direction topics enable concessions; Bazi weights exceed auxiliary transit weights.
+- id: daily.health.ten_god.shang_guan.strong
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shang_guan.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用表达分寸的方式处理作息与情绪。
+    summary: 你可以用表达分寸的方式处理作息与情绪。
+    body: 你可以用表达分寸的方式处理作息与情绪。伤官（由日主生出但阴阳不同的流日天干）强调表达和检视旧规则。你容易看见流程中的不顺之处，直接指出问题可能有帮助，也可能让听者只听到批评。把发现转成可试验的方案，观点才更容易落地。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以汇报卡点时，附上一项能在今天试行的改法。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Offer an experiment in rest and emotions.
+    summary: Offer an experiment in rest and emotions.
+    body:
+      Offer an experiment in rest and emotions. Hurting Officer (shāng guān — an output stem of opposite
+      polarity) highlights questioning and articulation. You may spot a clumsy rule before others mention it.
+      That observation becomes more useful when you describe the effect and propose a workable alternative.
+      Strong (shēn qiáng — greater natal-stem support in the model) emphasizes capacity to engage, without
+      measuring the energy you actually have. For example, step away after a long screen session and choose
+      a quieter transition before your evening activity. In another small situation, when editing a document,
+      mark a confusing sentence and offer a replacement instead of dismissing the whole piece. Consider a comfortable
+      pause you can repeat; this section concerns rest and emotions without assessing a physical condition.
+      Review the actual response before extending the plan, and keep only the part that helps you navigate
+      your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.shang_guan.balanced
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shang_guan.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用表达分寸的方式处理作息与情绪。
+    summary: 你可以用表达分寸的方式处理作息与情绪。
+    body: 你可以用表达分寸的方式处理作息与情绪。伤官（由日主生出但阴阳不同的流日天干）强调表达和检视旧规则。你容易看见流程中的不顺之处，直接指出问题可能有帮助，也可能让听者只听到批评。把发现转成可试验的方案，观点才更容易落地。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以汇报卡点时，附上一项能在今天试行的改法。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Offer an experiment in rest and emotions.
+    summary: Offer an experiment in rest and emotions.
+    body:
+      Offer an experiment in rest and emotions. Hurting Officer (shāng guān — an output stem of opposite
+      polarity) highlights questioning and articulation. You may spot a clumsy rule before others mention it.
+      That observation becomes more useful when you describe the effect and propose a workable alternative.
+      Balanced (zhōng hé — support and expenditure closer in the model) asks you to balance effort with feedback,
+      while leaving some demands open. For example, step away after a long screen session and choose a quieter
+      transition before your evening activity. In another small situation, when editing a document, mark a
+      confusing sentence and offer a replacement instead of dismissing the whole piece. Consider a comfortable
+      pause you can repeat; this section concerns rest and emotions without assessing a physical condition.
+      Review the actual response before extending the plan, and keep only the part that helps you navigate
+      your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.shang_guan.weak
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shang_guan.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用表达分寸的方式处理作息与情绪。
+    summary: 你可以用表达分寸的方式处理作息与情绪。
+    body: 你可以用表达分寸的方式处理作息与情绪。伤官（由日主生出但阴阳不同的流日天干）强调表达和检视旧规则。你容易看见流程中的不顺之处，直接指出问题可能有帮助，也可能让听者只听到批评。把发现转成可试验的方案，观点才更容易落地。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以讨论家务安排时，先说具体困难再提新规则。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Offer an experiment in rest and emotions.
+    summary: Offer an experiment in rest and emotions.
+    body:
+      Offer an experiment in rest and emotions. Hurting Officer (shāng guān — an output stem of opposite
+      polarity) highlights questioning and articulation. You may spot a clumsy rule before others mention it.
+      That observation becomes more useful when you describe the effect and propose a workable alternative.
+      Weak (shēn ruò — lower natal-stem support in the model) invites a search for assistance, rather than
+      a judgment about your ability. For example, step away after a long screen session and choose a quieter
+      transition before your evening activity. In another small situation, if a meeting feels unproductive,
+      suggest a clear decision for its final five minutes. Consider a comfortable pause you can repeat; this
+      section concerns rest and emotions without assessing a physical condition. Review the actual response
+      before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.pian_yin.strong
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_yin.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用换个角度的方式处理作息与情绪。
+    summary: 你可以用换个角度的方式处理作息与情绪。
+    body: 你可以用换个角度的方式处理作息与情绪。偏印（生扶日主且阴阳相同的流日天干）关注独立学习与不同视角。你可能更想安静整理线索，先理解再回应。新的解释值得探索，但只在脑中反复推演容易拉长犹豫；找一个可核对的小事实，有助于把想法落地。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以阅读难懂材料时，先找一个能亲手验证的例子。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Test one observation in rest and emotions.
+    summary: Test one observation in rest and emotions.
+    body:
+      Test one observation in rest and emotions. Indirect Resource (piān yìn — a supporting stem of matching
+      polarity) invites a quieter or less familiar approach to learning. You might prefer to investigate before
+      joining a discussion. Curiosity can reveal a useful angle, but an elegant explanation still needs a check
+      against experience. Strong (shēn qiáng — greater natal-stem support in the model) emphasizes capacity
+      to engage, without measuring the energy you actually have. For example, step away after a long screen
+      session and choose a quieter transition before your evening activity. In another small situation, try
+      explaining an unfamiliar concept with an ordinary object, then check where the comparison stops working.
+      Consider a comfortable pause you can repeat; this section concerns rest and emotions without assessing
+      a physical condition. Review the actual response before extending the plan, and keep only the part that
+      helps you navigate your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.pian_yin.balanced
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_yin.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用换个角度的方式处理作息与情绪。
+    summary: 你可以用换个角度的方式处理作息与情绪。
+    body: 你可以用换个角度的方式处理作息与情绪。偏印（生扶日主且阴阳相同的流日天干）关注独立学习与不同视角。你可能更想安静整理线索，先理解再回应。新的解释值得探索，但只在脑中反复推演容易拉长犹豫；找一个可核对的小事实，有助于把想法落地。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以阅读难懂材料时，先找一个能亲手验证的例子。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Test one observation in rest and emotions.
+    summary: Test one observation in rest and emotions.
+    body:
+      Test one observation in rest and emotions. Indirect Resource (piān yìn — a supporting stem of matching
+      polarity) invites a quieter or less familiar approach to learning. You might prefer to investigate before
+      joining a discussion. Curiosity can reveal a useful angle, but an elegant explanation still needs a check
+      against experience. Balanced (zhōng hé — support and expenditure closer in the model) asks you to balance
+      effort with feedback, while leaving some demands open. For example, step away after a long screen session
+      and choose a quieter transition before your evening activity. In another small situation, try explaining
+      an unfamiliar concept with an ordinary object, then check where the comparison stops working. Consider
+      a comfortable pause you can repeat; this section concerns rest and emotions without assessing a physical
+      condition. Review the actual response before extending the plan, and keep only the part that helps you
+      navigate your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.pian_yin.weak
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_yin.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用换个角度的方式处理作息与情绪。
+    summary: 你可以用换个角度的方式处理作息与情绪。
+    body: 你可以用换个角度的方式处理作息与情绪。偏印（生扶日主且阴阳相同的流日天干）关注独立学习与不同视角。你可能更想安静整理线索，先理解再回应。新的解释值得探索，但只在脑中反复推演容易拉长犹豫；找一个可核对的小事实，有助于把想法落地。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以信息很多时，画一张简单关系图再补细节。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Test one observation in rest and emotions.
+    summary: Test one observation in rest and emotions.
+    body:
+      Test one observation in rest and emotions. Indirect Resource (piān yìn — a supporting stem of matching
+      polarity) invites a quieter or less familiar approach to learning. You might prefer to investigate before
+      joining a discussion. Curiosity can reveal a useful angle, but an elegant explanation still needs a check
+      against experience. Weak (shēn ruò — lower natal-stem support in the model) invites a search for assistance,
+      rather than a judgment about your ability. For example, step away after a long screen session and choose
+      a quieter transition before your evening activity. In another small situation, after reading several
+      opinions, identify one question you can resolve with a direct observation. Consider a comfortable pause
+      you can repeat; this section concerns rest and emotions without assessing a physical condition. Review
+      the actual response before extending the plan, and keep only the part that helps you navigate your own
+      circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.zheng_yin.strong
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_yin.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用稳步学习的方式处理作息与情绪。
+    summary: 你可以用稳步学习的方式处理作息与情绪。
+    body: 你可以用稳步学习的方式处理作息与情绪。正印（生扶日主但阴阳不同的流日天干）象征学习、支持和已有经验。你容易从可靠资料或熟悉的人那里找到支点。得到支持并不等于要把决定交给别人；把建议整理成自己的操作步骤，才能知道它是否适合眼前的情况。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以请教问题后，用自己的话复述一遍操作方法。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Put support to use in rest and emotions.
+    summary: Put support to use in rest and emotions.
+    body:
+      Put support to use in rest and emotions. Direct Resource (zhèng yìn — a supporting stem of opposite
+      polarity) draws attention to learning and dependable support. A reference, mentor, or familiar routine
+      can make a task feel more manageable. Receiving help still leaves the decision with you. Strong (shēn
+      qiáng — greater natal-stem support in the model) emphasizes capacity to engage, without measuring the
+      energy you actually have. For example, step away after a long screen session and choose a quieter transition
+      before your evening activity. In another small situation, ask an experienced teammate to demonstrate
+      one step, then attempt it yourself while the explanation is fresh. Consider a comfortable pause you can
+      repeat; this section concerns rest and emotions without assessing a physical condition. Review the actual
+      response before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.zheng_yin.balanced
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_yin.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用稳步学习的方式处理作息与情绪。
+    summary: 你可以用稳步学习的方式处理作息与情绪。
+    body: 你可以用稳步学习的方式处理作息与情绪。正印（生扶日主但阴阳不同的流日天干）象征学习、支持和已有经验。你容易从可靠资料或熟悉的人那里找到支点。得到支持并不等于要把决定交给别人；把建议整理成自己的操作步骤，才能知道它是否适合眼前的情况。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以请教问题后，用自己的话复述一遍操作方法。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Put support to use in rest and emotions.
+    summary: Put support to use in rest and emotions.
+    body:
+      Put support to use in rest and emotions. Direct Resource (zhèng yìn — a supporting stem of opposite
+      polarity) draws attention to learning and dependable support. A reference, mentor, or familiar routine
+      can make a task feel more manageable. Receiving help still leaves the decision with you. Balanced (zhōng
+      hé — support and expenditure closer in the model) asks you to balance effort with feedback, while leaving
+      some demands open. For example, step away after a long screen session and choose a quieter transition
+      before your evening activity. In another small situation, ask an experienced teammate to demonstrate
+      one step, then attempt it yourself while the explanation is fresh. Consider a comfortable pause you can
+      repeat; this section concerns rest and emotions without assessing a physical condition. Review the actual
+      response before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.ten_god.zheng_yin.weak
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_yin.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以用稳步学习的方式处理作息与情绪。
+    summary: 你可以用稳步学习的方式处理作息与情绪。
+    body: 你可以用稳步学习的方式处理作息与情绪。正印（生扶日主但阴阳不同的流日天干）象征学习、支持和已有经验。你容易从可靠资料或熟悉的人那里找到支点。得到支持并不等于要把决定交给别人；把建议整理成自己的操作步骤，才能知道它是否适合眼前的情况。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如连续盯屏幕后，你可以起身换个视角，再给晚间留出一段没有额外要求的安静时间。换到一个小场景，你也可以复习课程时，先确认基础概念再做新练习。建议选择一个轻松、可持续的休息动作；这里仅谈作息与情绪，具体不适交给合适的专业支持。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Put support to use in rest and emotions.
+    summary: Put support to use in rest and emotions.
+    body:
+      Put support to use in rest and emotions. Direct Resource (zhèng yìn — a supporting stem of opposite
+      polarity) draws attention to learning and dependable support. A reference, mentor, or familiar routine
+      can make a task feel more manageable. Receiving help still leaves the decision with you. Weak (shēn ruò
+      — lower natal-stem support in the model) invites a search for assistance, rather than a judgment about
+      your ability. For example, step away after a long screen session and choose a quieter transition before
+      your evening activity. In another small situation, when preparing for an appointment, collect your questions
+      in one place so the conversation stays useful. Consider a comfortable pause you can repeat; this section
+      concerns rest and emotions without assessing a physical condition. Review the actual response before
+      extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.branch.clash
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.clash
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先检查作息与情绪里的共同安排。
+    summary: 你可以先检查作息与情绪里的共同安排。
+    body: 你可以先检查作息与情绪里的共同安排。日支六冲（流日与原局日支的对向关系）提醒你留意安排之间的拉扯。变化不是坏事预告，你可以把必须完成和能够协商的部分分开。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Check the arrangement in rest and emotions.
+    summary: Check the arrangement in rest and emotions.
+    body:
+      Check the arrangement in rest and emotions. Clash (liù chōng — an opposing daily and natal day-branch
+      pair) draws attention to competing arrangements. A change need not be a setback. You can distinguish
+      a firm constraint from something open to discussion. For your daily wellbeing, start with how you actually
+      feel and how the day is arranged. This symbolic reading offers prompts about rest and emotions, without
+      assessing a physical condition. A crowded schedule, poor sleep, or a seasonal change can affect your
+      experience. For example, step away from a long screen session and choose a quieter transition before
+      your evening activities. Consider one manageable pause that you can repeat, and seek suitable professional
+      support for concerns that need it. Before you change an arrangement, check whether the other people involved
+      have the same understanding of its scope and timing.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.branch.punish
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.punish
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先检查作息与情绪里的共同安排。
+    summary: 你可以先检查作息与情绪里的共同安排。
+    body: 你可以先检查作息与情绪里的共同安排。日支相刑（传统地支关系中的牵制标记）适合用来观察重复的卡点。你可能想用更强的力气推动同一件事，不过先改变一个步骤更容易看见出口。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Check the arrangement in rest and emotions.
+    summary: Check the arrangement in rest and emotions.
+    body:
+      Check the arrangement in rest and emotions. Punishment (xiāng xíng — a traditional branch-friction
+      label) is used here to examine recurring snags. If the same approach keeps meeting resistance, consider
+      changing one step before increasing the effort. For your daily wellbeing, start with how you actually
+      feel and how the day is arranged. This symbolic reading offers prompts about rest and emotions, without
+      assessing a physical condition. A crowded schedule, poor sleep, or a seasonal change can affect your
+      experience. For example, step away from a long screen session and choose a quieter transition before
+      your evening activities. Consider one manageable pause that you can repeat, and seek suitable professional
+      support for concerns that need it. Before you change an arrangement, check whether the other people involved
+      have the same understanding of its scope and timing.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.branch.harm
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.harm
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先检查作息与情绪里的共同安排。
+    summary: 你可以先检查作息与情绪里的共同安排。
+    body: 你可以先检查作息与情绪里的共同安排。日支相害（传统地支关系中的间接不协调标记）提示你把没说清的条件摆出来。误会不代表关系有问题，可以通过确认时间、范围和期待减少猜测。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Check the arrangement in rest and emotions.
+    summary: Check the arrangement in rest and emotions.
+    body:
+      Check the arrangement in rest and emotions. Harm (xiāng hài — a traditional label for indirect branch
+      friction) prompts a check of unstated conditions. A misunderstanding does not define a relationship.
+      You can ask about timing or scope before drawing conclusions. For your daily wellbeing, start with how
+      you actually feel and how the day is arranged. This symbolic reading offers prompts about rest and emotions,
+      without assessing a physical condition. A crowded schedule, poor sleep, or a seasonal change can affect
+      your experience. For example, step away from a long screen session and choose a quieter transition before
+      your evening activities. Consider one manageable pause that you can repeat, and seek suitable professional
+      support for concerns that need it. Before you change an arrangement, check whether the other people involved
+      have the same understanding of its scope and timing.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.favorable
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.favorableHit
+  weight: 68
+  polarity: positive
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以让作息与情绪的计划更有余地。
+    summary: 你可以让作息与情绪的计划更有余地。
+    body: 你可以让作息与情绪的计划更有余地。流日喜用命中（当天五行进入原局喜用集合）表示模型里多了一项支持。你可以把它当作启动小任务的提醒，仍要用实际反馈决定后续安排。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Keep some flexibility in rest and emotions.
+    summary: Keep some flexibility in rest and emotions.
+    body:
+      Keep some flexibility in rest and emotions. Favorable-element contact (xǐ yòng — the daily element
+      matching the natal support set) adds a supportive signal in this model. You can use it to begin a limited
+      task, then judge the next step from real feedback. For your daily wellbeing, start with how you actually
+      feel and how the day is arranged. This symbolic reading offers prompts about rest and emotions, without
+      assessing a physical condition. A crowded schedule, poor sleep, or a seasonal change can affect your
+      experience. For example, step away from a long screen session and choose a quieter transition before
+      your evening activities. Consider one manageable pause that you can repeat, and seek suitable professional
+      support for concerns that need it. Before you change an arrangement, check whether the other people involved
+      have the same understanding of its scope and timing.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.unfavorable
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.unfavorableHit
+  weight: 68
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以让作息与情绪的计划更有余地。
+    summary: 你可以让作息与情绪的计划更有余地。
+    body: 你可以让作息与情绪的计划更有余地。流日忌用命中（当天五行进入原局忌用集合）表示模型里出现一项限制。它不说明现实会出问题，不过你可以减少额外安排，先做好已经答应的事。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Keep some flexibility in rest and emotions.
+    summary: Keep some flexibility in rest and emotions.
+    body:
+      Keep some flexibility in rest and emotions. Unfavorable-element contact (jì yòng — the daily element
+      matching the natal caution set) adds a demanding signal in the model. It does not forecast a problem.
+      Consider keeping optional commitments light while attending to existing responsibilities. For your daily
+      wellbeing, start with how you actually feel and how the day is arranged. This symbolic reading offers
+      prompts about rest and emotions, without assessing a physical condition. A crowded schedule, poor sleep,
+      or a seasonal change can affect your experience. For example, step away from a long screen session and
+      choose a quieter transition before your evening activities. Consider one manageable pause that you can
+      repeat, and seek suitable professional support for concerns that need it. Before you change an arrangement,
+      check whether the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.secondary.luck.stem.clash
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.secondary.luck.stem.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日天干与大运（十年阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily stem contrasts with the Luck Pillar (dà yùn
+      — a ten-year cycle marker). This secondary signal invites you to compare an immediate request with a
+      longer-term priority. Consider checking their fit before rearranging the day. For your daily wellbeing,
+      start with how you actually feel and how the day is arranged. This symbolic reading offers prompts about
+      rest and emotions, without assessing a physical condition. A crowded schedule, poor sleep, or a seasonal
+      change can affect your experience. For example, step away from a long screen session and choose a quieter
+      transition before your evening activities. Consider one manageable pause that you can repeat, and seek
+      suitable professional support for concerns that need it. You can discuss the timing with whoever depends
+      on the result before agreeing to another delivery.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.secondary.luck.branch.clash
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.secondary.luck.branch.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日地支与大运（十年阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily branch contrasts with the Luck Pillar (dà yùn
+      — a ten-year cycle marker). This secondary signal invites you to compare an immediate request with a
+      longer-term priority. Consider checking their fit before rearranging the day. For your daily wellbeing,
+      start with how you actually feel and how the day is arranged. This symbolic reading offers prompts about
+      rest and emotions, without assessing a physical condition. A crowded schedule, poor sleep, or a seasonal
+      change can affect your experience. For example, step away from a long screen session and choose a quieter
+      transition before your evening activities. Consider one manageable pause that you can repeat, and seek
+      suitable professional support for concerns that need it. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing. You can discuss the timing
+      with whoever depends on the result before agreeing to another delivery.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.secondary.year.stem.clash
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.secondary.year.stem.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日天干与流年（年度阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily stem contrasts with the Annual Pillar (liú nián
+      — a yearly cycle marker). This secondary signal invites you to compare an immediate request with a longer-term
+      priority. Consider checking their fit before rearranging the day. For your daily wellbeing, start with
+      how you actually feel and how the day is arranged. This symbolic reading offers prompts about rest and
+      emotions, without assessing a physical condition. A crowded schedule, poor sleep, or a seasonal change
+      can affect your experience. For example, step away from a long screen session and choose a quieter transition
+      before your evening activities. Consider one manageable pause that you can repeat, and seek suitable
+      professional support for concerns that need it. You can discuss the timing with whoever depends on the
+      result before agreeing to another delivery.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.secondary.year.branch.clash
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: bazi.secondary.year.branch.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日地支与流年（年度阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以从作息和情绪的实际变化安排今天的节奏。这里的健康提示只谈日常照顾，不根据命盘推断身体状况。疲惫、忙碌或季节变化都可能影响感受，值得先观察而不是急着解释。比如长时间盯屏幕后，起身换个视角，并给晚间留出安静时段。建议选择一个轻松、可持续的休息动作，具体不适交给合适的专业支持。
+    advice:
+      - 为今天安排一段安静休息。
+    do:
+      - 留出休息
+    dont:
+      - 忽略疲惫
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily branch contrasts with the Annual Pillar (liú
+      nián — a yearly cycle marker). This secondary signal invites you to compare an immediate request with
+      a longer-term priority. Consider checking their fit before rearranging the day. For your daily wellbeing,
+      start with how you actually feel and how the day is arranged. This symbolic reading offers prompts about
+      rest and emotions, without assessing a physical condition. A crowded schedule, poor sleep, or a seasonal
+      change can affect your experience. For example, step away from a long screen session and choose a quieter
+      transition before your evening activities. Consider one manageable pause that you can repeat, and seek
+      suitable professional support for concerns that need it. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing. You can discuss the timing
+      with whoever depends on the result before agreeing to another delivery.
+    advice:
+      - Schedule one quiet pause today.
+    do:
+      - Make a pause
+    dont:
+      - Ignore tiredness
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.transit.moon_opposition_sun
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_opposition_sun
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先照顾情绪与当天节奏的配合。
+    summary: 你可以先照顾情绪与当天节奏的配合。
+    body: 你可以先照顾情绪与当天节奏的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命太阳（象征目标与表达）形成对分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如连续收到消息时，你可以先暂停几分钟，分清哪些需要立即处理、哪些能够稍后回应。建议把这个提示用在一个可调整的小动作上，再观察实际结果。这段健康提示只涉及作息与情绪，不推断身体状况。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can check how a mood fits today’s pace.
+    summary: You can check how a mood fits today’s pace.
+    body:
+      'You can check how a mood fits today’s pace. A transit compares a current sky position with a natal
+      position; this one links Moon with natal Sun through a opposition. The transiting Moon highlights immediate
+      emotional responses. Notice an atmosphere while checking the facts before you interpret it. An opposition
+      describes an angle of about 180 degrees and a tension between perspectives. You can name both needs before
+      seeking a workable adjustment. The natal point adds a question about your own habits: Check whether a
+      request fits the aim you actually want to pursue. For example, after several messages arrive, pause to
+      distinguish a real deadline from a request that can wait. A short gap can make the next reply easier
+      to choose. Consider one modest adjustment, then review what actually changed. This wellbeing prompt concerns
+      rest and emotions, without assessing a physical condition.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.transit.moon_square_sun
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_square_sun
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先照顾情绪与当天节奏的配合。
+    summary: 你可以先照顾情绪与当天节奏的配合。
+    body: 你可以先照顾情绪与当天节奏的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如连续收到消息时，你可以先暂停几分钟，分清哪些需要立即处理、哪些能够稍后回应。建议把这个提示用在一个可调整的小动作上，再观察实际结果。这段健康提示只涉及作息与情绪，不推断身体状况。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can check how a mood fits today’s pace.
+    summary: You can check how a mood fits today’s pace.
+    body:
+      'You can check how a mood fits today’s pace. A transit compares a current sky position with a natal
+      position; this one links Moon with natal Sun through a square. The transiting Moon highlights immediate
+      emotional responses. Notice an atmosphere while checking the facts before you interpret it. A square
+      describes an angle of about 90 degrees and symbolic friction. Consider changing the method before deciding
+      that the whole aim is unsuitable. The natal point adds a question about your own habits: Check whether
+      a request fits the aim you actually want to pursue. For example, after several messages arrive, pause
+      to distinguish a real deadline from a request that can wait. A short gap can make the next reply easier
+      to choose. Consider one modest adjustment, then review what actually changed. This wellbeing prompt concerns
+      rest and emotions, without assessing a physical condition.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.transit.moon_opposition_moon
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_opposition_moon
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先照顾情绪与当天节奏的配合。
+    summary: 你可以先照顾情绪与当天节奏的配合。
+    body: 你可以先照顾情绪与当天节奏的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成对分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如连续收到消息时，你可以先暂停几分钟，分清哪些需要立即处理、哪些能够稍后回应。建议把这个提示用在一个可调整的小动作上，再观察实际结果。这段健康提示只涉及作息与情绪，不推断身体状况。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can check how a mood fits today’s pace.
+    summary: You can check how a mood fits today’s pace.
+    body:
+      'You can check how a mood fits today’s pace. A transit compares a current sky position with a natal
+      position; this one links Moon with natal Moon through a opposition. The transiting Moon highlights immediate
+      emotional responses. Notice an atmosphere while checking the facts before you interpret it. An opposition
+      describes an angle of about 180 degrees and a tension between perspectives. You can name both needs before
+      seeking a workable adjustment. The natal point adds a question about your own habits: Notice your mood
+      before adding another conversation to your day. For example, after several messages arrive, pause to
+      distinguish a real deadline from a request that can wait. A short gap can make the next reply easier
+      to choose. Consider one modest adjustment, then review what actually changed. This wellbeing prompt concerns
+      rest and emotions, without assessing a physical condition.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.health.transit.moon_square_moon
+  system: daily
+  section: health
+  topic: daily.health.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_square_moon
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先照顾情绪与当天节奏的配合。
+    summary: 你可以先照顾情绪与当天节奏的配合。
+    body: 你可以先照顾情绪与当天节奏的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成四分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如连续收到消息时，你可以先暂停几分钟，分清哪些需要立即处理、哪些能够稍后回应。建议把这个提示用在一个可调整的小动作上，再观察实际结果。这段健康提示只涉及作息与情绪，不推断身体状况。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can check how a mood fits today’s pace.
+    summary: You can check how a mood fits today’s pace.
+    body:
+      'You can check how a mood fits today’s pace. A transit compares a current sky position with a natal
+      position; this one links Moon with natal Moon through a square. The transiting Moon highlights immediate
+      emotional responses. Notice an atmosphere while checking the facts before you interpret it. A square
+      describes an angle of about 90 degrees and symbolic friction. Consider changing the method before deciding
+      that the whole aim is unsuitable. The natal point adds a question about your own habits: Notice your
+      mood before adding another conversation to your day. For example, after several messages arrive, pause
+      to distinguish a real deadline from a request that can wait. A short gap can make the next reply easier
+      to choose. Consider one modest adjustment, then review what actually changed. This wellbeing prompt concerns
+      rest and emotions, without assessing a physical condition.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

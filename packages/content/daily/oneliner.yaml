@@ -1,0 +1,3899 @@
+# T-23 original bilingual variants.
+# // DESIGN-GAP: oneLiner themes name dominant findings, not necessarily the actual daily ten-god; prose stays thematic.
+# // DESIGN-GAP: Short summaries serve daily excerpts; full bodies retain 05 length ranges.
+- id: daily.oneliner.great.bi_jian.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.bi_jian
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.bi_jian.b
+  zh:
+    title: 你可以明确分工，顺势推进。
+    summary: 你可以明确分工，顺势推进。
+    body: 你可以明确分工，顺势推进。今日主题关注同伴与自主（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如与同事分工时，先认领一块能独立完成的任务。建议先完成这一小步，再看实际感受。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: 'Make room for progress: name your role.'
+    summary: 'Make room for progress: name your role.'
+    body:
+      'Make room for progress: name your role. Your overall band contains several supportive signals in
+      this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Friend (bǐ jiān — a traditional theme
+      of peers and autonomy) invites you to examine independence alongside belonging. A familiar viewpoint
+      can make collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. In a study group, volunteer
+      to explain one topic instead of competing to answer every question. You can keep the next action limited
+      to what fits your actual circumstances. This theme offers a question to explore within your real circumstances
+      today.'
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.bi_jian.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.bi_jian
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.bi_jian.a
+  zh:
+    title: 顺势推进时，给自主协作留一点空间。
+    summary: 顺势推进时，给自主协作留一点空间。
+    body: 你可以把自己的位置站稳，也给同伴留出位置。比肩（传统上用来观察同伴与自主的主题）关注自主和同行，合作的入口可以是一项彼此都理解的分工。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如和朋友安排周末时，把各自的偏好写成两个选项。建议先明确分工，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: Name your role, with space to review.
+    summary: Name your role, with space to review.
+    body:
+      You can hold your own place while giving a peer room to contribute. Friend (bǐ jiān — a traditional
+      theme of peers and autonomy) raises a question about ownership. Shared interests can start a conversation,
+      but they need not produce identical plans. Notice which responsibility you want to keep and which part
+      you could comfortably share. This higher overall band reflects several supportive contributions in the
+      model. Let it invite a modest advance rather than a full calendar. You can prepare one clear stopping
+      point and check the result there. Later circumstances may still call for a different pace, even when
+      the first attempt feels comfortable. When a housemate suggests a different routine, ask what problem
+      the change would solve. Consider reviewing the actual experience before adding another commitment. This
+      theme offers a question to explore within your real circumstances today.
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.jie_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.jie_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.jie_cai.b
+  zh:
+    title: 你可以先定边界，顺势推进。
+    summary: 你可以先定边界，顺势推进。
+    body: 你可以先定边界，顺势推进。今日主题关注共享与资源边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如聚餐前确认预算，不因别人的选择临时加码。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: 'Make room for progress: set a limit.'
+    summary: 'Make room for progress: set a limit.'
+    body:
+      'Make room for progress: set a limit. Your overall band contains several supportive signals in this
+      model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review. A productive
+      morning does not require filling every remaining hour. Consider saving some capacity for an unexpected
+      request or a change in the information available. Rob Wealth (jié cái — a traditional theme of sharing
+      and resource boundaries) is a traditional label for sharing and rivalry. Here it asks how you join others
+      without losing track of your own limits. A lively group can encourage generosity, but enthusiasm is different
+      from available time or a comfortable budget. If several colleagues buy supplies together, agree on contributions
+      before placing the order. You can keep the next action limited to what fits your actual circumstances.
+      This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.jie_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.jie_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.jie_cai.a
+  zh:
+    title: 顺势推进时，给共享边界留一点空间。
+    summary: 顺势推进时，给共享边界留一点空间。
+    body: 你可以参加热闹，也可以提前说明自己的限度。劫财（传统上用来观察共享与资源边界的主题）关注共享和竞争，分清愿意参与与能够投入，交流会更轻松。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如朋友邀你参加新活动时，先核对已有安排再回复。建议先先定边界，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: Set a limit, with space to review.
+    summary: Set a limit, with space to review.
+    body:
+      You can join a shared activity without matching every offer around you. Rob Wealth (jié cái — a traditional
+      theme of sharing and resource boundaries) asks about the boundary between generosity and competition.
+      Agreeing on what you can contribute may make participation easier. Your place in a group need not depend
+      on keeping up with everyone else. This higher overall band reflects several supportive contributions
+      in the model. Let it invite a modest advance rather than a full calendar. You can prepare one clear stopping
+      point and check the result there. Later circumstances may still call for a different pace, even when
+      the first attempt feels comfortable. When an invitation arrives during a busy week, offer a shorter visit
+      that fits your calendar. Consider reviewing the actual experience before adding another commitment. This
+      theme offers a question to explore within your real circumstances today.
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.shi_shen.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.shi_shen
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.shi_shen.b
+  zh:
+    title: 你可以完成小作品，顺势推进。
+    summary: 你可以完成小作品，顺势推进。
+    body: 你可以完成小作品，顺势推进。今日主题关注温和创造与日常享受（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如把旧笔记整理成一页清晰的学习卡片。建议先完成这一小步，再看实际感受。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: 'Make room for progress: finish a small draft.'
+    summary: 'Make room for progress: finish a small draft.'
+    body:
+      'Make room for progress: finish a small draft. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Eating God (shí shén — a traditional
+      theme of constructive expression and enjoyment) turns attention toward useful expression and everyday
+      enjoyment. You may find a familiar craft easier to share than an ambitious performance. The symbol favors
+      noticing what you can make tangible, with a modest finish line that keeps pleasure connected to practice.
+      Show a teammate a rough sketch so the idea can become a conversation rather than a private plan. You
+      can keep the next action limited to what fits your actual circumstances. This theme offers a question
+      to explore within your real circumstances today.'
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.shi_shen.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.shi_shen
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.shi_shen.a
+  zh:
+    title: 顺势推进时，给温和创造留一点空间。
+    summary: 顺势推进时，给温和创造留一点空间。
+    body: 你可以先做一个能享受的小成果。食神（传统上用来观察温和创造与日常享受的主题）关注温和创造，把熟悉技能用在可完成的事情上，表达会有一个真实落点。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如做一道熟悉的饭菜，观察哪个步骤可以简化。建议先完成小作品，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: Finish a small draft, with space to review.
+    summary: Finish a small draft, with space to review.
+    body:
+      You can give an idea a satisfying, modest form. Eating God (shí shén — a traditional theme of constructive
+      expression and enjoyment) draws attention to the pleasure of making something useful. A familiar skill
+      may be a better starting point than an elaborate performance. Look for a finish line that lets you enjoy
+      the result and share it comfortably. This higher overall band reflects several supportive contributions
+      in the model. Let it invite a modest advance rather than a full calendar. You can prepare one clear stopping
+      point and check the result there. Later circumstances may still call for a different pace, even when
+      the first attempt feels comfortable. Make a short playlist for a break, then return to the one task you
+      meant to finish. Consider reviewing the actual experience before adding another commitment. This theme
+      offers a question to explore within your real circumstances today.
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.shang_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.shang_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.shang_guan.b
+  zh:
+    title: 你可以提出试案，顺势推进。
+    summary: 你可以提出试案，顺势推进。
+    body: 你可以提出试案，顺势推进。今日主题关注直接表达与改进（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如汇报卡点时，附上一项能在今天试行的改法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: 'Make room for progress: offer an experiment.'
+    summary: 'Make room for progress: offer an experiment.'
+    body:
+      'Make room for progress: offer an experiment. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Hurting Officer (shāng guān — a traditional
+      theme of articulation and improvement) highlights questioning and articulation. You may spot a clumsy
+      rule before others mention it. That observation becomes more useful when you describe the effect and
+      propose a workable alternative. Strong language alone can obscure the improvement you actually want.
+      When editing a document, mark a confusing sentence and offer a replacement instead of dismissing the
+      whole piece. You can keep the next action limited to what fits your actual circumstances. This theme
+      offers a question to explore within your real circumstances today.'
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.shang_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.shang_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.shang_guan.a
+  zh:
+    title: 顺势推进时，给表达分寸留一点空间。
+    summary: 顺势推进时，给表达分寸留一点空间。
+    body: 你可以把不同意见变成一个可试的改法。伤官（传统上用来观察直接表达与改进的主题）关注直接表达，具体说明哪里不顺，比给整件事下评语更容易获得回应。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如讨论家务安排时，先说具体困难再提新规则。建议先提出试案，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: Offer an experiment, with space to review.
+    summary: Offer an experiment, with space to review.
+    body:
+      You can turn a critical observation into a usable suggestion. Hurting Officer (shāng guān — a traditional
+      theme of articulation and improvement) invites direct articulation. Describe the part that gets in the
+      way and offer one alternative someone could try. A clear example gives your point a better chance of
+      being understood than a broad judgment about the whole process. This higher overall band reflects several
+      supportive contributions in the model. Let it invite a modest advance rather than a full calendar. You
+      can prepare one clear stopping point and check the result there. Later circumstances may still call for
+      a different pace, even when the first attempt feels comfortable. If a meeting feels unproductive, suggest
+      a clear decision for its final five minutes. Consider reviewing the actual experience before adding another
+      commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.pian_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.pian_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.pian_cai.b
+  zh:
+    title: 你可以先做比较，顺势推进。
+    summary: 你可以先做比较，顺势推进。
+    body: 你可以先做比较，顺势推进。今日主题关注机会与灵活资源（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如收到合作邀请后，先确认范围和退出方式。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: 'Make room for progress: compare the options.'
+    summary: 'Make room for progress: compare the options.'
+    body:
+      'Make room for progress: compare the options. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Indirect Wealth (piān cái — a traditional
+      theme of opportunities and flexible resources) points to flexible opportunities rather than expected
+      returns. You might notice a new connection or an unused tool that could help a project. Possibility deserves
+      a practical filter: available information, the cost of trying, and the effort you can realistically sustain.
+      A community project may need your skill for a limited trial; ask what delivery would look like before
+      agreeing. You can keep the next action limited to what fits your actual circumstances. This theme offers
+      a question to explore within your real circumstances today.'
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.pian_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.pian_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.pian_cai.a
+  zh:
+    title: 顺势推进时，给机会筛选留一点空间。
+    summary: 顺势推进时，给机会筛选留一点空间。
+    body: 你可以对新机会保持好奇，再给尝试设个范围。偏财（传统上用来观察机会与灵活资源的主题）关注流动入口，先了解成本与退出方式，选择会更有依据。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如发现新工具时，先用一个小任务测试是否省力。建议先先做比较，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: Compare the options, with space to review.
+    summary: Compare the options, with space to review.
+    body:
+      You can stay curious about a new opening while keeping a trial limited. Indirect Wealth (piān cái
+      — a traditional theme of opportunities and flexible resources) concerns flexible possibilities, without
+      forecasting returns. Ask what the attempt requires and how you would stop if it does not fit. An interesting
+      option can remain an option until the details are clear. This higher overall band reflects several supportive
+      contributions in the model. Let it invite a modest advance rather than a full calendar. You can prepare
+      one clear stopping point and check the result there. Later circumstances may still call for a different
+      pace, even when the first attempt feels comfortable. If a new service catches your attention, compare
+      it with what you already use before changing your routine. Consider reviewing the actual experience before
+      adding another commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.zheng_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.zheng_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.zheng_cai.b
+  zh:
+    title: 你可以理清资源，顺势推进。
+    summary: 你可以理清资源，顺势推进。
+    body: 你可以理清资源，顺势推进。今日主题关注稳定资源与持续投入（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如核对订阅清单，标出近期没有使用的项目。建议先完成这一小步，再看实际感受。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: 'Make room for progress: review your resources.'
+    summary: 'Make room for progress: review your resources.'
+    body:
+      'Make room for progress: review your resources. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Direct Wealth (zhèng cái — a traditional
+      theme of stewardship and steady effort) emphasizes stewardship and consistency. It is a prompt to inspect
+      the small systems that support daily life, rather than a forecast about earnings. Clear records and realistic
+      commitments make it easier to see what is already working and what needs attention. Before replacing
+      equipment, check whether a repair or shared tool would meet the actual need. You can keep the next action
+      limited to what fits your actual circumstances. This theme offers a question to explore within your real
+      circumstances today.'
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.zheng_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.zheng_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.zheng_cai.a
+  zh:
+    title: 顺势推进时，给稳定资源留一点空间。
+    summary: 顺势推进时，给稳定资源留一点空间。
+    body: 你可以让稳定的投入看得见。正财（传统上用来观察稳定资源与持续投入的主题）关注兑现与日常资源，记录一个实际需求，往往比追求更多安排更有帮助。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如和搭档商量采购时，先列必要项再讨论可选项。建议先理清资源，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: Review your resources, with space to review.
+    summary: Review your resources, with space to review.
+    body:
+      You can make a steady commitment visible in a practical record. Direct Wealth (zhèng cái — a traditional
+      theme of stewardship and steady effort) emphasizes continuity. Look at what an existing expense or routine
+      actually supports before adding another one. A clear account of the need can help you choose what deserves
+      continued attention and what can wait. This higher overall band reflects several supportive contributions
+      in the model. Let it invite a modest advance rather than a full calendar. You can prepare one clear stopping
+      point and check the result there. Later circumstances may still call for a different pace, even when
+      the first attempt feels comfortable. When planning a group activity, write down the costs that everyone
+      has already accepted. Consider reviewing the actual experience before adding another commitment. This
+      theme offers a question to explore within your real circumstances today.
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.qi_sha.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.qi_sha
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.qi_sha.b
+  zh:
+    title: 你可以给压力排序，顺势推进。
+    summary: 你可以给压力排序，顺势推进。
+    body: 你可以给压力排序，顺势推进。今日主题关注压力排序与行动边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如面对临时加急任务，先问清最晚需要哪一部分。建议先完成这一小步，再看实际感受。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: 'Make room for progress: rank the demands.'
+    summary: 'Make room for progress: rank the demands.'
+    body:
+      'Make room for progress: rank the demands. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Seven Killings (qī shā — a traditional
+      theme of pressure, priorities, and action) is a historical term for pressure and decisive action. Treat
+      it as a question about priorities, not an alarm. A deadline may feel louder than usual, making every
+      incoming request seem urgent. Naming the actual requirement can restore room for a measured response.
+      When messages arrive at once, identify which person needs an answer today and which can wait. You can
+      keep the next action limited to what fits your actual circumstances. This theme offers a question to
+      explore within your real circumstances today.'
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.qi_sha.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.qi_sha
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.qi_sha.a
+  zh:
+    title: 顺势推进时，给压力排序留一点空间。
+    summary: 顺势推进时，给压力排序留一点空间。
+    body: 你可以给压力一个清楚的名字。七杀（传统上用来观察压力排序与行动边界的主题）关注行动与界线，把急事拆成明确要求，再决定哪一步需要回应，会更有余地。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如出门前发现安排冲突时，把可延后的事项移开。建议先给压力排序，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: Rank the demands, with space to review.
+    summary: Rank the demands, with space to review.
+    body:
+      You can name a demand before deciding how much energy to give it. Seven Killings (qī shā — a traditional
+      theme of pressure, priorities, and action) examines pressure and action. Its historical name is not an
+      alarm. Ask which part has a real deadline and which part feels urgent because several requests arrived
+      together. A clear distinction can open a calmer response. This higher overall band reflects several supportive
+      contributions in the model. Let it invite a modest advance rather than a full calendar. You can prepare
+      one clear stopping point and check the result there. Later circumstances may still call for a different
+      pace, even when the first attempt feels comfortable. If a rehearsal feels rushed, focus on the one transition
+      that most affects the next run. Consider reviewing the actual experience before adding another commitment.
+      This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.zheng_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.zheng_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.zheng_guan.b
+  zh:
+    title: 你可以确认标准，顺势推进。
+    summary: 你可以确认标准，顺势推进。
+    body: 你可以确认标准，顺势推进。今日主题关注清楚责任与约定（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如提交材料前，按要求检查最关键的三项。建议先完成这一小步，再看实际感受。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: 'Make room for progress: clarify the standard.'
+    summary: 'Make room for progress: clarify the standard.'
+    body:
+      'Make room for progress: clarify the standard. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Direct Officer (zhèng guān — a traditional
+      theme of responsibility and agreed standards) highlights responsibility and agreed standards. You may
+      find clarity in a reliable process, while also feeling tempted to check every detail repeatedly. A shared
+      definition of completion is more useful than trying to anticipate every preference someone else might
+      have. Ask a supervisor which result matters most before polishing a presentation that is already clear.
+      You can keep the next action limited to what fits your actual circumstances. This theme offers a question
+      to explore within your real circumstances today.'
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.zheng_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.zheng_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.zheng_guan.a
+  zh:
+    title: 顺势推进时，给清楚责任留一点空间。
+    summary: 顺势推进时，给清楚责任留一点空间。
+    body: 你可以把责任落实到一条清楚的标准。正官（传统上用来观察清楚责任与约定的主题）关注规范与约定，先确认谁需要什么，能减少反复猜测和无止境检查。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如参加集体活动时，确认自己的职责和结束时间。建议先确认标准，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: Clarify the standard, with space to review.
+    summary: Clarify the standard, with space to review.
+    body:
+      You can let an agreed standard carry some of the uncertainty. Direct Officer (zhèng guān — a traditional
+      theme of responsibility and agreed standards) focuses on responsibilities and procedures. Find out which
+      requirement matters to the person receiving your work. That conversation may be more useful than another
+      round of private checking aimed at an expectation nobody has stated. This higher overall band reflects
+      several supportive contributions in the model. Let it invite a modest advance rather than a full calendar.
+      You can prepare one clear stopping point and check the result there. Later circumstances may still call
+      for a different pace, even when the first attempt feels comfortable. When volunteering, agree on the
+      handover so responsibility does not expand without discussion. Consider reviewing the actual experience
+      before adding another commitment. This theme offers a question to explore within your real circumstances
+      today.
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.pian_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.pian_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.pian_yin.b
+  zh:
+    title: 你可以验证小线索，顺势推进。
+    summary: 你可以验证小线索，顺势推进。
+    body: 你可以验证小线索，顺势推进。今日主题关注独立探索与不同视角（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如阅读难懂材料时，先找一个能亲手验证的例子。建议先完成这一小步，再看实际感受。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: 'Make room for progress: test one observation.'
+    summary: 'Make room for progress: test one observation.'
+    body:
+      'Make room for progress: test one observation. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Indirect Resource (piān yìn — a traditional
+      theme of independent inquiry and alternative perspectives) invites a quieter or less familiar approach
+      to learning. You might prefer to investigate before joining a discussion. Curiosity can reveal a useful
+      angle, but an elegant explanation still needs a check against experience. Keep the investigation small
+      enough to produce a usable next step. Try explaining an unfamiliar concept with an ordinary object, then
+      check where the comparison stops working. You can keep the next action limited to what fits your actual
+      circumstances. This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.pian_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.pian_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.pian_yin.a
+  zh:
+    title: 顺势推进时，给换个角度留一点空间。
+    summary: 顺势推进时，给换个角度留一点空间。
+    body: 你可以安静换个角度，再找一条现实线索。偏印（传统上用来观察独立探索与不同视角的主题）关注独学与新解释，验证一个小问题，让思考有可以回看的结果。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如信息很多时，画一张简单关系图再补细节。建议先验证小线索，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: Test one observation, with space to review.
+    summary: Test one observation, with space to review.
+    body:
+      You can explore a different explanation without needing to settle every question. Indirect Resource
+      (piān yìn — a traditional theme of independent inquiry and alternative perspectives) emphasizes independent
+      inquiry. A quiet investigation becomes useful when you choose something observable to check. Keep a note
+      of where the idea fits and where it leaves uncertainty, so curiosity can lead to a next step. This higher
+      overall band reflects several supportive contributions in the model. Let it invite a modest advance rather
+      than a full calendar. You can prepare one clear stopping point and check the result there. Later circumstances
+      may still call for a different pace, even when the first attempt feels comfortable. After reading several
+      opinions, identify one question you can resolve with a direct observation. Consider reviewing the actual
+      experience before adding another commitment. This theme offers a question to explore within your real
+      circumstances today.
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.zheng_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.zheng_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.zheng_yin.b
+  zh:
+    title: 你可以把帮助落地，顺势推进。
+    summary: 你可以把帮助落地，顺势推进。
+    body: 你可以把帮助落地，顺势推进。今日主题关注可靠支持与稳步学习（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分落在较高区间，说明模型中支持项相对集中。你可以推进一件已经准备好的事，同时给反馈留出位置。好节奏也不需要把全天塞满，完成后停下来检查结果。比如请教问题后，用自己的话复述一遍操作方法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: 'Make room for progress: put support to use.'
+    summary: 'Make room for progress: put support to use.'
+    body:
+      'Make room for progress: put support to use. Your overall band contains several supportive signals
+      in this model. Use that as a cue to move a prepared idea forward, with a clear place to stop and review.
+      A productive morning does not require filling every remaining hour. Consider saving some capacity for
+      an unexpected request or a change in the information available. Direct Resource (zhèng yìn — a traditional
+      theme of dependable support and learning) draws attention to learning and dependable support. A reference,
+      mentor, or familiar routine can make a task feel more manageable. Receiving help still leaves the decision
+      with you. Try turning an explanation into a short sequence you can use and evaluate for yourself. Ask
+      an experienced teammate to demonstrate one step, then attempt it yourself while the explanation is fresh.
+      You can keep the next action limited to what fits your actual circumstances. This theme offers a question
+      to explore within your real circumstances today.'
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.great.zheng_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.great.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.great.zheng_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.great.zheng_yin.a
+  zh:
+    title: 顺势推进时，给稳步学习留一点空间。
+    summary: 顺势推进时，给稳步学习留一点空间。
+    body: 你可以借助已有支持，形成自己的做法。正印（传统上用来观察可靠支持与稳步学习的主题）关注学习与可靠经验，把别人讲的步骤亲手试一次，理解会更加具体。支持项相对集中时，你可以安排一次小推进，不把轻松的开头扩展成整天的承诺。比如复习课程时，先确认基础概念再做新练习。建议先把帮助落地，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: Put support to use, with space to review.
+    summary: Put support to use, with space to review.
+    body:
+      You can receive useful support and still develop your own method. Direct Resource (zhèng yìn — a
+      traditional theme of dependable support and learning) concerns learning through dependable experience.
+      After hearing an explanation, choose one step to attempt yourself. The result can show what you understand
+      and which question needs another conversation, while leaving the choice of approach with you. This higher
+      overall band reflects several supportive contributions in the model. Let it invite a modest advance rather
+      than a full calendar. You can prepare one clear stopping point and check the result there. Later circumstances
+      may still call for a different pace, even when the first attempt feels comfortable. When preparing for
+      an appointment, collect your questions in one place so the conversation stays useful. Consider reviewing
+      the actual experience before adding another commitment. This theme offers a question to explore within
+      your real circumstances today.
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.bi_jian.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.bi_jian
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.bi_jian.b
+  zh:
+    title: 你可以明确分工，稳步展开。
+    summary: 你可以明确分工，稳步展开。
+    body: 你可以明确分工，稳步展开。今日主题关注同伴与自主（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如与同事分工时，先认领一块能独立完成的任务。建议先完成这一小步，再看实际感受。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: 'Build on what works: name your role.'
+    summary: 'Build on what works: name your role.'
+    body:
+      'Build on what works: name your role. The overall band is broadly supportive, with differences between
+      life areas still worth checking. Start from a method that already works for you and leave its next step
+      adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit. Consider
+      making progress at a pace you can comfortably review tomorrow. Friend (bǐ jiān — a traditional theme
+      of peers and autonomy) invites you to examine independence alongside belonging. A familiar viewpoint
+      can make collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. In a study group, volunteer
+      to explain one topic instead of competing to answer every question. You can keep the next action limited
+      to what fits your actual circumstances. This theme offers a question to explore within your real circumstances
+      today.'
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.bi_jian.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.bi_jian
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.bi_jian.a
+  zh:
+    title: 稳步展开时，给自主协作留一点空间。
+    summary: 稳步展开时，给自主协作留一点空间。
+    body: 你可以把自己的位置站稳，也给同伴留出位置。比肩（传统上用来观察同伴与自主的主题）关注自主和同行，合作的入口可以是一项彼此都理解的分工。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如和朋友安排周末时，把各自的偏好写成两个选项。建议先明确分工，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: Name your role, with space to review.
+    summary: Name your role, with space to review.
+    body:
+      You can hold your own place while giving a peer room to contribute. Friend (bǐ jiān — a traditional
+      theme of peers and autonomy) raises a question about ownership. Shared interests can start a conversation,
+      but they need not produce identical plans. Notice which responsibility you want to keep and which part
+      you could comfortably share. This broadly supportive band gives you a reason to begin with what already
+      works. Keep the next step open to feedback instead of treating a smooth start as a lasting rule. You
+      can note what helped, then decide whether repeating the method fits the next situation and the resources
+      you actually have. When a housemate suggests a different routine, ask what problem the change would solve.
+      Consider reviewing the actual experience before adding another commitment. This theme offers a question
+      to explore within your real circumstances today.
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.jie_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.jie_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.jie_cai.b
+  zh:
+    title: 你可以先定边界，稳步展开。
+    summary: 你可以先定边界，稳步展开。
+    body: 你可以先定边界，稳步展开。今日主题关注共享与资源边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如聚餐前确认预算，不因别人的选择临时加码。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: 'Build on what works: set a limit.'
+    summary: 'Build on what works: set a limit.'
+    body:
+      'Build on what works: set a limit. The overall band is broadly supportive, with differences between
+      life areas still worth checking. Start from a method that already works for you and leave its next step
+      adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit. Consider
+      making progress at a pace you can comfortably review tomorrow. Rob Wealth (jié cái — a traditional theme
+      of sharing and resource boundaries) is a traditional label for sharing and rivalry. Here it asks how
+      you join others without losing track of your own limits. A lively group can encourage generosity, but
+      enthusiasm is different from available time or a comfortable budget. If several colleagues buy supplies
+      together, agree on contributions before placing the order. You can keep the next action limited to what
+      fits your actual circumstances. This theme offers a question to explore within your real circumstances
+      today.'
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.jie_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.jie_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.jie_cai.a
+  zh:
+    title: 稳步展开时，给共享边界留一点空间。
+    summary: 稳步展开时，给共享边界留一点空间。
+    body: 你可以参加热闹，也可以提前说明自己的限度。劫财（传统上用来观察共享与资源边界的主题）关注共享和竞争，分清愿意参与与能够投入，交流会更轻松。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如朋友邀你参加新活动时，先核对已有安排再回复。建议先先定边界，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: Set a limit, with space to review.
+    summary: Set a limit, with space to review.
+    body:
+      You can join a shared activity without matching every offer around you. Rob Wealth (jié cái — a traditional
+      theme of sharing and resource boundaries) asks about the boundary between generosity and competition.
+      Agreeing on what you can contribute may make participation easier. Your place in a group need not depend
+      on keeping up with everyone else. This broadly supportive band gives you a reason to begin with what
+      already works. Keep the next step open to feedback instead of treating a smooth start as a lasting rule.
+      You can note what helped, then decide whether repeating the method fits the next situation and the resources
+      you actually have. When an invitation arrives during a busy week, offer a shorter visit that fits your
+      calendar. Consider reviewing the actual experience before adding another commitment. This theme offers
+      a question to explore within your real circumstances today.
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.shi_shen.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.shi_shen
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.shi_shen.b
+  zh:
+    title: 你可以完成小作品，稳步展开。
+    summary: 你可以完成小作品，稳步展开。
+    body: 你可以完成小作品，稳步展开。今日主题关注温和创造与日常享受（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如把旧笔记整理成一页清晰的学习卡片。建议先完成这一小步，再看实际感受。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: 'Build on what works: finish a small draft.'
+    summary: 'Build on what works: finish a small draft.'
+    body:
+      'Build on what works: finish a small draft. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Eating God (shí shén — a traditional
+      theme of constructive expression and enjoyment) turns attention toward useful expression and everyday
+      enjoyment. You may find a familiar craft easier to share than an ambitious performance. The symbol favors
+      noticing what you can make tangible, with a modest finish line that keeps pleasure connected to practice.
+      Show a teammate a rough sketch so the idea can become a conversation rather than a private plan. You
+      can keep the next action limited to what fits your actual circumstances. This theme offers a question
+      to explore within your real circumstances today.'
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.shi_shen.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.shi_shen
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.shi_shen.a
+  zh:
+    title: 稳步展开时，给温和创造留一点空间。
+    summary: 稳步展开时，给温和创造留一点空间。
+    body: 你可以先做一个能享受的小成果。食神（传统上用来观察温和创造与日常享受的主题）关注温和创造，把熟悉技能用在可完成的事情上，表达会有一个真实落点。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如做一道熟悉的饭菜，观察哪个步骤可以简化。建议先完成小作品，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: Finish a small draft, with space to review.
+    summary: Finish a small draft, with space to review.
+    body:
+      You can give an idea a satisfying, modest form. Eating God (shí shén — a traditional theme of constructive
+      expression and enjoyment) draws attention to the pleasure of making something useful. A familiar skill
+      may be a better starting point than an elaborate performance. Look for a finish line that lets you enjoy
+      the result and share it comfortably. This broadly supportive band gives you a reason to begin with what
+      already works. Keep the next step open to feedback instead of treating a smooth start as a lasting rule.
+      You can note what helped, then decide whether repeating the method fits the next situation and the resources
+      you actually have. Make a short playlist for a break, then return to the one task you meant to finish.
+      Consider reviewing the actual experience before adding another commitment. This theme offers a question
+      to explore within your real circumstances today.
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.shang_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.shang_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.shang_guan.b
+  zh:
+    title: 你可以提出试案，稳步展开。
+    summary: 你可以提出试案，稳步展开。
+    body: 你可以提出试案，稳步展开。今日主题关注直接表达与改进（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如汇报卡点时，附上一项能在今天试行的改法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: 'Build on what works: offer an experiment.'
+    summary: 'Build on what works: offer an experiment.'
+    body:
+      'Build on what works: offer an experiment. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Hurting Officer (shāng guān —
+      a traditional theme of articulation and improvement) highlights questioning and articulation. You may
+      spot a clumsy rule before others mention it. That observation becomes more useful when you describe the
+      effect and propose a workable alternative. Strong language alone can obscure the improvement you actually
+      want. When editing a document, mark a confusing sentence and offer a replacement instead of dismissing
+      the whole piece. You can keep the next action limited to what fits your actual circumstances. This theme
+      offers a question to explore within your real circumstances today.'
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.shang_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.shang_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.shang_guan.a
+  zh:
+    title: 稳步展开时，给表达分寸留一点空间。
+    summary: 稳步展开时，给表达分寸留一点空间。
+    body: 你可以把不同意见变成一个可试的改法。伤官（传统上用来观察直接表达与改进的主题）关注直接表达，具体说明哪里不顺，比给整件事下评语更容易获得回应。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如讨论家务安排时，先说具体困难再提新规则。建议先提出试案，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: Offer an experiment, with space to review.
+    summary: Offer an experiment, with space to review.
+    body:
+      You can turn a critical observation into a usable suggestion. Hurting Officer (shāng guān — a traditional
+      theme of articulation and improvement) invites direct articulation. Describe the part that gets in the
+      way and offer one alternative someone could try. A clear example gives your point a better chance of
+      being understood than a broad judgment about the whole process. This broadly supportive band gives you
+      a reason to begin with what already works. Keep the next step open to feedback instead of treating a
+      smooth start as a lasting rule. You can note what helped, then decide whether repeating the method fits
+      the next situation and the resources you actually have. If a meeting feels unproductive, suggest a clear
+      decision for its final five minutes. Consider reviewing the actual experience before adding another commitment.
+      This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.pian_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.pian_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.pian_cai.b
+  zh:
+    title: 你可以先做比较，稳步展开。
+    summary: 你可以先做比较，稳步展开。
+    body: 你可以先做比较，稳步展开。今日主题关注机会与灵活资源（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如收到合作邀请后，先确认范围和退出方式。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: 'Build on what works: compare the options.'
+    summary: 'Build on what works: compare the options.'
+    body:
+      'Build on what works: compare the options. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Indirect Wealth (piān cái — a
+      traditional theme of opportunities and flexible resources) points to flexible opportunities rather than
+      expected returns. You might notice a new connection or an unused tool that could help a project. Possibility
+      deserves a practical filter: available information, the cost of trying, and the effort you can realistically
+      sustain. A community project may need your skill for a limited trial; ask what delivery would look like
+      before agreeing. You can keep the next action limited to what fits your actual circumstances. This theme
+      offers a question to explore within your real circumstances today.'
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.pian_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.pian_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.pian_cai.a
+  zh:
+    title: 稳步展开时，给机会筛选留一点空间。
+    summary: 稳步展开时，给机会筛选留一点空间。
+    body: 你可以对新机会保持好奇，再给尝试设个范围。偏财（传统上用来观察机会与灵活资源的主题）关注流动入口，先了解成本与退出方式，选择会更有依据。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如发现新工具时，先用一个小任务测试是否省力。建议先先做比较，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: Compare the options, with space to review.
+    summary: Compare the options, with space to review.
+    body:
+      You can stay curious about a new opening while keeping a trial limited. Indirect Wealth (piān cái
+      — a traditional theme of opportunities and flexible resources) concerns flexible possibilities, without
+      forecasting returns. Ask what the attempt requires and how you would stop if it does not fit. An interesting
+      option can remain an option until the details are clear. This broadly supportive band gives you a reason
+      to begin with what already works. Keep the next step open to feedback instead of treating a smooth start
+      as a lasting rule. You can note what helped, then decide whether repeating the method fits the next situation
+      and the resources you actually have. If a new service catches your attention, compare it with what you
+      already use before changing your routine. Consider reviewing the actual experience before adding another
+      commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.zheng_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.zheng_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.zheng_cai.b
+  zh:
+    title: 你可以理清资源，稳步展开。
+    summary: 你可以理清资源，稳步展开。
+    body: 你可以理清资源，稳步展开。今日主题关注稳定资源与持续投入（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如核对订阅清单，标出近期没有使用的项目。建议先完成这一小步，再看实际感受。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: 'Build on what works: review your resources.'
+    summary: 'Build on what works: review your resources.'
+    body:
+      'Build on what works: review your resources. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Direct Wealth (zhèng cái — a
+      traditional theme of stewardship and steady effort) emphasizes stewardship and consistency. It is a prompt
+      to inspect the small systems that support daily life, rather than a forecast about earnings. Clear records
+      and realistic commitments make it easier to see what is already working and what needs attention. Before
+      replacing equipment, check whether a repair or shared tool would meet the actual need. You can keep the
+      next action limited to what fits your actual circumstances. This theme offers a question to explore within
+      your real circumstances today.'
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.zheng_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.zheng_cai
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.zheng_cai.a
+  zh:
+    title: 稳步展开时，给稳定资源留一点空间。
+    summary: 稳步展开时，给稳定资源留一点空间。
+    body: 你可以让稳定的投入看得见。正财（传统上用来观察稳定资源与持续投入的主题）关注兑现与日常资源，记录一个实际需求，往往比追求更多安排更有帮助。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如和搭档商量采购时，先列必要项再讨论可选项。建议先理清资源，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: Review your resources, with space to review.
+    summary: Review your resources, with space to review.
+    body:
+      You can make a steady commitment visible in a practical record. Direct Wealth (zhèng cái — a traditional
+      theme of stewardship and steady effort) emphasizes continuity. Look at what an existing expense or routine
+      actually supports before adding another one. A clear account of the need can help you choose what deserves
+      continued attention and what can wait. This broadly supportive band gives you a reason to begin with
+      what already works. Keep the next step open to feedback instead of treating a smooth start as a lasting
+      rule. You can note what helped, then decide whether repeating the method fits the next situation and
+      the resources you actually have. When planning a group activity, write down the costs that everyone has
+      already accepted. Consider reviewing the actual experience before adding another commitment. This theme
+      offers a question to explore within your real circumstances today.
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.qi_sha.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.qi_sha
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.qi_sha.b
+  zh:
+    title: 你可以给压力排序，稳步展开。
+    summary: 你可以给压力排序，稳步展开。
+    body: 你可以给压力排序，稳步展开。今日主题关注压力排序与行动边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如面对临时加急任务，先问清最晚需要哪一部分。建议先完成这一小步，再看实际感受。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: 'Build on what works: rank the demands.'
+    summary: 'Build on what works: rank the demands.'
+    body:
+      'Build on what works: rank the demands. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Seven Killings (qī shā — a traditional
+      theme of pressure, priorities, and action) is a historical term for pressure and decisive action. Treat
+      it as a question about priorities, not an alarm. A deadline may feel louder than usual, making every
+      incoming request seem urgent. Naming the actual requirement can restore room for a measured response.
+      When messages arrive at once, identify which person needs an answer today and which can wait. You can
+      keep the next action limited to what fits your actual circumstances. This theme offers a question to
+      explore within your real circumstances today.'
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.qi_sha.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.qi_sha
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.qi_sha.a
+  zh:
+    title: 稳步展开时，给压力排序留一点空间。
+    summary: 稳步展开时，给压力排序留一点空间。
+    body: 你可以给压力一个清楚的名字。七杀（传统上用来观察压力排序与行动边界的主题）关注行动与界线，把急事拆成明确要求，再决定哪一步需要回应，会更有余地。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如出门前发现安排冲突时，把可延后的事项移开。建议先给压力排序，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: Rank the demands, with space to review.
+    summary: Rank the demands, with space to review.
+    body:
+      You can name a demand before deciding how much energy to give it. Seven Killings (qī shā — a traditional
+      theme of pressure, priorities, and action) examines pressure and action. Its historical name is not an
+      alarm. Ask which part has a real deadline and which part feels urgent because several requests arrived
+      together. A clear distinction can open a calmer response. This broadly supportive band gives you a reason
+      to begin with what already works. Keep the next step open to feedback instead of treating a smooth start
+      as a lasting rule. You can note what helped, then decide whether repeating the method fits the next situation
+      and the resources you actually have. If a rehearsal feels rushed, focus on the one transition that most
+      affects the next run. Consider reviewing the actual experience before adding another commitment. This
+      theme offers a question to explore within your real circumstances today.
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.zheng_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.zheng_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.zheng_guan.b
+  zh:
+    title: 你可以确认标准，稳步展开。
+    summary: 你可以确认标准，稳步展开。
+    body: 你可以确认标准，稳步展开。今日主题关注清楚责任与约定（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如提交材料前，按要求检查最关键的三项。建议先完成这一小步，再看实际感受。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: 'Build on what works: clarify the standard.'
+    summary: 'Build on what works: clarify the standard.'
+    body:
+      'Build on what works: clarify the standard. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Direct Officer (zhèng guān —
+      a traditional theme of responsibility and agreed standards) highlights responsibility and agreed standards.
+      You may find clarity in a reliable process, while also feeling tempted to check every detail repeatedly.
+      A shared definition of completion is more useful than trying to anticipate every preference someone else
+      might have. Ask a supervisor which result matters most before polishing a presentation that is already
+      clear. You can keep the next action limited to what fits your actual circumstances. This theme offers
+      a question to explore within your real circumstances today.'
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.zheng_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.zheng_guan
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.zheng_guan.a
+  zh:
+    title: 稳步展开时，给清楚责任留一点空间。
+    summary: 稳步展开时，给清楚责任留一点空间。
+    body: 你可以把责任落实到一条清楚的标准。正官（传统上用来观察清楚责任与约定的主题）关注规范与约定，先确认谁需要什么，能减少反复猜测和无止境检查。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如参加集体活动时，确认自己的职责和结束时间。建议先确认标准，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: Clarify the standard, with space to review.
+    summary: Clarify the standard, with space to review.
+    body:
+      You can let an agreed standard carry some of the uncertainty. Direct Officer (zhèng guān — a traditional
+      theme of responsibility and agreed standards) focuses on responsibilities and procedures. Find out which
+      requirement matters to the person receiving your work. That conversation may be more useful than another
+      round of private checking aimed at an expectation nobody has stated. This broadly supportive band gives
+      you a reason to begin with what already works. Keep the next step open to feedback instead of treating
+      a smooth start as a lasting rule. You can note what helped, then decide whether repeating the method
+      fits the next situation and the resources you actually have. When volunteering, agree on the handover
+      so responsibility does not expand without discussion. Consider reviewing the actual experience before
+      adding another commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.pian_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.pian_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.pian_yin.b
+  zh:
+    title: 你可以验证小线索，稳步展开。
+    summary: 你可以验证小线索，稳步展开。
+    body: 你可以验证小线索，稳步展开。今日主题关注独立探索与不同视角（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如阅读难懂材料时，先找一个能亲手验证的例子。建议先完成这一小步，再看实际感受。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: 'Build on what works: test one observation.'
+    summary: 'Build on what works: test one observation.'
+    body:
+      'Build on what works: test one observation. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Indirect Resource (piān yìn —
+      a traditional theme of independent inquiry and alternative perspectives) invites a quieter or less familiar
+      approach to learning. You might prefer to investigate before joining a discussion. Curiosity can reveal
+      a useful angle, but an elegant explanation still needs a check against experience. Keep the investigation
+      small enough to produce a usable next step. Try explaining an unfamiliar concept with an ordinary object,
+      then check where the comparison stops working. You can keep the next action limited to what fits your
+      actual circumstances. This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.pian_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.pian_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.pian_yin.a
+  zh:
+    title: 稳步展开时，给换个角度留一点空间。
+    summary: 稳步展开时，给换个角度留一点空间。
+    body: 你可以安静换个角度，再找一条现实线索。偏印（传统上用来观察独立探索与不同视角的主题）关注独学与新解释，验证一个小问题，让思考有可以回看的结果。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如信息很多时，画一张简单关系图再补细节。建议先验证小线索，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: Test one observation, with space to review.
+    summary: Test one observation, with space to review.
+    body:
+      You can explore a different explanation without needing to settle every question. Indirect Resource
+      (piān yìn — a traditional theme of independent inquiry and alternative perspectives) emphasizes independent
+      inquiry. A quiet investigation becomes useful when you choose something observable to check. Keep a note
+      of where the idea fits and where it leaves uncertainty, so curiosity can lead to a next step. This broadly
+      supportive band gives you a reason to begin with what already works. Keep the next step open to feedback
+      instead of treating a smooth start as a lasting rule. You can note what helped, then decide whether repeating
+      the method fits the next situation and the resources you actually have. After reading several opinions,
+      identify one question you can resolve with a direct observation. Consider reviewing the actual experience
+      before adding another commitment. This theme offers a question to explore within your real circumstances
+      today.
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.zheng_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.zheng_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.zheng_yin.b
+  zh:
+    title: 你可以把帮助落地，稳步展开。
+    summary: 你可以把帮助落地，稳步展开。
+    body: 你可以把帮助落地，稳步展开。今日主题关注可靠支持与稳步学习（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于支持较多的区间，但不同领域仍有差别。你可以先用熟悉的办法展开，再观察哪里需要调整。今天的重点是保留有效步骤，不把一次顺利当成长期规律。比如请教问题后，用自己的话复述一遍操作方法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: 'Build on what works: put support to use.'
+    summary: 'Build on what works: put support to use.'
+    body:
+      'Build on what works: put support to use. The overall band is broadly supportive, with differences
+      between life areas still worth checking. Start from a method that already works for you and leave its
+      next step adjustable. A smooth exchange is useful feedback, rather than proof that every plan will fit.
+      Consider making progress at a pace you can comfortably review tomorrow. Direct Resource (zhèng yìn —
+      a traditional theme of dependable support and learning) draws attention to learning and dependable support.
+      A reference, mentor, or familiar routine can make a task feel more manageable. Receiving help still leaves
+      the decision with you. Try turning an explanation into a short sequence you can use and evaluate for
+      yourself. Ask an experienced teammate to demonstrate one step, then attempt it yourself while the explanation
+      is fresh. You can keep the next action limited to what fits your actual circumstances. This theme offers
+      a question to explore within your real circumstances today.'
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.good.zheng_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.good.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.good.zheng_yin
+  weight: 90
+  polarity: positive
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.good.zheng_yin.a
+  zh:
+    title: 稳步展开时，给稳步学习留一点空间。
+    summary: 稳步展开时，给稳步学习留一点空间。
+    body: 你可以借助已有支持，形成自己的做法。正印（传统上用来观察可靠支持与稳步学习的主题）关注学习与可靠经验，把别人讲的步骤亲手试一次，理解会更加具体。支持较多时，你可以沿用熟悉步骤，给新的反馈留一个修改入口。比如复习课程时，先确认基础概念再做新练习。建议先把帮助落地，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: Put support to use, with space to review.
+    summary: Put support to use, with space to review.
+    body:
+      You can receive useful support and still develop your own method. Direct Resource (zhèng yìn — a
+      traditional theme of dependable support and learning) concerns learning through dependable experience.
+      After hearing an explanation, choose one step to attempt yourself. The result can show what you understand
+      and which question needs another conversation, while leaving the choice of approach with you. This broadly
+      supportive band gives you a reason to begin with what already works. Keep the next step open to feedback
+      instead of treating a smooth start as a lasting rule. You can note what helped, then decide whether repeating
+      the method fits the next situation and the resources you actually have. When preparing for an appointment,
+      collect your questions in one place so the conversation stays useful. Consider reviewing the actual experience
+      before adding another commitment. This theme offers a question to explore within your real circumstances
+      today.
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.bi_jian.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.bi_jian
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.bi_jian.b
+  zh:
+    title: 你可以明确分工，分清轻重。
+    summary: 你可以明确分工，分清轻重。
+    body: 你可以明确分工，分清轻重。今日主题关注同伴与自主（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如与同事分工时，先认领一块能独立完成的任务。建议先完成这一小步，再看实际感受。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: 'Choose one useful step: name your role.'
+    summary: 'Choose one useful step: name your role.'
+    body:
+      'Choose one useful step: name your role. The middle band suggests a mixture of supportive and demanding
+      signals. You do not need one label for the entire day. A task can be manageable even while a conversation
+      needs more patience. Consider separating those experiences and choosing one practical step whose result
+      you can observe, rather than trying to settle every uncertainty at once. Friend (bǐ jiān — a traditional
+      theme of peers and autonomy) invites you to examine independence alongside belonging. A familiar viewpoint
+      can make collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. In a study group, volunteer
+      to explain one topic instead of competing to answer every question. You can keep the next action limited
+      to what fits your actual circumstances. This theme offers a question to explore within your real circumstances
+      today.'
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.bi_jian.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.bi_jian
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.bi_jian.a
+  zh:
+    title: 分清轻重时，给自主协作留一点空间。
+    summary: 分清轻重时，给自主协作留一点空间。
+    body: 你可以把自己的位置站稳，也给同伴留出位置。比肩（传统上用来观察同伴与自主的主题）关注自主和同行，合作的入口可以是一项彼此都理解的分工。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如和朋友安排周末时，把各自的偏好写成两个选项。建议先明确分工，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: Name your role, with space to review.
+    summary: Name your role, with space to review.
+    body:
+      You can hold your own place while giving a peer room to contribute. Friend (bǐ jiān — a traditional
+      theme of peers and autonomy) raises a question about ownership. Shared interests can start a conversation,
+      but they need not produce identical plans. Notice which responsibility you want to keep and which part
+      you could comfortably share. This middle band contains mixed contributions, so separate life areas rather
+      than looking for one answer about the entire day. A task may be straightforward while a conversation
+      needs space. You can choose an observable action in one area, leaving the others adjustable until there
+      is more useful information. When a housemate suggests a different routine, ask what problem the change
+      would solve. Consider reviewing the actual experience before adding another commitment. This theme offers
+      a question to explore within your real circumstances today.
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.jie_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.jie_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.jie_cai.b
+  zh:
+    title: 你可以先定边界，分清轻重。
+    summary: 你可以先定边界，分清轻重。
+    body: 你可以先定边界，分清轻重。今日主题关注共享与资源边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如聚餐前确认预算，不因别人的选择临时加码。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: 'Choose one useful step: set a limit.'
+    summary: 'Choose one useful step: set a limit.'
+    body:
+      'Choose one useful step: set a limit. The middle band suggests a mixture of supportive and demanding
+      signals. You do not need one label for the entire day. A task can be manageable even while a conversation
+      needs more patience. Consider separating those experiences and choosing one practical step whose result
+      you can observe, rather than trying to settle every uncertainty at once. Rob Wealth (jié cái — a traditional
+      theme of sharing and resource boundaries) is a traditional label for sharing and rivalry. Here it asks
+      how you join others without losing track of your own limits. A lively group can encourage generosity,
+      but enthusiasm is different from available time or a comfortable budget. If several colleagues buy supplies
+      together, agree on contributions before placing the order. You can keep the next action limited to what
+      fits your actual circumstances. This theme offers a question to explore within your real circumstances
+      today.'
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.jie_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.jie_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.jie_cai.a
+  zh:
+    title: 分清轻重时，给共享边界留一点空间。
+    summary: 分清轻重时，给共享边界留一点空间。
+    body: 你可以参加热闹，也可以提前说明自己的限度。劫财（传统上用来观察共享与资源边界的主题）关注共享和竞争，分清愿意参与与能够投入，交流会更轻松。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如朋友邀你参加新活动时，先核对已有安排再回复。建议先先定边界，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: Set a limit, with space to review.
+    summary: Set a limit, with space to review.
+    body:
+      You can join a shared activity without matching every offer around you. Rob Wealth (jié cái — a traditional
+      theme of sharing and resource boundaries) asks about the boundary between generosity and competition.
+      Agreeing on what you can contribute may make participation easier. Your place in a group need not depend
+      on keeping up with everyone else. This middle band contains mixed contributions, so separate life areas
+      rather than looking for one answer about the entire day. A task may be straightforward while a conversation
+      needs space. You can choose an observable action in one area, leaving the others adjustable until there
+      is more useful information. When an invitation arrives during a busy week, offer a shorter visit that
+      fits your calendar. Consider reviewing the actual experience before adding another commitment. This theme
+      offers a question to explore within your real circumstances today.
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.shi_shen.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.shi_shen
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.shi_shen.b
+  zh:
+    title: 你可以完成小作品，分清轻重。
+    summary: 你可以完成小作品，分清轻重。
+    body: 你可以完成小作品，分清轻重。今日主题关注温和创造与日常享受（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如把旧笔记整理成一页清晰的学习卡片。建议先完成这一小步，再看实际感受。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: 'Choose one useful step: finish a small draft.'
+    summary: 'Choose one useful step: finish a small draft.'
+    body:
+      'Choose one useful step: finish a small draft. The middle band suggests a mixture of supportive and
+      demanding signals. You do not need one label for the entire day. A task can be manageable even while
+      a conversation needs more patience. Consider separating those experiences and choosing one practical
+      step whose result you can observe, rather than trying to settle every uncertainty at once. Eating God
+      (shí shén — a traditional theme of constructive expression and enjoyment) turns attention toward useful
+      expression and everyday enjoyment. You may find a familiar craft easier to share than an ambitious performance.
+      The symbol favors noticing what you can make tangible, with a modest finish line that keeps pleasure
+      connected to practice. Show a teammate a rough sketch so the idea can become a conversation rather than
+      a private plan. You can keep the next action limited to what fits your actual circumstances. This theme
+      offers a question to explore within your real circumstances today.'
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.shi_shen.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.shi_shen
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.shi_shen.a
+  zh:
+    title: 分清轻重时，给温和创造留一点空间。
+    summary: 分清轻重时，给温和创造留一点空间。
+    body: 你可以先做一个能享受的小成果。食神（传统上用来观察温和创造与日常享受的主题）关注温和创造，把熟悉技能用在可完成的事情上，表达会有一个真实落点。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如做一道熟悉的饭菜，观察哪个步骤可以简化。建议先完成小作品，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: Finish a small draft, with space to review.
+    summary: Finish a small draft, with space to review.
+    body:
+      You can give an idea a satisfying, modest form. Eating God (shí shén — a traditional theme of constructive
+      expression and enjoyment) draws attention to the pleasure of making something useful. A familiar skill
+      may be a better starting point than an elaborate performance. Look for a finish line that lets you enjoy
+      the result and share it comfortably. This middle band contains mixed contributions, so separate life
+      areas rather than looking for one answer about the entire day. A task may be straightforward while a
+      conversation needs space. You can choose an observable action in one area, leaving the others adjustable
+      until there is more useful information. Make a short playlist for a break, then return to the one task
+      you meant to finish. Consider reviewing the actual experience before adding another commitment. This
+      theme offers a question to explore within your real circumstances today.
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.shang_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.shang_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.shang_guan.b
+  zh:
+    title: 你可以提出试案，分清轻重。
+    summary: 你可以提出试案，分清轻重。
+    body: 你可以提出试案，分清轻重。今日主题关注直接表达与改进（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如汇报卡点时，附上一项能在今天试行的改法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: 'Choose one useful step: offer an experiment.'
+    summary: 'Choose one useful step: offer an experiment.'
+    body:
+      'Choose one useful step: offer an experiment. The middle band suggests a mixture of supportive and
+      demanding signals. You do not need one label for the entire day. A task can be manageable even while
+      a conversation needs more patience. Consider separating those experiences and choosing one practical
+      step whose result you can observe, rather than trying to settle every uncertainty at once. Hurting Officer
+      (shāng guān — a traditional theme of articulation and improvement) highlights questioning and articulation.
+      You may spot a clumsy rule before others mention it. That observation becomes more useful when you describe
+      the effect and propose a workable alternative. Strong language alone can obscure the improvement you
+      actually want. When editing a document, mark a confusing sentence and offer a replacement instead of
+      dismissing the whole piece. You can keep the next action limited to what fits your actual circumstances.
+      This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.shang_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.shang_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.shang_guan.a
+  zh:
+    title: 分清轻重时，给表达分寸留一点空间。
+    summary: 分清轻重时，给表达分寸留一点空间。
+    body: 你可以把不同意见变成一个可试的改法。伤官（传统上用来观察直接表达与改进的主题）关注直接表达，具体说明哪里不顺，比给整件事下评语更容易获得回应。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如讨论家务安排时，先说具体困难再提新规则。建议先提出试案，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: Offer an experiment, with space to review.
+    summary: Offer an experiment, with space to review.
+    body:
+      You can turn a critical observation into a usable suggestion. Hurting Officer (shāng guān — a traditional
+      theme of articulation and improvement) invites direct articulation. Describe the part that gets in the
+      way and offer one alternative someone could try. A clear example gives your point a better chance of
+      being understood than a broad judgment about the whole process. This middle band contains mixed contributions,
+      so separate life areas rather than looking for one answer about the entire day. A task may be straightforward
+      while a conversation needs space. You can choose an observable action in one area, leaving the others
+      adjustable until there is more useful information. If a meeting feels unproductive, suggest a clear decision
+      for its final five minutes. Consider reviewing the actual experience before adding another commitment.
+      This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.pian_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.pian_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.pian_cai.b
+  zh:
+    title: 你可以先做比较，分清轻重。
+    summary: 你可以先做比较，分清轻重。
+    body: 你可以先做比较，分清轻重。今日主题关注机会与灵活资源（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如收到合作邀请后，先确认范围和退出方式。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: 'Choose one useful step: compare the options.'
+    summary: 'Choose one useful step: compare the options.'
+    body:
+      'Choose one useful step: compare the options. The middle band suggests a mixture of supportive and
+      demanding signals. You do not need one label for the entire day. A task can be manageable even while
+      a conversation needs more patience. Consider separating those experiences and choosing one practical
+      step whose result you can observe, rather than trying to settle every uncertainty at once. Indirect Wealth
+      (piān cái — a traditional theme of opportunities and flexible resources) points to flexible opportunities
+      rather than expected returns. You might notice a new connection or an unused tool that could help a project.
+      Possibility deserves a practical filter: available information, the cost of trying, and the effort you
+      can realistically sustain. A community project may need your skill for a limited trial; ask what delivery
+      would look like before agreeing. You can keep the next action limited to what fits your actual circumstances.
+      This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.pian_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.pian_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.pian_cai.a
+  zh:
+    title: 分清轻重时，给机会筛选留一点空间。
+    summary: 分清轻重时，给机会筛选留一点空间。
+    body: 你可以对新机会保持好奇，再给尝试设个范围。偏财（传统上用来观察机会与灵活资源的主题）关注流动入口，先了解成本与退出方式，选择会更有依据。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如发现新工具时，先用一个小任务测试是否省力。建议先先做比较，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: Compare the options, with space to review.
+    summary: Compare the options, with space to review.
+    body:
+      You can stay curious about a new opening while keeping a trial limited. Indirect Wealth (piān cái
+      — a traditional theme of opportunities and flexible resources) concerns flexible possibilities, without
+      forecasting returns. Ask what the attempt requires and how you would stop if it does not fit. An interesting
+      option can remain an option until the details are clear. This middle band contains mixed contributions,
+      so separate life areas rather than looking for one answer about the entire day. A task may be straightforward
+      while a conversation needs space. You can choose an observable action in one area, leaving the others
+      adjustable until there is more useful information. If a new service catches your attention, compare it
+      with what you already use before changing your routine. Consider reviewing the actual experience before
+      adding another commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.zheng_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.zheng_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.zheng_cai.b
+  zh:
+    title: 你可以理清资源，分清轻重。
+    summary: 你可以理清资源，分清轻重。
+    body: 你可以理清资源，分清轻重。今日主题关注稳定资源与持续投入（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如核对订阅清单，标出近期没有使用的项目。建议先完成这一小步，再看实际感受。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: 'Choose one useful step: review your resources.'
+    summary: 'Choose one useful step: review your resources.'
+    body:
+      'Choose one useful step: review your resources. The middle band suggests a mixture of supportive
+      and demanding signals. You do not need one label for the entire day. A task can be manageable even while
+      a conversation needs more patience. Consider separating those experiences and choosing one practical
+      step whose result you can observe, rather than trying to settle every uncertainty at once. Direct Wealth
+      (zhèng cái — a traditional theme of stewardship and steady effort) emphasizes stewardship and consistency.
+      It is a prompt to inspect the small systems that support daily life, rather than a forecast about earnings.
+      Clear records and realistic commitments make it easier to see what is already working and what needs
+      attention. Before replacing equipment, check whether a repair or shared tool would meet the actual need.
+      You can keep the next action limited to what fits your actual circumstances. This theme offers a question
+      to explore within your real circumstances today.'
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.zheng_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.zheng_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.zheng_cai.a
+  zh:
+    title: 分清轻重时，给稳定资源留一点空间。
+    summary: 分清轻重时，给稳定资源留一点空间。
+    body: 你可以让稳定的投入看得见。正财（传统上用来观察稳定资源与持续投入的主题）关注兑现与日常资源，记录一个实际需求，往往比追求更多安排更有帮助。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如和搭档商量采购时，先列必要项再讨论可选项。建议先理清资源，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: Review your resources, with space to review.
+    summary: Review your resources, with space to review.
+    body:
+      You can make a steady commitment visible in a practical record. Direct Wealth (zhèng cái — a traditional
+      theme of stewardship and steady effort) emphasizes continuity. Look at what an existing expense or routine
+      actually supports before adding another one. A clear account of the need can help you choose what deserves
+      continued attention and what can wait. This middle band contains mixed contributions, so separate life
+      areas rather than looking for one answer about the entire day. A task may be straightforward while a
+      conversation needs space. You can choose an observable action in one area, leaving the others adjustable
+      until there is more useful information. When planning a group activity, write down the costs that everyone
+      has already accepted. Consider reviewing the actual experience before adding another commitment. This
+      theme offers a question to explore within your real circumstances today.
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.qi_sha.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.qi_sha
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.qi_sha.b
+  zh:
+    title: 你可以给压力排序，分清轻重。
+    summary: 你可以给压力排序，分清轻重。
+    body: 你可以给压力排序，分清轻重。今日主题关注压力排序与行动边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如面对临时加急任务，先问清最晚需要哪一部分。建议先完成这一小步，再看实际感受。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: 'Choose one useful step: rank the demands.'
+    summary: 'Choose one useful step: rank the demands.'
+    body:
+      'Choose one useful step: rank the demands. The middle band suggests a mixture of supportive and demanding
+      signals. You do not need one label for the entire day. A task can be manageable even while a conversation
+      needs more patience. Consider separating those experiences and choosing one practical step whose result
+      you can observe, rather than trying to settle every uncertainty at once. Seven Killings (qī shā — a traditional
+      theme of pressure, priorities, and action) is a historical term for pressure and decisive action. Treat
+      it as a question about priorities, not an alarm. A deadline may feel louder than usual, making every
+      incoming request seem urgent. Naming the actual requirement can restore room for a measured response.
+      When messages arrive at once, identify which person needs an answer today and which can wait. You can
+      keep the next action limited to what fits your actual circumstances. This theme offers a question to
+      explore within your real circumstances today.'
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.qi_sha.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.qi_sha
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.qi_sha.a
+  zh:
+    title: 分清轻重时，给压力排序留一点空间。
+    summary: 分清轻重时，给压力排序留一点空间。
+    body: 你可以给压力一个清楚的名字。七杀（传统上用来观察压力排序与行动边界的主题）关注行动与界线，把急事拆成明确要求，再决定哪一步需要回应，会更有余地。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如出门前发现安排冲突时，把可延后的事项移开。建议先给压力排序，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: Rank the demands, with space to review.
+    summary: Rank the demands, with space to review.
+    body:
+      You can name a demand before deciding how much energy to give it. Seven Killings (qī shā — a traditional
+      theme of pressure, priorities, and action) examines pressure and action. Its historical name is not an
+      alarm. Ask which part has a real deadline and which part feels urgent because several requests arrived
+      together. A clear distinction can open a calmer response. This middle band contains mixed contributions,
+      so separate life areas rather than looking for one answer about the entire day. A task may be straightforward
+      while a conversation needs space. You can choose an observable action in one area, leaving the others
+      adjustable until there is more useful information. If a rehearsal feels rushed, focus on the one transition
+      that most affects the next run. Consider reviewing the actual experience before adding another commitment.
+      This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.zheng_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.zheng_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.zheng_guan.b
+  zh:
+    title: 你可以确认标准，分清轻重。
+    summary: 你可以确认标准，分清轻重。
+    body: 你可以确认标准，分清轻重。今日主题关注清楚责任与约定（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如提交材料前，按要求检查最关键的三项。建议先完成这一小步，再看实际感受。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: 'Choose one useful step: clarify the standard.'
+    summary: 'Choose one useful step: clarify the standard.'
+    body:
+      'Choose one useful step: clarify the standard. The middle band suggests a mixture of supportive and
+      demanding signals. You do not need one label for the entire day. A task can be manageable even while
+      a conversation needs more patience. Consider separating those experiences and choosing one practical
+      step whose result you can observe, rather than trying to settle every uncertainty at once. Direct Officer
+      (zhèng guān — a traditional theme of responsibility and agreed standards) highlights responsibility and
+      agreed standards. You may find clarity in a reliable process, while also feeling tempted to check every
+      detail repeatedly. A shared definition of completion is more useful than trying to anticipate every preference
+      someone else might have. Ask a supervisor which result matters most before polishing a presentation that
+      is already clear. You can keep the next action limited to what fits your actual circumstances. This theme
+      offers a question to explore within your real circumstances today.'
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.zheng_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.zheng_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.zheng_guan.a
+  zh:
+    title: 分清轻重时，给清楚责任留一点空间。
+    summary: 分清轻重时，给清楚责任留一点空间。
+    body: 你可以把责任落实到一条清楚的标准。正官（传统上用来观察清楚责任与约定的主题）关注规范与约定，先确认谁需要什么，能减少反复猜测和无止境检查。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如参加集体活动时，确认自己的职责和结束时间。建议先确认标准，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: Clarify the standard, with space to review.
+    summary: Clarify the standard, with space to review.
+    body:
+      You can let an agreed standard carry some of the uncertainty. Direct Officer (zhèng guān — a traditional
+      theme of responsibility and agreed standards) focuses on responsibilities and procedures. Find out which
+      requirement matters to the person receiving your work. That conversation may be more useful than another
+      round of private checking aimed at an expectation nobody has stated. This middle band contains mixed
+      contributions, so separate life areas rather than looking for one answer about the entire day. A task
+      may be straightforward while a conversation needs space. You can choose an observable action in one area,
+      leaving the others adjustable until there is more useful information. When volunteering, agree on the
+      handover so responsibility does not expand without discussion. Consider reviewing the actual experience
+      before adding another commitment. This theme offers a question to explore within your real circumstances
+      today.
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.pian_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.pian_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.pian_yin.b
+  zh:
+    title: 你可以验证小线索，分清轻重。
+    summary: 你可以验证小线索，分清轻重。
+    body: 你可以验证小线索，分清轻重。今日主题关注独立探索与不同视角（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如阅读难懂材料时，先找一个能亲手验证的例子。建议先完成这一小步，再看实际感受。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: 'Choose one useful step: test one observation.'
+    summary: 'Choose one useful step: test one observation.'
+    body:
+      'Choose one useful step: test one observation. The middle band suggests a mixture of supportive and
+      demanding signals. You do not need one label for the entire day. A task can be manageable even while
+      a conversation needs more patience. Consider separating those experiences and choosing one practical
+      step whose result you can observe, rather than trying to settle every uncertainty at once. Indirect Resource
+      (piān yìn — a traditional theme of independent inquiry and alternative perspectives) invites a quieter
+      or less familiar approach to learning. You might prefer to investigate before joining a discussion. Curiosity
+      can reveal a useful angle, but an elegant explanation still needs a check against experience. Keep the
+      investigation small enough to produce a usable next step. Try explaining an unfamiliar concept with an
+      ordinary object, then check where the comparison stops working. You can keep the next action limited
+      to what fits your actual circumstances. This theme offers a question to explore within your real circumstances
+      today.'
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.pian_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.pian_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.pian_yin.a
+  zh:
+    title: 分清轻重时，给换个角度留一点空间。
+    summary: 分清轻重时，给换个角度留一点空间。
+    body: 你可以安静换个角度，再找一条现实线索。偏印（传统上用来观察独立探索与不同视角的主题）关注独学与新解释，验证一个小问题，让思考有可以回看的结果。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如信息很多时，画一张简单关系图再补细节。建议先验证小线索，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: Test one observation, with space to review.
+    summary: Test one observation, with space to review.
+    body:
+      You can explore a different explanation without needing to settle every question. Indirect Resource
+      (piān yìn — a traditional theme of independent inquiry and alternative perspectives) emphasizes independent
+      inquiry. A quiet investigation becomes useful when you choose something observable to check. Keep a note
+      of where the idea fits and where it leaves uncertainty, so curiosity can lead to a next step. This middle
+      band contains mixed contributions, so separate life areas rather than looking for one answer about the
+      entire day. A task may be straightforward while a conversation needs space. You can choose an observable
+      action in one area, leaving the others adjustable until there is more useful information. After reading
+      several opinions, identify one question you can resolve with a direct observation. Consider reviewing
+      the actual experience before adding another commitment. This theme offers a question to explore within
+      your real circumstances today.
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.zheng_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.zheng_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.zheng_yin.b
+  zh:
+    title: 你可以把帮助落地，分清轻重。
+    summary: 你可以把帮助落地，分清轻重。
+    body: 你可以把帮助落地，分清轻重。今日主题关注可靠支持与稳步学习（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分在中间区间，支持和限制可能同时出现。你不必给整天贴上好坏标签，可以把计划拆成轻重不同的小块。先做好眼前可控的一步，其他安排随着实际反馈调整。比如请教问题后，用自己的话复述一遍操作方法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: 'Choose one useful step: put support to use.'
+    summary: 'Choose one useful step: put support to use.'
+    body:
+      'Choose one useful step: put support to use. The middle band suggests a mixture of supportive and
+      demanding signals. You do not need one label for the entire day. A task can be manageable even while
+      a conversation needs more patience. Consider separating those experiences and choosing one practical
+      step whose result you can observe, rather than trying to settle every uncertainty at once. Direct Resource
+      (zhèng yìn — a traditional theme of dependable support and learning) draws attention to learning and
+      dependable support. A reference, mentor, or familiar routine can make a task feel more manageable. Receiving
+      help still leaves the decision with you. Try turning an explanation into a short sequence you can use
+      and evaluate for yourself. Ask an experienced teammate to demonstrate one step, then attempt it yourself
+      while the explanation is fresh. You can keep the next action limited to what fits your actual circumstances.
+      This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.mixed.zheng_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.mixed.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.mixed.zheng_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.mixed.zheng_yin.a
+  zh:
+    title: 分清轻重时，给稳步学习留一点空间。
+    summary: 分清轻重时，给稳步学习留一点空间。
+    body: 你可以借助已有支持，形成自己的做法。正印（传统上用来观察可靠支持与稳步学习的主题）关注学习与可靠经验，把别人讲的步骤亲手试一次，理解会更加具体。支持与限制并存时，你可以把不同领域分开观察，先选眼前能完成的一步。比如复习课程时，先确认基础概念再做新练习。建议先把帮助落地，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: Put support to use, with space to review.
+    summary: Put support to use, with space to review.
+    body:
+      You can receive useful support and still develop your own method. Direct Resource (zhèng yìn — a
+      traditional theme of dependable support and learning) concerns learning through dependable experience.
+      After hearing an explanation, choose one step to attempt yourself. The result can show what you understand
+      and which question needs another conversation, while leaving the choice of approach with you. This middle
+      band contains mixed contributions, so separate life areas rather than looking for one answer about the
+      entire day. A task may be straightforward while a conversation needs space. You can choose an observable
+      action in one area, leaving the others adjustable until there is more useful information. When preparing
+      for an appointment, collect your questions in one place so the conversation stays useful. Consider reviewing
+      the actual experience before adding another commitment. This theme offers a question to explore within
+      your real circumstances today.
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.bi_jian.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.bi_jian
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.bi_jian.b
+  zh:
+    title: 你可以明确分工，留出余地。
+    summary: 你可以明确分工，留出余地。
+    body: 你可以明确分工，留出余地。今日主题关注同伴与自主（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如与同事分工时，先认领一块能独立完成的任务。建议先完成这一小步，再看实际感受。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: 'Protect some breathing room: name your role.'
+    summary: 'Protect some breathing room: name your role.'
+    body:
+      'Protect some breathing room: name your role. The lower band reflects more demanding signals within
+      the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Friend (bǐ jiān — a traditional theme of peers and autonomy) invites you to examine independence alongside
+      belonging. A familiar viewpoint can make collaboration comfortable, yet agreement does not remove the
+      need to name separate responsibilities. You can keep ownership of your work while welcoming someone else’s
+      method. In a study group, volunteer to explain one topic instead of competing to answer every question.
+      You can keep the next action limited to what fits your actual circumstances. This theme offers a question
+      to explore within your real circumstances today.'
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.bi_jian.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.bi_jian
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.bi_jian
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.bi_jian.a
+  zh:
+    title: 留出余地时，给自主协作留一点空间。
+    summary: 留出余地时，给自主协作留一点空间。
+    body: 你可以把自己的位置站稳，也给同伴留出位置。比肩（传统上用来观察同伴与自主的主题）关注自主和同行，合作的入口可以是一项彼此都理解的分工。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如和朋友安排周末时，把各自的偏好写成两个选项。建议先明确分工，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 明确分工，再复盘反馈。
+    do:
+      - 清楚分工
+    dont:
+      - 争抢主导
+  en:
+    title: Name your role, with space to review.
+    summary: Name your role, with space to review.
+    body:
+      You can hold your own place while giving a peer room to contribute. Friend (bǐ jiān — a traditional
+      theme of peers and autonomy) raises a question about ownership. Shared interests can start a conversation,
+      but they need not produce identical plans. Notice which responsibility you want to keep and which part
+      you could comfortably share. This more demanding band asks for some capacity to remain uncommitted. You
+      can keep an essential task manageable and remove one optional extension. The score describes contributions
+      in a symbolic model; it does not establish an event. Check ordinary information before an important choice,
+      and respond to the situation as it actually develops. When a housemate suggests a different routine,
+      ask what problem the change would solve. Consider reviewing the actual experience before adding another
+      commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Name your role and review the result.
+    do:
+      - Define roles
+    dont:
+      - Compete for control
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.jie_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.jie_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.jie_cai.b
+  zh:
+    title: 你可以先定边界，留出余地。
+    summary: 你可以先定边界，留出余地。
+    body: 你可以先定边界，留出余地。今日主题关注共享与资源边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如聚餐前确认预算，不因别人的选择临时加码。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: 'Protect some breathing room: set a limit.'
+    summary: 'Protect some breathing room: set a limit.'
+    body:
+      'Protect some breathing room: set a limit. The lower band reflects more demanding signals within
+      the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Rob Wealth (jié cái — a traditional theme of sharing and resource boundaries) is a traditional label
+      for sharing and rivalry. Here it asks how you join others without losing track of your own limits. A
+      lively group can encourage generosity, but enthusiasm is different from available time or a comfortable
+      budget. If several colleagues buy supplies together, agree on contributions before placing the order.
+      You can keep the next action limited to what fits your actual circumstances. This theme offers a question
+      to explore within your real circumstances today.'
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.jie_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.jie_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.jie_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.jie_cai.a
+  zh:
+    title: 留出余地时，给共享边界留一点空间。
+    summary: 留出余地时，给共享边界留一点空间。
+    body: 你可以参加热闹，也可以提前说明自己的限度。劫财（传统上用来观察共享与资源边界的主题）关注共享和竞争，分清愿意参与与能够投入，交流会更轻松。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如朋友邀你参加新活动时，先核对已有安排再回复。建议先先定边界，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先定边界，再复盘反馈。
+    do:
+      - 核对预算
+    dont:
+      - 跟风加码
+  en:
+    title: Set a limit, with space to review.
+    summary: Set a limit, with space to review.
+    body:
+      You can join a shared activity without matching every offer around you. Rob Wealth (jié cái — a traditional
+      theme of sharing and resource boundaries) asks about the boundary between generosity and competition.
+      Agreeing on what you can contribute may make participation easier. Your place in a group need not depend
+      on keeping up with everyone else. This more demanding band asks for some capacity to remain uncommitted.
+      You can keep an essential task manageable and remove one optional extension. The score describes contributions
+      in a symbolic model; it does not establish an event. Check ordinary information before an important choice,
+      and respond to the situation as it actually develops. When an invitation arrives during a busy week,
+      offer a shorter visit that fits your calendar. Consider reviewing the actual experience before adding
+      another commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Set a limit and review the result.
+    do:
+      - Check budget
+    dont:
+      - Match every offer
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.shi_shen.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.shi_shen
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.shi_shen.b
+  zh:
+    title: 你可以完成小作品，留出余地。
+    summary: 你可以完成小作品，留出余地。
+    body: 你可以完成小作品，留出余地。今日主题关注温和创造与日常享受（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如把旧笔记整理成一页清晰的学习卡片。建议先完成这一小步，再看实际感受。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: 'Protect some breathing room: finish a small draft.'
+    summary: 'Protect some breathing room: finish a small draft.'
+    body:
+      'Protect some breathing room: finish a small draft. The lower band reflects more demanding signals
+      within the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Eating God (shí shén — a traditional theme of constructive expression and enjoyment) turns attention
+      toward useful expression and everyday enjoyment. You may find a familiar craft easier to share than an
+      ambitious performance. The symbol favors noticing what you can make tangible, with a modest finish line
+      that keeps pleasure connected to practice. Show a teammate a rough sketch so the idea can become a conversation
+      rather than a private plan. You can keep the next action limited to what fits your actual circumstances.
+      This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.shi_shen.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.shi_shen
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.shi_shen
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.shi_shen.a
+  zh:
+    title: 留出余地时，给温和创造留一点空间。
+    summary: 留出余地时，给温和创造留一点空间。
+    body: 你可以先做一个能享受的小成果。食神（传统上用来观察温和创造与日常享受的主题）关注温和创造，把熟悉技能用在可完成的事情上，表达会有一个真实落点。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如做一道熟悉的饭菜，观察哪个步骤可以简化。建议先完成小作品，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 完成小作品，再复盘反馈。
+    do:
+      - 温和表达
+    dont:
+      - 只想不做
+  en:
+    title: Finish a small draft, with space to review.
+    summary: Finish a small draft, with space to review.
+    body:
+      You can give an idea a satisfying, modest form. Eating God (shí shén — a traditional theme of constructive
+      expression and enjoyment) draws attention to the pleasure of making something useful. A familiar skill
+      may be a better starting point than an elaborate performance. Look for a finish line that lets you enjoy
+      the result and share it comfortably. This more demanding band asks for some capacity to remain uncommitted.
+      You can keep an essential task manageable and remove one optional extension. The score describes contributions
+      in a symbolic model; it does not establish an event. Check ordinary information before an important choice,
+      and respond to the situation as it actually develops. Make a short playlist for a break, then return
+      to the one task you meant to finish. Consider reviewing the actual experience before adding another commitment.
+      This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Finish a small draft and review the result.
+    do:
+      - Share a draft
+    dont:
+      - Leave ideas floating
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.shang_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.shang_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.shang_guan.b
+  zh:
+    title: 你可以提出试案，留出余地。
+    summary: 你可以提出试案，留出余地。
+    body: 你可以提出试案，留出余地。今日主题关注直接表达与改进（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如汇报卡点时，附上一项能在今天试行的改法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: 'Protect some breathing room: offer an experiment.'
+    summary: 'Protect some breathing room: offer an experiment.'
+    body:
+      'Protect some breathing room: offer an experiment. The lower band reflects more demanding signals
+      within the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Hurting Officer (shāng guān — a traditional theme of articulation and improvement) highlights questioning
+      and articulation. You may spot a clumsy rule before others mention it. That observation becomes more
+      useful when you describe the effect and propose a workable alternative. Strong language alone can obscure
+      the improvement you actually want. When editing a document, mark a confusing sentence and offer a replacement
+      instead of dismissing the whole piece. You can keep the next action limited to what fits your actual
+      circumstances. This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.shang_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.shang_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.shang_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.shang_guan.a
+  zh:
+    title: 留出余地时，给表达分寸留一点空间。
+    summary: 留出余地时，给表达分寸留一点空间。
+    body: 你可以把不同意见变成一个可试的改法。伤官（传统上用来观察直接表达与改进的主题）关注直接表达，具体说明哪里不顺，比给整件事下评语更容易获得回应。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如讨论家务安排时，先说具体困难再提新规则。建议先提出试案，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 提出试案，再复盘反馈。
+    do:
+      - 具体表达
+    dont:
+      - 讽刺回应
+  en:
+    title: Offer an experiment, with space to review.
+    summary: Offer an experiment, with space to review.
+    body:
+      You can turn a critical observation into a usable suggestion. Hurting Officer (shāng guān — a traditional
+      theme of articulation and improvement) invites direct articulation. Describe the part that gets in the
+      way and offer one alternative someone could try. A clear example gives your point a better chance of
+      being understood than a broad judgment about the whole process. This more demanding band asks for some
+      capacity to remain uncommitted. You can keep an essential task manageable and remove one optional extension.
+      The score describes contributions in a symbolic model; it does not establish an event. Check ordinary
+      information before an important choice, and respond to the situation as it actually develops. If a meeting
+      feels unproductive, suggest a clear decision for its final five minutes. Consider reviewing the actual
+      experience before adding another commitment. This theme offers a question to explore within your real
+      circumstances today.
+    advice:
+      - Offer an experiment and review the result.
+    do:
+      - Be specific
+    dont:
+      - Use sarcasm
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.pian_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.pian_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.pian_cai.b
+  zh:
+    title: 你可以先做比较，留出余地。
+    summary: 你可以先做比较，留出余地。
+    body: 你可以先做比较，留出余地。今日主题关注机会与灵活资源（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如收到合作邀请后，先确认范围和退出方式。建议先完成这一小步，再看实际感受。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: 'Protect some breathing room: compare the options.'
+    summary: 'Protect some breathing room: compare the options.'
+    body:
+      'Protect some breathing room: compare the options. The lower band reflects more demanding signals
+      within the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Indirect Wealth (piān cái — a traditional theme of opportunities and flexible resources) points to flexible
+      opportunities rather than expected returns. You might notice a new connection or an unused tool that
+      could help a project. Possibility deserves a practical filter: available information, the cost of trying,
+      and the effort you can realistically sustain. A community project may need your skill for a limited trial;
+      ask what delivery would look like before agreeing. You can keep the next action limited to what fits
+      your actual circumstances. This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.pian_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.pian_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.pian_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.pian_cai.a
+  zh:
+    title: 留出余地时，给机会筛选留一点空间。
+    summary: 留出余地时，给机会筛选留一点空间。
+    body: 你可以对新机会保持好奇，再给尝试设个范围。偏财（传统上用来观察机会与灵活资源的主题）关注流动入口，先了解成本与退出方式，选择会更有依据。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如发现新工具时，先用一个小任务测试是否省力。建议先先做比较，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 先做比较，再复盘反馈。
+    do:
+      - 小步试行
+    dont:
+      - 急于下注
+  en:
+    title: Compare the options, with space to review.
+    summary: Compare the options, with space to review.
+    body:
+      You can stay curious about a new opening while keeping a trial limited. Indirect Wealth (piān cái
+      — a traditional theme of opportunities and flexible resources) concerns flexible possibilities, without
+      forecasting returns. Ask what the attempt requires and how you would stop if it does not fit. An interesting
+      option can remain an option until the details are clear. This more demanding band asks for some capacity
+      to remain uncommitted. You can keep an essential task manageable and remove one optional extension. The
+      score describes contributions in a symbolic model; it does not establish an event. Check ordinary information
+      before an important choice, and respond to the situation as it actually develops. If a new service catches
+      your attention, compare it with what you already use before changing your routine. Consider reviewing
+      the actual experience before adding another commitment. This theme offers a question to explore within
+      your real circumstances today.
+    advice:
+      - Compare the options and review the result.
+    do:
+      - Try a pilot
+    dont:
+      - Rush a commitment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.zheng_cai.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.zheng_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.zheng_cai.b
+  zh:
+    title: 你可以理清资源，留出余地。
+    summary: 你可以理清资源，留出余地。
+    body: 你可以理清资源，留出余地。今日主题关注稳定资源与持续投入（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如核对订阅清单，标出近期没有使用的项目。建议先完成这一小步，再看实际感受。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: 'Protect some breathing room: review your resources.'
+    summary: 'Protect some breathing room: review your resources.'
+    body:
+      'Protect some breathing room: review your resources. The lower band reflects more demanding signals
+      within the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Direct Wealth (zhèng cái — a traditional theme of stewardship and steady effort) emphasizes stewardship
+      and consistency. It is a prompt to inspect the small systems that support daily life, rather than a forecast
+      about earnings. Clear records and realistic commitments make it easier to see what is already working
+      and what needs attention. Before replacing equipment, check whether a repair or shared tool would meet
+      the actual need. You can keep the next action limited to what fits your actual circumstances. This theme
+      offers a question to explore within your real circumstances today.'
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.zheng_cai.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.zheng_cai
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.zheng_cai
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.zheng_cai.a
+  zh:
+    title: 留出余地时，给稳定资源留一点空间。
+    summary: 留出余地时，给稳定资源留一点空间。
+    body: 你可以让稳定的投入看得见。正财（传统上用来观察稳定资源与持续投入的主题）关注兑现与日常资源，记录一个实际需求，往往比追求更多安排更有帮助。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如和搭档商量采购时，先列必要项再讨论可选项。建议先理清资源，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 理清资源，再复盘反馈。
+    do:
+      - 清点账目
+    dont:
+      - 草率承诺
+  en:
+    title: Review your resources, with space to review.
+    summary: Review your resources, with space to review.
+    body:
+      You can make a steady commitment visible in a practical record. Direct Wealth (zhèng cái — a traditional
+      theme of stewardship and steady effort) emphasizes continuity. Look at what an existing expense or routine
+      actually supports before adding another one. A clear account of the need can help you choose what deserves
+      continued attention and what can wait. This more demanding band asks for some capacity to remain uncommitted.
+      You can keep an essential task manageable and remove one optional extension. The score describes contributions
+      in a symbolic model; it does not establish an event. Check ordinary information before an important choice,
+      and respond to the situation as it actually develops. When planning a group activity, write down the
+      costs that everyone has already accepted. Consider reviewing the actual experience before adding another
+      commitment. This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Review your resources and review the result.
+    do:
+      - Review records
+    dont:
+      - Promise too quickly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.qi_sha.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.qi_sha
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.qi_sha.b
+  zh:
+    title: 你可以给压力排序，留出余地。
+    summary: 你可以给压力排序，留出余地。
+    body: 你可以给压力排序，留出余地。今日主题关注压力排序与行动边界（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如面对临时加急任务，先问清最晚需要哪一部分。建议先完成这一小步，再看实际感受。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: 'Protect some breathing room: rank the demands.'
+    summary: 'Protect some breathing room: rank the demands.'
+    body:
+      'Protect some breathing room: rank the demands. The lower band reflects more demanding signals within
+      the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Seven Killings (qī shā — a traditional theme of pressure, priorities, and action) is a historical term
+      for pressure and decisive action. Treat it as a question about priorities, not an alarm. A deadline may
+      feel louder than usual, making every incoming request seem urgent. Naming the actual requirement can
+      restore room for a measured response. When messages arrive at once, identify which person needs an answer
+      today and which can wait. You can keep the next action limited to what fits your actual circumstances.
+      This theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.qi_sha.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.qi_sha
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.qi_sha
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.qi_sha.a
+  zh:
+    title: 留出余地时，给压力排序留一点空间。
+    summary: 留出余地时，给压力排序留一点空间。
+    body: 你可以给压力一个清楚的名字。七杀（传统上用来观察压力排序与行动边界的主题）关注行动与界线，把急事拆成明确要求，再决定哪一步需要回应，会更有余地。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如出门前发现安排冲突时，把可延后的事项移开。建议先给压力排序，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 给压力排序，再复盘反馈。
+    do:
+      - 拆分急事
+    dont:
+      - 硬撑到底
+  en:
+    title: Rank the demands, with space to review.
+    summary: Rank the demands, with space to review.
+    body:
+      You can name a demand before deciding how much energy to give it. Seven Killings (qī shā — a traditional
+      theme of pressure, priorities, and action) examines pressure and action. Its historical name is not an
+      alarm. Ask which part has a real deadline and which part feels urgent because several requests arrived
+      together. A clear distinction can open a calmer response. This more demanding band asks for some capacity
+      to remain uncommitted. You can keep an essential task manageable and remove one optional extension. The
+      score describes contributions in a symbolic model; it does not establish an event. Check ordinary information
+      before an important choice, and respond to the situation as it actually develops. If a rehearsal feels
+      rushed, focus on the one transition that most affects the next run. Consider reviewing the actual experience
+      before adding another commitment. This theme offers a question to explore within your real circumstances
+      today.
+    advice:
+      - Rank the demands and review the result.
+    do:
+      - Rank demands
+    dont:
+      - Push through everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.zheng_guan.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.zheng_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.zheng_guan.b
+  zh:
+    title: 你可以确认标准，留出余地。
+    summary: 你可以确认标准，留出余地。
+    body: 你可以确认标准，留出余地。今日主题关注清楚责任与约定（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如提交材料前，按要求检查最关键的三项。建议先完成这一小步，再看实际感受。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: 'Protect some breathing room: clarify the standard.'
+    summary: 'Protect some breathing room: clarify the standard.'
+    body:
+      'Protect some breathing room: clarify the standard. The lower band reflects more demanding signals
+      within the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Direct Officer (zhèng guān — a traditional theme of responsibility and agreed standards) highlights responsibility
+      and agreed standards. You may find clarity in a reliable process, while also feeling tempted to check
+      every detail repeatedly. A shared definition of completion is more useful than trying to anticipate every
+      preference someone else might have. Ask a supervisor which result matters most before polishing a presentation
+      that is already clear. You can keep the next action limited to what fits your actual circumstances. This
+      theme offers a question to explore within your real circumstances today.'
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.zheng_guan.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.zheng_guan
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.zheng_guan
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.zheng_guan.a
+  zh:
+    title: 留出余地时，给清楚责任留一点空间。
+    summary: 留出余地时，给清楚责任留一点空间。
+    body: 你可以把责任落实到一条清楚的标准。正官（传统上用来观察清楚责任与约定的主题）关注规范与约定，先确认谁需要什么，能减少反复猜测和无止境检查。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如参加集体活动时，确认自己的职责和结束时间。建议先确认标准，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 确认标准，再复盘反馈。
+    do:
+      - 按项核对
+    dont:
+      - 过度自责
+  en:
+    title: Clarify the standard, with space to review.
+    summary: Clarify the standard, with space to review.
+    body:
+      You can let an agreed standard carry some of the uncertainty. Direct Officer (zhèng guān — a traditional
+      theme of responsibility and agreed standards) focuses on responsibilities and procedures. Find out which
+      requirement matters to the person receiving your work. That conversation may be more useful than another
+      round of private checking aimed at an expectation nobody has stated. This more demanding band asks for
+      some capacity to remain uncommitted. You can keep an essential task manageable and remove one optional
+      extension. The score describes contributions in a symbolic model; it does not establish an event. Check
+      ordinary information before an important choice, and respond to the situation as it actually develops.
+      When volunteering, agree on the handover so responsibility does not expand without discussion. Consider
+      reviewing the actual experience before adding another commitment. This theme offers a question to explore
+      within your real circumstances today.
+    advice:
+      - Clarify the standard and review the result.
+    do:
+      - Use a checklist
+    dont:
+      - Blame yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.pian_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.pian_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.pian_yin.b
+  zh:
+    title: 你可以验证小线索，留出余地。
+    summary: 你可以验证小线索，留出余地。
+    body: 你可以验证小线索，留出余地。今日主题关注独立探索与不同视角（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如阅读难懂材料时，先找一个能亲手验证的例子。建议先完成这一小步，再看实际感受。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: 'Protect some breathing room: test one observation.'
+    summary: 'Protect some breathing room: test one observation.'
+    body:
+      'Protect some breathing room: test one observation. The lower band reflects more demanding signals
+      within the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Indirect Resource (piān yìn — a traditional theme of independent inquiry and alternative perspectives)
+      invites a quieter or less familiar approach to learning. You might prefer to investigate before joining
+      a discussion. Curiosity can reveal a useful angle, but an elegant explanation still needs a check against
+      experience. Keep the investigation small enough to produce a usable next step. Try explaining an unfamiliar
+      concept with an ordinary object, then check where the comparison stops working. You can keep the next
+      action limited to what fits your actual circumstances. This theme offers a question to explore within
+      your real circumstances today.'
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.pian_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.pian_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.pian_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.pian_yin.a
+  zh:
+    title: 留出余地时，给换个角度留一点空间。
+    summary: 留出余地时，给换个角度留一点空间。
+    body: 你可以安静换个角度，再找一条现实线索。偏印（传统上用来观察独立探索与不同视角的主题）关注独学与新解释，验证一个小问题，让思考有可以回看的结果。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如信息很多时，画一张简单关系图再补细节。建议先验证小线索，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 验证小线索，再复盘反馈。
+    do:
+      - 安静整理
+    dont:
+      - 反复猜测
+  en:
+    title: Test one observation, with space to review.
+    summary: Test one observation, with space to review.
+    body:
+      You can explore a different explanation without needing to settle every question. Indirect Resource
+      (piān yìn — a traditional theme of independent inquiry and alternative perspectives) emphasizes independent
+      inquiry. A quiet investigation becomes useful when you choose something observable to check. Keep a note
+      of where the idea fits and where it leaves uncertainty, so curiosity can lead to a next step. This more
+      demanding band asks for some capacity to remain uncommitted. You can keep an essential task manageable
+      and remove one optional extension. The score describes contributions in a symbolic model; it does not
+      establish an event. Check ordinary information before an important choice, and respond to the situation
+      as it actually develops. After reading several opinions, identify one question you can resolve with a
+      direct observation. Consider reviewing the actual experience before adding another commitment. This theme
+      offers a question to explore within your real circumstances today.
+    advice:
+      - Test one observation and review the result.
+    do:
+      - Organize quietly
+    dont:
+      - Keep second-guessing
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.zheng_yin.a
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.zheng_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.zheng_yin.b
+  zh:
+    title: 你可以把帮助落地，留出余地。
+    summary: 你可以把帮助落地，留出余地。
+    body: 你可以把帮助落地，留出余地。今日主题关注可靠支持与稳步学习（把当天主要线索整理成一个观察方向），你可以用它检查自己的安排。综合评分处于需要留意的区间，反映模型中限制项较多，并不预告坏事。你可以缩小任务范围，给沟通和休息留出缓冲。把重要决定放回现实信息中判断，今天仍有自主选择的空间。比如请教问题后，用自己的话复述一遍操作方法。建议先完成这一小步，再看实际感受。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: 'Protect some breathing room: put support to use.'
+    summary: 'Protect some breathing room: put support to use.'
+    body:
+      'Protect some breathing room: put support to use. The lower band reflects more demanding signals
+      within the scoring model. It is a reminder to manage your capacity, rather than a prediction of a difficult
+      event. Consider reducing one optional commitment and allowing time to check the details that matter.
+      A smaller plan can preserve useful progress while leaving you free to respond to what actually happens.
+      Direct Resource (zhèng yìn — a traditional theme of dependable support and learning) draws attention
+      to learning and dependable support. A reference, mentor, or familiar routine can make a task feel more
+      manageable. Receiving help still leaves the decision with you. Try turning an explanation into a short
+      sequence you can use and evaluate for yourself. Ask an experienced teammate to demonstrate one step,
+      then attempt it yourself while the explanation is fresh. You can keep the next action limited to what
+      fits your actual circumstances. This theme offers a question to explore within your real circumstances
+      today.'
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.oneliner.careful.zheng_yin.b
+  system: daily
+  section: overview
+  topic: daily.oneliner.careful.zheng_yin
+  when:
+    path: oneLiner
+    eq: daily.oneliner.careful.zheng_yin
+  weight: 90
+  polarity: mixed
+  tags:
+    - plain
+    - overview
+  exclusive_with:
+    - daily.oneliner.careful.zheng_yin.a
+  zh:
+    title: 留出余地时，给稳步学习留一点空间。
+    summary: 留出余地时，给稳步学习留一点空间。
+    body: 你可以借助已有支持，形成自己的做法。正印（传统上用来观察可靠支持与稳步学习的主题）关注学习与可靠经验，把别人讲的步骤亲手试一次，理解会更加具体。限制项较多时，你可以放轻额外安排，不过仍要用事实判断重要选择。比如复习课程时，先确认基础概念再做新练习。建议先把帮助落地，观察这一步带来的实际反馈，再决定是否增加安排。
+    advice:
+      - 把帮助落地，再复盘反馈。
+    do:
+      - 整理笔记
+    dont:
+      - 照单全收
+  en:
+    title: Put support to use, with space to review.
+    summary: Put support to use, with space to review.
+    body:
+      You can receive useful support and still develop your own method. Direct Resource (zhèng yìn — a
+      traditional theme of dependable support and learning) concerns learning through dependable experience.
+      After hearing an explanation, choose one step to attempt yourself. The result can show what you understand
+      and which question needs another conversation, while leaving the choice of approach with you. This more
+      demanding band asks for some capacity to remain uncommitted. You can keep an essential task manageable
+      and remove one optional extension. The score describes contributions in a symbolic model; it does not
+      establish an event. Check ordinary information before an important choice, and respond to the situation
+      as it actually develops. When preparing for an appointment, collect your questions in one place so the
+      conversation stays useful. Consider reviewing the actual experience before adding another commitment.
+      This theme offers a question to explore within your real circumstances today.
+    advice:
+      - Put support to use and review the result.
+    do:
+      - Collect your notes
+    dont:
+      - Accept every suggestion
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

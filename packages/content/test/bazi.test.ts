@@ -72,6 +72,8 @@ describe('published bazi editorial corpus', () => {
     );
     expect(content.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
   });
+  // DESIGN-GAP: The 600-term glossary increases this 24-report integration's coverage-time cost;
+  // allow 60s while retaining all twelve charts, both locales and every original assertion.
   it('keeps every chapter populated in both locales and selects only one strength variant', () => {
     if (!content.transitions) throw new Error('Missing transitions');
     const fallbacks = content.units.filter((u) => u.id.startsWith('bazi.fallback.'));
@@ -96,5 +98,5 @@ describe('published bazi editorial corpus', () => {
         expect(report.readability.passed).toBe(true);
       }
     }
-  });
+  }, 60_000);
 });

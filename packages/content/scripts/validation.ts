@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv';
 import { LineCounter, parseDocument } from 'yaml';
-import { resolvePath, textGrams, gramSimilarity, zhChars, enWords, evaluateWhen } from '../src';
+import { resolvePath, textGrams, zhChars, enWords, evaluateWhen } from '../src';
 import type { KnowledgeUnit, GlossaryEntry, Transitions } from '../src';
 import schema from '../schema/ku.schema.json';
 const ajv = new Ajv({ allErrors: true });
@@ -266,12 +266,44 @@ export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
       { zh: textGrams(unit.zh.body), en: textGrams(unit.en.body) },
     ]),
   );
+  // Count shared grams once through an inverted index. This computes the exact same
+  // Dice overlap, without scanning both full bodies for every pair in a growing corpus.
+  const similar = new Set<string>();
+  const systems = new Set(units.map((item) => item.unit.system));
+  for (const system of systems) {
+    const group = units.filter((item) => item.unit.system === system);
+    for (const locale of ['zh', 'en'] as const) {
+      const postings = new Map<string, number[]>();
+      group.forEach((item, index) => {
+        for (const gram of grams.get(item.unit.id)![locale]) {
+          const list = postings.get(gram);
+          if (list) list.push(index);
+          else postings.set(gram, [index]);
+        }
+      });
+      const overlaps = new Uint32Array(group.length * group.length);
+      for (const indexes of postings.values())
+        for (let i = 0; i < indexes.length; i++)
+          for (let j = i + 1; j < indexes.length; j++) {
+            const offset = indexes[i]! * group.length + indexes[j]!;
+            overlaps[offset] = overlaps[offset]! + 1;
+          }
+      for (let i = 0; i < group.length; i++)
+        for (let j = i + 1; j < group.length; j++) {
+          const a = group[i]!.unit.id,
+            b = group[j]!.unit.id;
+          const denominator = grams.get(a)![locale].size + grams.get(b)![locale].size || 1;
+          if ((2 * overlaps[i * group.length + j]!) / denominator > 0.6)
+            similar.add(`${a}\0${b}\0${locale}`);
+        }
+    }
+  }
   for (let i = 0; i < units.length; i++)
     for (const b of units.slice(i + 1)) {
       const a = units[i];
       if (!a || a.unit.system !== b.unit.system) continue;
       for (const locale of ['zh', 'en'] as const)
-        if (gramSimilarity(grams.get(a.unit.id)![locale], grams.get(b.unit.id)![locale]) > 0.6)
+        if (similar.has(`${a.unit.id}\0${b.unit.id}\0${locale}`))
           add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
     }
   return diagnostics;

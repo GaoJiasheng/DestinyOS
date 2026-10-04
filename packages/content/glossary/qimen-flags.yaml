@@ -1,0 +1,129 @@
+# T-23: glossary follows appendix keys; pinyin describes the Chinese display term.
+- key: qimen.flag.kong_wang
+  system: qimen
+  zh:
+    term: 空亡
+    pinyin: kōng wáng
+    short: 该旬未配入的地支所对应宫位
+    long: 空亡指该旬未配入的地支所对应宫位，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Void
+    pinyin: kōng wáng
+    short: A palace associated with branches absent from the current ten-pair group
+    long:
+      Void identifies a palace associated with branches absent from the current ten-pair group. It modifies
+      an indicator in the nine-palace model and is read with gates, stars, palace relationships, and the actual
+      question. It does not establish a particular event.
+  aliases: []
+- key: qimen.flag.ru_mu
+  system: qimen
+  zh:
+    term: 入墓
+    pinyin: rù mù
+    short: 天干落入传统墓库宫位
+    long: 入墓指天干落入传统墓库宫位，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Entering Storage
+    pinyin: rù mù
+    short: A stem placed in its traditional storage palace
+    long:
+      Entering Storage identifies a stem placed in its traditional storage palace. It modifies an indicator
+      in the nine-palace model and is read with gates, stars, palace relationships, and the actual question.
+      It does not establish a particular event.
+  aliases: []
+- key: qimen.flag.men_po
+  system: qimen
+  zh:
+    term: 门迫
+    pinyin: mén pò
+    short: 门五行克制所落宫五行
+    long: 门迫指门五行克制所落宫五行，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Gate Pressure
+    pinyin: mén pò
+    short: A gate element restraining its palace element
+    long:
+      Gate Pressure identifies a gate element restraining its palace element. It modifies an indicator
+      in the nine-palace model and is read with gates, stars, palace relationships, and the actual question.
+      It does not establish a particular event.
+  aliases: []
+- key: qimen.flag.ji_xing
+  system: qimen
+  zh:
+    term: 击刑
+    pinyin: jī xíng
+    short: 六仪落入传统击刑宫位
+    long: 击刑指六仪落入传统击刑宫位，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Stem Punishment
+    pinyin: jī xíng
+    short: A six-instrument stem in a traditional punishment position
+    long:
+      Stem Punishment identifies a six-instrument stem in a traditional punishment position. It modifies
+      an indicator in the nine-palace model and is read with gates, stars, palace relationships, and the actual
+      question. It does not establish a particular event.
+  aliases: []
+- key: qimen.flag.fu_yin
+  system: qimen
+  zh:
+    term: 伏吟
+    pinyin: fú yín
+    short: 天盘星与地盘星同宫
+    long: 伏吟指天盘星与地盘星同宫，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Repetition
+    pinyin: fú yín
+    short: A sky-plate star repeating its earth-plate palace
+    long:
+      Repetition identifies a sky-plate star repeating its earth-plate palace. It modifies an indicator
+      in the nine-palace model and is read with gates, stars, palace relationships, and the actual question.
+      It does not establish a particular event.
+  aliases: []
+- key: qimen.flag.fan_yin
+  system: qimen
+  zh:
+    term: 反吟
+    pinyin: fǎn yín
+    short: 天盘星与地盘星对宫
+    long: 反吟指天盘星与地盘星对宫，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Opposition
+    pinyin: fǎn yín
+    short: A sky-plate star opposing its earth-plate palace
+    long:
+      Opposition identifies a sky-plate star opposing its earth-plate palace. It modifies an indicator
+      in the nine-palace model and is read with gates, stars, palace relationships, and the actual question.
+      It does not establish a particular event.
+  aliases: []
+- key: qimen.flag.ma_xing
+  system: qimen
+  zh:
+    term: 马星
+    pinyin: mǎ xīng
+    short: 时支分组对应的移动标记
+    long: 马星指时支分组对应的移动标记，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Horse Marker
+    pinyin: mǎ xīng
+    short: A movement marker grouped by the hour branch
+    long:
+      Horse Marker identifies a movement marker grouped by the hour branch. It modifies an indicator in
+      the nine-palace model and is read with gates, stars, palace relationships, and the actual question. It
+      does not establish a particular event.
+  aliases: []
+- key: qimen.flag.wu_bu_yu_shi
+  system: qimen
+  zh:
+    term: 五不遇时
+    pinyin: wǔ bù yù shí
+    short: 时干与日干的传统克制条件
+    long: 五不遇时指时干与日干的传统克制条件，是九宫盘中的条件标记。它修饰相关用神的文化解读，需要同时看门、星、宫位关系和实际问题，不表示某个具体事件会发生。
+  en:
+    term: Hour Mismatch
+    pinyin: wǔ bù yù shí
+    short: A traditional restraining relation between hour and day stems
+    long:
+      Hour Mismatch identifies a traditional restraining relation between hour and day stems. It modifies
+      an indicator in the nine-palace model and is read with gates, stars, palace relationships, and the actual
+      question. It does not establish a particular event.
+  aliases: []

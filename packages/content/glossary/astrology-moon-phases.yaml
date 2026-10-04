@@ -1,0 +1,129 @@
+# T-23: glossary follows appendix keys; pinyin describes the Chinese display term.
+- key: moon_phase.new_moon
+  system: astrology
+  zh:
+    term: 新月
+    pinyin: xīn yuè
+    short: 八段月相之一
+    long: 新月是日月角距以0度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: New Moon
+    pinyin: xīn yuè
+    short: One of eight lunar phase sectors
+    long:
+      New Moon is a forty-five-degree Sun–Moon angle sector centered around 0°. A broad phase sector is
+      distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection without
+      prescribing a schedule.
+  aliases: []
+- key: moon_phase.waxing_crescent
+  system: astrology
+  zh:
+    term: 眉月
+    pinyin: méi yuè
+    short: 八段月相之一
+    long: 眉月是日月角距以45度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: Waxing Crescent
+    pinyin: méi yuè
+    short: One of eight lunar phase sectors
+    long:
+      Waxing Crescent is a forty-five-degree Sun–Moon angle sector centered around 45°. A broad phase sector
+      is distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection
+      without prescribing a schedule.
+  aliases: []
+- key: moon_phase.first_quarter
+  system: astrology
+  zh:
+    term: 上弦
+    pinyin: shàng xián
+    short: 八段月相之一
+    long: 上弦是日月角距以90度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: First Quarter
+    pinyin: shàng xián
+    short: One of eight lunar phase sectors
+    long:
+      First Quarter is a forty-five-degree Sun–Moon angle sector centered around 90°. A broad phase sector
+      is distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection
+      without prescribing a schedule.
+  aliases: []
+- key: moon_phase.waxing_gibbous
+  system: astrology
+  zh:
+    term: 盈凸
+    pinyin: yíng tū
+    short: 八段月相之一
+    long: 盈凸是日月角距以135度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: Waxing Gibbous
+    pinyin: yíng tū
+    short: One of eight lunar phase sectors
+    long:
+      Waxing Gibbous is a forty-five-degree Sun–Moon angle sector centered around 135°. A broad phase sector
+      is distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection
+      without prescribing a schedule.
+  aliases: []
+- key: moon_phase.full_moon
+  system: astrology
+  zh:
+    term: 满月
+    pinyin: mǎn yuè
+    short: 八段月相之一
+    long: 满月是日月角距以180度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: Full Moon
+    pinyin: mǎn yuè
+    short: One of eight lunar phase sectors
+    long:
+      Full Moon is a forty-five-degree Sun–Moon angle sector centered around 180°. A broad phase sector
+      is distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection
+      without prescribing a schedule.
+  aliases: []
+- key: moon_phase.waning_gibbous
+  system: astrology
+  zh:
+    term: 亏凸
+    pinyin: kuī tū
+    short: 八段月相之一
+    long: 亏凸是日月角距以225度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: Waning Gibbous
+    pinyin: kuī tū
+    short: One of eight lunar phase sectors
+    long:
+      Waning Gibbous is a forty-five-degree Sun–Moon angle sector centered around 225°. A broad phase sector
+      is distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection
+      without prescribing a schedule.
+  aliases: []
+- key: moon_phase.last_quarter
+  system: astrology
+  zh:
+    term: 下弦
+    pinyin: xià xián
+    short: 八段月相之一
+    long: 下弦是日月角距以270度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: Last Quarter
+    pinyin: xià xián
+    short: One of eight lunar phase sectors
+    long:
+      Last Quarter is a forty-five-degree Sun–Moon angle sector centered around 270°. A broad phase sector
+      is distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection
+      without prescribing a schedule.
+  aliases: []
+- key: moon_phase.waning_crescent
+  system: astrology
+  zh:
+    term: 残月
+    pinyin: cán yuè
+    short: 八段月相之一
+    long: 残月是日月角距以315度附近为中心的月相区段，每段宽四十五度。区段标签与精确新月或满月发生在某民用日不是同一个判断，可作为短期观察意象，不是日程指令。
+  en:
+    term: Waning Crescent
+    pinyin: cán yuè
+    short: One of eight lunar phase sectors
+    long:
+      Waning Crescent is a forty-five-degree Sun–Moon angle sector centered around 315°. A broad phase
+      sector is distinct from an exact lunation occurring during a civil day. Its daily image can prompt reflection
+      without prescribing a schedule.
+  aliases: []

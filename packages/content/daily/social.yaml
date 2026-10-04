@@ -1,0 +1,1046 @@
+# T-23 original bilingual daily content.
+# // DESIGN-GAP: Shared domain direction topics enable concessions; Bazi weights exceed auxiliary transit weights.
+- id: daily.social.ten_god.bi_jian.strong
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.bi_jian.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用自主协作的方式处理协作与边界。
+    summary: 你可以用自主协作的方式处理协作与边界。
+    body: 你可以用自主协作的方式处理协作与边界。比肩（与日主同类同阴阳的流日天干）把自主与同伴关系带到眼前。你容易关注自己能做什么，也会在同伴的反馈中校准方向。相近的立场不代表需求相同，合作仍需要各自留出表达空间。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以与同事分工时，先认领一块能独立完成的任务。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Name your role in cooperation and boundaries.
+    summary: Name your role in cooperation and boundaries.
+    body:
+      Name your role in cooperation and boundaries. Friend (bǐ jiān — a daily stem sharing your natal stem’s
+      element and polarity) invites you to examine independence alongside belonging. A familiar viewpoint can
+      make collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. Strong (shēn qiáng — greater
+      natal-stem support in the model) emphasizes capacity to engage, without measuring the energy you actually
+      have. For example, summarize a shared decision in a group chat and invite someone to take the next step
+      only if it fits their schedule. In another small situation, in a study group, volunteer to explain one
+      topic instead of competing to answer every question. Consider a request that is easy to decline and a
+      commitment with a clear handover point. Review the actual response before extending the plan, and keep
+      only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.bi_jian.balanced
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.bi_jian.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用自主协作的方式处理协作与边界。
+    summary: 你可以用自主协作的方式处理协作与边界。
+    body: 你可以用自主协作的方式处理协作与边界。比肩（与日主同类同阴阳的流日天干）把自主与同伴关系带到眼前。你容易关注自己能做什么，也会在同伴的反馈中校准方向。相近的立场不代表需求相同，合作仍需要各自留出表达空间。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以与同事分工时，先认领一块能独立完成的任务。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Name your role in cooperation and boundaries.
+    summary: Name your role in cooperation and boundaries.
+    body:
+      Name your role in cooperation and boundaries. Friend (bǐ jiān — a daily stem sharing your natal stem’s
+      element and polarity) invites you to examine independence alongside belonging. A familiar viewpoint can
+      make collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. Balanced (zhōng hé — support
+      and expenditure closer in the model) asks you to balance effort with feedback, while leaving some demands
+      open. For example, summarize a shared decision in a group chat and invite someone to take the next step
+      only if it fits their schedule. In another small situation, in a study group, volunteer to explain one
+      topic instead of competing to answer every question. Consider a request that is easy to decline and a
+      commitment with a clear handover point. Review the actual response before extending the plan, and keep
+      only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.bi_jian.weak
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.bi_jian.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用自主协作的方式处理协作与边界。
+    summary: 你可以用自主协作的方式处理协作与边界。
+    body: 你可以用自主协作的方式处理协作与边界。比肩（与日主同类同阴阳的流日天干）把自主与同伴关系带到眼前。你容易关注自己能做什么，也会在同伴的反馈中校准方向。相近的立场不代表需求相同，合作仍需要各自留出表达空间。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以和朋友安排周末时，把各自的偏好写成两个选项。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Name your role in cooperation and boundaries.
+    summary: Name your role in cooperation and boundaries.
+    body:
+      Name your role in cooperation and boundaries. Friend (bǐ jiān — a daily stem sharing your natal stem’s
+      element and polarity) invites you to examine independence alongside belonging. A familiar viewpoint can
+      make collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. Weak (shēn ruò — lower natal-stem
+      support in the model) invites a search for assistance, rather than a judgment about your ability. For
+      example, summarize a shared decision in a group chat and invite someone to take the next step only if
+      it fits their schedule. In another small situation, when a housemate suggests a different routine, ask
+      what problem the change would solve. Consider a request that is easy to decline and a commitment with
+      a clear handover point. Review the actual response before extending the plan, and keep only the part
+      that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.jie_cai.strong
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.jie_cai.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用共享边界的方式处理协作与边界。
+    summary: 你可以用共享边界的方式处理协作与边界。
+    body: 你可以用共享边界的方式处理协作与边界。劫财（同类但阴阳不同的流日天干）提示共享、竞争与资源边界。你可能想跟上同伴的节奏，也可能为了气氛爽快答应额外开销。它不是损失预告，重点是分清参与意愿和实际承受范围。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以聚餐前确认预算，不因别人的选择临时加码。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Set a limit in cooperation and boundaries.
+    summary: Set a limit in cooperation and boundaries.
+    body:
+      Set a limit in cooperation and boundaries. Rob Wealth (jié cái — a peer stem of opposite polarity)
+      is a traditional label for sharing and rivalry. Here it asks how you join others without losing track
+      of your own limits. A lively group can encourage generosity, but enthusiasm is different from available
+      time or a comfortable budget. Strong (shēn qiáng — greater natal-stem support in the model) emphasizes
+      capacity to engage, without measuring the energy you actually have. For example, summarize a shared decision
+      in a group chat and invite someone to take the next step only if it fits their schedule. In another small
+      situation, if several colleagues buy supplies together, agree on contributions before placing the order.
+      Consider a request that is easy to decline and a commitment with a clear handover point. Review the actual
+      response before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.jie_cai.balanced
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.jie_cai.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用共享边界的方式处理协作与边界。
+    summary: 你可以用共享边界的方式处理协作与边界。
+    body: 你可以用共享边界的方式处理协作与边界。劫财（同类但阴阳不同的流日天干）提示共享、竞争与资源边界。你可能想跟上同伴的节奏，也可能为了气氛爽快答应额外开销。它不是损失预告，重点是分清参与意愿和实际承受范围。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以聚餐前确认预算，不因别人的选择临时加码。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Set a limit in cooperation and boundaries.
+    summary: Set a limit in cooperation and boundaries.
+    body:
+      Set a limit in cooperation and boundaries. Rob Wealth (jié cái — a peer stem of opposite polarity)
+      is a traditional label for sharing and rivalry. Here it asks how you join others without losing track
+      of your own limits. A lively group can encourage generosity, but enthusiasm is different from available
+      time or a comfortable budget. Balanced (zhōng hé — support and expenditure closer in the model) asks
+      you to balance effort with feedback, while leaving some demands open. For example, summarize a shared
+      decision in a group chat and invite someone to take the next step only if it fits their schedule. In
+      another small situation, if several colleagues buy supplies together, agree on contributions before placing
+      the order. Consider a request that is easy to decline and a commitment with a clear handover point. Review
+      the actual response before extending the plan, and keep only the part that helps you navigate your own
+      circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.jie_cai.weak
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.jie_cai.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用共享边界的方式处理协作与边界。
+    summary: 你可以用共享边界的方式处理协作与边界。
+    body: 你可以用共享边界的方式处理协作与边界。劫财（同类但阴阳不同的流日天干）提示共享、竞争与资源边界。你可能想跟上同伴的节奏，也可能为了气氛爽快答应额外开销。它不是损失预告，重点是分清参与意愿和实际承受范围。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以朋友邀你参加新活动时，先核对已有安排再回复。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Set a limit in cooperation and boundaries.
+    summary: Set a limit in cooperation and boundaries.
+    body:
+      Set a limit in cooperation and boundaries. Rob Wealth (jié cái — a peer stem of opposite polarity)
+      is a traditional label for sharing and rivalry. Here it asks how you join others without losing track
+      of your own limits. A lively group can encourage generosity, but enthusiasm is different from available
+      time or a comfortable budget. Weak (shēn ruò — lower natal-stem support in the model) invites a search
+      for assistance, rather than a judgment about your ability. For example, summarize a shared decision in
+      a group chat and invite someone to take the next step only if it fits their schedule. In another small
+      situation, when an invitation arrives during a busy week, offer a shorter visit that fits your calendar.
+      Consider a request that is easy to decline and a commitment with a clear handover point. Review the actual
+      response before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.qi_sha.strong
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.qi_sha.strong
+  weight: 78
+  polarity: positive
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用压力排序的方式处理协作与边界。
+    summary: 你可以用压力排序的方式处理协作与边界。
+    body: 你可以用压力排序的方式处理协作与边界。七杀（克制日主且阴阳相同的流日天干）用来观察压力、行动和边界。你可能更敏锐地感到期限或竞争，容易把所有请求都当成急事。它不说明危险将发生；把压力拆成具体要求，才有机会选择合理的回应。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以面对临时加急任务，先问清最晚需要哪一部分。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Rank the demands in cooperation and boundaries.
+    summary: Rank the demands in cooperation and boundaries.
+    body:
+      Rank the demands in cooperation and boundaries. Seven Killings (qī shā — a demanding stem of matching
+      polarity) is a historical term for pressure and decisive action. Treat it as a question about priorities,
+      not an alarm. A deadline may feel louder than usual, making every incoming request seem urgent. Strong
+      (shēn qiáng — greater natal-stem support in the model) emphasizes capacity to engage, without measuring
+      the energy you actually have. For example, summarize a shared decision in a group chat and invite someone
+      to take the next step only if it fits their schedule. In another small situation, when messages arrive
+      at once, identify which person needs an answer today and which can wait. Consider a request that is easy
+      to decline and a commitment with a clear handover point. Review the actual response before extending
+      the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.qi_sha.balanced
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.qi_sha.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用压力排序的方式处理协作与边界。
+    summary: 你可以用压力排序的方式处理协作与边界。
+    body: 你可以用压力排序的方式处理协作与边界。七杀（克制日主且阴阳相同的流日天干）用来观察压力、行动和边界。你可能更敏锐地感到期限或竞争，容易把所有请求都当成急事。它不说明危险将发生；把压力拆成具体要求，才有机会选择合理的回应。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以面对临时加急任务，先问清最晚需要哪一部分。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Rank the demands in cooperation and boundaries.
+    summary: Rank the demands in cooperation and boundaries.
+    body:
+      Rank the demands in cooperation and boundaries. Seven Killings (qī shā — a demanding stem of matching
+      polarity) is a historical term for pressure and decisive action. Treat it as a question about priorities,
+      not an alarm. A deadline may feel louder than usual, making every incoming request seem urgent. Balanced
+      (zhōng hé — support and expenditure closer in the model) asks you to balance effort with feedback, while
+      leaving some demands open. For example, summarize a shared decision in a group chat and invite someone
+      to take the next step only if it fits their schedule. In another small situation, when messages arrive
+      at once, identify which person needs an answer today and which can wait. Consider a request that is easy
+      to decline and a commitment with a clear handover point. Review the actual response before extending
+      the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.qi_sha.weak
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.qi_sha.weak
+  weight: 78
+  polarity: negative
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用压力排序的方式处理协作与边界。
+    summary: 你可以用压力排序的方式处理协作与边界。
+    body: 你可以用压力排序的方式处理协作与边界。七杀（克制日主且阴阳相同的流日天干）用来观察压力、行动和边界。你可能更敏锐地感到期限或竞争，容易把所有请求都当成急事。它不说明危险将发生；把压力拆成具体要求，才有机会选择合理的回应。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以出门前发现安排冲突时，把可延后的事项移开。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Rank the demands in cooperation and boundaries.
+    summary: Rank the demands in cooperation and boundaries.
+    body:
+      Rank the demands in cooperation and boundaries. Seven Killings (qī shā — a demanding stem of matching
+      polarity) is a historical term for pressure and decisive action. Treat it as a question about priorities,
+      not an alarm. A deadline may feel louder than usual, making every incoming request seem urgent. Weak
+      (shēn ruò — lower natal-stem support in the model) invites a search for assistance, rather than a judgment
+      about your ability. For example, summarize a shared decision in a group chat and invite someone to take
+      the next step only if it fits their schedule. In another small situation, if a rehearsal feels rushed,
+      focus on the one transition that most affects the next run. Consider a request that is easy to decline
+      and a commitment with a clear handover point. Review the actual response before extending the plan, and
+      keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.zheng_guan.strong
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_guan.strong
+  weight: 78
+  polarity: positive
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用清楚责任的方式处理协作与边界。
+    summary: 你可以用清楚责任的方式处理协作与边界。
+    body: 你可以用清楚责任的方式处理协作与边界。正官（克制日主但阴阳不同的流日天干）象征责任、规则和约定。你容易关注流程是否清楚、交付是否符合要求。规则可以提供支点，也可能让你过度追求无误；先弄清关键标准，比反复猜测他人的期待更有效。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以提交材料前，按要求检查最关键的三项。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Clarify the standard in cooperation and boundaries.
+    summary: Clarify the standard in cooperation and boundaries.
+    body:
+      Clarify the standard in cooperation and boundaries. Direct Officer (zhèng guān — a demanding stem
+      of opposite polarity) highlights responsibility and agreed standards. You may find clarity in a reliable
+      process, while also feeling tempted to check every detail repeatedly. A shared definition of completion
+      is more useful than trying to anticipate every preference someone else might have. Strong (shēn qiáng
+      — greater natal-stem support in the model) emphasizes capacity to engage, without measuring the energy
+      you actually have. For example, summarize a shared decision in a group chat and invite someone to take
+      the next step only if it fits their schedule. In another small situation, ask a supervisor which result
+      matters most before polishing a presentation that is already clear. Consider a request that is easy to
+      decline and a commitment with a clear handover point. Review the actual response before extending the
+      plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.zheng_guan.balanced
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_guan.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用清楚责任的方式处理协作与边界。
+    summary: 你可以用清楚责任的方式处理协作与边界。
+    body: 你可以用清楚责任的方式处理协作与边界。正官（克制日主但阴阳不同的流日天干）象征责任、规则和约定。你容易关注流程是否清楚、交付是否符合要求。规则可以提供支点，也可能让你过度追求无误；先弄清关键标准，比反复猜测他人的期待更有效。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以提交材料前，按要求检查最关键的三项。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Clarify the standard in cooperation and boundaries.
+    summary: Clarify the standard in cooperation and boundaries.
+    body:
+      Clarify the standard in cooperation and boundaries. Direct Officer (zhèng guān — a demanding stem
+      of opposite polarity) highlights responsibility and agreed standards. You may find clarity in a reliable
+      process, while also feeling tempted to check every detail repeatedly. A shared definition of completion
+      is more useful than trying to anticipate every preference someone else might have. Balanced (zhōng hé
+      — support and expenditure closer in the model) asks you to balance effort with feedback, while leaving
+      some demands open. For example, summarize a shared decision in a group chat and invite someone to take
+      the next step only if it fits their schedule. In another small situation, ask a supervisor which result
+      matters most before polishing a presentation that is already clear. Consider a request that is easy to
+      decline and a commitment with a clear handover point. Review the actual response before extending the
+      plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.ten_god.zheng_guan.weak
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_guan.weak
+  weight: 78
+  polarity: negative
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以用清楚责任的方式处理协作与边界。
+    summary: 你可以用清楚责任的方式处理协作与边界。
+    body: 你可以用清楚责任的方式处理协作与边界。正官（克制日主但阴阳不同的流日天干）象征责任、规则和约定。你容易关注流程是否清楚、交付是否符合要求。规则可以提供支点，也可能让你过度追求无误；先弄清关键标准，比反复猜测他人的期待更有效。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如群聊里有多个建议时，你可以先总结共同点，再问谁愿意负责下一步。换到一个小场景，你也可以参加集体活动时，确认自己的职责和结束时间。建议让邀请容易拒绝，也让承诺有明确范围，不必把持续在线当作维持关系的要求。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Clarify the standard in cooperation and boundaries.
+    summary: Clarify the standard in cooperation and boundaries.
+    body:
+      Clarify the standard in cooperation and boundaries. Direct Officer (zhèng guān — a demanding stem
+      of opposite polarity) highlights responsibility and agreed standards. You may find clarity in a reliable
+      process, while also feeling tempted to check every detail repeatedly. A shared definition of completion
+      is more useful than trying to anticipate every preference someone else might have. Weak (shēn ruò — lower
+      natal-stem support in the model) invites a search for assistance, rather than a judgment about your ability.
+      For example, summarize a shared decision in a group chat and invite someone to take the next step only
+      if it fits their schedule. In another small situation, when volunteering, agree on the handover so responsibility
+      does not expand without discussion. Consider a request that is easy to decline and a commitment with
+      a clear handover point. Review the actual response before extending the plan, and keep only the part
+      that helps you navigate your own circumstances.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.branch.combine
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.combine
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先检查协作与边界里的共同安排。
+    summary: 你可以先检查协作与边界里的共同安排。
+    body: 你可以先检查协作与边界里的共同安排。日支六合（流日地支与原局日支的配对关系）把协调与共同安排放到眼前。你可以借此检查彼此是否真的同意，温和的气氛也需要明确细节。你可以把社交目标缩小到一次清楚、轻松的交流。人际提示关注协作方式，不按生肖或命盘给他人贴标签。先确认彼此的需求和时间，往往比努力维持热闹更实用。比如群聊里有多个建议时，先总结共同点，再问谁愿意负责下一步。建议让邀请容易拒绝，也让承诺有明确范围，给不同节奏的人留出位置。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Check the arrangement in cooperation and boundaries.
+    summary: Check the arrangement in cooperation and boundaries.
+    body:
+      Check the arrangement in cooperation and boundaries. Combination (liù hé — a paired link between
+      the daily and natal day branches) emphasizes coordination. You can use it to check shared expectations;
+      a friendly exchange still needs a clear agreement. For social life, aim for one clear exchange rather
+      than constant availability. This reading addresses cooperation, not the character of people with particular
+      chart symbols or zodiac animals. Ask about another person’s time and expectations before expanding an
+      invitation. For example, summarize the shared decision in a group chat and invite someone to take the
+      next step only if it fits. Consider making requests easy to decline and commitments easy to understand;
+      a comfortable boundary can support an ongoing connection. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.branch.tri_combine
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.tri_combine
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先检查协作与边界里的共同安排。
+    summary: 你可以先检查协作与边界里的共同安排。
+    body: 你可以先检查协作与边界里的共同安排。日支三合（流日地支参与原局日支所属三合组）提供共同方向的象征。你可以从现有共同点展开，不把配合顺畅理解为所有意见都一致。你可以把社交目标缩小到一次清楚、轻松的交流。人际提示关注协作方式，不按生肖或命盘给他人贴标签。先确认彼此的需求和时间，往往比努力维持热闹更实用。比如群聊里有多个建议时，先总结共同点，再问谁愿意负责下一步。建议让邀请容易拒绝，也让承诺有明确范围，给不同节奏的人留出位置。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Check the arrangement in cooperation and boundaries.
+    summary: Check the arrangement in cooperation and boundaries.
+    body:
+      Check the arrangement in cooperation and boundaries. Trine combination (sān hé — the daily branch
+      joining the natal day branch’s traditional group) suggests a shared direction. You can build on common
+      ground while leaving room for different preferences. For social life, aim for one clear exchange rather
+      than constant availability. This reading addresses cooperation, not the character of people with particular
+      chart symbols or zodiac animals. Ask about another person’s time and expectations before expanding an
+      invitation. For example, summarize the shared decision in a group chat and invite someone to take the
+      next step only if it fits. Consider making requests easy to decline and commitments easy to understand;
+      a comfortable boundary can support an ongoing connection. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.branch.punish
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.punish
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先检查协作与边界里的共同安排。
+    summary: 你可以先检查协作与边界里的共同安排。
+    body: 你可以先检查协作与边界里的共同安排。日支相刑（传统地支关系中的牵制标记）适合用来观察重复的卡点。你可能想用更强的力气推动同一件事，不过先改变一个步骤更容易看见出口。你可以把社交目标缩小到一次清楚、轻松的交流。人际提示关注协作方式，不按生肖或命盘给他人贴标签。先确认彼此的需求和时间，往往比努力维持热闹更实用。比如群聊里有多个建议时，先总结共同点，再问谁愿意负责下一步。建议让邀请容易拒绝，也让承诺有明确范围，给不同节奏的人留出位置。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Check the arrangement in cooperation and boundaries.
+    summary: Check the arrangement in cooperation and boundaries.
+    body:
+      Check the arrangement in cooperation and boundaries. Punishment (xiāng xíng — a traditional branch-friction
+      label) is used here to examine recurring snags. If the same approach keeps meeting resistance, consider
+      changing one step before increasing the effort. For social life, aim for one clear exchange rather than
+      constant availability. This reading addresses cooperation, not the character of people with particular
+      chart symbols or zodiac animals. Ask about another person’s time and expectations before expanding an
+      invitation. For example, summarize the shared decision in a group chat and invite someone to take the
+      next step only if it fits. Consider making requests easy to decline and commitments easy to understand;
+      a comfortable boundary can support an ongoing connection. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.branch.harm
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.harm
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先检查协作与边界里的共同安排。
+    summary: 你可以先检查协作与边界里的共同安排。
+    body: 你可以先检查协作与边界里的共同安排。日支相害（传统地支关系中的间接不协调标记）提示你把没说清的条件摆出来。误会不代表关系有问题，可以通过确认时间、范围和期待减少猜测。你可以把社交目标缩小到一次清楚、轻松的交流。人际提示关注协作方式，不按生肖或命盘给他人贴标签。先确认彼此的需求和时间，往往比努力维持热闹更实用。比如群聊里有多个建议时，先总结共同点，再问谁愿意负责下一步。建议让邀请容易拒绝，也让承诺有明确范围，给不同节奏的人留出位置。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Check the arrangement in cooperation and boundaries.
+    summary: Check the arrangement in cooperation and boundaries.
+    body:
+      Check the arrangement in cooperation and boundaries. Harm (xiāng hài — a traditional label for indirect
+      branch friction) prompts a check of unstated conditions. A misunderstanding does not define a relationship.
+      You can ask about timing or scope before drawing conclusions. For social life, aim for one clear exchange
+      rather than constant availability. This reading addresses cooperation, not the character of people with
+      particular chart symbols or zodiac animals. Ask about another person’s time and expectations before expanding
+      an invitation. For example, summarize the shared decision in a group chat and invite someone to take
+      the next step only if it fits. Consider making requests easy to decline and commitments easy to understand;
+      a comfortable boundary can support an ongoing connection. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.branch.break
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.break
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先检查协作与边界里的共同安排。
+    summary: 你可以先检查协作与边界里的共同安排。
+    body: 你可以先检查协作与边界里的共同安排。日支相破（传统地支关系中的松动标记）提醒你看看原有安排哪里不再合用。你可以重新确认一个小约定，不需要因为象征变化推翻整个计划。你可以把社交目标缩小到一次清楚、轻松的交流。人际提示关注协作方式，不按生肖或命盘给他人贴标签。先确认彼此的需求和时间，往往比努力维持热闹更实用。比如群聊里有多个建议时，先总结共同点，再问谁愿意负责下一步。建议让邀请容易拒绝，也让承诺有明确范围，给不同节奏的人留出位置。
+    advice:
+      - 确认一项彼此接受的协作范围。
+    do:
+      - 清楚邀约
+    dont:
+      - 勉强答应
+  en:
+    title: Check the arrangement in cooperation and boundaries.
+    summary: Check the arrangement in cooperation and boundaries.
+    body:
+      Check the arrangement in cooperation and boundaries. Break (xiāng pò — a traditional branch-disruption
+      label) asks which small arrangement may need revision. You can renegotiate a detail without treating
+      the symbol as a reason to abandon a workable plan. For social life, aim for one clear exchange rather
+      than constant availability. This reading addresses cooperation, not the character of people with particular
+      chart symbols or zodiac animals. Ask about another person’s time and expectations before expanding an
+      invitation. For example, summarize the shared decision in a group chat and invite someone to take the
+      next step only if it fits. Consider making requests easy to decline and commitments easy to understand;
+      a comfortable boundary can support an ongoing connection. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Agree on a comfortable scope together.
+    do:
+      - Invite clearly
+    dont:
+      - Agree under pressure
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.transit.mercury_conjunction_sun
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: astro.transit.mercury_conjunction_sun
+  weight: 48
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先让协作中的信息容易被理解。
+    summary: 你可以先让协作中的信息容易被理解。
+    body: 你可以先让协作中的信息容易被理解。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成合相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如群聊需要确认安排，你可以先总结已经同意的部分，再问一个具体问题，不要求所有人立刻回复。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make a cooperative message easier to use.
+    summary: You can make a cooperative message easier to use.
+    body:
+      'You can make a cooperative message easier to use. A transit compares a current sky position with
+      a natal position; this one links Mercury with natal Sun through a conjunction. Transiting Mercury draws
+      attention to information and exchange. Make an explanation easy to use, then check how it was received
+      instead of assuming the message was clear. Conjunction combines two symbolic functions at a close angle.
+      It invites a check of how they operate together rather than assigning one universal outcome. The natal
+      point adds a question about your own habits: Check whether a request fits the aim you actually want to
+      pursue. For example, summarize the part of a group plan that has already been agreed. Ask one remaining
+      question instead of sending several overlapping instructions. Consider one modest adjustment, then review
+      what actually changed. Practical information remains the basis for important choices; a symbolic angle
+      does not establish the outcome.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.transit.mercury_trine_sun
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: astro.transit.mercury_trine_sun
+  weight: 48
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先让协作中的信息容易被理解。
+    summary: 你可以先让协作中的信息容易被理解。
+    body: 你可以先让协作中的信息容易被理解。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成三分相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如群聊需要确认安排，你可以先总结已经同意的部分，再问一个具体问题，不要求所有人立刻回复。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make a cooperative message easier to use.
+    summary: You can make a cooperative message easier to use.
+    body:
+      'You can make a cooperative message easier to use. A transit compares a current sky position with
+      a natal position; this one links Mercury with natal Sun through a trine. Transiting Mercury draws attention
+      to information and exchange. Make an explanation easy to use, then check how it was received instead
+      of assuming the message was clear. A trine describes an angle of about 120 degrees and a symbolic ease
+      of exchange. A useful opening still benefits from a deliberate action. The natal point adds a question
+      about your own habits: Check whether a request fits the aim you actually want to pursue. For example,
+      summarize the part of a group plan that has already been agreed. Ask one remaining question instead of
+      sending several overlapping instructions. Consider one modest adjustment, then review what actually changed.
+      Practical information remains the basis for important choices; a symbolic angle does not establish the
+      outcome.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.transit.mercury_sextile_sun
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: astro.transit.mercury_sextile_sun
+  weight: 48
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先让协作中的信息容易被理解。
+    summary: 你可以先让协作中的信息容易被理解。
+    body: 你可以先让协作中的信息容易被理解。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成六分相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。约六十度的角距象征可参与的配合，主动沟通一个小步骤比等待机会更具体。比如群聊需要确认安排，你可以先总结已经同意的部分，再问一个具体问题，不要求所有人立刻回复。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 发出一条容易回应的具体邀约。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make a cooperative message easier to use.
+    summary: You can make a cooperative message easier to use.
+    body:
+      'You can make a cooperative message easier to use. A transit compares a current sky position with
+      a natal position; this one links Mercury with natal Sun through a sextile. Transiting Mercury draws attention
+      to information and exchange. Make an explanation easy to use, then check how it was received instead
+      of assuming the message was clear. A sextile describes an angle of about 60 degrees and a possible exchange.
+      You can participate in an opening by making a small, clear invitation. The natal point adds a question
+      about your own habits: Check whether a request fits the aim you actually want to pursue. For example,
+      summarize the part of a group plan that has already been agreed. Ask one remaining question instead of
+      sending several overlapping instructions. Consider one modest adjustment, then review what actually changed.
+      Practical information remains the basis for important choices; a symbolic angle does not establish the
+      outcome.'
+    advice:
+      - Offer a specific invitation that is easy to accept or decline.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.transit.mercury_square_sun
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: findings
+    contains: astro.transit.mercury_square_sun
+  weight: 48
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以先让协作中的信息容易被理解。
+    summary: 你可以先让协作中的信息容易被理解。
+    body: 你可以先让协作中的信息容易被理解。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如群聊需要确认安排，你可以先总结已经同意的部分，再问一个具体问题，不要求所有人立刻回复。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make a cooperative message easier to use.
+    summary: You can make a cooperative message easier to use.
+    body:
+      'You can make a cooperative message easier to use. A transit compares a current sky position with
+      a natal position; this one links Mercury with natal Sun through a square. Transiting Mercury draws attention
+      to information and exchange. Make an explanation easy to use, then check how it was received instead
+      of assuming the message was clear. A square describes an angle of about 90 degrees and symbolic friction.
+      Consider changing the method before deciding that the whole aim is unsuitable. The natal point adds a
+      question about your own habits: Check whether a request fits the aim you actually want to pursue. For
+      example, summarize the part of a group plan that has already been agreed. Ask one remaining question
+      instead of sending several overlapping instructions. Consider one modest adjustment, then review what
+      actually changed. Practical information remains the basis for important choices; a symbolic angle does
+      not establish the outcome.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.social.retrograde.mercury
+  system: daily
+  section: social
+  topic: daily.social.direction
+  when:
+    path: astro.retrogrades
+    contains: mercury
+  weight: 46
+  polarity: negative
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以在协作交流中确认彼此理解。
+    summary: 你可以在协作交流中确认彼此理解。
+    body: 你可以在协作交流中确认彼此理解。水星逆行（从地球观察时黄经速度为负的表观运动）是集体星象，不说明每个人会遇到同样的事。这里把它作为回看信息传递的提醒，真实原因仍需要从环境、安排和交流中了解。比如群里正在讨论集合时间，你可以用一句话复述已确认的安排，让其他人轻松补充更正。建议只修改一个已经确认的细节，再检查实际反馈。资料不足时保留余地，不需要为了符号改变所有日程。复核的目的是减少信息差，而不是为尚未发生的事情做预设。
+    advice:
+      - 核对一个实际细节，再决定是否调整。
+    do:
+      - 复核细节
+    dont:
+      - 提前担忧
+  en:
+    title: You can check a shared understanding in a group.
+    summary: You can check a shared understanding in a group.
+    body:
+      You can check a shared understanding in a group. Retrograde motion means a negative apparent longitude
+      speed from Earth; it is a collective sky condition rather than an account of what each person will experience.
+      Use the symbol to open a review, while looking to real arrangements and communication for the cause of
+      a problem. For example, restate a meeting time in one clear sentence so others can correct a misunderstanding
+      without repeating the entire conversation. Consider changing one confirmed detail and reviewing the actual
+      response. You can keep a workable schedule while leaving time to check what remains uncertain. The symbolic
+      label is a reflection prompt, while practical information remains the basis for a decision. The purpose
+      of the review is to clarify information rather than anticipate an event.
+    advice:
+      - Check one practical detail before changing more.
+    do:
+      - Review a detail
+    dont:
+      - Worry in advance
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

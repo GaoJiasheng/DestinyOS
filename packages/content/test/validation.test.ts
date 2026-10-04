@@ -10,7 +10,7 @@ import {
   validateTransitions,
 } from '../scripts/validation';
 import { loadContent } from '../scripts/load';
-import type { KnowledgeUnit } from '../src';
+import { gramSimilarity, textGrams, type KnowledgeUnit } from '../src';
 const file = 'fixtures/invalid-ku.yaml';
 const fixtures = { bazi: [baziChart] };
 function sample(): KnowledgeUnit {
@@ -137,6 +137,32 @@ describe('knowledge validation', () => {
 
 // Corpus comparisons must retain the documented Dice score while reusing tokenization.
 describe('cached duplicate comparison', () => {
+  it('retains pairwise Dice warnings and ordering with the indexed corpus comparison', () => {
+    const rows = units.slice(0, 8).map((unit, index) => ({
+      unit: { ...structuredClone(unit), id: `bazi.comparison.${index}`, exclusive_with: [] },
+      file: 'comparison.yaml',
+      locate: () => ({ line: 1, column: 1 }),
+    }));
+    rows[1]!.unit.zh.body = rows[0]!.unit.zh.body;
+    rows[2]!.unit.en.body = rows[0]!.unit.en.body;
+    rows[3]!.unit.system = 'daily';
+    const expected: string[] = [];
+    for (let i = 0; i < rows.length; i++)
+      for (let j = i + 1; j < rows.length; j++) {
+        const a = rows[i]!.unit,
+          b = rows[j]!.unit;
+        if (a.system !== b.system) continue;
+        for (const locale of ['zh', 'en'] as const)
+          if (gramSimilarity(textGrams(a[locale].body), textGrams(b[locale].body)) > 0.6)
+            expected.push(`Similar 3-grams: ${a.id} / ${b.id} (${locale})`);
+      }
+    expect(
+      validateRelations(rows)
+        .filter((d) => d.severity === 'warning')
+        .map((d) => d.message),
+    ).toEqual(expected);
+  });
+
   it('matches the direct comparator for repeated bilingual and short inputs', async () => {
     const { createSimilarityComparator, similarity } = await import('../src');
     const cached = createSimilarityComparator();
