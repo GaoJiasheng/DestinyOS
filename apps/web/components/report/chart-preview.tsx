@@ -1,19 +1,28 @@
 'use client';
 import { BaziChartSchema } from '@tianji/shared';
-import { useTranslations } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
-/** Accessible first-system chart table; detailed chart visualizations continue in T-33. */
+import { BaziPillars } from '@/components/charts/bazi-pillars';
+import { ElementRing } from '@/components/charts/element-ring';
+import { StrengthGauge } from '@/components/charts/strength-gauge';
+import { LuckTimeline } from '@/components/charts/luck-timeline';
+import { BranchRelationDiagram } from '@/components/charts/branch-relation-diagram';
+import { BaziProfessionalTable } from '@/components/charts/bazi-professional-table';
+const COMPONENTS = { BaziPillars, ElementRing, StrengthGauge, LuckTimeline, BranchRelationDiagram };
+/** Render a validated chart snapshot or the named local visualization referenced by a report block. */
 export function ChartPreview({
   chart,
   highlight,
   onSelect,
+  component,
+  professional = false,
 }: {
   chart: unknown;
   highlight?: string;
-  onSelect?: (section: string) => void;
+  onSelect?: (path: string) => void;
+  component?: string;
+  professional?: boolean;
 }) {
   const t = useCopy();
-  const translations = useTranslations();
   const parsed = BaziChartSchema.safeParse(chart);
   if (!parsed.success)
     return (
@@ -21,70 +30,28 @@ export function ChartPreview({
         {t('report.content', { text: JSON.stringify(chart, null, 2) })}
       </pre>
     );
-  const bazi = parsed.data;
+  const props = { chart: parsed.data, highlight, onSelect };
+  if (component) {
+    const Component = Object.entries(COMPONENTS).find(([name]) => name === component)?.[1];
+    return Component ? (
+      <Component {...props} />
+    ) : (
+      <p className="muted">{t('bazi.chart.unavailable')}</p>
+    );
+  }
   return (
     <div
       id="chart-root"
+      tabIndex={-1}
       data-highlight={highlight}
-      className={highlight ? 'evidence-highlight' : undefined}
+      className={`bazi-chart${highlight ? ' evidence-highlight' : ''}`}
     >
-      <table className="pillar-table">
-        <caption>{t('report.chart')}</caption>
-        <thead>
-          <tr>
-            {(['year', 'month', 'day', 'hour'] as const).map((p) => (
-              <th key={p}>{t(`form.birth.${p === 'hour' ? 'hourBranch' : p}`)}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {(['year', 'month', 'day', 'hour'] as const).map((p) => {
-              const pillar = bazi.pillars[p];
-              return (
-                <td
-                  id={`chart-${p}`}
-                  className={highlight?.includes(p) ? 'chart-highlight' : ''}
-                  key={p}
-                >
-                  <button
-                    type="button"
-                    className="pillar-button"
-                    onClick={() => onSelect?.(p === 'day' ? 'day_master' : 'overview')}
-                  >
-                    {pillar ? (
-                      <>
-                        {translations(`bazi.stems.${pillar.stem}`)}
-                        <br />
-                        {translations(`bazi.branches.${pillar.branch}`)}
-                      </>
-                    ) : (
-                      t('common.unknown')
-                    )}
-                  </button>
-                </td>
-              );
-            })}
-          </tr>
-        </tbody>
-      </table>
-      <dl className="element-values">
-        {Object.entries(bazi.elements.pct).map(([key, value]) => (
-          <div key={key}>
-            <dt>{translations(`bazi.elements.${key}`)}</dt>
-            <dd>{Math.round(value)}%</dd>
-          </div>
-        ))}
-      </dl>
-      <p>
-        {translations(`bazi.strength.${bazi.strength.level}`)} · {bazi.strength.score.toFixed(1)}
-      </p>
-      <meter
-        min={0}
-        max={100}
-        value={bazi.strength.score}
-        aria-label={translations(`bazi.strength.${bazi.strength.level}`)}
-      />
+      <BaziPillars {...props} />
+      <ElementRing {...props} />
+      <StrengthGauge {...props} />
+      <LuckTimeline {...props} />
+      <BranchRelationDiagram {...props} />
+      {professional ? <BaziProfessionalTable {...props} /> : null}
     </div>
   );
 }

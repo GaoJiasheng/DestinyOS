@@ -2123,3 +2123,294 @@ meter {
   top: 0;
   background: var(--surface-2);
 }
+
+/* DESIGN-GAP: SVG geometry uses fixed viewBoxes; responsive chart layout tokens extend the documented 4pt spacing scale. */
+:root {
+  --bazi-pillar-min: 120px;
+  --bazi-ring-size: 240px;
+  --bazi-diagram-size: 300px;
+  --bazi-table-min: 720px;
+  --bazi-period-min: 164px;
+}
+.bazi-chart {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+.bazi-component {
+  min-width: 0;
+  scroll-margin-top: var(--space-10);
+}
+.bazi-component h3,
+.bazi-luck-years h4 {
+  font-family: var(--font-heading-current);
+  font-size: var(--size-h3);
+  color: var(--gold-soft);
+  margin-bottom: var(--space-4);
+}
+.bazi-pillar-scroll,
+.bazi-table-scroll {
+  overflow-x: auto;
+  padding: var(--space-1);
+}
+.bazi-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(var(--bazi-pillar-min), 1fr));
+  gap: var(--space-3);
+  position: relative;
+  isolation: isolate;
+  min-width: calc(4 * var(--bazi-pillar-min) + 3 * var(--space-3));
+}
+.bazi-pillar-links {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.bazi-pillar {
+  background: color-mix(in srgb, var(--pillar-color) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pillar-color) 30%, var(--line-1));
+  border-radius: var(--r-md);
+}
+.bazi-pillar button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-4) var(--space-2);
+  border-radius: var(--r-md);
+}
+.bazi-pillar-label,
+.bazi-element-name {
+  color: var(--text-2);
+  font-size: var(--size-caption);
+}
+.bazi-ganzhi {
+  font-family: var(--font-heading-current);
+  font-size: var(--size-ganzhi);
+  line-height: 1.2;
+  margin-top: var(--space-3);
+}
+:lang(en) .bazi-ganzhi {
+  font-size: var(--size-display);
+}
+.bazi-pillar-god {
+  margin-top: var(--space-4);
+  font-size: var(--size-small);
+}
+.bazi-unknown {
+  padding: var(--space-10) 0;
+  font-size: var(--size-small);
+  color: var(--text-2);
+}
+.bazi-ring,
+.bazi-relations {
+  display: block;
+  width: 100%;
+  max-width: var(--bazi-ring-size);
+  height: auto;
+  margin: auto;
+}
+.bazi-relations {
+  max-width: var(--bazi-diagram-size);
+}
+.bazi-ring-caption {
+  fill: var(--text-2);
+  font-size: var(--size-caption);
+}
+.bazi-ring-master {
+  font-family: var(--font-heading-current);
+  font-size: var(--size-h1);
+  filter: drop-shadow(var(--glow-gold));
+}
+.bazi-element-legend,
+.bazi-relation-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+.bazi-element-legend button,
+.bazi-relation-list button {
+  border: 1px solid var(--line-2);
+  padding: var(--space-3);
+  min-height: var(--space-9);
+  border-radius: var(--r-pill);
+  font-size: var(--size-small);
+}
+.bazi-dot {
+  display: inline-block;
+  width: var(--space-3);
+  height: var(--space-3);
+  margin-right: var(--space-2);
+  border-radius: var(--r-pill);
+}
+.bazi-element-legend [aria-pressed='true'],
+.bazi-relation-list [aria-pressed='true'] {
+  border-color: var(--gold);
+  box-shadow: var(--glow-gold);
+}
+.bazi-gauge-button {
+  width: 100%;
+  text-align: left;
+  padding: var(--space-4);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+}
+.bazi-gauge-button > span {
+  display: block;
+}
+.bazi-gauge {
+  position: relative;
+  overflow: hidden;
+  height: var(--space-3);
+  margin-top: var(--space-6);
+  border-radius: var(--r-pill);
+  background: linear-gradient(
+    to right,
+    var(--info) 0% 29.17%,
+    var(--gold) 29.17% 70.83%,
+    var(--accent) 70.83% 100%
+  );
+}
+.bazi-gauge-pointer {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  pointer-events: none;
+}
+.bazi-gauge-pointer > span {
+  display: block;
+  width: var(--space-1);
+  height: var(--space-3);
+  background: var(--text-1);
+  transform: translateX(-50%);
+  box-shadow: var(--glow-gold);
+}
+.bazi-gauge-button .bazi-gauge-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--space-3) 0;
+  font-family: var(--font-data);
+  font-size: var(--size-caption);
+}
+.bazi-luck-axis {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-1);
+}
+.bazi-luck-axis li {
+  flex: 0 0 var(--bazi-period-min);
+}
+.bazi-luck-axis button {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-4);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  font-size: var(--size-small);
+}
+.bazi-luck-axis [aria-expanded='true'] {
+  background: var(--surface-2);
+  border-color: var(--gold-soft);
+}
+.bazi-luck-axis [data-current='true'] {
+  border-color: var(--gold);
+  box-shadow: var(--glow-gold);
+}
+.bazi-period-ganzhi,
+.bazi-current-label {
+  color: var(--gold-soft);
+}
+.bazi-period-ganzhi {
+  font-family: var(--font-heading-current);
+  font-size: var(--size-h3);
+}
+.bazi-current-label {
+  font-size: var(--size-caption);
+}
+.bazi-luck-years {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--bg-1);
+  border-radius: var(--r-md);
+}
+.bazi-luck-years li {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line-1);
+  font-size: var(--size-small);
+}
+.bazi-luck-years button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-height: var(--space-9);
+  align-items: center;
+}
+.bazi-luck-years [aria-pressed='true'] {
+  outline: 2px solid var(--gold);
+}
+.bazi-relation-combine {
+  stroke: var(--gold);
+}
+.bazi-relation-clash {
+  stroke: var(--danger);
+  stroke-dasharray: 8 6;
+}
+.bazi-relation-neutral {
+  stroke: var(--text-3);
+  stroke-dasharray: 2 6;
+}
+.bazi-full-table {
+  width: 100%;
+  min-width: var(--bazi-table-min);
+  font-size: var(--size-small);
+  text-align: left;
+}
+.bazi-full-table caption {
+  text-align: left;
+  font-size: var(--size-h3);
+  color: var(--gold-soft);
+  padding: var(--space-4) 0;
+}
+.bazi-full-table th,
+.bazi-full-table td {
+  border-bottom: 1px solid var(--line-2);
+  padding: var(--space-3);
+  vertical-align: top;
+}
+.bazi-full-table th {
+  background: var(--surface-2);
+}
+.bazi-intermediates > div {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line-1);
+}
+.bazi-intermediates dd {
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+@media (min-width: 1024px) {
+  .report-layout[data-system='bazi'] .report-columns {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'headline' 'chart' 'body';
+  }
+  .report-layout[data-system='bazi'] .report-chart {
+    position: static;
+  }
+  .bazi-chart {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bazi-chart > [data-chart-path='pillars'],
+  .bazi-chart > [data-chart-path='luck'],
+  .bazi-professional {
+    grid-column: 1 / -1;
+  }
+}

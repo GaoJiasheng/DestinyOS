@@ -5,7 +5,13 @@
       "zh": "命盘概览",
       "en": "Your Chart at a Glance"
     },
-    "maxUnits": 3
+    "maxUnits": 3,
+    "chartRef": {
+      "component": "BaziPillars",
+      "props": {
+        "path": "pillars"
+      }
+    }
   },
   {
     "key": "day_master",
@@ -13,7 +19,13 @@
       "zh": "日主与性格底色",
       "en": "Day Master & Core Nature"
     },
-    "maxUnits": 6
+    "maxUnits": 6,
+    "chartRef": {
+      "component": "StrengthGauge",
+      "props": {
+        "path": "strength"
+      }
+    }
   },
   {
     "key": "elements",
@@ -21,7 +33,13 @@
       "zh": "五行格局与喜忌",
       "en": "Elemental Balance"
     },
-    "maxUnits": 6
+    "maxUnits": 6,
+    "chartRef": {
+      "component": "ElementRing",
+      "props": {
+        "path": "elements"
+      }
+    }
   },
   {
     "key": "pattern_career",
@@ -61,7 +79,13 @@
       "zh": "大运与流年",
       "en": "Life Cycles"
     },
-    "maxUnits": 6
+    "maxUnits": 6,
+    "chartRef": {
+      "component": "LuckTimeline",
+      "props": {
+        "path": "luck"
+      }
+    }
   },
   {
     "key": "shensha_notes",
@@ -69,7 +93,13 @@
       "zh": "神煞与特殊标记",
       "en": "Special Markers"
     },
-    "maxUnits": 6
+    "maxUnits": 6,
+    "chartRef": {
+      "component": "BranchRelationDiagram",
+      "props": {
+        "path": "relations.branches"
+      }
+    }
   },
   {
     "key": "summary_actions",

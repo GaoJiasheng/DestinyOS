@@ -103,14 +103,24 @@ export function ReportSection({
   chart,
   onEvidence,
   readingId,
+  highlight,
+  onChartSelect,
+  selected = false,
 }: {
   section: Section;
   chart: unknown;
   onEvidence: (path: string) => void;
   readingId?: string;
+  highlight?: string;
+  onChartSelect?: (path: string) => void;
+  selected?: boolean;
 }) {
   return (
-    <section id={`section-${section.key}`} className="report-section report-card">
+    <section
+      id={`section-${section.key}`}
+      tabIndex={-1}
+      className={`report-section report-card${selected ? ' evidence-highlight' : ''}`}
+    >
       <h2 className="type-h2">
         <ReportText text={section.title} />
       </h2>
@@ -138,7 +148,15 @@ export function ReportSection({
           case 'sources':
             return <SourceFold key={i} items={block.items} />;
           case 'chart_ref':
-            return <ChartReference key={i} block={block} chart={chart} />;
+            return (
+              <ChartReference
+                key={i}
+                block={block}
+                chart={chart}
+                highlight={highlight}
+                onSelect={onChartSelect}
+              />
+            );
         }
       })}
       <FeedbackBar readingId={readingId} sectionKey={section.key} />
@@ -148,20 +166,26 @@ export function ReportSection({
 function ChartReference({
   block,
   chart,
+  highlight,
+  onSelect,
 }: {
   block: Extract<ReportBlock, { type: 'chart_ref' }>;
   chart: unknown;
+  highlight?: string;
+  onSelect?: (path: string) => void;
 }) {
   const t = useCopy();
   return (
     <figure className="chart-reference">
-      <figcaption>{t('report.chartRef', { component: block.component })}</figcaption>
-      <ChartPreview chart={chart} />
-      {Object.keys(block.props).length ? (
-        <pre className="technical-data">
-          {t('report.content', { text: JSON.stringify(block.props, null, 2) })}
-        </pre>
-      ) : null}
+      <figcaption className="sr-only">
+        {t('report.chartRef', { component: block.component })}
+      </figcaption>
+      <ChartPreview
+        chart={chart}
+        component={block.component}
+        highlight={highlight}
+        onSelect={onSelect}
+      />
     </figure>
   );
 }
