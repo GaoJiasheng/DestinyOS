@@ -1,0 +1,51 @@
+- id: common.disclaimer
+  system: common
+  section: summary_actions
+  topic: disclaimer
+  when:
+    any:
+      - path: system
+        exists: true
+      - not:
+          path: system
+          exists: true
+  weight: 0
+  polarity: neutral
+  tags: []
+  exclusive_with: []
+  zh:
+    title: 娱乐与自我反思
+    summary: 本报告仅供娱乐与自我反思，不替代专业建议。
+    body: 这份报告把传统象征整理成日常生活中的观察角度，供你了解文化、回顾经验和探索自己的习惯。它适合作为娱乐与自我反思的材料，不能替代现实信息和专业判断。命盘中的词语描述的是传统体系里的倾向，不是对个人能力、关系或未来事件的确定结论。面对工作、财务、健康与关系上的选择，建议先了解实际情况，再与相关专业人士或可信任的人沟通。例如，你可以把一条建议当作本周的小实验，记录感受并评估是否适合自己；如果不适合，就调整做法。保留自己的判断和行动空间，让文化探索服务于更清晰的日常选择。
+    advice:
+      - 结合现实信息，保留自己的判断。
+    do:
+      - 独立思考
+    dont:
+      - 盲目照搬
+  en:
+    title: Entertainment and Reflection
+    summary: For entertainment and reflection; this report does not replace professional advice.
+    body:
+      'This report presents traditional symbols as prompts for cultural exploration, entertainment
+      and personal reflection. It describes possible tendencies within a symbolic framework rather
+      than fixed outcomes or a measurement of your abilities. Your circumstances, choices and lived
+      experience deserve more weight than a chart interpretation. When considering work, finances,
+      wellbeing or relationships, gather practical information and seek qualified support when
+      appropriate. You can use an idea here as a small experiment: choose a manageable action,
+      observe how it feels and review whether it helps you. If it does not fit your situation,
+      adjust it or set it aside. The report does not provide medical, legal or investment advice.
+      Keep space for your own judgment, respectful conversations and new information as your
+      situation changes. Cultural curiosity can accompany thoughtful decisions without deciding them
+      for you.'
+    advice:
+      - Consider practical information and keep your own judgment.
+    do:
+      - Think independently
+    dont:
+      - Follow blindly
+  meta:
+    author: handwritten-v1
+    reviewed_by: null
+    version: 1
+    status: published

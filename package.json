@@ -9,13 +9,15 @@
   },
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
-    "lint": "eslint . --max-warnings 0 && prettier --check .",
+    "build": "pnpm content:build && turbo run build",
+    "lint": "pnpm content:validate && eslint . --max-warnings 0 && prettier --check .",
     "typecheck": "turbo run typecheck && tsc -p scripts/tsconfig.json --noEmit",
     "test": "vitest run",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "content:validate": "pnpm --filter @tianji/content validate",
+    "content:build": "pnpm --filter @tianji/content content:build"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",

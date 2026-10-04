@@ -1,0 +1,177 @@
+{
+  "pillars": {
+    "year": {
+      "stem": "geng",
+      "branch": "wu",
+      "stemElement": "metal",
+      "branchElement": "fire",
+      "hiddenStems": [
+        {
+          "stem": "ding",
+          "role": "main",
+          "tenGod": "zheng_yin"
+        }
+      ],
+      "tenGod": "bi_jian",
+      "naYin": "lu_pang_tu",
+      "lifeStage": "chang_sheng",
+      "isVoid": false
+    },
+    "month": {
+      "stem": "xin",
+      "branch": "si",
+      "stemElement": "metal",
+      "branchElement": "fire",
+      "hiddenStems": [
+        {
+          "stem": "bing",
+          "role": "main",
+          "tenGod": "zheng_yin"
+        }
+      ],
+      "tenGod": "jie_cai",
+      "naYin": "lu_pang_tu",
+      "lifeStage": "chang_sheng",
+      "isVoid": false
+    },
+    "day": {
+      "stem": "geng",
+      "branch": "chen",
+      "stemElement": "metal",
+      "branchElement": "earth",
+      "hiddenStems": [
+        {
+          "stem": "wu_stem",
+          "role": "main",
+          "tenGod": "zheng_yin"
+        }
+      ],
+      "tenGod": "day_master",
+      "naYin": "lu_pang_tu",
+      "lifeStage": "chang_sheng",
+      "isVoid": false
+    },
+    "hour": {
+      "stem": "geng",
+      "branch": "chen",
+      "stemElement": "metal",
+      "branchElement": "earth",
+      "hiddenStems": [
+        {
+          "stem": "wu_stem",
+          "role": "main",
+          "tenGod": "zheng_yin"
+        }
+      ],
+      "tenGod": "bi_jian",
+      "naYin": "lu_pang_tu",
+      "lifeStage": "chang_sheng",
+      "isVoid": false
+    }
+  },
+  "dayMaster": {
+    "stem": "geng",
+    "element": "metal",
+    "yinYang": "yang"
+  },
+  "elements": {
+    "raw": {
+      "wood": 1,
+      "fire": 2,
+      "earth": 3,
+      "metal": 4,
+      "water": 1
+    },
+    "pct": {
+      "wood": 9,
+      "fire": 18,
+      "earth": 27,
+      "metal": 37,
+      "water": 9
+    },
+    "contributions": []
+  },
+  "strength": {
+    "score": 3.5,
+    "level": "strong",
+    "details": [],
+    "confidence": 0.85
+  },
+  "useGod": {
+    "favorable": ["water", "wood"],
+    "unfavorable": ["earth", "metal"],
+    "group": "drain",
+    "rationale": []
+  },
+  "pattern": {
+    "name": "zheng_guan_ge",
+    "viaStem": true,
+    "notes": []
+  },
+  "relations": {
+    "stems": [],
+    "branches": [
+      {
+        "type": "clash",
+        "branches": ["chen", "xu"]
+      }
+    ]
+  },
+  "voidBranches": ["shen", "you"],
+  "shenSha": [
+    {
+      "name": "tian_yi",
+      "pillars": ["month"]
+    }
+  ],
+  "luck": {
+    "direction": "forward",
+    "startAge": {
+      "years": 6,
+      "months": 10,
+      "days": 2
+    },
+    "startDate": "1997-03-17",
+    "periods": [
+      {
+        "index": 3,
+        "stem": "yi",
+        "branch": "you",
+        "fromYear": 2017,
+        "toYear": 2026,
+        "fromAge": 27,
+        "toAge": 36,
+        "tenGod": "zheng_cai",
+        "branchTenGod": "jie_cai",
+        "isCurrent": true
+      }
+    ]
+  },
+  "years": [
+    {
+      "year": 2026,
+      "stem": "bing",
+      "branch": "wu",
+      "tenGod": "qi_sha",
+      "relationsToNatal": [],
+      "isCurrent": true
+    }
+  ],
+  "months": [],
+  "solarTerms": {
+    "prevJie": {
+      "name": "li_xia",
+      "at": "1990-05-06T02:35:00+08:00"
+    },
+    "nextJie": {
+      "name": "mang_zhong",
+      "at": "1990-06-06T06:46:00+08:00"
+    }
+  },
+  "solarTimeAdjust": {
+    "enabled": true,
+    "offsetMinutes": -10,
+    "original": "1990-05-15T08:30:00+08:00",
+    "adjusted": "1990-05-15T08:20:00+08:00"
+  }
+}

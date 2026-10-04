@@ -1,0 +1,4867 @@
+- key: element.wood
+  system: common
+  zh:
+    term: 木
+    pinyin: mù
+    short: 生长、伸展、仁
+    long: 生长、伸展、仁
+    colors: 绿色
+  en:
+    term: Wood
+    short: Growth, expansion and kindness
+    long: Growth, expansion and kindness
+    pinyin: mù
+    colors: green
+  aliases: []
+- key: element.fire
+  system: common
+  zh:
+    term: 火
+    pinyin: huǒ
+    short: 热情、表达、礼
+    long: 热情、表达、礼
+  en:
+    term: Fire
+    short: Warmth, expression and courtesy
+    long: Warmth, expression and courtesy
+    pinyin: huǒ
+  aliases: []
+- key: element.earth
+  system: common
+  zh:
+    term: 土
+    pinyin: tǔ
+    short: 稳定、承载、信
+    long: 稳定、承载、信
+  en:
+    term: Earth
+    short: Stability, support and trust
+    long: Stability, support and trust
+    pinyin: tǔ
+  aliases: []
+- key: element.metal
+  system: common
+  zh:
+    term: 金
+    pinyin: jīn
+    short: 决断、规则、义
+    long: 决断、规则、义
+  en:
+    term: Metal
+    short: Decisions, structure and fairness
+    long: Decisions, structure and fairness
+    pinyin: jīn
+  aliases: []
+- key: element.water
+  system: common
+  zh:
+    term: 水
+    pinyin: shuǐ
+    short: 智慧、流动、智
+    long: 智慧、流动、智
+  en:
+    term: Water
+    short: Insight, movement and adaptability
+    long: Insight, movement and adaptability
+    pinyin: shuǐ
+  aliases: []
+- key: stem.jia
+  system: common
+  zh:
+    term: 甲
+    short: 甲，十天干之一
+    long: 甲，十天干之一
+  en:
+    term: Jia
+    short: Jia, one of the ten Heavenly Stems
+    long: Jia, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.yi
+  system: common
+  zh:
+    term: 乙
+    short: 乙，十天干之一
+    long: 乙，十天干之一
+  en:
+    term: Yi
+    short: Yi, one of the ten Heavenly Stems
+    long: Yi, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.bing
+  system: common
+  zh:
+    term: 丙
+    short: 丙，十天干之一
+    long: 丙，十天干之一
+  en:
+    term: Bing
+    short: Bing, one of the ten Heavenly Stems
+    long: Bing, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.ding
+  system: common
+  zh:
+    term: 丁
+    short: 丁，十天干之一
+    long: 丁，十天干之一
+  en:
+    term: Ding
+    short: Ding, one of the ten Heavenly Stems
+    long: Ding, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.wu_stem
+  system: common
+  zh:
+    term: 戊
+    short: 戊，十天干之一
+    long: 戊，十天干之一
+  en:
+    term: Wu
+    short: Wu, one of the ten Heavenly Stems
+    long: Wu, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.ji
+  system: common
+  zh:
+    term: 己
+    short: 己，十天干之一
+    long: 己，十天干之一
+  en:
+    term: Ji
+    short: Ji, one of the ten Heavenly Stems
+    long: Ji, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.geng
+  system: common
+  zh:
+    term: 庚
+    short: 庚，十天干之一
+    long: 庚，十天干之一
+  en:
+    term: Geng
+    short: Geng, one of the ten Heavenly Stems
+    long: Geng, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.xin
+  system: common
+  zh:
+    term: 辛
+    short: 辛，十天干之一
+    long: 辛，十天干之一
+  en:
+    term: Xin
+    short: Xin, one of the ten Heavenly Stems
+    long: Xin, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.ren
+  system: common
+  zh:
+    term: 壬
+    short: 壬，十天干之一
+    long: 壬，十天干之一
+  en:
+    term: Ren
+    short: Ren, one of the ten Heavenly Stems
+    long: Ren, one of the ten Heavenly Stems
+  aliases: []
+- key: stem.gui
+  system: common
+  zh:
+    term: 癸
+    short: 癸，十天干之一
+    long: 癸，十天干之一
+  en:
+    term: Gui
+    short: Gui, one of the ten Heavenly Stems
+    long: Gui, one of the ten Heavenly Stems
+  aliases: []
+- key: branch.zi
+  system: common
+  zh:
+    term: 子
+    short: 子，十二地支之一
+    long: 子，十二地支之一
+  en:
+    term: Zi
+    short: Zi, one of the twelve Earthly Branches
+    long: Zi, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.chou
+  system: common
+  zh:
+    term: 丑
+    short: 丑，十二地支之一
+    long: 丑，十二地支之一
+  en:
+    term: Chou
+    short: Chou, one of the twelve Earthly Branches
+    long: Chou, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.yin
+  system: common
+  zh:
+    term: 寅
+    short: 寅，十二地支之一
+    long: 寅，十二地支之一
+  en:
+    term: Yin
+    short: Yin, one of the twelve Earthly Branches
+    long: Yin, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.mao
+  system: common
+  zh:
+    term: 卯
+    short: 卯，十二地支之一
+    long: 卯，十二地支之一
+  en:
+    term: Mao
+    short: Mao, one of the twelve Earthly Branches
+    long: Mao, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.chen
+  system: common
+  zh:
+    term: 辰
+    short: 辰，十二地支之一
+    long: 辰，十二地支之一
+  en:
+    term: Chen
+    short: Chen, one of the twelve Earthly Branches
+    long: Chen, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.si
+  system: common
+  zh:
+    term: 巳
+    short: 巳，十二地支之一
+    long: 巳，十二地支之一
+  en:
+    term: Si
+    short: Si, one of the twelve Earthly Branches
+    long: Si, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.wu
+  system: common
+  zh:
+    term: 午
+    short: 午，十二地支之一
+    long: 午，十二地支之一
+  en:
+    term: Wu
+    short: Wu, one of the twelve Earthly Branches
+    long: Wu, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.wei
+  system: common
+  zh:
+    term: 未
+    short: 未，十二地支之一
+    long: 未，十二地支之一
+  en:
+    term: Wei
+    short: Wei, one of the twelve Earthly Branches
+    long: Wei, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.shen
+  system: common
+  zh:
+    term: 申
+    short: 申，十二地支之一
+    long: 申，十二地支之一
+  en:
+    term: Shen
+    short: Shen, one of the twelve Earthly Branches
+    long: Shen, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.you
+  system: common
+  zh:
+    term: 酉
+    short: 酉，十二地支之一
+    long: 酉，十二地支之一
+  en:
+    term: You
+    short: You, one of the twelve Earthly Branches
+    long: You, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.xu
+  system: common
+  zh:
+    term: 戌
+    short: 戌，十二地支之一
+    long: 戌，十二地支之一
+  en:
+    term: Xu
+    short: Xu, one of the twelve Earthly Branches
+    long: Xu, one of the twelve Earthly Branches
+  aliases: []
+- key: branch.hai
+  system: common
+  zh:
+    term: 亥
+    short: 亥，十二地支之一
+    long: 亥，十二地支之一
+  en:
+    term: Hai
+    short: Hai, one of the twelve Earthly Branches
+    long: Hai, one of the twelve Earthly Branches
+  aliases: []
+- key: yin
+  system: common
+  zh:
+    term: 阴
+    short: 偏向内收、回应的面向
+    long: 偏向内收、回应的面向
+  en:
+    term: Yin
+    short: The receptive and inward aspect
+    long: The receptive and inward aspect
+  aliases: []
+- key: yang
+  system: common
+  zh:
+    term: 阳
+    short: 偏向外展、主动的面向
+    long: 偏向外展、主动的面向
+  en:
+    term: Yang
+    short: The active and outward aspect
+    long: The active and outward aspect
+  aliases: []
+- key: solar_term.li_chun
+  system: common
+  zh:
+    term: 立春
+    short: 立春，二十四节气之一
+    long: 立春，二十四节气之一
+  en:
+    term: Start of Spring
+    short: Start of Spring, one of the twenty-four solar terms
+    long: Start of Spring, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.yu_shui
+  system: common
+  zh:
+    term: 雨水
+    short: 雨水，二十四节气之一
+    long: 雨水，二十四节气之一
+  en:
+    term: Rain Water
+    short: Rain Water, one of the twenty-four solar terms
+    long: Rain Water, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.jing_zhe
+  system: common
+  zh:
+    term: 惊蛰
+    short: 惊蛰，二十四节气之一
+    long: 惊蛰，二十四节气之一
+  en:
+    term: Awakening of Insects
+    short: Awakening of Insects, one of the twenty-four solar terms
+    long: Awakening of Insects, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.chun_fen
+  system: common
+  zh:
+    term: 春分
+    short: 春分，二十四节气之一
+    long: 春分，二十四节气之一
+  en:
+    term: Spring Equinox
+    short: Spring Equinox, one of the twenty-four solar terms
+    long: Spring Equinox, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.qing_ming
+  system: common
+  zh:
+    term: 清明
+    short: 清明，二十四节气之一
+    long: 清明，二十四节气之一
+  en:
+    term: Clear and Bright
+    short: Clear and Bright, one of the twenty-four solar terms
+    long: Clear and Bright, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.gu_yu
+  system: common
+  zh:
+    term: 谷雨
+    short: 谷雨，二十四节气之一
+    long: 谷雨，二十四节气之一
+  en:
+    term: Grain Rain
+    short: Grain Rain, one of the twenty-four solar terms
+    long: Grain Rain, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.li_xia
+  system: common
+  zh:
+    term: 立夏
+    short: 立夏，二十四节气之一
+    long: 立夏，二十四节气之一
+  en:
+    term: Start of Summer
+    short: Start of Summer, one of the twenty-four solar terms
+    long: Start of Summer, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.xiao_man
+  system: common
+  zh:
+    term: 小满
+    short: 小满，二十四节气之一
+    long: 小满，二十四节气之一
+  en:
+    term: Grain Full
+    short: Grain Full, one of the twenty-four solar terms
+    long: Grain Full, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.mang_zhong
+  system: common
+  zh:
+    term: 芒种
+    short: 芒种，二十四节气之一
+    long: 芒种，二十四节气之一
+  en:
+    term: Grain in Ear
+    short: Grain in Ear, one of the twenty-four solar terms
+    long: Grain in Ear, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.xia_zhi
+  system: common
+  zh:
+    term: 夏至
+    short: 夏至，二十四节气之一
+    long: 夏至，二十四节气之一
+  en:
+    term: Summer Solstice
+    short: Summer Solstice, one of the twenty-four solar terms
+    long: Summer Solstice, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.xiao_shu
+  system: common
+  zh:
+    term: 小暑
+    short: 小暑，二十四节气之一
+    long: 小暑，二十四节气之一
+  en:
+    term: Minor Heat
+    short: Minor Heat, one of the twenty-four solar terms
+    long: Minor Heat, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.da_shu
+  system: common
+  zh:
+    term: 大暑
+    short: 大暑，二十四节气之一
+    long: 大暑，二十四节气之一
+  en:
+    term: Major Heat
+    short: Major Heat, one of the twenty-four solar terms
+    long: Major Heat, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.li_qiu
+  system: common
+  zh:
+    term: 立秋
+    short: 立秋，二十四节气之一
+    long: 立秋，二十四节气之一
+  en:
+    term: Start of Autumn
+    short: Start of Autumn, one of the twenty-four solar terms
+    long: Start of Autumn, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.chu_shu
+  system: common
+  zh:
+    term: 处暑
+    short: 处暑，二十四节气之一
+    long: 处暑，二十四节气之一
+  en:
+    term: End of Heat
+    short: End of Heat, one of the twenty-four solar terms
+    long: End of Heat, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.bai_lu
+  system: common
+  zh:
+    term: 白露
+    short: 白露，二十四节气之一
+    long: 白露，二十四节气之一
+  en:
+    term: White Dew
+    short: White Dew, one of the twenty-four solar terms
+    long: White Dew, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.qiu_fen
+  system: common
+  zh:
+    term: 秋分
+    short: 秋分，二十四节气之一
+    long: 秋分，二十四节气之一
+  en:
+    term: Autumn Equinox
+    short: Autumn Equinox, one of the twenty-four solar terms
+    long: Autumn Equinox, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.han_lu
+  system: common
+  zh:
+    term: 寒露
+    short: 寒露，二十四节气之一
+    long: 寒露，二十四节气之一
+  en:
+    term: Cold Dew
+    short: Cold Dew, one of the twenty-four solar terms
+    long: Cold Dew, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.shuang_jiang
+  system: common
+  zh:
+    term: 霜降
+    short: 霜降，二十四节气之一
+    long: 霜降，二十四节气之一
+  en:
+    term: Frost Descent
+    short: Frost Descent, one of the twenty-four solar terms
+    long: Frost Descent, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.li_dong
+  system: common
+  zh:
+    term: 立冬
+    short: 立冬，二十四节气之一
+    long: 立冬，二十四节气之一
+  en:
+    term: Start of Winter
+    short: Start of Winter, one of the twenty-four solar terms
+    long: Start of Winter, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.xiao_xue
+  system: common
+  zh:
+    term: 小雪
+    short: 小雪，二十四节气之一
+    long: 小雪，二十四节气之一
+  en:
+    term: Minor Snow
+    short: Minor Snow, one of the twenty-four solar terms
+    long: Minor Snow, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.da_xue
+  system: common
+  zh:
+    term: 大雪
+    short: 大雪，二十四节气之一
+    long: 大雪，二十四节气之一
+  en:
+    term: Major Snow
+    short: Major Snow, one of the twenty-four solar terms
+    long: Major Snow, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.dong_zhi
+  system: common
+  zh:
+    term: 冬至
+    short: 冬至，二十四节气之一
+    long: 冬至，二十四节气之一
+  en:
+    term: Winter Solstice
+    short: Winter Solstice, one of the twenty-four solar terms
+    long: Winter Solstice, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.xiao_han
+  system: common
+  zh:
+    term: 小寒
+    short: 小寒，二十四节气之一
+    long: 小寒，二十四节气之一
+  en:
+    term: Minor Cold
+    short: Minor Cold, one of the twenty-four solar terms
+    long: Minor Cold, one of the twenty-four solar terms
+  aliases: []
+- key: solar_term.da_han
+  system: common
+  zh:
+    term: 大寒
+    short: 大寒，二十四节气之一
+    long: 大寒，二十四节气之一
+  en:
+    term: Major Cold
+    short: Major Cold, one of the twenty-four solar terms
+    long: Major Cold, one of the twenty-four solar terms
+  aliases: []
+- key: apparent_solar_time
+  system: common
+  zh:
+    term: 真太阳时
+    short: 按出生地经度和均时差修正后的时间
+    long: 按出生地经度和均时差修正后的时间
+  en:
+    term: apparent solar time
+    short: Time adjusted for longitude and the equation of time
+    long: Time adjusted for longitude and the equation of time
+  aliases: []
+- key: day_master
+  system: bazi
+  zh:
+    term: 日主
+    pinyin: rì zhǔ
+    short: 出生日的天干，代表你自己
+    long: 出生日的天干，代表你自己
+  en:
+    term: Day Master
+    short: The heavenly stem of your birth day, representing you
+    long: The heavenly stem of your birth day, representing you
+    pinyin: rì zhǔ
+  aliases:
+    - 日元
+    - 日干
+- key: pillar.year
+  system: bazi
+  zh:
+    term: 年柱
+    short: 年柱，出生时刻对应的干支
+    long: 年柱，出生时刻对应的干支
+  en:
+    term: Year Pillar
+    short: Year Pillar, the stem and branch of that part of your birth time
+    long: Year Pillar, the stem and branch of that part of your birth time
+  aliases: []
+- key: pillar.month
+  system: bazi
+  zh:
+    term: 月柱
+    short: 月柱，出生时刻对应的干支
+    long: 月柱，出生时刻对应的干支
+  en:
+    term: Month Pillar
+    short: Month Pillar, the stem and branch of that part of your birth time
+    long: Month Pillar, the stem and branch of that part of your birth time
+  aliases: []
+- key: pillar.day
+  system: bazi
+  zh:
+    term: 日柱
+    short: 日柱，出生时刻对应的干支
+    long: 日柱，出生时刻对应的干支
+  en:
+    term: Day Pillar
+    short: Day Pillar, the stem and branch of that part of your birth time
+    long: Day Pillar, the stem and branch of that part of your birth time
+  aliases: []
+- key: pillar.hour
+  system: bazi
+  zh:
+    term: 时柱
+    short: 时柱，出生时刻对应的干支
+    long: 时柱，出生时刻对应的干支
+  en:
+    term: Hour Pillar
+    short: Hour Pillar, the stem and branch of that part of your birth time
+    long: Hour Pillar, the stem and branch of that part of your birth time
+  aliases: []
+- key: hidden_stem
+  system: bazi
+  zh:
+    term: 藏干
+    short: 地支里暗藏的天干
+    long: 地支里暗藏的天干
+  en:
+    term: Hidden Stem
+    short: A Heavenly Stem contained within an Earthly Branch
+    long: A Heavenly Stem contained within an Earthly Branch
+  aliases: []
+- key: ten_god.bi_jian
+  system: bazi
+  zh:
+    term: 比肩
+    short: 同类同性的能量：同伴、自我
+    long: 同类同性的能量：同伴、自我
+  en:
+    term: Friend
+    short: 'Peer energy of the same polarity: companionship and self'
+    long: 'Peer energy of the same polarity: companionship and self'
+  aliases: []
+- key: ten_god.jie_cai
+  system: bazi
+  zh:
+    term: 劫财
+    short: 同类异性：竞争、花钱
+    long: 同类异性：竞争、花钱
+  en:
+    term: Rob Wealth
+    short: 'Peer energy of the opposite polarity: competition and spending'
+    long: 'Peer energy of the opposite polarity: competition and spending'
+  aliases: []
+- key: ten_god.shi_shen
+  system: bazi
+  zh:
+    term: 食神
+    short: 你生出的同性：才艺、享受
+    long: 你生出的同性：才艺、享受
+  en:
+    term: Eating God
+    short: 'Output of the same polarity: creativity and enjoyment'
+    long: 'Output of the same polarity: creativity and enjoyment'
+  aliases: []
+- key: ten_god.shang_guan
+  system: bazi
+  zh:
+    term: 伤官
+    short: 你生出的异性：表达、叛逆
+    long: 你生出的异性：表达、叛逆
+  en:
+    term: Hurting Officer
+    short: 'Output of the opposite polarity: expression and independence'
+    long: 'Output of the opposite polarity: expression and independence'
+  aliases: []
+- key: ten_god.pian_cai
+  system: bazi
+  zh:
+    term: 偏财
+    short: 你克的同性：外财、机会
+    long: 你克的同性：外财、机会
+  en:
+    term: Indirect Wealth
+    short: 'Managed energy of the same polarity: opportunities'
+    long: 'Managed energy of the same polarity: opportunities'
+  aliases: []
+- key: ten_god.zheng_cai
+  system: bazi
+  zh:
+    term: 正财
+    short: 你克的异性：正财、务实
+    long: 你克的异性：正财、务实
+  en:
+    term: Direct Wealth
+    short: 'Managed energy of the opposite polarity: practical resources'
+    long: 'Managed energy of the opposite polarity: practical resources'
+  aliases: []
+- key: ten_god.qi_sha
+  system: bazi
+  zh:
+    term: 七杀
+    short: 克你的同性：压力、魄力
+    long: 克你的同性：压力、魄力
+  en:
+    term: Seven Killings
+    short: 'Controlling energy of the same polarity: pressure and resolve'
+    long: 'Controlling energy of the same polarity: pressure and resolve'
+  aliases: []
+- key: ten_god.zheng_guan
+  system: bazi
+  zh:
+    term: 正官
+    short: 克你的异性：规则、责任
+    long: 克你的异性：规则、责任
+  en:
+    term: Direct Officer
+    short: 'Controlling energy of the opposite polarity: rules and responsibility'
+    long: 'Controlling energy of the opposite polarity: rules and responsibility'
+  aliases: []
+- key: ten_god.pian_yin
+  system: bazi
+  zh:
+    term: 偏印
+    short: 生你的同性：直觉、独学
+    long: 生你的同性：直觉、独学
+  en:
+    term: Indirect Resource
+    short: 'Supporting energy of the same polarity: intuition and independent learning'
+    long: 'Supporting energy of the same polarity: intuition and independent learning'
+  aliases: []
+- key: ten_god.zheng_yin
+  system: bazi
+  zh:
+    term: 正印
+    short: 生你的异性：学识、庇护
+    long: 生你的异性：学识、庇护
+  en:
+    term: Direct Resource
+    short: 'Supporting energy of the opposite polarity: learning and support'
+    long: 'Supporting energy of the opposite polarity: learning and support'
+  aliases: []
+- key: strength.strong
+  system: bazi
+  zh:
+    term: 身强
+    short: 身强，日主力量的相对状态
+    long: 身强，日主力量的相对状态
+  en:
+    term: Strong Day Master
+    short: Strong Day Master, the relative strength of the Day Master
+    long: Strong Day Master, the relative strength of the Day Master
+  aliases: []
+- key: strength.balanced
+  system: bazi
+  zh:
+    term: 中和
+    short: 中和，日主力量的相对状态
+    long: 中和，日主力量的相对状态
+  en:
+    term: Balanced Day Master
+    short: Balanced Day Master, the relative strength of the Day Master
+    long: Balanced Day Master, the relative strength of the Day Master
+  aliases: []
+- key: strength.weak
+  system: bazi
+  zh:
+    term: 身弱
+    short: 身弱，日主力量的相对状态
+    long: 身弱，日主力量的相对状态
+  en:
+    term: Weak Day Master
+    short: Weak Day Master, the relative strength of the Day Master
+    long: Weak Day Master, the relative strength of the Day Master
+  aliases: []
+- key: use_god
+  system: bazi
+  zh:
+    term: 喜用神
+    short: 对你有利的五行
+    long: 对你有利的五行
+  en:
+    term: Favorable Element(s)
+    short: Elements that balance your chart
+    long: Elements that balance your chart
+  aliases: []
+- key: avoid_god
+  system: bazi
+  zh:
+    term: 忌神
+    short: 容易加重命盘失衡的五行
+    long: 容易加重命盘失衡的五行
+  en:
+    term: Unfavorable Element(s)
+    short: Elements that may increase imbalance
+    long: Elements that may increase imbalance
+  aliases: []
+- key: void
+  system: bazi
+  zh:
+    term: 空亡
+    short: 力量落空的地支
+    long: 力量落空的地支
+  en:
+    term: Void
+    short: A branch whose influence is less directly expressed
+    long: A branch whose influence is less directly expressed
+  aliases: []
+- key: luck_pillar
+  system: bazi
+  zh:
+    term: 大运
+    short: 约十年一段的人生阶段
+    long: 约十年一段的人生阶段
+  en:
+    term: Luck Pillar (10-year)
+    short: A life cycle spanning about ten years
+    long: A life cycle spanning about ten years
+  aliases: []
+- key: annual_pillar
+  system: bazi
+  zh:
+    term: 流年
+    short: 某一年的天干地支
+    long: 某一年的天干地支
+  en:
+    term: Annual Pillar
+    short: The stem and branch for a year
+    long: The stem and branch for a year
+  aliases: []
+- key: monthly_pillar
+  system: bazi
+  zh:
+    term: 流月
+    short: 某一节气月的天干地支
+    long: 某一节气月的天干地支
+  en:
+    term: Monthly Pillar
+    short: The stem and branch for a solar month
+    long: The stem and branch for a solar month
+  aliases: []
+- key: na_yin.lu_pang_tu
+  system: bazi
+  zh:
+    term: 路旁土
+    short: 纳音：六十甲子的五行意象之一
+    long: 纳音：六十甲子的五行意象之一
+  en:
+    term: Roadside Earth
+    short: A Na Yin elemental image of the sexagenary cycle
+    long: A Na Yin elemental image of the sexagenary cycle
+  aliases: []
+- key: life_stage.chang_sheng
+  system: bazi
+  zh:
+    term: 长生
+    short: 长生，十二长生的一种阶段意象
+    long: 长生，十二长生的一种阶段意象
+  en:
+    term: Growth
+    short: Growth, one of the twelve symbolic Life Stages
+    long: Growth, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.mu_yu
+  system: bazi
+  zh:
+    term: 沐浴
+    short: 沐浴，十二长生的一种阶段意象
+    long: 沐浴，十二长生的一种阶段意象
+  en:
+    term: Bathing
+    short: Bathing, one of the twelve symbolic Life Stages
+    long: Bathing, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.guan_dai
+  system: bazi
+  zh:
+    term: 冠带
+    short: 冠带，十二长生的一种阶段意象
+    long: 冠带，十二长生的一种阶段意象
+  en:
+    term: Crowning
+    short: Crowning, one of the twelve symbolic Life Stages
+    long: Crowning, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.lin_guan
+  system: bazi
+  zh:
+    term: 临官
+    short: 临官，十二长生的一种阶段意象
+    long: 临官，十二长生的一种阶段意象
+  en:
+    term: Office
+    short: Office, one of the twelve symbolic Life Stages
+    long: Office, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.di_wang
+  system: bazi
+  zh:
+    term: 帝旺
+    short: 帝旺，十二长生的一种阶段意象
+    long: 帝旺，十二长生的一种阶段意象
+  en:
+    term: Peak
+    short: Peak, one of the twelve symbolic Life Stages
+    long: Peak, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.shuai
+  system: bazi
+  zh:
+    term: 衰
+    short: 衰，十二长生的一种阶段意象
+    long: 衰，十二长生的一种阶段意象
+  en:
+    term: Decline
+    short: Decline, one of the twelve symbolic Life Stages
+    long: Decline, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.bing
+  system: bazi
+  zh:
+    term: 病
+    short: 病，十二长生的一种阶段意象
+    long: 病，十二长生的一种阶段意象
+  en:
+    term: Rest
+    short: Rest, one of the twelve symbolic Life Stages
+    long: Rest, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.si
+  system: bazi
+  zh:
+    term: 死
+    short: 死，十二长生的一种阶段意象
+    long: 死，十二长生的一种阶段意象
+  en:
+    term: Dormancy
+    short: Dormancy, one of the twelve symbolic Life Stages
+    long: Dormancy, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.mu
+  system: bazi
+  zh:
+    term: 墓
+    short: 墓，十二长生的一种阶段意象
+    long: 墓，十二长生的一种阶段意象
+  en:
+    term: Storage
+    short: Storage, one of the twelve symbolic Life Stages
+    long: Storage, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.jue
+  system: bazi
+  zh:
+    term: 绝
+    short: 绝，十二长生的一种阶段意象
+    long: 绝，十二长生的一种阶段意象
+  en:
+    term: Release
+    short: Release, one of the twelve symbolic Life Stages
+    long: Release, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.tai
+  system: bazi
+  zh:
+    term: 胎
+    short: 胎，十二长生的一种阶段意象
+    long: 胎，十二长生的一种阶段意象
+  en:
+    term: Gestation
+    short: Gestation, one of the twelve symbolic Life Stages
+    long: Gestation, one of the twelve symbolic Life Stages
+  aliases: []
+- key: life_stage.yang
+  system: bazi
+  zh:
+    term: 养
+    short: 养，十二长生的一种阶段意象
+    long: 养，十二长生的一种阶段意象
+  en:
+    term: Nurture
+    short: Nurture, one of the twelve symbolic Life Stages
+    long: Nurture, one of the twelve symbolic Life Stages
+  aliases: []
+- key: shensha.tian_yi
+  system: bazi
+  zh:
+    term: 天乙贵人
+    short: 传统神煞，象征获得帮助的机会
+    long: 传统神煞，象征获得帮助的机会
+  en:
+    term: Nobleman Star
+    short: A traditional marker of opportunities for support
+    long: A traditional marker of opportunities for support
+  aliases: []
+- key: pattern.zheng_guan_ge
+  system: bazi
+  zh:
+    term: 正官格
+    short: 以规则与责任为侧重的格局
+    long: 以规则与责任为侧重的格局
+  en:
+    term: Direct Officer Structure
+    short: A structure emphasizing rules and responsibility
+    long: A structure emphasizing rules and responsibility
+  aliases: []
+- key: relation.combine
+  system: bazi
+  zh:
+    term: 六合
+    short: 六合，地支之间的一种互动关系
+    long: 六合，地支之间的一种互动关系
+  en:
+    term: Combination
+    short: Combination, a symbolic interaction between Earthly Branches
+    long: Combination, a symbolic interaction between Earthly Branches
+  aliases: []
+- key: relation.clash
+  system: bazi
+  zh:
+    term: 六冲
+    short: 六冲，地支之间的一种互动关系
+    long: 六冲，地支之间的一种互动关系
+  en:
+    term: Clash
+    short: Clash, a symbolic interaction between Earthly Branches
+    long: Clash, a symbolic interaction between Earthly Branches
+  aliases: []
+- key: relation.punish
+  system: bazi
+  zh:
+    term: 相刑
+    short: 相刑，地支之间的一种互动关系
+    long: 相刑，地支之间的一种互动关系
+  en:
+    term: Punishment
+    short: Punishment, a symbolic interaction between Earthly Branches
+    long: Punishment, a symbolic interaction between Earthly Branches
+  aliases: []
+- key: relation.harm
+  system: bazi
+  zh:
+    term: 相害
+    short: 相害，地支之间的一种互动关系
+    long: 相害，地支之间的一种互动关系
+  en:
+    term: Harm
+    short: Harm, a symbolic interaction between Earthly Branches
+    long: Harm, a symbolic interaction between Earthly Branches
+  aliases: []
+- key: relation.break
+  system: bazi
+  zh:
+    term: 相破
+    short: 相破，地支之间的一种互动关系
+    long: 相破，地支之间的一种互动关系
+  en:
+    term: Break
+    short: Break, a symbolic interaction between Earthly Branches
+    long: Break, a symbolic interaction between Earthly Branches
+  aliases: []
+- key: relation.tri_combine
+  system: bazi
+  zh:
+    term: 三合
+    short: 三合，地支之间的一种互动关系
+    long: 三合，地支之间的一种互动关系
+  en:
+    term: Trine
+    short: Trine, a symbolic interaction between Earthly Branches
+    long: Trine, a symbolic interaction between Earthly Branches
+  aliases: []
+- key: palace.life
+  system: ziwei
+  zh:
+    term: 命宫
+    short: 命宫，紫微十二宫的人生领域
+    long: 命宫，紫微十二宫的人生领域
+  en:
+    term: Life Palace
+    short: Life Palace, a life area in the twelve Zi Wei palaces
+    long: Life Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.siblings
+  system: ziwei
+  zh:
+    term: 兄弟宫
+    short: 兄弟宫，紫微十二宫的人生领域
+    long: 兄弟宫，紫微十二宫的人生领域
+  en:
+    term: Siblings Palace
+    short: Siblings Palace, a life area in the twelve Zi Wei palaces
+    long: Siblings Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.spouse
+  system: ziwei
+  zh:
+    term: 夫妻宫
+    short: 夫妻宫，紫微十二宫的人生领域
+    long: 夫妻宫，紫微十二宫的人生领域
+  en:
+    term: Spouse Palace
+    short: Spouse Palace, a life area in the twelve Zi Wei palaces
+    long: Spouse Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.children
+  system: ziwei
+  zh:
+    term: 子女宫
+    short: 子女宫，紫微十二宫的人生领域
+    long: 子女宫，紫微十二宫的人生领域
+  en:
+    term: Children Palace
+    short: Children Palace, a life area in the twelve Zi Wei palaces
+    long: Children Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.wealth
+  system: ziwei
+  zh:
+    term: 财帛宫
+    short: 财帛宫，紫微十二宫的人生领域
+    long: 财帛宫，紫微十二宫的人生领域
+  en:
+    term: Wealth Palace
+    short: Wealth Palace, a life area in the twelve Zi Wei palaces
+    long: Wealth Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.health
+  system: ziwei
+  zh:
+    term: 疾厄宫
+    short: 疾厄宫，紫微十二宫的人生领域
+    long: 疾厄宫，紫微十二宫的人生领域
+  en:
+    term: Health Palace
+    short: Health Palace, a life area in the twelve Zi Wei palaces
+    long: Health Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.travel
+  system: ziwei
+  zh:
+    term: 迁移宫
+    short: 迁移宫，紫微十二宫的人生领域
+    long: 迁移宫，紫微十二宫的人生领域
+  en:
+    term: Travel Palace
+    short: Travel Palace, a life area in the twelve Zi Wei palaces
+    long: Travel Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.friends
+  system: ziwei
+  zh:
+    term: 交友宫
+    short: 交友宫，紫微十二宫的人生领域
+    long: 交友宫，紫微十二宫的人生领域
+  en:
+    term: Friends Palace
+    short: Friends Palace, a life area in the twelve Zi Wei palaces
+    long: Friends Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.career
+  system: ziwei
+  zh:
+    term: 官禄宫
+    short: 官禄宫，紫微十二宫的人生领域
+    long: 官禄宫，紫微十二宫的人生领域
+  en:
+    term: Career Palace
+    short: Career Palace, a life area in the twelve Zi Wei palaces
+    long: Career Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.property
+  system: ziwei
+  zh:
+    term: 田宅宫
+    short: 田宅宫，紫微十二宫的人生领域
+    long: 田宅宫，紫微十二宫的人生领域
+  en:
+    term: Property Palace
+    short: Property Palace, a life area in the twelve Zi Wei palaces
+    long: Property Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.wellbeing
+  system: ziwei
+  zh:
+    term: 福德宫
+    short: 福德宫，紫微十二宫的人生领域
+    long: 福德宫，紫微十二宫的人生领域
+  en:
+    term: Wellbeing Palace
+    short: Wellbeing Palace, a life area in the twelve Zi Wei palaces
+    long: Wellbeing Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: palace.parents
+  system: ziwei
+  zh:
+    term: 父母宫
+    short: 父母宫，紫微十二宫的人生领域
+    long: 父母宫，紫微十二宫的人生领域
+  en:
+    term: Parents Palace
+    short: Parents Palace, a life area in the twelve Zi Wei palaces
+    long: Parents Palace, a life area in the twelve Zi Wei palaces
+  aliases: []
+- key: body_palace
+  system: ziwei
+  zh:
+    term: 身宫
+    short: 后天侧重
+    long: 后天侧重
+  en:
+    term: Body Palace
+    short: The area emphasized through lived experience
+    long: The area emphasized through lived experience
+  aliases: []
+- key: san_fang_si_zheng
+  system: ziwei
+  zh:
+    term: 三方四正
+    short: 命、财、官与迁移宫的联系
+    long: 命、财、官与迁移宫的联系
+  en:
+    term: Triangle & Opposition palaces
+    short: Links between life, wealth, career and travel palaces
+    long: Links between life, wealth, career and travel palaces
+  aliases: []
+- key: decadal
+  system: ziwei
+  zh:
+    term: 大限
+    short: 紫微中约十年的人生阶段
+    long: 紫微中约十年的人生阶段
+  en:
+    term: Decade Period
+    short: A Zi Wei life period of about ten years
+    long: A Zi Wei life period of about ten years
+  aliases: []
+- key: yearly
+  system: ziwei
+  zh:
+    term: 流年
+    short: 紫微中的年度侧重
+    long: 紫微中的年度侧重
+  en:
+    term: Annual Period
+    short: An annual emphasis in Zi Wei
+    long: An annual emphasis in Zi Wei
+  aliases: []
+- key: star.zi_wei
+  system: ziwei
+  zh:
+    term: 紫微
+    short: 紫微，紫微十四主星之一
+    long: 紫微，紫微十四主星之一
+  en:
+    term: Zi Wei (Emperor)
+    short: Zi Wei (Emperor), one of the fourteen major Zi Wei stars
+    long: Zi Wei (Emperor), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tian_ji
+  system: ziwei
+  zh:
+    term: 天机
+    short: 天机，紫微十四主星之一
+    long: 天机，紫微十四主星之一
+  en:
+    term: Tian Ji (Strategist)
+    short: Tian Ji (Strategist), one of the fourteen major Zi Wei stars
+    long: Tian Ji (Strategist), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tai_yang
+  system: ziwei
+  zh:
+    term: 太阳
+    short: 太阳，紫微十四主星之一
+    long: 太阳，紫微十四主星之一
+  en:
+    term: Tai Yang (Sun)
+    short: Tai Yang (Sun), one of the fourteen major Zi Wei stars
+    long: Tai Yang (Sun), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.wu_qu
+  system: ziwei
+  zh:
+    term: 武曲
+    short: 武曲，紫微十四主星之一
+    long: 武曲，紫微十四主星之一
+  en:
+    term: Wu Qu (General)
+    short: Wu Qu (General), one of the fourteen major Zi Wei stars
+    long: Wu Qu (General), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tian_tong
+  system: ziwei
+  zh:
+    term: 天同
+    short: 天同，紫微十四主星之一
+    long: 天同，紫微十四主星之一
+  en:
+    term: Tian Tong (Harmony)
+    short: Tian Tong (Harmony), one of the fourteen major Zi Wei stars
+    long: Tian Tong (Harmony), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.lian_zhen
+  system: ziwei
+  zh:
+    term: 廉贞
+    short: 廉贞，紫微十四主星之一
+    long: 廉贞，紫微十四主星之一
+  en:
+    term: Lian Zhen (Integrity)
+    short: Lian Zhen (Integrity), one of the fourteen major Zi Wei stars
+    long: Lian Zhen (Integrity), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tian_fu
+  system: ziwei
+  zh:
+    term: 天府
+    short: 天府，紫微十四主星之一
+    long: 天府，紫微十四主星之一
+  en:
+    term: Tian Fu (Treasurer)
+    short: Tian Fu (Treasurer), one of the fourteen major Zi Wei stars
+    long: Tian Fu (Treasurer), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tai_yin
+  system: ziwei
+  zh:
+    term: 太阴
+    short: 太阴，紫微十四主星之一
+    long: 太阴，紫微十四主星之一
+  en:
+    term: Tai Yin (Moon)
+    short: Tai Yin (Moon), one of the fourteen major Zi Wei stars
+    long: Tai Yin (Moon), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tan_lang
+  system: ziwei
+  zh:
+    term: 贪狼
+    short: 贪狼，紫微十四主星之一
+    long: 贪狼，紫微十四主星之一
+  en:
+    term: Tan Lang (Desire)
+    short: Tan Lang (Desire), one of the fourteen major Zi Wei stars
+    long: Tan Lang (Desire), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.ju_men
+  system: ziwei
+  zh:
+    term: 巨门
+    short: 巨门，紫微十四主星之一
+    long: 巨门，紫微十四主星之一
+  en:
+    term: Ju Men (Gate)
+    short: Ju Men (Gate), one of the fourteen major Zi Wei stars
+    long: Ju Men (Gate), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tian_xiang
+  system: ziwei
+  zh:
+    term: 天相
+    short: 天相，紫微十四主星之一
+    long: 天相，紫微十四主星之一
+  en:
+    term: Tian Xiang (Minister)
+    short: Tian Xiang (Minister), one of the fourteen major Zi Wei stars
+    long: Tian Xiang (Minister), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.tian_liang
+  system: ziwei
+  zh:
+    term: 天梁
+    short: 天梁，紫微十四主星之一
+    long: 天梁，紫微十四主星之一
+  en:
+    term: Tian Liang (Elder)
+    short: Tian Liang (Elder), one of the fourteen major Zi Wei stars
+    long: Tian Liang (Elder), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.qi_sha
+  system: ziwei
+  zh:
+    term: 七杀
+    short: 七杀，紫微十四主星之一
+    long: 七杀，紫微十四主星之一
+  en:
+    term: Qi Sha (Warrior)
+    short: Qi Sha (Warrior), one of the fourteen major Zi Wei stars
+    long: Qi Sha (Warrior), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: star.po_jun
+  system: ziwei
+  zh:
+    term: 破军
+    short: 破军，紫微十四主星之一
+    long: 破军，紫微十四主星之一
+  en:
+    term: Po Jun (Breaker)
+    short: Po Jun (Breaker), one of the fourteen major Zi Wei stars
+    long: Po Jun (Breaker), one of the fourteen major Zi Wei stars
+  aliases: []
+- key: mutagen.lu
+  system: ziwei
+  zh:
+    term: 化禄
+    short: 化禄，星曜能量的一种转化
+    long: 化禄，星曜能量的一种转化
+  en:
+    term: Prosperity transformation
+    short: Prosperity transformation, a transformation of a star’s expression
+    long: Prosperity transformation, a transformation of a star’s expression
+  aliases: []
+- key: mutagen.quan
+  system: ziwei
+  zh:
+    term: 化权
+    short: 化权，星曜能量的一种转化
+    long: 化权，星曜能量的一种转化
+  en:
+    term: Power transformation
+    short: Power transformation, a transformation of a star’s expression
+    long: Power transformation, a transformation of a star’s expression
+  aliases: []
+- key: mutagen.ke
+  system: ziwei
+  zh:
+    term: 化科
+    short: 化科，星曜能量的一种转化
+    long: 化科，星曜能量的一种转化
+  en:
+    term: Fame transformation
+    short: Fame transformation, a transformation of a star’s expression
+    long: Fame transformation, a transformation of a star’s expression
+  aliases: []
+- key: mutagen.ji
+  system: ziwei
+  zh:
+    term: 化忌
+    short: 化忌，星曜能量的一种转化
+    long: 化忌，星曜能量的一种转化
+  en:
+    term: Obstacle transformation
+    short: Obstacle transformation, a transformation of a star’s expression
+    long: Obstacle transformation, a transformation of a star’s expression
+  aliases: []
+- key: brightness.miao
+  system: ziwei
+  zh:
+    term: 庙
+    short: 庙，星曜亮度状态
+    long: 庙，星曜亮度状态
+  en:
+    term: Temple
+    short: Temple, a star brightness state
+    long: Temple, a star brightness state
+  aliases: []
+- key: brightness.wang
+  system: ziwei
+  zh:
+    term: 旺
+    short: 旺，星曜亮度状态
+    long: 旺，星曜亮度状态
+  en:
+    term: Prosperous
+    short: Prosperous, a star brightness state
+    long: Prosperous, a star brightness state
+  aliases: []
+- key: brightness.de
+  system: ziwei
+  zh:
+    term: 得
+    short: 得，星曜亮度状态
+    long: 得，星曜亮度状态
+  en:
+    term: Gain
+    short: Gain, a star brightness state
+    long: Gain, a star brightness state
+  aliases: []
+- key: brightness.li
+  system: ziwei
+  zh:
+    term: 利
+    short: 利，星曜亮度状态
+    long: 利，星曜亮度状态
+  en:
+    term: Benefit
+    short: Benefit, a star brightness state
+    long: Benefit, a star brightness state
+  aliases: []
+- key: brightness.ping
+  system: ziwei
+  zh:
+    term: 平
+    short: 平，星曜亮度状态
+    long: 平，星曜亮度状态
+  en:
+    term: Neutral
+    short: Neutral, a star brightness state
+    long: Neutral, a star brightness state
+  aliases: []
+- key: brightness.bu
+  system: ziwei
+  zh:
+    term: 不
+    short: 不，星曜亮度状态
+    long: 不，星曜亮度状态
+  en:
+    term: Weak
+    short: Weak, a star brightness state
+    long: Weak, a star brightness state
+  aliases: []
+- key: brightness.xian
+  system: ziwei
+  zh:
+    term: 陷
+    short: 陷，星曜亮度状态
+    long: 陷，星曜亮度状态
+  en:
+    term: Fallen
+    short: Fallen, a star brightness state
+    long: Fallen, a star brightness state
+  aliases: []
+- key: five_elements_class.water_2
+  system: ziwei
+  zh:
+    term: 水二局
+    short: 水二局，用于大限起始的五行局
+    long: 水二局，用于大限起始的五行局
+  en:
+    term: Water-2 Bureau
+    short: Water-2 Bureau, an elemental bureau used to establish life periods
+    long: Water-2 Bureau, an elemental bureau used to establish life periods
+  aliases: []
+- key: five_elements_class.wood_3
+  system: ziwei
+  zh:
+    term: 木三局
+    short: 木三局，用于大限起始的五行局
+    long: 木三局，用于大限起始的五行局
+  en:
+    term: Wood-3 Bureau
+    short: Wood-3 Bureau, an elemental bureau used to establish life periods
+    long: Wood-3 Bureau, an elemental bureau used to establish life periods
+  aliases: []
+- key: five_elements_class.metal_4
+  system: ziwei
+  zh:
+    term: 金四局
+    short: 金四局，用于大限起始的五行局
+    long: 金四局，用于大限起始的五行局
+  en:
+    term: Metal-4 Bureau
+    short: Metal-4 Bureau, an elemental bureau used to establish life periods
+    long: Metal-4 Bureau, an elemental bureau used to establish life periods
+  aliases: []
+- key: five_elements_class.earth_5
+  system: ziwei
+  zh:
+    term: 土五局
+    short: 土五局，用于大限起始的五行局
+    long: 土五局，用于大限起始的五行局
+  en:
+    term: Earth-5 Bureau
+    short: Earth-5 Bureau, an elemental bureau used to establish life periods
+    long: Earth-5 Bureau, an elemental bureau used to establish life periods
+  aliases: []
+- key: five_elements_class.fire_6
+  system: ziwei
+  zh:
+    term: 火六局
+    short: 火六局，用于大限起始的五行局
+    long: 火六局，用于大限起始的五行局
+  en:
+    term: Fire-6 Bureau
+    short: Fire-6 Bureau, an elemental bureau used to establish life periods
+    long: Fire-6 Bureau, an elemental bureau used to establish life periods
+  aliases: []
+- key: trigram.qian
+  system: iching
+  zh:
+    term: 乾
+    short: 乾，八卦之一
+    long: 乾，八卦之一
+  en:
+    term: Heaven
+    short: Heaven, one of the eight trigrams
+    long: Heaven, one of the eight trigrams
+  aliases: []
+- key: trigram.dui
+  system: iching
+  zh:
+    term: 兑
+    short: 兑，八卦之一
+    long: 兑，八卦之一
+  en:
+    term: Lake
+    short: Lake, one of the eight trigrams
+    long: Lake, one of the eight trigrams
+  aliases: []
+- key: trigram.li
+  system: iching
+  zh:
+    term: 离
+    short: 离，八卦之一
+    long: 离，八卦之一
+  en:
+    term: Fire
+    short: Fire, one of the eight trigrams
+    long: Fire, one of the eight trigrams
+  aliases: []
+- key: trigram.zhen
+  system: iching
+  zh:
+    term: 震
+    short: 震，八卦之一
+    long: 震，八卦之一
+  en:
+    term: Thunder
+    short: Thunder, one of the eight trigrams
+    long: Thunder, one of the eight trigrams
+  aliases: []
+- key: trigram.xun
+  system: iching
+  zh:
+    term: 巽
+    short: 巽，八卦之一
+    long: 巽，八卦之一
+  en:
+    term: Wind
+    short: Wind, one of the eight trigrams
+    long: Wind, one of the eight trigrams
+  aliases: []
+- key: trigram.kan
+  system: iching
+  zh:
+    term: 坎
+    short: 坎，八卦之一
+    long: 坎，八卦之一
+  en:
+    term: Water
+    short: Water, one of the eight trigrams
+    long: Water, one of the eight trigrams
+  aliases: []
+- key: trigram.gen
+  system: iching
+  zh:
+    term: 艮
+    short: 艮，八卦之一
+    long: 艮，八卦之一
+  en:
+    term: Mountain
+    short: Mountain, one of the eight trigrams
+    long: Mountain, one of the eight trigrams
+  aliases: []
+- key: trigram.kun
+  system: iching
+  zh:
+    term: 坤
+    short: 坤，八卦之一
+    long: 坤，八卦之一
+  en:
+    term: Earth
+    short: Earth, one of the eight trigrams
+    long: Earth, one of the eight trigrams
+  aliases: []
+- key: primary
+  system: iching
+  zh:
+    term: 本卦
+    short: 卦象解读中的本卦
+    long: 卦象解读中的本卦
+  en:
+    term: Primary hexagram
+    short: Primary hexagram within the reading
+    long: Primary hexagram within the reading
+  aliases: []
+- key: changing
+  system: iching
+  zh:
+    term: 变卦
+    short: 卦象解读中的变卦
+    long: 卦象解读中的变卦
+  en:
+    term: Resulting hexagram
+    short: Resulting hexagram within the reading
+    long: Resulting hexagram within the reading
+  aliases: []
+- key: mutual
+  system: iching
+  zh:
+    term: 互卦
+    short: 卦象解读中的互卦
+    long: 卦象解读中的互卦
+  en:
+    term: Nuclear hexagram
+    short: Nuclear hexagram within the reading
+    long: Nuclear hexagram within the reading
+  aliases: []
+- key: moving_line
+  system: iching
+  zh:
+    term: 动爻
+    short: 卦象解读中的动爻
+    long: 卦象解读中的动爻
+  en:
+    term: Moving line
+    short: Moving line within the reading
+    long: Moving line within the reading
+  aliases: []
+- key: body
+  system: iching
+  zh:
+    term: 体
+    short: 卦象解读中的体
+    long: 卦象解读中的体
+  en:
+    term: Self trigram
+    short: Self trigram within the reading
+    long: Self trigram within the reading
+  aliases: []
+- key: use
+  system: iching
+  zh:
+    term: 用
+    short: 卦象解读中的用
+    long: 卦象解读中的用
+  en:
+    term: Subject trigram
+    short: Subject trigram within the reading
+    long: Subject trigram within the reading
+  aliases: []
+- key: shi
+  system: iching
+  zh:
+    term: 世
+    short: 卦象解读中的世
+    long: 卦象解读中的世
+  en:
+    term: Self line
+    short: Self line within the reading
+    long: Self line within the reading
+  aliases: []
+- key: ying
+  system: iching
+  zh:
+    term: 应
+    short: 卦象解读中的应
+    long: 卦象解读中的应
+  en:
+    term: Other line
+    short: Other line within the reading
+    long: Other line within the reading
+  aliases: []
+- key: fu_shen
+  system: iching
+  zh:
+    term: 伏神
+    short: 卦象解读中的伏神
+    long: 卦象解读中的伏神
+  en:
+    term: Hidden line
+    short: Hidden line within the reading
+    long: Hidden line within the reading
+  aliases: []
+- key: six_relative.parents
+  system: iching
+  zh:
+    term: 父母
+    short: 父母，六爻中的六亲类别
+    long: 父母，六爻中的六亲类别
+  en:
+    term: Parents
+    short: Parents, a relationship category in Six Lines
+    long: Parents, a relationship category in Six Lines
+  aliases: []
+- key: six_relative.siblings
+  system: iching
+  zh:
+    term: 兄弟
+    short: 兄弟，六爻中的六亲类别
+    long: 兄弟，六爻中的六亲类别
+  en:
+    term: Siblings
+    short: Siblings, a relationship category in Six Lines
+    long: Siblings, a relationship category in Six Lines
+  aliases: []
+- key: six_relative.offspring
+  system: iching
+  zh:
+    term: 子孙
+    short: 子孙，六爻中的六亲类别
+    long: 子孙，六爻中的六亲类别
+  en:
+    term: Offspring
+    short: Offspring, a relationship category in Six Lines
+    long: Offspring, a relationship category in Six Lines
+  aliases: []
+- key: six_relative.wealth
+  system: iching
+  zh:
+    term: 妻财
+    short: 妻财，六爻中的六亲类别
+    long: 妻财，六爻中的六亲类别
+  en:
+    term: Wealth
+    short: Wealth, a relationship category in Six Lines
+    long: Wealth, a relationship category in Six Lines
+  aliases: []
+- key: six_relative.officer
+  system: iching
+  zh:
+    term: 官鬼
+    short: 官鬼，六爻中的六亲类别
+    long: 官鬼，六爻中的六亲类别
+  en:
+    term: Officer
+    short: Officer, a relationship category in Six Lines
+    long: Officer, a relationship category in Six Lines
+  aliases: []
+- key: six_spirit.qing_long
+  system: iching
+  zh:
+    term: 青龙
+    short: 青龙，六爻中的六神意象
+    long: 青龙，六爻中的六神意象
+  en:
+    term: Azure Dragon
+    short: Azure Dragon, a symbolic Six Spirit in Six Lines
+    long: Azure Dragon, a symbolic Six Spirit in Six Lines
+  aliases: []
+- key: six_spirit.zhu_que
+  system: iching
+  zh:
+    term: 朱雀
+    short: 朱雀，六爻中的六神意象
+    long: 朱雀，六爻中的六神意象
+  en:
+    term: Vermilion Bird
+    short: Vermilion Bird, a symbolic Six Spirit in Six Lines
+    long: Vermilion Bird, a symbolic Six Spirit in Six Lines
+  aliases: []
+- key: six_spirit.gou_chen
+  system: iching
+  zh:
+    term: 勾陈
+    short: 勾陈，六爻中的六神意象
+    long: 勾陈，六爻中的六神意象
+  en:
+    term: Hook Snake
+    short: Hook Snake, a symbolic Six Spirit in Six Lines
+    long: Hook Snake, a symbolic Six Spirit in Six Lines
+  aliases: []
+- key: six_spirit.teng_she
+  system: iching
+  zh:
+    term: 腾蛇
+    short: 腾蛇，六爻中的六神意象
+    long: 腾蛇，六爻中的六神意象
+  en:
+    term: Soaring Serpent
+    short: Soaring Serpent, a symbolic Six Spirit in Six Lines
+    long: Soaring Serpent, a symbolic Six Spirit in Six Lines
+  aliases: []
+- key: six_spirit.bai_hu
+  system: iching
+  zh:
+    term: 白虎
+    short: 白虎，六爻中的六神意象
+    long: 白虎，六爻中的六神意象
+  en:
+    term: White Tiger
+    short: White Tiger, a symbolic Six Spirit in Six Lines
+    long: White Tiger, a symbolic Six Spirit in Six Lines
+  aliases: []
+- key: six_spirit.xuan_wu
+  system: iching
+  zh:
+    term: 玄武
+    short: 玄武，六爻中的六神意象
+    long: 玄武，六爻中的六神意象
+  en:
+    term: Black Tortoise
+    short: Black Tortoise, a symbolic Six Spirit in Six Lines
+    long: Black Tortoise, a symbolic Six Spirit in Six Lines
+  aliases: []
+- key: dun.yang
+  system: qimen
+  zh:
+    term: 阳遁
+    short: 阳遁，奇门的排局方向
+    long: 阳遁，奇门的排局方向
+  en:
+    term: Yang Escape
+    short: Yang Escape, the direction of a Qi Men formation
+    long: Yang Escape, the direction of a Qi Men formation
+  aliases: []
+- key: dun.yin
+  system: qimen
+  zh:
+    term: 阴遁
+    short: 阴遁，奇门的排局方向
+    long: 阴遁，奇门的排局方向
+  en:
+    term: Yin Escape
+    short: Yin Escape, the direction of a Qi Men formation
+    long: Yin Escape, the direction of a Qi Men formation
+  aliases: []
+- key: star.tian_peng
+  system: qimen
+  zh:
+    term: 天蓬
+    short: 天蓬，奇门九星之一
+    long: 天蓬，奇门九星之一
+  en:
+    term: Peng
+    short: Peng, one of the Nine Stars of Qi Men
+    long: Peng, one of the Nine Stars of Qi Men
+  aliases: []
+- key: star.tian_rui
+  system: qimen
+  zh:
+    term: 天芮
+    short: 天芮，奇门九星之一
+    long: 天芮，奇门九星之一
+  en:
+    term: Rui
+    short: Rui, one of the Nine Stars of Qi Men
+    long: Rui, one of the Nine Stars of Qi Men
+  aliases: []
+- key: star.tian_chong
+  system: qimen
+  zh:
+    term: 天冲
+    short: 天冲，奇门九星之一
+    long: 天冲，奇门九星之一
+  en:
+    term: Chong
+    short: Chong, one of the Nine Stars of Qi Men
+    long: Chong, one of the Nine Stars of Qi Men
+  aliases: []
+- key: qimen.star.tian_fu
+  system: qimen
+  zh:
+    term: 天辅
+    short: 天辅，奇门九星之一
+    long: 天辅，奇门九星之一
+  en:
+    term: Fu
+    short: Fu, one of the Nine Stars of Qi Men
+    long: Fu, one of the Nine Stars of Qi Men
+  aliases: []
+- key: star.tian_qin
+  system: qimen
+  zh:
+    term: 天禽
+    short: 天禽，奇门九星之一
+    long: 天禽，奇门九星之一
+  en:
+    term: Qin
+    short: Qin, one of the Nine Stars of Qi Men
+    long: Qin, one of the Nine Stars of Qi Men
+  aliases: []
+- key: star.tian_xin
+  system: qimen
+  zh:
+    term: 天心
+    short: 天心，奇门九星之一
+    long: 天心，奇门九星之一
+  en:
+    term: Xin
+    short: Xin, one of the Nine Stars of Qi Men
+    long: Xin, one of the Nine Stars of Qi Men
+  aliases: []
+- key: star.tian_zhu
+  system: qimen
+  zh:
+    term: 天柱
+    short: 天柱，奇门九星之一
+    long: 天柱，奇门九星之一
+  en:
+    term: Zhu
+    short: Zhu, one of the Nine Stars of Qi Men
+    long: Zhu, one of the Nine Stars of Qi Men
+  aliases: []
+- key: star.tian_ren
+  system: qimen
+  zh:
+    term: 天任
+    short: 天任，奇门九星之一
+    long: 天任，奇门九星之一
+  en:
+    term: Ren
+    short: Ren, one of the Nine Stars of Qi Men
+    long: Ren, one of the Nine Stars of Qi Men
+  aliases: []
+- key: star.tian_ying
+  system: qimen
+  zh:
+    term: 天英
+    short: 天英，奇门九星之一
+    long: 天英，奇门九星之一
+  en:
+    term: Ying
+    short: Ying, one of the Nine Stars of Qi Men
+    long: Ying, one of the Nine Stars of Qi Men
+  aliases: []
+- key: gate.xiu
+  system: qimen
+  zh:
+    term: 休门
+    short: 休门，奇门八门之一
+    long: 休门，奇门八门之一
+  en:
+    term: Rest
+    short: Rest, one of the Eight Gates
+    long: Rest, one of the Eight Gates
+  aliases: []
+- key: gate.sheng
+  system: qimen
+  zh:
+    term: 生门
+    short: 生门，奇门八门之一
+    long: 生门，奇门八门之一
+  en:
+    term: Life
+    short: Life, one of the Eight Gates
+    long: Life, one of the Eight Gates
+  aliases: []
+- key: gate.shang
+  system: qimen
+  zh:
+    term: 伤门
+    short: 伤门，奇门八门之一
+    long: 伤门，奇门八门之一
+  en:
+    term: Harm
+    short: Harm, one of the Eight Gates
+    long: Harm, one of the Eight Gates
+  aliases: []
+- key: gate.du
+  system: qimen
+  zh:
+    term: 杜门
+    short: 杜门，奇门八门之一
+    long: 杜门，奇门八门之一
+  en:
+    term: Delusion
+    short: Delusion, one of the Eight Gates
+    long: Delusion, one of the Eight Gates
+  aliases: []
+- key: gate.jing
+  system: qimen
+  zh:
+    term: 景门
+    short: 景门，奇门八门之一
+    long: 景门，奇门八门之一
+  en:
+    term: Scenery
+    short: Scenery, one of the Eight Gates
+    long: Scenery, one of the Eight Gates
+  aliases: []
+- key: gate.si
+  system: qimen
+  zh:
+    term: 死门
+    short: 死门，奇门八门之一
+    long: 死门，奇门八门之一
+  en:
+    term: Death
+    short: Death, one of the Eight Gates
+    long: Death, one of the Eight Gates
+  aliases: []
+- key: gate.jing2
+  system: qimen
+  zh:
+    term: 惊门
+    short: 惊门，奇门八门之一
+    long: 惊门，奇门八门之一
+  en:
+    term: Fear
+    short: Fear, one of the Eight Gates
+    long: Fear, one of the Eight Gates
+  aliases: []
+- key: gate.kai
+  system: qimen
+  zh:
+    term: 开门
+    short: 开门，奇门八门之一
+    long: 开门，奇门八门之一
+  en:
+    term: Open
+    short: Open, one of the Eight Gates
+    long: Open, one of the Eight Gates
+  aliases: []
+- key: deity.zhi_fu
+  system: qimen
+  zh:
+    term: 值符
+    short: 值符，奇门八神之一
+    long: 值符，奇门八神之一
+  en:
+    term: Chief
+    short: Chief, one of the Eight Deities
+    long: Chief, one of the Eight Deities
+  aliases: []
+- key: deity.teng_she
+  system: qimen
+  zh:
+    term: 腾蛇
+    short: 腾蛇，奇门八神之一
+    long: 腾蛇，奇门八神之一
+  en:
+    term: Serpent
+    short: Serpent, one of the Eight Deities
+    long: Serpent, one of the Eight Deities
+  aliases: []
+- key: deity.tai_yin
+  system: qimen
+  zh:
+    term: 太阴
+    short: 太阴，奇门八神之一
+    long: 太阴，奇门八神之一
+  en:
+    term: Moon
+    short: Moon, one of the Eight Deities
+    long: Moon, one of the Eight Deities
+  aliases: []
+- key: deity.liu_he
+  system: qimen
+  zh:
+    term: 六合
+    short: 六合，奇门八神之一
+    long: 六合，奇门八神之一
+  en:
+    term: Harmony
+    short: Harmony, one of the Eight Deities
+    long: Harmony, one of the Eight Deities
+  aliases: []
+- key: deity.bai_hu
+  system: qimen
+  zh:
+    term: 白虎
+    short: 白虎，奇门八神之一
+    long: 白虎，奇门八神之一
+  en:
+    term: Tiger
+    short: Tiger, one of the Eight Deities
+    long: Tiger, one of the Eight Deities
+  aliases: []
+- key: deity.xuan_wu
+  system: qimen
+  zh:
+    term: 玄武
+    short: 玄武，奇门八神之一
+    long: 玄武，奇门八神之一
+  en:
+    term: Tortoise
+    short: Tortoise, one of the Eight Deities
+    long: Tortoise, one of the Eight Deities
+  aliases: []
+- key: deity.jiu_di
+  system: qimen
+  zh:
+    term: 九地
+    short: 九地，奇门八神之一
+    long: 九地，奇门八神之一
+  en:
+    term: Earth
+    short: Earth, one of the Eight Deities
+    long: Earth, one of the Eight Deities
+  aliases: []
+- key: deity.jiu_tian
+  system: qimen
+  zh:
+    term: 九天
+    short: 九天，奇门八神之一
+    long: 九天，奇门八神之一
+  en:
+    term: Heaven
+    short: Heaven, one of the Eight Deities
+    long: Heaven, one of the Eight Deities
+  aliases: []
+- key: ju
+  system: qimen
+  zh:
+    term: 局
+    short: 奇门排盘中的局
+    long: 奇门排盘中的局
+  en:
+    term: Formation (1–9)
+    short: Formation (1–9) in a Qi Men chart
+    long: Formation (1–9) in a Qi Men chart
+  aliases: []
+- key: zhi_fu
+  system: qimen
+  zh:
+    term: 值符
+    short: 奇门排盘中的值符
+    long: 奇门排盘中的值符
+  en:
+    term: Chief Star
+    short: Chief Star in a Qi Men chart
+    long: Chief Star in a Qi Men chart
+  aliases: []
+- key: zhi_shi
+  system: qimen
+  zh:
+    term: 值使
+    short: 奇门排盘中的值使
+    long: 奇门排盘中的值使
+  en:
+    term: Chief Gate
+    short: Chief Gate in a Qi Men chart
+    long: Chief Gate in a Qi Men chart
+  aliases: []
+- key: xun_shou
+  system: qimen
+  zh:
+    term: 旬首
+    short: 奇门排盘中的旬首
+    long: 奇门排盘中的旬首
+  en:
+    term: Decade leader
+    short: Decade leader in a Qi Men chart
+    long: Decade leader in a Qi Men chart
+  aliases: []
+- key: pattern.qing_long_fan_shou
+  system: qimen
+  zh:
+    term: 青龙返首
+    short: 青龙返首，奇门的一种象征格局
+    long: 青龙返首，奇门的一种象征格局
+  en:
+    term: Dragon Returns
+    short: Dragon Returns, a symbolic Qi Men configuration
+    long: Dragon Returns, a symbolic Qi Men configuration
+  aliases: []
+- key: pattern.fei_niao_die_xue
+  system: qimen
+  zh:
+    term: 飞鸟跌穴
+    short: 飞鸟跌穴，奇门的一种象征格局
+    long: 飞鸟跌穴，奇门的一种象征格局
+  en:
+    term: Bird Falls into Nest
+    short: Bird Falls into Nest, a symbolic Qi Men configuration
+    long: Bird Falls into Nest, a symbolic Qi Men configuration
+  aliases: []
+- key: arcana.major
+  system: tarot
+  zh:
+    term: 大阿卡纳
+    short: 大阿卡纳，塔罗牌的一类
+    long: 大阿卡纳，塔罗牌的一类
+  en:
+    term: Major Arcana
+    short: Major Arcana, a category of Tarot cards
+    long: Major Arcana, a category of Tarot cards
+  aliases: []
+- key: arcana.minor
+  system: tarot
+  zh:
+    term: 小阿卡纳
+    short: 小阿卡纳，塔罗牌的一类
+    long: 小阿卡纳，塔罗牌的一类
+  en:
+    term: Minor Arcana
+    short: Minor Arcana, a category of Tarot cards
+    long: Minor Arcana, a category of Tarot cards
+  aliases: []
+- key: suit.wands
+  system: tarot
+  zh:
+    term: 权杖
+    short: 权杖，塔罗四种花色之一
+    long: 权杖，塔罗四种花色之一
+  en:
+    term: Wands
+    short: Wands, one of the four Tarot suits
+    long: Wands, one of the four Tarot suits
+  aliases: []
+- key: suit.cups
+  system: tarot
+  zh:
+    term: 圣杯
+    short: 圣杯，塔罗四种花色之一
+    long: 圣杯，塔罗四种花色之一
+  en:
+    term: Cups
+    short: Cups, one of the four Tarot suits
+    long: Cups, one of the four Tarot suits
+  aliases: []
+- key: suit.swords
+  system: tarot
+  zh:
+    term: 宝剑
+    short: 宝剑，塔罗四种花色之一
+    long: 宝剑，塔罗四种花色之一
+  en:
+    term: Swords
+    short: Swords, one of the four Tarot suits
+    long: Swords, one of the four Tarot suits
+  aliases: []
+- key: suit.pentacles
+  system: tarot
+  zh:
+    term: 星币
+    short: 星币，塔罗四种花色之一
+    long: 星币，塔罗四种花色之一
+  en:
+    term: Pentacles
+    short: Pentacles, one of the four Tarot suits
+    long: Pentacles, one of the four Tarot suits
+  aliases: []
+- key: court.page
+  system: tarot
+  zh:
+    term: 侍从
+    short: 侍从，塔罗宫廷牌角色
+    long: 侍从，塔罗宫廷牌角色
+  en:
+    term: Page
+    short: Page, a Tarot court role
+    long: Page, a Tarot court role
+  aliases: []
+- key: court.knight
+  system: tarot
+  zh:
+    term: 骑士
+    short: 骑士，塔罗宫廷牌角色
+    long: 骑士，塔罗宫廷牌角色
+  en:
+    term: Knight
+    short: Knight, a Tarot court role
+    long: Knight, a Tarot court role
+  aliases: []
+- key: court.queen
+  system: tarot
+  zh:
+    term: 王后
+    short: 王后，塔罗宫廷牌角色
+    long: 王后，塔罗宫廷牌角色
+  en:
+    term: Queen
+    short: Queen, a Tarot court role
+    long: Queen, a Tarot court role
+  aliases: []
+- key: court.king
+  system: tarot
+  zh:
+    term: 国王
+    short: 国王，塔罗宫廷牌角色
+    long: 国王，塔罗宫廷牌角色
+  en:
+    term: King
+    short: King, a Tarot court role
+    long: King, a Tarot court role
+  aliases: []
+- key: major_00_fool
+  system: tarot
+  zh:
+    term: 愚人
+    short: 愚人，大阿卡纳的象征角色
+    long: 愚人，大阿卡纳的象征角色
+  en:
+    term: The Fool
+    short: The Fool, a symbolic Major Arcana card
+    long: The Fool, a symbolic Major Arcana card
+  aliases: []
+- key: major_01_magician
+  system: tarot
+  zh:
+    term: 魔术师
+    short: 魔术师，大阿卡纳的象征角色
+    long: 魔术师，大阿卡纳的象征角色
+  en:
+    term: The Magician
+    short: The Magician, a symbolic Major Arcana card
+    long: The Magician, a symbolic Major Arcana card
+  aliases: []
+- key: major_02_high_priestess
+  system: tarot
+  zh:
+    term: 女祭司
+    short: 女祭司，大阿卡纳的象征角色
+    long: 女祭司，大阿卡纳的象征角色
+  en:
+    term: The High Priestess
+    short: The High Priestess, a symbolic Major Arcana card
+    long: The High Priestess, a symbolic Major Arcana card
+  aliases: []
+- key: major_03_empress
+  system: tarot
+  zh:
+    term: 皇后
+    short: 皇后，大阿卡纳的象征角色
+    long: 皇后，大阿卡纳的象征角色
+  en:
+    term: The Empress
+    short: The Empress, a symbolic Major Arcana card
+    long: The Empress, a symbolic Major Arcana card
+  aliases: []
+- key: major_04_emperor
+  system: tarot
+  zh:
+    term: 皇帝
+    short: 皇帝，大阿卡纳的象征角色
+    long: 皇帝，大阿卡纳的象征角色
+  en:
+    term: The Emperor
+    short: The Emperor, a symbolic Major Arcana card
+    long: The Emperor, a symbolic Major Arcana card
+  aliases: []
+- key: major_05_hierophant
+  system: tarot
+  zh:
+    term: 教皇
+    short: 教皇，大阿卡纳的象征角色
+    long: 教皇，大阿卡纳的象征角色
+  en:
+    term: The Hierophant
+    short: The Hierophant, a symbolic Major Arcana card
+    long: The Hierophant, a symbolic Major Arcana card
+  aliases: []
+- key: major_06_lovers
+  system: tarot
+  zh:
+    term: 恋人
+    short: 恋人，大阿卡纳的象征角色
+    long: 恋人，大阿卡纳的象征角色
+  en:
+    term: The Lovers
+    short: The Lovers, a symbolic Major Arcana card
+    long: The Lovers, a symbolic Major Arcana card
+  aliases: []
+- key: major_07_chariot
+  system: tarot
+  zh:
+    term: 战车
+    short: 战车，大阿卡纳的象征角色
+    long: 战车，大阿卡纳的象征角色
+  en:
+    term: The Chariot
+    short: The Chariot, a symbolic Major Arcana card
+    long: The Chariot, a symbolic Major Arcana card
+  aliases: []
+- key: major_08_strength
+  system: tarot
+  zh:
+    term: 力量
+    short: 力量，大阿卡纳的象征角色
+    long: 力量，大阿卡纳的象征角色
+  en:
+    term: Strength
+    short: Strength, a symbolic Major Arcana card
+    long: Strength, a symbolic Major Arcana card
+  aliases: []
+- key: major_09_hermit
+  system: tarot
+  zh:
+    term: 隐者
+    short: 隐者，大阿卡纳的象征角色
+    long: 隐者，大阿卡纳的象征角色
+  en:
+    term: The Hermit
+    short: The Hermit, a symbolic Major Arcana card
+    long: The Hermit, a symbolic Major Arcana card
+  aliases: []
+- key: major_10_wheel_of_fortune
+  system: tarot
+  zh:
+    term: 命运之轮
+    short: 命运之轮，大阿卡纳的象征角色
+    long: 命运之轮，大阿卡纳的象征角色
+  en:
+    term: Wheel of Fortune
+    short: Wheel of Fortune, a symbolic Major Arcana card
+    long: Wheel of Fortune, a symbolic Major Arcana card
+  aliases: []
+- key: major_11_justice
+  system: tarot
+  zh:
+    term: 正义
+    short: 正义，大阿卡纳的象征角色
+    long: 正义，大阿卡纳的象征角色
+  en:
+    term: Justice
+    short: Justice, a symbolic Major Arcana card
+    long: Justice, a symbolic Major Arcana card
+  aliases: []
+- key: major_12_hanged_man
+  system: tarot
+  zh:
+    term: 倒吊人
+    short: 倒吊人，大阿卡纳的象征角色
+    long: 倒吊人，大阿卡纳的象征角色
+  en:
+    term: The Hanged Man
+    short: The Hanged Man, a symbolic Major Arcana card
+    long: The Hanged Man, a symbolic Major Arcana card
+  aliases: []
+- key: major_13_death
+  system: tarot
+  zh:
+    term: 死神
+    short: 死神，大阿卡纳的象征角色
+    long: 死神，大阿卡纳的象征角色
+  en:
+    term: Death
+    short: Death, a symbolic Major Arcana card
+    long: Death, a symbolic Major Arcana card
+  aliases: []
+- key: major_14_temperance
+  system: tarot
+  zh:
+    term: 节制
+    short: 节制，大阿卡纳的象征角色
+    long: 节制，大阿卡纳的象征角色
+  en:
+    term: Temperance
+    short: Temperance, a symbolic Major Arcana card
+    long: Temperance, a symbolic Major Arcana card
+  aliases: []
+- key: major_15_devil
+  system: tarot
+  zh:
+    term: 恶魔
+    short: 恶魔，大阿卡纳的象征角色
+    long: 恶魔，大阿卡纳的象征角色
+  en:
+    term: The Devil
+    short: The Devil, a symbolic Major Arcana card
+    long: The Devil, a symbolic Major Arcana card
+  aliases: []
+- key: major_16_tower
+  system: tarot
+  zh:
+    term: 高塔
+    short: 高塔，大阿卡纳的象征角色
+    long: 高塔，大阿卡纳的象征角色
+  en:
+    term: The Tower
+    short: The Tower, a symbolic Major Arcana card
+    long: The Tower, a symbolic Major Arcana card
+  aliases: []
+- key: major_17_star
+  system: tarot
+  zh:
+    term: 星星
+    short: 星星，大阿卡纳的象征角色
+    long: 星星，大阿卡纳的象征角色
+  en:
+    term: The Star
+    short: The Star, a symbolic Major Arcana card
+    long: The Star, a symbolic Major Arcana card
+  aliases: []
+- key: major_18_moon
+  system: tarot
+  zh:
+    term: 月亮
+    short: 月亮，大阿卡纳的象征角色
+    long: 月亮，大阿卡纳的象征角色
+  en:
+    term: The Moon
+    short: The Moon, a symbolic Major Arcana card
+    long: The Moon, a symbolic Major Arcana card
+  aliases: []
+- key: major_19_sun
+  system: tarot
+  zh:
+    term: 太阳
+    short: 太阳，大阿卡纳的象征角色
+    long: 太阳，大阿卡纳的象征角色
+  en:
+    term: The Sun
+    short: The Sun, a symbolic Major Arcana card
+    long: The Sun, a symbolic Major Arcana card
+  aliases: []
+- key: major_20_judgement
+  system: tarot
+  zh:
+    term: 审判
+    short: 审判，大阿卡纳的象征角色
+    long: 审判，大阿卡纳的象征角色
+  en:
+    term: Judgement
+    short: Judgement, a symbolic Major Arcana card
+    long: Judgement, a symbolic Major Arcana card
+  aliases: []
+- key: major_21_world
+  system: tarot
+  zh:
+    term: 世界
+    short: 世界，大阿卡纳的象征角色
+    long: 世界，大阿卡纳的象征角色
+  en:
+    term: The World
+    short: The World, a symbolic Major Arcana card
+    long: The World, a symbolic Major Arcana card
+  aliases: []
+- key: reversed
+  system: tarot
+  zh:
+    term: 逆位
+    short: 牌以倒置方向出现
+    long: 牌以倒置方向出现
+  en:
+    term: Reversed
+    short: A card appearing upside down
+    long: A card appearing upside down
+  aliases: []
+- key: sign.aries
+  system: astrology
+  zh:
+    term: 白羊
+    short: 白羊，十二星座之一
+    long: 白羊，十二星座之一
+  en:
+    term: Aries
+    short: Aries, one of the twelve zodiac signs
+    long: Aries, one of the twelve zodiac signs
+  aliases: []
+- key: sign.taurus
+  system: astrology
+  zh:
+    term: 金牛
+    short: 金牛，十二星座之一
+    long: 金牛，十二星座之一
+  en:
+    term: Taurus
+    short: Taurus, one of the twelve zodiac signs
+    long: Taurus, one of the twelve zodiac signs
+  aliases: []
+- key: sign.gemini
+  system: astrology
+  zh:
+    term: 双子
+    short: 双子，十二星座之一
+    long: 双子，十二星座之一
+  en:
+    term: Gemini
+    short: Gemini, one of the twelve zodiac signs
+    long: Gemini, one of the twelve zodiac signs
+  aliases: []
+- key: sign.cancer
+  system: astrology
+  zh:
+    term: 巨蟹
+    short: 巨蟹，十二星座之一
+    long: 巨蟹，十二星座之一
+  en:
+    term: Cancer
+    short: Cancer, one of the twelve zodiac signs
+    long: Cancer, one of the twelve zodiac signs
+  aliases: []
+- key: sign.leo
+  system: astrology
+  zh:
+    term: 狮子
+    short: 狮子，十二星座之一
+    long: 狮子，十二星座之一
+  en:
+    term: Leo
+    short: Leo, one of the twelve zodiac signs
+    long: Leo, one of the twelve zodiac signs
+  aliases: []
+- key: sign.virgo
+  system: astrology
+  zh:
+    term: 处女
+    short: 处女，十二星座之一
+    long: 处女，十二星座之一
+  en:
+    term: Virgo
+    short: Virgo, one of the twelve zodiac signs
+    long: Virgo, one of the twelve zodiac signs
+  aliases: []
+- key: sign.libra
+  system: astrology
+  zh:
+    term: 天秤
+    short: 天秤，十二星座之一
+    long: 天秤，十二星座之一
+  en:
+    term: Libra
+    short: Libra, one of the twelve zodiac signs
+    long: Libra, one of the twelve zodiac signs
+  aliases: []
+- key: sign.scorpio
+  system: astrology
+  zh:
+    term: 天蝎
+    short: 天蝎，十二星座之一
+    long: 天蝎，十二星座之一
+  en:
+    term: Scorpio
+    short: Scorpio, one of the twelve zodiac signs
+    long: Scorpio, one of the twelve zodiac signs
+  aliases: []
+- key: sign.sagittarius
+  system: astrology
+  zh:
+    term: 射手
+    short: 射手，十二星座之一
+    long: 射手，十二星座之一
+  en:
+    term: Sagittarius
+    short: Sagittarius, one of the twelve zodiac signs
+    long: Sagittarius, one of the twelve zodiac signs
+  aliases: []
+- key: sign.capricorn
+  system: astrology
+  zh:
+    term: 摩羯
+    short: 摩羯，十二星座之一
+    long: 摩羯，十二星座之一
+  en:
+    term: Capricorn
+    short: Capricorn, one of the twelve zodiac signs
+    long: Capricorn, one of the twelve zodiac signs
+  aliases: []
+- key: sign.aquarius
+  system: astrology
+  zh:
+    term: 水瓶
+    short: 水瓶，十二星座之一
+    long: 水瓶，十二星座之一
+  en:
+    term: Aquarius
+    short: Aquarius, one of the twelve zodiac signs
+    long: Aquarius, one of the twelve zodiac signs
+  aliases: []
+- key: sign.pisces
+  system: astrology
+  zh:
+    term: 双鱼
+    short: 双鱼，十二星座之一
+    long: 双鱼，十二星座之一
+  en:
+    term: Pisces
+    short: Pisces, one of the twelve zodiac signs
+    long: Pisces, one of the twelve zodiac signs
+  aliases: []
+- key: body.sun
+  system: astrology
+  zh:
+    term: 太阳
+    short: 太阳，占星盘中的天体或计算点
+    long: 太阳，占星盘中的天体或计算点
+  en:
+    term: Sun
+    short: Sun, a body or calculated point in an astrological chart
+    long: Sun, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.moon
+  system: astrology
+  zh:
+    term: 月亮
+    short: 月亮，占星盘中的天体或计算点
+    long: 月亮，占星盘中的天体或计算点
+  en:
+    term: Moon
+    short: Moon, a body or calculated point in an astrological chart
+    long: Moon, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.mercury
+  system: astrology
+  zh:
+    term: 水星
+    short: 水星，占星盘中的天体或计算点
+    long: 水星，占星盘中的天体或计算点
+  en:
+    term: Mercury
+    short: Mercury, a body or calculated point in an astrological chart
+    long: Mercury, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.venus
+  system: astrology
+  zh:
+    term: 金星
+    short: 金星，占星盘中的天体或计算点
+    long: 金星，占星盘中的天体或计算点
+  en:
+    term: Venus
+    short: Venus, a body or calculated point in an astrological chart
+    long: Venus, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.mars
+  system: astrology
+  zh:
+    term: 火星
+    short: 火星，占星盘中的天体或计算点
+    long: 火星，占星盘中的天体或计算点
+  en:
+    term: Mars
+    short: Mars, a body or calculated point in an astrological chart
+    long: Mars, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.jupiter
+  system: astrology
+  zh:
+    term: 木星
+    short: 木星，占星盘中的天体或计算点
+    long: 木星，占星盘中的天体或计算点
+  en:
+    term: Jupiter
+    short: Jupiter, a body or calculated point in an astrological chart
+    long: Jupiter, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.saturn
+  system: astrology
+  zh:
+    term: 土星
+    short: 土星，占星盘中的天体或计算点
+    long: 土星，占星盘中的天体或计算点
+  en:
+    term: Saturn
+    short: Saturn, a body or calculated point in an astrological chart
+    long: Saturn, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.uranus
+  system: astrology
+  zh:
+    term: 天王星
+    short: 天王星，占星盘中的天体或计算点
+    long: 天王星，占星盘中的天体或计算点
+  en:
+    term: Uranus
+    short: Uranus, a body or calculated point in an astrological chart
+    long: Uranus, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.neptune
+  system: astrology
+  zh:
+    term: 海王星
+    short: 海王星，占星盘中的天体或计算点
+    long: 海王星，占星盘中的天体或计算点
+  en:
+    term: Neptune
+    short: Neptune, a body or calculated point in an astrological chart
+    long: Neptune, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.pluto
+  system: astrology
+  zh:
+    term: 冥王星
+    short: 冥王星，占星盘中的天体或计算点
+    long: 冥王星，占星盘中的天体或计算点
+  en:
+    term: Pluto
+    short: Pluto, a body or calculated point in an astrological chart
+    long: Pluto, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.north_node
+  system: astrology
+  zh:
+    term: 北交点
+    short: 北交点，占星盘中的天体或计算点
+    long: 北交点，占星盘中的天体或计算点
+  en:
+    term: North Node
+    short: North Node, a body or calculated point in an astrological chart
+    long: North Node, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.chiron
+  system: astrology
+  zh:
+    term: 凯龙星
+    short: 凯龙星，占星盘中的天体或计算点
+    long: 凯龙星，占星盘中的天体或计算点
+  en:
+    term: Chiron
+    short: Chiron, a body or calculated point in an astrological chart
+    long: Chiron, a body or calculated point in an astrological chart
+  aliases: []
+- key: body.lilith
+  system: astrology
+  zh:
+    term: 莉莉丝
+    short: 莉莉丝，占星盘中的天体或计算点
+    long: 莉莉丝，占星盘中的天体或计算点
+  en:
+    term: Lilith
+    short: Lilith, a body or calculated point in an astrological chart
+    long: Lilith, a body or calculated point in an astrological chart
+  aliases: []
+- key: angle.asc
+  system: astrology
+  zh:
+    term: 上升
+    short: 上升，星盘四轴之一
+    long: 上升，星盘四轴之一
+  en:
+    term: Ascendant
+    short: Ascendant, one of the four chart angles
+    long: Ascendant, one of the four chart angles
+  aliases: []
+- key: angle.mc
+  system: astrology
+  zh:
+    term: 天顶
+    short: 天顶，星盘四轴之一
+    long: 天顶，星盘四轴之一
+  en:
+    term: Midheaven
+    short: Midheaven, one of the four chart angles
+    long: Midheaven, one of the four chart angles
+  aliases: []
+- key: angle.dsc
+  system: astrology
+  zh:
+    term: 下降
+    short: 下降，星盘四轴之一
+    long: 下降，星盘四轴之一
+  en:
+    term: Descendant
+    short: Descendant, one of the four chart angles
+    long: Descendant, one of the four chart angles
+  aliases: []
+- key: angle.ic
+  system: astrology
+  zh:
+    term: 天底
+    short: 天底，星盘四轴之一
+    long: 天底，星盘四轴之一
+  en:
+    term: Imum Coeli
+    short: Imum Coeli, one of the four chart angles
+    long: Imum Coeli, one of the four chart angles
+  aliases: []
+- key: house.1
+  system: astrology
+  zh:
+    term: 第1宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 1st House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.2
+  system: astrology
+  zh:
+    term: 第2宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 2nd House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.3
+  system: astrology
+  zh:
+    term: 第3宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 3rd House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.4
+  system: astrology
+  zh:
+    term: 第4宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 4th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.5
+  system: astrology
+  zh:
+    term: 第5宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 5th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.6
+  system: astrology
+  zh:
+    term: 第6宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 6th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.7
+  system: astrology
+  zh:
+    term: 第7宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 7th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.8
+  system: astrology
+  zh:
+    term: 第8宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 8th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.9
+  system: astrology
+  zh:
+    term: 第9宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 9th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.10
+  system: astrology
+  zh:
+    term: 第10宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 10th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.11
+  system: astrology
+  zh:
+    term: 第11宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 11th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: house.12
+  system: astrology
+  zh:
+    term: 第12宫
+    short: 星盘中一个人生领域的宫位
+    long: 星盘中一个人生领域的宫位
+  en:
+    term: 12th House
+    short: A house representing a life area
+    long: A house representing a life area
+  aliases: []
+- key: aspect.conjunction
+  system: astrology
+  zh:
+    term: 合相
+    short: 合相，天体之间的角度关系
+    long: 合相，天体之间的角度关系
+  en:
+    term: Conjunction
+    short: Conjunction, an angular relationship between bodies
+    long: Conjunction, an angular relationship between bodies
+  aliases: []
+- key: aspect.sextile
+  system: astrology
+  zh:
+    term: 六分相
+    short: 六分相，天体之间的角度关系
+    long: 六分相，天体之间的角度关系
+  en:
+    term: Sextile
+    short: Sextile, an angular relationship between bodies
+    long: Sextile, an angular relationship between bodies
+  aliases: []
+- key: aspect.square
+  system: astrology
+  zh:
+    term: 四分相
+    short: 四分相，天体之间的角度关系
+    long: 四分相，天体之间的角度关系
+  en:
+    term: Square
+    short: Square, an angular relationship between bodies
+    long: Square, an angular relationship between bodies
+  aliases: []
+- key: aspect.trine
+  system: astrology
+  zh:
+    term: 三分相
+    short: 三分相，天体之间的角度关系
+    long: 三分相，天体之间的角度关系
+  en:
+    term: Trine
+    short: Trine, an angular relationship between bodies
+    long: Trine, an angular relationship between bodies
+  aliases: []
+- key: aspect.opposition
+  system: astrology
+  zh:
+    term: 对分相
+    short: 对分相，天体之间的角度关系
+    long: 对分相，天体之间的角度关系
+  en:
+    term: Opposition
+    short: Opposition, an angular relationship between bodies
+    long: Opposition, an angular relationship between bodies
+  aliases: []
+- key: element4.fire
+  system: astrology
+  zh:
+    term: 火
+    short: 火，西方四元素之一
+    long: 火，西方四元素之一
+  en:
+    term: Fire
+    short: Fire, one of the four Western elements
+    long: Fire, one of the four Western elements
+  aliases: []
+- key: element4.earth
+  system: astrology
+  zh:
+    term: 土
+    short: 土，西方四元素之一
+    long: 土，西方四元素之一
+  en:
+    term: Earth
+    short: Earth, one of the four Western elements
+    long: Earth, one of the four Western elements
+  aliases: []
+- key: element4.air
+  system: astrology
+  zh:
+    term: 风
+    short: 风，西方四元素之一
+    long: 风，西方四元素之一
+  en:
+    term: Air
+    short: Air, one of the four Western elements
+    long: Air, one of the four Western elements
+  aliases: []
+- key: element4.water
+  system: astrology
+  zh:
+    term: 水
+    short: 水，西方四元素之一
+    long: 水，西方四元素之一
+  en:
+    term: Water
+    short: Water, one of the four Western elements
+    long: Water, one of the four Western elements
+  aliases: []
+- key: modality.cardinal
+  system: astrology
+  zh:
+    term: 基本
+    short: 基本，星座的一种行动模式
+    long: 基本，星座的一种行动模式
+  en:
+    term: Cardinal
+    short: Cardinal, a zodiac mode of expression
+    long: Cardinal, a zodiac mode of expression
+  aliases: []
+- key: modality.fixed
+  system: astrology
+  zh:
+    term: 固定
+    short: 固定，星座的一种行动模式
+    long: 固定，星座的一种行动模式
+  en:
+    term: Fixed
+    short: Fixed, a zodiac mode of expression
+    long: Fixed, a zodiac mode of expression
+  aliases: []
+- key: modality.mutable
+  system: astrology
+  zh:
+    term: 变动
+    short: 变动，星座的一种行动模式
+    long: 变动，星座的一种行动模式
+  en:
+    term: Mutable
+    short: Mutable, a zodiac mode of expression
+    long: Mutable, a zodiac mode of expression
+  aliases: []
+- key: house_system.placidus
+  system: astrology
+  zh:
+    term: 普拉西度
+    short: 普拉西度，一种宫位划分方法
+    long: 普拉西度，一种宫位划分方法
+  en:
+    term: Placidus
+    short: Placidus, a method of dividing chart houses
+    long: Placidus, a method of dividing chart houses
+  aliases: []
+- key: house_system.whole_sign
+  system: astrology
+  zh:
+    term: 整宫
+    short: 整宫，一种宫位划分方法
+    long: 整宫，一种宫位划分方法
+  en:
+    term: Whole Sign
+    short: Whole Sign, a method of dividing chart houses
+    long: Whole Sign, a method of dividing chart houses
+  aliases: []
+- key: house_system.equal
+  system: astrology
+  zh:
+    term: 等宫
+    short: 等宫，一种宫位划分方法
+    long: 等宫，一种宫位划分方法
+  en:
+    term: Equal
+    short: Equal, a method of dividing chart houses
+    long: Equal, a method of dividing chart houses
+  aliases: []
+- key: house_system.koch
+  system: astrology
+  zh:
+    term: 科赫
+    short: 科赫，一种宫位划分方法
+    long: 科赫，一种宫位划分方法
+  en:
+    term: Koch
+    short: Koch, a method of dividing chart houses
+    long: Koch, a method of dividing chart houses
+  aliases: []
+- key: big_three
+  system: astrology
+  zh:
+    term: 太阳月亮上升
+    short: 太阳、月亮和上升三个核心面向
+    long: 太阳、月亮和上升三个核心面向
+  en:
+    term: Big Three
+    short: 'The three core facets: Sun, Moon and Ascendant'
+    long: 'The three core facets: Sun, Moon and Ascendant'
+  aliases: []
+- key: rashi.mesha
+  system: vedic
+  zh:
+    term: 梅沙
+    short: 梅沙，吠陀黄道星座之一
+    long: 梅沙，吠陀黄道星座之一
+  en:
+    term: Mesha
+    short: Mesha, one of the twelve Vedic zodiac signs
+    long: Mesha, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.vrishabha
+  system: vedic
+  zh:
+    term: 弗里沙巴
+    short: 弗里沙巴，吠陀黄道星座之一
+    long: 弗里沙巴，吠陀黄道星座之一
+  en:
+    term: Vrishabha
+    short: Vrishabha, one of the twelve Vedic zodiac signs
+    long: Vrishabha, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.mithuna
+  system: vedic
+  zh:
+    term: 密图纳
+    short: 密图纳，吠陀黄道星座之一
+    long: 密图纳，吠陀黄道星座之一
+  en:
+    term: Mithuna
+    short: Mithuna, one of the twelve Vedic zodiac signs
+    long: Mithuna, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.karka
+  system: vedic
+  zh:
+    term: 卡尔卡
+    short: 卡尔卡，吠陀黄道星座之一
+    long: 卡尔卡，吠陀黄道星座之一
+  en:
+    term: Karka
+    short: Karka, one of the twelve Vedic zodiac signs
+    long: Karka, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.simha
+  system: vedic
+  zh:
+    term: 辛哈
+    short: 辛哈，吠陀黄道星座之一
+    long: 辛哈，吠陀黄道星座之一
+  en:
+    term: Simha
+    short: Simha, one of the twelve Vedic zodiac signs
+    long: Simha, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.kanya
+  system: vedic
+  zh:
+    term: 卡尼亚
+    short: 卡尼亚，吠陀黄道星座之一
+    long: 卡尼亚，吠陀黄道星座之一
+  en:
+    term: Kanya
+    short: Kanya, one of the twelve Vedic zodiac signs
+    long: Kanya, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.tula
+  system: vedic
+  zh:
+    term: 图拉
+    short: 图拉，吠陀黄道星座之一
+    long: 图拉，吠陀黄道星座之一
+  en:
+    term: Tula
+    short: Tula, one of the twelve Vedic zodiac signs
+    long: Tula, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.vrischika
+  system: vedic
+  zh:
+    term: 弗里施卡
+    short: 弗里施卡，吠陀黄道星座之一
+    long: 弗里施卡，吠陀黄道星座之一
+  en:
+    term: Vrischika
+    short: Vrischika, one of the twelve Vedic zodiac signs
+    long: Vrischika, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.dhanu
+  system: vedic
+  zh:
+    term: 达努
+    short: 达努，吠陀黄道星座之一
+    long: 达努，吠陀黄道星座之一
+  en:
+    term: Dhanu
+    short: Dhanu, one of the twelve Vedic zodiac signs
+    long: Dhanu, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.makara
+  system: vedic
+  zh:
+    term: 马卡拉
+    short: 马卡拉，吠陀黄道星座之一
+    long: 马卡拉，吠陀黄道星座之一
+  en:
+    term: Makara
+    short: Makara, one of the twelve Vedic zodiac signs
+    long: Makara, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.kumbha
+  system: vedic
+  zh:
+    term: 昆巴
+    short: 昆巴，吠陀黄道星座之一
+    long: 昆巴，吠陀黄道星座之一
+  en:
+    term: Kumbha
+    short: Kumbha, one of the twelve Vedic zodiac signs
+    long: Kumbha, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: rashi.meena
+  system: vedic
+  zh:
+    term: 米纳
+    short: 米纳，吠陀黄道星座之一
+    long: 米纳，吠陀黄道星座之一
+  en:
+    term: Meena
+    short: Meena, one of the twelve Vedic zodiac signs
+    long: Meena, one of the twelve Vedic zodiac signs
+  aliases: []
+- key: nakshatra.ashwini
+  system: vedic
+  zh:
+    term: 阿湿毗尼
+    short: 阿湿毗尼，二十七星宿之一
+    long: 阿湿毗尼，二十七星宿之一
+  en:
+    term: Ashwini
+    short: Ashwini, one of the twenty-seven lunar mansions
+    long: Ashwini, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.bharani
+  system: vedic
+  zh:
+    term: 婆罗尼
+    short: 婆罗尼，二十七星宿之一
+    long: 婆罗尼，二十七星宿之一
+  en:
+    term: Bharani
+    short: Bharani, one of the twenty-seven lunar mansions
+    long: Bharani, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.krittika
+  system: vedic
+  zh:
+    term: 克里提卡
+    short: 克里提卡，二十七星宿之一
+    long: 克里提卡，二十七星宿之一
+  en:
+    term: Krittika
+    short: Krittika, one of the twenty-seven lunar mansions
+    long: Krittika, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.rohini
+  system: vedic
+  zh:
+    term: 罗希尼
+    short: 罗希尼，二十七星宿之一
+    long: 罗希尼，二十七星宿之一
+  en:
+    term: Rohini
+    short: Rohini, one of the twenty-seven lunar mansions
+    long: Rohini, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.mrigashira
+  system: vedic
+  zh:
+    term: 弥利伽尸罗
+    short: 弥利伽尸罗，二十七星宿之一
+    long: 弥利伽尸罗，二十七星宿之一
+  en:
+    term: Mrigashira
+    short: Mrigashira, one of the twenty-seven lunar mansions
+    long: Mrigashira, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.ardra
+  system: vedic
+  zh:
+    term: 阿尔德拉
+    short: 阿尔德拉，二十七星宿之一
+    long: 阿尔德拉，二十七星宿之一
+  en:
+    term: Ardra
+    short: Ardra, one of the twenty-seven lunar mansions
+    long: Ardra, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.punarvasu
+  system: vedic
+  zh:
+    term: 补那伐苏
+    short: 补那伐苏，二十七星宿之一
+    long: 补那伐苏，二十七星宿之一
+  en:
+    term: Punarvasu
+    short: Punarvasu, one of the twenty-seven lunar mansions
+    long: Punarvasu, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.pushya
+  system: vedic
+  zh:
+    term: 普沙
+    short: 普沙，二十七星宿之一
+    long: 普沙，二十七星宿之一
+  en:
+    term: Pushya
+    short: Pushya, one of the twenty-seven lunar mansions
+    long: Pushya, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.ashlesha
+  system: vedic
+  zh:
+    term: 阿湿勒沙
+    short: 阿湿勒沙，二十七星宿之一
+    long: 阿湿勒沙，二十七星宿之一
+  en:
+    term: Ashlesha
+    short: Ashlesha, one of the twenty-seven lunar mansions
+    long: Ashlesha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.magha
+  system: vedic
+  zh:
+    term: 摩伽
+    short: 摩伽，二十七星宿之一
+    long: 摩伽，二十七星宿之一
+  en:
+    term: Magha
+    short: Magha, one of the twenty-seven lunar mansions
+    long: Magha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.purva_phalguni
+  system: vedic
+  zh:
+    term: 前颇尔古尼
+    short: 前颇尔古尼，二十七星宿之一
+    long: 前颇尔古尼，二十七星宿之一
+  en:
+    term: Purva Phalguni
+    short: Purva Phalguni, one of the twenty-seven lunar mansions
+    long: Purva Phalguni, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.uttara_phalguni
+  system: vedic
+  zh:
+    term: 后颇尔古尼
+    short: 后颇尔古尼，二十七星宿之一
+    long: 后颇尔古尼，二十七星宿之一
+  en:
+    term: Uttara Phalguni
+    short: Uttara Phalguni, one of the twenty-seven lunar mansions
+    long: Uttara Phalguni, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.hasta
+  system: vedic
+  zh:
+    term: 诃斯多
+    short: 诃斯多，二十七星宿之一
+    long: 诃斯多，二十七星宿之一
+  en:
+    term: Hasta
+    short: Hasta, one of the twenty-seven lunar mansions
+    long: Hasta, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.chitra
+  system: vedic
+  zh:
+    term: 质多罗
+    short: 质多罗，二十七星宿之一
+    long: 质多罗，二十七星宿之一
+  en:
+    term: Chitra
+    short: Chitra, one of the twenty-seven lunar mansions
+    long: Chitra, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.swati
+  system: vedic
+  zh:
+    term: 斯瓦提
+    short: 斯瓦提，二十七星宿之一
+    long: 斯瓦提，二十七星宿之一
+  en:
+    term: Swati
+    short: Swati, one of the twenty-seven lunar mansions
+    long: Swati, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.vishakha
+  system: vedic
+  zh:
+    term: 毗舍佉
+    short: 毗舍佉，二十七星宿之一
+    long: 毗舍佉，二十七星宿之一
+  en:
+    term: Vishakha
+    short: Vishakha, one of the twenty-seven lunar mansions
+    long: Vishakha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.anuradha
+  system: vedic
+  zh:
+    term: 阿努罗陀
+    short: 阿努罗陀，二十七星宿之一
+    long: 阿努罗陀，二十七星宿之一
+  en:
+    term: Anuradha
+    short: Anuradha, one of the twenty-seven lunar mansions
+    long: Anuradha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.jyeshtha
+  system: vedic
+  zh:
+    term: 逝瑟吒
+    short: 逝瑟吒，二十七星宿之一
+    long: 逝瑟吒，二十七星宿之一
+  en:
+    term: Jyeshtha
+    short: Jyeshtha, one of the twenty-seven lunar mansions
+    long: Jyeshtha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.mula
+  system: vedic
+  zh:
+    term: 牟罗
+    short: 牟罗，二十七星宿之一
+    long: 牟罗，二十七星宿之一
+  en:
+    term: Mula
+    short: Mula, one of the twenty-seven lunar mansions
+    long: Mula, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.purva_ashadha
+  system: vedic
+  zh:
+    term: 前阿沙荼
+    short: 前阿沙荼，二十七星宿之一
+    long: 前阿沙荼，二十七星宿之一
+  en:
+    term: Purva Ashadha
+    short: Purva Ashadha, one of the twenty-seven lunar mansions
+    long: Purva Ashadha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.uttara_ashadha
+  system: vedic
+  zh:
+    term: 后阿沙荼
+    short: 后阿沙荼，二十七星宿之一
+    long: 后阿沙荼，二十七星宿之一
+  en:
+    term: Uttara Ashadha
+    short: Uttara Ashadha, one of the twenty-seven lunar mansions
+    long: Uttara Ashadha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.shravana
+  system: vedic
+  zh:
+    term: 室罗伐那
+    short: 室罗伐那，二十七星宿之一
+    long: 室罗伐那，二十七星宿之一
+  en:
+    term: Shravana
+    short: Shravana, one of the twenty-seven lunar mansions
+    long: Shravana, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.dhanishta
+  system: vedic
+  zh:
+    term: 檀尼湿吒
+    short: 檀尼湿吒，二十七星宿之一
+    long: 檀尼湿吒，二十七星宿之一
+  en:
+    term: Dhanishta
+    short: Dhanishta, one of the twenty-seven lunar mansions
+    long: Dhanishta, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.shatabhisha
+  system: vedic
+  zh:
+    term: 沙多毗沙
+    short: 沙多毗沙，二十七星宿之一
+    long: 沙多毗沙，二十七星宿之一
+  en:
+    term: Shatabhisha
+    short: Shatabhisha, one of the twenty-seven lunar mansions
+    long: Shatabhisha, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.purva_bhadrapada
+  system: vedic
+  zh:
+    term: 前跋陀罗
+    short: 前跋陀罗，二十七星宿之一
+    long: 前跋陀罗，二十七星宿之一
+  en:
+    term: Purva Bhadrapada
+    short: Purva Bhadrapada, one of the twenty-seven lunar mansions
+    long: Purva Bhadrapada, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.uttara_bhadrapada
+  system: vedic
+  zh:
+    term: 后跋陀罗
+    short: 后跋陀罗，二十七星宿之一
+    long: 后跋陀罗，二十七星宿之一
+  en:
+    term: Uttara Bhadrapada
+    short: Uttara Bhadrapada, one of the twenty-seven lunar mansions
+    long: Uttara Bhadrapada, one of the twenty-seven lunar mansions
+  aliases: []
+- key: nakshatra.revati
+  system: vedic
+  zh:
+    term: 雷瓦蒂
+    short: 雷瓦蒂，二十七星宿之一
+    long: 雷瓦蒂，二十七星宿之一
+  en:
+    term: Revati
+    short: Revati, one of the twenty-seven lunar mansions
+    long: Revati, one of the twenty-seven lunar mansions
+  aliases: []
+- key: graha.surya
+  system: vedic
+  zh:
+    term: 日曜
+    short: 日曜，吠陀九曜之一
+    long: 日曜，吠陀九曜之一
+  en:
+    term: Surya
+    short: Surya, one of the nine Vedic grahas
+    long: Surya, one of the nine Vedic grahas
+  aliases: []
+- key: graha.chandra
+  system: vedic
+  zh:
+    term: 月曜
+    short: 月曜，吠陀九曜之一
+    long: 月曜，吠陀九曜之一
+  en:
+    term: Chandra
+    short: Chandra, one of the nine Vedic grahas
+    long: Chandra, one of the nine Vedic grahas
+  aliases: []
+- key: graha.mangala
+  system: vedic
+  zh:
+    term: 火曜
+    short: 火曜，吠陀九曜之一
+    long: 火曜，吠陀九曜之一
+  en:
+    term: Mangala
+    short: Mangala, one of the nine Vedic grahas
+    long: Mangala, one of the nine Vedic grahas
+  aliases: []
+- key: graha.budha
+  system: vedic
+  zh:
+    term: 水曜
+    short: 水曜，吠陀九曜之一
+    long: 水曜，吠陀九曜之一
+  en:
+    term: Budha
+    short: Budha, one of the nine Vedic grahas
+    long: Budha, one of the nine Vedic grahas
+  aliases: []
+- key: graha.guru
+  system: vedic
+  zh:
+    term: 木曜
+    short: 木曜，吠陀九曜之一
+    long: 木曜，吠陀九曜之一
+  en:
+    term: Guru
+    short: Guru, one of the nine Vedic grahas
+    long: Guru, one of the nine Vedic grahas
+  aliases: []
+- key: graha.shukra
+  system: vedic
+  zh:
+    term: 金曜
+    short: 金曜，吠陀九曜之一
+    long: 金曜，吠陀九曜之一
+  en:
+    term: Shukra
+    short: Shukra, one of the nine Vedic grahas
+    long: Shukra, one of the nine Vedic grahas
+  aliases: []
+- key: graha.shani
+  system: vedic
+  zh:
+    term: 土曜
+    short: 土曜，吠陀九曜之一
+    long: 土曜，吠陀九曜之一
+  en:
+    term: Shani
+    short: Shani, one of the nine Vedic grahas
+    long: Shani, one of the nine Vedic grahas
+  aliases: []
+- key: graha.rahu
+  system: vedic
+  zh:
+    term: 罗睺
+    short: 罗睺，吠陀九曜之一
+    long: 罗睺，吠陀九曜之一
+  en:
+    term: Rahu
+    short: Rahu, one of the nine Vedic grahas
+    long: Rahu, one of the nine Vedic grahas
+  aliases: []
+- key: graha.ketu
+  system: vedic
+  zh:
+    term: 计都
+    short: 计都，吠陀九曜之一
+    long: 计都，吠陀九曜之一
+  en:
+    term: Ketu
+    short: Ketu, one of the nine Vedic grahas
+    long: Ketu, one of the nine Vedic grahas
+  aliases: []
+- key: dasha.maha
+  system: vedic
+  zh:
+    term: 大运
+    short: 大运，吠陀周期体系中的阶段
+    long: 大运，吠陀周期体系中的阶段
+  en:
+    term: Mahadasha
+    short: Mahadasha, a phase in the Vedic period system
+    long: Mahadasha, a phase in the Vedic period system
+  aliases: []
+- key: dasha.antar
+  system: vedic
+  zh:
+    term: 次运
+    short: 次运，吠陀周期体系中的阶段
+    long: 次运，吠陀周期体系中的阶段
+  en:
+    term: Antardasha
+    short: Antardasha, a phase in the Vedic period system
+    long: Antardasha, a phase in the Vedic period system
+  aliases: []
+- key: dignity.exalted
+  system: vedic
+  zh:
+    term: 旺
+    short: 旺，行星的尊贵状态
+    long: 旺，行星的尊贵状态
+  en:
+    term: Exalted
+    short: Exalted, a planetary dignity state
+    long: Exalted, a planetary dignity state
+  aliases: []
+- key: dignity.debilitated
+  system: vedic
+  zh:
+    term: 落
+    short: 落，行星的尊贵状态
+    long: 落，行星的尊贵状态
+  en:
+    term: Debilitated
+    short: Debilitated, a planetary dignity state
+    long: Debilitated, a planetary dignity state
+  aliases: []
+- key: dignity.own
+  system: vedic
+  zh:
+    term: 自宫
+    short: 自宫，行星的尊贵状态
+    long: 自宫，行星的尊贵状态
+  en:
+    term: Own
+    short: Own, a planetary dignity state
+    long: Own, a planetary dignity state
+  aliases: []
+- key: dignity.moolatrikona
+  system: vedic
+  zh:
+    term: 三分
+    short: 三分，行星的尊贵状态
+    long: 三分，行星的尊贵状态
+  en:
+    term: Moolatrikona
+    short: Moolatrikona, a planetary dignity state
+    long: Moolatrikona, a planetary dignity state
+  aliases: []
+- key: panchang.tithi
+  system: vedic
+  zh:
+    term: 月日
+    short: 月日，印度历法的五要素之一
+    long: 月日，印度历法的五要素之一
+  en:
+    term: Tithi
+    short: Tithi, one of the five calendar factors
+    long: Tithi, one of the five calendar factors
+  aliases: []
+- key: panchang.nakshatra
+  system: vedic
+  zh:
+    term: 星宿
+    short: 星宿，印度历法的五要素之一
+    long: 星宿，印度历法的五要素之一
+  en:
+    term: Nakshatra
+    short: Nakshatra, one of the five calendar factors
+    long: Nakshatra, one of the five calendar factors
+  aliases: []
+- key: panchang.yoga
+  system: vedic
+  zh:
+    term: 瑜伽
+    short: 瑜伽，印度历法的五要素之一
+    long: 瑜伽，印度历法的五要素之一
+  en:
+    term: Yoga
+    short: Yoga, one of the five calendar factors
+    long: Yoga, one of the five calendar factors
+  aliases: []
+- key: panchang.karana
+  system: vedic
+  zh:
+    term: 半日
+    short: 半日，印度历法的五要素之一
+    long: 半日，印度历法的五要素之一
+  en:
+    term: Karana
+    short: Karana, one of the five calendar factors
+    long: Karana, one of the five calendar factors
+  aliases: []
+- key: panchang.vara
+  system: vedic
+  zh:
+    term: 星期
+    short: 星期，印度历法的五要素之一
+    long: 星期，印度历法的五要素之一
+  en:
+    term: Vara
+    short: Vara, one of the five calendar factors
+    long: Vara, one of the five calendar factors
+  aliases: []
+- key: yoga.gajakesari
+  system: vedic
+  zh:
+    term: 象狮瑜伽
+    short: 象狮瑜伽，吠陀的一种行星组合
+    long: 象狮瑜伽，吠陀的一种行星组合
+  en:
+    term: Gajakesari
+    short: Gajakesari, a Vedic planetary configuration
+    long: Gajakesari, a Vedic planetary configuration
+  aliases: []
+- key: yoga.budha_aditya
+  system: vedic
+  zh:
+    term: 日水瑜伽
+    short: 日水瑜伽，吠陀的一种行星组合
+    long: 日水瑜伽，吠陀的一种行星组合
+  en:
+    term: Budha-Aditya
+    short: Budha-Aditya, a Vedic planetary configuration
+    long: Budha-Aditya, a Vedic planetary configuration
+  aliases: []
+- key: pada
+  system: vedic
+  zh:
+    term: 帕达
+    short: 星宿的四分之一
+    long: 星宿的四分之一
+  en:
+    term: Pada (quarter)
+    short: A quarter of a lunar mansion
+    long: A quarter of a lunar mansion
+  aliases: []
+- key: lagna
+  system: vedic
+  zh:
+    term: 上升
+    short: 出生时东方地平线的星座
+    long: 出生时东方地平线的星座
+  en:
+    term: Lagna
+    short: The sign rising on the eastern horizon at birth
+    long: The sign rising on the eastern horizon at birth
+  aliases: []
+- key: navamsa
+  system: vedic
+  zh:
+    term: 九分盘
+    short: 吠陀分盘中的九分盘
+    long: 吠陀分盘中的九分盘
+  en:
+    term: Navamsa (D9)
+    short: The ninth divisional chart
+    long: The ninth divisional chart
+  aliases: []
+- key: combust
+  system: vedic
+  zh:
+    term: 焦伤
+    short: 行星与太阳过近的一种状态
+    long: 行星与太阳过近的一种状态
+  en:
+    term: Combust
+    short: A state of close proximity to the Sun
+    long: A state of close proximity to the Sun
+  aliases: []
+- key: ayanamsa.lahiri
+  system: vedic
+  zh:
+    term: 拉希里岁差
+    short: 恒星黄道相对回归黄道的拉希里偏移值
+    long: 恒星黄道相对回归黄道的拉希里偏移值
+  en:
+    term: Lahiri ayanamsa
+    short: The Lahiri offset from the tropical to the sidereal zodiac
+    long: The Lahiri offset from the tropical to the sidereal zodiac
+  aliases: []
+- key: career
+  system: common
+  zh:
+    term: 事业
+    short: 五维评分之一：事业
+    long: 五维评分之一：事业
+  en:
+    term: Career
+    short: 'One of the five report dimensions: Career'
+    long: 'One of the five report dimensions: Career'
+  aliases: []
+- key: wealth
+  system: common
+  zh:
+    term: 财富
+    short: 五维评分之一：财富
+    long: 五维评分之一：财富
+  en:
+    term: Wealth
+    short: 'One of the five report dimensions: Wealth'
+    long: 'One of the five report dimensions: Wealth'
+  aliases: []
+- key: love
+  system: common
+  zh:
+    term: 感情
+    short: 五维评分之一：感情
+    long: 五维评分之一：感情
+  en:
+    term: Love
+    short: 'One of the five report dimensions: Love'
+    long: 'One of the five report dimensions: Love'
+  aliases: []
+- key: health
+  system: common
+  zh:
+    term: 健康
+    short: 五维评分之一：健康
+    long: 五维评分之一：健康
+  en:
+    term: Wellbeing
+    short: 'One of the five report dimensions: Wellbeing'
+    long: 'One of the five report dimensions: Wellbeing'
+  aliases: []
+- key: social
+  system: common
+  zh:
+    term: 人际
+    short: 五维评分之一：人际
+    long: 五维评分之一：人际
+  en:
+    term: Social
+    short: 'One of the five report dimensions: Social'
+    long: 'One of the five report dimensions: Social'
+  aliases: []
+- key: hexagram.1
+  system: iching
+  zh:
+    term: 乾
+    short: 乾，传统象征中的一种分类
+    long: 乾，用于理解传统象征，不代表固定结论
+  en:
+    term: The Creative
+    short: The Creative, a category in the traditional symbolic framework
+    long: The Creative, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.2
+  system: iching
+  zh:
+    term: 坤
+    short: 坤，传统象征中的一种分类
+    long: 坤，用于理解传统象征，不代表固定结论
+  en:
+    term: The Receptive
+    short: The Receptive, a category in the traditional symbolic framework
+    long: The Receptive, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.3
+  system: iching
+  zh:
+    term: 屯
+    short: 屯，传统象征中的一种分类
+    long: 屯，用于理解传统象征，不代表固定结论
+  en:
+    term: Difficulty at the Beginning
+    short: Difficulty at the Beginning, a category in the traditional symbolic framework
+    long: Difficulty at the Beginning, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.4
+  system: iching
+  zh:
+    term: 蒙
+    short: 蒙，传统象征中的一种分类
+    long: 蒙，用于理解传统象征，不代表固定结论
+  en:
+    term: Youthful Folly
+    short: Youthful Folly, a category in the traditional symbolic framework
+    long: Youthful Folly, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.5
+  system: iching
+  zh:
+    term: 需
+    short: 需，传统象征中的一种分类
+    long: 需，用于理解传统象征，不代表固定结论
+  en:
+    term: Waiting
+    short: Waiting, a category in the traditional symbolic framework
+    long: Waiting, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.6
+  system: iching
+  zh:
+    term: 讼
+    short: 讼，传统象征中的一种分类
+    long: 讼，用于理解传统象征，不代表固定结论
+  en:
+    term: Conflict
+    short: Conflict, a category in the traditional symbolic framework
+    long: Conflict, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.7
+  system: iching
+  zh:
+    term: 师
+    short: 师，传统象征中的一种分类
+    long: 师，用于理解传统象征，不代表固定结论
+  en:
+    term: The Army
+    short: The Army, a category in the traditional symbolic framework
+    long: The Army, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.8
+  system: iching
+  zh:
+    term: 比
+    short: 比，传统象征中的一种分类
+    long: 比，用于理解传统象征，不代表固定结论
+  en:
+    term: Holding Together
+    short: Holding Together, a category in the traditional symbolic framework
+    long: Holding Together, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.9
+  system: iching
+  zh:
+    term: 小畜
+    short: 小畜，传统象征中的一种分类
+    long: 小畜，用于理解传统象征，不代表固定结论
+  en:
+    term: The Taming Power of the Small
+    short: The Taming Power of the Small, a category in the traditional symbolic framework
+    long: The Taming Power of the Small, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.10
+  system: iching
+  zh:
+    term: 履
+    short: 履，传统象征中的一种分类
+    long: 履，用于理解传统象征，不代表固定结论
+  en:
+    term: Treading
+    short: Treading, a category in the traditional symbolic framework
+    long: Treading, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.11
+  system: iching
+  zh:
+    term: 泰
+    short: 泰，传统象征中的一种分类
+    long: 泰，用于理解传统象征，不代表固定结论
+  en:
+    term: Peace
+    short: Peace, a category in the traditional symbolic framework
+    long: Peace, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.12
+  system: iching
+  zh:
+    term: 否
+    short: 否，传统象征中的一种分类
+    long: 否，用于理解传统象征，不代表固定结论
+  en:
+    term: Standstill
+    short: Standstill, a category in the traditional symbolic framework
+    long: Standstill, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.13
+  system: iching
+  zh:
+    term: 同人
+    short: 同人，传统象征中的一种分类
+    long: 同人，用于理解传统象征，不代表固定结论
+  en:
+    term: Fellowship with Men
+    short: Fellowship with Men, a category in the traditional symbolic framework
+    long: Fellowship with Men, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.14
+  system: iching
+  zh:
+    term: 大有
+    short: 大有，传统象征中的一种分类
+    long: 大有，用于理解传统象征，不代表固定结论
+  en:
+    term: Possession in Great Measure
+    short: Possession in Great Measure, a category in the traditional symbolic framework
+    long: Possession in Great Measure, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.15
+  system: iching
+  zh:
+    term: 谦
+    short: 谦，传统象征中的一种分类
+    long: 谦，用于理解传统象征，不代表固定结论
+  en:
+    term: Modesty
+    short: Modesty, a category in the traditional symbolic framework
+    long: Modesty, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.16
+  system: iching
+  zh:
+    term: 豫
+    short: 豫，传统象征中的一种分类
+    long: 豫，用于理解传统象征，不代表固定结论
+  en:
+    term: Enthusiasm
+    short: Enthusiasm, a category in the traditional symbolic framework
+    long: Enthusiasm, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.17
+  system: iching
+  zh:
+    term: 随
+    short: 随，传统象征中的一种分类
+    long: 随，用于理解传统象征，不代表固定结论
+  en:
+    term: Following
+    short: Following, a category in the traditional symbolic framework
+    long: Following, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.18
+  system: iching
+  zh:
+    term: 蛊
+    short: 蛊，传统象征中的一种分类
+    long: 蛊，用于理解传统象征，不代表固定结论
+  en:
+    term: Work on What Has Been Spoiled
+    short: Work on What Has Been Spoiled, a category in the traditional symbolic framework
+    long: Work on What Has Been Spoiled, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.19
+  system: iching
+  zh:
+    term: 临
+    short: 临，传统象征中的一种分类
+    long: 临，用于理解传统象征，不代表固定结论
+  en:
+    term: Approach
+    short: Approach, a category in the traditional symbolic framework
+    long: Approach, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.20
+  system: iching
+  zh:
+    term: 观
+    short: 观，传统象征中的一种分类
+    long: 观，用于理解传统象征，不代表固定结论
+  en:
+    term: Contemplation
+    short: Contemplation, a category in the traditional symbolic framework
+    long: Contemplation, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.21
+  system: iching
+  zh:
+    term: 噬嗑
+    short: 噬嗑，传统象征中的一种分类
+    long: 噬嗑，用于理解传统象征，不代表固定结论
+  en:
+    term: Biting Through
+    short: Biting Through, a category in the traditional symbolic framework
+    long: Biting Through, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.22
+  system: iching
+  zh:
+    term: 贲
+    short: 贲，传统象征中的一种分类
+    long: 贲，用于理解传统象征，不代表固定结论
+  en:
+    term: Grace
+    short: Grace, a category in the traditional symbolic framework
+    long: Grace, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.23
+  system: iching
+  zh:
+    term: 剥
+    short: 剥，传统象征中的一种分类
+    long: 剥，用于理解传统象征，不代表固定结论
+  en:
+    term: Splitting Apart
+    short: Splitting Apart, a category in the traditional symbolic framework
+    long: Splitting Apart, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.24
+  system: iching
+  zh:
+    term: 复
+    short: 复，传统象征中的一种分类
+    long: 复，用于理解传统象征，不代表固定结论
+  en:
+    term: Return
+    short: Return, a category in the traditional symbolic framework
+    long: Return, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.25
+  system: iching
+  zh:
+    term: 无妄
+    short: 无妄，传统象征中的一种分类
+    long: 无妄，用于理解传统象征，不代表固定结论
+  en:
+    term: Innocence
+    short: Innocence, a category in the traditional symbolic framework
+    long: Innocence, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.26
+  system: iching
+  zh:
+    term: 大畜
+    short: 大畜，传统象征中的一种分类
+    long: 大畜，用于理解传统象征，不代表固定结论
+  en:
+    term: The Taming Power of the Great
+    short: The Taming Power of the Great, a category in the traditional symbolic framework
+    long: The Taming Power of the Great, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.27
+  system: iching
+  zh:
+    term: 颐
+    short: 颐，传统象征中的一种分类
+    long: 颐，用于理解传统象征，不代表固定结论
+  en:
+    term: The Corners of the Mouth
+    short: The Corners of the Mouth, a category in the traditional symbolic framework
+    long: The Corners of the Mouth, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.28
+  system: iching
+  zh:
+    term: 大过
+    short: 大过，传统象征中的一种分类
+    long: 大过，用于理解传统象征，不代表固定结论
+  en:
+    term: Preponderance of the Great
+    short: Preponderance of the Great, a category in the traditional symbolic framework
+    long: Preponderance of the Great, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.29
+  system: iching
+  zh:
+    term: 坎
+    short: 坎，传统象征中的一种分类
+    long: 坎，用于理解传统象征，不代表固定结论
+  en:
+    term: The Abysmal
+    short: The Abysmal, a category in the traditional symbolic framework
+    long: The Abysmal, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.30
+  system: iching
+  zh:
+    term: 离
+    short: 离，传统象征中的一种分类
+    long: 离，用于理解传统象征，不代表固定结论
+  en:
+    term: The Clinging
+    short: The Clinging, a category in the traditional symbolic framework
+    long: The Clinging, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.31
+  system: iching
+  zh:
+    term: 咸
+    short: 咸，传统象征中的一种分类
+    long: 咸，用于理解传统象征，不代表固定结论
+  en:
+    term: Influence
+    short: Influence, a category in the traditional symbolic framework
+    long: Influence, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.32
+  system: iching
+  zh:
+    term: 恒
+    short: 恒，传统象征中的一种分类
+    long: 恒，用于理解传统象征，不代表固定结论
+  en:
+    term: Duration
+    short: Duration, a category in the traditional symbolic framework
+    long: Duration, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.33
+  system: iching
+  zh:
+    term: 遁
+    short: 遁，传统象征中的一种分类
+    long: 遁，用于理解传统象征，不代表固定结论
+  en:
+    term: Retreat
+    short: Retreat, a category in the traditional symbolic framework
+    long: Retreat, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.34
+  system: iching
+  zh:
+    term: 大壮
+    short: 大壮，传统象征中的一种分类
+    long: 大壮，用于理解传统象征，不代表固定结论
+  en:
+    term: The Power of the Great
+    short: The Power of the Great, a category in the traditional symbolic framework
+    long: The Power of the Great, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.35
+  system: iching
+  zh:
+    term: 晋
+    short: 晋，传统象征中的一种分类
+    long: 晋，用于理解传统象征，不代表固定结论
+  en:
+    term: Progress
+    short: Progress, a category in the traditional symbolic framework
+    long: Progress, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.36
+  system: iching
+  zh:
+    term: 明夷
+    short: 明夷，传统象征中的一种分类
+    long: 明夷，用于理解传统象征，不代表固定结论
+  en:
+    term: Darkening of the Light
+    short: Darkening of the Light, a category in the traditional symbolic framework
+    long: Darkening of the Light, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.37
+  system: iching
+  zh:
+    term: 家人
+    short: 家人，传统象征中的一种分类
+    long: 家人，用于理解传统象征，不代表固定结论
+  en:
+    term: The Family
+    short: The Family, a category in the traditional symbolic framework
+    long: The Family, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.38
+  system: iching
+  zh:
+    term: 睽
+    short: 睽，传统象征中的一种分类
+    long: 睽，用于理解传统象征，不代表固定结论
+  en:
+    term: Opposition
+    short: Opposition, a category in the traditional symbolic framework
+    long: Opposition, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.39
+  system: iching
+  zh:
+    term: 蹇
+    short: 蹇，传统象征中的一种分类
+    long: 蹇，用于理解传统象征，不代表固定结论
+  en:
+    term: Obstruction
+    short: Obstruction, a category in the traditional symbolic framework
+    long: Obstruction, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.40
+  system: iching
+  zh:
+    term: 解
+    short: 解，传统象征中的一种分类
+    long: 解，用于理解传统象征，不代表固定结论
+  en:
+    term: Deliverance
+    short: Deliverance, a category in the traditional symbolic framework
+    long: Deliverance, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.41
+  system: iching
+  zh:
+    term: 损
+    short: 损，传统象征中的一种分类
+    long: 损，用于理解传统象征，不代表固定结论
+  en:
+    term: Decrease
+    short: Decrease, a category in the traditional symbolic framework
+    long: Decrease, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.42
+  system: iching
+  zh:
+    term: 益
+    short: 益，传统象征中的一种分类
+    long: 益，用于理解传统象征，不代表固定结论
+  en:
+    term: Increase
+    short: Increase, a category in the traditional symbolic framework
+    long: Increase, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.43
+  system: iching
+  zh:
+    term: 夬
+    short: 夬，传统象征中的一种分类
+    long: 夬，用于理解传统象征，不代表固定结论
+  en:
+    term: Breakthrough
+    short: Breakthrough, a category in the traditional symbolic framework
+    long: Breakthrough, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.44
+  system: iching
+  zh:
+    term: 姤
+    short: 姤，传统象征中的一种分类
+    long: 姤，用于理解传统象征，不代表固定结论
+  en:
+    term: Coming to Meet
+    short: Coming to Meet, a category in the traditional symbolic framework
+    long: Coming to Meet, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.45
+  system: iching
+  zh:
+    term: 萃
+    short: 萃，传统象征中的一种分类
+    long: 萃，用于理解传统象征，不代表固定结论
+  en:
+    term: Gathering Together
+    short: Gathering Together, a category in the traditional symbolic framework
+    long: Gathering Together, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.46
+  system: iching
+  zh:
+    term: 升
+    short: 升，传统象征中的一种分类
+    long: 升，用于理解传统象征，不代表固定结论
+  en:
+    term: Pushing Upward
+    short: Pushing Upward, a category in the traditional symbolic framework
+    long: Pushing Upward, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.47
+  system: iching
+  zh:
+    term: 困
+    short: 困，传统象征中的一种分类
+    long: 困，用于理解传统象征，不代表固定结论
+  en:
+    term: Oppression
+    short: Oppression, a category in the traditional symbolic framework
+    long: Oppression, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.48
+  system: iching
+  zh:
+    term: 井
+    short: 井，传统象征中的一种分类
+    long: 井，用于理解传统象征，不代表固定结论
+  en:
+    term: The Well
+    short: The Well, a category in the traditional symbolic framework
+    long: The Well, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.49
+  system: iching
+  zh:
+    term: 革
+    short: 革，传统象征中的一种分类
+    long: 革，用于理解传统象征，不代表固定结论
+  en:
+    term: Revolution
+    short: Revolution, a category in the traditional symbolic framework
+    long: Revolution, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.50
+  system: iching
+  zh:
+    term: 鼎
+    short: 鼎，传统象征中的一种分类
+    long: 鼎，用于理解传统象征，不代表固定结论
+  en:
+    term: The Cauldron
+    short: The Cauldron, a category in the traditional symbolic framework
+    long: The Cauldron, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.51
+  system: iching
+  zh:
+    term: 震
+    short: 震，传统象征中的一种分类
+    long: 震，用于理解传统象征，不代表固定结论
+  en:
+    term: The Arousing
+    short: The Arousing, a category in the traditional symbolic framework
+    long: The Arousing, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.52
+  system: iching
+  zh:
+    term: 艮
+    short: 艮，传统象征中的一种分类
+    long: 艮，用于理解传统象征，不代表固定结论
+  en:
+    term: Keeping Still
+    short: Keeping Still, a category in the traditional symbolic framework
+    long: Keeping Still, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.53
+  system: iching
+  zh:
+    term: 渐
+    short: 渐，传统象征中的一种分类
+    long: 渐，用于理解传统象征，不代表固定结论
+  en:
+    term: Development
+    short: Development, a category in the traditional symbolic framework
+    long: Development, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.54
+  system: iching
+  zh:
+    term: 归妹
+    short: 归妹，传统象征中的一种分类
+    long: 归妹，用于理解传统象征，不代表固定结论
+  en:
+    term: The Marrying Maiden
+    short: The Marrying Maiden, a category in the traditional symbolic framework
+    long: The Marrying Maiden, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.55
+  system: iching
+  zh:
+    term: 丰
+    short: 丰，传统象征中的一种分类
+    long: 丰，用于理解传统象征，不代表固定结论
+  en:
+    term: Abundance
+    short: Abundance, a category in the traditional symbolic framework
+    long: Abundance, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.56
+  system: iching
+  zh:
+    term: 旅
+    short: 旅，传统象征中的一种分类
+    long: 旅，用于理解传统象征，不代表固定结论
+  en:
+    term: The Wanderer
+    short: The Wanderer, a category in the traditional symbolic framework
+    long: The Wanderer, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.57
+  system: iching
+  zh:
+    term: 巽
+    short: 巽，传统象征中的一种分类
+    long: 巽，用于理解传统象征，不代表固定结论
+  en:
+    term: The Gentle
+    short: The Gentle, a category in the traditional symbolic framework
+    long: The Gentle, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.58
+  system: iching
+  zh:
+    term: 兑
+    short: 兑，传统象征中的一种分类
+    long: 兑，用于理解传统象征，不代表固定结论
+  en:
+    term: The Joyous
+    short: The Joyous, a category in the traditional symbolic framework
+    long: The Joyous, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.59
+  system: iching
+  zh:
+    term: 涣
+    short: 涣，传统象征中的一种分类
+    long: 涣，用于理解传统象征，不代表固定结论
+  en:
+    term: Dispersion
+    short: Dispersion, a category in the traditional symbolic framework
+    long: Dispersion, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.60
+  system: iching
+  zh:
+    term: 节
+    short: 节，传统象征中的一种分类
+    long: 节，用于理解传统象征，不代表固定结论
+  en:
+    term: Limitation
+    short: Limitation, a category in the traditional symbolic framework
+    long: Limitation, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.61
+  system: iching
+  zh:
+    term: 中孚
+    short: 中孚，传统象征中的一种分类
+    long: 中孚，用于理解传统象征，不代表固定结论
+  en:
+    term: Inner Truth
+    short: Inner Truth, a category in the traditional symbolic framework
+    long: Inner Truth, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.62
+  system: iching
+  zh:
+    term: 小过
+    short: 小过，传统象征中的一种分类
+    long: 小过，用于理解传统象征，不代表固定结论
+  en:
+    term: Preponderance of the Small
+    short: Preponderance of the Small, a category in the traditional symbolic framework
+    long: Preponderance of the Small, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.63
+  system: iching
+  zh:
+    term: 既济
+    short: 既济，传统象征中的一种分类
+    long: 既济，用于理解传统象征，不代表固定结论
+  en:
+    term: After Completion
+    short: After Completion, a category in the traditional symbolic framework
+    long: After Completion, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: hexagram.64
+  system: iching
+  zh:
+    term: 未济
+    short: 未济，传统象征中的一种分类
+    long: 未济，用于理解传统象征，不代表固定结论
+  en:
+    term: Before Completion
+    short: Before Completion, a category in the traditional symbolic framework
+    long: Before Completion, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.single
+  system: tarot
+  zh:
+    term: 单张指引
+    short: 单张指引，传统象征中的一种分类
+    long: 单张指引，用于理解传统象征，不代表固定结论
+  en:
+    term: One Card
+    short: One Card, a category in the traditional symbolic framework
+    long: One Card, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.yes_no
+  system: tarot
+  zh:
+    term: 是非一问
+    short: 是非一问，传统象征中的一种分类
+    long: 是非一问，用于理解传统象征，不代表固定结论
+  en:
+    term: Yes or No
+    short: Yes or No, a category in the traditional symbolic framework
+    long: Yes or No, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.three_ppf
+  system: tarot
+  zh:
+    term: 过去·现在·未来
+    short: 过去·现在·未来，传统象征中的一种分类
+    long: 过去·现在·未来，用于理解传统象征，不代表固定结论
+  en:
+    term: Past-Present-Future
+    short: Past-Present-Future, a category in the traditional symbolic framework
+    long: Past-Present-Future, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.three_sao
+  system: tarot
+  zh:
+    term: 情境·行动·结果
+    short: 情境·行动·结果，传统象征中的一种分类
+    long: 情境·行动·结果，用于理解传统象征，不代表固定结论
+  en:
+    term: Situation-Action-Outcome
+    short: Situation-Action-Outcome, a category in the traditional symbolic framework
+    long: Situation-Action-Outcome, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.relationship
+  system: tarot
+  zh:
+    term: 关系牌阵
+    short: 关系牌阵，传统象征中的一种分类
+    long: 关系牌阵，用于理解传统象征，不代表固定结论
+  en:
+    term: Relationship
+    short: Relationship, a category in the traditional symbolic framework
+    long: Relationship, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.decision
+  system: tarot
+  zh:
+    term: 抉择牌阵
+    short: 抉择牌阵，传统象征中的一种分类
+    long: 抉择牌阵，用于理解传统象征，不代表固定结论
+  en:
+    term: Decision
+    short: Decision, a category in the traditional symbolic framework
+    long: Decision, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.celtic_cross
+  system: tarot
+  zh:
+    term: 凯尔特十字
+    short: 凯尔特十字，传统象征中的一种分类
+    long: 凯尔特十字，用于理解传统象征，不代表固定结论
+  en:
+    term: Celtic Cross
+    short: Celtic Cross, a category in the traditional symbolic framework
+    long: Celtic Cross, a symbol used for reflection rather than a fixed outcome
+  aliases: []
+- key: spread.year_ahead
+  system: tarot
+  zh:
+    term: 年度牌阵
+    short: 年度牌阵，传统象征中的一种分类
+    long: 年度牌阵，用于理解传统象征，不代表固定结论
+  en:
+    term: Year Ahead
+    short: Year Ahead, a category in the traditional symbolic framework
+    long: Year Ahead, a symbol used for reflection rather than a fixed outcome
+  aliases: []
