@@ -1,33 +1,33 @@
-# 分支合并
+# merge · 五分支合并
 
 ## 完成项
-
-- 在 main 按顺序合并 wt/t11、wt/t12_15、wt/t13_14、wt/t16、wt/interp。
-- 每个分支各有一个 merge commit；未 push。
-- 冲突保留七体系引擎、共享 schema、包导出、双语文案与全部分支进度文件。
-- 依赖合并后实际运行 pnpm install，重新生成并保留 lockfile。
-- 修复共享类型/schema 与格局检测函数重名，保留各体系原实现。
-- 内容流水线分别校验 78 张塔罗牌、8 个牌阵、来源记录、64 卦原文与 KU。
-- 新增内容表整合回归测试，未知内容文件仍必须通过 KU 校验。
-- docs/04-engine-overview.md §9 与出生 Fixture F 同步为农历 1993 年闰三月十五 06:00，成都。
-- 更新 F 规范化快照、紫微完整黄金结果及闰月分半测试；保留 1992 无闰月错误回归。
+- 在 main 按顺序合并 wt/c_bazi、wt/c_ziwei、wt/c_iching、wt/c_qimen、wt/t04_06。
+- 每个分支独立 merge commit，保留各分支 docs/progress/*.md。
+- 保留八字、紫微、周易、奇门双语知识库及各体系测试、覆盖率脚本。
+- 合并公共三元字符相似度工具，保留缓存比较器及两套导出接口，统一 Dice 算法。
+- 合并确定性文案变体选择：按用户或匿名命盘选取，保留互斥约束和跨语言一致性。
+- 合并全部 package.json 脚本和依赖，重新 pnpm install，校验 lockfile 与 Prisma Client。
+- 保留认证、字段加密、数据库迁移、限流、健康检查、日志和监控功能。
+- 合并后的知识库版本提升至 1.2.0，避免与各分支单独发布版本混淆。
+- 核对 04 §9 Fixture F 及 birth/F.json：已为农历 1993 年闰三月十五 06:00、成都，无需修改。
+- 修复完整合并语料在覆盖率模式下超过原初始化与周易变体审计时限的问题。
+- 未修改 .codex-runs/，未 push。
 
 ## 未完成项
-
-- 本次合并任务无未完成项；各分支原有后续任务范围见保留的进度文档。
+- 本次合并任务无；各分支原有人工审阅、外部服务联调限制详见对应进度文档。
 
 ## DESIGN-GAP 列表
-
-- 根导出重名时保留先合入的 API，另提供 QimenStarKey、DivinationPillarSchema、detectQimenPatterns 别名。
-- 数据表与 KU 共用体系目录，按明确文件路径选用独立 schema；双语草稿正文允许空，不编译为 published KU。
-- 紫微穷举 150 个命盘的测试独立延长至 30 秒，适应全仓库 V8 覆盖率检查。
-- 合入分支已有 DESIGN-GAP 保留，详见其原进度摘要与代码注释。
+- 新增：完整双语语料的初始化校验钩子时限 30 秒，保留测试断言与覆盖率门槛。
+- 新增：周易跨用户双语变体审计时限 30 秒，包含完整语料校验与多次报告生成。
+- 保留：字符三元组采用 Dice 相似度，提供预计算和按调用生命周期缓存。
+- 保留：解读 context 可选 userId；匿名变体以命盘 JSON 作确定性种子。
+- 各分支其余 DESIGN-GAP 保留于 T-23-bazi、T-23-ziwei、T-23-iching、T-23-qimen、T-04-T-05-T-06 进度文档及源码。
 
 ## 如何验证
-
-- pnpm install、pnpm lint、pnpm typecheck、pnpm test、pnpm content:validate、pnpm build 全部通过。
-- 按指定顺序运行 pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build。
-- Vitest：20 个测试文件、922 条测试通过；语句/行 99.94%，分支 98.97%，函数 100%。
-- pnpm i18n:check 通过；中英文键及 ICU 语法一致。
-- git diff --check 通过；各目标分支均为 main 祖先，五个合并提交均含两个 parent。
-- 最终修复提交：chore: post-merge fixes；.codex-runs/ 原有改动保留且未纳入提交。
+- pnpm install 通过，Prisma Client 生成成功。
+- pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build 全部通过。
+- 内容校验：1,427 条 KU、444 条术语；相似度仅按 05 §7 输出审阅 warning。
+- Vitest：29 文件、1,049 用例全部通过；覆盖率语句/行 99.95%、分支 99.07%、函数 100%。
+- 测试含 Fixture F 闰月、全部引擎、真实 Chromium 离线运行、双语内容、认证与加密。
+- pnpm i18n:check 通过，zh/en 键与 ICU 语法一致。
+- 合并依赖的许可证为 MIT、ISC 或 Apache-2.0；未引入 AGPL/GPL。

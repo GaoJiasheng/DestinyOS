@@ -10,6 +10,8 @@ export default defineConfig({
     // DESIGN-GAP: Four workers and a 15s timeout accommodate real Chromium plus exhaustive calendar fixtures under coverage without changing assertions or coverage thresholds.
     maxWorkers: 4,
     testTimeout: 15_000,
+    // DESIGN-GAP: The merged bilingual corpus needs up to 30s for hook-time schema and duplicate scans under coverage.
+    hookTimeout: 30_000,
     coverage: {
       provider: 'v8',
       include: [

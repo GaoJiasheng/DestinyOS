@@ -44,7 +44,8 @@ describe('I Ching content production audit', () => {
     expect(selected.size).toBe(2);
     expect(choice(undefined, 'zh')).toBe(choice(undefined, 'en'));
     expect(choice(undefined, 'zh')).toBe(choice(undefined, 'zh'));
-  });
+    // DESIGN-GAP: Full merged-corpus validation plus bilingual multi-user reports needs a 30s audit budget under coverage.
+  }, 30_000);
   it('checks schema-backed matrices and detects a missing category variant', async () => {
     const content = await loadContent();
     const units = content.units.filter((u) => u.system === System.iching);
