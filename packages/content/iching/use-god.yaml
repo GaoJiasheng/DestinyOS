@@ -1,0 +1,4112 @@
+# DESIGN-GAP: moving/return states are schema-valid; the engine currently exposes them as findings.
+- id: iching.use_god.strong.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: career
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次事业问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 把目标写成可核对的交付物
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. For example, a new project
+      may need a named owner, a clear handover, and one missing document. Write these dependencies
+      down before accepting responsibility for the whole schedule. This makes a request for help
+      easier for a colleague to answer. Try verifying that the backing is actually available before
+      choosing a modest action. Record how the coordination works, and address any missing part
+      instead of skipping practical checks because the overall image looks supportive.
+    advice:
+      - Define one reviewable deliverable
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.strong.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次财运问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 记录一周收支并分类
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. Consider a shared expense
+      that sounded simple in conversation. Ask what each participant can voluntarily contribute,
+      when it is available, and how the record will be kept. A pleasant agreement is different from
+      resources that are actually ready to use. Try verifying that the backing is actually available
+      before choosing a modest action. Record how the coordination works, and address any missing
+      part instead of skipping practical checks because the overall image looks supportive.
+    advice:
+      - Track a week of spending
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.strong.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: love
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次感情问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. For example, you might want
+      more frequent contact while another person has a different schedule. Make one invitation and
+      ask what feels comfortable. Leave room for a different preference instead of using a delayed
+      reply to infer the meaning of the entire relationship. Try verifying that the backing is
+      actually available before choosing a modest action. Record how the coordination works, and
+      address any missing part instead of skipping practical checks because the overall image looks
+      supportive.
+    advice:
+      - Offer an unpressured invitation
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.strong.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: health
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次健康问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 给每天保留一段安静时间
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. Suppose a busy period leaves
+      you reluctant to attend another event. Ask whether you want quiet or someone who can listen,
+      then communicate that need. Remove one optional demand from the next day and check whether the
+      arrangement feels easier to sustain. Try verifying that the backing is actually available
+      before choosing a modest action. Record how the coordination works, and address any missing
+      part instead of skipping practical checks because the overall image looks supportive.
+    advice:
+      - Keep a daily quiet interval
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.strong.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: study
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次学业问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 完成一次练习再复盘
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. For example, a recurring
+      mistake may begin at one unexamined step. Write down your attempt, mark where the reasoning
+      becomes unclear, and ask for feedback on that point. Collecting more finished answers may miss
+      the learning opportunity in your own work. Try verifying that the backing is actually
+      available before choosing a modest action. Record how the coordination works, and address any
+      missing part instead of skipping practical checks because the overall image looks supportive.
+    advice:
+      - Review a completed exercise
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.strong.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次出行问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 核对一处关键衔接
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. Consider arriving somewhere
+      unfamiliar with several invitations already waiting. Confirm your base and return arrangements
+      before adding activities. You can decline an extra outing politely if it would remove the time
+      or resources needed for the rest of the journey. Try verifying that the backing is actually
+      available before choosing a modest action. Record how the coordination works, and address any
+      missing part instead of skipping practical checks because the overall image looks supportive.
+    advice:
+      - Check one key connection
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.strong.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次决策问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 比较两案的现实限制
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. For example, two appealing
+      options may rely on different resources. List the time, dependencies, and least acceptable
+      condition for each. A small reversible trial can provide information that another round of
+      imagining the final outcome would not produce. Try verifying that the backing is actually
+      available before choosing a modest action. Record how the coordination works, and address any
+      missing part instead of skipping practical checks because the overall image looks supportive.
+    advice:
+      - Compare practical constraints
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.strong.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: strong
+      - path: category
+        eq: other
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：已有支持较明确，可以先把条件落实为一小步
+    summary: 已有支持较明确，可以先把条件落实为一小步
+    body: 在这次其他问题上，已有支持较明确，可以先把条件落实为一小步。旺（所选用神（按问题类别选择的观察焦点）受到日月生扶后形成的较强状态）表示象征上支持偏多，用神是按问题选择的观察焦点。这里重在看现有条件如何配合，不预示结果；多个相关爻可能共同参与，也要留意它们各自的实际位置。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    advice:
+      - 把问题缩成一个具体情境
+      - 你可以先检查支持是否真的可用，再安排能看见结果的小步骤；把进度和配合记录下来，遇到缺口就补齐，不因为总体条件较好而省略核对。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can test a concrete next step when support is visible'
+    summary: You can test a concrete next step when support is visible
+    body:
+      You can test a concrete next step when support is visible. Strong describes support around the
+      use god (yòng shén — the focus selected for the question). The daily and monthly elemental
+      relationships contribute to this state. It is an image of available backing, not a prediction,
+      and several selected lines may contribute to the classification. Consider an everyday
+      irritation that keeps returning. Record the setting and your response, then identify one part
+      you can influence. Ask a trusted person for another perspective before treating the pattern as
+      evidence that your circumstances cannot change. Try verifying that the backing is actually
+      available before choosing a modest action. Record how the coordination works, and address any
+      missing part instead of skipping practical checks because the overall image looks supportive.
+    advice:
+      - Name one concrete situation
+      - Try verifying that the backing is actually available before choosing a modest action. Record
+        how the coordination works, and address any missing part instead of skipping practical
+        checks because the overall image looks supportive.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: career
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次事业问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 把目标写成可核对的交付物
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. For example, a
+      new project may need a named owner, a clear handover, and one missing document. Write these
+      dependencies down before accepting responsibility for the whole schedule. This makes a request
+      for help easier for a colleague to answer. That said, you can narrow the demand and ask for a
+      specific form of help. Preserve capacity for essentials and review the adjustment. A difficult
+      step need not become a judgment about every choice available to you.
+    advice:
+      - Define one reviewable deliverable
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次财运问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 记录一周收支并分类
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. Consider a
+      shared expense that sounded simple in conversation. Ask what each participant can voluntarily
+      contribute, when it is available, and how the record will be kept. A pleasant agreement is
+      different from resources that are actually ready to use. That said, you can narrow the demand
+      and ask for a specific form of help. Preserve capacity for essentials and review the
+      adjustment. A difficult step need not become a judgment about every choice available to you.
+    advice:
+      - Track a week of spending
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: love
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次感情问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. For example, you
+      might want more frequent contact while another person has a different schedule. Make one
+      invitation and ask what feels comfortable. Leave room for a different preference instead of
+      using a delayed reply to infer the meaning of the entire relationship. That said, you can
+      narrow the demand and ask for a specific form of help. Preserve capacity for essentials and
+      review the adjustment. A difficult step need not become a judgment about every choice
+      available to you.
+    advice:
+      - Offer an unpressured invitation
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: health
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次健康问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 给每天保留一段安静时间
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. Suppose a busy
+      period leaves you reluctant to attend another event. Ask whether you want quiet or someone who
+      can listen, then communicate that need. Remove one optional demand from the next day and check
+      whether the arrangement feels easier to sustain. That said, you can narrow the demand and ask
+      for a specific form of help. Preserve capacity for essentials and review the adjustment. A
+      difficult step need not become a judgment about every choice available to you.
+    advice:
+      - Keep a daily quiet interval
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: study
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次学业问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 完成一次练习再复盘
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. For example, a
+      recurring mistake may begin at one unexamined step. Write down your attempt, mark where the
+      reasoning becomes unclear, and ask for feedback on that point. Collecting more finished
+      answers may miss the learning opportunity in your own work. That said, you can narrow the
+      demand and ask for a specific form of help. Preserve capacity for essentials and review the
+      adjustment. A difficult step need not become a judgment about every choice available to you.
+    advice:
+      - Review a completed exercise
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次出行问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 核对一处关键衔接
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. Consider
+      arriving somewhere unfamiliar with several invitations already waiting. Confirm your base and
+      return arrangements before adding activities. You can decline an extra outing politely if it
+      would remove the time or resources needed for the rest of the journey. That said, you can
+      narrow the demand and ask for a specific form of help. Preserve capacity for essentials and
+      review the adjustment. A difficult step need not become a judgment about every choice
+      available to you.
+    advice:
+      - Check one key connection
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次决策问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 比较两案的现实限制
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. For example, two
+      appealing options may rely on different resources. List the time, dependencies, and least
+      acceptable condition for each. A small reversible trial can provide information that another
+      round of imagining the final outcome would not produce. That said, you can narrow the demand
+      and ask for a specific form of help. Preserve capacity for essentials and review the
+      adjustment. A difficult step need not become a judgment about every choice available to you.
+    advice:
+      - Compare practical constraints
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.weak.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: weak
+      - path: category
+        eq: other
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：支持偏少时，适合减少消耗并寻找具体协助
+    summary: 支持偏少时，适合减少消耗并寻找具体协助
+    body: 在这次其他问题上，支持偏少时，适合减少消耗并寻找具体协助。弱（用神（按问题类别选择的观察焦点）受到约束或缺少生扶后的状态）提示观察焦点承接条件有限，用神指按类别选择的相关爻。弱不是人的能力标签，也不说明事情没有出口；日月与爻的关系只是传统比较方法，仍需检查现实中是哪项条件不足。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    advice:
+      - 把问题缩成一个具体情境
+      - 不过，你可以通过缩小任务与明确求助保留余力；先确认必要条件，给调整留一个复查点，不把一次困难扩展成对所有选择的否定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can reduce scope when the focus has little symbolic support'
+    summary: You can reduce scope when the focus has little symbolic support
+    body: You can reduce scope when the focus has little symbolic support. Weak is a limited-support
+      state for the use god (yòng shén — the selected focus). Day and month relationships can
+      constrain a line, but that does not assess your competence. Distinguish the symbolic
+      comparison from the actual resource, access, or time gap you need to address. Consider an
+      everyday irritation that keeps returning. Record the setting and your response, then identify
+      one part you can influence. Ask a trusted person for another perspective before treating the
+      pattern as evidence that your circumstances cannot change. That said, you can narrow the
+      demand and ask for a specific form of help. Preserve capacity for essentials and review the
+      adjustment. A difficult step need not become a judgment about every choice available to you.
+    advice:
+      - Name one concrete situation
+      - That said, you can narrow the demand and ask for a specific form of help. Preserve capacity
+        for essentials and review the adjustment. A difficult step need not become a judgment about
+        every choice available to you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: career
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次事业问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 把目标写成可核对的交付物
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. For example, a new
+      project may need a named owner, a clear handover, and one missing document. Write these
+      dependencies down before accepting responsibility for the whole schedule. This makes a request
+      for help easier for a colleague to answer. Consider a low-cost step with feedback you can
+      inspect, then use that information in the comparison. Ask which condition can be adjusted. A
+      mixed image is most useful when it encourages a clearer question rather than another round of
+      vague speculation.
+    advice:
+      - Define one reviewable deliverable
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次财运问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 记录一周收支并分类
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. Consider a shared
+      expense that sounded simple in conversation. Ask what each participant can voluntarily
+      contribute, when it is available, and how the record will be kept. A pleasant agreement is
+      different from resources that are actually ready to use. Consider a low-cost step with
+      feedback you can inspect, then use that information in the comparison. Ask which condition can
+      be adjusted. A mixed image is most useful when it encourages a clearer question rather than
+      another round of vague speculation.
+    advice:
+      - Track a week of spending
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: love
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次感情问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. For example, you might
+      want more frequent contact while another person has a different schedule. Make one invitation
+      and ask what feels comfortable. Leave room for a different preference instead of using a
+      delayed reply to infer the meaning of the entire relationship. Consider a low-cost step with
+      feedback you can inspect, then use that information in the comparison. Ask which condition can
+      be adjusted. A mixed image is most useful when it encourages a clearer question rather than
+      another round of vague speculation.
+    advice:
+      - Offer an unpressured invitation
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: health
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次健康问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 给每天保留一段安静时间
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. Suppose a busy period
+      leaves you reluctant to attend another event. Ask whether you want quiet or someone who can
+      listen, then communicate that need. Remove one optional demand from the next day and check
+      whether the arrangement feels easier to sustain. Consider a low-cost step with feedback you
+      can inspect, then use that information in the comparison. Ask which condition can be adjusted.
+      A mixed image is most useful when it encourages a clearer question rather than another round
+      of vague speculation.
+    advice:
+      - Keep a daily quiet interval
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: study
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次学业问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 完成一次练习再复盘
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. For example, a
+      recurring mistake may begin at one unexamined step. Write down your attempt, mark where the
+      reasoning becomes unclear, and ask for feedback on that point. Collecting more finished
+      answers may miss the learning opportunity in your own work. Consider a low-cost step with
+      feedback you can inspect, then use that information in the comparison. Ask which condition can
+      be adjusted. A mixed image is most useful when it encourages a clearer question rather than
+      another round of vague speculation.
+    advice:
+      - Review a completed exercise
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次出行问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 核对一处关键衔接
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. Consider arriving
+      somewhere unfamiliar with several invitations already waiting. Confirm your base and return
+      arrangements before adding activities. You can decline an extra outing politely if it would
+      remove the time or resources needed for the rest of the journey. Consider a low-cost step with
+      feedback you can inspect, then use that information in the comparison. Ask which condition can
+      be adjusted. A mixed image is most useful when it encourages a clearer question rather than
+      another round of vague speculation.
+    advice:
+      - Check one key connection
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次决策问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 比较两案的现实限制
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. For example, two
+      appealing options may rely on different resources. List the time, dependencies, and least
+      acceptable condition for each. A small reversible trial can provide information that another
+      round of imagining the final outcome would not produce. Consider a low-cost step with feedback
+      you can inspect, then use that information in the comparison. Ask which condition can be
+      adjusted. A mixed image is most useful when it encourages a clearer question rather than
+      another round of vague speculation.
+    advice:
+      - Compare practical constraints
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.neutral.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: neutral
+      - path: category
+        eq: other
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：支持与限制交织时，先用小试验获得信息
+    summary: 支持与限制交织时，先用小试验获得信息
+    body: 在这次其他问题上，支持与限制交织时，先用小试验获得信息。平（用神（按问题类别选择的观察焦点）的支持与约束尚未形成明显偏向）强调条件混合，用神是本次类别的观察焦点。中性的状态并非事情停住，也不是好坏各占一半的概率；多个日月关系或相关爻可能互相抵消，适合进一步辨认实际情况。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    advice:
+      - 把问题缩成一个具体情境
+      - 你可以选择一个成本较小、容易查看反馈的步骤，把得到的新信息放回比较；也问问哪些条件能调整，让判断不只依赖总体标签或一时心情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can gather information before deciding which influence matters most'
+    summary: You can gather information before deciding which influence matters most
+    body:
+      You can gather information before deciding which influence matters most. Neutral describes a
+      balance of contributions around the use god (yòng shén — the question’s focus). It is not a
+      probability split or an indication that nothing will happen. Different daily, monthly, or
+      selected-line influences may offset one another in the classification. Consider an everyday
+      irritation that keeps returning. Record the setting and your response, then identify one part
+      you can influence. Ask a trusted person for another perspective before treating the pattern as
+      evidence that your circumstances cannot change. Consider a low-cost step with feedback you can
+      inspect, then use that information in the comparison. Ask which condition can be adjusted. A
+      mixed image is most useful when it encourages a clearer question rather than another round of
+      vague speculation.
+    advice:
+      - Name one concrete situation
+      - Consider a low-cost step with feedback you can inspect, then use that information in the
+        comparison. Ask which condition can be adjusted. A mixed image is most useful when it
+        encourages a clearer question rather than another round of vague speculation.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: career
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次事业问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 把目标写成可核对的交付物
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. For example, a new project may need a
+      named owner, a clear handover, and one missing document. Write these dependencies down before
+      accepting responsibility for the whole schedule. This makes a request for help easier for a
+      colleague to answer. Try asking when the condition becomes usable and who needs to confirm it.
+      Name the material and timing rather than assuming that an intention is already a working
+      resource. Keep the next commitment modest until the practical readiness is clearer.
+    advice:
+      - Define one reviewable deliverable
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次财运问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 记录一周收支并分类
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. Consider a shared expense that sounded
+      simple in conversation. Ask what each participant can voluntarily contribute, when it is
+      available, and how the record will be kept. A pleasant agreement is different from resources
+      that are actually ready to use. Try asking when the condition becomes usable and who needs to
+      confirm it. Name the material and timing rather than assuming that an intention is already a
+      working resource. Keep the next commitment modest until the practical readiness is clearer.
+    advice:
+      - Track a week of spending
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: love
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次感情问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. For example, you might want more
+      frequent contact while another person has a different schedule. Make one invitation and ask
+      what feels comfortable. Leave room for a different preference instead of using a delayed reply
+      to infer the meaning of the entire relationship. Try asking when the condition becomes usable
+      and who needs to confirm it. Name the material and timing rather than assuming that an
+      intention is already a working resource. Keep the next commitment modest until the practical
+      readiness is clearer.
+    advice:
+      - Offer an unpressured invitation
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: health
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次健康问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 给每天保留一段安静时间
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. Suppose a busy period leaves you
+      reluctant to attend another event. Ask whether you want quiet or someone who can listen, then
+      communicate that need. Remove one optional demand from the next day and check whether the
+      arrangement feels easier to sustain. Try asking when the condition becomes usable and who
+      needs to confirm it. Name the material and timing rather than assuming that an intention is
+      already a working resource. Keep the next commitment modest until the practical readiness is
+      clearer.
+    advice:
+      - Keep a daily quiet interval
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: study
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次学业问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 完成一次练习再复盘
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. For example, a recurring mistake may
+      begin at one unexamined step. Write down your attempt, mark where the reasoning becomes
+      unclear, and ask for feedback on that point. Collecting more finished answers may miss the
+      learning opportunity in your own work. Try asking when the condition becomes usable and who
+      needs to confirm it. Name the material and timing rather than assuming that an intention is
+      already a working resource. Keep the next commitment modest until the practical readiness is
+      clearer.
+    advice:
+      - Review a completed exercise
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次出行问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 核对一处关键衔接
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. Consider arriving somewhere unfamiliar
+      with several invitations already waiting. Confirm your base and return arrangements before
+      adding activities. You can decline an extra outing politely if it would remove the time or
+      resources needed for the rest of the journey. Try asking when the condition becomes usable and
+      who needs to confirm it. Name the material and timing rather than assuming that an intention
+      is already a working resource. Keep the next commitment modest until the practical readiness
+      is clearer.
+    advice:
+      - Check one key connection
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次决策问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 比较两案的现实限制
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. For example, two appealing options may
+      rely on different resources. List the time, dependencies, and least acceptable condition for
+      each. A small reversible trial can provide information that another round of imagining the
+      final outcome would not produce. Try asking when the condition becomes usable and who needs to
+      confirm it. Name the material and timing rather than assuming that an intention is already a
+      working resource. Keep the next commitment modest until the practical readiness is clearer.
+    advice:
+      - Compare practical constraints
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.void.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: void
+      - path: category
+        eq: other
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：条件可能尚未实落，可以先确认承诺怎样到位
+    summary: 条件可能尚未实落，可以先确认承诺怎样到位
+    body: 在这次其他问题上，条件可能尚未实落，可以先确认承诺怎样到位。空（所选用神（按问题类别选择的观察焦点）对应地支落在本日起卦旬空（当前干支（天干地支组成的传统编号）周期未配到的地支））属于传统的暂缺标记，用神是问题的观察焦点，旬空指一个干支周期中暂未配到的地支。它不表示相关人不存在，也不等于承诺失效，适合把可见意向与实际落实分开。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    advice:
+      - 把问题缩成一个具体情境
+      - 你可以先核对何时能够使用这项条件，把需要回应的人、材料与时间写清楚；暂时不扩张安排，等待实际确认之后再决定是否增加投入。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can check whether an apparent opening is ready to be used'
+    summary: You can check whether an apparent opening is ready to be used
+    body:
+      You can check whether an apparent opening is ready to be used. Void corresponds to xún kōng
+      (旬空 — branches unpaired within the current stem-branch cycle). When the use god, or yòng shén
+      — the selected focus, falls there, the image invites a check on readiness. It does not
+      establish that a person is absent or an offer is false. Consider an everyday irritation that
+      keeps returning. Record the setting and your response, then identify one part you can
+      influence. Ask a trusted person for another perspective before treating the pattern as
+      evidence that your circumstances cannot change. Try asking when the condition becomes usable
+      and who needs to confirm it. Name the material and timing rather than assuming that an
+      intention is already a working resource. Keep the next commitment modest until the practical
+      readiness is clearer.
+    advice:
+      - Name one concrete situation
+      - Try asking when the condition becomes usable and who needs to confirm it. Name the material
+        and timing rather than assuming that an intention is already a working resource. Keep the
+        next commitment modest until the practical readiness is clearer.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: career
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次事业问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 把目标写成可核对的交付物
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can look for access to a resource that is not yet visible in the main arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. For example, a new
+      project may need a named owner, a clear handover, and one missing document. Write these
+      dependencies down before accepting responsibility for the whole schedule. This makes a request
+      for help easier for a colleague to answer. Consider organizing the clues already present and
+      asking an appropriate person for a usable source. State the purpose and scope of the request.
+      If access remains unclear, postpone a larger commitment while turning the available
+      information into something you can verify.
+    advice:
+      - Define one reviewable deliverable
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次财运问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 记录一周收支并分类
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can look for access to a resource that is not yet visible in the
+      main arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. Consider a shared
+      expense that sounded simple in conversation. Ask what each participant can voluntarily
+      contribute, when it is available, and how the record will be kept. A pleasant agreement is
+      different from resources that are actually ready to use. Consider organizing the clues already
+      present and asking an appropriate person for a usable source. State the purpose and scope of
+      the request. If access remains unclear, postpone a larger commitment while turning the
+      available information into something you can verify.
+    advice:
+      - Track a week of spending
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: love
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次感情问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can look for access to a resource that is not yet visible in the main
+      arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. For example, you
+      might want more frequent contact while another person has a different schedule. Make one
+      invitation and ask what feels comfortable. Leave room for a different preference instead of
+      using a delayed reply to infer the meaning of the entire relationship. Consider organizing the
+      clues already present and asking an appropriate person for a usable source. State the purpose
+      and scope of the request. If access remains unclear, postpone a larger commitment while
+      turning the available information into something you can verify.
+    advice:
+      - Offer an unpressured invitation
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: health
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次健康问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 给每天保留一段安静时间
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Daily Wellbeing: You can look for access to a resource that is not yet visible in the main
+      arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. Suppose a busy
+      period leaves you reluctant to attend another event. Ask whether you want quiet or someone who
+      can listen, then communicate that need. Remove one optional demand from the next day and check
+      whether the arrangement feels easier to sustain. Consider organizing the clues already present
+      and asking an appropriate person for a usable source. State the purpose and scope of the
+      request. If access remains unclear, postpone a larger commitment while turning the available
+      information into something you can verify.
+    advice:
+      - Keep a daily quiet interval
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: study
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次学业问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 完成一次练习再复盘
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can look for access to a resource that is not yet visible in the main
+      arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. For example, a
+      recurring mistake may begin at one unexamined step. Write down your attempt, mark where the
+      reasoning becomes unclear, and ask for feedback on that point. Collecting more finished
+      answers may miss the learning opportunity in your own work. Consider organizing the clues
+      already present and asking an appropriate person for a usable source. State the purpose and
+      scope of the request. If access remains unclear, postpone a larger commitment while turning
+      the available information into something you can verify.
+    advice:
+      - Review a completed exercise
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次出行问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 核对一处关键衔接
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can look for access to a resource that is not yet visible in the main
+      arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. Consider arriving
+      somewhere unfamiliar with several invitations already waiting. Confirm your base and return
+      arrangements before adding activities. You can decline an extra outing politely if it would
+      remove the time or resources needed for the rest of the journey. Consider organizing the clues
+      already present and asking an appropriate person for a usable source. State the purpose and
+      scope of the request. If access remains unclear, postpone a larger commitment while turning
+      the available information into something you can verify.
+    advice:
+      - Check one key connection
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次决策问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 比较两案的现实限制
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can look for access to a resource that is not yet visible in the main
+      arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. For example, two
+      appealing options may rely on different resources. List the time, dependencies, and least
+      acceptable condition for each. A small reversible trial can provide information that another
+      round of imagining the final outcome would not produce. Consider organizing the clues already
+      present and asking an appropriate person for a usable source. State the purpose and scope of
+      the request. If access remains unclear, postpone a larger commitment while turning the
+      available information into something you can verify.
+    advice:
+      - Compare practical constraints
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.hidden.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: hidden
+      - path: category
+        eq: other
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：关键条件尚未显露时，先找能够把它接出来的线索
+    summary: 关键条件尚未显露时，先找能够把它接出来的线索
+    body: 在这次其他问题上，关键条件尚未显露时，先找能够把它接出来的线索。伏（用神（按问题类别选择的观察焦点）未出现在明面而从本宫卦对应爻（象征相对接洽的位置）找到）强调所需线索可能藏在已有结构后面，用神是观察焦点，伏神是补充显示的相关角色。隐藏并不等于有人刻意保密，也不是提示你去猜测；宜检查实际资料与参与入口。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    advice:
+      - 把问题缩成一个具体情境
+      - 可以先整理手头线索，询问合适的人是否有可用材料，并说明用途与范围；如果入口仍不清楚，就暂缓较大的承诺，让信息先成为可核对的条件。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can look for access to a resource that is not yet visible in the
+      main arrangement'
+    summary: You can look for access to a resource that is not yet visible in the main arrangement
+    body:
+      You can look for access to a resource that is not yet visible in the main arrangement. Hidden
+      means the use god (yòng shén — the selected focus) is found through a hidden line rather than
+      the visible primary arrangement. This additional role is called fú shén — a concealed
+      relative. It is not evidence of secrecy or someone’s undisclosed motives. Consider an everyday
+      irritation that keeps returning. Record the setting and your response, then identify one part
+      you can influence. Ask a trusted person for another perspective before treating the pattern as
+      evidence that your circumstances cannot change. Consider organizing the clues already present
+      and asking an appropriate person for a usable source. State the purpose and scope of the
+      request. If access remains unclear, postpone a larger commitment while turning the available
+      information into something you can verify.
+    advice:
+      - Name one concrete situation
+      - Consider organizing the clues already present and asking an appropriate person for a usable
+        source. State the purpose and scope of the request. If access remains unclear, postpone a
+        larger commitment while turning the available information into something you can verify.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: career
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次事业问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 把目标写成可核对的交付物
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can clarify the question when its selected focus has no represented line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. For
+      example, a new project may need a named owner, a clear handover, and one missing document.
+      Write these dependencies down before accepting responsibility for the whole schedule. This
+      makes a request for help easier for a colleague to answer. Try narrowing the concern to a
+      specific situation and listing the information it needs. Identify who can provide it and begin
+      with that real-world check. A missing represented line should not become a rejection of your
+      options or a judgment about your value.
+    advice:
+      - Define one reviewable deliverable
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次财运问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 记录一周收支并分类
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Resources: You can clarify the question when its selected focus has no represented
+      line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. Consider a
+      shared expense that sounded simple in conversation. Ask what each participant can voluntarily
+      contribute, when it is available, and how the record will be kept. A pleasant agreement is
+      different from resources that are actually ready to use. Try narrowing the concern to a
+      specific situation and listing the information it needs. Identify who can provide it and begin
+      with that real-world check. A missing represented line should not become a rejection of your
+      options or a judgment about your value.
+    advice:
+      - Track a week of spending
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: love
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次感情问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can clarify the question when its selected focus has no represented line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. For
+      example, you might want more frequent contact while another person has a different schedule.
+      Make one invitation and ask what feels comfortable. Leave room for a different preference
+      instead of using a delayed reply to infer the meaning of the entire relationship. Try
+      narrowing the concern to a specific situation and listing the information it needs. Identify
+      who can provide it and begin with that real-world check. A missing represented line should not
+      become a rejection of your options or a judgment about your value.
+    advice:
+      - Offer an unpressured invitation
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: health
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次健康问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 给每天保留一段安静时间
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can clarify the question when its selected focus has no represented line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. Suppose a
+      busy period leaves you reluctant to attend another event. Ask whether you want quiet or
+      someone who can listen, then communicate that need. Remove one optional demand from the next
+      day and check whether the arrangement feels easier to sustain. Try narrowing the concern to a
+      specific situation and listing the information it needs. Identify who can provide it and begin
+      with that real-world check. A missing represented line should not become a rejection of your
+      options or a judgment about your value.
+    advice:
+      - Keep a daily quiet interval
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: study
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次学业问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 完成一次练习再复盘
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can clarify the question when its selected focus has no represented line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. For
+      example, a recurring mistake may begin at one unexamined step. Write down your attempt, mark
+      where the reasoning becomes unclear, and ask for feedback on that point. Collecting more
+      finished answers may miss the learning opportunity in your own work. Try narrowing the concern
+      to a specific situation and listing the information it needs. Identify who can provide it and
+      begin with that real-world check. A missing represented line should not become a rejection of
+      your options or a judgment about your value.
+    advice:
+      - Review a completed exercise
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次出行问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 核对一处关键衔接
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can clarify the question when its selected focus has no represented line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. Consider
+      arriving somewhere unfamiliar with several invitations already waiting. Confirm your base and
+      return arrangements before adding activities. You can decline an extra outing politely if it
+      would remove the time or resources needed for the rest of the journey. Try narrowing the
+      concern to a specific situation and listing the information it needs. Identify who can provide
+      it and begin with that real-world check. A missing represented line should not become a
+      rejection of your options or a judgment about your value.
+    advice:
+      - Check one key connection
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次决策问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 比较两案的现实限制
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can clarify the question when its selected focus has no represented line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. For
+      example, two appealing options may rely on different resources. List the time, dependencies,
+      and least acceptable condition for each. A small reversible trial can provide information that
+      another round of imagining the final outcome would not produce. Try narrowing the concern to a
+      specific situation and listing the information it needs. Identify who can provide it and begin
+      with that real-world check. A missing represented line should not become a rejection of your
+      options or a judgment about your value.
+    advice:
+      - Compare practical constraints
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.absent.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: absent
+      - path: category
+        eq: other
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：焦点暂时没有直接对应，可以先重新说清问题
+    summary: 焦点暂时没有直接对应，可以先重新说清问题
+    body: 在这次其他问题上，焦点暂时没有直接对应，可以先重新说清问题。缺（用神（按问题类别选择的观察焦点）在明爻与伏神中均无对应的状态）表示本次结构没有直接显示所选焦点，用神是按类别选择的观察角色。它不说明现实里缺少对象或资源，也不能据此断定事情无从推进；问题范围与所需条件可能还不够清楚。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻（象征相对接洽的位置）理解成对未来的拒绝或对自身的评价。
+    advice:
+      - 把问题缩成一个具体情境
+      - 建议把希望了解的事情缩成一个具体场景，列出需要什么信息与谁可以提供；先做现实核对，不把没有对应爻理解成对未来的拒绝或对自身的评价。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Questions: You can clarify the question when its selected focus has no represented
+      line'
+    summary: You can clarify the question when its selected focus has no represented line
+    body:
+      You can clarify the question when its selected focus has no represented line. Absent indicates
+      no represented use god (yòng shén — the focus selected by category), either visible or hidden.
+      That describes the symbolic arrangement, not the existence of a person or resource in ordinary
+      life. A broad or unclear question may benefit from a more concrete practical focus. Consider
+      an everyday irritation that keeps returning. Record the setting and your response, then
+      identify one part you can influence. Ask a trusted person for another perspective before
+      treating the pattern as evidence that your circumstances cannot change. Try narrowing the
+      concern to a specific situation and listing the information it needs. Identify who can provide
+      it and begin with that real-world check. A missing represented line should not become a
+      rejection of your options or a judgment about your value.
+    advice:
+      - Name one concrete situation
+      - Try narrowing the concern to a specific situation and listing the information it needs.
+        Identify who can provide it and begin with that real-world check. A missing represented line
+        should not become a rejection of your options or a judgment about your value.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: career
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次事业问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 把目标写成可核对的交付物
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can examine the changing arrangement rather than treating motion as a result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. For example, a new project may need a named owner, a clear handover, and one
+      missing document. Write these dependencies down before accepting responsibility for the whole
+      schedule. This makes a request for help easier for a colleague to answer. Consider writing a
+      short before-and-after account of responsibilities, resources, and expectations. Agree on a
+      handover and a review before expanding the action. This gives a transition a usable structure
+      rather than letting speed substitute for understanding what has changed.
+    advice:
+      - Define one reviewable deliverable
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次财运问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 记录一周收支并分类
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Resources: You can examine the changing arrangement rather than treating motion as
+      a result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. Consider a shared expense that sounded simple in conversation. Ask what each
+      participant can voluntarily contribute, when it is available, and how the record will be kept.
+      A pleasant agreement is different from resources that are actually ready to use. Consider
+      writing a short before-and-after account of responsibilities, resources, and expectations.
+      Agree on a handover and a review before expanding the action. This gives a transition a usable
+      structure rather than letting speed substitute for understanding what has changed.
+    advice:
+      - Track a week of spending
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: love
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次感情问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can examine the changing arrangement rather than treating motion as a
+      result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. For example, you might want more frequent contact while another person has a
+      different schedule. Make one invitation and ask what feels comfortable. Leave room for a
+      different preference instead of using a delayed reply to infer the meaning of the entire
+      relationship. Consider writing a short before-and-after account of responsibilities,
+      resources, and expectations. Agree on a handover and a review before expanding the action.
+      This gives a transition a usable structure rather than letting speed substitute for
+      understanding what has changed.
+    advice:
+      - Offer an unpressured invitation
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: health
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次健康问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 给每天保留一段安静时间
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Daily Wellbeing: You can examine the changing arrangement rather than treating motion as a
+      result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. Suppose a busy period leaves you reluctant to attend another event. Ask whether
+      you want quiet or someone who can listen, then communicate that need. Remove one optional
+      demand from the next day and check whether the arrangement feels easier to sustain. Consider
+      writing a short before-and-after account of responsibilities, resources, and expectations.
+      Agree on a handover and a review before expanding the action. This gives a transition a usable
+      structure rather than letting speed substitute for understanding what has changed.
+    advice:
+      - Keep a daily quiet interval
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: study
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次学业问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 完成一次练习再复盘
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can examine the changing arrangement rather than treating motion as a result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. For example, a recurring mistake may begin at one unexamined step. Write down your
+      attempt, mark where the reasoning becomes unclear, and ask for feedback on that point.
+      Collecting more finished answers may miss the learning opportunity in your own work. Consider
+      writing a short before-and-after account of responsibilities, resources, and expectations.
+      Agree on a handover and a review before expanding the action. This gives a transition a usable
+      structure rather than letting speed substitute for understanding what has changed.
+    advice:
+      - Review a completed exercise
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次出行问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 核对一处关键衔接
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can examine the changing arrangement rather than treating motion as a result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. Consider arriving somewhere unfamiliar with several invitations already waiting.
+      Confirm your base and return arrangements before adding activities. You can decline an extra
+      outing politely if it would remove the time or resources needed for the rest of the journey.
+      Consider writing a short before-and-after account of responsibilities, resources, and
+      expectations. Agree on a handover and a review before expanding the action. This gives a
+      transition a usable structure rather than letting speed substitute for understanding what has
+      changed.
+    advice:
+      - Check one key connection
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次决策问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 比较两案的现实限制
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can examine the changing arrangement rather than treating motion as a result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. For example, two appealing options may rely on different resources. List the time,
+      dependencies, and least acceptable condition for each. A small reversible trial can provide
+      information that another round of imagining the final outcome would not produce. Consider
+      writing a short before-and-after account of responsibilities, resources, and expectations.
+      Agree on a handover and a review before expanding the action. This gives a transition a usable
+      structure rather than letting speed substitute for understanding what has changed.
+    advice:
+      - Compare practical constraints
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.moving.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: moving
+      - path: category
+        eq: other
+  weight: 84
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：焦点正在变化时，适合观察前后条件怎样衔接
+    summary: 焦点正在变化时，适合观察前后条件怎样衔接
+    body: 在这次其他问题上，焦点正在变化时，适合观察前后条件怎样衔接。动（用神（按问题类别选择的观察焦点）所在爻发生阴阳变化）提示观察焦点有动态，用神是本次问题的相关角色，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）中被标记为变化的位置。当前状态把动态突出显示，不能只因有变化就判定好坏，还需结合变化后的条件与实际安排。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    advice:
+      - 把问题缩成一个具体情境
+      - 你可以把变化前后分别写成一份小清单，确认哪些职责、材料或期待已不同；先约定接合与复查方式，再决定是否继续，不让速度代替对新条件的理解。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Questions: You can examine the changing arrangement rather than treating motion as
+      a result'
+    summary: You can examine the changing arrangement rather than treating motion as a result
+    body: You can examine the changing arrangement rather than treating motion as a result. Moving
+      highlights a changing use god (yòng shén — the selected focus). A moving line, or dòng yáo — a
+      marked position that flips its line value, directs attention to transition. Motion alone does
+      not tell you whether the practical change is helpful, and its new conditions deserve
+      inspection. Consider an everyday irritation that keeps returning. Record the setting and your
+      response, then identify one part you can influence. Ask a trusted person for another
+      perspective before treating the pattern as evidence that your circumstances cannot change.
+      Consider writing a short before-and-after account of responsibilities, resources, and
+      expectations. Agree on a handover and a review before expanding the action. This gives a
+      transition a usable structure rather than letting speed substitute for understanding what has
+      changed.
+    advice:
+      - Name one concrete situation
+      - Consider writing a short before-and-after account of responsibilities, resources, and
+        expectations. Agree on a handover and a review before expanding the action. This gives a
+        transition a usable structure rather than letting speed substitute for understanding what
+        has changed.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: career
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次事业问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 把目标写成可核对的交付物
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can inspect whether the new condition genuinely supports the original focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. For example, a new project may need a named owner, a clear
+      handover, and one missing document. Write these dependencies down before accepting
+      responsibility for the whole schedule. This makes a request for help easier for a colleague to
+      answer. Try turning the new assistance into an agreement about readiness and the part it can
+      carry. Observe one round of cooperation before adding scope, and continue to review the
+      original load. Useful feedback becomes clearer when it can be traced through an actual
+      handover.
+    advice:
+      - Define one reviewable deliverable
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次财运问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 记录一周收支并分类
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can inspect whether the new condition genuinely supports the
+      original focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. Consider a shared expense that sounded simple in conversation.
+      Ask what each participant can voluntarily contribute, when it is available, and how the record
+      will be kept. A pleasant agreement is different from resources that are actually ready to use.
+      Try turning the new assistance into an agreement about readiness and the part it can carry.
+      Observe one round of cooperation before adding scope, and continue to review the original
+      load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    advice:
+      - Track a week of spending
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: love
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次感情问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can inspect whether the new condition genuinely supports the original
+      focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. For example, you might want more frequent contact while another
+      person has a different schedule. Make one invitation and ask what feels comfortable. Leave
+      room for a different preference instead of using a delayed reply to infer the meaning of the
+      entire relationship. Try turning the new assistance into an agreement about readiness and the
+      part it can carry. Observe one round of cooperation before adding scope, and continue to
+      review the original load. Useful feedback becomes clearer when it can be traced through an
+      actual handover.
+    advice:
+      - Offer an unpressured invitation
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: health
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次健康问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 给每天保留一段安静时间
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Daily Wellbeing: You can inspect whether the new condition genuinely supports the original
+      focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. Suppose a busy period leaves you reluctant to attend another
+      event. Ask whether you want quiet or someone who can listen, then communicate that need.
+      Remove one optional demand from the next day and check whether the arrangement feels easier to
+      sustain. Try turning the new assistance into an agreement about readiness and the part it can
+      carry. Observe one round of cooperation before adding scope, and continue to review the
+      original load. Useful feedback becomes clearer when it can be traced through an actual
+      handover.
+    advice:
+      - Keep a daily quiet interval
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: study
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次学业问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 完成一次练习再复盘
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can inspect whether the new condition genuinely supports the original focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. For example, a recurring mistake may begin at one unexamined
+      step. Write down your attempt, mark where the reasoning becomes unclear, and ask for feedback
+      on that point. Collecting more finished answers may miss the learning opportunity in your own
+      work. Try turning the new assistance into an agreement about readiness and the part it can
+      carry. Observe one round of cooperation before adding scope, and continue to review the
+      original load. Useful feedback becomes clearer when it can be traced through an actual
+      handover.
+    advice:
+      - Review a completed exercise
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次出行问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 核对一处关键衔接
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can inspect whether the new condition genuinely supports the original focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. Consider arriving somewhere unfamiliar with several invitations
+      already waiting. Confirm your base and return arrangements before adding activities. You can
+      decline an extra outing politely if it would remove the time or resources needed for the rest
+      of the journey. Try turning the new assistance into an agreement about readiness and the part
+      it can carry. Observe one round of cooperation before adding scope, and continue to review the
+      original load. Useful feedback becomes clearer when it can be traced through an actual
+      handover.
+    advice:
+      - Check one key connection
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次决策问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 比较两案的现实限制
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can inspect whether the new condition genuinely supports the original focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. For example, two appealing options may rely on different
+      resources. List the time, dependencies, and least acceptable condition for each. A small
+      reversible trial can provide information that another round of imagining the final outcome
+      would not produce. Try turning the new assistance into an agreement about readiness and the
+      part it can carry. Observe one round of cooperation before adding scope, and continue to
+      review the original load. Useful feedback becomes clearer when it can be traced through an
+      actual handover.
+    advice:
+      - Compare practical constraints
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_generated.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_generated
+      - path: category
+        eq: other
+  weight: 84
+  polarity: positive
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：变化后出现支持时，先确认它如何回到当前任务
+    summary: 变化后出现支持时，先确认它如何回到当前任务
+    body: 在这次其他问题上，变化后出现支持时，先确认它如何回到当前任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来生扶原来用神（按问题类别选择的观察焦点）的五行）提示变化之后有回补的象征关系，用神是所选焦点，变爻是变化后的对应位置。回补不等于资源已经收到，也不说明所有困难都解除，适合核对支持的具体渠道。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    advice:
+      - 把问题缩成一个具体情境
+      - 可以把变化后的帮助写成可执行约定，说明何时到位与能够支持哪一部分；先观察一轮实际配合，再增加安排，也保留对原有负荷的检查。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can inspect whether the new condition genuinely supports the
+      original focus'
+    summary: You can inspect whether the new condition genuinely supports the original focus
+    body: You can inspect whether the new condition genuinely supports the original focus. Return
+      generated refers to huí tóu shēng — the changed line’s element supports the original use god,
+      the question’s selected focus. It describes a symbolic feedback relationship. A new source of
+      assistance still needs an actual route to the task; the comparison does not mean every
+      difficulty has been removed. Consider an everyday irritation that keeps returning. Record the
+      setting and your response, then identify one part you can influence. Ask a trusted person for
+      another perspective before treating the pattern as evidence that your circumstances cannot
+      change. Try turning the new assistance into an agreement about readiness and the part it can
+      carry. Observe one round of cooperation before adding scope, and continue to review the
+      original load. Useful feedback becomes clearer when it can be traced through an actual
+      handover.
+    advice:
+      - Name one concrete situation
+      - Try turning the new assistance into an agreement about readiness and the part it can carry.
+        Observe one round of cooperation before adding scope, and continue to review the original
+        load. Useful feedback becomes clearer when it can be traced through an actual handover.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.career
+  system: iching
+  section: process_outcome
+  topic: use_god_career
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: career
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 事业：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次事业问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 把目标写成可核对的交付物
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can revise a plan when the new condition makes the original focus harder to support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. For example, a new project may need a named owner, a clear handover,
+      and one missing document. Write these dependencies down before accepting responsibility for
+      the whole schedule. This makes a request for help easier for a colleague to answer. However,
+      you can revise the sequence, reduce scope, or request help with a specific new demand. Set a
+      review point based on the updated arrangement. A changed condition calls for a changed
+      response rather than an effort to prove that the earlier plan must still work.
+    advice:
+      - Define one reviewable deliverable
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.wealth
+  system: iching
+  section: process_outcome
+  topic: use_god_wealth
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: wealth
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 财运：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次财运问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 记录一周收支并分类
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Resources: You can revise a plan when the new condition makes the original focus
+      harder to support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. Consider a shared expense that sounded simple in conversation. Ask what
+      each participant can voluntarily contribute, when it is available, and how the record will be
+      kept. A pleasant agreement is different from resources that are actually ready to use.
+      However, you can revise the sequence, reduce scope, or request help with a specific new
+      demand. Set a review point based on the updated arrangement. A changed condition calls for a
+      changed response rather than an effort to prove that the earlier plan must still work.
+    advice:
+      - Track a week of spending
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.love
+  system: iching
+  section: process_outcome
+  topic: use_god_love
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: love
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 感情：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次感情问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Relationships: You can revise a plan when the new condition makes the original focus harder
+      to support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. For example, you might want more frequent contact while another person
+      has a different schedule. Make one invitation and ask what feels comfortable. Leave room for a
+      different preference instead of using a delayed reply to infer the meaning of the entire
+      relationship. However, you can revise the sequence, reduce scope, or request help with a
+      specific new demand. Set a review point based on the updated arrangement. A changed condition
+      calls for a changed response rather than an effort to prove that the earlier plan must still
+      work.
+    advice:
+      - Offer an unpressured invitation
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.health
+  system: iching
+  section: process_outcome
+  topic: use_god_health
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: health
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 健康：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次健康问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 给每天保留一段安静时间
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can revise a plan when the new condition makes the original focus
+      harder to support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. Suppose a busy period leaves you reluctant to attend another event. Ask
+      whether you want quiet or someone who can listen, then communicate that need. Remove one
+      optional demand from the next day and check whether the arrangement feels easier to sustain.
+      However, you can revise the sequence, reduce scope, or request help with a specific new
+      demand. Set a review point based on the updated arrangement. A changed condition calls for a
+      changed response rather than an effort to prove that the earlier plan must still work.
+    advice:
+      - Keep a daily quiet interval
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.study
+  system: iching
+  section: process_outcome
+  topic: use_god_study
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: study
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 学业：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次学业问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 完成一次练习再复盘
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Learning: You can revise a plan when the new condition makes the original focus harder to
+      support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. For example, a recurring mistake may begin at one unexamined step.
+      Write down your attempt, mark where the reasoning becomes unclear, and ask for feedback on
+      that point. Collecting more finished answers may miss the learning opportunity in your own
+      work. However, you can revise the sequence, reduce scope, or request help with a specific new
+      demand. Set a review point based on the updated arrangement. A changed condition calls for a
+      changed response rather than an effort to prove that the earlier plan must still work.
+    advice:
+      - Review a completed exercise
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.travel
+  system: iching
+  section: process_outcome
+  topic: use_god_travel
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: travel
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 出行：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次出行问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 核对一处关键衔接
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Journeys: You can revise a plan when the new condition makes the original focus harder to
+      support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. Consider arriving somewhere unfamiliar with several invitations already
+      waiting. Confirm your base and return arrangements before adding activities. You can decline
+      an extra outing politely if it would remove the time or resources needed for the rest of the
+      journey. However, you can revise the sequence, reduce scope, or request help with a specific
+      new demand. Set a review point based on the updated arrangement. A changed condition calls for
+      a changed response rather than an effort to prove that the earlier plan must still work.
+    advice:
+      - Check one key connection
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.decision
+  system: iching
+  section: process_outcome
+  topic: use_god_decision
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: decision
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 决策：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次决策问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 比较两案的现实限制
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can revise a plan when the new condition makes the original focus harder to
+      support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. For example, two appealing options may rely on different resources.
+      List the time, dependencies, and least acceptable condition for each. A small reversible trial
+      can provide information that another round of imagining the final outcome would not produce.
+      However, you can revise the sequence, reduce scope, or request help with a specific new
+      demand. Set a review point based on the updated arrangement. A changed condition calls for a
+      changed response rather than an effort to prove that the earlier plan must still work.
+    advice:
+      - Compare practical constraints
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.use_god.return_controlled.other
+  system: iching
+  section: process_outcome
+  topic: use_god_other
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.useGod.state
+        eq: return_controlled
+      - path: category
+        eq: other
+  weight: 84
+  polarity: negative
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 其他：变化后增加约束时，适合修订原有的推进方式
+    summary: 变化后增加约束时，适合修订原有的推进方式
+    body: 在这次其他问题上，变化后增加约束时，适合修订原有的推进方式。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原来用神（按问题类别选择的观察焦点）的五行）提示变化可能带来新限制，用神是所选观察焦点，变爻是对应位置改变后的状态。这里不把限制解释为某人的敌意，也不将它当成个人能力结论，重点是检查前后条件是否仍能衔接。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    advice:
+      - 把问题缩成一个具体情境
+      - 不过，你可以通过降低范围、修订顺序或明确求助来调整；把最不合适的一项新要求说清楚，约好复查时点，让行动建立在更新后的现实条件上。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Questions: You can revise a plan when the new condition makes the original focus
+      harder to support'
+    summary: You can revise a plan when the new condition makes the original focus harder to support
+    body: You can revise a plan when the new condition makes the original focus harder to support.
+      Return controlled means huí tóu kè — the changed line’s element constrains the original use
+      god, or selected focus. This is an image of feedback that narrows support. It does not reveal
+      anyone’s hostility or measure your ability, so inspect the changed requirement before forming
+      a story about motives. Consider an everyday irritation that keeps returning. Record the
+      setting and your response, then identify one part you can influence. Ask a trusted person for
+      another perspective before treating the pattern as evidence that your circumstances cannot
+      change. However, you can revise the sequence, reduce scope, or request help with a specific
+      new demand. Set a review point based on the updated arrangement. A changed condition calls for
+      a changed response rather than an effort to prove that the earlier plan must still work.
+    advice:
+      - Name one concrete situation
+      - However, you can revise the sequence, reduce scope, or request help with a specific new
+        demand. Set a review point based on the updated arrangement. A changed condition calls for a
+        changed response rather than an effort to prove that the earlier plan must still work.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

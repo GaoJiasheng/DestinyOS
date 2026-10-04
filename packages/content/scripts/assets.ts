@@ -1,6 +1,7 @@
 import { Ajv, type AnySchema } from 'ajv';
 import { TAROT_CARDS, TAROT_SPREADS, Trigram } from '@tianji/shared';
-import { parseSource, type Diagnostic } from './validation';
+import { banned, parseSource, type Diagnostic } from './validation';
+import { enWords, zhChars } from '../src/text';
 const ajv = new Ajv({ allErrors: true });
 const text = { type: 'string' };
 const nonempty = { type: 'string', minLength: 1 };
@@ -122,7 +123,7 @@ const sources = object({
   images: object({ status: nonempty, deck: nonempty }),
 });
 // DESIGN-GAP: Documented card/spread/hexagram data tables share system folders with KU arrays.
-// Validate their distinct schemas; bilingual draft prose can remain empty until T-23, and is never compiled as published KU.
+// Tarot prose remains draft; the completed I Ching editorial fields must pass prose checks.
 const validators = new Map([
   ['tarot/cards.yaml', ajv.compile(cards)],
   ['tarot/spreads.yaml', ajv.compile(spreads)],
@@ -170,6 +171,56 @@ export function validateAsset(
           });
       }
     });
+    if (relative === 'iching/hexagrams.yaml') {
+      // This structural type is safe only after the distinct asset schema succeeds above.
+      const rows = parsed.data as Array<{
+        meaning: { zh: string; en: string };
+        yao: Array<{ meaning: { zh: string; en: string } }>;
+        keywords: string[];
+        guidance: Record<string, { zh: string; en: string }>;
+      }>;
+      rows.forEach((row, index) => {
+        const prose = (
+          value: { zh: string; en: string },
+          path: (string | number)[],
+          line: boolean,
+        ) => {
+          for (const locale of ['zh', 'en'] as const) {
+            const size = (locale === 'zh' ? zhChars : enWords)(value[locale]);
+            // DESIGN-GAP: §5 gives approximate prose lengths; use 140–180 characters/words
+            // for the 150 target and 55–90 characters/words for the 60 target.
+            const [min, max] = line ? [55, 90] : [140, 180];
+            if (size < min || size > max)
+              error([...path, locale], `Editorial length ${size} outside ${min}–${max}`);
+          }
+        };
+        prose(row.meaning, [index, 'meaning'], false);
+        row.yao.forEach((line, j) => prose(line.meaning, [index, 'yao', j, 'meaning'], true));
+        // Classical originals intentionally remain untouched, including historical language.
+        const scan = (value: { zh: string; en: string }, path: (string | number)[]) => {
+          for (const locale of ['zh', 'en'] as const)
+            for (const word of banned[locale])
+              if (
+                locale === 'zh'
+                  ? value[locale].includes(word)
+                  : new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(
+                      value[locale],
+                    )
+              )
+                error([...path, locale], `Banned editorial phrase: ${word}`);
+        };
+        scan(row.meaning, [index, 'meaning']);
+        row.yao.forEach((line, j) => scan(line.meaning, [index, 'yao', j, 'meaning']));
+        for (const [category, guidance] of Object.entries(row.guidance)) {
+          for (const locale of ['zh', 'en'] as const)
+            if (!guidance[locale].trim())
+              error([index, 'guidance', category, locale], 'Empty guidance');
+          scan(guidance, [index, 'guidance', category]);
+        }
+        if (new Set(row.keywords).size !== 3 || row.keywords.some((word) => !word.trim()))
+          error([index, 'keywords'], 'Require three distinct nonempty keywords');
+      });
+    }
   }
   return diagnostics;
 }

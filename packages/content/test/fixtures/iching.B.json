@@ -1,0 +1,124 @@
+{
+  "method": "liuyao",
+  "category": "wealth",
+  "castAt": {
+    "local": "2026-10-04T12:00:00",
+    "tz": "Asia/Singapore",
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    },
+    "dayGanZhi": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "monthBranch": "you"
+  },
+  "primary": {
+    "number": 63,
+    "key": "hexagram_63",
+    "lines": [1, 0, 1, 0, 1, 0],
+    "upper": "kan",
+    "lower": "li"
+  },
+  "changing": null,
+  "movingLines": [],
+  "liuyao": {
+    "throws": [1, 2, 1, 2, 1, 2],
+    "lines": [
+      {
+        "stem": "ji",
+        "branch": "mao",
+        "element": "wood",
+        "relative": "zi_sun",
+        "position": 1,
+        "yang": true,
+        "moving": false,
+        "spirit": "bai_hu",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "ji",
+        "branch": "chou",
+        "element": "earth",
+        "relative": "guan_gui",
+        "position": 2,
+        "yang": false,
+        "moving": false,
+        "spirit": "xuan_wu",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "ji",
+        "branch": "hai",
+        "element": "water",
+        "relative": "xiong_di",
+        "position": 3,
+        "yang": true,
+        "moving": false,
+        "spirit": "qing_long",
+        "isShi": true,
+        "isYing": false
+      },
+      {
+        "stem": "wu_stem",
+        "branch": "shen",
+        "element": "metal",
+        "relative": "fu_mu",
+        "position": 4,
+        "yang": false,
+        "moving": false,
+        "spirit": "zhu_que",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "wu_stem",
+        "branch": "xu",
+        "element": "earth",
+        "relative": "guan_gui",
+        "position": 5,
+        "yang": true,
+        "moving": false,
+        "spirit": "gou_chen",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "wu_stem",
+        "branch": "zi",
+        "element": "water",
+        "relative": "xiong_di",
+        "position": 6,
+        "yang": false,
+        "moving": false,
+        "spirit": "teng_she",
+        "isShi": false,
+        "isYing": true
+      }
+    ],
+    "palace": "kan",
+    "palaceElement": "water",
+    "hidden": [
+      {
+        "relative": "qi_cai",
+        "stem": "wu_stem",
+        "branch": "wu",
+        "underLine": 3
+      }
+    ],
+    "useGod": {
+      "relative": "qi_cai",
+      "lines": [],
+      "state": "hidden"
+    },
+    "voidBranches": ["yin", "mao"],
+    "findings": ["hidden"]
+  },
+  "verdict": "neutral",
+  "score": 43
+}

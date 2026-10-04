@@ -1,0 +1,941 @@
+# All 19 finding keys currently emitted by installLiuyao; no invented features.
+- id: iching.finding.month_supports
+  system: iching
+  section: process_outcome
+  topic: finding_month_supports
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: month_supports
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 较长周期的支持，可以先看怎样落实
+    summary: 较长周期的支持，可以先看怎样落实
+    body: 你可以先核对较稳定的背景条件怎样帮助当前任务。月建（起卦月的地支）生扶（起卦月的地支五行（木火土金水的关系分类）支持相关爻）是六爻里观察较长背景的规则，相关爻由问题类别选定；这里命中的是月的支持，不代表所有条件都已经齐备，也不直接给出持续天数。它适合提醒你检查资源是否有连续供应，以及你能否实际使用。例如，团队长期保留学习时段，但你仍需约定谁能指导、材料在哪里，才能把制度变成练习。建议把支持写成可核对的安排，先使用一轮再看缺口；如果日常仍有新的限制，也一并记录，不因为背景较有利就忽略短期负荷。
+    advice:
+      - 确认一项持续支持的使用方式
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Look for the practical form of longer-running support
+    summary: Look for the practical form of longer-running support
+    body:
+      'You can inspect the practical shape of support that is meant to continue. Month support comes
+      from yuè jiàn (月建 — the casting month’s branch) sharing or feeding the element of a selected
+      line. It is a longer-background comparison within Liuyao, not a promise about a number of days
+      or the readiness of every resource. Suppose a team regularly reserves time for learning: a
+      mentor, accessible material, and an agreed task are still needed before the allowance becomes
+      useful practice. Consider writing down how the support can be used and testing it once. Record
+      a short-term constraint as well if one appears. A supportive background is easier to apply
+      when you distinguish its steady provision from the specific arrangements needed today.'
+    advice:
+      - Confirm access to continuing support
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.month_controls
+  system: iching
+  section: process_outcome
+  topic: finding_month_controls
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: month_controls
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 背景限制值得单独识别，不必归为自己的不足
+    summary: 背景限制值得单独识别，不必归为自己的不足
+    body: 你可以先找出持续限制来自哪里，再决定要调整什么。月建（起卦月的地支）克制（起卦月地支的五行（木火土金水的关系分类）约束相关爻）是较长背景的象征比较，相关爻是问题选出的观察位置；它不是判断个人能力或他人意图的方法，也不能据此推定现实中的障碍会持续多久。限制可能对应资源、规则或配合方式，实际原因要另行核查。例如，一项任务总在同样的审批环节等待，可以整理所需材料与固定时间，而不是每次只增加催促。建议先问清一处最关键的要求，选择缩小范围、补足依赖或调整顺序；给方案留复查点，让真实变化能够改变你的行动。
+    advice:
+      - 核对一处持续受限的要求
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Identify a background constraint before adding more effort
+    summary: Identify a background constraint before adding more effort
+    body:
+      You can identify a repeating constraint before deciding how much more effort to invest. Month
+      control comes from yuè jiàn (月建 — the casting month’s branch) constraining the element of a
+      selected line. It is a background comparison, not a measure of competence or a revelation of
+      someone’s motives. The label does not establish how long an actual obstruction will last. For
+      instance, a task may repeatedly wait at the same review point; collecting the requirements and
+      normal schedule can help more than sending another impatient request. Consider clarifying the
+      most important condition, then adjusting scope, sequence, or preparation. Set a review so new
+      facts can alter the arrangement. A recurring limit becomes easier to address when it has a
+      concrete location rather than being attributed to your whole ability.
+    advice:
+      - Clarify a recurring constraint
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.day_supports
+  system: iching
+  section: process_outcome
+  topic: finding_day_supports
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: day_supports
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 眼前的帮助可以使用，也需要接上后续安排
+    summary: 眼前的帮助可以使用，也需要接上后续安排
+    body: 你可以利用眼前到位的帮助完成一个具体环节。日辰（起卦日的地支）生扶（起卦日地支的五行（木火土金水的关系分类）支持相关爻）把注意力放在较近的配合条件，相关爻是按问题选择的观察焦点；它不等于只在今天有效，也不是对现实中某个人态度的判断。短期支持适合用来松动卡点，但仍需看后续如何衔接。例如，同事今天能够帮你核对材料，可以先确认最难的一处内容，再说明下一次交接需要什么，避免把一次帮助扩成长期默认。建议及时表达具体需要与感谢，记录本轮已完成的部分；其余条件继续单独检查，让当前便利成为稳妥的进展，而不是对全部结果的想象。
+    advice:
+      - 把眼前帮助落实到一个环节
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Use immediate help without assuming it settles the whole plan
+    summary: Use immediate help without assuming it settles the whole plan
+    body:
+      You can use an immediate opening to complete one concrete part of the task. Day support comes
+      from rì chén (日辰 — the casting day’s branch) sharing or feeding the element of a selected
+      line. It emphasizes a nearer influence, but does not set a literal expiry today or determine
+      someone’s attitude toward you. A colleague who can check material now may help unlock a
+      difficult point, while the next handover still needs its own arrangement. Try making the
+      request specific, acknowledging the assistance, and recording what was actually completed.
+      Continue checking other conditions separately. Immediate convenience becomes more useful when
+      it connects to a realistic next stage, rather than being treated as evidence that the whole
+      outcome is already settled.
+    advice:
+      - Use help for one concrete step
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.day_controls
+  system: iching
+  section: process_outcome
+  topic: finding_day_controls
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: day_controls
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 临时限制出现时，先重排行动次序
+    summary: 临时限制出现时，先重排行动次序
+    body: 你可以把眼前的阻碍单独处理，不必因此否定整个方向。日辰（起卦日的地支）克制（起卦日地支的五行（木火土金水的关系分类）约束相关爻）是较近条件的象征比较，相关爻是问题选出的观察位置；这种关系不揭示个人动机，也不预测今天会发生什么。它适合提醒你先核对现场条件，看是否需要等候、换顺序或请求配合。例如，一次交流临时取消时，可以先完成自己能整理的资料，约定新的联系入口，而不据此猜测对方已经拒绝全部合作。建议把需要确认的一项事实问清楚，同时保留小的备用安排；待信息更新后再评估，避免用一时受阻来扩大情绪或增加无谓投入。
+    advice:
+      - 确认眼前限制的实际范围
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Adjust the sequence around an immediate constraint
+    summary: Adjust the sequence around an immediate constraint
+    body: 'You can isolate an immediate obstacle without rejecting the entire direction. Day control
+      comes from rì chén (日辰 — the casting day’s branch) constraining the element of a selected
+      line. This is a nearer-condition comparison, not a prediction of today’s events or an account
+      of someone’s intentions. Suppose a conversation is postponed: organize the part you can
+      complete independently and agree on another point of contact, rather than inferring that the
+      whole collaboration has been declined. Consider asking for the one fact you need and keeping a
+      modest alternative available. Review the plan after the information changes. A temporary
+      interruption becomes more manageable when its practical extent is named instead of being
+      allowed to define the whole situation. Keep the request tied to a condition you can check.'
+    advice:
+      - Check the immediate limit
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.void
+  system: iching
+  section: process_outcome
+  topic: finding_void
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: void
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 意向与落实之间，可以多做一次确认
+    summary: 意向与落实之间，可以多做一次确认
+    body: 你可以先把说过的安排与已经可用的条件分开。旬空（当前日柱所属周期中暂未配到的两个地支）是六爻的时间标记，这里有相关爻落入其内；它不是现实中缺少某个人或事情不会发生的证据。空的提醒在于核对承接是否到位，不必转成猜疑。例如，大家都愿意参与一项活动，但场地与时间尚未确认，你可以先记录意向，再请相关的人回复实际能够配合的范围。建议把待确认的条件列成短清单，在准备充分前不额外扩张承诺；若资料和回应已实落，就按事实推进，不必为了符合象征标记而继续等待，也不把空看成对自身价值的否定。
+    advice:
+      - 列出尚未确认的条件
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Check readiness behind an apparent commitment
+    summary: Check readiness behind an apparent commitment
+    body: You can distinguish a stated intention from a condition ready for use. Void comes from xún
+      kōng (旬空 — two unpaired branches in the casting day’s cycle), with a relevant line falling
+      within that pair. It does not establish the absence of a real person or the impossibility of
+      an event. For example, people may be interested in a shared activity while the place and time
+      remain unconfirmed. Record the interest, then ask for the actual availability needed to
+      organize it. Consider keeping a short list of pending conditions and avoiding additional
+      promises until those items are settled. If the resources and responses are already usable,
+      proceed according to facts. The time marker should encourage a practical check, not continuing
+      suspicion or a negative judgment about your worth.
+    advice:
+      - List pending confirmations
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.moving
+  system: iching
+  section: process_outcome
+  topic: finding_moving
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: moving
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 关键环节在变化，适合核对前后安排
+    summary: 关键环节在变化，适合核对前后安排
+    body: 你可以先看清哪些条件正在变化，再决定怎样接续。发动（相关爻被标记为阴阳转换）说明问题的观察位置具有动态，动爻（被标记为翻转阴阳的线）是本卦（起卦得到的主要六条线）里变化的线；动态本身不表示支持或阻碍，也不决定转变快慢。这里宜关注前后的职责、材料与参与方式是否能接上。例如，团队调整分工后，同一项任务可能改由不同的人提供材料，你可以明确交接的入口与未完成部分，避免沿用旧约定继续等待。建议先做一份简短的前后清单，把最容易遗漏的一项变化单独确认；对尚未准备好的环节保留缓冲，等实际配合清楚后再扩大安排，让变化有可以承接的结构。
+    advice:
+      - 核对一项变化后的交接
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Inspect the transition around the selected focus
+    summary: Inspect the transition around the selected focus
+    body:
+      You can inspect what is changing before deciding how to connect the next step. Moving refers
+      to dòng yáo (动爻 — a marked line whose value flips), here involving a selected focus of the
+      question. Motion does not itself mean help, obstruction, or a particular speed of transition.
+      A team changing roles may move a material handover to another person while the task retains
+      its familiar name. Consider making a short before-and-after list of responsibilities and
+      unfinished items, then confirming the change most likely to be missed. Leave a buffer for a
+      part that is not yet ready. A transition becomes easier to navigate when the new arrangement
+      has a clear point of access instead of relying on expectations carried over from the old one.
+    advice:
+      - Check a changed handover
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.return_generated
+  system: iching
+  section: process_outcome
+  topic: finding_return_generated
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: return_generated
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 变化出现回补时，可以检查帮助怎样进入任务
+    summary: 变化出现回补时，可以检查帮助怎样进入任务
+    body: 你可以先确认变化后的支持怎样回到原来的任务。回头生（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来支持原爻五行）描述六爻里一种回补关系，变爻是变化后的对应位置；它并不表示资源已收到，也不代表整个过程都已完成。帮助的方向可以成为检查入口，但仍要看材料、权限与时间如何配合。例如，试用新流程后同事提出可用的改进，你可以把建议落实到一个真实环节，再观察是否减轻了原先的负担。建议先约定回补支持的使用方式，记录一轮实际反馈；已有限制也继续关注，让新增的帮助服务于原任务，而不是马上增加更多期待或把帮助者的责任无限扩大。
+    advice:
+      - 检验一项回补是否实际可用
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Trace helpful feedback through an actual arrangement
+    summary: Trace helpful feedback through an actual arrangement
+    body:
+      'You can trace whether a new condition provides usable support to the original task. Return
+      generated is huí tóu shēng — the changed line’s element feeds the original line’s element. The
+      changed line is the corresponding position after transition, and the comparison does not mean
+      assistance has arrived or the process is complete. Suppose a trial workflow produces a useful
+      suggestion from a colleague: apply it to one actual step and inspect whether the old burden
+      becomes lighter. Try agreeing on how the feedback will be used and recording one round of
+      results. Keep other limitations visible as well. An added source of help works best when it
+      serves the existing task instead of immediately becoming a reason for new expectations or
+      unlimited demands on the person helping.'
+    advice:
+      - Test useful feedback in practice
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.return_controlled
+  system: iching
+  section: process_outcome
+  topic: finding_return_controlled
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: return_controlled
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 变化增加新要求时，可以修订原计划
+    summary: 变化增加新要求时，可以修订原计划
+    body: 你可以先承认变化后的条件不同，再修订原有做法。回头克（变爻（变化后的对应线）五行（木火土金水的关系分类）反过来约束原爻五行）是反馈带来限制的象征比较，变爻指变化后的对应位置；它不说明有人故意阻挠，也不能据此评价你的能力。原先能用的安排可能需要更新，而不宜只靠更多努力维持旧计划。例如，流程改动后新增一项材料要求，你可以问清用途与格式，调整顺序或商量范围，不把返工简单理解成别人不认可自己。建议把最难承接的新要求写清，选择能降低负荷的替代方式，并约定复查；现实中的调整有用时，就按新信息行动，给自己的判断保留转向空间。
+    advice:
+      - 修订一项最不合适的新要求
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Revise the original plan when feedback adds a constraint
+    summary: Revise the original plan when feedback adds a constraint
+    body: You can acknowledge a changed condition before revising the earlier approach. Return
+      controlled is huí tóu kè — the changed line’s element constrains the original line’s element.
+      It is an image of limiting feedback, not evidence of deliberate obstruction or a measure of
+      your competence. A new material requirement after a workflow revision may need a format check
+      and a different sequence, rather than simply more effort under the old plan. Consider naming
+      the least workable demand, asking what purpose it serves, and proposing a manageable
+      alternative. Agree on a review so updated facts can guide the next response. When a revision
+      proves useful in ordinary practice, let that evidence matter more than either the earlier
+      expectation or an alarming interpretation of the label.
+    advice:
+      - Revise a new constraint
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.hidden
+  system: iching
+  section: process_outcome
+  topic: finding_hidden
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: hidden
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 所需线索不在明面时，先寻找合适入口
+    summary: 所需线索不在明面时，先寻找合适入口
+    body: 你可以先整理已有线索，再寻找能把所需条件接出来的人或材料。伏神（本卦（起卦得到的主要六条线）没有某类角色时从本宫卦补出的对应线）是六爻里的补充观察位置，这里与问题焦点有关；隐藏并不表示他人有秘密，也不是鼓励你猜测。它适合提醒你了解资源为何还不容易使用。例如，一份资料存在于另一团队的整理目录中，知道它存在仍不足以完成任务，还需要联系人、合适权限与用途说明。建议用清楚的问题请求访问或反馈，先取得一项能核对的材料；如果入口仍模糊，就暂缓扩大承诺，保留现有记录，让信息逐步成为现实可用的条件。
+    advice:
+      - 寻找一个可核对的资料入口
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Find a usable route to a less visible resource
+    summary: Find a usable route to a less visible resource
+    body: You can organize existing clues before asking how to reach a less visible resource. Hidden
+      refers to fú shén (伏神 — a relative supplied from the pure palace figure when it is missing
+      from the primary one), here relevant to the question’s focus. It is an additional symbolic
+      position, not an allegation that someone has a secret. A useful guide may exist in another
+      group’s archive while the contact, permission, and purpose needed to use it remain unclear.
+      Consider making a precise request and obtaining one checkable item before expanding your
+      commitment. Keep the record if access is still uncertain. The practical value is to turn a
+      clue into an available condition rather than multiplying guesses about what is concealed
+      behind the visible arrangement.
+    advice:
+      - Find a checkable source
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.absent
+  system: iching
+  section: process_outcome
+  topic: finding_absent
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: absent
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 缺少直接对应时，重新明确你想了解的事
+    summary: 缺少直接对应时，重新明确你想了解的事
+    body: 你可以把问题缩到一个具体场景，再检查需要的现实信息。用神（按问题类别选出的观察焦点）在当前明爻与伏神里都无对应，是结构里的缺项，不说明生活中缺少某个人，也不预示未来没有选择。这里更适合提醒你检查问题是否过宽，或所需材料是否尚未说清。例如，笼统问最近好不好，可能同时混合工作与情绪，可以先选一件正在推进的小事，列出希望知道的条件和可咨询的人。建议先进行现实核对，给新的问题确定时间范围与下一步；若直接信息已足够，也可以依据事实作判断，不必继续寻找一个符号来授权自己的行动。
+    advice:
+      - 把提问缩到一个现实场景
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Refine the question when there is no represented focus
+    summary: Refine the question when there is no represented focus
+    body: You can narrow the concern to a concrete situation and inspect its real information needs.
+      Absent means no represented use god (yòng shén — the focus selected by category), either
+      visible or supplied as a hidden relative. This is a gap in the symbolic arrangement, not
+      evidence that a person is missing or a future choice is unavailable. A broad question about
+      how things are going may combine work and mood; choose one current task and list the
+      conditions you want to understand. Consider consulting an appropriate source, setting a useful
+      time frame, and naming a next step. If direct information already answers the practical
+      question, you can use it without waiting for a symbol to authorize the decision. Clarification
+      is itself a workable form of progress.
+    advice:
+      - Refine the practical question
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.illness
+  system: iching
+  section: process_outcome
+  topic: finding_illness
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: illness
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 健康类标记只提示留意日常负荷，不据此判断身体状况
+    summary: 健康类标记只提示留意日常负荷，不据此判断身体状况
+    body: 你可以把注意力放在作息与日常负荷上，不用从这个标记推断身体状况。官鬼（六爻中象征约束与职责的角色）在健康类问题里会被传统规则作为压力线索，这里的标记只是说明相关角色出现在卦中；它不能判断症状、原因或需要什么处理方式。实际不适应以现实情况与适当的专业评估为准。例如，连续几天安排过满时，你可以记录睡前活动与当天最耗精力的一项任务，看有没有可减少的非必要安排。建议给休息与情绪表达留出位置，向可信的人说明需要；若不适持续或影响生活，寻求合适支持，不把象征比较当成身体结论或自行处理的依据。
+    advice:
+      - 记录日常负荷并保留休息
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Keep this wellbeing marker within ordinary routine reflection
+    summary: Keep this wellbeing marker within ordinary routine reflection
+    body: You can keep this marker within reflection on routine and everyday load. The illness key
+      indicates that guān guǐ (官鬼 — the relative associated with constraints and duties) is present
+      in a health-category chart. It cannot assess a symptom, its cause, or an appropriate
+      treatment. Actual discomfort needs real-world attention and qualified evaluation when
+      appropriate. For example, after several overfilled days, record evening activities and the
+      most demanding task, then see whether an optional commitment can be reduced. Consider
+      protecting time to rest and describing your needs to someone trustworthy. If discomfort
+      persists or interferes with ordinary life, seek suitable support. The symbolic role can prompt
+      a question about the day’s arrangement, but it should not become a physical conclusion or a
+      reason to act on speculative remedies.
+    advice:
+      - Review load and protect rest
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.rank
+  system: iching
+  section: process_outcome
+  topic: finding_rank
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: rank
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 学习中的表现线索，适合回到练习与反馈
+    summary: 学习中的表现线索，适合回到练习与反馈
+    body: 你可以把对表现的关心转成一次具体练习与反馈。官鬼（六爻里象征职责与约束的角色）在学业问题中作为名次相关的传统线索，当前标记说明这一角色出现；它不预测名次，也不决定你是否有学习能力。表现受材料、练习、环境与反馈影响，需要现实记录来判断。例如，面对一次测评，你可以复盘最容易出错的一类任务，标记错误从哪一步开始，再向合适的人请教方法。建议为下一次练习设定一个能检查的目标，兼顾复习与休息；把别人的结果当作参考而非自我价值的排序，让关注点回到你能够练习、理解与调整的部分。
+    advice:
+      - 设定一个可检查的练习目标
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Use the performance marker to review practice rather than predict a ranking
+    summary: Use the performance marker to review practice rather than predict a ranking
+    body:
+      You can turn concern about performance into a useful practice review. Rank indicates guān guǐ
+      (官鬼 — a relative associated with duty and constraint) in a study question, where tradition
+      links it to standing. Its presence cannot predict a ranking or define your ability to learn.
+      Materials, practice, setting, and feedback still need ordinary inspection. For example, review
+      a common error from a recent exercise and identify the first step where your reasoning became
+      unclear. Consider setting one checkable goal for the next attempt and asking for a method you
+      can use, while leaving time for rest. Other people’s results can be information without
+      becoming a scale of your worth. The marker is most useful when it redirects attention toward
+      something you can understand and practice.
+    advice:
+      - Set a checkable practice goal
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.ying
+  system: iching
+  section: process_outcome
+  topic: finding_ying
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: ying
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 出行中的外部接洽，适合提前确认
+    summary: 出行中的外部接洽，适合提前确认
+    body: 你可以先确认目的地与外部接洽怎样承接你的行程。应爻（卦中与代表自身的世爻（象征自身一侧的位置）相对的位置）在出行问题里提醒你观察对面的环境与回应，这个标记不描述某个人的动机，也不预测途中事件。外部条件要靠联络与现实材料核实，尤其不要把熟悉的计划当成对方已经知晓的安排。例如，到访前可以确认地址、接待入口与联系人，说明大致到达时间，给临时变化留一个可沟通渠道。建议保存必要联络与备用路径，听取现场实际要求；若条件不清楚，可以先补问再增加行程，让主动安排与你无法单独决定的部分能够接上。
+    advice:
+      - 确认目的地联络与接待入口
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Check the contact and arrival arrangements outside your own control
+    summary: Check the contact and arrival arrangements outside your own control
+    body:
+      You can confirm how an external contact will receive your journey. Ying line, or yìng yáo (应爻
+      — the position opposite the shi line representing your side), directs attention to the other
+      setting and its response. The marker does not disclose a person’s motives or predict events
+      along the way. Before a visit, verify the address, access point, and contact person, and
+      communicate the approximate arrival time. Consider saving the details and a usable
+      alternative, while listening to actual local requirements. If an important condition remains
+      unclear, ask before adding activities. A familiar plan on your side is not evidence that
+      another person knows the arrangement, so a practical contact can connect what you control with
+      what depends on someone else’s response.
+    advice:
+      - Confirm the arrival contact
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.vehicle
+  system: iching
+  section: process_outcome
+  topic: finding_vehicle
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: vehicle
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 交通与材料线索，宜核对实际可用性
+    summary: 交通与材料线索，宜核对实际可用性
+    body: 你可以检查行程需要的交通信息与材料是否实际可用。父母爻（六爻里象征文书与承载的角色）在出行问题中作为车船相关的传统线索，标记只说明这种角色出现；它不能判断交通状况，也不预告途中会发生的事。这里适合提醒你把工具、凭证与衔接逐项核实，不用把古代分类直接当作现代设备的评价。例如，多段行程可以先确认票务信息、出发入口与最紧的一段转乘，保留一份能离线查看的记录。建议另查实际交通与天气消息，安排必要的时间余量；如果方案已有变化，就更新材料与联络，让准备符合现实而不是仅依赖卦里的线索。
+    advice:
+      - 核对凭证与关键转乘
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Verify the means of travel rather than reading an event into the marker
+    summary: Verify the means of travel rather than reading an event into the marker
+    body: You can verify the practical means of travel and the material needed to use them. Vehicle
+      indicates fù mǔ yáo (父母爻 — the relative linked to documents and carrying structures),
+      traditionally used as a transport clue in journey questions. Its presence does not assess
+      transport conditions or predict an incident. For a route with several stages, check ticket
+      details, the departure entrance, and the tightest transfer, then keep a copy accessible
+      offline. Consider consulting actual transport and weather information and leaving a reasonable
+      time buffer. Update records and contacts if the plan changes. The historical category is most
+      useful as a prompt to inspect modern arrangements, not as a judgment about the reliability of
+      a particular vehicle or a substitute for current information.
+    advice:
+      - Check documents and transfers
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.shi_ying_same
+  system: iching
+  section: process_outcome
+  topic: finding_shi_ying_same
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: shi_ying_same
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 双方条件相近时，仍需说明各自的期待
+    summary: 双方条件相近时，仍需说明各自的期待
+    body: 你可以借较容易理解的共同点，核对双方真正需要什么。世应比和（代表自身的世爻（象征自身一侧的位置）与相对位置的应爻（象征相对接洽的位置）五行（木火土金水的关系分类）相同）是六爻里的关系比较；世应是两个象征位置，不等于现实中的人一定相似，也不说明双方没有分歧。相近的条件可以降低沟通门槛，但范围与节奏仍需协商。例如，在选择合作方案时，你和对方都重视稳定，却可能对投入时间有不同理解，可以把各自可承接的部分写出来再比较。建议先确认一个双方都认可的小目标，并说明谁负责什么；发现差异时温和调整，让共同点成为实际合作的入口，而不是要求对方与自己保持一致的理由。
+    advice:
+      - 核对双方对同一目标的期待
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Compare needs even when the two sides look aligned
+    summary: Compare needs even when the two sides look aligned
+    body:
+      You can use an apparent similarity to ask what each side actually needs. Shi-ying same refers
+      to shì yìng bǐ hé — the shi line representing your side and the opposing ying line sharing an
+      element. These are symbolic positions, not proof that two people are alike or free from
+      disagreement. In choosing a collaborative plan, both participants might value stability while
+      meaning different things by the time required. Consider listing what each can reasonably
+      carry, then agreeing on one modest shared outcome and responsibility for it. Revise a mismatch
+      calmly if it appears. The common feature becomes useful when it opens a concrete conversation,
+      rather than making either person responsible for remaining in agreement simply because the
+      comparison suggests alignment.
+    advice:
+      - Compare expectations about one goal
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.shi_generates_ying
+  system: iching
+  section: process_outcome
+  topic: finding_shi_generates_ying
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: shi_generates_ying
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 你向外投入较多时，也要确认资源怎样补充
+    summary: 你向外投入较多时，也要确认资源怎样补充
+    body: 你可以关心对方的需要，同时看清自己能持续提供多少。世生应（世爻（象征自身一侧的位置）五行（木火土金水的关系分类）生扶应爻（象征相对接洽的位置）五行）象征自身一侧对外部一侧的支持，世爻代表你的位置，应爻代表相对的接洽；这不是要求你承担对方全部责任，也不说明给予越多越好。付出要结合范围与补充方式看。例如，选择共同方案时，你可能愿意多准备一份材料，但仍可以说明完成时间与需要对方提供的条件。建议把可承担的支持列清楚，保留休息与复查，问自己这项投入是否服务于共同目标；如果只是为了避免不安而不断加码，就先调整约定，让帮助建立在自愿而可维持的基础上。
+    advice:
+      - 说明可承担的支持范围
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Review the cost of support flowing from your side
+    summary: Review the cost of support flowing from your side
+    body:
+      You can care about the other side’s needs while checking what you can continue to provide. Shi
+      generates ying, or shì shēng yìng, means the shi line representing your position feeds the
+      opposite ying line. This is a symbolic direction of support, not a requirement to assume
+      another person’s whole responsibility. When choosing a shared plan, you may offer to prepare
+      one document while still naming the time it needs and the material someone else must supply.
+      Consider stating the scope of assistance and protecting a review interval and rest. Ask
+      whether the contribution serves the common purpose or mainly eases anxiety through repeated
+      overcommitment. Help remains more workable when it is voluntary, understood, and supported by
+      resources that can be replenished.
+    advice:
+      - State a sustainable contribution
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.shi_controls_ying
+  system: iching
+  section: process_outcome
+  topic: finding_shi_controls_ying
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: shi_controls_ying
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 有主动安排空间时，注意边界与协商
+    summary: 有主动安排空间时，注意边界与协商
+    body: 你可以安排自己有权限处理的部分，也让受影响的人知道目的。世克应（世爻（象征自身一侧的位置）五行（木火土金水的关系分类）约束应爻（象征相对接洽的位置）五行）象征自身一侧能够影响对面条件，世应是两个观察位置，不是人的高低排序，也不授权你替他人决定。主动权需要与责任、资源和自愿参与相配。例如，比较两个方案时，你能决定自己的时间安排，却仍要询问伙伴能否配合，不能把自己较方便的一案自动当作双方选择。建议把要调整的环节缩成一项清楚约定，先听对方如何使用，再看是否适合扩大；若存在不同需要，就保留谈范围的入口，让推进靠可理解的安排而非一时强势。
+    advice:
+      - 协商一个双方可理解的安排
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Use agency without turning it into control over another person
+    summary: Use agency without turning it into control over another person
+    body: You can arrange the part genuinely within your authority while making its purpose clear to
+      those affected. Shi controls ying, or shì kè yìng, describes influence from the shi line
+      representing your position toward the opposing line. These symbolic roles do not rank people
+      or grant permission to decide for them. You might control your own schedule when comparing two
+      plans, yet still need to ask whether a partner can participate. Consider reducing the change
+      to one understandable agreement and hearing how it works for the other person before extending
+      it. If needs differ, keep a way to discuss scope. Useful agency depends on responsibility,
+      resources, and voluntary involvement, not simply on making the option convenient to you become
+      everyone’s default.
+    advice:
+      - Negotiate one workable arrangement
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.ying_controls_shi
+  system: iching
+  section: process_outcome
+  topic: finding_ying_controls_shi
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: ying_controls_shi
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 对面条件形成限制时，可以先重新谈承接范围
+    summary: 对面条件形成限制时，可以先重新谈承接范围
+    body: 你可以先说明不合适的条件，再商量怎样保留可行部分。应克世（应爻（象征相对接洽的位置）五行（木火土金水的关系分类）约束世爻（象征自身一侧的位置）五行）象征外部一侧限制自身一侧，世爻代表你的位置，应爻是相对的接洽；这种比较不揭示对方是否有敌意，也不说明你缺乏能力。宜把感到受制的地方变成实际要求来核对。例如，对方希望你在很短时间内回复复杂方案，可以说清还缺什么事实、何时能提供答复，并提出先确认一小部分。建议用明确的替代方式回应，而非在催促中不断增加承诺；也找可信的人帮助比较，让判断根据真正的需求与资源更新，保留暂停或不同路线的选择。
+    advice:
+      - 说明限制并提出替代范围
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Renegotiate when an external demand exceeds your arrangement
+    summary: Renegotiate when an external demand exceeds your arrangement
+    body: You can name an unsuitable condition and negotiate the workable part that remains. Ying
+      controls shi, or yìng kè shì, places symbolic constraint from the opposing line onto the shi
+      line representing your position. It does not establish hostility or define your ability. If
+      someone wants an immediate answer to a complex proposal, explain the missing fact and a
+      realistic response time, perhaps offering to settle one limited point first. Consider a
+      concrete alternative rather than adding promises under pressure. Ask a trustworthy person to
+      help compare the demand with the resources available. A pause or another route remains a
+      choice. The purpose of the comparison is to clarify an external requirement, not to turn
+      discomfort into a complete story about the other person’s intentions.
+    advice:
+      - Name the limit and alternative
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.finding.ying_generates_shi
+  system: iching
+  section: process_outcome
+  topic: finding_ying_generates_shi
+  when:
+    all:
+      - path: method
+        eq: liuyao
+      - path: liuyao.findings
+        contains: ying_generates_shi
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 对方的支持可以接纳，也要确认实际配合方式
+    summary: 对方的支持可以接纳，也要确认实际配合方式
+    body: 你可以接纳对方带来的帮助，同时保留自己的判断与节奏。应生世（应爻（象征相对接洽的位置）五行（木火土金水的关系分类）生扶世爻（象征自身一侧的位置）五行）象征相对位置对自身一侧提供支持，世爻代表你的位置，应爻是外部接洽；它不是说明现实里的任何人都可靠，也不表示全部资源已经到位。帮助仍需要具体内容与使用方式。例如，比较两条路线时，伙伴愿意提供信息，你可以问清材料来源、何时可用以及能支持哪一部分，而不是立即把整个计划交给对方。建议先落实一个小约定，用一轮实际反馈确认配合；表达感谢也说明边界，让支持服务于你们都理解的目标，不把借力变成对自身判断的放弃。
+    advice:
+      - 确认帮助内容与实际到位方式
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Receive external support through a clear practical agreement
+    summary: Receive external support through a clear practical agreement
+    body:
+      You can receive assistance while retaining your own pace and judgment. Ying generates shi, or
+      yìng shēng shì, describes the opposite line supporting the shi line representing your
+      position. The direction is symbolic, not evidence that every person involved is reliable or
+      that all resources are ready. When comparing two routes, a partner’s offer of information
+      still needs a source, timing, and a clear account of what it can support. Consider making one
+      modest agreement and checking how it works through actual feedback. Acknowledge the help and
+      state the boundary at the same time. This allows external support to serve a purpose both
+      sides understand without making access to assistance depend on handing over responsibility for
+      your decision. Keep the request tied to a condition you can check.
+    advice:
+      - Confirm what help can provide
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

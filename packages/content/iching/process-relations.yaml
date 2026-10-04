@@ -1,0 +1,548 @@
+# DESIGN-GAP: Match the engine’s same-side mutual/changing trigram comparison with the original body.
+- id: iching.process.mutual.use_generates_body
+  system: iching
+  section: process_outcome
+  topic: mutual_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.mutualRelation
+        eq: use_generates_body
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 过程里的配合值得单独确认：外部支持有助于你开展手头的事
+    summary: 过程里的配合值得单独确认
+    body: 你可以把中间过程单独放进观察。互卦（由本卦（起卦得到的主要六条线）中间四条线重组成的过程图）提供推进途中的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，任务进行中出现新的协作者，可以先问清他能提供哪一项材料，再看这一条件如何改变原安排。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Inspect the support within the unfolding process: You can make practical use of support that
+      fits your present capacity'
+    summary: Inspect the support within the unfolding process
+    body: You can inspect the intermediate process separately from the original situation. Mutual
+      hexagram, or hù guà — a process figure formed from the inner four primary lines, offers a
+      viewpoint rather than a forecast. The trigram on the original use side is compared with the
+      original body, the side representing your position. Use generates body (yòng shēng tǐ — the
+      event side supports the side representing your position) points toward useful assistance. Body
+      and use are roles in this symbolic arrangement, not measurements of a person. Notice what help
+      is actually available and how it reaches the task. For example, a new collaborator during the
+      task may offer material whose practical availability needs checking. Start with a task that
+      the available help can genuinely carry. Let the result show how coordination works before
+      expanding the request, and recognize the other person’s time as part of the resource. Keep
+      observed facts separate from the symbolic comparison when reviewing what the stage actually
+      requires.
+    advice:
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.mutual.body_generates_use
+  system: iching
+  section: process_outcome
+  topic: mutual_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.mutualRelation
+        eq: body_generates_use
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 过程里的配合值得单独确认：你可能付出较多，适合先看消耗是否可承受
+    summary: 过程里的配合值得单独确认
+    body: 你可以把中间过程单独放进观察。互卦（由本卦（起卦得到的主要六条线）中间四条线重组成的过程图）提供推进途中的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，任务进行中出现新的协作者，可以先问清他能提供哪一项材料，再看这一条件如何改变原安排。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Inspect the support within the unfolding process: You may be supplying much of the effort,
+      so review what the contribution costs'
+    summary: Inspect the support within the unfolding process
+    body: You can inspect the intermediate process separately from the original situation. Mutual
+      hexagram, or hù guà — a process figure formed from the inner four primary lines, offers a
+      viewpoint rather than a forecast. The trigram on the original use side is compared with the
+      original body, the side representing your position. Body generates use (tǐ shēng yòng — your
+      side supplies the event side) highlights contribution and depletion. An effort can be
+      meaningful and still require a limit. Look at the resource being given, what replenishes it,
+      and whether the arrangement acknowledges the cost. For example, a new collaborator during the
+      task may offer material whose practical availability needs checking. Consider naming how much
+      you can give and which responsibility needs to be shared. Leave space to replenish capacity so
+      the contribution remains workable instead of growing through an unspoken assumption. Keep
+      observed facts separate from the symbolic comparison when reviewing what the stage actually
+      requires.
+    advice:
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.mutual.use_controls_body
+  system: iching
+  section: process_outcome
+  topic: mutual_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.mutualRelation
+        eq: use_controls_body
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 过程里的配合值得单独确认：外部限制较明显时，先保护能自主安排的部分
+    summary: 过程里的配合值得单独确认
+    body: 你可以把中间过程单独放进观察。互卦（由本卦（起卦得到的主要六条线）中间四条线重组成的过程图）提供推进途中的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，任务进行中出现新的协作者，可以先问清他能提供哪一项材料，再看这一条件如何改变原安排。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Inspect the support within the unfolding process: You may need to respond to a constraint
+      before expecting normal progress'
+    summary: Inspect the support within the unfolding process
+    body: You can inspect the intermediate process separately from the original situation. Mutual
+      hexagram, or hù guà — a process figure formed from the inner four primary lines, offers a
+      viewpoint rather than a forecast. The trigram on the original use side is compared with the
+      original body, the side representing your position. Use controls body (yòng kè tǐ — the event
+      side constrains your position) describes a limit, not a verdict about your ability. Identify
+      whether the constraint concerns time, access, or a demand you cannot currently meet. This
+      makes an appropriate response easier to choose. For example, a new collaborator during the
+      task may offer material whose practical availability needs checking. That said, you can reduce
+      scope and request specific help. Keep essential arrangements intact, then review the situation
+      when real conditions change rather than treating pressure as a reason to abandon your
+      judgment. Keep observed facts separate from the symbolic comparison when reviewing what the
+      stage actually requires.
+    advice:
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.mutual.body_controls_use
+  system: iching
+  section: process_outcome
+  topic: mutual_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.mutualRelation
+        eq: body_controls_use
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 过程里的配合值得单独确认：你有调整事情的空间，但推进可能需要额外精力
+    summary: 过程里的配合值得单独确认
+    body: 你可以把中间过程单独放进观察。互卦（由本卦（起卦得到的主要六条线）中间四条线重组成的过程图）提供推进途中的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，任务进行中出现新的协作者，可以先问清他能提供哪一项材料，再看这一条件如何改变原安排。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Inspect the support within the unfolding process: You can influence the matter, though doing
+      so may require deliberate effort'
+    summary: Inspect the support within the unfolding process
+    body: You can inspect the intermediate process separately from the original situation. Mutual
+      hexagram, or hù guà — a process figure formed from the inner four primary lines, offers a
+      viewpoint rather than a forecast. The trigram on the original use side is compared with the
+      original body, the side representing your position. Body controls use (tǐ kè yòng — your side
+      can constrain the event side) concerns agency within the arrangement. It does not establish
+      control over another person or remove the effort involved. Identify the part you can
+      responsibly influence with the authority and resources you have. For example, a new
+      collaborator during the task may offer material whose practical availability needs checking.
+      Try one influential practical step and give it a time limit. Agree on a review, and ask for
+      consent where the choice belongs to someone else. Effective agency can remain bounded rather
+      than becoming a demand to direct everything. Keep observed facts separate from the symbolic
+      comparison when reviewing what the stage actually requires.
+    advice:
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.mutual.same
+  system: iching
+  section: process_outcome
+  topic: mutual_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.mutualRelation
+        eq: same
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 过程里的配合值得单独确认：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 过程里的配合值得单独确认
+    body: 你可以把中间过程单独放进观察。互卦（由本卦（起卦得到的主要六条线）中间四条线重组成的过程图）提供推进途中的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，任务进行中出现新的协作者，可以先问清他能提供哪一项材料，再看这一条件如何改变原安排。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Inspect the support within the unfolding process: You may find coordination easier when the
+      two sides have a similar rhythm'
+    summary: Inspect the support within the unfolding process
+    body: You can inspect the intermediate process separately from the original situation. Mutual
+      hexagram, or hù guà — a process figure formed from the inner four primary lines, offers a
+      viewpoint rather than a forecast. The trigram on the original use side is compared with the
+      original body, the side representing your position. Same relation, or bǐ hé (比和 — body and use
+      share an element), suggests a compatible rhythm between your position and the matter.
+      Similarity can make an initial exchange easier. It does not establish identical preferences or
+      remove the need to check commitments. For example, a new collaborator during the task may
+      offer material whose practical availability needs checking. Use the easy contact to confirm
+      one shared arrangement, including responsibility and timing. Keep a way to give feedback, so
+      cooperation rests on something observable rather than the assumption that everyone means the
+      same thing. Keep observed facts separate from the symbolic comparison when reviewing what the
+      stage actually requires.
+    advice:
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.changing.use_generates_body
+  system: iching
+  section: process_outcome
+  topic: changing_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.changingRelation
+        eq: use_generates_body
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 变化后的条件需要重新核对：外部支持有助于你开展手头的事
+    summary: 变化后的条件需要重新核对
+    body: 你可以把变化后的结构单独放进观察。变卦（动爻（被标记为翻转阴阳的线）翻转后形成的新结构图）提供后续安排的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，任务重新分配之后，可以核对新的职责是否已有资源承接，再看这一条件如何改变原安排。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Check the conditions of the changed arrangement: You can make practical use of support that
+      fits your present capacity'
+    summary: Check the conditions of the changed arrangement
+    body: You can inspect the changed arrangement separately from the original situation. Changing
+      hexagram, or biàn guà — the figure formed after the moving line flips, offers a viewpoint
+      rather than a forecast. The trigram on the original use side is compared with the original
+      body, the side representing your position. Use generates body (yòng shēng tǐ — the event side
+      supports the side representing your position) points toward useful assistance. Body and use
+      are roles in this symbolic arrangement, not measurements of a person. Notice what help is
+      actually available and how it reaches the task. For example, a reassigned responsibility may
+      need a different resource before it can be carried. Start with a task that the available help
+      can genuinely carry. Let the result show how coordination works before expanding the request,
+      and recognize the other person’s time as part of the resource. Keep observed facts separate
+      from the symbolic comparison when reviewing what the stage actually requires.
+    advice:
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.changing.body_generates_use
+  system: iching
+  section: process_outcome
+  topic: changing_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.changingRelation
+        eq: body_generates_use
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 变化后的条件需要重新核对：你可能付出较多，适合先看消耗是否可承受
+    summary: 变化后的条件需要重新核对
+    body: 你可以把变化后的结构单独放进观察。变卦（动爻（被标记为翻转阴阳的线）翻转后形成的新结构图）提供后续安排的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，任务重新分配之后，可以核对新的职责是否已有资源承接，再看这一条件如何改变原安排。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Check the conditions of the changed arrangement: You may be supplying much of the effort, so
+      review what the contribution costs'
+    summary: Check the conditions of the changed arrangement
+    body: You can inspect the changed arrangement separately from the original situation. Changing
+      hexagram, or biàn guà — the figure formed after the moving line flips, offers a viewpoint
+      rather than a forecast. The trigram on the original use side is compared with the original
+      body, the side representing your position. Body generates use (tǐ shēng yòng — your side
+      supplies the event side) highlights contribution and depletion. An effort can be meaningful
+      and still require a limit. Look at the resource being given, what replenishes it, and whether
+      the arrangement acknowledges the cost. For example, a reassigned responsibility may need a
+      different resource before it can be carried. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption. Keep observed facts
+      separate from the symbolic comparison when reviewing what the stage actually requires.
+    advice:
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.changing.use_controls_body
+  system: iching
+  section: process_outcome
+  topic: changing_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.changingRelation
+        eq: use_controls_body
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 变化后的条件需要重新核对：外部限制较明显时，先保护能自主安排的部分
+    summary: 变化后的条件需要重新核对
+    body: 你可以把变化后的结构单独放进观察。变卦（动爻（被标记为翻转阴阳的线）翻转后形成的新结构图）提供后续安排的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，任务重新分配之后，可以核对新的职责是否已有资源承接，再看这一条件如何改变原安排。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Check the conditions of the changed arrangement: You may need to respond to a constraint
+      before expecting normal progress'
+    summary: Check the conditions of the changed arrangement
+    body: You can inspect the changed arrangement separately from the original situation. Changing
+      hexagram, or biàn guà — the figure formed after the moving line flips, offers a viewpoint
+      rather than a forecast. The trigram on the original use side is compared with the original
+      body, the side representing your position. Use controls body (yòng kè tǐ — the event side
+      constrains your position) describes a limit, not a verdict about your ability. Identify
+      whether the constraint concerns time, access, or a demand you cannot currently meet. This
+      makes an appropriate response easier to choose. For example, a reassigned responsibility may
+      need a different resource before it can be carried. That said, you can reduce scope and
+      request specific help. Keep essential arrangements intact, then review the situation when real
+      conditions change rather than treating pressure as a reason to abandon your judgment. Keep
+      observed facts separate from the symbolic comparison when reviewing what the stage actually
+      requires.
+    advice:
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.changing.body_controls_use
+  system: iching
+  section: process_outcome
+  topic: changing_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.changingRelation
+        eq: body_controls_use
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 变化后的条件需要重新核对：你有调整事情的空间，但推进可能需要额外精力
+    summary: 变化后的条件需要重新核对
+    body: 你可以把变化后的结构单独放进观察。变卦（动爻（被标记为翻转阴阳的线）翻转后形成的新结构图）提供后续安排的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，任务重新分配之后，可以核对新的职责是否已有资源承接，再看这一条件如何改变原安排。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Check the conditions of the changed arrangement: You can influence the matter, though doing
+      so may require deliberate effort'
+    summary: Check the conditions of the changed arrangement
+    body: You can inspect the changed arrangement separately from the original situation. Changing
+      hexagram, or biàn guà — the figure formed after the moving line flips, offers a viewpoint
+      rather than a forecast. The trigram on the original use side is compared with the original
+      body, the side representing your position. Body controls use (tǐ kè yòng — your side can
+      constrain the event side) concerns agency within the arrangement. It does not establish
+      control over another person or remove the effort involved. Identify the part you can
+      responsibly influence with the authority and resources you have. For example, a reassigned
+      responsibility may need a different resource before it can be carried. Try one influential
+      practical step and give it a time limit. Agree on a review, and ask for consent where the
+      choice belongs to someone else. Effective agency can remain bounded rather than becoming a
+      demand to direct everything. Keep observed facts separate from the symbolic comparison when
+      reviewing what the stage actually requires.
+    advice:
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.process.changing.same
+  system: iching
+  section: process_outcome
+  topic: changing_relation
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.changingRelation
+        eq: same
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 变化后的条件需要重新核对：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 变化后的条件需要重新核对
+    body: 你可以把变化后的结构单独放进观察。变卦（动爻（被标记为翻转阴阳的线）翻转后形成的新结构图）提供后续安排的角度，不判定现实未来；本次将其中与原用位同侧的三爻卦（三条阴阳线组成的图）同原体卦（象征自身处境的三条线）比较，体卦是象征自身处境的一侧。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，任务重新分配之后，可以核对新的职责是否已有资源承接，再看这一条件如何改变原安排。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。现实反馈仍需另查，不把这个阶段图当成已落实的结果。
+    advice:
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Check the conditions of the changed arrangement: You may find coordination easier when the
+      two sides have a similar rhythm'
+    summary: Check the conditions of the changed arrangement
+    body: You can inspect the changed arrangement separately from the original situation. Changing
+      hexagram, or biàn guà — the figure formed after the moving line flips, offers a viewpoint
+      rather than a forecast. The trigram on the original use side is compared with the original
+      body, the side representing your position. Same relation, or bǐ hé (比和 — body and use share an
+      element), suggests a compatible rhythm between your position and the matter. Similarity can
+      make an initial exchange easier. It does not establish identical preferences or remove the
+      need to check commitments. For example, a reassigned responsibility may need a different
+      resource before it can be carried. Use the easy contact to confirm one shared arrangement,
+      including responsibility and timing. Keep a way to give feedback, so cooperation rests on
+      something observable rather than the assumption that everyone means the same thing. Keep
+      observed facts separate from the symbolic comparison when reviewing what the stage actually
+      requires.
+    advice:
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

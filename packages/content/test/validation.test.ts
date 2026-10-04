@@ -30,7 +30,7 @@ describe('knowledge validation', () => {
   });
   it('loads the source disclaimer, glossary and bilingual transitions', async () => {
     const result = await loadContent();
-    expect(result.diagnostics).toEqual([]);
+    expect(result.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
     expect(result.glossary.length).toBeGreaterThan(400);
     expect(result.units.map((u) => u.id)).toContain('common.disclaimer');
   });

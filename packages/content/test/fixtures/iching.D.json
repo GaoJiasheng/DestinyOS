@@ -1,0 +1,124 @@
+{
+  "method": "liuyao",
+  "category": "health",
+  "castAt": {
+    "local": "2026-10-04T12:00:00",
+    "tz": "Asia/Singapore",
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    },
+    "dayGanZhi": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "monthBranch": "you"
+  },
+  "primary": {
+    "number": 42,
+    "key": "hexagram_42",
+    "lines": [1, 0, 0, 0, 1, 1],
+    "upper": "xun",
+    "lower": "zhen"
+  },
+  "changing": null,
+  "movingLines": [],
+  "liuyao": {
+    "throws": [1, 2, 2, 2, 1, 1],
+    "lines": [
+      {
+        "stem": "geng",
+        "branch": "zi",
+        "element": "water",
+        "relative": "fu_mu",
+        "position": 1,
+        "yang": true,
+        "moving": false,
+        "spirit": "bai_hu",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "geng",
+        "branch": "yin",
+        "element": "wood",
+        "relative": "xiong_di",
+        "position": 2,
+        "yang": false,
+        "moving": false,
+        "spirit": "xuan_wu",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "geng",
+        "branch": "chen",
+        "element": "earth",
+        "relative": "qi_cai",
+        "position": 3,
+        "yang": false,
+        "moving": false,
+        "spirit": "qing_long",
+        "isShi": true,
+        "isYing": false
+      },
+      {
+        "stem": "xin",
+        "branch": "wei",
+        "element": "earth",
+        "relative": "qi_cai",
+        "position": 4,
+        "yang": false,
+        "moving": false,
+        "spirit": "zhu_que",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "xin",
+        "branch": "si",
+        "element": "fire",
+        "relative": "zi_sun",
+        "position": 5,
+        "yang": true,
+        "moving": false,
+        "spirit": "gou_chen",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "xin",
+        "branch": "mao",
+        "element": "wood",
+        "relative": "xiong_di",
+        "position": 6,
+        "yang": true,
+        "moving": false,
+        "spirit": "teng_she",
+        "isShi": false,
+        "isYing": true
+      }
+    ],
+    "palace": "xun",
+    "palaceElement": "wood",
+    "hidden": [
+      {
+        "relative": "guan_gui",
+        "stem": "xin",
+        "branch": "you",
+        "underLine": 3
+      }
+    ],
+    "useGod": {
+      "relative": "qi_cai",
+      "lines": [3],
+      "state": "neutral"
+    },
+    "voidBranches": ["yin", "mao"],
+    "findings": []
+  },
+  "verdict": "neutral",
+  "score": 50
+}

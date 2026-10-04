@@ -41,7 +41,9 @@ describe('source tables and KU integration', () => {
     expect(validateAsset('tarot/reading.yaml', 'tarot/reading.yaml', '[]')).toBeUndefined();
     const result = await loadContent();
     expect(result.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
-    expect(result.units.map((unit) => unit.id)).toEqual(['common.disclaimer']);
+    expect(result.units.map((unit) => unit.id)).toContain('common.disclaimer');
+    expect(result.units.some((unit) => unit.id.startsWith('iching.primary.'))).toBe(true);
+    expect(result.units.some((unit) => unit.id.startsWith('hexagram_'))).toBe(false);
     expect(result.glossary.length).toBeGreaterThan(400);
   });
 });

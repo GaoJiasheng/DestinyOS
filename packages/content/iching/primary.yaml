@@ -1,0 +1,3712 @@
+# DESIGN-GAP: The documented iching.primary.number dimension resolves to primary.number in the Chart root.
+- id: iching.primary.hexagram_01
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 1
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.1
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 乾：主动创造
+    summary: 主动创造，持续练习，把力量用在可承担的目标上
+    body: 主动创造，持续练习，把力量用在可承担的目标上；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为乾卦；能力正在形成时先做准备，得到支持后再扩大影响，走到高处也要留意反馈。乾的六个位置呈现力量从潜藏到显露的过程，重点是行动与时机相配。上下卦都是天，强调开阔与主动的连续作用；这是观察情境的比喻，不是事件预告。例如，新项目先做样稿，再邀请同事评审，就能把这个角度用在可观察的安排上。建议给每一步设定检查点；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 给每一步设定检查点
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元、亨、利、贞。
+        from: 《周易》·乾
+      - text: 天行健，君子以自强不息。
+        from: 《周易》象传·乾
+  en:
+    title: The Creative
+    summary: You have room to initiate, but leadership asks for practice as well as confidence
+    body: 'You have room to initiate, but leadership asks for practice as well as confidence. The
+      Creative is your primary hexagram (běn guà — the main figure cast for this question); a
+      capable person can still move too early. The six dragon images trace how initiative develops,
+      becomes visible, and eventually needs restraint. Initiative is not a demand to lead every
+      room; some abilities need quiet development; others benefit from a guide who can see what you
+      miss. When influence grows, invite criticism before your plans become difficult to interrupt.
+      In everyday terms, test an idea privately before asking a team to follow it. Try this
+      emphasis: make room for honest feedback. Give this step a review point tied to the task
+      itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Make room for honest feedback
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元、亨、利、贞。
+        from: Zhouyi, hexagram 1 (Chinese source text)
+      - text: 天行健，君子以自强不息。
+        from: Zhouyi, Image commentary 1 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_02
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 2
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.2
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 坤：承接现实需要
+    summary: 承接现实需要，用可靠的配合建立自己的位置
+    body: 承接现实需要，用可靠的配合建立自己的位置；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为坤卦；坤以大地的承载讲接纳与落实，柔和并不等于没有立场。你可以把别人的构想变成日常可执行的安排，也要看清自己能提供什么，避免把所有责任都揽到身上。上下卦都是地，强调承载与落实的连续作用；这是观察情境的比喻，不是事件预告。例如，共同任务先分工，再约定求助方式，就能把这个角度用在可观察的安排上。建议支持别人也保留休息；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 支持别人也保留休息
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元、亨、利牝马之贞。
+        from: 《周易》·坤
+      - text: 地势坤，君子以厚德载物。
+        from: 《周易》象传·坤
+  en:
+    title: The Receptive
+    summary: You can contribute through steadiness without surrendering your own judgment
+    body:
+      'You can contribute through steadiness without surrendering your own judgment. The Receptive
+      is your primary hexagram (běn guà — the main figure cast for this question); receptivity works
+      best when it is active and discerning. Here the earth image points to making plans usable,
+      supporting shared work, and knowing what you can reasonably carry. A supporting role can hold
+      considerable influence because it determines whether an idea reaches ordinary life; be clear
+      about what you agree to carry. Dependable assistance includes the ability to decline demands
+      that exceed the resources available. In everyday terms, agree on roles before volunteering for
+      additional work. Try this emphasis: leave some capacity uncommitted. Give this step a review
+      point tied to the task itself, so you can notice what helped and what still needs another
+      approach.'
+    advice:
+      - Leave some capacity uncommitted
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元、亨、利牝马之贞。
+        from: Zhouyi, hexagram 2 (Chinese source text)
+      - text: 地势坤，君子以厚德载物。
+        from: Zhouyi, Image commentary 2 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_03
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 3
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.3
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 屯：起步不顺时
+    summary: 起步不顺时，先把资源和伙伴组织起来
+    body: 起步不顺时，先把资源和伙伴组织起来；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为屯卦；屯讲新生事物尚未成形，雷的推动遇到水的阻碍，容易出现热情先于条件的情况。反复并不说明方向无价值，往往提示规则、资源与协作还需要搭建。卦象上方是水，下方是雷，分别提示不确定中的通路与启动与回应；这是观察情境的比喻，不是事件预告。例如，新团队先确认职责，不急着同时开多个任务，就能把这个角度用在可观察的安排上。建议把难题拆成先后步骤；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把难题拆成先后步骤
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元、亨、利、贞，勿用有攸往，利建侯。
+        from: 《周易》·屯
+      - text: 云，雷，屯；君子以经纶。
+        from: 《周易》象传·屯
+  en:
+    title: Difficulty at the Beginning
+    summary: You may need a workable foundation before an ambitious beginning can take shape
+    body:
+      'You may need a workable foundation before an ambitious beginning can take shape. Difficulty
+      at the Beginning is your primary hexagram (běn guà — the main figure cast for this question);
+      a beginning can contain real energy and real confusion at once. Thunder beneath water suggests
+      that motion exists, while the route and support around it are still unsettled. Early confusion
+      often concerns coordination more than motivation; A partner, a sequence of tasks, and an
+      agreed place to begin can matter more than another ambitious proposal. Establishing these
+      basics helps you distinguish a difficult beginning from a direction that needs changing. In
+      everyday terms, give a new group one manageable assignment before expanding. Try this
+      emphasis: build the first reliable foothold.'
+    advice:
+      - Build the first reliable foothold
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元、亨、利、贞，勿用有攸往，利建侯。
+        from: Zhouyi, hexagram 3 (Chinese source text)
+      - text: 云，雷，屯；君子以经纶。
+        from: Zhouyi, Image commentary 3 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_04
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 4
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.4
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 蒙：愿意承认未知
+    summary: 愿意承认未知，学习才有明确入口
+    body: 愿意承认未知，学习才有明确入口；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为蒙卦；蒙把山下的水看作初学者尚未找到通路的状态。重要的是诚恳提问与持续练习，而不是反复索取让自己安心的结论；教与学都需要清楚的边界。卦象上方是山，下方是水，分别提示边界与止步与不确定中的通路；这是观察情境的比喻，不是事件预告。例如，学新技能时带着一次失败记录去请教，就能把这个角度用在可观察的安排上。建议先实践再复盘问题；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先实践再复盘问题
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，匪我求童蒙，童蒙求我。初筮告，再三渎，渎则不告，利贞。
+        from: 《周易》·蒙
+      - text: 山下出泉，蒙；君子以果行育德。
+        from: 《周易》象传·蒙
+  en:
+    title: Youthful Folly
+    summary: You can make progress by turning uncertainty into a question someone can actually answer
+    body: 'You can make progress by turning uncertainty into a question someone can actually answer.
+      Youthful Folly is your primary hexagram (běn guà — the main figure cast for this question);
+      learning needs curiosity and a usable method. The mountain above water evokes a route that is
+      not yet visible, so asking a focused question matters more than collecting reassuring
+      opinions. A teacher cannot do the learner’s practice, and a learner should not have to guess
+      what is being taught; bring an attempt rather than an unlimited request for certainty. A
+      respectful learning relationship makes mistakes visible and gives them a next use. In everyday
+      terms, bring a specific failed attempt to a mentor. Try this emphasis: ask for a method you
+      can test.'
+    advice:
+      - Ask for a method you can test
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，匪我求童蒙，童蒙求我。初筮告，再三渎，渎则不告，利贞。
+        from: Zhouyi, hexagram 4 (Chinese source text)
+      - text: 山下出泉，蒙；君子以果行育德。
+        from: Zhouyi, Image commentary 4 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_05
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 5
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.5
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 需：等待条件成熟时
+    summary: 等待条件成熟时，仍可照顾手头的准备
+    body: 等待条件成熟时，仍可照顾手头的准备；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为需卦；需讲有能力但前路尚有阻隔，天空下方的水并未提供直接通道。等待不是把事情搁置，而是保留余地、补齐信息，避免越急越靠近难以退出的位置。卦象上方是水，下方是天，分别提示不确定中的通路与开阔与主动；这是观察情境的比喻，不是事件预告。例如，等回复期间整理材料，而不是连续催问，就能把这个角度用在可观察的安排上。建议约定一次合适的跟进；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 约定一次合适的跟进
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 有孚，光亨贞吉，利涉大川。
+        from: 《周易》·需
+      - text: 云上于天，需；君子以饮食宴乐。
+        from: 《周易》象传·需
+  en:
+    title: Waiting
+    summary: You can wait productively by protecting your capacity and watching for a practical opening
+    body:
+      'You can wait productively by protecting your capacity and watching for a practical opening.
+      Waiting is your primary hexagram (běn guà — the main figure cast for this question); strength
+      does not remove every delay. Water above heaven places a capable impulse beneath an uncertain
+      crossing, making preparation and distance from trouble useful forms of action. A delay becomes
+      harder to bear when you repeatedly move closer to the obstruction just to feel active; set a
+      follow-up interval and keep ordinary life supplied. Waiting with a plan preserves options that
+      impatient pressure might close. In everyday terms, use a delayed reply to prepare the next
+      useful document. Try this emphasis: set a sensible follow-up point. Give this step a review
+      point tied to the task itself, so you can notice what helped and what still needs another
+      approach.'
+    advice:
+      - Set a sensible follow-up point
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 有孚，光亨贞吉，利涉大川。
+        from: Zhouyi, hexagram 5 (Chinese source text)
+      - text: 云上于天，需；君子以饮食宴乐。
+        from: Zhouyi, Image commentary 5 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_06
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 6
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.6
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 讼：分歧出现时
+    summary: 分歧出现时，先降低争执的成本
+    body: 分歧出现时，先降低争执的成本；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为讼卦；讼呈现天与水各行其路，双方的期待可能越走越远。它提醒你看见争论背后的需求与信息差，及时求助于公允的沟通过程，不把每次不同意见都推到输赢上。卦象上方是天，下方是水，分别提示开阔与主动与不确定中的通路；这是观察情境的比喻，不是事件预告。例如，会议里先写出双方共同认可的事实，就能把这个角度用在可观察的安排上。建议把立场转换成具体请求；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把立场转换成具体请求
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 有孚，窒惕，中吉，终凶。
+        from: 《周易》·讼
+      - text: 天与水违行，讼；君子以作事谋始。
+        from: 《周易》象传·讼
+  en:
+    title: Conflict
+    summary: You may gain more from clarifying a disagreement than from proving you can outlast it
+    body: 'You may gain more from clarifying a disagreement than from proving you can outlast it.
+      Conflict is your primary hexagram (běn guà — the main figure cast for this question); opposing
+      directions can turn a small misunderstanding into a costly contest. This image asks you to
+      separate what happened from what each person assumes, and to leave room for an impartial
+      conversation. Different interpretations of an agreement can persist even when both people are
+      sincere; clarifying the request may reveal an easier resolution than defending a whole
+      position. A neutral facilitator can help establish the facts without becoming someone who
+      chooses your life for you. In everyday terms, list agreed facts before discussing disputed
+      interpretations. Try this emphasis: seek clarity before escalation.'
+    advice:
+      - Seek clarity before escalation
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 有孚，窒惕，中吉，终凶。
+        from: Zhouyi, hexagram 6 (Chinese source text)
+      - text: 天与水违行，讼；君子以作事谋始。
+        from: Zhouyi, Image commentary 6 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_07
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 7
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.7
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 师：集体行动需要秩序
+    summary: 集体行动需要秩序，也需要可信的负责人
+    body: 集体行动需要秩序，也需要可信的负责人；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为师卦；师借地中藏水的意象谈众人的力量，力量要靠清楚安排才能发挥。这里的纪律是共同理解做法与责任，并非要求无条件服从；选对负责人比单纯增加人数更关键。卦象上方是地，下方是水，分别提示承载与落实与不确定中的通路；这是观察情境的比喻，不是事件预告。例如，赶进度时列出负责人和交接顺序，就能把这个角度用在可观察的安排上。建议行动前核对目标与权限；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 行动前核对目标与权限
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 贞，丈人吉，无咎。
+        from: 《周易》·师
+      - text: 地中有水，师；君子以容民畜众。
+        from: 《周易》象传·师
+  en:
+    title: The Army
+    summary: You can coordinate demanding work by making responsibilities and limits visible
+    body:
+      'You can coordinate demanding work by making responsibilities and limits visible. The Army is
+      your primary hexagram (běn guà — the main figure cast for this question); a group has reserves
+      that an individual does not, but coordination is a separate skill. Water held within earth
+      evokes resources gathered under a structure that must remain understandable and accountable.
+      Organization should make responsibility easier to trace, not harder to question; A person
+      leading a collective effort needs enough knowledge to coordinate and enough openness to hear a
+      warning. Numbers alone cannot compensate for a confused chain of instructions. In everyday
+      terms, name a coordinator and define each handover. Try this emphasis: keep the chain of
+      responsibility clear. Give this step a review point tied to the task itself, so you can notice
+      what helped and what still needs another approach.'
+    advice:
+      - Keep the chain of responsibility clear
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 贞，丈人吉，无咎。
+        from: Zhouyi, hexagram 7 (Chinese source text)
+      - text: 地中有水，师；君子以容民畜众。
+        from: Zhouyi, Image commentary 7 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_08
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 8
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.8
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 比：寻找同行者时
+    summary: 寻找同行者时，看长期可信度而非一时热闹
+    body: 寻找同行者时，看长期可信度而非一时热闹；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为比卦；比以水与地相亲的意象谈连接，合作的价值来自彼此愿意回应。亲近不必取消筛选，也不必为了融入而违背自己的原则；稳定的小圈子往往比表面的广泛关系更有用。卦象上方是水，下方是地，分别提示不确定中的通路与承载与落实；这是观察情境的比喻，不是事件预告。例如，邀请两位可靠伙伴定期交流进展，就能把这个角度用在可观察的安排上。建议先说明你能给出的支持；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先说明你能给出的支持
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 吉，原筮，元永贞，无咎。不宁方来，后夫凶。
+        from: 《周易》·比
+      - text: 地上有水，比；先王以建万国，亲诸侯。
+        from: 《周易》象传·比
+  en:
+    title: Holding Together
+    summary: You can build belonging around reciprocal care and a purpose people understand
+    body: 'You can build belonging around reciprocal care and a purpose people understand. Holding
+      Together is your primary hexagram (běn guà — the main figure cast for this question);
+      connection becomes useful when people know why they are together. Water over earth suggests
+      closeness and shared access, but a sound alliance still needs consent, reliability, and room
+      to choose. Belonging can be renewed through ordinary reciprocal acts; notice who listens, who
+      follows through, and who makes participation voluntary. A bond does not improve merely by
+      becoming tighter; it improves when people have a sound reason to remain connected. In everyday
+      terms, start a small check-in with people who keep commitments. Try this emphasis: build trust
+      through modest promises. Give this step a review point tied to the task itself, so you can
+      notice what helped and what still needs another approach.'
+    advice:
+      - Build trust through modest promises
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 吉，原筮，元永贞，无咎。不宁方来，后夫凶。
+        from: Zhouyi, hexagram 8 (Chinese source text)
+      - text: 地上有水，比；先王以建万国，亲诸侯。
+        from: Zhouyi, Image commentary 8 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_09
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 9
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.9
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 小畜：暂时不能大步推进时
+    summary: 暂时不能大步推进时，积累小而可靠的成果
+    body: 暂时不能大步推进时，积累小而可靠的成果；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为小畜卦；小畜以风在天上推动云气讲有限的约束与储备。力量还不足以带来全面变化时，细节上的整理仍有价值；把期待放在可见的小成果上，能减少空等与焦躁。卦象上方是风，下方是天，分别提示沟通与渐入与开阔与主动；这是观察情境的比喻，不是事件预告。例如，上线前先修好最常见的三处体验问题，就能把这个角度用在可观察的安排上。建议积累可核验的小进展；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 积累可核验的小进展
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 小畜，亨。密云不雨，自我西郊。
+        from: 《周易》·小畜
+      - text: 风行天上，小畜；君子以懿文德。
+        from: 《周易》象传·小畜
+  en:
+    title: The Taming Power of the Small
+    summary: You can use a limited opening to refine the habits that support later progress
+    body:
+      'You can use a limited opening to refine the habits that support later progress. The Taming
+      Power of the Small is your primary hexagram (běn guà — the main figure cast for this
+      question); a light influence can shape conditions without settling everything at once. Wind
+      above heaven points toward preparation, repeated adjustments, and reserves that have not yet
+      become a larger release. A small reserve may consist of a checklist, a useful contact, or a
+      repeated habit rather than a large store of resources; give these details a purpose.
+      Preparation loses value if you keep collecting it without recognizing when a limited action
+      has become possible. In everyday terms, improve a few recurring friction points before a broad
+      launch. Try this emphasis: keep a record of incremental gains.'
+    advice:
+      - Keep a record of incremental gains
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 小畜，亨。密云不雨，自我西郊。
+        from: Zhouyi, hexagram 9 (Chinese source text)
+      - text: 风行天上，小畜；君子以懿文德。
+        from: Zhouyi, Image commentary 9 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_10
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 10
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.10
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 履：面对敏感场合
+    summary: 面对敏感场合，真诚与分寸可以一起保留
+    body: 面对敏感场合，真诚与分寸可以一起保留；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为履卦；履用接近强大力量的意象谈行事方式，重点是知道环境规则与自己的能力。谨慎不是一味讨好，而是看清边界、讲清事实，避免把试探变成不必要的冒险。卦象上方是天，下方是泽，分别提示开阔与主动与交流与悦纳；这是观察情境的比喻，不是事件预告。例如，向资深同事提不同意见时准备证据和替代方案，就能把这个角度用在可观察的安排上。建议先观察再选择表达方式；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先观察再选择表达方式
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 履虎尾，不咥人，亨。
+        from: 《周易》·履
+      - text: 上天下泽，履；君子以辨上下，安民志。
+        from: 《周易》象传·履
+  en:
+    title: Treading
+    summary: You can enter a demanding situation with care while staying clear about your purpose
+    body: 'You can enter a demanding situation with care while staying clear about your purpose.
+      Treading is your primary hexagram (běn guà — the main figure cast for this question); the
+      image of careful steps near a tiger concerns proportion and awareness. A delicate encounter
+      can go better when you understand expectations, notice your limits, and avoid confusing
+      boldness with readiness. Careful conduct begins with an accurate account of your abilities;
+      learn what the setting expects, then state your concern without disguising uncertainty as
+      bravado. Respect can make room for a firm request, particularly when your proposed alternative
+      is usable. In everyday terms, bring evidence and an alternative when challenging an
+      established practice. Try this emphasis: match your approach to the setting.'
+    advice:
+      - Match your approach to the setting
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 履虎尾，不咥人，亨。
+        from: Zhouyi, hexagram 10 (Chinese source text)
+      - text: 上天下泽，履；君子以辨上下，安民志。
+        from: Zhouyi, Image commentary 10 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_11
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 11
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.11
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 泰：沟通顺畅时
+    summary: 沟通顺畅时，适合建立能长久维持的合作
+    body: 沟通顺畅时，适合建立能长久维持的合作；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为泰卦；泰讲天地之气相交，象征上下之间有机会交换需要与资源。顺畅的阶段也会变化，因此越容易推进，越值得把经验变成规则，不把眼前配合当成永远不用维护的默契。卦象上方是地，下方是天，分别提示承载与落实与开阔与主动；这是观察情境的比喻，不是事件预告。例如，项目顺利时记录成功的交接方法，就能把这个角度用在可观察的安排上。建议把顺畅经验变成日常习惯；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把顺畅经验变成日常习惯
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 泰，小往大来，吉亨。
+        from: 《周易》·泰
+      - text: 天地交泰，后以财成天地之道，辅相天地之宜，以左右民。
+        from: 《周易》象传·泰
+  en:
+    title: Peace
+    summary: You can use a period of openness to put dependable arrangements in place
+    body: 'You can use a period of openness to put dependable arrangements in place. Peace is your
+      primary hexagram (běn guà — the main figure cast for this question); earth above heaven
+      depicts movement toward one another rather than separation. A cooperative interval is a chance
+      to connect roles and resources, while remembering that easy access still needs regular
+      maintenance. An open interval allows information to travel between positions that usually feel
+      far apart; use that access to build a routine, not only to secure a single favor. The
+      strongest channel is one people know how to repair when coordination becomes difficult again.
+      In everyday terms, document a handover that currently works well. Try this emphasis: care for
+      the channels that connect people.'
+    advice:
+      - Care for the channels that connect people
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 泰，小往大来，吉亨。
+        from: Zhouyi, hexagram 11 (Chinese source text)
+      - text: 天地交泰，后以财成天地之道，辅相天地之宜，以左右民。
+        from: Zhouyi, Image commentary 11 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_12
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 12
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.12
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 否：联系受阻时
+    summary: 联系受阻时，先守住原则与可用的资源
+    body: 联系受阻时，先守住原则与可用的资源；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为否卦；否呈现天地各离，强调交流不畅而不是个人价值下降。你可以识别哪些渠道暂时无效，减少无谓消耗，同时保留可信的伙伴与基本工作，让重新连接时有可承接的基础。卦象上方是天，下方是地，分别提示开阔与主动与承载与落实；这是观察情境的比喻，不是事件预告。例如，回复始终不到时先推进自己能完成的部分，就能把这个角度用在可观察的安排上。建议留好记录再寻找新通道；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 留好记录再寻找新通道
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 否之匪人。不利君子贞，大往小来。
+        from: 《周易》·否
+      - text: 天地不交，否；君子以俭德辟难，不可荣以禄。
+        from: 《周易》象传·否
+  en:
+    title: Standstill
+    summary: You may need to protect useful work while communication channels are closed
+    body:
+      'You may need to protect useful work while communication channels are closed. Standstill is
+      your primary hexagram (běn guà — the main figure cast for this question); heaven above earth
+      moves away from contact in this image. A blocked exchange can limit progress without
+      describing your worth, so preserving dependable routines matters more than forcing every
+      conversation open. Repeatedly knocking on a closed channel can make a blocked period feel
+      larger than it is; separate unavailable cooperation from work still within reach. Preserve
+      records and respectful contacts so a future opening has something dependable to reconnect. In
+      everyday terms, continue a bounded task while waiting for access to another team. Try this
+      emphasis: protect the work that remains possible. Give this step a review point tied to the
+      task itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Protect the work that remains possible
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 否之匪人。不利君子贞，大往小来。
+        from: Zhouyi, hexagram 12 (Chinese source text)
+      - text: 天地不交，否；君子以俭德辟难，不可荣以禄。
+        from: Zhouyi, Image commentary 12 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_13
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 13
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.13
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 同人：共同目标越清楚
+    summary: 共同目标越清楚，越容易跨过圈子差异
+    body: 共同目标越清楚，越容易跨过圈子差异；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为同人卦；同人把火的明亮与天的开阔放在一起，谈公开可理解的共同目标。它鼓励你把合作对象从熟悉的小圈子向外扩展，但也要澄清分歧，避免把一致理解成所有人都说同一句话。卦象上方是天，下方是火，分别提示开阔与主动与明晰与依托；这是观察情境的比喻，不是事件预告。例如，跨部门讨论先确认共同交付物，就能把这个角度用在可观察的安排上。建议给不同意见留出位置；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 给不同意见留出位置
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 于野，亨。利涉大川，利君子贞。
+        from: 《周易》·同人
+      - text: 天与火，同人；君子以类族辨物。
+        from: 《周易》象传·同人
+  en:
+    title: Fellowship with Men
+    summary: You can cooperate across differences by making the shared purpose larger than personal loyalty
+    body: 'You can cooperate across differences by making the shared purpose larger than personal
+      loyalty. Fellowship with Men is your primary hexagram (běn guà — the main figure cast for this
+      question); light beneath an open sky suggests a purpose others can see. Fellowship grows when
+      access is fair and goals are explicit, rather than when people must belong to the same
+      background or agree about everything. People can share a task without sharing every identity
+      or belief; make the entrance understandable and avoid using familiarity as the test of who
+      belongs. A disagreement about methods may become useful once the shared outcome has been
+      named. In everyday terms, invite another group to help define one shared outcome. Try this
+      emphasis: use a purpose others can recognize.'
+    advice:
+      - Use a purpose others can recognize
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 于野，亨。利涉大川，利君子贞。
+        from: Zhouyi, hexagram 13 (Chinese source text)
+      - text: 天与火，同人；君子以类族辨物。
+        from: Zhouyi, Image commentary 13 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_14
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 14
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.14
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 大有：拥有较多资源时
+    summary: 拥有较多资源时，分配与使用比展示更关键
+    body: 拥有较多资源时，分配与使用比展示更关键；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为大有卦；大有以天上有火的明亮意象讲资源被看见与被使用。拥有条件只是起点，如何配置、让谁参与、为哪些目标服务才决定实际体验；宽裕时也要保持节制与可追踪的责任。卦象上方是火，下方是天，分别提示明晰与依托与开阔与主动；这是观察情境的比喻，不是事件预告。例如，团队工具充足时先为新人安排学习入口，就能把这个角度用在可观察的安排上。建议定期检视资源是否用到要处；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 定期检视资源是否用到要处
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元亨。
+        from: 《周易》·大有
+      - text: 火在天上，大有；君子以遏恶扬善，顺天休命。
+        from: 《周易》象传·大有
+  en:
+    title: Possession in Great Measure
+    summary: You can turn abundance into useful work by sharing access and keeping priorities clear
+    body: 'You can turn abundance into useful work by sharing access and keeping priorities clear.
+      Possession in Great Measure is your primary hexagram (běn guà — the main figure cast for this
+      question); fire above heaven makes capacity visible. Having substantial resources calls for
+      stewardship: people need to know what is available, how it is allocated, and which
+      responsibilities come with using it. Resources become harder to manage when possession
+      replaces purpose; decide what is needed, how access works, and who will notice waste or
+      neglect. Stewardship allows capacity to circulate while keeping the person responsible for it
+      visible. In everyday terms, help a newcomer use a resource that already exists. Try this
+      emphasis: share access without losing oversight. Give this step a review point tied to the
+      task itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Share access without losing oversight
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元亨。
+        from: Zhouyi, hexagram 14 (Chinese source text)
+      - text: 火在天上，大有；君子以遏恶扬善，顺天休命。
+        from: Zhouyi, Image commentary 14 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_15
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 15
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.15
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 谦：低调表达实力
+    summary: 低调表达实力，让贡献被看见而不过度占位
+    body: 低调表达实力，让贡献被看见而不过度占位；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为谦卦；谦以山藏于地的意象讲有高度却不张扬，重点是实力与位置相称。谦和不是否认努力，也不是接受不合理要求，而是让事实说话，给他人的贡献留空间。卦象上方是地，下方是山，分别提示承载与落实与边界与止步；这是观察情境的比喻，不是事件预告。例如，汇报成果时同时说清团队贡献与自己负责的部分，就能把这个角度用在可观察的安排上。建议用具体成果替代自夸；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 用具体成果替代自夸
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，君子有终。
+        from: 《周易》·谦
+      - text: 地中有山，谦；君子以裒多益寡，称物平施。
+        from: 《周易》象传·谦
+  en:
+    title: Modesty
+    summary: You can make a strong contribution without making every exchange a contest for attention
+    body: 'You can make a strong contribution without making every exchange a contest for attention.
+      Modesty is your primary hexagram (běn guà — the main figure cast for this question); a
+      mountain within earth suggests strength carried without display. Modesty can mean accurate
+      self-assessment and fair credit, while still naming the effort and boundaries that make your
+      contribution sustainable. You do not need to erase your achievements in order to be modest;
+      describe them accurately, share credit precisely, and leave room for another person to
+      contribute. A realistic account of strength is often calmer and more useful than either
+      self-promotion or self-dismissal. In everyday terms, explain both your work and the help that
+      supported it. Try this emphasis: give credit with precision.'
+    advice:
+      - Give credit with precision
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，君子有终。
+        from: Zhouyi, hexagram 15 (Chinese source text)
+      - text: 地中有山，谦；君子以裒多益寡，称物平施。
+        from: Zhouyi, Image commentary 15 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_16
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 16
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.16
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 豫：有热情时
+    summary: 有热情时，把期待转成有准备的集体行动
+    body: 有热情时，把期待转成有准备的集体行动；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为豫卦；豫以雷出地面讲情绪被唤起与众人受到鼓舞，愉快的期待能够形成行动力。若只追求气氛而忽略条件，容易拖延或高估进展；把热情落在清楚的安排上更合适。卦象上方是雷，下方是地，分别提示启动与回应与承载与落实；这是观察情境的比喻，不是事件预告。例如，活动开始前让每位参与者知道下一步，就能把这个角度用在可观察的安排上。建议留出检查准备的时间；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 留出检查准备的时间
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利建侯，行师。
+        from: 《周易》·豫
+      - text: 雷出地奋，豫。先王以作乐崇德，殷荐之上帝，以配祖考。
+        from: 《周易》象传·豫
+  en:
+    title: Enthusiasm
+    summary: You can enjoy momentum while checking whether the groundwork supports it
+    body:
+      'You can enjoy momentum while checking whether the groundwork supports it. Enthusiasm is your
+      primary hexagram (běn guà — the main figure cast for this question); thunder rising from earth
+      evokes energy that a group can feel. Enthusiasm is useful when a plan gives it direction, but
+      celebrating too early can make practical obstacles harder to acknowledge. Enjoyment can
+      support coordinated action when each participant knows what comes next; it can also hide
+      unfinished preparation. Let a pleasant atmosphere encourage people to contribute without
+      making it difficult for someone to name a practical concern. In everyday terms, translate
+      excitement about an event into named tasks. Try this emphasis: check readiness before
+      celebrating. Give this step a review point tied to the task itself, so you can notice what
+      helped and what still needs another approach.'
+    advice:
+      - Check readiness before celebrating
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利建侯，行师。
+        from: Zhouyi, hexagram 16 (Chinese source text)
+      - text: 雷出地奋，豫。先王以作乐崇德，殷荐之上帝，以配祖考。
+        from: Zhouyi, Image commentary 16 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_17
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 17
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.17
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 随：顺势调整时
+    summary: 顺势调整时，仍需知道自己遵循的原则
+    body: 顺势调整时，仍需知道自己遵循的原则；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为随卦；随讲雷动而泽悦，行动与回应之间需要互相协调。跟随可以是学习与合作，也可能变成对眼前便利的依赖；重点在于辨别你跟随什么，以及那是否仍服务于自己的目标。卦象上方是泽，下方是雷，分别提示交流与悦纳与启动与回应；这是观察情境的比喻，不是事件预告。例如，采用同事的新流程前先试做一轮，就能把这个角度用在可观察的安排上。建议定期核对方向是否合适；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 定期核对方向是否合适
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元，亨，利，贞，无咎。
+        from: 《周易》·随
+      - text: 泽中有雷，随；君子以向晦入宴息。
+        from: 《周易》象传·随
+  en:
+    title: Following
+    summary: You can adapt to others without handing over responsibility for your choices
+    body:
+      'You can adapt to others without handing over responsibility for your choices. Following is
+      your primary hexagram (běn guà — the main figure cast for this question); movement under an
+      inviting lake suggests a responsive relationship. Following can be intelligent when you
+      understand the direction, but comfort alone is a weak reason to abandon standards you
+      previously chose. An attractive direction deserves examination as well as response; ask which
+      principle makes it worth following and what would cause you to reconsider. Adapting
+      intelligently means taking responsibility for the route, even when another person first
+      proposed it. In everyday terms, try a proposed routine before making it your default. Try this
+      emphasis: choose what deserves your attention. Give this step a review point tied to the task
+      itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Choose what deserves your attention
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元，亨，利，贞，无咎。
+        from: Zhouyi, hexagram 17 (Chinese source text)
+      - text: 泽中有雷，随；君子以向晦入宴息。
+        from: Zhouyi, Image commentary 17 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_18
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 18
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.18
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 蛊：处理积累的问题
+    summary: 处理积累的问题，需要修复原因而非只遮住表面
+    body: 处理积累的问题，需要修复原因而非只遮住表面；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为蛊卦；蛊以山下有风的意象讲长期失修的结构，问题可能来自旧习惯与责任模糊。修复不是归咎某个人，而是追溯原因、安排清理，并给新做法足够的维护时间。卦象上方是山，下方是风，分别提示边界与止步与沟通与渐入；这是观察情境的比喻，不是事件预告。例如，旧项目先梳理无人负责的环节，就能把这个角度用在可观察的安排上。建议修复之后安排复查；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 修复之后安排复查
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元亨，利涉大川。
+        from: 《周易》·蛊
+      - text: 山下有风，蛊；君子以振民育德。
+        from: 《周易》象传·蛊
+  en:
+    title: Work on What Has Been Spoiled
+    summary: You can improve an inherited situation by naming what has been neglected
+    body:
+      'You can improve an inherited situation by naming what has been neglected. Work on What Has
+      Been Spoiled is your primary hexagram (běn guà — the main figure cast for this question);
+      stagnation often develops through repeated omissions rather than one dramatic mistake. This
+      image invites you to examine inherited routines and repair the conditions that keep an old
+      difficulty returning. An inherited difficulty may survive because nobody owns its upkeep;
+      trace the repeated omission rather than looking only for a person to blame. Repair includes
+      explaining the new arrangement and scheduling the small acts that keep it from decaying again.
+      In everyday terms, find a recurring problem that lacks a named owner. Try this emphasis: treat
+      maintenance as part of the change.'
+    advice:
+      - Treat maintenance as part of the change
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元亨，利涉大川。
+        from: Zhouyi, hexagram 18 (Chinese source text)
+      - text: 山下有风，蛊；君子以振民育德。
+        from: Zhouyi, Image commentary 18 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_19
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 19
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.19
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 临：主动靠近问题时
+    summary: 主动靠近问题时，用理解替代单向指挥
+    body: 主动靠近问题时，用理解替代单向指挥；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为临卦；临以大地临近泽水讲接近与照看，有机会的人更需要了解现场。帮助不是包办，指导也不是单向命令；你可以多听实际困难，让对方保留尝试与反馈的空间。卦象上方是地，下方是泽，分别提示承载与落实与交流与悦纳；这是观察情境的比喻，不是事件预告。例如，带新人时先看一次真实操作再给建议，就能把这个角度用在可观察的安排上。建议约定双方都能参与的复盘；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 约定双方都能参与的复盘
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元，亨，利，贞。
+        from: 《周易》·临
+      - text: 泽上有地，临；君子以教思无穷，容保民无疆。
+        from: 《周易》象传·临
+  en:
+    title: Approach
+    summary: You can guide a situation more effectively by staying close enough to learn from it
+    body:
+      'You can guide a situation more effectively by staying close enough to learn from it. Approach
+      is your primary hexagram (běn guà — the main figure cast for this question); approaching
+      creates access, and access brings responsibility. Earth over lake suggests attentive oversight
+      that learns from the people doing the work, instead of assuming that distance makes judgment
+      clearer. Guidance can become intrusive when the person providing it stops listening; stay near
+      enough to learn how the task is experienced, then offer help that leaves the other person able
+      to act. An approaching role calls for attention rather than constant control. In everyday
+      terms, observe a real attempt before offering instructions. Try this emphasis: make guidance
+      responsive to experience. Give this step a review point tied to the task itself, so you can
+      notice what helped and what still needs another approach.'
+    advice:
+      - Make guidance responsive to experience
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元，亨，利，贞。
+        from: Zhouyi, hexagram 19 (Chinese source text)
+      - text: 泽上有地，临；君子以教思无穷，容保民无疆。
+        from: Zhouyi, Image commentary 19 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_20
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 20
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.20
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 观：先看清整体
+    summary: 先看清整体，再决定该前进还是调整
+    body: 先看清整体，再决定该前进还是调整；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为观卦；观以风行地上讲从不同位置看见同一件事。观察既包括环境，也包括你自己的做法；材料不足时容易把局部当全貌，留出比较与反思的时间更有帮助。卦象上方是风，下方是地，分别提示沟通与渐入与承载与落实；这是观察情境的比喻，不是事件预告。例如，评价一项服务前分别听取使用者与执行者反馈，就能把这个角度用在可观察的安排上。建议把判断与观察记录分开；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把判断与观察记录分开
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 盥而不荐，有孚颙若。
+        from: 《周易》·观
+      - text: 风行地上，观；先王以省方，观民设教。
+        from: 《周易》象传·观
+  en:
+    title: Contemplation
+    summary: You can improve a decision by observing patterns beyond the first impression
+    body:
+      'You can improve a decision by observing patterns beyond the first impression. Contemplation
+      is your primary hexagram (běn guà — the main figure cast for this question); wind across earth
+      provides an image of perspective spreading outward. Observation includes how you influence the
+      scene, so a useful review compares viewpoints rather than merely watching other people. A view
+      from one doorway can feel complete because its limits are invisible; compare what you saw with
+      another person’s account and inspect your own contribution to the pattern. Observation works
+      best when it changes the quality of the question you ask. In everyday terms, compare user
+      experience with the team’s account of delivery. Try this emphasis: distinguish evidence from
+      your interpretation. Give this step a review point tied to the task itself, so you can notice
+      what helped and what still needs another approach.'
+    advice:
+      - Distinguish evidence from your interpretation
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 盥而不荐，有孚颙若。
+        from: Zhouyi, hexagram 20 (Chinese source text)
+      - text: 风行地上，观；先王以省方，观民设教。
+        from: Zhouyi, Image commentary 20 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_21
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 21
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.21
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 噬嗑：障碍需要被具体处理
+    summary: 障碍需要被具体处理，不能只靠含糊的和气
+    body: 障碍需要被具体处理，不能只靠含糊的和气；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为噬嗑卦；噬嗑借咬合时有阻物的意象讲规则与处理能力，雷火相接使问题更容易暴露。把障碍说清楚有助于恢复协作，但也要核对证据与分寸，避免情绪代替判断。卦象上方是火，下方是雷，分别提示明晰与依托与启动与回应；这是观察情境的比喻，不是事件预告。例如，反复返工时先找出验收标准的分歧，就能把这个角度用在可观察的安排上。建议对具体问题约定处理方式；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 对具体问题约定处理方式
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，利用狱。
+        from: 《周易》·噬嗑
+      - text: 雷电噬嗑；先王以明罚敕法。
+        from: 《周易》象传·噬嗑
+  en:
+    title: Biting Through
+    summary: You can remove friction by identifying the exact issue and agreeing on a proportionate response
+    body: 'You can remove friction by identifying the exact issue and agreeing on a proportionate
+      response. Biting Through is your primary hexagram (běn guà — the main figure cast for this
+      question); a blockage between the teeth makes normal movement difficult. Thunder and fire
+      frame a need for clarity and a measured response, so the practical task is to identify what
+      prevents cooperation. A named obstruction can be addressed, while a vague atmosphere of blame
+      tends to spread; identify the requirement that is not being met and a measured way to correct
+      it. Keep the response tied to evidence instead of escalating its severity to express
+      frustration. In everyday terms, locate the requirement behind repeated revisions. Try this
+      emphasis: respond to the obstruction you can verify.'
+    advice:
+      - Respond to the obstruction you can verify
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，利用狱。
+        from: Zhouyi, hexagram 21 (Chinese source text)
+      - text: 雷电噬嗑；先王以明罚敕法。
+        from: Zhouyi, Image commentary 21 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_22
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 22
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.22
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 贲：表达可以更美
+    summary: 表达可以更美，但内容仍需经得起使用
+    body: 表达可以更美，但内容仍需经得起使用；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为贲卦；贲以山下有火讲光照在外形上，让事物更容易被理解。修饰能够帮助沟通，却不能替代实际内容；你可以让形式配合用途，而不是为了好看增加不必要的复杂度。卦象上方是山，下方是火，分别提示边界与止步与明晰与依托；这是观察情境的比喻，不是事件预告。例如，做简报时删去不帮助理解的装饰，就能把这个角度用在可观察的安排上。建议先整理内容再调整外观；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先整理内容再调整外观
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，小利有攸往。
+        from: 《周易》·贲
+      - text: 山下有火，贲；君子以明庶政，无敢折狱。
+        from: 《周易》象传·贲
+  en:
+    title: Grace
+    summary: You can improve presentation while making sure it serves something substantial
+    body:
+      'You can improve presentation while making sure it serves something substantial. Grace is your
+      primary hexagram (běn guà — the main figure cast for this question); light at the foot of a
+      mountain highlights form without changing the mountain itself. Presentation helps when it
+      directs attention to sound content; excess decoration can hide what someone needs to
+      understand. Polish should make the useful thing easier to recognize; A simple document with a
+      clear argument may communicate more than an elaborate one that asks the viewer to admire it.
+      Let the intended use determine how much decoration belongs. In everyday terms, remove a visual
+      flourish that distracts from the point. Try this emphasis: let design reveal the substance.
+      Give this step a review point tied to the task itself, so you can notice what helped and what
+      still needs another approach.'
+    advice:
+      - Let design reveal the substance
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，小利有攸往。
+        from: Zhouyi, hexagram 22 (Chinese source text)
+      - text: 山下有火，贲；君子以明庶政，无敢折狱。
+        from: Zhouyi, Image commentary 22 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_23
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 23
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.23
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 剥：基础松动时
+    summary: 基础松动时，优先保护仍然可靠的部分
+    body: 基础松动时，优先保护仍然可靠的部分；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为剥卦；剥以山依附于地讲支撑逐层减弱，适合辨认哪些部分已难以承重。收缩可以是一种负责的选择，先处理基础问题，比继续维持表面的完整更能保留以后调整的空间。卦象上方是山，下方是地，分别提示边界与止步与承载与落实；这是观察情境的比喻，不是事件预告。例如，人手减少时先保住核心服务，就能把这个角度用在可观察的安排上。建议及时修补最薄弱的环节；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 及时修补最薄弱的环节
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 不利有攸往。
+        from: 《周易》·剥
+      - text: 山附地上，剥；上以厚下，安宅。
+        from: 《周易》象传·剥
+  en:
+    title: Splitting Apart
+    summary: You can respond to erosion by reducing exposure and caring for the remaining support
+    body: 'You can respond to erosion by reducing exposure and caring for the remaining support.
+      Splitting Apart is your primary hexagram (běn guà — the main figure cast for this question); a
+      mountain depends on the ground beneath it. When support is wearing away, maintaining the
+      appearance of normality can consume what remains; this reading favors realistic limits and
+      attention to foundations. A weakening foundation deserves attention before the visible
+      structure is expanded; reduce optional load and protect what remains dependable. Saving a
+      viable core is sometimes more constructive than insisting that every part continue looking
+      unchanged. In everyday terms, reduce optional work when the team’s support has thinned. Try
+      this emphasis: protect the support that still holds. Give this step a review point tied to the
+      task itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Protect the support that still holds
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 不利有攸往。
+        from: Zhouyi, hexagram 23 (Chinese source text)
+      - text: 山附地上，剥；上以厚下，安宅。
+        from: Zhouyi, Image commentary 23 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_24
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 24
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.24
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 复：小小的回转值得珍惜
+    summary: 小小的回转值得珍惜，不必立刻恢复全部速度
+    body: 小小的回转值得珍惜，不必立刻恢复全部速度；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为复卦；复以地中有雷讲生机重新出现，但初起的力量仍然细小。你可以回到曾经有效的基本习惯，给调整留出缓冲，而不是把一次好转理解成已经准备好承担所有任务。卦象上方是地，下方是雷，分别提示承载与落实与启动与回应；这是观察情境的比喻，不是事件预告。例如，停了一阵的学习先恢复每天十分钟，就能把这个角度用在可观察的安排上。建议为重新开始保留余地；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 为重新开始保留余地
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，出入无疾，朋来无咎。
+        from: 《周易》·复
+      - text: 雷在地中，复；先王以至日闭关，商旅不行，后不省方。
+        from: 《周易》象传·复
+  en:
+    title: Return
+    summary: You can treat a return of energy as a beginning that needs room to grow
+    body: 'You can treat a return of energy as a beginning that needs room to grow. Return is your
+      primary hexagram (běn guà — the main figure cast for this question); thunder within earth
+      suggests movement returning before it is obvious outside. A renewed possibility benefits from
+      protection and repetition, especially when you are rebuilding a routine after interruption. A
+      return often begins below the level other people can see; give a restored habit a small
+      repeatable shape and avoid using one good day as proof that full capacity is back. Renewal has
+      a better foothold when it is allowed ordinary time. In everyday terms, resume a paused
+      practice at a size you can repeat. Try this emphasis: notice and support a modest return.'
+    advice:
+      - Notice and support a modest return
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，出入无疾，朋来无咎。
+        from: Zhouyi, hexagram 24 (Chinese source text)
+      - text: 雷在地中，复；先王以至日闭关，商旅不行，后不省方。
+        from: Zhouyi, Image commentary 24 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_25
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 25
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.25
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 无妄：诚实回应现实
+    summary: 诚实回应现实，减少为求结果而多做的动作
+    body: 诚实回应现实，减少为求结果而多做的动作；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为无妄卦；无妄以天下雷动讲按真实条件行事，不把偶然都解释成个人意志的结果。用心做该做的事，同时接受有些变化并非你能控制，能帮助你减少猜测与多余干预。卦象上方是天，下方是雷，分别提示开阔与主动与启动与回应；这是观察情境的比喻，不是事件预告。例如，反馈迟到时先查流程，而不猜测别人动机，就能把这个角度用在可观察的安排上。建议把事实写清再采取行动；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把事实写清再采取行动
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元，亨，利，贞，其匪正有眚，不利有攸往。
+        from: 《周易》·无妄
+      - text: 天下雷行，物与无妄；先王以茂对时，育万物。
+        from: 《周易》象传·无妄
+  en:
+    title: Innocence
+    summary: You can act more clearly when you stop forcing events to match a preferred story
+    body:
+      'You can act more clearly when you stop forcing events to match a preferred story. Innocence
+      is your primary hexagram (běn guà — the main figure cast for this question); thunder under
+      heaven evokes activity that is not arranged for anyone’s convenience. A straightforward
+      response attends to actual duties and evidence while allowing unexpected events to remain
+      unexpected. A coincidence does not establish anyone’s intentions; distinguish a fact from the
+      explanation you are tempted to attach to it, then choose the action appropriate to the fact.
+      Straightforward conduct reduces the effort spent managing imagined causes. In everyday terms,
+      check the process before inventing a reason for a delay. Try this emphasis: respond to what
+      you can establish. Give this step a review point tied to the task itself, so you can notice
+      what helped and what still needs another approach.'
+    advice:
+      - Respond to what you can establish
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元，亨，利，贞，其匪正有眚，不利有攸往。
+        from: Zhouyi, hexagram 25 (Chinese source text)
+      - text: 天下雷行，物与无妄；先王以茂对时，育万物。
+        from: Zhouyi, Image commentary 25 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_26
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 26
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.26
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 大畜：储备能力
+    summary: 储备能力，也练习何时使用能力
+    body: 储备能力，也练习何时使用能力；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为大畜卦；大畜以山中藏天的意象讲较大的积累与约束，力量越足越需要用途与规则。学习、练习和经验整理能够成为储备，但不要把准备变成永不行动的理由。卦象上方是山，下方是天，分别提示边界与止步与开阔与主动；这是观察情境的比喻，不是事件预告。例如，承担新职责前做一次完整演练，就能把这个角度用在可观察的安排上。建议为准备设定实际出口；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 为准备设定实际出口
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利贞，不家食，吉，利涉大川。
+        from: 《周易》·大畜
+      - text: 天在山中，大畜；君子以多识前言往行，以畜其德。
+        from: 《周易》象传·大畜
+  en:
+    title: The Taming Power of the Great
+    summary: You can prepare for a larger responsibility by developing judgment alongside skill
+    body: 'You can prepare for a larger responsibility by developing judgment alongside skill. The
+      Taming Power of the Great is your primary hexagram (běn guà — the main figure cast for this
+      question); heaven within a mountain suggests considerable energy held and trained. Preparation
+      becomes valuable when it includes limits, judgment, and a future use rather than simply
+      collecting more credentials. Skill becomes more useful when it includes the judgment to pause;
+      A complete rehearsal reveals dependencies that isolated practice misses. Prepare for the
+      larger role by learning both how to move and what needs to hold before movement begins. In
+      everyday terms, rehearse the whole task before accepting a larger role. Try this emphasis:
+      turn accumulated skill into a usable plan.'
+    advice:
+      - Turn accumulated skill into a usable plan
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利贞，不家食，吉，利涉大川。
+        from: Zhouyi, hexagram 26 (Chinese source text)
+      - text: 天在山中，大畜；君子以多识前言往行，以畜其德。
+        from: Zhouyi, Image commentary 26 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_27
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 27
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.27
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 颐：留意每天吸收什么
+    summary: 留意每天吸收什么，也留意你怎样支持别人
+    body: 留意每天吸收什么，也留意你怎样支持别人；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为颐卦；颐借口与进食的意象讲滋养，既包括生活所需，也包括信息与言语。你可以观察哪些习惯让日常更有余力，哪些只是短暂满足；支持他人时也需要照顾自己的资源。卦象上方是山，下方是雷，分别提示边界与止步与启动与回应；这是观察情境的比喻，不是事件预告。例如，忙碌时先安排规律的用餐与信息休息，就能把这个角度用在可观察的安排上。建议给照顾自己的习惯留位置；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 给照顾自己的习惯留位置
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 贞吉，观颐，自求口实。
+        from: 《周易》·颐
+      - text: 山下有雷，颐；君子以慎言语，节饮食。
+        from: 《周易》象传·颐
+  en:
+    title: The Corners of the Mouth
+    summary: You can review the inputs that sustain your day and the care you pass onward
+    body:
+      'You can review the inputs that sustain your day and the care you pass onward. The Corners of
+      the Mouth is your primary hexagram (běn guà — the main figure cast for this question); a mouth
+      receives and gives: nourishment includes attention, information, and speech as well as
+      ordinary meals. This image invites a review of daily inputs and the demands placed on your
+      capacity. The things you consume also include news, conversation, and demands on attention;
+      notice whether your routine leaves enough space to think and care. Giving support works better
+      when it does not quietly remove the conditions that sustain your own day. In everyday terms,
+      keep a regular meal break and reduce distracting inputs. Try this emphasis: choose inputs that
+      support a workable day.'
+    advice:
+      - Choose inputs that support a workable day
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 贞吉，观颐，自求口实。
+        from: Zhouyi, hexagram 27 (Chinese source text)
+      - text: 山下有雷，颐；君子以慎言语，节饮食。
+        from: Zhouyi, Image commentary 27 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_28
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 28
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.28
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 大过：负担超过常态时
+    summary: 负担超过常态时，先加支撑再谈突破
+    body: 负担超过常态时，先加支撑再谈突破；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为大过卦；大过以屋梁承重的意象讲结构承受了过大的压力，泽在木上也呈现不寻常的配置。此时只靠更加努力可能增加消耗，重新分担、改变方案或缩小目标更值得考虑。卦象上方是泽，下方是风，分别提示交流与悦纳与沟通与渐入；这是观察情境的比喻，不是事件预告。例如，连续接到任务时与团队重新划分范围，就能把这个角度用在可观察的安排上。建议先核对承受能力再承诺；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先核对承受能力再承诺
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 栋桡，利有攸往，亨。
+        from: 《周易》·大过
+      - text: 泽灭木，大过；君子以独立不惧，遯世无闷。
+        from: 《周易》象传·大过
+  en:
+    title: Preponderance of the Great
+    summary: You may need an unusual arrangement, but it should make the load more manageable
+    body: 'You may need an unusual arrangement, but it should make the load more manageable.
+      Preponderance of the Great is your primary hexagram (běn guà — the main figure cast for this
+      question); a ridge beam under excessive load calls attention to structure. Lake above wood
+      describes an exceptional situation, where useful courage includes finding support rather than
+      simply pushing harder. An exceptional load may require exceptional coordination rather than
+      exceptional endurance; identify which support is bending and whether the scope can change.
+      Asking for a different arrangement can be the responsible way to protect the purpose of the
+      work. In everyday terms, renegotiate scope when several responsibilities arrive together. Try
+      this emphasis: change the arrangement around the load. Give this step a review point tied to
+      the task itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Change the arrangement around the load
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 栋桡，利有攸往，亨。
+        from: Zhouyi, hexagram 28 (Chinese source text)
+      - text: 泽灭木，大过；君子以独立不惧，遯世无闷。
+        from: Zhouyi, Image commentary 28 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_29
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 29
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.29
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 坎：面对反复的困难
+    summary: 面对反复的困难，用稳定方法找到可走的一小段
+    body: 面对反复的困难，用稳定方法找到可走的一小段；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为坎卦；坎以重叠的水讲重复遇到阻碍，强调守住可信的做法而不是恐惧想象。水寻找能流动的地方，你也可以先辨認局部可行的路径，不急着一次解决所有未知。上下卦都是水，强调不确定中的通路的连续作用；这是观察情境的比喻，不是事件预告。例如，复杂任务先验证一个环节，再安排下一环，就能把这个角度用在可观察的安排上。建议为行动留下退出与求助方式；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 为行动留下退出与求助方式
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 有孚，维心亨，行有尚。
+        from: 《周易》·坎
+      - text: 水洊至，习坎；君子以常德行，习教事。
+        from: 《周易》象传·坎
+  en:
+    title: The Abysmal
+    summary: You can navigate uncertainty through careful routines and limited, observable steps
+    body: 'You can navigate uncertainty through careful routines and limited, observable steps. The
+      Abysmal is your primary hexagram (běn guà — the main figure cast for this question); water
+      repeated suggests a passage with more than one difficult stretch. Consistency, honest
+      communication, and small gains can give you a workable route without pretending that every
+      obstacle has vanished. A reliable method matters most when the route contains repeated
+      uncertainty; work with one section you can verify, keep communication honest, and record the
+      point at which you will seek assistance. Small gains can prevent an unfamiliar passage from
+      becoming entirely opaque. In everyday terms, test one uncertain dependency before committing
+      the whole schedule. Try this emphasis: keep a practical route and a fallback.'
+    advice:
+      - Keep a practical route and a fallback
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 有孚，维心亨，行有尚。
+        from: Zhouyi, hexagram 29 (Chinese source text)
+      - text: 水洊至，习坎；君子以常德行，习教事。
+        from: Zhouyi, Image commentary 29 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_30
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 30
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.30
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 离：清楚看见需要依靠什么
+    summary: 清楚看见需要依靠什么，才能让热情持续
+    body: 清楚看见需要依靠什么，才能让热情持续；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为离卦；离以重叠的火讲明亮与依附，火需要合适的燃料，理解也需要可靠材料。你可以发挥表达与观察能力，同时照顾支持自己的条件，避免只靠一时兴奋维持全部进展。上下卦都是火，强调明晰与依托的连续作用；这是观察情境的比喻，不是事件预告。例如，准备展示时先核查材料与来源，就能把这个角度用在可观察的安排上。建议让表达建立在可靠信息上；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 让表达建立在可靠信息上
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利贞，亨，畜牝牛，吉。
+        from: 《周易》·离
+      - text: 明两作离，大人以继明照于四方。
+        from: 《周易》象传·离
+  en:
+    title: The Clinging
+    summary: You can keep your attention useful by choosing sound supports for it
+    body:
+      'You can keep your attention useful by choosing sound supports for it. The Clinging is your
+      primary hexagram (běn guà — the main figure cast for this question); fire illuminates but also
+      depends on what sustains it. Repeated brightness points to attention, understanding, and
+      relationships of support, making the quality of your inputs part of the reading. Attention is
+      not sustained by intensity alone; choose reliable material and a pace at which you can inspect
+      it. Good expression depends on what supports the insight, so checking a source can be as
+      valuable as improving the way you present it. In everyday terms, check the source of a claim
+      before presenting it confidently. Try this emphasis: choose what deserves sustained attention.
+      Give this step a review point tied to the task itself, so you can notice what helped and what
+      still needs another approach.'
+    advice:
+      - Choose what deserves sustained attention
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利贞，亨，畜牝牛，吉。
+        from: Zhouyi, hexagram 30 (Chinese source text)
+      - text: 明两作离，大人以继明照于四方。
+        from: Zhouyi, Image commentary 30 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_31
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 31
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.31
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 咸：回应触动时
+    summary: 回应触动时，给双方留出自然靠近的空间
+    body: 回应触动时，给双方留出自然靠近的空间；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为咸卦；咸以泽在山上讲彼此感受到影响，接近需要双方都有余地。好感与共鸣可以被认真看待，但不宜据此替别人决定；听见回应、确认舒适程度，比催促关系定型更合适。卦象上方是泽，下方是山，分别提示交流与悦纳与边界与止步；这是观察情境的比喻，不是事件预告。例如，聊天愉快后询问对方愿不愿意继续交流，就能把这个角度用在可观察的安排上。建议尊重回应的速度与边界；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 尊重回应的速度与边界
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，利，贞，取女吉。
+        from: 《周易》·咸
+      - text: 山上有泽，咸，君子以虚受人。
+        from: 《周易》象传·咸
+  en:
+    title: Influence
+    summary: You can notice an emerging connection without deciding its meaning too quickly
+    body:
+      'You can notice an emerging connection without deciding its meaning too quickly. Influence is
+      your primary hexagram (běn guà — the main figure cast for this question); lake above mountain
+      suggests an influence felt across stillness and openness. Connection develops through
+      reciprocal response, so your own excitement is one part of the picture rather than evidence of
+      another person’s intentions. Your own response gives you information about yourself, not
+      permission to decide for another person; A respectful invitation allows a connection to
+      develop voluntarily. Look for mutual comfort and follow-through without demanding that early
+      interest take a fixed form. In everyday terms, invite another conversation and allow an
+      unpressured reply. Try this emphasis: let interest be mutual and voluntary. Give this step a
+      review point tied to the task itself, so you can notice what helped and what still needs
+      another approach.'
+    advice:
+      - Let interest be mutual and voluntary
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，利，贞，取女吉。
+        from: Zhouyi, hexagram 31 (Chinese source text)
+      - text: 山上有泽，咸，君子以虚受人。
+        from: Zhouyi, Image commentary 31 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_32
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 32
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.32
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 恒：长期坚持需要稳定方向
+    summary: 长期坚持需要稳定方向，也需要及时调节做法
+    body: 长期坚持需要稳定方向，也需要及时调节做法；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为恒卦；恒以雷风相与讲连续的运动，持久并不是永远用同一种办法。你可以保留核心目标，根据环境调整频率与分工，让坚持成为能被生活承接的习惯，而不是对自己不断加码。卦象上方是雷，下方是风，分别提示启动与回应与沟通与渐入；这是观察情境的比喻，不是事件预告。例如，每周固定复盘，但按实际精力调整任务量，就能把这个角度用在可观察的安排上。建议给长期计划安排修订机会；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 给长期计划安排修订机会
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，无咎，利贞，利有攸往。
+        from: 《周易》·恒
+      - text: 雷风，恒；君子以立不易方。
+        from: 《周易》象传·恒
+  en:
+    title: Duration
+    summary: You can maintain commitment without freezing every method in place
+    body:
+      'You can maintain commitment without freezing every method in place. Duration is your primary
+      hexagram (běn guà — the main figure cast for this question); thunder and wind sustain movement
+      through interaction. Duration comes from a recognizable direction and repeatable arrangements,
+      while a rigid technique may become unsuitable as circumstances change. A lasting purpose can
+      survive a revised schedule; discuss which parts of the arrangement need to remain recognizable
+      and which can change as capacity shifts. Persistence is most useful when people can repeat it
+      without treating every adjustment as a failure of commitment. In everyday terms, keep a weekly
+      review while varying the workload. Try this emphasis: maintain the purpose and revisit the
+      method. Give this step a review point tied to the task itself, so you can notice what helped
+      and what still needs another approach.'
+    advice:
+      - Maintain the purpose and revisit the method
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，无咎，利贞，利有攸往。
+        from: Zhouyi, hexagram 32 (Chinese source text)
+      - text: 雷风，恒；君子以立不易方。
+        from: Zhouyi, Image commentary 32 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_33
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 33
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.33
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 遯：适当后退
+    summary: 适当后退，可以保护原则与下一步的选择
+    body: 适当后退，可以保护原则与下一步的选择；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为遯卦；遯以天远离山的意象讲有意识的退避，后退不等于否定自己。识别不适合继续投入的局面，安排交接与距离，能够保留精力，并减少在纠缠中失去判断的可能。卦象上方是天，下方是山，分别提示开阔与主动与边界与止步；这是观察情境的比喻，不是事件预告。例如，合作方向不合时清楚说明退出与交接安排，就能把这个角度用在可观察的安排上。建议退一步也把边界说清楚；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 退一步也把边界说清楚
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，小利贞。
+        from: 《周易》·遯
+      - text: 天下有山，遯；君子以远小人，不恶而严。
+        from: 《周易》象传·遯
+  en:
+    title: Retreat
+    summary: You can step back deliberately when continued engagement is narrowing your options
+    body:
+      'You can step back deliberately when continued engagement is narrowing your options. Retreat
+      is your primary hexagram (běn guà — the main figure cast for this question); heaven moving
+      away from mountain offers a picture of separation with purpose. Withdrawal can preserve
+      integrity and capacity when a situation is no longer responsive to constructive effort.
+      Departure becomes clearer when it includes practical terms; say what you can finish, what
+      needs a handover, and how contact will work afterward. A chosen distance can protect attention
+      while avoiding the extra struggle of making someone agree with your decision. In everyday
+      terms, plan an orderly handover when a collaboration no longer fits. Try this emphasis: choose
+      distance before resentment grows. Give this step a review point tied to the task itself, so
+      you can notice what helped and what still needs another approach.'
+    advice:
+      - Choose distance before resentment grows
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，小利贞。
+        from: Zhouyi, hexagram 33 (Chinese source text)
+      - text: 天下有山，遯；君子以远小人，不恶而严。
+        from: Zhouyi, Image commentary 33 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_34
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 34
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.34
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 大壮：力量增加时
+    summary: 力量增加时，更要校准边界与使用方式
+    body: 力量增加时，更要校准边界与使用方式；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为大壮卦；大壮以天上有雷讲动力强盛，能行动并不代表每条道路都合适。越有把握，越要核对规则、影响与承受范围，把力量用于清楚目标，而不是把推进本身当成价值。卦象上方是雷，下方是天，分别提示启动与回应与开阔与主动；这是观察情境的比喻，不是事件预告。例如，争取资源时先说明用途而非提高声量，就能把这个角度用在可观察的安排上。建议给强势行动设定边界；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 给强势行动设定边界
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利，贞。
+        from: 《周易》·大壮
+      - text: 雷在天上，大壮；君子以非礼勿履。
+        from: 《周易》象传·大壮
+  en:
+    title: The Power of the Great
+    summary: You can use growing confidence well by checking what the situation actually permits
+    body: 'You can use growing confidence well by checking what the situation actually permits. The
+      Power of the Great is your primary hexagram (běn guà — the main figure cast for this
+      question); thunder above heaven makes strong movement conspicuous. Confidence can help you
+      act, yet the quality of restraint determines whether force serves a useful purpose or creates
+      avoidable resistance. Available force can tempt you to use it where a clearer request would
+      suffice; learn whether the barrier is a rule, a resource gap, or another person’s limit.
+      Strength serves the task better when it remains proportionate to the obstruction. In everyday
+      terms, explain the purpose before pressing harder for resources. Try this emphasis: use
+      strength in proportion to the task.'
+    advice:
+      - Use strength in proportion to the task
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利，贞。
+        from: Zhouyi, hexagram 34 (Chinese source text)
+      - text: 雷在天上，大壮；君子以非礼勿履。
+        from: Zhouyi, Image commentary 34 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_35
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 35
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.35
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 晋：进展逐渐被看见时
+    summary: 进展逐渐被看见时，继续保持清楚而可靠的做法
+    body: 进展逐渐被看见时，继续保持清楚而可靠的做法；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为晋卦；晋以日光出于地上讲显露与上升，机会可能来自成果被更多人看见。你可以主动展示进度，也要保持事实与承诺一致，避免为了维持亮眼形象而忽略尚待改进的部分。卦象上方是火，下方是地，分别提示明晰与依托与承载与落实；这是观察情境的比喻，不是事件预告。例如，阶段汇报同时展示成果和下一步困难，就能把这个角度用在可观察的安排上。建议用事实建立持续信任；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 用事实建立持续信任
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 康侯用锡马蕃庶，昼日三接。
+        from: 《周易》·晋
+      - text: 明出地上，晋；君子以自昭明德。
+        from: 《周易》象传·晋
+  en:
+    title: Progress
+    summary: You can welcome recognition while keeping attention on the work that earned it
+    body:
+      'You can welcome recognition while keeping attention on the work that earned it. Progress is
+      your primary hexagram (běn guà — the main figure cast for this question); light rising over
+      earth evokes work becoming visible. Recognition can widen access, but a sound next step rests
+      on transparent progress and steady conduct rather than on protecting an impressive appearance.
+      Making progress visible does not require hiding unfinished work; A transparent account lets
+      someone offer relevant assistance and sets realistic expectations for the next stage. Treat
+      recognition as an opening for useful contact rather than a demand to look successful
+      continuously. In everyday terms, share a useful result together with the remaining work. Try
+      this emphasis: let visibility follow the actual progress.'
+    advice:
+      - Let visibility follow the actual progress
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 康侯用锡马蕃庶，昼日三接。
+        from: Zhouyi, hexagram 35 (Chinese source text)
+      - text: 明出地上，晋；君子以自昭明德。
+        from: Zhouyi, Image commentary 35 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_36
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 36
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.36
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 明夷：表达受限时
+    summary: 表达受限时，先保护判断与可持续的行动
+    body: 表达受限时，先保护判断与可持续的行动；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为明夷卦；明夷以光进入地中讲明亮暂时被遮住，不等于看见的东西失去意义。你可以减少不必要的暴露，保留记录与可信联系，寻找合适场合表达，而不是把所有压力都独自承受。卦象上方是地，下方是火，分别提示承载与落实与明晰与依托；这是观察情境的比喻，不是事件预告。例如，不适合公开讨论时先向可信的人整理事实，就能把这个角度用在可观察的安排上。建议选择能保护自己的表达场合；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 选择能保护自己的表达场合
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利艰贞。
+        from: 《周易》·明夷
+      - text: 明入地中，明夷；君子以莅众，用晦而明。
+        from: 《周易》象传·明夷
+  en:
+    title: Darkening of the Light
+    summary: You can keep your inner clarity while choosing carefully what to reveal and when
+    body:
+      'You can keep your inner clarity while choosing carefully what to reveal and when. Darkening
+      of the Light is your primary hexagram (běn guà — the main figure cast for this question);
+      light within earth is still light, even when its expression is constrained. This image favors
+      discretion, practical support, and preserving clear judgment during a setting that does not
+      welcome openness. Discretion can be a deliberate practice rather than resignation; keep a
+      clear private account, choose someone trustworthy to consult, and consider which setting would
+      receive the concern constructively. Protecting attention and support can leave you better able
+      to act later. In everyday terms, discuss a concern privately with someone trustworthy. Try
+      this emphasis: keep clarity and seek a workable setting.'
+    advice:
+      - Keep clarity and seek a workable setting
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利艰贞。
+        from: Zhouyi, hexagram 36 (Chinese source text)
+      - text: 明入地中，明夷；君子以莅众，用晦而明。
+        from: Zhouyi, Image commentary 36 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_37
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 37
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.37
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 家人：日常关系靠清楚分工与反复兑现来维持
+    summary: 日常关系靠清楚分工与反复兑现来维持
+    body: 日常关系靠清楚分工与反复兑现来维持；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为家人卦；家人以风从火出讲内在秩序向外形成影响，强调关系中的职责与言行一致。这里的角色可以协商，不按性别安排；把日常需求说清楚，往往比只靠感情猜测更有效。卦象上方是风，下方是火，分别提示沟通与渐入与明晰与依托；这是观察情境的比喻，不是事件预告。例如，共同生活先商量家务与安静时间，就能把这个角度用在可观察的安排上。建议把照顾落实到可见安排；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把照顾落实到可见安排
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利女贞。
+        from: 《周易》·家人
+      - text: 风自火出，家人；君子以言有物，而行有恒。
+        from: 《周易》象传·家人
+  en:
+    title: The Family
+    summary: You can improve a shared space by making care and responsibility discussable
+    body:
+      'You can improve a shared space by making care and responsibility discussable. The Family is
+      your primary hexagram (běn guà — the main figure cast for this question); wind emerging from
+      fire suggests the influence of repeated behavior in a shared space. Roles become useful when
+      people can discuss them, revise them, and apply standards to themselves as well as to others.
+      Daily agreements can become invisible until they stop working; make care, chores, and quiet
+      time discussable, and avoid assuming that identity determines who should provide them. A
+      shared space improves when expectations are mutual and people can ask for a revision. In
+      everyday terms, agree on chores and quiet time in a shared home. Try this emphasis: make
+      expectations mutual and revisable.'
+    advice:
+      - Make expectations mutual and revisable
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利女贞。
+        from: Zhouyi, hexagram 37 (Chinese source text)
+      - text: 风自火出，家人；君子以言有物，而行有恒。
+        from: Zhouyi, Image commentary 37 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_38
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 38
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.38
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 睽：看法不同仍可在小事上找到合作入口
+    summary: 看法不同仍可在小事上找到合作入口
+    body: 看法不同仍可在小事上找到合作入口；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为睽卦；睽以火向上、泽向下讲方向不同，差异需要被识别而非急着消除。你可以找一个双方都认可的小目标，先建立局部合作，再决定更大的分歧是否适合继续讨论。卦象上方是火，下方是泽，分别提示明晰与依托与交流与悦纳；这是观察情境的比喻，不是事件预告。例如，意见分歧时先约定一个共同验收标准，就能把这个角度用在可观察的安排上。建议让合作范围与共识相称；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 让合作范围与共识相称
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 小事吉。
+        from: 《周易》·睽
+      - text: 上火下泽，睽；君子以同而异。
+        from: 《周易》象传·睽
+  en:
+    title: Opposition
+    summary: You can preserve useful contact without requiring complete agreement
+    body: 'You can preserve useful contact without requiring complete agreement. Opposition is your
+      primary hexagram (běn guà — the main figure cast for this question); fire and lake move in
+      different directions in this image. Divergence does not eliminate every possible connection; a
+      limited common task can work even when a broader agreement remains out of reach. A limited
+      agreement can be useful without resolving every difference; define what the cooperation
+      covers, where it ends, and how each person will recognize completion. This keeps the small
+      shared task from silently turning into a contest about the whole relationship. In everyday
+      terms, choose a small outcome both sides can recognize. Try this emphasis: start where your
+      purposes still overlap. Give this step a review point tied to the task itself, so you can
+      notice what helped and what still needs another approach.'
+    advice:
+      - Start where your purposes still overlap
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 小事吉。
+        from: Zhouyi, hexagram 38 (Chinese source text)
+      - text: 上火下泽，睽；君子以同而异。
+        from: Zhouyi, Image commentary 38 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_39
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 39
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.39
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 蹇：道路受阻时
+    summary: 道路受阻时，绕行与求助也是推进
+    body: 道路受阻时，绕行与求助也是推进；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为蹇卦；蹇以山前有水讲前进受到阻挡，辨认困难比重复撞向它更有帮助。暂停、回看、联系有经验的人，能够把困境变成可处理的问题；你不必把独自承受当作能力的证明。卦象上方是水，下方是山，分别提示不确定中的通路与边界与止步；这是观察情境的比喻，不是事件预告。例如，依赖迟迟不到时请熟悉流程的人一起找替代路径，就能把这个角度用在可观察的安排上。建议先识别障碍再安排下一步；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先识别障碍再安排下一步
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利西南，不利东北，利见大人，贞吉。
+        from: 《周易》·蹇
+      - text: 山上有水，蹇；君子以反身修德。
+        from: 《周易》象传·蹇
+  en:
+    title: Obstruction
+    summary: You can make progress by changing the route rather than insisting on a direct crossing
+    body: 'You can make progress by changing the route rather than insisting on a direct crossing.
+      Obstruction is your primary hexagram (běn guà — the main figure cast for this question); water
+      before a mountain makes a direct route difficult. The useful question is where support and an
+      alternative path exist, rather than how much effort you can spend on the same obstruction. A
+      route change can begin by returning to a place where support exists; describe the obstacle
+      clearly enough that someone experienced can help map alternatives. Seeking company is a
+      practical response to terrain, not an admission that your effort lacks value. In everyday
+      terms, ask someone experienced to help map another route. Try this emphasis: use support
+      instead of isolation.'
+    advice:
+      - Use support instead of isolation
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利西南，不利东北，利见大人，贞吉。
+        from: Zhouyi, hexagram 39 (Chinese source text)
+      - text: 山上有水，蹇；君子以反身修德。
+        from: Zhouyi, Image commentary 39 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_40
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 40
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.40
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 解：紧张开始松动时
+    summary: 紧张开始松动时，及时处理剩下的结节
+    body: 紧张开始松动时，及时处理剩下的结节；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为解卦；解以雷雨舒展讲紧张得到松解，条件改善后应抓住能恢复的部分。若问题已经处理，不必为了证明努力继续加码；若还有结节，就尽早沟通并完成收尾。卦象上方是雷，下方是水，分别提示启动与回应与不确定中的通路；这是观察情境的比喻，不是事件预告。例如，误会澄清后确认下一次怎样沟通，就能把这个角度用在可观察的安排上。建议把松动的机会用于收尾；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把松动的机会用于收尾
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利西南，无所往，其来复吉，有攸往，夙吉。
+        from: 《周易》·解
+      - text: 雷雨作，解；君子以赦过宥罪。
+        from: 《周易》象传·解
+  en:
+    title: Deliverance
+    summary: You can use a release of pressure to finish repairs and restore ordinary routines
+    body: 'You can use a release of pressure to finish repairs and restore ordinary routines.
+      Deliverance is your primary hexagram (běn guà — the main figure cast for this question);
+      thunder and rain offer an image of release after strain. Relief creates room for repair, but
+      usefulness depends on distinguishing unfinished issues from matters that no longer need
+      further intervention. Once pressure loosens, notice what ordinary activity can resume; repair
+      a remaining misunderstanding, then resist the urge to keep intervening merely because the
+      difficult period demanded constant attention. Completion can mean allowing the arrangement to
+      become simple again. In everyday terms, agree on a practical change after resolving a
+      misunderstanding. Try this emphasis: restore a routine that pressure interrupted. Give this
+      step a review point tied to the task itself, so you can notice what helped and what still
+      needs another approach.'
+    advice:
+      - Restore a routine that pressure interrupted
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利西南，无所往，其来复吉，有攸往，夙吉。
+        from: Zhouyi, hexagram 40 (Chinese source text)
+      - text: 雷雨作，解；君子以赦过宥罪。
+        from: Zhouyi, Image commentary 40 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_41
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 41
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.41
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 损：减少一部分
+    summary: 减少一部分，可以让更重要的事情得到照顾
+    body: 减少一部分，可以让更重要的事情得到照顾；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为损卦；损以山下有泽讲资源有所减少，关键在于减什么、为谁而减、是否适量。真诚的小付出比超出承受能力的展示更可持续，也要留意付出是否得到尊重与合理分担。卦象上方是山，下方是泽，分别提示边界与止步与交流与悦纳；这是观察情境的比喻，不是事件预告。例如，时间紧张时减少可选会议，保留关键交流，就能把这个角度用在可观察的安排上。建议先确认底线再做让渡；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先确认底线再做让渡
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 有孚，元吉，无咎，可贞，利有攸往。曷之？二簋可用享。
+        from: 《周易》·损
+      - text: 山下有泽，损；君子以惩忿窒欲。
+        from: 《周易》象传·损
+  en:
+    title: Decrease
+    summary: You can make a deliberate reduction that protects what matters most
+    body:
+      'You can make a deliberate reduction that protects what matters most. Decrease is your primary
+      hexagram (běn guà — the main figure cast for this question); reduction is useful when its
+      purpose and scale are clear. Mountain above lake suggests an exchange of capacity, inviting
+      you to distinguish a thoughtful contribution from depletion that no one has discussed. A
+      reduction needs a clear limit and purpose; ask what the contribution protects and whether the
+      cost is shared fairly. A modest sincere offer can be easier to receive and maintain than a
+      dramatic sacrifice that neither person can discuss comfortably. In everyday terms, cut an
+      optional commitment to protect essential attention. Try this emphasis: reduce with a reason
+      and a limit. Give this step a review point tied to the task itself, so you can notice what
+      helped and what still needs another approach.'
+    advice:
+      - Reduce with a reason and a limit
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 有孚，元吉，无咎，可贞，利有攸往。曷之？二簋可用享。
+        from: Zhouyi, hexagram 41 (Chinese source text)
+      - text: 山下有泽，损；君子以惩忿窒欲。
+        from: Zhouyi, Image commentary 41 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_42
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 42
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.42
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 益：得到支持时
+    summary: 得到支持时，把增加的空间用在实际改进上
+    body: 得到支持时，把增加的空间用在实际改进上；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为益卦；益以风雷相助讲力量相互推动，支持的价值在于让实际困难更容易解决。你可以把新增资源用于试验与改进，也要让帮助形成回馈，避免只扩大期待而没有相应行动。卦象上方是风，下方是雷，分别提示沟通与渐入与启动与回应；这是观察情境的比喻，不是事件预告。例如，多出人手后优先解决持续积压的问题，就能把这个角度用在可观察的安排上。建议把获得的支持转为可见改善；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把获得的支持转为可见改善
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 利有攸往，利涉大川。
+        from: 《周易》·益
+      - text: 风雷，益；君子以见善则迁，有过则改。
+        from: 《周易》象传·益
+  en:
+    title: Increase
+    summary: You can turn added support into progress that also benefits the people around you
+    body:
+      'You can turn added support into progress that also benefits the people around you. Increase
+      is your primary hexagram (běn guà — the main figure cast for this question); wind and thunder
+      reinforce movement in this picture. An increase becomes meaningful through useful action and
+      fair circulation, especially when extra support removes a constraint that previously stopped
+      progress. Added capacity is a chance to remove a specific constraint; choose a practical
+      improvement, tell people how the support will be used, and recognize the contributions behind
+      it. Growth feels more workable when its benefit can be seen in the task itself. In everyday
+      terms, use additional help to clear a persistent bottleneck. Try this emphasis: let added
+      capacity serve a shared need.'
+    advice:
+      - Let added capacity serve a shared need
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 利有攸往，利涉大川。
+        from: Zhouyi, hexagram 42 (Chinese source text)
+      - text: 风雷，益；君子以见善则迁，有过则改。
+        from: Zhouyi, Image commentary 42 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_43
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 43
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.43
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 夬：该说清的事可以坚定表达
+    summary: 该说清的事可以坚定表达，也要避免情绪升级
+    body: 该说清的事可以坚定表达，也要避免情绪升级；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为夬卦；夬以泽上于天讲积累的压力需要出口，适合公开说明待处理的问题。坚定不是逼迫对方立刻接受，而是拿出事实、提出边界与可执行方案，防止一时激烈变成新的阻碍。卦象上方是泽，下方是天，分别提示交流与悦纳与开阔与主动；这是观察情境的比喻，不是事件预告。例如，反复变更范围时发起一次明确的范围讨论，就能把这个角度用在可观察的安排上。建议把要求说清并留出回应；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把要求说清并留出回应
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 扬于王庭，孚号，有厉。
+        from: 《周易》·夬
+      - text: 泽上于天，夬；君子以施禄及下，居德则忌。
+        from: 《周易》象传·夬
+  en:
+    title: Break-through
+    summary: You can be decisive about a problem while keeping the response open and proportionate
+    body: 'You can be decisive about a problem while keeping the response open and proportionate.
+      Break-through is your primary hexagram (běn guà — the main figure cast for this question);
+      lake above heaven suggests pressure reaching a point that needs expression. Resolution
+      benefits from a clear statement and accountable process, while impulsive confrontation can
+      obscure the issue you intended to address. A clear public statement should help others
+      understand the concern rather than corner them into an instant reply; name the boundary, the
+      evidence, and the review process. Decisiveness can remain calm when a workable response has
+      somewhere to go. In everyday terms, state the scope problem and propose a review. Try this
+      emphasis: pair firmness with a usable process. Give this step a review point tied to the task
+      itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Pair firmness with a usable process
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 扬于王庭，孚号，有厉。
+        from: Zhouyi, hexagram 43 (Chinese source text)
+      - text: 泽上于天，夬；君子以施禄及下，居德则忌。
+        from: Zhouyi, Image commentary 43 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_44
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 44
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.44
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 姤：突然的相遇可以观察
+    summary: 突然的相遇可以观察，不必立即给予全部信任
+    body: 突然的相遇可以观察，不必立即给予全部信任；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为姤卦；姤以风行天下讲影响从细小处进入，新的接触可能很快改变节奏。你可以欢迎信息与机会，同时核对条件与动机；接近不意味着立刻承诺，也不需要按性别给任何人贴标签。卦象上方是天，下方是风，分别提示开阔与主动与沟通与渐入；这是观察情境的比喻，不是事件预告。例如，新合作邀约先安排一次有限的试做，就能把这个角度用在可观察的安排上。建议先确认边界再扩大接触；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先确认边界再扩大接触
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 女壮，勿用取女。
+        from: 《周易》·姤
+      - text: 天下有风，姤；后以施命诰四方。
+        from: 《周易》象传·姤
+  en:
+    title: Coming to Meet
+    summary: You can stay curious about an unexpected opening while setting limits early
+    body:
+      'You can stay curious about an unexpected opening while setting limits early. Coming to Meet
+      is your primary hexagram (běn guà — the main figure cast for this question); wind beneath
+      heaven travels widely from a small beginning. An encounter may be compelling, yet practical
+      boundaries and time to observe make curiosity more useful than an immediate commitment. An
+      unexpected contact may have a useful contribution and still need a limited trial; clarify
+      access, responsibilities, and the point at which you will review the arrangement. Curiosity
+      works better with a boundary than with either immediate trust or reflexive suspicion. In
+      everyday terms, try a bounded collaboration before granting broad access. Try this emphasis:
+      keep an opening proportionate to what you know.'
+    advice:
+      - Keep an opening proportionate to what you know
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 女壮，勿用取女。
+        from: Zhouyi, hexagram 44 (Chinese source text)
+      - text: 天下有风，姤；后以施命诰四方。
+        from: Zhouyi, Image commentary 44 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_45
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 45
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.45
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 萃：把人聚在一起
+    summary: 把人聚在一起，也要让目标与秩序聚在一起
+    body: 把人聚在一起，也要让目标与秩序聚在一起；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为萃卦；萃以泽水聚于地上讲众人的集中，人数多并不自动带来合力。你可以明确共同目标、参与方式与主持责任，让聚集形成交流；对暂时不被理解的人，也留出说话的位置。卦象上方是泽，下方是地，分别提示交流与悦纳与承载与落实；这是观察情境的比喻，不是事件预告。例如，组织讨论时先发出议题和预期产出，就能把这个角度用在可观察的安排上。建议为参与者安排清楚入口；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 为参与者安排清楚入口
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，王假有庙。利见大人，亨，利贞。用大牲吉，利有攸往。
+        from: 《周易》·萃
+      - text: 泽上于地，萃；君子以除戎器，戒不虞。
+        from: 《周易》象传·萃
+  en:
+    title: Gathering Together
+    summary: You can make a gathering useful by giving people a clear reason and a way to contribute
+    body: 'You can make a gathering useful by giving people a clear reason and a way to contribute.
+      Gathering Together is your primary hexagram (běn guà — the main figure cast for this
+      question); a lake over earth evokes resources and people gathering. A worthwhile group needs a
+      recognizable purpose, accessible participation, and coordination that makes it easier to
+      contribute rather than merely attend. People arrive with different levels of confidence and
+      access; give them a recognizable purpose and several reasonable ways to contribute. A
+      gathering becomes coordinated when its structure helps quieter participants as well as those
+      already comfortable taking the floor. In everyday terms, give a meeting a question and a
+      tangible outcome. Try this emphasis: help people know how to take part.'
+    advice:
+      - Help people know how to take part
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，王假有庙。利见大人，亨，利贞。用大牲吉，利有攸往。
+        from: Zhouyi, hexagram 45 (Chinese source text)
+      - text: 泽上于地，萃；君子以除戎器，戒不虞。
+        from: Zhouyi, Image commentary 45 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_46
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 46
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.46
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 升：积累的小进展
+    summary: 积累的小进展，可以形成可信的上升路径
+    body: 积累的小进展，可以形成可信的上升路径；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为升卦；升以地中生木讲向上发展，成长依赖扎实的根与连续的小步。你可以寻找合适的支持与反馈，不急于跳过基础；真正可持续的提升，往往能说明每一步学到了什么。卦象上方是地，下方是风，分别提示承载与落实与沟通与渐入；这是观察情境的比喻，不是事件预告。例如，每次练习完成一个可展示的小作品，就能把这个角度用在可观察的安排上。建议让提升建立在可重复的步骤上；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 让提升建立在可重复的步骤上
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元亨，用见大人，勿恤，南征吉。
+        from: 《周易》·升
+      - text: 地中生木，升；君子以顺德，积小以高大。
+        from: 《周易》象传·升
+  en:
+    title: Pushing Upward
+    summary: You can grow through repeatable steps and support that recognizes the work
+    body:
+      'You can grow through repeatable steps and support that recognizes the work. Pushing Upward is
+      your primary hexagram (běn guà — the main figure cast for this question); wood growing through
+      earth suggests development supported from below. Progress is easier to sustain when it has
+      manageable stages, honest feedback, and opportunities to use what you have already learned. A
+      small finished piece makes learning available for review; build a sequence in which each
+      result provides a skill or contact for the next stage. Useful growth is easier to trace when
+      it is tied to what you can do rather than how high a role appears. In everyday terms, build a
+      small portfolio through successive practice tasks. Try this emphasis: measure growth by usable
+      learning.'
+    advice:
+      - Measure growth by usable learning
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元亨，用见大人，勿恤，南征吉。
+        from: Zhouyi, hexagram 46 (Chinese source text)
+      - text: 地中生木，升；君子以顺德，积小以高大。
+        from: Zhouyi, Image commentary 46 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_47
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 47
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.47
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 困：空间受限时
+    summary: 空间受限时，保留可信的做法与必要的求助
+    body: 空间受限时，保留可信的做法与必要的求助；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为困卦；困以泽中水少讲资源与表达受限，越着急越容易感到没有出口。你可以承认眼前的限制，缩小不必要的消耗，用具体请求联系支持，避免把暂时困难变成对自我价值的判断。卦象上方是泽，下方是水，分别提示交流与悦纳与不确定中的通路；这是观察情境的比喻，不是事件预告。例如，忙到无余力时请求别人接手一个明确任务，就能把这个角度用在可观察的安排上。建议把有限精力留给核心需要；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把有限精力留给核心需要
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，贞，大人士口，无咎，有言口不信。
+        from: 《周易》·困
+      - text: 泽无水，困；君子以致命遂志。
+        from: 《周易》象传·困
+  en:
+    title: Oppression
+    summary: You can respond to a constrained period by conserving effort and making needs concrete
+    body: 'You can respond to a constrained period by conserving effort and making needs concrete.
+      Oppression is your primary hexagram (běn guà — the main figure cast for this question); water
+      beneath a lake evokes reserves that are hard to access. Constraint can make persuasion
+      ineffective, so a useful response protects essentials and asks for specific assistance rather
+      than trying to prove everything at once. Restriction can make an appeal feel unheard even when
+      help exists; narrow the request to a task someone can realistically take on and protect the
+      essentials you still control. A difficult interval does not need to become a general verdict
+      about your worth. In everyday terms, ask for help with one named responsibility. Try this
+      emphasis: conserve capacity and make support actionable.'
+    advice:
+      - Conserve capacity and make support actionable
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，贞，大人士口，无咎，有言口不信。
+        from: Zhouyi, hexagram 47 (Chinese source text)
+      - text: 泽无水，困；君子以致命遂志。
+        from: Zhouyi, Image commentary 47 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_48
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 48
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.48
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 井：稳定的资源也需要维护与方便使用的入口
+    summary: 稳定的资源也需要维护与方便使用的入口
+    body: 稳定的资源也需要维护与方便使用的入口；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为井卦；井以木上汲水讲长期供给，井不因人来人往而失去作用，但工具与维护会影响能否取到水。你可以照顾基础设施、共享知识与使用方式，让已有资源真正服务于需要它的人。卦象上方是水，下方是风，分别提示不确定中的通路与沟通与渐入；这是观察情境的比喻，不是事件预告。例如，知识库先修好检索与过期条目，就能把这个角度用在可观察的安排上。建议定期检查资源的实际可用性；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 定期检查资源的实际可用性
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 改邑不改井，无丧无得，往来井井。
+        from: 《周易》·井
+      - text: 木上有水，井；君子以劳民劝相。
+        from: 《周易》象传·井
+  en:
+    title: The Well
+    summary: You can improve a shared resource by caring for access as well as quality
+    body:
+      'You can improve a shared resource by caring for access as well as quality. The Well is your
+      primary hexagram (běn guà — the main figure cast for this question); wood drawing water offers
+      a picture of a durable source. A resource can exist and still be unusable, making upkeep,
+      tools, and fair access as important as the quality of what is available. A guide, tool, or
+      shared service becomes dependable through use and upkeep; ask where people are failing to
+      reach it and who handles the ordinary repairs. Improving access can create more value than
+      adding material to a source that remains difficult to use. In everyday terms, make a shared
+      guide easier to find and keep current. Try this emphasis: maintain the means of access.'
+    advice:
+      - Maintain the means of access
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 改邑不改井，无丧无得，往来井井。
+        from: Zhouyi, hexagram 48 (Chinese source text)
+      - text: 木上有水，井；君子以劳民劝相。
+        from: Zhouyi, Image commentary 48 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_49
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 49
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.49
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 革：改变旧安排时
+    summary: 改变旧安排时，让理由与准备先于声势
+    body: 改变旧安排时，让理由与准备先于声势；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为革卦；革以泽中有火讲旧结构与新力量之间的张力，变化需要条件与认可。你可以说明为什么改、怎样改、改后如何检查，让参与者逐步理解；追求变化本身容易忽略使用者的承受范围。卦象上方是泽，下方是火，分别提示交流与悦纳与明晰与依托；这是观察情境的比喻，不是事件预告。例如，调整流程前展示旧问题与小规模试验结果，就能把这个角度用在可观察的安排上。建议为变化安排沟通和复查；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 为变化安排沟通和复查
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 巳日乃孚，元亨利贞，悔亡。
+        from: 《周易》·革
+      - text: 泽中有火，革；君子以治历明时。
+        from: 《周易》象传·革
+  en:
+    title: Revolution
+    summary: You can make a necessary change credible through evidence, preparation, and participation
+    body:
+      'You can make a necessary change credible through evidence, preparation, and participation.
+      Revolution is your primary hexagram (běn guà — the main figure cast for this question); fire
+      within a lake depicts forces that cannot remain unchanged indefinitely. Reform gains
+      credibility when people can see the reason, preparation, and follow-through, rather than being
+      asked to trust excitement alone. People need time to see what a change solves; show the
+      repeated problem, test an alternative, and explain how the result will be checked. Credibility
+      grows when the new practice makes ordinary work easier instead of simply announcing a break
+      with the past. In everyday terms, show the problem and a pilot result before replacing a
+      routine. Try this emphasis: make the change understandable before expanding it.'
+    advice:
+      - Make the change understandable before expanding it
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 巳日乃孚，元亨利贞，悔亡。
+        from: Zhouyi, hexagram 49 (Chinese source text)
+      - text: 泽中有火，革；君子以治历明时。
+        from: Zhouyi, Image commentary 49 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_50
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 50
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.50
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 鼎：把原料转成成果
+    summary: 把原料转成成果，需要可靠的结构与协作
+    body: 把原料转成成果，需要可靠的结构与协作；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为鼎卦；鼎以木生火、器物烹调的意象讲转化与承载，成果依赖材料、工具与人的配合。你可以整理工作结构、提高交接质量，使经验成为可分享的成果；器具不稳时先修承载，不急着加料。卦象上方是火，下方是风，分别提示明晰与依托与沟通与渐入；这是观察情境的比喻，不是事件预告。例如，培训内容先整理成可用步骤再交给新人，就能把这个角度用在可观察的安排上。建议先稳住结构再扩大产出；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先稳住结构再扩大产出
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 元吉、亨。
+        from: 《周易》·鼎
+      - text: 木上有火，鼎；君子以正位凝命。
+        from: 《周易》象传·鼎
+  en:
+    title: The Cauldron
+    summary: You can improve an outcome by caring for the vessel that makes useful transformation possible
+    body: 'You can improve an outcome by caring for the vessel that makes useful transformation
+      possible. The Cauldron is your primary hexagram (běn guà — the main figure cast for this
+      question); wood feeding fire and the cooking vessel evoke purposeful transformation. Good
+      ingredients need a sound container and skilled coordination, making systems and shared
+      responsibility part of the quality of the result. Transformation requires a container: roles,
+      tools, and handovers that hold the work together; inspect the points where good material is
+      lost or becomes unusable. Improving that structure can make shared expertise more valuable
+      without demanding more input from everyone. In everyday terms, turn expertise into a sequence
+      another person can use. Try this emphasis: care for the process that carries the result.'
+    advice:
+      - Care for the process that carries the result
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 元吉、亨。
+        from: Zhouyi, hexagram 50 (Chinese source text)
+      - text: 木上有火，鼎；君子以正位凝命。
+        from: Zhouyi, Image commentary 50 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_51
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 51
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.51
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 震：突然变化带来紧张时
+    summary: 突然变化带来紧张时，先恢复基本秩序
+    body: 突然变化带来紧张时，先恢复基本秩序；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为震卦；震以重复的雷讲突然被唤起，最初的紧张可以转成清醒的回应。你不必立刻作出所有决定，先核对事实、维持基本安排，再区分需要马上处理的事与可以稍后评估的事。上下卦都是雷，强调启动与回应的连续作用；这是观察情境的比喻，不是事件预告。例如，计划突变后先列出当天最必要的两件事，就能把这个角度用在可观察的安排上。建议先稳住节奏再判断影响；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 先稳住节奏再判断影响
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨。震来虩虩，笑言哑哑。震惊百里，不丧匕鬯。
+        from: 《周易》·震
+      - text: 虩雷，震；君子以恐惧修身。
+        from: 《周易》象传·震
+  en:
+    title: The Arousing
+    summary: You can steady yourself after a surprise by returning to the next clear action
+    body:
+      'You can steady yourself after a surprise by returning to the next clear action. The Arousing
+      is your primary hexagram (běn guà — the main figure cast for this question); repeated thunder
+      represents an interruption that catches attention. A startled response can become useful
+      awareness when you regain orientation, check what actually changed, and keep essential duties
+      within reach. A surprise can widen attention or scatter it; check the facts, restore the
+      essential sequence, and delay decisions that do not need an immediate answer. You can learn
+      from the interruption while refusing to let its first emotional intensity set the whole
+      agenda. In everyday terms, after a disruption, identify the next essential action. Try this
+      emphasis: regain orientation before adding commitments.'
+    advice:
+      - Regain orientation before adding commitments
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨。震来虩虩，笑言哑哑。震惊百里，不丧匕鬯。
+        from: Zhouyi, hexagram 51 (Chinese source text)
+      - text: 虩雷，震；君子以恐惧修身。
+        from: Zhouyi, Image commentary 51 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_52
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 52
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.52
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 艮：在合适的位置停一停
+    summary: 在合适的位置停一停，能够重新看清方向
+    body: 在合适的位置停一停，能够重新看清方向；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为艮卦；艮以重叠的山讲停止与界限，停下并不是要求压住所有感受。你可以辨认什么已超出当天的承受范围，在行动与休息之间建立清楚边界，给判断留下安静的空间。上下卦都是山，强调边界与止步的连续作用；这是观察情境的比喻，不是事件预告。例如，讨论僵住时先约定暂停与重新开始的时间，就能把这个角度用在可观察的安排上。建议为休息设定可执行的边界；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 为休息设定可执行的边界
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 艮其背，不获其身，行其庭，不见其人，无咎。
+        from: 《周易》·艮
+      - text: 兼山，艮；君子以思不出其位。
+        from: 《周易》象传·艮
+  en:
+    title: Keeping Still
+    summary: You can pause deliberately and let a boundary protect your attention
+    body:
+      'You can pause deliberately and let a boundary protect your attention. Keeping Still is your
+      primary hexagram (běn guà — the main figure cast for this question); mountains repeated offer
+      an image of stillness and limits. A good pause is neither endless avoidance nor forced
+      rigidity; it gives attention a place to settle and helps you recognize where your
+      responsibility ends. A pause needs an understandable boundary and a way back to ordinary
+      activity; choose what stops, why it stops, and when you will reconsider. Stillness is useful
+      when it restores perspective rather than turning every feeling into something you must
+      suppress. In everyday terms, pause a tense discussion and agree when to return. Try this
+      emphasis: use a pause to recover perspective.'
+    advice:
+      - Use a pause to recover perspective
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 艮其背，不获其身，行其庭，不见其人，无咎。
+        from: Zhouyi, hexagram 52 (Chinese source text)
+      - text: 兼山，艮；君子以思不出其位。
+        from: Zhouyi, Image commentary 52 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_53
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 53
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.53
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 渐：按阶段推进
+    summary: 按阶段推进，让关系与成果有时间扎根
+    body: 按阶段推进，让关系与成果有时间扎根；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为渐卦；渐以山上有木讲逐步成长，六爻借鸟逐站停留呈现不同阶段。稳定的发展需要合适落点与关系支持，不宜为了赶快显得成熟而跳过准备；节奏可以协商而非由外界统一规定。卦象上方是风，下方是山，分别提示沟通与渐入与边界与止步；这是观察情境的比喻，不是事件预告。例如，长期合作先从一次小任务建立经验，就能把这个角度用在可观察的安排上。建议按实际基础安排下一阶段；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 按实际基础安排下一阶段
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 女归吉，利贞。
+        from: 《周易》·渐
+      - text: 山上有木，渐；君子以居贤德，善俗。
+        from: 《周易》象传·渐
+  en:
+    title: Development
+    summary: You can develop something durable by respecting the sequence of its growth
+    body:
+      'You can develop something durable by respecting the sequence of its growth. Development is
+      your primary hexagram (běn guà — the main figure cast for this question); wood on a mountain
+      grows through a setting that offers limits and footholds. The migrating bird images suggest
+      successive stages, each requiring a place to settle before the next movement becomes sensible.
+      A stage is ready when it can support the next one, not merely when a calendar says it should
+      end; discuss the practical foothold, the pace, and the help available. A slower sequence can
+      let a relationship or project become more dependable. In everyday terms, begin a continuing
+      partnership with one bounded project. Try this emphasis: let each stage support the one after
+      it.'
+    advice:
+      - Let each stage support the one after it
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 女归吉，利贞。
+        from: Zhouyi, hexagram 53 (Chinese source text)
+      - text: 山上有木，渐；君子以居贤德，善俗。
+        from: Zhouyi, Image commentary 53 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_54
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 54
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.54
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 归妹：位置或承诺不对等时
+    summary: 位置或承诺不对等时，先讨论彼此能选择什么
+    body: 位置或承诺不对等时，先讨论彼此能选择什么；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为归妹卦；归妹用古代关系安排的意象讲进入一个已有结构时的位置问题。现代阅读不把任何性别安排为附属角色，也不催促成家；你可以核对承诺、权限与自愿程度，寻找更公平的参与方式。卦象上方是雷，下方是泽，分别提示启动与回应与交流与悦纳；这是观察情境的比喻，不是事件预告。例如，加入现有团队前先确认参与权与责任，就能把这个角度用在可观察的安排上。建议把不对等条件放到台面讨论；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把不对等条件放到台面讨论
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 归妹，征凶，无攸利。
+        from: 《周易》·归妹
+      - text: 泽上有雷，归妹；君子以永终知敝。
+        from: 《周易》象传·归妹
+  en:
+    title: The Marrying Maiden
+    summary: You can examine an unequal arrangement without accepting that its terms are fixed
+    body: 'You can examine an unequal arrangement without accepting that its terms are fixed. The
+      Marrying Maiden is your primary hexagram (běn guà — the main figure cast for this question);
+      this historical relationship image concerns entering an arrangement whose roles are already
+      defined. A modern reading focuses on consent, unequal access, and negotiable terms, rather
+      than prescribing anyone’s relationship status or gender role. A prearranged role may limit
+      voice or access; examine whether the terms are voluntary, what can be negotiated, and which
+      commitment is actually being requested. The historical image is a prompt to inspect fairness,
+      not a rule about who should occupy a subordinate place. In everyday terms, clarify your say in
+      decisions before joining an established group. Try this emphasis: ask whether participation is
+      freely chosen.'
+    advice:
+      - Ask whether participation is freely chosen
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 归妹，征凶，无攸利。
+        from: Zhouyi, hexagram 54 (Chinese source text)
+      - text: 泽上有雷，归妹；君子以永终知敝。
+        from: Zhouyi, Image commentary 54 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_55
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 55
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.55
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 丰：事情集中显现时
+    summary: 事情集中显现时，用清楚信息管理繁忙
+    body: 事情集中显现时，用清楚信息管理繁忙；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为丰卦；丰以雷与火讲行动与光亮一起达到高处，忙碌时信息也可能被遮挡。你可以利用可见的资源与伙伴，同时审视盲区，不把热闹当成每个环节都已准备充分。卦象上方是雷，下方是火，分别提示启动与回应与明晰与依托；这是观察情境的比喻，不是事件预告。例如，事项扎堆时建立一张真实进度表，就能把这个角度用在可观察的安排上。建议越繁忙越核查关键材料；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 越繁忙越核查关键材料
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，王假之，勿忧，宣日中。
+        from: 《周易》·丰
+      - text: 雷电皆至，丰；君子以折狱致刑。
+        from: 《周易》象传·丰
+  en:
+    title: Abundance
+    summary: You can handle a period of intensity by checking what the bright surface conceals
+    body:
+      'You can handle a period of intensity by checking what the bright surface conceals. Abundance
+      is your primary hexagram (běn guà — the main figure cast for this question); thunder over fire
+      depicts a vivid, demanding interval. Intensity can produce opportunity and confusion together,
+      making visibility, reliable collaborators, and a check for hidden gaps more useful than simply
+      doing more. A busy bright scene can hide dependencies as easily as it reveals achievement;
+      name what is ready, what is blocked, and who knows the missing information. Good coordination
+      gives intensity a structure without assuming that a lively surface means every part is sound.
+      In everyday terms, create a status board that reveals unresolved dependencies. Try this
+      emphasis: make the busy picture legible.'
+    advice:
+      - Make the busy picture legible
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，王假之，勿忧，宣日中。
+        from: Zhouyi, hexagram 55 (Chinese source text)
+      - text: 雷电皆至，丰；君子以折狱致刑。
+        from: Zhouyi, Image commentary 55 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_56
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 56
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.56
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 旅：身处陌生环境
+    summary: 身处陌生环境，先照顾落脚点与交往分寸
+    body: 身处陌生环境，先照顾落脚点与交往分寸；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为旅卦；旅以山上有火讲短暂停留，火移动而山保持不动，提醒你看清自己在环境中的位置。你可以了解规则、保管必要物品并建立可信联系，不必急着在陌生地方承担超出权限的事情。卦象上方是火，下方是山，分别提示明晰与依托与边界与止步；这是观察情境的比喻，不是事件预告。例如，到新地方先确认联络人和返程安排，就能把这个角度用在可观察的安排上。建议保留必要资源与机动空间；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 保留必要资源与机动空间
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 小亨、旅贞吉。
+        from: 《周易》·旅
+      - text: 山上有火，旅；君子以明慎用刑，而不留狱。
+        from: 《周易》象传·旅
+  en:
+    title: The Wanderer
+    summary: You can navigate an unfamiliar setting through practical preparation and respectful limits
+    body:
+      'You can navigate an unfamiliar setting through practical preparation and respectful limits.
+      The Wanderer is your primary hexagram (běn guà — the main figure cast for this question); fire
+      above mountain suggests a presence that does not settle permanently. In an unfamiliar setting,
+      useful independence includes reliable shelter, needed resources, and respect for local
+      expectations. A temporary base still deserves care; learn the setting’s expectations, secure
+      what you need, and identify a person you can contact. Practical preparation leaves more space
+      for exploration than trying to establish authority before you understand where you are. In
+      everyday terms, check your contact person and return arrangements on arrival. Try this
+      emphasis: establish a workable base before exploring. Give this step a review point tied to
+      the task itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Establish a workable base before exploring
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 小亨、旅贞吉。
+        from: Zhouyi, hexagram 56 (Chinese source text)
+      - text: 山上有火，旅；君子以明慎用刑，而不留狱。
+        from: Zhouyi, Image commentary 56 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_57
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 57
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.57
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 巽：温和而连续的影响
+    summary: 温和而连续的影响，比反复改口更有力量
+    body: 温和而连续的影响，比反复改口更有力量；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为巽卦；巽以重叠的风讲细小但不断的进入，意见要清楚，方法可以柔和。你可以反复核对对方是否理解，逐步修正做法；若把顺应变成没有立场，反而容易让人摸不清方向。上下卦都是风，强调沟通与渐入的连续作用；这是观察情境的比喻，不是事件预告。例如，推动新习惯时每次只增加一项清楚要求，就能把这个角度用在可观察的安排上。建议保持方向清楚并听取反馈；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 保持方向清楚并听取反馈
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 小亨。利有攸往，利见大人。
+        from: 《周易》·巽
+      - text: 随风，巽；君子以申命行事。
+        from: 《周易》象传·巽
+  en:
+    title: The Gentle
+    summary: You can make your purpose understood through steady communication and small adjustments
+    body:
+      'You can make your purpose understood through steady communication and small adjustments. The
+      Gentle is your primary hexagram (běn guà — the main figure cast for this question); wind
+      repeated works through persistence rather than a single push. A gentle approach needs a clear
+      purpose and consistent signals, otherwise accommodation can leave everyone unsure about what
+      is actually being proposed. Gentle influence works when its message remains legible; repeat a
+      clear purpose, invite feedback, and change one detail at a time. If accommodation has erased
+      your position, recover a simple boundary before adding another explanation of what you hoped
+      people would infer. In everyday terms, introduce one understandable change at a time. Try this
+      emphasis: repeat the purpose without pressing for instant agreement.'
+    advice:
+      - Repeat the purpose without pressing for instant agreement
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 小亨。利有攸往，利见大人。
+        from: Zhouyi, hexagram 57 (Chinese source text)
+      - text: 随风，巽；君子以申命行事。
+        from: Zhouyi, Image commentary 57 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_58
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 58
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.58
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 兑：交流带来轻松时
+    summary: 交流带来轻松时，也要守住真诚与边界
+    body: 交流带来轻松时，也要守住真诚与边界；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为兑卦；兑以重叠的泽讲彼此分享与悦纳，好的气氛可以帮助信息流动。为了取悦而答应太多，可能让轻松变成负担；你可以把友善与清楚立场放在一起，让对话保持可信。上下卦都是泽，强调交流与悦纳的连续作用；这是观察情境的比喻，不是事件预告。例如，聚会中不方便答应的事可以温和说明，就能把这个角度用在可观察的安排上。建议让愉快建立在真实回应上；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 让愉快建立在真实回应上
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，利、贞。
+        from: 《周易》·兑
+      - text: 丽泽，兑；君子以朋友讲习。
+        from: 《周易》象传·兑
+  en:
+    title: The Joyous
+    summary: You can enjoy a conversation while noticing whether it rests on honest exchange
+    body:
+      'You can enjoy a conversation while noticing whether it rests on honest exchange. The Joyous
+      is your primary hexagram (běn guà — the main figure cast for this question); lakes joined
+      suggest mutual refreshment through exchange. Enjoyment supports contact, but conversation
+      remains sound when people can disagree, decline, and speak accurately without losing respect.
+      A pleasant exchange can hold disagreement without collapsing; speak accurately, decline kindly
+      when needed, and notice whether agreement is being purchased through overcommitment. Enjoyment
+      is more dependable when people can keep their own judgment inside the conversation. In
+      everyday terms, decline a request warmly when you cannot reasonably take it on. Try this
+      emphasis: keep friendliness compatible with honest limits. Give this step a review point tied
+      to the task itself, so you can notice what helped and what still needs another approach.'
+    advice:
+      - Keep friendliness compatible with honest limits
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，利、贞。
+        from: Zhouyi, hexagram 58 (Chinese source text)
+      - text: 丽泽，兑；君子以朋友讲习。
+        from: Zhouyi, Image commentary 58 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_59
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 59
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.59
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 涣：联系松散时
+    summary: 联系松散时，先找到能重新连接的共同目标
+    body: 联系松散时，先找到能重新连接的共同目标；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为涣卦；涣以风行水上讲原先凝结的东西被疏散，可以是隔阂松动，也可以是注意力分散。你可以减少小圈子的壁垒，让大家回到具体目标，同时照顾仍需稳定承接的安排。卦象上方是风，下方是水，分别提示沟通与渐入与不确定中的通路；这是观察情境的比喻，不是事件预告。例如，沟通断开时重新说明大家共同要解决的问题，就能把这个角度用在可观察的安排上。建议减少隔阂并明确承接方式；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 减少隔阂并明确承接方式
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨。王假有庙，利涉大川，利贞。
+        from: 《周易》·涣
+      - text: 风行水上，涣；先王以享于帝立庙。
+        from: 《周易》象传·涣
+  en:
+    title: Dispersion
+    summary: You can loosen an unhelpful division and rebuild contact around a shared need
+    body:
+      'You can loosen an unhelpful division and rebuild contact around a shared need. Dispersion is
+      your primary hexagram (běn guà — the main figure cast for this question); wind over water
+      disperses what has collected. Release can dissolve barriers or scatter attention, so the
+      useful task is to bring people toward a shared purpose while giving change a dependable point
+      of support. A common need can loosen the loyalty of a closed circle; invite people toward that
+      need and provide a stable place for renewed contact. Releasing barriers is useful when someone
+      can still see how the next task will be carried and supported. In everyday terms, reconnect a
+      divided group through one practical shared concern. Try this emphasis: give renewed contact
+      something concrete to serve.'
+    advice:
+      - Give renewed contact something concrete to serve
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨。王假有庙，利涉大川，利贞。
+        from: Zhouyi, hexagram 59 (Chinese source text)
+      - text: 风行水上，涣；先王以享于帝立庙。
+        from: Zhouyi, Image commentary 59 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_60
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 60
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.60
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 节：适量的限制
+    summary: 适量的限制，能让资源与关系更可持续
+    body: 适量的限制，能让资源与关系更可持续；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为节卦；节以泽上有水讲容量与尺度，规则帮助有限资源被合理使用。限制过严会失去弹性，完全没有边界又容易消耗；你可以与相关的人协商标准，让节制服务于实际生活。卦象上方是水，下方是泽，分别提示不确定中的通路与交流与悦纳；这是观察情境的比喻，不是事件预告。例如，给会议设定结束时间，也保留必要讨论入口，就能把这个角度用在可观察的安排上。建议定期检视规则是否仍合适；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 定期检视规则是否仍合适
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，苦节，不可贞。
+        from: 《周易》·节
+      - text: 泽上有水，节；君子以制数度，议德行。
+        from: 《周易》象传·节
+  en:
+    title: Limitation
+    summary: You can set a workable limit that protects capacity without turning daily life rigid
+    body: 'You can set a workable limit that protects capacity without turning daily life rigid.
+      Limitation is your primary hexagram (běn guà — the main figure cast for this question); water
+      above a lake highlights capacity and containment. Limits help when they are understandable and
+      adjustable; excessive restriction can make the arrangement as difficult to maintain as no
+      boundary at all. A usable boundary is neither endlessly negotiable nor needlessly harsh; give
+      it a reason that people can understand and a review point that allows circumstances to change.
+      Capacity is protected more effectively when the arrangement fits ordinary life. In everyday
+      terms, set a meeting limit and a way to handle unfinished issues. Try this emphasis: make the
+      boundary firm enough and humane enough.'
+    advice:
+      - Make the boundary firm enough and humane enough
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，苦节，不可贞。
+        from: Zhouyi, hexagram 60 (Chinese source text)
+      - text: 泽上有水，节；君子以制数度，议德行。
+        from: Zhouyi, Image commentary 60 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_61
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 61
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.61
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 中孚：信任靠内外一致
+    summary: 信任靠内外一致，不靠反复强调自己的诚意
+    body: 信任靠内外一致，不靠反复强调自己的诚意；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为中孚卦；中孚以风泽相感讲内在诚意与外在回应相通，真正的信任需要能被看见的行为。你可以兑现小承诺、允许对方表达疑虑，不用过多语言催促认可，也不把信任当作取消核查的理由。卦象上方是风，下方是泽，分别提示沟通与渐入与交流与悦纳；这是观察情境的比喻，不是事件预告。例如，答应回复的事按约定时间说明进展，就能把这个角度用在可观察的安排上。建议让行为与说法相互印证；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 让行为与说法相互印证
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 豚鱼吉，利涉大川，利贞。
+        from: 《周易》·中孚
+      - text: 泽上有风，中孚；君子以议狱缓死。
+        from: 《周易》象传·中孚
+  en:
+    title: Inner Truth
+    summary: You can make trust visible through reliable behavior and attentive listening
+    body:
+      'You can make trust visible through reliable behavior and attentive listening. Inner Truth is
+      your primary hexagram (běn guà — the main figure cast for this question); wind over lake
+      suggests an influence that is felt because something within is consistent. Trust develops
+      through follow-through and responsive attention, rather than through repeated claims of
+      sincerity. A promise becomes credible through its scale and the way it is kept; listen to
+      doubts without requiring instant reassurance, and name delays before someone has to guess.
+      Trust can coexist with reasonable checking; it need not depend on unquestioning acceptance. In
+      everyday terms, keep a modest promise and acknowledge any delay. Try this emphasis: give trust
+      observable grounds. Give this step a review point tied to the task itself, so you can notice
+      what helped and what still needs another approach.'
+    advice:
+      - Give trust observable grounds
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 豚鱼吉，利涉大川，利贞。
+        from: Zhouyi, hexagram 61 (Chinese source text)
+      - text: 泽上有风，中孚；君子以议狱缓死。
+        from: Zhouyi, Image commentary 61 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_62
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 62
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.62
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 小过：细处多做一点
+    summary: 细处多做一点，大事暂时不要越过条件
+    body: 细处多做一点，大事暂时不要越过条件；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为小过卦；小过以山上有雷讲行动略超平常，适合在细节上谨慎用心。它不鼓励扩大冒险，而提醒你保持较低姿态、照顾小处，确认当前条件是否足以承载更大的承诺。卦象上方是雷，下方是山，分别提示启动与回应与边界与止步；这是观察情境的比喻，不是事件预告。例如，交付前多检查一次关键细节，就能把这个角度用在可观察的安排上。建议把改进控制在能承担的范围；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把改进控制在能承担的范围
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨，利，贞。
+        from: 《周易》·小过
+      - text: 山上有雷，小过；君子以行过乎恭，丧过乎哀，用过乎俭。
+        from: 《周易》象传·小过
+  en:
+    title: Preponderance of the Small
+    summary: You can use extra care on a small task while keeping larger moves within your capacity
+    body: 'You can use extra care on a small task while keeping larger moves within your capacity.
+      Preponderance of the Small is your primary hexagram (běn guà — the main figure cast for this
+      question); thunder over mountain calls attention to movements near a boundary. A little extra
+      care can be useful, while a much larger leap may outrun the available support; scale is
+      central to the reading. A precise small adjustment can help more than a dramatic leap; look
+      for the detail that deserves extra care, while leaving the larger undertaking within the
+      available support. A lower profile can be an active choice about proportion rather than
+      timidity. In everyday terms, double-check a small but important handover detail. Try this
+      emphasis: prefer precision to a dramatic gesture.'
+    advice:
+      - Prefer precision to a dramatic gesture
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨，利，贞。
+        from: Zhouyi, hexagram 62 (Chinese source text)
+      - text: 山上有雷，小过；君子以行过乎恭，丧过乎哀，用过乎俭。
+        from: Zhouyi, Image commentary 62 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_63
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 63
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.63
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 既济：阶段完成后
+    summary: 阶段完成后，继续维护使成果成立的条件
+    body: 阶段完成后，继续维护使成果成立的条件；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为既济卦；既济以水火各在合适位置讲阶段性的协调，完成并不取消后续变化。你可以欣赏成果，也要检查交接、备用方案与持续维护，避免把起初的稳定当成以后无需照顾的状态。卦象上方是水，下方是火，分别提示不确定中的通路与明晰与依托；这是观察情境的比喻，不是事件预告。例如，任务完成后安排一次使用反馈与交接检查，就能把这个角度用在可观察的安排上。建议把维护写进完成标准；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把维护写进完成标准
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨小，利贞，初吉，终乱。
+        from: 《周易》·既济
+      - text: 水在火上，既济；君子以思患而预防之。
+        from: 《周易》象传·既济
+  en:
+    title: After Completion
+    summary: You can protect a completed step by treating maintenance as part of success
+    body:
+      'You can protect a completed step by treating maintenance as part of success. After Completion
+      is your primary hexagram (běn guà — the main figure cast for this question); water above fire
+      depicts an arrangement that is functioning for the moment. Completion changes the task from
+      creating a result to maintaining it, because a working balance can still be disturbed. A
+      finished result changes the nature of attention; check the handover, the repair route, and the
+      person who owns routine upkeep. You can appreciate what has been completed while acknowledging
+      that its continuing usefulness rests on an arrangement people still maintain. In everyday
+      terms, schedule a handover review after a successful delivery. Try this emphasis: care for
+      what makes the result hold.'
+    advice:
+      - Care for what makes the result hold
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨小，利贞，初吉，终乱。
+        from: Zhouyi, hexagram 63 (Chinese source text)
+      - text: 水在火上，既济；君子以思患而预防之。
+        from: Zhouyi, Image commentary 63 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.primary.hexagram_64
+  system: iching
+  section: hexagram
+  topic: primary
+  when:
+    path: primary.number
+    eq: 64
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - hexagram.64
+    - iching.clarity
+  exclusive_with: []
+  zh:
+    title: 未济：尚未完成时
+    summary: 尚未完成时，重新确认次序与跨越条件
+    body: 尚未完成时，重新确认次序与跨越条件；你可以据此检查手头安排。本卦（这次起卦得到的主要情境图）为未济卦；未济以火水未交讲条件尚未形成稳定配合，离终点近也不宜忽略最后的准备。你可以承认仍待完成的部分，调整次序与工具，让每一步都能接上下一步，而不是只靠接近成功的感觉推进。卦象上方是火，下方是水，分别提示明晰与依托与不确定中的通路；这是观察情境的比喻，不是事件预告。例如，上线前确认最后一个依赖确实已就绪，就能把这个角度用在可观察的安排上。建议把剩余工作排成清楚顺序；若现实信息不同，及时修正理解，不把象征当成行动命令。
+    advice:
+      - 把剩余工作排成清楚顺序
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+    sources:
+      - text: 亨。小狐汔济，濡其尾，无攸利。
+        from: 《周易》·未济
+      - text: 火在水上，未济；君子以慎辨物居方。
+        from: 《周易》象传·未济
+  en:
+    title: Before Completion
+    summary: You can continue an unfinished transition by coordinating the next step carefully
+    body: 'You can continue an unfinished transition by coordinating the next step carefully. Before
+      Completion is your primary hexagram (běn guà — the main figure cast for this question); fire
+      above water presents elements that have not yet settled into a useful exchange. Being near the
+      end of a passage does not remove its demands, so coordination and a realistic next step remain
+      valuable. Near-completion can create a misleading sense that the remaining steps no longer
+      need coordination; inspect the final dependency and agree on the order of the handover. An
+      unfinished passage can be approached patiently without turning the delay into a story of
+      personal inadequacy. In everyday terms, verify the final dependency before calling a
+      transition complete. Try this emphasis: finish through coordination rather than anticipation.'
+    advice:
+      - Finish through coordination rather than anticipation
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+    sources:
+      - text: 亨。小狐汔济，濡其尾，无攸利。
+        from: Zhouyi, hexagram 64 (Chinese source text)
+      - text: 火在水上，未济；君子以慎辨物居方。
+        from: Zhouyi, Image commentary 64 (Chinese source text)
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

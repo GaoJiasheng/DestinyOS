@@ -1,0 +1,275 @@
+- id: iching.fallback.overview
+  system: iching
+  section: overview
+  topic: fallback_overview
+  when:
+    path: method
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 先把卦象当作整理当前问题的一个角度
+    summary: 先把卦象当作整理当前问题的一个角度
+    body: 你可以把这次卦象当作整理问题的角度，而不是确定未来的答案。本卦（起卦得到的主要情境图）描述当前关注的结构，变化与生克提供补充视角；分数只是规则内的比较，不是现实事件的概率。例如，面对一件迟迟没进展的小事，你可以先写下已知事实、需要的回应与自己能做的部分。建议选一个能观察反馈的小步骤，并保留重新判断的空间；你的现实信息与自主选择始终更重要。
+    advice:
+      - 写下一个具体问题
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Begin with one practical question you want to understand
+    summary: Begin with one practical question you want to understand
+    body:
+      You can begin with one practical question rather than treating the reading as an answer about
+      the future. The primary hexagram, or běn guà — the main figure cast for the concern, provides
+      an image of the current arrangement. Changes and elemental relationships add perspectives,
+      while the score remains an internal comparison rather than a probability. If a task has
+      stalled, list the known facts, the response you need, and the part within your control.
+      Consider one small action whose effect you can observe, then review it when new information
+      arrives. Keep your own judgment central and set aside an image that does not fit. This
+      approach allows a traditional reading to support reflection without giving it authority over
+      the decisions your actual circumstances require.
+    advice:
+      - Write one practical question
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.fallback.hexagram
+  system: iching
+  section: hexagram
+  topic: fallback_hexagram
+  when:
+    path: method
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 从整体意象开始，再对照自己的实际处境
+    summary: 从整体意象开始，再对照自己的实际处境
+    body: 你可以先观察整体意象，再检查它与你的问题有哪些联系。本卦（这次起卦的主要六条线）由上下两个三爻卦（三条阴阳线组成的图）组成，三爻卦是三条阴阳线形成的象征图；上与下提供不同位置的观察角度，不需要把某一条线直接解释成某个人。传统自然意象可以帮助提问，却不能替代现实材料。例如，一项共同任务中，你可以分别看外部要求和手头资源是否接得上，找出最需要确认的一处，而不是把所有细节都套成象征。建议用一句话写下当前情境，再挑一个符合实际的关键词；若意象与生活经验不相配，就保留距离，用事实修正理解，不必为了得到完整故事补上没有依据的推断。
+    advice:
+      - 对照现实选择一个关键词
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Compare the whole image with a situation you can describe
+    summary: Compare the whole image with a situation you can describe
+    body: You can compare the whole image with a situation you can actually describe. A primary
+      hexagram, or běn guà — the main six-line figure, contains two trigrams, each a three-line
+      symbolic figure. The upper and lower positions offer different viewpoints, not fixed labels
+      for particular people. Natural images can help frame a question while leaving the answer to
+      ordinary evidence. In a shared task, you might inspect the connection between external
+      requirements and available resources, then name the one point most in need of confirmation.
+      Consider describing the concern in a sentence and choosing a keyword that genuinely fits it.
+      If the image does not match your experience, revise or set aside the interpretation rather
+      than filling the gaps with unsupported assumptions. A useful account can remain incomplete and
+      still clarify the next practical question.
+    advice:
+      - Choose a grounded keyword
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.fallback.moving_lines
+  system: iching
+  section: moving_lines
+  topic: fallback_moving_lines
+  when:
+    path: method
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 变化提示需要观察的环节，静止也有可用信息
+    summary: 变化提示需要观察的环节，静止也有可用信息
+    body: 你可以留意变化标记，也让没有变化的部分帮助你看清基础。动爻（本卦（起卦得到的主要六条线）中被选中翻转阴阳的线）表示这次起卦关注的动态，静爻（没有翻转阴阳的线）是没有翻转的线；动态不预告具体事件，没有动态也不表示生活停住。逐爻白话与传统取用规则是阅读顺序，不是要求忽略现实中的其他信息。例如，项目只有一个环节改变时，可以重点检查它与前后交接；如果流程暂时没有改变，也可以整理已经有效的日常做法。建议先核对命盘里实际标记了几处变化，再用相应位置的文字作为提问提示；把可观察的变化、尚未确认的想法与自己的回应分开，保留复查机会，让象征帮助理解而不扩大猜测。
+    advice:
+      - 核对实际变化的数量与位置
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Use movement or stillness as a prompt for inspection
+    summary: Use movement or stillness as a prompt for inspection
+    body:
+      You can inspect the marked changes while allowing unchanged parts to show the foundation. A
+      moving line, or dòng yáo — a line selected to flip its value, gives this reading a focus on
+      transition. A static line does not flip; neither movement nor stillness predicts an event in
+      ordinary life. The line commentary and traditional selection rules provide a reading order
+      rather than permission to ignore other evidence. A task with one changed stage may call for
+      checking its handovers, while an unchanged routine can still be reviewed for what already
+      works. Consider verifying the actual number of marked lines and treating the corresponding
+      commentary as a question prompt. Separate observed change, unconfirmed assumptions, and your
+      response so that the image helps organize inquiry instead of enlarging speculation.
+    advice:
+      - Check marked changes
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.fallback.process_outcome
+  system: iching
+  section: process_outcome
+  topic: fallback_process_outcome
+  when:
+    path: method
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 过程与结果可以分开观察，不必急着合成定论
+    summary: 过程与结果可以分开观察，不必急着合成定论
+    body: 你可以把正在经历的过程与希望形成的结果分别看清。过程指中间的配合与阻碍，结果在这里是变化后结构的观察角度，不是现实未来的判定。不同起卦方式提供不同线索，有些字段只在对应方法里存在；信息较少时宜保留开放理解，不借缺项补出额外故事。例如，任务进展缓慢但新的分工已讨论过，可以分别记录眼前等待与后续安排，确认各自需要哪些事实，而不把一个方面的好转当成整体完成。建议做一份简短的前后对照，写明什么已落实、什么还待回复；给两部分各设一个复查入口，实际反馈出现后再调整，保留暂停、求助与替代路径这些可以自主选择的做法。
+    advice:
+      - 分别记录已落实与待回复事项
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Separate the unfolding process from a possible later arrangement
+    summary: Separate the unfolding process from a possible later arrangement
+    body: 'You can distinguish the process currently unfolding from a later arrangement you hope to
+      create. Process concerns intermediate cooperation and obstacles; outcome here is a viewpoint
+      on the changed structure rather than a verdict about the future. Different casting methods
+      provide different fields, so a missing clue should remain a limit instead of becoming material
+      for an invented story. A task can still be waiting while a revised division of work has been
+      discussed: record these separately and ask what makes each one usable. Consider a short
+      before-and-after account of what is settled and what still needs a response. Give both parts a
+      review point and let actual feedback change your approach. Pausing, seeking help, and choosing
+      another route remain practical options within your own judgment.'
+    advice:
+      - Separate settled and pending items
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.fallback.advice
+  system: iching
+  section: advice
+  topic: fallback_advice
+  when:
+    path: method
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 选一个可执行的小动作，再观察它是否合适
+    summary: 选一个可执行的小动作，再观察它是否合适
+    body: 你可以先选择一个能执行、能复查的小动作，把理解转成自己的观察。行动建议是从象征中整理出的尝试方向，不是对未来的承诺，也不替代你对条件、边界与代价的判断。不同问题需要不同的现实材料，健康、财务等问题尤其不宜只靠卦象决定；日常调整应与你实际能够承担的范围相称。例如，整理任务时可以减少一个可选安排、向可信的人提出具体问题，或为重要资料补一次核对，做完再看有没有帮助。建议先写明下一步、停止条件与复查时间，也允许自己发现不适合后换一种方式；让行动保持可撤回与可讨论，不为了符合解读而坚持消耗过多的安排。
+    advice:
+      - 写明下一步与复查时间
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Choose a manageable action and review what it changes
+    summary: Choose a manageable action and review what it changes
+    body: You can choose one action small enough to carry out and review. Advice drawn from an image
+      offers an experiment, not a promise or a replacement for evaluating conditions, boundaries,
+      and cost. Each question needs relevant practical information, especially where ordinary
+      wellbeing or money arrangements are involved. If you want to organize a task, you might remove
+      an optional demand, ask a trustworthy person one precise question, or verify a needed
+      document. Consider naming the next step, a stopping condition, and a review time before
+      starting. Notice whether it helps, and change the method if it does not fit. A reversible and
+      discussable action leaves room for your experience to guide the decision, rather than
+      requiring you to sustain an excessive arrangement merely because a reading suggested it.
+    advice:
+      - Set a step and review
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.fallback.pro_view
+  system: iching
+  section: pro_view
+  topic: fallback_pro_view
+  when:
+    path: method
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 专业字段用于核验过程，不用于增加确定感
+    summary: 专业字段用于核验过程，不用于增加确定感
+    body: 你可以把专业字段当作核验起卦过程的记录，而不是增强结论确定性的凭据。专业视图展示传统分类和结构关系，术语只是计算中使用的角色；有些表只属于梅花，有些属于六爻，先确认方法才能理解字段的用途。资料越多也不等于现实判断越可靠，支持与限制可能同时出现，需要保留各自的依据。例如，复核一次起卦时可以检查起卦时刻、阴阳线顺序与变化位置，再看关系表怎样从这些材料得出，避免直接跳到评价。建议保存方法与核对记录，发现不一致时先检查输入与规则；现实信息不足时继续保留不确定，把可验证的计算与需要个人判断的解释分别理解，不把传统标签用作人的能力或价值排序。
+    advice:
+      - 先核验输入、方法与线序
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Use technical fields to check the method and its limits
+    summary: Use technical fields to check the method and its limits
+    body:
+      You can use technical details to check the procedure and recognize its limits. The technical
+      view records structural comparisons and traditional roles, rather than evidence that an
+      interpretation is certain. Some tables belong only to Meihua and others to Liuyao, so identify
+      the method before assigning a purpose to a field. More entries do not necessarily make an
+      ordinary decision more reliable, particularly when supportive and limiting clues coexist. To
+      review a cast, check the explicit time, bottom-to-top line order, and marked changes before
+      inspecting how the relationships were derived. Consider keeping a record of the method and
+      resolving an inconsistency at the input or rule level first. Distinguish a checkable
+      calculation from an interpretation requiring judgment, and avoid turning a traditional label
+      into a ranking of a person’s ability or worth.
+    advice:
+      - Check input and method
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

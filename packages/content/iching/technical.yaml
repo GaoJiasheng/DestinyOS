@@ -1,0 +1,95 @@
+- id: iching.technical.meihua
+  system: iching
+  section: pro_view
+  topic: technical_method
+  when:
+    path: method
+    eq: meihua
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 梅花的计算材料可以逐项核对
+    summary: 梅花的计算材料可以逐项核对
+    body: 你可以按数的来源、位置与关系逐项核对本次计算。梅花易数（以时间或数形成卦象的起卦方法）用上下两个三爻卦（三条阴阳线组成的图）和一条动爻（被标记为翻转阴阳的线）构成这次结构，动爻是翻转阴阳的线；所在的三爻卦为用，另一个为体，体用分别表示事件与自身处境。关系表比较五行（木火土金水的关系分类）的支持与约束，旺衰（与季节及支持条件比较的分类）是与季节的传统比较，都不是现实测量。这里记录的上卦数为{{meihua.numbers.upper}}，下卦数为{{meihua.numbers.lower}}，动爻数为{{meihua.numbers.moving}}。例如，复核报数时可以先确认原始数，再检查取余后的位置是否吻合图示。建议保存输入与起卦时刻，先核对线序与变化位置，再阅读解释；遇到差异从材料和规则查起，不用增加故事来弥补计算的不一致。
+    advice:
+      - 核对来源数字与实际动爻
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Check the inputs and comparisons behind a Meihua cast
+    summary: Check the inputs and comparisons behind a Meihua cast
+    body: You can check a Meihua cast through its input numbers, positions, and comparisons. Meihua
+      Yishu (梅花易数, méi huā yì shù — a method using time or numbers) forms two trigrams and one
+      moving line (dòng yáo — a position selected to flip). The moving trigram is use (yòng — the
+      event side); the other is body (tǐ — your represented situation). Elemental relationships
+      compare support and constraint, while seasonal strength is a traditional classification rather
+      than a real-world measurement. The recorded upper, lower, and moving numbers are
+      {{meihua.numbers.upper}}, {{meihua.numbers.lower}}, and {{meihua.numbers.moving}}. For a
+      number cast, begin with the original entries and check the remainder-based positions against
+      the figure. Consider keeping the input and explicit casting time. Resolve a discrepancy in
+      material or procedure before adding an interpretation, so the calculation remains checkable
+      and distinct from the judgment used to apply it.
+    advice:
+      - Check numbers and marked position
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.technical.liuyao
+  system: iching
+  section: pro_view
+  topic: technical_method
+  when:
+    path: method
+    eq: liuyao
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 六爻表格先看线序，再看各字段的用途
+    summary: 六爻表格先看线序，再看各字段的用途
+    body: 你可以先从下往上核对六条线，再了解表里各字段用来比较什么。六爻（以六次铜钱结果形成卦象的方法）为每条线记录干支（天干地支组成的传统编号）、五行（木火土金水的关系分类）与角色，纳甲（把干支安排到各条线的方法）是把干支安到爻位的传统方法，六亲（按卦宫五行划分的角色）是按卦宫五行划分的关系角色，六神（按起卦日排列的辅助标签）则是由起卦日干排列的辅助标记。世应表示自身与相对接洽的位置，用神（按问题类别选择的观察焦点）是按类别选择的焦点；这些名称不要求现实中的人承担固定身份。表里有六条记录，变动位置另有变化后的字段，无变化的线不需要补出变爻（变化后的对应线）。例如，核验一次摇卦可以先对照六次结果，再查各线是否正确标记动态与世应。建议把起卦时刻、顺序与类别一起保存，逐层复核后再读关系，不将辅助名称当成现实事件或身体状况的证据。
+    advice:
+      - 先核对六次结果与线序
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Read the Liuyao table in order and distinguish its symbolic roles
+    summary: Read the Liuyao table in order and distinguish its symbolic roles
+    body:
+      You can read the Liuyao table from bottom to top before interpreting its roles. Liuyao (六爻,
+      liù yáo — a six-throw coin method) assigns branches, elements, and symbolic relatives to six
+      lines. Na Jia, or nà jiǎ — assigning stems and branches to positions, supplies the structural
+      table; Six Relatives (liù qīn — elemental roles) compare each line with its palace element,
+      and Six Spirits (liù shén — auxiliary symbolic labels) are auxiliary labels ordered from the
+      casting day’s stem. Shi (shì) and ying (yìng) mark your represented side and an opposing
+      position, while the use god (yòng shén) is the selected question focus. These terms do not
+      assign fixed identities to people. For a review, compare the six throw results, then inspect
+      movement and shi-ying markings. Consider retaining the time, order, and category and checking
+      each layer before interpreting a relationship. Auxiliary labels are not evidence of an
+      ordinary event or a physical condition.
+    advice:
+      - Check throws and line order
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

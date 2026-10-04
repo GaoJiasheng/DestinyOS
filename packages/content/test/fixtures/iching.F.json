@@ -1,0 +1,130 @@
+{
+  "method": "liuyao",
+  "category": "travel",
+  "castAt": {
+    "local": "2026-10-04T12:00:00",
+    "tz": "Asia/Singapore",
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    },
+    "dayGanZhi": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "monthBranch": "you"
+  },
+  "primary": {
+    "number": 22,
+    "key": "hexagram_22",
+    "lines": [1, 0, 1, 0, 0, 1],
+    "upper": "gen",
+    "lower": "li"
+  },
+  "changing": null,
+  "movingLines": [],
+  "liuyao": {
+    "throws": [1, 2, 1, 2, 2, 1],
+    "lines": [
+      {
+        "stem": "ji",
+        "branch": "mao",
+        "element": "wood",
+        "relative": "guan_gui",
+        "position": 1,
+        "yang": true,
+        "moving": false,
+        "spirit": "bai_hu",
+        "isShi": true,
+        "isYing": false
+      },
+      {
+        "stem": "ji",
+        "branch": "chou",
+        "element": "earth",
+        "relative": "xiong_di",
+        "position": 2,
+        "yang": false,
+        "moving": false,
+        "spirit": "xuan_wu",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "ji",
+        "branch": "hai",
+        "element": "water",
+        "relative": "qi_cai",
+        "position": 3,
+        "yang": true,
+        "moving": false,
+        "spirit": "qing_long",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "bing",
+        "branch": "xu",
+        "element": "earth",
+        "relative": "xiong_di",
+        "position": 4,
+        "yang": false,
+        "moving": false,
+        "spirit": "zhu_que",
+        "isShi": false,
+        "isYing": true
+      },
+      {
+        "stem": "bing",
+        "branch": "zi",
+        "element": "water",
+        "relative": "qi_cai",
+        "position": 5,
+        "yang": false,
+        "moving": false,
+        "spirit": "gou_chen",
+        "isShi": false,
+        "isYing": false
+      },
+      {
+        "stem": "bing",
+        "branch": "yin",
+        "element": "wood",
+        "relative": "guan_gui",
+        "position": 6,
+        "yang": true,
+        "moving": false,
+        "spirit": "teng_she",
+        "isShi": false,
+        "isYing": false
+      }
+    ],
+    "palace": "gen",
+    "palaceElement": "earth",
+    "hidden": [
+      {
+        "relative": "fu_mu",
+        "stem": "bing",
+        "branch": "wu",
+        "underLine": 2
+      },
+      {
+        "relative": "zi_sun",
+        "stem": "bing",
+        "branch": "shen",
+        "underLine": 3
+      }
+    ],
+    "useGod": {
+      "relative": "guan_gui",
+      "lines": [1],
+      "state": "void"
+    },
+    "voidBranches": ["yin", "mao"],
+    "findings": ["month_controls", "day_supports", "void", "ying"]
+  },
+  "verdict": "unfavorable",
+  "score": 29
+}

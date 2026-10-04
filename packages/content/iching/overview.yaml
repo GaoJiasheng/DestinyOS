@@ -1,0 +1,374 @@
+- id: iching.overview.career
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: career
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 事业：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用事业的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。建议把目标写成可核对的交付物，给自己的判断保留调整空间。
+    advice:
+      - 把目标写成可核对的交付物
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body:
+      'You can approach this reading as a practical work question. Your primary hexagram (běn guà —
+      the main figure) is number {{primary.number}}, with an internal comparison score of {{score}}
+      rather than an event probability. For work, focus on responsibilities, cooperation, and a
+      deliverable someone can review. A reading cannot establish which role suits you or what an
+      employer will decide. Imagine a planning meeting in which several people assume you will fill
+      every gap. State your current workload and ask who can take one specific part. The
+      conversation can then concern an actual arrangement instead of your willingness to work
+      harder. Consider this next step: define one reviewable deliverable. Let what you observe
+      decide whether the approach deserves continuing. Keep your own preferences and limits visible
+      instead of asking the image to choose them for you.'
+    advice:
+      - Define one reviewable deliverable
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.overview.wealth
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: wealth
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 财运：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用财运的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。建议记录一周收支并分类，给自己的判断保留调整空间。
+    advice:
+      - 记录一周收支并分类
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body: 'You can approach this reading as a practical everyday resources question. Your primary
+      hexagram (běn guà — the main figure) is number {{primary.number}}, with an internal comparison
+      score of {{score}} rather than an event probability. For money questions, use spending records
+      and a practical budget. The image is not an assessment of an asset or a prediction of income,
+      so decisions need ordinary information. Consider a shared expense that sounded simple in
+      conversation. Ask what each participant can voluntarily contribute, when it is available, and
+      how the record will be kept. A pleasant agreement is different from resources that are
+      actually ready to use. Consider this next step: track a week of spending. Let what you observe
+      decide whether the approach deserves continuing. Keep your own preferences and limits visible
+      instead of asking the image to choose them for you.'
+    advice:
+      - Track a week of spending
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.overview.love
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: love
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 感情：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用感情的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。建议提出一个允许拒绝的邀请，给自己的判断保留调整空间。
+    advice:
+      - 提出一个允许拒绝的邀请
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body:
+      'You can approach this reading as a practical relationships question. Your primary hexagram
+      (běn guà — the main figure) is number {{primary.number}}, with an internal comparison score of
+      {{score}} rather than an event probability. For relationships, look at consent, mutual
+      respect, and observable responses. No gender sets a fixed role, and being single is not a
+      problem that a reading needs to correct. Imagine that shared time is becoming tiring despite
+      genuine care. Describe the quiet time you need and ask how both people would like to arrange
+      it. A respectful bond can include separate activities and a different pace of contact.
+      Consider this next step: offer an unpressured invitation. Let what you observe decide whether
+      the approach deserves continuing. Keep your own preferences and limits visible instead of
+      asking the image to choose them for you.'
+    advice:
+      - Offer an unpressured invitation
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.overview.health
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: health
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 健康：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用健康的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。建议给每天保留一段安静时间，给自己的判断保留调整空间。
+    advice:
+      - 给每天保留一段安静时间
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body:
+      'You can approach this reading as a practical daily wellbeing question. Your primary hexagram
+      (běn guà — the main figure) is number {{primary.number}}, with an internal comparison score of
+      {{score}} rather than an event probability. For wellbeing, stay with rest, mood, and
+      manageable routines. A symbolic reading cannot assess a physical condition; ongoing discomfort
+      calls for real-world evaluation and appropriate qualified support. Suppose a busy period
+      leaves you reluctant to attend another event. Ask whether you want quiet or someone who can
+      listen, then communicate that need. Remove one optional demand from the next day and check
+      whether the arrangement feels easier to sustain. Consider this next step: keep a daily quiet
+      interval. Let what you observe decide whether the approach deserves continuing. Keep your own
+      preferences and limits visible instead of asking the image to choose them for you.'
+    advice:
+      - Keep a daily quiet interval
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.overview.study
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: study
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 学业：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用学业的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。建议完成一次练习再复盘，给自己的判断保留调整空间。
+    advice:
+      - 完成一次练习再复盘
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body:
+      'You can approach this reading as a practical learning question. Your primary hexagram (běn
+      guà — the main figure) is number {{primary.number}}, with an internal comparison score of
+      {{score}} rather than an event probability. For learning, examine materials, practice, and
+      feedback rather than predicted rankings. A difficult attempt provides information about a step
+      to work on, not a final measure of your ability. Imagine preparing with so many sources that
+      none becomes usable. Choose one basic resource, finish an exercise, and let the error record
+      guide the next lesson. A smaller set of materials can make practice more focused than
+      repeatedly changing the entire study plan. Consider this next step: review a completed
+      exercise. Let what you observe decide whether the approach deserves continuing. Keep your own
+      preferences and limits visible instead of asking the image to choose them for you.'
+    advice:
+      - Review a completed exercise
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.overview.travel
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: travel
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 出行：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用出行的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。建议核对一处关键衔接，给自己的判断保留调整空间。
+    advice:
+      - 核对一处关键衔接
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body:
+      'You can approach this reading as a practical journeys question. Your primary hexagram (běn
+      guà — the main figure) is number {{primary.number}}, with an internal comparison score of
+      {{score}} rather than an event probability. For a journey, check routes, contacts, spare time,
+      and an alternative plan. The image cannot predict events on the way; use actual transport,
+      weather, and local information for preparation. Consider arriving somewhere unfamiliar with
+      several invitations already waiting. Confirm your base and return arrangements before adding
+      activities. You can decline an extra outing politely if it would remove the time or resources
+      needed for the rest of the journey. Consider this next step: check one key connection. Let
+      what you observe decide whether the approach deserves continuing. Keep your own preferences
+      and limits visible instead of asking the image to choose them for you.'
+    advice:
+      - Check one key connection
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.overview.decision
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: decision
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 决策：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用决策的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。建议比较两案的现实限制，给自己的判断保留调整空间。
+    advice:
+      - 比较两案的现实限制
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body:
+      'You can approach this reading as a practical choices question. Your primary hexagram (běn guà
+      — the main figure) is number {{primary.number}}, with an internal comparison score of
+      {{score}} rather than an event probability. For a choice, compare the purpose, constraints,
+      and reversibility of each option. A symbol can sharpen a question, but it cannot choose your
+      route or turn hesitation into a judgment about competence. Imagine being asked for an
+      immediate answer while one material fact is missing. Name that fact and state when you can
+      respond. Keeping a defined review interval protects your ability to decide without requiring
+      another person to share all your preferences. Consider this next step: compare practical
+      constraints. Let what you observe decide whether the approach deserves continuing. Keep your
+      own preferences and limits visible instead of asking the image to choose them for you.'
+    advice:
+      - Compare practical constraints
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.overview.other
+  system: iching
+  section: overview
+  topic: overview_category
+  when:
+    path: category
+    eq: other
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 其他：先看眼前能核对的条件
+    summary: 你可以从一个具体情境开始，把象征提醒与现实信息放在一起。
+    body: 你可以先用其他的角度整理当前问题。本卦（本次起卦的主要情境图）编号为{{primary.number}}，规则分数为{{score}}，只是象征比较，不代表事件概率。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。建议把问题缩成一个具体情境，给自己的判断保留调整空间。
+    advice:
+      - 把问题缩成一个具体情境
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: Start with observable conditions'
+    summary: You can frame one concrete concern and compare the image with ordinary evidence.
+    body: 'You can approach this reading as a practical everyday questions question. Your primary
+      hexagram (běn guà — the main figure) is number {{primary.number}}, with an internal comparison
+      score of {{score}} rather than an event probability. For a general question, name one
+      situation and a useful time frame. Specificity helps separate a reflective image from
+      observable facts instead of applying a single reading to every area of your life. Consider an
+      everyday irritation that keeps returning. Record the setting and your response, then identify
+      one part you can influence. Ask a trusted person for another perspective before treating the
+      pattern as evidence that your circumstances cannot change. Consider this next step: name one
+      concrete situation. Let what you observe decide whether the approach deserves continuing. Keep
+      your own preferences and limits visible instead of asking the image to choose them for you.'
+    advice:
+      - Name one concrete situation
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
