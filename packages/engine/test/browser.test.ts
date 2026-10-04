@@ -44,8 +44,9 @@ it('bundles and executes without Node globals, network, clock or unseeded random
   const birth = engine.normalizeBirth(A);
   expect(birth.utc).toBe('1990-05-14T23:30:00Z');
   expect(
-    engine.compute({ system: 'bazi', birth, now: '2026-10-04T00:00:00Z' }).meta.debug?.placeholder,
-  ).toBe(true);
+    engine.compute({ system: 'bazi', birth, now: '2026-10-04T00:00:00Z' }).meta.debug
+      ?.stemTransformation,
+  ).toBe(false);
   // Browser-realm builtins must also be prohibited, rather than mocking only the test runner's clock.
   runInNewContext(
     "Date.now = () => { throw new Error('system clock'); }; Math.random = () => { throw new Error('unseeded randomness'); };",

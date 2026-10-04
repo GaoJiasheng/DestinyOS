@@ -17,6 +17,8 @@ import {
 import { EngineError } from './common/error';
 import { version } from '../package.json';
 export * from './common';
+export * from './bazi';
+import { computeBazi, BaziSchoolSchema, baziWarnings } from './bazi';
 export const ENGINE_VERSION = version;
 const chartSchemas = {
   bazi: BaziChartSchema,
@@ -36,6 +38,7 @@ const requestSchema = z
     options: z
       .object({
         school: z.record(z.union([z.string(), z.number().finite(), z.boolean()])).optional(),
+        yearsAround: z.number().int().min(0).max(100).optional(),
       })
       .strict()
       .optional(),
@@ -66,16 +69,46 @@ export function compute(raw: ComputeInput): EngineResult {
     else throw new EngineError('E_INVALID_INPUT');
   }
   // DESIGN-GAP: T-10 registers strict empty charts and reports placeholder status in debug; no computed chart is implied.
-  if (Object.keys(input.options?.school ?? {}).length)
+  if (input.system !== 'bazi' && Object.keys(input.options?.school ?? {}).length)
     throw new EngineError('E_UNSUPPORTED_SCHOOL');
   const birth = input.birth ?? null;
   if (['bazi', 'ziwei', 'astrology', 'vedic', 'daily'].includes(input.system) && !birth)
     throw new EngineError('E_INVALID_INPUT');
   if (input.system === 'ziwei' && birth?.timeUnknown)
     throw new EngineError('E_REQUIRES_BIRTH_TIME');
+  if (input.system === 'bazi' && birth) {
+    if (!BaziSchoolSchema.safeParse(input.options?.school ?? {}).success)
+      throw new EngineError('E_UNSUPPORTED_SCHOOL');
+    const chart = computeBazi(birth, {
+      now: input.now,
+      school: BaziSchoolSchema.parse(input.options?.school ?? {}),
+      yearsAround: input.options?.yearsAround,
+    });
+    const school = BaziSchoolSchema.parse(input.options?.school ?? {});
+    return EngineResultSchema.parse({
+      system: 'bazi',
+      engineVersion: ENGINE_VERSION,
+      computedAt,
+      input: birth,
+      chart,
+      meta: {
+        schoolUsed: school,
+        warnings: [...birth.warnings, ...baziWarnings(birth, chart)],
+        debug: {
+          childhoodBefore: chart.luck.startDate,
+          monthAgeBasis: 'chronological',
+          // DESIGN-GAP: §6 has only one age pair; professional debug carries the parallel nominal (虚岁) year bounds.
+          nominalAges: chart.luck.periods.map((p) => ({
+            index: p.index,
+            fromAge: p.fromYear - birth.local.year + 1,
+            toAge: p.toYear - birth.local.year + 1,
+          })),
+          stemTransformation: false,
+        },
+      },
+    });
+  }
   const warnings: EngineWarning[] = [...(birth?.warnings ?? [])];
-  if (birth?.timeUnknown && input.system === 'bazi')
-    warnings.push({ code: 'W_NO_HOUR_PILLAR', messageKey: 'engine.warnings.W_NO_HOUR_PILLAR' });
   if (birth?.timeUnknown && ['astrology', 'vedic'].includes(input.system))
     warnings.push({ code: 'W_NOON_CHART', messageKey: 'engine.warnings.W_NOON_CHART' });
   return EngineResultSchema.parse({

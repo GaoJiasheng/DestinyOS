@@ -1,0 +1,1309 @@
+{
+  "input": {
+    "calendar": "gregorian",
+    "year": 1988,
+    "month": 7,
+    "day": 10,
+    "hour": 14,
+    "minute": 0,
+    "timeUnknown": false,
+    "place": {
+      "name": "New York",
+      "lat": 40.71,
+      "lng": -74.01,
+      "tz": "America/New_York"
+    },
+    "gender": "female"
+  },
+  "now": "2026-10-04T00:00:00Z",
+  "school": "zi_unified",
+  "reference": {
+    "year": "戊辰",
+    "month": "己未",
+    "day": "丙寅",
+    "hour": "甲午",
+    "civilDay": "丙寅",
+    "nextCivilDay": "丁卯"
+  },
+  "chart": {
+    "pillars": {
+      "year": {
+        "stem": "wu_stem",
+        "branch": "chen",
+        "stemElement": "earth",
+        "branchElement": "earth",
+        "hiddenStems": [
+          {
+            "stem": "wu_stem",
+            "role": "main",
+            "tenGod": "shi_shen"
+          },
+          {
+            "stem": "yi",
+            "role": "middle",
+            "tenGod": "zheng_yin"
+          },
+          {
+            "stem": "gui",
+            "role": "residual",
+            "tenGod": "zheng_guan"
+          }
+        ],
+        "tenGod": "shi_shen",
+        "naYin": "da_lin_mu",
+        "lifeStage": "guan_dai",
+        "isVoid": false
+      },
+      "month": {
+        "stem": "ji",
+        "branch": "wei",
+        "stemElement": "earth",
+        "branchElement": "earth",
+        "hiddenStems": [
+          {
+            "stem": "ji",
+            "role": "main",
+            "tenGod": "shang_guan"
+          },
+          {
+            "stem": "ding",
+            "role": "middle",
+            "tenGod": "jie_cai"
+          },
+          {
+            "stem": "yi",
+            "role": "residual",
+            "tenGod": "zheng_yin"
+          }
+        ],
+        "tenGod": "shang_guan",
+        "naYin": "tian_shang_huo",
+        "lifeStage": "shuai",
+        "isVoid": false
+      },
+      "day": {
+        "stem": "bing",
+        "branch": "yin",
+        "stemElement": "fire",
+        "branchElement": "wood",
+        "hiddenStems": [
+          {
+            "stem": "jia",
+            "role": "main",
+            "tenGod": "pian_yin"
+          },
+          {
+            "stem": "bing",
+            "role": "middle",
+            "tenGod": "bi_jian"
+          },
+          {
+            "stem": "wu_stem",
+            "role": "residual",
+            "tenGod": "shi_shen"
+          }
+        ],
+        "tenGod": "day_master",
+        "naYin": "lu_zhong_huo",
+        "lifeStage": "chang_sheng",
+        "isVoid": false
+      },
+      "hour": {
+        "stem": "jia",
+        "branch": "wu",
+        "stemElement": "wood",
+        "branchElement": "fire",
+        "hiddenStems": [
+          {
+            "stem": "ding",
+            "role": "main",
+            "tenGod": "jie_cai"
+          },
+          {
+            "stem": "ji",
+            "role": "middle",
+            "tenGod": "shang_guan"
+          }
+        ],
+        "tenGod": "pian_yin",
+        "naYin": "sha_zhong_jin",
+        "lifeStage": "di_wang",
+        "isVoid": false
+      }
+    },
+    "dayMaster": {
+      "stem": "bing",
+      "element": "fire",
+      "yinYang": "yang"
+    },
+    "elements": {
+      "raw": {
+        "wood": 2.8,
+        "fire": 3,
+        "earth": 5.8,
+        "metal": 0,
+        "water": 0.3
+      },
+      "pct": {
+        "wood": 23.52941176,
+        "fire": 25.21008403,
+        "earth": 48.7394958,
+        "metal": 0,
+        "water": 2.5210084
+      },
+      "contributions": [
+        {
+          "pillar": "year",
+          "source": "stem",
+          "stem": "wu_stem",
+          "element": "earth",
+          "weight": 1
+        },
+        {
+          "pillar": "year",
+          "source": "main",
+          "stem": "wu_stem",
+          "element": "earth",
+          "weight": 1
+        },
+        {
+          "pillar": "year",
+          "source": "middle",
+          "stem": "yi",
+          "element": "wood",
+          "weight": 0.5
+        },
+        {
+          "pillar": "year",
+          "source": "residual",
+          "stem": "gui",
+          "element": "water",
+          "weight": 0.3
+        },
+        {
+          "pillar": "month",
+          "source": "stem",
+          "stem": "ji",
+          "element": "earth",
+          "weight": 1
+        },
+        {
+          "pillar": "month",
+          "source": "main",
+          "stem": "ji",
+          "element": "earth",
+          "weight": 1
+        },
+        {
+          "pillar": "month",
+          "source": "middle",
+          "stem": "ding",
+          "element": "fire",
+          "weight": 0.5
+        },
+        {
+          "pillar": "month",
+          "source": "residual",
+          "stem": "yi",
+          "element": "wood",
+          "weight": 0.3
+        },
+        {
+          "pillar": "day",
+          "source": "stem",
+          "stem": "bing",
+          "element": "fire",
+          "weight": 1
+        },
+        {
+          "pillar": "day",
+          "source": "main",
+          "stem": "jia",
+          "element": "wood",
+          "weight": 1
+        },
+        {
+          "pillar": "day",
+          "source": "middle",
+          "stem": "bing",
+          "element": "fire",
+          "weight": 0.5
+        },
+        {
+          "pillar": "day",
+          "source": "residual",
+          "stem": "wu_stem",
+          "element": "earth",
+          "weight": 0.3
+        },
+        {
+          "pillar": "hour",
+          "source": "stem",
+          "stem": "jia",
+          "element": "wood",
+          "weight": 1
+        },
+        {
+          "pillar": "hour",
+          "source": "main",
+          "stem": "ding",
+          "element": "fire",
+          "weight": 1
+        },
+        {
+          "pillar": "hour",
+          "source": "middle",
+          "stem": "ji",
+          "element": "earth",
+          "weight": 0.5
+        },
+        {
+          "pillar": "month",
+          "source": "month_bonus",
+          "stem": "ji",
+          "element": "earth",
+          "weight": 1
+        }
+      ]
+    },
+    "strength": {
+      "score": 1.4,
+      "level": "balanced",
+      "details": [
+        {
+          "pillar": "month",
+          "source": "season",
+          "element": "fire",
+          "score": 1.5
+        },
+        {
+          "pillar": "year",
+          "source": "stem",
+          "element": "earth",
+          "score": -1
+        },
+        {
+          "pillar": "year",
+          "source": "main",
+          "element": "earth",
+          "score": -1
+        },
+        {
+          "pillar": "year",
+          "source": "middle",
+          "element": "wood",
+          "score": 0.5
+        },
+        {
+          "pillar": "year",
+          "source": "residual",
+          "element": "water",
+          "score": -0.3
+        },
+        {
+          "pillar": "month",
+          "source": "stem",
+          "element": "earth",
+          "score": -1
+        },
+        {
+          "pillar": "month",
+          "source": "main",
+          "element": "earth",
+          "score": -1
+        },
+        {
+          "pillar": "day",
+          "source": "stem",
+          "element": "fire",
+          "score": 1
+        },
+        {
+          "pillar": "day",
+          "source": "main",
+          "element": "wood",
+          "score": 1
+        },
+        {
+          "pillar": "day",
+          "source": "middle",
+          "element": "fire",
+          "score": 0.5
+        },
+        {
+          "pillar": "day",
+          "source": "residual",
+          "element": "earth",
+          "score": -0.3
+        },
+        {
+          "pillar": "hour",
+          "source": "stem",
+          "element": "wood",
+          "score": 1
+        },
+        {
+          "pillar": "hour",
+          "source": "main",
+          "element": "fire",
+          "score": 1
+        },
+        {
+          "pillar": "hour",
+          "source": "middle",
+          "element": "earth",
+          "score": -0.5
+        }
+      ],
+      "confidence": 0.85
+    },
+    "useGod": {
+      "favorable": ["water"],
+      "unfavorable": ["wood", "fire", "earth", "metal"],
+      "group": "balance",
+      "tiaoHou": "water",
+      "rationale": ["bazi.rules.balance", "bazi.rules.tiao_hou_water"]
+    },
+    "pattern": {
+      "name": "shang_guan",
+      "viaStem": true,
+      "notes": ["bazi.rules.no_transformation"]
+    },
+    "relations": {
+      "stems": [
+        {
+          "type": "combine",
+          "pillars": ["month", "hour"],
+          "stems": ["ji", "jia"]
+        }
+      ],
+      "branches": [
+        {
+          "type": "combine",
+          "pillars": ["month", "hour"],
+          "branches": ["wei", "wu"],
+          "complete": true
+        },
+        {
+          "type": "tri_combine",
+          "pillars": ["day", "hour"],
+          "branches": ["yin", "wu"],
+          "complete": false
+        }
+      ]
+    },
+    "voidBranches": ["xu", "hai"],
+    "shenSha": [
+      {
+        "name": "hong_yan",
+        "basedOn": "day_stem",
+        "hitsPillar": ["day"]
+      },
+      {
+        "name": "jin_yu",
+        "basedOn": "day_stem",
+        "hitsPillar": ["month"]
+      },
+      {
+        "name": "yang_ren",
+        "basedOn": "day_stem",
+        "hitsPillar": ["hour"]
+      },
+      {
+        "name": "tian_de_gui_ren",
+        "basedOn": "month_branch",
+        "hitsPillar": ["hour"]
+      },
+      {
+        "name": "yue_de_gui_ren",
+        "basedOn": "month_branch",
+        "hitsPillar": ["hour"]
+      },
+      {
+        "name": "yi_ma",
+        "basedOn": "year_branch",
+        "hitsPillar": ["day"]
+      },
+      {
+        "name": "hua_gai",
+        "basedOn": "year_branch",
+        "hitsPillar": ["year"]
+      },
+      {
+        "name": "jiang_xing",
+        "basedOn": "day_branch",
+        "hitsPillar": ["hour"]
+      }
+    ],
+    "luck": {
+      "direction": "backward",
+      "startAge": {
+        "years": 1,
+        "months": 3,
+        "days": 7
+      },
+      "startDate": "1989-10-17",
+      "periods": [
+        {
+          "index": 1,
+          "stem": "wu_stem",
+          "branch": "wu",
+          "fromYear": 1989,
+          "toYear": 1999,
+          "fromAge": 1.2694444444444444,
+          "toAge": 11.269444444444444,
+          "tenGod": "shi_shen",
+          "branchTenGod": "jie_cai",
+          "isCurrent": false
+        },
+        {
+          "index": 2,
+          "stem": "ding",
+          "branch": "si",
+          "fromYear": 1999,
+          "toYear": 2009,
+          "fromAge": 11.269444444444444,
+          "toAge": 21.269444444444446,
+          "tenGod": "jie_cai",
+          "branchTenGod": "bi_jian",
+          "isCurrent": false
+        },
+        {
+          "index": 3,
+          "stem": "bing",
+          "branch": "chen",
+          "fromYear": 2009,
+          "toYear": 2019,
+          "fromAge": 21.269444444444446,
+          "toAge": 31.269444444444446,
+          "tenGod": "bi_jian",
+          "branchTenGod": "shi_shen",
+          "isCurrent": false
+        },
+        {
+          "index": 4,
+          "stem": "yi",
+          "branch": "mao",
+          "fromYear": 2019,
+          "toYear": 2029,
+          "fromAge": 31.269444444444446,
+          "toAge": 41.269444444444446,
+          "tenGod": "zheng_yin",
+          "branchTenGod": "zheng_yin",
+          "isCurrent": true
+        },
+        {
+          "index": 5,
+          "stem": "jia",
+          "branch": "yin",
+          "fromYear": 2029,
+          "toYear": 2039,
+          "fromAge": 41.269444444444446,
+          "toAge": 51.269444444444446,
+          "tenGod": "pian_yin",
+          "branchTenGod": "pian_yin",
+          "isCurrent": false
+        },
+        {
+          "index": 6,
+          "stem": "gui",
+          "branch": "chou",
+          "fromYear": 2039,
+          "toYear": 2049,
+          "fromAge": 51.269444444444446,
+          "toAge": 61.269444444444446,
+          "tenGod": "zheng_guan",
+          "branchTenGod": "shang_guan",
+          "isCurrent": false
+        },
+        {
+          "index": 7,
+          "stem": "ren",
+          "branch": "zi",
+          "fromYear": 2049,
+          "toYear": 2059,
+          "fromAge": 61.269444444444446,
+          "toAge": 71.26944444444445,
+          "tenGod": "qi_sha",
+          "branchTenGod": "zheng_guan",
+          "isCurrent": false
+        },
+        {
+          "index": 8,
+          "stem": "xin",
+          "branch": "hai",
+          "fromYear": 2059,
+          "toYear": 2069,
+          "fromAge": 71.26944444444445,
+          "toAge": 81.26944444444445,
+          "tenGod": "zheng_cai",
+          "branchTenGod": "qi_sha",
+          "isCurrent": false
+        },
+        {
+          "index": 9,
+          "stem": "geng",
+          "branch": "xu",
+          "fromYear": 2069,
+          "toYear": 2079,
+          "fromAge": 81.26944444444445,
+          "toAge": 91.26944444444445,
+          "tenGod": "pian_cai",
+          "branchTenGod": "shi_shen",
+          "isCurrent": false
+        },
+        {
+          "index": 10,
+          "stem": "ji",
+          "branch": "you",
+          "fromYear": 2079,
+          "toYear": 2089,
+          "fromAge": 91.26944444444445,
+          "toAge": 101.26944444444445,
+          "tenGod": "shang_guan",
+          "branchTenGod": "zheng_cai",
+          "isCurrent": false
+        }
+      ]
+    },
+    "years": [
+      {
+        "year": 2016,
+        "stem": "bing",
+        "branch": "shen",
+        "tenGod": "bi_jian",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "year"],
+            "branches": ["shen", "chen"],
+            "complete": false
+          },
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "day"],
+            "branches": ["shen", "yin"],
+            "complete": true
+          },
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "day"],
+            "branches": ["shen", "yin"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["shen", "chen"],
+            "complete": false
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2017,
+        "stem": "ding",
+        "branch": "you",
+        "tenGod": "jie_cai",
+        "relationsToNatal": [
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "year"],
+            "branches": ["you", "chen"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["you", "chen"],
+            "complete": true
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2018,
+        "stem": "wu_stem",
+        "branch": "xu",
+        "tenGod": "shi_shen",
+        "relationsToNatal": [
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "year"],
+            "branches": ["xu", "chen"],
+            "complete": true
+          },
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "month"],
+            "branches": ["xu", "wei"],
+            "complete": true
+          },
+          {
+            "type": "break",
+            "pillars": ["year_transit", "month"],
+            "branches": ["xu", "wei"],
+            "complete": true
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "day"],
+            "branches": ["xu", "yin"],
+            "complete": false
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["xu", "wu"],
+            "complete": false
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["xu", "chen"],
+            "complete": true
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2019,
+        "stem": "ji",
+        "branch": "hai",
+        "tenGod": "shang_guan",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "month"],
+            "branches": ["hai", "wei"],
+            "complete": false
+          },
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "day"],
+            "branches": ["hai", "yin"],
+            "complete": true
+          },
+          {
+            "type": "break",
+            "pillars": ["year_transit", "day"],
+            "branches": ["hai", "yin"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2020,
+        "stem": "geng",
+        "branch": "zi",
+        "tenGod": "pian_cai",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "year"],
+            "branches": ["zi", "chen"],
+            "complete": false
+          },
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "month"],
+            "branches": ["zi", "wei"],
+            "complete": true
+          },
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["zi", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["zi", "mao"],
+            "complete": true
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2021,
+        "stem": "xin",
+        "branch": "chou",
+        "tenGod": "zheng_cai",
+        "relationsToNatal": [
+          {
+            "type": "break",
+            "pillars": ["year_transit", "year"],
+            "branches": ["chou", "chen"],
+            "complete": true
+          },
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "month"],
+            "branches": ["chou", "wei"],
+            "complete": true
+          },
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "month"],
+            "branches": ["chou", "wei"],
+            "complete": true
+          },
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["chou", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2022,
+        "stem": "ren",
+        "branch": "yin",
+        "tenGod": "qi_sha",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["yin", "wu"],
+            "complete": false
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2023,
+        "stem": "gui",
+        "branch": "mao",
+        "tenGod": "zheng_guan",
+        "relationsToNatal": [
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "year"],
+            "branches": ["mao", "chen"],
+            "complete": true
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "month"],
+            "branches": ["mao", "wei"],
+            "complete": false
+          },
+          {
+            "type": "break",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["mao", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2024,
+        "stem": "jia",
+        "branch": "chen",
+        "tenGod": "pian_yin",
+        "relationsToNatal": [
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "year"],
+            "branches": ["chen", "chen"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["chen", "mao"],
+            "complete": true
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2025,
+        "stem": "yi",
+        "branch": "si",
+        "tenGod": "zheng_yin",
+        "relationsToNatal": [
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "day"],
+            "branches": ["si", "yin"],
+            "complete": true
+          },
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "day"],
+            "branches": ["si", "yin"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2026,
+        "stem": "bing",
+        "branch": "wu",
+        "tenGod": "bi_jian",
+        "relationsToNatal": [
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "month"],
+            "branches": ["wu", "wei"],
+            "complete": true
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "day"],
+            "branches": ["wu", "yin"],
+            "complete": false
+          },
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["wu", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "break",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["wu", "mao"],
+            "complete": true
+          }
+        ],
+        "isCurrent": true
+      },
+      {
+        "year": 2027,
+        "stem": "ding",
+        "branch": "wei",
+        "tenGod": "jie_cai",
+        "relationsToNatal": [
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["wei", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["wei", "mao"],
+            "complete": false
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2028,
+        "stem": "wu_stem",
+        "branch": "shen",
+        "tenGod": "shi_shen",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "year"],
+            "branches": ["shen", "chen"],
+            "complete": false
+          },
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "day"],
+            "branches": ["shen", "yin"],
+            "complete": true
+          },
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "day"],
+            "branches": ["shen", "yin"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2029,
+        "stem": "ji",
+        "branch": "you",
+        "tenGod": "shang_guan",
+        "relationsToNatal": [
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "year"],
+            "branches": ["you", "chen"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["you", "mao"],
+            "complete": true
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2030,
+        "stem": "geng",
+        "branch": "xu",
+        "tenGod": "pian_cai",
+        "relationsToNatal": [
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "year"],
+            "branches": ["xu", "chen"],
+            "complete": true
+          },
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "month"],
+            "branches": ["xu", "wei"],
+            "complete": true
+          },
+          {
+            "type": "break",
+            "pillars": ["year_transit", "month"],
+            "branches": ["xu", "wei"],
+            "complete": true
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "day"],
+            "branches": ["xu", "yin"],
+            "complete": false
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["xu", "wu"],
+            "complete": false
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["xu", "yin"],
+            "complete": false
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2031,
+        "stem": "xin",
+        "branch": "hai",
+        "tenGod": "zheng_cai",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "month"],
+            "branches": ["hai", "wei"],
+            "complete": false
+          },
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "day"],
+            "branches": ["hai", "yin"],
+            "complete": true
+          },
+          {
+            "type": "break",
+            "pillars": ["year_transit", "day"],
+            "branches": ["hai", "yin"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [
+          {
+            "type": "combine",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["hai", "yin"],
+            "complete": true
+          },
+          {
+            "type": "break",
+            "pillars": ["year_transit", "luck"],
+            "branches": ["hai", "yin"],
+            "complete": true
+          }
+        ],
+        "isCurrent": false
+      },
+      {
+        "year": 2032,
+        "stem": "ren",
+        "branch": "zi",
+        "tenGod": "qi_sha",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "year"],
+            "branches": ["zi", "chen"],
+            "complete": false
+          },
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "month"],
+            "branches": ["zi", "wei"],
+            "complete": true
+          },
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["zi", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2033,
+        "stem": "gui",
+        "branch": "chou",
+        "tenGod": "zheng_guan",
+        "relationsToNatal": [
+          {
+            "type": "break",
+            "pillars": ["year_transit", "year"],
+            "branches": ["chou", "chen"],
+            "complete": true
+          },
+          {
+            "type": "clash",
+            "pillars": ["year_transit", "month"],
+            "branches": ["chou", "wei"],
+            "complete": true
+          },
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "month"],
+            "branches": ["chou", "wei"],
+            "complete": true
+          },
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["chou", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2034,
+        "stem": "jia",
+        "branch": "yin",
+        "tenGod": "pian_yin",
+        "relationsToNatal": [
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["yin", "wu"],
+            "complete": false
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2035,
+        "stem": "yi",
+        "branch": "mao",
+        "tenGod": "zheng_yin",
+        "relationsToNatal": [
+          {
+            "type": "harm",
+            "pillars": ["year_transit", "year"],
+            "branches": ["mao", "chen"],
+            "complete": true
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["year_transit", "month"],
+            "branches": ["mao", "wei"],
+            "complete": false
+          },
+          {
+            "type": "break",
+            "pillars": ["year_transit", "hour"],
+            "branches": ["mao", "wu"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      },
+      {
+        "year": 2036,
+        "stem": "bing",
+        "branch": "chen",
+        "tenGod": "bi_jian",
+        "relationsToNatal": [
+          {
+            "type": "punish",
+            "pillars": ["year_transit", "year"],
+            "branches": ["chen", "chen"],
+            "complete": true
+          }
+        ],
+        "relationsToLuck": [],
+        "isCurrent": false
+      }
+    ],
+    "months": [
+      {
+        "index": 1,
+        "stem": "geng",
+        "branch": "yin",
+        "fromDate": "2026-02-03T15:02:08-05:00[America/New_York]",
+        "toDate": "2026-03-05T08:59:00-05:00[America/New_York]"
+      },
+      {
+        "index": 2,
+        "stem": "xin",
+        "branch": "mao",
+        "fromDate": "2026-03-05T08:59:00-05:00[America/New_York]",
+        "toDate": "2026-04-04T14:40:00-04:00[America/New_York]"
+      },
+      {
+        "index": 3,
+        "stem": "ren",
+        "branch": "chen",
+        "fromDate": "2026-04-04T14:40:00-04:00[America/New_York]",
+        "toDate": "2026-05-05T07:48:44-04:00[America/New_York]"
+      },
+      {
+        "index": 4,
+        "stem": "gui",
+        "branch": "si",
+        "fromDate": "2026-05-05T07:48:44-04:00[America/New_York]",
+        "toDate": "2026-06-05T11:48:21-04:00[America/New_York]"
+      },
+      {
+        "index": 5,
+        "stem": "jia",
+        "branch": "wu",
+        "fromDate": "2026-06-05T11:48:21-04:00[America/New_York]",
+        "toDate": "2026-07-06T21:56:57-04:00[America/New_York]"
+      },
+      {
+        "index": 6,
+        "stem": "yi",
+        "branch": "wei",
+        "fromDate": "2026-07-06T21:56:57-04:00[America/New_York]",
+        "toDate": "2026-08-07T07:42:43-04:00[America/New_York]"
+      },
+      {
+        "index": 7,
+        "stem": "bing",
+        "branch": "shen",
+        "fromDate": "2026-08-07T07:42:43-04:00[America/New_York]",
+        "toDate": "2026-09-07T10:41:16-04:00[America/New_York]"
+      },
+      {
+        "index": 8,
+        "stem": "ding",
+        "branch": "you",
+        "fromDate": "2026-09-07T10:41:16-04:00[America/New_York]",
+        "toDate": "2026-10-08T02:29:17-04:00[America/New_York]"
+      },
+      {
+        "index": 9,
+        "stem": "wu_stem",
+        "branch": "xu",
+        "fromDate": "2026-10-08T02:29:17-04:00[America/New_York]",
+        "toDate": "2026-11-07T04:52:05-05:00[America/New_York]"
+      },
+      {
+        "index": 10,
+        "stem": "ji",
+        "branch": "hai",
+        "fromDate": "2026-11-07T04:52:05-05:00[America/New_York]",
+        "toDate": "2026-12-06T21:52:32-05:00[America/New_York]"
+      },
+      {
+        "index": 11,
+        "stem": "geng",
+        "branch": "zi",
+        "fromDate": "2026-12-06T21:52:32-05:00[America/New_York]",
+        "toDate": "2027-01-05T09:09:58-05:00[America/New_York]"
+      },
+      {
+        "index": 12,
+        "stem": "xin",
+        "branch": "chou",
+        "fromDate": "2027-01-05T09:09:58-05:00[America/New_York]",
+        "toDate": "2027-02-03T20:46:18-05:00[America/New_York]"
+      }
+    ],
+    "solarTerms": {
+      "prevJie": {
+        "name": "xiao_shu",
+        "at": "1988-07-06T17:32:54-04:00[America/New_York]"
+      },
+      "nextJie": {
+        "name": "li_qiu",
+        "at": "1988-08-07T03:20:15-04:00[America/New_York]"
+      }
+    },
+    "solarTimeAdjust": {
+      "enabled": true,
+      "offsetMinutes": -61.42900044063817,
+      "original": "1988-07-10T14:00:00",
+      "adjusted": "1988-07-10T12:58:00"
+    },
+    "features": {
+      "bi_jian_heavy": false,
+      "jie_cai_heavy": false,
+      "guan_sha_hun_za": false,
+      "cai_duo_shen_ruo": false,
+      "shi_shang_sheng_cai": false,
+      "shang_guan_jian_guan": true,
+      "sha_yin_xiang_sheng": false,
+      "yin_xing_heavy": true,
+      "cai_xing_heavy": false,
+      "has_root": true,
+      "suspected_cong": false,
+      "san_he_huo_ju": false,
+      "san_he_shui_ju": false,
+      "san_he_mu_ju": false,
+      "san_he_jin_ju": false,
+      "has_clash": false,
+      "has_punishment": false,
+      "has_tao_hua": false,
+      "has_yi_ma": true,
+      "missing_element": true,
+      "tiao_hou_needed": true,
+      "day_branch_void": false,
+      "month_main_exposed": true
+    }
+  }
+}

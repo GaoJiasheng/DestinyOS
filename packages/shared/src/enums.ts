@@ -323,5 +323,8 @@ export const EngineWarningCode = {
   W_NO_PLACE: 'W_NO_PLACE',
   W_NO_HOUR_PILLAR: 'W_NO_HOUR_PILLAR',
   W_NOON_CHART: 'W_NOON_CHART',
+  // DESIGN-GAP: Explicit warnings for the documented gender fallback and tentative 从格.
+  W_GENDER_DEFAULTED: 'W_GENDER_DEFAULTED',
+  W_SUSPECTED_CONG: 'W_SUSPECTED_CONG',
 } as const;
 export type EngineWarningCode = (typeof EngineWarningCode)[keyof typeof EngineWarningCode];

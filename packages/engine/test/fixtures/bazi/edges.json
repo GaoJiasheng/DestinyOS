@@ -1,0 +1,3144 @@
+[
+  {
+    "id": "edge-1",
+    "input": {
+      "calendar": "gregorian",
+      "year": 2000,
+      "month": 2,
+      "day": 4,
+      "hour": 20,
+      "minute": 39,
+      "timeUnknown": false,
+      "gender": "male",
+      "place": {
+        "name": "Guangzhou",
+        "lat": 23.13,
+        "lng": 113.26,
+        "tz": "Asia/Shanghai"
+      }
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "己卯",
+      "month": "丁丑",
+      "day": "壬辰",
+      "hour": "庚戌"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "ji",
+          "branch": "mao",
+          "stemElement": "earth",
+          "branchElement": "wood",
+          "hiddenStems": [
+            {
+              "stem": "yi",
+              "role": "main",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "zheng_guan",
+          "naYin": "cheng_tou_tu",
+          "lifeStage": "si",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "ding",
+          "branch": "chou",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "jie_cai"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "zheng_cai",
+          "naYin": "jian_xia_shui",
+          "lifeStage": "shuai",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "ren",
+          "branch": "chen",
+          "stemElement": "water",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "jie_cai"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "chang_liu_shui",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "xu",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "pian_yin",
+          "naYin": "chai_chuan_jin",
+          "lifeStage": "guan_dai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "ren",
+        "element": "water",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -2.5,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "water",
+            "score": 1.5
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "wood",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "water",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "water",
+            "score": 0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "metal",
+            "score": 0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "fire",
+            "score": -0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "backward",
+        "startAge": {
+          "years": 9,
+          "months": 9,
+          "days": 28
+        },
+        "startDate": "2009-12-02"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "xiao_han",
+          "at": "2000-01-06T09:00:42+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "li_chun",
+          "at": "2000-02-04T20:40:24+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-2",
+    "input": {
+      "calendar": "gregorian",
+      "year": 2000,
+      "month": 2,
+      "day": 4,
+      "hour": 20,
+      "minute": 40,
+      "timeUnknown": false,
+      "gender": "male",
+      "place": {
+        "name": "Guangzhou",
+        "lat": 23.13,
+        "lng": 113.26,
+        "tz": "Asia/Shanghai"
+      }
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "己卯",
+      "month": "丁丑",
+      "day": "壬辰",
+      "hour": "庚戌"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "ji",
+          "branch": "mao",
+          "stemElement": "earth",
+          "branchElement": "wood",
+          "hiddenStems": [
+            {
+              "stem": "yi",
+              "role": "main",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "zheng_guan",
+          "naYin": "cheng_tou_tu",
+          "lifeStage": "si",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "ding",
+          "branch": "chou",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "jie_cai"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "zheng_cai",
+          "naYin": "jian_xia_shui",
+          "lifeStage": "shuai",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "ren",
+          "branch": "chen",
+          "stemElement": "water",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "jie_cai"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "chang_liu_shui",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "xu",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "pian_yin",
+          "naYin": "chai_chuan_jin",
+          "lifeStage": "guan_dai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "ren",
+        "element": "water",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -2.5,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "water",
+            "score": 1.5
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "wood",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "water",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "water",
+            "score": 0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "metal",
+            "score": 0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "fire",
+            "score": -0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "backward",
+        "startAge": {
+          "years": 9,
+          "months": 9,
+          "days": 28
+        },
+        "startDate": "2009-12-02"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "xiao_han",
+          "at": "2000-01-06T09:00:42+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "li_chun",
+          "at": "2000-02-04T20:40:24+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-3",
+    "input": {
+      "calendar": "gregorian",
+      "year": 2000,
+      "month": 2,
+      "day": 4,
+      "hour": 20,
+      "minute": 41,
+      "timeUnknown": false,
+      "gender": "male",
+      "place": {
+        "name": "Guangzhou",
+        "lat": 23.13,
+        "lng": 113.26,
+        "tz": "Asia/Shanghai"
+      }
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "庚辰",
+      "month": "戊寅",
+      "day": "壬辰",
+      "hour": "庚戌"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "geng",
+          "branch": "chen",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "jie_cai"
+            }
+          ],
+          "tenGod": "pian_yin",
+          "naYin": "bai_la_jin",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "wu_stem",
+          "branch": "yin",
+          "stemElement": "earth",
+          "branchElement": "wood",
+          "hiddenStems": [
+            {
+              "stem": "jia",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "bing",
+              "role": "middle",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "residual",
+              "tenGod": "qi_sha"
+            }
+          ],
+          "tenGod": "qi_sha",
+          "naYin": "cheng_tou_tu",
+          "lifeStage": "bing",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "ren",
+          "branch": "chen",
+          "stemElement": "water",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "jie_cai"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "chang_liu_shui",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "xu",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "pian_yin",
+          "naYin": "chai_chuan_jin",
+          "lifeStage": "guan_dai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "ren",
+        "element": "water",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -3,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "wood",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "water",
+            "score": 0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "wood",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "fire",
+            "score": -0.5
+          },
+          {
+            "pillar": "month",
+            "source": "residual",
+            "element": "earth",
+            "score": -0.3
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "water",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "water",
+            "score": 0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "metal",
+            "score": 0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "fire",
+            "score": -0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 9,
+          "months": 11,
+          "days": 0
+        },
+        "startDate": "2010-01-04"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "li_chun",
+          "at": "2000-02-04T20:40:24+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "jing_zhe",
+          "at": "2000-03-05T14:42:40+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-4",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1985,
+      "month": 11,
+      "day": 2,
+      "hour": 23,
+      "minute": 40,
+      "timeUnknown": false,
+      "gender": "female"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "乙丑",
+      "month": "丙戌",
+      "day": "丙午",
+      "hour": "戊子"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "yi",
+          "branch": "chou",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "zheng_yin",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "bing",
+          "branch": "xu",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "jie_cai"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "wu_shang_tu",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "bing",
+          "branch": "wu",
+          "stemElement": "fire",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "ding",
+              "role": "main",
+              "tenGod": "jie_cai"
+            },
+            {
+              "stem": "ji",
+              "role": "middle",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "tian_he_shui",
+          "lifeStage": "di_wang",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "wu_stem",
+          "branch": "zi",
+          "stemElement": "earth",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            }
+          ],
+          "tenGod": "shi_shen",
+          "naYin": "pi_li_huo",
+          "lifeStage": "tai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "bing",
+        "element": "fire",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -1.8,
+        "level": "balanced",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "earth",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": -0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "metal",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "earth",
+            "score": -0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "water",
+            "score": -1
+          }
+        ],
+        "confidence": 0.85
+      },
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 1,
+          "months": 7,
+          "days": 9
+        },
+        "startDate": "1987-06-11"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "han_lu",
+          "at": "1985-10-08T16:24:33+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "li_dong",
+          "at": "1985-11-07T19:29:29+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-5",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1985,
+      "month": 11,
+      "day": 2,
+      "hour": 23,
+      "minute": 40,
+      "timeUnknown": false,
+      "gender": "female"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_split",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "乙丑",
+      "month": "丙戌",
+      "day": "乙巳",
+      "hour": "戊子"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "yi",
+          "branch": "chou",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "qi_sha"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "shuai",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "bing",
+          "branch": "xu",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "shi_shen"
+            }
+          ],
+          "tenGod": "shang_guan",
+          "naYin": "wu_shang_tu",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "yi",
+          "branch": "si",
+          "stemElement": "wood",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "bing",
+              "role": "main",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "geng",
+              "role": "residual",
+              "tenGod": "zheng_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "fu_deng_huo",
+          "lifeStage": "mu_yu",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "wu_stem",
+          "branch": "zi",
+          "stemElement": "earth",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "pian_yin"
+            }
+          ],
+          "tenGod": "zheng_cai",
+          "naYin": "pi_li_huo",
+          "lifeStage": "bing",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "yi",
+        "element": "wood",
+        "yinYang": "yin"
+      },
+      "strength": {
+        "score": -3.4,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "earth",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": 0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "metal",
+            "score": -0.5
+          },
+          {
+            "pillar": "month",
+            "source": "residual",
+            "element": "fire",
+            "score": -0.3
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "earth",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "water",
+            "score": 1
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 1,
+          "months": 7,
+          "days": 9
+        },
+        "startDate": "1987-06-11"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "han_lu",
+          "at": "1985-10-08T16:24:33+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "li_dong",
+          "at": "1985-11-07T19:29:29+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-6",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1985,
+      "month": 11,
+      "day": 3,
+      "hour": 23,
+      "minute": 40,
+      "timeUnknown": false,
+      "gender": "female"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "乙丑",
+      "month": "丙戌",
+      "day": "丁未",
+      "hour": "庚子"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "yi",
+          "branch": "chou",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "pian_cai"
+            }
+          ],
+          "tenGod": "pian_yin",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "bing",
+          "branch": "xu",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "bi_jian"
+            }
+          ],
+          "tenGod": "jie_cai",
+          "naYin": "wu_shang_tu",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "ding",
+          "branch": "wei",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "ding",
+              "role": "middle",
+              "tenGod": "bi_jian"
+            },
+            {
+              "stem": "yi",
+              "role": "residual",
+              "tenGod": "pian_yin"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "tian_he_shui",
+          "lifeStage": "guan_dai",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "zi",
+          "stemElement": "metal",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "qi_sha"
+            }
+          ],
+          "tenGod": "zheng_cai",
+          "naYin": "bi_shang_tu",
+          "lifeStage": "jue",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "ding",
+        "element": "fire",
+        "yinYang": "yin"
+      },
+      "strength": {
+        "score": -2.5,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "earth",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": -0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "metal",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "fire",
+            "score": 0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "wood",
+            "score": 0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "water",
+            "score": -1
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 1,
+          "months": 3,
+          "days": 9
+        },
+        "startDate": "1987-02-12"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "han_lu",
+          "at": "1985-10-08T16:24:33+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "li_dong",
+          "at": "1985-11-07T19:29:29+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-7",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1985,
+      "month": 11,
+      "day": 3,
+      "hour": 23,
+      "minute": 40,
+      "timeUnknown": false,
+      "gender": "female"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_split",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "乙丑",
+      "month": "丙戌",
+      "day": "丙午",
+      "hour": "庚子"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "yi",
+          "branch": "chou",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "zheng_yin",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "bing",
+          "branch": "xu",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "jie_cai"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "wu_shang_tu",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "bing",
+          "branch": "wu",
+          "stemElement": "fire",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "ding",
+              "role": "main",
+              "tenGod": "jie_cai"
+            },
+            {
+              "stem": "ji",
+              "role": "middle",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "tian_he_shui",
+          "lifeStage": "di_wang",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "zi",
+          "stemElement": "metal",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            }
+          ],
+          "tenGod": "pian_cai",
+          "naYin": "bi_shang_tu",
+          "lifeStage": "tai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "bing",
+        "element": "fire",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -1.8,
+        "level": "balanced",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "earth",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": -0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "metal",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "earth",
+            "score": -0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "water",
+            "score": -1
+          }
+        ],
+        "confidence": 0.85
+      },
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 1,
+          "months": 3,
+          "days": 9
+        },
+        "startDate": "1987-02-12"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "han_lu",
+          "at": "1985-10-08T16:24:33+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "li_dong",
+          "at": "1985-11-07T19:29:29+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-8",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1990,
+      "month": 5,
+      "day": 15,
+      "hour": 8,
+      "minute": 30,
+      "timeUnknown": false,
+      "gender": "male"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "庚午",
+      "month": "辛巳",
+      "day": "庚辰",
+      "hour": "庚辰"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "geng",
+          "branch": "wu",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "ding",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "ji",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "lu_pang_tu",
+          "lifeStage": "mu_yu",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "xin",
+          "branch": "si",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "bing",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "middle",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "geng",
+              "role": "residual",
+              "tenGod": "bi_jian"
+            }
+          ],
+          "tenGod": "jie_cai",
+          "naYin": "bai_la_jin",
+          "lifeStage": "chang_sheng",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "geng",
+          "branch": "chen",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "bai_la_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "chen",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "bai_la_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "geng",
+        "element": "metal",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": 2.9,
+        "level": "strong",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "fire",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "earth",
+            "score": 0.5
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "water",
+            "score": -0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "water",
+            "score": -0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 7,
+          "months": 3,
+          "days": 26
+        },
+        "startDate": "1997-09-10"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "li_xia",
+          "at": "1990-05-06T03:35:26+09:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "mang_zhong",
+          "at": "1990-06-06T07:46:18+09:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-9",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1990,
+      "month": 5,
+      "day": 15,
+      "hour": 8,
+      "minute": 30,
+      "timeUnknown": false,
+      "gender": "female"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "庚午",
+      "month": "辛巳",
+      "day": "庚辰",
+      "hour": "庚辰"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "geng",
+          "branch": "wu",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "ding",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "ji",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "lu_pang_tu",
+          "lifeStage": "mu_yu",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "xin",
+          "branch": "si",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "bing",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "middle",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "geng",
+              "role": "residual",
+              "tenGod": "bi_jian"
+            }
+          ],
+          "tenGod": "jie_cai",
+          "naYin": "bai_la_jin",
+          "lifeStage": "chang_sheng",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "geng",
+          "branch": "chen",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "bai_la_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "chen",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "bai_la_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "geng",
+        "element": "metal",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": 2.9,
+        "level": "strong",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "fire",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "earth",
+            "score": 0.5
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "water",
+            "score": -0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "water",
+            "score": -0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "backward",
+        "startAge": {
+          "years": 3,
+          "months": 0,
+          "days": 24
+        },
+        "startDate": "1993-06-08"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "li_xia",
+          "at": "1990-05-06T03:35:26+09:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "mang_zhong",
+          "at": "1990-06-06T07:46:18+09:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-10",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1985,
+      "month": 5,
+      "day": 15,
+      "hour": 8,
+      "minute": 30,
+      "timeUnknown": false,
+      "gender": "male"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "乙丑",
+      "month": "辛巳",
+      "day": "甲寅",
+      "hour": "戊辰"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "yi",
+          "branch": "chou",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "zheng_guan"
+            }
+          ],
+          "tenGod": "jie_cai",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "guan_dai",
+          "isVoid": true
+        },
+        "month": {
+          "stem": "xin",
+          "branch": "si",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "bing",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "middle",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "geng",
+              "role": "residual",
+              "tenGod": "qi_sha"
+            }
+          ],
+          "tenGod": "zheng_guan",
+          "naYin": "bai_la_jin",
+          "lifeStage": "bing",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "jia",
+          "branch": "yin",
+          "stemElement": "wood",
+          "branchElement": "wood",
+          "hiddenStems": [
+            {
+              "stem": "jia",
+              "role": "main",
+              "tenGod": "bi_jian"
+            },
+            {
+              "stem": "bing",
+              "role": "middle",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "residual",
+              "tenGod": "pian_cai"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "da_xi_shui",
+          "lifeStage": "lin_guan",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "wu_stem",
+          "branch": "chen",
+          "stemElement": "earth",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "jie_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "pian_cai",
+          "naYin": "da_lin_mu",
+          "lifeStage": "shuai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "jia",
+        "element": "wood",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -2.6,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "fire",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": 0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "metal",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "earth",
+            "score": -0.5
+          },
+          {
+            "pillar": "month",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "fire",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "earth",
+            "score": -0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "wood",
+            "score": 0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "water",
+            "score": 0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "backward",
+        "startAge": {
+          "years": 3,
+          "months": 1,
+          "days": 24
+        },
+        "startDate": "1988-07-09"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "li_xia",
+          "at": "1985-05-05T21:42:32+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "mang_zhong",
+          "at": "1985-06-06T01:59:56+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-11",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1985,
+      "month": 5,
+      "day": 15,
+      "hour": 8,
+      "minute": 30,
+      "timeUnknown": false,
+      "gender": "female"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "乙丑",
+      "month": "辛巳",
+      "day": "甲寅",
+      "hour": "戊辰"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "yi",
+          "branch": "chou",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "zheng_guan"
+            }
+          ],
+          "tenGod": "jie_cai",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "guan_dai",
+          "isVoid": true
+        },
+        "month": {
+          "stem": "xin",
+          "branch": "si",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "bing",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "middle",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "geng",
+              "role": "residual",
+              "tenGod": "qi_sha"
+            }
+          ],
+          "tenGod": "zheng_guan",
+          "naYin": "bai_la_jin",
+          "lifeStage": "bing",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "jia",
+          "branch": "yin",
+          "stemElement": "wood",
+          "branchElement": "wood",
+          "hiddenStems": [
+            {
+              "stem": "jia",
+              "role": "main",
+              "tenGod": "bi_jian"
+            },
+            {
+              "stem": "bing",
+              "role": "middle",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "residual",
+              "tenGod": "pian_cai"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "da_xi_shui",
+          "lifeStage": "lin_guan",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "wu_stem",
+          "branch": "chen",
+          "stemElement": "earth",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "jie_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "pian_cai",
+          "naYin": "da_lin_mu",
+          "lifeStage": "shuai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "jia",
+        "element": "wood",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -2.6,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "fire",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": 0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "metal",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "earth",
+            "score": -0.5
+          },
+          {
+            "pillar": "month",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "fire",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "earth",
+            "score": -0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "wood",
+            "score": 0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "water",
+            "score": 0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 7,
+          "months": 2,
+          "days": 27
+        },
+        "startDate": "1992-08-11"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "li_xia",
+          "at": "1985-05-05T21:42:32+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "mang_zhong",
+          "at": "1985-06-06T01:59:56+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-12",
+    "input": {
+      "calendar": "gregorian",
+      "year": 1900,
+      "month": 1,
+      "day": 1,
+      "hour": 0,
+      "minute": 0,
+      "timeUnknown": false,
+      "gender": "male"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "己亥",
+      "month": "丙子",
+      "day": "甲戌",
+      "hour": "甲子"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "ji",
+          "branch": "hai",
+          "stemElement": "earth",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "ren",
+              "role": "main",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "jia",
+              "role": "middle",
+              "tenGod": "bi_jian"
+            }
+          ],
+          "tenGod": "zheng_cai",
+          "naYin": "ping_di_mu",
+          "lifeStage": "chang_sheng",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "bing",
+          "branch": "zi",
+          "stemElement": "fire",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "shi_shen",
+          "naYin": "jian_xia_shui",
+          "lifeStage": "mu_yu",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "jia",
+          "branch": "xu",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "shan_tou_huo",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "jia",
+          "branch": "zi",
+          "stemElement": "wood",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "mu_yu",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "jia",
+        "element": "wood",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": 3.7,
+        "level": "strong",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "water",
+            "score": 3
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "water",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "wood",
+            "score": 0.5
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "metal",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "fire",
+            "score": -0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "water",
+            "score": 1
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "backward",
+        "startAge": {
+          "years": 8,
+          "months": 1,
+          "days": 14
+        },
+        "startDate": "1908-02-15"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "da_xue",
+          "at": "1899-12-07T15:10:16+08:06[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "xiao_han",
+          "at": "1900-01-06T02:09:40+08:06[Asia/Shanghai]"
+        }
+      }
+    }
+  },
+  {
+    "id": "edge-13",
+    "input": {
+      "calendar": "gregorian",
+      "year": 2100,
+      "month": 12,
+      "day": 31,
+      "hour": 23,
+      "minute": 59,
+      "timeUnknown": false,
+      "gender": "female"
+    },
+    "now": "2026-10-04T00:00:00Z",
+    "school": "zi_unified",
+    "useApparentSolarTime": false,
+    "reference": {
+      "year": "庚申",
+      "month": "戊子",
+      "day": "戊申",
+      "hour": "壬子"
+    },
+    "chart": {
+      "pillars": {
+        "year": {
+          "stem": "geng",
+          "branch": "shen",
+          "stemElement": "metal",
+          "branchElement": "metal",
+          "hiddenStems": [
+            {
+              "stem": "geng",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "ren",
+              "role": "middle",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "residual",
+              "tenGod": "bi_jian"
+            }
+          ],
+          "tenGod": "shi_shen",
+          "naYin": "shi_liu_mu",
+          "lifeStage": "bing",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "wu_stem",
+          "branch": "zi",
+          "stemElement": "earth",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "pi_li_huo",
+          "lifeStage": "tai",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "wu_stem",
+          "branch": "shen",
+          "stemElement": "earth",
+          "branchElement": "metal",
+          "hiddenStems": [
+            {
+              "stem": "geng",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "ren",
+              "role": "middle",
+              "tenGod": "pian_cai"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "residual",
+              "tenGod": "bi_jian"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "da_yi_tu",
+          "lifeStage": "bing",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "ren",
+          "branch": "zi",
+          "stemElement": "water",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "pian_cai",
+          "naYin": "sang_zhe_mu",
+          "lifeStage": "tai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "wu_stem",
+        "element": "earth",
+        "yinYang": "yang"
+      },
+      "strength": {
+        "score": -4.4,
+        "level": "weak",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "water",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "metal",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "metal",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": -0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "earth",
+            "score": 0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "water",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "metal",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "water",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "earth",
+            "score": 0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "water",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "water",
+            "score": -1
+          }
+        ],
+        "confidence": 1
+      },
+      "luck": {
+        "direction": "backward",
+        "startAge": {
+          "years": 8,
+          "months": 2,
+          "days": 11
+        },
+        "startDate": "2109-03-11"
+      },
+      "solarTerms": {
+        "prevJie": {
+          "name": "da_xue",
+          "at": "2100-12-07T09:40:07+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "xiao_han",
+          "at": "2101-01-05T21:06:51+08:00[Asia/Shanghai]"
+        }
+      }
+    }
+  }
+]
