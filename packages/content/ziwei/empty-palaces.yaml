@@ -1,0 +1,606 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: Opposite-palace comparison is explanatory: the condition tests real emptyPalaces data and never assumes an unobserved opposite star.
+- id: ziwei.empty.life
+  system: ziwei
+  section: life_palace
+  topic: empty_life
+  when:
+    path: emptyPalaces
+    contains: life
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 命宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充自我表达的观察。
+    body: 你在自我表达上，可以多保留一个比较视角。命宫（观察你怎样认识自己和回应日常处境的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，接到陌生任务时，先观察自己是急于定方向，还是先询问细节。别用一个盘中标签覆盖自己在不同场合的变化。建议记录一次选择的理由，过几天看看是否仍认可，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 记录一次选择的理由，过几天看看是否仍认可
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Life Palace: compare the surrounding context'
+    summary: You can compare your everyday identity with the opposite area and with your actual
+      interactions.
+    body:
+      You can leave room for a broader comparison when considering your everyday identity. The 命宫
+      (mìng gōng) — the chart area for how you describe yourself and respond to ordinary situations
+      — contains none of the fourteen major stars. In the traditional method, the opposite palace,
+      six positions away on the twelve area ring, provides an additional perspective. Borrowing a
+      star is a way to compare relationships within the chart, not a direct transfer of every
+      attribute or an indication of missing ability. When a new task arrives, notice whether you
+      first seek a direction, gather details or ask what others need. Your response at home may
+      differ from your response at work; leave room for that difference. Try to keep a short note on
+      why you chose an approach and revisit it a few days later. Notice whether your response
+      changes when the surrounding arrangement changes. A record of those differences can help you
+      assess an interpretation more carefully than choosing a fixed label from the empty position
+      alone.
+    advice:
+      - Keep a short note on why you chose an approach and revisit it a few days later
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.siblings
+  system: ziwei
+  section: love_family
+  topic: empty_siblings
+  when:
+    path: emptyPalaces
+    contains: siblings
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 兄弟宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充同辈互助的观察。
+    body: 你在同辈互助上，可以多保留一个比较视角。兄弟宫（观察同辈、手足与熟悉伙伴之间的支持方式的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，几位熟悉的人商量共同出行时，留意谁负责搜集信息、谁安排时间，以及你想参与哪一部分。亲近程度和资源共享不是同一回事，彼此的时间也可能很不一样。建议先问对方是否方便，再约定具体的互助范围，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 先问对方是否方便，再约定具体的互助范围
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Siblings Palace: compare the surrounding context'
+    summary: You can compare support among peers with the opposite area and with your actual interactions.
+    body:
+      'You can leave room for a broader comparison when considering support among peers. The 兄弟宫
+      (xiōng dì gōng) — the chart area for how siblings, contemporaries and familiar peers share
+      support — contains none of the fourteen major stars. In the traditional method, the opposite
+      palace, six positions away on the twelve area ring, provides an additional perspective.
+      Borrowing a star is a way to compare relationships within the chart, not a direct transfer of
+      every attribute or an indication of missing ability. Imagine familiar peers arranging a shared
+      outing: one gathers information, another coordinates dates, and you decide which part you
+      actually want to handle. Closeness does not imply equal availability, similar income or an
+      obligation to share every resource. Try to ask about availability before agreeing on a
+      specific and manageable exchange of help. Notice whether your response changes when the
+      surrounding arrangement changes. A record of those differences can help you assess an
+      interpretation more carefully than choosing a fixed label from the empty position alone.'
+    advice:
+      - Ask about availability before agreeing on a specific and manageable exchange of help
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.spouse
+  system: ziwei
+  section: love_family
+  topic: empty_spouse
+  when:
+    path: emptyPalaces
+    contains: spouse
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 夫妻宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充亲密沟通的观察。
+    body: 你在亲密沟通上，可以多保留一个比较视角。夫妻宫（观察亲密关系中的协商方式与期待的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，你与伴侣或正在了解的人安排周末时，可以先分别说出需要安静、交流还是一起做事。关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议把一个期待改写成对方能回应的具体请求，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 把一个期待改写成对方能回应的具体请求
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Spouse Palace: compare the surrounding context'
+    summary: You can compare negotiation in close relationships with the opposite area and with your
+      actual interactions.
+    body: You can leave room for a broader comparison when considering negotiation in close
+      relationships. The 夫妻宫 (fū qī gōng) — the chart area for the expectations and conversations
+      that shape an intimate partnership — contains none of the fourteen major stars. In the
+      traditional method, the opposite palace, six positions away on the twelve area ring, provides
+      an additional perspective. Borrowing a star is a way to compare relationships within the
+      chart, not a direct transfer of every attribute or an indication of missing ability. While
+      arranging a weekend with a partner or someone you are getting to know, compare what each
+      person needs from the time together. A symbolic relationship theme cannot decide compatibility
+      or tell you what kind of relationship to pursue. Try to turn one expectation into a request
+      the other person can clearly respond to. Notice whether your response changes when the
+      surrounding arrangement changes. A record of those differences can help you assess an
+      interpretation more carefully than choosing a fixed label from the empty position alone.
+    advice:
+      - Turn one expectation into a request the other person can clearly respond to
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.children
+  system: ziwei
+  section: love_family
+  topic: empty_children
+  when:
+    path: emptyPalaces
+    contains: children
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 子女宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充陪伴与培育的观察。
+    body: 你在陪伴与培育上，可以多保留一个比较视角。子女宫（观察你对晚辈、学习者以及需要持续培育的事情的投入的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，指导新同事完成第一份作品时，不妨询问对方想先独立尝试，还是希望你示范一个步骤。这里也适用于教学与创作，不推断生育安排；被帮助的人仍有自己的节奏。建议设定一个能观察进步的小目标，留出尝试空间，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 设定一个能观察进步的小目标，留出尝试空间
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Children Palace: compare the surrounding context'
+    summary: You can compare mentoring and nurturing with the opposite area and with your actual
+      interactions.
+    body:
+      'You can leave room for a broader comparison when considering mentoring and nurturing. The 子女宫
+      (zǐ nǚ gōng) — the chart area for your approach to younger people, learners and projects that
+      need patient development — contains none of the fourteen major stars. In the traditional
+      method, the opposite palace, six positions away on the twelve area ring, provides an
+      additional perspective. Borrowing a star is a way to compare relationships within the chart,
+      not a direct transfer of every attribute or an indication of missing ability. Think of helping
+      a new colleague with a first piece of work: ask whether they want a demonstration or room to
+      attempt it themselves. This theme also applies to teaching and creative work; it does not
+      prescribe parenthood or replace a learner’s own pace. Try to agree on a small sign of progress
+      while leaving room for a learner’s own attempt. Notice whether your response changes when the
+      surrounding arrangement changes. A record of those differences can help you assess an
+      interpretation more carefully than choosing a fixed label from the empty position alone.'
+    advice:
+      - Agree on a small sign of progress while leaving room for a learner’s own attempt
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.wealth
+  system: ziwei
+  section: career_wealth
+  topic: empty_wealth
+  when:
+    path: emptyPalaces
+    contains: wealth
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 财帛宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充资源安排的观察。
+    body: 你在资源安排上，可以多保留一个比较视角。财帛宫（观察日常收支、时间成本与资源分配的习惯的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，准备参加一门课程时，把费用、通勤和练习时间放在同一张清单上，再看这份投入是否适合现在的生活。象征上的资源倾向不代表收入水平，预算仍要依据实际收支和已有承诺。建议选一项可调整的日常开支，记录用途与满意度，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 选一项可调整的日常开支，记录用途与满意度
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Wealth Palace: compare the surrounding context'
+    summary: You can compare managing everyday resources with the opposite area and with your actual
+      interactions.
+    body:
+      You can leave room for a broader comparison when considering managing everyday resources. The
+      财帛宫 (cái bó gōng) — the chart area for habits around ordinary spending, time costs and
+      resource allocation — contains none of the fourteen major stars. In the traditional method,
+      the opposite palace, six positions away on the twelve area ring, provides an additional
+      perspective. Borrowing a star is a way to compare relationships within the chart, not a direct
+      transfer of every attribute or an indication of missing ability. Before joining a course, list
+      its fee, travel demands and practice hours together rather than judging the cost from the
+      price alone. A resource symbol does not measure your income; practical plans depend on actual
+      costs, available funds and existing commitments. Try to review one flexible expense and note
+      what it delivered compared with what you expected. Notice whether your response changes when
+      the surrounding arrangement changes. A record of those differences can help you assess an
+      interpretation more carefully than choosing a fixed label from the empty position alone.
+    advice:
+      - Review one flexible expense and note what it delivered compared with what you expected
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.health
+  system: ziwei
+  section: health_travel
+  topic: empty_health
+  when:
+    path: emptyPalaces
+    contains: health
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 疾厄宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充日常恢复的观察。
+    body: 你在日常恢复上，可以多保留一个比较视角。疾厄宫（观察作息、压力感受与生活节奏的观察角度的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，连续几天忙碌后，观察屏幕使用、晚间工作和休息时间怎样互相挤占，不急着给疲惫贴标签。这里只讨论生活习惯，星曜不能用于判断疾病；持续不适应交给合适的专业人士评估。建议给晚间安排留一个固定的收尾时段，观察是否更易放松，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 给晚间安排留一个固定的收尾时段，观察是否更易放松
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Health Palace: compare the surrounding context'
+    summary: You can compare rest and daily recovery with the opposite area and with your actual
+      interactions.
+    body:
+      'You can leave room for a broader comparison when considering rest and daily recovery. The 疾厄宫
+      (jí è gōng) — the chart area for a symbolic perspective on routines, perceived stress and the
+      rhythm of your day — contains none of the fourteen major stars. In the traditional method, the
+      opposite palace, six positions away on the twelve area ring, provides an additional
+      perspective. Borrowing a star is a way to compare relationships within the chart, not a direct
+      transfer of every attribute or an indication of missing ability. After several busy days, look
+      at how screen time, evening work and breaks compete for space before assigning a label to
+      tiredness. Keep this reading about habits: stars cannot identify an illness, and persistent
+      discomfort deserves appropriate professional assessment. Try to set aside a consistent wind
+      down period and observe whether it makes the evening easier to settle into. Notice whether
+      your response changes when the surrounding arrangement changes. A record of those differences
+      can help you assess an interpretation more carefully than choosing a fixed label from the
+      empty position alone.'
+    advice:
+      - Set aside a consistent wind down period and observe whether it makes the evening easier to
+        settle into
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.travel
+  system: ziwei
+  section: health_travel
+  topic: empty_travel
+  when:
+    path: emptyPalaces
+    contains: travel
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 迁移宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充外部环境适应的观察。
+    body: 你在外部环境适应上，可以多保留一个比较视角。迁移宫（观察离开熟悉环境后的互动与适应方式的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，到陌生城市参加活动时，先确认交通、日程和联络方式，再留意新环境里哪些习惯仍然有效。外出不自动意味着更好的发展，距离、照应与现实成本都需要纳入安排。建议尝试一次规模有限的外部活动，回来后复盘适应点，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 尝试一次规模有限的外部活动，回来后复盘适应点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Travel Palace: compare the surrounding context'
+    summary:
+      You can compare adapting beyond familiar surroundings with the opposite area and with your
+      actual interactions.
+    body: You can leave room for a broader comparison when considering adapting beyond familiar
+      surroundings. The 迁移宫 (qiān yí gōng) — the chart area for how you engage with people and
+      arrangements outside your usual environment — contains none of the fourteen major stars. In
+      the traditional method, the opposite palace, six positions away on the twelve area ring,
+      provides an additional perspective. Borrowing a star is a way to compare relationships within
+      the chart, not a direct transfer of every attribute or an indication of missing ability. On a
+      visit to an unfamiliar city, establish the route, schedule and contact details, then observe
+      which familiar habits still work there. A different location does not automatically improve
+      your prospects; distance, support and practical costs remain part of the decision. Try to try
+      a limited activity outside your usual setting and review what helped you adjust afterward.
+      Notice whether your response changes when the surrounding arrangement changes. A record of
+      those differences can help you assess an interpretation more carefully than choosing a fixed
+      label from the empty position alone.
+    advice:
+      - Try a limited activity outside your usual setting and review what helped you adjust afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.friends
+  system: ziwei
+  section: career_wealth
+  topic: empty_friends
+  when:
+    path: emptyPalaces
+    contains: friends
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 交友宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充合作网络的观察。
+    body: 你在合作网络上，可以多保留一个比较视角。交友宫（观察朋友、团队伙伴和协作关系中的来往方式的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，几个伙伴准备一起办活动时，你可以先区分谁提供点子、谁负责执行、谁只愿意偶尔帮忙。友谊和工作约定可以同时存在，但不宜用熟悉感代替清晰的交接与权限。建议把一项共同任务的负责人与截止点写清楚，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 把一项共同任务的负责人与截止点写清楚
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Friends Palace: compare the surrounding context'
+    summary: You can compare working with your network with the opposite area and with your actual
+      interactions.
+    body:
+      You can leave room for a broader comparison when considering working with your network. The
+      交友宫 (jiāo yǒu gōng) — the chart area for exchanges among friends, team members and people you
+      collaborate with — contains none of the fourteen major stars. In the traditional method, the
+      opposite palace, six positions away on the twelve area ring, provides an additional
+      perspective. Borrowing a star is a way to compare relationships within the chart, not a direct
+      transfer of every attribute or an indication of missing ability. If a group plans an event,
+      distinguish those offering ideas, those owning tasks and those available only for occasional
+      support. Friendship can coexist with a work agreement, but familiarity should not substitute
+      for a clear handover or scope of authority. Try to write down the owner and completion point
+      for one shared task. Notice whether your response changes when the surrounding arrangement
+      changes. A record of those differences can help you assess an interpretation more carefully
+      than choosing a fixed label from the empty position alone.
+    advice:
+      - Write down the owner and completion point for one shared task
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.career
+  system: ziwei
+  section: career_wealth
+  topic: empty_career
+  when:
+    path: emptyPalaces
+    contains: career
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 官禄宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充工作组织的观察。
+    body: 你在工作组织上，可以多保留一个比较视角。官禄宫（观察任务承担、职业学习与工作方法的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，团队开始一个新项目时，你可以观察自己喜欢确定目标、研究方法、核对细节还是协调交接。这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议从现有任务里挑一处流程，和同事约定可检查的改进，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 从现有任务里挑一处流程，和同事约定可检查的改进
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Career Palace: compare the surrounding context'
+    summary: You can compare organizing work with the opposite area and with your actual interactions.
+    body:
+      You can leave room for a broader comparison when considering organizing work. The 官禄宫 (guān lù
+      gōng) — the chart area for how you take responsibility, learn professionally and arrange a
+      task — contains none of the fourteen major stars. In the traditional method, the opposite
+      palace, six positions away on the twelve area ring, provides an additional perspective.
+      Borrowing a star is a way to compare relationships within the chart, not a direct transfer of
+      every attribute or an indication of missing ability. At the beginning of a project, notice
+      whether you naturally clarify the aim, research a method, check details or coordinate
+      handovers. The reading explores a working style without assigning you a profession; skills,
+      interests and the conditions of a role matter together. Try to choose one part of an existing
+      workflow and agree with a colleague on an observable improvement. Notice whether your response
+      changes when the surrounding arrangement changes. A record of those differences can help you
+      assess an interpretation more carefully than choosing a fixed label from the empty position
+      alone.
+    advice:
+      - Choose one part of an existing workflow and agree with a colleague on an observable
+        improvement
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.property
+  system: ziwei
+  section: love_family
+  topic: empty_property
+  when:
+    path: emptyPalaces
+    contains: property
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 田宅宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充居住与归属的观察。
+    body: 你在居住与归属上，可以多保留一个比较视角。田宅宫（观察居住环境、共同空间与安定感的经营的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，调整工作角或公共区域时，先听听同住者需要安静、收纳还是方便走动，再决定布置方式。居住品质也来自边界和使用习惯，不以房产数量衡量，也不从命盘推断产权结果。建议先整理一个常用角落，约定共同使用与维护方式，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 先整理一个常用角落，约定共同使用与维护方式
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Property Palace: compare the surrounding context'
+    summary: You can compare home and shared space with the opposite area and with your actual interactions.
+    body:
+      You can leave room for a broader comparison when considering home and shared space. The 田宅宫
+      (tián zhái gōng) — the chart area for how living arrangements, shared surroundings and a sense
+      of settlement are maintained — contains none of the fourteen major stars. In the traditional
+      method, the opposite palace, six positions away on the twelve area ring, provides an
+      additional perspective. Borrowing a star is a way to compare relationships within the chart,
+      not a direct transfer of every attribute or an indication of missing ability. When rearranging
+      a desk area or shared room, ask whether others most need quiet, storage or an easier route
+      through the space. The quality of home life depends on boundaries and habits as well as
+      objects; this symbol does not indicate ownership outcomes. Try to start with one frequently
+      used area and agree on how it will be shared and maintained. Notice whether your response
+      changes when the surrounding arrangement changes. A record of those differences can help you
+      assess an interpretation more carefully than choosing a fixed label from the empty position
+      alone.
+    advice:
+      - Start with one frequently used area and agree on how it will be shared and maintained
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.wellbeing
+  system: ziwei
+  section: body_fortune
+  topic: empty_wellbeing
+  when:
+    path: emptyPalaces
+    contains: wellbeing
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 福德宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充内在满足的观察。
+    body: 你在内在满足上，可以多保留一个比较视角。福德宫（观察休闲偏好、精神空间与获得满足的方式的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，周末没有待办催促时，留意你自然选择阅读、独处、见朋友还是做一个有手感的小作品。休息不需要变成绩效项目，喜欢的事也可以没有产出，不必用别人的标准来评价。建议保留一段不交作业的兴趣时间，结束后记录感受，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 保留一段不交作业的兴趣时间，结束后记录感受
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Wellbeing Palace: compare the surrounding context'
+    summary: You can compare your inner sources of satisfaction with the opposite area and with your
+      actual interactions.
+    body: You can leave room for a broader comparison when considering your inner sources of
+      satisfaction. The 福德宫 (fú dé gōng) — the chart area for the interests, mental space and
+      leisure practices that feel restorative — contains none of the fourteen major stars. In the
+      traditional method, the opposite palace, six positions away on the twelve area ring, provides
+      an additional perspective. Borrowing a star is a way to compare relationships within the
+      chart, not a direct transfer of every attribute or an indication of missing ability. During a
+      weekend without urgent tasks, notice whether you gravitate toward reading, quiet time, company
+      or making something tangible. Leisure does not need to become another performance task; an
+      activity may be valuable without producing a visible result. Try to protect a little time for
+      an interest without a deliverable and note how you feel afterward. Notice whether your
+      response changes when the surrounding arrangement changes. A record of those differences can
+      help you assess an interpretation more carefully than choosing a fixed label from the empty
+      position alone.
+    advice:
+      - Protect a little time for an interest without a deliverable and note how you feel afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.empty.parents
+  system: ziwei
+  section: love_family
+  topic: empty_parents
+  when:
+    path: emptyPalaces
+    contains: parents
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 父母宫无主星：从互动寻找参照
+    summary: 你可以从对宫与实际互动，补充代际沟通的观察。
+    body: 你在代际沟通上，可以多保留一个比较视角。父母宫（观察你与长辈、师长及权威角色交换经验的方式的领域）在本盘无主星（这个位置没有十四主星中的任何一颗），传统上参考对宫（十二宫环上相隔六格的位置）的主星来辅助理解。借星是观察结构之间的联系，不是把另一处的特征直接复制过来，也不表示缺少能力。比如，收到长辈或导师关于下一步的意见时，先问清对方担心什么，再说明你已有的信息和选择理由。尊重经验和保留自主可以并行，这里不评价家庭成员的品格，也不把分歧解释为关系好坏。建议约定一次有时间边界的交流，围绕一个实际问题讨论，并记录外部安排改变时自己的回应是否也有变化。以实际反馈修正比较，比急着用一个标签概括自己更有空间。
+    advice:
+      - 约定一次有时间边界的交流，围绕一个实际问题讨论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'No major star in Parents Palace: compare the surrounding context'
+    summary:
+      You can compare communication across experience levels with the opposite area and with your
+      actual interactions.
+    body:
+      You can leave room for a broader comparison when considering communication across experience
+      levels. The 父母宫 (fù mǔ gōng) — the chart area for how you exchange experience with elders,
+      mentors and people in positions of authority — contains none of the fourteen major stars. In
+      the traditional method, the opposite palace, six positions away on the twelve area ring,
+      provides an additional perspective. Borrowing a star is a way to compare relationships within
+      the chart, not a direct transfer of every attribute or an indication of missing ability. When
+      an elder or mentor recommends a next step, ask what concern lies behind the advice before
+      explaining the information guiding your choice. Respect for experience can coexist with
+      autonomy; disagreement alone does not measure a family member’s character or the quality of a
+      bond. Try to arrange a bounded conversation focused on one practical question. Notice whether
+      your response changes when the surrounding arrangement changes. A record of those differences
+      can help you assess an interpretation more carefully than choosing a fixed label from the
+      empty position alone.
+    advice:
+      - Arrange a bounded conversation focused on one practical question
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

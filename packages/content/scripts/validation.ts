@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv';
 import { LineCounter, parseDocument } from 'yaml';
-import { resolvePath, similarity, zhChars, enWords, evaluateWhen } from '../src';
+import { resolvePath, createSimilarityComparator, zhChars, enWords, evaluateWhen } from '../src';
 import type { KnowledgeUnit, GlossaryEntry, Transitions } from '../src';
 import schema from '../schema/ku.schema.json';
 const ajv = new Ajv({ allErrors: true });
@@ -238,6 +238,7 @@ export function validateSource(
   return { units, diagnostics };
 }
 export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
+  const similarity = createSimilarityComparator();
   const diagnostics: Diagnostic[] = [];
   const ids = new Map<string, LocatedUnit>();
   const add = (item: LocatedUnit, field: string, severity: 'error' | 'warning', message: string) =>

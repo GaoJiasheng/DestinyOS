@@ -1,0 +1,421 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: All nine documented chapter keys receive one low-weight fallback matching every legal twelve-palace chart. No absent stars or patterns are asserted.
+- id: ziwei.fallback.overview
+  system: ziwei
+  section: overview
+  topic: fallback_overview
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 从经历进入命盘
+    summary: 你可以把命盘当作整理经历的几个观察角度。
+    body: 你可以把这份命盘当作整理经历的几个观察角度。十二宫（传统上区分生活主题的十二个位置）分别讨论自我回应、关系、工作与日常节奏，单个位置只提供局部信息。比如，你在熟悉团队里从容，在陌生环境里更谨慎，这两种回应都可以被认真看待。建议先选一件近期经历作为参照，再阅读后面的章节，看看哪些线索有帮助，哪些暂时与你的生活不符。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Begin with lived experience
+    summary: You can use the chart as a set of perspectives for reflecting on your experience.
+    body:
+      You can begin with a recent experience and use the chart to ask several different questions
+      about it. The twelve palaces (十二宫, shí èr gōng — areas representing everyday themes)
+      distinguish identity, relationships, work and life rhythms. A single area offers a partial
+      perspective, so the reading benefits from comparison across contexts. You might feel
+      comfortable contributing within a familiar team yet prefer more preparation in a new setting.
+      Both responses deserve attention. Try choosing one experience as a reference while reading the
+      following chapters. Notice which descriptions clarify something and which do not fit your
+      circumstances. Let that comparison guide how much weight you give an interpretation, with room
+      to revise it when your situation changes. You can keep the notes brief and revisit them when
+      your circumstances change.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.life_palace
+  system: ziwei
+  section: life_palace
+  topic: fallback_life_palace
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 把性格放回情境
+    summary: 你可以从具体回应理解自己，给变化留出空间。
+    body: 你可以从具体回应理解自己，给变化留出空间。命宫（传统上观察性格与日常反应的位置）是一个起点，不是对你所有行为的总评价；其中有主星就逐颗观察，没有主星也可以参考对宫与实际互动。你在有准备的讨论里或许较愿意表达，而在规则不清的任务中先看一会儿，这不需要被压成同一个标签。例如，回想最近一次合作，分别写下自己先做了什么、希望别人怎样配合，以及最后哪里发生调整。建议从这些细节找一个重复出现的偏好，再尝试一次不同的回应，观察它是否让沟通更容易。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Identity in context
+    summary: You can understand your preferences through specific responses while leaving room for change.
+    body:
+      You can explore your preferences through a concrete response rather than an all purpose label.
+      The Life Palace (命宫, mìng gōng — the area traditionally used to discuss identity and everyday
+      reactions) offers an entry point. Major stars can be considered individually, while an empty
+      area invites comparison with the opposite palace and actual interactions. You may speak
+      readily in a discussion you have prepared for and pause longer when the rules of a task are
+      unclear. For example, recall a recent collaboration and separate what you did first, what you
+      wanted from others and what changed afterward. Try identifying one recurring preference from
+      those details. Then attempt a different response in a manageable setting and observe whether
+      it makes the exchange easier for everyone involved.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.body_fortune
+  system: ziwei
+  section: body_fortune
+  topic: fallback_body_fortune
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 行动与休息都值得观察
+    summary: 你可以同时留意持续投入和内在满足。
+    body: 你可以同时留意持续投入和内在满足。身宫（补充观察实际行动的位置）帮助你回顾精力投向哪里，福德宫（讨论精神空间与休闲偏好的位置）则提供另一个问题：这些投入之后，你怎样获得安静与满足。两者不需要总在同一件事情上达成一致，工作里喜欢负责的人也可能在休息时只想慢慢阅读。比如，一周安排结束后，分别记下最占时间和最让你放松的两件事，看看它们是否挤占彼此。建议保留一段没有成果要求的个人时间，观察感受之后再调整安排，让休息有独立位置，而不只是等待全部任务完成后才出现。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Attention and inner satisfaction
+    summary: You can observe both sustained involvement and what helps your mind settle.
+    body:
+      You can notice what holds your attention and what leaves you feeling settled afterward. The
+      Body Palace (身宫, shēn gōng — an additional perspective on sustained action) concerns where
+      involvement goes. The Wellbeing Palace (福德宫, fú dé gōng — the area for interests and inner
+      satisfaction) invites a separate look at what makes that involvement feel worthwhile or what
+      helps you step away. Someone who enjoys responsibility at work may prefer slow reading during
+      time off. At the end of a week, compare the activity that used the most time with the one that
+      felt restorative. Try protecting a small period without a required result, then review your
+      response. Rest can have a place in the schedule before every other task is finished. You can
+      keep the notes brief and revisit them when your circumstances change.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.career_wealth
+  system: ziwei
+  section: career_wealth
+  topic: fallback_career_wealth
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 把工作与资源一起看
+    summary: 你可以从任务安排与资源使用之间的联系开始。
+    body: 你可以从任务安排与资源使用之间的联系开始。官禄宫（讨论工作方式的位置）与财帛宫（观察资源分配的领域）适合合看；命、财、官、迁的三方四正（四个相互参照的宫位）提供更广的结构视角。实际能力、岗位条件与当下可用的时间仍然需要先了解，星曜不替你指定职业或估算收入。例如，你准备接一个新任务时，把学习要求、协作对象和可能挤占的时间写在一起，就更容易看清要先谈什么。建议从现有工作里选一项可改进的流程，与相关的人约定负责人与检查点，再用实际结果判断这次调整是否合适。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Work alongside resources
+    summary: You can begin with the connection between task organization and practical resources.
+    body:
+      You can review work alongside the resources it uses. The Career Palace (官禄宫, guān lù gōng —
+      the area for working methods) and Wealth Palace (财帛宫, cái bó gōng — the area for resource
+      habits) offer related questions. The associated life, wealth, career and travel areas provide
+      a broader structural comparison. Actual skills, role conditions and available time deserve
+      attention before any symbolic interpretation. For example, before taking on a task, list what
+      you need to learn, who will collaborate and which existing activity will lose time. Try
+      choosing one improvement within your current work, with an agreed owner and review point.
+      Evaluate the change through its practical result; the reading cannot assign a profession or
+      establish an income level. You can keep the notes brief and revisit them when your
+      circumstances change.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.love_family
+  system: ziwei
+  section: love_family
+  topic: fallback_love_family
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 关系从协商开始
+    summary: 你可以把期待说具体，也给别人选择的空间。
+    body: 你可以把期待说具体，也给别人选择的空间。夫妻宫（观察亲密关系协商的领域）、子女宫（讨论培育与陪伴的领域）、父母宫与兄弟宫（代际和同辈互动的领域）各看一种相处角度，不能据此评价某个人的品格。不同关系有不同边界，单身、相伴或其他生活安排都值得尊重，不需要靠报告选择一种标准路径。例如，大家共同安排节日时，你可以先说自己能参与的时间，再问每个人想怎样相聚。建议把一个模糊期待改成明确请求，并询问对方是否方便；如果答案不同，先协商一个较小的共同安排，而不是急着用盘中线索解释分歧。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Relationships through clear requests
+    summary: You can state an expectation clearly while leaving room for another person’s choice.
+    body:
+      You can make a relationship expectation easier to discuss by turning it into a clear request.
+      The Spouse Palace (夫妻宫, fū qī gōng — a perspective on intimate negotiation), Children Palace
+      (子女宫, zǐ nǚ gōng — a perspective on nurturing) and the parent and sibling areas examine
+      different kinds of interaction. They do not establish anyone’s character or prescribe a
+      standard path for partnership or family life. When arranging a shared occasion, state the time
+      you can offer and ask what each person would enjoy. Try converting one unspoken expectation
+      into a practical question and checking whether the other person has capacity. If preferences
+      differ, look for a smaller shared arrangement before interpreting disagreement through a chart
+      symbol. You can keep the notes brief and revisit them when your circumstances change.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.health_travel
+  system: ziwei
+  section: health_travel
+  topic: fallback_health_travel
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 照顾节奏与环境适应
+    summary: 你可以从作息和外部安排寻找可调整的小处。
+    body: 你可以从作息和外部安排寻找可调整的小处。疾厄宫（这里仅用于观察生活节奏与压力感受的领域）不用于判断疾病，迁移宫（讨论陌生环境与外出互动的位置）也不决定你应该搬到哪里。两者放在一起，可以帮助你观察环境变化是否挤占休息、准备和与人联系的时间。例如，出门参加活动前一天，核对交通与日程之后，再留一段收尾时间，看看是否让过程更从容。建议一次只调整一个作息或出行安排，记录实际感受再决定是否保留。持续不适应寻求合适的专业评估，报告只提供日常观察角度，不代替现实判断。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Routine and adjustment to surroundings
+    summary: You can look for a small adjustment in your routine or arrangements outside home.
+    body:
+      You can review how your routine responds to a change of surroundings. The Health Palace (疾厄宫,
+      jí è gōng — used here only for everyday rhythms and perceived stress) cannot identify illness.
+      The Travel Palace (迁移宫, qiān yí gōng — the area for unfamiliar settings and outward
+      interaction) does not decide where you should live. Consider whether a visit or schedule
+      change crowds out preparation, rest or contact with people who support you. Before an activity
+      away from home, check the route and timing, then leave space to finish the previous day
+      calmly. Try adjusting one practical arrangement at a time and note the result. Persistent
+      discomfort calls for appropriate professional assessment; the chart remains a perspective for
+      observation. You can keep the notes brief and revisit them when your circumstances change.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.patterns
+  system: ziwei
+  section: patterns
+  topic: fallback_patterns
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 从整体联系理解格局
+    summary: 你可以先看要素之间的联系，再判断描述是否贴近经历。
+    body: 你可以先看要素之间的联系，再判断描述是否贴近经历。格局（传统上为若干星曜与宫位的组合取的名称）用来整理命盘结构，不是现实成就的评定表；没有命中特定名称，也不表示生活缺少可能性。命、财、官、迁之间的联系，适合用作比较不同场景的线索，而不是把名称直接套到个人身份上。比如，你在工作中重视方法，在外部活动里重视联系，先观察这两种需求怎样配合，就比只寻找一个响亮标签更具体。建议写下一组确实相连的生活安排，看看它们互相支持还是争用时间，再选择一个能改善配合的小步骤。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Connections before labels
+    summary: You can examine connections among themes before adopting a configuration label.
+    body:
+      You can begin with connections rather than searching for an impressive name. A configuration
+      (格局, gé jú — a traditional label for a relationship among stars and chart areas) organizes the
+      symbolic structure. It is not a ranking of achievement, and the absence of a named
+      configuration does not limit the possibilities available to you. Compare the life, wealth,
+      career and travel themes with circumstances you can actually observe. You might value a clear
+      method at work while seeking contact with others in an unfamiliar setting. Try identifying one
+      pair of connected activities and asking whether they support each other or compete for time.
+      Choose a small step that improves the connection, then assess the result before assigning
+      significance to a traditional label. You can keep the notes brief and revisit them when your
+      circumstances change.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.decadal_yearly
+  system: ziwei
+  section: decadal_yearly
+  topic: fallback_decadal_yearly
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 把时间层放回真实安排
+    summary: 你可以用阶段与年份整理观察，按现实信息更新计划。
+    body: 你可以用阶段与年份整理观察，按现实信息更新计划。大限（约十年的传统观察阶段）与流年（按当年参数建立的观察层）讨论不同长度的时间范围；四化（星曜上用于标注支持、责任、反馈或磨合的变化符号）为这些范围补充主题。当前数据只有本阶段与本年，不能把一个位置直接延伸成后三年的事件。比如，准备继续学习时，你可以先列本年能验证的目标，再把未来三年的安排写成可调整节点。建议每到一个实际节点核对已有资源、责任和想法是否变化，再更新下一段计划，让时间轴帮助你组织问题，不替你决定结果。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Use timing layers for review
+    summary: You can organize reflection by phases and years while updating plans from practical
+      information.
+    body:
+      You can use the timing layers to organize questions at different scales. A decadal cycle (大限,
+      dà xiàn — a traditional phase of approximately ten years) and a yearly layer (流年, liú nián — a
+      perspective calculated for the year) offer distinct review periods. Transformations add themes
+      involving access, responsibility, explanation or friction. The present chart supplies the
+      current phase and year, so a single position cannot establish events for the next three years.
+      If you plan further learning, separate a goal you can assess this year from later milestones
+      that may change. Try reviewing resources, responsibilities and preferences at each practical
+      milestone before updating the next step. Let the timeline help arrange your questions while
+      real information guides decisions. You can keep the notes brief and revisit them when your
+      circumstances change.
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.fallback.summary_actions
+  system: ziwei
+  section: summary_actions
+  topic: fallback_summary_actions
+  when:
+    path: palaces.length
+    eq: 12
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 用五个小步骤回到生活
+    summary: 你可以把解读变成有边界的小尝试，再根据反馈调整。
+    body: 你可以把解读变成有边界的小尝试，再根据反馈调整。命盘（把传统星曜与宫位关系排成的象征结构）提供观察语言，生活中的信息、协商和行动仍然更直接。阅读之后，可以从五个小步骤开始：记下一项自己认同的偏好，给一个当前任务约定检查点，把一个关系期待说具体，保留一段不追求产出的休息时间，再为下一次回顾选一个日期。例如，本周只改进一次任务交接，就能观察参与者是否更容易理解，而不需要同时改变所有习惯。建议选择最适合当前余力的那一步，记录有效和不适用的部分；其他建议留待以后，让自己的判断持续参与。
+    advice:
+      - 先选一个可调整的小步骤，记录实际反馈。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Five manageable ways back to daily life
+    summary: You can turn a reading into a bounded experiment and adjust it from feedback.
+    body: 'You can take a reading back into daily life through a manageable experiment. A chart is a
+      symbolic arrangement of traditional stars and areas; practical information and respectful
+      conversations remain more direct guides to action. Start with five modest possibilities: note
+      a preference you recognize, agree on a review point for a current task, state one relationship
+      expectation clearly, preserve a period of rest without a deliverable and choose a date to
+      reflect again. For example, improving one handover this week gives you a concrete response
+      from the people involved without requiring a change to every habit. Try the step that best
+      fits your capacity, recording both what helped and what did not fit. Keep the other
+      possibilities available for a later review. You can keep the notes brief and revisit them when
+      your circumstances change.'
+    advice:
+      - Choose one manageable adjustment and record practical feedback.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

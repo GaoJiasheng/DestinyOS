@@ -1,0 +1,3320 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: The KU schema has no variant field: variants use .a/.b IDs and reciprocal exclusions, so the current deterministic resolver retains one rather than repeating both. Brightness is partitioned into supported/restrained groups; no ability ranking is inferred.
+- id: ziwei.life.zi_wei.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_zi_wei
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=zi_wei].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.zi_wei.supported.b
+  zh:
+    title: 紫微坐命：找到发挥的场景
+    summary: 你倾向统筹方向与承担责任，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察统筹方向与承担责任如何出现在日常选择里。紫微（代表统筹方向与承担责任的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你倾向先建立整体框架，再把事情交给合适的人推进。例如，你召集一次讨论时，可能先提出共同目标，再邀请不同的人负责议题和记录；若所有人都等你拍板，不妨明确哪些部分可以由伙伴独立决定。如果总把最后决定留给自己，别人可能没有充分表达的空间。可以先公开判断标准，再邀请别人指出一个遗漏，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以先公开判断标准，再邀请别人指出一个遗漏
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi: finding conditions that suit you'
+    summary: You may recognize yourself in setting direction and holding responsibility; a suitable
+      setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in setting direction and holding responsibility. Zǐ Wēi
+      (紫微) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. You
+      often look for a coherent direction before deciding who should carry each part of a task.
+      Imagine coordinating a volunteer rota. You might first explain the purpose, then ask people to
+      own the intervals they can sustain. Notice whether the group can make an ordinary adjustment
+      without returning every decision to you. Keeping every final decision for yourself can make
+      capable people feel unheard. Try explaining your decision criteria before asking someone to
+      challenge one assumption. You can compare the original impulse with the response from others
+      afterward. Brightness describes symbolic conditions of expression, so take this as a prompt
+      for adjusting your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Try explaining your decision criteria before asking someone to challenge one assumption
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.zi_wei.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_zi_wei
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=zi_wei].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.zi_wei.supported.a
+  zh:
+    title: 紫微坐命：让长处被看见
+    summary: 你可以从统筹方向与承担责任的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见统筹方向与承担责任这条性格线索。命宫（你回应外界与理解自己的观察位置）中的紫微（象征统筹方向与承担责任的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，家里一起安排节日聚会时，你想先把整体日程定下来；与其直接分派，不妨先问每个人能参与多久，再把决定放在大家看得见的清单上。如果总把最后决定留给自己，别人可能没有充分表达的空间。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi: learning through everyday interaction'
+    summary: You can explore setting direction and holding responsibility by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Zǐ Wēi (紫微) — a symbol for setting direction and holding
+      responsibility. Its placement falls in the supported brightness group, which includes miao,
+      wang, de and li — traditional labels for a comparatively accessible expression. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Think of helping a community workshop find its direction. Before allocating every
+      activity, invite participants to name what they can genuinely contribute. A clear aim can
+      support shared ownership when people also have room to shape the means. Keeping every final
+      decision for yourself can make capable people feel unheard. Try asking everyone what they can
+      reasonably take on, then choose one responsibility that fits your present capacity. After the
+      gathering, ask which part of the cooperation felt helpful. Use that answer to adjust your next
+      attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.zi_wei.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_zi_wei
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=zi_wei].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.zi_wei.restrained.b
+  zh:
+    title: 紫微坐命：给表达留出条件
+    summary: 你倾向统筹方向与承担责任，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察统筹方向与承担责任如何出现在日常选择里。紫微（代表统筹方向与承担责任的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你倾向先建立整体框架，再把事情交给合适的人推进。例如，你召集一次讨论时，可能先提出共同目标，再邀请不同的人负责议题和记录；若所有人都等你拍板，不妨明确哪些部分可以由伙伴独立决定。如果总把最后决定留给自己，别人可能没有充分表达的空间。可以先公开判断标准，再邀请别人指出一个遗漏，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以先公开判断标准，再邀请别人指出一个遗漏
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi: finding conditions that suit you'
+    summary: You may recognize yourself in setting direction and holding responsibility; supportive
+      conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in setting direction and holding responsibility. Zǐ Wēi
+      (紫微) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. You often
+      look for a coherent direction before deciding who should carry each part of a task. Imagine
+      coordinating a volunteer rota. You might first explain the purpose, then ask people to own the
+      intervals they can sustain. Notice whether the group can make an ordinary adjustment without
+      returning every decision to you. Keeping every final decision for yourself can make capable
+      people feel unheard. Try explaining your decision criteria before asking someone to challenge
+      one assumption. You can compare the original impulse with the response from others afterward.
+      Brightness describes symbolic conditions of expression, so take this as a prompt for adjusting
+      your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Try explaining your decision criteria before asking someone to challenge one assumption
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.zi_wei.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_zi_wei
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=zi_wei].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.zi_wei.restrained.a
+  zh:
+    title: 紫微坐命：用小步练习磨合
+    summary: 你可以从统筹方向与承担责任的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见统筹方向与承担责任这条性格线索。命宫（你回应外界与理解自己的观察位置）中的紫微（象征统筹方向与承担责任的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，家里一起安排节日聚会时，你想先把整体日程定下来；与其直接分派，不妨先问每个人能参与多久，再把决定放在大家看得见的清单上。如果总把最后决定留给自己，别人可能没有充分表达的空间。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi: learning through everyday interaction'
+    summary: You can explore setting direction and holding responsibility by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Zǐ Wēi (紫微) — a symbol for setting direction and holding
+      responsibility. Its placement falls in the restrained brightness group, which includes ping,
+      bu and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere. Think
+      of helping a community workshop find its direction. Before allocating every activity, invite
+      participants to name what they can genuinely contribute. A clear aim can support shared
+      ownership when people also have room to shape the means. Keeping every final decision for
+      yourself can make capable people feel unheard. Try asking everyone what they can reasonably
+      take on, then choose one responsibility that fits your present capacity. After the gathering,
+      ask which part of the cooperation felt helpful. Use that answer to adjust your next attempt
+      while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_ji.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_ji
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=life].majorStars[key=tian_ji].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_ji.supported.b
+  zh:
+    title: 天机坐命：找到发挥的场景
+    summary: 你倾向观察变化与设计方法，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察观察变化与设计方法如何出现在日常选择里。天机（代表观察变化与设计方法的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你容易看见流程里的细小差异，并想出几种替代办法。例如，你发现每天都要重复整理同一种资料，想把流程缩成几步；可以先拿一份材料试行，再记录有没有遗漏，不必在第一天就重做全部安排。频繁修改路线容易消耗执行时间，思考也需要一个停点。不妨给每次比较设定期限，只验证一个最关键的假设，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨给每次比较设定期限，只验证一个最关键的假设
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī: finding conditions that suit you'
+    summary:
+      You may recognize yourself in adaptive planning and practical ingenuity; a suitable setting
+      can make that approach easier to use.
+    body: You may find a useful starting point in adaptive planning and practical ingenuity. Tiān Jī
+      (天机) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. You may
+      notice small inefficiencies and quickly imagine several workable alternatives. Picture
+      comparing two routes for a recurring journey. Your interest in alternatives can be useful if
+      you decide which practical question matters most, such as reliability or preparation time, and
+      test that question on a manageable trip. Repeatedly redesigning a workable plan can consume
+      the time needed to test it. Consider setting a decision deadline and testing the most
+      important unknown first. You can compare the original impulse with the response from others
+      afterward. Brightness describes symbolic conditions of expression, so take this as a prompt
+      for adjusting your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Consider setting a decision deadline and testing the most important unknown first
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_ji.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_ji
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=life].majorStars[key=tian_ji].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_ji.supported.a
+  zh:
+    title: 天机坐命：让长处被看见
+    summary: 你可以从观察变化与设计方法的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见观察变化与设计方法这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天机（象征观察变化与设计方法的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，几个人商量活动路线时，你很快想到几种备选方案；如果讨论持续改动，可以把天气与交通这两个关键条件写下来，到约定时间就选一个先试。频繁修改路线容易消耗执行时间，思考也需要一个停点。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī: learning through everyday interaction'
+    summary:
+      You can explore adaptive planning and practical ingenuity by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Jī (天机) — a symbol for adaptive planning and practical
+      ingenuity. Its placement falls in the supported brightness group, which includes miao, wang,
+      de and li — traditional labels for a comparatively accessible expression. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine revising instructions for a shared tool. Instead of adding every possible improvement
+      at once, watch a newcomer complete one task. Their actual pause or question can reveal which
+      change deserves attention before you redesign the remainder. Repeatedly redesigning a workable
+      plan can consume the time needed to test it. Try asking everyone what they can reasonably take
+      on, then choose one responsibility that fits your present capacity. After the gathering, ask
+      which part of the cooperation felt helpful. Use that answer to adjust your next attempt while
+      keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_ji.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_ji
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=life].majorStars[key=tian_ji].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_ji.restrained.b
+  zh:
+    title: 天机坐命：给表达留出条件
+    summary: 你倾向观察变化与设计方法，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察观察变化与设计方法如何出现在日常选择里。天机（代表观察变化与设计方法的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你容易看见流程里的细小差异，并想出几种替代办法。例如，你发现每天都要重复整理同一种资料，想把流程缩成几步；可以先拿一份材料试行，再记录有没有遗漏，不必在第一天就重做全部安排。频繁修改路线容易消耗执行时间，思考也需要一个停点。不妨给每次比较设定期限，只验证一个最关键的假设，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨给每次比较设定期限，只验证一个最关键的假设
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī: finding conditions that suit you'
+    summary: You may recognize yourself in adaptive planning and practical ingenuity; supportive
+      conditions can help you express it with less strain.
+    body: You may find a useful starting point in adaptive planning and practical ingenuity. Tiān Jī
+      (天机) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. You may
+      notice small inefficiencies and quickly imagine several workable alternatives. Picture
+      comparing two routes for a recurring journey. Your interest in alternatives can be useful if
+      you decide which practical question matters most, such as reliability or preparation time, and
+      test that question on a manageable trip. Repeatedly redesigning a workable plan can consume
+      the time needed to test it. Consider setting a decision deadline and testing the most
+      important unknown first. You can compare the original impulse with the response from others
+      afterward. Brightness describes symbolic conditions of expression, so take this as a prompt
+      for adjusting your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Consider setting a decision deadline and testing the most important unknown first
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_ji.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_ji
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=life].majorStars[key=tian_ji].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_ji.restrained.a
+  zh:
+    title: 天机坐命：用小步练习磨合
+    summary: 你可以从观察变化与设计方法的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见观察变化与设计方法这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天机（象征观察变化与设计方法的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，几个人商量活动路线时，你很快想到几种备选方案；如果讨论持续改动，可以把天气与交通这两个关键条件写下来，到约定时间就选一个先试。频繁修改路线容易消耗执行时间，思考也需要一个停点。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī: learning through everyday interaction'
+    summary:
+      You can explore adaptive planning and practical ingenuity by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Jī (天机) — a symbol for adaptive planning and practical
+      ingenuity. Its placement falls in the restrained brightness group, which includes ping, bu and
+      xian — labels suggesting greater dependence on context and support. These conditions invite
+      you to compare situations instead of assuming one description applies everywhere. Imagine
+      revising instructions for a shared tool. Instead of adding every possible improvement at once,
+      watch a newcomer complete one task. Their actual pause or question can reveal which change
+      deserves attention before you redesign the remainder. Repeatedly redesigning a workable plan
+      can consume the time needed to test it. Try asking everyone what they can reasonably take on,
+      then choose one responsibility that fits your present capacity. After the gathering, ask which
+      part of the cooperation felt helpful. Use that answer to adjust your next attempt while
+      keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yang.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yang].key
+        eq: tai_yang
+      - path: palaces[key=life].majorStars[key=tai_yang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yang.supported.b
+  zh:
+    title: 太阳坐命：找到发挥的场景
+    summary: 你倾向公开表达与主动付出，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察公开表达与主动付出如何出现在日常选择里。太阳（代表公开表达与主动付出的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你往往愿意把信息说清楚，也愿意先向别人伸出援手。例如，团队需要有人解释新规则时，你可能主动把背景和步骤讲清楚；说明结束后，询问大家能否找到要做的第一步，比持续讲更多信息更便于参与。持续回应所有人的需求，容易压缩自己恢复精力的时间。可以在答应帮忙前说清楚可投入的时间，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以在答应帮忙前说清楚可投入的时间
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng: finding conditions that suit you'
+    summary: You may recognize yourself in visible contribution and outward engagement; a suitable
+      setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in visible contribution and outward engagement. Tài Yáng
+      (太阳) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. You may
+      feel useful when you share what you know and make a contribution people can see. Think of
+      introducing a newcomer to a neighborhood activity. You may offer an explanation before being
+      asked. A useful check is whether your welcome leaves room for them to ask questions and decide
+      how much participation suits them. Being available to everyone can leave little room for your
+      own priorities or quiet recovery. Try stating how much time you can offer before agreeing to
+      help. You can compare the original impulse with the response from others afterward. Brightness
+      describes symbolic conditions of expression, so take this as a prompt for adjusting your
+      surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Try stating how much time you can offer before agreeing to help
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yang.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yang].key
+        eq: tai_yang
+      - path: palaces[key=life].majorStars[key=tai_yang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yang.supported.a
+  zh:
+    title: 太阳坐命：让长处被看见
+    summary: 你可以从公开表达与主动付出的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见公开表达与主动付出这条性格线索。命宫（你回应外界与理解自己的观察位置）中的太阳（象征公开表达与主动付出的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，朋友临时求助时，你容易先答应再挤出时间；可以先问对方最需要哪一部分，说明自己今天能帮到哪里，把热情放进彼此都清楚的范围。持续回应所有人的需求，容易压缩自己恢复精力的时间。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng: learning through everyday interaction'
+    summary:
+      You can explore visible contribution and outward engagement by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tài Yáng (太阳) — a symbol for visible contribution and outward
+      engagement. Its placement falls in the supported brightness group, which includes miao, wang,
+      de and li — traditional labels for a comparatively accessible expression. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine being the person others approach for an update. Sharing a concise account can support
+      the group, while naming when the next update will arrive can prevent continuous availability
+      from becoming an unspoken expectation. Being available to everyone can leave little room for
+      your own priorities or quiet recovery. Try asking everyone what they can reasonably take on,
+      then choose one responsibility that fits your present capacity. After the gathering, ask which
+      part of the cooperation felt helpful. Use that answer to adjust your next attempt while
+      keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yang.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yang].key
+        eq: tai_yang
+      - path: palaces[key=life].majorStars[key=tai_yang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yang.restrained.b
+  zh:
+    title: 太阳坐命：给表达留出条件
+    summary: 你倾向公开表达与主动付出，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察公开表达与主动付出如何出现在日常选择里。太阳（代表公开表达与主动付出的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你往往愿意把信息说清楚，也愿意先向别人伸出援手。例如，团队需要有人解释新规则时，你可能主动把背景和步骤讲清楚；说明结束后，询问大家能否找到要做的第一步，比持续讲更多信息更便于参与。持续回应所有人的需求，容易压缩自己恢复精力的时间。可以在答应帮忙前说清楚可投入的时间，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以在答应帮忙前说清楚可投入的时间
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng: finding conditions that suit you'
+    summary: You may recognize yourself in visible contribution and outward engagement; supportive
+      conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in visible contribution and outward engagement. Tài Yáng
+      (太阳) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. You may feel
+      useful when you share what you know and make a contribution people can see. Think of
+      introducing a newcomer to a neighborhood activity. You may offer an explanation before being
+      asked. A useful check is whether your welcome leaves room for them to ask questions and decide
+      how much participation suits them. Being available to everyone can leave little room for your
+      own priorities or quiet recovery. Try stating how much time you can offer before agreeing to
+      help. You can compare the original impulse with the response from others afterward. Brightness
+      describes symbolic conditions of expression, so take this as a prompt for adjusting your
+      surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Try stating how much time you can offer before agreeing to help
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yang.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yang].key
+        eq: tai_yang
+      - path: palaces[key=life].majorStars[key=tai_yang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yang.restrained.a
+  zh:
+    title: 太阳坐命：用小步练习磨合
+    summary: 你可以从公开表达与主动付出的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见公开表达与主动付出这条性格线索。命宫（你回应外界与理解自己的观察位置）中的太阳（象征公开表达与主动付出的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，朋友临时求助时，你容易先答应再挤出时间；可以先问对方最需要哪一部分，说明自己今天能帮到哪里，把热情放进彼此都清楚的范围。持续回应所有人的需求，容易压缩自己恢复精力的时间。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng: learning through everyday interaction'
+    summary:
+      You can explore visible contribution and outward engagement by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tài Yáng (太阳) — a symbol for visible contribution and outward
+      engagement. Its placement falls in the restrained brightness group, which includes ping, bu
+      and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine being the person others approach for an update. Sharing a concise account can support
+      the group, while naming when the next update will arrive can prevent continuous availability
+      from becoming an unspoken expectation. Being available to everyone can leave little room for
+      your own priorities or quiet recovery. Try asking everyone what they can reasonably take on,
+      then choose one responsibility that fits your present capacity. After the gathering, ask which
+      part of the cooperation felt helpful. Use that answer to adjust your next attempt while
+      keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.wu_qu.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_wu_qu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=wu_qu].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.wu_qu.supported.b
+  zh:
+    title: 武曲坐命：找到发挥的场景
+    summary: 你倾向执行纪律与资源核算，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察执行纪律与资源核算如何出现在日常选择里。武曲（代表执行纪律与资源核算的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白。例如，你接手一个物料清单时，先核对数量、用途与责任人，能让交接更清楚；若对方仍不放心，不妨问问他担心的是缺漏、时间还是沟通方式。只关注效率时，别人可能听不到你在意他们的感受。建议在讨论数量之后，再问一句对方最在意什么，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议在讨论数量之后，再问一句对方最在意什么
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū: finding conditions that suit you'
+    summary: You may recognize yourself in disciplined execution and resource accounting; a suitable
+      setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in disciplined execution and resource accounting. Wǔ Qū
+      (武曲) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. You
+      often build trust through measurable results, clear commitments and careful use of resources.
+      Picture setting up a shared equipment checkout. Clear quantities and return dates may feel
+      reassuring to you. Ask the users what would make the arrangement easier to follow, since a
+      precise system still needs workable participation. An efficient answer may miss the emotional
+      question someone was actually asking. Consider asking what matters emotionally after you have
+      clarified the practical numbers. You can compare the original impulse with the response from
+      others afterward. Brightness describes symbolic conditions of expression, so take this as a
+      prompt for adjusting your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Consider asking what matters emotionally after you have clarified the practical numbers
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.wu_qu.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_wu_qu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=wu_qu].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.wu_qu.supported.a
+  zh:
+    title: 武曲坐命：让长处被看见
+    summary: 你可以从执行纪律与资源核算的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见执行纪律与资源核算这条性格线索。命宫（你回应外界与理解自己的观察位置）中的武曲（象征执行纪律与资源核算的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，两个人分担一项长期任务时，你想把每周要完成的部分讲明白；除了核对进度，也可以问一句这个安排是否让对方感到有余地，必要时调整分工。只关注效率时，别人可能听不到你在意他们的感受。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū: learning through everyday interaction'
+    summary: You can explore disciplined execution and resource accounting by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Wǔ Qū (武曲) — a symbol for disciplined execution and resource
+      accounting. Its placement falls in the supported brightness group, which includes miao, wang,
+      de and li — traditional labels for a comparatively accessible expression. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere. Think
+      of agreeing a practical contribution with a housemate. It may help to state the amount of time
+      each task takes, then ask which part feels difficult. Measurable responsibility becomes easier
+      to maintain when emotional concerns are heard too. An efficient answer may miss the emotional
+      question someone was actually asking. Try asking everyone what they can reasonably take on,
+      then choose one responsibility that fits your present capacity. After the gathering, ask which
+      part of the cooperation felt helpful. Use that answer to adjust your next attempt while
+      keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.wu_qu.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_wu_qu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=wu_qu].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.wu_qu.restrained.b
+  zh:
+    title: 武曲坐命：给表达留出条件
+    summary: 你倾向执行纪律与资源核算，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察执行纪律与资源核算如何出现在日常选择里。武曲（代表执行纪律与资源核算的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白。例如，你接手一个物料清单时，先核对数量、用途与责任人，能让交接更清楚；若对方仍不放心，不妨问问他担心的是缺漏、时间还是沟通方式。只关注效率时，别人可能听不到你在意他们的感受。建议在讨论数量之后，再问一句对方最在意什么，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议在讨论数量之后，再问一句对方最在意什么
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū: finding conditions that suit you'
+    summary: You may recognize yourself in disciplined execution and resource accounting; supportive
+      conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in disciplined execution and resource accounting. Wǔ Qū
+      (武曲) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. You often
+      build trust through measurable results, clear commitments and careful use of resources.
+      Picture setting up a shared equipment checkout. Clear quantities and return dates may feel
+      reassuring to you. Ask the users what would make the arrangement easier to follow, since a
+      precise system still needs workable participation. An efficient answer may miss the emotional
+      question someone was actually asking. Consider asking what matters emotionally after you have
+      clarified the practical numbers. You can compare the original impulse with the response from
+      others afterward. Brightness describes symbolic conditions of expression, so take this as a
+      prompt for adjusting your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Consider asking what matters emotionally after you have clarified the practical numbers
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.wu_qu.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_wu_qu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=wu_qu].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.wu_qu.restrained.a
+  zh:
+    title: 武曲坐命：用小步练习磨合
+    summary: 你可以从执行纪律与资源核算的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见执行纪律与资源核算这条性格线索。命宫（你回应外界与理解自己的观察位置）中的武曲（象征执行纪律与资源核算的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，两个人分担一项长期任务时，你想把每周要完成的部分讲明白；除了核对进度，也可以问一句这个安排是否让对方感到有余地，必要时调整分工。只关注效率时，别人可能听不到你在意他们的感受。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū: learning through everyday interaction'
+    summary: You can explore disciplined execution and resource accounting by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Wǔ Qū (武曲) — a symbol for disciplined execution and resource
+      accounting. Its placement falls in the restrained brightness group, which includes ping, bu
+      and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere. Think
+      of agreeing a practical contribution with a housemate. It may help to state the amount of time
+      each task takes, then ask which part feels difficult. Measurable responsibility becomes easier
+      to maintain when emotional concerns are heard too. An efficient answer may miss the emotional
+      question someone was actually asking. Try asking everyone what they can reasonably take on,
+      then choose one responsibility that fits your present capacity. After the gathering, ask which
+      part of the cooperation felt helpful. Use that answer to adjust your next attempt while
+      keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_tong.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_tong
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_tong].key
+        eq: tian_tong
+      - path: palaces[key=life].majorStars[key=tian_tong].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_tong.supported.b
+  zh:
+    title: 天同坐命：找到发挥的场景
+    summary: 你倾向舒适感与温和相处，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察舒适感与温和相处如何出现在日常选择里。天同（代表舒适感与温和相处的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你容易留意气氛是否轻松，愿意给别人一个缓和的台阶。例如，你希望让第一次见面的伙伴放松，会先从轻松话题聊起；当大家熟悉之后，再说清楚活动要怎样开始，舒适感就能和实际推进一起保留。为了维持舒服而回避困难话题，问题可能留到更忙的时候。可以先处理一件小而具体的事情，再安排休息，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以先处理一件小而具体的事情，再安排休息
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng: finding conditions that suit you'
+    summary:
+      You may recognize yourself in ease, belonging and gentle cooperation; a suitable setting
+      can make that approach easier to use.
+    body:
+      You may find a useful starting point in ease, belonging and gentle cooperation. Tiān Tóng (天同)
+      names a major star associated with that approach. It appears in the Life Palace (命宫, mìng gōng
+      — the area for everyday identity) within the supported brightness group, which includes miao,
+      wang, de and li — traditional labels for a comparatively accessible expression. You may be
+      sensitive to the atmosphere around you and good at making participation feel less demanding.
+      Imagine hosting a small study session. A welcoming atmosphere can make questions easier to
+      ask, but a modest opening task also gives the group somewhere to begin. Notice whether ease is
+      supporting participation or postponing it. Avoiding an awkward conversation to preserve
+      comfort can leave the practical issue unresolved. Try completing one modest task before
+      settling into a restorative break. You can compare the original impulse with the response from
+      others afterward. Brightness describes symbolic conditions of expression, so take this as a
+      prompt for adjusting your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Try completing one modest task before settling into a restorative break
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_tong.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_tong
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_tong].key
+        eq: tian_tong
+      - path: palaces[key=life].majorStars[key=tian_tong].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_tong.supported.a
+  zh:
+    title: 天同坐命：让长处被看见
+    summary: 你可以从舒适感与温和相处的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见舒适感与温和相处这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天同（象征舒适感与温和相处的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你与亲近的人相处时很在意气氛，不想让小分歧破坏轻松感；可以挑一个双方有空的时段，把具体不便说出来，再一起商量怎样减少反复。为了维持舒服而回避困难话题，问题可能留到更忙的时候。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng: learning through everyday interaction'
+    summary:
+      You can explore ease, belonging and gentle cooperation by noticing how you participate with
+      other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Tóng (天同) — a symbol for ease, belonging and gentle
+      cooperation. Its placement falls in the supported brightness group, which includes miao, wang,
+      de and li — traditional labels for a comparatively accessible expression. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere. Think
+      of a routine you enjoy because it feels comfortable. If a practical difficulty keeps
+      returning, try naming that one issue during a calm interval. An easy relationship can
+      accommodate a clear conversation when the request is specific. Avoiding an awkward
+      conversation to preserve comfort can leave the practical issue unresolved. Try asking everyone
+      what they can reasonably take on, then choose one responsibility that fits your present
+      capacity. After the gathering, ask which part of the cooperation felt helpful. Use that answer
+      to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_tong.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_tong
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_tong].key
+        eq: tian_tong
+      - path: palaces[key=life].majorStars[key=tian_tong].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_tong.restrained.b
+  zh:
+    title: 天同坐命：给表达留出条件
+    summary: 你倾向舒适感与温和相处，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察舒适感与温和相处如何出现在日常选择里。天同（代表舒适感与温和相处的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你容易留意气氛是否轻松，愿意给别人一个缓和的台阶。例如，你希望让第一次见面的伙伴放松，会先从轻松话题聊起；当大家熟悉之后，再说清楚活动要怎样开始，舒适感就能和实际推进一起保留。为了维持舒服而回避困难话题，问题可能留到更忙的时候。可以先处理一件小而具体的事情，再安排休息，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以先处理一件小而具体的事情，再安排休息
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng: finding conditions that suit you'
+    summary:
+      You may recognize yourself in ease, belonging and gentle cooperation; supportive conditions
+      can help you express it with less strain.
+    body:
+      You may find a useful starting point in ease, belonging and gentle cooperation. Tiān Tóng (天同)
+      names a major star associated with that approach. It appears in the Life Palace (命宫, mìng gōng
+      — the area for everyday identity) within the restrained brightness group, which includes ping,
+      bu and xian — labels suggesting greater dependence on context and support. You may be
+      sensitive to the atmosphere around you and good at making participation feel less demanding.
+      Imagine hosting a small study session. A welcoming atmosphere can make questions easier to
+      ask, but a modest opening task also gives the group somewhere to begin. Notice whether ease is
+      supporting participation or postponing it. Avoiding an awkward conversation to preserve
+      comfort can leave the practical issue unresolved. Try completing one modest task before
+      settling into a restorative break. You can compare the original impulse with the response from
+      others afterward. Brightness describes symbolic conditions of expression, so take this as a
+      prompt for adjusting your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Try completing one modest task before settling into a restorative break
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_tong.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_tong
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_tong].key
+        eq: tian_tong
+      - path: palaces[key=life].majorStars[key=tian_tong].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_tong.restrained.a
+  zh:
+    title: 天同坐命：用小步练习磨合
+    summary: 你可以从舒适感与温和相处的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见舒适感与温和相处这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天同（象征舒适感与温和相处的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你与亲近的人相处时很在意气氛，不想让小分歧破坏轻松感；可以挑一个双方有空的时段，把具体不便说出来，再一起商量怎样减少反复。为了维持舒服而回避困难话题，问题可能留到更忙的时候。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng: learning through everyday interaction'
+    summary:
+      You can explore ease, belonging and gentle cooperation by noticing how you participate with
+      other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Tóng (天同) — a symbol for ease, belonging and gentle
+      cooperation. Its placement falls in the restrained brightness group, which includes ping, bu
+      and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere. Think
+      of a routine you enjoy because it feels comfortable. If a practical difficulty keeps
+      returning, try naming that one issue during a calm interval. An easy relationship can
+      accommodate a clear conversation when the request is specific. Avoiding an awkward
+      conversation to preserve comfort can leave the practical issue unresolved. Try asking everyone
+      what they can reasonably take on, then choose one responsibility that fits your present
+      capacity. After the gathering, ask which part of the cooperation felt helpful. Use that answer
+      to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.lian_zhen.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_lian_zhen
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=lian_zhen].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.lian_zhen.supported.b
+  zh:
+    title: 廉贞坐命：找到发挥的场景
+    summary: 你倾向边界意识与价值选择，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察边界意识与价值选择如何出现在日常选择里。廉贞（代表边界意识与价值选择的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你倾向认真分辨什么值得投入，也在意做法是否符合自己的原则。例如，合作邀请与你重视的做法有差距时，你可能想先划清界限；把不能接受的环节说具体，再说明可以参与哪一部分，比直接评价整个方案更便于协商。当立场和情绪混在一起，讨论容易变成对人的评价。不妨把事实、感受和请求分别写下来，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨把事实、感受和请求分别写下来
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn: finding conditions that suit you'
+    summary: You may recognize yourself in personal boundaries and value based choices; a suitable
+      setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in personal boundaries and value based choices. Lián Zhēn
+      (廉贞) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. You may
+      invest strongly in choices that express your values and notice when a boundary feels blurred.
+      Picture being asked to join a project whose method conflicts with a value you care about. You
+      can identify the exact practice that concerns you and what alternative would make
+      participation possible, leaving a clear basis for discussion. A disagreement about a process
+      can become personal when feelings and principles are treated as one thing. Try separating
+      observable facts, your feelings and the specific change you are requesting. You can compare
+      the original impulse with the response from others afterward. Brightness describes symbolic
+      conditions of expression, so take this as a prompt for adjusting your surroundings and
+      practice rather than a rating of personal ability.
+    advice:
+      - Try separating observable facts, your feelings and the specific change you are requesting
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.lian_zhen.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_lian_zhen
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=lian_zhen].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.lian_zhen.supported.a
+  zh:
+    title: 廉贞坐命：让长处被看见
+    summary: 你可以从边界意识与价值选择的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见边界意识与价值选择这条性格线索。命宫（你回应外界与理解自己的观察位置）中的廉贞（象征边界意识与价值选择的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，朋友开了一个让你不舒服的玩笑，你想让对方知道边界；先描述发生了什么，再说希望以后怎样称呼或回应，能让请求比情绪更容易被听见。当立场和情绪混在一起，讨论容易变成对人的评价。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn: learning through everyday interaction'
+    summary:
+      You can explore personal boundaries and value based choices by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Lián Zhēn (廉贞) — a symbol for personal boundaries and value based
+      choices. Its placement falls in the supported brightness group, which includes miao, wang, de
+      and li — traditional labels for a comparatively accessible expression. These conditions invite
+      you to compare situations instead of assuming one description applies everywhere. Imagine a
+      group using a communication style that does not feel comfortable to you. Rather than making a
+      judgment about everyone involved, describe one exchange and the change you would prefer. A
+      boundary becomes more usable when it names an action. A disagreement about a process can
+      become personal when feelings and principles are treated as one thing. Try asking everyone
+      what they can reasonably take on, then choose one responsibility that fits your present
+      capacity. After the gathering, ask which part of the cooperation felt helpful. Use that answer
+      to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.lian_zhen.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_lian_zhen
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=lian_zhen].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.lian_zhen.restrained.b
+  zh:
+    title: 廉贞坐命：给表达留出条件
+    summary: 你倾向边界意识与价值选择，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察边界意识与价值选择如何出现在日常选择里。廉贞（代表边界意识与价值选择的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你倾向认真分辨什么值得投入，也在意做法是否符合自己的原则。例如，合作邀请与你重视的做法有差距时，你可能想先划清界限；把不能接受的环节说具体，再说明可以参与哪一部分，比直接评价整个方案更便于协商。当立场和情绪混在一起，讨论容易变成对人的评价。不妨把事实、感受和请求分别写下来，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨把事实、感受和请求分别写下来
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn: finding conditions that suit you'
+    summary: You may recognize yourself in personal boundaries and value based choices; supportive
+      conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in personal boundaries and value based choices. Lián Zhēn
+      (廉贞) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. You may
+      invest strongly in choices that express your values and notice when a boundary feels blurred.
+      Picture being asked to join a project whose method conflicts with a value you care about. You
+      can identify the exact practice that concerns you and what alternative would make
+      participation possible, leaving a clear basis for discussion. A disagreement about a process
+      can become personal when feelings and principles are treated as one thing. Try separating
+      observable facts, your feelings and the specific change you are requesting. You can compare
+      the original impulse with the response from others afterward. Brightness describes symbolic
+      conditions of expression, so take this as a prompt for adjusting your surroundings and
+      practice rather than a rating of personal ability.
+    advice:
+      - Try separating observable facts, your feelings and the specific change you are requesting
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.lian_zhen.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_lian_zhen
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=lian_zhen].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.lian_zhen.restrained.a
+  zh:
+    title: 廉贞坐命：用小步练习磨合
+    summary: 你可以从边界意识与价值选择的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见边界意识与价值选择这条性格线索。命宫（你回应外界与理解自己的观察位置）中的廉贞（象征边界意识与价值选择的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，朋友开了一个让你不舒服的玩笑，你想让对方知道边界；先描述发生了什么，再说希望以后怎样称呼或回应，能让请求比情绪更容易被听见。当立场和情绪混在一起，讨论容易变成对人的评价。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn: learning through everyday interaction'
+    summary:
+      You can explore personal boundaries and value based choices by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Lián Zhēn (廉贞) — a symbol for personal boundaries and value based
+      choices. Its placement falls in the restrained brightness group, which includes ping, bu and
+      xian — labels suggesting greater dependence on context and support. These conditions invite
+      you to compare situations instead of assuming one description applies everywhere. Imagine a
+      group using a communication style that does not feel comfortable to you. Rather than making a
+      judgment about everyone involved, describe one exchange and the change you would prefer. A
+      boundary becomes more usable when it names an action. A disagreement about a process can
+      become personal when feelings and principles are treated as one thing. Try asking everyone
+      what they can reasonably take on, then choose one responsibility that fits your present
+      capacity. After the gathering, ask which part of the cooperation felt helpful. Use that answer
+      to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_fu.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_fu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_fu].key
+        eq: tian_fu
+      - path: palaces[key=life].majorStars[key=tian_fu].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_fu.supported.b
+  zh:
+    title: 天府坐命：找到发挥的场景
+    summary: 你倾向储备意识与稳定管理，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察储备意识与稳定管理如何出现在日常选择里。天府（代表储备意识与稳定管理的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你往往先确认手里的资源，再考虑怎样让日常运转更稳。例如，你为持续活动保留材料与记录，会先看看已有资源能支持多久；若新参与者有不同需求，不妨盘点哪些安排可以更新，让积累也能接住新的使用方式。对熟悉安排过于放心，可能错过调整分工的机会。建议定期盘点一次保留、更新和放下的事项，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议定期盘点一次保留、更新和放下的事项
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Fǔ: finding conditions that suit you'
+    summary: You may recognize yourself in stewardship, reserves and dependable administration; a
+      suitable setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in stewardship, reserves and dependable administration.
+      Tiān Fǔ (天府) names a major star associated with that approach. It appears in the Life Palace
+      (命宫, mìng gōng — the area for everyday identity) within the supported brightness group, which
+      includes miao, wang, de and li — traditional labels for a comparatively accessible expression.
+      You may prefer understanding existing resources before making a change that others will rely
+      on. Think of maintaining a small shared library. Keeping materials available can be
+      satisfying, yet a periodic review of what people actually borrow may reveal a simpler
+      arrangement. Stewardship can include retiring an item that no longer serves its purpose. A
+      reliable arrangement can become restrictive if nobody checks whether it still serves its
+      purpose. Consider reviewing what to keep, refresh and retire from your current routine. You
+      can compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Consider reviewing what to keep, refresh and retire from your current routine
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_fu.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_fu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_fu].key
+        eq: tian_fu
+      - path: palaces[key=life].majorStars[key=tian_fu].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_fu.supported.a
+  zh:
+    title: 天府坐命：让长处被看见
+    summary: 你可以从储备意识与稳定管理的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见储备意识与稳定管理这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天府（象征储备意识与稳定管理的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你整理家中的常用空间时想维持熟悉秩序，别人却提出新用途；可以先约一次小范围调整，试过之后再决定保留哪一部分，给稳定与改变各留位置。对熟悉安排过于放心，可能错过调整分工的机会。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Fǔ: learning through everyday interaction'
+    summary: You can explore stewardship, reserves and dependable administration by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Fǔ (天府) — a symbol for stewardship, reserves and dependable
+      administration. Its placement falls in the supported brightness group, which includes miao,
+      wang, de and li — traditional labels for a comparatively accessible expression. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine a well established routine meeting a new practical need. You may prefer
+      checking the existing resources before changing anything. A limited trial can let you preserve
+      what works while examining whether a familiar rule has become unnecessarily restrictive. A
+      reliable arrangement can become restrictive if nobody checks whether it still serves its
+      purpose. Try asking everyone what they can reasonably take on, then choose one responsibility
+      that fits your present capacity. After the gathering, ask which part of the cooperation felt
+      helpful. Use that answer to adjust your next attempt while keeping room for preferences to
+      change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_fu.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_fu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_fu].key
+        eq: tian_fu
+      - path: palaces[key=life].majorStars[key=tian_fu].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_fu.restrained.b
+  zh:
+    title: 天府坐命：给表达留出条件
+    summary: 你倾向储备意识与稳定管理，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察储备意识与稳定管理如何出现在日常选择里。天府（代表储备意识与稳定管理的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你往往先确认手里的资源，再考虑怎样让日常运转更稳。例如，你为持续活动保留材料与记录，会先看看已有资源能支持多久；若新参与者有不同需求，不妨盘点哪些安排可以更新，让积累也能接住新的使用方式。对熟悉安排过于放心，可能错过调整分工的机会。建议定期盘点一次保留、更新和放下的事项，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议定期盘点一次保留、更新和放下的事项
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Fǔ: finding conditions that suit you'
+    summary: You may recognize yourself in stewardship, reserves and dependable administration;
+      supportive conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in stewardship, reserves and dependable administration.
+      Tiān Fǔ (天府) names a major star associated with that approach. It appears in the Life Palace
+      (命宫, mìng gōng — the area for everyday identity) within the restrained brightness group, which
+      includes ping, bu and xian — labels suggesting greater dependence on context and support. You
+      may prefer understanding existing resources before making a change that others will rely on.
+      Think of maintaining a small shared library. Keeping materials available can be satisfying,
+      yet a periodic review of what people actually borrow may reveal a simpler arrangement.
+      Stewardship can include retiring an item that no longer serves its purpose. A reliable
+      arrangement can become restrictive if nobody checks whether it still serves its purpose.
+      Consider reviewing what to keep, refresh and retire from your current routine. You can compare
+      the original impulse with the response from others afterward. Brightness describes symbolic
+      conditions of expression, so take this as a prompt for adjusting your surroundings and
+      practice rather than a rating of personal ability.
+    advice:
+      - Consider reviewing what to keep, refresh and retire from your current routine
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_fu.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_fu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_fu].key
+        eq: tian_fu
+      - path: palaces[key=life].majorStars[key=tian_fu].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_fu.restrained.a
+  zh:
+    title: 天府坐命：用小步练习磨合
+    summary: 你可以从储备意识与稳定管理的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见储备意识与稳定管理这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天府（象征储备意识与稳定管理的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你整理家中的常用空间时想维持熟悉秩序，别人却提出新用途；可以先约一次小范围调整，试过之后再决定保留哪一部分，给稳定与改变各留位置。对熟悉安排过于放心，可能错过调整分工的机会。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Fǔ: learning through everyday interaction'
+    summary: You can explore stewardship, reserves and dependable administration by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Fǔ (天府) — a symbol for stewardship, reserves and dependable
+      administration. Its placement falls in the restrained brightness group, which includes ping,
+      bu and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine a well established routine meeting a new practical need. You may prefer checking the
+      existing resources before changing anything. A limited trial can let you preserve what works
+      while examining whether a familiar rule has become unnecessarily restrictive. A reliable
+      arrangement can become restrictive if nobody checks whether it still serves its purpose. Try
+      asking everyone what they can reasonably take on, then choose one responsibility that fits
+      your present capacity. After the gathering, ask which part of the cooperation felt helpful.
+      Use that answer to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yin.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yin
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yin].key
+        eq: tai_yin
+      - path: palaces[key=life].majorStars[key=tai_yin].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yin.supported.b
+  zh:
+    title: 太阴坐命：找到发挥的场景
+    summary: 你倾向细致观察与安静积累，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察细致观察与安静积累如何出现在日常选择里。太阴（代表细致观察与安静积累的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你容易注意未被说出口的需要，愿意在幕后把细节整理好。例如，你提前把讨论资料标上重点，希望别人能顺利理解；准备完成之后，也可以直接说出自己需要怎样的反馈，别让细致工作和个人期待都藏在幕后。把需要藏得太久，别人可能误以为你没有意见。可以把一个具体需要用简短的话直接表达，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以把一个具体需要用简短的话直接表达
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yīn: finding conditions that suit you'
+    summary:
+      You may recognize yourself in careful observation and quiet preparation; a suitable setting
+      can make that approach easier to use.
+    body: You may find a useful starting point in careful observation and quiet preparation. Tài Yīn
+      (太阴) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. You may
+      notice needs people have not voiced and contribute through thoughtful preparation behind the
+      scenes. Picture preparing notes before a sensitive conversation. The quiet work may help you
+      understand your own preferences. Sharing one of those preferences clearly can then give the
+      other person information they could not obtain by guessing. Others cannot reliably respond to
+      a preference that stays inside your private reflections. Try naming one practical preference
+      without waiting for someone to infer it. You can compare the original impulse with the
+      response from others afterward. Brightness describes symbolic conditions of expression, so
+      take this as a prompt for adjusting your surroundings and practice rather than a rating of
+      personal ability.
+    advice:
+      - Try naming one practical preference without waiting for someone to infer it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yin.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yin
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yin].key
+        eq: tai_yin
+      - path: palaces[key=life].majorStars[key=tai_yin].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yin.supported.a
+  zh:
+    title: 太阴坐命：让长处被看见
+    summary: 你可以从细致观察与安静积累的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见细致观察与安静积累这条性格线索。命宫（你回应外界与理解自己的观察位置）中的太阴（象征细致观察与安静积累的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，约朋友见面时你在意环境是否安静，却只说随便选哪里；不妨提出一个具体偏好，让对方知道怎样安排更方便，既保留体贴，也让自己的需要被看见。把需要藏得太久，别人可能误以为你没有意见。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yīn: learning through everyday interaction'
+    summary:
+      You can explore careful observation and quiet preparation by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tài Yīn (太阴) — a symbol for careful observation and quiet
+      preparation. Its placement falls in the supported brightness group, which includes miao, wang,
+      de and li — traditional labels for a comparatively accessible expression. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine reviewing a draft carefully before anyone else sees it. If you would like
+      acknowledgment of that preparation, state the kind of response that would help. Thoughtful
+      detail and a direct request can complement one another. Others cannot reliably respond to a
+      preference that stays inside your private reflections. Try asking everyone what they can
+      reasonably take on, then choose one responsibility that fits your present capacity. After the
+      gathering, ask which part of the cooperation felt helpful. Use that answer to adjust your next
+      attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yin.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yin
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yin].key
+        eq: tai_yin
+      - path: palaces[key=life].majorStars[key=tai_yin].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yin.restrained.b
+  zh:
+    title: 太阴坐命：给表达留出条件
+    summary: 你倾向细致观察与安静积累，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察细致观察与安静积累如何出现在日常选择里。太阴（代表细致观察与安静积累的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你容易注意未被说出口的需要，愿意在幕后把细节整理好。例如，你提前把讨论资料标上重点，希望别人能顺利理解；准备完成之后，也可以直接说出自己需要怎样的反馈，别让细致工作和个人期待都藏在幕后。把需要藏得太久，别人可能误以为你没有意见。可以把一个具体需要用简短的话直接表达，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以把一个具体需要用简短的话直接表达
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yīn: finding conditions that suit you'
+    summary: You may recognize yourself in careful observation and quiet preparation; supportive
+      conditions can help you express it with less strain.
+    body: You may find a useful starting point in careful observation and quiet preparation. Tài Yīn
+      (太阴) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. You may
+      notice needs people have not voiced and contribute through thoughtful preparation behind the
+      scenes. Picture preparing notes before a sensitive conversation. The quiet work may help you
+      understand your own preferences. Sharing one of those preferences clearly can then give the
+      other person information they could not obtain by guessing. Others cannot reliably respond to
+      a preference that stays inside your private reflections. Try naming one practical preference
+      without waiting for someone to infer it. You can compare the original impulse with the
+      response from others afterward. Brightness describes symbolic conditions of expression, so
+      take this as a prompt for adjusting your surroundings and practice rather than a rating of
+      personal ability.
+    advice:
+      - Try naming one practical preference without waiting for someone to infer it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tai_yin.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tai_yin
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yin].key
+        eq: tai_yin
+      - path: palaces[key=life].majorStars[key=tai_yin].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tai_yin.restrained.a
+  zh:
+    title: 太阴坐命：用小步练习磨合
+    summary: 你可以从细致观察与安静积累的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见细致观察与安静积累这条性格线索。命宫（你回应外界与理解自己的观察位置）中的太阴（象征细致观察与安静积累的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，约朋友见面时你在意环境是否安静，却只说随便选哪里；不妨提出一个具体偏好，让对方知道怎样安排更方便，既保留体贴，也让自己的需要被看见。把需要藏得太久，别人可能误以为你没有意见。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yīn: learning through everyday interaction'
+    summary:
+      You can explore careful observation and quiet preparation by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tài Yīn (太阴) — a symbol for careful observation and quiet
+      preparation. Its placement falls in the restrained brightness group, which includes ping, bu
+      and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine reviewing a draft carefully before anyone else sees it. If you would like
+      acknowledgment of that preparation, state the kind of response that would help. Thoughtful
+      detail and a direct request can complement one another. Others cannot reliably respond to a
+      preference that stays inside your private reflections. Try asking everyone what they can
+      reasonably take on, then choose one responsibility that fits your present capacity. After the
+      gathering, ask which part of the cooperation felt helpful. Use that answer to adjust your next
+      attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tan_lang.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tan_lang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tan_lang].key
+        eq: tan_lang
+      - path: palaces[key=life].majorStars[key=tan_lang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tan_lang.supported.b
+  zh:
+    title: 贪狼坐命：找到发挥的场景
+    summary: 你倾向探索欲与社交学习，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察探索欲与社交学习如何出现在日常选择里。贪狼（代表探索欲与社交学习的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你倾向从新体验和人与人的交流里获得灵感，兴趣常跨越多个领域。例如，一个新兴趣让你想参加体验课，还想认识同样好奇的人；可以先给它一个周末，回来再看愿不愿意持续练习，而不急着把每个灵感都排进日程。同时展开太多尝试，可能让真正喜欢的事情失去持续投入。不妨为本周保留一个探索项目，其他灵感先记下来，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨为本周保留一个探索项目，其他灵感先记下来
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tān Láng: finding conditions that suit you'
+    summary:
+      You may recognize yourself in curiosity, variety and learning through contact; a suitable
+      setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in curiosity, variety and learning through contact. Tān
+      Láng (贪狼) names a major star associated with that approach. It appears in the Life Palace (命宫,
+      mìng gōng — the area for everyday identity) within the supported brightness group, which
+      includes miao, wang, de and li — traditional labels for a comparatively accessible expression.
+      You may learn through new experiences, informal conversations and interests that cross
+      conventional categories. Think of discovering an unfamiliar creative activity through a
+      conversation. You may want to explore it immediately. A single introductory attempt can reveal
+      whether the interest remains engaging once it includes ordinary practice and preparation. Too
+      many attractive openings can dilute the attention a meaningful project needs. Consider keeping
+      one active experiment this week and saving the other ideas for later. You can compare the
+      original impulse with the response from others afterward. Brightness describes symbolic
+      conditions of expression, so take this as a prompt for adjusting your surroundings and
+      practice rather than a rating of personal ability.
+    advice:
+      - Consider keeping one active experiment this week and saving the other ideas for later
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tan_lang.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tan_lang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tan_lang].key
+        eq: tan_lang
+      - path: palaces[key=life].majorStars[key=tan_lang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tan_lang.supported.a
+  zh:
+    title: 贪狼坐命：让长处被看见
+    summary: 你可以从探索欲与社交学习的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见探索欲与社交学习这条性格线索。命宫（你回应外界与理解自己的观察位置）中的贪狼（象征探索欲与社交学习的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，社交活动里你同时听到几项有趣计划，容易每一项都想参与；可以先记下联系人与下一步，只选择一个当前有余力的尝试，让好奇得到具体的落点。同时展开太多尝试，可能让真正喜欢的事情失去持续投入。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tān Láng: learning through everyday interaction'
+    summary: You can explore curiosity, variety and learning through contact by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tān Láng (贪狼) — a symbol for curiosity, variety and learning
+      through contact. Its placement falls in the supported brightness group, which includes miao,
+      wang, de and li — traditional labels for a comparatively accessible expression. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine a weekend with several appealing invitations. Ask which experience you
+      would like to understand more deeply rather than trying to sample them all. Curiosity can
+      become more satisfying when one contact has time to develop beyond a first impression. Too
+      many attractive openings can dilute the attention a meaningful project needs. Try asking
+      everyone what they can reasonably take on, then choose one responsibility that fits your
+      present capacity. After the gathering, ask which part of the cooperation felt helpful. Use
+      that answer to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tan_lang.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tan_lang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tan_lang].key
+        eq: tan_lang
+      - path: palaces[key=life].majorStars[key=tan_lang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tan_lang.restrained.b
+  zh:
+    title: 贪狼坐命：给表达留出条件
+    summary: 你倾向探索欲与社交学习，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察探索欲与社交学习如何出现在日常选择里。贪狼（代表探索欲与社交学习的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你倾向从新体验和人与人的交流里获得灵感，兴趣常跨越多个领域。例如，一个新兴趣让你想参加体验课，还想认识同样好奇的人；可以先给它一个周末，回来再看愿不愿意持续练习，而不急着把每个灵感都排进日程。同时展开太多尝试，可能让真正喜欢的事情失去持续投入。不妨为本周保留一个探索项目，其他灵感先记下来，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨为本周保留一个探索项目，其他灵感先记下来
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tān Láng: finding conditions that suit you'
+    summary:
+      You may recognize yourself in curiosity, variety and learning through contact; supportive
+      conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in curiosity, variety and learning through contact. Tān
+      Láng (贪狼) names a major star associated with that approach. It appears in the Life Palace (命宫,
+      mìng gōng — the area for everyday identity) within the restrained brightness group, which
+      includes ping, bu and xian — labels suggesting greater dependence on context and support. You
+      may learn through new experiences, informal conversations and interests that cross
+      conventional categories. Think of discovering an unfamiliar creative activity through a
+      conversation. You may want to explore it immediately. A single introductory attempt can reveal
+      whether the interest remains engaging once it includes ordinary practice and preparation. Too
+      many attractive openings can dilute the attention a meaningful project needs. Consider keeping
+      one active experiment this week and saving the other ideas for later. You can compare the
+      original impulse with the response from others afterward. Brightness describes symbolic
+      conditions of expression, so take this as a prompt for adjusting your surroundings and
+      practice rather than a rating of personal ability.
+    advice:
+      - Consider keeping one active experiment this week and saving the other ideas for later
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tan_lang.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tan_lang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tan_lang].key
+        eq: tan_lang
+      - path: palaces[key=life].majorStars[key=tan_lang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tan_lang.restrained.a
+  zh:
+    title: 贪狼坐命：用小步练习磨合
+    summary: 你可以从探索欲与社交学习的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见探索欲与社交学习这条性格线索。命宫（你回应外界与理解自己的观察位置）中的贪狼（象征探索欲与社交学习的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，社交活动里你同时听到几项有趣计划，容易每一项都想参与；可以先记下联系人与下一步，只选择一个当前有余力的尝试，让好奇得到具体的落点。同时展开太多尝试，可能让真正喜欢的事情失去持续投入。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tān Láng: learning through everyday interaction'
+    summary: You can explore curiosity, variety and learning through contact by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tān Láng (贪狼) — a symbol for curiosity, variety and learning
+      through contact. Its placement falls in the restrained brightness group, which includes ping,
+      bu and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine a weekend with several appealing invitations. Ask which experience you would like to
+      understand more deeply rather than trying to sample them all. Curiosity can become more
+      satisfying when one contact has time to develop beyond a first impression. Too many attractive
+      openings can dilute the attention a meaningful project needs. Try asking everyone what they
+      can reasonably take on, then choose one responsibility that fits your present capacity. After
+      the gathering, ask which part of the cooperation felt helpful. Use that answer to adjust your
+      next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.ju_men.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_ju_men
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=ju_men].key
+        eq: ju_men
+      - path: palaces[key=life].majorStars[key=ju_men].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.ju_men.supported.b
+  zh:
+    title: 巨门坐命：找到发挥的场景
+    summary: 你倾向辨析问题与语言表达，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察辨析问题与语言表达如何出现在日常选择里。巨门（代表辨析问题与语言表达的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你容易发现说法里的漏洞，愿意追问证据与细节。例如，一份通知里的条件写得不清楚，你想逐条问明白；可以先指出最影响下一步的一处歧义，再问需要谁补充信息，避免让整个讨论停在反复辨词。连续追问可能被听成否定，尤其在对方尚未准备讨论时。建议先确认共同目标，再提出最关键的问题，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议先确认共同目标，再提出最关键的问题
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jù Mén: finding conditions that suit you'
+    summary: You may recognize yourself in questioning assumptions and working through language; a
+      suitable setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in questioning assumptions and working through language.
+      Jù Mén (巨门) names a major star associated with that approach. It appears in the Life Palace
+      (命宫, mìng gōng — the area for everyday identity) within the supported brightness group, which
+      includes miao, wang, de and li — traditional labels for a comparatively accessible expression.
+      You may question a claim that others accept quickly and want to understand what supports it.
+      Picture reading an instruction that uses the same word in two different ways. Your question
+      may reveal a real ambiguity. Start with the meaning that changes the practical next step, then
+      ask the author for an example rather than debating every phrase. A useful question can sound
+      like rejection when the other person is not ready for an extended examination. Try
+      establishing a shared aim before raising the question most likely to clarify it. You can
+      compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Try establishing a shared aim before raising the question most likely to clarify it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.ju_men.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_ju_men
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=ju_men].key
+        eq: ju_men
+      - path: palaces[key=life].majorStars[key=ju_men].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.ju_men.supported.a
+  zh:
+    title: 巨门坐命：让长处被看见
+    summary: 你可以从辨析问题与语言表达的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见辨析问题与语言表达这条性格线索。命宫（你回应外界与理解自己的观察位置）中的巨门（象征辨析问题与语言表达的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，熟悉的人给你一个笼统建议，你想问依据是什么；先说清自己也希望把事情做好，再提一个最关键的问题，能让追问更像共同寻找信息。连续追问可能被听成否定，尤其在对方尚未准备讨论时。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jù Mén: learning through everyday interaction'
+    summary:
+      You can explore questioning assumptions and working through language by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Jù Mén (巨门) — a symbol for questioning assumptions and working
+      through language. Its placement falls in the supported brightness group, which includes miao,
+      wang, de and li — traditional labels for a comparatively accessible expression. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine hearing an account you are not yet convinced by. Establish the point you
+      both want to understand, then ask what observation would help distinguish competing
+      explanations. A focused question can keep scrutiny connected to a shared purpose. A useful
+      question can sound like rejection when the other person is not ready for an extended
+      examination. Try asking everyone what they can reasonably take on, then choose one
+      responsibility that fits your present capacity. After the gathering, ask which part of the
+      cooperation felt helpful. Use that answer to adjust your next attempt while keeping room for
+      preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.ju_men.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_ju_men
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=ju_men].key
+        eq: ju_men
+      - path: palaces[key=life].majorStars[key=ju_men].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.ju_men.restrained.b
+  zh:
+    title: 巨门坐命：给表达留出条件
+    summary: 你倾向辨析问题与语言表达，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察辨析问题与语言表达如何出现在日常选择里。巨门（代表辨析问题与语言表达的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你容易发现说法里的漏洞，愿意追问证据与细节。例如，一份通知里的条件写得不清楚，你想逐条问明白；可以先指出最影响下一步的一处歧义，再问需要谁补充信息，避免让整个讨论停在反复辨词。连续追问可能被听成否定，尤其在对方尚未准备讨论时。建议先确认共同目标，再提出最关键的问题，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议先确认共同目标，再提出最关键的问题
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jù Mén: finding conditions that suit you'
+    summary: You may recognize yourself in questioning assumptions and working through language;
+      supportive conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in questioning assumptions and working through language.
+      Jù Mén (巨门) names a major star associated with that approach. It appears in the Life Palace
+      (命宫, mìng gōng — the area for everyday identity) within the restrained brightness group, which
+      includes ping, bu and xian — labels suggesting greater dependence on context and support. You
+      may question a claim that others accept quickly and want to understand what supports it.
+      Picture reading an instruction that uses the same word in two different ways. Your question
+      may reveal a real ambiguity. Start with the meaning that changes the practical next step, then
+      ask the author for an example rather than debating every phrase. A useful question can sound
+      like rejection when the other person is not ready for an extended examination. Try
+      establishing a shared aim before raising the question most likely to clarify it. You can
+      compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Try establishing a shared aim before raising the question most likely to clarify it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.ju_men.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_ju_men
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=ju_men].key
+        eq: ju_men
+      - path: palaces[key=life].majorStars[key=ju_men].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.ju_men.restrained.a
+  zh:
+    title: 巨门坐命：用小步练习磨合
+    summary: 你可以从辨析问题与语言表达的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见辨析问题与语言表达这条性格线索。命宫（你回应外界与理解自己的观察位置）中的巨门（象征辨析问题与语言表达的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，熟悉的人给你一个笼统建议，你想问依据是什么；先说清自己也希望把事情做好，再提一个最关键的问题，能让追问更像共同寻找信息。连续追问可能被听成否定，尤其在对方尚未准备讨论时。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jù Mén: learning through everyday interaction'
+    summary:
+      You can explore questioning assumptions and working through language by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Jù Mén (巨门) — a symbol for questioning assumptions and working
+      through language. Its placement falls in the restrained brightness group, which includes ping,
+      bu and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine hearing an account you are not yet convinced by. Establish the point you both want to
+      understand, then ask what observation would help distinguish competing explanations. A focused
+      question can keep scrutiny connected to a shared purpose. A useful question can sound like
+      rejection when the other person is not ready for an extended examination. Try asking everyone
+      what they can reasonably take on, then choose one responsibility that fits your present
+      capacity. After the gathering, ask which part of the cooperation felt helpful. Use that answer
+      to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_xiang.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_xiang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+      - path: palaces[key=life].majorStars[key=tian_xiang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_xiang.supported.b
+  zh:
+    title: 天相坐命：找到发挥的场景
+    summary: 你倾向协调关系与维护程序，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察协调关系与维护程序如何出现在日常选择里。天相（代表协调关系与维护程序的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你往往愿意听两边的说法，重视规则能否让合作顺畅。例如，一项共同行动需要协调不同偏好，你愿意让每个人先说条件；意见收集之后，也要说明你建议怎样开始，让公平的程序有一个可执行的出口。反复等待所有人同意，可能让自己的立场越来越模糊。可以在听取意见后明确自己的选择和理由，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以在听取意见后明确自己的选择和理由
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Xiàng: finding conditions that suit you'
+    summary: You may recognize yourself in coordination, fairness and procedural care; a suitable
+      setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in coordination, fairness and procedural care. Tiān Xiàng
+      (天相) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. You may
+      be comfortable hearing several perspectives and using a fair process to keep cooperation
+      workable. Think of facilitating a discussion about shared space. Hearing each person’s
+      constraint can improve the process, while a stated recommendation gives everyone something
+      concrete to respond to. Fairness is easier to assess when the next step is visible. Seeking
+      agreement from everyone can obscure the judgment you are responsible for making. Consider
+      stating your own recommendation after you have heard the relevant perspectives. You can
+      compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Consider stating your own recommendation after you have heard the relevant perspectives
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_xiang.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_xiang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+      - path: palaces[key=life].majorStars[key=tian_xiang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_xiang.supported.a
+  zh:
+    title: 天相坐命：让长处被看见
+    summary: 你可以从协调关系与维护程序的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见协调关系与维护程序这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天相（象征协调关系与维护程序的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，伙伴各有一套安排，你想找到都能接受的方式；可以先区分必须满足与可以调整的条件，再提出一项可试行的规则，不用等到所有偏好完全一致。反复等待所有人同意，可能让自己的立场越来越模糊。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Xiàng: learning through everyday interaction'
+    summary:
+      You can explore coordination, fairness and procedural care by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Xiàng (天相) — a symbol for coordination, fairness and
+      procedural care. Its placement falls in the supported brightness group, which includes miao,
+      wang, de and li — traditional labels for a comparatively accessible expression. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine two collaborators expecting different handover procedures. You can
+      identify what each procedure protects, then suggest a trial that addresses the essential
+      requirements. Coordination includes expressing a judgment after you have listened. Seeking
+      agreement from everyone can obscure the judgment you are responsible for making. Try asking
+      everyone what they can reasonably take on, then choose one responsibility that fits your
+      present capacity. After the gathering, ask which part of the cooperation felt helpful. Use
+      that answer to adjust your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_xiang.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_xiang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+      - path: palaces[key=life].majorStars[key=tian_xiang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_xiang.restrained.b
+  zh:
+    title: 天相坐命：给表达留出条件
+    summary: 你倾向协调关系与维护程序，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察协调关系与维护程序如何出现在日常选择里。天相（代表协调关系与维护程序的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你往往愿意听两边的说法，重视规则能否让合作顺畅。例如，一项共同行动需要协调不同偏好，你愿意让每个人先说条件；意见收集之后，也要说明你建议怎样开始，让公平的程序有一个可执行的出口。反复等待所有人同意，可能让自己的立场越来越模糊。可以在听取意见后明确自己的选择和理由，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以在听取意见后明确自己的选择和理由
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Xiàng: finding conditions that suit you'
+    summary: You may recognize yourself in coordination, fairness and procedural care; supportive
+      conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in coordination, fairness and procedural care. Tiān Xiàng
+      (天相) names a major star associated with that approach. It appears in the Life Palace (命宫, mìng
+      gōng — the area for everyday identity) within the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. You may be
+      comfortable hearing several perspectives and using a fair process to keep cooperation
+      workable. Think of facilitating a discussion about shared space. Hearing each person’s
+      constraint can improve the process, while a stated recommendation gives everyone something
+      concrete to respond to. Fairness is easier to assess when the next step is visible. Seeking
+      agreement from everyone can obscure the judgment you are responsible for making. Consider
+      stating your own recommendation after you have heard the relevant perspectives. You can
+      compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Consider stating your own recommendation after you have heard the relevant perspectives
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_xiang.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_xiang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+      - path: palaces[key=life].majorStars[key=tian_xiang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_xiang.restrained.a
+  zh:
+    title: 天相坐命：用小步练习磨合
+    summary: 你可以从协调关系与维护程序的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见协调关系与维护程序这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天相（象征协调关系与维护程序的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，伙伴各有一套安排，你想找到都能接受的方式；可以先区分必须满足与可以调整的条件，再提出一项可试行的规则，不用等到所有偏好完全一致。反复等待所有人同意，可能让自己的立场越来越模糊。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Xiàng: learning through everyday interaction'
+    summary:
+      You can explore coordination, fairness and procedural care by noticing how you participate
+      with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Xiàng (天相) — a symbol for coordination, fairness and
+      procedural care. Its placement falls in the restrained brightness group, which includes ping,
+      bu and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine two collaborators expecting different handover procedures. You can identify what each
+      procedure protects, then suggest a trial that addresses the essential requirements.
+      Coordination includes expressing a judgment after you have listened. Seeking agreement from
+      everyone can obscure the judgment you are responsible for making. Try asking everyone what
+      they can reasonably take on, then choose one responsibility that fits your present capacity.
+      After the gathering, ask which part of the cooperation felt helpful. Use that answer to adjust
+      your next attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_liang.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_liang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_liang].key
+        eq: tian_liang
+      - path: palaces[key=life].majorStars[key=tian_liang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_liang.supported.b
+  zh:
+    title: 天梁坐命：找到发挥的场景
+    summary: 你倾向经验传递与保护意识，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察经验传递与保护意识如何出现在日常选择里。天梁（代表经验传递与保护意识的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你倾向从长远角度看问题，也愿意替别人留意容易忽略的风险。例如，你见过类似任务遇到的困难，会提醒新人先做好检查；提点之前，不妨问对方已经了解什么，再决定是给一个例子，还是陪他试一遍。还没问清需要就给出指导，可能让帮助变成额外压力。不妨先问对方想要倾听、信息还是一起想办法，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨先问对方想要倾听、信息还是一起想办法
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Liáng: finding conditions that suit you'
+    summary:
+      You may recognize yourself in protective judgment and learning from experience; a suitable
+      setting can make that approach easier to use.
+    body:
+      You may find a useful starting point in protective judgment and learning from experience. Tiān
+      Liáng (天梁) names a major star associated with that approach. It appears in the Life Palace
+      (命宫, mìng gōng — the area for everyday identity) within the supported brightness group, which
+      includes miao, wang, de and li — traditional labels for a comparatively accessible expression.
+      You may look beyond an immediate result and notice practical risks a less experienced person
+      could overlook. Picture someone asking about a task you have done before. Your experience may
+      help identify an easily missed constraint. First ask what they have already tried, so the
+      explanation answers their actual question rather than repeating an entire lesson. Advice
+      offered before a need is understood can feel burdensome even when the intention is caring. Try
+      asking whether someone wants listening, information or help thinking through options. You can
+      compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Try asking whether someone wants listening, information or help thinking through options
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_liang.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_liang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_liang].key
+        eq: tian_liang
+      - path: palaces[key=life].majorStars[key=tian_liang].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_liang.supported.a
+  zh:
+    title: 天梁坐命：让长处被看见
+    summary: 你可以从经验传递与保护意识的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见经验传递与保护意识这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天梁（象征经验传递与保护意识的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，朋友正在做一个新尝试，你很想指出可能的麻烦；先问他需要倾听还是信息，再挑一个与当前决定最相关的提醒，让关心成为可以使用的帮助。还没问清需要就给出指导，可能让帮助变成额外压力。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Liáng: learning through everyday interaction'
+    summary: You can explore protective judgment and learning from experience by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Liáng (天梁) — a symbol for protective judgment and learning
+      from experience. Its placement falls in the supported brightness group, which includes miao,
+      wang, de and li — traditional labels for a comparatively accessible expression. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine noticing a practical risk in another person’s plan. Ask whether they would
+      like an observation before offering it. If they agree, describe the condition and a possible
+      check, preserving their ownership of the choice. Advice offered before a need is understood
+      can feel burdensome even when the intention is caring. Try asking everyone what they can
+      reasonably take on, then choose one responsibility that fits your present capacity. After the
+      gathering, ask which part of the cooperation felt helpful. Use that answer to adjust your next
+      attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_liang.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_tian_liang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_liang].key
+        eq: tian_liang
+      - path: palaces[key=life].majorStars[key=tian_liang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_liang.restrained.b
+  zh:
+    title: 天梁坐命：给表达留出条件
+    summary: 你倾向经验传递与保护意识，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察经验传递与保护意识如何出现在日常选择里。天梁（代表经验传递与保护意识的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你倾向从长远角度看问题，也愿意替别人留意容易忽略的风险。例如，你见过类似任务遇到的困难，会提醒新人先做好检查；提点之前，不妨问对方已经了解什么，再决定是给一个例子，还是陪他试一遍。还没问清需要就给出指导，可能让帮助变成额外压力。不妨先问对方想要倾听、信息还是一起想办法，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 不妨先问对方想要倾听、信息还是一起想办法
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Liáng: finding conditions that suit you'
+    summary:
+      You may recognize yourself in protective judgment and learning from experience; supportive
+      conditions can help you express it with less strain.
+    body:
+      You may find a useful starting point in protective judgment and learning from experience. Tiān
+      Liáng (天梁) names a major star associated with that approach. It appears in the Life Palace
+      (命宫, mìng gōng — the area for everyday identity) within the restrained brightness group, which
+      includes ping, bu and xian — labels suggesting greater dependence on context and support. You
+      may look beyond an immediate result and notice practical risks a less experienced person could
+      overlook. Picture someone asking about a task you have done before. Your experience may help
+      identify an easily missed constraint. First ask what they have already tried, so the
+      explanation answers their actual question rather than repeating an entire lesson. Advice
+      offered before a need is understood can feel burdensome even when the intention is caring. Try
+      asking whether someone wants listening, information or help thinking through options. You can
+      compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Try asking whether someone wants listening, information or help thinking through options
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.tian_liang.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_tian_liang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_liang].key
+        eq: tian_liang
+      - path: palaces[key=life].majorStars[key=tian_liang].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.tian_liang.restrained.a
+  zh:
+    title: 天梁坐命：用小步练习磨合
+    summary: 你可以从经验传递与保护意识的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见经验传递与保护意识这条性格线索。命宫（你回应外界与理解自己的观察位置）中的天梁（象征经验传递与保护意识的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，朋友正在做一个新尝试，你很想指出可能的麻烦；先问他需要倾听还是信息，再挑一个与当前决定最相关的提醒，让关心成为可以使用的帮助。还没问清需要就给出指导，可能让帮助变成额外压力。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Liáng: learning through everyday interaction'
+    summary: You can explore protective judgment and learning from experience by noticing how you
+      participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Tiān Liáng (天梁) — a symbol for protective judgment and learning
+      from experience. Its placement falls in the restrained brightness group, which includes ping,
+      bu and xian — labels suggesting greater dependence on context and support. These conditions
+      invite you to compare situations instead of assuming one description applies everywhere.
+      Imagine noticing a practical risk in another person’s plan. Ask whether they would like an
+      observation before offering it. If they agree, describe the condition and a possible check,
+      preserving their ownership of the choice. Advice offered before a need is understood can feel
+      burdensome even when the intention is caring. Try asking everyone what they can reasonably
+      take on, then choose one responsibility that fits your present capacity. After the gathering,
+      ask which part of the cooperation felt helpful. Use that answer to adjust your next attempt
+      while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.qi_sha.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_qi_sha
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=qi_sha].key
+        eq: qi_sha
+      - path: palaces[key=life].majorStars[key=qi_sha].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.qi_sha.supported.b
+  zh:
+    title: 七杀坐命：找到发挥的场景
+    summary: 你倾向独立决断与应对挑战，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察独立决断与应对挑战如何出现在日常选择里。七杀（代表独立决断与应对挑战的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你容易在复杂局面里抓住优先事项，愿意承担有边界的困难任务。例如，几项事情同时临近截止，你可能先选最影响后续的环节集中完成；行动之前给伙伴说明取舍，再约定遇到新限制时怎样联络，能让专注更容易被配合。行动太快时，协作者可能还没理解计划为何改变。建议在启动之前交代目标、限制和求助的节点，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议在启动之前交代目标、限制和求助的节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qī Shā: finding conditions that suit you'
+    summary:
+      You may recognize yourself in independent decisions and focused responses to a challenge; a
+      suitable setting can make that approach easier to use.
+    body: You may find a useful starting point in independent decisions and focused responses to a
+      challenge. Qī Shā (七杀) names a major star associated with that approach. It appears in the
+      Life Palace (命宫, mìng gōng — the area for everyday identity) within the supported brightness
+      group, which includes miao, wang, de and li — traditional labels for a comparatively
+      accessible expression. You may cut through competing demands, identify a priority and take
+      ownership of a difficult task. Think of a task with several competing demands and little
+      preparation time. Identifying one necessary outcome can help focus your effort. Brief the
+      people affected on what will wait and when a constraint should trigger another conversation.
+      Moving rapidly can leave collaborators trying to understand a decision that has already become
+      action. Try briefing others on the goal, constraints and point at which support will be
+      needed. You can compare the original impulse with the response from others afterward.
+      Brightness describes symbolic conditions of expression, so take this as a prompt for adjusting
+      your surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Try briefing others on the goal, constraints and point at which support will be needed
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.qi_sha.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_qi_sha
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=qi_sha].key
+        eq: qi_sha
+      - path: palaces[key=life].majorStars[key=qi_sha].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.qi_sha.supported.a
+  zh:
+    title: 七杀坐命：让长处被看见
+    summary: 你可以从独立决断与应对挑战的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见独立决断与应对挑战这条性格线索。命宫（你回应外界与理解自己的观察位置）中的七杀（象征独立决断与应对挑战的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你独立处理一个陌生环节时想快速给出结果，但尚有信息缺口；可以先完成确定的部分，并说清需要确认的节点，把求助放进原来的计划。行动太快时，协作者可能还没理解计划为何改变。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qī Shā: learning through everyday interaction'
+    summary:
+      You can explore independent decisions and focused responses to a challenge by noticing how
+      you participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Qī Shā (七杀) — a symbol for independent decisions and focused
+      responses to a challenge. Its placement falls in the supported brightness group, which
+      includes miao, wang, de and li — traditional labels for a comparatively accessible expression.
+      These conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine owning the difficult part of a shared project. It may feel efficient to
+      proceed alone, yet an agreed checkpoint can reveal a changed requirement early. Asking for
+      relevant information at that point supports responsibility rather than diminishing it. Moving
+      rapidly can leave collaborators trying to understand a decision that has already become
+      action. Try asking everyone what they can reasonably take on, then choose one responsibility
+      that fits your present capacity. After the gathering, ask which part of the cooperation felt
+      helpful. Use that answer to adjust your next attempt while keeping room for preferences to
+      change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.qi_sha.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_qi_sha
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=qi_sha].key
+        eq: qi_sha
+      - path: palaces[key=life].majorStars[key=qi_sha].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.qi_sha.restrained.b
+  zh:
+    title: 七杀坐命：给表达留出条件
+    summary: 你倾向独立决断与应对挑战，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察独立决断与应对挑战如何出现在日常选择里。七杀（代表独立决断与应对挑战的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你容易在复杂局面里抓住优先事项，愿意承担有边界的困难任务。例如，几项事情同时临近截止，你可能先选最影响后续的环节集中完成；行动之前给伙伴说明取舍，再约定遇到新限制时怎样联络，能让专注更容易被配合。行动太快时，协作者可能还没理解计划为何改变。建议在启动之前交代目标、限制和求助的节点，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 建议在启动之前交代目标、限制和求助的节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qī Shā: finding conditions that suit you'
+    summary:
+      You may recognize yourself in independent decisions and focused responses to a challenge;
+      supportive conditions can help you express it with less strain.
+    body: You may find a useful starting point in independent decisions and focused responses to a
+      challenge. Qī Shā (七杀) names a major star associated with that approach. It appears in the
+      Life Palace (命宫, mìng gōng — the area for everyday identity) within the restrained brightness
+      group, which includes ping, bu and xian — labels suggesting greater dependence on context and
+      support. You may cut through competing demands, identify a priority and take ownership of a
+      difficult task. Think of a task with several competing demands and little preparation time.
+      Identifying one necessary outcome can help focus your effort. Brief the people affected on
+      what will wait and when a constraint should trigger another conversation. Moving rapidly can
+      leave collaborators trying to understand a decision that has already become action. Try
+      briefing others on the goal, constraints and point at which support will be needed. You can
+      compare the original impulse with the response from others afterward. Brightness describes
+      symbolic conditions of expression, so take this as a prompt for adjusting your surroundings
+      and practice rather than a rating of personal ability.
+    advice:
+      - Try briefing others on the goal, constraints and point at which support will be needed
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.qi_sha.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_qi_sha
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=qi_sha].key
+        eq: qi_sha
+      - path: palaces[key=life].majorStars[key=qi_sha].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.qi_sha.restrained.a
+  zh:
+    title: 七杀坐命：用小步练习磨合
+    summary: 你可以从独立决断与应对挑战的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见独立决断与应对挑战这条性格线索。命宫（你回应外界与理解自己的观察位置）中的七杀（象征独立决断与应对挑战的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你独立处理一个陌生环节时想快速给出结果，但尚有信息缺口；可以先完成确定的部分，并说清需要确认的节点，把求助放进原来的计划。行动太快时，协作者可能还没理解计划为何改变。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qī Shā: learning through everyday interaction'
+    summary:
+      You can explore independent decisions and focused responses to a challenge by noticing how
+      you participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Qī Shā (七杀) — a symbol for independent decisions and focused
+      responses to a challenge. Its placement falls in the restrained brightness group, which
+      includes ping, bu and xian — labels suggesting greater dependence on context and support.
+      These conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine owning the difficult part of a shared project. It may feel efficient to
+      proceed alone, yet an agreed checkpoint can reveal a changed requirement early. Asking for
+      relevant information at that point supports responsibility rather than diminishing it. Moving
+      rapidly can leave collaborators trying to understand a decision that has already become
+      action. Try asking everyone what they can reasonably take on, then choose one responsibility
+      that fits your present capacity. After the gathering, ask which part of the cooperation felt
+      helpful. Use that answer to adjust your next attempt while keeping room for preferences to
+      change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.po_jun.supported.a
+  system: ziwei
+  section: life_palace
+  topic: life_po_jun
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=po_jun].key
+        eq: po_jun
+      - path: palaces[key=life].majorStars[key=po_jun].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.po_jun.supported.b
+  zh:
+    title: 破军坐命：找到发挥的场景
+    summary: 你倾向拆解旧法与重新组织，合适场景能让优势更清晰。
+    body: 你认识自己的一个入口，是观察拆解旧法与重新组织如何出现在日常选择里。破军（代表拆解旧法与重新组织的主星）在命宫（观察性格与日常回应的领域），并处于庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。你倾向检视旧办法是否仍然有效，愿意从实际问题出发重新设计。例如，一个常用流程已不适合新的需求，你想直接换一种做法；可以先在小任务上试行，保留原始资料，再比较节省了什么、增加了什么交接成本。一次改动太多，可能分不清哪项变化真正有用。可以先做可撤回的小实验，再决定是否扩大，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以先做可撤回的小实验，再决定是否扩大
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Pò Jūn: finding conditions that suit you'
+    summary: You may recognize yourself in reworking structures and experimenting with a new
+      arrangement; a suitable setting can make that approach easier to use.
+    body: You may find a useful starting point in reworking structures and experimenting with a new
+      arrangement. Pò Jūn (破军) names a major star associated with that approach. It appears in the
+      Life Palace (命宫, mìng gōng — the area for everyday identity) within the supported brightness
+      group, which includes miao, wang, de and li — traditional labels for a comparatively
+      accessible expression. You may question an inherited arrangement and rebuild it around the
+      problem it is supposed to solve. Picture an inherited filing method that no longer fits the
+      materials being used. You may want to rebuild it around the actual need. Start with a small
+      collection and preserve the previous labels until you know whether the new structure is easier
+      to navigate. Changing several parts at once makes it difficult to tell which adjustment
+      actually helped. Consider a reversible trial before extending a new arrangement to everything.
+      You can compare the original impulse with the response from others afterward. Brightness
+      describes symbolic conditions of expression, so take this as a prompt for adjusting your
+      surroundings and practice rather than a rating of personal ability.
+    advice:
+      - Consider a reversible trial before extending a new arrangement to everything
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.po_jun.supported.b
+  system: ziwei
+  section: life_palace
+  topic: life_po_jun
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=po_jun].key
+        eq: po_jun
+      - path: palaces[key=life].majorStars[key=po_jun].brightness
+        in:
+          - miao
+          - wang
+          - de
+          - li
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.po_jun.supported.a
+  zh:
+    title: 破军坐命：让长处被看见
+    summary: 你可以从拆解旧法与重新组织的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见拆解旧法与重新组织这条性格线索。命宫（你回应外界与理解自己的观察位置）中的破军（象征拆解旧法与重新组织的主星），在本盘显示庙旺、得利（传统亮度中较易发挥的一组），象征表达渠道相对顺手。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你调整日常安排时想把几件不顺手的事同时改掉；不妨只先移动一个时段，看看是否真的改善衔接，再决定下一步，避免一次变化太多而难以复盘。一次改动太多，可能分不清哪项变化真正有用。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Pò Jūn: learning through everyday interaction'
+    summary:
+      You can explore reworking structures and experimenting with a new arrangement by noticing
+      how you participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Pò Jūn (破军) — a symbol for reworking structures and experimenting
+      with a new arrangement. Its placement falls in the supported brightness group, which includes
+      miao, wang, de and li — traditional labels for a comparatively accessible expression. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine replacing a familiar meeting format with an experiment. A limited session
+      lets participants compare what became easier and what information was lost. Keep the option to
+      restore a useful step while you assess the new arrangement. Changing several parts at once
+      makes it difficult to tell which adjustment actually helped. Try asking everyone what they can
+      reasonably take on, then choose one responsibility that fits your present capacity. After the
+      gathering, ask which part of the cooperation felt helpful. Use that answer to adjust your next
+      attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.po_jun.restrained.a
+  system: ziwei
+  section: life_palace
+  topic: life_po_jun
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=po_jun].key
+        eq: po_jun
+      - path: palaces[key=life].majorStars[key=po_jun].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.po_jun.restrained.b
+  zh:
+    title: 破军坐命：给表达留出条件
+    summary: 你倾向拆解旧法与重新组织，先搭好支持条件会更从容。
+    body: 你认识自己的一个入口，是观察拆解旧法与重新组织如何出现在日常选择里。破军（代表拆解旧法与重新组织的主星）在命宫（观察性格与日常回应的领域），并处于平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。你倾向检视旧办法是否仍然有效，愿意从实际问题出发重新设计。例如，一个常用流程已不适合新的需求，你想直接换一种做法；可以先在小任务上试行，保留原始资料，再比较节省了什么、增加了什么交接成本。一次改动太多，可能分不清哪项变化真正有用。可以先做可撤回的小实验，再决定是否扩大，把这次尝试的感受和结果放在一起复盘；亮度描述象征的表现条件，不是能力等级，环境与练习仍有调整空间。
+    advice:
+      - 可以先做可撤回的小实验，再决定是否扩大
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Pò Jūn: finding conditions that suit you'
+    summary: You may recognize yourself in reworking structures and experimenting with a new
+      arrangement; supportive conditions can help you express it with less strain.
+    body: You may find a useful starting point in reworking structures and experimenting with a new
+      arrangement. Pò Jūn (破军) names a major star associated with that approach. It appears in the
+      Life Palace (命宫, mìng gōng — the area for everyday identity) within the restrained brightness
+      group, which includes ping, bu and xian — labels suggesting greater dependence on context and
+      support. You may question an inherited arrangement and rebuild it around the problem it is
+      supposed to solve. Picture an inherited filing method that no longer fits the materials being
+      used. You may want to rebuild it around the actual need. Start with a small collection and
+      preserve the previous labels until you know whether the new structure is easier to navigate.
+      Changing several parts at once makes it difficult to tell which adjustment actually helped.
+      Consider a reversible trial before extending a new arrangement to everything. You can compare
+      the original impulse with the response from others afterward. Brightness describes symbolic
+      conditions of expression, so take this as a prompt for adjusting your surroundings and
+      practice rather than a rating of personal ability.
+    advice:
+      - Consider a reversible trial before extending a new arrangement to everything
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.life.po_jun.restrained.b
+  system: ziwei
+  section: life_palace
+  topic: life_po_jun
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=po_jun].key
+        eq: po_jun
+      - path: palaces[key=life].majorStars[key=po_jun].brightness
+        in:
+          - ping
+          - bu
+          - xian
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with:
+    - ziwei.life.po_jun.restrained.a
+  zh:
+    title: 破军坐命：用小步练习磨合
+    summary: 你可以从拆解旧法与重新组织的偏好出发，试着找到适合自己的节奏。
+    body: 你更容易在实际相处里看见拆解旧法与重新组织这条性格线索。命宫（你回应外界与理解自己的观察位置）中的破军（象征拆解旧法与重新组织的主星），在本盘显示平、不或陷（传统亮度中需要更多情境支持的一组），提示表达方式较受环境影响。这意味着同一种倾向在不同支持条件下，可能表现得很不一样，不宜只给自己下一个固定评价。比如，你调整日常安排时想把几件不顺手的事同时改掉；不妨只先移动一个时段，看看是否真的改善衔接，再决定下一步，避免一次变化太多而难以复盘。一次改动太多，可能分不清哪项变化真正有用。不妨先让每个人说出可承担的一部分，再由你选一件适合当前精力的小事完成；结束时询问哪种配合最有帮助，把得到的反馈用于下一次安排。
+    advice:
+      - 在一次合作结束后，问问哪种配合对彼此最有帮助。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Pò Jūn: learning through everyday interaction'
+    summary:
+      You can explore reworking structures and experimenting with a new arrangement by noticing
+      how you participate with other people.
+    body: You may understand your own preferences more clearly through ordinary interactions than
+      through a single label. The Life Palace (命宫, mìng gōng — a perspective on identity and
+      everyday responses) contains Pò Jūn (破军) — a symbol for reworking structures and experimenting
+      with a new arrangement. Its placement falls in the restrained brightness group, which includes
+      ping, bu and xian — labels suggesting greater dependence on context and support. These
+      conditions invite you to compare situations instead of assuming one description applies
+      everywhere. Imagine replacing a familiar meeting format with an experiment. A limited session
+      lets participants compare what became easier and what information was lost. Keep the option to
+      restore a useful step while you assess the new arrangement. Changing several parts at once
+      makes it difficult to tell which adjustment actually helped. Try asking everyone what they can
+      reasonably take on, then choose one responsibility that fits your present capacity. After the
+      gathering, ask which part of the cooperation felt helpful. Use that answer to adjust your next
+      attempt while keeping room for preferences to change.
+    advice:
+      - Ask which contribution helped before repeating your usual approach.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

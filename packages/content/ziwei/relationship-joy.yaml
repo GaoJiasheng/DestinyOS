@@ -1,0 +1,198 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: Hong Luan and Tian Xi are adjectiveStars in the actual engine adapter, not minorStars. Their meanings concern voluntary enjoyable contact, never marriage or fertility forecasts.
+- id: ziwei.joy.spouse.hong_luan
+  system: ziwei
+  section: love_family
+  topic: joy_spouse_hong_luan
+  when:
+    path: palaces[key=spouse].adjectiveStars
+    contains: hong_luan
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 红鸾在夫妻宫：轻松互动的入口
+    summary: 你可以从轻松的共同活动，观察亲密沟通中的互动。
+    body: 你可以从轻松的共同活动，观察亲密沟通中的互动。红鸾（传统上关联喜悦与人际接触的辅助符号）出现在夫妻宫（观察亲密关系中的协商方式与期待的领域），为关系主题补充相处气氛的角度，不用来预告婚育或某段关系的到来。例如，你与伴侣或正在了解的人安排周末时，可以先分别说出需要安静、交流还是一起做事，也可以从一次不带成果要求的散步或共同兴趣开始，看看双方是否有自在表达的机会。关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议先发出一个可接受也可婉拒的小邀请，再询问对方喜欢怎样的活动；轻松感来自合适的节奏与自愿参与，不能用星曜替代当事人的选择。
+    advice:
+      - 发出一个有明确范围、允许婉拒的小邀请。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Hóng Luán in Spouse Palace: room for enjoyable contact'
+    summary: You can explore negotiation in close relationships through a small, voluntary shared activity.
+    body:
+      You can look for an easy point of contact within negotiation in close relationships. Hóng Luán
+      (红鸾) — an auxiliary symbol associated with pleasure and social encounters — appears in the 夫妻宫
+      (fū qī gōng), the area for the expectations and conversations that shape an intimate
+      partnership. It adds a perspective on the atmosphere of interaction without forecasting
+      partnership or parenthood. While arranging a weekend with a partner or someone you are getting
+      to know, compare what each person needs from the time together. A short walk or a shared
+      interest without a required result may offer another way to notice whether people have room to
+      speak comfortably. A symbolic relationship theme cannot decide compatibility or tell you what
+      kind of relationship to pursue. Try a modest invitation with a clear scope and an easy way to
+      decline. Ask what kind of activity the other person would enjoy, then adapt the arrangement to
+      mutual preference and available time. Enjoyable contact depends on voluntary participation
+      rather than a symbolic label.
+    advice:
+      - Offer a modest invitation that can comfortably be declined.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.joy.children.hong_luan
+  system: ziwei
+  section: love_family
+  topic: joy_children_hong_luan
+  when:
+    path: palaces[key=children].adjectiveStars
+    contains: hong_luan
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 红鸾在子女宫：轻松互动的入口
+    summary: 你可以从轻松的共同活动，观察陪伴与培育中的互动。
+    body: 你可以从轻松的共同活动，观察陪伴与培育中的互动。红鸾（传统上关联喜悦与人际接触的辅助符号）出现在子女宫（观察你对晚辈、学习者以及需要持续培育的事情的投入的领域），为关系主题补充相处气氛的角度，不用来预告婚育或某段关系的到来。例如，指导新同事完成第一份作品时，不妨询问对方想先独立尝试，还是希望你示范一个步骤，也可以从一次不带成果要求的散步或共同兴趣开始，看看双方是否有自在表达的机会。这里也适用于教学与创作，不推断生育安排；被帮助的人仍有自己的节奏。建议先发出一个可接受也可婉拒的小邀请，再询问对方喜欢怎样的活动；轻松感来自合适的节奏与自愿参与，不能用星曜替代当事人的选择。
+    advice:
+      - 发出一个有明确范围、允许婉拒的小邀请。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Hóng Luán in Children Palace: room for enjoyable contact'
+    summary: You can explore mentoring and nurturing through a small, voluntary shared activity.
+    body:
+      'You can look for an easy point of contact within mentoring and nurturing. Hóng Luán (红鸾) — an
+      auxiliary symbol associated with pleasure and social encounters — appears in the 子女宫 (zǐ nǚ
+      gōng), the area for your approach to younger people, learners and projects that need patient
+      development. It adds a perspective on the atmosphere of interaction without forecasting
+      partnership or parenthood. Think of helping a new colleague with a first piece of work: ask
+      whether they want a demonstration or room to attempt it themselves. A short walk or a shared
+      interest without a required result may offer another way to notice whether people have room to
+      speak comfortably. This theme also applies to teaching and creative work; it does not
+      prescribe parenthood or replace a learner’s own pace. Try a modest invitation with a clear
+      scope and an easy way to decline. Ask what kind of activity the other person would enjoy, then
+      adapt the arrangement to mutual preference and available time. Enjoyable contact depends on
+      voluntary participation rather than a symbolic label.'
+    advice:
+      - Offer a modest invitation that can comfortably be declined.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.joy.spouse.tian_xi
+  system: ziwei
+  section: love_family
+  topic: joy_spouse_tian_xi
+  when:
+    path: palaces[key=spouse].adjectiveStars
+    contains: tian_xi
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天喜在夫妻宫：轻松互动的入口
+    summary: 你可以从轻松的共同活动，观察亲密沟通中的互动。
+    body: 你可以从轻松的共同活动，观察亲密沟通中的互动。天喜（传统上关联喜悦与人际接触的辅助符号）出现在夫妻宫（观察亲密关系中的协商方式与期待的领域），为关系主题补充相处气氛的角度，不用来预告婚育或某段关系的到来。例如，你与伴侣或正在了解的人安排周末时，可以先分别说出需要安静、交流还是一起做事，也可以从一次不带成果要求的散步或共同兴趣开始，看看双方是否有自在表达的机会。关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议先发出一个可接受也可婉拒的小邀请，再询问对方喜欢怎样的活动；轻松感来自合适的节奏与自愿参与，不能用星曜替代当事人的选择。
+    advice:
+      - 发出一个有明确范围、允许婉拒的小邀请。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Xǐ in Spouse Palace: room for enjoyable contact'
+    summary: You can explore negotiation in close relationships through a small, voluntary shared activity.
+    body:
+      You can look for an easy point of contact within negotiation in close relationships. Tiān Xǐ
+      (天喜) — an auxiliary symbol associated with pleasure and social encounters — appears in the 夫妻宫
+      (fū qī gōng), the area for the expectations and conversations that shape an intimate
+      partnership. It adds a perspective on the atmosphere of interaction without forecasting
+      partnership or parenthood. While arranging a weekend with a partner or someone you are getting
+      to know, compare what each person needs from the time together. A short walk or a shared
+      interest without a required result may offer another way to notice whether people have room to
+      speak comfortably. A symbolic relationship theme cannot decide compatibility or tell you what
+      kind of relationship to pursue. Try a modest invitation with a clear scope and an easy way to
+      decline. Ask what kind of activity the other person would enjoy, then adapt the arrangement to
+      mutual preference and available time. Enjoyable contact depends on voluntary participation
+      rather than a symbolic label.
+    advice:
+      - Offer a modest invitation that can comfortably be declined.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.joy.children.tian_xi
+  system: ziwei
+  section: love_family
+  topic: joy_children_tian_xi
+  when:
+    path: palaces[key=children].adjectiveStars
+    contains: tian_xi
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天喜在子女宫：轻松互动的入口
+    summary: 你可以从轻松的共同活动，观察陪伴与培育中的互动。
+    body: 你可以从轻松的共同活动，观察陪伴与培育中的互动。天喜（传统上关联喜悦与人际接触的辅助符号）出现在子女宫（观察你对晚辈、学习者以及需要持续培育的事情的投入的领域），为关系主题补充相处气氛的角度，不用来预告婚育或某段关系的到来。例如，指导新同事完成第一份作品时，不妨询问对方想先独立尝试，还是希望你示范一个步骤，也可以从一次不带成果要求的散步或共同兴趣开始，看看双方是否有自在表达的机会。这里也适用于教学与创作，不推断生育安排；被帮助的人仍有自己的节奏。建议先发出一个可接受也可婉拒的小邀请，再询问对方喜欢怎样的活动；轻松感来自合适的节奏与自愿参与，不能用星曜替代当事人的选择。
+    advice:
+      - 发出一个有明确范围、允许婉拒的小邀请。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Xǐ in Children Palace: room for enjoyable contact'
+    summary: You can explore mentoring and nurturing through a small, voluntary shared activity.
+    body:
+      'You can look for an easy point of contact within mentoring and nurturing. Tiān Xǐ (天喜) — an
+      auxiliary symbol associated with pleasure and social encounters — appears in the 子女宫 (zǐ nǚ
+      gōng), the area for your approach to younger people, learners and projects that need patient
+      development. It adds a perspective on the atmosphere of interaction without forecasting
+      partnership or parenthood. Think of helping a new colleague with a first piece of work: ask
+      whether they want a demonstration or room to attempt it themselves. A short walk or a shared
+      interest without a required result may offer another way to notice whether people have room to
+      speak comfortably. This theme also applies to teaching and creative work; it does not
+      prescribe parenthood or replace a learner’s own pace. Try a modest invitation with a clear
+      scope and an easy way to decline. Ask what kind of activity the other person would enjoy, then
+      adapt the arrangement to mutual preference and available time. Enjoyable contact depends on
+      voluntary participation rather than a symbolic label.'
+    advice:
+      - Offer a modest invitation that can comfortably be declined.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

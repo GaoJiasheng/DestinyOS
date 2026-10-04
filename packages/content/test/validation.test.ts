@@ -30,7 +30,8 @@ describe('knowledge validation', () => {
   });
   it('loads the source disclaimer, glossary and bilingual transitions', async () => {
     const result = await loadContent();
-    expect(result.diagnostics).toEqual([]);
+    // §7 makes duplicate diagnostics warnings; structural errors must still fail.
+    expect(result.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
     expect(result.glossary.length).toBeGreaterThan(400);
     expect(result.units.map((u) => u.id)).toContain('common.disclaimer');
   });
@@ -131,5 +132,26 @@ describe('knowledge validation', () => {
       await readFile(new URL('../schema/ku.schema.json', import.meta.url), 'utf8'),
     );
     expect(schema).toHaveProperty('$defs.when.oneOf');
+  });
+});
+
+// Corpus comparisons must retain the documented Dice score while reusing tokenization.
+describe('cached duplicate comparison', () => {
+  it('matches the direct comparator for repeated bilingual and short inputs', async () => {
+    const { createSimilarityComparator, similarity } = await import('../src');
+    const cached = createSimilarityComparator();
+    const texts = [
+      '',
+      '甲',
+      '你可以先列出任务，再确定负责人。',
+      '你可以先列出安排，再确定检查点。',
+      'Try assigning a clear owner before starting.',
+      'Keep the invitation easy to decline.',
+    ];
+    for (const a of texts)
+      for (const b of texts) {
+        expect(cached(a, b)).toBe(similarity(a, b));
+        expect(cached(a, b)).toBe(similarity(a, b));
+      }
   });
 });
