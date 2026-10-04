@@ -1,19 +1,37 @@
 'use client';
-import { BaziChartSchema } from '@tianji/shared';
+import { BaziChartSchema, ZiweiChartSchema } from '@tianji/shared';
+import { ZiweiGrid, ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
 import { useTranslations } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
-/** Accessible first-system chart table; detailed chart visualizations continue in T-33. */
+/** Render the saved chart with schema-checked system visuals and shared evidence/section links. */
 export function ChartPreview({
   chart,
   highlight,
   onSelect,
+  system,
+  professional,
 }: {
   chart: unknown;
   highlight?: string;
   onSelect?: (section: string) => void;
+  system?: string;
+  professional?: boolean;
 }) {
   const t = useCopy();
   const translations = useTranslations();
+  const ziwei = ZiweiChartSchema.safeParse(chart);
+  if (ziwei.success)
+    return (
+      <div id="chart-root" data-highlight={highlight}>
+        <ZiweiGrid
+          chart={ziwei.data}
+          highlight={highlight}
+          professional={professional}
+          onSelect={onSelect}
+        />
+      </div>
+    );
+  if (system === 'ziwei') return <ZiweiTimeRequired />;
   const parsed = BaziChartSchema.safeParse(chart);
   if (!parsed.success)
     return (

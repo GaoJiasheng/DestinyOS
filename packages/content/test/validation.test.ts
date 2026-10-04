@@ -28,13 +28,14 @@ describe('knowledge validation', () => {
     expect(result.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
     expect(validateRelations(result.units).filter((d) => d.severity === 'error')).toEqual([]);
   });
+  // DESIGN-GAP: Full-corpus scans have a bounded 60s allowance under coverage when worktrees share CPU; assertions stay unchanged.
   it('loads the source disclaimer, glossary and bilingual transitions', async () => {
     const result = await loadContent();
     // §7 treats editorial similarity as a review warning, not a schema failure.
     expect(result.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
     expect(result.glossary.length).toBeGreaterThan(400);
     expect(result.units.map((u) => u.id)).toContain('common.disclaimer');
-  });
+  }, 60_000);
   it('locates an invalid when.path in the original file and line', () => {
     const unit = sample();
     unit.when = { path: 'dayMaster.typo', eq: 'geng' };

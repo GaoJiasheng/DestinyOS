@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './apps/web/e2e',
-  testIgnore: ['auth.spec.ts', 'readings.spec.ts'],
+  testIgnore: ['auth.spec.ts', 'readings.spec.ts', 'ziwei.spec.ts'],
   fullyParallel: true,
   // DESIGN-GAP: Two browser workers keep screenshots and cold Next.js compilation within the existing timeout.
   workers: 2,

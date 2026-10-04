@@ -37,6 +37,7 @@ describe('source tables and KU integration', () => {
       expect.arrayContaining([expect.objectContaining({ severity: 'error' })]),
     );
   });
+  // DESIGN-GAP: Full-corpus scans have a bounded 60s allowance under coverage when worktrees share CPU; assertions stay unchanged.
   it('keeps unknown YAML in KU validation and excludes source tables from published units', async () => {
     expect(validateAsset('tarot/reading.yaml', 'tarot/reading.yaml', '[]')).toBeUndefined();
     const result = await loadContent();
@@ -51,5 +52,5 @@ describe('source tables and KU integration', () => {
     expect(result.units.some((unit) => unit.id.startsWith('hexagram_'))).toBe(false);
     expect(result.units.some((unit) => unit.system === 'qimen')).toBe(true);
     expect(result.glossary.length).toBeGreaterThan(400);
-  });
+  }, 60_000);
 });

@@ -11,6 +11,7 @@ export function Dialog({
   description,
   children,
   required = false,
+  className,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -18,6 +19,7 @@ export function Dialog({
   description?: string;
   children: ReactNode;
   required?: boolean;
+  className?: string;
 }) {
   const t = useCopy();
   return (
@@ -25,7 +27,7 @@ export function Dialog({
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="dialog-overlay" />
         <DialogPrimitive.Content
-          className="dialog-content"
+          className={`dialog-content${className ? ` ${className}` : ''}`}
           {...(!description ? { 'aria-describedby': undefined } : {})}
           onEscapeKeyDown={required ? (event) => event.preventDefault() : undefined}
           onPointerDownOutside={required ? (event) => event.preventDefault() : undefined}
