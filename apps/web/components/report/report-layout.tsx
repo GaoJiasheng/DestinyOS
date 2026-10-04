@@ -20,6 +20,13 @@ import { ReportHeadline } from './report-headline';
 import { ChartPreview } from './chart-preview';
 import { ProfessionalData } from './professional-data';
 import { SectionNav, ReportSection, AdSlot, AdviceList } from './report-section';
+import {
+  baziSection,
+  chartPath,
+  focusChartAnchor,
+  isHighlighted,
+  resolveChartPaths,
+} from '@/components/charts/bazi-shared';
 /** Shared snapshot renderer with chart anchors, professional data, owner controls and bounded ad slots. */
 export function ReportLayout({
   reading,
@@ -41,6 +48,7 @@ export function ReportLayout({
   const [view, setView] = useState(reading);
   const [professional, setProfessional] = useState(false);
   const [highlight, setHighlight] = useState('');
+  const [selectedSection, setSelectedSection] = useState('');
   const [dialog, setDialog] = useState<'rename' | 'delete' | null>(null);
   const [title, setTitle] = useState(reading.title ?? '');
   const [busy, setBusy] = useState(false);
@@ -56,8 +64,30 @@ export function ReportLayout({
     } else toast.error(t('report.error.E_FORBIDDEN'));
   };
   const evidence = (path: string) => {
+    // DESIGN-GAP: A filtered evidence path may match several nodes; focus the first matching snapshot node, keeping the full evidence text visible.
+    const resolved = resolveChartPaths(view.chart, path)[0] ?? chartPath(path);
+    setHighlight(resolved);
+    setSelectedSection('');
+    const root = document.getElementById('chart-root');
+    if (!root) return;
+    const details = root.closest('details');
+    if (details) details.open = true;
+    // DESIGN-GAP: Evidence paths can point inside arrays; choose the most specific rendered parent and fall back to the chart root.
+    requestAnimationFrame(() => {
+      const candidates = Array.from(root.querySelectorAll<HTMLElement>('[data-chart-path]'))
+        .filter((element) => isHighlighted(resolved, element.dataset.chartPath ?? ''))
+        .sort((a, b) => (b.dataset.chartPath?.length ?? 0) - (a.dataset.chartPath?.length ?? 0));
+      const exact = candidates.find(
+        (element) => chartPath(element.dataset.chartPath ?? '') === resolved,
+      );
+      focusChartAnchor(exact ?? candidates[0] ?? root);
+    });
+  };
+  const selectChart = (path: string) => {
     setHighlight(path);
-    document.getElementById('chart-root')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const key = baziSection(path);
+    setSelectedSection(key);
+    focusChartAnchor(document.getElementById(`section-${key}`));
   };
   const regenerate = async () => {
     setBusy(true);
@@ -130,7 +160,7 @@ export function ReportLayout({
     }
   };
   return (
-    <article className="report-layout">
+    <article className="report-layout" data-system={view.system}>
       <header className="report-toolbar">
         <div>
           <p className="eyebrow">{t(`nav.${view.system}` as MessageKey)}</p>
@@ -206,11 +236,8 @@ export function ReportLayout({
             <ChartPreview
               chart={view.chart}
               highlight={highlight}
-              onSelect={(section) =>
-                document
-                  .getElementById(`section-${section}`)
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
+              professional={professional}
+              onSelect={selectChart}
             />
           </details>
         </aside>
@@ -223,6 +250,9 @@ export function ReportLayout({
                 chart={view.chart}
                 onEvidence={evidence}
                 readingId={local ? undefined : view.id}
+                highlight={highlight}
+                selected={selectedSection === section.key}
+                onChartSelect={selectChart}
               />
               {i === 1 || i === 5 ? (
                 <AdSlot slot={`report-${i === 1 ? '2-3' : '6-7'}`} plan={plan} />

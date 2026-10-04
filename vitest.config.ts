@@ -10,8 +10,8 @@ export default defineConfig({
       'apps/web/test/**/*.test.tsx',
     ],
     environment: 'node',
-    // DESIGN-GAP: Four workers and a 15s timeout accommodate real Chromium plus exhaustive calendar fixtures under coverage without changing assertions or coverage thresholds.
-    maxWorkers: 4,
+    // DESIGN-GAP: A single coverage worker bounds merged-corpus audit memory and CPU contention across concurrent worktrees, retaining all assertions and timeouts.
+    maxWorkers: 1,
     testTimeout: 15_000,
     // DESIGN-GAP: The merged bilingual corpus needs up to 30s for hook-time schema and duplicate scans under coverage.
     hookTimeout: 30_000,
