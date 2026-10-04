@@ -3,97 +3,135 @@
   zh:
     term: 行动
     short: 把注意力转成可执行的小步骤
-    long: 把注意力转成可执行的小步骤
+    long: 行动指把当前的关注转成一个可执行、可观察的小步骤。可以先确认时间与资源，再用真实反馈调整下一步，而不是只凭牌面替自己作决定。
+    pinyin: xíng dòng
   en:
     term: Action
     short: A small step you can actually try.
-    long: A small step you can actually try.
+    long: Action means turning attention into a small, observable step. Check the
+      time and resources it needs, try it, and use actual feedback to adjust the
+      next step rather than treating a card as a decision maker.
+    pinyin: xíng dòng
   aliases: []
 - key: tarot.reflection
   system: tarot
   zh:
     term: 思考
     short: 留一点时间分辨经验与自己的解释
-    long: 留一点时间分辨经验与自己的解释
+    long: 思考指留出时间区分发生的事情、自己的解释和随之出现的感受。记录一个具体例子，再比较其他可能的理解，有助于避免把初步印象当成事实。
+    pinyin: sī kǎo
   en:
     term: Reflection
     short: Time to distinguish an observation from your interpretation.
-    long: Time to distinguish an observation from your interpretation.
+    long: Reflection creates space between an observation, its interpretation, and
+      the feelings that follow. Write down a specific example and consider other
+      explanations before treating a first impression as a fact.
+    pinyin: sī kǎo
   aliases: []
 - key: tarot.communication
   system: tarot
   zh:
     term: 沟通
     short: 通过表达与倾听补充真实信息
-    long: 通过表达与倾听补充真实信息
+    long: 沟通包括表达自己的需要，也包括倾听对方的回应。可以从一个具体问题开始，确认彼此理解是否一致，再讨论双方愿意尝试的安排。
+    pinyin: gōu tōng
   en:
     term: Communication
     short: Sharing a clear question and listening to a direct response.
-    long: Sharing a clear question and listening to a direct response.
+    long: Communication combines expressing a need with listening to the response.
+      Begin with a concrete question, check that both people understand it
+      similarly, and discuss an arrangement each person is willing to try.
+    pinyin: gōu tōng
   aliases: []
 - key: tarot.boundaries
   system: tarot
   zh:
     term: 边界
     short: 说清自己愿意承担的范围
-    long: 说清自己愿意承担的范围
+    long: 边界指一个人愿意提供、接受或承担的范围。把时间、精力与责任说清楚，并允许双方根据实际情况重新协商，有助于维持清晰而可持续的关系。
+    pinyin: biān jiè
   en:
     term: Boundaries
     short: The scope you are comfortable offering or accepting.
-    long: The scope you are comfortable offering or accepting.
+    long: Boundaries describe what a person is comfortable offering, accepting, or
+      taking responsibility for. Clarify time, energy, and responsibilities, and
+      leave room to renegotiate when circumstances change.
+    pinyin: biān jiè
   aliases: []
 - key: tarot.review
   system: tarot
   zh:
     term: 复盘
     short: 用后来得到的消息回看原先的安排
-    long: 用后来得到的消息回看原先的安排
+    long: 复盘指用后来获得的信息回看原先的选择与安排。可以分别记录原先的预期、实际结果和下一次可调整的步骤，以了解经验而不是评价个人价值。
+    pinyin: fù pán
   en:
     term: Review
     short: Looking back at a plan with information gained afterwards.
-    long: Looking back at a plan with information gained afterwards.
+    long: Review means revisiting a choice with information gained afterwards.
+      Separate the original expectation, the actual result, and a step to adjust
+      next time; the purpose is learning from experience rather than judging
+      personal worth.
+    pinyin: fù pán
   aliases: []
 - key: tarot.preparation
   system: tarot
   zh:
     term: 准备
     short: 确认行动所需的时间与资源
-    long: 确认行动所需的时间与资源
+    long: 准备指在行动前确认所需的时间、信息与资源。列出已经具备的条件和仍需补充的部分，先完成一个小检查，可以让下一步更具体。
+    pinyin: zhǔn bèi
   en:
     term: Preparation
     short: Checking the time and resources a step needs.
-    long: Checking the time and resources a step needs.
+    long: Preparation means checking the time, information, and resources a step
+      requires. List what is already available and what still needs attention,
+      then complete one small check to make the next step concrete.
+    pinyin: zhǔn bèi
   aliases: []
 - key: tarot.cooperation
   system: tarot
   zh:
     term: 合作
     short: 用清楚分工与相互回应完成共同事项
-    long: 用清楚分工与相互回应完成共同事项
+    long: 合作指通过分工与相互回应完成共同事项。确认各自负责的部分、沟通时间与调整方式，有助于让共同目标落实为双方都能理解的行动。
+    pinyin: hé zuò
   en:
     term: Cooperation
     short: Shared work supported by clear roles and mutual response.
-    long: Shared work supported by clear roles and mutual response.
+    long: Cooperation supports shared work through clear roles and mutual response.
+      Agree on responsibilities, a time to communicate, and a way to revise the
+      arrangement so that a shared goal becomes understandable action.
+    pinyin: hé zuò
   aliases: []
 - key: tarot.choice
   system: tarot
   zh:
     term: 选择
     short: 根据需要与已知条件决定下一步
-    long: 根据需要与已知条件决定下一步
+    long: 选择指根据当前需要与已知条件比较可行的下一步。可以写下各个方案需要的资源与可调整程度，并在信息不足时保留进一步了解的空间。
+    pinyin: xuǎn zé
   en:
     term: Choice
     short: A next step considered in light of needs and known conditions.
-    long: A next step considered in light of needs and known conditions.
+    long: Choice means comparing feasible next steps against current needs and known
+      conditions. Note the resources each option requires and how easily it can
+      be revised, leaving room to gather more information when needed.
+    pinyin: xuǎn zé
   aliases: []
 - key: tarot.feelings
   system: tarot
   zh:
     term: 感受
     short: 关注当前经验带来的情绪与舒适程度
-    long: 关注当前经验带来的情绪与舒适程度
+    long: 感受指人在具体情境中注意到的情绪、舒适程度与主观体验。可以先描述自己的经验，再区分感受与对他人动机的推测，给表达与理解留下空间。
+    pinyin: gǎn shòu
   en:
     term: Feelings
     short: The emotional experience and comfort you notice in a situation.
-    long: The emotional experience and comfort you notice in a situation.
+    long: Feelings are the emotions, comfort, and subjective experience noticed in a
+      situation. Describe the experience first, then distinguish it from
+      assumptions about another person’s motives to leave room for expression
+      and understanding.
+    pinyin: gǎn shòu
   aliases: []
