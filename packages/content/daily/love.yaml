@@ -1,0 +1,951 @@
+# T-23 original bilingual daily content.
+# // DESIGN-GAP: Shared domain direction topics enable concessions; Bazi weights exceed auxiliary transit weights.
+- id: daily.love.ten_god.shi_shen.strong
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shi_shen.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用温和创造的方式处理关系中的沟通。
+    summary: 你可以用温和创造的方式处理关系中的沟通。
+    body: 你可以用温和创造的方式处理关系中的沟通。食神（由日主生出且阴阳相同的流日天干）象征把经验化为可享受的成果。你容易从熟悉的技能中找到表达入口，温和说明往往比急着说服更顺手。舒适的节奏也需要收尾，否则点子会停在想象里。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以把旧笔记整理成一页清晰的学习卡片。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Finish a small draft in communication in relationships.
+    summary: Finish a small draft in communication in relationships.
+    body:
+      Finish a small draft in communication in relationships. Eating God (shí shén — an output stem with
+      matching polarity) turns attention toward useful expression and everyday enjoyment. You may find a familiar
+      craft easier to share than an ambitious performance. The symbol favors noticing what you can make tangible,
+      with a modest finish line that keeps pleasure connected to practice. Strong (shēn qiáng — greater natal-stem
+      support in the model) emphasizes capacity to engage, without measuring the energy you actually have.
+      For example, offer a short call or a later meeting when you want company, and leave room for the other
+      person to choose. In another small situation, show a teammate a rough sketch so the idea can become a
+      conversation rather than a private plan. Consider one open question and allow an honest response, including
+      a request for more time. Review the actual response before extending the plan, and keep only the part
+      that helps you navigate your own circumstances.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.shi_shen.balanced
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shi_shen.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用温和创造的方式处理关系中的沟通。
+    summary: 你可以用温和创造的方式处理关系中的沟通。
+    body: 你可以用温和创造的方式处理关系中的沟通。食神（由日主生出且阴阳相同的流日天干）象征把经验化为可享受的成果。你容易从熟悉的技能中找到表达入口，温和说明往往比急着说服更顺手。舒适的节奏也需要收尾，否则点子会停在想象里。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以把旧笔记整理成一页清晰的学习卡片。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Finish a small draft in communication in relationships.
+    summary: Finish a small draft in communication in relationships.
+    body:
+      Finish a small draft in communication in relationships. Eating God (shí shén — an output stem with
+      matching polarity) turns attention toward useful expression and everyday enjoyment. You may find a familiar
+      craft easier to share than an ambitious performance. The symbol favors noticing what you can make tangible,
+      with a modest finish line that keeps pleasure connected to practice. Balanced (zhōng hé — support and
+      expenditure closer in the model) asks you to balance effort with feedback, while leaving some demands
+      open. For example, offer a short call or a later meeting when you want company, and leave room for the
+      other person to choose. In another small situation, show a teammate a rough sketch so the idea can become
+      a conversation rather than a private plan. Consider one open question and allow an honest response, including
+      a request for more time. Review the actual response before extending the plan, and keep only the part
+      that helps you navigate your own circumstances.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.shi_shen.weak
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shi_shen.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用温和创造的方式处理关系中的沟通。
+    summary: 你可以用温和创造的方式处理关系中的沟通。
+    body: 你可以用温和创造的方式处理关系中的沟通。食神（由日主生出且阴阳相同的流日天干）象征把经验化为可享受的成果。你容易从熟悉的技能中找到表达入口，温和说明往往比急着说服更顺手。舒适的节奏也需要收尾，否则点子会停在想象里。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以做一道熟悉的饭菜，观察哪个步骤可以简化。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Finish a small draft in communication in relationships.
+    summary: Finish a small draft in communication in relationships.
+    body:
+      Finish a small draft in communication in relationships. Eating God (shí shén — an output stem with
+      matching polarity) turns attention toward useful expression and everyday enjoyment. You may find a familiar
+      craft easier to share than an ambitious performance. The symbol favors noticing what you can make tangible,
+      with a modest finish line that keeps pleasure connected to practice. Weak (shēn ruò — lower natal-stem
+      support in the model) invites a search for assistance, rather than a judgment about your ability. For
+      example, offer a short call or a later meeting when you want company, and leave room for the other person
+      to choose. In another small situation, make a short playlist for a break, then return to the one task
+      you meant to finish. Consider one open question and allow an honest response, including a request for
+      more time. Review the actual response before extending the plan, and keep only the part that helps you
+      navigate your own circumstances.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.pian_cai.strong
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_cai.strong
+  weight: 78
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用机会筛选的方式处理关系中的沟通。
+    summary: 你可以用机会筛选的方式处理关系中的沟通。
+    body: 你可以用机会筛选的方式处理关系中的沟通。偏财（由日主所克且阴阳相同的流日天干）象征流动资源和临时机会。你可能留意到新的合作入口，或想同时尝试几个方向。这个标记不预测收益；机会是否合适，要看成本、资料和你能投入的精力。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以收到合作邀请后，先确认范围和退出方式。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Compare the options in communication in relationships.
+    summary: Compare the options in communication in relationships.
+    body:
+      'Compare the options in communication in relationships. Indirect Wealth (piān cái — a resource-managing
+      stem of matching polarity) points to flexible opportunities rather than expected returns. You might notice
+      a new connection or an unused tool that could help a project. Possibility deserves a practical filter:
+      available information, the cost of trying, and the effort you can realistically sustain. Strong (shēn
+      qiáng — greater natal-stem support in the model) emphasizes capacity to engage, without measuring the
+      energy you actually have. For example, offer a short call or a later meeting when you want company, and
+      leave room for the other person to choose. In another small situation, a community project may need your
+      skill for a limited trial; ask what delivery would look like before agreeing. Consider one open question
+      and allow an honest response, including a request for more time. Review the actual response before extending
+      the plan, and keep only the part that helps you navigate your own circumstances.'
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.pian_cai.balanced
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_cai.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用机会筛选的方式处理关系中的沟通。
+    summary: 你可以用机会筛选的方式处理关系中的沟通。
+    body: 你可以用机会筛选的方式处理关系中的沟通。偏财（由日主所克且阴阳相同的流日天干）象征流动资源和临时机会。你可能留意到新的合作入口，或想同时尝试几个方向。这个标记不预测收益；机会是否合适，要看成本、资料和你能投入的精力。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以收到合作邀请后，先确认范围和退出方式。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Compare the options in communication in relationships.
+    summary: Compare the options in communication in relationships.
+    body:
+      'Compare the options in communication in relationships. Indirect Wealth (piān cái — a resource-managing
+      stem of matching polarity) points to flexible opportunities rather than expected returns. You might notice
+      a new connection or an unused tool that could help a project. Possibility deserves a practical filter:
+      available information, the cost of trying, and the effort you can realistically sustain. Balanced (zhōng
+      hé — support and expenditure closer in the model) asks you to balance effort with feedback, while leaving
+      some demands open. For example, offer a short call or a later meeting when you want company, and leave
+      room for the other person to choose. In another small situation, a community project may need your skill
+      for a limited trial; ask what delivery would look like before agreeing. Consider one open question and
+      allow an honest response, including a request for more time. Review the actual response before extending
+      the plan, and keep only the part that helps you navigate your own circumstances.'
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.pian_cai.weak
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_cai.weak
+  weight: 78
+  polarity: negative
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用机会筛选的方式处理关系中的沟通。
+    summary: 你可以用机会筛选的方式处理关系中的沟通。
+    body: 你可以用机会筛选的方式处理关系中的沟通。偏财（由日主所克且阴阳相同的流日天干）象征流动资源和临时机会。你可能留意到新的合作入口，或想同时尝试几个方向。这个标记不预测收益；机会是否合适，要看成本、资料和你能投入的精力。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以发现新工具时，先用一个小任务测试是否省力。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Compare the options in communication in relationships.
+    summary: Compare the options in communication in relationships.
+    body:
+      'Compare the options in communication in relationships. Indirect Wealth (piān cái — a resource-managing
+      stem of matching polarity) points to flexible opportunities rather than expected returns. You might notice
+      a new connection or an unused tool that could help a project. Possibility deserves a practical filter:
+      available information, the cost of trying, and the effort you can realistically sustain. Weak (shēn ruò
+      — lower natal-stem support in the model) invites a search for assistance, rather than a judgment about
+      your ability. For example, offer a short call or a later meeting when you want company, and leave room
+      for the other person to choose. In another small situation, if a new service catches your attention,
+      compare it with what you already use before changing your routine. Consider one open question and allow
+      an honest response, including a request for more time. Review the actual response before extending the
+      plan, and keep only the part that helps you navigate your own circumstances.'
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.zheng_cai.strong
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_cai.strong
+  weight: 78
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用稳定资源的方式处理关系中的沟通。
+    summary: 你可以用稳定资源的方式处理关系中的沟通。
+    body: 你可以用稳定资源的方式处理关系中的沟通。正财（由日主所克但阴阳不同的流日天干）关注稳定资源与持续投入。你容易把注意力放在账目、兑现和可重复的步骤上。它不是收入预测，真正有用的部分是让资源去向更清楚，并把承诺控制在现实范围内。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以核对订阅清单，标出近期没有使用的项目。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Review your resources in communication in relationships.
+    summary: Review your resources in communication in relationships.
+    body:
+      Review your resources in communication in relationships. Direct Wealth (zhèng cái — a resource-managing
+      stem of opposite polarity) emphasizes stewardship and consistency. It is a prompt to inspect the small
+      systems that support daily life, rather than a forecast about earnings. Clear records and realistic commitments
+      make it easier to see what is already working and what needs attention. Strong (shēn qiáng — greater
+      natal-stem support in the model) emphasizes capacity to engage, without measuring the energy you actually
+      have. For example, offer a short call or a later meeting when you want company, and leave room for the
+      other person to choose. In another small situation, before replacing equipment, check whether a repair
+      or shared tool would meet the actual need. Consider one open question and allow an honest response, including
+      a request for more time. Review the actual response before extending the plan, and keep only the part
+      that helps you navigate your own circumstances.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.zheng_cai.balanced
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_cai.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用稳定资源的方式处理关系中的沟通。
+    summary: 你可以用稳定资源的方式处理关系中的沟通。
+    body: 你可以用稳定资源的方式处理关系中的沟通。正财（由日主所克但阴阳不同的流日天干）关注稳定资源与持续投入。你容易把注意力放在账目、兑现和可重复的步骤上。它不是收入预测，真正有用的部分是让资源去向更清楚，并把承诺控制在现实范围内。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以核对订阅清单，标出近期没有使用的项目。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Review your resources in communication in relationships.
+    summary: Review your resources in communication in relationships.
+    body:
+      Review your resources in communication in relationships. Direct Wealth (zhèng cái — a resource-managing
+      stem of opposite polarity) emphasizes stewardship and consistency. It is a prompt to inspect the small
+      systems that support daily life, rather than a forecast about earnings. Clear records and realistic commitments
+      make it easier to see what is already working and what needs attention. Balanced (zhōng hé — support
+      and expenditure closer in the model) asks you to balance effort with feedback, while leaving some demands
+      open. For example, offer a short call or a later meeting when you want company, and leave room for the
+      other person to choose. In another small situation, before replacing equipment, check whether a repair
+      or shared tool would meet the actual need. Consider one open question and allow an honest response, including
+      a request for more time. Review the actual response before extending the plan, and keep only the part
+      that helps you navigate your own circumstances.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.ten_god.zheng_cai.weak
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_cai.weak
+  weight: 78
+  polarity: negative
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用稳定资源的方式处理关系中的沟通。
+    summary: 你可以用稳定资源的方式处理关系中的沟通。
+    body: 你可以用稳定资源的方式处理关系中的沟通。正财（由日主所克但阴阳不同的流日天干）关注稳定资源与持续投入。你容易把注意力放在账目、兑现和可重复的步骤上。它不是收入预测，真正有用的部分是让资源去向更清楚，并把承诺控制在现实范围内。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。换到一个小场景，你也可以和搭档商量采购时，先列必要项再讨论可选项。建议用具体请求代替猜测，回复慢时给彼此保留空间，亲近与边界可以一起被照顾。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Review your resources in communication in relationships.
+    summary: Review your resources in communication in relationships.
+    body:
+      Review your resources in communication in relationships. Direct Wealth (zhèng cái — a resource-managing
+      stem of opposite polarity) emphasizes stewardship and consistency. It is a prompt to inspect the small
+      systems that support daily life, rather than a forecast about earnings. Clear records and realistic commitments
+      make it easier to see what is already working and what needs attention. Weak (shēn ruò — lower natal-stem
+      support in the model) invites a search for assistance, rather than a judgment about your ability. For
+      example, offer a short call or a later meeting when you want company, and leave room for the other person
+      to choose. In another small situation, when planning a group activity, write down the costs that everyone
+      has already accepted. Consider one open question and allow an honest response, including a request for
+      more time. Review the actual response before extending the plan, and keep only the part that helps you
+      navigate your own circumstances.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.branch.combine
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.combine
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先检查关系中的沟通里的共同安排。
+    summary: 你可以先检查关系中的沟通里的共同安排。
+    body: 你可以先检查关系中的沟通里的共同安排。日支六合（流日地支与原局日支的配对关系）把协调与共同安排放到眼前。你可以借此检查彼此是否真的同意，温和的气氛也需要明确细节。你可以先说清自己的需要，再了解对方的感受。关系段落关注沟通、尊重和边界，无论你是否有伴侣都适用。象征提示不能替别人回答，也不衡量关系的价值。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。建议用具体请求代替猜测，回复慢时也给彼此保留空间。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Check the arrangement in communication in relationships.
+    summary: Check the arrangement in communication in relationships.
+    body:
+      Check the arrangement in communication in relationships. Combination (liù hé — a paired link between
+      the daily and natal day branches) emphasizes coordination. You can use it to check shared expectations;
+      a friendly exchange still needs a clear agreement. In close relationships, name what you need without
+      treating it as something another person must provide. This applies to friendships, chosen family, dating,
+      or an established partnership. A daily symbol cannot tell you what someone else feels. For example, offer
+      a short call or a later meeting when you want company, rather than reading silence as an answer. Consider
+      asking one open question and allowing an honest response, including a request for more time. Before you
+      change an arrangement, check whether the other people involved have the same understanding of its scope
+      and timing.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.branch.tri_combine
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.tri_combine
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先检查关系中的沟通里的共同安排。
+    summary: 你可以先检查关系中的沟通里的共同安排。
+    body: 你可以先检查关系中的沟通里的共同安排。日支三合（流日地支参与原局日支所属三合组）提供共同方向的象征。你可以从现有共同点展开，不把配合顺畅理解为所有意见都一致。你可以先说清自己的需要，再了解对方的感受。关系段落关注沟通、尊重和边界，无论你是否有伴侣都适用。象征提示不能替别人回答，也不衡量关系的价值。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。建议用具体请求代替猜测，回复慢时也给彼此保留空间。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Check the arrangement in communication in relationships.
+    summary: Check the arrangement in communication in relationships.
+    body:
+      Check the arrangement in communication in relationships. Trine combination (sān hé — the daily branch
+      joining the natal day branch’s traditional group) suggests a shared direction. You can build on common
+      ground while leaving room for different preferences. In close relationships, name what you need without
+      treating it as something another person must provide. This applies to friendships, chosen family, dating,
+      or an established partnership. A daily symbol cannot tell you what someone else feels. For example, offer
+      a short call or a later meeting when you want company, rather than reading silence as an answer. Consider
+      asking one open question and allowing an honest response, including a request for more time. Before you
+      change an arrangement, check whether the other people involved have the same understanding of its scope
+      and timing.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.branch.clash
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.clash
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先检查关系中的沟通里的共同安排。
+    summary: 你可以先检查关系中的沟通里的共同安排。
+    body: 你可以先检查关系中的沟通里的共同安排。日支六冲（流日与原局日支的对向关系）提醒你留意安排之间的拉扯。变化不是坏事预告，你可以把必须完成和能够协商的部分分开。你可以先说清自己的需要，再了解对方的感受。关系段落关注沟通、尊重和边界，无论你是否有伴侣都适用。象征提示不能替别人回答，也不衡量关系的价值。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。建议用具体请求代替猜测，回复慢时也给彼此保留空间。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Check the arrangement in communication in relationships.
+    summary: Check the arrangement in communication in relationships.
+    body:
+      Check the arrangement in communication in relationships. Clash (liù chōng — an opposing daily and
+      natal day-branch pair) draws attention to competing arrangements. A change need not be a setback. You
+      can distinguish a firm constraint from something open to discussion. In close relationships, name what
+      you need without treating it as something another person must provide. This applies to friendships, chosen
+      family, dating, or an established partnership. A daily symbol cannot tell you what someone else feels.
+      For example, offer a short call or a later meeting when you want company, rather than reading silence
+      as an answer. Consider asking one open question and allowing an honest response, including a request
+      for more time. Before you change an arrangement, check whether the other people involved have the same
+      understanding of its scope and timing.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.branch.punish
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.punish
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先检查关系中的沟通里的共同安排。
+    summary: 你可以先检查关系中的沟通里的共同安排。
+    body: 你可以先检查关系中的沟通里的共同安排。日支相刑（传统地支关系中的牵制标记）适合用来观察重复的卡点。你可能想用更强的力气推动同一件事，不过先改变一个步骤更容易看见出口。你可以先说清自己的需要，再了解对方的感受。关系段落关注沟通、尊重和边界，无论你是否有伴侣都适用。象征提示不能替别人回答，也不衡量关系的价值。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。建议用具体请求代替猜测，回复慢时也给彼此保留空间。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Check the arrangement in communication in relationships.
+    summary: Check the arrangement in communication in relationships.
+    body:
+      Check the arrangement in communication in relationships. Punishment (xiāng xíng — a traditional branch-friction
+      label) is used here to examine recurring snags. If the same approach keeps meeting resistance, consider
+      changing one step before increasing the effort. In close relationships, name what you need without treating
+      it as something another person must provide. This applies to friendships, chosen family, dating, or an
+      established partnership. A daily symbol cannot tell you what someone else feels. For example, offer a
+      short call or a later meeting when you want company, rather than reading silence as an answer. Consider
+      asking one open question and allowing an honest response, including a request for more time. Before you
+      change an arrangement, check whether the other people involved have the same understanding of its scope
+      and timing.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.branch.harm
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.harm
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先检查关系中的沟通里的共同安排。
+    summary: 你可以先检查关系中的沟通里的共同安排。
+    body: 你可以先检查关系中的沟通里的共同安排。日支相害（传统地支关系中的间接不协调标记）提示你把没说清的条件摆出来。误会不代表关系有问题，可以通过确认时间、范围和期待减少猜测。你可以先说清自己的需要，再了解对方的感受。关系段落关注沟通、尊重和边界，无论你是否有伴侣都适用。象征提示不能替别人回答，也不衡量关系的价值。比如你想见面而朋友需要休息，可以提供两个轻松选项，让对方自由选择。建议用具体请求代替猜测，回复慢时也给彼此保留空间。
+    advice:
+      - 用一个具体请求开启交流。
+    do:
+      - 倾听回应
+    dont:
+      - 猜测心意
+  en:
+    title: Check the arrangement in communication in relationships.
+    summary: Check the arrangement in communication in relationships.
+    body:
+      Check the arrangement in communication in relationships. Harm (xiāng hài — a traditional label for
+      indirect branch friction) prompts a check of unstated conditions. A misunderstanding does not define
+      a relationship. You can ask about timing or scope before drawing conclusions. In close relationships,
+      name what you need without treating it as something another person must provide. This applies to friendships,
+      chosen family, dating, or an established partnership. A daily symbol cannot tell you what someone else
+      feels. For example, offer a short call or a later meeting when you want company, rather than reading
+      silence as an answer. Consider asking one open question and allowing an honest response, including a
+      request for more time. Before you change an arrangement, check whether the other people involved have
+      the same understanding of its scope and timing.
+    advice:
+      - Open with one specific request.
+    do:
+      - Listen openly
+    dont:
+      - Read minds
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.transit.moon_conjunction_venus
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_conjunction_venus
+  weight: 48
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先给关系里的交流留一个回应空间。
+    summary: 你可以先给关系里的交流留一个回应空间。
+    body: 你可以先给关系里的交流留一个回应空间。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命金星（象征偏好与交流）形成合相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如想约朋友见面，你可以先提供一个清楚而容易拒绝的邀请，等对方说出真实安排。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make room for a response in a close exchange.
+    summary: You can make room for a response in a close exchange.
+    body:
+      'You can make room for a response in a close exchange. A transit compares a current sky position
+      with a natal position; this one links Moon with natal Venus through a conjunction. The transiting Moon
+      highlights immediate emotional responses. Notice an atmosphere while checking the facts before you interpret
+      it. Conjunction combines two symbolic functions at a close angle. It invites a check of how they operate
+      together rather than assigning one universal outcome. The natal point adds a question about your own
+      habits: State a preference while leaving room for another person’s different taste. For example, offer
+      a specific plan to a friend and ask what would fit their calendar. Keep the invitation easy to decline,
+      so the reply can be honest. Consider one modest adjustment, then review what actually changed. Practical
+      information remains the basis for important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.transit.moon_trine_venus
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_trine_venus
+  weight: 48
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先给关系里的交流留一个回应空间。
+    summary: 你可以先给关系里的交流留一个回应空间。
+    body: 你可以先给关系里的交流留一个回应空间。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命金星（象征偏好与交流）形成三分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如想约朋友见面，你可以先提供一个清楚而容易拒绝的邀请，等对方说出真实安排。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make room for a response in a close exchange.
+    summary: You can make room for a response in a close exchange.
+    body:
+      'You can make room for a response in a close exchange. A transit compares a current sky position
+      with a natal position; this one links Moon with natal Venus through a trine. The transiting Moon highlights
+      immediate emotional responses. Notice an atmosphere while checking the facts before you interpret it.
+      A trine describes an angle of about 120 degrees and a symbolic ease of exchange. A useful opening still
+      benefits from a deliberate action. The natal point adds a question about your own habits: State a preference
+      while leaving room for another person’s different taste. For example, offer a specific plan to a friend
+      and ask what would fit their calendar. Keep the invitation easy to decline, so the reply can be honest.
+      Consider one modest adjustment, then review what actually changed. Practical information remains the
+      basis for important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.transit.moon_sextile_venus
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_sextile_venus
+  weight: 48
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先给关系里的交流留一个回应空间。
+    summary: 你可以先给关系里的交流留一个回应空间。
+    body: 你可以先给关系里的交流留一个回应空间。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命金星（象征偏好与交流）形成六分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约六十度的角距象征可参与的配合，主动沟通一个小步骤比等待机会更具体。比如想约朋友见面，你可以先提供一个清楚而容易拒绝的邀请，等对方说出真实安排。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 发出一条容易回应的具体邀约。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make room for a response in a close exchange.
+    summary: You can make room for a response in a close exchange.
+    body:
+      'You can make room for a response in a close exchange. A transit compares a current sky position
+      with a natal position; this one links Moon with natal Venus through a sextile. The transiting Moon highlights
+      immediate emotional responses. Notice an atmosphere while checking the facts before you interpret it.
+      A sextile describes an angle of about 60 degrees and a possible exchange. You can participate in an opening
+      by making a small, clear invitation. The natal point adds a question about your own habits: State a preference
+      while leaving room for another person’s different taste. For example, offer a specific plan to a friend
+      and ask what would fit their calendar. Keep the invitation easy to decline, so the reply can be honest.
+      Consider one modest adjustment, then review what actually changed. Practical information remains the
+      basis for important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - Offer a specific invitation that is easy to accept or decline.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.transit.moon_conjunction_moon
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_conjunction_moon
+  weight: 48
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先给关系里的交流留一个回应空间。
+    summary: 你可以先给关系里的交流留一个回应空间。
+    body: 你可以先给关系里的交流留一个回应空间。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成合相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如想约朋友见面，你可以先提供一个清楚而容易拒绝的邀请，等对方说出真实安排。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make room for a response in a close exchange.
+    summary: You can make room for a response in a close exchange.
+    body:
+      'You can make room for a response in a close exchange. A transit compares a current sky position
+      with a natal position; this one links Moon with natal Moon through a conjunction. The transiting Moon
+      highlights immediate emotional responses. Notice an atmosphere while checking the facts before you interpret
+      it. Conjunction combines two symbolic functions at a close angle. It invites a check of how they operate
+      together rather than assigning one universal outcome. The natal point adds a question about your own
+      habits: Notice your mood before adding another conversation to your day. For example, offer a specific
+      plan to a friend and ask what would fit their calendar. Keep the invitation easy to decline, so the reply
+      can be honest. Consider one modest adjustment, then review what actually changed. Practical information
+      remains the basis for important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.transit.moon_trine_moon
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_trine_moon
+  weight: 48
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先给关系里的交流留一个回应空间。
+    summary: 你可以先给关系里的交流留一个回应空间。
+    body: 你可以先给关系里的交流留一个回应空间。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成三分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如想约朋友见面，你可以先提供一个清楚而容易拒绝的邀请，等对方说出真实安排。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make room for a response in a close exchange.
+    summary: You can make room for a response in a close exchange.
+    body:
+      'You can make room for a response in a close exchange. A transit compares a current sky position
+      with a natal position; this one links Moon with natal Moon through a trine. The transiting Moon highlights
+      immediate emotional responses. Notice an atmosphere while checking the facts before you interpret it.
+      A trine describes an angle of about 120 degrees and a symbolic ease of exchange. A useful opening still
+      benefits from a deliberate action. The natal point adds a question about your own habits: Notice your
+      mood before adding another conversation to your day. For example, offer a specific plan to a friend and
+      ask what would fit their calendar. Keep the invitation easy to decline, so the reply can be honest. Consider
+      one modest adjustment, then review what actually changed. Practical information remains the basis for
+      important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.love.transit.moon_sextile_moon
+  system: daily
+  section: love
+  topic: daily.love.direction
+  when:
+    path: findings
+    contains: astro.transit.moon_sextile_moon
+  weight: 48
+  polarity: positive
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以先给关系里的交流留一个回应空间。
+    summary: 你可以先给关系里的交流留一个回应空间。
+    body: 你可以先给关系里的交流留一个回应空间。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成六分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约六十度的角距象征可参与的配合，主动沟通一个小步骤比等待机会更具体。比如想约朋友见面，你可以先提供一个清楚而容易拒绝的邀请，等对方说出真实安排。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 发出一条容易回应的具体邀约。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can make room for a response in a close exchange.
+    summary: You can make room for a response in a close exchange.
+    body:
+      'You can make room for a response in a close exchange. A transit compares a current sky position
+      with a natal position; this one links Moon with natal Moon through a sextile. The transiting Moon highlights
+      immediate emotional responses. Notice an atmosphere while checking the facts before you interpret it.
+      A sextile describes an angle of about 60 degrees and a possible exchange. You can participate in an opening
+      by making a small, clear invitation. The natal point adds a question about your own habits: Notice your
+      mood before adding another conversation to your day. For example, offer a specific plan to a friend and
+      ask what would fit their calendar. Keep the invitation easy to decline, so the reply can be honest. Consider
+      one modest adjustment, then review what actually changed. Practical information remains the basis for
+      important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - Offer a specific invitation that is easy to accept or decline.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

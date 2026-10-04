@@ -1,0 +1,498 @@
+# T-23 original bilingual daily content.
+- id: daily.fallback.overview
+  system: daily
+  section: overview
+  topic: daily.fallback.overview
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - overview
+  exclusive_with: []
+  zh:
+    title: 你可以从一件可控的小事开始今天。
+    summary: 你可以从一件可控的小事开始今天。
+    body: 你可以从一件可控的小事开始今天。每日解读（把当天象征与本命信息放在一起观察）提供不同领域的提示，并不能给整天定性。资料有限或没有特别信号时，保留一般观察比补出具体预言更合适。比如你可以先核对今天的安排，选出一件最需要完成的事。建议把其他提醒当作可选角度，实际情况变化时随时调整，给自己留出休息和判断的空间。
+    advice:
+      - 选一件可以完成的小事。
+    do:
+      - 明确重点
+    dont:
+      - 急于定性
+  en:
+    title: Start with one manageable choice.
+    summary: Start with one manageable choice.
+    body:
+      You can begin today by choosing one action you can actually influence. A daily reading brings current
+      symbolic signals together with natal information; it does not establish a verdict about the day. When
+      a specific signal is absent, a general observation is a more useful starting point than an invented prediction.
+      For example, look at your calendar and choose the task whose completion would make the afternoon easier.
+      Consider leaving the other prompts optional, so you can respond to changing circumstances. Your real
+      energy, available information, and existing responsibilities deserve attention before a symbolic label.
+      You can revisit this reading later and keep only the part that helped you act with greater clarity. There
+      is room for an ordinary, flexible day.
+    advice:
+      - Choose one action you can complete.
+    do:
+      - Choose a focus
+    dont:
+      - Label the day
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.career
+  system: daily
+  section: career
+  topic: daily.fallback.career
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先约定什么算完成。
+    summary: 你可以先约定什么算完成。
+    body: 你可以先把工作与学习的完成标准说清楚。每日事业提示围绕计划、协作和练习提供观察，不衡量你的能力，也不预测评价结果。没有特别命中时，最可靠的起点仍是任务本身：谁需要成果、什么时候需要、哪部分最重要。一个明确的小交付能让你看见进度，也减少反复猜测带来的消耗。比如你准备写一份说明，可以先列出三个问题，问接收者哪些必须回答，再决定是否加入额外资料。这样既留下沟通机会，也避免把精力全部用在格式上。建议在开始前设置一次检查点，做到那里就核对方向。遇到新需求时重新估计范围，必要时提出分阶段完成，让今天的投入有现实的依据。收工后用实际反馈复盘，而不是只看报告里的评分。
+    advice:
+      - 写下交付标准和检查时间。
+    do:
+      - 确认交付
+    dont:
+      - 无止境改稿
+  en:
+    title: Agree on what completion means.
+    summary: Agree on what completion means.
+    body:
+      You can make work or study easier to navigate by agreeing on what completion means. The daily career
+      section offers prompts about planning, cooperation, and practice; it does not measure your ability or
+      anticipate another person’s evaluation. When no detailed signal applies, begin with the task itself.
+      Identify who will use the result, when it is needed, and which question matters most. A small delivery
+      can reveal progress more clearly than a long period of invisible preparation. For example, before compiling
+      a set of training notes, ask a colleague which step newcomers find confusing. Build a short explanation
+      around that step and let someone try it. Consider placing a review point before you expand the document.
+      If another request appears, discuss the new scope instead of quietly adding it to an already full day.
+      You can separate a first usable version from optional improvements, making the effort easier to estimate.
+      Leave time to note what the actual reader found helpful and what they still needed. That feedback can
+      guide your next practice session. A daily symbol may accompany the reflection, while the work, its purpose,
+      and the people involved remain the practical reference.
+    advice:
+      - Write a completion standard and review time.
+    do:
+      - Define completion
+    dont:
+      - Edit without limits
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.wealth
+  system: daily
+  section: wealth
+  topic: daily.fallback.wealth
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 你可以先看清资源去向。
+    summary: 你可以先看清资源去向。
+    body: 你可以先看清钱、时间和物品的实际去向。每日财运提示关注资源管理，不判断收入变化，不提供投资选择，也不把幸运数字当作决策依据。没有特别信号时，整理现有承诺就能提供有用的起点。先把固定开销、已经答应的共享费用和临时愿望分开，再看哪些资料尚未确认。比如一个新订阅让你觉得方便，可以先查看自己过去一个月真正使用过的功能，比较免费或已有工具是否够用。你也可以给非必要购买留出一天思考时间，让需求和一时兴起更容易区分。建议只调整一项成本低、可撤回的安排，并记录它实际节省了什么。涉及重要财务决定时，使用可靠资料与合适的专业意见。今天的象征适合作为清点提醒，不需要把普通消费解释成未来变化的信号。
+    advice:
+      - 检查一项固定开销是否仍有用途。
+    do:
+      - 清点资源
+    dont:
+      - 按符号消费
+  en:
+    title: Make your resources visible.
+    summary: Make your resources visible.
+    body:
+      You can gain a clearer starting point by making everyday resources visible. This section concerns
+      ordinary spending, time, and belongings. It does not estimate earnings, identify investments, or attach
+      decision-making value to a lucky number. Without a specific daily signal, a review of existing commitments
+      can still be useful. Separate regular expenses, shared costs you have accepted, and optional purchases
+      that remain open. For example, before choosing another online service, look at the tools you have actually
+      used during the past month. A familiar tool or a borrowed item may already meet the need. Consider giving
+      a nonessential purchase some waiting time so you can see whether the need remains. Choose one reversible
+      change and record what it saves in effort, space, or cost. This can make your own priorities easier to
+      discuss with people who share resources with you. For significant financial decisions, rely on relevant
+      information and suitable professional advice. The daily reading can act as a reminder to inspect the
+      practical details, while those details provide the basis for action. You do not need to turn an ordinary
+      purchase into a story about what the future will bring.
+    advice:
+      - Review whether one regular expense still serves you.
+    do:
+      - Review resources
+    dont:
+      - Shop by symbols
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.love
+  system: daily
+  section: love
+  topic: daily.fallback.love
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以把需要说得更具体。
+    summary: 你可以把需要说得更具体。
+    body: 你可以把关系中的需要说得具体一点。这里的感情提示适用于伴侣、朋友、家人或其他亲近的人，也适用于你独处时理解自己的期待。每日象征不能读取他人的心意，更不能决定一段关系的价值。没有特别命中时，先观察交流是否清楚、彼此是否有选择空间，就是一个温和起点。比如你希望得到陪伴，可以提出今晚短聊十分钟，或周末一起散步，让对方选择适合的方式。若对方暂时没有精力，给自己安排另一种支持也很合理。建议把事实、感受和请求分开表达，避免用一次回复速度推断整个关系。对方愿意分享多少，由对方决定；你也可以诚实说明自己的边界。晚些时候回看实际交流，留意什么表达让彼此更容易理解，而不是把短评当作必须应验的结论。
+    advice:
+      - 提出一个对方能自由选择的请求。
+    do:
+      - 清楚表达
+    dont:
+      - 催促回应
+  en:
+    title: Make a request easy to understand.
+    summary: Make a request easy to understand.
+    body:
+      You can make a close exchange easier by offering a request another person can understand. This section
+      applies to a partner, a friend, chosen family, or your own reflection during time alone. A daily symbol
+      cannot tell you what someone else feels, and it cannot decide the value of a connection. Without a specific
+      signal, clarity and freedom of choice remain useful starting points. For example, if you want company
+      after a busy day, ask whether a friend would prefer a short call now or a walk later in the week. Either
+      option leaves room for an honest answer. Consider separating what happened, how you felt, and what you
+      would like next. A delayed reply may have several ordinary explanations, so give yourself time before
+      interpreting it. You can also choose another source of support when someone is unavailable. Respect how
+      much they want to share and state your own limits with the same care. Later, review the actual exchange
+      and notice which wording helped you understand each other. Let that experience inform the next conversation.
+      The reading offers a prompt for respectful communication, while the people involved retain their own
+      perspectives, needs, and choices.
+    advice:
+      - Offer one request with room for choice.
+    do:
+      - Ask clearly
+    dont:
+      - Demand a reply
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.health
+  system: daily
+  section: health
+  topic: daily.fallback.health
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以给一天留一段缓冲。
+    summary: 你可以给一天留一段缓冲。
+    body: 你可以给今天留一段没有额外要求的缓冲。每日健康提示只关注作息、情绪、季节和日常保养，不根据命盘推断身体状况。当天没有特别信号时，先看实际睡眠、屏幕时间和安排密度，比给感受套一个解释更有帮助。你可能在连续处理事务后才注意到疲惫，也可能需要安静一会儿才能知道自己真正想做什么。比如两场线上讨论之间，留几分钟起身、喝水或看看窗外，不急着把空隙填成新的任务。建议选择一个轻松可持续的休息动作，并观察之后是否更舒服。休息方式要适合自己的环境，不需要跟随幸运方位或时段。若具体不适或情绪困扰需要帮助，寻求合适的专业支持。晚间回顾时，把实际体验写下来，允许第二天采用不同节奏，不用因为报告没有特殊提示就忽略自己的需要。
+    advice:
+      - 在两个安排之间留几分钟休息。
+    do:
+      - 留白休息
+    dont:
+      - 填满空隙
+  en:
+    title: Leave a quiet gap in the day.
+    summary: Leave a quiet gap in the day.
+    body:
+      You can leave a quiet gap in the day before every spare minute becomes another obligation. This section
+      offers reflection on rest, emotions, seasons, and ordinary self-care. It does not assess a physical condition
+      from a chart. When no detailed daily signal applies, look at practical factors such as your sleep, screen
+      time, and the density of your schedule. You may notice tiredness only after several tasks, or need a
+      little silence before you can identify what you want next. For example, between two online discussions,
+      stand up, drink some water, or look away from the screen for a short while. Consider choosing one comfortable
+      pause you can repeat without adding a demanding routine. Observe how you feel afterward and adjust its
+      timing to your actual environment. A symbolic favorable hour or direction need not determine when you
+      rest. Seek suitable professional support for concerns that require it, including persistent distress
+      or specific discomfort. At the end of the day, note what helped and let tomorrow have a different pace
+      if necessary. Your own experience deserves attention even when the reading has no special signal to discuss.
+    advice:
+      - Leave a short pause between activities.
+    do:
+      - Leave a gap
+    dont:
+      - Fill every gap
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.social
+  system: daily
+  section: social
+  topic: daily.fallback.social
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以让合作范围更清楚。
+    summary: 你可以让合作范围更清楚。
+    body: 你可以让一次合作的范围更清楚。每日人际提示关注邀约、分工和边界，不依据生肖或命盘判定别人的性格，也不要求你随时参加社交。没有特别命中时，先确认对方需要什么、自己能够提供什么，就是一个实用起点。共同目标越具体，越容易发现哪些部分可以合作、哪些部分需要不同安排。比如群聊里讨论活动，你可以先总结时间和地点，问谁愿意认领一项小任务，而不是默认所有人都有空。建议把承诺写成可执行的动作，并说明完成或交接的时间。若暂时无法参加，简短表达也足够，不必为了维持气氛追加负担。之后检查实际结果，看看分工是否公平、沟通是否轻松。不同人的精力和节奏可能不同，给拒绝和调整留出位置，往往有助于维持更舒服的联系。
+    advice:
+      - 确认一个职责及其交接时间。
+    do:
+      - 确认分工
+    dont:
+      - 无限承诺
+  en:
+    title: Keep cooperation easy to navigate.
+    summary: Keep cooperation easy to navigate.
+    body:
+      You can make cooperation easier by keeping its scope visible. The daily social section offers prompts
+      about invitations, roles, and boundaries. It does not classify someone’s character by zodiac animal or
+      chart symbol, and it does not require constant sociability. Without a detailed signal, begin by asking
+      what the other person needs and what you can realistically offer. A concrete shared aim can show where
+      collaboration is useful and where separate arrangements would fit better. For example, in a group planning
+      a community event, summarize the date and location before asking volunteers to take a specific task.
+      Avoid assuming that enthusiasm means everyone has the same available time. Consider describing a commitment
+      as an action with a completion or handover point. If you cannot participate, a clear brief response is
+      enough; you need not add a burden merely to maintain the atmosphere. Afterward, check whether the division
+      of effort felt fair and whether the communication was easy to follow. People can have different rhythms
+      and still cooperate respectfully. Leaving room to decline or revise a request can support a connection
+      more effectively than an open-ended promise. Let actual exchanges guide what you offer next.
+    advice:
+      - Confirm one role and its handover point.
+    do:
+      - Confirm a role
+    dont:
+      - Promise without limits
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.astro
+  system: daily
+  section: astro
+  topic: daily.fallback.astro
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以把今日星象当作观察角度。
+    summary: 你可以把今日星象当作观察角度。
+    body: 你可以把今日星象当作观察角度，再用实际经历检验。月亮星座（当天月亮所在的黄道区段）、月相（日月角距的分段）和行运（当天星位与本命位置的比较）关注的是不同层面的象征。当天没有主要行运相位，并不表示这一天缺少意义；资料不足时，也不应该补出具体事件。你可以从心情、交流或计划的变化里挑一个可观察的问题。比如安排变更时，先看看真正变化的是时间、资源还是你的期待，再决定如何回应。建议只选一条低成本提示实践，晚些时候回顾实际反馈。出生时间未知时，涉及角度和精确本命月亮的解释需要留有余地。集体现象也不能说明每个人会有同样经历。让星象成为整理问题的语言，同时保留事实、环境和自主选择的位置，不需要为了配合符号改变已经合理的日程。
+    advice:
+      - 选择一个实际问题来检验提示。
+    do:
+      - 观察反馈
+    dont:
+      - 照符号行动
+  en:
+    title: Use the sky as a reflection prompt.
+    summary: Use the sky as a reflection prompt.
+    body:
+      You can use today’s sky as a way to frame a question, then test that question against experience.
+      The Moon sign identifies a zodiac sector, the lunar phase groups the Sun–Moon angle, and a transit compares
+      a current sky position with a natal one. These are different symbolic viewpoints rather than a single
+      forecast. A day without a major personal transit can still contain meaningful choices. Limited birth
+      information also calls for room around precise interpretations, especially those involving angles or
+      the natal Moon. For example, if an appointment changes, identify whether the real issue is timing, available
+      help, or an expectation you had not stated. Consider trying one low-cost adjustment and reviewing its
+      effect later. A collective sky phenomenon does not establish that everyone will have the same experience.
+      Keep the prompt close to an observable situation, and set it aside if it offers no useful question. Your
+      practical circumstances and decisions remain central. The sky can provide a language for reflection while
+      ordinary evidence tells you what changed, what another person said, and which options are actually available.
+      There is no need to rearrange a workable schedule just to match a symbol.
+    advice:
+      - Test a prompt against one actual situation.
+    do:
+      - Observe feedback
+    dont:
+      - Follow symbols blindly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.tarot
+  system: daily
+  section: tarot
+  topic: daily.fallback.tarot
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - tarot
+  exclusive_with: []
+  zh:
+    title: 你可以用今日一牌提出一个小问题。
+    summary: 你可以用今日一牌提出一个小问题。
+    body: 你可以用今日一牌提出一个适合当天的小问题。塔罗（用牌面象征进行文化探索与反思的方式）在这里提供观察入口，不预测具体事件，也不替你选择重要决定。正位（常规方向）和逆位（倒置方向）是同一张牌的不同阅读角度，逆位不等于坏事。每日抽牌采用稳定种子，同一份数据下结果一致，因此重复查看不需要寻找另一种答案。比如你可以看看牌面让自己想到工作、关系还是休息，再问今天哪一步最容易调整。建议先记录一个真实处境和一个可撤回动作，行动后再回看感受。完整牌义可以提供更多文化背景，短评只保留当天可用的提示。不必为了符合牌面强行解释别人的行为，也不用把不适合自己的说法留下。让卡片帮助你说清问题，把答案留给现实信息与自己的选择。
+    advice:
+      - 从牌面联想中选一个可观察的问题。
+    do:
+      - 记录问题
+    dont:
+      - 反复求答案
+  en:
+    title: Let the daily card open a question.
+    summary: Let the daily card open a question.
+    body:
+      You can let the daily card open one question that fits the day. Tarot uses card imagery for cultural
+      exploration and reflection here; it does not establish an event or make an important decision for you.
+      Upright and reversed orientations offer different reading angles on the same card, with reversal carrying
+      no automatic negative meaning. The daily draw uses a stable seed, so repeated views of the same data
+      do not need to produce another answer. For example, notice whether an image brings work, a connection,
+      or rest to mind, then ask which small part of that situation you could adjust. Consider recording one
+      real circumstance and one action that remains easy to undo. Review how it felt after trying it. The fuller
+      card meaning can provide additional cultural context, while the daily excerpt keeps the reflection manageable.
+      You do not have to explain another person’s behavior through the card, and you can leave aside an interpretation
+      that does not fit. A useful question can make your options clearer without deciding among them. Keep
+      practical information and your own choices at the center of what happens next, allowing the image to
+      remain a prompt rather than a requirement. You can leave any association aside if it does not help you
+      understand the situation.
+    advice:
+      - Choose one observable question from the image.
+    do:
+      - Note a question
+    dont:
+      - Seek repeated answers
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.panchang
+  system: daily
+  section: panchang
+  topic: daily.fallback.panchang
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - panchang
+  exclusive_with: []
+  zh:
+    title: 你可以先了解历法，再安排日常。
+    summary: 你可以先了解历法，再安排日常。
+    body: 你可以先把今日五要素当作历法知识来了解。Panchang（吠陀传统的五要素日历）包含月日、星宿、瑜伽、半日和星期，分别描述日月角度、月亮区段或以日出为界的时间信息。它们是文化与计算框架，不替你衡量一天的价值。地点和时区会影响日出与要素交接，缺少数据时先保留一般说明，不补出具体时刻。比如你准备在安静时段阅读，可以先看自己的日程和环境，再把传统日历作为可选背景。建议理解名称和时间口径之后，只选择一个低成本的观察动作。瑜伽在这里指日月位置的组合标记，与身体练习不是同一概念，也不是医疗说明。任何重要安排仍应依据实际需求与可靠资料。若你对这个体系陌生，可以逐项查看释义，不必一次记住所有术语，让文化探索保持轻松。
+    advice:
+      - 先了解一个历法术语及其时间口径。
+    do:
+      - 查看释义
+    dont:
+      - 机械择时
+  en:
+    title: Explore the calendar before applying it.
+    summary: Explore the calendar before applying it.
+    body:
+      You can explore the daily calendar as cultural information before trying to apply it. Panchang is
+      a five-part Vedic calendar describing Tithi, Nakshatra, Yoga, Karana, and Vara. The labels concern angular
+      relationships, lunar sectors, and a sunrise-based day boundary; they do not measure the value of your
+      day. Location and time zone affect sunrise and the transitions between calendar elements. When those
+      details are unavailable, a general explanation is preferable to an invented time. For example, if you
+      want a quiet reading period, check your actual schedule and surroundings first, then keep the traditional
+      calendar as optional context. Consider learning one label and the time boundary it uses before making
+      a small observation. Yoga here is a calculated Sun–Moon calendar marker, distinct from physical exercise
+      and from medical guidance. Important arrangements still call for relevant practical information and your
+      own priorities. You can inspect the terms one at a time instead of memorizing every name. A relaxed cultural
+      exploration allows questions and uncertainty, while leaving ordinary responsibilities intact. If a calendar
+      suggestion has no useful connection to your circumstances, setting it aside is a reasonable choice, and
+      the next day offers another chance to learn.
+    advice:
+      - Learn one calendar label and its time boundary.
+    do:
+      - Read a definition
+    dont:
+      - Follow timing rigidly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.fallback.summary_actions
+  system: daily
+  section: summary_actions
+  topic: daily.fallback.summary_actions
+  when:
+    path: date.local
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - summary_actions
+  exclusive_with: []
+  zh:
+    title: 你可以挑一条建议做小实验。
+    summary: 你可以挑一条建议做小实验。
+    body: 你可以从今天的提示里挑一条做小实验。总结与行动清单把不同领域的观察放在一起，目的是帮助你选择一个清楚的下一步，不要求把所有建议都完成。各体系使用不同的象征框架，出现侧重点差异时，先回到真实处境和眼前的资源。比如工作段落提醒推进，情绪段落提醒休息，你可以先交付一份简短草稿，再留一段安静时间，而不必在两种说法中选出唯一正确者。建议把行动写成何时、做什么、做到哪里结束，并留出回顾结果的机会。宜忌短词只作提醒，不替代事实、边界和专业判断。你可以保留适合自己的内容，也可以舍去没有帮助的部分。一天结束时，用实际体验评价这个小动作，不把评分高低当作个人表现的衡量。让报告服务于更清晰、可调整的日常选择，明天仍可以采用不同做法。
+    advice:
+      - 写下一个动作和复盘时间。
+    do:
+      - 小步实践
+    dont:
+      - 全盘照搬
+  en:
+    title: Choose one suggestion to test.
+    summary: Choose one suggestion to test.
+    body:
+      You can choose one suggestion from today’s reading and make it a small experiment. The action summary
+      gathers several viewpoints so you can identify a clear next step; it is not a checklist you have to complete.
+      Different symbolic systems can emphasize different needs, making your real circumstances and available
+      resources the most useful reference. For example, a work prompt may favor progress while a wellbeing
+      prompt favors a pause. You could send a brief usable draft and then leave a quiet gap, without needing
+      to decide that one prompt cancels the other. Consider writing the action as a time, a task, and a stopping
+      point. Leave an opportunity to review the result rather than evaluating yourself through the daily score.
+      Short Do and Don’t labels are reminders, not substitutes for facts, personal boundaries, or appropriate
+      professional judgment. Keep the part that fits and set aside what does not help. At the end of the day,
+      ask whether the experiment made a situation easier to navigate and what you would change next time. The
+      aim is a more understandable and adjustable daily choice, with room for a different approach tomorrow.
+      Your experience remains the practical test of the suggestion.
+    advice:
+      - Write one action and a review time.
+    do:
+      - Test one action
+    dont:
+      - Apply everything
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

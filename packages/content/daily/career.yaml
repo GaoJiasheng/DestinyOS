@@ -1,0 +1,1942 @@
+# T-23 original bilingual daily content.
+# // DESIGN-GAP: Shared domain direction topics enable concessions; Bazi weights exceed auxiliary transit weights.
+- id: daily.career.ten_god.bi_jian.strong
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.bi_jian.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用自主协作的方式处理工作与学习。
+    summary: 你可以用自主协作的方式处理工作与学习。
+    body: 你可以用自主协作的方式处理工作与学习。比肩（与日主同类同阴阳的流日天干）把自主与同伴关系带到眼前。你容易关注自己能做什么，也会在同伴的反馈中校准方向。相近的立场不代表需求相同，合作仍需要各自留出表达空间。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以与同事分工时，先认领一块能独立完成的任务。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Name your role in work and study.
+    summary: Name your role in work and study.
+    body:
+      Name your role in work and study. Friend (bǐ jiān — a daily stem sharing your natal stem’s element
+      and polarity) invites you to examine independence alongside belonging. A familiar viewpoint can make
+      collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. Strong (shēn qiáng — greater
+      natal-stem support in the model) emphasizes capacity to engage, without measuring the energy you actually
+      have. For example, send an outline before developing a longer presentation and ask which question the
+      reader needs it to answer. In another small situation, in a study group, volunteer to explain one topic
+      instead of competing to answer every question. Consider a review point where you can adjust the scope,
+      rather than treating speed as a measure of ability. Review the actual response before extending the plan,
+      and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.bi_jian.balanced
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.bi_jian.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用自主协作的方式处理工作与学习。
+    summary: 你可以用自主协作的方式处理工作与学习。
+    body: 你可以用自主协作的方式处理工作与学习。比肩（与日主同类同阴阳的流日天干）把自主与同伴关系带到眼前。你容易关注自己能做什么，也会在同伴的反馈中校准方向。相近的立场不代表需求相同，合作仍需要各自留出表达空间。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以与同事分工时，先认领一块能独立完成的任务。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Name your role in work and study.
+    summary: Name your role in work and study.
+    body:
+      Name your role in work and study. Friend (bǐ jiān — a daily stem sharing your natal stem’s element
+      and polarity) invites you to examine independence alongside belonging. A familiar viewpoint can make
+      collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. Balanced (zhōng hé — support
+      and expenditure closer in the model) asks you to balance effort with feedback, while leaving some demands
+      open. For example, send an outline before developing a longer presentation and ask which question the
+      reader needs it to answer. In another small situation, in a study group, volunteer to explain one topic
+      instead of competing to answer every question. Consider a review point where you can adjust the scope,
+      rather than treating speed as a measure of ability. Review the actual response before extending the plan,
+      and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.bi_jian.weak
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.bi_jian.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用自主协作的方式处理工作与学习。
+    summary: 你可以用自主协作的方式处理工作与学习。
+    body: 你可以用自主协作的方式处理工作与学习。比肩（与日主同类同阴阳的流日天干）把自主与同伴关系带到眼前。你容易关注自己能做什么，也会在同伴的反馈中校准方向。相近的立场不代表需求相同，合作仍需要各自留出表达空间。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以和朋友安排周末时，把各自的偏好写成两个选项。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Name your role in work and study.
+    summary: Name your role in work and study.
+    body:
+      Name your role in work and study. Friend (bǐ jiān — a daily stem sharing your natal stem’s element
+      and polarity) invites you to examine independence alongside belonging. A familiar viewpoint can make
+      collaboration comfortable, yet agreement does not remove the need to name separate responsibilities.
+      You can keep ownership of your work while welcoming someone else’s method. Weak (shēn ruò — lower natal-stem
+      support in the model) invites a search for assistance, rather than a judgment about your ability. For
+      example, send an outline before developing a longer presentation and ask which question the reader needs
+      it to answer. In another small situation, when a housemate suggests a different routine, ask what problem
+      the change would solve. Consider a review point where you can adjust the scope, rather than treating
+      speed as a measure of ability. Review the actual response before extending the plan, and keep only the
+      part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.shi_shen.strong
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shi_shen.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用温和创造的方式处理工作与学习。
+    summary: 你可以用温和创造的方式处理工作与学习。
+    body: 你可以用温和创造的方式处理工作与学习。食神（由日主生出且阴阳相同的流日天干）象征把经验化为可享受的成果。你容易从熟悉的技能中找到表达入口，温和说明往往比急着说服更顺手。舒适的节奏也需要收尾，否则点子会停在想象里。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以把旧笔记整理成一页清晰的学习卡片。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Finish a small draft in work and study.
+    summary: Finish a small draft in work and study.
+    body:
+      Finish a small draft in work and study. Eating God (shí shén — an output stem with matching polarity)
+      turns attention toward useful expression and everyday enjoyment. You may find a familiar craft easier
+      to share than an ambitious performance. The symbol favors noticing what you can make tangible, with a
+      modest finish line that keeps pleasure connected to practice. Strong (shēn qiáng — greater natal-stem
+      support in the model) emphasizes capacity to engage, without measuring the energy you actually have.
+      For example, send an outline before developing a longer presentation and ask which question the reader
+      needs it to answer. In another small situation, show a teammate a rough sketch so the idea can become
+      a conversation rather than a private plan. Consider a review point where you can adjust the scope, rather
+      than treating speed as a measure of ability. Review the actual response before extending the plan, and
+      keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.shi_shen.balanced
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shi_shen.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用温和创造的方式处理工作与学习。
+    summary: 你可以用温和创造的方式处理工作与学习。
+    body: 你可以用温和创造的方式处理工作与学习。食神（由日主生出且阴阳相同的流日天干）象征把经验化为可享受的成果。你容易从熟悉的技能中找到表达入口，温和说明往往比急着说服更顺手。舒适的节奏也需要收尾，否则点子会停在想象里。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以把旧笔记整理成一页清晰的学习卡片。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Finish a small draft in work and study.
+    summary: Finish a small draft in work and study.
+    body:
+      Finish a small draft in work and study. Eating God (shí shén — an output stem with matching polarity)
+      turns attention toward useful expression and everyday enjoyment. You may find a familiar craft easier
+      to share than an ambitious performance. The symbol favors noticing what you can make tangible, with a
+      modest finish line that keeps pleasure connected to practice. Balanced (zhōng hé — support and expenditure
+      closer in the model) asks you to balance effort with feedback, while leaving some demands open. For example,
+      send an outline before developing a longer presentation and ask which question the reader needs it to
+      answer. In another small situation, show a teammate a rough sketch so the idea can become a conversation
+      rather than a private plan. Consider a review point where you can adjust the scope, rather than treating
+      speed as a measure of ability. Review the actual response before extending the plan, and keep only the
+      part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.shi_shen.weak
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shi_shen.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用温和创造的方式处理工作与学习。
+    summary: 你可以用温和创造的方式处理工作与学习。
+    body: 你可以用温和创造的方式处理工作与学习。食神（由日主生出且阴阳相同的流日天干）象征把经验化为可享受的成果。你容易从熟悉的技能中找到表达入口，温和说明往往比急着说服更顺手。舒适的节奏也需要收尾，否则点子会停在想象里。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以做一道熟悉的饭菜，观察哪个步骤可以简化。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Finish a small draft in work and study.
+    summary: Finish a small draft in work and study.
+    body:
+      Finish a small draft in work and study. Eating God (shí shén — an output stem with matching polarity)
+      turns attention toward useful expression and everyday enjoyment. You may find a familiar craft easier
+      to share than an ambitious performance. The symbol favors noticing what you can make tangible, with a
+      modest finish line that keeps pleasure connected to practice. Weak (shēn ruò — lower natal-stem support
+      in the model) invites a search for assistance, rather than a judgment about your ability. For example,
+      send an outline before developing a longer presentation and ask which question the reader needs it to
+      answer. In another small situation, make a short playlist for a break, then return to the one task you
+      meant to finish. Consider a review point where you can adjust the scope, rather than treating speed as
+      a measure of ability. Review the actual response before extending the plan, and keep only the part that
+      helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.shang_guan.strong
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shang_guan.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用表达分寸的方式处理工作与学习。
+    summary: 你可以用表达分寸的方式处理工作与学习。
+    body: 你可以用表达分寸的方式处理工作与学习。伤官（由日主生出但阴阳不同的流日天干）强调表达和检视旧规则。你容易看见流程中的不顺之处，直接指出问题可能有帮助，也可能让听者只听到批评。把发现转成可试验的方案，观点才更容易落地。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以汇报卡点时，附上一项能在今天试行的改法。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Offer an experiment in work and study.
+    summary: Offer an experiment in work and study.
+    body:
+      Offer an experiment in work and study. Hurting Officer (shāng guān — an output stem of opposite polarity)
+      highlights questioning and articulation. You may spot a clumsy rule before others mention it. That observation
+      becomes more useful when you describe the effect and propose a workable alternative. Strong (shēn qiáng
+      — greater natal-stem support in the model) emphasizes capacity to engage, without measuring the energy
+      you actually have. For example, send an outline before developing a longer presentation and ask which
+      question the reader needs it to answer. In another small situation, when editing a document, mark a confusing
+      sentence and offer a replacement instead of dismissing the whole piece. Consider a review point where
+      you can adjust the scope, rather than treating speed as a measure of ability. Review the actual response
+      before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.shang_guan.balanced
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shang_guan.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用表达分寸的方式处理工作与学习。
+    summary: 你可以用表达分寸的方式处理工作与学习。
+    body: 你可以用表达分寸的方式处理工作与学习。伤官（由日主生出但阴阳不同的流日天干）强调表达和检视旧规则。你容易看见流程中的不顺之处，直接指出问题可能有帮助，也可能让听者只听到批评。把发现转成可试验的方案，观点才更容易落地。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以汇报卡点时，附上一项能在今天试行的改法。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Offer an experiment in work and study.
+    summary: Offer an experiment in work and study.
+    body:
+      Offer an experiment in work and study. Hurting Officer (shāng guān — an output stem of opposite polarity)
+      highlights questioning and articulation. You may spot a clumsy rule before others mention it. That observation
+      becomes more useful when you describe the effect and propose a workable alternative. Balanced (zhōng
+      hé — support and expenditure closer in the model) asks you to balance effort with feedback, while leaving
+      some demands open. For example, send an outline before developing a longer presentation and ask which
+      question the reader needs it to answer. In another small situation, when editing a document, mark a confusing
+      sentence and offer a replacement instead of dismissing the whole piece. Consider a review point where
+      you can adjust the scope, rather than treating speed as a measure of ability. Review the actual response
+      before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.shang_guan.weak
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.shang_guan.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用表达分寸的方式处理工作与学习。
+    summary: 你可以用表达分寸的方式处理工作与学习。
+    body: 你可以用表达分寸的方式处理工作与学习。伤官（由日主生出但阴阳不同的流日天干）强调表达和检视旧规则。你容易看见流程中的不顺之处，直接指出问题可能有帮助，也可能让听者只听到批评。把发现转成可试验的方案，观点才更容易落地。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以讨论家务安排时，先说具体困难再提新规则。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Offer an experiment in work and study.
+    summary: Offer an experiment in work and study.
+    body:
+      Offer an experiment in work and study. Hurting Officer (shāng guān — an output stem of opposite polarity)
+      highlights questioning and articulation. You may spot a clumsy rule before others mention it. That observation
+      becomes more useful when you describe the effect and propose a workable alternative. Weak (shēn ruò —
+      lower natal-stem support in the model) invites a search for assistance, rather than a judgment about
+      your ability. For example, send an outline before developing a longer presentation and ask which question
+      the reader needs it to answer. In another small situation, if a meeting feels unproductive, suggest a
+      clear decision for its final five minutes. Consider a review point where you can adjust the scope, rather
+      than treating speed as a measure of ability. Review the actual response before extending the plan, and
+      keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.qi_sha.strong
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.qi_sha.strong
+  weight: 78
+  polarity: positive
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用压力排序的方式处理工作与学习。
+    summary: 你可以用压力排序的方式处理工作与学习。
+    body: 你可以用压力排序的方式处理工作与学习。七杀（克制日主且阴阳相同的流日天干）用来观察压力、行动和边界。你可能更敏锐地感到期限或竞争，容易把所有请求都当成急事。它不说明危险将发生；把压力拆成具体要求，才有机会选择合理的回应。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以面对临时加急任务，先问清最晚需要哪一部分。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Rank the demands in work and study.
+    summary: Rank the demands in work and study.
+    body:
+      Rank the demands in work and study. Seven Killings (qī shā — a demanding stem of matching polarity)
+      is a historical term for pressure and decisive action. Treat it as a question about priorities, not an
+      alarm. A deadline may feel louder than usual, making every incoming request seem urgent. Strong (shēn
+      qiáng — greater natal-stem support in the model) emphasizes capacity to engage, without measuring the
+      energy you actually have. For example, send an outline before developing a longer presentation and ask
+      which question the reader needs it to answer. In another small situation, when messages arrive at once,
+      identify which person needs an answer today and which can wait. Consider a review point where you can
+      adjust the scope, rather than treating speed as a measure of ability. Review the actual response before
+      extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.qi_sha.balanced
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.qi_sha.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用压力排序的方式处理工作与学习。
+    summary: 你可以用压力排序的方式处理工作与学习。
+    body: 你可以用压力排序的方式处理工作与学习。七杀（克制日主且阴阳相同的流日天干）用来观察压力、行动和边界。你可能更敏锐地感到期限或竞争，容易把所有请求都当成急事。它不说明危险将发生；把压力拆成具体要求，才有机会选择合理的回应。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以面对临时加急任务，先问清最晚需要哪一部分。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Rank the demands in work and study.
+    summary: Rank the demands in work and study.
+    body:
+      Rank the demands in work and study. Seven Killings (qī shā — a demanding stem of matching polarity)
+      is a historical term for pressure and decisive action. Treat it as a question about priorities, not an
+      alarm. A deadline may feel louder than usual, making every incoming request seem urgent. Balanced (zhōng
+      hé — support and expenditure closer in the model) asks you to balance effort with feedback, while leaving
+      some demands open. For example, send an outline before developing a longer presentation and ask which
+      question the reader needs it to answer. In another small situation, when messages arrive at once, identify
+      which person needs an answer today and which can wait. Consider a review point where you can adjust the
+      scope, rather than treating speed as a measure of ability. Review the actual response before extending
+      the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.qi_sha.weak
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.qi_sha.weak
+  weight: 78
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用压力排序的方式处理工作与学习。
+    summary: 你可以用压力排序的方式处理工作与学习。
+    body: 你可以用压力排序的方式处理工作与学习。七杀（克制日主且阴阳相同的流日天干）用来观察压力、行动和边界。你可能更敏锐地感到期限或竞争，容易把所有请求都当成急事。它不说明危险将发生；把压力拆成具体要求，才有机会选择合理的回应。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以出门前发现安排冲突时，把可延后的事项移开。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Rank the demands in work and study.
+    summary: Rank the demands in work and study.
+    body:
+      Rank the demands in work and study. Seven Killings (qī shā — a demanding stem of matching polarity)
+      is a historical term for pressure and decisive action. Treat it as a question about priorities, not an
+      alarm. A deadline may feel louder than usual, making every incoming request seem urgent. Weak (shēn ruò
+      — lower natal-stem support in the model) invites a search for assistance, rather than a judgment about
+      your ability. For example, send an outline before developing a longer presentation and ask which question
+      the reader needs it to answer. In another small situation, if a rehearsal feels rushed, focus on the
+      one transition that most affects the next run. Consider a review point where you can adjust the scope,
+      rather than treating speed as a measure of ability. Review the actual response before extending the plan,
+      and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.zheng_guan.strong
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_guan.strong
+  weight: 78
+  polarity: positive
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用清楚责任的方式处理工作与学习。
+    summary: 你可以用清楚责任的方式处理工作与学习。
+    body: 你可以用清楚责任的方式处理工作与学习。正官（克制日主但阴阳不同的流日天干）象征责任、规则和约定。你容易关注流程是否清楚、交付是否符合要求。规则可以提供支点，也可能让你过度追求无误；先弄清关键标准，比反复猜测他人的期待更有效。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以提交材料前，按要求检查最关键的三项。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Clarify the standard in work and study.
+    summary: Clarify the standard in work and study.
+    body:
+      Clarify the standard in work and study. Direct Officer (zhèng guān — a demanding stem of opposite
+      polarity) highlights responsibility and agreed standards. You may find clarity in a reliable process,
+      while also feeling tempted to check every detail repeatedly. A shared definition of completion is more
+      useful than trying to anticipate every preference someone else might have. Strong (shēn qiáng — greater
+      natal-stem support in the model) emphasizes capacity to engage, without measuring the energy you actually
+      have. For example, send an outline before developing a longer presentation and ask which question the
+      reader needs it to answer. In another small situation, ask a supervisor which result matters most before
+      polishing a presentation that is already clear. Consider a review point where you can adjust the scope,
+      rather than treating speed as a measure of ability. Review the actual response before extending the plan,
+      and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.zheng_guan.balanced
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_guan.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用清楚责任的方式处理工作与学习。
+    summary: 你可以用清楚责任的方式处理工作与学习。
+    body: 你可以用清楚责任的方式处理工作与学习。正官（克制日主但阴阳不同的流日天干）象征责任、规则和约定。你容易关注流程是否清楚、交付是否符合要求。规则可以提供支点，也可能让你过度追求无误；先弄清关键标准，比反复猜测他人的期待更有效。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以提交材料前，按要求检查最关键的三项。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Clarify the standard in work and study.
+    summary: Clarify the standard in work and study.
+    body:
+      Clarify the standard in work and study. Direct Officer (zhèng guān — a demanding stem of opposite
+      polarity) highlights responsibility and agreed standards. You may find clarity in a reliable process,
+      while also feeling tempted to check every detail repeatedly. A shared definition of completion is more
+      useful than trying to anticipate every preference someone else might have. Balanced (zhōng hé — support
+      and expenditure closer in the model) asks you to balance effort with feedback, while leaving some demands
+      open. For example, send an outline before developing a longer presentation and ask which question the
+      reader needs it to answer. In another small situation, ask a supervisor which result matters most before
+      polishing a presentation that is already clear. Consider a review point where you can adjust the scope,
+      rather than treating speed as a measure of ability. Review the actual response before extending the plan,
+      and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.zheng_guan.weak
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_guan.weak
+  weight: 78
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用清楚责任的方式处理工作与学习。
+    summary: 你可以用清楚责任的方式处理工作与学习。
+    body: 你可以用清楚责任的方式处理工作与学习。正官（克制日主但阴阳不同的流日天干）象征责任、规则和约定。你容易关注流程是否清楚、交付是否符合要求。规则可以提供支点，也可能让你过度追求无误；先弄清关键标准，比反复猜测他人的期待更有效。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以参加集体活动时，确认自己的职责和结束时间。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Clarify the standard in work and study.
+    summary: Clarify the standard in work and study.
+    body:
+      Clarify the standard in work and study. Direct Officer (zhèng guān — a demanding stem of opposite
+      polarity) highlights responsibility and agreed standards. You may find clarity in a reliable process,
+      while also feeling tempted to check every detail repeatedly. A shared definition of completion is more
+      useful than trying to anticipate every preference someone else might have. Weak (shēn ruò — lower natal-stem
+      support in the model) invites a search for assistance, rather than a judgment about your ability. For
+      example, send an outline before developing a longer presentation and ask which question the reader needs
+      it to answer. In another small situation, when volunteering, agree on the handover so responsibility
+      does not expand without discussion. Consider a review point where you can adjust the scope, rather than
+      treating speed as a measure of ability. Review the actual response before extending the plan, and keep
+      only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.pian_yin.strong
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_yin.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用换个角度的方式处理工作与学习。
+    summary: 你可以用换个角度的方式处理工作与学习。
+    body: 你可以用换个角度的方式处理工作与学习。偏印（生扶日主且阴阳相同的流日天干）关注独立学习与不同视角。你可能更想安静整理线索，先理解再回应。新的解释值得探索，但只在脑中反复推演容易拉长犹豫；找一个可核对的小事实，有助于把想法落地。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以阅读难懂材料时，先找一个能亲手验证的例子。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Test one observation in work and study.
+    summary: Test one observation in work and study.
+    body:
+      Test one observation in work and study. Indirect Resource (piān yìn — a supporting stem of matching
+      polarity) invites a quieter or less familiar approach to learning. You might prefer to investigate before
+      joining a discussion. Curiosity can reveal a useful angle, but an elegant explanation still needs a check
+      against experience. Strong (shēn qiáng — greater natal-stem support in the model) emphasizes capacity
+      to engage, without measuring the energy you actually have. For example, send an outline before developing
+      a longer presentation and ask which question the reader needs it to answer. In another small situation,
+      try explaining an unfamiliar concept with an ordinary object, then check where the comparison stops working.
+      Consider a review point where you can adjust the scope, rather than treating speed as a measure of ability.
+      Review the actual response before extending the plan, and keep only the part that helps you navigate
+      your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.pian_yin.balanced
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_yin.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用换个角度的方式处理工作与学习。
+    summary: 你可以用换个角度的方式处理工作与学习。
+    body: 你可以用换个角度的方式处理工作与学习。偏印（生扶日主且阴阳相同的流日天干）关注独立学习与不同视角。你可能更想安静整理线索，先理解再回应。新的解释值得探索，但只在脑中反复推演容易拉长犹豫；找一个可核对的小事实，有助于把想法落地。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以阅读难懂材料时，先找一个能亲手验证的例子。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Test one observation in work and study.
+    summary: Test one observation in work and study.
+    body:
+      Test one observation in work and study. Indirect Resource (piān yìn — a supporting stem of matching
+      polarity) invites a quieter or less familiar approach to learning. You might prefer to investigate before
+      joining a discussion. Curiosity can reveal a useful angle, but an elegant explanation still needs a check
+      against experience. Balanced (zhōng hé — support and expenditure closer in the model) asks you to balance
+      effort with feedback, while leaving some demands open. For example, send an outline before developing
+      a longer presentation and ask which question the reader needs it to answer. In another small situation,
+      try explaining an unfamiliar concept with an ordinary object, then check where the comparison stops working.
+      Consider a review point where you can adjust the scope, rather than treating speed as a measure of ability.
+      Review the actual response before extending the plan, and keep only the part that helps you navigate
+      your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.pian_yin.weak
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.pian_yin.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用换个角度的方式处理工作与学习。
+    summary: 你可以用换个角度的方式处理工作与学习。
+    body: 你可以用换个角度的方式处理工作与学习。偏印（生扶日主且阴阳相同的流日天干）关注独立学习与不同视角。你可能更想安静整理线索，先理解再回应。新的解释值得探索，但只在脑中反复推演容易拉长犹豫；找一个可核对的小事实，有助于把想法落地。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以信息很多时，画一张简单关系图再补细节。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Test one observation in work and study.
+    summary: Test one observation in work and study.
+    body:
+      Test one observation in work and study. Indirect Resource (piān yìn — a supporting stem of matching
+      polarity) invites a quieter or less familiar approach to learning. You might prefer to investigate before
+      joining a discussion. Curiosity can reveal a useful angle, but an elegant explanation still needs a check
+      against experience. Weak (shēn ruò — lower natal-stem support in the model) invites a search for assistance,
+      rather than a judgment about your ability. For example, send an outline before developing a longer presentation
+      and ask which question the reader needs it to answer. In another small situation, after reading several
+      opinions, identify one question you can resolve with a direct observation. Consider a review point where
+      you can adjust the scope, rather than treating speed as a measure of ability. Review the actual response
+      before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.zheng_yin.strong
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_yin.strong
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用稳步学习的方式处理工作与学习。
+    summary: 你可以用稳步学习的方式处理工作与学习。
+    body: 你可以用稳步学习的方式处理工作与学习。正印（生扶日主但阴阳不同的流日天干）象征学习、支持和已有经验。你容易从可靠资料或熟悉的人那里找到支点。得到支持并不等于要把决定交给别人；把建议整理成自己的操作步骤，才能知道它是否适合眼前的情况。身强（模型中日主支持较多）表示承接任务的象征较突出，不等于你现实中总有足够精力。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以请教问题后，用自己的话复述一遍操作方法。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Put support to use in work and study.
+    summary: Put support to use in work and study.
+    body:
+      Put support to use in work and study. Direct Resource (zhèng yìn — a supporting stem of opposite
+      polarity) draws attention to learning and dependable support. A reference, mentor, or familiar routine
+      can make a task feel more manageable. Receiving help still leaves the decision with you. Strong (shēn
+      qiáng — greater natal-stem support in the model) emphasizes capacity to engage, without measuring the
+      energy you actually have. For example, send an outline before developing a longer presentation and ask
+      which question the reader needs it to answer. In another small situation, ask an experienced teammate
+      to demonstrate one step, then attempt it yourself while the explanation is fresh. Consider a review point
+      where you can adjust the scope, rather than treating speed as a measure of ability. Review the actual
+      response before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.zheng_yin.balanced
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_yin.balanced
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用稳步学习的方式处理工作与学习。
+    summary: 你可以用稳步学习的方式处理工作与学习。
+    body: 你可以用稳步学习的方式处理工作与学习。正印（生扶日主但阴阳不同的流日天干）象征学习、支持和已有经验。你容易从可靠资料或熟悉的人那里找到支点。得到支持并不等于要把决定交给别人；把建议整理成自己的操作步骤，才能知道它是否适合眼前的情况。中和（模型中支持与消耗较接近）表示可以兼顾投入与反馈，不需要同时满足所有请求。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以请教问题后，用自己的话复述一遍操作方法。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Put support to use in work and study.
+    summary: Put support to use in work and study.
+    body:
+      Put support to use in work and study. Direct Resource (zhèng yìn — a supporting stem of opposite
+      polarity) draws attention to learning and dependable support. A reference, mentor, or familiar routine
+      can make a task feel more manageable. Receiving help still leaves the decision with you. Balanced (zhōng
+      hé — support and expenditure closer in the model) asks you to balance effort with feedback, while leaving
+      some demands open. For example, send an outline before developing a longer presentation and ask which
+      question the reader needs it to answer. In another small situation, ask an experienced teammate to demonstrate
+      one step, then attempt it yourself while the explanation is fresh. Consider a review point where you
+      can adjust the scope, rather than treating speed as a measure of ability. Review the actual response
+      before extending the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.ten_god.zheng_yin.weak
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.tenGod.zheng_yin.weak
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以用稳步学习的方式处理工作与学习。
+    summary: 你可以用稳步学习的方式处理工作与学习。
+    body: 你可以用稳步学习的方式处理工作与学习。正印（生扶日主但阴阳不同的流日天干）象征学习、支持和已有经验。你容易从可靠资料或熟悉的人那里找到支点。得到支持并不等于要把决定交给别人；把建议整理成自己的操作步骤，才能知道它是否适合眼前的情况。身弱（模型中日主支持较少）提醒你先找支点，不表示能力不足或不能独立作决定。比如提交草稿前，你可以先请接收者确认重点，再决定哪些细节值得补齐。换到一个小场景，你也可以复习课程时，先确认基础概念再做新练习。建议设一个短检查点，遇到新要求时重新估计范围，不用把速度当成能力证明。行动之后留意实际反馈，再决定哪些做法值得保留，让当天的象征服务于你自己的选择。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Put support to use in work and study.
+    summary: Put support to use in work and study.
+    body:
+      Put support to use in work and study. Direct Resource (zhèng yìn — a supporting stem of opposite
+      polarity) draws attention to learning and dependable support. A reference, mentor, or familiar routine
+      can make a task feel more manageable. Receiving help still leaves the decision with you. Weak (shēn ruò
+      — lower natal-stem support in the model) invites a search for assistance, rather than a judgment about
+      your ability. For example, send an outline before developing a longer presentation and ask which question
+      the reader needs it to answer. In another small situation, when preparing for an appointment, collect
+      your questions in one place so the conversation stays useful. Consider a review point where you can adjust
+      the scope, rather than treating speed as a measure of ability. Review the actual response before extending
+      the plan, and keep only the part that helps you navigate your own circumstances.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.branch.combine
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.combine
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先检查工作与学习里的共同安排。
+    summary: 你可以先检查工作与学习里的共同安排。
+    body: 你可以先检查工作与学习里的共同安排。日支六合（流日地支与原局日支的配对关系）把协调与共同安排放到眼前。你可以借此检查彼此是否真的同意，温和的气氛也需要明确细节。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Check the arrangement in work and study.
+    summary: Check the arrangement in work and study.
+    body:
+      Check the arrangement in work and study. Combination (liù hé — a paired link between the daily and
+      natal day branches) emphasizes coordination. You can use it to check shared expectations; a friendly
+      exchange still needs a clear agreement. For work or study, make the next delivery observable. Decide
+      what the task is for before choosing how much detail to add. Available tools, clear instructions, and
+      other people’s schedules matter more than a symbolic daily label. For example, send a brief outline before
+      preparing a long presentation, and ask which question it needs to answer. Consider setting a review point
+      so you can revise the scope when new requests arrive. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.branch.clash
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.clash
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先检查工作与学习里的共同安排。
+    summary: 你可以先检查工作与学习里的共同安排。
+    body: 你可以先检查工作与学习里的共同安排。日支六冲（流日与原局日支的对向关系）提醒你留意安排之间的拉扯。变化不是坏事预告，你可以把必须完成和能够协商的部分分开。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Check the arrangement in work and study.
+    summary: Check the arrangement in work and study.
+    body:
+      Check the arrangement in work and study. Clash (liù chōng — an opposing daily and natal day-branch
+      pair) draws attention to competing arrangements. A change need not be a setback. You can distinguish
+      a firm constraint from something open to discussion. For work or study, make the next delivery observable.
+      Decide what the task is for before choosing how much detail to add. Available tools, clear instructions,
+      and other people’s schedules matter more than a symbolic daily label. For example, send a brief outline
+      before preparing a long presentation, and ask which question it needs to answer. Consider setting a review
+      point so you can revise the scope when new requests arrive. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.branch.break
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.branch.day.break
+  weight: 65
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先检查工作与学习里的共同安排。
+    summary: 你可以先检查工作与学习里的共同安排。
+    body: 你可以先检查工作与学习里的共同安排。日支相破（传统地支关系中的松动标记）提醒你看看原有安排哪里不再合用。你可以重新确认一个小约定，不需要因为象征变化推翻整个计划。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Check the arrangement in work and study.
+    summary: Check the arrangement in work and study.
+    body:
+      Check the arrangement in work and study. Break (xiāng pò — a traditional branch-disruption label)
+      asks which small arrangement may need revision. You can renegotiate a detail without treating the symbol
+      as a reason to abandon a workable plan. For work or study, make the next delivery observable. Decide
+      what the task is for before choosing how much detail to add. Available tools, clear instructions, and
+      other people’s schedules matter more than a symbolic daily label. For example, send a brief outline before
+      preparing a long presentation, and ask which question it needs to answer. Consider setting a review point
+      so you can revise the scope when new requests arrive. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.favorable
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.favorableHit
+  weight: 68
+  polarity: positive
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以让工作与学习的计划更有余地。
+    summary: 你可以让工作与学习的计划更有余地。
+    body: 你可以让工作与学习的计划更有余地。流日喜用命中（当天五行进入原局喜用集合）表示模型里多了一项支持。你可以把它当作启动小任务的提醒，仍要用实际反馈决定后续安排。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Keep some flexibility in work and study.
+    summary: Keep some flexibility in work and study.
+    body:
+      Keep some flexibility in work and study. Favorable-element contact (xǐ yòng — the daily element matching
+      the natal support set) adds a supportive signal in this model. You can use it to begin a limited task,
+      then judge the next step from real feedback. For work or study, make the next delivery observable. Decide
+      what the task is for before choosing how much detail to add. Available tools, clear instructions, and
+      other people’s schedules matter more than a symbolic daily label. For example, send a brief outline before
+      preparing a long presentation, and ask which question it needs to answer. Consider setting a review point
+      so you can revise the scope when new requests arrive. Before you change an arrangement, check whether
+      the other people involved have the same understanding of its scope and timing.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.unfavorable
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.unfavorableHit
+  weight: 68
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以让工作与学习的计划更有余地。
+    summary: 你可以让工作与学习的计划更有余地。
+    body: 你可以让工作与学习的计划更有余地。流日忌用命中（当天五行进入原局忌用集合）表示模型里出现一项限制。它不说明现实会出问题，不过你可以减少额外安排，先做好已经答应的事。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Keep some flexibility in work and study.
+    summary: Keep some flexibility in work and study.
+    body:
+      Keep some flexibility in work and study. Unfavorable-element contact (jì yòng — the daily element
+      matching the natal caution set) adds a demanding signal in the model. It does not forecast a problem.
+      Consider keeping optional commitments light while attending to existing responsibilities. For work or
+      study, make the next delivery observable. Decide what the task is for before choosing how much detail
+      to add. Available tools, clear instructions, and other people’s schedules matter more than a symbolic
+      daily label. For example, send a brief outline before preparing a long presentation, and ask which question
+      it needs to answer. Consider setting a review point so you can revise the scope when new requests arrive.
+      Before you change an arrangement, check whether the other people involved have the same understanding
+      of its scope and timing.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.secondary.luck.stem.clash
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.secondary.luck.stem.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日天干与大运（十年阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily stem contrasts with the Luck Pillar (dà yùn
+      — a ten-year cycle marker). This secondary signal invites you to compare an immediate request with a
+      longer-term priority. Consider checking their fit before rearranging the day. For work or study, make
+      the next delivery observable. Decide what the task is for before choosing how much detail to add. Available
+      tools, clear instructions, and other people’s schedules matter more than a symbolic daily label. For
+      example, send a brief outline before preparing a long presentation, and ask which question it needs to
+      answer. Consider setting a review point so you can revise the scope when new requests arrive. You can
+      discuss the timing with whoever depends on the result before agreeing to another delivery.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.secondary.luck.branch.clash
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.secondary.luck.branch.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日地支与大运（十年阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily branch contrasts with the Luck Pillar (dà yùn
+      — a ten-year cycle marker). This secondary signal invites you to compare an immediate request with a
+      longer-term priority. Consider checking their fit before rearranging the day. For work or study, make
+      the next delivery observable. Decide what the task is for before choosing how much detail to add. Available
+      tools, clear instructions, and other people’s schedules matter more than a symbolic daily label. For
+      example, send a brief outline before preparing a long presentation, and ask which question it needs to
+      answer. Consider setting a review point so you can revise the scope when new requests arrive. Before
+      you change an arrangement, check whether the other people involved have the same understanding of its
+      scope and timing. You can discuss the timing with whoever depends on the result before agreeing to another
+      delivery.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.secondary.year.stem.clash
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.secondary.year.stem.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日天干与流年（年度阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily stem contrasts with the Annual Pillar (liú nián
+      — a yearly cycle marker). This secondary signal invites you to compare an immediate request with a longer-term
+      priority. Consider checking their fit before rearranging the day. For work or study, make the next delivery
+      observable. Decide what the task is for before choosing how much detail to add. Available tools, clear
+      instructions, and other people’s schedules matter more than a symbolic daily label. For example, send
+      a brief outline before preparing a long presentation, and ask which question it needs to answer. Consider
+      setting a review point so you can revise the scope when new requests arrive. You can discuss the timing
+      with whoever depends on the result before agreeing to another delivery.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.secondary.year.branch.clash
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: bazi.secondary.year.branch.clash
+  weight: 55
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先协调当天任务和阶段重点。
+    summary: 你可以先协调当天任务和阶段重点。
+    body: 你可以先协调当天任务和阶段重点。流日地支与流年（年度阶段符号）发生冲向关系，提示短期安排与阶段重点可能拉扯。这个次级因素只提供一个检查角度，建议先确认今天的任务是否仍服务于长期目标。你可以把今天的工作与学习拆成看得见的交付。先明确任务的用途，再决定做法，能避免在不重要的细节上消耗太多时间。进度受实际资源和协作安排影响，不只取决于当天的象征。比如提交草稿前，先让接收者确认方向，再补齐格式。建议设一个短检查点，遇到新要求时重新估计范围。
+    advice:
+      - 设定一个能检查的交付点。
+    do:
+      - 确认重点
+    dont:
+      - 盲目赶工
+  en:
+    title: Align today’s task with a longer priority.
+    summary: Align today’s task with a longer priority.
+    body:
+      Align today’s task with a longer priority. The daily branch contrasts with the Annual Pillar (liú
+      nián — a yearly cycle marker). This secondary signal invites you to compare an immediate request with
+      a longer-term priority. Consider checking their fit before rearranging the day. For work or study, make
+      the next delivery observable. Decide what the task is for before choosing how much detail to add. Available
+      tools, clear instructions, and other people’s schedules matter more than a symbolic daily label. For
+      example, send a brief outline before preparing a long presentation, and ask which question it needs to
+      answer. Consider setting a review point so you can revise the scope when new requests arrive. Before
+      you change an arrangement, check whether the other people involved have the same understanding of its
+      scope and timing. You can discuss the timing with whoever depends on the result before agreeing to another
+      delivery.
+    advice:
+      - Define one reviewable deliverable.
+    do:
+      - Clarify priorities
+    dont:
+      - Rush every task
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.mars_opposition_sun
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.mars_opposition_sun
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命太阳（象征目标与表达）形成对分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Mars with natal Sun through a opposition. Transiting Mars invites a
+      check of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from becoming
+      unnecessary friction. An opposition describes an angle of about 180 degrees and a tension between perspectives.
+      You can name both needs before seeking a workable adjustment. The natal point adds a question about your
+      own habits: Check whether a request fits the aim you actually want to pursue. For example, ask which
+      part of a delivery the recipient needs first. A usable first portion may help more than pushing every
+      optional detail through at once. Consider one modest adjustment, then review what actually changed. Practical
+      information remains the basis for important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.mars_square_sun
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.mars_square_sun
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Mars with natal Sun through a square. Transiting Mars invites a check
+      of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from becoming
+      unnecessary friction. A square describes an angle of about 90 degrees and symbolic friction. Consider
+      changing the method before deciding that the whole aim is unsuitable. The natal point adds a question
+      about your own habits: Check whether a request fits the aim you actually want to pursue. For example,
+      ask which part of a delivery the recipient needs first. A usable first portion may help more than pushing
+      every optional detail through at once. Consider one modest adjustment, then review what actually changed.
+      Practical information remains the basis for important choices; a symbolic angle does not establish the
+      outcome.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.mars_opposition_mars
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.mars_opposition_mars
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命火星（象征行动与边界）形成对分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Mars with natal Mars through a opposition. Transiting Mars invites a
+      check of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from becoming
+      unnecessary friction. An opposition describes an angle of about 180 degrees and a tension between perspectives.
+      You can name both needs before seeking a workable adjustment. The natal point adds a question about your
+      own habits: Set a stopping point instead of adding effort indefinitely. For example, ask which part of
+      a delivery the recipient needs first. A usable first portion may help more than pushing every optional
+      detail through at once. Consider one modest adjustment, then review what actually changed. Practical
+      information remains the basis for important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.mars_square_mars
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.mars_square_mars
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命火星（象征行动与边界）形成四分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Mars with natal Mars through a square. Transiting Mars invites a check
+      of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from becoming
+      unnecessary friction. A square describes an angle of about 90 degrees and symbolic friction. Consider
+      changing the method before deciding that the whole aim is unsuitable. The natal point adds a question
+      about your own habits: Set a stopping point instead of adding effort indefinitely. For example, ask which
+      part of a delivery the recipient needs first. A usable first portion may help more than pushing every
+      optional detail through at once. Consider one modest adjustment, then review what actually changed. Practical
+      information remains the basis for important choices; a symbolic angle does not establish the outcome.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.saturn_opposition_sun
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.saturn_opposition_sun
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命太阳（象征目标与表达）形成对分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Saturn with natal Sun through a opposition. Transiting Saturn highlights
+      responsibility and limits. You can identify the part that belongs to you and negotiate the part that
+      needs another person’s contribution. An opposition describes an angle of about 180 degrees and a tension
+      between perspectives. You can name both needs before seeking a workable adjustment. The natal point adds
+      a question about your own habits: Check whether a request fits the aim you actually want to pursue. For
+      example, ask which part of a delivery the recipient needs first. A usable first portion may help more
+      than pushing every optional detail through at once. Consider one modest adjustment, then review what
+      actually changed. Practical information remains the basis for important choices; a symbolic angle does
+      not establish the outcome.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.saturn_square_sun
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.saturn_square_sun
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Saturn with natal Sun through a square. Transiting Saturn highlights
+      responsibility and limits. You can identify the part that belongs to you and negotiate the part that
+      needs another person’s contribution. A square describes an angle of about 90 degrees and symbolic friction.
+      Consider changing the method before deciding that the whole aim is unsuitable. The natal point adds a
+      question about your own habits: Check whether a request fits the aim you actually want to pursue. For
+      example, ask which part of a delivery the recipient needs first. A usable first portion may help more
+      than pushing every optional detail through at once. Consider one modest adjustment, then review what
+      actually changed. Practical information remains the basis for important choices; a symbolic angle does
+      not establish the outcome.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.saturn_opposition_moon
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.saturn_opposition_moon
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命月亮（象征熟悉感与情绪）形成对分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Saturn with natal Moon through a opposition. Transiting Saturn highlights
+      responsibility and limits. You can identify the part that belongs to you and negotiate the part that
+      needs another person’s contribution. An opposition describes an angle of about 180 degrees and a tension
+      between perspectives. You can name both needs before seeking a workable adjustment. The natal point adds
+      a question about your own habits: Notice your mood before adding another conversation to your day. For
+      example, ask which part of a delivery the recipient needs first. A usable first portion may help more
+      than pushing every optional detail through at once. Consider one modest adjustment, then review what
+      actually changed. Practical information remains the basis for important choices; a symbolic angle does
+      not establish the outcome.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.saturn_square_moon
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.saturn_square_moon
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命月亮（象征熟悉感与情绪）形成四分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Saturn with natal Moon through a square. Transiting Saturn highlights
+      responsibility and limits. You can identify the part that belongs to you and negotiate the part that
+      needs another person’s contribution. A square describes an angle of about 90 degrees and symbolic friction.
+      Consider changing the method before deciding that the whole aim is unsuitable. The natal point adds a
+      question about your own habits: Notice your mood before adding another conversation to your day. For
+      example, ask which part of a delivery the recipient needs first. A usable first portion may help more
+      than pushing every optional detail through at once. Consider one modest adjustment, then review what
+      actually changed. Practical information remains the basis for important choices; a symbolic angle does
+      not establish the outcome.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.saturn_opposition_asc
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.saturn_opposition_asc
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命上升点（象征对外回应）形成对分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Saturn with natal ASC through a opposition. Transiting Saturn highlights
+      responsibility and limits. You can identify the part that belongs to you and negotiate the part that
+      needs another person’s contribution. An opposition describes an angle of about 180 degrees and a tension
+      between perspectives. You can name both needs before seeking a workable adjustment. The natal point adds
+      a question about your own habits: Check the tone of a first response before treating it as your settled
+      view. For example, ask which part of a delivery the recipient needs first. A usable first portion may
+      help more than pushing every optional detail through at once. Consider one modest adjustment, then review
+      what actually changed. Practical information remains the basis for important choices; a symbolic angle
+      does not establish the outcome.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.transit.saturn_square_asc
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: findings
+    contains: astro.transit.saturn_square_asc
+  weight: 48
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以先给工作中的推动力安排一个清楚目标。
+    summary: 你可以先给工作中的推动力安排一个清楚目标。
+    body: 你可以先给工作中的推动力安排一个清楚目标。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命上升点（象征对外回应）形成四分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如对一个任务感到急迫时，你可以先问接收者哪部分最重要，再把交付拆成今天能完成的一小段。建议把这个提示用在一个可调整的小动作上，再观察实际结果。涉及重要选择时仍要看可靠资料与实际条件，不把当天象征当作结果预告。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: You can give work effort a clear and limited aim.
+    summary: You can give work effort a clear and limited aim.
+    body:
+      'You can give work effort a clear and limited aim. A transit compares a current sky position with
+      a natal position; this one links Saturn with natal ASC through a square. Transiting Saturn highlights
+      responsibility and limits. You can identify the part that belongs to you and negotiate the part that
+      needs another person’s contribution. A square describes an angle of about 90 degrees and symbolic friction.
+      Consider changing the method before deciding that the whole aim is unsuitable. The natal point adds a
+      question about your own habits: Check the tone of a first response before treating it as your settled
+      view. For example, ask which part of a delivery the recipient needs first. A usable first portion may
+      help more than pushing every optional detail through at once. Consider one modest adjustment, then review
+      what actually changed. Practical information remains the basis for important choices; a symbolic angle
+      does not establish the outcome.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.career.retrograde.mercury
+  system: daily
+  section: career
+  topic: daily.career.direction
+  when:
+    path: astro.retrogrades
+    contains: mercury
+  weight: 46
+  polarity: negative
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以在工作交接前复核关键信息。
+    summary: 你可以在工作交接前复核关键信息。
+    body: 你可以在工作交接前复核关键信息。水星逆行（从地球观察时黄经速度为负的表观运动）是集体星象，不说明每个人会遇到同样的事。这里把它作为回看信息传递的提醒，真实原因仍需要从环境、安排和交流中了解。比如交接一份任务清单，你可以确认版本、负责人和截止时间，先让对方知道哪些问题仍待回答。建议只修改一个已经确认的细节，再检查实际反馈。资料不足时保留余地，不需要为了符号改变所有日程。复核的目的是减少信息差，而不是为尚未发生的事情做预设。
+    advice:
+      - 核对一个实际细节，再决定是否调整。
+    do:
+      - 复核细节
+    dont:
+      - 提前担忧
+  en:
+    title: You can review a handover before sending it.
+    summary: You can review a handover before sending it.
+    body:
+      You can review a handover before sending it. Retrograde motion means a negative apparent longitude
+      speed from Earth; it is a collective sky condition rather than an account of what each person will experience.
+      Use the symbol to open a review, while looking to real arrangements and communication for the cause of
+      a problem. For example, identify the current version, owner, and deadline in a handover, and mark any
+      question that remains open. Consider changing one confirmed detail and reviewing the actual response.
+      You can keep a workable schedule while leaving time to check what remains uncertain. The symbolic label
+      is a reflection prompt, while practical information remains the basis for a decision. The purpose of
+      the review is to clarify information rather than anticipate an event.
+    advice:
+      - Check one practical detail before changing more.
+    do:
+      - Review a detail
+    dont:
+      - Worry in advance
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

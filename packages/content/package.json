@@ -15,7 +15,8 @@
     "coverage:qimen": "tsx scripts/qimen-coverage.ts",
     "coverage:tarot": "tsx scripts/tarot-coverage.ts",
     "coverage:astrology": "tsx scripts/check-astrology-coverage.ts",
-    "coverage:vedic": "tsx scripts/check-vedic-coverage.ts"
+    "coverage:vedic": "tsx scripts/check-vedic-coverage.ts",
+    "coverage:daily": "tsx scripts/daily-coverage.ts"
   },
   "dependencies": {
     "@tianji/shared": "workspace:*",

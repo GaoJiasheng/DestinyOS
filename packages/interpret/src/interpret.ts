@@ -11,7 +11,7 @@ import {
 import type { KnowledgeUnit, TransitionKind, Source, Dim } from '@tianji/content';
 import type { Hit, InterpretInput, Report, ReportBlock, Score, Section } from './types';
 import { numeric, systemConfigs } from './config';
-import { termMarker, termCount } from './terms';
+import { termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
 export const interpretVersion = '1.1.0';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
@@ -101,17 +101,18 @@ export function interpret(input: InterpretInput): Report {
     variantChoices.set(root, variants[hash(`${identity}:${root}`) % variants.length]!.unit.id);
   }
   // Prefer an equivalent plain variant when the original exceeds the term-density budget.
+  const countTerms = createTermCounter(knowledge.glossary, locale);
   const candidates = evaluated.filter((candidate) => {
     const variant = variantChoices.get(candidate.unit.id.slice(0, -2));
     if (variant && variant !== candidate.unit.id) return false;
+    // Plain editorial units are retained regardless of density, so scanning them
+    // cannot change selection. The assembled report still checks term density.
+    if (candidate.unit.tags.includes('plain')) return true;
     const body = candidate.unit[locale].body;
     const dense =
-      (termCount(body, knowledge.glossary, locale) * 100) /
-        ((locale === 'zh' ? zhChars(body) : enWords(body)) || 1) >
-      6;
+      (countTerms(body) * 100) / ((locale === 'zh' ? zhChars(body) : enWords(body)) || 1) > 6;
     return (
       !dense ||
-      candidate.unit.tags.includes('plain') ||
       !evaluated.some(
         (other) =>
           other.unit.tags.includes('plain') &&

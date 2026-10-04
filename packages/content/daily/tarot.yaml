@@ -1,0 +1,93 @@
+# T-23 original bilingual daily content.
+- id: daily.tarot.orientation.upright
+  system: daily
+  section: tarot
+  topic: daily.tarot.orientation
+  when:
+    path: tarot.reversed
+    eq: false
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+    - tarot
+  exclusive_with: []
+  zh:
+    title: 你可以用正位视角观察习惯。
+    summary: 你可以用正位视角观察习惯。
+    body: 你可以用正位视角检查一个日常习惯。正位（牌面常规方向）提供今日一牌的阅读角度，不能单独判断事情好坏。塔罗（借牌面象征进行反思的方式）在每日报告中适合提出问题，不替代事实或自主决定。正位可以提醒你留意牌面主题如何呈现，顺畅的意象仍需要行动和现实条件配合。比如看到一张让你想到协作的牌，可以问今天是否需要说清分工，先尝试一个容易调整的小动作。建议把牌义和真实处境分开记录，晚些时候比较什么有帮助。完整牌义可提供文化背景，你不必让当天经历全部符合这一张牌，也不用重复抽牌寻找更满意的答案。
+    advice:
+      - 把牌面联想转成一个可观察的问题。
+    do:
+      - 提出问题
+    dont:
+      - 反复抽牌
+  en:
+    title: Explore the upright reading angle.
+    summary: Explore the upright reading angle.
+    body:
+      You can read the upright orientation as a question about an everyday habit. Card orientation is one
+      angle on an image, rather than a rating of what will happen. Tarot uses symbolic imagery for reflection
+      here and leaves practical decisions with you. An upright image can invite you to examine how a theme
+      appears openly. A comfortable image still needs action and suitable real conditions before it becomes
+      useful. For example, a card that brings cooperation to mind might prompt a conversation about roles.
+      Consider recording the actual situation separately from the association, then trying a small adjustment
+      you can review. The fuller card meaning provides cultural background without requiring every event to
+      match the draw. You can leave any association aside if it does not help you understand the situation.
+    advice:
+      - Turn an association into an observable question.
+    do:
+      - Ask a question
+    dont:
+      - Draw repeatedly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.tarot.orientation.reversed
+  system: daily
+  section: tarot
+  topic: daily.tarot.orientation
+  when:
+    path: tarot.reversed
+    eq: true
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+    - tarot
+  exclusive_with: []
+  zh:
+    title: 你可以用逆位视角观察习惯。
+    summary: 你可以用逆位视角观察习惯。
+    body: 你可以用逆位视角检查一个日常习惯。逆位（牌面倒置方向）提供今日一牌的阅读角度，不能单独判断事情好坏。塔罗（借牌面象征进行反思的方式）在每日报告中适合提出问题，不替代事实或自主决定。逆位可以提醒你看看哪里受阻、内化或用力过多，同样的主题仍可能有建设性的用法。比如看到一张让你想到协作的牌，可以问今天是否需要说清分工，先尝试一个容易调整的小动作。建议把牌义和真实处境分开记录，晚些时候比较什么有帮助。完整牌义可提供文化背景，你不必让当天经历全部符合这一张牌，也不用重复抽牌寻找更满意的答案。
+    advice:
+      - 把牌面联想转成一个可观察的问题。
+    do:
+      - 提出问题
+    dont:
+      - 反复抽牌
+  en:
+    title: Explore the reversed reading angle.
+    summary: Explore the reversed reading angle.
+    body:
+      You can read the reversed orientation as a question about an everyday habit. Card orientation is
+      one angle on an image, rather than a rating of what will happen. Tarot uses symbolic imagery for reflection
+      here and leaves practical decisions with you. A reversed image can invite you to examine a blocked, inward,
+      or overextended expression of a theme. That does not make the card automatically unfavorable. For example,
+      a card that brings cooperation to mind might prompt a conversation about roles. Consider recording the
+      actual situation separately from the association, then trying a small adjustment you can review. The
+      fuller card meaning provides cultural background without requiring every event to match the draw. You
+      can leave any association aside if it does not help you understand the situation.
+    advice:
+      - Turn an association into an observable question.
+    do:
+      - Ask a question
+    dont:
+      - Draw repeatedly
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

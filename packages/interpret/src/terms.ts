@@ -61,6 +61,19 @@ export function expandTerms(text: string, glossary: GlossaryEntry[], locale: Loc
   );
 }
 export function termCount(text: string, glossary: GlossaryEntry[], locale: Locale): number {
+  return createTermCounter(glossary, locale)(text);
+}
+
+/**
+ * Compile one matcher for repeated texts within a report, with unchanged term boundaries.
+ * @param glossary Fixed glossary entries for this report; recreate the matcher if terms change.
+ * @param locale Matching language, zh or en.
+ * @returns A counter of glossary term occurrences in each supplied text.
+ */
+export function createTermCounter(
+  glossary: GlossaryEntry[],
+  locale: Locale,
+): (text: string) => number {
   const { regex } = termPattern(glossary, locale);
-  return regex ? [...expandTerms(text, glossary, locale).matchAll(regex)].length : 0;
+  return (text) => (regex ? [...expandTerms(text, glossary, locale).matchAll(regex)].length : 0);
 }

@@ -1,0 +1,321 @@
+# T-23: glossary follows appendix keys; pinyin describes the Chinese display term.
+- key: star.zuo_fu
+  system: ziwei
+  zh:
+    term: 左辅
+    pinyin: zuǒ fǔ
+    short: 紫微辅助星曜：协作支持
+    long: 左辅是紫微盘中的辅助星曜，传统解读关注协作支持。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Left Assistant
+    pinyin: zuǒ fǔ
+    short: A Zi Wei auxiliary theme of cooperative support
+    long:
+      Left Assistant is an auxiliary star symbol in a Zi Wei chart, emphasizing cooperative support. It
+      modifies a palace theme and is read with major stars, brightness, and transformations. One symbol does
+      not define a person or connection.
+  aliases: []
+- key: star.you_bi
+  system: ziwei
+  zh:
+    term: 右弼
+    pinyin: yòu bì
+    short: 紫微辅助星曜：协作补位
+    long: 右弼是紫微盘中的辅助星曜，传统解读关注协作补位。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Right Assistant
+    pinyin: yòu bì
+    short: A Zi Wei auxiliary theme of complementary assistance
+    long:
+      Right Assistant is an auxiliary star symbol in a Zi Wei chart, emphasizing complementary assistance.
+      It modifies a palace theme and is read with major stars, brightness, and transformations. One symbol
+      does not define a person or connection.
+  aliases: []
+- key: star.wen_chang
+  system: ziwei
+  zh:
+    term: 文昌
+    pinyin: wén chāng
+    short: 紫微辅助星曜：学习表达
+    long: 文昌是紫微盘中的辅助星曜，传统解读关注学习表达。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Wen Chang
+    pinyin: wén chāng
+    short: A Zi Wei auxiliary theme of learning and expression
+    long:
+      Wen Chang is an auxiliary star symbol in a Zi Wei chart, emphasizing learning and expression. It
+      modifies a palace theme and is read with major stars, brightness, and transformations. One symbol does
+      not define a person or connection.
+  aliases: []
+- key: star.wen_qu
+  system: ziwei
+  zh:
+    term: 文曲
+    pinyin: wén qū
+    short: 紫微辅助星曜：文字感受
+    long: 文曲是紫微盘中的辅助星曜，传统解读关注文字感受。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Wen Qu
+    pinyin: wén qū
+    short: A Zi Wei auxiliary theme of language and sensibility
+    long:
+      Wen Qu is an auxiliary star symbol in a Zi Wei chart, emphasizing language and sensibility. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.lu_cun
+  system: ziwei
+  zh:
+    term: 禄存
+    pinyin: lù cún
+    short: 紫微辅助星曜：资源积累
+    long: 禄存是紫微盘中的辅助星曜，传统解读关注资源积累。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Lu Cun
+    pinyin: lù cún
+    short: A Zi Wei auxiliary theme of resource stewardship
+    long:
+      Lu Cun is an auxiliary star symbol in a Zi Wei chart, emphasizing resource stewardship. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.tian_ma
+  system: ziwei
+  zh:
+    term: 天马
+    pinyin: tiān mǎ
+    short: 紫微辅助星曜：移动转换
+    long: 天马是紫微盘中的辅助星曜，传统解读关注移动转换。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Tian Ma
+    pinyin: tiān mǎ
+    short: A Zi Wei auxiliary theme of movement and transition
+    long:
+      Tian Ma is an auxiliary star symbol in a Zi Wei chart, emphasizing movement and transition. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.tian_kui
+  system: ziwei
+  zh:
+    term: 天魁
+    pinyin: tiān kuí
+    short: 紫微辅助星曜：支持引导
+    long: 天魁是紫微盘中的辅助星曜，传统解读关注支持引导。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Tian Kui
+    pinyin: tiān kuí
+    short: A Zi Wei auxiliary theme of support and guidance
+    long:
+      Tian Kui is an auxiliary star symbol in a Zi Wei chart, emphasizing support and guidance. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.tian_yue
+  system: ziwei
+  zh:
+    term: 天钺
+    pinyin: tiān yuè
+    short: 紫微辅助星曜：支持连接
+    long: 天钺是紫微盘中的辅助星曜，传统解读关注支持连接。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Tian Yue
+    pinyin: tiān yuè
+    short: A Zi Wei auxiliary theme of helpful connections
+    long:
+      Tian Yue is an auxiliary star symbol in a Zi Wei chart, emphasizing helpful connections. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.qing_yang
+  system: ziwei
+  zh:
+    term: 擎羊
+    pinyin: qíng yáng
+    short: 紫微辅助星曜：直接与边界
+    long: 擎羊是紫微盘中的辅助星曜，传统解读关注直接与边界。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Qing Yang
+    pinyin: qíng yáng
+    short: A Zi Wei auxiliary theme of directness and boundaries
+    long:
+      Qing Yang is an auxiliary star symbol in a Zi Wei chart, emphasizing directness and boundaries. It
+      modifies a palace theme and is read with major stars, brightness, and transformations. One symbol does
+      not define a person or connection.
+  aliases: []
+- key: star.tuo_luo
+  system: ziwei
+  zh:
+    term: 陀罗
+    pinyin: tuó luó
+    short: 紫微辅助星曜：耐心与卡点
+    long: 陀罗是紫微盘中的辅助星曜，传统解读关注耐心与卡点。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Tuo Luo
+    pinyin: tuó luó
+    short: A Zi Wei auxiliary theme of patience and friction
+    long:
+      Tuo Luo is an auxiliary star symbol in a Zi Wei chart, emphasizing patience and friction. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.huo_xing
+  system: ziwei
+  zh:
+    term: 火星
+    pinyin: huǒ xīng
+    short: 紫微辅助星曜：快速反应
+    long: 火星是紫微盘中的辅助星曜，传统解读关注快速反应。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Huo Xing
+    pinyin: huǒ xīng
+    short: A Zi Wei auxiliary theme of rapid response
+    long:
+      Huo Xing is an auxiliary star symbol in a Zi Wei chart, emphasizing rapid response. It modifies a
+      palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.ling_xing
+  system: ziwei
+  zh:
+    term: 铃星
+    pinyin: líng xīng
+    short: 紫微辅助星曜：敏锐与张力
+    long: 铃星是紫微盘中的辅助星曜，传统解读关注敏锐与张力。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Ling Xing
+    pinyin: líng xīng
+    short: A Zi Wei auxiliary theme of alertness and tension
+    long:
+      Ling Xing is an auxiliary star symbol in a Zi Wei chart, emphasizing alertness and tension. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.di_kong
+  system: ziwei
+  zh:
+    term: 地空
+    pinyin: dì kōng
+    short: 紫微辅助星曜：留白与重估
+    long: 地空是紫微盘中的辅助星曜，传统解读关注留白与重估。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Di Kong
+    pinyin: dì kōng
+    short: A Zi Wei auxiliary theme of openness and reassessment
+    long:
+      Di Kong is an auxiliary star symbol in a Zi Wei chart, emphasizing openness and reassessment. It
+      modifies a palace theme and is read with major stars, brightness, and transformations. One symbol does
+      not define a person or connection.
+  aliases: []
+- key: star.di_jie
+  system: ziwei
+  zh:
+    term: 地劫
+    pinyin: dì jié
+    short: 紫微辅助星曜：资源变化
+    long: 地劫是紫微盘中的辅助星曜，传统解读关注资源变化。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Di Jie
+    pinyin: dì jié
+    short: A Zi Wei auxiliary theme of resource change
+    long:
+      Di Jie is an auxiliary star symbol in a Zi Wei chart, emphasizing resource change. It modifies a
+      palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.tian_xing
+  system: ziwei
+  zh:
+    term: 天刑
+    pinyin: tiān xíng
+    short: 紫微辅助星曜：规范与约束
+    long: 天刑是紫微盘中的辅助星曜，传统解读关注规范与约束。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Tian Xing
+    pinyin: tiān xíng
+    short: A Zi Wei auxiliary theme of standards and limits
+    long:
+      Tian Xing is an auxiliary star symbol in a Zi Wei chart, emphasizing standards and limits. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.tian_yao
+  system: ziwei
+  zh:
+    term: 天姚
+    pinyin: tiān yáo
+    short: 紫微辅助星曜：表达与吸引
+    long: 天姚是紫微盘中的辅助星曜，传统解读关注表达与吸引。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Tian Yao
+    pinyin: tiān yáo
+    short: A Zi Wei auxiliary theme of expression and attraction
+    long:
+      Tian Yao is an auxiliary star symbol in a Zi Wei chart, emphasizing expression and attraction. It
+      modifies a palace theme and is read with major stars, brightness, and transformations. One symbol does
+      not define a person or connection.
+  aliases: []
+- key: star.hong_luan
+  system: ziwei
+  zh:
+    term: 红鸾
+    pinyin: hóng luán
+    short: 紫微辅助星曜：亲近与喜悦
+    long: 红鸾是紫微盘中的辅助星曜，传统解读关注亲近与喜悦。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Hong Luan
+    pinyin: hóng luán
+    short: A Zi Wei auxiliary theme of closeness and joy
+    long:
+      Hong Luan is an auxiliary star symbol in a Zi Wei chart, emphasizing closeness and joy. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.tian_xi
+  system: ziwei
+  zh:
+    term: 天喜
+    pinyin: tiān xǐ
+    short: 紫微辅助星曜：交流与愉悦
+    long: 天喜是紫微盘中的辅助星曜，传统解读关注交流与愉悦。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Tian Xi
+    pinyin: tiān xǐ
+    short: A Zi Wei auxiliary theme of exchange and enjoyment
+    long:
+      Tian Xi is an auxiliary star symbol in a Zi Wei chart, emphasizing exchange and enjoyment. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.long_chi
+  system: ziwei
+  zh:
+    term: 龙池
+    pinyin: lóng chí
+    short: 紫微辅助星曜：形式与表现
+    long: 龙池是紫微盘中的辅助星曜，传统解读关注形式与表现。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Long Chi
+    pinyin: lóng chí
+    short: A Zi Wei auxiliary theme of form and presentation
+    long:
+      Long Chi is an auxiliary star symbol in a Zi Wei chart, emphasizing form and presentation. It modifies
+      a palace theme and is read with major stars, brightness, and transformations. One symbol does not define
+      a person or connection.
+  aliases: []
+- key: star.feng_ge
+  system: ziwei
+  zh:
+    term: 凤阁
+    pinyin: fèng gé
+    short: 紫微辅助星曜：审美与表达
+    long: 凤阁是紫微盘中的辅助星曜，传统解读关注审美与表达。它修饰所在宫位的主题，要结合主星、亮度与四化关系，不把单星当作对个人或关系的定论。
+  en:
+    term: Feng Ge
+    pinyin: fèng gé
+    short: A Zi Wei auxiliary theme of aesthetics and expression
+    long:
+      Feng Ge is an auxiliary star symbol in a Zi Wei chart, emphasizing aesthetics and expression. It
+      modifies a palace theme and is read with major stars, brightness, and transformations. One symbol does
+      not define a person or connection.
+  aliases: []

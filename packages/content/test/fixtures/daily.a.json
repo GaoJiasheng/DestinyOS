@@ -1,0 +1,210 @@
+{
+  "date": {
+    "local": "2026-10-04",
+    "tz": "Asia/Shanghai",
+    "ganZhi": {
+      "year": {
+        "stem": "bing",
+        "branch": "wu"
+      },
+      "month": {
+        "stem": "ding",
+        "branch": "you"
+      },
+      "day": {
+        "stem": "xin",
+        "branch": "hai"
+      }
+    },
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    }
+  },
+  "bazi": {
+    "dayMasterRelation": "jie_cai",
+    "branchRelation": "none",
+    "elementBalance": {
+      "wood": 10.416667,
+      "fire": 20.833333,
+      "earth": 20.833333,
+      "metal": 36.805556,
+      "water": 11.111111
+    },
+    "favorable": ["wood", "fire", "water"],
+    "unfavorable": ["earth", "metal"],
+    "todayElement": "metal",
+    "luckyColor": ["daily.color.emerald"],
+    "luckyNumbers": [3, 8],
+    "luckyDirection": "daily.direction.east",
+    "goodHours": [
+      {
+        "branch": "chen",
+        "from": "07:00",
+        "to": "09:00"
+      },
+      {
+        "branch": "wu",
+        "from": "11:00",
+        "to": "13:00"
+      }
+    ],
+    "almanac": {
+      "yi": ["daily.almanac.travel", "daily.almanac.deals", "daily.almanac.home"],
+      "ji": ["daily.almanac.romance", "daily.almanac.changes"]
+    },
+    "favorableHit": false,
+    "unfavorableHit": true,
+    "branchRelations": [
+      {
+        "pillar": "month",
+        "type": "clash"
+      }
+    ],
+    "secondaryRelations": [
+      {
+        "target": "year",
+        "kind": "stem",
+        "type": "combine"
+      }
+    ],
+    "luckyColorHex": "#50C878",
+    "luckyColorElement": "wood",
+    "nobleZodiac": ["yin", "mao", "wei"]
+  },
+  "astro": {
+    "moonSign": "cancer",
+    "moonPhase": {
+      "name": "last_quarter",
+      "angle": 282.34148800600684
+    },
+    "sunSign": "libra",
+    "transits": [
+      {
+        "transiting": "moon",
+        "natal": "sun",
+        "aspect": "sextile",
+        "orb": 0.264729153113592,
+        "applying": true
+      },
+      {
+        "transiting": "venus",
+        "natal": "mercury",
+        "aspect": "opposition",
+        "orb": 0.37359055152217024,
+        "applying": true
+      },
+      {
+        "transiting": "sun",
+        "natal": "venus",
+        "aspect": "opposition",
+        "orb": 0.9428469149444823,
+        "applying": true
+      }
+    ],
+    "moonDegree": 23.628859884154977,
+    "moonChangesSign": false,
+    "retrogrades": ["venus"],
+    "lunation": null
+  },
+  "tarot": {
+    "card": "major_14_temperance",
+    "reversed": true
+  },
+  "vedic": {
+    "date": "2026-10-04",
+    "tz": "Asia/Shanghai",
+    "sunrise": "2026-10-03T22:13:09.545Z",
+    "sunset": "2026-10-04T09:52:38.086Z",
+    "tithi": {
+      "index": 23,
+      "key": "ashtami",
+      "endsAt": "2026-10-04T00:22:05.575Z"
+    },
+    "nakshatra": {
+      "index": 6,
+      "key": "punarvasu",
+      "endsAt": "2026-10-04T18:43:43.682Z"
+    },
+    "yoga": {
+      "index": 18,
+      "key": "parigha",
+      "endsAt": "2026-10-04T07:01:54.583Z"
+    },
+    "karana": {
+      "index": 45,
+      "key": "kaulava",
+      "endsAt": "2026-10-04T00:22:05.575Z"
+    },
+    "vara": {
+      "index": 0,
+      "key": "raviwara",
+      "endsAt": "2026-10-04T22:14:08.923Z"
+    },
+    "transitions": [
+      {
+        "limb": "tithi",
+        "index": 24,
+        "key": "navami",
+        "startsAt": "2026-10-04T00:22:05.575Z",
+        "endsAt": "2026-10-04T22:24:08.020Z"
+      },
+      {
+        "limb": "karana",
+        "index": 46,
+        "key": "taitila",
+        "startsAt": "2026-10-04T00:22:05.575Z",
+        "endsAt": "2026-10-04T11:21:44.930Z"
+      },
+      {
+        "limb": "yoga",
+        "index": 19,
+        "key": "shiva",
+        "startsAt": "2026-10-04T07:01:54.583Z",
+        "endsAt": "2026-10-05T04:21:06.790Z"
+      },
+      {
+        "limb": "karana",
+        "index": 47,
+        "key": "garaja",
+        "startsAt": "2026-10-04T11:21:44.930Z",
+        "endsAt": "2026-10-04T22:24:08.020Z"
+      },
+      {
+        "limb": "nakshatra",
+        "index": 7,
+        "key": "pushya",
+        "startsAt": "2026-10-04T18:43:43.682Z",
+        "endsAt": "2026-10-05T17:39:09.339Z"
+      }
+    ]
+  },
+  "scores": {
+    "career": 54,
+    "wealth": 44,
+    "love": 50,
+    "health": 52,
+    "social": 60,
+    "overall": 51.7
+  },
+  "findings": [
+    "bazi.tenGod.jie_cai.strong",
+    "bazi.unfavorableHit",
+    "bazi.branch.month.clash",
+    "bazi.secondary.year.stem.combine",
+    "astro.transit.moon_sextile_sun",
+    "astro.transit.venus_opposition_mercury",
+    "astro.transit.sun_opposition_venus",
+    "astro.moon_sign.cancer",
+    "astro.moon_phase.last_quarter",
+    "astro.retrograde.venus",
+    "tarot.daily.major_14_temperance.reversed"
+  ],
+  "doDont": {
+    "do": ["daily.actions.pause", "daily.actions.focus", "daily.actions.prepare"],
+    "dont": ["daily.actions.compare", "daily.actions.argue", "daily.actions.assume"]
+  },
+  "oneLiner": "daily.oneliner.careful.pian_yin"
+}

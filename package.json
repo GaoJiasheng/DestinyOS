@@ -26,7 +26,8 @@
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
     "postinstall": "prisma generate",
-    "test:auth:e2e": "playwright test --config playwright.auth.config.ts"
+    "test:auth:e2e": "playwright test --config playwright.auth.config.ts",
+    "content:daily:coverage": "pnpm --filter @tianji/content coverage:daily"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

@@ -1,0 +1,108 @@
+# T-23: glossary follows appendix keys; pinyin describes the Chinese display term.
+- key: vedic.sidereal_zodiac
+  system: vedic
+  zh:
+    term: 恒星黄道
+    pinyin: héng xīng huáng dào
+    short: 以恒星参考修正的黄道框架
+    long: 吠陀采用恒星黄道，行星热带黄经减去岁差值得到恒星黄经。它与西方热带星座的参考点不同，不能直接混用。
+  en:
+    term: Sidereal Zodiac
+    pinyin: héng xīng huáng dào
+    short: A zodiac referenced through a sidereal offset
+    long:
+      Vedic positions subtract an ayanamsa from tropical longitude. The reference differs from the Western
+      tropical zodiac, so the labels should not be mixed directly.
+  aliases: []
+- key: vedic.ayanamsa
+  system: vedic
+  zh:
+    term: 岁差值
+    pinyin: suì chà zhí
+    short: 热带与恒星黄道的角度偏移
+    long: 本项目采用 Lahiri 岁差值，把共同星历转成吠陀恒星黄经；单位为度，不是额外的运势评分。
+  en:
+    term: Ayanamsa
+    pinyin: suì chà zhí
+    short: Angular offset between tropical and sidereal reference points
+    long:
+      The project uses Lahiri ayanamsa to convert shared ephemeris positions to sidereal longitude. The
+      value is an angle in degrees, not an additional fortune score.
+  aliases: []
+- key: vedic.bhava
+  system: vedic
+  zh:
+    term: 宫位
+    pinyin: gōng wèi
+    short: 吠陀盘中的生活领域
+    long: 本项目吠陀盘采用整宫制，上升所在星座为第一宫，其他星座顺序构成十二宫；出生时间未知时不补出宫位。
+  en:
+    term: Bhava
+    pinyin: gōng wèi
+    short: A life-area division in a Vedic chart
+    long:
+      This project uses Whole Sign houses in its Vedic chart. The rising sign forms the first house and
+      subsequent signs form the remaining houses; unknown-time charts omit them.
+  aliases: []
+- key: vedic.vimshottari
+  system: vedic
+  zh:
+    term: 百二十年周期
+    pinyin: bǎi èr shí nián zhōu qī
+    short: 按月亮星宿开始的行星周期序列
+    long: 周期以出生月亮星宿的主星起步，已走比例决定首段剩余长度，总序列一百二十年；它是传统阶段框架，不预报寿命。
+  en:
+    term: Vimshottari Dasha
+    pinyin: bǎi èr shí nián zhōu qī
+    short: A planetary period sequence starting from the Moon’s lunar sector
+    long:
+      The birth Moon’s sector selects the first period lord, and progress through that sector determines
+      the remaining first-period length. The full 120-year sequence is a traditional timing framework rather
+      than a measure of lifespan.
+  aliases: []
+- key: vedic.d1
+  system: vedic
+  zh:
+    term: 本命恒星盘
+    pinyin: běn mìng héng xīng pán
+    short: 吠陀基础星座盘
+    long: D1 表示恒星黄经落入十二星座的基础盘，宫位由上升与整宫规则确定；它与九分盘提供不同层级的观察。
+  en:
+    term: Rashi Chart D1
+    pinyin: běn mìng héng xīng pán
+    short: The base Vedic sign chart
+    long:
+      D1 is the base chart of sidereal sign positions, with houses set by the rising sign and Whole Sign
+      rules. It provides a different layer of observation from D9.
+  aliases: []
+- key: vedic.d9
+  system: vedic
+  zh:
+    term: 九分盘代号
+    pinyin: jiǔ fēn pán dài hào
+    short: 每星座九等分形成的分盘
+    long: D9 是 Navamsa 的盘号，每段三度二十分，用于文化上讨论关系与内在力量；一期未知时辰不补出精确上升。
+  en:
+    term: D9 Chart
+    pinyin: jiǔ fēn pán dài hào
+    short: A divisional chart with nine parts per sign
+    long:
+      D9 is the chart designation for Navamsa, with each division spanning 3°20′. It is traditionally used
+      to reflect on relationships and inner strengths; a precise rising point is not invented for an unknown
+      birth time.
+  aliases: []
+- key: vedic.retrograde
+  system: vedic
+  zh:
+    term: 逆行
+    pinyin: nì xíng
+    short: 从地球看黄经速度为负
+    long: 逆行是表观运动分类，吠陀盘将它与焦伤和尊贵度分别记录；它不是行星实际倒退或坏事预告。
+  en:
+    term: Retrograde
+    pinyin: nì xíng
+    short: Negative apparent longitude speed as seen from Earth
+    long:
+      Retrograde is an apparent-motion classification, recorded separately from combustion and dignity.
+      It is neither physical backward travel nor a prediction of a difficult event.
+  aliases: []

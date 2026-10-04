@@ -1,0 +1,139 @@
+# Original bilingual editorial content for T-23 daily.
+- id: daily.astro.retrograde.mercury
+  system: daily
+  section: astro
+  topic: daily.astro.retrograde
+  when:
+    path: astro.retrogrades
+    contains: mercury
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以回看信息传递里的一个细节。
+    summary: 你可以回看信息传递里的一个细节。
+    body: 你可以回看信息传递里的一个细节。水星逆行（从地球观察时黄经速度为负的表观运动）是集体星象，不说明每个人会遇到同样的事。这里把它作为回看信息传递的提醒，真实原因仍需要从环境、安排和交流中了解。比如一次熟悉的流程出现卡点，你可以先检查信息是否更新、彼此是否理解同一要求，而不是把原因直接交给星象。建议只修正一个能确认的细节，给下一次尝试留出反馈时间。逆行也不要求暂停所有行动；已经合理的日程可以继续，重要决定使用可靠资料和合适支持。你可以保留这个观察角度，但不用提前为尚未发生的事担心。
+    advice:
+      - 核对一个实际细节，再决定是否调整。
+    do:
+      - 复核细节
+    dont:
+      - 提前担忧
+  en:
+    title: Review a Mercury retrograde prompt.
+    summary: Review a Mercury retrograde prompt.
+    body:
+      You can revisit one detail while Mercury appears retrograde. Retrograde motion means a negative apparent
+      longitude speed from Earth; it is a collective sky condition rather than an account of what each person
+      will experience. Use the symbol to open a review, while looking to real arrangements and communication
+      for the cause of a problem. For example, a familiar process may have an outdated instruction or a step
+      that two people understand differently. Consider checking one specific detail and allowing feedback before
+      changing more. You can continue a workable schedule, and important decisions still benefit from relevant
+      information and suitable support. The sky condition does not require a pause in every activity or explain
+      another person’s behavior. Keep the review practical and easy to revise.
+    advice:
+      - Check one practical detail before changing more.
+    do:
+      - Review a detail
+    dont:
+      - Worry in advance
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.retrograde.venus
+  system: daily
+  section: astro
+  topic: daily.astro.retrograde
+  when:
+    path: astro.retrogrades
+    contains: venus
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以回看偏好与关系里的一个细节。
+    summary: 你可以回看偏好与关系里的一个细节。
+    body: 你可以回看偏好与关系里的一个细节。金星逆行（从地球观察时黄经速度为负的表观运动）是集体星象，不说明每个人会遇到同样的事。这里把它作为回看偏好与关系的提醒，真实原因仍需要从环境、安排和交流中了解。比如一次熟悉的流程出现卡点，你可以先检查信息是否更新、彼此是否理解同一要求，而不是把原因直接交给星象。建议只修正一个能确认的细节，给下一次尝试留出反馈时间。逆行也不要求暂停所有行动；已经合理的日程可以继续，重要决定使用可靠资料和合适支持。你可以保留这个观察角度，但不用提前为尚未发生的事担心。
+    advice:
+      - 核对一个实际细节，再决定是否调整。
+    do:
+      - 复核细节
+    dont:
+      - 提前担忧
+  en:
+    title: Review a Venus retrograde prompt.
+    summary: Review a Venus retrograde prompt.
+    body:
+      You can revisit one detail while Venus appears retrograde. Retrograde motion means a negative apparent
+      longitude speed from Earth; it is a collective sky condition rather than an account of what each person
+      will experience. Use the symbol to open a review, while looking to real arrangements and communication
+      for the cause of a problem. For example, a familiar process may have an outdated instruction or a step
+      that two people understand differently. Consider checking one specific detail and allowing feedback before
+      changing more. You can continue a workable schedule, and important decisions still benefit from relevant
+      information and suitable support. The sky condition does not require a pause in every activity or explain
+      another person’s behavior. Keep the review practical and easy to revise.
+    advice:
+      - Check one practical detail before changing more.
+    do:
+      - Review a detail
+    dont:
+      - Worry in advance
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.retrograde.mars
+  system: daily
+  section: astro
+  topic: daily.astro.retrograde
+  when:
+    path: astro.retrogrades
+    contains: mars
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以回看行动与节奏里的一个细节。
+    summary: 你可以回看行动与节奏里的一个细节。
+    body: 你可以回看行动与节奏里的一个细节。火星逆行（从地球观察时黄经速度为负的表观运动）是集体星象，不说明每个人会遇到同样的事。这里把它作为回看行动与节奏的提醒，真实原因仍需要从环境、安排和交流中了解。比如一次熟悉的流程出现卡点，你可以先检查信息是否更新、彼此是否理解同一要求，而不是把原因直接交给星象。建议只修正一个能确认的细节，给下一次尝试留出反馈时间。逆行也不要求暂停所有行动；已经合理的日程可以继续，重要决定使用可靠资料和合适支持。你可以保留这个观察角度，但不用提前为尚未发生的事担心。
+    advice:
+      - 核对一个实际细节，再决定是否调整。
+    do:
+      - 复核细节
+    dont:
+      - 提前担忧
+  en:
+    title: Review a Mars retrograde prompt.
+    summary: Review a Mars retrograde prompt.
+    body:
+      You can revisit one detail while Mars appears retrograde. Retrograde motion means a negative apparent
+      longitude speed from Earth; it is a collective sky condition rather than an account of what each person
+      will experience. Use the symbol to open a review, while looking to real arrangements and communication
+      for the cause of a problem. For example, a familiar process may have an outdated instruction or a step
+      that two people understand differently. Consider checking one specific detail and allowing feedback before
+      changing more. You can continue a workable schedule, and important decisions still benefit from relevant
+      information and suitable support. The sky condition does not require a pause in every activity or explain
+      another person’s behavior. Keep the review practical and easy to revise.
+    advice:
+      - Check one practical detail before changing more.
+    do:
+      - Review a detail
+    dont:
+      - Worry in advance
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

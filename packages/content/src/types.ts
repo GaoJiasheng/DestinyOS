@@ -44,7 +44,6 @@ export type KnowledgeUnit = {
   };
 };
 // DESIGN-GAP: Expanded appendix ranges use conventional snake_case keys; qimen.star.tian_fu avoids the Zi Wei star.tian_fu collision.
-// DESIGN-GAP: Initial glossary long explanations reuse the documented short definition pending T-23 editorial expansion.
 export type GlossaryText = {
   term: string;
   short: string;

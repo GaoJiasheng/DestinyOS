@@ -1,0 +1,2370 @@
+# Original bilingual editorial content for T-23 daily.
+# // DESIGN-GAP: The approximate 30-transit dimension uses all 26 scoring transits plus four Mercury–Sun communication aspects.
+- id: daily.astro.moon_sign.aries
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: aries
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以先启动一个小步骤。
+    summary: 你可以先启动一个小步骤。
+    body: 你可以先启动一个小步骤。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。白羊（黄道十二星座之一）的月亮意象强调直接回应和开始行动。你可能更想快速试出答案，等待时容易失去耐心。比如你可以把想做的事拆成十分钟能开始的部分。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 把想做的事拆成十分钟能开始的部分。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Aries Moon theme.
+    summary: Notice a Aries Moon theme.
+    body:
+      You can use today’s Moon in Aries as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Aries highlights immediate responses and a willingness to begin. You may want an
+      answer through action rather than a long discussion. For example, try a first attempt at a skill before
+      buying equipment for an entire course. Consider checking what you need in this particular moment before
+      choosing a small adjustment. Keep it easy to revise if your mood or plans change. A symbol does not describe
+      your whole personality, and you can set aside any part that does not fit. Review the actual experience
+      later, allowing your observations to guide the next choice.
+    advice:
+      - Try a first attempt at a skill before buying equipment for an entire course.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.taurus
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: taurus
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以先照顾稳定的节奏。
+    summary: 你可以先照顾稳定的节奏。
+    body: 你可以先照顾稳定的节奏。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。金牛（黄道十二星座之一）的月亮意象关注稳定与感官体验。你可能更在意空间是否舒适，习惯改变时需要适应。比如你可以整理桌面，把常用工具放在伸手可及的位置。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 整理桌面，把常用工具放在伸手可及的位置。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Taurus Moon theme.
+    summary: Notice a Taurus Moon theme.
+    body:
+      You can use today’s Moon in Taurus as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Taurus draws attention to steadiness and sensory comfort. A familiar setting may
+      help you settle, while a sudden change can call for extra adjustment. For example, choose a simple meal
+      you enjoy and let the break have a clear beginning and end. Consider checking what you need in this particular
+      moment before choosing a small adjustment. Keep it easy to revise if your mood or plans change. A symbol
+      does not describe your whole personality, and you can set aside any part that does not fit. Review the
+      actual experience later, allowing your observations to guide the next choice.
+    advice:
+      - Choose a simple meal you enjoy and let the break have a clear beginning and end.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.gemini
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: gemini
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以让信息有一个落点。
+    summary: 你可以让信息有一个落点。
+    body: 你可以让信息有一个落点。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。双子（黄道十二星座之一）的月亮意象强调好奇、交谈和切换视角。你可能想同时了解几条线索，信息太多时又难以收尾。比如你可以读完几条消息后，写下今天真正要回答的问题。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 读完几条消息后，写下今天真正要回答的问题。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Gemini Moon theme.
+    summary: Notice a Gemini Moon theme.
+    body:
+      You can use today’s Moon in Gemini as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Gemini emphasizes curiosity, conversation, and several possible angles. You might
+      gather ideas quickly while finding it harder to choose which thread deserves your attention. For example,
+      after a useful conversation, make one note that connects the idea to your current task. Consider checking
+      what you need in this particular moment before choosing a small adjustment. Keep it easy to revise if
+      your mood or plans change. A symbol does not describe your whole personality, and you can set aside any
+      part that does not fit. Review the actual experience later, allowing your observations to guide the next
+      choice.
+    advice:
+      - After a useful conversation, make one note that connects the idea to your current task.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.cancer
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: cancer
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以给熟悉的需要留空间。
+    summary: 你可以给熟悉的需要留空间。
+    body: 你可以给熟悉的需要留空间。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。巨蟹（黄道十二星座之一）的月亮意象关注熟悉感和情绪归属。你可能更需要被理解，也更容易留意环境带来的变化。比如你可以在忙碌之间留一段与熟悉的人轻松交流的时间。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 在忙碌之间留一段与熟悉的人轻松交流的时间。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Cancer Moon theme.
+    summary: Notice a Cancer Moon theme.
+    body:
+      You can use today’s Moon in Cancer as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Cancer invites attention to familiarity and emotional belonging. You may notice
+      how a setting or an exchange affects your comfort before deciding what to do next. For example, bring
+      an ordinary comforting routine into a busy day, such as a quiet cup of tea before replying. Consider
+      checking what you need in this particular moment before choosing a small adjustment. Keep it easy to
+      revise if your mood or plans change. A symbol does not describe your whole personality, and you can set
+      aside any part that does not fit. Review the actual experience later, allowing your observations to guide
+      the next choice.
+    advice:
+      - Bring an ordinary comforting routine into a busy day, such as a quiet cup of tea before replying.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.leo
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: leo
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以表达时也邀请回应。
+    summary: 你可以表达时也邀请回应。
+    body: 你可以表达时也邀请回应。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。狮子（黄道十二星座之一）的月亮意象强调被看见和有温度的表达。你可能更想展示成果，需要留意是否把认可当成唯一目标。比如你可以展示一个小成果，然后邀请对方补充看法。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 展示一个小成果，然后邀请对方补充看法。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Leo Moon theme.
+    summary: Notice a Leo Moon theme.
+    body:
+      You can use today’s Moon in Leo as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Leo emphasizes warm expression and the wish to be seen. Sharing can feel energizing,
+      especially when you also make room for other people to contribute. For example, offer sincere recognition
+      in a group and share something you enjoyed making without demanding applause. Consider checking what
+      you need in this particular moment before choosing a small adjustment. Keep it easy to revise if your
+      mood or plans change. A symbol does not describe your whole personality, and you can set aside any part
+      that does not fit. Review the actual experience later, allowing your observations to guide the next choice.
+    advice:
+      - Offer sincere recognition in a group and share something you enjoyed making without demanding applause.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.virgo
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: virgo
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以改进一处就够了。
+    summary: 你可以改进一处就够了。
+    body: 你可以改进一处就够了。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。处女（黄道十二星座之一）的月亮意象关注细节和实用秩序。你可能更容易发现小问题，反复修正也可能把任务拖得太长。比如你可以检查最影响使用的一处细节，其余留到下次。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 检查最影响使用的一处细节，其余留到下次。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Virgo Moon theme.
+    summary: Notice a Virgo Moon theme.
+    body:
+      You can use today’s Moon in Virgo as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Virgo highlights useful detail and practical organization. You may see a small improvement
+      quickly, but several rounds of checking can consume time that the task no longer needs. For example,
+      repair one confusing instruction so someone else can follow it, then stop editing for a while. Consider
+      checking what you need in this particular moment before choosing a small adjustment. Keep it easy to
+      revise if your mood or plans change. A symbol does not describe your whole personality, and you can set
+      aside any part that does not fit. Review the actual experience later, allowing your observations to guide
+      the next choice.
+    advice:
+      - Repair one confusing instruction so someone else can follow it, then stop editing for a while.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.libra
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: libra
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以协调时保留自己的偏好。
+    summary: 你可以协调时保留自己的偏好。
+    body: 你可以协调时保留自己的偏好。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。天秤（黄道十二星座之一）的月亮意象重视交流和双方的平衡。你可能愿意听取更多意见，也需要把自己的需求说清楚。比如你可以约时间时给出两个适合自己的选项。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 约时间时给出两个适合自己的选项。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Libra Moon theme.
+    summary: Notice a Libra Moon theme.
+    body:
+      You can use today’s Moon in Libra as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Libra emphasizes exchange and the effort to find a workable balance. Listening to
+      several views can help, provided your own preference remains part of the conversation. For example, state
+      your preferred option before asking a friend what would work for them. Consider checking what you need
+      in this particular moment before choosing a small adjustment. Keep it easy to revise if your mood or
+      plans change. A symbol does not describe your whole personality, and you can set aside any part that
+      does not fit. Review the actual experience later, allowing your observations to guide the next choice.
+    advice:
+      - State your preferred option before asking a friend what would work for them.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.scorpio
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: scorpio
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以深入之前先确认边界。
+    summary: 你可以深入之前先确认边界。
+    body: 你可以深入之前先确认边界。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。天蝎（黄道十二星座之一）的月亮意象关注深度和信任。你可能想知道一件事背后的原因，追问前需要确认对方愿意分享多少。比如你可以想谈深入话题时，先问对方现在是否方便。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 想谈深入话题时，先问对方现在是否方便。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Scorpio Moon theme.
+    summary: Notice a Scorpio Moon theme.
+    body:
+      You can use today’s Moon in Scorpio as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Scorpio draws attention to depth, trust, and what lies beneath a quick answer. Curiosity
+      becomes more respectful when you ask whether another person wants to discuss the subject. For example,
+      when journaling, distinguish what you observed from the motive you imagined someone might have. Consider
+      checking what you need in this particular moment before choosing a small adjustment. Keep it easy to
+      revise if your mood or plans change. A symbol does not describe your whole personality, and you can set
+      aside any part that does not fit. Review the actual experience later, allowing your observations to guide
+      the next choice.
+    advice:
+      - When journaling, distinguish what you observed from the motive you imagined someone might have.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.sagittarius
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: sagittarius
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以把好奇变成可行探索。
+    summary: 你可以把好奇变成可行探索。
+    body: 你可以把好奇变成可行探索。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。射手（黄道十二星座之一）的月亮意象强调视野和探索。你可能想走出熟悉范围，宏大的计划仍需要现实时间和精力支持。比如你可以选一条新的散步路线，先确认回程时间。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 选一条新的散步路线，先确认回程时间。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Sagittarius Moon theme.
+    summary: Notice a Sagittarius Moon theme.
+    body:
+      You can use today’s Moon in Sagittarius as a prompt to notice your current response. The Moon sign
+      describes a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your
+      natal chart or lived experience. Sagittarius invites exploration and a wider perspective. A new idea
+      may feel attractive, while the time and energy needed to pursue it deserve an ordinary practical check.
+      For example, read one unfamiliar viewpoint and note a question rather than trying to adopt an entire
+      outlook at once. Consider checking what you need in this particular moment before choosing a small adjustment.
+      Keep it easy to revise if your mood or plans change. A symbol does not describe your whole personality,
+      and you can set aside any part that does not fit. Review the actual experience later, allowing your observations
+      to guide the next choice.
+    advice:
+      - Read one unfamiliar viewpoint and note a question rather than trying to adopt an entire outlook at once.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.capricorn
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: capricorn
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以让责任有结束点。
+    summary: 你可以让责任有结束点。
+    body: 你可以让责任有结束点。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。摩羯（黄道十二星座之一）的月亮意象关注责任和可见进度。你可能先照顾任务，把自己的休息放得太靠后。比如你可以列出今天必须完成的一项，并写下收工时间。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 列出今天必须完成的一项，并写下收工时间。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Capricorn Moon theme.
+    summary: Notice a Capricorn Moon theme.
+    body:
+      You can use today’s Moon in Capricorn as a prompt to notice your current response. The Moon sign
+      describes a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your
+      natal chart or lived experience. Capricorn emphasizes responsibility and tangible progress. You might
+      attend to a task before noticing your own need for a break, making a clear stopping point especially
+      useful. For example, finish the essential part of an errand and leave an optional extension for another
+      day. Consider checking what you need in this particular moment before choosing a small adjustment. Keep
+      it easy to revise if your mood or plans change. A symbol does not describe your whole personality, and
+      you can set aside any part that does not fit. Review the actual experience later, allowing your observations
+      to guide the next choice.
+    advice:
+      - Finish the essential part of an errand and leave an optional extension for another day.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.aquarius
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: aquarius
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以用新视角连接现实。
+    summary: 你可以用新视角连接现实。
+    body: 你可以用新视角连接现实。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。水瓶（黄道十二星座之一）的月亮意象关注不同方法和群体视角。你可能喜欢新的安排方式，也要留意是否忽略个体的具体感受。比如你可以提新流程时，先邀请实际使用者试一次。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 提新流程时，先邀请实际使用者试一次。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Aquarius Moon theme.
+    summary: Notice a Aquarius Moon theme.
+    body:
+      You can use today’s Moon in Aquarius as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Aquarius emphasizes alternative methods and a wider group perspective. An interesting
+      system still needs to work for the particular people using it, including their different preferences.
+      For example, explore an unusual solution with a teammate, then ask which part feels usable in their daily
+      routine. Consider checking what you need in this particular moment before choosing a small adjustment.
+      Keep it easy to revise if your mood or plans change. A symbol does not describe your whole personality,
+      and you can set aside any part that does not fit. Review the actual experience later, allowing your observations
+      to guide the next choice.
+    advice:
+      - Explore an unusual solution with a teammate, then ask which part feels usable in their daily routine.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_sign.pisces
+  system: daily
+  section: astro
+  topic: daily.astro.moon_sign
+  when:
+    path: astro.moonSign
+    eq: pisces
+  weight: 62
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以给感受一个清楚容器。
+    summary: 你可以给感受一个清楚容器。
+    body: 你可以给感受一个清楚容器。月亮星座（当天月亮所在的黄道区段）在这里作为短期情绪风格的隐喻，并不替代你的本命盘或实际感受。双鱼（黄道十二星座之一）的月亮意象强调想象和感受。你可能更容易接住别人的情绪，需要分清共情和替人承担的界线。比如你可以把模糊感受写成几句话，再决定是否需要回应。这类提示适合当天的小调整，不用扩展成对性格的判断。建议先观察自己此刻真正需要什么，选择一件负担小的事，晚些时候再检查是否舒服。日常反馈比符号更能帮助你决定下一步。
+    advice:
+      - 把模糊感受写成几句话，再决定是否需要回应。
+    do:
+      - 观察情绪
+    dont:
+      - 急贴标签
+  en:
+    title: Notice a Pisces Moon theme.
+    summary: Notice a Pisces Moon theme.
+    body:
+      You can use today’s Moon in Pisces as a prompt to notice your current response. The Moon sign describes
+      a zodiac sector in the sky; it is a symbolic daily cue, rather than a replacement for your natal chart
+      or lived experience. Pisces highlights imagination and sensitivity to an atmosphere. You may pick up
+      another person’s mood, while still needing a boundary between understanding it and carrying it yourself.
+      For example, listen to a friend for a limited time, then take a quiet moment to return to your own plans.
+      Consider checking what you need in this particular moment before choosing a small adjustment. Keep it
+      easy to revise if your mood or plans change. A symbol does not describe your whole personality, and you
+      can set aside any part that does not fit. Review the actual experience later, allowing your observations
+      to guide the next choice.
+    advice:
+      - Listen to a friend for a limited time, then take a quiet moment to return to your own plans.
+    do:
+      - Notice your mood
+    dont:
+      - Label yourself
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.new_moon
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: new_moon
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以写下一个轻量意图。
+    summary: 你可以写下一个轻量意图。
+    body: 你可以写下一个轻量意图。新月（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供起点的文化意象。日月角距接近起点区段，适合用来整理新的关注方向，而不是要求立即看到成果。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 写下一个轻量意图，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the new moon.
+    summary: Reflect on the new moon.
+    body:
+      You can treat the new moon as a prompt for one manageable adjustment. A lunar phase is a sector of
+      the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      Choose an intention before filling a new notebook with elaborate plans. The phase does not tell you whether
+      an undertaking will succeed, and people experience the same sky in different circumstances. Consider
+      keeping this reflection tied to an ordinary action with little cost and a clear stopping point. Check
+      how the action fits your real energy and responsibilities before adding more. You can keep an existing
+      commitment when that makes practical sense, and revisit the prompt later without treating it as a rule
+      you must follow.
+    advice:
+      - Choose an intention before filling a new notebook with elaborate plans.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.waxing_crescent
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: waxing_crescent
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以给新安排一点支持。
+    summary: 你可以给新安排一点支持。
+    body: 你可以给新安排一点支持。眉月（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供培育的文化意象。月亮照亮部分逐渐增加，象征刚开始的安排需要照顾，可以用很小的重复行动建立基础。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 给新安排一点支持，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the waxing crescent.
+    summary: Reflect on the waxing crescent.
+    body:
+      You can treat the waxing crescent as a prompt for one manageable adjustment. A lunar phase is a sector
+      of the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      Repeat a brief practice once and notice which part made it easier to begin. The phase does not tell you
+      whether an undertaking will succeed, and people experience the same sky in different circumstances. Consider
+      keeping this reflection tied to an ordinary action with little cost and a clear stopping point. Check
+      how the action fits your real energy and responsibilities before adding more. You can keep an existing
+      commitment when that makes practical sense, and revisit the prompt later without treating it as a rule
+      you must follow.
+    advice:
+      - Repeat a brief practice once and notice which part made it easier to begin.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.first_quarter
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: first_quarter
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以把卡点变成一次调整。
+    summary: 你可以把卡点变成一次调整。
+    body: 你可以把卡点变成一次调整。上弦（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供选择的文化意象。日月角距接近四分之一轮，象征计划遇到现实条件时需要选择，不必把阻力理解为失败。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 把卡点变成一次调整，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the first quarter.
+    summary: Reflect on the first quarter.
+    body:
+      You can treat the first quarter as a prompt for one manageable adjustment. A lunar phase is a sector
+      of the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      If two errands conflict, select the essential one and reschedule the other. The phase does not tell you
+      whether an undertaking will succeed, and people experience the same sky in different circumstances. Consider
+      keeping this reflection tied to an ordinary action with little cost and a clear stopping point. Check
+      how the action fits your real energy and responsibilities before adding more. You can keep an existing
+      commitment when that makes practical sense, and revisit the prompt later without treating it as a rule
+      you must follow.
+    advice:
+      - If two errands conflict, select the essential one and reschedule the other.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.waxing_gibbous
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: waxing_gibbous
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以改好影响最大的细节。
+    summary: 你可以改好影响最大的细节。
+    body: 你可以改好影响最大的细节。盈凸（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供修整的文化意象。月亮向较明亮阶段推进，象征成果逐渐显形，你可以通过反馈补一个重要细节。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 改好影响最大的细节，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the waxing gibbous.
+    summary: Reflect on the waxing gibbous.
+    body:
+      You can treat the waxing gibbous as a prompt for one manageable adjustment. A lunar phase is a sector
+      of the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      Ask a reader which point remains unclear, then revise that part of your draft. The phase does not tell
+      you whether an undertaking will succeed, and people experience the same sky in different circumstances.
+      Consider keeping this reflection tied to an ordinary action with little cost and a clear stopping point.
+      Check how the action fits your real energy and responsibilities before adding more. You can keep an existing
+      commitment when that makes practical sense, and revisit the prompt later without treating it as a rule
+      you must follow.
+    advice:
+      - Ask a reader which point remains unclear, then revise that part of your draft.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.full_moon
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: full_moon
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以先观察再表达感受。
+    summary: 你可以先观察再表达感受。
+    body: 你可以先观察再表达感受。满月（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供看见的文化意象。日月角距处在对向区段，象征把积累的感受摆到眼前，但不说明情绪会失去控制。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 先观察再表达感受，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the full moon.
+    summary: Reflect on the full moon.
+    body:
+      You can treat the full moon as a prompt for one manageable adjustment. A lunar phase is a sector
+      of the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      Before sharing an emotional update, separate what happened from what you need next. The phase does not
+      tell you whether an undertaking will succeed, and people experience the same sky in different circumstances.
+      Consider keeping this reflection tied to an ordinary action with little cost and a clear stopping point.
+      Check how the action fits your real energy and responsibilities before adding more. You can keep an existing
+      commitment when that makes practical sense, and revisit the prompt later without treating it as a rule
+      you must follow.
+    advice:
+      - Before sharing an emotional update, separate what happened from what you need next.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.waning_gibbous
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: waning_gibbous
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以把经验整理成可用线索。
+    summary: 你可以把经验整理成可用线索。
+    body: 你可以把经验整理成可用线索。亏凸（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供分享的文化意象。月亮从较明亮阶段回落，象征对已经完成的经历进行整理，分享一条具体发现就够了。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 把经验整理成可用线索，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the waning gibbous.
+    summary: Reflect on the waning gibbous.
+    body:
+      You can treat the waning gibbous as a prompt for one manageable adjustment. A lunar phase is a sector
+      of the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      Tell a teammate one thing that helped you finish a task, leaving room for their experience. The phase
+      does not tell you whether an undertaking will succeed, and people experience the same sky in different
+      circumstances. Consider keeping this reflection tied to an ordinary action with little cost and a clear
+      stopping point. Check how the action fits your real energy and responsibilities before adding more. You
+      can keep an existing commitment when that makes practical sense, and revisit the prompt later without
+      treating it as a rule you must follow.
+    advice:
+      - Tell a teammate one thing that helped you finish a task, leaving room for their experience.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.last_quarter
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: last_quarter
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以放下一个不再适用的步骤。
+    summary: 你可以放下一个不再适用的步骤。
+    body: 你可以放下一个不再适用的步骤。下弦（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供取舍的文化意象。日月角距接近四分之三轮，象征检视旧方法与眼前需要是否一致，取舍可以从小处开始。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 放下一个不再适用的步骤，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the last quarter.
+    summary: Reflect on the last quarter.
+    body:
+      You can treat the last quarter as a prompt for one manageable adjustment. A lunar phase is a sector
+      of the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      Remove one redundant reminder after checking that an existing routine already covers it. The phase does
+      not tell you whether an undertaking will succeed, and people experience the same sky in different circumstances.
+      Consider keeping this reflection tied to an ordinary action with little cost and a clear stopping point.
+      Check how the action fits your real energy and responsibilities before adding more. You can keep an existing
+      commitment when that makes practical sense, and revisit the prompt later without treating it as a rule
+      you must follow.
+    advice:
+      - Remove one redundant reminder after checking that an existing routine already covers it.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.moon_phase.waning_crescent
+  system: daily
+  section: astro
+  topic: daily.astro.moon_phase
+  when:
+    path: astro.moonPhase.name
+    eq: waning_crescent
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以给收尾和休息留空间。
+    summary: 你可以给收尾和休息留空间。
+    body: 你可以给收尾和休息留空间。残月（八段月相中的一个区段）是今日月相（太阳与月亮黄经差的分段），用来提供休整的文化意象。月亮接近本轮末段，象征减轻额外安排，整理之后再开始新步骤，不需要强迫自己保持同一速度。月相不是任务日历，也不会替你判断一件事能否成功。比如整理一份待办时，你可以先挑最符合眼前需要的一项，其他保持可调整。建议把这个意象用在一个低成本动作上，观察当天的真实反馈。不同地点和作息会影响体验，不必因为天空符号改变已有的重要安排，给自己保留选择空间。
+    advice:
+      - 给收尾和休息留空间，再看反馈。
+    do:
+      - 小步调整
+    dont:
+      - 强改计划
+  en:
+    title: Reflect on the waning crescent.
+    summary: Reflect on the waning crescent.
+    body:
+      You can treat the waning crescent as a prompt for one manageable adjustment. A lunar phase is a sector
+      of the angle between the Sun and Moon, used here as a cultural image rather than a schedule of outcomes.
+      Leave a short gap between finishing an activity and committing to the next one. The phase does not tell
+      you whether an undertaking will succeed, and people experience the same sky in different circumstances.
+      Consider keeping this reflection tied to an ordinary action with little cost and a clear stopping point.
+      Check how the action fits your real energy and responsibilities before adding more. You can keep an existing
+      commitment when that makes practical sense, and revisit the prompt later without treating it as a rule
+      you must follow.
+    advice:
+      - Leave a short gap between finishing an activity and committing to the next one.
+    do:
+      - Review one step
+    dont:
+      - Force a change
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_conjunction_venus
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_conjunction_venus
+  when:
+    path: findings
+    contains: astro.transit.moon_conjunction_venus
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与偏好与交流的配合。
+    summary: 你可以检查情绪回应与偏好与交流的配合。
+    body: 你可以检查情绪回应与偏好与交流的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命金星（象征偏好与交流）形成合相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如临时收到一个安排变更，你可以先把喜欢的方式说清楚，也尊重对方不同的偏好，再讨论下一步。建议先说清此刻最需要的一件事。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon conjunction natal VENUS.
+    summary: Review Moon conjunction natal VENUS.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Venus through a conjunction. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. Conjunction combines two symbolic functions at a close angle. It invites a check of how
+      they operate together rather than assigning one universal outcome. The natal point adds a question about
+      your own habits: State a preference while leaving room for another person’s different taste. For example,
+      a changed appointment may call for a different arrangement rather than an immediate judgment about the
+      other person. Consider this practical step: Name your immediate need before adding another request. Review
+      what happens in the actual exchange. The symbolic angle and its closeness do not establish what an event
+      will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_trine_venus
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_trine_venus
+  when:
+    path: findings
+    contains: astro.transit.moon_trine_venus
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与偏好与交流的配合。
+    summary: 你可以检查情绪回应与偏好与交流的配合。
+    body: 你可以检查情绪回应与偏好与交流的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命金星（象征偏好与交流）形成三分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如临时收到一个安排变更，你可以先把喜欢的方式说清楚，也尊重对方不同的偏好，再讨论下一步。建议把已有的一个优势用在小任务上。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon trine natal VENUS.
+    summary: Review Moon trine natal VENUS.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Venus through a trine. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. A trine describes an angle of about 120 degrees and a symbolic ease of exchange. A useful
+      opening still benefits from a deliberate action. The natal point adds a question about your own habits:
+      State a preference while leaving room for another person’s different taste. For example, a changed appointment
+      may call for a different arrangement rather than an immediate judgment about the other person. Consider
+      this practical step: Use an available skill for a limited task you can finish. Review what happens in
+      the actual exchange. The symbolic angle and its closeness do not establish what an event will be or remove
+      your freedom to choose a suitable response.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_sextile_venus
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_sextile_venus
+  when:
+    path: findings
+    contains: astro.transit.moon_sextile_venus
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与偏好与交流的配合。
+    summary: 你可以检查情绪回应与偏好与交流的配合。
+    body: 你可以检查情绪回应与偏好与交流的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命金星（象征偏好与交流）形成六分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约六十度的角距象征可参与的配合，主动沟通一个小步骤比等待机会更具体。比如临时收到一个安排变更，你可以先把喜欢的方式说清楚，也尊重对方不同的偏好，再讨论下一步。建议发出一条容易回应的具体邀约。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 发出一条容易回应的具体邀约。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon sextile natal VENUS.
+    summary: Review Moon sextile natal VENUS.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Venus through a sextile. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. A sextile describes an angle of about 60 degrees and a possible exchange. You can participate
+      in an opening by making a small, clear invitation. The natal point adds a question about your own habits:
+      State a preference while leaving room for another person’s different taste. For example, a changed appointment
+      may call for a different arrangement rather than an immediate judgment about the other person. Consider
+      this practical step: Offer a specific invitation that is easy to accept or decline. Review what happens
+      in the actual exchange. The symbolic angle and its closeness do not establish what an event will be or
+      remove your freedom to choose a suitable response.'
+    advice:
+      - Offer a specific invitation that is easy to accept or decline.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_conjunction_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_conjunction_moon
+  when:
+    path: findings
+    contains: astro.transit.moon_conjunction_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与熟悉感与情绪的配合。
+    summary: 你可以检查情绪回应与熟悉感与情绪的配合。
+    body: 你可以检查情绪回应与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成合相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议先说清此刻最需要的一件事。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon conjunction natal MOON.
+    summary: Review Moon conjunction natal MOON.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Moon through a conjunction. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. Conjunction combines two symbolic functions at a close angle. It invites a check of how
+      they operate together rather than assigning one universal outcome. The natal point adds a question about
+      your own habits: Notice your mood before adding another conversation to your day. For example, a changed
+      appointment may call for a different arrangement rather than an immediate judgment about the other person.
+      Consider this practical step: Name your immediate need before adding another request. Review what happens
+      in the actual exchange. The symbolic angle and its closeness do not establish what an event will be or
+      remove your freedom to choose a suitable response.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_trine_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_trine_moon
+  when:
+    path: findings
+    contains: astro.transit.moon_trine_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与熟悉感与情绪的配合。
+    summary: 你可以检查情绪回应与熟悉感与情绪的配合。
+    body: 你可以检查情绪回应与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成三分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议把已有的一个优势用在小任务上。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon trine natal MOON.
+    summary: Review Moon trine natal MOON.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Moon through a trine. The transiting Moon
+      highlights immediate emotional responses. Notice an atmosphere while checking the facts before you interpret
+      it. A trine describes an angle of about 120 degrees and a symbolic ease of exchange. A useful opening
+      still benefits from a deliberate action. The natal point adds a question about your own habits: Notice
+      your mood before adding another conversation to your day. For example, a changed appointment may call
+      for a different arrangement rather than an immediate judgment about the other person. Consider this practical
+      step: Use an available skill for a limited task you can finish. Review what happens in the actual exchange.
+      The symbolic angle and its closeness do not establish what an event will be or remove your freedom to
+      choose a suitable response.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_sextile_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_sextile_moon
+  when:
+    path: findings
+    contains: astro.transit.moon_sextile_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与熟悉感与情绪的配合。
+    summary: 你可以检查情绪回应与熟悉感与情绪的配合。
+    body: 你可以检查情绪回应与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成六分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约六十度的角距象征可参与的配合，主动沟通一个小步骤比等待机会更具体。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议发出一条容易回应的具体邀约。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 发出一条容易回应的具体邀约。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon sextile natal MOON.
+    summary: Review Moon sextile natal MOON.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Moon through a sextile. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. A sextile describes an angle of about 60 degrees and a possible exchange. You can participate
+      in an opening by making a small, clear invitation. The natal point adds a question about your own habits:
+      Notice your mood before adding another conversation to your day. For example, a changed appointment may
+      call for a different arrangement rather than an immediate judgment about the other person. Consider this
+      practical step: Offer a specific invitation that is easy to accept or decline. Review what happens in
+      the actual exchange. The symbolic angle and its closeness do not establish what an event will be or remove
+      your freedom to choose a suitable response.'
+    advice:
+      - Offer a specific invitation that is easy to accept or decline.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_opposition_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_opposition_sun
+  when:
+    path: findings
+    contains: astro.transit.moon_opposition_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与目标与表达的配合。
+    summary: 你可以检查情绪回应与目标与表达的配合。
+    body: 你可以检查情绪回应与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命太阳（象征目标与表达）形成对分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议把冲突的两项需要分别写下来。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon opposition natal SUN.
+    summary: Review Moon opposition natal SUN.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Sun through a opposition. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. An opposition describes an angle of about 180 degrees and a tension between perspectives.
+      You can name both needs before seeking a workable adjustment. The natal point adds a question about your
+      own habits: Check whether a request fits the aim you actually want to pursue. For example, a changed
+      appointment may call for a different arrangement rather than an immediate judgment about the other person.
+      Consider this practical step: List two competing needs before choosing a compromise. Review what happens
+      in the actual exchange. The symbolic angle and its closeness do not establish what an event will be or
+      remove your freedom to choose a suitable response.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_square_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_square_sun
+  when:
+    path: findings
+    contains: astro.transit.moon_square_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与目标与表达的配合。
+    summary: 你可以检查情绪回应与目标与表达的配合。
+    body: 你可以检查情绪回应与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon square natal SUN.
+    summary: Review Moon square natal SUN.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Sun through a square. The transiting Moon
+      highlights immediate emotional responses. Notice an atmosphere while checking the facts before you interpret
+      it. A square describes an angle of about 90 degrees and symbolic friction. Consider changing the method
+      before deciding that the whole aim is unsuitable. The natal point adds a question about your own habits:
+      Check whether a request fits the aim you actually want to pursue. For example, a changed appointment
+      may call for a different arrangement rather than an immediate judgment about the other person. Consider
+      this practical step: Try a different sequence when a step feels stuck. Review what happens in the actual
+      exchange. The symbolic angle and its closeness do not establish what an event will be or remove your
+      freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_opposition_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_opposition_moon
+  when:
+    path: findings
+    contains: astro.transit.moon_opposition_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与熟悉感与情绪的配合。
+    summary: 你可以检查情绪回应与熟悉感与情绪的配合。
+    body: 你可以检查情绪回应与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成对分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议把冲突的两项需要分别写下来。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon opposition natal MOON.
+    summary: Review Moon opposition natal MOON.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Moon through a opposition. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. An opposition describes an angle of about 180 degrees and a tension between perspectives.
+      You can name both needs before seeking a workable adjustment. The natal point adds a question about your
+      own habits: Notice your mood before adding another conversation to your day. For example, a changed appointment
+      may call for a different arrangement rather than an immediate judgment about the other person. Consider
+      this practical step: List two competing needs before choosing a compromise. Review what happens in the
+      actual exchange. The symbolic angle and its closeness do not establish what an event will be or remove
+      your freedom to choose a suitable response.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.moon_square_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.moon_square_moon
+  when:
+    path: findings
+    contains: astro.transit.moon_square_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查情绪回应与熟悉感与情绪的配合。
+    summary: 你可以检查情绪回应与熟悉感与情绪的配合。
+    body: 你可以检查情绪回应与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，月亮（象征情绪回应）与本命月亮（象征熟悉感与情绪）形成四分相（传统相位的一种角距）。你可能更留意交流里的温度，先确认感受和事实是否一致。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Moon square natal MOON.
+    summary: Review Moon square natal MOON.
+    body:
+      'You can examine your response before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Moon with natal Moon through a square. The transiting
+      Moon highlights immediate emotional responses. Notice an atmosphere while checking the facts before you
+      interpret it. A square describes an angle of about 90 degrees and symbolic friction. Consider changing
+      the method before deciding that the whole aim is unsuitable. The natal point adds a question about your
+      own habits: Notice your mood before adding another conversation to your day. For example, a changed appointment
+      may call for a different arrangement rather than an immediate judgment about the other person. Consider
+      this practical step: Try a different sequence when a step feels stuck. Review what happens in the actual
+      exchange. The symbolic angle and its closeness do not establish what an event will be or remove your
+      freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mars_opposition_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mars_opposition_sun
+  when:
+    path: findings
+    contains: astro.transit.mars_opposition_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查行动节奏与目标与表达的配合。
+    summary: 你可以检查行动节奏与目标与表达的配合。
+    body: 你可以检查行动节奏与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命太阳（象征目标与表达）形成对分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议把冲突的两项需要分别写下来。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mars opposition natal SUN.
+    summary: Review Mars opposition natal SUN.
+    body:
+      'You can examine your pace before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Mars with natal Sun through a opposition. Transiting Mars invites
+      a check of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from
+      becoming unnecessary friction. An opposition describes an angle of about 180 degrees and a tension between
+      perspectives. You can name both needs before seeking a workable adjustment. The natal point adds a question
+      about your own habits: Check whether a request fits the aim you actually want to pursue. For example,
+      a changed appointment may call for a different arrangement rather than an immediate judgment about the
+      other person. Consider this practical step: List two competing needs before choosing a compromise. Review
+      what happens in the actual exchange. The symbolic angle and its closeness do not establish what an event
+      will be or remove your freedom to choose a suitable response.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mars_square_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mars_square_sun
+  when:
+    path: findings
+    contains: astro.transit.mars_square_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查行动节奏与目标与表达的配合。
+    summary: 你可以检查行动节奏与目标与表达的配合。
+    body: 你可以检查行动节奏与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mars square natal SUN.
+    summary: Review Mars square natal SUN.
+    body:
+      'You can examine your pace before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Mars with natal Sun through a square. Transiting Mars invites a
+      check of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from becoming
+      unnecessary friction. A square describes an angle of about 90 degrees and symbolic friction. Consider
+      changing the method before deciding that the whole aim is unsuitable. The natal point adds a question
+      about your own habits: Check whether a request fits the aim you actually want to pursue. For example,
+      a changed appointment may call for a different arrangement rather than an immediate judgment about the
+      other person. Consider this practical step: Try a different sequence when a step feels stuck. Review
+      what happens in the actual exchange. The symbolic angle and its closeness do not establish what an event
+      will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mars_opposition_mars
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mars_opposition_mars
+  when:
+    path: findings
+    contains: astro.transit.mars_opposition_mars
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查行动节奏与行动与边界的配合。
+    summary: 你可以检查行动节奏与行动与边界的配合。
+    body: 你可以检查行动节奏与行动与边界的配合。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命火星（象征行动与边界）形成对分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如临时收到一个安排变更，你可以先给行动一个结束点，避免在同一问题上不断加力，再讨论下一步。建议把冲突的两项需要分别写下来。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mars opposition natal MARS.
+    summary: Review Mars opposition natal MARS.
+    body:
+      'You can examine your pace before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Mars with natal Mars through a opposition. Transiting Mars invites
+      a check of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from
+      becoming unnecessary friction. An opposition describes an angle of about 180 degrees and a tension between
+      perspectives. You can name both needs before seeking a workable adjustment. The natal point adds a question
+      about your own habits: Set a stopping point instead of adding effort indefinitely. For example, a changed
+      appointment may call for a different arrangement rather than an immediate judgment about the other person.
+      Consider this practical step: List two competing needs before choosing a compromise. Review what happens
+      in the actual exchange. The symbolic angle and its closeness do not establish what an event will be or
+      remove your freedom to choose a suitable response.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mars_square_mars
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mars_square_mars
+  when:
+    path: findings
+    contains: astro.transit.mars_square_mars
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查行动节奏与行动与边界的配合。
+    summary: 你可以检查行动节奏与行动与边界的配合。
+    body: 你可以检查行动节奏与行动与边界的配合。行运（当天星位与本命位置的角度比较）中，火星（象征行动节奏）与本命火星（象征行动与边界）形成四分相（传统相位的一种角距）。你可能更急于推动事情，先确认目的和可用精力，避免把速度当成效果。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先给行动一个结束点，避免在同一问题上不断加力，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mars square natal MARS.
+    summary: Review Mars square natal MARS.
+    body:
+      'You can examine your pace before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Mars with natal Mars through a square. Transiting Mars invites
+      a check of initiative and pace. Energy can help a task begin, while a clear purpose keeps haste from
+      becoming unnecessary friction. A square describes an angle of about 90 degrees and symbolic friction.
+      Consider changing the method before deciding that the whole aim is unsuitable. The natal point adds a
+      question about your own habits: Set a stopping point instead of adding effort indefinitely. For example,
+      a changed appointment may call for a different arrangement rather than an immediate judgment about the
+      other person. Consider this practical step: Try a different sequence when a step feels stuck. Review
+      what happens in the actual exchange. The symbolic angle and its closeness do not establish what an event
+      will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.jupiter_conjunction_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.jupiter_conjunction_sun
+  when:
+    path: findings
+    contains: astro.transit.jupiter_conjunction_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查扩展范围与目标与表达的配合。
+    summary: 你可以检查扩展范围与目标与表达的配合。
+    body: 你可以检查扩展范围与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，木星（象征扩展范围）与本命太阳（象征目标与表达）形成合相（传统相位的一种角距）。你可能更想扩大尝试范围，先确定基础条件，给乐观设一个可检查的边界。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议先说清此刻最需要的一件事。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Jupiter conjunction natal SUN.
+    summary: Review Jupiter conjunction natal SUN.
+    body:
+      'You can examine your scope before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Jupiter with natal Sun through a conjunction. Transiting Jupiter
+      emphasizes expansion and perspective. A promising possibility deserves a realistic scope, so enthusiasm
+      can accompany a test rather than replace it. Conjunction combines two symbolic functions at a close angle.
+      It invites a check of how they operate together rather than assigning one universal outcome. The natal
+      point adds a question about your own habits: Check whether a request fits the aim you actually want to
+      pursue. For example, a changed appointment may call for a different arrangement rather than an immediate
+      judgment about the other person. Consider this practical step: Name your immediate need before adding
+      another request. Review what happens in the actual exchange. The symbolic angle and its closeness do
+      not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.jupiter_trine_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.jupiter_trine_sun
+  when:
+    path: findings
+    contains: astro.transit.jupiter_trine_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查扩展范围与目标与表达的配合。
+    summary: 你可以检查扩展范围与目标与表达的配合。
+    body: 你可以检查扩展范围与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，木星（象征扩展范围）与本命太阳（象征目标与表达）形成三分相（传统相位的一种角距）。你可能更想扩大尝试范围，先确定基础条件，给乐观设一个可检查的边界。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议把已有的一个优势用在小任务上。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Jupiter trine natal SUN.
+    summary: Review Jupiter trine natal SUN.
+    body:
+      'You can examine your scope before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Jupiter with natal Sun through a trine. Transiting Jupiter emphasizes
+      expansion and perspective. A promising possibility deserves a realistic scope, so enthusiasm can accompany
+      a test rather than replace it. A trine describes an angle of about 120 degrees and a symbolic ease of
+      exchange. A useful opening still benefits from a deliberate action. The natal point adds a question about
+      your own habits: Check whether a request fits the aim you actually want to pursue. For example, a changed
+      appointment may call for a different arrangement rather than an immediate judgment about the other person.
+      Consider this practical step: Use an available skill for a limited task you can finish. Review what happens
+      in the actual exchange. The symbolic angle and its closeness do not establish what an event will be or
+      remove your freedom to choose a suitable response.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.jupiter_conjunction_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.jupiter_conjunction_moon
+  when:
+    path: findings
+    contains: astro.transit.jupiter_conjunction_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查扩展范围与熟悉感与情绪的配合。
+    summary: 你可以检查扩展范围与熟悉感与情绪的配合。
+    body: 你可以检查扩展范围与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，木星（象征扩展范围）与本命月亮（象征熟悉感与情绪）形成合相（传统相位的一种角距）。你可能更想扩大尝试范围，先确定基础条件，给乐观设一个可检查的边界。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议先说清此刻最需要的一件事。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Jupiter conjunction natal MOON.
+    summary: Review Jupiter conjunction natal MOON.
+    body:
+      'You can examine your scope before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Jupiter with natal Moon through a conjunction. Transiting Jupiter
+      emphasizes expansion and perspective. A promising possibility deserves a realistic scope, so enthusiasm
+      can accompany a test rather than replace it. Conjunction combines two symbolic functions at a close angle.
+      It invites a check of how they operate together rather than assigning one universal outcome. The natal
+      point adds a question about your own habits: Notice your mood before adding another conversation to your
+      day. For example, a changed appointment may call for a different arrangement rather than an immediate
+      judgment about the other person. Consider this practical step: Name your immediate need before adding
+      another request. Review what happens in the actual exchange. The symbolic angle and its closeness do
+      not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.jupiter_trine_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.jupiter_trine_moon
+  when:
+    path: findings
+    contains: astro.transit.jupiter_trine_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查扩展范围与熟悉感与情绪的配合。
+    summary: 你可以检查扩展范围与熟悉感与情绪的配合。
+    body: 你可以检查扩展范围与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，木星（象征扩展范围）与本命月亮（象征熟悉感与情绪）形成三分相（传统相位的一种角距）。你可能更想扩大尝试范围，先确定基础条件，给乐观设一个可检查的边界。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议把已有的一个优势用在小任务上。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Jupiter trine natal MOON.
+    summary: Review Jupiter trine natal MOON.
+    body:
+      'You can examine your scope before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Jupiter with natal Moon through a trine. Transiting Jupiter emphasizes
+      expansion and perspective. A promising possibility deserves a realistic scope, so enthusiasm can accompany
+      a test rather than replace it. A trine describes an angle of about 120 degrees and a symbolic ease of
+      exchange. A useful opening still benefits from a deliberate action. The natal point adds a question about
+      your own habits: Notice your mood before adding another conversation to your day. For example, a changed
+      appointment may call for a different arrangement rather than an immediate judgment about the other person.
+      Consider this practical step: Use an available skill for a limited task you can finish. Review what happens
+      in the actual exchange. The symbolic angle and its closeness do not establish what an event will be or
+      remove your freedom to choose a suitable response.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.jupiter_conjunction_asc
+  system: daily
+  section: astro
+  topic: daily.astro.transit.jupiter_conjunction_asc
+  when:
+    path: findings
+    contains: astro.transit.jupiter_conjunction_asc
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查扩展范围与对外回应的配合。
+    summary: 你可以检查扩展范围与对外回应的配合。
+    body: 你可以检查扩展范围与对外回应的配合。行运（当天星位与本命位置的角度比较）中，木星（象征扩展范围）与本命上升点（象征对外回应）形成合相（传统相位的一种角距）。你可能更想扩大尝试范围，先确定基础条件，给乐观设一个可检查的边界。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如临时收到一个安排变更，你可以先留意初次回应的语气，不让短暂感受代替完整判断，再讨论下一步。建议先说清此刻最需要的一件事。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Jupiter conjunction natal ASC.
+    summary: Review Jupiter conjunction natal ASC.
+    body:
+      'You can examine your scope before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Jupiter with natal ASC through a conjunction. Transiting Jupiter
+      emphasizes expansion and perspective. A promising possibility deserves a realistic scope, so enthusiasm
+      can accompany a test rather than replace it. Conjunction combines two symbolic functions at a close angle.
+      It invites a check of how they operate together rather than assigning one universal outcome. The natal
+      point adds a question about your own habits: Check the tone of a first response before treating it as
+      your settled view. For example, a changed appointment may call for a different arrangement rather than
+      an immediate judgment about the other person. Consider this practical step: Name your immediate need
+      before adding another request. Review what happens in the actual exchange. The symbolic angle and its
+      closeness do not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.jupiter_trine_asc
+  system: daily
+  section: astro
+  topic: daily.astro.transit.jupiter_trine_asc
+  when:
+    path: findings
+    contains: astro.transit.jupiter_trine_asc
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查扩展范围与对外回应的配合。
+    summary: 你可以检查扩展范围与对外回应的配合。
+    body: 你可以检查扩展范围与对外回应的配合。行运（当天星位与本命位置的角度比较）中，木星（象征扩展范围）与本命上升点（象征对外回应）形成三分相（传统相位的一种角距）。你可能更想扩大尝试范围，先确定基础条件，给乐观设一个可检查的边界。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如临时收到一个安排变更，你可以先留意初次回应的语气，不让短暂感受代替完整判断，再讨论下一步。建议把已有的一个优势用在小任务上。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Jupiter trine natal ASC.
+    summary: Review Jupiter trine natal ASC.
+    body:
+      'You can examine your scope before deciding on the next step. A transit compares a current sky position
+      with a natal position; this one links Jupiter with natal ASC through a trine. Transiting Jupiter emphasizes
+      expansion and perspective. A promising possibility deserves a realistic scope, so enthusiasm can accompany
+      a test rather than replace it. A trine describes an angle of about 120 degrees and a symbolic ease of
+      exchange. A useful opening still benefits from a deliberate action. The natal point adds a question about
+      your own habits: Check the tone of a first response before treating it as your settled view. For example,
+      a changed appointment may call for a different arrangement rather than an immediate judgment about the
+      other person. Consider this practical step: Use an available skill for a limited task you can finish.
+      Review what happens in the actual exchange. The symbolic angle and its closeness do not establish what
+      an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.saturn_opposition_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.saturn_opposition_sun
+  when:
+    path: findings
+    contains: astro.transit.saturn_opposition_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查责任边界与目标与表达的配合。
+    summary: 你可以检查责任边界与目标与表达的配合。
+    body: 你可以检查责任边界与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命太阳（象征目标与表达）形成对分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议把冲突的两项需要分别写下来。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Saturn opposition natal SUN.
+    summary: Review Saturn opposition natal SUN.
+    body:
+      'You can examine your commitments before deciding on the next step. A transit compares a current
+      sky position with a natal position; this one links Saturn with natal Sun through a opposition. Transiting
+      Saturn highlights responsibility and limits. You can identify the part that belongs to you and negotiate
+      the part that needs another person’s contribution. An opposition describes an angle of about 180 degrees
+      and a tension between perspectives. You can name both needs before seeking a workable adjustment. The
+      natal point adds a question about your own habits: Check whether a request fits the aim you actually
+      want to pursue. For example, a changed appointment may call for a different arrangement rather than an
+      immediate judgment about the other person. Consider this practical step: List two competing needs before
+      choosing a compromise. Review what happens in the actual exchange. The symbolic angle and its closeness
+      do not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.saturn_square_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.saturn_square_sun
+  when:
+    path: findings
+    contains: astro.transit.saturn_square_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查责任边界与目标与表达的配合。
+    summary: 你可以检查责任边界与目标与表达的配合。
+    body: 你可以检查责任边界与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Saturn square natal SUN.
+    summary: Review Saturn square natal SUN.
+    body:
+      'You can examine your commitments before deciding on the next step. A transit compares a current
+      sky position with a natal position; this one links Saturn with natal Sun through a square. Transiting
+      Saturn highlights responsibility and limits. You can identify the part that belongs to you and negotiate
+      the part that needs another person’s contribution. A square describes an angle of about 90 degrees and
+      symbolic friction. Consider changing the method before deciding that the whole aim is unsuitable. The
+      natal point adds a question about your own habits: Check whether a request fits the aim you actually
+      want to pursue. For example, a changed appointment may call for a different arrangement rather than an
+      immediate judgment about the other person. Consider this practical step: Try a different sequence when
+      a step feels stuck. Review what happens in the actual exchange. The symbolic angle and its closeness
+      do not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.saturn_opposition_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.saturn_opposition_moon
+  when:
+    path: findings
+    contains: astro.transit.saturn_opposition_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查责任边界与熟悉感与情绪的配合。
+    summary: 你可以检查责任边界与熟悉感与情绪的配合。
+    body: 你可以检查责任边界与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命月亮（象征熟悉感与情绪）形成对分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议把冲突的两项需要分别写下来。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Saturn opposition natal MOON.
+    summary: Review Saturn opposition natal MOON.
+    body:
+      'You can examine your commitments before deciding on the next step. A transit compares a current
+      sky position with a natal position; this one links Saturn with natal Moon through a opposition. Transiting
+      Saturn highlights responsibility and limits. You can identify the part that belongs to you and negotiate
+      the part that needs another person’s contribution. An opposition describes an angle of about 180 degrees
+      and a tension between perspectives. You can name both needs before seeking a workable adjustment. The
+      natal point adds a question about your own habits: Notice your mood before adding another conversation
+      to your day. For example, a changed appointment may call for a different arrangement rather than an immediate
+      judgment about the other person. Consider this practical step: List two competing needs before choosing
+      a compromise. Review what happens in the actual exchange. The symbolic angle and its closeness do not
+      establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.saturn_square_moon
+  system: daily
+  section: astro
+  topic: daily.astro.transit.saturn_square_moon
+  when:
+    path: findings
+    contains: astro.transit.saturn_square_moon
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查责任边界与熟悉感与情绪的配合。
+    summary: 你可以检查责任边界与熟悉感与情绪的配合。
+    body: 你可以检查责任边界与熟悉感与情绪的配合。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命月亮（象征熟悉感与情绪）形成四分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先先观察当天的心情，再决定要不要增加交流，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Saturn square natal MOON.
+    summary: Review Saturn square natal MOON.
+    body:
+      'You can examine your commitments before deciding on the next step. A transit compares a current
+      sky position with a natal position; this one links Saturn with natal Moon through a square. Transiting
+      Saturn highlights responsibility and limits. You can identify the part that belongs to you and negotiate
+      the part that needs another person’s contribution. A square describes an angle of about 90 degrees and
+      symbolic friction. Consider changing the method before deciding that the whole aim is unsuitable. The
+      natal point adds a question about your own habits: Notice your mood before adding another conversation
+      to your day. For example, a changed appointment may call for a different arrangement rather than an immediate
+      judgment about the other person. Consider this practical step: Try a different sequence when a step feels
+      stuck. Review what happens in the actual exchange. The symbolic angle and its closeness do not establish
+      what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.saturn_opposition_asc
+  system: daily
+  section: astro
+  topic: daily.astro.transit.saturn_opposition_asc
+  when:
+    path: findings
+    contains: astro.transit.saturn_opposition_asc
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查责任边界与对外回应的配合。
+    summary: 你可以检查责任边界与对外回应的配合。
+    body: 你可以检查责任边界与对外回应的配合。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命上升点（象征对外回应）形成对分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约一百八十度的角距象征两种需要的拉扯，建议把双方要求分别列清再找折中。比如临时收到一个安排变更，你可以先留意初次回应的语气，不让短暂感受代替完整判断，再讨论下一步。建议把冲突的两项需要分别写下来。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把冲突的两项需要分别写下来。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Saturn opposition natal ASC.
+    summary: Review Saturn opposition natal ASC.
+    body:
+      'You can examine your commitments before deciding on the next step. A transit compares a current
+      sky position with a natal position; this one links Saturn with natal ASC through a opposition. Transiting
+      Saturn highlights responsibility and limits. You can identify the part that belongs to you and negotiate
+      the part that needs another person’s contribution. An opposition describes an angle of about 180 degrees
+      and a tension between perspectives. You can name both needs before seeking a workable adjustment. The
+      natal point adds a question about your own habits: Check the tone of a first response before treating
+      it as your settled view. For example, a changed appointment may call for a different arrangement rather
+      than an immediate judgment about the other person. Consider this practical step: List two competing needs
+      before choosing a compromise. Review what happens in the actual exchange. The symbolic angle and its
+      closeness do not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - List two competing needs before choosing a compromise.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.saturn_square_asc
+  system: daily
+  section: astro
+  topic: daily.astro.transit.saturn_square_asc
+  when:
+    path: findings
+    contains: astro.transit.saturn_square_asc
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查责任边界与对外回应的配合。
+    summary: 你可以检查责任边界与对外回应的配合。
+    body: 你可以检查责任边界与对外回应的配合。行运（当天星位与本命位置的角度比较）中，土星（象征责任边界）与本命上升点（象征对外回应）形成四分相（传统相位的一种角距）。你可能更在意要求和限制，可以先分清必须承担与能够协商的部分。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先留意初次回应的语气，不让短暂感受代替完整判断，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Saturn square natal ASC.
+    summary: Review Saturn square natal ASC.
+    body:
+      'You can examine your commitments before deciding on the next step. A transit compares a current
+      sky position with a natal position; this one links Saturn with natal ASC through a square. Transiting
+      Saturn highlights responsibility and limits. You can identify the part that belongs to you and negotiate
+      the part that needs another person’s contribution. A square describes an angle of about 90 degrees and
+      symbolic friction. Consider changing the method before deciding that the whole aim is unsuitable. The
+      natal point adds a question about your own habits: Check the tone of a first response before treating
+      it as your settled view. For example, a changed appointment may call for a different arrangement rather
+      than an immediate judgment about the other person. Consider this practical step: Try a different sequence
+      when a step feels stuck. Review what happens in the actual exchange. The symbolic angle and its closeness
+      do not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mercury_conjunction_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mercury_conjunction_sun
+  when:
+    path: findings
+    contains: astro.transit.mercury_conjunction_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查信息整理与目标与表达的配合。
+    summary: 你可以检查信息整理与目标与表达的配合。
+    body: 你可以检查信息整理与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成合相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。相近角度把两个象征放到一起，提示你关注这两种需要如何同时出现。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议先说清此刻最需要的一件事。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 先说清此刻最需要的一件事。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mercury conjunction natal SUN.
+    summary: Review Mercury conjunction natal SUN.
+    body:
+      'You can examine your message before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Mercury with natal Sun through a conjunction. Transiting
+      Mercury draws attention to information and exchange. Make an explanation easy to use, then check how
+      it was received instead of assuming the message was clear. Conjunction combines two symbolic functions
+      at a close angle. It invites a check of how they operate together rather than assigning one universal
+      outcome. The natal point adds a question about your own habits: Check whether a request fits the aim
+      you actually want to pursue. For example, a changed appointment may call for a different arrangement
+      rather than an immediate judgment about the other person. Consider this practical step: Name your immediate
+      need before adding another request. Review what happens in the actual exchange. The symbolic angle and
+      its closeness do not establish what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Name your immediate need before adding another request.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mercury_trine_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mercury_trine_sun
+  when:
+    path: findings
+    contains: astro.transit.mercury_trine_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查信息整理与目标与表达的配合。
+    summary: 你可以检查信息整理与目标与表达的配合。
+    body: 你可以检查信息整理与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成三分相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。约一百二十度的角距提供顺畅配合的象征，可以把已有支点用起来，不必等别人推动。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议把已有的一个优势用在小任务上。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 把已有的一个优势用在小任务上。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mercury trine natal SUN.
+    summary: Review Mercury trine natal SUN.
+    body:
+      'You can examine your message before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Mercury with natal Sun through a trine. Transiting Mercury
+      draws attention to information and exchange. Make an explanation easy to use, then check how it was received
+      instead of assuming the message was clear. A trine describes an angle of about 120 degrees and a symbolic
+      ease of exchange. A useful opening still benefits from a deliberate action. The natal point adds a question
+      about your own habits: Check whether a request fits the aim you actually want to pursue. For example,
+      a changed appointment may call for a different arrangement rather than an immediate judgment about the
+      other person. Consider this practical step: Use an available skill for a limited task you can finish.
+      Review what happens in the actual exchange. The symbolic angle and its closeness do not establish what
+      an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Use an available skill for a limited task you can finish.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mercury_sextile_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mercury_sextile_sun
+  when:
+    path: findings
+    contains: astro.transit.mercury_sextile_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查信息整理与目标与表达的配合。
+    summary: 你可以检查信息整理与目标与表达的配合。
+    body: 你可以检查信息整理与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成六分相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。约六十度的角距象征可参与的配合，主动沟通一个小步骤比等待机会更具体。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议发出一条容易回应的具体邀约。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 发出一条容易回应的具体邀约。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mercury sextile natal SUN.
+    summary: Review Mercury sextile natal SUN.
+    body:
+      'You can examine your message before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Mercury with natal Sun through a sextile. Transiting Mercury
+      draws attention to information and exchange. Make an explanation easy to use, then check how it was received
+      instead of assuming the message was clear. A sextile describes an angle of about 60 degrees and a possible
+      exchange. You can participate in an opening by making a small, clear invitation. The natal point adds
+      a question about your own habits: Check whether a request fits the aim you actually want to pursue. For
+      example, a changed appointment may call for a different arrangement rather than an immediate judgment
+      about the other person. Consider this practical step: Offer a specific invitation that is easy to accept
+      or decline. Review what happens in the actual exchange. The symbolic angle and its closeness do not establish
+      what an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Offer a specific invitation that is easy to accept or decline.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: daily.astro.transit.mercury_square_sun
+  system: daily
+  section: astro
+  topic: daily.astro.transit.mercury_square_sun
+  when:
+    path: findings
+    contains: astro.transit.mercury_square_sun
+  weight: 54
+  polarity: mixed
+  tags:
+    - plain
+    - astro
+  exclusive_with: []
+  zh:
+    title: 你可以检查信息整理与目标与表达的配合。
+    summary: 你可以检查信息整理与目标与表达的配合。
+    body: 你可以检查信息整理与目标与表达的配合。行运（当天星位与本命位置的角度比较）中，水星（象征信息整理）与本命太阳（象征目标与表达）形成四分相（传统相位的一种角距）。你可能更关注沟通的细节，先核对意思和接收方式，让信息容易被理解。约九十度的角距象征需要调整的摩擦，不过你可以先修改做法，不急着否定目标。比如临时收到一个安排变更，你可以先检查眼前的请求是否符合你真正要完成的事，再讨论下一步。建议遇到卡点时换一个操作顺序。相位不是事件预报，紧密程度也不能代替现实信息；观察实际交流结果，会让这条提示更有用。
+    advice:
+      - 遇到卡点时换一个操作顺序。
+    do:
+      - 核对需要
+    dont:
+      - 急下结论
+  en:
+    title: Review Mercury square natal SUN.
+    summary: Review Mercury square natal SUN.
+    body:
+      'You can examine your message before deciding on the next step. A transit compares a current sky
+      position with a natal position; this one links Mercury with natal Sun through a square. Transiting Mercury
+      draws attention to information and exchange. Make an explanation easy to use, then check how it was received
+      instead of assuming the message was clear. A square describes an angle of about 90 degrees and symbolic
+      friction. Consider changing the method before deciding that the whole aim is unsuitable. The natal point
+      adds a question about your own habits: Check whether a request fits the aim you actually want to pursue.
+      For example, a changed appointment may call for a different arrangement rather than an immediate judgment
+      about the other person. Consider this practical step: Try a different sequence when a step feels stuck.
+      Review what happens in the actual exchange. The symbolic angle and its closeness do not establish what
+      an event will be or remove your freedom to choose a suitable response.'
+    advice:
+      - Try a different sequence when a step feels stuck.
+    do:
+      - Check the need
+    dont:
+      - Rush a judgment
+  meta:
+    author: t23-daily-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
