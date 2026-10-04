@@ -1,0 +1,298 @@
+- id: tarot.category.love
+  system: tarot
+  section: answer
+  topic: category.love
+  when:
+    path: category
+    eq: love
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 把关系问题放回相互表达
+    summary: 你可以把关系问题放回相互表达。
+    body: 你可以把关系问题放回相互表达。爱情类别关注连接、边界与回应；无论你目前是否有伴侣，都可以从自己愿意表达的需要开始，而不把牌面当成另一人思想的证据。这次牌阵的各个位置提供不同侧面，需要与问题的实际背景一起看。例如，你想增加联系时，可以询问彼此舒服的频率，也给拒绝或调整留空间。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。尚未得到回应的部分可以先保留。
+    advice:
+      - 围绕“把关系问题放回相互表达”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A practical response for love
+    summary: You can bring a relationship question back to mutual expression.
+    body:
+      You can bring a relationship question back to mutual expression. Whether you have a partner or
+      are considering a connection, your needs and the other person's choices remain distinct. A
+      card cannot establish a private thought. Asking what rhythm of contact feels comfortable may
+      give both people more room than interpreting silence as a complete answer. Consider making
+      separate notes for your expectation, the resources available and the detail you still cannot
+      confirm. Read the image beside those notes rather than as a substitute for them. If one
+      condition is outside your control, choose a smaller observation you can make without pressure.
+      Return to the question when something changes. That approach makes uncertainty workable and
+      keeps your attention on the part of the situation you can understand. Keep the original
+      question beside any information you obtain later.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.category.career
+  system: tarot
+  section: answer
+  topic: category.career
+  when:
+    path: category
+    eq: career
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.choice
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 用职责与反馈回应工作问题
+    summary: 你可以用职责与反馈回应工作问题。
+    body: 你可以用职责与反馈回应工作问题。工作类别关注任务、合作与学习条件；牌面适合提示你检查流程，不替组织或同事作决定，也不把一种角色固定成你的全部能力。这次牌阵的各个位置提供不同侧面，需要与问题的实际背景一起看。例如，你想参与新项目时，可以先确认交付要求与能获得的指导。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。尚未得到回应的部分可以先保留。
+    advice:
+      - 围绕“用职责与反馈回应工作问题”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A practical response for career
+    summary: You can respond to a work question through responsibilities and feedback.
+    body: You can respond to a work question through responsibilities and feedback. The category
+      concerns tasks, collaboration and learning conditions, while an organisation's decisions
+      remain outside the reading. A role is not a complete description of your abilities. Before
+      joining a new project, asking about the expected deliverable and available guidance can make a
+      first contribution easier to plan. You can compare this card with another relevant position
+      while allowing a difference to remain. Note what the two pictures share and where they ask
+      different questions. The category you chose helps keep that comparison grounded in everyday
+      circumstances. Choose one detail to ask about outside the reading, then review the answer with
+      your notes. You need not make every image support one conclusion to learn something useful
+      from the arrangement. Keep the original question beside any information you obtain later.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.category.wealth
+  system: tarot
+  section: answer
+  topic: category.wealth
+  when:
+    path: category
+    eq: wealth
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.preparation
+    - tarot.review
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 先照顾日常资源的可用程度
+    summary: 你可以先照顾日常资源的可用程度。
+    body: 你可以先照顾日常资源的可用程度。资源类别关注普通收支、时间与物品安排；这次阅读不提供投资标的或收益判断，重点是你能核对的需要和使用习惯。这次牌阵的各个位置提供不同侧面，需要与问题的实际背景一起看。例如，你想买一件新工具时，可以先确认现有物品是否已能完成任务。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。尚未得到回应的部分可以先保留。
+    advice:
+      - 围绕“先照顾日常资源的可用程度”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A practical response for wealth
+    summary: You can begin with the resources available for ordinary needs.
+    body:
+      You can begin with the resources available for ordinary needs. This category concerns everyday
+      expenses, time and materials without selecting an investment or estimating a return. A useful
+      question is what the intended task actually requires. Before buying a new tool, check whether
+      something already available can do the job and whether the added arrangement fits your
+      routine. Try pairing this role with the card image and the category you selected. Write down
+      one fact you already know and one condition still needing confirmation. If a detail has no
+      connection to your experience, leave it open rather than searching for a forced match.
+      Afterwards, compare your note with an ordinary conversation or observation. The position can
+      organise your attention, but fresh information remains a reason to adjust your understanding.
+      Keep the original question beside any information you obtain later.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.category.decision
+  system: tarot
+  section: answer
+  topic: category.decision
+  when:
+    path: category
+    eq: decision
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.choice
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 让比较使用同一套标准
+    summary: 你可以让比较使用同一套标准。
+    body: 你可以让比较使用同一套标准。选择类别帮助你分开目标、条件与代价；牌面不替你承担决定，也不把所有复杂差异缩成一个好坏标签。这次牌阵的各个位置提供不同侧面，需要与问题的实际背景一起看。例如，两个学习计划之间，可以先比较时间需求与支持方式，再做一次小范围尝试。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。尚未得到回应的部分可以先保留。
+    advice:
+      - 围绕“让比较使用同一套标准”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A practical response for decision
+    summary: You can compare options using the same standard.
+    body:
+      You can compare options using the same standard. This category separates purpose, conditions
+      and tradeoffs while leaving the decision with you. Different strengths need not collapse into
+      a single good or bad label. For two learning plans, available time and the kind of support
+      offered may be a useful starting pair of criteria before you choose a short trial. Consider
+      one visual detail that resembles the situation you recognise. Use it to form a gentle
+      question, then find an ordinary way to hear a response. A short note made before acting will
+      help you distinguish the picture from assumptions you added yourself. Revisit that note after
+      a few days. If the circumstances have changed, you can change the reading as well instead of
+      treating an earlier impression as a lasting definition. Keep the original question beside any
+      information you obtain later.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.category.self
+  system: tarot
+  section: answer
+  topic: category.self
+  when:
+    path: category
+    eq: self
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.choice
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 允许自我观察保持温和
+    summary: 你可以允许自我观察保持温和。
+    body: 你可以允许自我观察保持温和。自我类别关注感受、习惯与注意力；一个牌面是提问角度，不是心理诊断，也不要求你立刻把自己变成某种理想状态。这次牌阵的各个位置提供不同侧面，需要与问题的实际背景一起看。例如，你发现最近很分心时，可以记录哪类安排最耗精力，再给它留出调整空间。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。尚未得到回应的部分可以先保留。
+    advice:
+      - 围绕“允许自我观察保持温和”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A practical response for self
+    summary: You can keep self reflection gentle and specific.
+    body:
+      You can keep self reflection gentle and specific. This category explores feelings, habits and
+      attention without providing a diagnosis or asking you to perform an ideal version of yourself.
+      If distraction has become noticeable, record which arrangements consume the most energy. That
+      observation can suggest a small change while leaving your whole identity outside the judgement
+      of a single picture. You can give this observation a limited scope. Read the card in the
+      context of the selected category and keep the discussion close to the issue you actually
+      brought. Ask directly for information another person would need to provide. A useful next step
+      has a clear purpose and does not require agreement with every symbol. Check what you learn
+      afterwards, allowing the evidence to refine your view of the position. Keep the original
+      question beside any information you obtain later.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.category.general
+  system: tarot
+  section: answer
+  topic: category.general
+  when:
+    path: category
+    eq: general
+  weight: 75
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.choice
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 先为宽泛问题选一个焦点
+    summary: 你可以先为宽泛问题选一个焦点。
+    body: 你可以先为宽泛问题选一个焦点。一般类别适用于尚未明确领域的问题；你可以从最关心的事情开始，再把牌面提示改写成可观察的条件，不必让解读同时回应所有生活层面。这次牌阵的各个位置提供不同侧面，需要与问题的实际背景一起看。例如，你觉得近期很忙时，可以先选一项重复安排，看看哪里能够简化。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。尚未得到回应的部分可以先保留。
+    advice:
+      - 围绕“先为宽泛问题选一个焦点”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A practical response for general
+    summary: You can give a broad question one focus.
+    body:
+      You can give a broad question one focus. The general category leaves room for an issue whose
+      area is not yet clear, without requiring the spread to explain every part of your life. A busy
+      week may be easier to examine through one recurring arrangement. Choose that example, then see
+      whether the card's theme helps you ask a more concrete question about it. Try turning the
+      image into one manageable action with a beginning and an end. Keep the selected category in
+      view so the suggestion addresses the right area of your life. After trying it, compare how it
+      felt with what actually changed. You may keep part of the idea and discard another part. This
+      position offers an organised perspective, while the scale and timing of any response remain
+      choices you can make. Keep the original question beside any information you obtain later.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

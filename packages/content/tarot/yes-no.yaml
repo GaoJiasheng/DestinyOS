@@ -1,0 +1,146 @@
+- id: tarot.yes_no.yes
+  system: tarot
+  section: overview
+  topic: yes_no.yes
+  when:
+    path: yesNo.answer
+    eq: yes
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.choice
+    - tarot.preparation
+  exclusive_with: []
+  zh:
+    title: 是的倾向：先核实再尝试
+    summary: 你可以考虑一次小尝试，同时确认实际条件。
+    body: 你可以把“是”的倾向理解成尝试的入口。是非牌阵（用单张牌提供象征回应的读法）按牌义与正逆位给出提示，不收集现实中的全部条件；置信数值也不是事件发生率。例如，你问是否参加新活动，仍需要确认日程和自己的意愿。建议先完成一次具体核对，再选择可调整的参与方式，让实际体验补充这份提示。
+    advice:
+      - 围绕“是的倾向：先核实再尝试”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'A yes leaning: check, then try'
+    summary: You can consider a small trial while checking the actual conditions.
+    body:
+      You can read a yes leaning as an opening for a modest experiment. The one card answer follows
+      a symbolic rule using the card and its orientation; it has not checked every condition outside
+      the reading. The confidence value is not a measured chance that an event will succeed. Think
+      of an invitation to a new activity. Your available time, comfort and the arrangements made by
+      others still matter. Try confirming one of those conditions before making a limited
+      commitment. A first experience may reveal that the activity suits you, or that you would
+      prefer a different scale. Both responses give you information. Keep the question and later
+      observation together, allowing the real circumstances to refine your choice rather than asking
+      the label to settle everything.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.yes_no.no
+  system: tarot
+  section: overview
+  topic: yes_no.no
+  when:
+    path: yesNo.answer
+    eq: no
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.choice
+    - tarot.preparation
+  exclusive_with: []
+  zh:
+    title: 否的倾向：检查阻力所在
+    summary: 你可以先看不合适的条件，再决定是否调整范围。
+    body: 你可以把“否”的倾向当成检查阻力的提醒。是非牌阵（用单张牌给出象征倾向的读法）不替你关闭所有选项，也不能确认外部的人会如何回应；数值是规则中的提示强度，不是现实概率。例如，你想开始一项活动，可以先看看时间是否拥挤。建议明确一个目前不合适的条件，能调整就缩小范围，暂时不能调整则留一个再考虑的日期。
+    advice:
+      - 围绕“否的倾向：检查阻力所在”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'A no leaning: inspect the obstacle'
+    summary: You can check an unsuitable condition before deciding whether to change the scope.
+    body:
+      You can treat a no leaning as a reason to inspect a condition that may not fit. This one card
+      rule supplies a symbolic perspective; it does not close every option or establish how another
+      person will respond. Its confidence value belongs to that rule rather than to a measurement of
+      real events. If you are considering a new activity, check whether the required time conflicts
+      with something already important to you. Consider naming one obstacle clearly, then asking
+      whether a smaller version would address it. If the condition cannot change now, set a later
+      date to reconsider instead of pressing for an immediate answer. Your observation can support a
+      pause, an adjustment or a different choice while leaving the broader situation open.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.yes_no.maybe
+  system: tarot
+  section: overview
+  topic: yes_no.maybe
+  when:
+    path: yesNo.answer
+    eq: maybe
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.choice
+    - tarot.preparation
+  exclusive_with: []
+  zh:
+    title: 未定的倾向：把条件问清楚
+    summary: 你可以保留问题，先补上一项缺少的信息。
+    body: 你可以把“未定”的倾向当成补充信息的邀请。是非牌阵（单张牌的象征性回应）在规则中保留模糊答案，逆位也会让明确倾向转为未定；这不是你问得不够好，也不需要不断重抽。例如，两项安排都可能适合时，可以先询问各自的时间要求。建议列出最影响决定的一项未知条件，通过交流核实之后再选择，并允许答案随真实消息变化。
+    advice:
+      - 围绕“未定的倾向：把条件问清楚”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'A maybe leaning: clarify a condition'
+    summary: You can leave the question open while obtaining one missing detail.
+    body:
+      You can use a maybe leaning to identify information still needed. The one card rule allows an
+      uncertain answer, and a reversal also softens a definite leaning to maybe. This does not mean
+      you asked badly or need to draw repeatedly. For two potentially suitable arrangements, their
+      actual time requirements might be the detail that matters most. Try naming the condition with
+      the greatest effect on your choice, then ask the relevant person about it. While waiting, you
+      can keep both possibilities open without taking on either commitment. When new information
+      arrives, compare it with your needs and available resources. The reading can help you organise
+      the question, while the answer you choose in everyday life remains responsive to what you
+      learn.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

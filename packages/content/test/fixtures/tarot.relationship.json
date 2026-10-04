@@ -1,0 +1,53 @@
+{
+  "spread": "relationship",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "you",
+      "cardKey": "cups_05",
+      "reversed": false,
+      "order": 0
+    },
+    {
+      "position": "them",
+      "cardKey": "wands_08",
+      "reversed": true,
+      "order": 1
+    },
+    {
+      "position": "connection",
+      "cardKey": "major_10_wheel_of_fortune",
+      "reversed": true,
+      "order": 2
+    },
+    {
+      "position": "challenge",
+      "cardKey": "wands_knight",
+      "reversed": false,
+      "order": 3
+    },
+    {
+      "position": "potential",
+      "cardKey": "major_11_justice",
+      "reversed": true,
+      "order": 4
+    }
+  ],
+  "stats": {
+    "majorPct": 40,
+    "elements": {
+      "fire": 3,
+      "earth": 0,
+      "air": 1,
+      "water": 1
+    },
+    "courtCount": 1,
+    "reversedPct": 60,
+    "repeatedNumbers": [],
+    "dominantElement": "fire",
+    "missingElements": ["earth"]
+  },
+  "combos": ["dominant_fire", "missing_earth", "reversed_theme"],
+  "seed": "t23-tarot-fixture-relationship"
+}

@@ -1,3 +1,5 @@
+# Iconographic cross-check: https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot
+# Prose is original; no modern guidebook passages are reproduced.
 keywords:
   source: https://github.com/dariusk/corpora/blob/master/data/divination/tarot_interpretations.json
   license: CC0-1.0
@@ -5,7 +7,7 @@ keywords:
   usage: English upright keywords, capped at five; Chinese translations and
     reversed keywords authored for DestinyOS.
 prose:
-  status: pending_content_pipeline
+  status: original_bilingual_editorial_t23
 images:
   status: T-36
   deck: RWS 1909 public domain

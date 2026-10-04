@@ -1,0 +1,2210 @@
+# // DESIGN-GAP: Cover all 41 positions of the eight schema-defined spreads; variants use supported .a/.b IDs.
+- id: tarot.positions.single.focus.a
+  system: tarot
+  section: cards
+  topic: positions.single.focus
+  when: &a1
+    all:
+      - path: spread
+        eq: single
+      - path: cards[position=focus].position
+        eq: focus
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with:
+    - tarot.positions.single.focus.b
+  zh:
+    title: 核心指引：只观察一个最相关的主题
+    summary: 你可以只观察一个最相关的主题。
+    body: 你可以只观察一个最相关的主题。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。单张指引只给当前问题一个观察角度；它无法展开其他人的立场或一整段时间线。例如，你想恢复学习节奏，可以从今日一项练习入手，而不把一个画面扩大成一年的评价。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“核心指引：只观察一个最相关的主题”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Focus: read the role first'
+    summary: You can concentrate on the one theme most relevant today.
+    body:
+      You can concentrate on the one theme most relevant today. A single focus position supplies one
+      lens, without separate places for other people’s perspectives or a timeline. For a return to
+      study, the useful comparison is with today’s practice, not a verdict on the whole year. The
+      small scale is useful because you can see what actually happens. Try noting your expectation
+      before the session and one surprising detail afterwards. If interest grows, decide what amount
+      of time you want to offer next; if it fades, that observation still helps. Leave other
+      questions outside this exercise so the focus card gives you a clear point of attention rather
+      than a reason to judge everything at once. You can review the note after an ordinary
+      experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.single.focus.b
+  system: tarot
+  section: cards
+  topic: positions.single.focus
+  when: *a1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with:
+    - tarot.positions.single.focus.a
+  zh:
+    title: 用一天的记录读这一张牌
+    summary: 你可以用一件小事观察牌面主题如何贴近日常。
+    body: 你可以从今天最在意的一件小事理解单张指引。核心指引位（只为当前问题提供一个焦点）不展开完整时间线，所以更适合缩小提问。正逆位（牌面朝向）让你分别关注品质如何外用或内收，牌库的类别段落再把它放回你的生活。例如，你拿不准是否开始新爱好，可以先问自己愿不愿意安排一次体验，而不是评判整段未来。建议在纸上划出“目前已知”和“还想了解”两栏，只给后者安排一个温和的尝试；结束后写下一项新的观察。这样一张牌提供的是提问工具，你仍能依据体验选择继续、修改或停下。
+    advice:
+      - 围绕“用一天的记录读这一张牌”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Follow one detail through your day
+    summary: You can follow one image through a small, ordinary experience.
+    body: You can approach a single card by following one detail through an ordinary day. The focus
+      position narrows your attention; it has no separate places for a complete history or another
+      person's perspective. Read its orientation and the selected category, then choose a situation
+      small enough to recognise clearly. If you are considering a new hobby, the useful test might
+      be whether you enjoy one introductory session. It need not settle a long term plan. Try
+      dividing a page into what you know now and what you would like to learn. Give the second
+      column one gentle experiment, and return to it afterwards with a new observation. A useful
+      image can help you ask a better question while leaving you free to continue, revise or put the
+      idea aside.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.yes_no.answer.a
+  system: tarot
+  section: cards
+  topic: positions.yes_no.answer
+  when: &a2
+    all:
+      - path: spread
+        eq: yes_no
+      - path: cards[position=answer].position
+        eq: answer
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with:
+    - tarot.positions.yes_no.answer.b
+  zh:
+    title: 回应：把是非倾向与核实条件一起看
+    summary: 你可以把是非倾向与核实条件一起看。
+    body: 你可以把是非倾向与核实条件一起看。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。是非位提供的是可复现的象征倾向；模糊回应提示条件仍需澄清，置信数值也不是现实成功率。例如，你问是否参加活动时，仍要确认时间、地点与自己愿意承担的安排。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“回应：把是非倾向与核实条件一起看”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Answer: read the role first'
+    summary: You can read an answer as a symbolic leaning alongside the conditions still to check.
+    body:
+      'You can read an answer as a symbolic leaning alongside the conditions still to check. This
+      position offers no measured probability of real success. A tentative result may simply invite
+      a clearer question. When considering an event, your schedule and willingness matter more than
+      the label alone. Try checking the invitation itself before deciding how to respond. Would
+      attending require a change you are comfortable making? Is there a smaller form of
+      participation? These questions let you use the leaning without handing your choice to it. A
+      definite label may feel reassuring, but an arrangement you understand gives you something more
+      practical: a decision you can explain and revisit when the circumstances change. You can
+      review the note after an ordinary experience gives you more information.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.yes_no.answer.b
+  system: tarot
+  section: cards
+  topic: positions.yes_no.answer
+  when: *a2
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with:
+    - tarot.positions.yes_no.answer.a
+  zh:
+    title: 把一句回答拆成两个现实问题
+    summary: 你可以同时问清想尝试什么，以及还有什么条件要确认。
+    body: 你可以把是非牌位的提示拆成愿望和条件两部分。回答位（用一张牌提供象征性倾向）帮助你看见自己想要的方向，却不能替你核实外部安排。正逆位（牌面朝向）也会改变这个提示；若出现模糊倾向，可以把它理解为还需补充信息。例如，你想参加一个共同活动，可以分别确认自己是否愿意投入，以及参与者是否能协商出时间。建议先写下两项必须核实的条件，通过日常交流各检查一次；若条件仍不清楚，给自己一个再决定的日期。置信数值只是牌阵规则的提示强度，不是现实事件的成功概率，你可以随新信息调整选择。
+    advice:
+      - 围绕“把一句回答拆成两个现实问题”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: Separate willingness from conditions
+    summary: You can distinguish what you want from what remains to be checked.
+    body: 'You can separate an answer position into willingness and conditions. Its label provides a
+      symbolic leaning from one card, rather than checking the arrangements outside the reading.
+      Orientation may soften that leaning, and an uncertain response can invite more information.
+      Think of joining a shared activity: wanting to take part and finding a suitable time are two
+      different questions. Consider writing down two conditions you would need to confirm, then
+      asking about each through an ordinary conversation. If an answer remains unavailable, give
+      yourself a later date for deciding instead of drawing repeatedly. The confidence value
+      describes the strength assigned by the card rule; it is not a measured chance of success. Your
+      eventual choice can respond to new information and to the practical limits you recognise.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.three_ppf.past
+  system: tarot
+  section: cards
+  topic: positions.three_ppf.past
+  when:
+    all:
+      - path: spread
+        eq: three_ppf
+      - path: cards[position=past].position
+        eq: past
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 过去：从旧经验中识别当前背景
+    summary: 你可以从旧经验中识别当前背景。
+    body: 你可以从旧经验中识别当前背景。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。过去位讨论已经形成的习惯、记忆或背景；牌面不会补出未知的历史，也不需要你寻找某个对应事件。例如，你反复迟到时，可以回看此前如何估算出门时间，而不急着评价自己。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“过去：从旧经验中识别当前背景”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Past: read the role first'
+    summary: You can look for an earlier habit that still shapes the present.
+    body:
+      You can look for an earlier habit that still shapes the present. The past position concerns
+      background and remembered experience; it cannot recover unknown history. Repeated lateness,
+      for instance, may become easier to understand when you review how you previously estimated
+      preparation and travel time. Try recalling one occasion with enough detail to describe the
+      sequence. Was preparation shorter than you expected, or did the task change? You need not
+      reconstruct an entire personal story to learn from that example. Select one estimate to revise
+      the next time the situation arises. A past position becomes useful when it helps you bring an
+      earlier lesson into the present without treating the lesson as an unchangeable rule. You can
+      review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.three_ppf.present
+  system: tarot
+  section: cards
+  topic: positions.three_ppf.present
+  when:
+    all:
+      - path: spread
+        eq: three_ppf
+      - path: cards[position=present].position
+        eq: present
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 现在：先说明你现在看得见的情况
+    summary: 你可以先说明你现在看得见的情况。
+    body: 你可以先说明你现在看得见的情况。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。现在位关注当下能够观察的状态；它与过去位区分，使你不必把旧印象直接当成今天的事实。例如，同一合作再次开始时，可以重新确认职责，而不是沿用上次的分工假设。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“现在：先说明你现在看得见的情况”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Present: read the role first'
+    summary: You can start with what is observable now.
+    body: You can start with what is observable now. The present position separates current
+      circumstances from the background described elsewhere. When a collaboration resumes, this
+      means asking about today’s responsibilities rather than assuming the old arrangement still
+      applies. Name the fact that has changed before interpreting the image. You can ask each
+      participant what has changed since the previous task. Compare the answers with your own
+      expectations and note any missing agreement. An updated division of work might be enough; a
+      larger redesign may not be necessary. Use the card's theme to organise that check, then rely
+      on the responses you obtain. A present position should leave you with a clearer picture of
+      current conditions, including the parts still uncertain. You can review the note after an
+      ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.three_ppf.future
+  system: tarot
+  section: cards
+  topic: positions.three_ppf.future
+  when:
+    all:
+      - path: spread
+        eq: three_ppf
+      - path: cards[position=future].position
+        eq: future
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 未来：把趋势当成可以调整的方向
+    summary: 你可以把趋势当成可以调整的方向。
+    body: 你可以把趋势当成可以调整的方向。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。未来位描绘当前条件延续时值得留意的走向；它不设定事件日期，也保留行动和外界变化带来的差异。例如，你准备继续一种学习方法时，可以安排两周后的复盘，而不是预先认定效果。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“未来：把趋势当成可以调整的方向”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Future: read the role first'
+    summary: You can treat the future position as a direction to review, not an appointment with an event.
+    body:
+      'You can treat the future position as a direction to review, not an appointment with an event.
+      It explores what may deserve attention if present conditions continue. A study method, for
+      example, can be tested over two weeks with a planned review rather than accepted as an
+      inevitable result. Consider deciding what you will record during the trial: perhaps whether
+      the routine fits your available time and helps you remain interested. At the review point,
+      look at those notes before choosing whether to continue. The image may help you imagine a
+      direction, but your observations show what that direction asks in practice. You can shorten,
+      expand or stop the experiment as your needs and the conditions around you change. You can
+      review the note after an ordinary experience gives you more information.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.three_sao.situation
+  system: tarot
+  section: cards
+  topic: positions.three_sao.situation
+  when:
+    all:
+      - path: spread
+        eq: three_sao
+      - path: cards[position=situation].position
+        eq: situation
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 情境：先描述情境再决定怎么行动
+    summary: 你可以先描述情境再决定怎么行动。
+    body: 你可以先描述情境再决定怎么行动。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。情境位把问题放在资源、沟通与限制的背景中；它帮助你区分当前条件和希望出现的结果。例如，你准备组织一次聚会时，可以先确认参与者的空闲时间与可用空间。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“情境：先描述情境再决定怎么行动”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Situation: read the role first'
+    summary: You can describe the setting before choosing a response.
+    body: You can describe the setting before choosing a response. The situation position frames
+      resources, communication and limits without confusing them with the outcome you want. For a
+      gathering, available space and people’s actual free time belong here, before the enthusiasm of
+      planning takes over. You can list what is fixed, what is negotiable and what has not yet been
+      confirmed. For the gathering, that might mean a known room, flexible timing and an unanswered
+      invitation. Read the card beside those three groups. It may highlight a point needing
+      attention, but it does not move an unknown fact into the known column. Begin the action only
+      when the necessary arrangement is clear enough for a comfortable attempt. You can review the
+      note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.three_sao.action
+  system: tarot
+  section: cards
+  topic: positions.three_sao.action
+  when:
+    all:
+      - path: spread
+        eq: three_sao
+      - path: cards[position=action].position
+        eq: action
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 行动：选择自己能承担的一步
+    summary: 你可以选择自己能承担的一步。
+    body: 你可以选择自己能承担的一步。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。行动位讨论你可以调整的做法；它不替别人作决定，也不要求为了配合牌义而增加过多任务。例如，如果讨论常被打断，你可以先发一份简短议程，而不是要求所有人立刻改变。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“行动：选择自己能承担的一步”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Action: read the role first'
+    summary: You can choose a response within your own responsibility.
+    body:
+      You can choose a response within your own responsibility. The action position concerns what
+      you could change, rather than decisions assigned to someone else. If a discussion keeps losing
+      focus, a short agenda is a practical experiment. You need not demand that everyone adopt a new
+      personality. Try making the agenda brief enough that people can respond to it. One question, a
+      proposed order and a finishing time may be sufficient. Notice whether the discussion changes
+      after that adjustment; if it does not, ask what else participants need. The card can suggest
+      an approach, but a useful action has limits. Choose a change you can carry out and evaluate
+      without making other people's behaviour your responsibility. You can review the note after an
+      ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.three_sao.outcome
+  system: tarot
+  section: cards
+  topic: positions.three_sao.outcome
+  when:
+    all:
+      - path: spread
+        eq: three_sao
+      - path: cards[position=outcome].position
+        eq: outcome
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 结果：用反馈观察行动后的发展
+    summary: 你可以用反馈观察行动后的发展。
+    body: 你可以用反馈观察行动后的发展。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。结果位讨论行动与条件一起作用后的可能反馈；它需要和情境、行动两张牌一起读，不能单独作定论。例如，尝试新的分工后，可以比较交接是否顺畅，再决定保持还是调整。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“结果：用反馈观察行动后的发展”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Outcome: read the role first'
+    summary: You can review the outcome as feedback on an action in its setting.
+    body: You can review the outcome as feedback on an action in its setting. This position belongs
+      beside situation and action, rather than functioning as an independent promise. After testing
+      a division of work, compare how the handover felt and what was completed before deciding
+      whether to keep it. Try agreeing in advance what a helpful handover would look like. Is the
+      next person able to begin without another round of clarification? Do the instructions remain
+      manageable? Check those points after a trial rather than deciding that one smooth day proves
+      the whole arrangement. An outcome position offers a direction for evaluation. It can help you
+      notice feedback that supports a revision as readily as feedback that supports continuing. You
+      can review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.relationship.you
+  system: tarot
+  section: cards
+  topic: positions.relationship.you
+  when:
+    all:
+      - path: spread
+        eq: relationship
+      - path: cards[position=you].position
+        eq: you
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 你：先说清自己在关系中的需要
+    summary: 你可以先说清自己在关系中的需要。
+    body: 你可以先说清自己在关系中的需要。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。你的牌位关注你能表达的感受、期待与界限；它描述本次问题里的角色，不把你固定成某种性格。例如，你想增加联系时，可以说出舒服的频率，也承认自己需要独处的时段。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“你：先说清自己在关系中的需要”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'You: read the role first'
+    summary: You can begin by naming your own needs within the connection.
+    body:
+      You can begin by naming your own needs within the connection. This position concerns feelings,
+      expectations and boundaries you can express, rather than a permanent identity. Wanting more
+      contact might coexist with needing quiet time. Both deserve words before you try to interpret
+      another person’s response. Consider stating those needs together rather than presenting one as
+      a concession. You might enjoy regular contact while also wanting an evening without messages.
+      Naming both allows the other person to understand what you are offering. Listen to their
+      preferences in return and look for an arrangement that leaves each person room. A card about
+      your role can support self expression without making your needs the only conditions of the
+      relationship. You can review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.relationship.them
+  system: tarot
+  section: cards
+  topic: positions.relationship.them
+  when:
+    all:
+      - path: spread
+        eq: relationship
+      - path: cards[position=them].position
+        eq: them
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 对方：给对方保留直接表达的空间
+    summary: 你可以给对方保留直接表达的空间。
+    body: 你可以给对方保留直接表达的空间。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。对方位提供观察相处方式的角度；你并不知道对方全部经历，牌面也不能读出未说出口的思想。例如，对方回复较慢时，可以询问方便交流的时间，而不把沉默当成一种动机的证据。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“对方：给对方保留直接表达的空间”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Them: read the role first'
+    summary: You can make space for the other person to speak directly.
+    body:
+      'You can make space for the other person to speak directly. Their position offers a lens on
+      interaction, without revealing private thoughts or a complete personal history. A slow reply,
+      for example, is a reason to ask about a convenient time for contact rather than to assign a
+      motive. You can ask a question that allows several answers: perhaps messages during work are
+      inconvenient, or another format feels easier. Wait for the reply before drawing a wider
+      conclusion. If contact remains unclear, decide what boundary helps you rather than trying to
+      recover private information from a picture. Reading this role carefully means recognising how
+      much you still do not know and allowing that person to supply their own account. You can
+      review the note after an ordinary experience gives you more information.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.relationship.connection
+  system: tarot
+  section: cards
+  topic: positions.relationship.connection
+  when:
+    all:
+      - path: spread
+        eq: relationship
+      - path: cards[position=connection].position
+        eq: connection
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 联系：观察双方已经形成的互动
+    summary: 你可以观察双方已经形成的互动。
+    body: 你可以观察双方已经形成的互动。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。连接位关注你们共同参与的沟通与安排；它与各自牌位不同，强调彼此回应如何形成相处节奏。例如，你们都愿意见面却总难约定时间时，可以看看邀请与确认之间的流程。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“联系：观察双方已经形成的互动”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Connection: read the role first'
+    summary: You can examine a rhythm created between people.
+    body:
+      You can examine a rhythm created between people. The connection position looks at exchanges
+      and shared arrangements, distinct from either person’s individual role. When both want to meet
+      but plans rarely settle, the process between an invitation and a confirmation may be the
+      useful place to look. Try following one recent invitation from its beginning to its last
+      message. Where did a response become ambiguous? Perhaps each person thought the other would
+      confirm. A simple check about that moment may make the next plan easier. Keep the focus on an
+      exchange you both participated in, rather than building a story about one person's character.
+      Shared rhythms can often be understood through small agreements that neither participant had
+      previously stated. You can review the note after an ordinary experience gives you more
+      information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.relationship.challenge
+  system: tarot
+  section: cards
+  topic: positions.relationship.challenge
+  when:
+    all:
+      - path: spread
+        eq: relationship
+      - path: cards[position=challenge].position
+        eq: challenge
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 挑战：把相处难点改写为可沟通的事
+    summary: 你可以把相处难点改写为可沟通的事。
+    body: 你可以把相处难点改写为可沟通的事。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。挑战位指出需要额外注意的互动环节；不舒服的牌面也可以成为讨论入口，而不是对关系价值的否定。例如，你们对临时改约的接受程度不同，可以谈谈需要提前多久通知。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“挑战：把相处难点改写为可沟通的事”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Challenge: read the role first'
+    summary: You can turn a difficulty into a subject for discussion.
+    body: You can turn a difficulty into a subject for discussion. The challenge position highlights
+      something requiring attention without deciding the value of a connection. Different reactions
+      to changed plans, for example, may call for an agreement about notice. That is more workable
+      than labelling either person difficult. You can describe the effect of a changed plan without
+      treating flexibility as a moral test. Explain how much notice helps you prepare, then ask what
+      is realistic for the other person. If the needs differ, consider a smaller arrangement with
+      fewer dependencies. The picture gives a difficulty a place in the spread; it does not demand
+      that you ignore the difficulty or decide the whole connection from it. You can review the note
+      after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.relationship.potential
+  system: tarot
+  section: cards
+  topic: positions.relationship.potential
+  when:
+    all:
+      - path: spread
+        eq: relationship
+      - path: cards[position=potential].position
+        eq: potential
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 潜力：让可能性与双方愿意投入的条件相连
+    summary: 你可以让可能性与双方愿意投入的条件相连。
+    body: 你可以让可能性与双方愿意投入的条件相连。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。潜力位讨论关系可以发展的方向；发展需要双方参与，牌面不替任何人承诺，也不规定相处形式。例如，你想共同完成一个项目时，可以先问对方是否愿意参与一次小尝试。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“潜力：让可能性与双方愿意投入的条件相连”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Potential: read the role first'
+    summary: You can connect potential with conditions both people willingly support.
+    body: You can connect potential with conditions both people willingly support. This position
+      considers room for development without promising commitment or prescribing a form of
+      relationship. A shared project might begin with asking whether the other person wants a small
+      trial. Their answer remains part of the picture. Try proposing an activity with an easy way to
+      decline. If interest is mutual, agree on what participation means and when you will review the
+      experience. If the answer is different from your hope, let it remain real information.
+      Potential is useful as a question about room for development, not as an obligation for either
+      person to realise an imagined future. Your next arrangement can respect both willingness and
+      available time. You can review the note after an ordinary experience gives you more
+      information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.decision.situation
+  system: tarot
+  section: cards
+  topic: positions.decision.situation
+  when:
+    all:
+      - path: spread
+        eq: decision
+      - path: cards[position=situation].position
+        eq: situation
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 情境：明确这次选择真正要解决什么
+    summary: 你可以明确这次选择真正要解决什么。
+    body: 你可以明确这次选择真正要解决什么。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。抉择牌阵的情境位说明两种方案共同面对的问题；先确认目标，才能让后面的比较使用同一套标准。例如，两个课程都吸引你时，可以先判断当前更需要基础知识还是实际练习。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“情境：明确这次选择真正要解决什么”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Situation: read the role first'
+    summary: You can identify the need both options are meant to address.
+    body: You can identify the need both options are meant to address. The situation position in a
+      decision spread establishes a common frame so that comparison uses the same standard. Two
+      appealing courses may serve different purposes; deciding whether you need foundations or
+      practice comes before ranking them. Try completing the sentence “I want this option to help me
+      with…” before evaluating either route. Then name a sign that the need is being met. A
+      foundation course and a practice group may both be good, yet address different gaps. Keeping
+      your original purpose visible makes that difference easier to assess. The central image can
+      prompt a question about purpose without deciding which available course actually supplies what
+      you need. You can review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.decision.option_a
+  system: tarot
+  section: cards
+  topic: positions.decision.option_a
+  when:
+    all:
+      - path: spread
+        eq: decision
+      - path: cards[position=option_a].position
+        eq: option_a
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 选择 A：看清方案甲要求你投入什么
+    summary: 你可以看清方案甲要求你投入什么。
+    body: 你可以看清方案甲要求你投入什么。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。方案甲位讨论选择这一路径时的行动方式与条件；它不是天然较优的方案，名称只用来区分两边。例如，如果甲方案需要固定到场，可以先确认交通与时间是否适合当前生活。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“选择 A：看清方案甲要求你投入什么”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Option A: read the role first'
+    summary: You can examine what taking option A would ask of you.
+    body:
+      You can examine what taking option A would ask of you. Its position describes an approach and
+      its conditions, without receiving preference merely because it comes first. A plan involving
+      regular attendance needs a realistic check of travel and available time before you compare its
+      appeal with the alternative. You can ask for the timetable and attendance requirements rather
+      than estimating them from an appealing description. Compare those details with the
+      responsibilities already in your week. If the plan fits only with a large change, note that
+      explicitly for the later comparison. Give A a fair trial on the same terms you will use for B.
+      An option position describes a route worth examining, not a favoured destination announced by
+      the spread.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.decision.option_a_outcome
+  system: tarot
+  section: cards
+  topic: positions.decision.option_a_outcome
+  when:
+    all:
+      - path: spread
+        eq: decision
+      - path: cards[position=option_a_outcome].position
+        eq: option_a_outcome
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 选择 A 的结果：为方案甲设定可观察的反馈
+    summary: 你可以为方案甲设定可观察的反馈。
+    body: 你可以为方案甲设定可观察的反馈。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。甲的结果位关注选择甲之后可能需要留意的变化；应与甲的行动位一起读，不能把画面当作已确定的收益。例如，试行甲方案一周后，可以记录时间消耗与学习体验，再对照最初目标。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“选择 A 的结果：为方案甲设定可观察的反馈”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Option A Outcome: read the role first'
+    summary: You can choose a review point for option A.
+    body: You can choose a review point for option A. Its outcome position explores what might merit
+      attention after following that path, alongside the action and conditions it requires. After a
+      week’s trial, notes about time spent and learning experience may reveal more than an
+      attractive imagined result. Consider keeping the review close to the goal you stated at the
+      centre. Did the trial provide the kind of practice you wanted, and was its rhythm workable?
+      One pleasant or difficult moment need not decide the whole option. Look for a pattern in the
+      notes, and mark what a longer trial would need to clarify. This gives the outcome image a
+      practical role in your comparison without asking it to supply an unobserved result.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.decision.option_b
+  system: tarot
+  section: cards
+  topic: positions.decision.option_b
+  when:
+    all:
+      - path: spread
+        eq: decision
+      - path: cards[position=option_b].position
+        eq: option_b
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 选择 B：给方案乙同等清楚的审视
+    summary: 你可以给方案乙同等清楚的审视。
+    body: 你可以给方案乙同等清楚的审视。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。方案乙位讨论另一条路径的资源、节奏与限制；它需要用和甲相同的尺度，避免只放大一边的优点。例如，乙方案较灵活时，可以核对是否需要更多自主安排，而不只看表面便利。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“选择 B：给方案乙同等清楚的审视”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Option B: read the role first'
+    summary: You can give option B the same careful hearing.
+    body: You can give option B the same careful hearing. This position concerns another route’s
+      resources, rhythm and limits, using the criteria already applied to A. A flexible course may
+      still require more self organisation. Look at that demand as well as its convenience before
+      deciding how it fits. Try finding out how reminders, questions and feedback are handled in the
+      flexible plan. Independence may suit you well when support is clear, or become frustrating
+      when each uncertainty needs extra searching. Compare that condition with A's requirements
+      using the same purpose. You do not need to favour flexibility or structure in general. The
+      useful question is which arrangement addresses your current need at a scale you are
+      comfortable trying. You can review the note after an ordinary experience gives you more
+      information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.decision.option_b_outcome
+  system: tarot
+  section: cards
+  topic: positions.decision.option_b_outcome
+  when:
+    all:
+      - path: spread
+        eq: decision
+      - path: cards[position=option_b_outcome].position
+        eq: option_b_outcome
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 选择 B 的结果：比较方案乙的反馈而不急着排名
+    summary: 你可以比较方案乙的反馈而不急着排名。
+    body: 你可以比较方案乙的反馈而不急着排名。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。乙的结果位展示另一条路径可能带来的观察重点；它和甲的结果位可以并列比较，但不把复杂选择缩成单一好坏。例如，试行乙方案后，你可以观察自主安排是否带来更自在或更分散的体验。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“选择 B 的结果：比较方案乙的反馈而不急着排名”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Option B Outcome: read the role first'
+    summary: You can compare option B through observable feedback.
+    body:
+      'You can compare option B through observable feedback. Its outcome position is a counterpart
+      to A’s, not a final ranking of two futures. A trial of a flexible arrangement could feel
+      freeing or scattered depending on support. Note which conditions create that experience before
+      drawing a larger conclusion. You can review one trial day in detail: what began easily, where
+      attention wandered and what helped you return. Those observations may suggest a small
+      adjustment rather than a complete rejection of B. Bring the same review questions to A before
+      comparing the routes. Equal attention to both outcomes protects the decision from being shaped
+      only by the more vivid picture or by whichever experience happened most recently. You can
+      review the note after an ordinary experience gives you more information.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.present
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.present
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=present].position
+        eq: present
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 现在：把十字中心读成当前焦点
+    summary: 你可以把十字中心读成当前焦点。
+    body: 你可以把十字中心读成当前焦点。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。现状位是这次凯尔特十字的中心问题；其他牌位为它补充背景、阻力与回应，不应让旁支遮住最初提问。例如，你面对任务延期时，可以先写清目前卡住的环节，再继续读周围牌位。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“现在：把十字中心读成当前焦点”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Present: read the role first'
+    summary: You can keep the central question visible.
+    body:
+      You can keep the central question visible. The present position anchors the Celtic Cross while
+      surrounding positions add context, tension and possible responses. For a delayed task,
+      identify the current bottleneck first. Otherwise a vivid surrounding image may distract you
+      from the practical issue that began the reading. Try writing the bottleneck in a few words and
+      keeping that note beside the spread. When another position raises a useful theme, ask how it
+      relates to this point. A role concerned with care might suggest a different conversation; a
+      role concerned with structure might suggest clearer responsibilities. Either remains a prompt.
+      The centre helps you judge relevance, so the later story stays attached to the question you
+      actually need to address.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.challenge
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.challenge
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=challenge].position
+        eq: challenge
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 挑战：把横压牌读成需要调节的力量
+    summary: 你可以把横压牌读成需要调节的力量。
+    body: 你可以把横压牌读成需要调节的力量。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。挑战牌横置，采用正位牌义并强调阻碍或张力；引擎已按这一惯例给出正位读法，不需要再把横置当成逆位。例如，一项本来有帮助的规则若拖慢流程，可以讨论它在这里为何成为负担。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“挑战：把横压牌读成需要调节的力量”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Challenge: read the role first'
+    summary: You can read the crossing card as a quality creating tension.
+    body: 'You can read the crossing card as a quality creating tension. In this spread it uses the
+      upright meaning even when displayed horizontally. A normally useful quality may still obstruct
+      the present task. A helpful rule that slows a particular process is one example: ask why its
+      effect differs here. Consider where the rule helps and where it becomes disproportionate.
+      Perhaps a careful review belongs on a final draft but interrupts every early sketch. Naming
+      that difference lets you discuss a change without treating the rule itself as wrong. Compare
+      the crossing quality with the central task and ask for a workable boundary. You can preserve
+      its useful purpose while testing a lighter application in the part of the process under
+      discussion.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.foundation
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.foundation
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=foundation].position
+        eq: foundation
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 基础：查看支撑问题的基础安排
+    summary: 你可以查看支撑问题的基础安排。
+    body: 你可以查看支撑问题的基础安排。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。基础位关注较深的习惯、资源或长期条件；它并不提供心理诊断，也不把一切归于无法改变的原因。例如，你常在截止前赶工时，可以看看最初怎样估算任务规模与准备时间。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“基础：查看支撑问题的基础安排”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Foundation: read the role first'
+    summary: You can review the ordinary conditions beneath the visible issue.
+    body: You can review the ordinary conditions beneath the visible issue. The foundation position
+      concerns habits, resources and longer standing arrangements without diagnosing an unseen
+      cause. A recurring rush before deadlines may connect with how task size was estimated at the
+      start. That is a condition you can investigate and revise. You can review the first estimate
+      rather than only the final rush. What information was available then, and what arrived later?
+      One adjustment might be a preparation interval or a question asked earlier. Test that change
+      on a small assignment before explaining every deadline through the same cause. A foundation
+      image is a prompt to investigate a supporting condition, including a condition that can be
+      ordinary, visible and open to revision.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.past
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.past
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=past].position
+        eq: past
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 过去：识别正在离开中心的旧影响
+    summary: 你可以识别正在离开中心的旧影响。
+    body: 你可以回顾前一阶段的做法，但不必把熟悉的流程都带进新的安排。凯尔特十字中的过去位（正在离开中心的旧影响）提供背景，不会重建未记录的历史，也不自动说明旧办法失去价值。其他位置补充当下条件，因此要区分记忆中的便利与今天仍可取得的支持。例如，团队成员改变之后，一张旧检查表可能依然有用，而过去口头传递的消息需要改成清楚说明。建议选一项流程，问它原本解决什么问题，再向现在的参与者核实这个需要是否仍在；保留有效部分，把不再适合的部分交给协商，不用一次否定整个旧阶段。
+    advice:
+      - 围绕“过去：识别正在离开中心的旧影响”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Past: read the role first'
+    summary: You can distinguish an earlier influence from a current requirement.
+    body: You can distinguish an earlier influence from a current requirement. The past position
+      concerns the preceding phase, including practices worth retaining and others that may have
+      become unsuitable. After a team changes, reviewing old procedures is more useful than assuming
+      every familiar method still belongs in the new setting. Try selecting one old procedure and
+      asking which need it served. If that need remains, the procedure may still help; if the
+      setting has changed, another version may be easier. Invite current participants to explain
+      their experience before deciding. This lets you respect earlier learning without treating
+      familiarity as evidence of suitability. Read the past image as a way to identify an influence,
+      then check how that influence operates in today's arrangement.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.crown
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.crown
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=crown].position
+        eq: crown
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 目标：把想达到的状态说清楚
+    summary: 你可以把想达到的状态说清楚。
+    body: 你可以先把希望达到的状态描述得具体一些。冠顶位（这次阅读中意识到的目标）讨论你重视的方向，不能把想象中的结果直接等同于当前事实。它位于十字上方，与下方基础和中心现状形成对照：你想去哪里，也需要看看自己从哪里出发。比如你希望学习更轻松，可以说明是减少来回切换、得到更清楚的说明，还是安排更多练习，而不只要求一种模糊的好感觉。不妨写出一项能够观察的变化，用它设计下一次小调整；之后再比较体验，目标也可以随新的认识变得更合适，不需要为了符合画面而维持原先的期待。
+    advice:
+      - 围绕“目标：把想达到的状态说清楚”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Crown: read the role first'
+    summary: You can give an aspiration a clear description.
+    body: You can give an aspiration a clear description. The crown position concerns the goal or
+      understanding currently in view, distinct from what is already happening. Wanting an easier
+      learning routine becomes more useful when you name the particular burden you hope to reduce
+      and compare that aim with your starting conditions. You can describe what “easier” would look
+      like in an ordinary week. Would fewer transitions help, or would clearer instructions matter
+      more? Compare that aim with the foundation card's question about support and the present
+      card's question about the current issue. A useful aspiration is specific enough to inform one
+      adjustment. Keep room for a later change in the goal if your experience reveals that another
+      need deserves attention first.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.near_future
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.near_future
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=near_future].position
+        eq: near_future
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 近期发展：为下一阶段准备一个复盘点
+    summary: 你可以为下一阶段准备一个复盘点。
+    body: 你可以为下一阶段准备一个复盘点。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。近期位描述接下来值得注意的走向；它不包含明确日期，发展也会随你的行动与其他条件调整。例如，一个流程正在试行时，你可以约定下一次交流，看看原先困难有没有变化。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“近期发展：为下一阶段准备一个复盘点”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Near Future: read the role first'
+    summary: You can prepare a review point for the next phase.
+    body:
+      You can prepare a review point for the next phase. Near future describes a possible direction
+      of attention, without providing a date or removing the effects of later choices. During a
+      trial workflow, scheduling another conversation lets you check whether the difficulty has
+      changed instead of waiting for a prediction to unfold. Try setting a review time based on the
+      actual trial rather than on a date imagined from the card. Ask participants to bring one
+      observation about what changed. Their examples can show whether the plan needs continuation, a
+      narrower scope or a different approach. A nearby direction in the spread can make you
+      attentive to a possibility, while the timing and evidence of the review remain matters you
+      arrange in ordinary life.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.self
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.self
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=self].position
+        eq: self
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 自我：把自己的回应方式与情境分开
+    summary: 你可以把自己的回应方式与情境分开。
+    body: 你可以把自己的回应方式与情境分开。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。自我位关注你处理当前问题的态度；它与中心的现状不同，帮助你区分外部发生的事情和自己可以调整的回应。例如，消息突然增多时，你可以观察是否立刻全接下来，还是先确认轻重缓急。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“自我：把自己的回应方式与情境分开”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Self: read the role first'
+    summary: You can separate your response from the setting around you.
+    body:
+      You can separate your response from the setting around you. The self position concerns how you
+      approach the present issue, rather than what the entire situation consists of. When messages
+      multiply, noticing whether you immediately accept every request reveals a response you might
+      adjust without denying the workload itself. Consider what happens between receiving a message
+      and saying yes. You could check the deadline, ask about its size or wait until you have
+      reviewed existing tasks. One such pause may give you a more considered response. It will not
+      remove every outside demand, and it need not. This position helps you locate the choice within
+      your response, allowing you to change a habit without taking responsibility for the entire
+      environment.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.environment
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.environment
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=environment].position
+        eq: environment
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 环境：检查周围可取得的支持与限制
+    summary: 你可以检查周围可取得的支持与限制。
+    body: 你可以检查周围可取得的支持与限制。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。环境位关注与问题有关的外部安排；它不能替他人揭示思想，也不要求你把周围所有人当成支持者或阻碍者。例如，需要安静工作的时段，可以先确认共用空间的安排与可协商的规则。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“环境：检查周围可取得的支持与限制”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Environment: read the role first'
+    summary: You can check the external arrangements relevant to your question.
+    body: You can check the external arrangements relevant to your question. Environment concerns
+      available support and limits without revealing anyone’s private intention. If focused work
+      requires quiet, asking about the shared room schedule gives you usable information. You need
+      not sort everyone nearby into allies and obstacles to understand the setting. You can ask who
+      uses the room, when noise is expected and what alternatives exist. The answers may reveal an
+      easy time change or a need to work elsewhere. Read the picture beside those details instead of
+      interpreting a person's intention from the atmosphere alone. An environmental condition
+      becomes useful when you can name its practical effect. That effect may support a request, an
+      adjustment or recognition that one part remains beyond your control.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.hopes_fears
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.hopes_fears
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=hopes_fears].position
+        eq: hopes_fears
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 希望与恐惧：允许期待与担心同时被看见
+    summary: 你可以允许期待与担心同时被看见。
+    body: 你可以允许期待与担心同时被看见。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。希望与担忧位讨论你对同一件事可能有的两面感受；它不证明担心会发生，也不要求立刻消除犹豫。例如，你想尝试公开分享却担心评价时，可以区分希望获得什么与真正需要准备什么。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“希望与恐惧：允许期待与担心同时被看见”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Hopes Fears: read the role first'
+    summary: You can allow a wish and a worry to coexist.
+    body:
+      You can allow a wish and a worry to coexist. This position considers two reactions to the same
+      possibility without establishing that the feared event will occur. Publicly sharing work might
+      feel exciting and exposing. Name what you hope to gain, then separate that from the
+      preparation that would make a small trial comfortable. Try preparing a small audience and a
+      clear request for feedback rather than a test of your confidence. Ask whether the work
+      communicates its main point. This gives the wish for sharing something useful a practical form
+      while acknowledging that being seen can feel uncomfortable. The image can hold both reactions
+      without requiring one to defeat the other. Afterwards, compare what you feared with what
+      people actually said or did.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.celtic_cross.outcome
+  system: tarot
+  section: cards
+  topic: positions.celtic_cross.outcome
+  when:
+    all:
+      - path: spread
+        eq: celtic_cross
+      - path: cards[position=outcome].position
+        eq: outcome
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 结果：让综合走向接受现实检验
+    summary: 你可以让综合走向接受现实检验。
+    body: 你可以让综合走向接受现实检验。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。结果位汇合现状、回应与环境的观察；它描述的是当前阅读下的方向，不是忽略前面条件的最终裁决。例如，你计划改变协作方式时，可以同时检查自己的安排与伙伴能提供的配合。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“结果：让综合走向接受现实检验”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Outcome: read the role first'
+    summary: You can read the outcome alongside the conditions leading toward it.
+    body:
+      You can read the outcome alongside the conditions leading toward it. It brings together the
+      present issue, your response and the environment instead of overruling them with a final
+      verdict. A different working arrangement depends both on your own preparation and on the
+      cooperation other people actually offer. You can check both sides of the proposed change. What
+      can you prepare yourself, and what would need agreement from someone else? Ask about the
+      second part before treating the whole plan as ready. If cooperation differs from your
+      expectation, revise the next step. The outcome image draws attention toward a possible
+      direction; a workable review connects that direction to the conditions shown by the rest of
+      the spread and by real responses.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.theme
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.theme
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=theme].position
+        eq: theme
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 年度主题：给年度安排选择一个可回看的主题
+    summary: 你可以给年度安排选择一个可回看的主题。
+    body: 你可以给年度安排选择一个可回看的主题。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。年度主题位是十二个月读法的参照，不把全年固定成一种状态；每个月仍可以根据现实消息调整。例如，你希望一年更有余裕，可以把减少无效安排作为每次复盘的共同问题。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“年度主题：给年度安排选择一个可回看的主题”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Theme: read the role first'
+    summary: You can choose a theme to revisit across the year.
+    body: You can choose a theme to revisit across the year. The central position gives the monthly
+      cards a common point of reference without making every month identical. Wanting more breathing
+      room, for example, can become a recurring question about unnecessary commitments rather than a
+      prediction of twelve matching experiences. Try giving the theme one recurring question you can
+      ask at each review. For breathing room, it might be whether a commitment still serves a need
+      you value. Keep one brief note per month rather than expecting a uniform mood across the year.
+      The centre can help you see connections between different experiences while allowing
+      individual months to contain changes, exceptions and information no earlier card could
+      establish. You can review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m01
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m01
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m01].position
+        eq: m01
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 01月：开年先盘点已有安排
+    summary: 你可以开年先盘点已有安排。
+    body: 你可以开年先盘点已有安排。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。这个月的牌位把年度主题放进第1段观察窗口；它不绑定具体事件或节气，重点在你怎样安排当期的注意力。例如，整理尚未收尾的事项，为新计划留出真实位置。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“01月：开年先盘点已有安排”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 1: read the role first'
+    summary: You can begin the year by taking stock of commitments already in place.
+    body:
+      You can begin the year by taking stock of commitments already in place. Reviewing unfinished
+      tasks gives a new plan an honest starting point. Month 1 is a review window within the spread,
+      not a date assigned to an event. Compare it with the central theme while keeping room for what
+      actually happens. Try distinguishing what still needs completion from what can simply be
+      archived. One unfinished item may require a message; another may no longer serve a purpose.
+      Making that distinction gives the year's opening some room without requiring an entirely clean
+      slate. Read the month's card beside those arrangements and choose one modest piece of tidying.
+      Later notes can show whether the space you hoped to create was actually available.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m02
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m02
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m02].position
+        eq: m02
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 02月：让联系与个人空间取得平衡
+    summary: 你可以让联系与个人空间取得平衡。
+    body: 你可以让联系与个人空间取得平衡。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。这个月的牌位把年度主题放进第2段观察窗口；它不绑定具体事件或节气，重点在你怎样安排当期的注意力。例如，约一次有明确时间边界的交流，并保留安静时段。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“02月：让联系与个人空间取得平衡”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 2: read the role first'
+    summary: You can examine the balance between connection and personal space.
+    body:
+      You can examine the balance between connection and personal space. A conversation with a clear
+      finishing time may make room for both. Month 2 is a review window within the spread, not a
+      date assigned to an event. Compare it with the central theme while keeping room for what
+      actually happens. You can ask which kind of contact feels restorative and which requires more
+      preparation. A shorter meeting or another day may suit your needs better than accepting an
+      open ended invitation. Notice the response to that boundary rather than predicting what
+      someone will think. The monthly picture can prompt attention to connection, while your review
+      records how the particular arrangement felt and what you would change next time. You can
+      review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m03
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m03
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m03].position
+        eq: m03
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 03月：把新想法试成一个小步骤
+    summary: 你可以把新想法试成一个小步骤。
+    body: 你可以把新想法试成一个小步骤。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。这个月的牌位把年度主题放进第3段观察窗口；它不绑定具体事件或节气，重点在你怎样安排当期的注意力。例如，把尚在构思的兴趣安排成一次低负担体验。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“03月：把新想法试成一个小步骤”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 3: read the role first'
+    summary: You can bring an emerging idea into a small experiment.
+    body:
+      You can bring an emerging idea into a small experiment. A brief introductory activity lets you
+      learn without assigning it the whole year’s importance. Month 3 is a review window within the
+      spread, not a date assigned to an event. Compare it with the central theme while keeping room
+      for what actually happens. Try choosing an activity small enough to finish and reviewing it
+      while the experience is still fresh. Was the interest sustained by the task itself, or mainly
+      by imagining a new identity? Either observation may help you choose the scale of a next
+      attempt. The month's role provides a place for exploration without making curiosity into a
+      demand for permanent commitment. Let the trial supply information before expanding the plan.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m04
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m04
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m04].position
+        eq: m04
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 04月：照顾流程中不显眼的维护
+    summary: 你可以照顾流程中不显眼的维护。
+    body: 你可以照顾流程中不显眼的维护。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。这个月的牌位把年度主题放进第4段观察窗口；它不绑定具体事件或节气，重点在你怎样安排当期的注意力。例如，整理工具与说明，让常做的事情减少重复确认。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“04月：照顾流程中不显眼的维护”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 4: read the role first'
+    summary: You can attend to maintenance that ordinary activity often hides.
+    body: You can attend to maintenance that ordinary activity often hides. Organising tools or
+      instructions may reduce repeated questions in a familiar routine. Month 4 is a review window
+      within the spread, not a date assigned to an event. Compare it with the central theme while
+      keeping room for what actually happens. You can ask which repeated inconvenience has an
+      ordinary maintenance cause. A misplaced tool or unclear instruction may deserve more attention
+      than a new method. Change one part and notice whether the process becomes easier for the
+      people using it. This keeps the month's focus grounded in actual upkeep. A small improvement
+      can be worth recording even when it produces no dramatic event to match the picture. You can
+      review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m05
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m05
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m05].position
+        eq: m05
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 05月：在热闹安排里看见优先事项
+    summary: 你可以在热闹安排里看见优先事项。
+    body: 你可以在热闹安排里看见优先事项。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。这个月的牌位把年度主题放进第5段观察窗口；它不绑定具体事件或节气，重点在你怎样安排当期的注意力。例如，收到多个邀请时先判断哪些回应最符合自己的需要。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“05月：在热闹安排里看见优先事项”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 5: read the role first'
+    summary: You can identify priorities within a crowded set of invitations.
+    body: You can identify priorities within a crowded set of invitations. Choosing the contact you
+      value helps you participate without accepting every available activity. Month 5 is a review
+      window within the spread, not a date assigned to an event. Compare it with the central theme
+      while keeping room for what actually happens. Consider the invitation's practical shape as
+      well as its appeal. Who will be there, how long does it last and what participation is
+      expected? Choose an amount you are comfortable offering. A busy month need not become a test
+      of how sociable you are. Record one exchange you enjoyed and one arrangement you would make
+      smaller. Those details can inform the next review more clearly than a judgement about your
+      general enthusiasm.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m06
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m06
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m06].position
+        eq: m06
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 06月：用阶段记录调整节奏
+    summary: 你可以用阶段记录调整节奏。
+    body: 你可以用阶段记录调整节奏。牌位（这张牌承担的观察角度）让同一个画面在不同位置回答不同问题。这个月的牌位把年度主题放进第6段观察窗口；它不绑定具体事件或节气，重点在你怎样安排当期的注意力。例如，比较此前几周的投入与体验，给后续安排留出弹性。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意后续事实比寻找单一对应更有帮助，也可以把未确认的信息留给下一次实际交流。
+    advice:
+      - 围绕“06月：用阶段记录调整节奏”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 6: read the role first'
+    summary: You can use a midway review to adjust your pace.
+    body:
+      You can use a midway review to adjust your pace. Comparing effort with experience gives the
+      next phase flexibility without turning a pause into a failure. Month 6 is a review window
+      within the spread, not a date assigned to an event. Compare it with the central theme while
+      keeping room for what actually happens. You can compare two or three recent weeks rather than
+      one unusually easy or difficult day. Note the amount of effort, what supported it and where
+      the rhythm became awkward. Choose one adjustment for the next interval. The monthly role is
+      useful as a reminder to review, without requiring a dramatic turning point. A plan that
+      changes gradually can still be serving its purpose when the changes follow actual
+      observations.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m07
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m07
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m07].position
+        eq: m07
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 07月：让休息成为可以安排的部分
+    summary: 你可以让休息成为可以安排的部分。
+    body: 你可以在年度的第七段观察窗口里，为恢复注意力留出实际位置。月份牌位（分段复盘的角度）并不绑定节气或某个将发生的事件，所以这项提示仍要放进自己的真实日程。主题牌提出全年关注的问题，而这一位置帮助你查看密集安排之间有没有空档。比如两场需要集中精神的讨论相连时，可以留一点不看通知的时间，观察安静、走动或轻松交流哪一种更适合你。建议先把空档写入计划，避免它悄悄被新任务占据；完成后记下自己的感受和之后做事的体验。一次暂停不需要成为宏大的转折，也能给下一阶段留下可用的信息。
+    advice:
+      - 围绕“07月：让休息成为可以安排的部分”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 7: read the role first'
+    summary: You can make rest an explicit part of the schedule.
+    body: You can make rest an explicit part of the schedule. A gap between demanding tasks lets you
+      notice which activities help attention return. Month 7 is a review window within the spread,
+      not a date assigned to an event. Compare it with the central theme while keeping room for what
+      actually happens. Try giving the gap a clear place in the diary so another task does not
+      silently occupy it. During that interval, notice whether quiet, movement or enjoyable company
+      helps you return with more attention. You can keep the observation specific to your
+      experience. The picture is a prompt for arranging a pause, while the choice of activity and
+      its effect are details you discover through the day itself.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m08
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m08
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m08].position
+        eq: m08
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 08月：重新检查合作中的分工
+    summary: 你可以重新检查合作中的分工。
+    body: 你可以用第八个月的记录，重新看清共同事务里没有明说的职责。年度月份位（把主题分段观察的位置）提供复盘机会，不说明这个月会出现某类人物或特定变化。合作中有些任务由习惯承担，因此画面提示可以帮助你询问实际分工，却不能替任何人宣布动机。例如，一件物品从使用到归位经过几个人，最后的整理可能始终落在一个人身上。不妨沿着一次真实流程写出每次交接，再询问参与者是否愿意调整。把缺少的说明补成简短约定，下一次使用后再看有没有改善，让年度学习来自共同回应而不只是原先的想象。
+    advice:
+      - 围绕“08月：重新检查合作中的分工”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 8: read the role first'
+    summary: You can revisit responsibilities in a shared activity.
+    body:
+      You can revisit responsibilities in a shared activity. Checking who does what may reveal an
+      unstated handover before it becomes an everyday frustration. Month 8 is a review window within
+      the spread, not a date assigned to an event. Compare it with the central theme while keeping
+      room for what actually happens. You can trace one task through the people involved and ask
+      where responsibility changes hands. Make the instruction for that moment explicit. If someone
+      is carrying an unstated extra part, discuss whether the division can change. This month's
+      review can turn a broad complaint about teamwork into a small agreement. Check the next
+      handover afterwards instead of assuming that writing the agreement has already resolved the
+      difficulty. You can review the note after an ordinary experience gives you more information.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m09
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m09
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m09].position
+        eq: m09
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 09月：给学习方向一次具体复盘
+    summary: 你可以给学习方向一次具体复盘。
+    body: 你可以在第九段年度观察中，挑一项已有经验继续练习。月度牌位（年度主题的复盘窗口）不是考试排名，也不把学习成果限定在某个日期；你仍可以依据精力与反馈决定练习方向。这里的重点是分辨哪些经验适合当前需要，哪些只是当时条件下的方法。比如回看几次制作笔记，发现说明经常不够清楚，就可以安排一份只练习表达的小作品。建议先说明自己希望改善的具体细节，再向能看懂任务的人取得一条反馈；几次尝试后比较记录，而不靠换一个远大目标证明进步。持续学习也可以保持小范围，让注意力落在能够观察的变化上。
+    advice:
+      - 围绕“09月：给学习方向一次具体复盘”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 9: read the role first'
+    summary: You can review the direction of your learning.
+    body:
+      You can review the direction of your learning. Notes from earlier practice may point to one
+      detail worth developing, without requiring an entirely new goal. Month 9 is a review window
+      within the spread, not a date assigned to an event. Compare it with the central theme while
+      keeping room for what actually happens. Try choosing the detail because it helps your current
+      aim, rather than because it seems impressive. Look for a practice task that isolates it and
+      feedback you can obtain without much extra preparation. A small improvement recorded over
+      several attempts may tell you more than a complete change of course. The month provides an
+      occasion to review learning, while your notes supply the evidence for where to focus next.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m10
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m10
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m10].position
+        eq: m10
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 10月：为复杂事项建立清楚次序
+    summary: 你可以为复杂事项建立清楚次序。
+    body: 你可以在年度第十段观察里，把复杂事务整理成有依赖关系的次序。月份位置（按段回看年度主题的方式）不预测某天出现阻力，而是提醒你留意现实流程怎样连接。某些准备虽然不显眼，却决定后面的参与者能否开始，因此不能只按任务的吸引力来排序。例如，大家一起做展示，素材的确认可能比最后的排版更早需要完成。试试询问下一个接手的人究竟需要什么，再把必要信息放在前面；完成一次交接后记录是否减少了重复确认。若真实流程与原先设想不同，也可以调整顺序，保留余量比要求所有环节完全同步更实际。
+    advice:
+      - 围绕“10月：为复杂事项建立清楚次序”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 10: read the role first'
+    summary: You can give a complicated task a clearer sequence.
+    body:
+      You can give a complicated task a clearer sequence. Preparing the part on which others depend
+      may be more useful than doing the most visible part first. Month 10 is a review window within
+      the spread, not a date assigned to an event. Compare it with the central theme while keeping
+      room for what actually happens. You can ask what another person needs before they can begin
+      their part. That answer may reveal an overlooked preparation step. Complete or clarify that
+      piece before filling the whole diary with parallel tasks. The picture can highlight sequence
+      without announcing a particular interruption. Record whether the new order made the work
+      easier, and keep an alternative available if the actual dependencies differ from your first
+      understanding.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m11
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m11
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m11].position
+        eq: m11
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 11月：收拢还没有完成的承诺
+    summary: 你可以收拢还没有完成的承诺。
+    body: 你可以在第十一个观察窗口里，收拢仍在等待回应的约定。月份牌位（年度计划中的回看位置）不要求某月所有事项都完成，也不把旧承诺当作永远不能改变的责任。图像适合帮助你问哪些安排仍有意义，具体范围则需要与相关人沟通。比如很早答应的一次分享，可能因为对方需求改变，只需要提供一份短资料。不妨先发一个清楚的进度说明，讲明目前能做什么，再询问原来的目标是否还需要保留。协商后记下新的范围和日期，把需要完成的部分与可以调整的部分分开；这样你照顾的是当下真实需要，而不是独自维持过去的想象。
+    advice:
+      - 围绕“11月：收拢还没有完成的承诺”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 11: read the role first'
+    summary: You can gather the commitments still open.
+    body:
+      You can gather the commitments still open. Checking which remain useful makes it possible to
+      renegotiate scope rather than carrying every old promise unchanged. Month 11 is a review
+      window within the spread, not a date assigned to an event. Compare it with the central theme
+      while keeping room for what actually happens. Consider sending a brief update about an open
+      promise rather than waiting until everything is complete. State what remains possible and ask
+      whether the original scope still matters. Some commitments may need finishing, while others
+      can become smaller by agreement. The month's role supports a review of what is still active.
+      Let the people involved contribute current information, so the arrangement reflects today's
+      needs instead of an old expectation.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.positions.year_ahead.m12
+  system: tarot
+  section: cards
+  topic: positions.year_ahead.m12
+  when:
+    all:
+      - path: spread
+        eq: year_ahead
+      - path: cards[position=m12].position
+        eq: m12
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.reflection
+    - tarot.action
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 12月：把回顾转成可带走的经验
+    summary: 你可以把回顾转成可带走的经验。
+    body: 你可以在年度最后一个观察窗口里，把回顾写成自己能带走的经验。十二月位置（年度记录的收尾角度）不会替全年打分，也不能证明所有未完成事项应该如何处理。主题牌提出的问题可以陪你比较不同月份，但例外、新消息与改过的计划也应留在记录里。例如，一项很小的准备习惯让几次活动更顺利，就值得写下它怎样发挥作用，不需要因为结果不够醒目而忽略。建议选一个有事实支持的变化和一个仍想了解的问题，分别带进下一轮安排；肯定已完成的部分，也给尚未清楚的地方留空间，让总结保持具体而温和。
+    advice:
+      - 围绕“12月：把回顾转成可带走的经验”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: 'Month 12: read the role first'
+    summary: You can turn a year end review into portable learning.
+    body:
+      You can turn a year end review into portable learning. One observed change and one habit worth
+      keeping offer a grounded way to begin the next cycle. Month 12 is a review window within the
+      spread, not a date assigned to an event. Compare it with the central theme while keeping room
+      for what actually happens. You can select an example from your own notes rather than ranking
+      the year as a whole. What changed in a way you could observe, and which modest habit helped?
+      Bring those details into the next plan without expecting the following year to repeat this
+      one. A closing review can acknowledge unfinished matters as well as completed ones. Consider
+      naming one question you want to keep open alongside the lesson you are ready to carry forward.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

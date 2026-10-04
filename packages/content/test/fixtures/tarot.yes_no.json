@@ -1,0 +1,33 @@
+{
+  "spread": "yes_no",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "answer",
+      "cardKey": "cups_04",
+      "reversed": true,
+      "order": 0
+    }
+  ],
+  "stats": {
+    "majorPct": 0,
+    "elements": {
+      "fire": 0,
+      "earth": 0,
+      "air": 0,
+      "water": 1
+    },
+    "courtCount": 0,
+    "reversedPct": 100,
+    "repeatedNumbers": [],
+    "dominantElement": "water",
+    "missingElements": ["fire", "earth", "air"]
+  },
+  "combos": ["dominant_water", "missing_fire", "missing_earth", "missing_air", "reversed_theme"],
+  "yesNo": {
+    "answer": "maybe",
+    "confidence": 0.5
+  },
+  "seed": "t23-tarot-fixture-yes_no"
+}

@@ -10,7 +10,7 @@ import {
   validateTransitions,
 } from '../scripts/validation';
 import { loadContent } from '../scripts/load';
-import type { KnowledgeUnit } from '../src';
+import { similarity, type KnowledgeUnit } from '../src';
 const file = 'fixtures/invalid-ku.yaml';
 const fixtures = { bazi: [baziChart] };
 function sample(): KnowledgeUnit {
@@ -110,6 +110,34 @@ describe('knowledge validation', () => {
         d.message.includes('Duplicate'),
       ),
     ).toBe(true);
+  });
+  it('preserves exact pairwise Dice warning results with the inverted corpus index', () => {
+    const bodies = ['abcdef', 'abcde', 'abcxyz', 'abcdefghi', 'xyz', '', '甲乙丙丁戊', '甲乙丙丁'];
+    const located = bodies.map((body, index) => ({
+      unit: {
+        ...sample(),
+        id: `bazi.comparison.${index}`,
+        exclusive_with: [],
+        zh: { ...sample().zh, body },
+        en: { ...sample().en, body: body.toUpperCase() },
+      },
+      file,
+      locate: () => ({ line: 1, column: 1 }),
+    }));
+    const expected: string[] = [];
+    for (let i = 0; i < located.length; i++)
+      for (let j = i + 1; j < located.length; j++)
+        for (const locale of ['zh', 'en'] as const) {
+          const a = located[i]!.unit,
+            b = located[j]!.unit;
+          if (similarity(a[locale].body, b[locale].body) > 0.6)
+            expected.push(`Similar 3-grams: ${a.id} / ${b.id} (${locale})`);
+        }
+    expect(
+      validateRelations(located)
+        .filter((d) => d.severity === 'warning')
+        .map((d) => d.message),
+    ).toEqual(expected);
   });
   it('rejects invalid YAML and bilingual auxiliary data', () => {
     expect(validateSource(file, '- id: [\n', fixtures).diagnostics[0]?.file).toBe(file);

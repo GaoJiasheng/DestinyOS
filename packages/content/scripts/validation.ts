@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv';
 import { LineCounter, parseDocument } from 'yaml';
-import { resolvePath, textGrams, gramSimilarity, zhChars, enWords, evaluateWhen } from '../src';
+import { resolvePath, textGrams, zhChars, enWords, evaluateWhen } from '../src';
 import type { KnowledgeUnit, GlossaryEntry, Transitions } from '../src';
 import schema from '../schema/ku.schema.json';
 const ajv = new Ajv({ allErrors: true });
@@ -266,14 +266,45 @@ export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
       { zh: textGrams(unit.zh.body), en: textGrams(unit.en.body) },
     ]),
   );
-  for (let i = 0; i < units.length; i++)
-    for (const b of units.slice(i + 1)) {
-      const a = units[i];
-      if (!a || a.unit.system !== b.unit.system) continue;
-      for (const locale of ['zh', 'en'] as const)
-        if (gramSimilarity(grams.get(a.unit.id)![locale], grams.get(b.unit.id)![locale]) > 0.6)
-          add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
+  // Accumulate exact intersections by inverted gram index. This preserves Dice scores
+  // and the 0.6 threshold without repeating string-set lookups for every corpus pair.
+  const systems = new Map<string, LocatedUnit[]>();
+  for (const item of units) {
+    const group = systems.get(item.unit.system) ?? [];
+    group.push(item);
+    systems.set(item.unit.system, group);
+  }
+  for (const group of systems.values()) {
+    const size = group.length;
+    const overlaps = { zh: new Uint32Array(size * size), en: new Uint32Array(size * size) };
+    for (const locale of ['zh', 'en'] as const) {
+      const owners = new Map<string, number[]>();
+      group.forEach((item, index) => {
+        for (const gram of grams.get(item.unit.id)![locale]) {
+          const indexes = owners.get(gram);
+          if (indexes) indexes.push(index);
+          else owners.set(gram, [index]);
+        }
+      });
+      const counts = overlaps[locale];
+      for (const indexes of owners.values())
+        for (let left = 0; left < indexes.length; left++) {
+          const row = indexes[left]! * size;
+          for (let right = left + 1; right < indexes.length; right++)
+            counts[row + indexes[right]!]!++;
+        }
     }
+    for (let i = 0; i < size; i++)
+      for (let j = i + 1; j < size; j++) {
+        const a = group[i]!,
+          b = group[j]!;
+        for (const locale of ['zh', 'en'] as const) {
+          const total = grams.get(a.unit.id)![locale].size + grams.get(b.unit.id)![locale].size;
+          if ((2 * overlaps[locale][i * size + j]!) / (total || 1) > 0.6)
+            add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
+        }
+      }
+  }
   return diagnostics;
 }
 export function validateGlossary(file: string, source: string) {

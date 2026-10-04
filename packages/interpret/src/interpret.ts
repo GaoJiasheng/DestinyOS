@@ -149,7 +149,7 @@ export function interpret(input: InterpretInput): Report {
   if (!context.profileHasTime) confidence = Math.min(confidence, 0.65);
   const substitute = (text: string, unit: KnowledgeUnit): string => {
     const resolved = new Set<string>();
-    const lookup = (key: string): string | undefined => {
+    const lookup = (key: string, destination: boolean): string | undefined => {
       if (key.startsWith('glossary.')) {
         const parts = key.slice(9).split('.');
         const field = parts.pop();
@@ -161,21 +161,28 @@ export function interpret(input: InterpretInput): Report {
       }
       const values = resolvePath(chart, key.replace(/^chart\./, ''));
       return values.length
-        ? values.map((v) => display(v)).join(locale === 'zh' ? '、' : ', ')
+        ? values
+            .map((v) => (destination && typeof v === 'string' ? encodeURIComponent(v) : display(v)))
+            .join(locale === 'zh' ? '、' : ', ')
         : undefined;
     };
     const replace = (value: string): string =>
-      value.replace(/\{\{([\w.[\]=*'"-]+)\}\}/g, (original: string, key: string) => {
-        if (resolved.has(key)) return original;
-        const variable = unit.variables?.[key];
-        if (variable !== undefined) {
-          resolved.add(key);
-          const result = replace(variable);
-          resolved.delete(key);
-          return result;
-        }
-        return lookup(key) ?? original;
-      });
+      value.replace(
+        /\{\{([\w.[\]=*'"-]+)\}\}/g,
+        (original: string, key: string, offset: number) => {
+          if (resolved.has(key)) return original;
+          const variable = unit.variables?.[key];
+          if (variable !== undefined) {
+            resolved.add(key);
+            const result = replace(variable);
+            resolved.delete(key);
+            return result;
+          }
+          // Link destinations need stable chart keys; prose and evidence use localized labels.
+          const destination = /\[[^\]\n]+\]\([^()\s]*$/.test(value.slice(0, offset));
+          return lookup(key, destination) ?? original;
+        },
+      );
     return replace(text);
   };
   const display = (value: unknown): string => {

@@ -34,15 +34,16 @@ export function termMarker(glossary: GlossaryEntry[], locale: Locale) {
   const seen = new Set<string>();
   return (text: string): string => {
     if (!regex) return text;
-    // Existing marks and template placeholders must not be marked recursively.
+    // Existing marks, template placeholders and Markdown links must remain intact.
+    // Card-key glossary aliases can also occur in encyclopedia destinations.
     return text
-      .split(/(\[\[term:[^\]]+\]\]|\{\{.*?\}\})/g)
+      .split(/(\[\[term:[^\]]+\]\]|\{\{.*?\}\}|\[[^\]\n]+\]\([^()\s]+\))/g)
       .map((part) => {
         if (/^\[\[term:/.test(part)) {
           seen.add(part.slice(7, -2));
           return part;
         }
-        if (part.startsWith('{{')) return part;
+        if (part.startsWith('{{') || /^\[[^\]\n]+\]\(/.test(part)) return part;
         return part.replace(regex, (matched) => {
           const key = unique.get(matched.toLowerCase());
           if (!key || seen.has(key)) return matched;

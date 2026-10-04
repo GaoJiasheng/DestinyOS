@@ -1,0 +1,1354 @@
+# // DESIGN-GAP: Repeatable numbers are 1–10; unique majors above 10 and court ranks cannot repeat under engine rules.
+- id: tarot.statistics.major_high
+  system: tarot
+  section: dynamics
+  topic: statistics.major_high
+  when:
+    path: stats.majorPct
+    gte: 50
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 大牌较多时先看结构性主题
+    summary: 本次阅读可以关注：大牌较多时先看结构性主题。
+    body: 本次牌阵提示你：大牌较多时先看结构性主题。大牌（以重要转折与价值问题为主题的牌）占比至少一半，说明本次阅读较集中于方向与整体条件；这不表示你失去选择，也不能据此推断外部事件。例如，换一种协作方式时，先澄清共同目标，再处理日程细节。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“大牌较多时先看结构性主题”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for major high
+    summary: You can begin with the larger framework.
+    body:
+      You can begin with the larger framework. Major cards focus on broad themes, and at least half
+      of this draw belongs to that group. The emphasis may make a question about direction more
+      useful than one about isolated details. It does not remove your choices or establish an
+      external event. When changing a collaboration, clarifying the shared goal could come before
+      adjusting the diary. Try naming the larger condition before choosing a task. What purpose
+      brings the participants together, and what would need agreement? Once that is clear, select
+      one practical detail you can address. A broad theme becomes useful when it helps you frame an
+      ordinary decision. It need not become a claim that forces outside your control are deciding
+      everything or that a small action cannot matter.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.major_low
+  system: tarot
+  section: dynamics
+  topic: statistics.major_low
+  when:
+    path: stats.majorPct
+    lte: 49.999
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 日常安排也值得仔细照顾
+    summary: 本次阅读可以关注：日常安排也值得仔细照顾。
+    body: 本次牌阵提示你：日常安排也值得仔细照顾。大牌（关注较广主题的牌）占比不到一半，小牌提供较多日常场景；这次阅读适合关注做法与条件，但不代表问题不重要。例如，一个活动筹备得不顺时，逐项确认邀请、材料和交接要求。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“日常安排也值得仔细照顾”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for major low
+    summary: You can pay attention to ordinary arrangements.
+    body: You can pay attention to ordinary arrangements. Fewer than half the cards in this draw are
+      majors, leaving more space for the everyday scenes of the minor cards. This emphasis can
+      support a question about methods and conditions without making your concern less important.
+      Planning a gathering may improve through clearer invitations, materials and handovers rather
+      than through one sweeping change. Consider tracing one process from the initial message to the
+      finished arrangement. A missing confirmation may matter more than an overall change in
+      direction. Choose the step easiest to check and ask the relevant person about it. Everyday
+      details deserve care because they shape how an experience unfolds. You can improve one of them
+      without needing a dramatic story to explain why the question matters to you.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.dominant_fire
+  system: tarot
+  section: dynamics
+  topic: statistics.dominant_fire
+  when:
+    path: stats.dominantElement
+    eq: fire
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.action
+    - tarot.preparation
+    - tarot.review
+  exclusive_with: []
+  zh:
+    title: 让行动热情配合可持续的速度
+    summary: 本次阅读可以关注：让行动热情配合可持续的速度。
+    body: 本次牌阵提示你：让行动热情配合可持续的速度。火元素（便于讨论行动与热情的象征）被统计为本次主导元素；它侧重启动和推进，不证明你平时总是外向或急切。例如，想同时开始多个新活动时，先挑一个可以完成的体验。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“让行动热情配合可持续的速度”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for dominant fire
+    summary: You can give enthusiasm a pace you can sustain.
+    body:
+      You can give enthusiasm a pace you can sustain. Fire is the dominant element recorded for this
+      draw, offering a shorthand for initiative and movement. It describes an emphasis here rather
+      than a lasting personality. If several new activities appeal at once, one finishable trial may
+      express the energy more clearly than accepting everything before you know the demands. Try
+      deciding when the trial will finish before you begin it. That boundary lets you enjoy momentum
+      without taking on every attractive opportunity. Afterwards, ask whether the activity itself
+      remained interesting and whether its demands fitted your day. The count directs attention
+      toward initiative; your experience tells you what form of initiative is workable. You can keep
+      enthusiasm while changing the size of the commitment.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.dominant_water
+  system: tarot
+  section: dynamics
+  topic: statistics.dominant_water
+  when:
+    path: stats.dominantElement
+    eq: water
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 让感受获得清楚而温和的表达
+    summary: 本次阅读可以关注：让感受获得清楚而温和的表达。
+    body: 本次牌阵提示你：让感受获得清楚而温和的表达。水元素（便于讨论情绪与连接的象征）被统计为本次主导元素；这提醒你关注相处体验，并不代替另一人的直接表达。例如，安排共同活动前，先听听双方真正希望怎样度过时间。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“让感受获得清楚而温和的表达”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for dominant water
+    summary: You can let feeling become a clear conversation.
+    body: You can let feeling become a clear conversation. Water is the recorded dominant element in
+      this draw, highlighting emotional experience and connection as useful areas of attention. It
+      cannot tell you what another person secretly feels. Before organising time together, asking
+      how each person would like to spend it can reveal a practical need behind a vague hope for
+      closeness. Consider describing a feeling through a particular exchange rather than through a
+      general label. Perhaps a hurried conversation left you wanting more time. Asking for that time
+      gives the feeling an ordinary response. Listen to what is comfortable for the other person as
+      well. An emotional emphasis can support better communication when it makes needs easier to
+      state, without treating shared warmth as agreement about every arrangement.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.dominant_air
+  system: tarot
+  section: dynamics
+  topic: statistics.dominant_air
+  when:
+    path: stats.dominantElement
+    eq: air
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.communication
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 让思考落到可以核对的信息上
+    summary: 本次阅读可以关注：让思考落到可以核对的信息上。
+    body: 本次牌阵提示你：让思考落到可以核对的信息上。风元素（便于讨论思考与沟通的象征）被统计为本次主导元素；观点与问题较突出，需要区分事实、假设和个人解释。例如，讨论意见不一致时，先把各自引用的消息放到同一张表里。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“让思考落到可以核对的信息上”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for dominant air
+    summary: You can ground an active discussion in checkable information.
+    body: You can ground an active discussion in checkable information. Air is the dominant element
+      recorded for this draw, bringing thinking and communication into focus. A lively exchange can
+      still mix facts with assumptions and interpretations. When views differ, listing the
+      information each person is using may help you understand the disagreement before trying to
+      settle whose conclusion sounds strongest. Try asking which statement each person could verify.
+      Put an unanswered question beside the disagreement instead of filling it with a confident
+      interpretation. A brief check may reveal that two people were discussing different conditions.
+      Once the information is clearer, return to the choice. Thinking is more useful here when it
+      identifies the next question, rather than when it adds another elaborate explanation to an
+      incomplete account.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.dominant_earth
+  system: tarot
+  section: dynamics
+  topic: statistics.dominant_earth
+  when:
+    path: stats.dominantElement
+    eq: earth
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.preparation
+    - tarot.review
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 从实际资源与维护开始安排
+    summary: 本次阅读可以关注：从实际资源与维护开始安排。
+    body: 本次牌阵提示你：从实际资源与维护开始安排。土元素（便于讨论物品、时间与实际工作的象征）被统计为本次主导元素；细节和稳定节奏值得注意，不能据此作收益承诺。例如，要持续练习一种技能时，先准备工具和固定时间。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“从实际资源与维护开始安排”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for dominant earth
+    summary: You can start with the resources that make an activity workable.
+    body: You can start with the resources that make an activity workable. Earth is the recorded
+      dominant element, directing attention toward time, materials and maintenance. Its presence
+      does not promise a material reward. For regular practice, having the tool ready and a
+      realistic place in the week may matter more than imagining the distant benefits of becoming
+      skilled. Consider how the arrangement will be maintained after the first enthusiastic day.
+      Where will the materials stay, and when can you use them without rushing? A simple preparation
+      routine may answer those questions. Review it after several attempts and adjust the awkward
+      part. The elemental emphasis encourages attention to tangible conditions while leaving the
+      eventual result dependent on practice, available support and changes you can observe.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.missing_fire
+  system: tarot
+  section: dynamics
+  topic: statistics.missing_fire
+  when:
+    path: stats.missingElements
+    contains: fire
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.action
+    - tarot.preparation
+    - tarot.review
+  exclusive_with: []
+  zh:
+    title: 给计划补一个小范围的行动入口
+    summary: 本次阅读可以关注：给计划补一个小范围的行动入口。
+    body: 本次牌阵提示你：给计划补一个小范围的行动入口。火元素（行动与热情的象征）在本次抽牌中没有出现；缺项只表示统计分布，不等于你缺少能力，可以作为检视行动环节的提醒。例如，已经讨论很久的计划，可以先安排一次十分钟的小试验。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“给计划补一个小范围的行动入口”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for missing fire
+    summary: You can look for a manageable entrance into action.
+    body: You can look for a manageable entrance into action. Fire does not appear in the elemental
+      count of this draw; that absence is a feature of the cards, not a missing ability in you. If a
+      plan has spent a long time in discussion, a ten minute trial may reveal what further
+      conversation cannot yet show. Try choosing a first action that needs little preparation and
+      has a clear end. If the trial shows that a condition is missing, name that condition rather
+      than judging your motivation. You may need information or help before expanding the plan. A
+      statistical gap can become an invitation to check the action stage, while your willingness and
+      ability remain matters learned from actual experience.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.missing_water
+  system: tarot
+  section: dynamics
+  topic: statistics.missing_water
+  when:
+    path: stats.missingElements
+    contains: water
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.feelings
+    - tarot.communication
+    - tarot.boundaries
+  exclusive_with: []
+  zh:
+    title: 给感受与回应留一点空间
+    summary: 本次阅读可以关注：给感受与回应留一点空间。
+    body: 本次牌阵提示你：给感受与回应留一点空间。水元素（感受与连接的象征）在这次抽牌中没有出现；这不说明你冷淡，只提醒你可以检查表达和倾听是否被忙碌挤开。例如，只谈日程的讨论结束前，可以询问参与者对安排的感受。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“给感受与回应留一点空间”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for missing water
+    summary: You can make room for a response beyond logistics.
+    body:
+      'You can make room for a response beyond logistics. Water is absent from the elemental count
+      here, without defining you as unemotional. The gap can invite a check of whether feeling has
+      been left outside a busy discussion. Before closing a scheduling conversation, asking how
+      people feel about the arrangement may reveal something the timetable misses. You can add a
+      short check at the end of the discussion: is the proposed rhythm comfortable for everyone?
+      Wait for answers before describing the arrangement as settled. A person may need more notice,
+      another format or a smaller role. Including that information makes the schedule more
+      responsive. The absent element offers a reminder to ask, without implying that an emotional
+      quality was absent from the people involved.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.missing_air
+  system: tarot
+  section: dynamics
+  topic: statistics.missing_air
+  when:
+    path: stats.missingElements
+    contains: air
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.communication
+    - tarot.reflection
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 用一句清楚提问补足信息
+    summary: 本次阅读可以关注：用一句清楚提问补足信息。
+    body: 本次牌阵提示你：用一句清楚提问补足信息。风元素（思考与沟通的象征）在本次抽牌中没有出现；这不评价你的判断能力，可以提醒你核对尚未讲清的规则与消息。例如，开始共同任务前，把模糊要求改写成一个对方能回答的问题。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用一句清楚提问补足信息”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for missing air
+    summary: You can use a precise question to fill an information gap.
+    body: You can use a precise question to fill an information gap. Air is absent from the count in
+      this draw; this says nothing about your intelligence or judgement. It may be a useful reminder
+      to check a rule nobody has stated clearly. Before beginning shared work, turn one vague
+      requirement into a question the responsible person can actually answer. Consider writing the
+      requirement in plain language and sending it back for confirmation. If two interpretations
+      remain possible, make the difference explicit. This small exchange can prevent extra work
+      based on an assumption. A gap in the card count does not create the missing message; it simply
+      gives you a reason to inspect communication. Let the confirmed instruction, rather than the
+      statistical pattern, guide what you do next.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.missing_earth
+  system: tarot
+  section: dynamics
+  topic: statistics.missing_earth
+  when:
+    path: stats.missingElements
+    contains: earth
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.preparation
+    - tarot.review
+    - tarot.choice
+  exclusive_with: []
+  zh:
+    title: 让好想法找到具体承载条件
+    summary: 本次阅读可以关注：让好想法找到具体承载条件。
+    body: 本次牌阵提示你：让好想法找到具体承载条件。土元素（实际资源与维护的象征）在这次抽牌中没有出现；缺项不是财务结论，可以提醒你检查时间、空间与材料是否足够。例如，大家都喜欢一个活动点子时，先核对场地与准备工作由谁负责。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“让好想法找到具体承载条件”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for missing earth
+    summary: You can check the practical support behind a good idea.
+    body: You can check the practical support behind a good idea. Earth is absent from this draw's
+      elemental count, without providing a financial conclusion. Time, space and materials are
+      ordinary conditions you can examine. When a group likes an activity, asking who will arrange
+      the venue and preparation may help enthusiasm become an event people can comfortably attend.
+      Try making a short preparation list and giving each item an owner. Confirm what is already
+      available before adding new purchases or tasks. If the list exceeds the group's capacity,
+      reduce the activity instead of expecting enthusiasm to supply the materials. An absent group
+      in the draw can prompt this practical check while leaving the actual resources to be
+      established through people, places and ordinary arrangements.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.court_roles
+  system: tarot
+  section: dynamics
+  topic: statistics.court_roles
+  when:
+    path: stats.courtCount
+    gte: 2
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 区分角色方式而不是给人物贴标签
+    summary: 本次阅读可以关注：区分角色方式而不是给人物贴标签。
+    body: 本次牌阵提示你：区分角色方式而不是给人物贴标签。宫廷牌（以侍从、骑士、王后、国王呈现行事方式的牌）至少出现两张，适合比较学习、推进、照料与组织等角色；角色不绑定性别或年龄。例如，同一个人在项目里可以既负责协调，也需要向别人学习。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“区分角色方式而不是给人物贴标签”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for court roles
+    summary: You can compare ways of taking part rather than label particular people.
+    body:
+      You can compare ways of taking part rather than label particular people. At least two court
+      cards appear, inviting attention to roles such as learning, advancing, caring and organising.
+      These roles are not assigned by gender or age. The same colleague may coordinate one task and
+      need guidance on another, so ask which behaviour helps the present situation. You can ask
+      which role is needed at the difficult moment. Perhaps someone must gather questions before
+      anyone pushes a decision forward. A person who usually organises could take that listening
+      role, while another handles the schedule. Try one such adjustment without assigning permanent
+      labels. The cards can help you compare behaviours, and the team's response can show whether a
+      particular distribution of responsibilities is useful.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.court_few
+  system: tarot
+  section: dynamics
+  topic: statistics.court_few
+  when:
+    path: stats.courtCount
+    lte: 1
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 直接观察过程而不勉强对应人物
+    summary: 本次阅读可以关注：直接观察过程而不勉强对应人物。
+    body: 本次牌阵提示你：直接观察过程而不勉强对应人物。宫廷牌（强调角色方式的牌）在这次牌阵里不超过一张，读法可以更多关注场景与过程；这不代表问题只有你一个人参与。例如，准备一个共同作品时，可以先看流程是否清楚，再讨论谁来执行。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“直接观察过程而不勉强对应人物”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for court few
+    summary: You can focus on the process without assigning each picture to a person.
+    body:
+      'You can focus on the process without assigning each picture to a person. With no more than
+      one court card in this draw, scenes and themes provide much of the material. That does not
+      mean you are the only participant. For a shared piece of work, understanding the sequence may
+      be more helpful than deciding which card represents each contributor. Try describing the task
+      without names first: a request arrives, information is checked and a result is handed over.
+      Where does that sequence become unclear? Once the point is visible, ask who can clarify it.
+      You can still discuss participants when it helps, but the spread need not supply a portrait of
+      each one. Attention to the process may reveal a small agreement everyone can understand.'
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.reversed_high
+  system: tarot
+  section: dynamics
+  topic: statistics.reversed_high
+  when:
+    path: stats.reversedPct
+    gte: 60
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 把阻力拆成可以调整的条件
+    summary: 本次阅读可以关注：把阻力拆成可以调整的条件。
+    body: 本次牌阵提示你：把阻力拆成可以调整的条件。逆位（牌面倒转）比例至少六成，可以提示内省、延迟或主题使用过度；它不是坏事的数量统计，也不说明所有行动都该停止。例如，一个计划反复推迟时，区分准备不足、消息未到与精力有限三种情况。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“把阻力拆成可以调整的条件”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for reversed high
+    summary: You can separate a difficulty into conditions you can review.
+    body:
+      You can separate a difficulty into conditions you can review. At least sixty percent of this
+      draw is reversed, inviting attention to inward focus, delay or excessive use of a quality.
+      This is not a count of bad events. If a plan keeps slipping, distinguish missing preparation
+      from unavailable information and limited energy before deciding what kind of adjustment would
+      help. Consider giving each obstacle its own response. Preparation may need a checklist,
+      missing information a question, and limited energy a smaller commitment. Addressing one at a
+      time makes the situation less overwhelming. You can postpone an extra task while continuing a
+      necessary one. The orientation count encourages a review of how qualities are operating; it
+      does not require you to interpret every inconvenience as a sign of trouble.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.reversed_low
+  system: tarot
+  section: dynamics
+  topic: statistics.reversed_low
+  when:
+    path: stats.reversedPct
+    lte: 59.999
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 外在行动与内部调整可以并行
+    summary: 本次阅读可以关注：外在行动与内部调整可以并行。
+    body: 本次牌阵提示你：外在行动与内部调整可以并行。逆位（牌面倒转）比例不到六成，读法不必以阻滞为主要主题；正位较多也不意味无需准备，单张牌仍需按位置阅读。例如，推进一次讨论时，可以表达明确提议，同时承认仍有细节要确认。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“外在行动与内部调整可以并行”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for reversed low
+    summary: You can combine outward movement with room for internal adjustment.
+    body: You can combine outward movement with room for internal adjustment. Reversed cards make up
+      less than sixty percent here, so delay need not dominate the story. More upright cards do not
+      eliminate preparation. In a discussion, offering a clear proposal while naming the detail
+      still needing confirmation can be more useful than assuming a smooth path on the basis of
+      orientation alone. Try stating both the proposal and the point still open. This gives others
+      something specific to respond to without hiding uncertainty behind an optimistic tone. If
+      their feedback changes the plan, use it. Outward use and private adjustment can coexist in the
+      same process. The count helps set the reading's emphasis, while individual cards and positions
+      remain a reason to examine details rather than assume uniform ease.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.trend_element_shift
+  system: tarot
+  section: dynamics
+  topic: statistics.trend_element_shift
+  when:
+    path: combos
+    contains: trend_element_shift
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 把三张牌中的侧重变化读成过程
+    summary: 本次阅读可以关注：把三张牌中的侧重变化读成过程。
+    body: 本次牌阵提示你：把三张牌中的侧重变化读成过程。三张牌阵的首尾元素不同，表示观察角度从一种主题转向另一种；元素（行动、感受、思考与实际安排的分类）变化并不预测具体事件。例如，讨论起初只关心想法，后来发现还需要安排材料时，可以补上实际步骤。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“把三张牌中的侧重变化读成过程”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for trend element shift
+    summary: You can read a shift in emphasis across the three card sequence.
+    body: You can read a shift in emphasis across the three card sequence. The first and last cards
+      belong to different elemental groups, so the questions raised at the beginning and end may
+      differ. This does not identify an event that must occur. A discussion that begins with ideas
+      and later needs materials may simply require a practical step to connect the two. Consider
+      identifying the bridge between the two concerns. If ideas need materials, one person could
+      check what is available while another clarifies the purpose. A small handover connects the
+      stages. You can review whether that connection helps before describing the whole process as a
+      transformation. The elemental contrast is useful when it reveals an additional kind of
+      attention, not when it becomes a timetable for what will happen.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.trend_orientation_shift
+  system: tarot
+  section: dynamics
+  topic: statistics.trend_orientation_shift
+  when:
+    path: combos
+    contains: trend_orientation_shift
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 允许过程中的用力方式改变
+    summary: 本次阅读可以关注：允许过程中的用力方式改变。
+    body: 本次牌阵提示你：允许过程中的用力方式改变。三张牌阵首尾正逆位不同，提示同一过程可能有外用与内收的不同关注；朝向变化不是由差变好或由好变差的自动判断。例如，一个学习计划可以先对外交流，之后留时间整理笔记，也可以反过来。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“允许过程中的用力方式改变”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for trend orientation shift
+    summary: You can allow a process to need different kinds of attention.
+    body:
+      You can allow a process to need different kinds of attention. The first and last cards in this
+      sequence have different orientations, suggesting a contrast between outward use and inward
+      adjustment. It is not an automatic movement from good to bad or the reverse. A learning plan
+      may need a conversation first and quiet notes later, or the opposite order. Try asking which
+      stage benefits from speaking and which benefits from a pause. Arrange those intervals
+      deliberately, then notice whether the sequence feels workable. Another person may need a
+      different rhythm, so discuss it rather than treating the contrast as a universal rule. You can
+      use the orientation change to compare methods while leaving the value of each method dependent
+      on the task and the response it receives.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.present_outcome_element_shift
+  system: tarot
+  section: dynamics
+  topic: statistics.present_outcome_element_shift
+  when:
+    path: combos
+    contains: present_outcome_element_shift
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 比较现状与结果关注的不同条件
+    summary: 本次阅读可以关注：比较现状与结果关注的不同条件。
+    body: 本次牌阵提示你：比较现状与结果关注的不同条件。凯尔特十字的现状与结果牌元素不同，适合问过程需要补充哪一类注意；这段对比不能跳过行动、基础与环境牌位。例如，现状讨论集中在感受时，结果牌提醒的实际安排可以成为新的核对问题。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“比较现状与结果关注的不同条件”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for present outcome element shift
+    summary: You can compare the conditions emphasised by present and outcome.
+    body: You can compare the conditions emphasised by present and outcome. Their elements differ in
+      this Celtic Cross, inviting a question about what kind of attention the process may need to
+      add. Keep the foundation, response and environment in view as well. A discussion centred on
+      feeling may also need an ordinary practical arrangement before a next step becomes workable.
+      You can write the present concern and the possible added condition on separate lines. Then
+      look for a position that suggests how to connect them. Perhaps an environmental detail needs
+      clarification before an action is realistic. Ask about that detail outside the reading. The
+      contrast makes a question visible, while the rest of the spread and the information you obtain
+      help determine whether that question is relevant.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.present_outcome_orientation_shift
+  system: tarot
+  section: dynamics
+  topic: statistics.present_outcome_orientation_shift
+  when:
+    path: combos
+    contains: present_outcome_orientation_shift
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用朝向对比检视回应方式
+    summary: 本次阅读可以关注：用朝向对比检视回应方式。
+    body: 本次牌阵提示你：用朝向对比检视回应方式。凯尔特十字的现状与结果牌正逆位不同，读法可对比表达与调整的变化；朝向不能替所有牌位宣布结局，也不表示个人价值起伏。例如，一个最初想尽快推进的问题，可能需要先留出讨论与重新准备的时间。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用朝向对比检视回应方式”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for present outcome orientation shift
+    summary: You can use the contrast in orientation to review a response.
+    body:
+      You can use the contrast in orientation to review a response. Present and outcome differ here,
+      inviting comparison between expression and adjustment rather than a final announcement about
+      the situation. Other positions still matter. An issue that initially calls for rapid movement
+      may become more workable after a discussion and a fresh preparation interval, without making
+      either approach inherently superior. Consider the scale of the response before choosing its
+      pace. A short clarification may be enough, while a more involved change could need
+      preparation. Compare that need with the action and environmental positions. You can then
+      arrange a review point rather than waiting for the final picture to occur. The orientation
+      difference supports comparison; it does not evaluate your worth or announce that one approach
+      has defeated another.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_1
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_1
+  when:
+    path: stats.repeatedNumbers
+    contains: 1
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注起点
+    summary: 本次阅读可以关注：用重复数字关注起点。
+    body: 本次牌阵提示你：用重复数字关注起点。数字1在这次牌阵中重复出现，可以把起点作为对照主题；数字象征（用相同数值比较牌面议题的读法）只是观察工具，不是事件数量或日期。例如，一个新点子同时需要勇气和实际准备，例如给一个日常计划安排一次具体复盘。可以先给这项观察划定范围，只讨论你手上这一件事；把需要别人补充的信息留给直接交流，并在几天后回看自己的记录，不急着扩大为长期判断。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用重复数字关注起点”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 1
+    summary: You can use repeated 1 as a prompt to examine a beginning.
+    body: You can use repeated 1 as a prompt to examine a beginning. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider an idea that needs
+      both encouragement and preparation. A review of an ordinary plan may help you see where that
+      theme is useful without making every image mean the same thing. Try separating the desire to
+      begin from the conditions that let a beginning continue. One introductory session can test
+      both interest and available time. Record what made it easier to take part, as well as what
+      remained awkward. When several pictures share this number, use them to compare different
+      entrances into the task. You can choose one entrance without assuming all parts of your life
+      must start afresh.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_2
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_2
+  when:
+    path: stats.repeatedNumbers
+    contains: 2
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注协调
+    summary: 本次阅读可以关注：用重复数字关注协调。
+    body: 本次牌阵提示你：用重复数字关注协调。数字2在这次牌阵中重复出现，可以把协调作为对照主题；数字象征（用相同数值比较牌面议题的读法）只是观察工具，不是事件数量或日期。例如，两种不同需要可以在约定中各留位置，例如给一个日常计划安排一次具体复盘。试试将牌面主题改写成一个可以执行的小动作，注明开始与结束的时间；完成后比较自己的感受与事情的实际变化，让反馈决定下一步是否值得继续。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用重复数字关注协调”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 2
+    summary: You can use repeated 2 as a prompt to examine coordination.
+    body: You can use repeated 2 as a prompt to examine coordination. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider two needs that can
+      each receive room in an agreement. A review of an ordinary plan may help you see where that
+      theme is useful without making every image mean the same thing. You can ask what each need
+      requires in practice. A wish for contact might need a regular meeting, while a wish for quiet
+      might need a protected interval. Put both into the arrangement and see whether the rhythm
+      remains comfortable. Comparing the repeated theme can help you recognise coordination as a
+      process, without assuming that two people or two events are about to appear in your life.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_3
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_3
+  when:
+    path: stats.repeatedNumbers
+    contains: 3
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注发展
+    summary: 本次阅读可以关注：用重复数字关注发展。
+    body: 本次牌阵提示你：用重复数字关注发展。数字3在这次牌阵中重复出现，可以把发展作为对照主题；数字象征（用相同数值比较牌面议题的读法）只是观察工具，不是事件数量或日期。例如，共同参与的过程需要分工与交流，例如给一个日常计划安排一次具体复盘。建议把自己的期待、可用资源和仍不清楚的地方分别写下；如果其中一项暂时无法核实，就保留这份不确定，先做另一个能够得到回应的小步骤。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用重复数字关注发展”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 3
+    summary: You can use repeated 3 as a prompt to examine development.
+    body: You can use repeated 3 as a prompt to examine development. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider a shared process
+      that needs communication and clear responsibilities. A review of an ordinary plan may help you
+      see where that theme is useful without making every image mean the same thing. Consider which
+      part of the shared task is ready to develop and which still needs agreement. A draft may
+      benefit from feedback before further expansion. Ask for one specific response and use it in
+      the next version. A repeated developmental theme can keep you attentive to participation,
+      while the number itself does not count contributors or require you to complete something in a
+      particular number of days.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_4
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_4
+  when:
+    path: stats.repeatedNumbers
+    contains: 4
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注结构
+    summary: 本次阅读可以关注：用重复数字关注结构。
+    body: 本次牌阵提示你：用重复数字关注结构。数字4在这次牌阵中重复出现，可以把结构作为对照主题；数字象征（用相同数值比较牌面议题的读法）只是观察工具，不是事件数量或日期。例如，稳定安排既能支持行动也需要调整，例如给一个日常计划安排一次具体复盘。你可以与最相关的另一张牌比较，但不必让所有细节都讲成同一个故事；先辨认相同之处与差异，再挑出最值得在现实中问清楚的一件事。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用重复数字关注结构”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 4
+    summary: You can use repeated 4 as a prompt to examine structure.
+    body: You can use repeated 4 as a prompt to examine structure. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider a steady
+      arrangement that can support activity while remaining adjustable. A review of an ordinary plan
+      may help you see where that theme is useful without making every image mean the same thing.
+      Try choosing one rule worth retaining and one part that can remain flexible. A steady meeting
+      time may help, while an overlong agenda may need shortening. Review the effect after the next
+      discussion. This makes structure a practical question rather than a demand for sameness.
+      Several cards sharing a number can offer different views of stability, including the point
+      where an arrangement would benefit from a small change.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_5
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_5
+  when:
+    path: stats.repeatedNumbers
+    contains: 5
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注变化
+    summary: 本次阅读可以关注：用重复数字关注变化。
+    body: 本次牌阵提示你：用重复数字关注变化。数字5在这次牌阵中重复出现，可以把变化作为对照主题；数字象征（用相同数值比较牌面议题的读法）只是观察工具，不是事件数量或日期。例如，不一致可以帮助你看见需要协商的环节，例如给一个日常计划安排一次具体复盘。建议先写出一个已经知道的事实和一个仍待确认的条件，再读这张牌的正逆位与类别内容；如果图像暂时没有共鸣，可以保留问题而不强行套用。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用重复数字关注变化”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 5
+    summary: You can use repeated 5 as a prompt to examine change.
+    body:
+      You can use repeated 5 as a prompt to examine change. A repeated number is a way of comparing
+      themes across pictures, not a count of events or a date. Consider a disagreement that makes an
+      unstated requirement visible. A review of an ordinary plan may help you see where that theme
+      is useful without making every image mean the same thing. You can name the disagreement in
+      terms of a requirement rather than a personality. One participant may want more detail before
+      acting, while another wants a quicker trial. Discuss what a limited experiment would need to
+      satisfy both. The repeated theme can help you examine the tension without predicting conflict.
+      A useful comparison ends with a clearer question, allowing real responses to show which
+      arrangement is possible.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_6
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_6
+  when:
+    path: stats.repeatedNumbers
+    contains: 6
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注重新连接
+    summary: 本次阅读可以关注：用重复数字关注重新连接。
+    body: 本次牌阵提示你：用重复数字关注重新连接。数字6在这次牌阵中重复出现，可以把重新连接作为对照主题；数字象征（用相同数值比较牌面议题的读法）只是观察工具，不是事件数量或日期。例如，从反馈中取得支持比独自猜测更有帮助，例如给一个日常计划安排一次具体复盘。不妨选取画面中一个最接近当前经验的细节，用它提出温和的问题；接着观察一次实际回应，把新的消息记下来，再判断是否需要改变原来的理解。留意统计只描述本次抽牌，不需要把它扩大成固定身份；同一问题在新的现实条件下，也可能适合另一种观察重点。
+    advice:
+      - 围绕“用重复数字关注重新连接”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 6
+    summary: You can use repeated 6 as a prompt to examine reconnection.
+    body: You can use repeated 6 as a prompt to examine reconnection. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider feedback that
+      offers support beyond your own private interpretation. A review of an ordinary plan may help
+      you see where that theme is useful without making every image mean the same thing. Consider
+      who could provide the specific feedback you need. Ask that person one question and leave room
+      for an answer different from your expectation. A response may restore a connection to the task
+      even when it does not settle everything. Repeated imagery can bring attention back to exchange
+      and support; the actual support available remains something to discover through contact rather
+      than infer from the number alone.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_7
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_7
+  when:
+    path: stats.repeatedNumbers
+    contains: 7
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注检视
+    summary: 本次阅读可以关注：用重复数字关注检视。
+    body: 你可以把重复的七看成一次检视条件的邀请。重复数字（不同牌面共有数值的比较线索）在这里不计数事件，也不指向某个日期；它帮助你从多张画面里找出需要暂停观察的部分。各张牌仍有自己的牌位与朝向，所以相同数值可以提出不同问题，而不是要求同一种回应。例如，一件迟迟未决定的安排，可以先问缺少什么消息，再判断等一等是否真正有帮助。建议为停顿设定目的与回看时间，记录哪些条件变清楚，哪些仍在自己控制之外。你不必为了思考而无限延迟选择，也不必为了显得果断跳过可以取得的信息。
+    advice:
+      - 围绕“用重复数字关注检视”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 7
+    summary: You can use repeated 7 as a prompt to examine review.
+    body:
+      You can use repeated 7 as a prompt to examine review. A repeated number is a way of comparing
+      themes across pictures, not a count of events or a date. Consider a pause that makes the
+      conditions behind a choice clearer. A review of an ordinary plan may help you see where that
+      theme is useful without making every image mean the same thing. Try setting a short review
+      interval with a question to answer at its end. What condition became clearer, and what remains
+      outside your knowledge? A pause is more useful when it has that purpose than when it simply
+      delays every choice. Compare the repeated theme across the relevant positions, but allow the
+      pictures to ask different questions. The number provides a focus for reflection, not a reason
+      to withdraw indefinitely.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_8
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_8
+  when:
+    path: stats.repeatedNumbers
+    contains: 8
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注练习
+    summary: 本次阅读可以关注：用重复数字关注练习。
+    body: 你可以用重复的八检查持续投入有没有得到有用反馈。数字重复（用共同数值对照不同画面的读法）只描述本次抽牌，不说明你需要做多少次练习，也不预告某个结果。各张牌可能分别突出行动速度、关注细节或日常维护；先保留这些差异，才能看清投入在哪一处值得调整。例如，你反复练同一个动作却不知道哪里需要改善，可以先请熟悉任务的人指出一个可观察的细节。不妨让下一次尝试只针对它，再把新旧体验放在一起比较；持续不等于机械重复，缩小范围也能帮助学习，让努力与得到的消息形成可以回看的联系。
+    advice:
+      - 围绕“用重复数字关注练习”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 8
+    summary: You can use repeated 8 as a prompt to examine practice.
+    body: You can use repeated 8 as a prompt to examine practice. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider repeated effort
+      that needs both a workable pace and useful feedback. A review of an ordinary plan may help you
+      see where that theme is useful without making every image mean the same thing. You can select
+      a practice task that produces feedback you can understand. Repeating a difficult exercise
+      without knowing what to change may only add effort. Ask for one detail to watch, then compare
+      successive attempts. Several pictures with the same number can invite attention to different
+      forms of sustained activity. Let the experience of practising show which form serves your
+      current aim and which needs a more flexible approach.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_9
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_9
+  when:
+    path: stats.repeatedNumbers
+    contains: 9
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注整合
+    summary: 本次阅读可以关注：用重复数字关注整合。
+    body: 你可以让重复的九帮助筛选已有经验，而不是把所有往事都带进当前问题。数字象征（用相同数值比较牌面主题的方式）在这里提示整合的角度，并不衡量你的成熟程度。每张牌的具体场景仍要与它的牌位一起读，有的经验适合保留，有的需要新的条件才能使用。例如，以前有效的学习办法可能依赖当时的固定时间，现在则需要缩短练习范围。建议选一条仍适合今天的经验，写出它怎样改变一个小动作，然后实际试一次；不合适的部分暂存笔记即可。你可以通过选择建立更清楚的理解，不需要靠积累更多解释来回应同一件事。
+    advice:
+      - 围绕“用重复数字关注整合”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 9
+    summary: You can use repeated 9 as a prompt to examine integration.
+    body: You can use repeated 9 as a prompt to examine integration. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider experience that
+      helps you select what deserves attention next. A review of an ordinary plan may help you see
+      where that theme is useful without making every image mean the same thing. Consider choosing
+      one earlier lesson that still fits the present conditions. Write how it changes the next small
+      action, then check whether that action helps. Other lessons may belong to a different setting
+      and can stay in your notes for now. A repeated integrative theme supports selection as well as
+      accumulation. You do not need to bring every past experience into the current question for one
+      useful connection to matter.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: tarot.statistics.repeated_10
+  system: tarot
+  section: dynamics
+  topic: statistics.repeated_10
+  when:
+    path: stats.repeatedNumbers
+    contains: 10
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+    - tarot.cooperation
+    - tarot.preparation
+    - tarot.communication
+  exclusive_with: []
+  zh:
+    title: 用重复数字关注收尾
+    summary: 本次阅读可以关注：用重复数字关注收尾。
+    body: 你可以借重复的十确认一段流程怎样才算有清楚的收尾。重复数值（对照不同牌面主题的线索）不是截止日，也不说明所有事情已经完成；它提供一个关于交接和整理的提问角度。相同数字下的图像仍有不同重点，需要按牌位阅读，避免把一个结束感扩大成对整段生活的判断。例如，一个小作品做完后，接收者可能还需要简短说明，才能自己继续使用。建议先询问下一位参与者缺少哪一项信息，再补上真正有用的那部分；若某项修改已没有用途，也可以停止继续加工。这样完成与停下各有现实依据，经验也能进入之后的安排。
+    advice:
+      - 围绕“用重复数字关注收尾”，选一件具体事项记录前后变化。
+    do:
+      - 记录事实
+    dont:
+      - 仓促定论
+  en:
+    title: A prompt for repeated 10
+    summary: You can use repeated 10 as a prompt to examine completion.
+    body: You can use repeated 10 as a prompt to examine completion. A repeated number is a way of
+      comparing themes across pictures, not a count of events or a date. Consider a finished phase
+      that still benefits from handover and learning. A review of an ordinary plan may help you see
+      where that theme is useful without making every image mean the same thing. Try asking what
+      completion means for the people who will use the result. A finished object may still need
+      instructions, while a finished conversation may need a clear next agreement. Add that final
+      piece if it serves an actual need. Comparing the repeated theme can help distinguish finishing
+      from simply stopping. The number marks a symbolic question about a phase, without setting a
+      deadline or declaring all unfinished matters resolved.
+    advice:
+      - Use the theme to ask one specific question, then note what the response changes.
+    do:
+      - Record observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-tarot-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

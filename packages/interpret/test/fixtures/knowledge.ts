@@ -444,5 +444,12 @@ if (precise && competitor) {
 export function bundle(common: KnowledgeBundle): KnowledgeBundle {
   // Keep the algorithm's thirty illustrative cases isolated from production KU
   // rankings; the real corpus has separate engine + interpret integration tests.
-  return { ...common, units: [...units, ...common.units.filter((u) => u.system === 'common')] };
+  return {
+    ...common,
+    units: [...units, ...common.units.filter((u) => u.system === 'common')],
+    // Match production bundles: unrelated system terminology must not inflate Bazi density.
+    glossary: common.glossary.filter(
+      (entry) => entry.system === 'bazi' || entry.system === 'common',
+    ),
+  };
 }

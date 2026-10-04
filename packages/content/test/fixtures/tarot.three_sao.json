@@ -1,0 +1,40 @@
+{
+  "spread": "three_sao",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "situation",
+      "cardKey": "major_09_hermit",
+      "reversed": true,
+      "order": 0
+    },
+    {
+      "position": "action",
+      "cardKey": "major_01_magician",
+      "reversed": false,
+      "order": 1
+    },
+    {
+      "position": "outcome",
+      "cardKey": "cups_06",
+      "reversed": true,
+      "order": 2
+    }
+  ],
+  "stats": {
+    "majorPct": 66.66666666666666,
+    "elements": {
+      "fire": 0,
+      "earth": 1,
+      "air": 1,
+      "water": 1
+    },
+    "courtCount": 0,
+    "reversedPct": 66.66666666666666,
+    "repeatedNumbers": [],
+    "missingElements": ["fire"]
+  },
+  "combos": ["major_theme", "missing_fire", "reversed_theme", "trend_element_shift"],
+  "seed": "t23-tarot-fixture-three_sao"
+}

@@ -1,0 +1,100 @@
+{
+  "spread": "year_ahead",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "theme",
+      "cardKey": "pentacles_01",
+      "reversed": false,
+      "order": 0
+    },
+    {
+      "position": "m01",
+      "cardKey": "wands_04",
+      "reversed": false,
+      "order": 1
+    },
+    {
+      "position": "m02",
+      "cardKey": "swords_09",
+      "reversed": true,
+      "order": 2
+    },
+    {
+      "position": "m03",
+      "cardKey": "major_13_death",
+      "reversed": false,
+      "order": 3
+    },
+    {
+      "position": "m04",
+      "cardKey": "major_18_moon",
+      "reversed": true,
+      "order": 4
+    },
+    {
+      "position": "m05",
+      "cardKey": "cups_10",
+      "reversed": true,
+      "order": 5
+    },
+    {
+      "position": "m06",
+      "cardKey": "major_17_star",
+      "reversed": false,
+      "order": 6
+    },
+    {
+      "position": "m07",
+      "cardKey": "wands_queen",
+      "reversed": false,
+      "order": 7
+    },
+    {
+      "position": "m08",
+      "cardKey": "wands_02",
+      "reversed": false,
+      "order": 8
+    },
+    {
+      "position": "m09",
+      "cardKey": "major_02_high_priestess",
+      "reversed": false,
+      "order": 9
+    },
+    {
+      "position": "m10",
+      "cardKey": "swords_04",
+      "reversed": true,
+      "order": 10
+    },
+    {
+      "position": "m11",
+      "cardKey": "major_00_fool",
+      "reversed": true,
+      "order": 11
+    },
+    {
+      "position": "m12",
+      "cardKey": "cups_page",
+      "reversed": false,
+      "order": 12
+    }
+  ],
+  "stats": {
+    "majorPct": 38.46153846153847,
+    "elements": {
+      "fire": 3,
+      "earth": 1,
+      "air": 4,
+      "water": 5
+    },
+    "courtCount": 2,
+    "reversedPct": 38.46153846153847,
+    "repeatedNumbers": [2, 4],
+    "missingElements": []
+  },
+  "combos": ["priestess_moon", "court_roles", "repeated_2", "repeated_4"],
+  "seed": "t23-tarot-fixture-year_ahead"
+}
