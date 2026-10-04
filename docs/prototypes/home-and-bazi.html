@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh" data-theme="east">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天机 · 视觉原型</title>
+<meta name="description" content="DestinyOS 首页 Hero 与八字报告页的静态视觉原型，对应 docs/03-visual-design.md 的 token 与组件规格。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Cinzel:wght@600&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#05070F;--bg-1:#0A0E1C;--surface-1:#111628;--surface-2:#181F36;
+  --line-1:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.16);
+  --text-1:#F3F1EA;--text-2:#B8B5AC;--text-3:#7D7B74;
+  --gold:#D4AF6A;--gold-soft:#E8D3A3;
+  --accent:#C8412B;--accent-2:#D4AF6A;--accent-glow:rgba(200,65,43,.35);
+  --wood:#3FA66B;--fire:#D9483B;--earth:#C8963E;--metal:#D8D4C8;--water:#3C7DD9;
+  --r-md:14px;--r-lg:20px;--ease:cubic-bezier(.2,.8,.2,1);
+  --font-east:"LXGW WenKai","Noto Serif SC",serif;--font-body:"Noto Serif SC",serif;--font-latin:"Cormorant Garamond",serif;--font-ui:Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg-0);color:var(--text-1);font-family:var(--font-body);line-height:1.75}
+a{color:var(--gold-soft);text-decoration:none}
+.sky{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at 30% 20%,#0D1330 0%,#05070F 60%),radial-gradient(ellipse at 80% 70%,rgba(60,40,110,.25),transparent 50%)}
+.stars,.stars2{position:absolute;inset:-50%;background-repeat:repeat;opacity:.9}
+.stars{background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 90px 80px,#dfe6ff,transparent),radial-gradient(1.5px 1.5px at 160px 40px,#fff,transparent),radial-gradient(1px 1px at 230px 120px,#ffe9c4,transparent),radial-gradient(1px 1px at 300px 60px,#fff,transparent),radial-gradient(1.2px 1.2px at 350px 170px,#cfe0ff,transparent),radial-gradient(1px 1px at 60px 190px,#fff,transparent);background-size:400px 220px;animation:drift 160s linear infinite}
+.stars2{background-image:radial-gradient(1px 1px at 40px 60px,rgba(255,255,255,.7),transparent),radial-gradient(1px 1px at 140px 20px,rgba(255,255,255,.6),transparent),radial-gradient(1px 1px at 260px 150px,rgba(255,255,255,.7),transparent),radial-gradient(2px 2px at 330px 90px,rgba(232,211,163,.9),transparent);background-size:520px 300px;animation:drift 240s linear infinite reverse}
+@keyframes drift{to{transform:translate3d(200px,120px,0)}}
+@media (prefers-reduced-motion:reduce){.stars,.stars2{animation:none}}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 16px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand .zh{font-family:var(--font-east);font-size:28px;letter-spacing:.1em;color:var(--gold-soft)}
+.brand .en{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.14em;color:var(--text-2)}
+nav .links{display:none;gap:22px;font-family:var(--font-ui);font-size:14px;color:var(--text-2)}
+nav .links a.active{color:var(--accent-2)}
+@media(min-width:900px){nav .links{display:flex}}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 0}
+.hero h1{font-family:var(--font-east);font-weight:400;font-size:clamp(64px,14vw,132px);letter-spacing:.18em;margin:0;line-height:1.1;color:var(--text-1);text-shadow:0 0 40px rgba(212,175,106,.25)}
+.hero .sub{font-family:"Cinzel",serif;letter-spacing:.3em;font-size:clamp(12px,2vw,16px);color:var(--gold);margin-top:6px}
+.hero p{color:var(--text-2);max-width:520px;margin:22px auto 34px;font-size:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 26px;border-radius:999px;font-family:var(--font-ui);font-size:15px;font-weight:500;transition:all .2s var(--ease);cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 0 32px var(--accent-glow)}
+.btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn-secondary{border-color:var(--line-2);color:var(--text-1);margin-left:12px}
+.btn-secondary:hover{border-color:var(--accent-2)}
+.now{margin-top:46px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;font-family:var(--font-ui);font-size:13px;color:var(--text-3)}
+.now span b{color:var(--text-2);font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:40px 0}
+@media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent),var(--surface-1);border:1px solid var(--line-1);border-radius:var(--r-lg);padding:20px;position:relative;overflow:hidden;transition:all .25s var(--ease)}
+.card:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:0 0 24px rgba(212,175,106,.12)}
+.card .glyph{font-family:var(--font-east);font-size:40px;color:var(--gold-soft);line-height:1}
+.card h3{margin:14px 0 4px;font-size:18px;font-weight:600}
+.card p{margin:0;color:var(--text-2);font-size:14px}
+.card .tag{position:absolute;top:14px;right:14px;font-family:var(--font-ui);font-size:11px;color:var(--text-3);border:1px solid var(--line-1);border-radius:999px;padding:2px 8px}
+.card.west{--gold-soft:#CDB7FF}
+.section-title{font-family:var(--font-east);font-size:26px;letter-spacing:.08em;margin:56px 0 6px;display:flex;align-items:center;gap:14px}
+.section-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.lead{color:var(--text-2);margin:0 0 20px}
+/* report */
+.report{display:grid;gap:18px;margin-bottom:80px}
+@media(min-width:1000px){.report{grid-template-columns:360px 1fr;align-items:start}}
+.sticky{position:sticky;top:16px;display:grid;gap:14px}
+.headline{padding:24px}
+.headline .seal{display:inline-block;background:var(--accent);color:#fff;font-family:var(--font-east);font-size:12px;letter-spacing:.2em;padding:3px 8px;border-radius:2px}
+.headline h2{font-family:var(--font-east);font-size:24px;margin:14px 0 8px;line-height:1.4}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
+.chip{font-family:var(--font-ui);font-size:12px;color:var(--gold-soft);border:1px solid rgba(212,175,106,.4);border-radius:999px;padding:3px 10px}
+.radar{display:block;margin:0 auto}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pillar{background:var(--surface-2);border:1px solid var(--line-1);border-radius:var(--r-md);padding:12px 6px;text-align:center;animation:rise .7s var(--ease) both}
+.pillar:nth-child(2){animation-delay:.08s}.pillar:nth-child(3){animation-delay:.16s}.pillar:nth-child(4){animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.pillar .lbl{font-family:var(--font-ui);font-size:11px;color:var(--text-3);letter-spacing:.1em}
+.pillar .gz{font-family:var(--font-east);font-size:44px;line-height:1.1;margin:6px 0}
+.pillar .gz span{display:block}
+.pillar .ten{font-size:12px;color:var(--text-2)}
+.pillar.metal .gz{color:var(--metal)}.pillar.fire .gz span:first-child{color:var(--fire)}.pillar.earth .gz span:last-child{color:var(--earth)}
+.ring{display:flex;align-items:center;gap:18px;padding:16px}
+.ring svg{flex:none}
+.legend{font-family:var(--font-ui);font-size:12px;color:var(--text-2);display:grid;gap:4px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.toc{display:flex;gap:8px;overflow:auto;padding-bottom:6px;font-family:var(--font-ui);font-size:13px}
+.toc a{white-space:nowrap;border:1px solid var(--line-1);border-radius:999px;padding:6px 12px;color:var(--text-2)}
+.toc a.on{border-color:var(--accent-2);color:var(--gold-soft)}
+article.sec{padding:26px 24px}
+article.sec h3{font-family:var(--font-east);font-size:22px;margin:0 0 4px;letter-spacing:.06em}
+article.sec .conclusion{font-size:19px;color:var(--gold-soft);margin:10px 0 16px;line-height:1.6}
+article.sec p{margin:0 0 14px;color:var(--text-1);font-size:16px}
+.term{border-bottom:1px dashed rgba(212,175,106,.6);cursor:help}
+.evidence{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px;font-family:var(--font-ui);font-size:12px}
+.evidence span{background:var(--surface-2);border:1px solid var(--line-1);border-radius:6px;padding:4px 8px;color:var(--text-2)}
+.evidence span b{color:var(--gold-soft);font-weight:500}
+.advice{background:rgba(212,175,106,.06);border-left:2px solid var(--gold);padding:12px 16px;border-radius:0 var(--r-md) var(--r-md) 0}
+.advice li{margin:4px 0;color:var(--text-1)}
+details{margin-top:14px;border-top:1px solid var(--line-1);padding-top:10px;font-size:14px;color:var(--text-2)}
+summary{cursor:pointer;color:var(--gold-soft);font-family:var(--font-ui);font-size:13px}
+blockquote{margin:10px 0 0;padding-left:14px;border-left:1px solid var(--line-2);color:var(--text-2);font-style:italic}
+.ad{border:1px dashed var(--line-2);border-radius:var(--r-md);height:120px;display:flex;align-items:center;justify-content:center;color:var(--text-3);font-family:var(--font-ui);font-size:12px}
+.strength{padding:16px}
+.strength .bar{position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--water),var(--metal) 50%,var(--fire))}
+.strength .pin{position:absolute;top:-7px;width:20px;height:20px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px rgba(212,175,106,.6);transform:translateX(-50%)}
+.strength .lbls{display:flex;justify-content:space-between;font-family:var(--font-ui);font-size:11px;color:var(--text-3);margin-top:10px}
+footer{color:var(--text-3);font-size:12px;font-family:var(--font-ui);padding:30px 0 50px;border-top:1px solid var(--line-1)}
+.proto-note{position:fixed;right:12px;bottom:12px;z-index:5;background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;padding:8px 12px;font-family:var(--font-ui);font-size:12px;color:var(--text-2)}
+</style>
+</head>
+<body>
+<div class="sky"><div class="stars"></div><div class="stars2"></div></div>
+<div class="wrap">
+  <nav>
+    <div class="brand"><span class="zh">天机</span><span class="en">DESTINYOS</span></div>
+    <div class="links"><a>今日</a><a class="active">八字</a><a>紫微</a><a>周易</a><a>奇门</a><a>塔罗</a><a>占星</a><a>吠陀</a><a style="color:var(--text-3)">EN · 登录</a></div>
+  </nav>
+
+  <section class="hero">
+    <h1>天机</h1>
+    <div class="sub">DESTINYOS</div>
+    <p>读懂你的时间与星辰。八字、紫微、周易、奇门、塔罗、占星、吠陀——七种体系，一份看得懂的报告。排盘精确，数据不出站。</p>
+    <div><a class="btn btn-primary">开始推算</a><a class="btn btn-secondary">看今日运势</a></div>
+    <div class="now"><span>此刻 · <b>2026 年 10 月 4 日</b></span><span>农历 <b>丙午年 八月廿四</b></span><span>流日 <b>辛亥</b></span><span>月相 <b>下弦月</b></span><span>寒露 <b>4 天后</b></span></div>
+  </section>
+
+  <div class="section-title">七种体系</div>
+  <p class="lead">每一种都能独立成篇；有出生档案后，一键算完全部。</p>
+  <div class="grid">
+    <div class="card"><span class="tag">需出生时间</span><div class="glyph">庚</div><h3>八字</h3><p>四柱、喜用、大运流年，读懂你的底色与节律。</p></div>
+    <div class="card"><span class="tag">需出生时辰</span><div class="glyph">紫</div><h3>紫微斗数</h3><p>十二宫与十四主星，人生各领域的星图。</p></div>
+    <div class="card"><span class="tag">即时占卜</span><div class="glyph">☰</div><h3>周易 · 梅花</h3><p>时间、报数或铜钱起卦，问一件具体的事。</p></div>
+    <div class="card"><span class="tag">即时占卜</span><div class="glyph">門</div><h3>奇门遁甲</h3><p>以此刻起局，看方位、时机与用神。</p></div>
+    <div class="card west"><span class="tag">即时占卜</span><div class="glyph" style="font-family:Cinzel">XXI</div><h3>塔罗</h3><p>洗牌、切牌、翻牌，78 张 1909 公版牌面。</p></div>
+    <div class="card west"><span class="tag">需出生时间</span><div class="glyph">♄</div><h3>西方占星</h3><p>本命盘、相位与今日行运。</p></div>
+    <div class="card west"><span class="tag">需出生时间</span><div class="glyph">ॐ</div><h3>吠陀占星</h3><p>月亮星宿、九分盘与大运周期。</p></div>
+    <div class="card"><span class="tag">每日</span><div class="glyph">日</div><h3>今日运势</h3><p>五维星级、幸运指标、宜忌与今日一牌。</p></div>
+  </div>
+
+  <div class="section-title">报告页示例 · 八字</div>
+  <p class="lead">示例档案：1990 年 5 月 15 日 08:30，北京，男（项目标准测试用例 Fixture A）。</p>
+
+  <div class="report">
+    <aside class="sticky">
+      <div class="card headline">
+        <span class="seal">命盘概览</span>
+        <h2>三庚并立的辛巳月：一柱锋利、却懂得收敛的金</h2>
+        <div class="chips"><span class="chip">果决</span><span class="chip">慢热</span><span class="chip">重承诺</span></div>
+        <svg class="radar" width="100%" height="200" viewBox="-30 0 280 200" preserveAspectRatio="xMidYMid meet" aria-label="五维评分雷达图">
+          <g stroke="rgba(255,255,255,.12)" fill="none">
+            <polygon points="110,30 186,75 160,160 60,160 34,75"/><polygon points="110,56 162,86 144,142 76,142 58,86"/><polygon points="110,82 138,97 128,124 92,124 82,97"/>
+          </g>
+          <polygon points="110,36 170,84 150,152 70,145 50,90" fill="rgba(212,175,106,.22)" stroke="#D4AF6A" stroke-width="1.5"/>
+          <g font-family="Inter" font-size="11" fill="#B8B5AC" text-anchor="middle"><text x="110" y="20">事业 ★★★★</text><text x="198" y="78">财运 ★★★</text><text x="170" y="182">感情 ★★★</text><text x="50" y="182">健康 ★★★★</text><text x="22" y="78">人际 ★★★</text></g>
+        </svg>
+      </div>
+      <div class="card" style="padding:16px">
+        <div class="pillars">
+          <div class="pillar fire"><div class="lbl">年柱</div><div class="gz"><span>庚</span><span>午</span></div><div class="ten">比肩 · 正官</div></div>
+          <div class="pillar metal"><div class="lbl">月柱</div><div class="gz"><span>辛</span><span>巳</span></div><div class="ten">劫财 · 七杀</div></div>
+          <div class="pillar earth"><div class="lbl">日柱</div><div class="gz"><span>庚</span><span>辰</span></div><div class="ten">日主 · 偏印</div></div>
+          <div class="pillar earth"><div class="lbl">时柱</div><div class="gz"><span>庚</span><span>辰</span></div><div class="ten">比肩 · 偏印</div></div>
+        </div>
+      </div>
+      <div class="card ring">
+        <svg width="110" height="110" viewBox="0 0 110 110" aria-label="五行分布">
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--surface-2)" stroke-width="12"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--metal)" stroke-width="12" stroke-dasharray="105 276" transform="rotate(-90 55 55)"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--earth)" stroke-width="12" stroke-dasharray="80 276" stroke-dashoffset="-105" transform="rotate(-90 55 55)"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--fire)" stroke-width="12" stroke-dasharray="60 276" stroke-dashoffset="-185" transform="rotate(-90 55 55)"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--wood)" stroke-width="12" stroke-dasharray="20 276" stroke-dashoffset="-245" transform="rotate(-90 55 55)"/>
+          <circle cx="55" cy="55" r="44" fill="none" stroke="var(--water)" stroke-width="12" stroke-dasharray="11 276" stroke-dashoffset="-265" transform="rotate(-90 55 55)"/>
+          <text x="55" y="64" text-anchor="middle" font-family="LXGW WenKai" font-size="30" fill="#E8D3A3">庚</text>
+        </svg>
+        <div class="legend"><div><i style="background:var(--metal)"></i>金 38%</div><div><i style="background:var(--earth)"></i>土 29%</div><div><i style="background:var(--fire)"></i>火 22%</div><div><i style="background:var(--wood)"></i>木 7%</div><div><i style="background:var(--water)"></i>水 4%</div></div>
+      </div>
+      <div class="card strength">
+        <div style="font-family:Inter;font-size:12px;color:var(--text-3);margin-bottom:12px">身强弱 · 得分 +4.1（身强）</div>
+        <div class="bar"><div class="pin" style="left:84%"></div></div>
+        <div class="lbls"><span>身弱</span><span>中和</span><span>身强</span></div>
+      </div>
+    </aside>
+
+    <main style="display:grid;gap:14px">
+      <div class="toc"><a class="on">概览</a><a>日主与性格</a><a>五行与喜忌</a><a>格局与事业</a><a>财富</a><a>感情</a><a>健康</a><a>大运流年</a><a>神煞</a><a>总结</a></div>
+
+      <article class="card sec">
+        <h3>日主与性格底色</h3>
+        <div class="conclusion">庚金生在巳月，又在天干上并排站了三个庚——你天生有一股"说一不二"的硬气，只是这股硬气被辰土两次包住，显得慢热而不锋利。</div>
+        <p>在八字里，<span class="term">日主</span>是出生那天的天干，代表你本人。庚金是十天干里的"刀斧之金"：直接、讲原则、不太会拐弯。多数庚金的人给人的第一印象是可靠而有距离感，熟了以后才发现他们其实很护着自己人。</p>
+        <p>你的特殊之处在于"三庚"。年干、日干、时干都是庚，用命理的话说叫<span class="term">比肩</span>重重——同类能量很多。生活里这通常表现为：主意很定，别人很难说服你；对自己人讲义气，但也容易在意见不合时和人硬碰硬。好消息是，日支和时支都是辰土，土能生金、也能"埯"金，让你在该收的时候收得住。</p>
+        <div class="evidence"><span>依据：<b>日主 庚金</b></span><span><b>比肩 ×2</b>（年干、时干）</span><span><b>日支 辰</b> 偏印</span><span><b>月令 巳火</b> 七杀当令</span></div>
+        <div class="advice"><ul style="margin:0;padding-left:18px"><li>把"硬"用在长期目标上：你适合做需要三五年才见效的事。</li><li>意见不合时先复述对方观点再表态，能省掉一半的争执。</li></ul></div>
+        <details><summary>原文与规则</summary><blockquote>庚金带煞，刚健为最。得水而清，得火而锐。——《滴天髓》</blockquote><div style="margin-top:8px">触发规则：bazi.day_master.geng.strong · bazi.features.bi_jian_heavy · 权重 86/72</div></details>
+      </article>
+
+      <article class="card sec">
+        <h3>五行格局与喜忌</h3>
+        <div class="conclusion">金土太旺、水木偏少。你需要的是"火"来炼、"水"来泄——用大白话说：多一点热情和表达，少一点囤着不动。</div>
+        <p>五行环里金占了近四成，加上土近三成，这是一张"厚重"的盘。<span class="term">喜用神</span>判为火与水：火能把金炼成器（对应事业上的挑战与被看见），水能把金的锐气导出去（对应表达、学习、流动）。木是你的财，少而珍贵，所以你对钱的态度多半是"能守但不太会生"。</p>
+        <div class="evidence"><span>依据：<b>金 38% / 土 29%</b></span><span><b>身强</b> +4.1</span><span>喜用 <b>火、水</b></span><span>忌 <b>金、土</b></span></div>
+        <div class="advice"><ul style="margin:0;padding-left:18px"><li>颜色上多用红、橙与深蓝；方位上南方与北方对你更顺。</li><li>每年夏季是你推进大事的窗口期。</li></ul></div>
+      </article>
+
+      <div class="ad">广告 · Advertisement（固定位，仅免费用户）</div>
+
+      <article class="card sec">
+        <h3>格局与事业</h3>
+        <div class="conclusion">月令七杀透出又有辰土化杀，是典型的"杀印相生"：你适合在有压力、有规则的环境里当那个把事情扛下来的人。</div>
+        <p>七杀在命理里代表外来的压力与挑战，正常人会觉得累，但身强的庚金反而"吃"这个：压力越大，你越清醒。配合辰土偏印的化解，这种组合常见于技术专家、项目负责人、执法与医疗这类需要"顶住"的职业……</p>
+        <div class="evidence"><span>依据：<b>月令 巳</b> 七杀</span><span><b>偏印 ×2</b> 化杀</span><span>格局 <b>七杀格</b></span></div>
+      </article>
+    </main>
+  </div>
+
+  <footer>天机 DestinyOS · 本页为静态视觉原型（对应 docs/03-visual-design.md）。所有解读文字为示例，不代表最终知识库内容。仅供娱乐与参考，不构成专业建议。</footer>
+</div>
+<div class="proto-note">原型 · 东方主题 · 首页 Hero + 八字报告</div>
+</body>
+</html>
