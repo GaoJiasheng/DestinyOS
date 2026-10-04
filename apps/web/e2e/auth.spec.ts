@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { PrismaClient } from '@prisma/client';
+import contentRelease from '../../../packages/content/version.json';
 
 const db = new PrismaClient({
   datasourceUrl:
@@ -84,7 +85,7 @@ for (const locale of ['zh', 'en'] as const) {
       ok: true,
       db: true,
       redis: true,
-      knowledgeVersion: '1.0.0',
+      knowledgeVersion: contentRelease.knowledgeVersion,
     });
   });
 }

@@ -39,6 +39,15 @@ export function Footer() {
         <Link href="/about#credits">{t('legal.attributions')}</Link>
       </div>
       <p className="type-small muted">{t('report.disclaimer.short')}</p>
+      <p className="type-caption footer-note">
+        <a href="https://www.geonames.org/" className="text-link">
+          {t('legal.geonames')}
+        </a>{' '}
+        ·{' '}
+        <a href="https://creativecommons.org/licenses/by/4.0/" className="text-link">
+          {t('legal.geonamesLicense')}
+        </a>
+      </p>
       <p className="type-caption footer-note">{t('legal.cookieNotice')}</p>
       <p className="type-caption footer-note">
         {t('common.copyright', { year: new Date().getFullYear(), brand: brand.nameEn })}

@@ -18,6 +18,17 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     timeZone: 'UTC',
-    messages: toMessages({ ...catalog, 'brand.tagline': brand.tagline[locale] }),
+    messages: toMessages({
+      ...catalog,
+      ...Object.fromEntries(
+        Object.entries(zhGlossary)
+          .filter(([key]) => key.endsWith('.term'))
+          .map(([key, value]) => [
+            key.replace(/\.term$/, '.bilingual'),
+            `${value} · ${enGlossary[key as keyof typeof enGlossary]}`,
+          ]),
+      ),
+      'brand.tagline': brand.tagline[locale],
+    }),
   };
 });

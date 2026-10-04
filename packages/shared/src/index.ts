@@ -22,3 +22,5 @@ export { PillarSchema } from './schemas/charts/bazi';
 export { PillarSchema as DivinationPillarSchema } from './schemas/charts/divination';
 
 export * from './schemas/charts/daily';
+
+export * from './schemas/reading-request';

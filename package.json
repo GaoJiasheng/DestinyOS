@@ -15,7 +15,7 @@
     "test": "vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
@@ -27,7 +27,9 @@
     "db:deploy": "prisma migrate deploy",
     "postinstall": "prisma generate",
     "test:auth:e2e": "playwright test --config playwright.auth.config.ts",
-    "content:daily:coverage": "pnpm --filter @tianji/content coverage:daily"
+    "content:daily:coverage": "pnpm --filter @tianji/content coverage:daily",
+    "geo:build": "tsx scripts/geo-preprocess.ts",
+    "test:readings:e2e": "playwright test --config playwright.readings.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
@@ -37,13 +39,19 @@
     "@formatjs/icu-messageformat-parser": "^2.11.0",
     "@playwright/test": "^1.56.0",
     "@prisma/client": "6.19.3",
+    "@testing-library/react": "^16",
+    "@testing-library/user-event": "^14",
+    "@types/ioredis-mock": "^8.2.8",
     "@types/node": "^22.19.0",
     "@types/pg": "^8.23.1",
     "@vitest/coverage-v8": "^3.2.4",
     "esbuild": "^0.25.0",
     "eslint": "^9.39.0",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "fflate": "^0.8.2",
+    "ioredis": "^5.11.1",
     "ioredis-mock": "^8.13.1",
+    "jsdom": "^26",
     "liuyao": "0.5.1",
     "prettier": "^3.6.2",
     "prisma": "^6",
@@ -54,9 +62,7 @@
     "typescript-eslint": "^8.46.0",
     "vitest": "^3.2.4",
     "yaml": "^2.9.1",
-    "zod": "^3.25.76",
-    "ioredis": "^5.11.1",
-    "@types/ioredis-mock": "^8.2.8"
+    "zod": "^3.25.76"
   },
   "type": "module"
 }

@@ -1672,3 +1672,454 @@
   background: transparent;
   color: inherit;
 }
+/* DESIGN-GAP: T-30–32 use native form controls and a compact chart table until T-33's chart visuals ship. */
+.birth-shell,
+.history-page {
+  max-width: 720px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+.birth-card,
+.report-card {
+  background: var(--surface-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  padding: 24px;
+  margin: 24px 0;
+}
+.birth-card h2 {
+  margin-bottom: 24px;
+}
+.birth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.birth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+.birth-field input,
+.birth-field select {
+  background: var(--bg-1);
+  color: var(--text-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  padding: 12px;
+  min-height: 48px;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+}
+.birth-check {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 44px;
+  margin: 16px 0;
+}
+.birth-check input {
+  accent-color: var(--gold);
+  width: 20px;
+  height: 20px;
+}
+.birth-segment {
+  display: flex;
+  gap: 12px;
+}
+.city-results {
+  list-style: none;
+  padding: 0;
+  max-height: 320px;
+  overflow: auto;
+}
+.city-results button {
+  text-align: left;
+  padding: 12px;
+  width: 100%;
+  border-bottom: 1px solid var(--line-2);
+}
+.city-results span {
+  display: block;
+  font-size: 12px;
+}
+.city-results [aria-selected='true'] {
+  background: var(--surface-2);
+}
+.notice {
+  padding: 16px;
+  margin: 16px 0;
+  border-left: 2px solid var(--gold);
+  background: var(--surface-glass);
+  border-radius: var(--r-sm);
+}
+.form-error {
+  color: var(--danger);
+}
+summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: list-item;
+  padding: 10px 0;
+}
+.divination-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--bg-0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  gap: 20px;
+}
+.ritual-pillars {
+  display: flex;
+  gap: 20px;
+  height: 160px;
+  align-items: center;
+}
+.ritual-pillars span {
+  display: block;
+  width: 12px;
+  height: 120px;
+  border-radius: 10px;
+  background: linear-gradient(transparent, var(--gold), transparent);
+  animation: ritual-pulse 1.2s ease-in-out infinite alternate;
+}
+@keyframes ritual-pulse {
+  from {
+    transform: scaleY(0.5);
+    opacity: 0.3;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+.report-layout {
+  max-width: 1120px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.report-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.report-toolbar .hero-actions {
+  margin-top: 0;
+}
+.report-more {
+  position: relative;
+}
+.report-more > summary {
+  cursor: pointer;
+  color: var(--gold);
+  padding: 12px;
+}
+.report-more-actions {
+  position: absolute;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  background: var(--surface-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  box-shadow: var(--glow-gold);
+}
+.report-headline {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.keyword-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.keyword-chip {
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  padding: 6px 12px;
+}
+.score-radar svg {
+  width: 100%;
+  max-width: 340px;
+  margin: auto;
+  display: block;
+}
+.score-values,
+.element-values {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+.score-values dd,
+.element-values dd {
+  color: var(--gold);
+}
+progress,
+meter {
+  width: 100%;
+  accent-color: var(--gold);
+}
+.report-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+.report-body {
+  min-width: 0;
+}
+.report-section {
+  scroll-margin-top: 150px;
+}
+.report-paragraph {
+  white-space: pre-line;
+  line-height: 1.95;
+  margin: 20px 0;
+  overflow-wrap: anywhere;
+}
+.section-lead {
+  font-family: var(--font-heading-current);
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--gold-soft);
+  margin: 20px 0;
+}
+.report-transition {
+  color: var(--text-2);
+  margin: 16px 0;
+}
+.section-nav {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 12px 0;
+  background: var(--bg-0);
+}
+.section-nav a {
+  white-space: nowrap;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  padding: 10px 16px;
+  min-height: 44px;
+}
+.evidence-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  align-items: center;
+  font-size: 13px;
+}
+.evidence-tags button {
+  border: 1px dashed var(--line-2);
+  border-radius: var(--r-sm);
+  padding: 10px;
+  min-height: 44px;
+}
+.advice-list {
+  padding: 16px;
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+  margin: 20px 0;
+}
+.advice-list ul {
+  padding-left: 22px;
+  list-style: disc;
+}
+.advice-list li {
+  margin: 8px 0;
+  line-height: 1.8;
+}
+.source-fold blockquote {
+  border-left: 2px solid var(--gold);
+  padding: 12px;
+  color: var(--text-2);
+}
+.source-fold cite {
+  display: block;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.feedback-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line-1);
+  padding-top: 16px;
+  margin-top: 24px;
+}
+.feedback-bar button {
+  min-height: 44px;
+  min-width: 44px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+}
+.feedback-bar [aria-pressed='true'] {
+  border-color: var(--gold);
+}
+.ad-slot {
+  height: 180px;
+  background: var(--surface-1);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-md);
+  margin: 24px 0;
+  padding: 12px;
+  color: var(--text-2);
+  font-size: 12px;
+}
+.technical-data {
+  overflow: auto;
+  max-height: 600px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 12px/1.6 monospace;
+  padding: 12px;
+  background: var(--bg-1);
+  border-radius: var(--r-sm);
+}
+.pillar-table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+}
+.pillar-table th {
+  font-size: 12px;
+  padding: 8px 0;
+}
+.pillar-button {
+  font-size: 30px;
+  color: var(--gold);
+  width: 100%;
+  min-height: 100px;
+  line-height: 1.7;
+}
+:lang(en) .pillar-button {
+  font-size: 22px;
+  overflow-wrap: anywhere;
+}
+.chart-highlight {
+  outline: 2px solid var(--gold);
+}
+.report-skeleton {
+  min-height: 70vh;
+}
+.history-list {
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 1024px) {
+  .report-columns {
+    grid-template-columns: 360px minmax(0, 720px);
+  }
+  .report-chart {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+  .report-chart .report-card {
+    margin-top: 12px;
+  }
+}
+@media (max-width: 639px) {
+  .birth-shell,
+  .report-layout {
+    margin-top: 24px;
+  }
+  .birth-card,
+  .report-card {
+    padding: 18px;
+  }
+  .birth-grid {
+    gap: 8px;
+  }
+  .report-toolbar .type-h1 {
+    font-size: 34px;
+  }
+  .section-nav {
+    top: 0;
+  }
+  .report-toolbar .hero-actions {
+    gap: 4px;
+  }
+  .report-toolbar .hero-actions button {
+    padding: 10px 12px;
+    min-height: 44px;
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ritual-pillars span {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.report-columns {
+  grid-template-areas: 'headline' 'chart' 'body';
+}
+.report-headline {
+  grid-area: headline;
+  width: 100%;
+}
+.report-chart {
+  grid-area: chart;
+}
+.report-body {
+  grid-area: body;
+}
+.evidence-highlight {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+  border-radius: var(--r-sm);
+}
+@media (min-width: 1024px) {
+  .report-columns {
+    grid-template-areas: 'chart headline' 'chart body';
+  }
+  .report-headline {
+    margin-top: 12px;
+  }
+}
+
+.technical-table-wrap {
+  max-height: 600px;
+  overflow: auto;
+}
+.technical-table {
+  width: 100%;
+  font: 12px/1.6 monospace;
+  text-align: left;
+}
+.technical-table th,
+.technical-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--line-2);
+  overflow-wrap: anywhere;
+  max-width: 240px;
+}
+.technical-table thead {
+  position: sticky;
+  top: 0;
+  background: var(--surface-2);
+}

@@ -1,10 +1,13 @@
 import { defineConfig } from 'vitest/config';
 export default defineConfig({
+  resolve: { alias: { '@': new URL('./apps/web', import.meta.url).pathname } },
+  esbuild: { jsx: 'automatic' },
   test: {
     include: [
       'packages/**/test/**/*.test.ts',
       'scripts/**/*.test.ts',
       'apps/web/test/**/*.test.ts',
+      'apps/web/test/**/*.test.tsx',
     ],
     environment: 'node',
     // DESIGN-GAP: Four workers and a 15s timeout accommodate real Chromium plus exhaustive calendar fixtures under coverage without changing assertions or coverage thresholds.

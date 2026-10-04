@@ -2,6 +2,7 @@
 import type { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import { useCopy } from '@/i18n/use-copy';
+import { AnonymousImport } from './report/anonymous-import';
 import { ThemeProvider } from './theme-provider';
 /** Global UI providers keep the theme and notification surface consistent. */
 export function Providers({ children }: { children: ReactNode }) {
@@ -9,6 +10,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
       {children}
+      <AnonymousImport />
       <Toaster
         theme="dark"
         position="top-center"

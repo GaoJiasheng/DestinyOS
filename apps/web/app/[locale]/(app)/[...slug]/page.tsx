@@ -37,6 +37,29 @@ export default async function Placeholder({
   const key = destinations[path];
   if (!key) notFound();
   const t = await getCopy();
+  if (['bazi', 'ziwei', 'astrology', 'vedic'].includes(path))
+    return (
+      <section className="status-page">
+        <h1 className="type-h1">{t(key)}</h1>
+        <Button asChild>
+          <Link href={`/${path}/new`}>{t('form.birth.submit')}</Link>
+        </Button>
+      </section>
+    );
+  if (path === 'me')
+    return (
+      <section className="status-page">
+        <h1 className="type-h1">{t(key)}</h1>
+        <div className="hero-actions">
+          <Button asChild>
+            <Link href="/me/birth">{t('form.birth.title')}</Link>
+          </Button>
+          <Button variant="secondary" asChild>
+            <Link href="/me/history">{t('report.history')}</Link>
+          </Button>
+        </div>
+      </section>
+    );
   return (
     <section className="status-page">
       <p className="eyebrow">{t(key)}</p>
