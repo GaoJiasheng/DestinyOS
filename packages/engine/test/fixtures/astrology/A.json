@@ -1,0 +1,14 @@
+{
+  "source": "astronomy-engine 2.1.19 GeoVector+Ecliptic independently evaluated at UT; axes and cusps cross-checked against spherical geometry/Placidus semi-arcs, not an astro.com chart export",
+  "utc": "1990-05-14T23:30:00Z",
+  "jdUT": 2448026.4791666665,
+  "sun": 53.8935890373,
+  "moon": 290.7572719106,
+  "asc": 92.3651,
+  "mc": 339.7952,
+  "placidus": [
+    92.3651, 112.4219, 133.7212, 159.7952, 194.0048, 234.8399, 272.3651, 292.4219, 313.7212,
+    339.7952, 14.0048, 54.8399
+  ],
+  "tolerances": { "planet": 0.1, "angle": 0.3, "house": 0.5 }
+}

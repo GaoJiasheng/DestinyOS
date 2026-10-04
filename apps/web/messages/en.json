@@ -136,5 +136,9 @@
   "engine.warnings.W_DST_PERIOD": "Daylight saving time was in effect. Please confirm whether the birth certificate time includes it.",
   "engine.warnings.W_NO_PLACE": "No birthplace was provided. The default time zone is used without apparent solar time correction.",
   "engine.warnings.W_NO_HOUR_PILLAR": "Birth time is unknown. The hour pillar is omitted and confidence is reduced.",
-  "engine.warnings.W_NOON_CHART": "Birth time is unknown. The chart uses local noon without houses or angles."
+  "engine.warnings.W_NOON_CHART": "Birth time is unknown. The chart uses local noon without houses or angles.",
+  "engine.warnings.W_HOUSE_SYSTEM_FALLBACK": "The latitude exceeds 66°. Placidus houses have fallen back to Whole Sign.",
+  "engine.astrology.chironApproximate": "Chiron uses a simplified orbit; its position is approximate.",
+  "engine.astrology.moonUncertainty": "With an unknown birth time, the Moon longitude has approximately ±6° uncertainty.",
+  "engine.vedic.nakshatraUncertainty": "With an unknown birth time, the Moon may cross adjacent Nakshatras during the day."
 }

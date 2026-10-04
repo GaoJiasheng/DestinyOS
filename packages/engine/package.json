@@ -5,7 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./common": "./src/common/index.ts"
+    "./common": "./src/common/index.ts",
+    "./astrology": "./src/astrology/index.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -16,6 +17,7 @@
     "@noble/hashes": "1.8.0",
     "@openfate/true-solar-time": "4.0.2",
     "@tianji/shared": "workspace:*",
+    "astronomy-engine": "2.1.19",
     "lunar-typescript": "1.8.6",
     "zod": "^3.25.76"
   }

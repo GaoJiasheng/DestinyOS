@@ -136,5 +136,9 @@
   "engine.warnings.W_DST_PERIOD": "出生时处于夏令时期间，请确认出生证明时间是否已包含夏令时。",
   "engine.warnings.W_NO_PLACE": "未提供出生地点，已使用默认时区，不作真太阳时修正。",
   "engine.warnings.W_NO_HOUR_PILLAR": "出生时辰未知，命盘不含时柱，结果置信度降低。",
-  "engine.warnings.W_NOON_CHART": "出生时间未知，按当地正午计算，不显示宫位与四轴。"
+  "engine.warnings.W_NOON_CHART": "出生时间未知，按当地正午计算，不显示宫位与四轴。",
+  "engine.warnings.W_HOUSE_SYSTEM_FALLBACK": "出生地纬度超过 66°，Placidus 宫位制已回退为整宫制。",
+  "engine.astrology.chironApproximate": "凯龙位置使用简化轨道计算，为近似值。",
+  "engine.astrology.moonUncertainty": "出生时间未知，月亮黄经约有 ±6° 不确定性。",
+  "engine.vedic.nakshatraUncertainty": "出生时间未知，月亮在当天可能跨越相邻星宿。"
 }
