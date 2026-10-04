@@ -13,3 +13,4 @@ export * from './schemas/charts/vedic';
 export * from './constants/tarot-cards';
 export * from './constants/tarot-spreads';
 export * from './constants/ziwei';
+export * from './schemas/charts/divination';

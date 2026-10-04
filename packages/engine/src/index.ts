@@ -20,6 +20,11 @@ import { EngineError } from './common/error';
 import { computeZiwei, ZIWEI_SCHOOL_DEFAULTS, type ZiweiSchool } from './ziwei';
 import { computeTarot } from './tarot';
 import { version } from '../package.json';
+import { computeIching, IchingInputSchema } from './iching';
+import { computeQimen, QimenInputSchema } from './qimen';
+import { parseInput } from './common/divination';
+export * from './iching';
+export * from './qimen';
 export * from './common';
 export * from './bazi';
 import { computeBazi, BaziSchoolSchema, baziWarnings } from './bazi';
@@ -78,8 +83,10 @@ export function compute(raw: ComputeInput): EngineResult {
     if (input.now instanceof Temporal.ZonedDateTime) computedAt = input.now.toInstant().toString();
     else throw new EngineError('E_INVALID_INPUT');
   }
-  // DESIGN-GAP: Unimplemented systems retain T-10 strict placeholders until their own engine tasks.
-  if (!['bazi', 'ziwei'].includes(input.system) && Object.keys(input.options?.school ?? {}).length)
+  if (
+    !['bazi', 'ziwei', 'iching', 'qimen'].includes(input.system) &&
+    Object.keys(input.options?.school ?? {}).length
+  )
     throw new EngineError('E_UNSUPPORTED_SCHOOL');
   const birth = input.system === 'tarot' ? null : (input.birth ?? null);
   if (['bazi', 'ziwei', 'astrology', 'vedic', 'daily'].includes(input.system) && !birth)
@@ -121,7 +128,7 @@ export function compute(raw: ComputeInput): EngineResult {
   const warnings: EngineWarning[] = [...(birth?.warnings ?? [])];
   if (birth?.timeUnknown && ['astrology', 'vedic'].includes(input.system))
     warnings.push({ code: 'W_NOON_CHART', messageKey: 'engine.warnings.W_NOON_CHART' });
-  let chart: Record<string, unknown>;
+  let chart: Record<string, unknown> = {};
   let schoolUsed: Record<string, string | number | boolean> = {};
   if (input.system === 'ziwei') {
     chart = computeZiwei({
@@ -150,17 +157,58 @@ export function compute(raw: ComputeInput): EngineResult {
       question: input.question?.text as string | undefined,
     });
     schoolUsed = { deck: 'rws', allowReversed: chart.allowReversed as boolean };
-  } else chart = chartSchemas[input.system].parse({});
+  }
+  const now =
+    input.now instanceof Temporal.ZonedDateTime
+      ? input.now
+      : Temporal.Instant.from(computedAt).toZonedDateTimeISO('UTC');
+  if (input.system === 'iching') {
+    if (Object.keys(input.options?.school ?? {}).length)
+      throw new EngineError('E_UNSUPPORTED_SCHOOL');
+    // DESIGN-GAP: Uniform question carries the documented divination input; defaults are time Meihua and other/general categories.
+    const question = input.question ?? {};
+    const method = question.method ?? 'meihua';
+    const cast = parseInput(IchingInputSchema, {
+      category: 'other',
+      ...question,
+      method,
+      seed: input.seed ?? question.seed ?? computedAt,
+      ...(method === 'meihua' && !question.meihua ? { meihua: { castBy: 'time', at: now } } : {}),
+    });
+    chart = computeIching(cast, now);
+    schoolUsed =
+      cast.method === 'meihua'
+        ? { method: 'meihua', trigramOrder: 'xiantian' }
+        : { method: 'liuyao', naJia: 'jingfang', ziHour: 'zi_unified' };
+  }
+  if (input.system === 'qimen') {
+    const cast = parseInput(QimenInputSchema, {
+      at: now,
+      category: 'general',
+      ...input.question,
+      options: {
+        school: {
+          layout: 'rotating',
+          juMethod: 'chaibu',
+          centerLodge: 'kun2',
+          useApparentSolarTime: false,
+          ...input.options?.school,
+        },
+      },
+    });
+    chart = computeQimen(cast);
+    schoolUsed = { ...cast.options.school, ziHour: 'zi_unified' };
+  }
   return EngineResultSchema.parse({
     system: input.system,
     engineVersion: ENGINE_VERSION,
     computedAt,
     input: birth,
-    chart,
+    chart: chartSchemas[input.system].parse(chart),
     meta: {
       schoolUsed,
       warnings,
-      ...(!['bazi', 'ziwei', 'tarot'].includes(input.system)
+      ...(!['bazi', 'ziwei', 'tarot', 'iching', 'qimen'].includes(input.system)
         ? { debug: { placeholder: true } }
         : {}),
     },

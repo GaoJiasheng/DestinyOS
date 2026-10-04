@@ -1,0 +1,263 @@
+{
+  "source": {
+    "package": "kinqimen",
+    "version": "0.0.6.6",
+    "method": "pan(1)",
+    "ephem": "4.2.1",
+    "sxtwl": "2.0.6",
+    "timeZone": "Asia/Shanghai"
+  },
+  "at": "2026-02-05T19:30+08:00[Asia/Shanghai]",
+  "raw": {
+    "排盤方式": "拆補",
+    "干支": "丙午年庚寅月庚戌日丙戌時",
+    "旬首": "壬",
+    "旬空": {
+      "日空": "寅卯",
+      "時空": "午未"
+    },
+    "局日": "乙庚日",
+    "排局": "陽遁八局上元",
+    "節氣": "立春",
+    "值符值使": {
+      "值符天干": ["甲申", "庚"],
+      "值符星宮": ["蓬", "乾"],
+      "值使門宮": ["休", "震"]
+    },
+    "天乙": "心",
+    "天盤": {
+      "乾": "庚",
+      "坎": "戊",
+      "艮": "壬",
+      "震": "癸",
+      "巽": "己",
+      "離": "辛",
+      "坤": "乙",
+      "兌": "丙",
+      "中": "丁"
+    },
+    "地盤": {
+      "艮": "戊",
+      "離": "己",
+      "坎": "庚",
+      "坤": "辛",
+      "震": "壬",
+      "巽": "癸",
+      "中": "丁",
+      "乾": "丙",
+      "兌": "乙"
+    },
+    "門": {
+      "震": "休",
+      "巽": "生",
+      "離": "傷",
+      "坤": "杜",
+      "兌": "景",
+      "乾": "死",
+      "坎": "驚",
+      "艮": "開"
+    },
+    "星": {
+      "乾": "蓬",
+      "坎": "任",
+      "艮": "沖",
+      "震": "輔",
+      "巽": "英",
+      "離": "禽",
+      "坤": "柱",
+      "兌": "心"
+    },
+    "神": {
+      "乾": "符",
+      "坎": "蛇",
+      "艮": "陰",
+      "震": "合",
+      "巽": "勾",
+      "離": "雀",
+      "坤": "地",
+      "兌": "天"
+    },
+    "馬星": {
+      "天馬": "戌",
+      "丁馬": "未",
+      "驛馬": "申"
+    },
+    "長生運": {
+      "天盤": {
+        "乾": {
+          "庚": "臨冠"
+        },
+        "坎": {
+          "戊": "養"
+        },
+        "艮": {
+          "壬": "病"
+        },
+        "震": {
+          "癸": "死"
+        },
+        "巽": {
+          "己": "墓"
+        },
+        "離": {
+          "辛": "帝旺"
+        },
+        "坤": {
+          "乙": "胎"
+        },
+        "兌": {
+          "丙": "長生"
+        },
+        "中": {
+          "丁": "沐浴"
+        }
+      },
+      "地盤": {
+        "艮": {
+          "戊": "養"
+        },
+        "離": {
+          "己": "墓"
+        },
+        "坎": {
+          "庚": "臨冠"
+        },
+        "坤": {
+          "辛": "帝旺"
+        },
+        "震": {
+          "壬": "病"
+        },
+        "巽": {
+          "癸": "死"
+        },
+        "中": {
+          "丁": "沐浴"
+        },
+        "乾": {
+          "丙": "長生"
+        },
+        "兌": {
+          "乙": "胎"
+        }
+      }
+    }
+  },
+  "documented": {
+    "pillars": {
+      "year": {
+        "stem": "bing",
+        "branch": "wu"
+      },
+      "month": {
+        "stem": "geng",
+        "branch": "yin"
+      },
+      "day": {
+        "stem": "geng",
+        "branch": "xu"
+      },
+      "hour": {
+        "stem": "bing",
+        "branch": "xu"
+      }
+    },
+    "dun": "yang",
+    "ju": 8,
+    "solarTerm": {
+      "name": "li_chun",
+      "yuan": "upper"
+    },
+    "xunShou": {
+      "stem": "jia",
+      "branch": "shen",
+      "yi": "geng"
+    },
+    "zhiFu": {
+      "star": "tian_peng",
+      "palaceEarth": 1,
+      "palaceSky": 6
+    },
+    "zhiShi": {
+      "gate": "xiu",
+      "palaceEarth": 1,
+      "palaceSky": 3
+    },
+    "palaces": [
+      {
+        "index": 1,
+        "earthStem": "geng",
+        "skyStem": "wu_stem",
+        "star": "tian_ren",
+        "gate": "jing",
+        "deity": "teng_she"
+      },
+      {
+        "index": 2,
+        "earthStem": "xin",
+        "skyStem": "yi",
+        "star": "tian_zhu",
+        "gate": "du",
+        "deity": "jiu_di"
+      },
+      {
+        "index": 3,
+        "earthStem": "ren",
+        "skyStem": "gui",
+        "star": "tian_fu",
+        "gate": "xiu",
+        "deity": "liu_he"
+      },
+      {
+        "index": 4,
+        "earthStem": "gui",
+        "skyStem": "ji",
+        "star": "tian_ying",
+        "gate": "sheng",
+        "deity": "bai_hu"
+      },
+      {
+        "index": 5,
+        "earthStem": "ding",
+        "skyStem": "ding",
+        "star": "tian_qin",
+        "gate": null,
+        "deity": null
+      },
+      {
+        "index": 6,
+        "earthStem": "bing",
+        "skyStem": "geng",
+        "star": "tian_peng",
+        "gate": "si",
+        "deity": "zhi_fu"
+      },
+      {
+        "index": 7,
+        "earthStem": "yi",
+        "skyStem": "bing",
+        "star": "tian_xin",
+        "gate": "jing_view",
+        "deity": "jiu_tian"
+      },
+      {
+        "index": 8,
+        "earthStem": "wu_stem",
+        "skyStem": "ren",
+        "star": "tian_chong",
+        "gate": "kai",
+        "deity": "tai_yin"
+      },
+      {
+        "index": 9,
+        "earthStem": "ji",
+        "skyStem": "xin",
+        "star": "tian_rui",
+        "gate": "shang",
+        "deity": "xuan_wu",
+        "hiddenStem": "ding"
+      }
+    ]
+  },
+  "adapter": "docs §3.2 elapsed-day yuan; §3.4–3.5 center Kun2 hosting. Raw upstream results remain unchanged."
+}
