@@ -1,0 +1,2 @@
+# DESIGN-GAP: Generated pnpm patches contain mandatory space-prefixed blank context lines.
+patches/*.patch -whitespace

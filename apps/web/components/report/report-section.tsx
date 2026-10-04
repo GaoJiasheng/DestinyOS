@@ -206,12 +206,4 @@ export function SectionNav({ sections }: { sections: Section[] }) {
     </nav>
   );
 }
-/** Reserved fixed-height advertisement slot, excluded for pro plans; no ad network is loaded in T-32. */
-export function AdSlot({ slot, plan = 'free' }: { slot: string; plan?: 'free' | 'pro' }) {
-  const t = useCopy();
-  return plan === 'pro' ? null : (
-    <aside className="ad-slot" data-ad-slot={slot} aria-label={t('report.ad')}>
-      <span>{t('report.ad')}</span>
-    </aside>
-  );
-}
+export { AdSlot } from '@/components/ads/ad-slot';

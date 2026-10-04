@@ -1,3 +1,4 @@
+import { AdSlot } from '@/components/ads/ad-slot';
 import { brand } from '@tianji/shared/brand';
 import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
@@ -77,6 +78,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           ))}
         </div>
       </section>
+      <AdSlot slot="home" />
       <section className="home-section" aria-labelledby="how-heading">
         <p className="eyebrow">{t('home.how.eyebrow')}</p>
         <h2 id="how-heading">{t('home.how.title')}</h2>

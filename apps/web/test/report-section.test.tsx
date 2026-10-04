@@ -7,6 +7,10 @@ import { toMessages } from '../i18n/catalog';
 import zh from '../messages/zh.json';
 import en from '../messages/en.json';
 import type { Section } from '@tianji/interpret';
+vi.mock('../app/ads/actions', () => ({
+  getAdPolicyAction: vi.fn(),
+  recordAdImpressionAction: vi.fn(),
+}));
 vi.mock('../app/readings/actions', () => ({
   submitFeedbackAction: vi.fn(() => Promise.resolve({ ok: true, data: { saved: true } })),
 }));

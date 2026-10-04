@@ -25,6 +25,10 @@ vi.mock('../app/share/actions', () => ({
   signDailyCardAction: vi.fn(),
   revokeShareLinkAction: vi.fn(),
 }));
+vi.mock('../app/ads/actions', () => ({
+  getAdPolicyAction: vi.fn(),
+  recordAdImpressionAction: vi.fn(),
+}));
 vi.mock('../app/readings/actions', () => ({ submitFeedbackAction: vi.fn() }));
 vi.mock('../i18n/navigation', () => ({ Link: 'a', useRouter: () => ({ push: vi.fn() }) }));
 beforeAll(() => {

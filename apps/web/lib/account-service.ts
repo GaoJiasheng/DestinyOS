@@ -18,6 +18,7 @@ export async function exportAccount(userId: string) {
         theme: true,
         soundOn: true,
         reducedMotion: true,
+        disclaimerAcceptedAt: true,
         createdAt: true,
         deletedAt: true,
       },
@@ -97,7 +98,11 @@ export async function softDeleteAccount(userId: string, deleteFeedback = false) 
     });
     await tx.reading.updateMany({ where: { userId }, data: { isPublic: false } });
     if (deleteFeedback) await tx.feedback.deleteMany({ where: { userId } });
-    else await tx.feedback.updateMany({ where: { userId }, data: { userId: null } });
+    else
+      await tx.feedback.updateMany({ where: { userId }, data: { userId: null, readingId: null } });
+    await tx.adminAuditLog.create({
+      data: { adminId: 'system:account', action: 'user.soft_delete', diff: { deleteFeedback } },
+    });
     if (subscription)
       await tx.subscription.update({
         where: { userId },
@@ -112,9 +117,10 @@ export async function hardDeleteAccounts(now = new Date()) {
   return db.$transaction(async (tx) => {
     const due = await tx.user.findMany({
       where: { deletedAt: { lte: before } },
-      select: { id: true },
+      select: { id: true, email: true },
     });
     for (const user of due) {
+      if (user.email) await tx.verificationToken.deleteMany({ where: { identifier: user.email } });
       await tx.user.delete({ where: { id: user.id } });
       // DESIGN-GAP: Scheduled deletion uses the existing audit table with a system actor and no personal target.
       await tx.adminAuditLog.create({

@@ -1,3 +1,4 @@
+import { scrubFeedback, maintainShares } from '@/lib/maintenance';
 import { cronAuthorized, hardDeleteAccounts } from '@/lib/account-service';
 import { ApiError, errorResponse } from '@/lib/api-error';
 export const dynamic = 'force-dynamic';
@@ -7,7 +8,14 @@ export async function POST(request: Request) {
     return errorResponse(new ApiError('E_UNAUTHORIZED', 'Cron authorization required', 401));
   try {
     return Response.json(
-      { ok: true, data: { deleted: await hardDeleteAccounts() } },
+      {
+        ok: true,
+        data: {
+          deleted: await hardDeleteAccounts(),
+          scrubbed: await scrubFeedback(),
+          expiredShares: await maintainShares(),
+        },
+      },
       { headers: { 'Cache-Control': 'no-store' } },
     );
   } catch {

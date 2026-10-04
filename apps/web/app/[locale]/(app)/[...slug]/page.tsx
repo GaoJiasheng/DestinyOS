@@ -18,7 +18,7 @@ const destinations: Record<string, MessageKey> = {
   vedic: 'nav.vedic',
   learn: 'nav.learn',
   me: 'nav.me',
-  pricing: 'pricing.pro.title',
+  pricing: 'billing.title',
   'auth/login': 'nav.login',
   about: 'legal.about',
   privacy: 'legal.privacy',

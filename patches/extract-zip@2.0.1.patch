@@ -1,0 +1,22 @@
+diff --git a/index.js b/index.js
+index 23384ea16bb848616886f356d8d69f94325535bf..d9955cc308d9654c1f8418a72d3aa64555805233 100644
+--- a/index.js
++++ b/index.js
+@@ -126,10 +126,16 @@ class Extractor {
+ 
+     if (symlink) {
+       const link = await getStream(readStream)
++      // DESIGN-GAP: Backport containment for archive symlinks (CVE-2026-56876/19693).
++      const target = path.resolve(path.dirname(dest), link)
++      const relativeTarget = path.relative(this.opts.dir, target)
++      if (path.isAbsolute(relativeTarget) || relativeTarget.split(path.sep).includes('..')) {
++        throw new Error('Archive symlink target escapes extraction root')
++      }
+       debug('creating symlink', link, dest)
+       await fs.symlink(link, dest)
+     } else {
+-      await pipeline(readStream, createWriteStream(dest, { mode: procMode }))
++      await pipeline(readStream, createWriteStream(dest, { mode: procMode, flags: 'wx' }))
+     }
+   }
+ 

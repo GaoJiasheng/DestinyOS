@@ -12,6 +12,7 @@ import { Starfield } from '@/components/starfield';
 import { FontLoader } from '@/components/pwa/font-loader';
 import { InstallPrompt } from '@/components/pwa/install-prompt';
 import { Disclaimer } from '@/components/disclaimer';
+import { AdsProvider } from '@/components/ads/ads-provider';
 import './fonts.css';
 import '@fontsource/cinzel/600.css';
 import '@fontsource/cormorant-garamond/600.css';
@@ -66,18 +67,20 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <Providers>
-            <Starfield />
-            <a href="#main" className="skip-link">
-              {t('common.skip')}
-            </a>
-            <Navigation />
-            <main id="main" tabIndex={-1}>
-              {children}
-            </main>
-            <Footer />
-            <Disclaimer />
-            <InstallPrompt />
-            <FontLoader />
+            <AdsProvider>
+              <Starfield />
+              <a href="#main" className="skip-link">
+                {t('common.skip')}
+              </a>
+              <Navigation />
+              <main id="main" tabIndex={-1}>
+                {children}
+              </main>
+              <Footer />
+              <Disclaimer />
+              <InstallPrompt />
+              <FontLoader />
+            </AdsProvider>
           </Providers>
         </NextIntlClientProvider>
       </body>

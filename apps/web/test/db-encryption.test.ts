@@ -1,5 +1,5 @@
 import { beforeAll, afterAll, expect, it, vi } from 'vitest';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { PGlite } from '@electric-sql/pglite';
 import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
 import { PrismaClient } from '@prisma/client';
@@ -16,7 +16,11 @@ let encryptedDb: ReturnType<typeof extend>;
 
 beforeAll(async () => {
   vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);
-  await pg.exec(await readFile('prisma/migrations/20261004160000_init/migration.sql', 'utf8'));
+  const migrations = await readdir('prisma/migrations', { withFileTypes: true });
+  for (const migration of migrations
+    .filter((entry) => entry.isDirectory())
+    .sort((a, b) => a.name.localeCompare(b.name)))
+    await pg.exec(await readFile(`prisma/migrations/${migration.name}/migration.sql`, 'utf8'));
   await server.start();
   raw = new PrismaClient({
     datasourceUrl: `postgresql://test:test@${server.getServerConn()}/postgres?connection_limit=1&statement_cache_size=0`,

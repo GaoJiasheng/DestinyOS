@@ -304,7 +304,7 @@ export function TodayView({
               ))}
             </section>
             <div data-daily-block="13">
-              <AdSlot slot="daily-1" plan={plan} />
+              <AdSlot slot="today" plan={plan} />
             </div>
             <section className="report-card" data-daily-block="7">
               <h2>{title('astro')}</h2>

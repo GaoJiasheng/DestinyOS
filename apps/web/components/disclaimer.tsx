@@ -1,26 +1,38 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useCopy } from '@/i18n/use-copy';
 import { Dialog } from './ui/dialog';
 import { Button } from './ui/button';
-// DESIGN-GAP: Version the acknowledgement locally; account persistence awaits authentication.
+import { acknowledgeDisclaimerAction, getDisclaimerAcknowledgementAction } from '@/app/me/actions';
 /** Require an explicit first-visit acknowledgement; remember it when storage is available. */
 export function Disclaimer() {
   const [open, setOpen] = useState(false);
   const t = useCopy();
+  const pathname = usePathname();
   useEffect(() => {
     try {
-      setOpen(localStorage.getItem('tianji-disclaimer-v1') !== 'accepted');
+      if (localStorage.getItem('tianji-disclaimer-v1') === 'accepted') {
+        void acknowledgeDisclaimerAction().catch(() => undefined);
+        return;
+      }
+      void getDisclaimerAcknowledgementAction()
+        .then((accepted) => {
+          setOpen(!accepted);
+          if (accepted) localStorage.setItem('tianji-disclaimer-v1', 'accepted');
+        })
+        .catch(() => setOpen(true));
     } catch {
       setOpen(true);
     }
-  }, []);
+  }, [pathname]);
   function acknowledge() {
     try {
       localStorage.setItem('tianji-disclaimer-v1', 'accepted');
     } catch {
       /* Keep this visit usable if storage is blocked. */
     }
+    void acknowledgeDisclaimerAction().catch(() => undefined);
     setOpen(false);
   }
   return (

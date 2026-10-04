@@ -52,29 +52,31 @@ enum KuStatus {
 }
 
 model User {
-  id            String         @id @default(cuid())
-  email         String?        @unique
-  emailVerified DateTime?
-  name          String? // 显示名（来自 OAuth 或用户设置），非敏感
-  image         String?
-  role          Role           @default(user)
-  plan          Plan           @default(free)
-  locale        Locale         @default(zh)
-  tz            String? // 最近一次浏览器上报时区
-  theme         String? // 'auto'|'east'|'west'
-  soundOn       Boolean        @default(false)
-  reducedMotion Boolean        @default(false)
-  anonId        String?        @unique // 导入匿名数据时记录来源，去重
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-  deletedAt     DateTime? // 软删除；7 天后 cron 硬删除
-  accounts      Account[]
-  sessions      Session[]
-  profiles      BirthProfile[]
-  readings      Reading[]
-  subscription  Subscription?
-  shareLinks    ShareLink[]
-  feedbacks     Feedback[]
+  id                   String         @id @default(cuid())
+  email                String?        @unique
+  emailVerified        DateTime?
+  name                 String? // 显示名（来自 OAuth 或用户设置），非敏感
+  image                String?
+  role                 Role           @default(user)
+  plan                 Plan           @default(free)
+  locale               Locale         @default(zh)
+  tz                   String? // 最近一次浏览器上报时区
+  theme                String? // 'auto'|'east'|'west'
+  soundOn              Boolean        @default(false)
+  reducedMotion        Boolean        @default(false)
+  // DESIGN-GAP: Persist first-use acknowledgement in user settings; the documented schema omitted its timestamp.
+  disclaimerAcceptedAt DateTime?
+  anonId               String?        @unique // 导入匿名数据时记录来源，去重
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+  deletedAt            DateTime? // 软删除；7 天后 cron 硬删除
+  accounts             Account[]
+  sessions             Session[]
+  profiles             BirthProfile[]
+  readings             Reading[]
+  subscription         Subscription?
+  shareLinks           ShareLink[]
+  feedbacks            Feedback[]
 
   @@index([deletedAt])
 }

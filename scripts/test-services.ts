@@ -4,6 +4,7 @@ import RedisMock from 'ioredis-mock';
 import { createServer as createTcpServer } from 'node:net';
 import { createServer as createHttpServer } from 'node:http';
 import { spawn } from 'node:child_process';
+import { startStripeMock } from './test-stripe-server';
 
 // DESIGN-GAP: PGlite and ioredis-mock are isolated test substitutes, exposed through PostgreSQL/RESP
 // so E2E exercises the real Prisma client and local Redis limiter without application mock branches.
@@ -123,6 +124,13 @@ const mail = createHttpServer((request, response) => {
 await new Promise<void>((resolve) => mail.listen(testPorts.mail, '127.0.0.1', resolve));
 console.log('Test PostgreSQL, shadow database, Redis and mail sink are ready.');
 
+const stripeMock =
+  process.env.TEST_STRIPE_MOCK === '1'
+    ? await startStripeMock(
+        Number(process.env.TEST_STRIPE_PORT ?? 60282),
+        `http://localhost:${testPorts.web}`,
+      )
+    : undefined;
 let child: ReturnType<typeof spawn> | undefined;
 if (process.argv.includes('--web')) {
   const migrate = spawn('pnpm', ['db:deploy'], { stdio: 'inherit', env: process.env });
@@ -138,13 +146,14 @@ if (process.argv.includes('--web')) {
       ? {
           ...process.env,
           TEST_WEB_MODE: 'production',
-          NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}`,
+          NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}${process.env.TEST_STRIPE_MOCK === '1' ? ` --import ${new URL('./test-stripe-interceptor.ts', import.meta.url).href}` : ''}`,
         }
       : process.env,
   });
 }
 async function stop() {
   child?.kill('SIGTERM');
+  stripeMock?.close();
   cache.close();
   mail.close();
   redis.disconnect();

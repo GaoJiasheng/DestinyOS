@@ -4,7 +4,15 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "env": ["NEXT_PUBLIC_SITE_URL", "NEXT_PUBLIC_DEFAULT_LOCALE", "NEXT_PUBLIC_SENTRY_DSN"]
+      "env": [
+        "NEXT_PUBLIC_SITE_URL",
+        "NEXT_PUBLIC_DEFAULT_LOCALE",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "NEXT_PUBLIC_ADSENSE_*",
+        "FEATURE_ADS",
+        "PRIVACY_CONTROLLER_NAME",
+        "PRIVACY_CONTACT_EMAIL"
+      ]
     },
     "dev": {
       "cache": false,
@@ -26,7 +34,9 @@
     "RESEND_API_KEY",
     "FIELD_ENCRYPTION_KEYS",
     "SENTRY_DSN",
-    "TEST_MAIL_URL"
+    "TEST_MAIL_URL",
+    "STRIPE_*",
+    "CRON_SECRET"
   ],
   "globalDependencies": ["prisma/schema.prisma", "prisma/migrations/**"]
 }

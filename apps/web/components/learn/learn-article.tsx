@@ -1,3 +1,4 @@
+import { AdSlot } from '@/components/ads/ad-slot';
 import { Link } from '@/i18n/navigation';
 import { getCopy } from '@/i18n/get-copy';
 import { structuredJson } from '@/lib/learn';
@@ -23,6 +24,7 @@ export async function LearnArticle({
       <h1 className="type-h1">{t('report.content', { text: title })}</h1>
       <p>{t('report.content', { text: description })}</p>
       {children}
+      <AdSlot slot="learn" />
       <p>{t('report.disclaimer.short')}</p>
       <script
         type="application/ld+json"

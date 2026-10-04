@@ -44,7 +44,7 @@ describe('account lifecycle', () => {
     );
     expect(mocked.feedbackUpdate).toHaveBeenCalledWith({
       where: { userId: 'owner' },
-      data: { userId: null },
+      data: { userId: null, readingId: null },
     });
     expect(mocked.feedbackDelete).not.toHaveBeenCalled();
   });
@@ -80,7 +80,7 @@ describe('account lifecycle', () => {
     expect(await hardDeleteAccounts(new Date('2026-10-05T03:00:00Z'))).toBe(1);
     expect(mocked.due).toHaveBeenCalledWith({
       where: { deletedAt: { lte: new Date('2026-09-28T03:00:00Z') } },
-      select: { id: true },
+      select: { id: true, email: true },
     });
     expect(mocked.audit).toHaveBeenCalledWith({
       data: { adminId: 'system:cron', action: 'user.hard_delete' },

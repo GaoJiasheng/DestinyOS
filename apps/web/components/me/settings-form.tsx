@@ -1,4 +1,5 @@
 'use client';
+import { PrivacyChoices } from '@/components/ads/privacy-choices';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
@@ -209,6 +210,7 @@ export function SettingsForm({
         <h2>{t('me.data')}</h2>
         <Button onClick={() => void download()}>{t('me.export')}</Button>
         <p>
+          <PrivacyChoices settings />
           <Link href="/privacy">{t('me.privacy')}</Link>
         </p>
         <p>{t('me.version', { version: webPackage.version })}</p>

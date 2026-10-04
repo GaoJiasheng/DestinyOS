@@ -1977,7 +1977,8 @@ meter {
   border-color: var(--gold);
 }
 .ad-slot {
-  height: 180px;
+  height: auto;
+  min-height: 280px;
   background: var(--surface-1);
   border: 1px solid var(--line-1);
   border-radius: var(--r-md);
@@ -4292,5 +4293,42 @@ html[data-reduced-motion='true'] *::after {
   .settings-page .report-card,
   .learn-page .report-card {
     padding: 16px;
+  }
+}
+
+.ad-slot {
+  padding: 0;
+  min-height: 280px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+.ad-slot .adsbygoogle {
+  min-height: 250px;
+}
+@media (min-width: 768px) {
+  .ad-slot {
+    min-height: 250px;
+  }
+  .ad-slot .adsbygoogle {
+    min-height: 220px;
+  }
+}
+.legal-markdown {
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.legal-markdown h2 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+}
+
+.pricing-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

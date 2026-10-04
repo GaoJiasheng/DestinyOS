@@ -333,8 +333,8 @@ export function ReportLayout({
                 selected={selectedSection === section.key}
                 onChartSelect={selectChart}
               />
-              {i === 1 || i === 5 ? (
-                <AdSlot slot={`report-${i === 1 ? '2-3' : '6-7'}`} plan={plan} />
+              {(i === 1 || i === 5) && i < view.report.sections.length - 1 ? (
+                <AdSlot slot={i === 1 ? 'report-2-3' : 'report-6-7'} plan={plan} />
               ) : null}
             </Fragment>
           ))}
