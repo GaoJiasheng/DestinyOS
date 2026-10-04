@@ -1,0 +1,166 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+# // DESIGN-GAP: Four seasonal prompts group month branches in the conventional spring/summer/autumn/winter triples; actual corrections use the engine flag.
+- id: bazi.seasonal.spring
+  system: bazi
+  section: health
+  topic: seasonal
+  when:
+    path: pillars.month.branch
+    in:
+      - yin
+      - mao
+      - chen
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 春季展开
+    summary: 春季展开
+    body: 你可以在开始新安排时，为尝试与调整同时留空间。调候（按出生月份讨论寒暖的辅助观察）在这里作为季节主题，不代替整盘的平衡分析。春季月份在传统里偏重生长意象，这里只提供季节性的计划提醒；实际气候与生活节奏仍以你所在环境为准。例如消息与信息不断涌入，你可以选一个固定时段处理非紧急内容，给安静休息留出不被打断的空间。建议告诉有关的人怎样联系急事，再检验这种安排是否适合；象征不能解释身体状况，持续不适请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Spring expansion
+    summary: Spring expansion
+    body: You can use this seasonal theme to review the rhythm of a routine. Tiáo hòu — the traditional consideration of seasonal warmth and coolness — is an auxiliary prompt, not a substitute for the full distribution. The spring-month branches supply a growth metaphor for planning. They do not establish your present climate; local conditions and your actual routine provide the practical context.  A steady stream of nonurgent messages can interrupt a quiet interval. You could gather them into a chosen checking period and let relevant people know how to contact you about an urgent matter. Consider whether this boundary fits your circumstances before keeping it. The aim is a more manageable routine, not an explanation of physical symptoms. Symbolic categories cannot establish a health condition; consult a qualified healthcare professional about discomfort that persists or concerns you.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.seasonal.summer
+  system: bazi
+  section: health
+  topic: seasonal
+  when:
+    path: pillars.month.branch
+    in:
+      - si
+      - wu
+      - wei
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 夏季留白
+    summary: 夏季留白
+    body: 你可以在安排活跃活动时，给休整保留清楚的位置。调候（按出生月份讨论寒暖的辅助观察）在这里作为季节主题，不代替整盘的平衡分析。夏季月份在传统里偏重热与外展意象，这里只提醒你观察忙闲安排；是否需要水的季节修正，应以盘中已有标记为准。比如你想增加户外活动，可以先选一个自己感觉舒适的时段与轻量安排，观察天气和实际精力，再决定是否重复。建议用体验而不是象征比例确定节奏，不强迫自己一次改变太多；本章不作医疗判断，持续不适应当咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Summer pauses
+    summary: Summer pauses
+    body: You can use this seasonal theme to review the rhythm of a routine. Tiáo hòu — the traditional consideration of seasonal warmth and coolness — is an auxiliary prompt, not a substitute for the full distribution. The summer-month branches supply a metaphor of warmth and outward activity. This prompts a review of pace, not a health conclusion. Any Water correction must come from the chart’s own seasonal flag.  A little outdoor time can begin with a comfortable period and a modest plan. Check the weather and how you actually feel rather than using an elemental percentage to choose the intensity. You can repeat the arrangement if it fits and adapt it if it does not. Try changing one part at a time. This is routine reflection, not a medical assessment; persistent or concerning discomfort deserves attention from a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.seasonal.autumn
+  system: bazi
+  section: health
+  topic: seasonal
+  when:
+    path: pillars.month.branch
+    in:
+      - shen
+      - you
+      - xu
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 秋季收束
+    summary: 秋季收束
+    body: 你可以在整理成果时，删去已经没有用途的要求。调候（按出生月份讨论寒暖的辅助观察）在这里作为季节主题，不代替整盘的平衡分析。秋季月份在传统里偏重收束意象，这里只提供复盘和整理的提醒，不把季节描述当作身体状况或职业变化的判断。例如你每天为琐事反复奔忙，可以把常用物品放在方便取用的位置，减少不必要的寻找，给日常维护设一个结束时间。建议观察安排简化后是否更轻松，再决定要保留哪些步骤；这些只是生活习惯提示，持续不适请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Autumn completion
+    summary: Autumn completion
+    body: You can use this seasonal theme to review the rhythm of a routine. Tiáo hòu — the traditional consideration of seasonal warmth and coolness — is an auxiliary prompt, not a substitute for the full distribution. The autumn-month branches supply a completion metaphor. A review can identify which requirements still serve a purpose; the seasonal label does not establish a health condition or a change in employment.  Repeated small errands can make an ordinary day feel crowded. You could place frequently used items within easy reach and give routine tidying a finishing time. Consider noticing whether the simpler arrangement makes the day easier before adding another rule. Everyday organization is the subject here, not a conclusion about any body system. Your actual experience should guide the adjustment, and persistent discomfort should be discussed with a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.seasonal.winter
+  system: bazi
+  section: health
+  topic: seasonal
+  when:
+    path: pillars.month.branch
+    in:
+      - hai
+      - zi
+      - chou
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 冬季储备
+    summary: 冬季储备
+    body: 你可以把准备与休息安排成容易持续的小步骤。调候（按出生月份讨论寒暖的辅助观察）在这里作为季节主题，不代替整盘的平衡分析。冬季月份在传统里偏重储备意象，这里只提醒你观察准备与实际行动是否相称；是否需要火的季节修正，应以盘中已有标记为准。比如你总在忙碌之后责备自己没有按理想时间休息，可以先看有哪些现实限制，再选择一个最容易改变的环节。建议让计划适合当下条件，不用苛刻标准评价自己；本章不诊断身体或情绪，若有持续不适，请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Winter preparation
+    summary: Winter preparation
+    body: You can use this seasonal theme to review the rhythm of a routine. Tiáo hòu — the traditional consideration of seasonal warmth and coolness — is an auxiliary prompt, not a substitute for the full distribution. The winter-month branches supply a reserve metaphor. Notice how preparation relates to action. Any Fire correction must come from the chart’s own seasonal flag, not simply from the name of the season.  If rest does not happen at the time you hoped, begin with the practical constraint rather than self-criticism. Identify one part of the evening that is easiest to change under current conditions. You can make the plan more workable without demanding an ideal schedule. Try checking the adjustment after several days. This discussion does not diagnose physical or emotional conditions; persistent discomfort calls for advice from a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

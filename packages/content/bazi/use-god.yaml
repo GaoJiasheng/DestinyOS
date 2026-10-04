@@ -1,0 +1,391 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+- id: bazi.use_god.wood.favorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.favorable
+    contains: wood
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 木：平衡方向
+    summary: 木：平衡方向
+    body: 你可以观察目标增加时，是否仍给调整留有余地。木（传统五类象征中偏向生长与展开的一类）在这里提供规划和伸展的比喻，不表示某个身体部位的实际状态。你的喜用列表包含这一类，表示当前简化模型把它作为平衡方向。颜色、季节、方位与行业只是传统联想，可以用来增加观察趣味，不作为现实决定的依据。例如一个流程经常卡在最后一步，你可以先找出真正阻碍交付的条件，再处理它，而不是同时改动所有环节。建议让使用者测试新方法，并记录是否减少等待；果断可以体现在选择一个清楚的问题，不需要用更快的语速或更强的姿态证明自己。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wood: Balancing direction'
+    summary: 'Wood: Balancing direction'
+    body: Wood (mù — the growth and expansion category in the traditional five-element model) offers a planning metaphor. It does not describe the condition of any body part. You can reflect on whether new aims leave enough room to revise the route. Your favorable list includes this category as a balancing direction in the simplified model. Traditional associations with colours, seasons, directions, and occupations can add cultural interest, but they are not evidence for a practical decision. A process that repeatedly stalls near completion may need one well-chosen repair. Identify the actual blocking condition before changing the whole workflow. You can ask a user to test the revised step and observe whether waiting decreases. Consider treating that observation as the measure of a useful decision. Decisiveness can mean choosing a precise problem and checking the result, rather than increasing urgency or pressing everyone to move at the same speed.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.wood.unfavorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.unfavorable
+    contains: wood
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 木：留意投入边界
+    summary: 木：留意投入边界
+    body: 你可以观察目标增加时，是否仍给调整留有余地。木（传统五类象征中偏向生长与展开的一类）在这里提供规划和伸展的比喻，不表示某个身体部位的实际状态。你的忌神列表包含这一类，表示简化模型不优先增加它的象征主题，不是现实事物有害。你不需要避开某个颜色、季节、方位或职业，只需观察实际负担是否合适。比如你经常替团队补上遗漏，可以把最近三次补位记录下来，看看哪些是偶发情况、哪些需要重新分工。建议把可见的工作量带进讨论，提出一项具体交接方案；关照整体并不需要把自己的时间放在最后，也可以通过规则减少反复补位。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wood: Review the commitment'
+    summary: 'Wood: Review the commitment'
+    body: Wood (mù — the growth and expansion category in the traditional five-element model) offers a planning metaphor. It does not describe the condition of any body part. You can reflect on whether new aims leave enough room to revise the route. Your unfavorable list includes this category, meaning the simplified model does not prioritize adding its symbolic theme. This does not make real colours, seasons, directions, or occupations harmful. Actual conditions determine what is suitable for you. Repeatedly filling gaps can hide how much work a group actually needs. Record three recent instances and distinguish a one-off favour from a recurring responsibility. You can bring those examples to a discussion and propose a specific handover. Try making the hidden workload visible before agreeing to more. Supporting the group may mean improving the arrangement, not continuing to absorb every omission at the expense of your own commitments.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.fire.favorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.favorable
+    contains: fire
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 火：平衡方向
+    summary: 火：平衡方向
+    body: 你可以观察投入热情时，是否也保留安静间隔。火（传统五类象征中偏向明亮与表达的一类）在这里提供参与和节奏的比喻，不能凭它判断情绪或睡眠状况。你的喜用列表包含这一类，表示当前简化模型把它作为平衡方向。颜色、季节、方位与行业只是传统联想，可以用来增加观察趣味，不作为现实决定的依据。例如你审阅一份公开资料，可以把影响理解的错误与个人偏好的格式分开，先修正前者，再在时间允许时处理后者。建议设定完成标准，达到后就交付，让对质量的关注帮助读者，而不是使每个版本都停留在等待打磨的状态。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Fire: Balancing direction'
+    summary: 'Fire: Balancing direction'
+    body: Fire (huǒ — the visibility and expression category) supplies a metaphor for participation and pace. It cannot establish your mood or sleep quality. You can notice how periods of active engagement are balanced with quieter intervals in your actual schedule. Your favorable list includes this category as a balancing direction in the simplified model. Traditional associations with colours, seasons, directions, and occupations can add cultural interest, but they are not evidence for a practical decision. Reviewing public information calls for distinguishing errors from preferences. Correct anything that changes the reader’s understanding before debating stylistic details. You can define a finishing standard in advance and release the work once it meets that standard. Consider asking one reader whether the key action is now clear. Precision serves a purpose when it helps someone use the material; it becomes less helpful if every version remains indefinitely unfinished.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.fire.unfavorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.unfavorable
+    contains: fire
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 火：留意投入边界
+    summary: 火：留意投入边界
+    body: 你可以观察投入热情时，是否也保留安静间隔。火（传统五类象征中偏向明亮与表达的一类）在这里提供参与和节奏的比喻，不能凭它判断情绪或睡眠状况。你的忌神列表包含这一类，表示简化模型不优先增加它的象征主题，不是现实事物有害。你不需要避开某个颜色、季节、方位或职业，只需观察实际负担是否合适。比如你与同事对处理次序意见不同，可以分别列出风险、期限和已有证据，再选择最可撤回的一步先做。建议把检验时间写进方案，允许事实改变决定；明确行动与愿意修正可以同时存在，不必把改变主意视为失去立场。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Fire: Review the commitment'
+    summary: 'Fire: Review the commitment'
+    body: Fire (huǒ — the visibility and expression category) supplies a metaphor for participation and pace. It cannot establish your mood or sleep quality. You can notice how periods of active engagement are balanced with quieter intervals in your actual schedule. Your unfavorable list includes this category, meaning the simplified model does not prioritize adding its symbolic theme. This does not make real colours, seasons, directions, or occupations harmful. Actual conditions determine what is suitable for you. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.earth.favorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.favorable
+    contains: earth
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 土：平衡方向
+    summary: 土：平衡方向
+    body: 你可以观察维护日常时，是否能让安排保持轻量。土（传统五类象征中偏向承托与整理的一类）在这里提供日常维护的比喻，不描述消化功能，也不把承担更多视作你的责任。你的喜用列表包含这一类，表示当前简化模型把它作为平衡方向。颜色、季节、方位与行业只是传统联想，可以用来增加观察趣味，不作为现实决定的依据。例如你同时对几个学习方向感兴趣，可以先画出它们与当前目标的关系，再挑一个最容易验证的入口。建议把暂时不做的想法存进清单，约定以后再看；广阔视野需要一个落脚点，保留可能性不等于现在就承担所有路线。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Earth: Balancing direction'
+    summary: 'Earth: Balancing direction'
+    body: Earth (tǔ — the support and organization category) prompts reflection on everyday maintenance. It does not assess digestion or make caring for everything your responsibility. You can compare the usefulness of a routine with the effort it requires to keep going. Your favorable list includes this category as a balancing direction in the simplified model. Traditional associations with colours, seasons, directions, and occupations can add cultural interest, but they are not evidence for a practical decision. Several learning interests may connect with the same wider goal. Map those connections and choose the entry point that you can test most easily. You can keep other ideas in a later list instead of treating each as a current obligation. Consider deciding when to revisit that list. A broad view becomes more useful with a definite starting point, while postponing an option allows you to preserve it without splitting your attention immediately.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.earth.unfavorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.unfavorable
+    contains: earth
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 土：留意投入边界
+    summary: 土：留意投入边界
+    body: 你可以观察维护日常时，是否能让安排保持轻量。土（传统五类象征中偏向承托与整理的一类）在这里提供日常维护的比喻，不描述消化功能，也不把承担更多视作你的责任。你的忌神列表包含这一类，表示简化模型不优先增加它的象征主题，不是现实事物有害。你不需要避开某个颜色、季节、方位或职业，只需观察实际负担是否合适。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Earth: Review the commitment'
+    summary: 'Earth: Review the commitment'
+    body: Earth (tǔ — the support and organization category) prompts reflection on everyday maintenance. It does not assess digestion or make caring for everything your responsibility. You can compare the usefulness of a routine with the effort it requires to keep going. Your unfavorable list includes this category, meaning the simplified model does not prioritize adding its symbolic theme. This does not make real colours, seasons, directions, or occupations harmful. Actual conditions determine what is suitable for you. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.metal.favorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.favorable
+    contains: metal
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 金：平衡方向
+    summary: 金：平衡方向
+    body: 你可以观察追求清晰时，是否给不同方法留有空间。金（传统五类象征中偏向辨别与收束的一类）在这里提供标准和界限的比喻，不是身体系统的检查结果，也不等同于性格严厉。你的喜用列表包含这一类，表示当前简化模型把它作为平衡方向。颜色、季节、方位与行业只是传统联想，可以用来增加观察趣味，不作为现实决定的依据。例如你练习一项新技能，可以每次只记一个细小变化，隔几天再比较记录，避免反复分析同一次尝试。建议在信息足够时做一个小决定，并观察结果；细察的价值在于形成可用理解，不需要等到所有不确定都消失才开始行动。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Metal: Balancing direction'
+    summary: 'Metal: Balancing direction'
+    body: Metal (jīn — the distinction and completion category) offers a metaphor for standards and boundaries. It is not a health assessment or proof of severity. You can consider when a clear standard helps a task and when it unnecessarily narrows the available methods. Your favorable list includes this category as a balancing direction in the simplified model. Traditional associations with colours, seasons, directions, and occupations can add cultural interest, but they are not evidence for a practical decision. Learning a new skill can benefit from one brief observation after each attempt. Compare the notes after several sessions instead of repeatedly analysing the same result. You can make a small decision once there is enough information to try something useful. Consider checking what changed rather than waiting for all uncertainty to disappear. Careful observation is most helpful when it supports an action that produces new evidence, not when it postpones every next step.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.metal.unfavorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.unfavorable
+    contains: metal
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 金：留意投入边界
+    summary: 金：留意投入边界
+    body: 你可以观察追求清晰时，是否给不同方法留有空间。金（传统五类象征中偏向辨别与收束的一类）在这里提供标准和界限的比喻，不是身体系统的检查结果，也不等同于性格严厉。你的忌神列表包含这一类，表示简化模型不优先增加它的象征主题，不是现实事物有害。你不需要避开某个颜色、季节、方位或职业，只需观察实际负担是否合适。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Metal: Review the commitment'
+    summary: 'Metal: Review the commitment'
+    body: Metal (jīn — the distinction and completion category) offers a metaphor for standards and boundaries. It is not a health assessment or proof of severity. You can consider when a clear standard helps a task and when it unnecessarily narrows the available methods. Your unfavorable list includes this category, meaning the simplified model does not prioritize adding its symbolic theme. This does not make real colours, seasons, directions, or occupations harmful. Actual conditions determine what is suitable for you. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.water.favorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.favorable
+    contains: water
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 水：平衡方向
+    summary: 水：平衡方向
+    body: 你可以观察接收信息时，是否也给行动确定一个起点。水（传统五类象征中偏向流动与储备的一类）在这里提供信息和休整的比喻，不表示身体含水量，也不能据此判断任何器官的状况。你的喜用列表包含这一类，表示当前简化模型把它作为平衡方向。颜色、季节、方位与行业只是传统联想，可以用来增加观察趣味，不作为现实决定的依据。例如任务堆叠时，你可以把需要独立完成、可以请人协作和暂时可延后的事项分开，先解决最影响交付的一项。建议明确求助内容与期限，让支持变得容易提供，不把请求帮助理解为能力评价，也不把等待他人当作唯一的推进方法。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Water: Balancing direction'
+    summary: 'Water: Balancing direction'
+    body: Water (shuǐ — the movement and reserve category) prompts reflection on information and recovery time. It does not measure bodily fluids or establish an organ’s condition. You can notice whether gathering possibilities is followed by a manageable starting point for action. Your favorable list includes this category as a balancing direction in the simplified model. Traditional associations with colours, seasons, directions, and occupations can add cultural interest, but they are not evidence for a practical decision. When tasks accumulate, sort them into work you must do yourself, work someone can share, and work that can wait. A specific request with a clear deadline makes help easier to provide. You can still move a small independent part forward while waiting for a reply. Consider judging the arrangement by its usefulness, not by whether you handled everything alone. The aim is to connect available support with actual demands.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.water.unfavorable
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    path: useGod.unfavorable
+    contains: water
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 水：留意投入边界
+    summary: 水：留意投入边界
+    body: 你可以观察接收信息时，是否也给行动确定一个起点。水（传统五类象征中偏向流动与储备的一类）在这里提供信息和休整的比喻，不表示身体含水量，也不能据此判断任何器官的状况。你的忌神列表包含这一类，表示简化模型不优先增加它的象征主题，不是现实事物有害。你不需要避开某个颜色、季节、方位或职业，只需观察实际负担是否合适。比如你对一段交流仍有疑问，可以把听到的话与自己的猜测分开，找一个合适时机提出具体问题。建议允许对方补充背景，不用细微语气推断全部意思；敏感的观察可以帮助沟通，但仍需要真实回应来修正理解。
+    advice:
+      - 只做可撤回的小调整，依据体验决定是否保留。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Water: Review the commitment'
+    summary: 'Water: Review the commitment'
+    body: Water (shuǐ — the movement and reserve category) prompts reflection on information and recovery time. It does not measure bodily fluids or establish an organ’s condition. You can notice whether gathering possibilities is followed by a manageable starting point for action. Your unfavorable list includes this category, meaning the simplified model does not prioritize adding its symbolic theme. This does not make real colours, seasons, directions, or occupations harmful. Actual conditions determine what is suitable for you. An ambiguous conversation can leave room for several explanations. Separate what was actually said from what you inferred, then ask a specific question at a suitable moment. You can let the other person supply context that a tone or brief message cannot reveal. Try updating your understanding with their response. Sensitivity to detail can support communication, provided an interpretation remains open to correction rather than growing into certainty through repeated private analysis.
+    advice:
+      - Make a reversible change and assess its practical effect.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

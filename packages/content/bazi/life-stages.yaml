@@ -1,0 +1,457 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+- id: bazi.life_stage.chang_sheng
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: chang_sheng
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 长生：起步的比喻
+    summary: 长生：起步的比喻
+    body: 你可以留意一个新习惯怎样获得第一步的支持。长生（十二长生中用来比喻起步阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。比如你对一段交流仍有疑问，可以把听到的话与自己的猜测分开，找一个合适时机提出具体问题。建议允许对方补充背景，不用细微语气推断全部意思；敏感的观察可以帮助沟通，但仍需要真实回应来修正理解。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Cháng shēng: A metaphor for beginning'
+    summary: 'Cháng shēng: A metaphor for beginning'
+    body: You can notice how a new practice gets a workable start. Cháng shēng — the beginning metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. An ambiguous conversation can leave room for several explanations. Separate what was actually said from what you inferred, then ask a specific question at a suitable moment. You can let the other person supply context that a tone or brief message cannot reveal. Try updating your understanding with their response. Sensitivity to detail can support communication, provided an interpretation remains open to correction rather than growing into certainty through repeated private analysis. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.mu_yu
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: mu_yu
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 沐浴：试探的比喻
+    summary: 沐浴：试探的比喻
+    body: 你可以留意尝试新环境时哪些条件让你自在。沐浴（十二长生中用来比喻试探阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。例如你正在整理积累很久的资料，可以先围绕一个实际问题筛选内容，把暂时用不到的部分归档。建议用一段短说明检验自己是否理解了要点，再决定要不要继续收集；积累与输出可以交替进行，不需要把准备阶段无限延长。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Mù yù: A metaphor for exploration'
+    summary: 'Mù yù: A metaphor for exploration'
+    body: You can notice which conditions help you explore a new setting. Mù yù — the exploration metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A collection of material becomes easier to use when you begin with a real question. Select what addresses it and archive the rest for later. You can test your understanding by writing a short explanation before gathering more. Consider alternating preparation with a small output. Additional information has value when it answers a remaining question, but continuing to collect without using anything can hide which part you already understand well enough to act on. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.guan_dai
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: guan_dai
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 冠带：准备的比喻
+    summary: 冠带：准备的比喻
+    body: 你可以留意准备是否接上具体的实践场景。冠带（十二长生中用来比喻准备阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。比如刚进入陌生社群，你可以先参与一个有明确分工的活动，观察哪些交流方式让你舒服，再逐渐增加投入。建议为自己保留独处或休息的间隔，既寻找连接，也尊重适应速度；不用一次聊天是否顺利评价自己的社交能力。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Guàn dài: A metaphor for preparation'
+    summary: 'Guàn dài: A metaphor for preparation'
+    body: You can notice whether preparation connects with a practical situation. Guàn dài — the preparation metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.lin_guan
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: lin_guan
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 临官：承担的比喻
+    summary: 临官：承担的比喻
+    body: 你可以留意责任范围与可用条件是否匹配。临官（十二长生中用来比喻承担阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。例如你发现共用物品总被放错位置，可以先了解大家取用的路线，再提出容易执行的收纳方式，而不是只要求别人遵守自己的习惯。建议试行一周后询问使用体验，让维护规则贴近日常，也让照料成为共同参与的事。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Lín guān: A metaphor for taking a role'
+    summary: 'Lín guān: A metaphor for taking a role'
+    body: You can notice whether responsibility matches available conditions. Lín guān — the taking a role metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. If shared items are repeatedly misplaced, the useful starting point may be how people actually use them. You could watch the usual sequence and suggest a storage arrangement that reduces effort. Consider a one-week trial followed by a short conversation about what worked. Maintenance then becomes a shared practical decision rather than a demand that others adopt your habits. The best system is often the one people can comfortably keep using. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.di_wang
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: di_wang
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 帝旺：发挥的比喻
+    summary: 帝旺：发挥的比喻
+    body: 你可以留意熟悉事务里的投入方向是否清楚。帝旺（十二长生中用来比喻发挥阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Dì wàng: A metaphor for using capacity'
+    summary: 'Dì wàng: A metaphor for using capacity'
+    body: You can notice whether effort in familiar tasks has a clear direction. Dì wàng — the using capacity metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.shuai
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: shuai
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 衰：调整的比喻
+    summary: 衰：调整的比喻
+    body: 你可以留意已有习惯是否仍适合变化后的环境。衰（十二长生中用来比喻调整阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。例如团队期待你带动进度，你可以先确认可用人手与大家的理解，再把目标分成共同认可的阶段。建议在每个阶段请一位协作者反馈负担是否合适，让主动推进与照顾节奏并行，避免把自己熟悉的速度变成他人的隐形要求。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Shuāi: A metaphor for adjustment'
+    summary: 'Shuāi: A metaphor for adjustment'
+    body: You can notice whether an established habit still fits changed conditions. Shuāi — the adjustment metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A team asking you to maintain momentum also needs an achievable shared pace. Check available help and whether everyone understands the aim before dividing it into stages. You can invite a colleague to comment on the workload at each stage. Consider adjusting the pace when the response reveals a constraint you missed. Initiative works better when people can participate knowingly, rather than discovering that your familiar speed has become an unspoken requirement. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.bing
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: bing
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 病：检视的比喻
+    summary: 病：检视的比喻
+    body: 你可以留意反复费力的环节是否需要简化。病（十二长生中用来比喻检视阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。比如你准备学习一个跨度较大的技能，可以把最终目标拆成能在两周内完成的练习，并找一位熟悉该领域的人校对起点。建议先验证练习方法是否合适，再延长计划；进度慢时也可以缩小任务，而不是把停顿解释成个人失败。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bìng: A metaphor for review'
+    summary: 'Bìng: A metaphor for review'
+    body: You can notice which repeatedly demanding step could be simplified. Bìng — the review metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A demanding skill can feel more approachable when the first milestone is visible. You might choose a two-week practice task and ask an experienced learner whether it is a sensible starting point. Try checking the method before extending the schedule. A slower week may call for a smaller exercise, not a broad conclusion about your capacity. Progress becomes easier to assess when each attempt has a clear purpose. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.si
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: si
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 死：暂停的比喻
+    summary: 死：暂停的比喻
+    body: 你可以留意暂停之后怎样选择新的起点。死（十二长生中用来比喻暂停阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。例如多人共用一个日程表，你可以先列出固定事项，再把临时需求留在可调整区域，减少反复重排。建议明确哪些决定由谁负责，别因为自己擅长整理就默认接下全部管理任务；可靠的安排也应当包含可交接的边界。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Sǐ: A metaphor for pausing'
+    summary: 'Sǐ: A metaphor for pausing'
+    body: You can notice how to choose a useful starting point after a pause. Sǐ — the pausing metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A shared calendar can provide structure without making you responsible for every change. Separate fixed commitments from flexible ones and agree who updates each part. You can offer a clear format while distributing the actual maintenance. Consider preparing a simple handover note so that the arrangement still works when you are away. Reliability is more sustainable when it comes from agreed roles rather than one person remembering everything. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.mu
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: mu
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 墓：储备的比喻
+    summary: 墓：储备的比喻
+    body: 你可以留意积累的经验是否整理成可用资料。墓（十二长生中用来比喻储备阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Mù: A metaphor for reserve'
+    summary: 'Mù: A metaphor for reserve'
+    body: You can notice whether accumulated experience is organized for use. Mù — the reserve metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.jue
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: jue
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 绝：转换的比喻
+    summary: 绝：转换的比喻
+    body: 你可以留意旧方法结束后有哪些小步可试。绝（十二长生中用来比喻转换阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。例如忙闲起伏较大的周，你可以在周初确认固定责任，再留一块可调整的时间处理临时请求。建议用实际完成量检验安排，不因某一天轻松就把整周排满；节奏的平衡是持续调整的过程，可以随着条件变化重新分配。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jué: A metaphor for transition'
+    summary: 'Jué: A metaphor for transition'
+    body: You can notice which small trial is available when an old method ends. Jué — the transition metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A week with uneven demands can begin with identifying fixed responsibilities and reserving one flexible interval. Use what you actually complete to assess the plan. You can avoid filling the entire week simply because one morning felt easy. Consider revising the schedule when conditions change. Balance is an ongoing adjustment between demands and available support, not a requirement to sustain the same pace regardless of interruptions or unexpected work. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.tai
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: tai
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 胎：酝酿的比喻
+    summary: 胎：酝酿的比喻
+    body: 你可以留意尚未成熟的想法需要哪些实际条件。胎（十二长生中用来比喻酝酿阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。比如一件事情同时有推进和暂停的理由，你可以列出当前证据，选一个能在短时间内带来新信息的试验。建议事先写下继续与停止的条件，让决定有可回看的依据；面对不确定时保持适度行动，也可以成为认识自身节奏的方法。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Tāi: A metaphor for forming an idea'
+    summary: 'Tāi: A metaphor for forming an idea'
+    body: You can notice which conditions an early idea would need. Tāi — the forming an idea metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A decision may have sensible reasons both to proceed and to pause. List the evidence available now and choose a brief trial that can supply new information. You can define conditions for continuing or stopping before the trial begins. Try keeping those criteria visible during the review. Moderate action in an uncertain situation can teach you about your preferred pace while preventing a temporary choice from quietly becoming an open-ended commitment. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.life_stage.yang
+  system: bazi
+  section: day_master
+  topic: life_stage
+  when:
+    path: pillars.day.lifeStage
+    eq: yang
+  weight: 58
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 养：维护的比喻
+    summary: 养：维护的比喻
+    body: 你可以留意持续照料怎样成为可分享的做法。养（十二长生中用来比喻维护阶段的标签）在这里是日干与日支配对得到的位置。十二长生（十二种传统阶段比喻）不描述实际年龄或身体状态，名称也不能用来推断事件；它只给日常习惯增加一个观察角度。例如朋友请你帮忙修改一份说明，你可以先确认读者是谁、最需要看懂哪一步，再集中处理两三个关键细节。建议约定修改范围与截止时间，让专注服务于实际用途，避免为了润色每句话而耗尽整晚的精力。
+    advice:
+      - 把阶段名称改成一个日常观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yǎng: A metaphor for maintenance'
+    summary: 'Yǎng: A metaphor for maintenance'
+    body: You can notice how ongoing maintenance can become a shared practice. Yǎng — the maintenance metaphor within the twelve traditional life-stage labels — is recorded for the day stem’s relationship with the day branch. These labels do not measure age or health and do not forecast an event. A friend may ask you to review an explanation. Before editing, check who will read it and which action the reader needs to understand. You can then focus on the two or three details that affect that action most. Consider setting a revision limit and a finishing time. Careful attention becomes more useful when it improves the message without consuming the whole evening in changes that readers barely notice. Consider testing the metaphor through an ordinary choice rather than reading the stage name literally.
+    advice:
+      - Use the stage as a question about an ordinary habit.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

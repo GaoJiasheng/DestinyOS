@@ -442,5 +442,7 @@ if (precise && competitor) {
   competitor.scores = { wealth: 3 };
 }
 export function bundle(common: KnowledgeBundle): KnowledgeBundle {
-  return { ...common, units: [...units, ...common.units] };
+  // Keep the algorithm's thirty illustrative cases isolated from production KU
+  // rankings; the real corpus has separate engine + interpret integration tests.
+  return { ...common, units: [...units, ...common.units.filter((u) => u.system === 'common')] };
 }

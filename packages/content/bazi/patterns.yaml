@@ -1,0 +1,1141 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+- id: bazi.pattern.jian_lu.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: jian_lu
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 建禄格：任务中的偏好
+    summary: 建禄格：任务中的偏好
+    body: 你容易留意自主空间与平等分工。建禄格（月份主要成分与日干同类且同阴阳的简化归类）侧重自主与同类支持。这只是引擎按月份归纳的主题，不代表个人地位或行事方式已经固定。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。比如你与合作伙伴都想负责同一环节，可以先比较各自最擅长和最想练习的部分，再约定轮换或分工。建议写清交接方式，把自主空间与共同标准放在一起讨论；相近的能力可以互相支持，不必让每次分工都变成谁更值得认可的比较。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jiàn lù pattern: Working preferences'
+    summary: 'Jiàn lù pattern: Working preferences'
+    body: Jiàn lù — a pattern based on a month component sharing the day stem’s element and polarity — emphasizes initiative and peer support. This simplified month-based classification is a theme, not a measure of status or a fixed account of behaviour. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Two collaborators may both want the same role. Compare what each person already handles well and what each wants to practise, then consider a rotation or a clear division. You can agree on a handover while leaving room for individual methods. Try discussing shared standards alongside autonomy. Similar abilities can support each other without making every allocation of work a contest over who deserves greater recognition.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.jian_lu.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: jian_lu
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 建禄格：资源安排的角度
+    summary: 建禄格：资源安排的角度
+    body: 你容易留意自主空间与平等分工。建禄格（月份主要成分与日干同类且同阴阳的简化归类）侧重自主与同类支持。这只是引擎按月份归纳的主题，不代表个人地位或行事方式已经固定。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。例如你主持一次讨论，可以先用两句话说清要解决的问题，再邀请尚未发言的人补充，而不是连续给出自己的全部想法。建议在总结前留一段安静思考时间，观察参与者是否真正理解目标，让热情成为帮助别人参与的条件。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jiàn lù pattern: Resource habits'
+    summary: 'Jiàn lù pattern: Resource habits'
+    body: Jiàn lù — a pattern based on a month component sharing the day stem’s element and polarity — emphasizes initiative and peer support. This simplified month-based classification is a theme, not a measure of status or a fixed account of behaviour. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. When leading a discussion, visibility is useful only if other people can take part. You could state the question briefly and invite someone who has not yet spoken to contribute. Consider leaving a quiet thinking interval before the final summary. The responses may show whether your enthusiasm clarified the task or filled the available space. A useful meeting can contain both expressive moments and deliberate pauses.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.jian_lu.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: jian_lu
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 建禄格：互动中的需要
+    summary: 建禄格：互动中的需要
+    body: 你容易留意自主空间与平等分工。建禄格（月份主要成分与日干同类且同阴阳的简化归类）侧重自主与同类支持。这只是引擎按月份归纳的主题，不代表个人地位或行事方式已经固定。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。比如你经常替团队补上遗漏，可以把最近三次补位记录下来，看看哪些是偶发情况、哪些需要重新分工。建议把可见的工作量带进讨论，提出一项具体交接方案；关照整体并不需要把自己的时间放在最后，也可以通过规则减少反复补位。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jiàn lù pattern: Interaction needs'
+    summary: 'Jiàn lù pattern: Interaction needs'
+    body: Jiàn lù — a pattern based on a month component sharing the day stem’s element and polarity — emphasizes initiative and peer support. This simplified month-based classification is a theme, not a measure of status or a fixed account of behaviour. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. Repeatedly filling gaps can hide how much work a group actually needs. Record three recent instances and distinguish a one-off favour from a recurring responsibility. You can bring those examples to a discussion and propose a specific handover. Try making the hidden workload visible before agreeing to more. Supporting the group may mean improving the arrangement, not continuing to absorb every omission at the expense of your own commitments.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.yue_ren.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: yue_ren
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 月刃格：任务中的偏好
+    summary: 月刃格：任务中的偏好
+    body: 你往往对共同参与和资源分配较敏感。月刃格（月份主要成分与日干同类但阴阳不同的简化归类）侧重协作张力与边界。这只是引擎按月份归纳的主题，不代表个人地位或行事方式已经固定。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。例如你练习一项新技能，可以每次只记一个细小变化，隔几天再比较记录，避免反复分析同一次尝试。建议在信息足够时做一个小决定，并观察结果；细察的价值在于形成可用理解，不需要等到所有不确定都消失才开始行动。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yuè rèn pattern: Working preferences'
+    summary: 'Yuè rèn pattern: Working preferences'
+    body: Yuè rèn — a pattern based on a month component sharing the day stem’s element but differing in polarity — emphasizes boundaries and shared effort. This simplified month-based classification is a theme, not a measure of status or a fixed account of behaviour. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Learning a new skill can benefit from one brief observation after each attempt. Compare the notes after several sessions instead of repeatedly analysing the same result. You can make a small decision once there is enough information to try something useful. Consider checking what changed rather than waiting for all uncertainty to disappear. Careful observation is most helpful when it supports an action that produces new evidence, not when it postpones every next step.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.yue_ren.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: yue_ren
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 月刃格：资源安排的角度
+    summary: 月刃格：资源安排的角度
+    body: 你往往对共同参与和资源分配较敏感。月刃格（月份主要成分与日干同类但阴阳不同的简化归类）侧重协作张力与边界。这只是引擎按月份归纳的主题，不代表个人地位或行事方式已经固定。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。比如收到一个超出熟悉范围的邀请，可以先确认是否有指导、资料和试行时间，再说明愿意承担的部分。建议把学习成本列进安排，必要时缩小范围；谨慎接受条件并不妨碍探索，清楚的支持反而有助于持续投入。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yuè rèn pattern: Resource habits'
+    summary: 'Yuè rèn pattern: Resource habits'
+    body: Yuè rèn — a pattern based on a month component sharing the day stem’s element but differing in polarity — emphasizes boundaries and shared effort. This simplified month-based classification is a theme, not a measure of status or a fixed account of behaviour. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. An invitation outside your familiar area can be assessed by the guidance, materials, and trial time available. State the part you are prepared to take on and include learning time in the arrangement. You can narrow the scope if those conditions are missing. Try asking for a first checkpoint rather than accepting the whole assignment at once. Clear support makes exploration easier to sustain and allows both sides to understand what the commitment includes.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.yue_ren.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: yue_ren
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 月刃格：互动中的需要
+    summary: 月刃格：互动中的需要
+    body: 你往往对共同参与和资源分配较敏感。月刃格（月份主要成分与日干同类但阴阳不同的简化归类）侧重协作张力与边界。这只是引擎按月份归纳的主题，不代表个人地位或行事方式已经固定。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。例如合作对象提出不同方案时，你可以先复述对方的目标，再说明自己想保留的关键条件，找到双方都能尝试的小步骤。建议给试行设一个结束日期，届时依据体验调整；灵活不需要以忽略自己的需要为代价。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yuè rèn pattern: Interaction needs'
+    summary: 'Yuè rèn pattern: Interaction needs'
+    body: Yuè rèn — a pattern based on a month component sharing the day stem’s element but differing in polarity — emphasizes boundaries and shared effort. This simplified month-based classification is a theme, not a measure of status or a fixed account of behaviour. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. Suppose a collaborator proposes a different method. You can first check what they are trying to achieve, then name the condition that matters most to you. A limited trial may reveal a route neither person initially considered. Consider agreeing when the trial ends and what feedback you will examine. Flexibility works better when your needs are visible, rather than disappearing into an arrangement you quietly dislike.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.shi_shen.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: shi_shen
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 食神格：任务中的偏好
+    summary: 食神格：任务中的偏好
+    body: 你倾向于通过熟悉技能和稳定产出来表达自己。食神（日干所生且同阴阳的成分）象征顺畅输出与生活体验，盘中出现这一成分时，更适合观察技能如何被持续使用，而不是推断享受或收入的多少。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。比如你正在为搬家做准备，可以把必须先完成的事项列成短清单，并给依赖他人的环节预留缓冲时间。建议每天只确认一个关键节点，把可推迟的小事移到后面；稳妥来自清楚的优先级，不需要靠不断增加检查来获得安心。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Shí shén pattern: Working preferences'
+    summary: 'Shí shén pattern: Working preferences'
+    body: You may prefer expression that develops through practice. Shí shén — an output component with the day stem’s polarity — symbolizes a steady use of skills and attention to everyday experience. The useful question concerns what you can produce repeatedly, rather than how comfortable or prosperous life should be. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Preparing for a move can expose the difference between useful structure and endless checking. List the necessary first steps and allow extra time for anything that depends on another person. Try reviewing one key milestone each day while postponing minor choices that do not affect it. A reliable plan needs priorities and room for delays. More checks do not always add useful information, especially when they interrupt the work itself.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.shi_shen.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: shi_shen
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 食神格：资源安排的角度
+    summary: 食神格：资源安排的角度
+    body: 你倾向于通过熟悉技能和稳定产出来表达自己。食神（日干所生且同阴阳的成分）象征顺畅输出与生活体验，盘中出现这一成分时，更适合观察技能如何被持续使用，而不是推断享受或收入的多少。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。例如你同时对几个学习方向感兴趣，可以先画出它们与当前目标的关系，再挑一个最容易验证的入口。建议把暂时不做的想法存进清单，约定以后再看；广阔视野需要一个落脚点，保留可能性不等于现在就承担所有路线。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Shí shén pattern: Resource habits'
+    summary: 'Shí shén pattern: Resource habits'
+    body: You may prefer expression that develops through practice. Shí shén — an output component with the day stem’s polarity — symbolizes a steady use of skills and attention to everyday experience. The useful question concerns what you can produce repeatedly, rather than how comfortable or prosperous life should be. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. Several learning interests may connect with the same wider goal. Map those connections and choose the entry point that you can test most easily. You can keep other ideas in a later list instead of treating each as a current obligation. Consider deciding when to revisit that list. A broad view becomes more useful with a definite starting point, while postponing an option allows you to preserve it without splitting your attention immediately.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.shi_shen.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: shi_shen
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 食神格：互动中的需要
+    summary: 食神格：互动中的需要
+    body: 你倾向于通过熟悉技能和稳定产出来表达自己。食神（日干所生且同阴阳的成分）象征顺畅输出与生活体验，盘中出现这一成分时，更适合观察技能如何被持续使用，而不是推断享受或收入的多少。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。比如你在两种兴趣之间犹豫，可以分别安排一次轻量体验，比较投入后是否愿意继续，而不是先决定长期身份。建议写下体验差异与下一步条件，让选择保留弹性；暂时没有明显偏好时，也可以以当前资源最方便的一项作为起点。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Shí shén pattern: Interaction needs'
+    summary: 'Shí shén pattern: Interaction needs'
+    body: You may prefer expression that develops through practice. Shí shén — an output component with the day stem’s polarity — symbolizes a steady use of skills and attention to everyday experience. The useful question concerns what you can produce repeatedly, rather than how comfortable or prosperous life should be. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. Choosing between interests need not begin with a permanent identity. Arrange one modest experience in each and compare whether you want to continue afterward. You can note what differed and what the next step would require. Try using current access and available time as a starting criterion if no strong preference emerges. A reversible choice can produce useful information while preserving room for a different direction later.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.shang_guan.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: shang_guan
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 伤官格：任务中的偏好
+    summary: 伤官格：任务中的偏好
+    body: 你容易发现旧方法的不足，并希望表达新的做法。伤官（日干所生且阴阳不同的成分）侧重表达与质疑，名称不代表现实冲突。盘中出现它时，可以观察你怎样把批评变成可检验的改进，而不是把不同意见理解为个人对立。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。例如你要为小组拟定活动目标，可以先问清每个人希望带走什么，再把共同需求收束成一项可交付成果。建议约定一次中途检查，允许根据反馈改写方法，不把维护方向变成坚持所有细节。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Shāng guān pattern: Working preferences'
+    summary: 'Shāng guān pattern: Working preferences'
+    body: You may notice where an established method could be improved. Shāng guān — an output component of opposite polarity to the day stem — emphasizes expression and questioning. The label does not establish a conflict. A useful focus is whether a critique identifies a workable change and leaves others able to respond. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Imagine helping a group define an event. One participant wants new contacts, another wants practical learning, and a third has limited time. You can identify a shared outcome before deciding the format. Consider a midpoint check so that the original purpose remains useful while details can change. This distinguishes continuity from defending every early decision, and gives others a clear way to contribute.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.shang_guan.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: shang_guan
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 伤官格：资源安排的角度
+    summary: 伤官格：资源安排的角度
+    body: 你容易发现旧方法的不足，并希望表达新的做法。伤官（日干所生且阴阳不同的成分）侧重表达与质疑，名称不代表现实冲突。盘中出现它时，可以观察你怎样把批评变成可检验的改进，而不是把不同意见理解为个人对立。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。比如你照料一个长期的小项目，可以用简短记录跟踪每次维护内容，把自己最熟悉的步骤整理成别人也能接手的说明。建议每月删掉一项已经没有用途的检查，让细致投入保持轻量，也给协作者留出按自己方法完成工作的空间。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Shāng guān pattern: Resource habits'
+    summary: 'Shāng guān pattern: Resource habits'
+    body: You may notice where an established method could be improved. Shāng guān — an output component of opposite polarity to the day stem — emphasizes expression and questioning. The label does not establish a conflict. A useful focus is whether a critique identifies a workable change and leaves others able to respond. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. A small ongoing project often depends on quiet maintenance. Brief notes can show what was checked and help another person take over when you are unavailable. Try reviewing the checklist monthly and removing an item that no longer serves a purpose. This makes care easier to share. A clear handover also allows someone else to achieve the same useful result without copying every detail of your preferred method.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.shang_guan.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: shang_guan
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 伤官格：互动中的需要
+    summary: 伤官格：互动中的需要
+    body: 你容易发现旧方法的不足，并希望表达新的做法。伤官（日干所生且阴阳不同的成分）侧重表达与质疑，名称不代表现实冲突。盘中出现它时，可以观察你怎样把批评变成可检验的改进，而不是把不同意见理解为个人对立。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。例如你审阅一份公开资料，可以把影响理解的错误与个人偏好的格式分开，先修正前者，再在时间允许时处理后者。建议设定完成标准，达到后就交付，让对质量的关注帮助读者，而不是使每个版本都停留在等待打磨的状态。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Shāng guān pattern: Interaction needs'
+    summary: 'Shāng guān pattern: Interaction needs'
+    body: You may notice where an established method could be improved. Shāng guān — an output component of opposite polarity to the day stem — emphasizes expression and questioning. The label does not establish a conflict. A useful focus is whether a critique identifies a workable change and leaves others able to respond. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. Reviewing public information calls for distinguishing errors from preferences. Correct anything that changes the reader’s understanding before debating stylistic details. You can define a finishing standard in advance and release the work once it meets that standard. Consider asking one reader whether the key action is now clear. Precision serves a purpose when it helps someone use the material; it becomes less helpful if every version remains indefinitely unfinished.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.pian_cai.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: pian_cai
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 偏财格：任务中的偏好
+    summary: 偏财格：任务中的偏好
+    body: 你倾向于留意新机会以及资源之间的连接。偏财（日干所克且同阴阳的成分）象征机会型资源安排，盘中出现它时，适合观察你对新项目和临时需求的回应，不说明有额外收入，更不指向具体财务标的。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。比如你拥有熟悉的做法但项目需求变了，可以让另一位参与者先说明新条件，再共同调整原有流程。建议保留有效的核心，删掉不再适用的步骤；资源充足时也值得听取不同经验，让惯性变成可选择的方法，而不是默认的唯一道路。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Piān cái pattern: Working preferences'
+    summary: 'Piān cái pattern: Working preferences'
+    body: You may be alert to changing opportunities and connections between resources. Piān cái — a resource-management component sharing the day stem’s polarity — emphasizes flexible arrangements. Its presence does not imply additional income. The practical question is how you assess a new invitation before committing money, effort, or time. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. A familiar process may need revision when the project changes. Invite another participant to describe the new conditions before adapting the old routine together. You can preserve a useful core while removing steps that no longer serve the task. Try asking which assumption changed most. Having ample resources does not make every established method appropriate; listening to another person’s experience can turn habit into a deliberate choice.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.pian_cai.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: pian_cai
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 偏财格：资源安排的角度
+    summary: 偏财格：资源安排的角度
+    body: 你倾向于留意新机会以及资源之间的连接。偏财（日干所克且同阴阳的成分）象征机会型资源安排，盘中出现它时，适合观察你对新项目和临时需求的回应，不说明有额外收入，更不指向具体财务标的。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。例如你想在日常安排中加入新习惯，可以先把它接到一个已有的稳定步骤之后，持续几次再判断是否合适。建议记录容易中断的情境，并调整难度而不是责备自己；生活里的支持也包括可重复的环境条件，不只来自个人意志。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Piān cái pattern: Resource habits'
+    summary: 'Piān cái pattern: Resource habits'
+    body: You may be alert to changing opportunities and connections between resources. Piān cái — a resource-management component sharing the day stem’s polarity — emphasizes flexible arrangements. Its presence does not imply additional income. The practical question is how you assess a new invitation before committing money, effort, or time. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. A new habit may be easier to try after an existing stable routine. Repeat it a few times and notice when it is interrupted. You can adjust the difficulty or the surrounding conditions instead of making the interruption a criticism of yourself. Consider what makes repetition convenient. Available support can include a predictable setting and a manageable starting step, not only determination or encouragement from other people.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.pian_cai.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: pian_cai
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 偏财格：互动中的需要
+    summary: 偏财格：互动中的需要
+    body: 你倾向于留意新机会以及资源之间的连接。偏财（日干所克且同阴阳的成分）象征机会型资源安排，盘中出现它时，适合观察你对新项目和临时需求的回应，不说明有额外收入，更不指向具体财务标的。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。比如你想分享刚完成的作品，可以先选一个小范围展示，问观众哪些信息最清楚、哪里仍有疑问，再决定下一次公开表达的重点。建议把反馈写成可修改的事项，不把赞许或沉默当作全部评价，给持续投入留出稳定节奏。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Piān cái pattern: Interaction needs'
+    summary: 'Piān cái pattern: Interaction needs'
+    body: You may be alert to changing opportunities and connections between resources. Piān cái — a resource-management component sharing the day stem’s polarity — emphasizes flexible arrangements. Its presence does not imply additional income. The practical question is how you assess a new invitation before committing money, effort, or time. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. Sharing a new piece of work can begin with a small audience. Ask which part was clear and where people still had questions, then use the answers to shape the next presentation. You can turn feedback into specific edits rather than a general verdict about the work or its maker. Try keeping a steady sharing rhythm that leaves room for preparation and rest, instead of relying entirely on immediate audience response.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_cai.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_cai
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 正财格：任务中的偏好
+    summary: 正财格：任务中的偏好
+    body: 你往往愿意用清楚的安排维持可持续的投入。正财（日干所克且阴阳不同的成分）象征稳定资源与日常管理，盘中出现它时，观察重点是记录、边界和持续性，不把这个名称理解为收入稳定的承诺。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。例如一个流程经常卡在最后一步，你可以先找出真正阻碍交付的条件，再处理它，而不是同时改动所有环节。建议让使用者测试新方法，并记录是否减少等待；果断可以体现在选择一个清楚的问题，不需要用更快的语速或更强的姿态证明自己。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng cái pattern: Working preferences'
+    summary: 'Zhèng cái pattern: Working preferences'
+    body: You may appreciate continuity and a clear record of commitments. Zhèng cái — a resource-management component with opposite polarity to the day stem — concerns everyday planning. The label does not promise stable earnings; it invites a look at how small obligations are recorded, maintained, and reviewed over time. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. A process that repeatedly stalls near completion may need one well-chosen repair. Identify the actual blocking condition before changing the whole workflow. You can ask a user to test the revised step and observe whether waiting decreases. Consider treating that observation as the measure of a useful decision. Decisiveness can mean choosing a precise problem and checking the result, rather than increasing urgency or pressing everyone to move at the same speed.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_cai.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_cai
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 正财格：资源安排的角度
+    summary: 正财格：资源安排的角度
+    body: 你往往愿意用清楚的安排维持可持续的投入。正财（日干所克且阴阳不同的成分）象征稳定资源与日常管理，盘中出现它时，观察重点是记录、边界和持续性，不把这个名称理解为收入稳定的承诺。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。比如你对一段交流仍有疑问，可以把听到的话与自己的猜测分开，找一个合适时机提出具体问题。建议允许对方补充背景，不用细微语气推断全部意思；敏感的观察可以帮助沟通，但仍需要真实回应来修正理解。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng cái pattern: Resource habits'
+    summary: 'Zhèng cái pattern: Resource habits'
+    body: You may appreciate continuity and a clear record of commitments. Zhèng cái — a resource-management component with opposite polarity to the day stem — concerns everyday planning. The label does not promise stable earnings; it invites a look at how small obligations are recorded, maintained, and reviewed over time. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. An ambiguous conversation can leave room for several explanations. Separate what was actually said from what you inferred, then ask a specific question at a suitable moment. You can let the other person supply context that a tone or brief message cannot reveal. Try updating your understanding with their response. Sensitivity to detail can support communication, provided an interpretation remains open to correction rather than growing into certainty through repeated private analysis.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_cai.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_cai
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 正财格：互动中的需要
+    summary: 正财格：互动中的需要
+    body: 你往往愿意用清楚的安排维持可持续的投入。正财（日干所克且阴阳不同的成分）象征稳定资源与日常管理，盘中出现它时，观察重点是记录、边界和持续性，不把这个名称理解为收入稳定的承诺。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。例如你正在整理积累很久的资料，可以先围绕一个实际问题筛选内容，把暂时用不到的部分归档。建议用一段短说明检验自己是否理解了要点，再决定要不要继续收集；积累与输出可以交替进行，不需要把准备阶段无限延长。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng cái pattern: Interaction needs'
+    summary: 'Zhèng cái pattern: Interaction needs'
+    body: You may appreciate continuity and a clear record of commitments. Zhèng cái — a resource-management component with opposite polarity to the day stem — concerns everyday planning. The label does not promise stable earnings; it invites a look at how small obligations are recorded, maintained, and reviewed over time. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. A collection of material becomes easier to use when you begin with a real question. Select what addresses it and archive the rest for later. You can test your understanding by writing a short explanation before gathering more. Consider alternating preparation with a small output. Additional information has value when it answers a remaining question, but continuing to collect without using anything can hide which part you already understand well enough to act on.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.qi_sha.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: qi_sha
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 七杀格：任务中的偏好
+    summary: 七杀格：任务中的偏好
+    body: 你容易留意期限、竞争或需要迅速处理的要求。七杀（克日干且同阴阳的成分）象征外部压力与应对，名字不描述危险事件。盘中出现它时，更适合观察任务如何形成挑战，以及你是否有足够条件作出回应。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。比如刚进入陌生社群，你可以先参与一个有明确分工的活动，观察哪些交流方式让你舒服，再逐渐增加投入。建议为自己保留独处或休息的间隔，既寻找连接，也尊重适应速度；不用一次聊天是否顺利评价自己的社交能力。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Qī shā pattern: Working preferences'
+    summary: 'Qī shā pattern: Working preferences'
+    body: You may be attentive to demanding deadlines or external expectations. Qī shā — a component that checks the day stem and shares its polarity — symbolizes challenge and response. The dramatic traditional name does not predict danger. The relevant question is whether a demanding task comes with enough support and a clear scope. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.qi_sha.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: qi_sha
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 七杀格：资源安排的角度
+    summary: 七杀格：资源安排的角度
+    body: 你容易留意期限、竞争或需要迅速处理的要求。七杀（克日干且同阴阳的成分）象征外部压力与应对，名字不描述危险事件。盘中出现它时，更适合观察任务如何形成挑战，以及你是否有足够条件作出回应。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。例如你发现共用物品总被放错位置，可以先了解大家取用的路线，再提出容易执行的收纳方式，而不是只要求别人遵守自己的习惯。建议试行一周后询问使用体验，让维护规则贴近日常，也让照料成为共同参与的事。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Qī shā pattern: Resource habits'
+    summary: 'Qī shā pattern: Resource habits'
+    body: You may be attentive to demanding deadlines or external expectations. Qī shā — a component that checks the day stem and shares its polarity — symbolizes challenge and response. The dramatic traditional name does not predict danger. The relevant question is whether a demanding task comes with enough support and a clear scope. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. If shared items are repeatedly misplaced, the useful starting point may be how people actually use them. You could watch the usual sequence and suggest a storage arrangement that reduces effort. Consider a one-week trial followed by a short conversation about what worked. Maintenance then becomes a shared practical decision rather than a demand that others adopt your habits. The best system is often the one people can comfortably keep using.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.qi_sha.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: qi_sha
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 七杀格：互动中的需要
+    summary: 七杀格：互动中的需要
+    body: 你容易留意期限、竞争或需要迅速处理的要求。七杀（克日干且同阴阳的成分）象征外部压力与应对，名字不描述危险事件。盘中出现它时，更适合观察任务如何形成挑战，以及你是否有足够条件作出回应。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Qī shā pattern: Interaction needs'
+    summary: 'Qī shā pattern: Interaction needs'
+    body: You may be attentive to demanding deadlines or external expectations. Qī shā — a component that checks the day stem and shares its polarity — symbolizes challenge and response. The dramatic traditional name does not predict danger. The relevant question is whether a demanding task comes with enough support and a clear scope. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_guan.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_guan
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 正官格：任务中的偏好
+    summary: 正官格：任务中的偏好
+    body: 你倾向于先理解规则，再决定怎样承担责任。正官（克日干且阴阳不同的成分）关注秩序与可见标准，盘中出现它时，适合观察角色是否明确、反馈是否公允，不由此推断职位、地位或他人对你的评价。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。例如团队期待你带动进度，你可以先确认可用人手与大家的理解，再把目标分成共同认可的阶段。建议在每个阶段请一位协作者反馈负担是否合适，让主动推进与照顾节奏并行，避免把自己熟悉的速度变成他人的隐形要求。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng guān pattern: Working preferences'
+    summary: 'Zhèng guān pattern: Working preferences'
+    body: You may feel more comfortable when expectations are explicit. Zhèng guān — a component that checks the day stem with opposite polarity — emphasizes roles and standards. Its presence asks how responsibility is defined and reviewed, not which title you will hold or how others will judge your standing. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. A team asking you to maintain momentum also needs an achievable shared pace. Check available help and whether everyone understands the aim before dividing it into stages. You can invite a colleague to comment on the workload at each stage. Consider adjusting the pace when the response reveals a constraint you missed. Initiative works better when people can participate knowingly, rather than discovering that your familiar speed has become an unspoken requirement.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_guan.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_guan
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 正官格：资源安排的角度
+    summary: 正官格：资源安排的角度
+    body: 你倾向于先理解规则，再决定怎样承担责任。正官（克日干且阴阳不同的成分）关注秩序与可见标准，盘中出现它时，适合观察角色是否明确、反馈是否公允，不由此推断职位、地位或他人对你的评价。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。比如你准备学习一个跨度较大的技能，可以把最终目标拆成能在两周内完成的练习，并找一位熟悉该领域的人校对起点。建议先验证练习方法是否合适，再延长计划；进度慢时也可以缩小任务，而不是把停顿解释成个人失败。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng guān pattern: Resource habits'
+    summary: 'Zhèng guān pattern: Resource habits'
+    body: You may feel more comfortable when expectations are explicit. Zhèng guān — a component that checks the day stem with opposite polarity — emphasizes roles and standards. Its presence asks how responsibility is defined and reviewed, not which title you will hold or how others will judge your standing. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. A demanding skill can feel more approachable when the first milestone is visible. You might choose a two-week practice task and ask an experienced learner whether it is a sensible starting point. Try checking the method before extending the schedule. A slower week may call for a smaller exercise, not a broad conclusion about your capacity. Progress becomes easier to assess when each attempt has a clear purpose.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_guan.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_guan
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 正官格：互动中的需要
+    summary: 正官格：互动中的需要
+    body: 你倾向于先理解规则，再决定怎样承担责任。正官（克日干且阴阳不同的成分）关注秩序与可见标准，盘中出现它时，适合观察角色是否明确、反馈是否公允，不由此推断职位、地位或他人对你的评价。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。例如多人共用一个日程表，你可以先列出固定事项，再把临时需求留在可调整区域，减少反复重排。建议明确哪些决定由谁负责，别因为自己擅长整理就默认接下全部管理任务；可靠的安排也应当包含可交接的边界。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng guān pattern: Interaction needs'
+    summary: 'Zhèng guān pattern: Interaction needs'
+    body: You may feel more comfortable when expectations are explicit. Zhèng guān — a component that checks the day stem with opposite polarity — emphasizes roles and standards. Its presence asks how responsibility is defined and reviewed, not which title you will hold or how others will judge your standing. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. A shared calendar can provide structure without making you responsible for every change. Separate fixed commitments from flexible ones and agree who updates each part. You can offer a clear format while distributing the actual maintenance. Consider preparing a simple handover note so that the arrangement still works when you are away. Reliability is more sustainable when it comes from agreed roles rather than one person remembering everything.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.pian_yin.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: pian_yin
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 偏印格：任务中的偏好
+    summary: 偏印格：任务中的偏好
+    body: 你容易从不同路径寻找解释，愿意保留独立思考。偏印（生日干且同阴阳的成分）象征较独立的学习与支持，盘中出现它时，适合观察你如何吸收非标准信息，不表示某种特殊天赋，也不要求你与别人保持距离。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Piān yìn pattern: Working preferences'
+    summary: 'Piān yìn pattern: Working preferences'
+    body: You may learn through an unusual route or a personally chosen question. Piān yìn — a supporting component sharing the day stem’s polarity — emphasizes independent understanding. This does not establish a special talent or require distance from other people; it asks how you check ideas developed outside familiar instructions. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.pian_yin.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: pian_yin
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 偏印格：资源安排的角度
+    summary: 偏印格：资源安排的角度
+    body: 你容易从不同路径寻找解释，愿意保留独立思考。偏印（生日干且同阴阳的成分）象征较独立的学习与支持，盘中出现它时，适合观察你如何吸收非标准信息，不表示某种特殊天赋，也不要求你与别人保持距离。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。例如忙闲起伏较大的周，你可以在周初确认固定责任，再留一块可调整的时间处理临时请求。建议用实际完成量检验安排，不因某一天轻松就把整周排满；节奏的平衡是持续调整的过程，可以随着条件变化重新分配。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Piān yìn pattern: Resource habits'
+    summary: 'Piān yìn pattern: Resource habits'
+    body: You may learn through an unusual route or a personally chosen question. Piān yìn — a supporting component sharing the day stem’s polarity — emphasizes independent understanding. This does not establish a special talent or require distance from other people; it asks how you check ideas developed outside familiar instructions. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. A week with uneven demands can begin with identifying fixed responsibilities and reserving one flexible interval. Use what you actually complete to assess the plan. You can avoid filling the entire week simply because one morning felt easy. Consider revising the schedule when conditions change. Balance is an ongoing adjustment between demands and available support, not a requirement to sustain the same pace regardless of interruptions or unexpected work.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.pian_yin.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: pian_yin
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 偏印格：互动中的需要
+    summary: 偏印格：互动中的需要
+    body: 你容易从不同路径寻找解释，愿意保留独立思考。偏印（生日干且同阴阳的成分）象征较独立的学习与支持，盘中出现它时，适合观察你如何吸收非标准信息，不表示某种特殊天赋，也不要求你与别人保持距离。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。比如一件事情同时有推进和暂停的理由，你可以列出当前证据，选一个能在短时间内带来新信息的试验。建议事先写下继续与停止的条件，让决定有可回看的依据；面对不确定时保持适度行动，也可以成为认识自身节奏的方法。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Piān yìn pattern: Interaction needs'
+    summary: 'Piān yìn pattern: Interaction needs'
+    body: You may learn through an unusual route or a personally chosen question. Piān yìn — a supporting component sharing the day stem’s polarity — emphasizes independent understanding. This does not establish a special talent or require distance from other people; it asks how you check ideas developed outside familiar instructions. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. A decision may have sensible reasons both to proceed and to pause. List the evidence available now and choose a brief trial that can supply new information. You can define conditions for continuing or stopping before the trial begins. Try keeping those criteria visible during the review. Moderate action in an uncertain situation can teach you about your preferred pace while preventing a temporary choice from quietly becoming an open-ended commitment.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_yin.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_yin
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 正印格：任务中的偏好
+    summary: 正印格：任务中的偏好
+    body: 你往往愿意借助清楚的资料和可信的支持来准备。正印（生日干且阴阳不同的成分）象征学习、经验与照应，盘中出现它时，观察重点是支持能否转成实际行动，不说明学历高低，也不把寻求指导视为依赖。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。工作方式需要用真实任务检验，你可以从运营协调、专业研究、内容设计三类任务里选一项尝试。例如朋友请你帮忙修改一份说明，你可以先确认读者是谁、最需要看懂哪一步，再集中处理两三个关键细节。建议约定修改范围与截止时间，让专注服务于实际用途，避免为了润色每句话而耗尽整晚的精力。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng yìn pattern: Working preferences'
+    summary: 'Zhèng yìn pattern: Working preferences'
+    body: You may appreciate clear reference material and reliable guidance. Zhèng yìn — a supporting component with opposite polarity to the day stem — symbolizes learning and assistance. Its presence concerns whether preparation helps the next step; it does not measure qualifications or make asking for guidance a sign of dependence. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. A friend may ask you to review an explanation. Before editing, check who will read it and which action the reader needs to understand. You can then focus on the two or three details that affect that action most. Consider setting a revision limit and a finishing time. Careful attention becomes more useful when it improves the message without consuming the whole evening in changes that readers barely notice.
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_yin.wealth
+  system: bazi
+  section: wealth
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_yin
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 正印格：资源安排的角度
+    summary: 正印格：资源安排的角度
+    body: 你往往愿意借助清楚的资料和可信的支持来准备。正印（生日干且阴阳不同的成分）象征学习、经验与照应，盘中出现它时，观察重点是支持能否转成实际行动，不说明学历高低，也不把寻求指导视为依赖。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。这里讨论资源安排，不推测收入或提供具体财务建议；实际收支与可靠信息应优先考虑。比如你与同事对处理次序意见不同，可以分别列出风险、期限和已有证据，再选择最可撤回的一步先做。建议把检验时间写进方案，允许事实改变决定；明确行动与愿意修正可以同时存在，不必把改变主意视为失去立场。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng yìn pattern: Resource habits'
+    summary: 'Zhèng yìn pattern: Resource habits'
+    body: You may appreciate clear reference material and reliable guidance. Zhèng yìn — a supporting component with opposite polarity to the day stem — symbolizes learning and assistance. Its presence concerns whether preparation helps the next step; it does not measure qualifications or make asking for guidance a sign of dependence. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. This concerns resource habits, not an income forecast or specific financial advice. Actual records and reliable information deserve priority. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using.
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.pattern.zheng_yin.love
+  system: bazi
+  section: love
+  topic: pattern
+  when:
+    path: pattern.name
+    eq: zheng_yin
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 正印格：互动中的需要
+    summary: 正印格：互动中的需要
+    body: 你往往愿意借助清楚的资料和可信的支持来准备。正印（生日干且阴阳不同的成分）象征学习、经验与照应，盘中出现它时，观察重点是支持能否转成实际行动，不说明学历高低，也不把寻求指导视为依赖。格局（由月份主要成分归纳的主题）在你的盘中采用这一分类，所以需要先看日常回应，而不从名称推出结果。相处要以彼此意愿和持续尊重为基础，不由标记安排进度或分配角色。例如任务堆叠时，你可以把需要独立完成、可以请人协作和暂时可延后的事项分开，先解决最影响交付的一项。建议明确求助内容与期限，让支持变得容易提供，不把请求帮助理解为能力评价，也不把等待他人当作唯一的推进方法。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Zhèng yìn pattern: Interaction needs'
+    summary: 'Zhèng yìn pattern: Interaction needs'
+    body: You may appreciate clear reference material and reliable guidance. Zhèng yìn — a supporting component with opposite polarity to the day stem — symbolizes learning and assistance. Its presence concerns whether preparation helps the next step; it does not measure qualifications or make asking for guidance a sign of dependence. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Mutual wishes and ongoing respect are central; a marker sets neither relationship progress nor personal roles. When tasks accumulate, sort them into work you must do yourself, work someone can share, and work that can wait. A specific request with a clear deadline makes help easier to provide. You can still move a small independent part forward while waiting for a reply. Consider judging the arrangement by its usefulness, not by whether you handled everything alone. The aim is to connect available support with actual demands.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

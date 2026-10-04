@@ -10,6 +10,7 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tools.json --noEmit",
     "validate": "tsx scripts/validate.ts",
+    "checkCoverage": "tsx scripts/check-bazi-coverage.ts",
     "content:build": "tsx scripts/build.ts"
   },
   "dependencies": {

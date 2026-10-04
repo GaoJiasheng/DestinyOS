@@ -1,0 +1,761 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+- id: bazi.shen_sha.tian_yi_gui_ren
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: tian_yi_gui_ren
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 天乙贵人：获得协助
+    summary: 天乙贵人：获得协助
+    body: 你可以留意遇到问题时，是否愿意提出清楚的求助。天乙贵人（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与协助联系起来，命中只说明查表得到相应位置，不能据此认定某个人会提供帮助。比如刚进入陌生社群，你可以先参与一个有明确分工的活动，观察哪些交流方式让你舒服，再逐渐增加投入。建议为自己保留独处或休息的间隔，既寻找连接，也尊重适应速度；不用一次聊天是否顺利评价自己的社交能力。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Tiān yǐ guì rén: accessing help'
+    summary: 'Tiān yǐ guì rén: accessing help'
+    body: Tiān yǐ guì rén — a supplementary table-based marker — appears in your chart. You can reflect on how you ask for help. Traditionally this marker is associated with assistance, but a table-based hit cannot establish that any person will offer it. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.tai_ji_gui_ren
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: tai_ji_gui_ren
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 太极贵人：深入理解
+    summary: 太极贵人：深入理解
+    body: 你可以把对原理的兴趣转成一个明确的学习问题。太极贵人（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与思考及理解联系起来，命中不表示特殊身份；它适合提醒你核对解释的依据。例如你发现共用物品总被放错位置，可以先了解大家取用的路线，再提出容易执行的收纳方式，而不是只要求别人遵守自己的习惯。建议试行一周后询问使用体验，让维护规则贴近日常，也让照料成为共同参与的事。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Tài jí guì rén: examining a question'
+    summary: 'Tài jí guì rén: examining a question'
+    body: Tài jí guì rén — a supplementary table-based marker — appears in your chart. You may find a useful question beneath a familiar explanation. This marker traditionally concerns reflection and understanding, not a special status. You can test a proposed explanation against its actual evidence. If shared items are repeatedly misplaced, the useful starting point may be how people actually use them. You could watch the usual sequence and suggest a storage arrangement that reduces effort. Consider a one-week trial followed by a short conversation about what worked. Maintenance then becomes a shared practical decision rather than a demand that others adopt your habits. The best system is often the one people can comfortably keep using. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.tian_de_gui_ren
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: tian_de_gui_ren
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 天德贵人：善意协调
+    summary: 天德贵人：善意协调
+    body: 你可以在分歧中寻找有边界的善意回应。天德贵人（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与缓和联系起来，查表命中不表示困难会自行消失，实际协调仍需要双方参与。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Tiān dé guì rén: considerate coordination'
+    summary: 'Tiān dé guì rén: considerate coordination'
+    body: Tiān dé guì rén — a supplementary table-based marker — appears in your chart. You can look for a considerate response that still preserves boundaries. The traditional association is moderation, but a marker does not resolve a difficulty on its own; practical coordination requires willing participants. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.yue_de_gui_ren
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: yue_de_gui_ren
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 月德贵人：日常互助
+    summary: 月德贵人：日常互助
+    body: 你可以通过可靠的小行动建立互相支持的日常。月德贵人（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与温和互动联系起来，命中不说明人际环境已经理想，仍值得观察帮助是否双向。例如团队期待你带动进度，你可以先确认可用人手与大家的理解，再把目标分成共同认可的阶段。建议在每个阶段请一位协作者反馈负担是否合适，让主动推进与照顾节奏并行，避免把自己熟悉的速度变成他人的隐形要求。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yuè dé guì rén: ordinary mutual support'
+    summary: 'Yuè dé guì rén: ordinary mutual support'
+    body: Yuè dé guì rén — a supplementary table-based marker — appears in your chart. You can strengthen ordinary support through small, reliable actions. The traditional association is considerate interaction. A recorded hit does not establish an ideal social environment; notice whether assistance can flow in both directions. A team asking you to maintain momentum also needs an achievable shared pace. Check available help and whether everyone understands the aim before dividing it into stages. You can invite a colleague to comment on the workload at each stage. Consider adjusting the pace when the response reveals a constraint you missed. Initiative works better when people can participate knowingly, rather than discovering that your familiar speed has become an unspoken requirement. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.wen_chang_gui_ren
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: wen_chang_gui_ren
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 文昌贵人：整理表达
+    summary: 文昌贵人：整理表达
+    body: 你可以把学习内容整理成别人看得懂的短说明。文昌贵人（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与文字表达联系起来，查表结果不能衡量成绩或学历；清楚的表达需要练习与反馈。比如你准备学习一个跨度较大的技能，可以把最终目标拆成能在两周内完成的练习，并找一位熟悉该领域的人校对起点。建议先验证练习方法是否合适，再延长计划；进度慢时也可以缩小任务，而不是把停顿解释成个人失败。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wén chāng guì rén: organizing expression'
+    summary: 'Wén chāng guì rén: organizing expression'
+    body: Wén chāng guì rén — a supplementary table-based marker — appears in your chart. You can make learning more usable by writing a short explanation. This marker traditionally concerns written expression, not examination results or qualifications. Practice and reader feedback provide the information that the label cannot. A demanding skill can feel more approachable when the first milestone is visible. You might choose a two-week practice task and ask an experienced learner whether it is a sensible starting point. Try checking the method before extending the schedule. A slower week may call for a smaller exercise, not a broad conclusion about your capacity. Progress becomes easier to assess when each attempt has a clear purpose. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.xue_tang
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: xue_tang
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 学堂：持续学习
+    summary: 学堂：持续学习
+    body: 你可以给学习建立一个容易重复的小步骤。学堂（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与学习场景联系起来，命中不表示学业结果确定，也不限定适合你的教育路径。例如多人共用一个日程表，你可以先列出固定事项，再把临时需求留在可调整区域，减少反复重排。建议明确哪些决定由谁负责，别因为自己擅长整理就默认接下全部管理任务；可靠的安排也应当包含可交接的边界。你可以从一次具体经历检验这个角度，再决定是否把它放进自己的行动计划；传统描述提供的是观察线索，不替代对现实条件的判断。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xué táng: sustained learning'
+    summary: 'Xué táng: sustained learning'
+    body: Xué táng — a supplementary table-based marker — appears in your chart. You can create a repeatable starting point for learning. The traditional association is a learning setting, not a predicted academic result or a prescribed educational route. A manageable routine helps you gather real experience. A shared calendar can provide structure without making you responsible for every change. Separate fixed commitments from flexible ones and agree who updates each part. You can offer a clear format while distributing the actual maintenance. Consider preparing a simple handover note so that the arrangement still works when you are away. Reliability is more sustainable when it comes from agreed roles rather than one person remembering everything. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.ci_guan
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: ci_guan
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 词馆：精炼文字
+    summary: 词馆：精炼文字
+    body: 你可以练习把复杂想法讲得简短而准确。词馆（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与文辞整理联系起来，查表命中不等同于写作天赋，它更适合作为检验读者理解的提醒。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Cí guǎn: refining language'
+    summary: 'Cí guǎn: refining language'
+    body: Cí guǎn — a supplementary table-based marker — appears in your chart. You can practise making a complex idea concise and accurate. This marker traditionally concerns language and expression. It does not certify writing talent; an actual reader’s understanding is a more useful test. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.guo_yin
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: guo_yin
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 国印：明确职责
+    summary: 国印：明确职责
+    body: 你可以留意任务授权与责任范围是否一致。国印（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与职责和凭据联系起来，命中不预告职位变化，清楚的角色约定比名称更有实际作用。例如忙闲起伏较大的周，你可以在周初确认固定责任，再留一块可调整的时间处理临时请求。建议用实际完成量检验安排，不因某一天轻松就把整周排满；节奏的平衡是持续调整的过程，可以随着条件变化重新分配。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Guó yìn: clarifying responsibility'
+    summary: 'Guó yìn: clarifying responsibility'
+    body: Guó yìn — a supplementary table-based marker — appears in your chart. You can check whether responsibility comes with the authority to carry it out. The traditional association is roles and credentials, not a future promotion. A clear agreement about scope matters more than the label. A week with uneven demands can begin with identifying fixed responsibilities and reserving one flexible interval. Use what you actually complete to assess the plan. You can avoid filling the entire week simply because one morning felt easy. Consider revising the schedule when conditions change. Balance is an ongoing adjustment between demands and available support, not a requirement to sustain the same pace regardless of interruptions or unexpected work. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.yi_ma
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: yi_ma
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 驿马：适应变化
+    summary: 驿马：适应变化
+    body: 你可以为行程与环境变化保留可调整的安排。驿马（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与移动联系起来，命中不意味着你需要迁居或远行，日常流程改变也可以成为观察场景。比如一件事情同时有推进和暂停的理由，你可以列出当前证据，选一个能在短时间内带来新信息的试验。建议事先写下继续与停止的条件，让决定有可回看的依据；面对不确定时保持适度行动，也可以成为认识自身节奏的方法。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yì mǎ: adapting to movement'
+    summary: 'Yì mǎ: adapting to movement'
+    body: Yì mǎ — a supplementary table-based marker — appears in your chart. You can leave some flexibility for changes in place or routine. This marker traditionally concerns movement, but it does not require relocation or travel. An ordinary change in how a day is organized can supply a useful example. A decision may have sensible reasons both to proceed and to pause. List the evidence available now and choose a brief trial that can supply new information. You can define conditions for continuing or stopping before the trial begins. Try keeping those criteria visible during the review. Moderate action in an uncertain situation can teach you about your preferred pace while preventing a temporary choice from quietly becoming an open-ended commitment. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.hua_gai
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: hua_gai
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 华盖：专注空间
+    summary: 华盖：专注空间
+    body: 你可以给独立思考留时间，也保留交流的入口。华盖（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与专注及个人兴趣联系起来，命中不表示与人疏离；安静空间与良好连接可以同时安排。例如朋友请你帮忙修改一份说明，你可以先确认读者是谁、最需要看懂哪一步，再集中处理两三个关键细节。建议约定修改范围与截止时间，让专注服务于实际用途，避免为了润色每句话而耗尽整晚的精力。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Huá gài: space for concentration'
+    summary: 'Huá gài: space for concentration'
+    body: Huá gài — a supplementary table-based marker — appears in your chart. You can make room for independent attention without closing the door to conversation. This marker traditionally concerns concentration and personal interests. It does not establish social distance; a quiet practice and supportive connections can coexist. A friend may ask you to review an explanation. Before editing, check who will read it and which action the reader needs to understand. You can then focus on the two or three details that affect that action most. Consider setting a revision limit and a finishing time. Careful attention becomes more useful when it improves the message without consuming the whole evening in changes that readers barely notice. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.tao_hua
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: tao_hua
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 桃花：社交吸引
+    summary: 桃花：社交吸引
+    body: 你可以在互动活跃时，更清楚地表达意愿与边界。桃花（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与人际吸引联系起来，命中不描绘关系数量或发展结果，也不评价不同关系选择。比如你与同事对处理次序意见不同，可以分别列出风险、期限和已有证据，再选择最可撤回的一步先做。建议把检验时间写进方案，允许事实改变决定；明确行动与愿意修正可以同时存在，不必把改变主意视为失去立场。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Táo huā: social visibility'
+    summary: 'Táo huā: social visibility'
+    body: Táo huā — a supplementary table-based marker — appears in your chart. You can make preferences clear when social interaction becomes lively. The traditional association is social visibility, not the number or outcome of relationships. Your choices and other people’s consent remain central. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.hong_yan
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: hong_yan
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 红艳：表达好感
+    summary: 红艳：表达好感
+    body: 你可以用尊重而具体的方式表达欣赏。红艳（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与情感表达联系起来，查表命中不意味着他人也有同样意愿，更不能替代明确沟通。例如任务堆叠时，你可以把需要独立完成、可以请人协作和暂时可延后的事项分开，先解决最影响交付的一项。建议明确求助内容与期限，让支持变得容易提供，不把请求帮助理解为能力评价，也不把等待他人当作唯一的推进方法。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Hóng yàn: expressing interest'
+    summary: 'Hóng yàn: expressing interest'
+    body: Hóng yàn — a supplementary table-based marker — appears in your chart. You can express appreciation in a respectful, specific way. This marker traditionally concerns emotional expression. It cannot establish that another person shares your interest, so an actual response matters more than a symbolic reading. When tasks accumulate, sort them into work you must do yourself, work someone can share, and work that can wait. A specific request with a clear deadline makes help easier to provide. You can still move a small independent part forward while waiting for a reply. Consider judging the arrangement by its usefulness, not by whether you handled everything alone. The aim is to connect available support with actual demands. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.jiang_xing
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: jiang_xing
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 将星：协调行动
+    summary: 将星：协调行动
+    body: 你可以把愿意带头转成让大家容易参与的安排。将星（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与组织行动联系起来，命中不意味着你应当领导别人，是否负责仍需要明确协商。比如你与合作伙伴都想负责同一环节，可以先比较各自最擅长和最想练习的部分，再约定轮换或分工。建议写清交接方式，把自主空间与共同标准放在一起讨论；相近的能力可以互相支持，不必让每次分工都变成谁更值得认可的比较。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jiàng xīng: coordinating action'
+    summary: 'Jiàng xīng: coordinating action'
+    body: Jiàng xīng — a supplementary table-based marker — appears in your chart. You can turn initiative into an arrangement that others can participate in. The traditional association is organization, not an obligation to lead. Whether you take responsibility should be agreed with the people involved. Two collaborators may both want the same role. Compare what each person already handles well and what each wants to practise, then consider a rotation or a clear division. You can agree on a handover while leaving room for individual methods. Try discussing shared standards alongside autonomy. Similar abilities can support each other without making every allocation of work a contest over who deserves greater recognition. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.jin_yu
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: jin_yu
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 金舆：生活便利
+    summary: 金舆：生活便利
+    body: 你可以留意哪些生活条件真正减轻了日常负担。金舆（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与便利联系起来，命中不表示物质条件确定，维护有用的资源仍需要实际安排。例如你主持一次讨论，可以先用两句话说清要解决的问题，再邀请尚未发言的人补充，而不是连续给出自己的全部想法。建议在总结前留一段安静思考时间，观察参与者是否真正理解目标，让热情成为帮助别人参与的条件。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jīn yú: everyday convenience'
+    summary: 'Jīn yú: everyday convenience'
+    body: Jīn yú — a supplementary table-based marker — appears in your chart. You can notice which practical conditions make daily life easier. The traditional association is convenience, not a promised material situation. Maintaining useful resources still depends on ordinary planning and real access. When leading a discussion, visibility is useful only if other people can take part. You could state the question briefly and invite someone who has not yet spoken to contribute. Consider leaving a quiet thinking interval before the final summary. The responses may show whether your enthusiasm clarified the task or filled the available space. A useful meeting can contain both expressive moments and deliberate pauses. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.yang_ren
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: yang_ren
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 羊刃：行动边界
+    summary: 羊刃：行动边界
+    body: 你可以把强烈的推进意愿放进清楚的行动边界。羊刃（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与力度联系起来，名称不描述危险，也不能据此判断脾气；重点是如何给行动设定范围。比如你经常替团队补上遗漏，可以把最近三次补位记录下来，看看哪些是偶发情况、哪些需要重新分工。建议把可见的工作量带进讨论，提出一项具体交接方案；关照整体并不需要把自己的时间放在最后，也可以通过规则减少反复补位。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yáng rèn: boundaries around effort'
+    summary: 'Yáng rèn: boundaries around effort'
+    body: Yáng rèn — a supplementary table-based marker — appears in your chart. You can give forceful effort a clear scope. This marker traditionally emphasizes intensity, but its name does not establish danger or temperament. A defined task and a review point offer a practical way to examine the theme. Repeatedly filling gaps can hide how much work a group actually needs. Record three recent instances and distinguish a one-off favour from a recurring responsibility. You can bring those examples to a discussion and propose a specific handover. Try making the hidden workload visible before agreeing to more. Supporting the group may mean improving the arrangement, not continuing to absorb every omission at the expense of your own commitments. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.fei_ren
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: fei_ren
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 飞刃：回应停顿
+    summary: 飞刃：回应停顿
+    body: 你可以在急于回应时，先确认信息是否完整。飞刃（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与快速反应的观察联系起来，命中不是事故预告，日常里更有用的是给决定留短暂停顿。例如你练习一项新技能，可以每次只记一个细小变化，隔几天再比较记录，避免反复分析同一次尝试。建议在信息足够时做一个小决定，并观察结果；细察的价值在于形成可用理解，不需要等到所有不确定都消失才开始行动。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Fēi rèn: pausing before a response'
+    summary: 'Fēi rèn: pausing before a response'
+    body: Fēi rèn — a supplementary table-based marker — appears in your chart. You can check whether information is complete before a quick response. This traditional marker is used here as a prompt about reaction speed, not an accident forecast. A brief pause may make the next question clearer. Learning a new skill can benefit from one brief observation after each attempt. Compare the notes after several sessions instead of repeatedly analysing the same result. You can make a small decision once there is enough information to try something useful. Consider checking what changed rather than waiting for all uncertainty to disappear. Careful observation is most helpful when it supports an action that produces new evidence, not when it postpones every next step. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.lu_shen
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: lu_shen
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 禄神：稳定实践
+    summary: 禄神：稳定实践
+    body: 你可以关注长期练习如何转成可重复的成果。禄神（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与日常支持联系起来，查表命中不表示收入或资源已经充足，稳定做法仍需现实条件配合。比如收到一个超出熟悉范围的邀请，可以先确认是否有指导、资料和试行时间，再说明愿意承担的部分。建议把学习成本列进安排，必要时缩小范围；谨慎接受条件并不妨碍探索，清楚的支持反而有助于持续投入。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Lù shén: consistent practice'
+    summary: 'Lù shén: consistent practice'
+    body: Lù shén — a supplementary table-based marker — appears in your chart. You can notice how regular practice becomes a repeatable result. The traditional association is everyday support, not an assessment of income or available resources. Consistency still needs practical conditions that make repetition possible. An invitation outside your familiar area can be assessed by the guidance, materials, and trial time available. State the part you are prepared to take on and include learning time in the arrangement. You can narrow the scope if those conditions are missing. Try asking for a first checkpoint rather than accepting the whole assignment at once. Clear support makes exploration easier to sustain and allows both sides to understand what the commitment includes. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.tian_luo_di_wang
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: tian_luo_di_wang
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 天罗地网：梳理限制
+    summary: 天罗地网：梳理限制
+    body: 你可以把觉得受限的事情拆成具体可处理的条件。天罗地网（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统名称采用束缚的比喻，查表命中不意味着遭遇困境；明确约束后，才容易判断哪些部分能调整。例如合作对象提出不同方案时，你可以先复述对方的目标，再说明自己想保留的关键条件，找到双方都能尝试的小步骤。建议给试行设一个结束日期，届时依据体验调整；灵活不需要以忽略自己的需要为代价。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Tiān luó dì wǎng: sorting constraints'
+    summary: 'Tiān luó dì wǎng: sorting constraints'
+    body: Tiān luó dì wǎng — a supplementary table-based marker — appears in your chart. You can break a feeling of constraint into specific conditions. The traditional name uses a net metaphor, but a recorded hit does not establish adversity. Naming the constraints helps you identify which part can actually change. Suppose a collaborator proposes a different method. You can first check what they are trying to achieve, then name the condition that matters most to you. A limited trial may reveal a route neither person initially considered. Consider agreeing when the trial ends and what feedback you will examine. Flexibility works better when your needs are visible, rather than disappearing into an arrangement you quietly dislike. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.gu_chen_gua_su
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: gu_chen_gua_su
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 孤辰寡宿：独处与连接
+    summary: 孤辰寡宿：独处与连接
+    body: 你可以按自己的需要平衡独处和可靠的联系。孤辰寡宿（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与个人空间联系起来，命中不评价单身或关系状态，也不意味着你缺少支持或亲密能力。比如你正在为搬家做准备，可以把必须先完成的事项列成短清单，并给依赖他人的环节预留缓冲时间。建议每天只确认一个关键节点，把可推迟的小事移到后面；稳妥来自清楚的优先级，不需要靠不断增加检查来获得安心。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gū chén guǎ sù: solitude and connection'
+    summary: 'Gū chén guǎ sù: solitude and connection'
+    body: Gū chén guǎ sù — a supplementary table-based marker — appears in your chart. You can balance personal space with contact that feels supportive. The traditional association is solitude, not a judgment of being single or partnered. It does not establish a lack of support or an inability to form close relationships. Preparing for a move can expose the difference between useful structure and endless checking. List the necessary first steps and allow extra time for anything that depends on another person. Try reviewing one key milestone each day while postponing minor choices that do not affect it. A reliable plan needs priorities and room for delays. More checks do not always add useful information, especially when they interrupt the work itself. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.shen_sha.kui_gang
+  system: bazi
+  section: shensha_notes
+  topic: shen_sha
+  when:
+    path: shenSha[*].name
+    eq: kui_gang
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 魁罡：清楚立场
+    summary: 魁罡：清楚立场
+    body: 你可以把明确的立场表达成别人能讨论的条件。魁罡（传统查表所得、用于补充观察的标记）在你的盘中被记录，所以这里提供一个对应的提问。传统把这一标记与决断联系起来，特定日柱的查表结果不能判断人格高低，愿意听取回应同样值得保留。例如你同时对几个学习方向感兴趣，可以先画出它们与当前目标的关系，再挑一个最容易验证的入口。建议把暂时不做的想法存进清单，约定以后再看；广阔视野需要一个落脚点，保留可能性不等于现在就承担所有路线。
+    advice:
+      - 把标记改成一个观察问题，用实际经历检验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Kuí gāng: a clear position'
+    summary: 'Kuí gāng: a clear position'
+    body: Kuí gāng — a supplementary table-based marker — appears in your chart. You can state a position in terms that others can discuss. The traditional association is decisiveness, derived from specified day pillars. It does not rank character, and listening to a response can be as useful as expressing a firm preference. Several learning interests may connect with the same wider goal. Map those connections and choose the entry point that you can test most easily. You can keep other ideas in a later list instead of treating each as a current obligation. Consider deciding when to revisit that list. A broad view becomes more useful with a definite starting point, while postponing an option allows you to preserve it without splitting your attention immediately. Consider using its recorded pillar as a reference for reflection rather than treating the marker as an independent conclusion.
+    advice:
+      - Turn the marker into a question and check an actual example.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
