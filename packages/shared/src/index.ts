@@ -20,3 +20,5 @@ export type { StarKey } from './schemas/charts/ziwei';
 export type { StarKey as QimenStarKey } from './schemas/charts/qimen';
 export { PillarSchema } from './schemas/charts/bazi';
 export { PillarSchema as DivinationPillarSchema } from './schemas/charts/divination';
+
+export * from './schemas/charts/daily';

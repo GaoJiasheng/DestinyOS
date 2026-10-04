@@ -9,7 +9,11 @@
     "./bazi": "./src/bazi/index.ts",
     "./ziwei": "./src/ziwei/index.ts",
     "./tarot": "./src/tarot/index.ts",
-    "./astrology": "./src/astrology/index.ts"
+    "./astrology": "./src/astrology/index.ts",
+    "./daily": "./src/daily/index.ts",
+    "./iching": "./src/iching/index.ts",
+    "./qimen": "./src/qimen/index.ts",
+    "./vedic": "./src/astrology/vedic.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

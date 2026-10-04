@@ -1,0 +1,71 @@
+{
+  "format": "esm",
+  "platform": "browser",
+  "minified": true,
+  "includesDependencies": true,
+  "excludesStarCatalog": true,
+  "budgetBytes": 358400,
+  "strategy": "per-system-subpath-exports",
+  "entries": [
+    {
+      "entry": "@tianji/engine",
+      "bytes": 1266996,
+      "gzipBytes": 384027,
+      "budgetPassed": false
+    },
+    {
+      "entry": "@tianji/engine/common",
+      "bytes": 609051,
+      "gzipBytes": 179806,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/bazi",
+      "bytes": 602076,
+      "gzipBytes": 176761,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/ziwei",
+      "bytes": 1108045,
+      "gzipBytes": 322919,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/iching",
+      "bytes": 606684,
+      "gzipBytes": 178644,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/qimen",
+      "bytes": 612161,
+      "gzipBytes": 179754,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/tarot",
+      "bytes": 271456,
+      "gzipBytes": 75423,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/astrology",
+      "bytes": 334264,
+      "gzipBytes": 103568,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/vedic",
+      "bytes": 327361,
+      "gzipBytes": 100541,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/daily",
+      "bytes": 675985,
+      "gzipBytes": 208767,
+      "budgetPassed": true
+    }
+  ]
+}

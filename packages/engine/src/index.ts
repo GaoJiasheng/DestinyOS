@@ -11,6 +11,7 @@ import {
   TarotChartSchema,
   AstrologyChartSchema,
   VedicChartSchema,
+  DailyChartSchema,
   SpreadKeySchema,
   CategorySchema,
   type EngineResult,
@@ -31,6 +32,8 @@ import { computeBazi, BaziSchoolSchema, baziWarnings } from './bazi';
 export * from './ziwei';
 export * from './tarot';
 export * from './astrology';
+export * from './daily';
+import { computeDaily, dailyDateAt } from './daily';
 // DESIGN-GAP: Both Ziwei and Qimen define detectPatterns; preserve Ziwei's earlier root API and expose the Qimen variant by a qualified alias.
 export { detectPatterns } from './ziwei';
 export { detectPatterns as detectQimenPatterns } from './qimen';
@@ -44,8 +47,7 @@ const chartSchemas = {
   tarot: TarotChartSchema,
   astrology: AstrologyChartSchema,
   vedic: VedicChartSchema,
-  // DESIGN-GAP: daily is a persisted System in 06; retain an empty placeholder until its engine task.
-  daily: z.object({}).strict(),
+  daily: DailyChartSchema,
 };
 const requestSchema = z
   .object({
@@ -285,6 +287,24 @@ export function compute(raw: ComputeInput): EngineResult {
       },
     };
   }
+  if (input.system === 'daily' && birth) {
+    if (!input.seed) throw new EngineError('E_INVALID_INPUT');
+    const date = dailyDateAt(
+      computedAt,
+      input.now instanceof Temporal.ZonedDateTime ? input.now.timeZoneId : birth.local.tz,
+    );
+    const baziChart = computeBazi(birth, { now: input.now, yearsAround: 0 });
+    chart = computeDaily({
+      birth,
+      baziChart,
+      astroChart: computeAstrology(birth),
+      vedicChart: null,
+      date,
+      seed: input.seed,
+    });
+    schoolUsed = { bazi: 'weighted_v1', zodiac: 'tropical', ayanamsa: 'lahiri', deck: 'rws' };
+    warnings.push(...baziWarnings(birth, baziChart));
+  }
   return EngineResultSchema.parse({
     system: input.system,
     engineVersion: ENGINE_VERSION,
@@ -294,9 +314,6 @@ export function compute(raw: ComputeInput): EngineResult {
     meta: {
       schoolUsed,
       warnings,
-      ...(!['bazi', 'ziwei', 'tarot', 'iching', 'qimen'].includes(input.system)
-        ? { debug: { placeholder: true } }
-        : {}),
     },
   });
 }

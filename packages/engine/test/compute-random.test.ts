@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Temporal } from '@js-temporal/polyfill';
 import { createHash } from 'node:crypto';
-import { System, EngineResultSchema, EngineErrorCode } from '@tianji/shared';
+import { DailyChartSchema, EngineResultSchema, EngineErrorCode, type System } from '@tianji/shared';
 import {
   compute,
   normalizeBirth,
@@ -16,26 +16,24 @@ import A from './fixtures/birth/A.json';
 import E from './fixtures/birth/E.json';
 const now = '2026-10-04T00:00:00Z';
 describe('uniform dispatch and safe errors', () => {
-  it.each(
-    Object.values(System).filter(
-      (system) =>
-        !['bazi', 'ziwei', 'tarot', 'iching', 'qimen', 'astrology', 'vedic'].includes(system),
-    ),
-  )('registers %s with a valid placeholder result envelope', (system) => {
+  it('registers daily with a computed, schema-valid deterministic result envelope', () => {
     const birth = normalizeBirth(A);
-    const input = { system, birth, now };
+    const input = { system: 'daily' as const, birth, now, seed: hashSeed('fixture-A|2026-10-04') };
     const result = compute(input);
-    expect(result).toEqual({
-      system,
+    expect(result).toMatchObject({
+      system: 'daily',
       engineVersion: version,
       computedAt: now,
       input: birth,
-      chart: {},
-      meta: { schoolUsed: {}, warnings: birth.warnings, debug: { placeholder: true } },
+      meta: {
+        schoolUsed: { bazi: 'weighted_v1', zodiac: 'tropical', ayanamsa: 'lahiri', deck: 'rws' },
+        warnings: birth.warnings,
+      },
     });
+    expect(DailyChartSchema.safeParse(result.chart).success).toBe(true);
     expect(EngineResultSchema.safeParse(result).success).toBe(true);
     expect(ENGINE_VERSION).toBe(version);
-    expect(JSON.stringify(compute(input))).toBe(JSON.stringify(result));
+    expect(compute(input)).toEqual(result);
   });
   it('allows divination without birth and preserves explicit Temporal now', () => {
     expect(compute({ system: 'tarot', now, seed: 'fixed' }).input).toBeNull();

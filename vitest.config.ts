@@ -3,6 +3,9 @@ export default defineConfig({
   test: {
     include: ['packages/**/test/**/*.test.ts', 'scripts/**/*.test.ts'],
     environment: 'node',
+    // DESIGN-GAP: Four workers and a 15s timeout accommodate real Chromium plus exhaustive calendar fixtures under coverage without changing assertions or coverage thresholds.
+    maxWorkers: 4,
+    testTimeout: 15_000,
     coverage: {
       provider: 'v8',
       include: ['packages/engine/src/**/*.ts', 'packages/shared/src/**/*.ts'],
