@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv';
 import { LineCounter, parseDocument } from 'yaml';
-import { resolvePath, textGrams, gramSimilarity, zhChars, enWords, evaluateWhen } from '../src';
+import { resolvePath, textGrams, zhChars, enWords, evaluateWhen } from '../src';
 import type { KnowledgeUnit, GlossaryEntry, Transitions } from '../src';
 import schema from '../schema/ku.schema.json';
 const ajv = new Ajv({ allErrors: true });
@@ -258,20 +258,51 @@ export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
       )
         add(item, 'exclusive_with', 'error', `Invalid or nonreciprocal exclusivity: ${otherId}`);
     }
-  // Precompute once per body so a full editorial corpus can be checked without
-  // repeatedly normalizing the same text for every pair. The threshold is unchanged.
-  const grams = new Map(
-    units.map(({ unit }) => [
-      unit.id,
-      { zh: textGrams(unit.zh.body), en: textGrams(unit.en.body) },
-    ]),
-  );
+  // The exhaustive corpus keeps the same normalized sets and Dice threshold.
+  // Packed intersections avoid hundreds of Set lookups for every bilingual pair.
+  type Packed = { words: Uint32Array; size: number };
+  const grams = new Map<string, Partial<Record<'zh' | 'en', Packed>>>();
+  const groups = new Map<string, LocatedUnit[]>();
+  for (const item of units) {
+    const group = groups.get(item.unit.system) ?? [];
+    group.push(item);
+    groups.set(item.unit.system, group);
+  }
+  for (const group of groups.values()) {
+    for (const locale of ['zh', 'en'] as const) {
+      const sets = group.map(({ unit }) => textGrams(unit[locale].body));
+      const vocabulary = new Map<string, number>();
+      for (const set of sets)
+        for (const gram of set) if (!vocabulary.has(gram)) vocabulary.set(gram, vocabulary.size);
+      group.forEach(({ unit }, index) => {
+        const words = new Uint32Array(Math.ceil(vocabulary.size / 32));
+        const set = sets[index]!;
+        for (const gram of set) {
+          const bit = vocabulary.get(gram)!;
+          words[bit >>> 5] = words[bit >>> 5]! | (1 << (bit & 31));
+        }
+        const packed = grams.get(unit.id) ?? {};
+        packed[locale] = { words, size: set.size };
+        grams.set(unit.id, packed);
+      });
+    }
+  }
+  const packedSimilarity = (a: Packed, b: Packed) => {
+    let overlap = 0;
+    for (let index = 0; index < a.words.length; index++) {
+      let bits = a.words[index]! & b.words[index]!;
+      bits -= (bits >>> 1) & 0x55555555;
+      bits = (bits & 0x33333333) + ((bits >>> 2) & 0x33333333);
+      overlap += (((bits + (bits >>> 4)) & 0x0f0f0f0f) * 0x01010101) >>> 24;
+    }
+    return (2 * overlap) / (a.size + b.size || 1);
+  };
   for (let i = 0; i < units.length; i++)
     for (const b of units.slice(i + 1)) {
       const a = units[i];
       if (!a || a.unit.system !== b.unit.system) continue;
       for (const locale of ['zh', 'en'] as const)
-        if (gramSimilarity(grams.get(a.unit.id)![locale], grams.get(b.unit.id)![locale]) > 0.6)
+        if (packedSimilarity(grams.get(a.unit.id)![locale]!, grams.get(b.unit.id)![locale]!) > 0.6)
           add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
     }
   return diagnostics;

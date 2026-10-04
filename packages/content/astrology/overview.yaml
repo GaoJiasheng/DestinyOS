@@ -1,0 +1,554 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+- id: astrology.overview.aries
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: aries
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: &id001 []
+  zh:
+    title: 太阳白羊座：从选择认识自己
+    summary: 你倾向先行动再校准，也可以让感受与环境补充这个视角。
+    body: 你可以从先行动再校准的偏好开始观察自己。太阳（象征自主选择）在白羊座（以启动和直接回应为象征的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，先做一版能被讨论的草案，留意是否符合真实需要。可以开始前确认一个共同目标，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 开始前确认一个共同目标
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Aries
+    summary: You may begin reflection through starting directly.
+    body:
+      'You may find starting directly a useful starting point for reflection. Your Sun — the chart
+      factor associated with identity and chosen direction — is in Aries — a sign associated with
+      initiating and responding directly. The Moon adds a view of emotional habits, while a known
+      birth time lets the Ascendant describe an opening style. These are different perspectives on
+      the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could make a rough proposal that somebody can respond to, then notice whether
+      the response supports your actual needs. Try this: agree on the purpose before moving quickly.
+      Keep one observation that helps and leave room to revise it through experience; a short overview
+      cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Agree on the purpose before moving quickly
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.taurus
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: taurus
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳金牛座：从选择认识自己
+    summary: 你倾向稳定积累与具体感受，也可以让感受与环境补充这个视角。
+    body: 你可以从稳定积累与具体感受的偏好开始观察自己。太阳（象征自主选择）在金牛座（重视稳定和感官经验的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，约定固定时段慢慢推进，留意是否符合真实需要。可以保留惯例并试一个小调整，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 保留惯例并试一个小调整
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Taurus
+    summary: You may begin reflection through building through repetition.
+    body: 'You may find building through repetition a useful starting point for reflection. Your Sun
+      — the chart factor associated with identity and chosen direction — is in Taurus — a sign associated
+      with steadiness and tangible experience. The Moon adds a view of emotional habits, while a known
+      birth time lets the Ascendant describe an opening style. These are different perspectives on
+      the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could reserve a regular slot rather than relying on enthusiasm, then notice
+      whether the response supports your actual needs. Try this: keep the useful routine and alter
+      one detail. Keep one observation that helps and leave room to revise it through experience;
+      a short overview cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Keep the useful routine and alter one detail
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.gemini
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: gemini
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳双子座：从选择认识自己
+    summary: 你倾向交换信息与比较视角，也可以让感受与环境补充这个视角。
+    body: 你可以从交换信息与比较视角的偏好开始观察自己。太阳（象征自主选择）在双子座（以交流和好奇为象征的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，把两个不同观点放在同一张笔记上，留意是否符合真实需要。可以讨论后写下一项明确选择，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 讨论后写下一项明确选择
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Gemini
+    summary: You may begin reflection through connecting different viewpoints.
+    body: 'You may find connecting different viewpoints a useful starting point for reflection. Your
+      Sun — the chart factor associated with identity and chosen direction — is in Gemini — a sign
+      associated with curiosity and exchange. The Moon adds a view of emotional habits, while a known
+      birth time lets the Ascendant describe an opening style. These are different perspectives on
+      the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could compare two accounts before choosing a working explanation, then notice
+      whether the response supports your actual needs. Try this: end the discussion with one provisional
+      choice. Keep one observation that helps and leave room to revise it through experience; a short
+      overview cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - End the discussion with one provisional choice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.cancer
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: cancer
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳巨蟹座：从选择认识自己
+    summary: 你倾向照顾感受与建立归属，也可以让感受与环境补充这个视角。
+    body: 你可以从照顾感受与建立归属的偏好开始观察自己。太阳（象征自主选择）在巨蟹座（重视照顾与归属的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，先问参与者怎样才感到被照顾，留意是否符合真实需要。可以问清需要再决定如何支持，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 问清需要再决定如何支持
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Cancer
+    summary: You may begin reflection through creating a sense of belonging.
+    body: 'You may find creating a sense of belonging a useful starting point for reflection. Your
+      Sun — the chart factor associated with identity and chosen direction — is in Cancer — a sign
+      associated with care and belonging. The Moon adds a view of emotional habits, while a known
+      birth time lets the Ascendant describe an opening style. These are different perspectives on
+      the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could ask what would help somebody feel included, then notice whether the
+      response supports your actual needs. Try this: ask what support is wanted before offering it.
+      Keep one observation that helps and leave room to revise it through experience; a short overview
+      cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Ask what support is wanted before offering it
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.leo
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: leo
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳狮子座：从选择认识自己
+    summary: 你倾向表达热情与获得回应，也可以让感受与环境补充这个视角。
+    body: 你可以从表达热情与获得回应的偏好开始观察自己。太阳（象征自主选择）在狮子座（重视创造与真诚表达的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，用一个个人故事说明想法，留意是否符合真实需要。可以表达之后邀请另一种声音，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 表达之后邀请另一种声音
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Leo
+    summary: You may begin reflection through making expression personal.
+    body: 'You may find making expression personal a useful starting point for reflection. Your Sun
+      — the chart factor associated with identity and chosen direction — is in Leo — a sign associated
+      with creative expression. The Moon adds a view of emotional habits, while a known birth time
+      lets the Ascendant describe an opening style. These are different perspectives on the same person,
+      not competing labels that you must reconcile perfectly. In an ordinary planning conversation,
+      you could share a personal example and invite another voice, then notice whether the response
+      supports your actual needs. Try this: invite a quieter contribution after sharing yours. Keep
+      one observation that helps and leave room to revise it through experience; a short overview
+      cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Invite a quieter contribution after sharing yours
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.virgo
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: virgo
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳处女座：从选择认识自己
+    summary: 你倾向整理细节与改善流程，也可以让感受与环境补充这个视角。
+    body: 你可以从整理细节与改善流程的偏好开始观察自己。太阳（象征自主选择）在处女座（以辨别和实用改进为象征的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，选一个最妨碍使用的细节改进，留意是否符合真实需要。可以先约定怎样算够用，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 先约定怎样算够用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Virgo
+    summary: You may begin reflection through improving practical details.
+    body: 'You may find improving practical details a useful starting point for reflection. Your Sun
+      — the chart factor associated with identity and chosen direction — is in Virgo — a sign associated
+      with discernment and practical improvement. The Moon adds a view of emotional habits, while
+      a known birth time lets the Ascendant describe an opening style. These are different perspectives
+      on the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could repair the detail that currently makes a task awkward, then notice whether
+      the response supports your actual needs. Try this: agree on a usable standard before refining
+      further. Keep one observation that helps and leave room to revise it through experience; a short
+      overview cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Agree on a usable standard before refining further
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.libra
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: libra
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳天秤座：从选择认识自己
+    summary: 你倾向协调差异与寻找公平，也可以让感受与环境补充这个视角。
+    body: 你可以从协调差异与寻找公平的偏好开始观察自己。太阳（象征自主选择）在天秤座（重视协调与公平的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，把双方需要并列写出来，留意是否符合真实需要。可以把自己的需要也放进讨论，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 把自己的需要也放进讨论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Libra
+    summary: You may begin reflection through negotiating a workable balance.
+    body: "You may find negotiating a workable balance a useful starting point for reflection. Your
+      Sun — the chart factor associated with identity and chosen direction — is in Libra — a sign
+      associated with fairness and negotiation. The Moon adds a view of emotional habits, while a
+      known birth time lets the Ascendant describe an opening style. These are different perspectives
+      on the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could list each person's needs before choosing an arrangement, then notice
+      whether the response supports your actual needs. Try this: include your own need in the negotiation.
+      Keep one observation that helps and leave room to revise it through experience; a short overview
+      cannot replace the context of your life or the fuller reading of other placements."
+    advice:
+      - Include your own need in the negotiation
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.scorpio
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: scorpio
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳天蝎座：从选择认识自己
+    summary: 你倾向深入理解与谨慎建立信任，也可以让感受与环境补充这个视角。
+    body: 你可以从深入理解与谨慎建立信任的偏好开始观察自己。太阳（象征自主选择）在天蝎座（以深入和信任边界为象征的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，在重要合作中逐步交换信息，留意是否符合真实需要。可以允许信任随具体行动累积，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 允许信任随具体行动累积
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Scorpio
+    summary: You may begin reflection through developing trust through depth.
+    body: 'You may find developing trust through depth a useful starting point for reflection. Your
+      Sun — the chart factor associated with identity and chosen direction — is in Scorpio — a sign
+      associated with depth and careful trust. The Moon adds a view of emotional habits, while a known
+      birth time lets the Ascendant describe an opening style. These are different perspectives on
+      the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could build trust through a series of modest agreements, then notice whether
+      the response supports your actual needs. Try this: let trust grow through observable agreements.
+      Keep one observation that helps and leave room to revise it through experience; a short overview
+      cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Let trust grow through observable agreements
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.sagittarius
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: sagittarius
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳射手座：从选择认识自己
+    summary: 你倾向拓宽视野与寻找意义，也可以让感受与环境补充这个视角。
+    body: 你可以从拓宽视野与寻找意义的偏好开始观察自己。太阳（象征自主选择）在射手座（以探索和意义为象征的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，找一个与你经验不同的人交流，留意是否符合真实需要。可以用具体事实检验整体判断，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 用具体事实检验整体判断
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Sagittarius
+    summary: You may begin reflection through exploring a larger perspective.
+    body: 'You may find exploring a larger perspective a useful starting point for reflection. Your
+      Sun — the chart factor associated with identity and chosen direction — is in Sagittarius — a
+      sign associated with exploration and meaning. The Moon adds a view of emotional habits, while
+      a known birth time lets the Ascendant describe an opening style. These are different perspectives
+      on the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could talk with someone whose everyday assumptions differ from yours, then
+      notice whether the response supports your actual needs. Try this: check the broad claim against
+      one concrete case. Keep one observation that helps and leave room to revise it through experience;
+      a short overview cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Check the broad claim against one concrete case
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.capricorn
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: capricorn
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳摩羯座：从选择认识自己
+    summary: 你倾向规划阶段与承担责任，也可以让感受与环境补充这个视角。
+    body: 你可以从规划阶段与承担责任的偏好开始观察自己。太阳（象征自主选择）在摩羯座（重视规划和现实责任的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，为长期目标安排阶段检查点，留意是否符合真实需要。可以给计划同时安排休息与协作，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 给计划同时安排休息与协作
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Capricorn
+    summary: You may begin reflection through organizing sustained effort.
+    body: 'You may find organizing sustained effort a useful starting point for reflection. Your Sun
+      — the chart factor associated with identity and chosen direction — is in Capricorn — a sign
+      associated with planning and responsibility. The Moon adds a view of emotional habits, while
+      a known birth time lets the Ascendant describe an opening style. These are different perspectives
+      on the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could divide a long commitment into visible stages, then notice whether the
+      response supports your actual needs. Try this: plan for support and rest beside the milestones.
+      Keep one observation that helps and leave room to revise it through experience; a short overview
+      cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Plan for support and rest beside the milestones
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.aquarius
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: aquarius
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳水瓶座：从选择认识自己
+    summary: 你倾向检视规则与保留独立，也可以让感受与环境补充这个视角。
+    body: 你可以从检视规则与保留独立的偏好开始观察自己。太阳（象征自主选择）在水瓶座（关注规则和独立视角的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，请实际使用者评价新规则，留意是否符合真实需要。可以让新想法接受真实使用反馈，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 让新想法接受真实使用反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Aquarius
+    summary: You may begin reflection through questioning shared assumptions.
+    body: 'You may find questioning shared assumptions a useful starting point for reflection. Your
+      Sun — the chart factor associated with identity and chosen direction — is in Aquarius — a sign
+      associated with independent thinking and shared systems. The Moon adds a view of emotional habits,
+      while a known birth time lets the Ascendant describe an opening style. These are different perspectives
+      on the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could ask a person affected by the rule to test your alternative, then notice
+      whether the response supports your actual needs. Try this: invite feedback from someone affected
+      by the proposal. Keep one observation that helps and leave room to revise it through experience;
+      a short overview cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Invite feedback from someone affected by the proposal
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.overview.pisces
+  system: astrology
+  section: overview
+  topic: overview_sun
+  when:
+    path: bodies[key=sun].sign
+    eq: pisces
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with: *id001
+  zh:
+    title: 太阳双鱼座：从选择认识自己
+    summary: 你倾向感受氛围与灵活联想，也可以让感受与环境补充这个视角。
+    body: 你可以从感受氛围与灵活联想的偏好开始观察自己。太阳（象征自主选择）在双鱼座（以感受和联想为象征的星座），为理解认同提供入口；月亮（象征情绪习惯）补充感受，上升（东方地平线的星座）需已知出生时间，三者不必相同。比如，讨论安排时，把模糊想法画成可讨论的草图，留意是否符合真实需要。可以把直觉带回具体问题核对，用实际回应修正观察，让命盘成为提问工具。
+    advice:
+      - 把直觉带回具体问题核对
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A starting point in Pisces
+    summary: You may begin reflection through responding through imagination.
+    body: 'You may find responding through imagination a useful starting point for reflection. Your
+      Sun — the chart factor associated with identity and chosen direction — is in Pisces — a sign
+      associated with imagination and receptivity. The Moon adds a view of emotional habits, while
+      a known birth time lets the Ascendant describe an opening style. These are different perspectives
+      on the same person, not competing labels that you must reconcile perfectly. In an ordinary planning
+      conversation, you could give an impression a visible form so it can be discussed, then notice
+      whether the response supports your actual needs. Try this: check an intuitive impression through
+      a specific question. Keep one observation that helps and leave room to revise it through experience;
+      a short overview cannot replace the context of your life or the fuller reading of other placements.'
+    advice:
+      - Check an intuitive impression through a specific question
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

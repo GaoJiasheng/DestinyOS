@@ -94,6 +94,28 @@ describe('JSONPath-lite and conditions', () => {
     expect(resolvePath(chart, 'list[typo=true].god', true)).toEqual([]);
     expect(resolvePath(chart, 'a.*')).toEqual([2, null]);
   });
+  it('narrows consecutive aspect selectors on one entry, including reversed endpoints', () => {
+    const sample = {
+      aspects: [
+        { a: 'sun', b: 'moon', type: 'square', major: true },
+        { a: 'moon', b: 'saturn', type: 'trine', major: true },
+      ],
+    };
+    expect(resolvePath(sample, 'aspects[a=sun][b=moon][type=square].major')).toEqual([true]);
+    expect(resolvePath(sample, 'aspects[a=sun][b=moon][type=trine].major')).toEqual([]);
+    expect(resolvePath(sample, 'aspects[a=sun][typo=moon].major', true)).toEqual([]);
+    const rule: When = {
+      any: [
+        { path: 'aspects[a=sun][b=moon][type=square].major', eq: true },
+        { path: 'aspects[a=moon][b=sun][type=square].major', eq: true },
+      ],
+    };
+    expect(evaluateWhen(sample, rule).matched).toBe(true);
+    expect(
+      evaluateWhen({ aspects: sample.aspects.map((a) => ({ ...a, a: a.b, b: a.a })) }, rule)
+        .matched,
+    ).toBe(true);
+  });
   it('only traces matched alternatives and counts all specificity', () => {
     expect(
       evaluateWhen(chart, {

@@ -1,0 +1,458 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+# // DESIGN-GAP: No transits/features fields exist in AstroChart; the current-sky fallback states this boundary and makes no dated claim.
+- id: astrology.fallback.overview
+  system: astrology
+  section: overview
+  topic: fallback_overview
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: &id001 []
+  zh:
+    title: 从命盘提问，而不是给自己定型
+    summary: 你可以把命盘当作观察习惯的入口，具体生活仍是理解自己的主要背景。
+    body: 你可以先找一个愿意观察的日常习惯，再把命盘当成提供不同角度的地图。命盘（出生时天体位置的结构记录）在这里用于文化性的自我反思，不评价人的高低，也不替代现实判断。太阳关注选择，月亮关注感受，上升需要出生时间；不同线索可以互相补充。比如，回看一次普通讨论，比较你原先想表达的意思与别人听到的内容。可以选一个有帮助的问题记下来，一周后再用实际经历修正；没有共鸣的描述也允许放下。
+    advice:
+      - 选一个问题，用一周经历检验
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: A map for asking questions
+    summary: You can use the chart to ask about habits while keeping your life context central.
+    body:
+      You can begin with one everyday habit you would like to understand. A natal chart — a structured
+      record of positions at birth — offers symbolic perspectives for cultural reflection, while your
+      circumstances remain central. The Sun concerns chosen direction, the Moon concerns emotional
+      habits, and a known birth time makes the Ascendant available as another perspective. These lenses
+      can complement one another without settling who you are. Think of an ordinary discussion and
+      compare what you intended to express with what another person heard. Try keeping one useful
+      question for the coming week, then revise it in light of experience. A description that does
+      not resonate can be set aside rather than defended as a label. Your own observations remain
+      welcome throughout the reading.
+    advice:
+      - Keep one question and review it against a week's experience
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.big_three
+  system: astrology
+  section: big_three
+  topic: fallback_big_three
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 把选择、感受与呈现分开观察
+    summary: 你可以分别观察想要什么、感到什么与怎样回应，不必要求三者一直相同。
+    body: 你可以分别观察想要什么、感到什么与怎样回应，允许三个角度有不同答案。太阳（象征自主选择）与月亮（象征情绪习惯）是两条基础线索；上升（出生时东方地平线升起的星座）描述进入场景的方式，需要已知时间与地点。缺少时间时，正午盘只是暂用当地中午计算，月亮也可能在一天内换星座，因此这里不推定上升或落宫。比如，你愿意参与一项活动，却希望先安静准备，这并不矛盾，可以先说明意愿，再协商准备时间。建议把意愿、感受和开场方式各写一行，选一处能够协调的小调整；术语是提问工具，不需要用它们为每次回应辩护。
+    advice:
+      - 分别写下意愿、感受与开场方式
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Distinguish choice, feeling, and presentation
+    summary: You can examine what you choose, what you feel, and how you respond separately.
+    body:
+      You can allow different answers to what you choose, what you feel, and how you first respond.
+      The Sun — the symbolic lens on chosen direction — and the Moon — the lens on emotional habits
+      — offer basic perspectives. The Ascendant — the sign rising at the eastern horizon — describes
+      an opening style and requires a birth time and location. Without a time, the engine uses local
+      noon as a provisional calculation; the Moon may change sign during that day, and houses or an
+      Ascendant should not be inferred. Imagine wanting to join an activity while also needing a quiet
+      interval to prepare. Both needs can be expressed without treating one as a contradiction of
+      the other. Try writing a separate line for your intention, feeling, and first response, then
+      choose one manageable adjustment. Ask what the real interaction reveals before drawing a conclusion
+      from the chart. You do not need a single label to justify every response, and ordinary feedback
+      can add information the chart cannot supply.
+    advice:
+      - Write separate notes on your intention, feeling, and opening response
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.planets
+  system: astrology
+  section: planets
+  topic: fallback_planets
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 不同面向，需要不同练习
+    summary: 你可以从一个具体习惯出发，逐步观察不同人格面向怎样配合。
+    body: 你可以从一个具体习惯出发，逐步观察思考、欣赏与行动怎样配合。行星（这里指命盘中用于象征不同经验的天体和计算点）各有观察主题，并不是在替你决定日常选择；星座描述表达方式，已知时间时的宫位描述更容易看见它的生活领域。慢行星的位置带有同龄人共享的世代背景，不能只凭它们概括个人。比如，面对一个新任务，你可分别问自己是否理解步骤、是否愿意参与、是否知道第一步；答案不同可以帮助发现真正卡住的环节。可以只为那个环节安排一次练习，之后再检查是否需要其他支持；不要把所有困难归给同一位置，具体环境、经验与协作者的回应都值得一起看。
+    advice:
+      - 只为一个卡住的环节安排练习
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Different functions need different practice
+    summary: You can examine one habit before linking different personal functions.
+    body: You can start with a concrete habit and ask how thinking, appreciation, and action work
+      together. Chart bodies — the celestial objects and calculated points used as symbolic lenses
+      — have different themes, without deciding your everyday choices for you. A sign describes a
+      style of expression; when birth time is known, a house describes a life area where it may be
+      noticed. Slower-moving placements also belong to a generational setting, so they need context
+      before becoming a personal description. Imagine taking on a new task. Ask separately whether
+      you understand the steps, want to participate, and know how to begin. Different answers can
+      reveal which part needs support. Try a limited exercise for that part before adding more explanations.
+      A conversation with a collaborator, a clearer instruction, or a change of timing may matter
+      more than a chart label. Review what helps and keep the reading open to correction through experience.
+      Your surroundings and available practice remain part of the picture.
+    advice:
+      - Practice one part of a task that currently feels unclear
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.houses
+  system: astrology
+  section: houses
+  topic: fallback_houses
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 宫位需要出生时间
+    summary: 有时间与地点时可观察生活领域；资料不足时先用日常场景提出问题。
+    body: 你可以从真实生活领域提出问题，而不把缺少的宫位资料补成确定结论。宫位（依出生时地平线与天体位置划分的生活领域）需要已知出生时间和地点；若这张盘没有宫位，本章只说明阅读方法，不推测上升、宫头或行星落宫。若资料齐全，宫头是领域的起点，落入行星是观察面向，仍要放回日常经验理解。比如，你想改善协作，可以先记录哪次交流容易、哪次需要澄清，无需先确定是哪一宫造成。建议写下一个生活领域与一个具体问题，资料不足时保留问号，资料齐全时再与相应位置比较；没有行星落入的宫位也仍是生活的一部分，不能把空宫理解成没有机会或经验。
+    advice:
+      - 给一个生活领域写下具体问题
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Houses require a birth time
+    summary: Life areas need a time and location; everyday questions remain useful when those are
+      missing.
+    body:
+      You can ask about a real life area without filling missing chart information with certainty.
+      Houses — divisions of the chart into symbolic life areas — require a known birth time and location.
+      If this chart has no houses, the chapter explains how to read them rather than inferring an
+      Ascendant, cusp, or planetary house. With sufficient information, a cusp marks an entry into
+      an area and an occupant provides another lens, while actual experience still matters. Suppose
+      you want to make collaboration easier. Record an exchange that worked and one that needed clarification
+      before deciding what kind of adjustment would help. Try naming one life area and one concrete
+      question; keep an unanswered question open if the data are missing. If time becomes available,
+      compare the relevant placement with the observation rather than expecting it to replace the
+      observation. A house without an occupant remains part of life and does not imply an absence
+      of opportunities. The chart is a framework for reflection, not an inventory of experiences you
+      are allowed to have.
+    advice:
+      - Name one life area and a concrete question to explore
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.aspects
+  system: astrology
+  section: aspects
+  topic: fallback_aspects
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 先分清需要，再寻找配合
+    summary: 你可以把相位当作理解不同需要如何对话的线索。
+    body: 你可以先分清不同需要，再寻找它们能够配合的安排。相位（两颗命盘天体之间的角度关系）是占星中的象征语言，描述面向之间的联系，不预告具体事件；主要关系包括合、六分、四分、三分与对冲，名称本身不把人划成好坏。即使没有适合本章的主要相位，你也能通过真实互动观察协调方式。比如，你想立即开始一项任务，却也希望先了解细节，可把开始前必须确认的问题与过程中可继续探索的问题分开。可以给两个需要分别命名，再约定一个先后顺序和回看节点；顺手的配合需要使用，紧张的配合也有协商空间，不必让一个角度代替你和伙伴共同做决定。
+    advice:
+      - 给两个需要命名并约定顺序
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Clarify needs before coordinating them
+    summary: You can use aspects to explore how different needs interact.
+    body:
+      You can clarify different needs before deciding how to coordinate them. An aspect — an angular
+      relationship between two chart bodies — is symbolic language about how functions connect, rather
+      than a forecast of an event. Major relationships include conjunction, sextile, square, trine,
+      and opposition, but those names do not divide people into good and bad categories. Even when
+      no applicable major aspect is available for this chapter, an ordinary interaction can show how
+      you negotiate priorities. Imagine wanting to begin a task immediately while also needing a better
+      explanation. Separate the questions that must be answered before starting from those you can
+      investigate along the way. Try naming both needs, agreeing on an order, and setting a point
+      to review the arrangement. A comfortable connection still needs to be used, while a tense one
+      leaves room for learning and negotiation. Another person's response can reveal something about
+      the arrangement without making them the cause of all your inner conflict.
+    advice:
+      - Name both needs and agree on an order for addressing them
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.love_career
+  system: astrology
+  section: love_career
+  topic: fallback_love_career
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 关系与工作，都从具体需要谈起
+    summary: 你可以用清楚的需要与贡献参与协商，让选择适合真实生活。
+    body: 你可以让关系与工作中的选择，从清楚的需要和贡献开始。金星（象征欣赏与关系偏好）、火星（象征行动与边界）、太阳（象征自主选择）和土星（象征责任与练习）提供不同提问角度；有时间时还可看相关宫位，没有时间则不推定那些领域的位置。这里不预测伴侣身份、关系结果或职业成果，也不要求你进入任何关系形式。比如，与朋友或伙伴合作一件事，可以分别说出想怎样参与、愿意承担什么，以及何时需要停下来商量。建议写下一项需要与一项可提供的贡献，再听听对方如何理解；如果理解有差异，先改清楚表达，比用星座替对方解释动机更容易推动下一次协作。
+    advice:
+      - 写下一项需要与一项可提供的贡献
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Discuss concrete needs in relationships and work
+    summary: You can negotiate through clear needs and contributions that fit your life.
+    body: You can begin choices in relationships and work with a clear need and a contribution you
+      are willing to make. Venus — a lens on appreciation — Mars — a lens on action and boundaries
+      — the Sun — a lens on chosen direction — and Saturn — a lens on responsibility — ask different
+      questions. Relevant houses add context when time is known, while missing house information should
+      remain open. The reading does not predict a partner's identity, a relationship outcome, or a
+      career result, and it does not require a particular relationship form. Imagine collaborating
+      with a friend. Say how you want to participate, what you can carry, and when you need a pause
+      to renegotiate. Try writing one need beside one contribution, then ask how the other person
+      understood each. If the understandings differ, revise the wording before interpreting motives.
+      The practical value lies in making the next exchange clearer, with room for both people to choose
+      what they can sustain.
+    advice:
+      - Write one need beside one contribution and compare understandings
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.patterns
+  system: astrology
+  section: patterns
+  topic: fallback_patterns
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 统计与结构，提供观察角度
+    summary: 你可以用统计提出问题，让实际经验补充命盘分类。
+    body: 你可以用统计与结构提出问题，让实际经验补充命盘分类。元素（火土风水的星座分组）与模式（基本、固定、变动的表达分组）描述十颗行星的分布；星群表示集中位置，月相描述日月角距，两者并不评定人的高低。半球与象限需要宫位资料，缺少时间时不推定；一个分类也不能把未列出的能力从你身上删去。比如，你习惯先行动，却在另一件事上愿意长时间观察，两种经验都可以被记录，不需要强行统一。建议选一次真实互动，分别记下启动、坚持与调整发生在哪里；若统计没有共鸣，保留差异也是有用结果，它提醒你命盘只是观察工具，环境与练习能让表达更加多样。
+    advice:
+      - 记录启动、坚持与调整各发生在哪里
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Statistics and structures offer perspectives
+    summary: You can use the chart's classifications to open questions about experience.
+    body:
+      You can use statistics and structures to ask questions, while actual experience adds information
+      beyond chart classifications. Elements — the fire, earth, air, and water groupings — and modes
+      — cardinal, fixed, and mutable styles — describe the signs of ten planets. A stellium is a concentration
+      of placements, and the Moon phase describes the Sun–Moon angle; neither is a ranking of people.
+      Hemisphere and quadrant information depends on houses and should remain open when time is missing.
+      A low count in one group does not remove a capacity from you. Imagine acting quickly in one
+      setting but observing patiently in another. Record both experiences rather than forcing them
+      into a single label. Try noting where initiating, persisting, and adapting each happened in
+      an ordinary interaction. If the statistics do not resonate, that difference is also useful information.
+      It keeps reflection responsive to circumstances and practice rather than asking you to perform
+      a category.
+    advice:
+      - Note where initiating, persisting, and adapting each occurred
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.transits_now
+  system: astrology
+  section: transits_now
+  topic: fallback_transits_now
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 当前行运需要另一份时间数据
+    summary: 本命盘没有当前天体位置，你可以先记录近期真实变化与需要。
+    body: 你可以先记录近期真实变化与需要，等当前天体位置齐全后再比较行运。行运（某一时刻的天体位置与本命盘之间的关系）需要另一个明确日期的计算结果；这张本命盘只保存出生时的位置，不能据此说某颗行星此刻正在影响你。本章提供观察方法，不把出生相位当成今日或本月的变化，也不推测外行星正在经过哪里。比如，一周里工作节奏调整了，你可以记录变化从何时开始、哪些是外界安排、哪些是自己的回应。建议把事实、感受和可调整的动作分开写，每次只尝试一个小变化；即使以后有了行运数据，它也只能成为反思线索，实际决定仍要结合你的日程、资源与参与者反馈。
+    advice:
+      - 分别记录近期事实、感受与可调整动作
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current transits need a separate time calculation
+    summary: The natal chart has no current positions; you can first record recent changes and needs.
+    body:
+      You can begin by recording recent changes and needs before comparing a separately calculated
+      current sky. A transit — a relationship between positions at a chosen time and the natal chart
+      — needs another explicitly dated calculation. This natal chart stores positions at birth, so
+      it cannot establish where a planet is now or whether it currently forms an aspect to a personal
+      point. This chapter offers an observation method rather than presenting birth aspects as today's
+      or this month's changes. If your working rhythm shifted during the week, record when it began,
+      what changed externally, and how you responded. Try separating facts, feelings, and one action
+      you can adjust, then test only that action before adding another. A future transit calculation
+      can provide a symbolic comparison, but your schedule, resources, and feedback remain essential
+      to a real decision. Nothing here supplies a timetable of events, and a date in the report context
+      alone does not create current planetary data.
+    advice:
+      - Separate recent facts, feelings, and one adjustable action
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.fallback.summary_actions
+  system: astrology
+  section: summary_actions
+  topic: fallback_summary_actions
+  when:
+    path: jdUT
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+    - astrology.keyword.curiosity
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 选一个小行动，把观察带回生活
+    summary: 你可以选一个低压力行动试一周，再决定哪些解读值得保留。
+    body: 你可以选一个低压力行动，把这次观察带回真实生活，再决定哪些解读值得保留。知识单元（带触发条件的双语解读段落）依据命盘位置被选中，反映文化性的解释框架，不是对行为的指令；同一个位置在不同环境里可以有不同表达。总结里的建议是试行选项，适合先挑一项，而不是把整份报告变成待完成清单。比如，你准备改善一次交流，可以先多问一个具体问题，一周后再比较对方是否更容易理解你的需要。建议为这项行动写下开始时间、可承受的投入与回看节点；没有帮助的做法可以调整或放下，重要决定仍应根据现实信息与必要的专业支持处理，阅读的价值在于让你更清楚地提问与选择。
+    advice:
+      - 给一个小行动安排一周后的回看节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Bring one small observation into practice
+    summary: You can test one modest action for a week before deciding what to retain.
+    body: You can choose one modest action and bring the observation back into ordinary life before
+      deciding which parts of the reading to retain. A knowledge unit — a bilingual passage selected
+      through chart conditions — belongs to a cultural interpretation framework rather than an instruction
+      for your behaviour. The same placement can appear differently across settings. The suggestions
+      gathered here are options to test, so there is no need to turn the whole report into a list
+      of obligations. Suppose you want to make an exchange clearer. Ask one additional concrete question,
+      then review after a week whether the other person understood your need more easily. Try setting
+      a start time, an affordable level of effort, and a point for reviewing the result. You can adapt
+      or set aside an unhelpful practice. Decisions with significant consequences still depend on
+      real information and appropriate professional support, while the reading can help you formulate
+      a question and notice a response.
+    advice:
+      - Set a review point a week after trying one modest action
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

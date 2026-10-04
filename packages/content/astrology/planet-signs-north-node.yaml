@@ -1,0 +1,622 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+- id: astrology.planet_sign.north_node.aries
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: aries
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在白羊座：先行动再校准
+    summary: 你在需要练习的成长方向上倾向先行动再校准。
+    body: 你在需要练习的成长方向上倾向先行动再校准，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在白羊座（以启动和直接回应为象征的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让这个面向倾向先尝试，再根据反馈修正；主动并不需要把速度放在所有事情之前。你可以练习自主提出一个小选择，不必为了成长而每次抢先发起。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可先做一版能被讨论的草案，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或把急迫感传给别人；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 开始前确认一个共同目标
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Aries: starting directly'
+    summary: You may approach a direction for deliberate growth by starting directly.
+    body: 'You may approach a direction for deliberate growth by starting directly, especially when
+      a familiar response is needed. North Node — the chart factor associated with a direction for
+      deliberate growth — is placed in Aries — a sign associated with initiating and responding directly.
+      The North Node is a calculated intersection of orbital planes rather than a planet; astrologers
+      use it as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality.
+      This approach suggests learning through a first attempt; The useful distinction is between opening
+      a possibility and insisting that everybody follow at your pace. An unfamiliar self-directed
+      choice can be a useful experiment; you do not need to become the first person to act in every
+      setting. For example, when invited into an unfamiliar role, try a limited contribution before
+      deciding whether the experience suits the person you want to become. Watch for passing urgency
+      to people who need context, as well as turning a growth prompt into an obligation to become
+      somebody else. Try this: agree on the purpose before moving quickly, then compare the response
+      with your original intention before deciding which part of the approach to keep.'
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.taurus
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: taurus
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在金牛座：稳定积累与具体感受
+    summary: 你在需要练习的成长方向上倾向稳定积累与具体感受。
+    body: 你在需要练习的成长方向上倾向稳定积累与具体感受，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在金牛座（重视稳定和感官经验的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你倾向用可触及的结果确认进展；熟悉感能支持耐心，也可能让改变显得费力。你可以练习持续接触一项具体经验，成长也允许保留已经适合的节奏。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可约定固定时段慢慢推进，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或把惯例当成唯一办法；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 保留惯例并试一个小调整
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Taurus: building through repetition'
+    summary: You may approach a direction for deliberate growth by building by repetition.
+    body:
+      'You may approach a direction for deliberate growth by building through repetition, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Taurus — a sign associated with steadiness and tangible
+      experience. The North Node is a calculated intersection of orbital planes rather than a planet;
+      astrologers use it as a prompt for practicing an unfamiliar approach, not as proof that you
+      lack a quality. This approach suggests testing an idea through repeated contact with something
+      real; Comfort can support persistence, provided it leaves space for a useful adjustment. A repeated
+      contact with something tangible may offer practice; growth can include keeping a useful rhythm
+      rather than replacing every familiar habit. For example, when invited into an unfamiliar role,
+      try a limited contribution before deciding whether the experience suits the person you want
+      to become. Watch for treating a familiar routine as the only workable option, as well as turning
+      a growth prompt into an obligation to become somebody else. Try this: keep the useful routine
+      and alter one detail, then compare the response with your original intention before deciding
+      which part of the approach to keep.'
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.gemini
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: gemini
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在双子座：交换信息与比较视角
+    summary: 你在需要练习的成长方向上倾向交换信息与比较视角。
+    body: 你在需要练习的成长方向上倾向交换信息与比较视角，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在双子座（以交流和好奇为象征的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你倾向通过提问与比较理解经验；选项越多越需要区分探索阶段与落实阶段。你可以练习通过提问了解不同说法，新的观点可以先试用而不急于全盘接受。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可把两个不同观点放在同一张笔记上，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或一直搜集而不落定；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 讨论后写下一项明确选择
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Gemini: connecting different viewpoints'
+    summary: You may approach a direction for deliberate growth by connecting different viewpoints.
+    body: 'You may approach a direction for deliberate growth by connecting different viewpoints,
+      especially when a familiar response is needed. North Node — the chart factor associated with
+      a direction for deliberate growth — is placed in Gemini — a sign associated with curiosity and
+      exchange. The North Node is a calculated intersection of orbital planes rather than a planet;
+      astrologers use it as a prompt for practicing an unfamiliar approach, not as proof that you
+      lack a quality. This approach suggests that a second viewpoint can reveal what a single explanation
+      missed; Gathering options helps when you also choose a moment to stop gathering and decide.
+      A question asked in a different way can invite another perspective; try using the account provisionally
+      without needing to adopt its entire framework. For example, when invited into an unfamiliar
+      role, try a limited contribution before deciding whether the experience suits the person you
+      want to become. Watch for continuing to collect alternatives after a decision is needed, as
+      well as turning a growth prompt into an obligation to become somebody else. Try this: end the
+      discussion with one provisional choice, then compare the response with your original intention
+      before deciding which part of the approach to keep.'
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.cancer
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: cancer
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在巨蟹座：照顾感受与建立归属
+    summary: 你在需要练习的成长方向上倾向照顾感受与建立归属。
+    body: 你在需要练习的成长方向上倾向照顾感受与建立归属，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在巨蟹座（重视照顾与归属的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你容易注意经历背后的感受；照顾别人之前，确认自己的余量有助于维持真诚。你可以练习明确表达照顾需要，成长并不要求你独自承担所有人的感受。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可先问参与者怎样才感到被照顾，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或默默承担全部照顾；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 问清需要再决定如何支持
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Cancer: creating a sense of belonging'
+    summary: You may approach a direction for deliberate growth by creating a sense of belonging.
+    body:
+      "You may approach a direction for deliberate growth by creating a sense of belonging, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Cancer — a sign associated with care and belonging. The
+      North Node is a calculated intersection of orbital planes rather than a planet; astrologers
+      use it as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality.
+      This approach suggests paying attention to what makes an experience feel emotionally safe; Attentiveness
+      becomes more sustainable when it includes your own capacity, not only somebody else's comfort.
+      Practicing a direct request for care may offer a new experience; it does not ask you to take
+      responsibility for everybody's emotional comfort. For example, when invited into an unfamiliar
+      role, try a limited contribution before deciding whether the experience suits the person you
+      want to become. Watch for taking responsibility for feelings nobody has asked you to manage,
+      as well as turning a growth prompt into an obligation to become somebody else. Try this: ask
+      what support is wanted before offering it, then compare the response with your original intention
+      before deciding which part of the approach to keep."
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.leo
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: leo
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在狮子座：表达热情与获得回应
+    summary: 你在需要练习的成长方向上倾向表达热情与获得回应。
+    body: 你在需要练习的成长方向上倾向表达热情与获得回应，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在狮子座（重视创造与真诚表达的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你倾向把个人热情带进事情里；被回应会增加动力，也需要给不同风格留空间。你可以练习带个人心意的表达，尝试创作也不需要先获得公开认可。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可用一个个人故事说明想法，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或把没被赞同等同于没被尊重；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 表达之后邀请另一种声音
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Leo: making expression personal'
+    summary: You may approach a direction for deliberate growth by making expression personal.
+    body:
+      "You may approach a direction for deliberate growth by making expression personal, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Leo — a sign associated with creative expression. The North
+      Node is a calculated intersection of orbital planes rather than a planet; astrologers use it
+      as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality. This
+      approach suggests giving an activity a personal voice; Recognition can energize that contribution,
+      while listening makes room for someone whose enthusiasm looks quieter than yours. An expression
+      with a personal voice may be worth trying; a private creation can teach you something without
+      first earning an audience's approval. For example, when invited into an unfamiliar role, try
+      a limited contribution before deciding whether the experience suits the person you want to become.
+      Watch for equating a lack of applause with a lack of respect, as well as turning a growth prompt
+      into an obligation to become somebody else. Try this: invite a quieter contribution after sharing
+      yours, then compare the response with your original intention before deciding which part of
+      the approach to keep."
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.virgo
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: virgo
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在处女座：整理细节与改善流程
+    summary: 你在需要练习的成长方向上倾向整理细节与改善流程。
+    body: 你在需要练习的成长方向上倾向整理细节与改善流程，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在处女座（以辨别和实用改进为象征的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你容易发现可调整的细节；分析能提供帮助，但不必把每个差异都变成待修正的问题。你可以练习把模糊想法接到可用步骤，成长不必成为追求无遗漏的任务。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可选一个最妨碍使用的细节改进，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或反复挑错而忘记目的；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 先约定怎样算够用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Virgo: improving practical details'
+    summary: You may approach a direction for deliberate growth by improving practical details.
+    body:
+      'You may approach a direction for deliberate growth by improving practical details, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Virgo — a sign associated with discernment and practical
+      improvement. The North Node is a calculated intersection of orbital planes rather than a planet;
+      astrologers use it as a prompt for practicing an unfamiliar approach, not as proof that you
+      lack a quality. This approach suggests noticing where a small correction makes work easier;
+      The point is to make something usable, while allowing ordinary variation that needs no correction.
+      Giving an impression a usable sequence can be a modest experiment; there is no need to turn
+      the exercise into a demand to notice every detail. For example, when invited into an unfamiliar
+      role, try a limited contribution before deciding whether the experience suits the person you
+      want to become. Watch for finding faults long after a result is useful enough, as well as turning
+      a growth prompt into an obligation to become somebody else. Try this: agree on a usable standard
+      before refining further, then compare the response with your original intention before deciding
+      which part of the approach to keep.'
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.libra
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: libra
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在天秤座：协调差异与寻找公平
+    summary: 你在需要练习的成长方向上倾向协调差异与寻找公平。
+    body: 你在需要练习的成长方向上倾向协调差异与寻找公平，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在天秤座（重视协调与公平的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你倾向先理解不同立场；能谈成的平衡需要真实偏好参与，不能只靠你不断退让。你可以练习把自己的偏好放进协商，理解别人的立场也不要求持续退让。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可把双方需要并列写出来，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或为了平静而藏起意见；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 把自己的需要也放进讨论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Libra: negotiating a workable balance'
+    summary: You may approach a direction for deliberate growth by negotiating a workable balance.
+    body:
+      "You may approach a direction for deliberate growth by negotiating a workable balance, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Libra — a sign associated with fairness and negotiation.
+      The North Node is a calculated intersection of orbital planes rather than a planet; astrologers
+      use it as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality.
+      This approach suggests looking at a question from both sides; A workable agreement needs your
+      real preference as well as consideration for somebody else's position; agreement alone is not
+      balance. Bringing a preference of your own into negotiation can offer practice; understanding
+      another position does not require you to agree to it each time. For example, when invited into
+      an unfamiliar role, try a limited contribution before deciding whether the experience suits
+      the person you want to become. Watch for hiding a preference to preserve a temporary peace,
+      as well as turning a growth prompt into an obligation to become somebody else. Try this: include
+      your own need in the negotiation, then compare the response with your original intention before
+      deciding which part of the approach to keep."
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.scorpio
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: scorpio
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在天蝎座：深入理解与谨慎建立信任
+    summary: 你在需要练习的成长方向上倾向深入理解与谨慎建立信任。
+    body: 你在需要练习的成长方向上倾向深入理解与谨慎建立信任，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在天蝎座（以深入和信任边界为象征的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你容易追问表面之下的动机；深入理解需要证据，也需要尊重别人暂不分享的空间。你可以练习逐步建立信任与共享边界，深入参与仍可以保留私人空间。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可在重要合作中逐步交换信息，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或把沉默当成隐藏问题的证据；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 允许信任随具体行动累积
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Scorpio: developing trust through depth'
+    summary: You may approach a direction for deliberate growth by developing trust by depth.
+    body:
+      "You may approach a direction for deliberate growth by developing trust through depth, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Scorpio — a sign associated with depth and careful trust.
+      The North Node is a calculated intersection of orbital planes rather than a planet; astrologers
+      use it as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality.
+      This approach suggests staying with a question beyond its first answer; That attention is more
+      useful when curiosity remains distinguishable from a demand for access to somebody else's private
+      experience. A small agreement about trust can be an unfamiliar exercise; participation remains
+      compatible with deciding which part of an experience to keep private. For example, when invited
+      into an unfamiliar role, try a limited contribution before deciding whether the experience suits
+      the person you want to become. Watch for taking somebody's silence as evidence of a hidden
+      intention, as well as turning a growth prompt into an obligation to become somebody else. Try
+      this: let trust grow through observable agreements, then compare the response with your original
+      intention before deciding which part of the approach to keep."
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.sagittarius
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: sagittarius
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在射手座：拓宽视野与寻找意义
+    summary: 你在需要练习的成长方向上倾向拓宽视野与寻找意义。
+    body: 你在需要练习的成长方向上倾向拓宽视野与寻找意义，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在射手座（以探索和意义为象征的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你倾向从更大背景理解选择；方向感能鼓励尝试，也需要具体事实来修正过快的判断。你可以练习接触不同背景的经验，意义也可以在尚无完整答案时逐步形成。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可找一个与你经验不同的人交流，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或把个人经历推广给所有人；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 用具体事实检验整体判断
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Sagittarius: exploring a larger perspective'
+    summary: You may approach a direction for deliberate growth by exploring a larger perspective.
+    body:
+      'You may approach a direction for deliberate growth by exploring a larger perspective, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Sagittarius — a sign associated with exploration and meaning.
+      The North Node is a calculated intersection of orbital planes rather than a planet; astrologers
+      use it as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality.
+      This approach suggests asking how one experience fits a larger picture; A wider perspective
+      can inspire movement while remaining open to a detail that challenges the story you first found
+      convincing. An encounter with a different background may offer practice; a useful sense of direction
+      can develop while part of the larger question remains unanswered. For example, when invited
+      into an unfamiliar role, try a limited contribution before deciding whether the experience suits
+      the person you want to become. Watch for presenting your own experience as a rule for everybody,
+      as well as turning a growth prompt into an obligation to become somebody else. Try this: check
+      the broad claim against one concrete case, then compare the response with your original intention
+      before deciding which part of the approach to keep.'
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.capricorn
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: capricorn
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在摩羯座：规划阶段与承担责任
+    summary: 你在需要练习的成长方向上倾向规划阶段与承担责任。
+    body: 你在需要练习的成长方向上倾向规划阶段与承担责任，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在摩羯座（重视规划和现实责任的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你倾向按阶段推进；看见长期价值有助于耐心，但人的需要也值得进入计划。你可以练习承担一项有边界的长期责任，成长也需要休息与协作者支持。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可为长期目标安排阶段检查点，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或把承担更多当成唯一贡献；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 给计划同时安排休息与协作
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Capricorn: organizing sustained effort'
+    summary: You may approach a direction for deliberate growth by organizing sustained effort.
+    body:
+      'You may approach a direction for deliberate growth by organizing sustained effort, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Capricorn — a sign associated with planning and responsibility.
+      The North Node is a calculated intersection of orbital planes rather than a planet; astrologers
+      use it as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality.
+      This approach suggests translating intentions into stages; A durable plan includes the people
+      doing the work, so rest, support, and renegotiation belong beside milestones rather than outside
+      them. A defined long commitment can be an experiment in responsibility; make room for rest and
+      support rather than measuring progress by carrying more alone. For example, when invited into
+      an unfamiliar role, try a limited contribution before deciding whether the experience suits
+      the person you want to become. Watch for assuming that carrying more is the only meaningful
+      contribution, as well as turning a growth prompt into an obligation to become somebody else.
+      Try this: plan for support and rest beside the milestones, then compare the response with your
+      original intention before deciding which part of the approach to keep.'
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.aquarius
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: aquarius
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在水瓶座：检视规则与保留独立
+    summary: 你在需要练习的成长方向上倾向检视规则与保留独立。
+    body: 你在需要练习的成长方向上倾向检视规则与保留独立，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在水瓶座（关注规则和独立视角的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你倾向思考事情能否换一种安排；抽象理想需要听见实际参与者的具体感受。你可以练习提出规则的另一种安排，独立观点也可以接受真实使用者的修正。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可请实际使用者评价新规则，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或只谈理念而跳过体验；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 让新想法接受真实使用反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Aquarius: questioning shared assumptions'
+    summary: You may approach a direction for deliberate growth by questioning shared assumptions.
+    body:
+      'You may approach a direction for deliberate growth by questioning shared assumptions, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Aquarius — a sign associated with independent thinking
+      and shared systems. The North Node is a calculated intersection of orbital planes rather than
+      a planet; astrologers use it as a prompt for practicing an unfamiliar approach, not as proof
+      that you lack a quality. This approach suggests asking whether an inherited rule still serves
+      its purpose; An elegant alternative needs feedback from the people who will live with its practical
+      consequences. An alternative arrangement can be worth proposing; inviting correction from someone
+      affected by it can be part of independence rather than an obstacle to it. For example, when
+      invited into an unfamiliar role, try a limited contribution before deciding whether the experience
+      suits the person you want to become. Watch for discussing a principle without hearing how it
+      feels in practice, as well as turning a growth prompt into an obligation to become somebody
+      else. Try this: invite feedback from someone affected by the proposal, then compare the response
+      with your original intention before deciding which part of the approach to keep.'
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.planet_sign.north_node.pisces
+  system: astrology
+  section: planets
+  topic: north_node_sign
+  when:
+    path: bodies[key=north_node].sign
+    eq: pisces
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: []
+  zh:
+    title: 北交点在双鱼座：感受氛围与灵活联想
+    summary: 你在需要练习的成长方向上倾向感受氛围与灵活联想。
+    body: 你在需要练习的成长方向上倾向感受氛围与灵活联想，可以把这种偏好当作观察起点。北交点（象征需要练习的成长方向的命盘要素）落在双鱼座（以感受和联想为象征的星座），把这个面向与相应的表达方式联系起来；这是月球轨道与黄道的交点，不是实体行星；传统上用来描述值得练习的方向，而非你欠缺某种品质。这种表达方式让你容易借氛围理解经验；开放感能带来灵感，也需要清楚边界来减少误会。你可以练习用图像或感受表达经验，开放也可以与具体责任边界并存。例如，面对不熟悉的角色时，先尝试一次低压力参与，再判断是否值得继续，也可把模糊想法画成可讨论的草图，比较哪种方式更容易让参与者理解。留意是否把成长方向写成必须完成的清单，或把共情理解成替别人决定；建议选择一次低压力的新尝试，用实际回应调整节奏，而不是凭一个位置给自己下定论。
+    advice:
+      - 把直觉带回具体问题核对
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'North Node in Pisces: responding through imagination'
+    summary: You may approach a direction for deliberate growth by responding by imagination.
+    body:
+      "You may approach a direction for deliberate growth by responding through imagination, especially
+      when a familiar response is needed. North Node — the chart factor associated with a direction
+      for deliberate growth — is placed in Pisces — a sign associated with imagination and receptivity.
+      The North Node is a calculated intersection of orbital planes rather than a planet; astrologers
+      use it as a prompt for practicing an unfamiliar approach, not as proof that you lack a quality.
+      This approach suggests noticing connections that a rigid explanation misses; Sensitivity becomes
+      easier to use when you distinguish your impression from another person's stated need or an
+      agreed responsibility. An imaginative form may help you express an experience; receptivity and
+      a clearly stated practical boundary can be practiced within the same exchange. For example,
+      when invited into an unfamiliar role, try a limited contribution before deciding whether the
+      experience suits the person you want to become. Watch for assuming empathy gives you permission
+      to decide for somebody else, as well as turning a growth prompt into an obligation to become
+      somebody else. Try this: check an intuitive impression through a specific question, then compare
+      the response with your original intention before deciding which part of the approach to keep."
+    advice:
+      - Choose an unfamiliar action with modest stakes
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

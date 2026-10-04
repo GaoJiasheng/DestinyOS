@@ -1,0 +1,707 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+# // DESIGN-GAP: The fourteen biases are high/low states of four elements and three modes; high >=4/5, low <=1 in the engine’s equal-weight ten-planet tally, without claiming uniqueness.
+- id: astrology.stat.fire.high
+  system: astrology
+  section: patterns
+  topic: stat_fire
+  when:
+    path: stats.elements.fire
+    gte: 4
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: &id001 []
+  zh:
+    title: 火元素计数较多：观察行动热情与尝试
+    summary: 你可以从行动热情与尝试观察火元素计数较多的线索。
+    body: 你可以观察行动热情与尝试怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，火元素（白羊、狮子、射手共享的表达分类）计数较多，本条以至少4颗为触发门槛；这一分组关注开始、表达与探索；它是对十颗行星所在星座的归类，不测量人的体力或勇敢程度。这类表达较常被提起，你可能容易用它寻找开场，但也值得给其他方式保留机会。例如，决定参加新活动时，你可以观察自己是否需要先听见一个让人振奋的理由，再把参与方式落到日程里，再记录哪种回应比较合适。若单一方式让事情卡住，可以先找到愿意尝试的理由，再核对余量，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 先找到愿意尝试的理由，再核对余量
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Fire: relatively represented'
+    summary: The chart invites attention to initiative and enthusiasm, with this grouping relatively
+      represented.
+    body:
+      "You can investigate initiative and enthusiasm without turning the count into a personality
+      score. In the tally of ten planets, Fire — the grouping shared by Aries, Leo, and Sagittarius
+      — is relatively represented; this unit uses a threshold of 4 or more. This grouping represents
+      initiating, expressing, and exploring. The count classifies the signs of ten planets rather
+      than measuring courage, stamina, or a person's worth. You may reach for this approach readily,
+      while still benefiting from a different response when the situation asks for one. For example,
+      when invited to an unfamiliar activity, notice whether an exciting purpose makes it easier to
+      begin, then check how the invitation fits your actual week. Consider this: connect an appealing
+      purpose with the time you actually have, then invite an alternative approach if the first response
+      leaves you stuck. Elements and modes are two classifications of the same chart, so the counts
+      should open questions about actual experience rather than settle them."
+    advice:
+      - Connect an appealing purpose with the time you actually have
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.fire.low
+  system: astrology
+  section: patterns
+  topic: stat_fire
+  when:
+    path: stats.elements.fire
+    lte: 1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 火元素计数较少：观察行动热情与尝试
+    summary: 你可以从行动热情与尝试观察火元素计数较少的线索。
+    body: 你可以观察行动热情与尝试怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，火元素（白羊、狮子、射手共享的表达分类）计数较少，本条以至多一颗为触发门槛；这一分组关注开始、表达与探索；它是对十颗行星所在星座的归类，不测量人的体力或勇敢程度。这类表达较少被列出，表示它未在本次统计中集中出现，不说明你无法使用或学习它。例如，决定参加新活动时，你可以观察自己是否需要先听见一个让人振奋的理由，再把参与方式落到日程里，再记录哪种回应比较合适。若单一方式让事情卡住，可以先找到愿意尝试的理由，再核对余量，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 先找到愿意尝试的理由，再核对余量
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Fire: lightly represented'
+    summary: The chart invites attention to initiative and enthusiasm, with this grouping lightly
+      represented.
+    body:
+      "You can investigate initiative and enthusiasm without turning the count into a personality
+      score. In the tally of ten planets, Fire — the grouping shared by Aries, Leo, and Sagittarius
+      — is lightly represented; this unit uses a threshold of one or fewer. This grouping represents
+      initiating, expressing, and exploring. The count classifies the signs of ten planets rather
+      than measuring courage, stamina, or a person's worth. A low count means the grouping is less
+      visible in this tally, not that you cannot use or learn the approach. For example, when invited
+      to an unfamiliar activity, notice whether an exciting purpose makes it easier to begin, then
+      check how the invitation fits your actual week. Consider this: connect an appealing purpose
+      with the time you actually have, then invite an alternative approach if the first response leaves
+      you stuck. Elements and modes are two classifications of the same chart, so the counts should
+      open questions about actual experience rather than settle them."
+    advice:
+      - Connect an appealing purpose with the time you actually have
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.earth.high
+  system: astrology
+  section: patterns
+  topic: stat_earth
+  when:
+    path: stats.elements.earth
+    gte: 4
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土元素计数较多：观察具体步骤与稳定实践
+    summary: 你可以从具体步骤与稳定实践观察土元素计数较多的线索。
+    body: 你可以观察具体步骤与稳定实践怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，土元素（金牛、处女、摩羯共享的表达分类）计数较多，本条以至少4颗为触发门槛；这一分组关注触感、细节与持续推进；统计描述象征偏好，不能据此评定可靠程度或现实能力。这类表达较常被提起，你可能容易用它寻找开场，但也值得给其他方式保留机会。例如，开始整理生活空间时，你可以从一处容易使用的小区域做起，看看可见的变化是否增加继续的意愿，再记录哪种回应比较合适。若单一方式让事情卡住，可以选择一个看得见的进展节点，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 选择一个看得见的进展节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Earth: relatively represented'
+    summary:
+      The chart invites attention to practical detail and continuity, with this grouping relatively
+      represented.
+    body:
+      'You can investigate practical detail and continuity without turning the count into a personality
+      score. In the tally of ten planets, Earth — the grouping shared by Taurus, Virgo, and Capricorn
+      — is relatively represented; this unit uses a threshold of 4 or more. This grouping represents
+      tangible experience, useful detail, and sustained effort. The count describes a symbolic preference
+      rather than a rating of competence or reliability. You may reach for this approach readily,
+      while still benefiting from a different response when the situation asks for one. For example,
+      when reorganizing a space, start with the area that would make tomorrow easier, then notice
+      whether a visible result helps you continue without needing an elaborate plan. Consider this:
+      choose a visible checkpoint for practical progress, then invite an alternative approach if the
+      first response leaves you stuck. Elements and modes are two classifications of the same chart,
+      so the counts should open questions about actual experience rather than settle them.'
+    advice:
+      - Choose a visible checkpoint for practical progress
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.earth.low
+  system: astrology
+  section: patterns
+  topic: stat_earth
+  when:
+    path: stats.elements.earth
+    lte: 1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 土元素计数较少：观察具体步骤与稳定实践
+    summary: 你可以从具体步骤与稳定实践观察土元素计数较少的线索。
+    body: 你可以观察具体步骤与稳定实践怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，土元素（金牛、处女、摩羯共享的表达分类）计数较少，本条以至多一颗为触发门槛；这一分组关注触感、细节与持续推进；统计描述象征偏好，不能据此评定可靠程度或现实能力。这类表达较少被列出，表示它未在本次统计中集中出现，不说明你无法使用或学习它。例如，开始整理生活空间时，你可以从一处容易使用的小区域做起，看看可见的变化是否增加继续的意愿，再记录哪种回应比较合适。若单一方式让事情卡住，可以选择一个看得见的进展节点，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 选择一个看得见的进展节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Earth: lightly represented'
+    summary:
+      The chart invites attention to practical detail and continuity, with this grouping lightly
+      represented.
+    body:
+      'You can investigate practical detail and continuity without turning the count into a personality
+      score. In the tally of ten planets, Earth — the grouping shared by Taurus, Virgo, and Capricorn
+      — is lightly represented; this unit uses a threshold of one or fewer. This grouping represents
+      tangible experience, useful detail, and sustained effort. The count describes a symbolic preference
+      rather than a rating of competence or reliability. A low count means the grouping is less visible
+      in this tally, not that you cannot use or learn the approach. For example, when reorganizing
+      a space, start with the area that would make tomorrow easier, then notice whether a visible
+      result helps you continue without needing an elaborate plan. Consider this: choose a visible
+      checkpoint for practical progress, then invite an alternative approach if the first response
+      leaves you stuck. Elements and modes are two classifications of the same chart, so the counts
+      should open questions about actual experience rather than settle them.'
+    advice:
+      - Choose a visible checkpoint for practical progress
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.air.high
+  system: astrology
+  section: patterns
+  topic: stat_air
+  when:
+    path: stats.elements.air
+    gte: 4
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 风元素计数较多：观察概念交流与比较视角
+    summary: 你可以从概念交流与比较视角观察风元素计数较多的线索。
+    body: 你可以观察概念交流与比较视角怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，风元素（双子、天秤、水瓶共享的表达分类）计数较多，本条以至少4颗为触发门槛；这一分组关注信息、协商与规则；统计描述表达入口，不能用来判断智力高低或情绪是否丰富。这类表达较常被提起，你可能容易用它寻找开场，但也值得给其他方式保留机会。例如，遇到观点差异时，你可以请双方分别举例，把抽象争论变成能被理解的具体问题，再记录哪种回应比较合适。若单一方式让事情卡住，可以给抽象观点配一个具体例子，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 给抽象观点配一个具体例子
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Air: relatively represented'
+    summary:
+      The chart invites attention to ideas and exchanged perspectives, with this grouping relatively
+      represented.
+    body:
+      'You can investigate ideas and exchanged perspectives without turning the count into a personality
+      score. In the tally of ten planets, Air — the grouping shared by Gemini, Libra, and Aquarius
+      — is relatively represented; this unit uses a threshold of 4 or more. This grouping represents
+      information, negotiation, and shared systems. Its count describes an entry into experience,
+      not a measure of intelligence or emotional depth. You may reach for this approach readily, while
+      still benefiting from a different response when the situation asks for one. For example, when
+      a discussion becomes abstract, ask each person for an ordinary example; the different examples
+      may reveal that you are answering different questions. Consider this: pair an abstract idea
+      with an everyday example, then invite an alternative approach if the first response leaves you
+      stuck. Elements and modes are two classifications of the same chart, so the counts should open
+      questions about actual experience rather than settle them.'
+    advice:
+      - Pair an abstract idea with an everyday example
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.air.low
+  system: astrology
+  section: patterns
+  topic: stat_air
+  when:
+    path: stats.elements.air
+    lte: 1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 风元素计数较少：观察概念交流与比较视角
+    summary: 你可以从概念交流与比较视角观察风元素计数较少的线索。
+    body: 你可以观察概念交流与比较视角怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，风元素（双子、天秤、水瓶共享的表达分类）计数较少，本条以至多一颗为触发门槛；这一分组关注信息、协商与规则；统计描述表达入口，不能用来判断智力高低或情绪是否丰富。这类表达较少被列出，表示它未在本次统计中集中出现，不说明你无法使用或学习它。例如，遇到观点差异时，你可以请双方分别举例，把抽象争论变成能被理解的具体问题，再记录哪种回应比较合适。若单一方式让事情卡住，可以给抽象观点配一个具体例子，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 给抽象观点配一个具体例子
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Air: lightly represented'
+    summary:
+      The chart invites attention to ideas and exchanged perspectives, with this grouping lightly
+      represented.
+    body:
+      'You can investigate ideas and exchanged perspectives without turning the count into a personality
+      score. In the tally of ten planets, Air — the grouping shared by Gemini, Libra, and Aquarius
+      — is lightly represented; this unit uses a threshold of one or fewer. This grouping represents
+      information, negotiation, and shared systems. Its count describes an entry into experience,
+      not a measure of intelligence or emotional depth. A low count means the grouping is less visible
+      in this tally, not that you cannot use or learn the approach. For example, when a discussion
+      becomes abstract, ask each person for an ordinary example; the different examples may reveal
+      that you are answering different questions. Consider this: pair an abstract idea with an everyday
+      example, then invite an alternative approach if the first response leaves you stuck. Elements
+      and modes are two classifications of the same chart, so the counts should open questions about
+      actual experience rather than settle them.'
+    advice:
+      - Pair an abstract idea with an everyday example
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.water.high
+  system: astrology
+  section: patterns
+  topic: stat_water
+  when:
+    path: stats.elements.water
+    gte: 4
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 水元素计数较多：观察感受、连接与共情
+    summary: 你可以从感受、连接与共情观察水元素计数较多的线索。
+    body: 你可以观察感受、连接与共情怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，水元素（巨蟹、天蝎、双鱼共享的表达分类）计数较多，本条以至少4颗为触发门槛；这一分组关注归属、信任与感受；统计描述关注线索，不能决定谁更善良或更懂别人的心。这类表达较常被提起，你可能容易用它寻找开场，但也值得给其他方式保留机会。例如，朋友讲述一件烦心事时，你可以先问对方想被倾听还是一起想办法，再决定怎样回应，再记录哪种回应比较合适。若单一方式让事情卡住，可以先询问对方期待怎样被回应，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 先询问对方期待怎样被回应
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Water: relatively represented'
+    summary:
+      The chart invites attention to feeling and emotional connection, with this grouping relatively
+      represented.
+    body:
+      "You can investigate feeling and emotional connection without turning the count into a personality
+      score. In the tally of ten planets, Water — the grouping shared by Cancer, Scorpio, and Pisces
+      — is relatively represented; this unit uses a threshold of 4 or more. This grouping represents
+      belonging, trust, and receptivity. The count points toward a symbolic focus without determining
+      kindness or access to another person's feelings. You may reach for this approach readily, while
+      still benefiting from a different response when the situation asks for one. For example, when
+      a friend shares a difficult day, ask whether they want company or help thinking through a problem;
+      an explicit question can be kinder than a confident guess. Consider this: ask what kind of response
+      the other person wants, then invite an alternative approach if the first response leaves you
+      stuck. Elements and modes are two classifications of the same chart, so the counts should open
+      questions about actual experience rather than settle them."
+    advice:
+      - Ask what kind of response the other person wants
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.water.low
+  system: astrology
+  section: patterns
+  topic: stat_water
+  when:
+    path: stats.elements.water
+    lte: 1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 水元素计数较少：观察感受、连接与共情
+    summary: 你可以从感受、连接与共情观察水元素计数较少的线索。
+    body: 你可以观察感受、连接与共情怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，水元素（巨蟹、天蝎、双鱼共享的表达分类）计数较少，本条以至多一颗为触发门槛；这一分组关注归属、信任与感受；统计描述关注线索，不能决定谁更善良或更懂别人的心。这类表达较少被列出，表示它未在本次统计中集中出现，不说明你无法使用或学习它。例如，朋友讲述一件烦心事时，你可以先问对方想被倾听还是一起想办法，再决定怎样回应，再记录哪种回应比较合适。若单一方式让事情卡住，可以先询问对方期待怎样被回应，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 先询问对方期待怎样被回应
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Water: lightly represented'
+    summary:
+      The chart invites attention to feeling and emotional connection, with this grouping lightly
+      represented.
+    body:
+      "You can investigate feeling and emotional connection without turning the count into a personality
+      score. In the tally of ten planets, Water — the grouping shared by Cancer, Scorpio, and Pisces
+      — is lightly represented; this unit uses a threshold of one or fewer. This grouping represents
+      belonging, trust, and receptivity. The count points toward a symbolic focus without determining
+      kindness or access to another person's feelings. A low count means the grouping is less visible
+      in this tally, not that you cannot use or learn the approach. For example, when a friend shares
+      a difficult day, ask whether they want company or help thinking through a problem; an explicit
+      question can be kinder than a confident guess. Consider this: ask what kind of response the
+      other person wants, then invite an alternative approach if the first response leaves you stuck.
+      Elements and modes are two classifications of the same chart, so the counts should open questions
+      about actual experience rather than settle them."
+    advice:
+      - Ask what kind of response the other person wants
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.cardinal.high
+  system: astrology
+  section: patterns
+  topic: stat_cardinal
+  when:
+    path: stats.modalities.cardinal
+    gte: 5
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 基本模式计数较多：观察启动与推动变化
+    summary: 你可以从启动与推动变化观察基本模式计数较多的线索。
+    body: 你可以观察启动与推动变化怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，基本模式（白羊、巨蟹、天秤、摩羯共享的启动方式）计数较多，本条以至少5颗为触发门槛；这一分组关注让事情开始；它依据星座分组，不规定谁必须领导或谁应当配合。这类表达较常被提起，你可能容易用它寻找开场，但也值得给其他方式保留机会。例如，团队还在等待时，你可以先提出一个可协商的起点，再请伙伴补充条件，而不是直接安排全部工作，再记录哪种回应比较合适。若单一方式让事情卡住，可以开始时也约定交接与后续节奏，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 开始时也约定交接与后续节奏
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Cardinal: relatively represented'
+    summary: The chart invites attention to initiating a change, with this grouping relatively represented.
+    body:
+      'You can investigate initiating a change without turning the count into a personality score.
+      In the tally of ten planets, Cardinal — the mode shared by Aries, Cancer, Libra, and Capricorn
+      — is relatively represented; this unit uses a threshold of 5 or more. This grouping symbolizes
+      initiating a change. The grouping follows signs, without prescribing who should lead or who
+      must follow. You may reach for this approach readily, while still benefiting from a different
+      response when the situation asks for one. For example, when a group is waiting for direction,
+      offer a negotiable starting point and ask what conditions others need before assigning the whole
+      task. Consider this: plan the handoff as well as the beginning, then invite an alternative approach
+      if the first response leaves you stuck. Elements and modes are two classifications of the same
+      chart, so the counts should open questions about actual experience rather than settle them.'
+    advice:
+      - Plan the handoff as well as the beginning
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.cardinal.low
+  system: astrology
+  section: patterns
+  topic: stat_cardinal
+  when:
+    path: stats.modalities.cardinal
+    lte: 1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 基本模式计数较少：观察启动与推动变化
+    summary: 你可以从启动与推动变化观察基本模式计数较少的线索。
+    body: 你可以观察启动与推动变化怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，基本模式（白羊、巨蟹、天秤、摩羯共享的启动方式）计数较少，本条以至多一颗为触发门槛；这一分组关注让事情开始；它依据星座分组，不规定谁必须领导或谁应当配合。这类表达较少被列出，表示它未在本次统计中集中出现，不说明你无法使用或学习它。例如，团队还在等待时，你可以先提出一个可协商的起点，再请伙伴补充条件，而不是直接安排全部工作，再记录哪种回应比较合适。若单一方式让事情卡住，可以开始时也约定交接与后续节奏，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 开始时也约定交接与后续节奏
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Cardinal: lightly represented'
+    summary: The chart invites attention to initiating a change, with this grouping lightly represented.
+    body:
+      'You can investigate initiating a change without turning the count into a personality score.
+      In the tally of ten planets, Cardinal — the mode shared by Aries, Cancer, Libra, and Capricorn
+      — is lightly represented; this unit uses a threshold of one or fewer. This grouping symbolizes
+      initiating a change. The grouping follows signs, without prescribing who should lead or who
+      must follow. A low count means the grouping is less visible in this tally, not that you cannot
+      use or learn the approach. For example, when a group is waiting for direction, offer a negotiable
+      starting point and ask what conditions others need before assigning the whole task. Consider
+      this: plan the handoff as well as the beginning, then invite an alternative approach if the
+      first response leaves you stuck. Elements and modes are two classifications of the same chart,
+      so the counts should open questions about actual experience rather than settle them.'
+    advice:
+      - Plan the handoff as well as the beginning
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.fixed.high
+  system: astrology
+  section: patterns
+  topic: stat_fixed
+  when:
+    path: stats.modalities.fixed
+    gte: 5
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 固定模式计数较多：观察维持与深入投入
+    summary: 你可以从维持与深入投入观察固定模式计数较多的线索。
+    body: 你可以观察维持与深入投入怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，固定模式（金牛、狮子、天蝎、水瓶共享的维持方式）计数较多，本条以至少5颗为触发门槛；这一分组关注守住方向与深入投入；持续性可以被练习，不能只靠分组认定一个人固执。这类表达较常被提起，你可能容易用它寻找开场，但也值得给其他方式保留机会。例如，一项练习持续几周后，你可以检查哪些步骤仍有效，再决定保留主线还是调整方法，再记录哪种回应比较合适。若单一方式让事情卡住，可以给坚持同时安排一个调整节点，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 给坚持同时安排一个调整节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Fixed: relatively represented'
+    summary:
+      The chart invites attention to maintaining and deepening effort, with this grouping relatively
+      represented.
+    body:
+      'You can investigate maintaining and deepening effort without turning the count into a personality
+      score. In the tally of ten planets, Fixed — the mode shared by Taurus, Leo, Scorpio, and Aquarius
+      — is relatively represented; this unit uses a threshold of 5 or more. This grouping symbolizes
+      maintaining and deepening effort. Persistence can be practiced, so the count should not become
+      a label of stubbornness. You may reach for this approach readily, while still benefiting from
+      a different response when the situation asks for one. For example, after practicing something
+      for several weeks, check which steps still help before deciding whether to keep the main direction
+      or change the method. Consider this: set a review point within a sustained commitment, then
+      invite an alternative approach if the first response leaves you stuck. Elements and modes are
+      two classifications of the same chart, so the counts should open questions about actual experience
+      rather than settle them.'
+    advice:
+      - Set a review point within a sustained commitment
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.fixed.low
+  system: astrology
+  section: patterns
+  topic: stat_fixed
+  when:
+    path: stats.modalities.fixed
+    lte: 1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 固定模式计数较少：观察维持与深入投入
+    summary: 你可以从维持与深入投入观察固定模式计数较少的线索。
+    body: 你可以观察维持与深入投入怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，固定模式（金牛、狮子、天蝎、水瓶共享的维持方式）计数较少，本条以至多一颗为触发门槛；这一分组关注守住方向与深入投入；持续性可以被练习，不能只靠分组认定一个人固执。这类表达较少被列出，表示它未在本次统计中集中出现，不说明你无法使用或学习它。例如，一项练习持续几周后，你可以检查哪些步骤仍有效，再决定保留主线还是调整方法，再记录哪种回应比较合适。若单一方式让事情卡住，可以给坚持同时安排一个调整节点，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 给坚持同时安排一个调整节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Fixed: lightly represented'
+    summary:
+      The chart invites attention to maintaining and deepening effort, with this grouping lightly
+      represented.
+    body:
+      'You can investigate maintaining and deepening effort without turning the count into a personality
+      score. In the tally of ten planets, Fixed — the mode shared by Taurus, Leo, Scorpio, and Aquarius
+      — is lightly represented; this unit uses a threshold of one or fewer. This grouping symbolizes
+      maintaining and deepening effort. Persistence can be practiced, so the count should not become
+      a label of stubbornness. A low count means the grouping is less visible in this tally, not that
+      you cannot use or learn the approach. For example, after practicing something for several weeks,
+      check which steps still help before deciding whether to keep the main direction or change the
+      method. Consider this: set a review point within a sustained commitment, then invite an alternative
+      approach if the first response leaves you stuck. Elements and modes are two classifications
+      of the same chart, so the counts should open questions about actual experience rather than settle
+      them.'
+    advice:
+      - Set a review point within a sustained commitment
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.mutable.high
+  system: astrology
+  section: patterns
+  topic: stat_mutable
+  when:
+    path: stats.modalities.mutable
+    gte: 5
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 变动模式计数较多：观察适应与整合新信息
+    summary: 你可以从适应与整合新信息观察变动模式计数较多的线索。
+    body: 你可以观察适应与整合新信息怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，变动模式（双子、处女、射手、双鱼共享的适应方式）计数较多，本条以至少5颗为触发门槛；这一分组关注调整和整合；适应环境是可练习的过程，不等同于缺少立场或承诺。这类表达较常被提起，你可能容易用它寻找开场，但也值得给其他方式保留机会。例如，原计划出现新信息时，你可以先标出真正需要修改的部分，避免连仍有效的安排也一并放弃，再记录哪种回应比较合适。若单一方式让事情卡住，可以调整一处时保留仍有效的部分，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 调整一处时保留仍有效的部分
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Mutable: relatively represented'
+    summary:
+      The chart invites attention to adapting to new information, with this grouping relatively
+      represented.
+    body:
+      'You can investigate adapting to new information without turning the count into a personality
+      score. In the tally of ten planets, Mutable — the mode shared by Gemini, Virgo, Sagittarius,
+      and Pisces — is relatively represented; this unit uses a threshold of 5 or more. This grouping
+      symbolizes adaptation and integration. Adapting is a practice, not evidence that a person lacks
+      a position or cannot keep a commitment. You may reach for this approach readily, while still
+      benefiting from a different response when the situation asks for one. For example, when new
+      information affects a plan, mark the part that needs revision before changing anything that
+      still works; flexibility can coexist with a clear commitment. Consider this: keep what still
+      works while changing one part, then invite an alternative approach if the first response leaves
+      you stuck. Elements and modes are two classifications of the same chart, so the counts should
+      open questions about actual experience rather than settle them.'
+    advice:
+      - Keep what still works while changing one part
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.stat.mutable.low
+  system: astrology
+  section: patterns
+  topic: stat_mutable
+  when:
+    path: stats.modalities.mutable
+    lte: 1
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.curiosity
+  exclusive_with: *id001
+  zh:
+    title: 变动模式计数较少：观察适应与整合新信息
+    summary: 你可以从适应与整合新信息观察变动模式计数较少的线索。
+    body: 你可以观察适应与整合新信息怎样参与日常选择，而不急于据此评价自己。当前十颗行星统计中，变动模式（双子、处女、射手、双鱼共享的适应方式）计数较少，本条以至多一颗为触发门槛；这一分组关注调整和整合；适应环境是可练习的过程，不等同于缺少立场或承诺。这类表达较少被列出，表示它未在本次统计中集中出现，不说明你无法使用或学习它。例如，原计划出现新信息时，你可以先标出真正需要修改的部分，避免连仍有效的安排也一并放弃，再记录哪种回应比较合适。若单一方式让事情卡住，可以调整一处时保留仍有效的部分，并邀请一种不同的表达加入；元素和模式只是同一张命盘的两种分类，不需要把所有生活经验都套进统计结果。
+    advice:
+      - 调整一处时保留仍有效的部分
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Mutable: lightly represented'
+    summary: The chart invites attention to adapting to new information, with this grouping lightly
+      represented.
+    body:
+      'You can investigate adapting to new information without turning the count into a personality
+      score. In the tally of ten planets, Mutable — the mode shared by Gemini, Virgo, Sagittarius,
+      and Pisces — is lightly represented; this unit uses a threshold of one or fewer. This grouping
+      symbolizes adaptation and integration. Adapting is a practice, not evidence that a person lacks
+      a position or cannot keep a commitment. A low count means the grouping is less visible in this
+      tally, not that you cannot use or learn the approach. For example, when new information affects
+      a plan, mark the part that needs revision before changing anything that still works; flexibility
+      can coexist with a clear commitment. Consider this: keep what still works while changing one
+      part, then invite an alternative approach if the first response leaves you stuck. Elements and
+      modes are two classifications of the same chart, so the counts should open questions about actual
+      experience rather than settle them.'
+    advice:
+      - Keep what still works while changing one part
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

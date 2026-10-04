@@ -1,0 +1,1255 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+# // DESIGN-GAP: With no ascendant sign field, use houses[index=1].sign, equal to ASC in all supported house systems.
+- id: astrology.ascendant.aries.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: aries
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.aries.b
+  zh:
+    title: 上升白羊座：先行动再校准
+    summary: 你的开场方式倾向先行动再校准，熟悉后仍可调整。
+    body: 你进入新场景时倾向先行动再校准，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为白羊座（以启动和直接回应为象征的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让这个面向倾向先尝试，再根据反馈修正；主动并不需要把速度放在所有事情之前。例如，初次参加小组活动，你可以先做一版能被讨论的草案，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己把急迫感传给别人，不妨开始前确认一个共同目标，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 开始前确认一个共同目标
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Aries rising: an opening style'
+    summary: You may begin an unfamiliar encounter by starting directly.
+    body: 'You may enter an unfamiliar setting by starting directly, while your approach can change
+      as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth — is Aries
+      — a sign associated with initiating and responding directly —, identified here through the First
+      House cusp. It describes an opening style rather than the entirety of your personality. This
+      approach suggests learning through a first attempt. The useful distinction is between opening
+      a possibility and insisting that everybody follow at your pace. Imagine joining a group where
+      nobody knows your usual role. You might make a rough proposal that somebody can respond to,
+      and then notice how the group responds to your introduction. Pay attention to passing urgency
+      to people who need context, especially if that first approach becomes a rule you feel obliged
+      to repeat. Try this: agree on the purpose before moving quickly.'
+    advice:
+      - Agree on the purpose before moving quickly
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.aries.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: aries
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.aries.a
+  zh:
+    title: 上升白羊座：先行动再校准
+    summary: 你的开场方式倾向先行动再校准，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察先行动再校准的倾向。上升星座（出生时东方地平线升起的星座）落在白羊座（以启动和直接回应为象征的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让这个面向倾向先尝试，再根据反馈修正；主动并不需要把速度放在所有事情之前。比如，在一个尚不熟悉的协作场景里，你可先做一版能被讨论的草案，再问伙伴第一步是否容易跟上。留意把急迫感传给别人是否限制了交流，建议开始前确认一个共同目标，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 开始前确认一个共同目标
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Aries rising: an opening style'
+    summary: You may begin an unfamiliar encounter by starting directly.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Aries
+      — a sign associated with initiating and responding directly — is your Ascendant — the sign rising
+      at the eastern horizon when you were born — and is represented by the First House cusp. The
+      useful question is how your initial manner affects an exchange, rather than whether every person
+      sees you in the same way. This approach suggests learning through a first attempt. The useful
+      distinction is between opening a possibility and insisting that everybody follow at your pace.
+      At a first meeting, you could make a rough proposal that somebody can respond to, then ask someone
+      what made it easier or harder to participate. Notice whether passing urgency to people who need
+      context narrowed the options available to that person. Consider keeping the part of your approach
+      that helped, while changing one detail for the next meeting. Agree on the purpose before moving
+      quickly
+    advice:
+      - Agree on the purpose before moving quickly
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.taurus.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: taurus
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.taurus.b
+  zh:
+    title: 上升金牛座：稳定积累与具体感受
+    summary: 你的开场方式倾向稳定积累与具体感受，熟悉后仍可调整。
+    body: 你进入新场景时倾向稳定积累与具体感受，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为金牛座（重视稳定和感官经验的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你倾向用可触及的结果确认进展；熟悉感能支持耐心，也可能让改变显得费力。例如，初次参加小组活动，你可以约定固定时段慢慢推进，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己把惯例当成唯一办法，不妨保留惯例并试一个小调整，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 保留惯例并试一个小调整
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Taurus rising: an opening style'
+    summary: You may begin an unfamiliar encounter by building through repetition.
+    body: 'You may enter an unfamiliar setting by building through repetition, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Taurus — a sign associated with steadiness and tangible experience —, identified here through
+      the First House cusp. It describes an opening style rather than the entirety of your personality.
+      This approach suggests testing an idea through repeated contact with something real. Comfort
+      can support persistence, provided it leaves space for a useful adjustment. Imagine joining a
+      group where nobody knows your usual role. You might reserve a regular slot rather than relying
+      on enthusiasm, and then notice how the group responds to your introduction. Pay attention to
+      treating a familiar routine as the only workable option, especially if that first approach becomes
+      a rule you feel obliged to repeat. Try this: keep the useful routine and alter one detail.'
+    advice:
+      - Keep the useful routine and alter one detail
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.taurus.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: taurus
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.taurus.a
+  zh:
+    title: 上升金牛座：稳定积累与具体感受
+    summary: 你的开场方式倾向稳定积累与具体感受，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察稳定积累与具体感受的倾向。上升星座（出生时东方地平线升起的星座）落在金牛座（重视稳定和感官经验的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你倾向用可触及的结果确认进展；熟悉感能支持耐心，也可能让改变显得费力。比如，在一个尚不熟悉的协作场景里，你可约定固定时段慢慢推进，再问伙伴第一步是否容易跟上。留意把惯例当成唯一办法是否限制了交流，建议保留惯例并试一个小调整，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 保留惯例并试一个小调整
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Taurus rising: an opening style'
+    summary: You may begin an unfamiliar encounter by building through repetition.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Taurus
+      — a sign associated with steadiness and tangible experience — is your Ascendant — the sign rising
+      at the eastern horizon when you were born — and is represented by the First House cusp. The
+      useful question is how your initial manner affects an exchange, rather than whether every person
+      sees you in the same way. This approach suggests testing an idea through repeated contact with
+      something real. Comfort can support persistence, provided it leaves space for a useful adjustment.
+      At a first meeting, you could reserve a regular slot rather than relying on enthusiasm, then
+      ask someone what made it easier or harder to participate. Notice whether treating a familiar
+      routine as the only workable option narrowed the options available to that person. Consider
+      keeping the part of your approach that helped, while changing one detail for the next meeting.
+      Keep the useful routine and alter one detail
+    advice:
+      - Keep the useful routine and alter one detail
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.gemini.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: gemini
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.gemini.b
+  zh:
+    title: 上升双子座：交换信息与比较视角
+    summary: 你的开场方式倾向交换信息与比较视角，熟悉后仍可调整。
+    body: 你进入新场景时倾向交换信息与比较视角，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为双子座（以交流和好奇为象征的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你倾向通过提问与比较理解经验；选项越多越需要区分探索阶段与落实阶段。例如，初次参加小组活动，你可以把两个不同观点放在同一张笔记上，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己一直搜集而不落定，不妨讨论后写下一项明确选择，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 讨论后写下一项明确选择
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Gemini rising: an opening style'
+    summary: You may begin an unfamiliar encounter by connecting different viewpoints.
+    body:
+      'You may enter an unfamiliar setting by connecting different viewpoints, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Gemini — a sign associated with curiosity and exchange —, identified here through the First
+      House cusp. It describes an opening style rather than the entirety of your personality. This
+      approach suggests that a second viewpoint can reveal what a single explanation missed. Gathering
+      options helps when you also choose a moment to stop gathering and decide. Imagine joining a
+      group where nobody knows your usual role. You might compare two accounts before choosing a working
+      explanation, and then notice how the group responds to your introduction. Pay attention to continuing
+      to collect alternatives after a decision is needed, especially if that first approach becomes
+      a rule you feel obliged to repeat. Try this: end the discussion with one provisional choice.'
+    advice:
+      - End the discussion with one provisional choice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.gemini.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: gemini
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.gemini.a
+  zh:
+    title: 上升双子座：交换信息与比较视角
+    summary: 你的开场方式倾向交换信息与比较视角，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察交换信息与比较视角的倾向。上升星座（出生时东方地平线升起的星座）落在双子座（以交流和好奇为象征的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你倾向通过提问与比较理解经验；选项越多越需要区分探索阶段与落实阶段。比如，在一个尚不熟悉的协作场景里，你可把两个不同观点放在同一张笔记上，再问伙伴第一步是否容易跟上。留意一直搜集而不落定是否限制了交流，建议讨论后写下一项明确选择，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 讨论后写下一项明确选择
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Gemini rising: an opening style'
+    summary: You may begin an unfamiliar encounter by connecting different viewpoints.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Gemini
+      — a sign associated with curiosity and exchange — is your Ascendant — the sign rising at the
+      eastern horizon when you were born — and is represented by the First House cusp. The useful
+      question is how your initial manner affects an exchange, rather than whether every person sees
+      you in the same way. This approach suggests that a second viewpoint can reveal what a single
+      explanation missed. Gathering options helps when you also choose a moment to stop gathering
+      and decide. At a first meeting, you could compare two accounts before choosing a working explanation,
+      then ask someone what made it easier or harder to participate. Notice whether continuing to
+      collect alternatives after a decision is needed narrowed the options available to that person.
+      Consider keeping the part of your approach that helped, while changing one detail for the next
+      meeting. End the discussion with one provisional choice
+    advice:
+      - End the discussion with one provisional choice
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.cancer.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: cancer
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.cancer.b
+  zh:
+    title: 上升巨蟹座：照顾感受与建立归属
+    summary: 你的开场方式倾向照顾感受与建立归属，熟悉后仍可调整。
+    body: 你进入新场景时倾向照顾感受与建立归属，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为巨蟹座（重视照顾与归属的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你容易注意经历背后的感受；照顾别人之前，确认自己的余量有助于维持真诚。例如，初次参加小组活动，你可以先问参与者怎样才感到被照顾，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己默默承担全部照顾，不妨问清需要再决定如何支持，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 问清需要再决定如何支持
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Cancer rising: an opening style'
+    summary: You may begin an unfamiliar encounter by creating a sense of belonging.
+    body: "You may enter an unfamiliar setting by creating a sense of belonging, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Cancer — a sign associated with care and belonging —, identified here through the First
+      House cusp. It describes an opening style rather than the entirety of your personality. This
+      approach suggests paying attention to what makes an experience feel emotionally safe. Attentiveness
+      becomes more sustainable when it includes your own capacity, not only somebody else's comfort.
+      Imagine joining a group where nobody knows your usual role. You might ask what would help somebody
+      feel included, and then notice how the group responds to your introduction. Pay attention to
+      taking responsibility for feelings nobody has asked you to manage, especially if that first
+      approach becomes a rule you feel obliged to repeat. Try this: ask what support is wanted before
+      offering it."
+    advice:
+      - Ask what support is wanted before offering it
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.cancer.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: cancer
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.cancer.a
+  zh:
+    title: 上升巨蟹座：照顾感受与建立归属
+    summary: 你的开场方式倾向照顾感受与建立归属，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察照顾感受与建立归属的倾向。上升星座（出生时东方地平线升起的星座）落在巨蟹座（重视照顾与归属的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你容易注意经历背后的感受；照顾别人之前，确认自己的余量有助于维持真诚。比如，在一个尚不熟悉的协作场景里，你可先问参与者怎样才感到被照顾，再问伙伴第一步是否容易跟上。留意默默承担全部照顾是否限制了交流，建议问清需要再决定如何支持，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 问清需要再决定如何支持
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Cancer rising: an opening style'
+    summary: You may begin an unfamiliar encounter by creating a sense of belonging.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Cancer
+      — a sign associated with care and belonging — is your Ascendant — the sign rising at the eastern
+      horizon when you were born — and is represented by the First House cusp. The useful question
+      is how your initial manner affects an exchange, rather than whether every person sees you in
+      the same way. This approach suggests paying attention to what makes an experience feel emotionally
+      safe. Attentiveness becomes more sustainable when it includes your own capacity, not only somebody
+      else's comfort. At a first meeting, you could ask what would help somebody feel included, then
+      ask someone what made it easier or harder to participate. Notice whether taking responsibility
+      for feelings nobody has asked you to manage narrowed the options available to that person. Consider
+      keeping the part of your approach that helped, while changing one detail for the next meeting.
+      Ask what support is wanted before offering it
+    advice:
+      - Ask what support is wanted before offering it
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.leo.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: leo
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.leo.b
+  zh:
+    title: 上升狮子座：表达热情与获得回应
+    summary: 你的开场方式倾向表达热情与获得回应，熟悉后仍可调整。
+    body: 你进入新场景时倾向表达热情与获得回应，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为狮子座（重视创造与真诚表达的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你倾向把个人热情带进事情里；被回应会增加动力，也需要给不同风格留空间。例如，初次参加小组活动，你可以用一个个人故事说明想法，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己把没被赞同等同于没被尊重，不妨表达之后邀请另一种声音，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 表达之后邀请另一种声音
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Leo rising: an opening style'
+    summary: You may begin an unfamiliar encounter by making expression personal.
+    body: 'You may enter an unfamiliar setting by making expression personal, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Leo — a sign associated with creative expression —, identified here through the First House
+      cusp. It describes an opening style rather than the entirety of your personality. This approach
+      suggests giving an activity a personal voice. Recognition can energize that contribution, while
+      listening makes room for someone whose enthusiasm looks quieter than yours. Imagine joining
+      a group where nobody knows your usual role. You might share a personal example and invite another
+      voice, and then notice how the group responds to your introduction. Pay attention to equating
+      a lack of applause with a lack of respect, especially if that first approach becomes a rule
+      you feel obliged to repeat. Try this: invite a quieter contribution after sharing yours.'
+    advice:
+      - Invite a quieter contribution after sharing yours
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.leo.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: leo
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.leo.a
+  zh:
+    title: 上升狮子座：表达热情与获得回应
+    summary: 你的开场方式倾向表达热情与获得回应，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察表达热情与获得回应的倾向。上升星座（出生时东方地平线升起的星座）落在狮子座（重视创造与真诚表达的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你倾向把个人热情带进事情里；被回应会增加动力，也需要给不同风格留空间。比如，在一个尚不熟悉的协作场景里，你可用一个个人故事说明想法，再问伙伴第一步是否容易跟上。留意把没被赞同等同于没被尊重是否限制了交流，建议表达之后邀请另一种声音，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 表达之后邀请另一种声音
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Leo rising: an opening style'
+    summary: You may begin an unfamiliar encounter by making expression personal.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Leo
+      — a sign associated with creative expression — is your Ascendant — the sign rising at the eastern
+      horizon when you were born — and is represented by the First House cusp. The useful question
+      is how your initial manner affects an exchange, rather than whether every person sees you in
+      the same way. This approach suggests giving an activity a personal voice. Recognition can energize
+      that contribution, while listening makes room for someone whose enthusiasm looks quieter than
+      yours. At a first meeting, you could share a personal example and invite another voice, then
+      ask someone what made it easier or harder to participate. Notice whether equating a lack of
+      applause with a lack of respect narrowed the options available to that person. Consider keeping
+      the part of your approach that helped, while changing one detail for the next meeting. Invite
+      a quieter contribution after sharing yours
+    advice:
+      - Invite a quieter contribution after sharing yours
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.virgo.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: virgo
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.virgo.b
+  zh:
+    title: 上升处女座：整理细节与改善流程
+    summary: 你的开场方式倾向整理细节与改善流程，熟悉后仍可调整。
+    body: 你进入新场景时倾向整理细节与改善流程，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为处女座（以辨别和实用改进为象征的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你容易发现可调整的细节；分析能提供帮助，但不必把每个差异都变成待修正的问题。例如，初次参加小组活动，你可以选一个最妨碍使用的细节改进，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己反复挑错而忘记目的，不妨先约定怎样算够用，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 先约定怎样算够用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Virgo rising: an opening style'
+    summary: You may begin an unfamiliar encounter by improving practical details.
+    body: 'You may enter an unfamiliar setting by improving practical details, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Virgo — a sign associated with discernment and practical improvement —, identified here
+      through the First House cusp. It describes an opening style rather than the entirety of your
+      personality. This approach suggests noticing where a small correction makes work easier. The
+      point is to make something usable, while allowing ordinary variation that needs no correction.
+      Imagine joining a group where nobody knows your usual role. You might repair the detail that
+      currently makes a task awkward, and then notice how the group responds to your introduction.
+      Pay attention to finding faults long after a result is useful enough, especially if that first
+      approach becomes a rule you feel obliged to repeat. Try this: agree on a usable standard before
+      refining further.'
+    advice:
+      - Agree on a usable standard before refining further
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.virgo.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: virgo
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.virgo.a
+  zh:
+    title: 上升处女座：整理细节与改善流程
+    summary: 你的开场方式倾向整理细节与改善流程，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察整理细节与改善流程的倾向。上升星座（出生时东方地平线升起的星座）落在处女座（以辨别和实用改进为象征的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你容易发现可调整的细节；分析能提供帮助，但不必把每个差异都变成待修正的问题。比如，在一个尚不熟悉的协作场景里，你可选一个最妨碍使用的细节改进，再问伙伴第一步是否容易跟上。留意反复挑错而忘记目的是否限制了交流，建议先约定怎样算够用，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 先约定怎样算够用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Virgo rising: an opening style'
+    summary: You may begin an unfamiliar encounter by improving practical details.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Virgo
+      — a sign associated with discernment and practical improvement — is your Ascendant — the sign
+      rising at the eastern horizon when you were born — and is represented by the First House cusp.
+      The useful question is how your initial manner affects an exchange, rather than whether every
+      person sees you in the same way. This approach suggests noticing where a small correction makes
+      work easier. The point is to make something usable, while allowing ordinary variation that needs
+      no correction. At a first meeting, you could repair the detail that currently makes a task awkward,
+      then ask someone what made it easier or harder to participate. Notice whether finding faults
+      long after a result is useful enough narrowed the options available to that person. Consider
+      keeping the part of your approach that helped, while changing one detail for the next meeting.
+      Agree on a usable standard before refining further
+    advice:
+      - Agree on a usable standard before refining further
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.libra.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: libra
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.libra.b
+  zh:
+    title: 上升天秤座：协调差异与寻找公平
+    summary: 你的开场方式倾向协调差异与寻找公平，熟悉后仍可调整。
+    body: 你进入新场景时倾向协调差异与寻找公平，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为天秤座（重视协调与公平的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你倾向先理解不同立场；能谈成的平衡需要真实偏好参与，不能只靠你不断退让。例如，初次参加小组活动，你可以把双方需要并列写出来，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己为了平静而藏起意见，不妨把自己的需要也放进讨论，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 把自己的需要也放进讨论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Libra rising: an opening style'
+    summary: You may begin an unfamiliar encounter by negotiating a workable balance.
+    body:
+      "You may enter an unfamiliar setting by negotiating a workable balance, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Libra — a sign associated with fairness and negotiation —, identified here through the
+      First House cusp. It describes an opening style rather than the entirety of your personality.
+      This approach suggests looking at a question from both sides. A workable agreement needs your
+      real preference as well as consideration for somebody else's position; agreement alone is not
+      balance. Imagine joining a group where nobody knows your usual role. You might list each person's
+      needs before choosing an arrangement, and then notice how the group responds to your introduction.
+      Pay attention to hiding a preference to preserve a temporary peace, especially if that first
+      approach becomes a rule you feel obliged to repeat. Try this: include your own need in the negotiation."
+    advice:
+      - Include your own need in the negotiation
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.libra.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: libra
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.libra.a
+  zh:
+    title: 上升天秤座：协调差异与寻找公平
+    summary: 你的开场方式倾向协调差异与寻找公平，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察协调差异与寻找公平的倾向。上升星座（出生时东方地平线升起的星座）落在天秤座（重视协调与公平的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你倾向先理解不同立场；能谈成的平衡需要真实偏好参与，不能只靠你不断退让。比如，在一个尚不熟悉的协作场景里，你可把双方需要并列写出来，再问伙伴第一步是否容易跟上。留意为了平静而藏起意见是否限制了交流，建议把自己的需要也放进讨论，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 把自己的需要也放进讨论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Libra rising: an opening style'
+    summary: You may begin an unfamiliar encounter by negotiating a workable balance.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Libra
+      — a sign associated with fairness and negotiation — is your Ascendant — the sign rising at the
+      eastern horizon when you were born — and is represented by the First House cusp. The useful
+      question is how your initial manner affects an exchange, rather than whether every person sees
+      you in the same way. This approach suggests looking at a question from both sides. A workable
+      agreement needs your real preference as well as consideration for somebody else's position;
+      agreement alone is not balance. At a first meeting, you could list each person's needs before
+      choosing an arrangement, then ask someone what made it easier or harder to participate. Notice
+      whether hiding a preference to preserve a temporary peace narrowed the options available to
+      that person. Consider keeping the part of your approach that helped, while changing one detail
+      for the next meeting. Include your own need in the negotiation
+    advice:
+      - Include your own need in the negotiation
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.scorpio.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: scorpio
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.scorpio.b
+  zh:
+    title: 上升天蝎座：深入理解与谨慎建立信任
+    summary: 你的开场方式倾向深入理解与谨慎建立信任，熟悉后仍可调整。
+    body: 你进入新场景时倾向深入理解与谨慎建立信任，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为天蝎座（以深入和信任边界为象征的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你容易追问表面之下的动机；深入理解需要证据，也需要尊重别人暂不分享的空间。例如，初次参加小组活动，你可以在重要合作中逐步交换信息，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己把沉默当成隐藏问题的证据，不妨允许信任随具体行动累积，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 允许信任随具体行动累积
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Scorpio rising: an opening style'
+    summary: You may begin an unfamiliar encounter by developing trust through depth.
+    body:
+      "You may enter an unfamiliar setting by developing trust through depth, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Scorpio — a sign associated with depth and careful trust —, identified here through the
+      First House cusp. It describes an opening style rather than the entirety of your personality.
+      This approach suggests staying with a question beyond its first answer. That attention is more
+      useful when curiosity remains distinguishable from a demand for access to somebody else's private
+      experience. Imagine joining a group where nobody knows your usual role. You might build trust
+      through a series of modest agreements, and then notice how the group responds to your introduction.
+      Pay attention to taking somebody's silence as evidence of a hidden intention, especially if
+      that first approach becomes a rule you feel obliged to repeat. Try this: let trust grow through
+      observable agreements."
+    advice:
+      - Let trust grow through observable agreements
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.scorpio.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: scorpio
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.scorpio.a
+  zh:
+    title: 上升天蝎座：深入理解与谨慎建立信任
+    summary: 你的开场方式倾向深入理解与谨慎建立信任，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察深入理解与谨慎建立信任的倾向。上升星座（出生时东方地平线升起的星座）落在天蝎座（以深入和信任边界为象征的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你容易追问表面之下的动机；深入理解需要证据，也需要尊重别人暂不分享的空间。比如，在一个尚不熟悉的协作场景里，你可在重要合作中逐步交换信息，再问伙伴第一步是否容易跟上。留意把沉默当成隐藏问题的证据是否限制了交流，建议允许信任随具体行动累积，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 允许信任随具体行动累积
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Scorpio rising: an opening style'
+    summary: You may begin an unfamiliar encounter by developing trust through depth.
+    body:
+      You can investigate your opening style through feedback from an ordinary encounter. Scorpio
+      — a sign associated with depth and careful trust — is your Ascendant — the sign rising at the
+      eastern horizon when you were born — and is represented by the First House cusp. The useful
+      question is how your initial manner affects an exchange, rather than whether every person sees
+      you in the same way. This approach suggests staying with a question beyond its first answer.
+      That attention is more useful when curiosity remains distinguishable from a demand for access
+      to somebody else's private experience. At a first meeting, you could build trust through a series
+      of modest agreements, then ask someone what made it easier or harder to participate. Notice
+      whether taking somebody's silence as evidence of a hidden intention narrowed the options available
+      to that person. Consider keeping the part of your approach that helped, while changing one detail
+      for the next meeting. Let trust grow through observable agreements
+    advice:
+      - Let trust grow through observable agreements
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.sagittarius.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: sagittarius
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.sagittarius.b
+  zh:
+    title: 上升射手座：拓宽视野与寻找意义
+    summary: 你的开场方式倾向拓宽视野与寻找意义，熟悉后仍可调整。
+    body: 你进入新场景时倾向拓宽视野与寻找意义，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为射手座（以探索和意义为象征的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你倾向从更大背景理解选择；方向感能鼓励尝试，也需要具体事实来修正过快的判断。例如，初次参加小组活动，你可以找一个与你经验不同的人交流，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己把个人经历推广给所有人，不妨用具体事实检验整体判断，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 用具体事实检验整体判断
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Sagittarius rising: an opening style'
+    summary: You may begin an unfamiliar encounter by exploring a larger perspective.
+    body:
+      'You may enter an unfamiliar setting by exploring a larger perspective, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Sagittarius — a sign associated with exploration and meaning —, identified here through
+      the First House cusp. It describes an opening style rather than the entirety of your personality.
+      This approach suggests asking how one experience fits a larger picture. A wider perspective
+      can inspire movement while remaining open to a detail that challenges the story you first found
+      convincing. Imagine joining a group where nobody knows your usual role. You might talk with
+      someone whose everyday assumptions differ from yours, and then notice how the group responds
+      to your introduction. Pay attention to presenting your own experience as a rule for everybody,
+      especially if that first approach becomes a rule you feel obliged to repeat. Try this: check
+      the broad claim against one concrete case.'
+    advice:
+      - Check the broad claim against one concrete case
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.sagittarius.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: sagittarius
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.sagittarius.a
+  zh:
+    title: 上升射手座：拓宽视野与寻找意义
+    summary: 你的开场方式倾向拓宽视野与寻找意义，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察拓宽视野与寻找意义的倾向。上升星座（出生时东方地平线升起的星座）落在射手座（以探索和意义为象征的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你倾向从更大背景理解选择；方向感能鼓励尝试，也需要具体事实来修正过快的判断。比如，在一个尚不熟悉的协作场景里，你可找一个与你经验不同的人交流，再问伙伴第一步是否容易跟上。留意把个人经历推广给所有人是否限制了交流，建议用具体事实检验整体判断，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 用具体事实检验整体判断
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Sagittarius rising: an opening style'
+    summary: You may begin an unfamiliar encounter by exploring a larger perspective.
+    body:
+      You can investigate your opening style through feedback from an ordinary encounter. Sagittarius
+      — a sign associated with exploration and meaning — is your Ascendant — the sign rising at the
+      eastern horizon when you were born — and is represented by the First House cusp. The useful
+      question is how your initial manner affects an exchange, rather than whether every person sees
+      you in the same way. This approach suggests asking how one experience fits a larger picture.
+      A wider perspective can inspire movement while remaining open to a detail that challenges the
+      story you first found convincing. At a first meeting, you could talk with someone whose everyday
+      assumptions differ from yours, then ask someone what made it easier or harder to participate.
+      Notice whether presenting your own experience as a rule for everybody narrowed the options available
+      to that person. Consider keeping the part of your approach that helped, while changing one detail
+      for the next meeting. Check the broad claim against one concrete case
+    advice:
+      - Check the broad claim against one concrete case
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.capricorn.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: capricorn
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.capricorn.b
+  zh:
+    title: 上升摩羯座：规划阶段与承担责任
+    summary: 你的开场方式倾向规划阶段与承担责任，熟悉后仍可调整。
+    body: 你进入新场景时倾向规划阶段与承担责任，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为摩羯座（重视规划和现实责任的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你倾向按阶段推进；看见长期价值有助于耐心，但人的需要也值得进入计划。例如，初次参加小组活动，你可以为长期目标安排阶段检查点，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己把承担更多当成唯一贡献，不妨给计划同时安排休息与协作，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 给计划同时安排休息与协作
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Capricorn rising: an opening style'
+    summary: You may begin an unfamiliar encounter by organizing sustained effort.
+    body: 'You may enter an unfamiliar setting by organizing sustained effort, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Capricorn — a sign associated with planning and responsibility —, identified here through
+      the First House cusp. It describes an opening style rather than the entirety of your personality.
+      This approach suggests translating intentions into stages. A durable plan includes the people
+      doing the work, so rest, support, and renegotiation belong beside milestones rather than outside
+      them. Imagine joining a group where nobody knows your usual role. You might divide a long commitment
+      into visible stages, and then notice how the group responds to your introduction. Pay attention
+      to assuming that carrying more is the only meaningful contribution, especially if that first
+      approach becomes a rule you feel obliged to repeat. Try this: plan for support and rest beside
+      the milestones.'
+    advice:
+      - Plan for support and rest beside the milestones
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.capricorn.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: capricorn
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.capricorn.a
+  zh:
+    title: 上升摩羯座：规划阶段与承担责任
+    summary: 你的开场方式倾向规划阶段与承担责任，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察规划阶段与承担责任的倾向。上升星座（出生时东方地平线升起的星座）落在摩羯座（重视规划和现实责任的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你倾向按阶段推进；看见长期价值有助于耐心，但人的需要也值得进入计划。比如，在一个尚不熟悉的协作场景里，你可为长期目标安排阶段检查点，再问伙伴第一步是否容易跟上。留意把承担更多当成唯一贡献是否限制了交流，建议给计划同时安排休息与协作，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 给计划同时安排休息与协作
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Capricorn rising: an opening style'
+    summary: You may begin an unfamiliar encounter by organizing sustained effort.
+    body:
+      You can investigate your opening style through feedback from an ordinary encounter. Capricorn
+      — a sign associated with planning and responsibility — is your Ascendant — the sign rising at
+      the eastern horizon when you were born — and is represented by the First House cusp. The useful
+      question is how your initial manner affects an exchange, rather than whether every person sees
+      you in the same way. This approach suggests translating intentions into stages. A durable plan
+      includes the people doing the work, so rest, support, and renegotiation belong beside milestones
+      rather than outside them. At a first meeting, you could divide a long commitment into visible
+      stages, then ask someone what made it easier or harder to participate. Notice whether assuming
+      that carrying more is the only meaningful contribution narrowed the options available to that
+      person. Consider keeping the part of your approach that helped, while changing one detail for
+      the next meeting. Plan for support and rest beside the milestones
+    advice:
+      - Plan for support and rest beside the milestones
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.aquarius.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: aquarius
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.aquarius.b
+  zh:
+    title: 上升水瓶座：检视规则与保留独立
+    summary: 你的开场方式倾向检视规则与保留独立，熟悉后仍可调整。
+    body: 你进入新场景时倾向检视规则与保留独立，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为水瓶座（关注规则和独立视角的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你倾向思考事情能否换一种安排；抽象理想需要听见实际参与者的具体感受。例如，初次参加小组活动，你可以请实际使用者评价新规则，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己只谈理念而跳过体验，不妨让新想法接受真实使用反馈，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 让新想法接受真实使用反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Aquarius rising: an opening style'
+    summary: You may begin an unfamiliar encounter by questioning shared assumptions.
+    body:
+      'You may enter an unfamiliar setting by questioning shared assumptions, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Aquarius — a sign associated with independent thinking and shared systems —, identified
+      here through the First House cusp. It describes an opening style rather than the entirety of
+      your personality. This approach suggests asking whether an inherited rule still serves its purpose.
+      An elegant alternative needs feedback from the people who will live with its practical consequences.
+      Imagine joining a group where nobody knows your usual role. You might ask a person affected
+      by the rule to test your alternative, and then notice how the group responds to your introduction.
+      Pay attention to discussing a principle without hearing how it feels in practice, especially
+      if that first approach becomes a rule you feel obliged to repeat. Try this: invite feedback
+      from someone affected by the proposal.'
+    advice:
+      - Invite feedback from someone affected by the proposal
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.aquarius.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: aquarius
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.aquarius.a
+  zh:
+    title: 上升水瓶座：检视规则与保留独立
+    summary: 你的开场方式倾向检视规则与保留独立，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察检视规则与保留独立的倾向。上升星座（出生时东方地平线升起的星座）落在水瓶座（关注规则和独立视角的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你倾向思考事情能否换一种安排；抽象理想需要听见实际参与者的具体感受。比如，在一个尚不熟悉的协作场景里，你可请实际使用者评价新规则，再问伙伴第一步是否容易跟上。留意只谈理念而跳过体验是否限制了交流，建议让新想法接受真实使用反馈，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 让新想法接受真实使用反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Aquarius rising: an opening style'
+    summary: You may begin an unfamiliar encounter by questioning shared assumptions.
+    body:
+      You can investigate your opening style through feedback from an ordinary encounter. Aquarius
+      — a sign associated with independent thinking and shared systems — is your Ascendant — the sign
+      rising at the eastern horizon when you were born — and is represented by the First House cusp.
+      The useful question is how your initial manner affects an exchange, rather than whether every
+      person sees you in the same way. This approach suggests asking whether an inherited rule still
+      serves its purpose. An elegant alternative needs feedback from the people who will live with
+      its practical consequences. At a first meeting, you could ask a person affected by the rule
+      to test your alternative, then ask someone what made it easier or harder to participate. Notice
+      whether discussing a principle without hearing how it feels in practice narrowed the options
+      available to that person. Consider keeping the part of your approach that helped, while changing
+      one detail for the next meeting. Invite feedback from someone affected by the proposal
+    advice:
+      - Invite feedback from someone affected by the proposal
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.pisces.a
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: pisces
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.pisces.b
+  zh:
+    title: 上升双鱼座：感受氛围与灵活联想
+    summary: 你的开场方式倾向感受氛围与灵活联想，熟悉后仍可调整。
+    body: 你进入新场景时倾向感受氛围与灵活联想，但第一反应可以随着熟悉程度改变。上升星座（出生时东方地平线所在的星座）为双鱼座（以感受和联想为象征的星座），这里依据第一宫的宫头星座来识别；它描述自我呈现的入口，不等于你的全部性格。这种表达方式让你容易借氛围理解经验；开放感能带来灵感，也需要清楚边界来减少误会。例如，初次参加小组活动，你可以把模糊想法画成可讨论的草图，同时留意别人怎样加入，比较开场方式是否有助于后续交流。若你发现自己把共情理解成替别人决定，不妨把直觉带回具体问题核对，给对方留一次补充背景的机会；外在表现与内心需要可以有差异，不必追求每次都符合标签。
+    advice:
+      - 把直觉带回具体问题核对
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Pisces rising: an opening style'
+    summary: You may begin an unfamiliar encounter by responding through imagination.
+    body:
+      "You may enter an unfamiliar setting by responding through imagination, while your approach
+      can change as trust develops. Your Ascendant — the zodiac sign on the eastern horizon at birth
+      — is Pisces — a sign associated with imagination and receptivity —, identified here through
+      the First House cusp. It describes an opening style rather than the entirety of your personality.
+      This approach suggests noticing connections that a rigid explanation misses. Sensitivity becomes
+      easier to use when you distinguish your impression from another person's stated need or an
+      agreed responsibility. Imagine joining a group where nobody knows your usual role. You might
+      give an impression a visible form so it can be discussed, and then notice how the group responds
+      to your introduction. Pay attention to assuming empathy gives you permission to decide for somebody
+      else, especially if that first approach becomes a rule you feel obliged to repeat. Try this:
+      check an intuitive impression through a specific question."
+    advice:
+      - Check an intuitive impression through a specific question
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.ascendant.pisces.b
+  system: astrology
+  section: big_three
+  topic: ascendant
+  when:
+    all:
+      - path: noonChart
+        eq: false
+      - path: houses[index=1].sign
+        eq: pisces
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.self_awareness
+  exclusive_with:
+    - astrology.ascendant.pisces.a
+  zh:
+    title: 上升双鱼座：感受氛围与灵活联想
+    summary: 你的开场方式倾向感受氛围与灵活联想，熟悉后仍可调整。
+    body: 你可以从别人如何回应你的开场方式，观察感受氛围与灵活联想的倾向。上升星座（出生时东方地平线升起的星座）落在双鱼座（以感受和联想为象征的星座），与第一宫的入口相对应；它关注呈现方式，不评价内在深浅，也不要求你维持固定形象。这种表达方式让你容易借氛围理解经验；开放感能带来灵感，也需要清楚边界来减少误会。比如，在一个尚不熟悉的协作场景里，你可把模糊想法画成可讨论的草图，再问伙伴第一步是否容易跟上。留意把共情理解成替别人决定是否限制了交流，建议把直觉带回具体问题核对，把对方的具体反馈写下来；当一种开场不适合当前环境时，调整做法比用星座解释所有反应更有帮助。
+    advice:
+      - 把直觉带回具体问题核对
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Pisces rising: an opening style'
+    summary: You may begin an unfamiliar encounter by responding through imagination.
+    body: You can investigate your opening style through feedback from an ordinary encounter. Pisces
+      — a sign associated with imagination and receptivity — is your Ascendant — the sign rising at
+      the eastern horizon when you were born — and is represented by the First House cusp. The useful
+      question is how your initial manner affects an exchange, rather than whether every person sees
+      you in the same way. This approach suggests noticing connections that a rigid explanation misses.
+      Sensitivity becomes easier to use when you distinguish your impression from another person's
+      stated need or an agreed responsibility. At a first meeting, you could give an impression a
+      visible form so it can be discussed, then ask someone what made it easier or harder to participate.
+      Notice whether assuming empathy gives you permission to decide for somebody else narrowed the
+      options available to that person. Consider keeping the part of your approach that helped, while
+      changing one detail for the next meeting. Check an intuitive impression through a specific question
+    advice:
+      - Check an intuitive impression through a specific question
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

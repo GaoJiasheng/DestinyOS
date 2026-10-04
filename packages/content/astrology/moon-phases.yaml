@@ -1,0 +1,378 @@
+# Original bilingual editorial content for T-23; no quoted sources.
+- id: astrology.moon_phase.new_moon
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: new_moon
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: &id001 []
+  zh:
+    title: 新月：观察意愿与感受
+    summary: 你可以借新月观察意愿与感受如何对话。
+    body: 你愿望与感受倾向一起启动，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是新月（日月角距接近零度，代表一种象征性的开始）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议先写下想做什么，再检查此刻的情绪是否支持开始，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 先写下想做什么，再检查此刻的情绪是否支持开始
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'New moon: intention and feeling'
+    summary: You may notice intention and feeling beginning together.
+    body: 'You may notice intention and feeling beginning together, and use that idea as a question
+      about your everyday rhythm. Your natal Moon phase — the category based on the Sun–Moon angle
+      at birth — is New moon — a small Sun–Moon angle, used symbolically for a beginning. It frames
+      a symbolic conversation between intention and feeling rather than describing your current mood
+      or the sky today. People with this phase still have different surroundings and habits, while
+      the signs and other placements offer further context. After a group activity, compare what you
+      wanted to do with what felt comfortable during the process; the difference may show where a
+      practical adjustment would help. Try this: write an intention, then check whether your present
+      mood supports a first step. Record the response without reorganizing your life simply to match
+      the name of a lunar phase.'
+    advice:
+      - Write an intention, then check whether your present mood supports a first step
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.moon_phase.waxing_crescent
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: waxing_crescent
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 娥眉月：观察意愿与感受
+    summary: 你可以借娥眉月观察意愿与感受如何对话。
+    body: 你需要在新想法与熟悉习惯之间试探，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是娥眉月（日月角距约四十五度，代表开始后的探索）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议选一项新做法试行一天，而不是立即替换全部惯例，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 选一项新做法试行一天，而不是立即替换全部惯例
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Waxing crescent: intention and feeling'
+    summary: You may notice a new intention finding room beside familiar habits.
+    body: 'You may notice a new intention finding room beside familiar habits, and use that idea as
+      a question about your everyday rhythm. Your natal Moon phase — the category based on the Sun–Moon
+      angle at birth — is Waxing crescent — a Sun–Moon angle around forty-five degrees, associated
+      with early exploration. It frames a symbolic conversation between intention and feeling rather
+      than describing your current mood or the sky today. People with this phase still have different
+      surroundings and habits, while the signs and other placements offer further context. After a
+      group activity, compare what you wanted to do with what felt comfortable during the process;
+      the difference may show where a practical adjustment would help. Try this: test a new approach
+      for a day before replacing the whole routine. Record the response without reorganizing your
+      life simply to match the name of a lunar phase.'
+    advice:
+      - Test a new approach for a day before replacing the whole routine
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.moon_phase.first_quarter
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: first_quarter
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 上弦月：观察意愿与感受
+    summary: 你可以借上弦月观察意愿与感受如何对话。
+    body: 你容易通过实际行动看见需要协商的部分，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是上弦月（日月角距约九十度，代表推进时遇到不同需要）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议把阻碍分成资源、步骤与沟通三类，再处理其中一类，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 把阻碍分成资源、步骤与沟通三类，再处理其中一类
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'First quarter: intention and feeling'
+    summary: You may notice action revealing where priorities need negotiation.
+    body: 'You may notice action revealing where priorities need negotiation, and use that idea as
+      a question about your everyday rhythm. Your natal Moon phase — the category based on the Sun–Moon
+      angle at birth — is First quarter — a Sun–Moon angle around ninety degrees, associated with
+      demands during progress. It frames a symbolic conversation between intention and feeling rather
+      than describing your current mood or the sky today. People with this phase still have different
+      surroundings and habits, while the signs and other placements offer further context. After a
+      group activity, compare what you wanted to do with what felt comfortable during the process;
+      the difference may show where a practical adjustment would help. Try this: distinguish a resource
+      issue from a process or communication issue. Record the response without reorganizing your life
+      simply to match the name of a lunar phase.'
+    advice:
+      - Distinguish a resource issue from a process or communication issue
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.moon_phase.waxing_gibbous
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: waxing_gibbous
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 盈凸月：观察意愿与感受
+    summary: 你可以借盈凸月观察意愿与感受如何对话。
+    body: 你倾向检查细节并让想法更完整，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是盈凸月（日月角距约一百三十五度，代表发展中的整理）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议先说明目前已经够用的部分，再选一处值得完善的细节，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 先说明目前已经够用的部分，再选一处值得完善的细节
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Waxing gibbous: intention and feeling'
+    summary: You may notice an inclination to review details before sharing.
+    body: 'You may notice an inclination to review details before sharing, and use that idea as a
+      question about your everyday rhythm. Your natal Moon phase — the category based on the Sun–Moon
+      angle at birth — is Waxing gibbous — a Sun–Moon angle around one hundred and thirty-five degrees,
+      associated with refinement. It frames a symbolic conversation between intention and feeling
+      rather than describing your current mood or the sky today. People with this phase still have
+      different surroundings and habits, while the signs and other placements offer further context.
+      After a group activity, compare what you wanted to do with what felt comfortable during the
+      process; the difference may show where a practical adjustment would help. Try this: identify
+      what is already usable before refining one detail. Record the response without reorganizing
+      your life simply to match the name of a lunar phase.'
+    advice:
+      - Identify what is already usable before refining one detail
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.moon_phase.full_moon
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: full_moon
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 满月：观察意愿与感受
+    summary: 你可以借满月观察意愿与感受如何对话。
+    body: 你容易同时注意意愿与回应之间的差异，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是满月（日月角距接近一百八十度，代表两端同时被看见）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议分别写下自己的意愿与实际反馈，再寻找共同点，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 分别写下自己的意愿与实际反馈，再寻找共同点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Full moon: intention and feeling'
+    summary: You may notice attention to the contrast between intention and response.
+    body:
+      'You may notice attention to the contrast between intention and response, and use that idea
+      as a question about your everyday rhythm. Your natal Moon phase — the category based on the
+      Sun–Moon angle at birth — is Full moon — a Sun–Moon angle near one hundred and eighty degrees,
+      associated with visible contrasts. It frames a symbolic conversation between intention and feeling
+      rather than describing your current mood or the sky today. People with this phase still have
+      different surroundings and habits, while the signs and other placements offer further context.
+      After a group activity, compare what you wanted to do with what felt comfortable during the
+      process; the difference may show where a practical adjustment would help. Try this: record your
+      intention and the actual response before looking for common ground. Record the response without
+      reorganizing your life simply to match the name of a lunar phase.'
+    advice:
+      - Record your intention and the actual response before looking for common ground
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.moon_phase.waning_gibbous
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: waning_gibbous
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 亏凸月：观察意愿与感受
+    summary: 你可以借亏凸月观察意愿与感受如何对话。
+    body: 你倾向把已有经验整理成可以交流的东西，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是亏凸月（日月角距约二百二十五度，代表经验的分享与消化）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议分享一个已经实践的发现，并邀请对方提出不同经验，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 分享一个已经实践的发现，并邀请对方提出不同经验
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Waning gibbous: intention and feeling'
+    summary: You may notice an interest in making experience available to others.
+    body: 'You may notice an interest in making experience available to others, and use that idea
+      as a question about your everyday rhythm. Your natal Moon phase — the category based on the
+      Sun–Moon angle at birth — is Waning gibbous — a Sun–Moon angle around two hundred and twenty-five
+      degrees, associated with sharing experience. It frames a symbolic conversation between intention
+      and feeling rather than describing your current mood or the sky today. People with this phase
+      still have different surroundings and habits, while the signs and other placements offer further
+      context. After a group activity, compare what you wanted to do with what felt comfortable during
+      the process; the difference may show where a practical adjustment would help. Try this: share
+      a tested observation and invite a different experience. Record the response without reorganizing
+      your life simply to match the name of a lunar phase.'
+    advice:
+      - Share a tested observation and invite a different experience
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.moon_phase.last_quarter
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: last_quarter
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 下弦月：观察意愿与感受
+    summary: 你可以借下弦月观察意愿与感受如何对话。
+    body: 你容易留意旧方法与当前需要是否相符，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是下弦月（日月角距约二百七十度，代表重新检查旧安排）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议保留仍有效的一项做法，再协商放下不合适的部分，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 保留仍有效的一项做法，再协商放下不合适的部分
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Last quarter: intention and feeling'
+    summary: You may notice attention to whether an old approach still serves a present need.
+    body: 'You may notice attention to whether an old approach still serves a present need, and use
+      that idea as a question about your everyday rhythm. Your natal Moon phase — the category based
+      on the Sun–Moon angle at birth — is Last quarter — a Sun–Moon angle around two hundred and seventy
+      degrees, associated with reassessment. It frames a symbolic conversation between intention and
+      feeling rather than describing your current mood or the sky today. People with this phase still
+      have different surroundings and habits, while the signs and other placements offer further context.
+      After a group activity, compare what you wanted to do with what felt comfortable during the
+      process; the difference may show where a practical adjustment would help. Try this: keep one
+      useful practice while renegotiating a part that no longer fits. Record the response without
+      reorganizing your life simply to match the name of a lunar phase.'
+    advice:
+      - Keep one useful practice while renegotiating a part that no longer fits
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: astrology.moon_phase.waning_crescent
+  system: astrology
+  section: patterns
+  topic: moon_phase
+  when:
+    path: moonPhase.name
+    eq: waning_crescent
+  weight: 66
+  polarity: neutral
+  tags:
+    - plain
+    - astrology.keyword.cooperation
+  exclusive_with: *id001
+  zh:
+    title: 残月：观察意愿与感受
+    summary: 你可以借残月观察意愿与感受如何对话。
+    body: 你可能需要先消化经验再进入下一件事，可以把这个方向放回日常节奏里观察。出生月相（出生时太阳与月亮的角距分类）是残月（日月角距约三百一十五度，代表结束前的整理）；这只是描述意愿与感受如何对话的文化线索，不是对某一天状态的实时判断。相同月相的人仍有不同环境与习惯，日月的星座和其他位置会提供更多背景。例如，完成一项小组活动后，你可比较自己原先想做的事与过程中真实的感受，看看哪里一致、哪里需要调整。建议为一次活动留出收尾时间，再决定何时接下一项任务，并记录一次做法与回应；无需为了符合月相名称而改变原本适合自己的作息或参与方式。
+    advice:
+      - 为一次活动留出收尾时间，再决定何时接下一项任务
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Waning crescent: intention and feeling'
+    summary: You may notice a need to process an experience before beginning again.
+    body: 'You may notice a need to process an experience before beginning again, and use that idea
+      as a question about your everyday rhythm. Your natal Moon phase — the category based on the
+      Sun–Moon angle at birth — is Waning crescent — a Sun–Moon angle around three hundred and fifteen
+      degrees, associated with closure. It frames a symbolic conversation between intention and feeling
+      rather than describing your current mood or the sky today. People with this phase still have
+      different surroundings and habits, while the signs and other placements offer further context.
+      After a group activity, compare what you wanted to do with what felt comfortable during the
+      process; the difference may show where a practical adjustment would help. Try this: allow time
+      to close an activity before accepting another commitment. Record the response without reorganizing
+      your life simply to match the name of a lunar phase.'
+    advice:
+      - Allow time to close an activity before accepting another commitment
+    do:
+      - Note a pattern
+    dont:
+      - Rush a label
+  meta:
+    author: t23-astrology-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
