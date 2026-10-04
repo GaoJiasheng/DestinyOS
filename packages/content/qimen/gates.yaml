@@ -1,0 +1,337 @@
+# // DESIGN-GAP: Narrative meanings use mainstream symbolic associations; selection and scoring follow only existing engine fields.
+- id: qimen.gates.xiu
+  system: qimen
+  section: advice
+  topic: gates.xiu
+  when:
+    path: zhiShi.gate
+    eq: xiu
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 休整之后再沟通
+    summary: 你可以围绕休门提示的方式整理下一步。
+    body: |-
+      你适合先让节奏慢下来，再处理需要沟通的事情。休门（象征休整和温和往来的行动方式）成为值使时，是这局领头的门，提示你关注谈话的空间与准备程度；它并不要求所有事项暂停。例如，长时间讨论后大家都很累，可以先整理分歧，约一个短而明确的交流时段，让恢复精力与推进事项互相配合。建议安排一个不被打断的沟通空档。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 建议安排一个不被打断的沟通空档。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Make Space for a Quieter Conversation
+    summary: Use xiū mén to examine a practical choice of approach.
+    body: |-
+      You may get more from an unhurried exchange than from another intense round of discussion. Xiumen (休门, xiū mén — the gate associated with rest and gentle contact) is the leading gate here. Imagine a tired group trying to settle several disagreements at once: a pause and a focused conversation can make the remaining decision easier to approach. Rest is useful when it has a purpose and leaves a path back to the task. Try setting aside a quiet window for one unresolved conversation. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Try setting aside a quiet window for one unresolved conversation.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.gates.sheng
+  system: qimen
+  section: advice
+  topic: gates.sheng
+  when:
+    path: zhiShi.gate
+    eq: sheng
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 从可持续的资源开始
+    summary: 你可以围绕生门提示的方式整理下一步。
+    body: |-
+      你可以把注意力放在能持续提供支持的资源上。生门（象征生长与可用资源的行动方式）领头时，适合审视条件是否能长期承接下一步，而不只是看眼前有没有机会。它不是对收入或回报的承诺。例如，准备组织一次活动时，已经熟悉的场地、可靠的协作流程和适度的规模，可能比临时增加很多新项目更值得优先考虑。建议先盘点可重复使用的资源与协作流程。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 建议先盘点可重复使用的资源与协作流程。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Build on Resources You Can Maintain
+    summary: Use shēng mén to examine a practical choice of approach.
+    body: |-
+      You can look for the resources that make continued effort practical. Shengmen (生门, shēng mén — the gate of growth and usable resources) leads the arrangement here. For a community event, dependable equipment and an established booking process may matter more than adding an impressive new feature. The useful question is what can support the next step without exhausting the people involved; the symbol does not promise a financial result. Consider reusing a dependable resource before adding a new commitment. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Consider reusing a dependable resource before adding a new commitment.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.gates.shang
+  system: qimen
+  section: advice
+  topic: gates.shang
+  when:
+    path: zhiShi.gate
+    eq: shang
+  weight: 60
+  polarity: mixed
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 推进前说清边界
+    summary: 你可以围绕伤门提示的方式整理下一步。
+    body: |-
+      你适合先明确分工与边界，再处理需要争取的事项。伤门（象征竞争、争执与主动推进的方式）成为值使时，提示当前做法可能更直接，容易让讨论集中在差异上；门名不能当成现实伤害的预告。例如，团队需要赶进度时，可以明确各自负责什么和何时反馈，避免把催促变成人身评价。说清工作要求，比猜测别人是否足够努力更有帮助。不过，你可以通过明确责任范围来减轻冲突。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 不过，你可以通过明确责任范围来减轻冲突。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Set Boundaries Before Applying Pressure
+    summary: Use shāng mén to examine a practical choice of approach.
+    body: |-
+      You may need a clear request with equally clear limits. Shangmen (伤门, shāng mén — the gate associated with contest and assertive action) leads this chart. A deadline can tempt a team into personal criticism when the real problem is an unclear handoff. Stating the required task and feedback time gives directness a constructive purpose. Read the gate as a question about how you apply pressure, rather than a prediction of harm. Consider stating the task boundary before discussing a difficult deadline. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Consider stating the task boundary before discussing a difficult deadline.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.gates.du
+  system: qimen
+  section: advice
+  topic: gates.du
+  when:
+    path: zhiShi.gate
+    eq: du
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先整理，再选择公开范围
+    summary: 你可以围绕杜门提示的方式整理下一步。
+    body: |-
+      你可以先在安静的范围内把资料整理好。杜门（象征收束、筛选和暂时关闭通道的方式）领头时，适合留意信息应向谁开放，以及哪些准备还需要独立完成。它不等于所有沟通都无效。例如，你在修改一个未成熟的想法时，可以先找少量可信任的人试读，而不是立刻向所有人征求意见，借此减少互相冲突的修改方向。建议给独立准备设定一个结束与分享的节点。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 建议给独立准备设定一个结束与分享的节点。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Prepare Privately Before Opening the Discussion
+    summary: Use dù mén to examine a practical choice of approach.
+    body: |-
+      You can use a limited audience to improve work that is still taking shape. Dumen (杜门, dù mén — the gate of containment and restricted access) is the leading gate here. A rough proposal may benefit from a few carefully chosen readers before it goes to a large group. Different levels of openness serve different stages of preparation. The practical issue is to make the boundary explicit so that privacy does not become an endless delay. Try choosing a review date and a small initial audience. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Try choosing a review date and a small initial audience.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.gates.kai
+  system: qimen
+  section: advice
+  topic: gates.kai
+  when:
+    path: zhiShi.gate
+    eq: kai
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把入口变成具体请求
+    summary: 你可以围绕开门提示的方式整理下一步。
+    body: |-
+      你适合把想推进的事说成一个明确请求。开门（象征入口、工作渠道与对外联系的方式）领头时，可以关注谁能接收你的资料，以及哪种表达容易得到有用回应。它提示的是沟通路径，并不表示每扇门都会立即打开。例如，寻找协作机会时，一份简短说明加一个具体问题，通常比同时发送很多未经整理的材料更方便对方理解，也更容易区分哪些回应值得继续跟进。建议先确认接收渠道，再提出一个清楚的问题。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 建议先确认接收渠道，再提出一个清楚的问题。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Make the Opening Easy to Respond To
+    summary: Use kāi mén to examine a practical choice of approach.
+    body: |-
+      You can make an opportunity easier to engage with by offering a specific next step. Kaimen (开门, kāi mén — the gate of openings and outward contact) leads the layout. When approaching a possible collaborator, a short introduction and one relevant question can be more inviting than a large unsorted attachment. The gate points to access and communication channels; the other person’s response still depends on their circumstances and interest. Consider sending one concise request through the appropriate channel. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Consider sending one concise request through the appropriate channel.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.gates.jing
+  system: qimen
+  section: advice
+  topic: gates.jing
+  when:
+    path: zhiShi.gate
+    eq: jing
+  weight: 60
+  polarity: mixed
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把紧张转成核实
+    summary: 你可以围绕惊门提示的方式整理下一步。
+    body: |-
+      你可以先把让你紧张的信息分成事实和猜测。惊门（象征惊动、消息刺激与口头争议的方式）领头时，提示表达可能较急，容易让注意力跟着最新消息走。它不代表消息内容已经成立，也不能用来判断他人的品行。例如，群聊里忽然有人说安排有变，可以直接核对原负责人发布的信息，而不是继续转发未经确认的版本，让讨论回到可以证实的内容。不过，建议先核对原始消息再回应。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 不过，建议先核对原始消息再回应。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Turn Alarm into a Clear Check
+    summary: Use jīng mén to examine a practical choice of approach.
+    body: |-
+      You can slow down a reactive exchange by checking the original message. Jingmen (惊门, jīng mén — the gate associated with alarm and verbal disturbance) is the leading gate. A rumour in a group chat may feel urgent while still lacking a source. Finding the person responsible for the announcement gives you a useful check before you repeat it. The symbol concerns the tone of information, not the character of whoever first mentioned it. Try asking for the original source before replying to an urgent claim. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Try asking for the original source before replying to an urgent claim.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.gates.si
+  system: qimen
+  section: advice
+  topic: gates.si
+  when:
+    path: zhiShi.gate
+    eq: si
+  weight: 60
+  polarity: mixed
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 收尾也能带来空间
+    summary: 你可以围绕死门提示的方式整理下一步。
+    body: |-
+      你适合先完成旧事项的整理和收尾。死门（象征停顿、封存与结束一个阶段的方式）成为值使时，提示你检查哪些事情还占着精力，却已经不需要继续扩大；门名并不是对健康或生命的判断。例如，一个活动结束后仍有散落的文档和待确认的交接，可以先归档、列出遗留项，让下一次安排不用从混乱的材料中重新开始。暂停扩展也可以是有意识的选择。建议列出需要归档、交接和暂停的事项。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 建议列出需要归档、交接和暂停的事项。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Finish What No Longer Needs Expansion
+    summary: Use sǐ mén to examine a practical choice of approach.
+    body: |-
+      You can create room by finishing the administrative tail of an old task. Simen (死门, sǐ mén — the gate of closure and stillness) leads this arrangement. After an event, scattered files and unfinished handoffs may continue to consume attention long after the main work is over. Archiving the material and identifying the remaining owner can release capacity. Treat the symbol as a prompt about completion, not as a literal statement about life or health. Consider closing one lingering loop before beginning another project. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Consider closing one lingering loop before beginning another project.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.gates.jing_view
+  system: qimen
+  section: advice
+  topic: gates.jing_view
+  when:
+    path: zhiShi.gate
+    eq: jing_view
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让表达便于核对
+    summary: 你可以围绕景门提示的方式整理下一步。
+    body: |-
+      你可以先让要表达的内容变得清楚可核对。景门（象征展示、文书和可见信息的方式）领头时，重点在别人看到了什么以及怎样理解它，而不只是你准备了多少内容。它与惊门的消息刺激含义不同。例如，展示一个方案时，可以把核心观点、实例和需要决定的问题分开排列，减少好看的形式遮住实质内容的情况。适度呈现会让听众更容易给出具体反馈。建议提交前检查标题、证据与重点是否一致。同时，值使只提供全局的行动背景；具体事项还需要回到用神所在的宫位，结合那里的门星与标记判断。你可以先采用一个能调整的小步骤，观察回应后再决定是否继续扩大。
+    advice:
+      - 建议提交前检查标题、证据与重点是否一致。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Make Your Presentation Easy to Check
+    summary: Use jǐng mén to examine a practical choice of approach.
+    body: |-
+      You can improve a presentation by making its main claim inspectable. Jingmen (景门, jǐng mén — the gate of display and written expression) is distinct from the alarm gate with a different tone in pinyin. Here it leads the chart. A clear proposal separates the idea, an example and the decision requested from its audience. That gives listeners something to respond to beyond the appearance of a polished document. Try testing whether a reader can find the main question quickly. The leading gate supplies a general action theme; your selected indicators still need their own palace context. Use this note to choose a manageable first step, then let the response determine whether you repeat, adjust or set aside that approach. Keep the scale proportionate to the actual question.
+    advice:
+      - Try testing whether a reader can find the main question quickly.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

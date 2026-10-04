@@ -49,6 +49,7 @@ describe('source tables and KU integration', () => {
     expect(result.units.map((unit) => unit.id)).toContain('common.disclaimer');
     expect(result.units.some((unit) => unit.id.startsWith('iching.primary.'))).toBe(true);
     expect(result.units.some((unit) => unit.id.startsWith('hexagram_'))).toBe(false);
+    expect(result.units.some((unit) => unit.system === 'qimen')).toBe(true);
     expect(result.glossary.length).toBeGreaterThan(400);
   });
 });

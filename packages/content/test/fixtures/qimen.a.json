@@ -1,0 +1,194 @@
+{
+  "castAt": {
+    "local": "2026-10-04T15:30:00",
+    "tz": "Asia/Shanghai"
+  },
+  "pillars": {
+    "year": {
+      "stem": "bing",
+      "branch": "wu"
+    },
+    "month": {
+      "stem": "ding",
+      "branch": "you"
+    },
+    "day": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "hour": {
+      "stem": "bing",
+      "branch": "shen"
+    }
+  },
+  "dun": "yin",
+  "ju": 4,
+  "solarTerm": {
+    "name": "qiu_fen",
+    "yuan": "lower"
+  },
+  "xunShou": {
+    "stem": "jia",
+    "branch": "wu",
+    "yi": "xin"
+  },
+  "zhiFu": {
+    "star": "tian_peng",
+    "palaceEarth": 1,
+    "palaceSky": 6
+  },
+  "zhiShi": {
+    "gate": "xiu",
+    "palaceEarth": 1,
+    "palaceSky": 8
+  },
+  "palaces": [
+    {
+      "index": 1,
+      "trigram": "kan",
+      "direction": "north",
+      "earthStem": "xin",
+      "skyStem": "gui",
+      "star": "tian_ren",
+      "gate": "kai",
+      "deity": "jiu_tian",
+      "flags": [],
+      "patterns": []
+    },
+    {
+      "index": 2,
+      "trigram": "kun",
+      "direction": "southwest",
+      "earthStem": "geng",
+      "skyStem": "ding",
+      "star": "tian_zhu",
+      "gate": "jing_view",
+      "deity": "tai_yin",
+      "flags": [],
+      "patterns": []
+    },
+    {
+      "index": 3,
+      "trigram": "zhen",
+      "direction": "east",
+      "earthStem": "ji",
+      "skyStem": "wu_stem",
+      "star": "tian_fu",
+      "gate": "sheng",
+      "deity": "xuan_wu",
+      "flags": ["gate_controlled", "ji_xing"],
+      "patterns": []
+    },
+    {
+      "index": 4,
+      "trigram": "xun",
+      "direction": "southeast",
+      "earthStem": "wu_stem",
+      "skyStem": "ren",
+      "star": "tian_ying",
+      "gate": "shang",
+      "deity": "bai_hu",
+      "flags": ["void", "ji_xing", "ru_mu"],
+      "patterns": []
+    },
+    {
+      "index": 5,
+      "trigram": null,
+      "direction": "center",
+      "earthStem": "yi",
+      "skyStem": "yi",
+      "star": "tian_qin",
+      "gate": null,
+      "deity": null,
+      "flags": [],
+      "patterns": []
+    },
+    {
+      "index": 6,
+      "trigram": "qian",
+      "direction": "northwest",
+      "earthStem": "bing",
+      "skyStem": "xin",
+      "star": "tian_peng",
+      "gate": "jing",
+      "deity": "zhi_fu",
+      "flags": [],
+      "patterns": []
+    },
+    {
+      "index": 7,
+      "trigram": "dui",
+      "direction": "west",
+      "earthStem": "ding",
+      "skyStem": "bing",
+      "star": "tian_xin",
+      "gate": "si",
+      "deity": "teng_she",
+      "flags": [],
+      "patterns": ["xing_qi_zhu_que"]
+    },
+    {
+      "index": 8,
+      "trigram": "gen",
+      "direction": "northeast",
+      "earthStem": "gui",
+      "skyStem": "ji",
+      "star": "tian_chong",
+      "gate": "xiu",
+      "deity": "jiu_di",
+      "flags": ["horse", "gate_controlled", "ru_mu"],
+      "patterns": []
+    },
+    {
+      "index": 9,
+      "trigram": "li",
+      "direction": "south",
+      "earthStem": "ren",
+      "skyStem": "geng",
+      "star": "tian_rui",
+      "gate": "du",
+      "deity": "liu_he",
+      "hiddenStem": "yi",
+      "flags": [],
+      "patterns": ["xiao_ge"]
+    }
+  ],
+  "useGods": [
+    {
+      "key": "day_stem",
+      "palaceIndex": 6,
+      "state": []
+    },
+    {
+      "key": "hour_stem",
+      "palaceIndex": 7,
+      "state": ["xing_qi_zhu_que", "good_star"]
+    },
+    {
+      "key": "zhi_fu",
+      "palaceIndex": 6,
+      "state": []
+    },
+    {
+      "key": "zhi_shi",
+      "palaceIndex": 8,
+      "state": ["horse", "gate_controlled", "ru_mu", "good_gate"]
+    }
+  ],
+  "verdict": "favorable",
+  "score": 62,
+  "favorableDirections": ["north"],
+  "timing": {
+    "favorableHours": ["zi"]
+  },
+  "findings": [
+    "gate_controlled",
+    "ji_xing",
+    "void",
+    "ru_mu",
+    "xing_qi_zhu_que",
+    "horse",
+    "xiao_ge",
+    "use_god_generated"
+  ]
+}

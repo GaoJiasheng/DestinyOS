@@ -81,6 +81,7 @@ export function interpret(input: InterpretInput): Report {
           /\.[abc]$/.test(other.unit.id) &&
           other.unit.topic === candidate.unit.topic &&
           other.unit.section === candidate.unit.section &&
+          other.unit.polarity === candidate.unit.polarity &&
           equal(other.unit.when, candidate.unit.when) &&
           (other.unit.id === candidate.unit.id ||
             (candidate.unit.exclusive_with.includes(other.unit.id) &&

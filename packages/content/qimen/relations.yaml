@@ -1,0 +1,741 @@
+# // DESIGN-GAP: findings.use_god_generated/controlled aggregate both relation directions and all selected palaces; prose does not attribute them to a specific pair.
+- id: qimen.relations.career.generated
+  system: qimen
+  section: use_gods
+  topic: relations.career.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=kai].palaceIndex
+            exists: true
+          - path: useGods[key=zhi_fu].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 事业求职：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你准备联系一个团队时，可以先了解岗位需要解决什么问题，再整理与之相关的经验。把结果拆成对方是否回应、你是否得到信息和下一步是否清楚，会比只问能不能成更容易复盘。建议先明确一个岗位需求与一个回应问题。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议先明确一个岗位需求与一个回应问题。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Work And Job Search: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. For a work enquiry, choose one role requirement and show how your experience relates to it. The useful outcome of an initial contact may be a clearer understanding of the team’s needs, even before any larger decision is made. Try matching one relevant experience to a specific role requirement. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try matching one relevant experience to a specific role requirement.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.career.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.career.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=kai].palaceIndex
+            exists: true
+          - path: useGods[key=zhi_fu].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 事业求职：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你准备联系一个团队时，可以先了解岗位需要解决什么问题，再整理与之相关的经验。把结果拆成对方是否回应、你是否得到信息和下一步是否清楚，会比只问能不能成更容易复盘。建议先明确一个岗位需求与一个回应问题。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议先明确一个岗位需求与一个回应问题。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Work And Job Search: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. For a work enquiry, choose one role requirement and show how your experience relates to it. The useful outcome of an initial contact may be a clearer understanding of the team’s needs, even before any larger decision is made. Try matching one relevant experience to a specific role requirement. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try matching one relevant experience to a specific role requirement.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.wealth.generated
+  system: qimen
+  section: use_gods
+  topic: relations.wealth.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=wu_stem].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 财运交易：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你准备一项日常资源安排时，可以先确认数量、用途和取用方式。讨论交易只涉及信息核对与准备，不对投资标的作判断，也不推断回报。建议核对用途、数量与实际取用条件。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议核对用途、数量与实际取用条件。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Resource And Transaction Planning: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. When organising everyday resources, inspect what is available, how it will be used and who can access it. A proposed transaction needs verified practical information; a chart score does not identify an asset to choose or establish a return. Consider checking purpose, quantity and access before making an arrangement. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider checking purpose, quantity and access before making an arrangement.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.wealth.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.wealth.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=wu_stem].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 财运交易：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你准备一项日常资源安排时，可以先确认数量、用途和取用方式。讨论交易只涉及信息核对与准备，不对投资标的作判断，也不推断回报。建议核对用途、数量与实际取用条件。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议核对用途、数量与实际取用条件。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Resource And Transaction Planning: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. When organising everyday resources, inspect what is available, how it will be used and who can access it. A proposed transaction needs verified practical information; a chart score does not identify an asset to choose or establish a return. Consider checking purpose, quantity and access before making an arrangement. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider checking purpose, quantity and access before making an arrangement.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.love.generated
+  system: qimen
+  section: use_gods
+  topic: relations.love.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=geng].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 感情关系：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你讨论共同生活的安排时，可以先分别说出需求与边界，给对方回应空间。关系状态与个人选择都应得到尊重，盘面不替任何一方作决定。建议围绕一个具体安排交流彼此需求。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议围绕一个具体安排交流彼此需求。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Relationships: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. For a relationship conversation, describe one concrete need and invite the other person’s perspective. Shared plans deserve explicit agreement, and a respectful refusal can be useful information. The reading assigns no role according to gender or relationship status. Try discussing one shared arrangement with room for each person’s preference. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try discussing one shared arrangement with room for each person’s preference.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.love.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.love.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=geng].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 感情关系：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你讨论共同生活的安排时，可以先分别说出需求与边界，给对方回应空间。关系状态与个人选择都应得到尊重，盘面不替任何一方作决定。建议围绕一个具体安排交流彼此需求。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议围绕一个具体安排交流彼此需求。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Relationships: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. For a relationship conversation, describe one concrete need and invite the other person’s perspective. Shared plans deserve explicit agreement, and a respectful refusal can be useful information. The reading assigns no role according to gender or relationship status. Try discussing one shared arrangement with room for each person’s preference. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try discussing one shared arrangement with room for each person’s preference.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.health.generated
+  system: qimen
+  section: use_gods
+  topic: relations.health.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=tian_rui].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 健康：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你可以从作息、情绪负担和日常环境中选一项观察。这里的判定只是象征性的节奏提示，不说明身体状况；感到不适时应依据实际情况寻求适合的专业支持。建议先记录日常负担，调整一项可行安排。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议先记录日常负担，调整一项可行安排。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Everyday Wellbeing: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. For everyday wellbeing, observe a manageable part of your routine, such as the demands surrounding rest. This reading does not assess your body or identify a condition. Qualified support and direct information deserve priority whenever you have a concern about discomfort. Consider reducing one avoidable demand around your rest routine. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider reducing one avoidable demand around your rest routine.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.health.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.health.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=tian_rui].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 健康：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你可以从作息、情绪负担和日常环境中选一项观察。这里的判定只是象征性的节奏提示，不说明身体状况；感到不适时应依据实际情况寻求适合的专业支持。建议先记录日常负担，调整一项可行安排。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议先记录日常负担，调整一项可行安排。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Everyday Wellbeing: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. For everyday wellbeing, observe a manageable part of your routine, such as the demands surrounding rest. This reading does not assess your body or identify a condition. Qualified support and direct information deserve priority whenever you have a concern about discomfort. Consider reducing one avoidable demand around your rest routine. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider reducing one avoidable demand around your rest routine.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.travel.generated
+  system: qimen
+  section: use_gods
+  topic: relations.travel.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=horse].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 出行：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你安排一次出行时，可以先核对路线、接驳和目的地的实际条件。盘面方向与时段是辅助线索，不要求你绕路，也不说明一个地方是否安全。建议先核对路线与目的地的开放安排。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议先核对路线与目的地的开放安排。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Travel: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. For travel, start with transport connections, the destination’s opening schedule and a realistic return plan. Symbolic direction and hour cues can compare feasible options, but they cannot establish the safety or accessibility of a place you have not checked. Try checking connections and the destination’s current requirements. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try checking connections and the destination’s current requirements.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.travel.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.travel.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=horse].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 出行：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你安排一次出行时，可以先核对路线、接驳和目的地的实际条件。盘面方向与时段是辅助线索，不要求你绕路，也不说明一个地方是否安全。建议先核对路线与目的地的开放安排。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议先核对路线与目的地的开放安排。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Travel: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. For travel, start with transport connections, the destination’s opening schedule and a realistic return plan. Symbolic direction and hour cues can compare feasible options, but they cannot establish the safety or accessibility of a place you have not checked. Try checking connections and the destination’s current requirements. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try checking connections and the destination’s current requirements.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.exam.generated
+  system: qimen
+  section: use_gods
+  topic: relations.exam.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=ding].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 考试竞赛：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你准备一次考试或展示时，可以先识别最需要练习的具体环节。判定不预测成绩；理解题意、练习反馈和清楚呈现，会提供更直接的调整依据。建议从一个明确缺口安排练习与复查。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议从一个明确缺口安排练习与复查。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Study And Assessment: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. For an assessment, choose a skill gap you can actually practise and check the response to a completed exercise. The verdict does not forecast a mark or ranking. Understanding the task and presenting a clear answer give you more direct evidence for your preparation. Consider practising one identified gap and reviewing the result. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider practising one identified gap and reviewing the result.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.exam.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.exam.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=ding].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 考试竞赛：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你准备一次考试或展示时，可以先识别最需要练习的具体环节。判定不预测成绩；理解题意、练习反馈和清楚呈现，会提供更直接的调整依据。建议从一个明确缺口安排练习与复查。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议从一个明确缺口安排练习与复查。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Study And Assessment: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. For an assessment, choose a skill gap you can actually practise and check the response to a completed exercise. The verdict does not forecast a mark or ranking. Understanding the task and presenting a clear answer give you more direct evidence for your preparation. Consider practising one identified gap and reviewing the result. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider practising one identified gap and reviewing the result.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.lost.generated
+  system: qimen
+  section: use_gods
+  topic: relations.lost.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=xuan_wu].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 寻物寻人：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你寻找物品或联系线索时，可以先按最后确认的经过复查，再询问知情的人。盘面不指认他人，也不能作为实际位置的证据；涉及人的情况要尊重隐私和边界。建议按最后确认的记录逐项复查。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议按最后确认的记录逐项复查。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Search And Locating Information: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. For a search, reconstruct the last confirmed sequence before asking people nearby for factual observations. A palace direction is not proof of a location or evidence against a person. Respect privacy and use ordinary contact channels when seeking information about someone. Try retracing the last documented sequence before expanding the search. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try retracing the last documented sequence before expanding the search.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.lost.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.lost.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=xuan_wu].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 寻物寻人：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你寻找物品或联系线索时，可以先按最后确认的经过复查，再询问知情的人。盘面不指认他人，也不能作为实际位置的证据；涉及人的情况要尊重隐私和边界。建议按最后确认的记录逐项复查。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议按最后确认的记录逐项复查。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'Search And Locating Information: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. For a search, reconstruct the last confirmed sequence before asking people nearby for factual observations. A palace direction is not proof of a location or evidence against a person. Respect privacy and use ordinary contact channels when seeking information about someone. Try retracing the last documented sequence before expanding the search. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Try retracing the last documented sequence before expanding the search.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.general.generated
+  system: qimen
+  section: use_gods
+  topic: relations.general.generated
+  when:
+    all:
+      - all:
+          - path: useGods[key=zhi_shi].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_generated
+  weight: 35
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 综合：相互承接
+    summary: 你可以先找日干与相关用神之间可以互相承接的条件。
+    body: |-
+      你可以先找日干与相关用神之间可以互相承接的条件。相生（两个宫位五行中一方向另一方提供支持的关系）记录在全局发现里；它可能是你的准备承接事项，也可能是事项支持你的推进。该字段不注明是哪一对宫，因此不能凭它指认一个具体用神，更不能把同局的牵制关系忽略。你面对综合问题时，可以先把大问题缩成眼前一项能核实的选择。自己的准备、事项的进展与外部回应分别记录，能避免用同一个分数概括所有环节。建议把大问题收束到一项可核实的选择。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议把大问题收束到一项可核实的选择。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'A Broad Question: Examine Support'
+    summary: You can examine where your preparation and the subject can support one another.
+    body: |-
+      You can examine where your preparation and the subject can support one another. The generated finding records sheng (生, shēng — an elemental support relation) between the day palace and a selected subject palace. It may run in either direction. Because this aggregate finding does not name the pair, it cannot establish which indicator supplies the support or erase a separate controlled finding. For a broad question, separate your own preparation from the matter under discussion and from external feedback. Choose one uncertainty that could be reduced with an observation. That gives a general reading a practical focus without treating its total score as an answer to every part of the situation. Consider narrowing the question to one observable next choice. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider narrowing the question to one observable next choice.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.relations.general.controlled
+  system: qimen
+  section: use_gods
+  topic: relations.general.controlled
+  when:
+    all:
+      - all:
+          - path: useGods[key=zhi_shi].palaceIndex
+            exists: true
+      - path: findings
+        contains: use_god_controlled
+  weight: 35
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 综合：调整张力
+    summary: 你适合先把日干与相关事项之间的张力写成具体条件。
+    body: |-
+      你适合先把日干与相关事项之间的张力写成具体条件。相克（两个宫位五行中一方约束另一方的关系）在全局发现里提示协调需要留意。这个字段汇总日干与相关用神宫的比较，不注明是哪一对宫，也可能与支持关系同时存在，不能据此评价某个人是否对你不友好。你面对综合问题时，可以先把大问题缩成眼前一项能核实的选择。自己的准备、事项的进展与外部回应分别记录，能避免用同一个分数概括所有环节。建议把大问题收束到一项可核实的选择。你可以先核对相关宫号，再用实际资料检查这项关系是否影响下一步。
+    advice:
+      - 建议把大问题收束到一项可核实的选择。
+    do:
+      - 核对宫号
+    dont:
+      - 指认他人
+  en:
+    title: 'A Broad Question: Inspect Tension'
+    summary: You can turn tension between your role and the subject into a concrete condition to inspect.
+    body: |-
+      You can turn tension between your role and the subject into a concrete condition to inspect. The controlled finding records ke (克, kè — an elemental constraint relation) between the day palace and a selected subject palace. It is an aggregate note without a named pair. Support can be present elsewhere at the same time, and the relation does not reveal another person’s intentions or character. For a broad question, separate your own preparation from the matter under discussion and from external feedback. Choose one uncertainty that could be reduced with an observation. That gives a general reading a practical focus without treating its total score as an answer to every part of the situation. Consider narrowing the question to one observable next choice. Check the palace numbers before assigning the relationship to a particular indicator, and use direct observations to decide whether the practical issue is preparation, coordination or a missing response.
+    advice:
+      - Consider narrowing the question to one observable next choice.
+    do:
+      - Check palace numbers
+    dont:
+      - Assign blame
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

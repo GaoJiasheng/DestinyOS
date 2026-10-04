@@ -18,7 +18,8 @@
     "test:e2e": "playwright test",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build",
-    "engine:bundle": "tsx scripts/engines/bundle.ts"
+    "engine:bundle": "tsx scripts/engines/bundle.ts",
+    "content:qimen:coverage": "pnpm --filter @tianji/content coverage:qimen"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

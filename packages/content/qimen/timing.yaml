@@ -1,0 +1,505 @@
+# // DESIGN-GAP: Branch candidates are described by conventional two-hour local-clock windows; no future dates or apparent-solar conversion are invented.
+- id: qimen.timing.zi
+  system: qimen
+  section: directions_timing
+  topic: timing.zi
+  when:
+    path: timing.favorableHours
+    contains: zi
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：子时
+    summary: 你可以结合实际日程比较子时。
+    body: |-
+      你可以把跨午夜的候选时段当成安排上的参考。子时（以子支表示的两小时段）从前一天晚间延伸到次日凌晨，因此核对日期和接收者作息尤其必要。例如，准备跨时区沟通时，可以先确认双方当地日期，而不是只比较钟点；如果这个时段影响休息，也可以在普通工作时间发出可异步处理的说明。本条参考窗口为当地23:00–01:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Zǐ'
+    summary: Compare the zǐ window with your actual schedule.
+    body: |-
+      You can compare the cross-midnight window only after checking local dates and ordinary availability. Zi (子, zǐ — a two-hour branch window) spans the end of one day and the beginning of another. In a conversation across timezones, a shared calendar reference can prevent a date mismatch. An asynchronous note may serve the purpose better than asking someone to stay awake. The conventional local-clock window is 23:00–01:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.chou
+  system: qimen
+  section: directions_timing
+  topic: timing.chou
+  when:
+    path: timing.favorableHours
+    contains: chou
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：丑时
+    summary: 你可以结合实际日程比较丑时。
+    body: |-
+      你适合先检查深夜时段是否真的可用。丑时（以丑支表示的两小时段）出现在候选列表，不要求你为象征提示改变休息。例如，一份需要发送给远方团队的资料，可以先整理好，再选择对方方便阅读的发送方式；只有本来就有合理安排时，才把此时段拿来比较。本条参考窗口为当地01:00–03:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Chǒu'
+    summary: Compare the chǒu window with your actual schedule.
+    body: |-
+      You can inspect whether an overnight window is genuinely usable within an existing schedule. Chou (丑, chǒu — a two-hour branch window) appearing in the shortlist is not an instruction to disrupt rest. A document for a distant team can be prepared earlier and sent in a way that fits the recipient’s working routine. Use the cue where a sensible arrangement already exists. The conventional local-clock window is 01:00–03:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.yin
+  system: qimen
+  section: directions_timing
+  topic: timing.yin
+  when:
+    path: timing.favorableHours
+    contains: yin
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：寅时
+    summary: 你可以结合实际日程比较寅时。
+    body: |-
+      你可以先把清晨候选与原有行程核对。寅时（以寅支表示的两小时段）处在较早的时间，适合已有相应安排的人参考，不代表必须提前起床。例如，若本来需要赶早班交通，可以检查出发准备与衔接是否清楚；若没有实际需要，就依照正常作息安排，不为盘面增加负担。本条参考窗口为当地03:00–05:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Yín'
+    summary: Compare the yín window with your actual schedule.
+    body: |-
+      You can compare an early-morning cue with a journey already planned. Yin (寅, yín — a two-hour branch window) is useful only if the timing fits your circumstances. For an early transport connection, checking what can be packed and confirmed beforehand may make the schedule more workable. Without an existing need, the symbol offers no reason to add an unusually early start. The conventional local-clock window is 03:00–05:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.mao
+  system: qimen
+  section: directions_timing
+  topic: timing.mao
+  when:
+    path: timing.favorableHours
+    contains: mao
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：卯时
+    summary: 你可以结合实际日程比较卯时。
+    body: |-
+      你适合先把晨间准备做得清楚。卯时（以卯支表示的两小时段）作为候选，可以辅助比较已有的早晨安排，不表示所有事情越早做越好。例如，准备出门前可以核对资料与路线，把需要别人回应的问题留到合适时间，避免把独立准备与协作沟通混在一起。本条参考窗口为当地05:00–07:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Mǎo'
+    summary: Compare the mǎo window with your actual schedule.
+    body: |-
+      You can use a morning candidate to distinguish preparation from contact that needs another person. Mao (卯, mǎo — a two-hour branch window) may fit checking materials and a route before an existing departure. It does not make every task more suitable early in the day. A question requiring someone’s response can wait for their normal availability. The conventional local-clock window is 05:00–07:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.chen
+  system: qimen
+  section: directions_timing
+  topic: timing.chen
+  when:
+    path: timing.favorableHours
+    contains: chen
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：辰时
+    summary: 你可以结合实际日程比较辰时。
+    body: |-
+      你可以先核对上午开始前的实际安排。辰时（以辰支表示的两小时段）在候选中时，适合比较已有的通勤或准备窗口，不要求你在拥挤行程里加任务。例如，出发前先确认预约地点和当天要带的资料，可以减少后续反复；如果时间已经很紧，就把可延后的核对移到更宽裕的空档。本条参考窗口为当地07:00–09:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Chén'
+    summary: Compare the chén window with your actual schedule.
+    body: |-
+      You can inspect how an early-day window fits the schedule already in place. Chen (辰, chén — a two-hour branch window) may overlap commuting and preparation. Confirming the venue and materials before departure can help, but adding another task to an already crowded morning may not. Compare the cue with the actual capacity of the routine. The conventional local-clock window is 07:00–09:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.si
+  system: qimen
+  section: directions_timing
+  topic: timing.si
+  when:
+    path: timing.favorableHours
+    contains: si
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：巳时
+    summary: 你可以结合实际日程比较巳时。
+    body: |-
+      你适合先比较上午候选是否便于专注处理。巳时（以巳支表示的两小时段）出现在列表，可以作为安排短讨论或独立准备的参考；参与者是否有空仍要另行确认。例如，约一次资料核对时，可以先说明需要多久与要讨论什么，让这段时间有具体内容承接，而不是只选一个看起来合适的钟点。本条参考窗口为当地09:00–11:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Sì'
+    summary: Compare the sì window with your actual schedule.
+    body: |-
+      You can compare a mid-morning candidate with the attention the task needs. Si (巳, sì — a two-hour branch window) may be a practical option for a short document review if the people involved are available. State the duration and question before booking the slot. A useful meeting needs content and consent as well as a suggested hour. The conventional local-clock window is 09:00–11:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.wu
+  system: qimen
+  section: directions_timing
+  topic: timing.wu
+  when:
+    path: timing.favorableHours
+    contains: wu
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：午时
+    summary: 你可以结合实际日程比较午时。
+    body: |-
+      你可以把午间候选与用餐和休息安排一起看。午时（以午支表示的两小时段）在列表中，不表示应把所有空档用于推进事情。例如，需要短确认时，可以先问对方是否方便，再用一个问题完成核对；较复杂的讨论则可以留到有充足时间的安排，避免让休息被不断延长的交流挤掉。本条参考窗口为当地11:00–13:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Wǔ'
+    summary: Compare the wǔ window with your actual schedule.
+    body: |-
+      You can compare a midday cue with meals and ordinary breaks. Wu (午, wǔ — a two-hour branch window) is not a reason to fill every gap with work. A brief confirmation may fit if the other person agrees, while a complex discussion deserves its own space. Protect the difference between one short question and a conversation that keeps extending. The conventional local-clock window is 11:00–13:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.wei
+  system: qimen
+  section: directions_timing
+  topic: timing.wei
+  when:
+    path: timing.favorableHours
+    contains: wei
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：未时
+    summary: 你可以结合实际日程比较未时。
+    body: |-
+      你适合先明确午后这段时间准备完成什么。未时（以未支表示的两小时段）作为候选，可用于比较现有日程中的空档，而不替你判断精神状态。例如，安排一项需要核对的工作时，可以先把材料集中到一个位置，再设定一个合理结束点，留出之后调整的余量。本条参考窗口为当地13:00–15:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Wèi'
+    summary: Compare the wèi window with your actual schedule.
+    body: |-
+      You can give an early-afternoon candidate a defined task and endpoint. Wei (未, wèi — a two-hour branch window) offers a scheduling cue, not an assessment of your energy. For a review task, collect the material in one place and identify what a completed pass would look like. That can keep the slot focused and leave room for later adjustments. The conventional local-clock window is 13:00–15:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.shen
+  system: qimen
+  section: directions_timing
+  topic: timing.shen
+  when:
+    path: timing.favorableHours
+    contains: shen
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：申时
+    summary: 你可以结合实际日程比较申时。
+    body: |-
+      你可以先让下午候选承接一项明确反馈。申时（以申支表示的两小时段）出现时，适合比较已有的交流窗口，仍要确认对方是否有回应空间。例如，发出当天的进展摘要，可以把已完成和待确认分开列出，让接收者容易指出下一步，而不是临近结束时追加很多新议题。本条参考窗口为当地15:00–17:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Shēn'
+    summary: Compare the shēn window with your actual schedule.
+    body: |-
+      You can use an afternoon candidate for a focused progress check if it fits the shared schedule. Shen (申, shēn — a two-hour branch window) does not establish someone’s availability. A short update separating completed work from open questions can help the recipient respond. Avoid turning a status check into a late introduction of several unrelated issues. The conventional local-clock window is 15:00–17:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.you
+  system: qimen
+  section: directions_timing
+  topic: timing.you
+  when:
+    path: timing.favorableHours
+    contains: you
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：酉时
+    summary: 你可以结合实际日程比较酉时。
+    body: |-
+      你适合把傍晚候选与工作收尾、交通和私人安排一起比较。酉时（以酉支表示的两小时段）在列表里，不表示别人应该延长可联系时间。例如，想约一个短交流时，可以先确认双方都方便，并说明结束时间；如果有不同的日程，就用异步记录继续讨论，尊重各自的边界。本条参考窗口为当地17:00–19:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Yǒu'
+    summary: Compare the yǒu window with your actual schedule.
+    body: |-
+      You can compare an early-evening cue with travel, closing tasks and personal commitments. You (酉, yǒu — a two-hour branch window) is not a claim on someone’s time beyond their stated availability. If a short conversation fits both schedules, agree when it will end. An asynchronous update may work better when the day’s routines differ. The conventional local-clock window is 17:00–19:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.xu
+  system: qimen
+  section: directions_timing
+  topic: timing.xu
+  when:
+    path: timing.favorableHours
+    contains: xu
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：戌时
+    summary: 你可以结合实际日程比较戌时。
+    body: |-
+      你可以先把晚间候选用于现实上合适的安排。戌时（以戌支表示的两小时段）提供一个参考窗口，不要求继续工作或主动联系他人。例如，原本约好共同回顾一次活动时，可以先列两三个具体问题，让交流有结束点；如果这段时间属于休息，就保留正常生活安排。本条参考窗口为当地19:00–21:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Xū'
+    summary: Compare the xū window with your actual schedule.
+    body: |-
+      You can compare an evening candidate with a conversation already agreed. Xu (戌, xū — a two-hour branch window) may fit a planned review of a shared activity, provided everyone wishes to take part. A few specific questions and an endpoint can keep the exchange manageable. The cue creates no obligation to extend work into a rest period. The conventional local-clock window is 19:00–21:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.timing.hai
+  system: qimen
+  section: directions_timing
+  topic: timing.hai
+  when:
+    path: timing.favorableHours
+    contains: hai
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选时段：亥时
+    summary: 你可以结合实际日程比较亥时。
+    body: |-
+      你适合先确认晚间候选是否需要真正行动。亥时（以亥支表示的两小时段）接近一天结束，可以辅助已有安排，不要求为了起局提示改变作息。例如，一项想法可以先记成明天要核实的问题，再在合适时间联系相关人；只做简短整理，也可能满足这次阅读所需的下一步。本条参考窗口为当地21:00–23:00。建议同时核对时区与宫位条件，把时段当作候选而非约束；列表没有推算未来某个吉日，你可以用实际日程决定是否采用。若涉及共同安排，你可以先取得双方对具体时间的确认。
+    advice:
+      - 先核对当地时区与双方可用时间。
+    do:
+      - 核对时区
+    dont:
+      - 打乱作息
+  en:
+    title: 'Candidate Window: Hài'
+    summary: Compare the hài window with your actual schedule.
+    body: |-
+      You can check whether a late-evening candidate needs any immediate action at all. Hai (亥, hài — a two-hour branch window) may fit a brief note for a question to review tomorrow. Writing down the uncertainty can preserve it without contacting someone late or extending a demanding task. Use the cue around an appropriate existing routine. The conventional local-clock window is 21:00–23:00. Consider checking the timezone and the underlying palace conditions before using it. The engine returns branch candidates, not a future calendar date. Your practical schedule can therefore lead the choice, with this cue used only to compare options that already make sense. A shared arrangement also needs both people to accept the proposed local date and time before it becomes a plan.
+    advice:
+      - Check local dates, timezone and ordinary availability.
+    do:
+      - Check timezone
+    dont:
+      - Disrupt rest
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

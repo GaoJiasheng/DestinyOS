@@ -1,0 +1,1681 @@
+# // DESIGN-GAP: Configuration prose uses modest planning analogies; predicates and polarity follow the existing engine rule table.
+- id: qimen.patterns.san_qi_de_shi_yi
+  system: qimen
+  section: patterns
+  topic: patterns.san_qi_de_shi_yi
+  when:
+    path: palaces[*].patterns
+    contains: san_qi_de_shi_yi
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把细致准备接到接收渠道上
+    summary: 你可以把乙奇得使当作核对安排的一条线索。
+    body: |-
+      你可以把已经整理的材料送到适合接收的人手里。这里的乙奇（作为沟通与整理线索的乙干）与指定地盘干搭配，重点是准备能否进入实际流程。例如，资料已经齐全却迟迟没被阅读时，确认接收方式比继续润色更有帮助。此条的具体依据是天盘干（随盘层定位的天干）为乙、地盘干（随盘层定位的天干）为辛或己，需在同一个宫满足条件。建议核对资料的接收对象与格式。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议核对资料的接收对象与格式。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Connect Careful Preparation to a Recipient
+    summary: Use yǐ qí dé shǐ to check a local arrangement.
+    body: |-
+      You can connect a carefully prepared note to the process that will use it. Yi is a stem symbol used here as a cue for orderly contact. A document that nobody has opened may need the right recipient and format more than another round of polishing. The predicate requires sky stem Yi, earth stem Xin or Ji within one palace; stems are the letter-like references carried by the two chart layers. Consider checking who needs the material and in what form. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider checking who needs the material and in what form.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.san_qi_de_shi_bing
+  system: qimen
+  section: patterns
+  topic: patterns.san_qi_de_shi_bing
+  when:
+    path: palaces[*].patterns
+    contains: san_qi_de_shi_bing
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让展示连上可用资源
+    summary: 你可以把丙奇得使当作核对安排的一条线索。
+    body: |-
+      你适合把想展示的内容接到实际可用的资源上。丙奇（作为展示线索的丙干）与指定地盘干同宫，提供表达与承接之间的支持图像。例如，介绍活动时，可以同时说明已经准备的空间和人员，让热情有具体安排作为背景。此条的具体依据是天盘干（随盘层定位的天干）为丙、地盘干（随盘层定位的天干）为戊或庚，需在同一个宫满足条件。建议让一个亮点对应一项实际准备。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 建议让一个亮点对应一项实际准备。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Attach a Clear Demonstration to Resources
+    summary: Use bǐng qí dé shǐ to check a local arrangement.
+    body: |-
+      You can give a visible idea something practical to rest on. Bing is the stem used here as a prompt about demonstration. When proposing an activity, naming the space and people already available helps your audience see how the idea might be carried out. The predicate requires sky stem Bing, earth stem Wu or Geng within one palace; stems are the letter-like references carried by the two chart layers. Try pairing the main demonstration with an available resource. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try pairing the main demonstration with an available resource.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.san_qi_de_shi_ding
+  system: qimen
+  section: patterns
+  topic: patterns.san_qi_de_shi_ding
+  when:
+    path: palaces[*].patterns
+    contains: san_qi_de_shi_ding
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 用一个小细节打通理解
+    summary: 你可以把丁奇得使当作核对安排的一条线索。
+    body: |-
+      你可以用一个清楚的小细节帮助别人理解整体。丁奇（作为细致表达线索的丁干）与指定地盘干搭配，让你关注信息怎样被承接。例如，说明一项规则时，选一个贴近日常的例子，往往比增加更多抽象定义更方便对方回应。此条的具体依据是天盘干（随盘层定位的天干）为丁、地盘干（随盘层定位的天干）为癸或壬，需在同一个宫满足条件。建议先用一个实例测试对方的理解。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 建议先用一个实例测试对方的理解。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Make One Detail Easy to Understand
+    summary: Use dīng qí dé shǐ to check a local arrangement.
+    body: |-
+      You can help an explanation land by choosing one accessible detail. Ding is the stem used here for precise expression. When explaining a rule, an ordinary example may offer a better starting point for questions than a longer set of abstract definitions. The predicate requires sky stem Ding, earth stem Gui or Ren within one palace; stems are the letter-like references carried by the two chart layers. Consider testing the explanation with one everyday example. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider testing the explanation with one everyday example.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.san_qi_sheng_dian_yi
+  system: qimen
+  section: patterns
+  topic: patterns.san_qi_sheng_dian_yi
+  when:
+    path: palaces[*].patterns
+    contains: san_qi_sheng_dian_yi
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 在适合的场景里发挥整理能力
+    summary: 你可以把乙奇升殿当作核对安排的一条线索。
+    body: |-
+      你适合先找到能承接细致沟通的场景。乙奇升殿（乙干落震三宫的支持组合）在这一宫提示协调方式与位置相配，不能扩展为所有方向都适合。例如，组织小组讨论时，可以先确认议题与谁相关，让沟通对象与准备材料互相对应。此条的具体依据是天盘干（随盘层定位的天干）为乙、落3宫，需在同一个宫满足条件。建议让议题、参与者和资料相互对应。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 建议让议题、参与者和资料相互对应。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Choose a Setting for Careful Coordination
+    summary: Use yǐ qí shēng diàn to check a local arrangement.
+    body: |-
+      You can choose a setting that suits careful coordination. Yi qi sheng dian is the named configuration for Yi in palace three. In a group discussion, selecting the people affected by the issue can help a prepared note reach a useful conversation rather than a general audience. The predicate requires sky stem Yi, palace 3 within one palace; stems are the letter-like references carried by the two chart layers. Try matching the discussion group to the actual issue. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try matching the discussion group to the actual issue.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.san_qi_sheng_dian_bing
+  system: qimen
+  section: patterns
+  topic: patterns.san_qi_sheng_dian_bing
+  when:
+    path: palaces[*].patterns
+    contains: san_qi_sheng_dian_bing
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 展示前明确观众需要
+    summary: 你可以把丙奇升殿当作核对安排的一条线索。
+    body: |-
+      你可以围绕观众需要调整展示。丙奇升殿（丙干落离九宫的支持组合）给出表达与可见位置相接的图像，适合检查呈现方式是否合适。例如，向熟悉背景的人介绍进展时，直接展示变化部分，比重新讲完整背景更容易得到具体反馈。此条的具体依据是天盘干（随盘层定位的天干）为丙、落9宫，需在同一个宫满足条件。建议先确认观众最需要看到哪一部分。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议先确认观众最需要看到哪一部分。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Prepare for the Audience You Actually Have
+    summary: Use bǐng qí shēng diàn to check a local arrangement.
+    body: |-
+      You can tailor a demonstration to what the audience already knows. Bing qi sheng dian names Bing in palace nine. Showing collaborators the part that changed, instead of repeating all the background, can create a focused exchange and make their feedback easier to apply. The predicate requires sky stem Bing, palace 9 within one palace; stems are the letter-like references carried by the two chart layers. Consider asking what the audience needs to inspect first. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances. Keep the follow-up focused on one verifiable condition.
+    advice:
+      - Consider asking what the audience needs to inspect first.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.san_qi_sheng_dian_ding
+  system: qimen
+  section: patterns
+  topic: patterns.san_qi_sheng_dian_ding
+  when:
+    path: palaces[*].patterns
+    contains: san_qi_sheng_dian_ding
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把细节说得简洁可辨
+    summary: 你可以把丁奇升殿当作核对安排的一条线索。
+    body: |-
+      你适合把一个容易被忽略的细节讲清楚。丁奇升殿（丁干落兑七宫的支持组合）在本宫提供精细表达得以展开的线索。例如，解释一份表格的填写方法时，可以把最容易混淆的两栏单独示范，减少听者靠猜测理解的负担。此条的具体依据是天盘干（随盘层定位的天干）为丁、落7宫，需在同一个宫满足条件。建议把一个易混淆细节单独说明。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 建议把一个易混淆细节单独说明。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Give a Small Detail a Clear Form
+    summary: Use dīng qí shēng diàn to check a local arrangement.
+    body: |-
+      You can make a subtle distinction easier to notice. Ding qi sheng dian names Ding in palace seven. A form with two similar fields may need a short demonstration of the difference, rather than a broad instruction to be more careful. That gives the reader a concrete point of reference. The predicate requires sky stem Ding, palace 7 within one palace; stems are the letter-like references carried by the two chart layers. Try illustrating one distinction that readers often miss. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try illustrating one distinction that readers often miss.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.qing_long_fan_shou
+  system: qimen
+  section: patterns
+  topic: patterns.qing_long_fan_shou
+  when:
+    path: palaces[*].patterns
+    contains: qing_long_fan_shou
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 重新接上已有支持
+    summary: 你可以把青龙返首当作核对安排的一条线索。
+    body: |-
+      你可以先回到已有基础中寻找支持。青龙返首（天盘戊加地盘丙的组合）在本宫提供资源重新得到承接的图像，是否与你相关要看用神位置。例如，一个暂时搁置的项目可以先检查旧资料哪些仍然可用，再决定要补什么，不必从头重做全部准备。此条的具体依据是天盘干（随盘层定位的天干）为戊、地盘干（随盘层定位的天干）为丙，需在同一个宫满足条件。建议先列出可以继续使用的旧准备。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 建议先列出可以继续使用的旧准备。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Reconnect with Support Already Present
+    summary: Use qīng lóng fǎn shǒu to check a local arrangement.
+    body: |-
+      You can revisit useful material from an earlier effort. Qing long fan shou names sky Wu over earth Bing. For a paused project, reviewing what remains usable can reveal a simpler restart than recreating every document. The matched palace needs to be relevant to your question before this image becomes personal guidance. The predicate requires sky stem Wu, earth stem Bing within one palace; stems are the letter-like references carried by the two chart layers. Consider reviewing which earlier preparations still serve the task. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider reviewing which earlier preparations still serve the task.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.fei_niao_die_xue
+  system: qimen
+  section: patterns
+  topic: patterns.fei_niao_die_xue
+  when:
+    path: palaces[*].patterns
+    contains: fei_niao_die_xue
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 给想法找一个承接点
+    summary: 你可以把飞鸟跌穴当作核对安排的一条线索。
+    body: |-
+      你适合为想表达的想法找一个具体承接点。飞鸟跌穴（天盘丙加地盘戊的组合）与青龙返首的上下干方向相反，重心在主动表达怎样落到资源上。例如，提出新活动时，先说明哪一个已有流程能接纳它，可以让讨论更容易转向下一步。此条的具体依据是天盘干（随盘层定位的天干）为丙、地盘干（随盘层定位的天干）为戊，需在同一个宫满足条件。建议给新想法配一个现成的实施入口。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 建议给新想法配一个现成的实施入口。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Give a New Idea a Place to Land
+    summary: Use fēi niǎo dié xué to check a local arrangement.
+    body: |-
+      You can give a new idea somewhere practical to land. Fei niao die xue names sky Bing over earth Wu, reversing the stems of the returning-dragon configuration. Showing how a proposed activity fits an existing routine gives the discussion a concrete entry point instead of leaving it at the level of enthusiasm. The predicate requires sky stem Bing, earth stem Wu within one palace; stems are the letter-like references carried by the two chart layers. Try identifying an existing routine that could carry the proposal. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try identifying an existing routine that could carry the proposal.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.yu_nv_shou_men
+  system: qimen
+  section: patterns
+  topic: patterns.yu_nv_shou_men
+  when:
+    path: palaces[*].patterns
+    contains: yu_nv_shou_men
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 细节准备接到行动入口
+    summary: 你可以把玉女守门当作核对安排的一条线索。
+    body: |-
+      你可以先把细节准备接到当前行动入口。玉女守门（地盘丁落在值使现宫的组合）名字中的形象不规定性别角色，只提示精细材料与领头门同处一宫。例如，预约讨论时，提前附上最需要确认的事项，可以让会面更容易进入有效沟通。此条的具体依据是地盘干（随盘层定位的天干）为丁，需在同一个宫满足条件。建议提前准备一条需要回应的细节问题。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议提前准备一条需要回应的细节问题。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Bring a Useful Detail to the Next Handoff
+    summary: Use yù nǚ shǒu mén to check a local arrangement.
+    body: |-
+      You can support the next handoff with a precise piece of preparation. Yu nv shou men names earth Ding at the leading gate’s current palace; its historical name assigns no gendered responsibility. Sending a short decision question before a meeting helps the recipient prepare a relevant response. The predicate requires earth stem Ding within one palace; stems are the letter-like references carried by the two chart layers. Consider sending the key detail before the conversation starts. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances. Keep the follow-up focused on one verifiable condition.
+    advice:
+      - Consider sending the key detail before the conversation starts.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.tian_dun
+  system: qimen
+  section: patterns
+  topic: patterns.tian_dun
+  when:
+    path: palaces[*].patterns
+    contains: tian_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把展示与资源整理在一起
+    summary: 你可以把天遁当作核对安排的一条线索。
+    body: |-
+      你适合把表达、资料和资源安排一起准备。天遁（丙加丁并临生门的组合）在同宫形成较完整的支持图像，不代表其他宫没有阻力。例如，准备提案时，可以用简短呈现说明目标，再列出需要的材料和已有条件，让别人容易判断能否参与。此条的具体依据是天盘干（随盘层定位的天干）为丙、地盘干（随盘层定位的天干）为丁、同临生门（行动方式标记），需在同一个宫满足条件。建议让提案同时说明目标与承接条件。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 建议让提案同时说明目标与承接条件。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Combine a Clear Pitch with Practical Support
+    summary: Use tiān dùn to check a local arrangement.
+    body: |-
+      You can prepare the idea and its supporting materials together. Tian dun names sky Bing over earth Ding with the growth gate in the same palace. A concise pitch accompanied by a realistic resource list lets someone evaluate participation. This local support does not remove constraints elsewhere in the chart. The predicate requires sky stem Bing, earth stem Ding, the sheng gate within one palace; stems are the letter-like references carried by the two chart layers. Try presenting the purpose alongside the resources it needs. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try presenting the purpose alongside the resources it needs.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.di_dun
+  system: qimen
+  section: patterns
+  topic: patterns.di_dun
+  when:
+    path: palaces[*].patterns
+    contains: di_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 从现成流程进入合作
+    summary: 你可以把地遁当作核对安排的一条线索。
+    body: |-
+      你可以从成熟的流程进入下一步合作。地遁（乙加己并临开门的组合）提供细致协调得到入口承接的图像。例如，想加入一个已有小组时，先了解报名和沟通方式，比另开很多渠道同时询问更方便对方处理，也更容易记录有效反馈。此条的具体依据是天盘干（随盘层定位的天干）为乙、地盘干（随盘层定位的天干）为己、同临开门（行动方式标记），需在同一个宫满足条件。建议先走一条明确的正式沟通路径。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 建议先走一条明确的正式沟通路径。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Use an Existing Route for Cooperation
+    summary: Use dì dùn to check a local arrangement.
+    body: |-
+      You can approach a collaboration through a route already in use. Di dun names sky Yi over earth Ji with the opening gate. Reading the group’s joining process before making contact can make your request easier to handle and let you keep track of the reply instead of scattering it across many channels. The predicate requires sky stem Yi, earth stem Ji, the kai gate within one palace; stems are the letter-like references carried by the two chart layers. Consider using the established entry process for the request. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider using the established entry process for the request.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.ren_dun
+  system: qimen
+  section: patterns
+  topic: patterns.ren_dun
+  when:
+    path: palaces[*].patterns
+    contains: ren_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先从安静的小范围交流开始
+    summary: 你可以把人遁当作核对安排的一条线索。
+    body: |-
+      你适合在小范围内先把理解对齐。人遁（丁与休门、太阴同宫的组合）提供细节、缓和沟通与周密准备相接的图像。例如，讨论复杂分工时，可以先与直接相关的人核对资料，再带着已明确的问题进入大组讨论，减少反复解释的负担。此条的具体依据是天盘干（随盘层定位的天干）为丁、同临休门（行动方式标记）、同临太阴（情境标记），需在同一个宫满足条件。建议先安排一次有具体议题的小范围核对。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 建议先安排一次有具体议题的小范围核对。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Start with a Quiet, Focused Exchange
+    summary: Use rén dùn to check a local arrangement.
+    body: |-
+      You can align understanding in a focused conversation first. Ren dun combines sky Ding, the rest gate and the discretion deity in one palace. Checking the details with directly involved collaborators may leave a larger group with a clearer question and less background to reconstruct. The predicate requires sky stem Ding, the xiu gate, the tai yin deity within one palace; stems are the letter-like references carried by the two chart layers. Try a focused preliminary conversation with the directly involved people. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try a focused preliminary conversation with the directly involved people.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.feng_dun
+  system: qimen
+  section: patterns
+  topic: patterns.feng_dun
+  when:
+    path: palaces[*].patterns
+    contains: feng_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让联系轻而有方向
+    summary: 你可以把风遁当作核对安排的一条线索。
+    body: |-
+      你可以用轻量的联系试探信息是否通畅。风遁（乙临休门落巽四宫的组合）在本宫提供温和沟通与流转位置相配的线索。例如，约定一个短时间的初步交流，可以先了解彼此关心什么，再决定是否需要更详细的讨论，避免一开始就提出过大的要求。此条的具体依据是天盘干（随盘层定位的天干）为乙、落4宫、同临休门（行动方式标记），需在同一个宫满足条件。建议先提出一个简短而明确的交流请求。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议先提出一个简短而明确的交流请求。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Keep Contact Light and Purposeful
+    summary: Use fēng dùn to check a local arrangement.
+    body: |-
+      You can use a light first contact to see what information is available. Feng dun names sky Yi with the rest gate in palace four. A brief introductory exchange can reveal each person’s priorities before either commits to a lengthy meeting. A clear purpose helps a gentle approach remain useful. The predicate requires sky stem Yi, palace 4, the xiu gate within one palace; stems are the letter-like references carried by the two chart layers. Consider a short initial conversation with a defined question. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider a short initial conversation with a defined question.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.yun_dun
+  system: qimen
+  section: patterns
+  topic: patterns.yun_dun
+  when:
+    path: palaces[*].patterns
+    contains: yun_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 在不明朗处找到具体入口
+    summary: 你可以把云遁当作核对安排的一条线索。
+    body: |-
+      你适合先在复杂信息里找到一个明确入口。云遁（乙加辛并临开门的组合）有沟通可进入的支持面，同时同宫也可能命中牵制组合，不能只选听起来好的一边。例如，材料意见很多时，先确认哪一个问题需要由谁回应，再逐步展开后续核对。此条的具体依据是天盘干（随盘层定位的天干）为乙、地盘干（随盘层定位的天干）为辛、同临开门（行动方式标记），需在同一个宫满足条件。建议同时记录本宫支持与牵制条件。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 建议同时记录本宫支持与牵制条件。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Find an Entry Point Within Uncertainty
+    summary: Use yún dùn to check a local arrangement.
+    body: |-
+      You can look for a concrete opening without ignoring uncertainty. Yun dun combines sky Yi over earth Xin with the opening gate. The same stem pair can carry a difficult named configuration, so context matters. Identifying one answerable question and its recipient may help a complicated proposal move beyond general discussion. The predicate requires sky stem Yi, earth stem Xin, the kai gate within one palace; stems are the letter-like references carried by the two chart layers. Try noting the constraints alongside the available communication route. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try noting the constraints alongside the available communication route.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.long_dun
+  system: qimen
+  section: patterns
+  topic: patterns.long_dun
+  when:
+    path: palaces[*].patterns
+    contains: long_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让流动信息有一条清楚路线
+    summary: 你可以把龙遁当作核对安排的一条线索。
+    body: |-
+      你可以让流动的信息沿着一条清楚路线传递。龙遁（乙加癸、临休门并落坎一宫的组合）在本宫提供沟通与位置相接的支持线索。例如，跨小组协作时，约定一个汇总渠道和固定反馈格式，可以减少同样的消息在不同会话里反复出现。此条的具体依据是天盘干（随盘层定位的天干）为乙、地盘干（随盘层定位的天干）为癸、落1宫、同临休门（行动方式标记），需在同一个宫满足条件。建议为分散信息确定一个汇总位置。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 建议为分散信息确定一个汇总位置。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Give Information a Clear Route
+    summary: Use lóng dùn to check a local arrangement.
+    body: |-
+      You can make information easier to follow by agreeing its route. Long dun combines sky Yi over earth Gui, the rest gate and palace one. In work spanning several groups, one summary channel and a regular format can reduce duplicate messages and help recipients see what changed since the previous update. The predicate requires sky stem Yi, earth stem Gui, palace 1, the xiu gate within one palace; stems are the letter-like references carried by the two chart layers. Consider agreeing a single place for the next update. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider agreeing a single place for the next update.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.hu_dun
+  system: qimen
+  section: patterns
+  topic: patterns.hu_dun
+  when:
+    path: palaces[*].patterns
+    contains: hu_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先把复杂事项放稳
+    summary: 你可以把虎遁当作核对安排的一条线索。
+    body: |-
+      你适合先让复杂事项有一个稳定落点。虎遁（乙加辛、临休门并落艮八宫的组合）具有支持面，也保留同干组合中的张力，不能把名称直接当作行动许可。例如，遇到多项并行要求时，可以先写清最重要的一项，给其他内容设一个后续处理顺序。此条的具体依据是天盘干（随盘层定位的天干）为乙、地盘干（随盘层定位的天干）为辛、落8宫、同临休门（行动方式标记），需在同一个宫满足条件。建议明确当前一项重点与后续顺序。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 建议明确当前一项重点与后续顺序。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Set a Complex Task on a Stable Base
+    summary: Use hǔ dùn to check a local arrangement.
+    body: |-
+      You can stabilise a complicated task by choosing the first item deliberately. Hu dun combines sky Yi over earth Xin, the rest gate and palace eight. Support and strain may coexist in this stem pair. When several requests arrive together, a visible order of handling can protect the main task from constant switching. The predicate requires sky stem Yi, earth stem Xin, palace 8, the xiu gate within one palace; stems are the letter-like references carried by the two chart layers. Try agreeing which request comes first and what can wait. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try agreeing which request comes first and what can wait.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.shen_dun
+  system: qimen
+  section: patterns
+  topic: patterns.shen_dun
+  when:
+    path: palaces[*].patterns
+    contains: shen_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把扩展想法连到可用条件
+    summary: 你可以把神遁当作核对安排的一条线索。
+    body: |-
+      你可以先检查更大范围的计划有哪些承接条件。神遁（丙临生门与九天的组合）给出展示、资源与向外展开同处的图像，不代表范围越大越有效。例如，想扩大一次活动时，先估算现有流程能接待多少人，再决定邀请规模，能让热情与实际能力保持一致。此条的具体依据是天盘干（随盘层定位的天干）为丙、同临生门（行动方式标记）、同临九天（情境标记），需在同一个宫满足条件。建议先核对承接能力，再决定扩大范围。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议先核对承接能力，再决定扩大范围。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Check the Support for a Wider Plan
+    summary: Use shén dùn to check a local arrangement.
+    body: |-
+      You can connect expansion to the capacity already available. Shen dun combines sky Bing with the growth gate and the expansion deity. Before increasing an event’s audience, checking what the welcome process can handle may reveal an appropriate scale. A wider plan becomes easier to discuss when its supporting conditions are explicit. The predicate requires sky stem Bing, the sheng gate, the jiu tian deity within one palace; stems are the letter-like references carried by the two chart layers. Consider checking capacity before increasing the reach of the plan. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider checking capacity before increasing the reach of the plan.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.gui_dun
+  system: qimen
+  section: patterns
+  topic: patterns.gui_dun
+  when:
+    path: palaces[*].patterns
+    contains: gui_dun
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把独立准备做得可交接
+    summary: 你可以把鬼遁当作核对安排的一条线索。
+    body: |-
+      你适合先把独立准备整理到可交接的程度。鬼遁（丁临杜门与九地的组合）提供细致工作、收束和基础准备相接的图像，名称不代表怪异事件。例如，一份尚未公开的说明可以先核对结构和附件，再约定由谁试读，让安静准备有明确的出口。此条的具体依据是天盘干（随盘层定位的天干）为丁、同临杜门（行动方式标记）、同临九地（情境标记），需在同一个宫满足条件。建议给未公开的准备设一个交接对象。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 建议给未公开的准备设一个交接对象。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Make Private Preparation Ready for a Handoff
+    summary: Use guǐ dùn to check a local arrangement.
+    body: |-
+      You can make work prepared privately easier to hand over. Gui dun combines sky Ding with the containment gate and the grounded-preparation deity. Its historical label is not a claim about unusual events. Checking a draft’s structure and attachments before choosing a reader gives a quiet preparation stage a clear endpoint. The predicate requires sky stem Ding, the du gate, the jiu di deity within one palace; stems are the letter-like references carried by the two chart layers. Try choosing a reader and a date for the prepared draft. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try choosing a reader and a date for the prepared draft.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.qing_long_tao_zou
+  system: qimen
+  section: patterns
+  topic: patterns.qing_long_tao_zou
+  when:
+    path: palaces[*].patterns
+    contains: qing_long_tao_zou
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先确认联系是否接得住
+    summary: 你可以把青龙逃走当作核对安排的一条线索。
+    body: |-
+      你适合先核对沟通有没有被现实条件承接。青龙逃走（乙加辛的牵制组合）提示细致联系可能遇到约束；同宫若还有其他支持，不宜一概否定。例如，发送了清楚的资料却没回应时，先确认格式和渠道是否合适，别急着把沉默当作拒绝。此条的具体依据是天盘干（随盘层定位的天干）为乙、地盘干（随盘层定位的天干）为辛，需在同一个宫满足条件。不过，建议先核对渠道，再调整请求方式。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 不过，建议先核对渠道，再调整请求方式。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Check Whether Contact Has a Practical Route
+    summary: Use qīng lóng táo zǒu to check a local arrangement.
+    body: |-
+      You can inspect the route of a message before interpreting silence. Qing long tao zou names sky Yi over earth Xin. The chart treats this pair as a constraint, while another configuration may provide support in the same palace. A carefully written request may still need a different format or recipient. The predicate requires sky stem Yi, earth stem Xin within one palace; stems are the letter-like references carried by the two chart layers. Consider checking delivery and format before drawing a conclusion. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider checking delivery and format before drawing a conclusion.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.bai_hu_chang_kuang
+  system: qimen
+  section: patterns
+  topic: patterns.bai_hu_chang_kuang
+  when:
+    path: palaces[*].patterns
+    contains: bai_hu_chang_kuang
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把苛刻要求改成可讨论标准
+    summary: 你可以把白虎猖狂当作核对安排的一条线索。
+    body: |-
+      你可以先把苛刻要求整理成可讨论的标准。白虎猖狂（辛加乙的牵制组合）与反向干搭配不同，提醒你留意严密要求与沟通之间的摩擦。例如，修改意见太细碎时，可以先确认必须满足的项目，让讨论不再围绕每个人临时想到的偏好展开。此条的具体依据是天盘干（随盘层定位的天干）为辛、地盘干（随盘层定位的天干）为乙，需在同一个宫满足条件。不过，可以通过区分必须项与偏好来减少摩擦。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 不过，可以通过区分必须项与偏好来减少摩擦。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Make a Demanding Standard Discussable
+    summary: Use bái hǔ chāng kuáng to check a local arrangement.
+    body: |-
+      You can separate a necessary standard from an accumulating list of preferences. Bai hu chang kuang names sky Xin over earth Yi. If review comments become fragmented, agreeing which requirements are essential may let a delicate exchange return to a manageable task rather than a contest over every detail. The predicate requires sky stem Xin, earth stem Yi within one palace; stems are the letter-like references carried by the two chart layers. Try agreeing the essential requirements before addressing optional preferences. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try agreeing the essential requirements before addressing optional preferences.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.zhu_que_tou_jiang
+  system: qimen
+  section: patterns
+  topic: patterns.zhu_que_tou_jiang
+  when:
+    path: palaces[*].patterns
+    contains: zhu_que_tou_jiang
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 为细致表达留核对环节
+    summary: 你可以把朱雀投江当作核对安排的一条线索。
+    body: |-
+      你适合先检查细致表达是否被正确接收。朱雀投江（丁加癸的牵制组合）提示信息可能在复杂背景里被冲淡，不表示真实文件已经出错。例如，发出重要说明后，可以请接收者指出下一步需要做什么，借此发现理解偏差，而不是继续增加更多文字。此条的具体依据是天盘干（随盘层定位的天干）为丁、地盘干（随盘层定位的天干）为癸，需在同一个宫满足条件。建议用一个复述问题核对信息是否清楚。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议用一个复述问题核对信息是否清楚。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Check That the Detail Reached Its Audience
+    summary: Use zhū què tóu jiāng to check a local arrangement.
+    body: |-
+      You can check the effect of a detailed explanation by asking what the reader will do next. Zhu que tou jiang names sky Ding over earth Gui. A precise note can lose its purpose in a crowded exchange. The practical response is to test understanding instead of assuming that more text will fix the gap. The predicate requires sky stem Ding, earth stem Gui within one palace; stems are the letter-like references carried by the two chart layers. Consider asking the recipient to describe the next intended step. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider asking the recipient to describe the next intended step.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.teng_she_yao_jiao
+  system: qimen
+  section: patterns
+  topic: patterns.teng_she_yao_jiao
+  when:
+    path: palaces[*].patterns
+    contains: teng_she_yao_jiao
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让复杂背景回到一项事实
+    summary: 你可以把腾蛇夭矫当作核对安排的一条线索。
+    body: |-
+      你可以把复杂背景拆到一项可核实的事实。腾蛇夭矫（癸加丁的牵制组合）提醒你留意联想是否压过细节，不据此认定有人欺瞒。例如，讨论中每个人都补充一种可能原因时，可以先记录已确认的经过，再决定哪个问题真的需要继续追问。此条的具体依据是天盘干（随盘层定位的天干）为癸、地盘干（随盘层定位的天干）为丁，需在同一个宫满足条件。不过，建议先列已确认的事实，再追问原因。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 不过，建议先列已确认的事实，再追问原因。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Bring a Complicated Story Back to One Fact
+    summary: Use téng shé yāo jiǎo to check a local arrangement.
+    body: |-
+      You can reduce a complicated story to the part that is observable. Teng she yao jiao names sky Gui over earth Ding. When a discussion gathers many possible explanations, recording the established sequence can prevent speculation from replacing the task. A single answerable question may be more useful than another theory. The predicate requires sky stem Gui, earth stem Ding within one palace; stems are the letter-like references carried by the two chart layers. Try checking the known sequence before adding another explanation. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try checking the known sequence before adding another explanation.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.tai_bai_ru_ying
+  system: qimen
+  section: patterns
+  topic: patterns.tai_bai_ru_ying
+  when:
+    path: palaces[*].patterns
+    contains: tai_bai_ru_ying
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 减少要求与展示的硬碰
+    summary: 你可以把太白入荧当作核对安排的一条线索。
+    body: |-
+      你适合先减少严密要求与公开表达之间的摩擦。太白入荧（庚加丙的牵制组合）在本宫提示推进与展示可能不在同一节奏。例如，演示尚在探索阶段时，可以先说明这次希望听到哪类反馈，避免把初稿评审变成对全部细节的争执。此条的具体依据是天盘干（随盘层定位的天干）为庚、地盘干（随盘层定位的天干）为丙，需在同一个宫满足条件。建议先约定这次评审要回答的问题。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 建议先约定这次评审要回答的问题。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Keep Review Pressure from Overwhelming a Demonstration
+    summary: Use tài bái rù yíng to check a local arrangement.
+    body: |-
+      You can clarify the purpose of a demonstration before inviting a demanding review. Tai bai ru ying names sky Geng over earth Bing. An exploratory draft benefits from stating the type of feedback sought. That can keep a useful critique from turning into a premature argument about every unfinished feature. The predicate requires sky stem Geng, earth stem Bing within one palace; stems are the letter-like references carried by the two chart layers. Consider agreeing the review question before presenting the draft. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider agreeing the review question before presenting the draft.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.ying_ru_tai_bai
+  system: qimen
+  section: patterns
+  topic: patterns.ying_ru_tai_bai
+  when:
+    path: palaces[*].patterns
+    contains: ying_ru_tai_bai
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先核对展示需要满足的要求
+    summary: 你可以把荧入太白当作核对安排的一条线索。
+    body: |-
+      你可以先核对展示需要满足的条件。荧入太白（丙加庚的牵制组合）与反向搭配分别记录，提示表达可能碰到明确限制。例如，准备提交一份介绍材料时，先看篇幅和接收格式，再挑选内容，可以减少展示完成后才发现无法使用的返工。此条的具体依据是天盘干（随盘层定位的天干）为丙、地盘干（随盘层定位的天干）为庚，需在同一个宫满足条件。不过，你可以通过先看要求来减少返工。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 不过，你可以通过先看要求来减少返工。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Check the Requirements Before Showing the Work
+    summary: Use yíng rù tài bái to check a local arrangement.
+    body: |-
+      You can check the receiving requirements before polishing a presentation. Ying ru tai bai names sky Bing over earth Geng, reversing the preceding configuration. A submission may need a specific length or format. Learning that constraint early helps you decide what to show and avoids unnecessary work on material the recipient cannot use. The predicate requires sky stem Bing, earth stem Geng within one palace; stems are the letter-like references carried by the two chart layers. Try checking the submission constraints before polishing the presentation. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try checking the submission constraints before polishing the presentation.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.da_ge
+  system: qimen
+  section: patterns
+  topic: patterns.da_ge
+  when:
+    path: palaces[*].patterns
+    contains: da_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把跨越环节缩成可追踪一步
+    summary: 你可以把大格当作核对安排的一条线索。
+    body: |-
+      你适合先缩短信息跨越多个环节的距离。大格（庚加癸的牵制组合）在本宫提示推进可能遇到不易直接看见的阻塞，不代表事情无法进行。例如，一个请求经过多次转发后没有下文，可以先确认目前由谁处理，让下一步有可以追踪的节点。此条的具体依据是天盘干（随盘层定位的天干）为庚、地盘干（随盘层定位的天干）为癸，需在同一个宫满足条件。建议先确认当前负责人和下一次反馈点。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议先确认当前负责人和下一次反馈点。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Reduce a Large Gap to a Trackable Handoff
+    summary: Use dà gé to check a local arrangement.
+    body: |-
+      You can make a stalled request easier to track by identifying its current owner. Da ge names sky Geng over earth Gui. A message passed through several people may lose a clear next step. Finding the present handoff gives you a concrete check without assuming that everyone involved is unwilling to help. The predicate requires sky stem Geng, earth stem Gui within one palace; stems are the letter-like references carried by the two chart layers. Consider locating the current owner of the handoff. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider locating the current owner of the handoff.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.xiao_ge
+  system: qimen
+  section: patterns
+  topic: patterns.xiao_ge
+  when:
+    path: palaces[*].patterns
+    contains: xiao_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 减少频繁切换的负担
+    summary: 你可以把小格当作核对安排的一条线索。
+    body: |-
+      你可以先减少推进中反复切换的负担。小格（庚加壬的牵制组合）在本宫提供行动与流转之间有摩擦的线索。例如，资料散在多个会话里时，先整理一个当前版本，再明确以后在哪里更新，往往比继续逐处催问更容易保持同步。此条的具体依据是天盘干（随盘层定位的天干）为庚、地盘干（随盘层定位的天干）为壬，需在同一个宫满足条件。不过，建议先确定一个当前版本与更新渠道。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 不过，建议先确定一个当前版本与更新渠道。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Reduce the Cost of Repeated Switching
+    summary: Use xiǎo gé to check a local arrangement.
+    body: |-
+      You can simplify work that keeps shifting between channels. Xiao ge names sky Geng over earth Ren. If related files are scattered across conversations, establishing one current version may improve coordination more than asking each person for another update. The aim is to reduce unnecessary switching around the task. The predicate requires sky stem Geng, earth stem Ren within one palace; stems are the letter-like references carried by the two chart layers. Try establishing one current version before chasing more updates. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try establishing one current version before chasing more updates.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.xing_ge
+  system: qimen
+  section: patterns
+  topic: patterns.xing_ge
+  when:
+    path: palaces[*].patterns
+    contains: xing_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先修流程中的不匹配
+    summary: 你可以把刑格当作核对安排的一条线索。
+    body: |-
+      你适合先修正流程里不匹配的地方。刑格（庚加己的牵制组合）作为传统格局名，不是对现实惩罚或法律结果的判断。例如，交接任务总被退回时，可以核对双方使用的清单是否相同，先统一标准，再讨论进度，减少按不同规则重复工作的情况。此条的具体依据是天盘干（随盘层定位的天干）为庚、地盘干（随盘层定位的天干）为己，需在同一个宫满足条件。建议先统一双方用来核对的清单。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 建议先统一双方用来核对的清单。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Fix a Procedural Mismatch First
+    summary: Use xíng gé to check a local arrangement.
+    body: |-
+      You can check whether both sides of a handoff use the same checklist. Xing ge names sky Geng over earth Ji; its label is not a legal conclusion. A returned task may reflect mismatched requirements rather than insufficient effort. Aligning the checklist gives the next attempt a more useful basis. The predicate requires sky stem Geng, earth stem Ji within one palace; stems are the letter-like references carried by the two chart layers. Consider comparing the requirements used on each side of the handoff. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider comparing the requirements used on each side of the handoff.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.qi_ge
+  system: qimen
+  section: patterns
+  topic: patterns.qi_ge
+  when:
+    path: palaces[*].patterns
+    contains: qi_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让推动与协调彼此配合
+    summary: 你可以把奇格当作核对安排的一条线索。
+    body: |-
+      你可以先让直接推进与细致协调互相配合。奇格（庚加乙的牵制组合）提示这两种方式在本宫可能发生张力。例如，需要快速安排多人会议时，可以先征询必要参与者的时间，再发送明确邀请，避免一边加速一边不断重排，让协调变成额外负担。此条的具体依据是天盘干（随盘层定位的天干）为庚、地盘干（随盘层定位的天干）为乙，需在同一个宫满足条件。不过，可以通过先核对必要条件来降低协调成本。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 不过，可以通过先核对必要条件来降低协调成本。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Align Direct Action with Careful Contact
+    summary: Use qí gé to check a local arrangement.
+    body: |-
+      You can align an assertive request with the coordination it needs. Qi ge names sky Geng over earth Yi. A meeting invitation sent before checking essential participants may have to be rewritten repeatedly. A quick availability check can make the subsequent direct request more effective rather than slowing the whole task down. The predicate requires sky stem Geng, earth stem Yi within one palace; stems are the letter-like references carried by the two chart layers. Try checking the essential coordination need before pushing ahead. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try checking the essential coordination need before pushing ahead.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.fu_gan_ge
+  system: qimen
+  section: patterns
+  topic: patterns.fu_gan_ge
+  when:
+    path: palaces[*].patterns
+    contains: fu_gan_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 核对自己的准备是否被牵住
+    summary: 你可以把伏干格当作核对安排的一条线索。
+    body: |-
+      你适合先核对与自己有关的基础准备。伏干格（天盘庚加地盘日干的组合）把牵制放在代表自己的日干背景上，不应与所有庚干组合混为一谈。例如，推进计划时反复遇到资料缺口，可以先检查自己已确认和待确认的部分，明确下一步需要什么输入。此条的具体依据是天盘干（随盘层定位的天干）为庚，需在同一个宫满足条件。建议先区分自己的准备与外部待补信息。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议先区分自己的准备与外部待补信息。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Inspect the Constraint Around Your Preparation
+    summary: Use fú gān gé to check a local arrangement.
+    body: |-
+      You can inspect the preparation connected with your own role. Fu gan ge places sky Geng over the day stem on the earth plate. That links the constraint to a specific self-reference rather than every Geng placement. If a plan repeatedly lacks an input, identify what you have confirmed and what still depends on someone else. The predicate requires sky stem Geng within one palace; stems are the letter-like references carried by the two chart layers. Consider separating your completed preparation from missing external inputs. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider separating your completed preparation from missing external inputs.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.fei_gan_ge
+  system: qimen
+  section: patterns
+  topic: patterns.fei_gan_ge
+  when:
+    path: palaces[*].patterns
+    contains: fei_gan_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 调整行动接触的外部条件
+    summary: 你可以把飞干格当作核对安排的一条线索。
+    body: |-
+      你可以先观察自己的行动碰到哪些外部条件。飞干格（天盘日干加地盘庚的组合）与伏干格的上下位置相反，提示此宫中的推进需要留意承载背景。例如，自己已准备好资料而接收流程暂不开放时，可以先确认何时可提交，再决定是否先做其他不依赖该入口的事。此条的具体依据是地盘干（随盘层定位的天干）为庚，需在同一个宫满足条件。不过，建议先核对入口条件再安排下一步。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 不过，建议先核对入口条件再安排下一步。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Adjust the Conditions Your Action Meets
+    summary: Use fēi gān gé to check a local arrangement.
+    body: |-
+      You can examine the setting your prepared action is meeting. Fei gan ge places the day stem in the sky over earth Geng, reversing the relationship in the concealed-stem configuration. If a submission route is temporarily closed, finding its opening schedule may let you choose another useful task while you wait. The predicate requires earth stem Geng within one palace; stems are the letter-like references carried by the two chart layers. Try checking the receiving conditions before choosing the next action. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome. Keep the follow-up focused on one verifiable condition.
+    advice:
+      - Try checking the receiving conditions before choosing the next action.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.wu_bu_yu_shi
+  system: qimen
+  section: patterns
+  topic: patterns.wu_bu_yu_shi
+  when:
+    path: palaces[*].patterns
+    contains: wu_bu_yu_shi
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把节奏拆成能核对的小步
+    summary: 你可以把五不遇时当作核对安排的一条线索。
+    body: |-
+      你适合先降低一次推进的规模。五不遇时（时干与日干处于引擎规定相差关系的组合）是这一时刻的节奏标记，不表示你所有时段都不合适。例如，一次想确认太多事项而回复零散时，可以先问最关键的一项，把剩余问题留到得到反馈之后再展开。不过，你可以通过缩小请求来检验当前回应。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 不过，你可以通过缩小请求来检验当前回应。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Break a Poor Fit into Smaller Checks
+    summary: Use wǔ bù yù shí to check a local arrangement.
+    body: |-
+      You can reduce the size of a request when timing and preparation feel poorly aligned. Wu bu yu shi is detected from the engine’s specified hour-stem and day-stem relationship. It is a local timing cue, not a permanent restriction. Asking one key question may produce clearer feedback than trying to settle everything in one exchange. Consider asking the smallest question that would clarify the situation. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move. Keep the follow-up focused on one verifiable condition.
+    advice:
+      - Consider asking the smallest question that would clarify the situation.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.ri_yue_bing_xing
+  system: qimen
+  section: patterns
+  topic: patterns.ri_yue_bing_xing
+  when:
+    path: palaces[*].patterns
+    contains: ri_yue_bing_xing
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让展示与细致联系一起前进
+    summary: 你可以把日月并行当作核对安排的一条线索。
+    body: |-
+      你可以让公开表达和细致联系彼此补充。日月并行（丙加乙的支持组合）在本宫提供展示与沟通相接的图像。例如，发布一个活动说明后，给直接相关的人一个清楚的询问渠道，可以让可见信息变成实际对话，而不是停在浏览与点赞的层面。此条的具体依据是天盘干（随盘层定位的天干）为丙、地盘干（随盘层定位的天干）为乙，需在同一个宫满足条件。建议让展示内容带上具体询问渠道。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 建议让展示内容带上具体询问渠道。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Coordinate Visibility and Follow-up
+    summary: Use rì yuè bìng xíng to check a local arrangement.
+    body: |-
+      You can connect a visible announcement with a useful follow-up route. Ri yue bing xing names sky Bing over earth Yi. An activity notice may need a clear place for practical questions from the people concerned. That makes public information easier to turn into a conversation about participation. The predicate requires sky stem Bing, earth stem Yi within one palace; stems are the letter-like references carried by the two chart layers. Try including a clear route for follow-up questions. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try including a clear route for follow-up questions.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.qi_yi_xiang_zuo
+  system: qimen
+  section: patterns
+  topic: patterns.qi_yi_xiang_zuo
+  when:
+    path: palaces[*].patterns
+    contains: qi_yi_xiang_zuo
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让协调和细节互相支持
+    summary: 你可以把奇仪相佐当作核对安排的一条线索。
+    body: |-
+      你适合让沟通方式与细节说明互相支持。奇仪相佐（乙加丁的支持组合）在本宫提示整理与精细表达可以配合。例如，约定一项共同任务时，可以用友好的简短说明写清提交内容和时间，让合作既有回应空间，也有容易执行的步骤。此条的具体依据是天盘干（随盘层定位的天干）为乙、地盘干（随盘层定位的天干）为丁，需在同一个宫满足条件。建议把友好表达与明确步骤放在同一说明里。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议把友好表达与明确步骤放在同一说明里。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Let Coordination Support Precision
+    summary: Use qí yí xiāng zuǒ to check a local arrangement.
+    body: |-
+      You can combine an approachable message with precise instructions. Qi yi xiang zuo names sky Yi over earth Ding. A shared task benefits from a friendly note that still states what to submit and when. Clear detail can support cooperation without turning the exchange into a long or impersonal procedure. The predicate requires sky stem Yi, earth stem Ding within one palace; stems are the letter-like references carried by the two chart layers. Consider pairing an approachable request with precise next steps. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider pairing an approachable request with precise next steps.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.xing_qi_zhu_que
+  system: qimen
+  section: patterns
+  topic: patterns.xing_qi_zhu_que
+  when:
+    path: palaces[*].patterns
+    contains: xing_qi_zhu_que
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把亮点讲成具体内容
+    summary: 你可以把星奇朱雀当作核对安排的一条线索。
+    body: |-
+      你可以用具体内容支撑亮点表达。星奇朱雀（丙加丁的支持组合）与特定门共同命中的格局分开记录，重点在本宫的展示与细节相接。例如，展示作品时，挑一个细节说明它如何解决问题，能帮助观众把印象转成可讨论的反馈。此条的具体依据是天盘干（随盘层定位的天干）为丙、地盘干（随盘层定位的天干）为丁，需在同一个宫满足条件。建议给一个亮点补上过程与使用场景。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 建议给一个亮点补上过程与使用场景。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Explain the Detail Behind a Strong Impression
+    summary: Use xīng qí zhū què to check a local arrangement.
+    body: |-
+      You can support a strong presentation with an explanatory detail. Xing qi zhu que names sky Bing over earth Ding, separately from configurations that also require a gate. Showing how one design choice solves a problem gives an audience something more useful to discuss than an overall impression alone. The predicate requires sky stem Bing, earth stem Ding within one palace; stems are the letter-like references carried by the two chart layers. Try explaining the practical purpose of one visible detail. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try explaining the practical purpose of one visible detail.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.qi_ru_tai_yin
+  system: qimen
+  section: patterns
+  topic: patterns.qi_ru_tai_yin
+  when:
+    path: palaces[*].patterns
+    contains: qi_ru_tai_yin
+  weight: 65
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把重复细节整理成稳定版本
+    summary: 你可以把奇入太阴当作核对安排的一条线索。
+    body: |-
+      你适合把反复推敲的细节整理成一个可用版本。奇入太阴（丁加丁的支持组合）虽名称带太阴，条件并不要求八神太阴同宫，因此要分清格局名与神字段。例如，说明材料反复修改时，可以先保存一份当前版并标出待确认项，便于后续逐项完善。此条的具体依据是天盘干（随盘层定位的天干）为丁、地盘干（随盘层定位的天干）为丁，需在同一个宫满足条件。建议保留当前版本并标记仍待核对的部分。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 建议保留当前版本并标记仍待核对的部分。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Consolidate a Detail into a Usable Version
+    summary: Use qí rù tài yīn to check a local arrangement.
+    body: |-
+      You can consolidate a repeatedly revised detail into a usable version. Qi ru tai yin names sky Ding over earth Ding; despite the historical name, this engine does not require the discretion deity in the same palace. Saving a current draft with visible open questions can let preparation move towards an actual review. The predicate requires sky stem Ding, earth stem Ding within one palace; stems are the letter-like references carried by the two chart layers. Consider saving a usable version with its open questions clearly marked. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider saving a usable version with its open questions clearly marked.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.san_qi_ru_mu_bing
+  system: qimen
+  section: patterns
+  topic: patterns.san_qi_ru_mu_bing
+  when:
+    path: palaces[*].patterns
+    contains: san_qi_ru_mu_bing
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 为尚未展开的表达准备小出口
+    summary: 你可以把丙奇入墓当作核对安排的一条线索。
+    body: |-
+      你可以先为尚未展开的表达准备一个小出口。丙奇入墓（丙加戊落乾六宫的牵制组合）在本宫提示展示受收束，不能把名称理解成生命判断。例如，作品已经准备很多却不知怎样发布，可以先找一个小范围读者试看，让一次反馈帮助你决定后续呈现方式。此条的具体依据是天盘干（随盘层定位的天干）为丙、地盘干（随盘层定位的天干）为戊、落6宫，需在同一个宫满足条件。不过，建议先用小范围反馈帮助内容展开。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 不过，建议先用小范围反馈帮助内容展开。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Give a Held-back Presentation a Smaller Outlet
+    summary: Use bǐng qí rù mù to check a local arrangement.
+    body: |-
+      You can give held-back work a smaller outlet for feedback. Bing qi ru mu names sky Bing over earth Wu in palace six. It is a contained-expression configuration, not a literal event. Sharing a prepared piece with one suitable reader may clarify how to present it without requiring an immediate large release. The predicate requires sky stem Bing, earth stem Wu, palace 6 within one palace; stems are the letter-like references carried by the two chart layers. Try a limited preview before deciding on wider presentation. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try a limited preview before deciding on wider presentation.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.fu_gong_ge
+  system: qimen
+  section: patterns
+  topic: patterns.fu_gong_ge
+  when:
+    path: palaces[*].patterns
+    contains: fu_gong_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 核对牵制出现在哪一层
+    summary: 你可以把伏宫格当作核对安排的一条线索。
+    body: |-
+      你适合先核对牵制出现在哪一层。伏宫格（天盘庚加地盘旬首六仪的组合）把当前推动与本局起点的承载条件连起来，旬首（时柱十日组的起点）要按该局查找。例如，对照排盘时，先找出旬首所隐的干，再看是否同宫，能避免只见庚就套用格局名。此条的具体依据是天盘干（随盘层定位的天干）为庚，需在同一个宫满足条件。建议先定位旬首六仪，再核对同宫条件。你可以把相关的宫位记在问题旁边，再说明它对应哪一个人物、资源或环节。不同宫的条件不能合成一个并不存在的组合，现实中还需要区分已经观察到的反馈与尚未核实的期待。
+    advice:
+      - 建议先定位旬首六仪，再核对同宫条件。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Locate the Constraint in the Foundation
+    summary: Use fú gōng gé to check a local arrangement.
+    body: |-
+      You can locate the constraint by tracing the chart’s starting reference. Fu gong ge places sky Geng over the earth instrument associated with xunshou (旬首, xún shǒu — the hour group’s starting reference). When auditing a match, identify that concealed stem first rather than treating any Geng cell as sufficient. The predicate requires sky stem Geng within one palace; stems are the letter-like references carried by the two chart layers. Consider tracing the starting instrument before applying the label. Locate the matched palace before applying this image to your question. Different cells cannot supply separate parts of a single configuration. Keep observed feedback separate from an expectation, and let the next real exchange show whether this working approach fits your circumstances.
+    advice:
+      - Consider tracing the starting instrument before applying the label.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.fei_gong_ge
+  system: qimen
+  section: patterns
+  topic: patterns.fei_gong_ge
+  when:
+    path: palaces[*].patterns
+    contains: fei_gong_ge
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 核对外部条件与起点的关系
+    summary: 你可以把飞宫格当作核对安排的一条线索。
+    body: |-
+      你可以先核对外部条件如何承接本局起点。飞宫格（天盘旬首六仪加地盘庚的组合）与伏宫格的上下关系相反，读盘时要保留这一方向差别。例如，同一组干在不同层次出现时，可以写出谁在天盘、谁在地盘，再决定它对应哪个规则，避免把两个名称互换。此条的具体依据是地盘干（随盘层定位的天干）为庚，需在同一个宫满足条件。建议把上下层分别记录后再应用规则。应用这条线索时，可以只调整一次沟通或一个流程，记录它带来的变化。若相关用神并不在这个宫，先把此格局当作环境背景，避免用局部名称概括整件事情。
+    advice:
+      - 建议把上下层分别记录后再应用规则。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Inspect the Setting Around the Moving Reference
+    summary: Use fēi gōng gé to check a local arrangement.
+    body: |-
+      You can inspect how the setting meets the chart’s moving starting reference. Fei gong ge places the sky instrument associated with the hour group over earth Geng. This reverses the concealed-palace configuration. Writing down which stem belongs to each layer makes the difference auditable and prevents two similar labels from being treated as interchangeable. The predicate requires earth stem Geng within one palace; stems are the letter-like references carried by the two chart layers. Try recording the sky and earth roles separately before interpretation. Use one manageable adjustment to test the practical idea here. If the relevant indicator occupies another palace, keep this configuration as background context. A local label is more useful as a question about arrangements than as an answer about the whole outcome.
+    advice:
+      - Try recording the sky and earth roles separately before interpretation.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.tian_wang_si_zhang
+  system: qimen
+  section: patterns
+  topic: patterns.tian_wang_si_zhang
+  when:
+    path: palaces[*].patterns
+    contains: tian_wang_si_zhang
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把复杂限制分成可处理项目
+    summary: 你可以把天网四张当作核对安排的一条线索。
+    body: |-
+      你适合先把复杂限制分成可处理的项目。天网四张（癸加癸的牵制组合）在本宫提供重复收束的图像，名称不表示你被现实事件困住。例如，任务有很多前置条件时，可以按是否由自己控制分栏，先完成最容易核实的一项，让困难变成具体列表。此条的具体依据是天盘干（随盘层定位的天干）为癸、地盘干（随盘层定位的天干）为癸，需在同一个宫满足条件。不过，你可以通过拆分前置条件找到下一步。读到这里，你可以先问这个位置与自己当前问题的关联是什么，再决定要不要采用建议。检查资料与沟通步骤往往能提供更直接的信息，盘中的支持或阻力需要与这些信息一起理解。
+    advice:
+      - 不过，你可以通过拆分前置条件找到下一步。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Separate a Dense Set of Constraints
+    summary: Use tiān wǎng sì zhāng to check a local arrangement.
+    body: |-
+      You can turn a dense set of conditions into separate checks. Tian wang si zhang names sky Gui over earth Gui. The image is one of repeated containment, not proof that you are trapped by events. Sorting prerequisites by who controls them may reveal one manageable item and a clearer request for external help. The predicate requires sky stem Gui, earth stem Gui within one palace; stems are the letter-like references carried by the two chart layers. Consider separating the prerequisites and starting with an answerable one. Ask how this particular position relates to the subject before adopting the suggestion. Reviewing materials and communication steps can provide direct evidence that a symbolic label cannot supply. Compare the local support or constraint with that information rather than using the configuration alone to decide your next move.
+    advice:
+      - Consider separating the prerequisites and starting with an answerable one.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.patterns.tian_yu
+  system: qimen
+  section: patterns
+  topic: patterns.tian_yu
+  when:
+    path: palaces[*].patterns
+    contains: tian_yu
+  weight: 50
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 给循环中的安排设反馈点
+    summary: 你可以把天狱当作核对安排的一条线索。
+    body: |-
+      你可以给反复流转的安排设一个反馈点。天狱（壬加壬的牵制组合）作为传统名称，不对现实法律情况作判断。例如，一份资料在几个人之间来回传递，却没人确认处理结果时，可以约定由一人汇总状态，明确哪一步已完成，避免每次都重新询问整个经过。此条的具体依据是天盘干（随盘层定位的天干）为壬、地盘干（随盘层定位的天干）为壬，需在同一个宫满足条件。建议指定一个汇总状态的节点与负责人。你可以把这一组合与该宫的其他标记并排查看，但不要只按名称的好坏加总印象。先选一个自己能改变的条件进行尝试，再让实际情况决定后续做法，有助于保留清楚的判断空间。
+    advice:
+      - 建议指定一个汇总状态的节点与负责人。
+    do:
+      - 核对同宫
+    dont:
+      - 以名定论
+  en:
+    title: Add a Checkpoint to a Repeating Arrangement
+    summary: Use tiān yù to check a local arrangement.
+    body: |-
+      You can give a circulating task a clear status checkpoint. Tian yu names sky Ren over earth Ren; the historical label is not a legal claim. If a file keeps moving among several people without an outcome, one agreed status owner can distinguish completed steps from open ones and reduce repetitive questioning. The predicate requires sky stem Ren, earth stem Ren within one palace; stems are the letter-like references carried by the two chart layers. Try agreeing who will report the next completed step. Compare this combination with the other marks in its palace without turning every name into a vote. Choose a condition you can influence, observe the response and keep room to revise the approach. That makes the reflection useful even when the rest of the chart gives a different emphasis.
+    advice:
+      - Try agreeing who will report the next completed step.
+    do:
+      - Locate the match
+    dont:
+      - Count labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
