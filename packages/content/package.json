@@ -10,7 +10,8 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tools.json --noEmit",
     "validate": "tsx scripts/validate.ts",
-    "content:build": "tsx scripts/build.ts"
+    "content:build": "tsx scripts/build.ts",
+    "coverage:qimen": "tsx scripts/qimen-coverage.ts"
   },
   "dependencies": {
     "@tianji/shared": "workspace:*",

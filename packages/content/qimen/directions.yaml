@@ -1,0 +1,336 @@
+- id: qimen.directions.north
+  system: qimen
+  section: directions_timing
+  topic: directions.north
+  when:
+    path: favorableDirections
+    contains: north
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：北
+    summary: 你可以把北方列为可行安排中的候选。
+    body: |-
+      你可以把北方列为可比较的候选方向。此宫在当前局中满足吉门与吉星条件，也没有规则所排除的空亡、门迫、入墓或击刑；仍要核对它与你想做的事是否相关。例如，附近北侧有一个适合短谈的公共空间时，可以比较交通和开放安排，不必为遵循方向而增加很长的路程。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: North'
+    summary: Compare a feasible option to the north.
+    body: |-
+      You can put a northern option on a practical shortlist. The engine selected this palace because its gate and star meet the supportive rule without the specified exclusion flags. A nearby northern venue may be worth comparing for a short conversation, but transport, opening times and the actual purpose of the meeting still come first. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.directions.southwest
+  system: qimen
+  section: directions_timing
+  topic: directions.southwest
+  when:
+    path: favorableDirections
+    contains: southwest
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：西南
+    summary: 你可以把西南方列为可行安排中的候选。
+    body: |-
+      你适合把西南方作为候选之一，先看现实条件能否承接安排。此宫由吉门、吉星与标记筛选得到，不意味着西南方向所有场所都有相同条件。例如，西南侧的活动地点若需要提前预约，可以先查是否有空位，再比较与其他地点的时间成本，让盘面提示服务于实际选择。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: Southwest'
+    summary: Compare a feasible option to the southwest.
+    body: |-
+      You can consider a southwestern venue after checking whether its arrangements suit the task. This palace passes the engine’s supportive gate, star and flag filter. A place on that side of town may still require a booking or a specific arrival window. Comparing those requirements can help you decide whether the option is useful. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.directions.east
+  system: qimen
+  section: directions_timing
+  topic: directions.east
+  when:
+    path: favorableDirections
+    contains: east
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：东
+    summary: 你可以把东方列为可行安排中的候选。
+    body: |-
+      你可以先比较东方候选与当前计划的实际适配程度。这个方向来自满足筛选规则的宫位，不是要求你向东行动的命令。例如，东侧有一处适合展示材料的空间时，可以先核对设备与接待方式，再决定是否约在那里；如果必要条件不足，也可以使用另一个更方便的地点。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: East'
+    summary: Compare a feasible option to the east.
+    body: |-
+      You can compare an eastern option with the needs of the planned activity. Its palace meets the engine’s supportive criteria, but direction alone says nothing about equipment or access. For a small presentation, inspecting the display setup and welcome arrangements can be more useful than simply choosing whichever place lies to the east. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.directions.southeast
+  system: qimen
+  section: directions_timing
+  topic: directions.southeast
+  when:
+    path: favorableDirections
+    contains: southeast
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：东南
+    summary: 你可以把东南方列为可行安排中的候选。
+    body: |-
+      你适合把东南方放进短名单，再核对使用条件。此宫同时符合门星支持与标记限制的筛选，提示这一时刻可以参考该方向；它不延伸为长期规则。例如，准备参加东南侧的一次交流活动时，可以先查看报名要求和返回路线，让探索保持在自己能安排的范围内。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: Southeast'
+    summary: Compare a feasible option to the southeast.
+    body: |-
+      You can include a southeastern option in a shortlist for this casting. The palace satisfies the helpful gate and star conditions and avoids the flags excluded by the rule. For a discussion event on that side of the area, checking entry requirements and the return route gives the symbolic cue a practical comparison point. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.directions.northwest
+  system: qimen
+  section: directions_timing
+  topic: directions.northwest
+  when:
+    path: favorableDirections
+    contains: northwest
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：西北
+    summary: 你可以把西北方列为可行安排中的候选。
+    body: |-
+      你可以把西北方看成可核对的备选方向。筛选依据是该宫门星与标记的组合，并不能单独推断会遇到哪一种人。例如，安排一场资料核对时，西北侧的地点若交通方便且便于安静阅读，可以纳入比较；谁参加、能讨论多久和资料怎样提供，仍需要另外确认。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: Northwest'
+    summary: Compare a feasible option to the northwest.
+    body: |-
+      You can treat a northwestern option as a candidate to inspect rather than a prediction about whom you will meet. Its palace passes the chart’s gate, star and flag filter. A convenient reading space in that direction might suit a document review, provided the participants, available time and method of sharing material also fit. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.directions.west
+  system: qimen
+  section: directions_timing
+  topic: directions.west
+  when:
+    path: favorableDirections
+    contains: west
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：西
+    summary: 你可以把西方列为可行安排中的候选。
+    body: |-
+      你适合先比较西方候选是否便于清楚沟通。这个方向由符合吉门吉星与标记规则的宫位给出，不能仅凭方向判断安排会有怎样的结果。例如，想约一次短交流时，可以先查西侧地点是否有适合谈话的环境，再决定会面方式；较短的线上核对也可能满足相同目的。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: West'
+    summary: Compare a feasible option to the west.
+    body: |-
+      You can compare a western venue for its ability to support a clear exchange. The engine selected the direction through a palace rule, not through knowledge of the actual location. For a brief meeting, inspect the setting and the participants’ availability. A short online check may serve the same purpose with less travel. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.directions.northeast
+  system: qimen
+  section: directions_timing
+  topic: directions.northeast
+  when:
+    path: favorableDirections
+    contains: northeast
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：东北
+    summary: 你可以把东北方列为可行安排中的候选。
+    body: |-
+      你可以把东北方作为一个需要进一步了解的候选。此宫满足本局的支持筛选，但具体地点是否合适，还需要查看行程与接待要求。例如，你想去东北侧的一处学习空间，可以先确认是否开放、是否需要预约，以及能否获得安静的练习时间，再让这个选择进入日程。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: Northeast'
+    summary: Compare a feasible option to the northeast.
+    body: |-
+      You can inspect a northeastern option as a candidate for the current plan. The palace meets the chart’s supportive filter, while the actual venue still needs checking. For a study space in that direction, look at access arrangements, booking needs and the available quiet time before deciding whether it belongs in your schedule. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.directions.south
+  system: qimen
+  section: directions_timing
+  topic: directions.south
+  when:
+    path: favorableDirections
+    contains: south
+  weight: 65
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 候选方向：南
+    summary: 你可以把南方列为可行安排中的候选。
+    body: |-
+      你适合把南方候选与活动的实际目的放在一起比较。方向来自该宫吉门、吉星与相关标记的筛选，不表示展示规模应该扩大。例如，南侧有一个便于分享作品的地点时，可以先了解设备、使用时段和观众人数，让场地条件与你准备呈现的内容保持一致。建议只在可行选项之间使用这一提示，并为改地点保留余量。吉方（符合此刻筛选规则的宫位方向）只对这张局有效，之后若问题或时刻不同，应重新核对，不自行推算到未来日期。你可以先问场地方是否需要提前准备。
+    advice:
+      - 先核对地点与交通条件。
+    do:
+      - 比较地点
+    dont:
+      - 刻意绕路
+  en:
+    title: 'Candidate Direction: South'
+    summary: Compare a feasible option to the south.
+    body: |-
+      You can compare a southern option with the purpose of the activity. Its palace passes the supportive filter; that does not imply that a larger presentation would be better. For a venue where you might show work, equipment, available time and audience size help establish whether the setting fits what you intend to share. Consider using this cue only between feasible alternatives and keep room to change the venue. A favourable direction is a selected palace for this casting time, not a lasting property of a neighbourhood. Check the relevant indicator’s position before assuming the direction serves your specific question. New questions or later castings need their own assessment rather than a date extrapolated from this chart. Ask the venue which preparation is needed before confirming.
+    advice:
+      - Compare access, timing and practical suitability.
+    do:
+      - Compare venues
+    dont:
+      - Force a detour
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

@@ -1,0 +1,379 @@
+# // DESIGN-GAP: Narrative meanings use mainstream symbolic associations; selection and scoring follow only existing engine fields.
+- id: qimen.stars.tian_peng
+  system: qimen
+  section: pro_view
+  topic: stars.tian_peng
+  when:
+    path: zhiFu.star
+    eq: tian_peng
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 探索之前标出边界
+    summary: 你可以围绕天蓬提示的方式整理下一步。
+    body: |-
+      你可以把探索欲用在一个边界清楚的试验上。天蓬（传统上象征探险与流动思路的星）成为值符时，是此局领头的星，适合观察哪些未知吸引了你的注意；它不是对冒险能力的评价。例如，尝试新的工作方法时，可以先选一个能够回退的小任务，记录实际效果，而不因为新鲜就替换整个流程。探索有尺度，才更容易辨认哪些变化值得保留。建议写清试验范围与停止条件。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议写清试验范围与停止条件。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Put Limits Around an Experiment
+    summary: Use tiān péng to examine a practical choice of approach.
+    body: |-
+      You can give curiosity a useful boundary. Tianpeng (天蓬, tiān péng — a star associated with exploration and fluid thinking) is the leading star here. Testing an unfamiliar workflow on a reversible task gives you information without committing the whole team to it. A new idea can be attractive while its practical fit remains uncertain. Define what you want to learn and which existing process will remain available if the trial does not help. Try naming what you want to learn before expanding the experiment. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Try naming what you want to learn before expanding the experiment.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_rui
+  system: qimen
+  section: pro_view
+  topic: stars.tian_rui
+  when:
+    path: zhiFu.star
+    eq: tian_rui
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先照顾积压的日常事项
+    summary: 你可以围绕天芮提示的方式整理下一步。
+    body: |-
+      你适合先照顾积压的日常问题。天芮（传统上关联维护、细节与健康主题的星）领头时，可以检查作息、工作环境和情绪负担，不据此判断疾病或身体系统是否出问题。它提示关注点，不提供医疗结论。例如，最近安排过密时，可以先减少一项不必要的晚间任务，留出稳定休息的空间，让记录感受成为后续调整的依据，而不是不断追问盘面标签。建议先调整一项容易执行的作息安排。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议先调整一项容易执行的作息安排。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Attend to the Routine That Needs Care
+    summary: Use tiān ruì to examine a practical choice of approach.
+    body: |-
+      You can start with ordinary maintenance rather than a dramatic explanation. Tianrui (天芮, tiān ruì — a star linked with care and upkeep) leads the arrangement. A crowded schedule might call for a quieter evening or a more orderly workspace. This symbol does not identify a condition or replace professional assessment. Noticing when your routine becomes demanding can help you make an achievable adjustment and explain your needs more clearly to those sharing the schedule. Consider reducing one avoidable demand on your daily routine. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Consider reducing one avoidable demand on your daily routine.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_chong
+  system: qimen
+  section: pro_view
+  topic: stars.tian_chong
+  when:
+    path: zhiFu.star
+    eq: tian_chong
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让速度跟上反馈
+    summary: 你可以围绕天冲提示的方式整理下一步。
+    body: |-
+      你适合把推动力集中到最先能得到反馈的一步。天冲（象征快速响应和启动的星）成为值符时，节奏可能偏向马上行动；是否适合加速仍取决于准备和协作条件。例如，收到一个新任务时，先做出一个可讨论的草稿，再确认方向，比连续投入很久后才发现理解不同更省协调精力。启动可以很快，但后续最好有明确的反馈点。建议在开始前约定第一次反馈的时间。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议在开始前约定第一次反馈的时间。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Match Momentum to Feedback
+    summary: Use tiān chōng to examine a practical choice of approach.
+    body: |-
+      You can direct momentum towards the first useful feedback point. Tianchong (天冲, tiān chōng — a star associated with initiating and responding quickly) leads this chart. Starting a rough draft of a new assignment can open a productive discussion before assumptions harden into a finished product. Speed helps when it shortens the path to clarification. It becomes harder to use when several people move rapidly in different directions without checking the shared goal. Try arranging an early checkpoint rather than working unseen for too long. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Try arranging an early checkpoint rather than working unseen for too long.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_fu
+  system: qimen
+  section: pro_view
+  topic: stars.tian_fu
+  when:
+    path: zhiFu.star
+    eq: tian_fu
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把知识整理成可传递的形式
+    summary: 你可以围绕天辅提示的方式整理下一步。
+    body: |-
+      你可以从整理知识与说明方法入手。天辅（象征学习、文书与辅助的星）领头时，适合关注信息是否容易被理解和传递；这不是对考试成绩或教育程度的判断。例如，你要教别人使用一个工具，可以按实际操作顺序做短说明，并让对方试一次，找出不清楚的步骤。自己理解某件事和让别人理解，是两种需要分别检查的工作。建议把一个复杂步骤写成可操作的小说明。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议把一个复杂步骤写成可操作的小说明。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Make Learning Easy to Share
+    summary: Use tiān fǔ to examine a practical choice of approach.
+    body: |-
+      You can make knowledge more useful by testing how someone else receives it. Tianfu (天辅, tiān fǔ — a star associated with learning and assistance) leads the layout. Writing a short guide for a familiar tool reveals whether your explanation follows the order a newcomer actually needs. Ask a reader to attempt one step and note where they hesitate. The symbol invites attention to teachable methods; it is not a measure of intelligence or a forecast of an exam result. Consider asking a learner to test one instruction without extra prompting. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Consider asking a learner to test one instruction without extra prompting.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_qin
+  system: qimen
+  section: pro_view
+  topic: stars.tian_qin
+  when:
+    path: zhiFu.star
+    eq: tian_qin
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 核对中宫与寄宫
+    summary: 你可以围绕天禽提示的方式整理下一步。
+    body: |-
+      你适合先把全局的协调关系理清。天禽（中宫本位的星）作为值符时，需要连同寄宫规则查看，不把中宫当成一个独立的八门行动入口。转盘中它的参与方式与普通外围星不同，因此原宫与现宫尤其值得分别核对。例如，对照两份盘时，可以先检查中五是否同样寄坤二，再看所带干如何呈现，避免把显示差异误认为不同的问题结论。建议先核对中宫寄法，再比较相关宫位。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议先核对中宫寄法，再比较相关宫位。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Check the Centre and Its Hosted Position
+    summary: Use tiān qín to examine a practical choice of approach.
+    body: |-
+      You can use this leading star to check how the centre participates in the layout. Tianqin (天禽, tiān qín — the star of the central palace) needs to be read with the hosting convention. The centre does not provide an ordinary gate of its own. When comparing two chart displays, first check where each school hosts the central material and how it shows the associated stem. Presentation differences may arise from that convention rather than from a different casting time. Try confirming the centre-hosting setting before comparing chart cells. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Try confirming the centre-hosting setting before comparing chart cells.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_xin
+  system: qimen
+  section: pro_view
+  topic: stars.tian_xin
+  when:
+    path: zhiFu.star
+    eq: tian_xin
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先定义需要解决的问题
+    summary: 你可以围绕天心提示的方式整理下一步。
+    body: |-
+      你可以先用清楚的标准整理需要解决的问题。天心（象征分析、判断与修整的星）领头时，适合把散乱的线索分成可核实的部分，而不是急着给所有现象同一个解释。它不提供专业诊断或法律判断。例如，一个流程经常中断时，可以记录在哪一步、需要谁的输入和发生了什么，先解决最具体的阻塞点，让分析服务于实际改善。建议写出一个能观察和复查的问题定义。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议写出一个能观察和复查的问题定义。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Define the Problem Before Fixing It
+    summary: Use tiān xīn to examine a practical choice of approach.
+    body: |-
+      You can make analysis useful by defining the problem in observable terms. Tianxin (天心, tiān xīn — a star associated with assessment and adjustment) is the leading star here. A workflow that keeps stopping may require a record of the handoff, the missing input and the person able to supply it. That is more actionable than a broad explanation about why everything feels difficult. Keep the inquiry specific enough that a change can be checked afterwards. Consider describing the snag in terms someone else could verify. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Consider describing the snag in terms someone else could verify.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_zhu
+  system: qimen
+  section: pro_view
+  topic: stars.tian_zhu
+  when:
+    path: zhiFu.star
+    eq: tian_zhu
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 把表达与回应分开
+    summary: 你可以围绕天柱提示的方式整理下一步。
+    body: |-
+      你适合先留意表达是否给对方留下回应空间。天柱（象征言语、边界与表达张力的星）领头时，可以检查你想说的内容与听者实际听到的内容是否一致，避免把沉默直接当成反对。例如，讨论分工时先说具体需求，再停下来听对方的限制，往往比连续列出很多要求更容易找到可行安排。表达清楚，也包含愿意确认别人怎么理解。建议说完重点后，请对方复述理解与限制。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议说完重点后，请对方复述理解与限制。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Give Expression Room for a Response
+    summary: Use tiān zhù to examine a practical choice of approach.
+    body: |-
+      You can improve an exchange by leaving space after your main request. Tianzhu (天柱, tiān zhù — a star associated with speech and tension in expression) leads the chart. During a conversation about responsibilities, saying what you need and then listening for constraints can reveal an arrangement neither person had initially considered. Silence is not enough evidence of opposition. Checking how the request was understood makes direct expression more useful than adding another layer of explanation. Try asking what the other person heard before adding more detail. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Try asking what the other person heard before adding more detail.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_ren
+  system: qimen
+  section: pro_view
+  topic: stars.tian_ren
+  when:
+    path: zhiFu.star
+    eq: tian_ren
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 用稳定节奏承接责任
+    summary: 你可以围绕天任提示的方式整理下一步。
+    body: |-
+      你可以把责任落实到一个稳定的小节奏里。天任（象征承载、耐心与持续工作的星）成为值符时，适合检查行动是否能重复执行，而不只是靠一时的热情撑住。它不表示你应该承担所有人的任务。例如，维护一个共享资料库时，可以约定固定更新时段与清楚的交接规则，让可靠性来自流程而不是某个人随时在线。稳定也需要明确的负荷边界。建议把责任、频率和交接方式一起写清。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议把责任、频率和交接方式一起写清。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Build a Routine That Can Carry Responsibility
+    summary: Use tiān rèn to examine a practical choice of approach.
+    body: |-
+      You can make reliability a property of the routine rather than a demand on one person. Tianren (天任, tiān rèn — a star associated with steady responsibility) leads this arrangement. A shared resource library benefits from a regular update window and a clear handoff more than from expecting someone to remain available constantly. Consistency is easier to sustain when the task has a defined size and the people involved know what happens if capacity changes. Consider agreeing a sustainable maintenance rhythm with an explicit handoff. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Consider agreeing a sustainable maintenance rhythm with an explicit handoff.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.stars.tian_ying
+  system: qimen
+  section: pro_view
+  topic: stars.tian_ying
+  when:
+    path: zhiFu.star
+    eq: tian_ying
+  weight: 55
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让亮点带上依据
+    summary: 你可以围绕天英提示的方式整理下一步。
+    body: |-
+      你适合让想展示的亮点带上具体依据。天英（象征可见度、热情与表现的星）领头时，容易把注意力集中到别人如何看见你的想法；它不等于表现越强越好。例如，介绍一个作品时，先挑一个最能说明思路的细节，再解释你如何作出选择，通常比不停强调它很特别更容易让观众理解。热情可以吸引目光，细节则帮助对话继续。建议选一个亮点，补上过程或实例。核对时要区分值符星的本位与现在所在的位置，不能因为它领头，就把它的含义套到每一个宫。你可以把这条线索与用神分析并排记录，看看它是支持当前做法，还是提醒你补一个准备环节。
+    advice:
+      - 建议选一个亮点，补上过程或实例。
+    do:
+      - 明确步骤
+    dont:
+      - 只看名称
+  en:
+    title: Give a Strong Impression Something to Stand On
+    summary: Use tiān yīng to examine a practical choice of approach.
+    body: |-
+      You can support a strong impression with one detail people can examine. Tianying (天英, tiān yīng — a star associated with visibility and expressive energy) is the leading star. When showing a piece of work, explaining a specific choice gives an audience more to engage with than repeating how distinctive it is. Enthusiasm can bring attention, while a concrete example helps turn that attention into a useful exchange. Choose what the audience needs to understand first. Try pairing the main visual or claim with an inspectable example. Check the star’s starting palace separately from its current position. Leadership in the layout does not spread the same interpretation across every cell. Compare this working style with the circumstances around your selected indicator, and decide whether it supports the present approach or points to a preparation step you have overlooked.
+    advice:
+      - Try pairing the main visual or claim with an inspectable example.
+    do:
+      - Define steps
+    dont:
+      - Rely on labels
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

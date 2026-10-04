@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv';
 import { LineCounter, parseDocument } from 'yaml';
-import { resolvePath, similarity, zhChars, enWords, evaluateWhen } from '../src';
+import { resolvePath, trigrams, trigramSimilarity, zhChars, enWords, evaluateWhen } from '../src';
 import type { KnowledgeUnit, GlossaryEntry, Transitions } from '../src';
 import schema from '../schema/ku.schema.json';
 const ajv = new Ajv({ allErrors: true });
@@ -258,12 +258,18 @@ export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
       )
         add(item, 'exclusive_with', 'error', `Invalid or nonreciprocal exclusivity: ${otherId}`);
     }
+  const fingerprints = units.map(({ unit }) => ({
+    zh: trigrams(unit.zh.body),
+    en: trigrams(unit.en.body),
+  }));
   for (let i = 0; i < units.length; i++)
     for (const b of units.slice(i + 1)) {
       const a = units[i];
       if (!a || a.unit.system !== b.unit.system) continue;
       for (const locale of ['zh', 'en'] as const)
-        if (similarity(a.unit[locale].body, b.unit[locale].body) > 0.6)
+        if (
+          trigramSimilarity(fingerprints[i]![locale], fingerprints[units.indexOf(b)]![locale]) > 0.6
+        )
           add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
     }
   return diagnostics;

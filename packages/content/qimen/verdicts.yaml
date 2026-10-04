@@ -1,0 +1,1851 @@
+# // DESIGN-GAP: QimenChart omits category; category predicates use the engine’s unique useGods signatures. Scores are symbolic bands, never probabilities.
+- id: qimen.verdict.career.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.career
+  when:
+    all:
+      - all:
+          - path: useGods[key=kai].palaceIndex
+            exists: true
+          - path: useGods[key=zhi_fu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 事业求职：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你准备联系一个团队时，可以先了解岗位需要解决什么问题，再整理与之相关的经验。把结果拆成对方是否回应、你是否得到信息和下一步是否清楚，会比只问能不能成更容易复盘。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先明确一个岗位需求与一个回应问题。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Work And Job Search: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. For a work enquiry, choose one role requirement and show how your experience relates to it. The useful outcome of an initial contact may be a clearer understanding of the team’s needs, even before any larger decision is made. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. The first contact can be successful as an information-gathering step even when it does not settle a longer-term employment question. Review what became clearer about the role.
+    advice:
+      - Try matching one relevant experience to a specific role requirement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.career.favorable
+  system: qimen
+  section: overview
+  topic: verdict.career
+  when:
+    all:
+      - all:
+          - path: useGods[key=kai].palaceIndex
+            exists: true
+          - path: useGods[key=zhi_fu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 事业求职：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你准备联系一个团队时，可以先了解岗位需要解决什么问题，再整理与之相关的经验。把结果拆成对方是否回应、你是否得到信息和下一步是否清楚，会比只问能不能成更容易复盘。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先明确一个岗位需求与一个回应问题。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Work And Job Search: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. For a work enquiry, choose one role requirement and show how your experience relates to it. The useful outcome of an initial contact may be a clearer understanding of the team’s needs, even before any larger decision is made. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. The first contact can be successful as an information-gathering step even when it does not settle a longer-term employment question. Review what became clearer about the role.
+    advice:
+      - Try matching one relevant experience to a specific role requirement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.career.neutral
+  system: qimen
+  section: overview
+  topic: verdict.career
+  when:
+    all:
+      - all:
+          - path: useGods[key=kai].palaceIndex
+            exists: true
+          - path: useGods[key=zhi_fu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 事业求职：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你准备联系一个团队时，可以先了解岗位需要解决什么问题，再整理与之相关的经验。把结果拆成对方是否回应、你是否得到信息和下一步是否清楚，会比只问能不能成更容易复盘。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先明确一个岗位需求与一个回应问题。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Work And Job Search: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. For a work enquiry, choose one role requirement and show how your experience relates to it. The useful outcome of an initial contact may be a clearer understanding of the team’s needs, even before any larger decision is made. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. The first contact can be successful as an information-gathering step even when it does not settle a longer-term employment question. Review what became clearer about the role.
+    advice:
+      - Try matching one relevant experience to a specific role requirement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.career.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.career
+  when:
+    all:
+      - all:
+          - path: useGods[key=kai].palaceIndex
+            exists: true
+          - path: useGods[key=zhi_fu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 事业求职：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你准备联系一个团队时，可以先了解岗位需要解决什么问题，再整理与之相关的经验。把结果拆成对方是否回应、你是否得到信息和下一步是否清楚，会比只问能不能成更容易复盘。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先明确一个岗位需求与一个回应问题。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Work And Job Search: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. For a work enquiry, choose one role requirement and show how your experience relates to it. The useful outcome of an initial contact may be a clearer understanding of the team’s needs, even before any larger decision is made. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. The first contact can be successful as an information-gathering step even when it does not settle a longer-term employment question. Review what became clearer about the role.
+    advice:
+      - Try matching one relevant experience to a specific role requirement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.career.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.career
+  when:
+    all:
+      - all:
+          - path: useGods[key=kai].palaceIndex
+            exists: true
+          - path: useGods[key=zhi_fu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 事业求职：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你准备联系一个团队时，可以先了解岗位需要解决什么问题，再整理与之相关的经验。把结果拆成对方是否回应、你是否得到信息和下一步是否清楚，会比只问能不能成更容易复盘。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先明确一个岗位需求与一个回应问题。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Work And Job Search: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. For a work enquiry, choose one role requirement and show how your experience relates to it. The useful outcome of an initial contact may be a clearer understanding of the team’s needs, even before any larger decision is made. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. The first contact can be successful as an information-gathering step even when it does not settle a longer-term employment question. Review what became clearer about the role.
+    advice:
+      - Try matching one relevant experience to a specific role requirement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.wealth.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.wealth
+  when:
+    all:
+      - all:
+          - path: useGods[key=wu_stem].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 财运交易：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你准备一项日常资源安排时，可以先确认数量、用途和取用方式。讨论交易只涉及信息核对与准备，不对投资标的作判断，也不推断回报。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议核对用途、数量与实际取用条件。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Resource And Transaction Planning: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. When organising everyday resources, inspect what is available, how it will be used and who can access it. A proposed transaction needs verified practical information; a chart score does not identify an asset to choose or establish a return. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Distinguish a requirement you have verified from an estimate still awaiting confirmation. That separation can help a resource discussion stay grounded without implying a financial result.
+    advice:
+      - Consider checking purpose, quantity and access before making an arrangement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.wealth.favorable
+  system: qimen
+  section: overview
+  topic: verdict.wealth
+  when:
+    all:
+      - all:
+          - path: useGods[key=wu_stem].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 财运交易：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你准备一项日常资源安排时，可以先确认数量、用途和取用方式。讨论交易只涉及信息核对与准备，不对投资标的作判断，也不推断回报。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议核对用途、数量与实际取用条件。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Resource And Transaction Planning: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. When organising everyday resources, inspect what is available, how it will be used and who can access it. A proposed transaction needs verified practical information; a chart score does not identify an asset to choose or establish a return. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Distinguish a requirement you have verified from an estimate still awaiting confirmation. That separation can help a resource discussion stay grounded without implying a financial result.
+    advice:
+      - Consider checking purpose, quantity and access before making an arrangement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.wealth.neutral
+  system: qimen
+  section: overview
+  topic: verdict.wealth
+  when:
+    all:
+      - all:
+          - path: useGods[key=wu_stem].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 财运交易：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你准备一项日常资源安排时，可以先确认数量、用途和取用方式。讨论交易只涉及信息核对与准备，不对投资标的作判断，也不推断回报。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议核对用途、数量与实际取用条件。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Resource And Transaction Planning: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. When organising everyday resources, inspect what is available, how it will be used and who can access it. A proposed transaction needs verified practical information; a chart score does not identify an asset to choose or establish a return. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Distinguish a requirement you have verified from an estimate still awaiting confirmation. That separation can help a resource discussion stay grounded without implying a financial result.
+    advice:
+      - Consider checking purpose, quantity and access before making an arrangement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.wealth.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.wealth
+  when:
+    all:
+      - all:
+          - path: useGods[key=wu_stem].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 财运交易：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你准备一项日常资源安排时，可以先确认数量、用途和取用方式。讨论交易只涉及信息核对与准备，不对投资标的作判断，也不推断回报。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议核对用途、数量与实际取用条件。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Resource And Transaction Planning: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. When organising everyday resources, inspect what is available, how it will be used and who can access it. A proposed transaction needs verified practical information; a chart score does not identify an asset to choose or establish a return. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Distinguish a requirement you have verified from an estimate still awaiting confirmation. That separation can help a resource discussion stay grounded without implying a financial result.
+    advice:
+      - Consider checking purpose, quantity and access before making an arrangement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.wealth.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.wealth
+  when:
+    all:
+      - all:
+          - path: useGods[key=wu_stem].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 财运交易：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你准备一项日常资源安排时，可以先确认数量、用途和取用方式。讨论交易只涉及信息核对与准备，不对投资标的作判断，也不推断回报。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议核对用途、数量与实际取用条件。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Resource And Transaction Planning: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. When organising everyday resources, inspect what is available, how it will be used and who can access it. A proposed transaction needs verified practical information; a chart score does not identify an asset to choose or establish a return. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Distinguish a requirement you have verified from an estimate still awaiting confirmation. That separation can help a resource discussion stay grounded without implying a financial result.
+    advice:
+      - Consider checking purpose, quantity and access before making an arrangement.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.love.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.love
+  when:
+    all:
+      - all:
+          - path: useGods[key=geng].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 感情关系：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你讨论共同生活的安排时，可以先分别说出需求与边界，给对方回应空间。关系状态与个人选择都应得到尊重，盘面不替任何一方作决定。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议围绕一个具体安排交流彼此需求。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Relationships: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. For a relationship conversation, describe one concrete need and invite the other person’s perspective. Shared plans deserve explicit agreement, and a respectful refusal can be useful information. The reading assigns no role according to gender or relationship status. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Leave space for a different preference or a refusal, and check what was actually agreed rather than interpreting a pleasant tone as consent to every part of the plan.
+    advice:
+      - Try discussing one shared arrangement with room for each person’s preference.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.love.favorable
+  system: qimen
+  section: overview
+  topic: verdict.love
+  when:
+    all:
+      - all:
+          - path: useGods[key=geng].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 感情关系：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你讨论共同生活的安排时，可以先分别说出需求与边界，给对方回应空间。关系状态与个人选择都应得到尊重，盘面不替任何一方作决定。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议围绕一个具体安排交流彼此需求。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Relationships: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. For a relationship conversation, describe one concrete need and invite the other person’s perspective. Shared plans deserve explicit agreement, and a respectful refusal can be useful information. The reading assigns no role according to gender or relationship status. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Leave space for a different preference or a refusal, and check what was actually agreed rather than interpreting a pleasant tone as consent to every part of the plan.
+    advice:
+      - Try discussing one shared arrangement with room for each person’s preference.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.love.neutral
+  system: qimen
+  section: overview
+  topic: verdict.love
+  when:
+    all:
+      - all:
+          - path: useGods[key=geng].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 感情关系：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你讨论共同生活的安排时，可以先分别说出需求与边界，给对方回应空间。关系状态与个人选择都应得到尊重，盘面不替任何一方作决定。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议围绕一个具体安排交流彼此需求。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Relationships: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. For a relationship conversation, describe one concrete need and invite the other person’s perspective. Shared plans deserve explicit agreement, and a respectful refusal can be useful information. The reading assigns no role according to gender or relationship status. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Leave space for a different preference or a refusal, and check what was actually agreed rather than interpreting a pleasant tone as consent to every part of the plan.
+    advice:
+      - Try discussing one shared arrangement with room for each person’s preference.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.love.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.love
+  when:
+    all:
+      - all:
+          - path: useGods[key=geng].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 感情关系：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你讨论共同生活的安排时，可以先分别说出需求与边界，给对方回应空间。关系状态与个人选择都应得到尊重，盘面不替任何一方作决定。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议围绕一个具体安排交流彼此需求。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Relationships: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. For a relationship conversation, describe one concrete need and invite the other person’s perspective. Shared plans deserve explicit agreement, and a respectful refusal can be useful information. The reading assigns no role according to gender or relationship status. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Leave space for a different preference or a refusal, and check what was actually agreed rather than interpreting a pleasant tone as consent to every part of the plan.
+    advice:
+      - Try discussing one shared arrangement with room for each person’s preference.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.love.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.love
+  when:
+    all:
+      - all:
+          - path: useGods[key=geng].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 感情关系：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你讨论共同生活的安排时，可以先分别说出需求与边界，给对方回应空间。关系状态与个人选择都应得到尊重，盘面不替任何一方作决定。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议围绕一个具体安排交流彼此需求。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Relationships: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. For a relationship conversation, describe one concrete need and invite the other person’s perspective. Shared plans deserve explicit agreement, and a respectful refusal can be useful information. The reading assigns no role according to gender or relationship status. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Leave space for a different preference or a refusal, and check what was actually agreed rather than interpreting a pleasant tone as consent to every part of the plan.
+    advice:
+      - Try discussing one shared arrangement with room for each person’s preference.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.health.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.health
+  when:
+    all:
+      - all:
+          - path: useGods[key=tian_rui].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 健康：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你可以从作息、情绪负担和日常环境中选一项观察。这里的判定只是象征性的节奏提示，不说明身体状况；感到不适时应依据实际情况寻求适合的专业支持。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先记录日常负担，调整一项可行安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Everyday Wellbeing: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. For everyday wellbeing, observe a manageable part of your routine, such as the demands surrounding rest. This reading does not assess your body or identify a condition. Qualified support and direct information deserve priority whenever you have a concern about discomfort. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Keep the proposed change modest and record how it fits your routine. A concern about discomfort deserves direct information and qualified support instead of additional symbolic inference.
+    advice:
+      - Consider reducing one avoidable demand around your rest routine.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.health.favorable
+  system: qimen
+  section: overview
+  topic: verdict.health
+  when:
+    all:
+      - all:
+          - path: useGods[key=tian_rui].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 健康：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你可以从作息、情绪负担和日常环境中选一项观察。这里的判定只是象征性的节奏提示，不说明身体状况；感到不适时应依据实际情况寻求适合的专业支持。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先记录日常负担，调整一项可行安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Everyday Wellbeing: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. For everyday wellbeing, observe a manageable part of your routine, such as the demands surrounding rest. This reading does not assess your body or identify a condition. Qualified support and direct information deserve priority whenever you have a concern about discomfort. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Keep the proposed change modest and record how it fits your routine. A concern about discomfort deserves direct information and qualified support instead of additional symbolic inference.
+    advice:
+      - Consider reducing one avoidable demand around your rest routine.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.health.neutral
+  system: qimen
+  section: overview
+  topic: verdict.health
+  when:
+    all:
+      - all:
+          - path: useGods[key=tian_rui].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 健康：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你可以从作息、情绪负担和日常环境中选一项观察。这里的判定只是象征性的节奏提示，不说明身体状况；感到不适时应依据实际情况寻求适合的专业支持。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先记录日常负担，调整一项可行安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Everyday Wellbeing: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. For everyday wellbeing, observe a manageable part of your routine, such as the demands surrounding rest. This reading does not assess your body or identify a condition. Qualified support and direct information deserve priority whenever you have a concern about discomfort. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Keep the proposed change modest and record how it fits your routine. A concern about discomfort deserves direct information and qualified support instead of additional symbolic inference.
+    advice:
+      - Consider reducing one avoidable demand around your rest routine.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.health.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.health
+  when:
+    all:
+      - all:
+          - path: useGods[key=tian_rui].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 健康：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你可以从作息、情绪负担和日常环境中选一项观察。这里的判定只是象征性的节奏提示，不说明身体状况；感到不适时应依据实际情况寻求适合的专业支持。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先记录日常负担，调整一项可行安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Everyday Wellbeing: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. For everyday wellbeing, observe a manageable part of your routine, such as the demands surrounding rest. This reading does not assess your body or identify a condition. Qualified support and direct information deserve priority whenever you have a concern about discomfort. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Keep the proposed change modest and record how it fits your routine. A concern about discomfort deserves direct information and qualified support instead of additional symbolic inference.
+    advice:
+      - Consider reducing one avoidable demand around your rest routine.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.health.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.health
+  when:
+    all:
+      - all:
+          - path: useGods[key=tian_rui].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 健康：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你可以从作息、情绪负担和日常环境中选一项观察。这里的判定只是象征性的节奏提示，不说明身体状况；感到不适时应依据实际情况寻求适合的专业支持。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先记录日常负担，调整一项可行安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Everyday Wellbeing: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. For everyday wellbeing, observe a manageable part of your routine, such as the demands surrounding rest. This reading does not assess your body or identify a condition. Qualified support and direct information deserve priority whenever you have a concern about discomfort. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Keep the proposed change modest and record how it fits your routine. A concern about discomfort deserves direct information and qualified support instead of additional symbolic inference.
+    advice:
+      - Consider reducing one avoidable demand around your rest routine.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.travel.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.travel
+  when:
+    all:
+      - all:
+          - path: useGods[key=horse].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 出行：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你安排一次出行时，可以先核对路线、接驳和目的地的实际条件。盘面方向与时段是辅助线索，不要求你绕路，也不说明一个地方是否安全。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先核对路线与目的地的开放安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Travel: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. For travel, start with transport connections, the destination’s opening schedule and a realistic return plan. Symbolic direction and hour cues can compare feasible options, but they cannot establish the safety or accessibility of a place you have not checked. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. An option belongs on the shortlist when its practical conditions fit the journey. The ability to change or return matters alongside the first departure time.
+    advice:
+      - Try checking connections and the destination’s current requirements.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.travel.favorable
+  system: qimen
+  section: overview
+  topic: verdict.travel
+  when:
+    all:
+      - all:
+          - path: useGods[key=horse].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 出行：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你安排一次出行时，可以先核对路线、接驳和目的地的实际条件。盘面方向与时段是辅助线索，不要求你绕路，也不说明一个地方是否安全。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先核对路线与目的地的开放安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Travel: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. For travel, start with transport connections, the destination’s opening schedule and a realistic return plan. Symbolic direction and hour cues can compare feasible options, but they cannot establish the safety or accessibility of a place you have not checked. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. An option belongs on the shortlist when its practical conditions fit the journey. The ability to change or return matters alongside the first departure time.
+    advice:
+      - Try checking connections and the destination’s current requirements.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.travel.neutral
+  system: qimen
+  section: overview
+  topic: verdict.travel
+  when:
+    all:
+      - all:
+          - path: useGods[key=horse].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 出行：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你安排一次出行时，可以先核对路线、接驳和目的地的实际条件。盘面方向与时段是辅助线索，不要求你绕路，也不说明一个地方是否安全。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先核对路线与目的地的开放安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Travel: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. For travel, start with transport connections, the destination’s opening schedule and a realistic return plan. Symbolic direction and hour cues can compare feasible options, but they cannot establish the safety or accessibility of a place you have not checked. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. An option belongs on the shortlist when its practical conditions fit the journey. The ability to change or return matters alongside the first departure time.
+    advice:
+      - Try checking connections and the destination’s current requirements.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.travel.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.travel
+  when:
+    all:
+      - all:
+          - path: useGods[key=horse].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 出行：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你安排一次出行时，可以先核对路线、接驳和目的地的实际条件。盘面方向与时段是辅助线索，不要求你绕路，也不说明一个地方是否安全。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先核对路线与目的地的开放安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Travel: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. For travel, start with transport connections, the destination’s opening schedule and a realistic return plan. Symbolic direction and hour cues can compare feasible options, but they cannot establish the safety or accessibility of a place you have not checked. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. An option belongs on the shortlist when its practical conditions fit the journey. The ability to change or return matters alongside the first departure time.
+    advice:
+      - Try checking connections and the destination’s current requirements.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.travel.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.travel
+  when:
+    all:
+      - all:
+          - path: useGods[key=horse].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 出行：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你安排一次出行时，可以先核对路线、接驳和目的地的实际条件。盘面方向与时段是辅助线索，不要求你绕路，也不说明一个地方是否安全。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议先核对路线与目的地的开放安排。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Travel: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. For travel, start with transport connections, the destination’s opening schedule and a realistic return plan. Symbolic direction and hour cues can compare feasible options, but they cannot establish the safety or accessibility of a place you have not checked. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. An option belongs on the shortlist when its practical conditions fit the journey. The ability to change or return matters alongside the first departure time.
+    advice:
+      - Try checking connections and the destination’s current requirements.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.exam.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.exam
+  when:
+    all:
+      - all:
+          - path: useGods[key=ding].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 考试竞赛：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你准备一次考试或展示时，可以先识别最需要练习的具体环节。判定不预测成绩；理解题意、练习反馈和清楚呈现，会提供更直接的调整依据。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议从一个明确缺口安排练习与复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Study And Assessment: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. For an assessment, choose a skill gap you can actually practise and check the response to a completed exercise. The verdict does not forecast a mark or ranking. Understanding the task and presenting a clear answer give you more direct evidence for your preparation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Compare your completed practice with the task requirements, then name a skill to revisit. A symbolic band cannot replace the feedback from that exercise.
+    advice:
+      - Consider practising one identified gap and reviewing the result.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.exam.favorable
+  system: qimen
+  section: overview
+  topic: verdict.exam
+  when:
+    all:
+      - all:
+          - path: useGods[key=ding].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 考试竞赛：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你准备一次考试或展示时，可以先识别最需要练习的具体环节。判定不预测成绩；理解题意、练习反馈和清楚呈现，会提供更直接的调整依据。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议从一个明确缺口安排练习与复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Study And Assessment: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. For an assessment, choose a skill gap you can actually practise and check the response to a completed exercise. The verdict does not forecast a mark or ranking. Understanding the task and presenting a clear answer give you more direct evidence for your preparation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Compare your completed practice with the task requirements, then name a skill to revisit. A symbolic band cannot replace the feedback from that exercise.
+    advice:
+      - Consider practising one identified gap and reviewing the result.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.exam.neutral
+  system: qimen
+  section: overview
+  topic: verdict.exam
+  when:
+    all:
+      - all:
+          - path: useGods[key=ding].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 考试竞赛：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你准备一次考试或展示时，可以先识别最需要练习的具体环节。判定不预测成绩；理解题意、练习反馈和清楚呈现，会提供更直接的调整依据。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议从一个明确缺口安排练习与复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Study And Assessment: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. For an assessment, choose a skill gap you can actually practise and check the response to a completed exercise. The verdict does not forecast a mark or ranking. Understanding the task and presenting a clear answer give you more direct evidence for your preparation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Compare your completed practice with the task requirements, then name a skill to revisit. A symbolic band cannot replace the feedback from that exercise.
+    advice:
+      - Consider practising one identified gap and reviewing the result.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.exam.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.exam
+  when:
+    all:
+      - all:
+          - path: useGods[key=ding].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 考试竞赛：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你准备一次考试或展示时，可以先识别最需要练习的具体环节。判定不预测成绩；理解题意、练习反馈和清楚呈现，会提供更直接的调整依据。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议从一个明确缺口安排练习与复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Study And Assessment: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. For an assessment, choose a skill gap you can actually practise and check the response to a completed exercise. The verdict does not forecast a mark or ranking. Understanding the task and presenting a clear answer give you more direct evidence for your preparation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Compare your completed practice with the task requirements, then name a skill to revisit. A symbolic band cannot replace the feedback from that exercise.
+    advice:
+      - Consider practising one identified gap and reviewing the result.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.exam.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.exam
+  when:
+    all:
+      - all:
+          - path: useGods[key=ding].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 考试竞赛：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你准备一次考试或展示时，可以先识别最需要练习的具体环节。判定不预测成绩；理解题意、练习反馈和清楚呈现，会提供更直接的调整依据。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议从一个明确缺口安排练习与复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Study And Assessment: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. For an assessment, choose a skill gap you can actually practise and check the response to a completed exercise. The verdict does not forecast a mark or ranking. Understanding the task and presenting a clear answer give you more direct evidence for your preparation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Compare your completed practice with the task requirements, then name a skill to revisit. A symbolic band cannot replace the feedback from that exercise.
+    advice:
+      - Consider practising one identified gap and reviewing the result.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.lost.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.lost
+  when:
+    all:
+      - all:
+          - path: useGods[key=xuan_wu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 寻物寻人：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你寻找物品或联系线索时，可以先按最后确认的经过复查，再询问知情的人。盘面不指认他人，也不能作为实际位置的证据；涉及人的情况要尊重隐私和边界。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议按最后确认的记录逐项复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Search And Locating Information: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. For a search, reconstruct the last confirmed sequence before asking people nearby for factual observations. A palace direction is not proof of a location or evidence against a person. Respect privacy and use ordinary contact channels when seeking information about someone. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Mark the locations already checked and the observations still needing confirmation. This can help avoid repeated searching without turning a possible clue into an allegation.
+    advice:
+      - Try retracing the last documented sequence before expanding the search.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.lost.favorable
+  system: qimen
+  section: overview
+  topic: verdict.lost
+  when:
+    all:
+      - all:
+          - path: useGods[key=xuan_wu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 寻物寻人：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你寻找物品或联系线索时，可以先按最后确认的经过复查，再询问知情的人。盘面不指认他人，也不能作为实际位置的证据；涉及人的情况要尊重隐私和边界。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议按最后确认的记录逐项复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Search And Locating Information: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. For a search, reconstruct the last confirmed sequence before asking people nearby for factual observations. A palace direction is not proof of a location or evidence against a person. Respect privacy and use ordinary contact channels when seeking information about someone. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Mark the locations already checked and the observations still needing confirmation. This can help avoid repeated searching without turning a possible clue into an allegation.
+    advice:
+      - Try retracing the last documented sequence before expanding the search.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.lost.neutral
+  system: qimen
+  section: overview
+  topic: verdict.lost
+  when:
+    all:
+      - all:
+          - path: useGods[key=xuan_wu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 寻物寻人：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你寻找物品或联系线索时，可以先按最后确认的经过复查，再询问知情的人。盘面不指认他人，也不能作为实际位置的证据；涉及人的情况要尊重隐私和边界。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议按最后确认的记录逐项复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Search And Locating Information: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. For a search, reconstruct the last confirmed sequence before asking people nearby for factual observations. A palace direction is not proof of a location or evidence against a person. Respect privacy and use ordinary contact channels when seeking information about someone. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Mark the locations already checked and the observations still needing confirmation. This can help avoid repeated searching without turning a possible clue into an allegation.
+    advice:
+      - Try retracing the last documented sequence before expanding the search.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.lost.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.lost
+  when:
+    all:
+      - all:
+          - path: useGods[key=xuan_wu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 寻物寻人：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你寻找物品或联系线索时，可以先按最后确认的经过复查，再询问知情的人。盘面不指认他人，也不能作为实际位置的证据；涉及人的情况要尊重隐私和边界。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议按最后确认的记录逐项复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Search And Locating Information: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. For a search, reconstruct the last confirmed sequence before asking people nearby for factual observations. A palace direction is not proof of a location or evidence against a person. Respect privacy and use ordinary contact channels when seeking information about someone. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Mark the locations already checked and the observations still needing confirmation. This can help avoid repeated searching without turning a possible clue into an allegation.
+    advice:
+      - Try retracing the last documented sequence before expanding the search.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.lost.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.lost
+  when:
+    all:
+      - all:
+          - path: useGods[key=xuan_wu].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 寻物寻人：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你寻找物品或联系线索时，可以先按最后确认的经过复查，再询问知情的人。盘面不指认他人，也不能作为实际位置的证据；涉及人的情况要尊重隐私和边界。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议按最后确认的记录逐项复查。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'Search And Locating Information: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. For a search, reconstruct the last confirmed sequence before asking people nearby for factual observations. A palace direction is not proof of a location or evidence against a person. Respect privacy and use ordinary contact channels when seeking information about someone. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. Mark the locations already checked and the observations still needing confirmation. This can help avoid repeated searching without turning a possible clue into an allegation.
+    advice:
+      - Try retracing the last documented sequence before expanding the search.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.general.auspicious
+  system: qimen
+  section: overview
+  topic: verdict.general
+  when:
+    all:
+      - all:
+          - path: useGods[key=zhi_shi].palaceIndex
+            exists: true
+      - path: verdict
+        eq: auspicious
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 综合：支持较集中
+    summary: 你可以把准备较充分的一步提到前面。
+    body: |-
+      你可以把准备较充分的一步提到前面。吉的判定（引擎汇总相关宫位所得的象征分段）表示支持较集中，不代表每个环节都轻松，也不替别人承诺回应。你面对综合问题时，可以先把大问题缩成眼前一项能核实的选择。自己的准备、事项的进展与外部回应分别记录，能避免用同一个分数概括所有环节。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议把大问题收束到一项可核实的选择。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'A Broad Question: Several Supports Align'
+    summary: You can bring a well-prepared next step forward.
+    body: |-
+      You can bring a well-prepared next step forward. An auspicious verdict is the engine’s symbolic band for concentrated support. It gives you a reason to examine a prepared step, while leaving each person’s response and the practical outcome open. For a broad question, separate your own preparation from the matter under discussion and from external feedback. Choose one uncertainty that could be reduced with an observation. That gives a general reading a practical focus without treating its total score as an answer to every part of the situation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. A useful next observation should reduce a named uncertainty. If the question remains too broad to test, narrow it before deciding how much effort the plan deserves.
+    advice:
+      - Consider narrowing the question to one observable next choice.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.general.favorable
+  system: qimen
+  section: overview
+  topic: verdict.general
+  when:
+    all:
+      - all:
+          - path: useGods[key=zhi_shi].palaceIndex
+            exists: true
+      - path: verdict
+        eq: favorable
+  weight: 85
+  polarity: positive
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 综合：条件偏支持
+    summary: 你适合利用已有条件做一次温和推进。
+    body: |-
+      你适合利用已有条件做一次温和推进。偏吉的判定（总分落在较支持的分段）提示你从已有资源进入行动，但仍要核对个别宫位是否带着牵制。你面对综合问题时，可以先把大问题缩成眼前一项能核实的选择。自己的准备、事项的进展与外部回应分别记录，能避免用同一个分数概括所有环节。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议把大问题收束到一项可核实的选择。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'A Broad Question: Work with a Helpful Lean'
+    summary: You can use the helpful conditions for a measured attempt.
+    body: |-
+      You can use the helpful conditions for a measured attempt. A favourable verdict is a supportive band in the aggregated score. It suggests using an available condition without assuming that every palace is equally helpful or that a larger commitment is already warranted. For a broad question, separate your own preparation from the matter under discussion and from external feedback. Choose one uncertainty that could be reduced with an observation. That gives a general reading a practical focus without treating its total score as an answer to every part of the situation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. A useful next observation should reduce a named uncertainty. If the question remains too broad to test, narrow it before deciding how much effort the plan deserves.
+    advice:
+      - Consider narrowing the question to one observable next choice.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.general.neutral
+  system: qimen
+  section: overview
+  topic: verdict.general
+  when:
+    all:
+      - all:
+          - path: useGods[key=zhi_shi].palaceIndex
+            exists: true
+      - path: verdict
+        eq: neutral
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 综合：先核实再决定
+    summary: 你可以先核实一个关键条件再决定规模。
+    body: |-
+      你可以先核实一个关键条件再决定规模。平的判定（总分落在中间分段）不是没有线索，往往需要把支持与阻力分开看，再找到能增加信息的一步。你面对综合问题时，可以先把大问题缩成眼前一项能核实的选择。自己的准备、事项的进展与外部回应分别记录，能避免用同一个分数概括所有环节。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议把大问题收束到一项可核实的选择。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'A Broad Question: Let the Next Check Clarify the Choice'
+    summary: You can let one practical check clarify the appropriate scale.
+    body: |-
+      You can let one practical check clarify the appropriate scale. A neutral verdict places the combined score in the middle band. It does not mean there is no useful information. Separate the helpful conditions from the constraints and choose a step that could clarify their practical importance. For a broad question, separate your own preparation from the matter under discussion and from external feedback. Choose one uncertainty that could be reduced with an observation. That gives a general reading a practical focus without treating its total score as an answer to every part of the situation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. A useful next observation should reduce a named uncertainty. If the question remains too broad to test, narrow it before deciding how much effort the plan deserves.
+    advice:
+      - Consider narrowing the question to one observable next choice.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.general.unfavorable
+  system: qimen
+  section: overview
+  topic: verdict.general
+  when:
+    all:
+      - all:
+          - path: useGods[key=zhi_shi].palaceIndex
+            exists: true
+      - path: verdict
+        eq: unfavorable
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 综合：先减轻阻力
+    summary: 你适合先处理一个牵制环节再往前走。
+    body: |-
+      你适合先处理一个牵制环节再往前走。偏凶的判定（总分处于较受限的分段）提示当前安排可能需要调整；建议先回到具体标记，找能处理的准备缺口。你面对综合问题时，可以先把大问题缩成眼前一项能核实的选择。自己的准备、事项的进展与外部回应分别记录，能避免用同一个分数概括所有环节。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议把大问题收束到一项可核实的选择。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'A Broad Question: Reduce the Friction Around One Step'
+    summary: You can ease one source of friction before moving further.
+    body: |-
+      You can ease one source of friction before moving further. An unfavourable verdict is a constrained band in the combined score. Consider changing one preparation or coordination condition, rather than interpreting the band as a judgment of your ability or a forecast of failure. For a broad question, separate your own preparation from the matter under discussion and from external feedback. Choose one uncertainty that could be reduced with an observation. That gives a general reading a practical focus without treating its total score as an answer to every part of the situation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. A useful next observation should reduce a named uncertainty. If the question remains too broad to test, narrow it before deciding how much effort the plan deserves.
+    advice:
+      - Consider narrowing the question to one observable next choice.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.verdict.general.inauspicious
+  system: qimen
+  section: overview
+  topic: verdict.general
+  when:
+    all:
+      - all:
+          - path: useGods[key=zhi_shi].palaceIndex
+            exists: true
+      - path: verdict
+        eq: inauspicious
+  weight: 85
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 综合：保留调整空间
+    summary: 你可以把下一步缩小，并保留调整方案。
+    body: |-
+      你可以把下一步缩小，并保留调整方案。凶的判定（总分落在受限较集中的分段）只说明这次象征条件的组合。建议先整理事实与依赖关系，再安排可回退的小动作。你面对综合问题时，可以先把大问题缩成眼前一项能核实的选择。自己的准备、事项的进展与外部回应分别记录，能避免用同一个分数概括所有环节。分数（规则权重的汇总刻度）不是概率；可以把后续实际反馈记下来，再决定这条线索是否适合你的处境。
+    advice:
+      - 建议把大问题收束到一项可核实的选择。
+    do:
+      - 核对条件
+    dont:
+      - 以分定局
+  en:
+    title: 'A Broad Question: Make Room to Rework the Arrangement'
+    summary: You can make the next step smaller and easier to revise.
+    body: |-
+      You can make the next step smaller and easier to revise. An inauspicious verdict groups this chart’s score into the more constrained band. Consider reviewing dependencies and the facts you can verify, then choosing a reversible action. The band is local to this casting and does not fix the future. For a broad question, separate your own preparation from the matter under discussion and from external feedback. Choose one uncertainty that could be reduced with an observation. That gives a general reading a practical focus without treating its total score as an answer to every part of the situation. The score summarises rule weights rather than a probability. You can keep the casting and later observations together, then review whether the suggested approach helped before relying on it again. A useful next observation should reduce a named uncertainty. If the question remains too broad to test, narrow it before deciding how much effort the plan deserves.
+    advice:
+      - Consider narrowing the question to one observable next choice.
+    do:
+      - Check conditions
+    dont:
+      - Treat as probability
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

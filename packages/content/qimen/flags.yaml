@@ -1,0 +1,337 @@
+# // DESIGN-GAP: Narrative meanings use mainstream symbolic associations; selection and scoring follow only existing engine fields.
+- id: qimen.flags.void
+  system: qimen
+  section: patterns
+  topic: flags.void
+  when:
+    path: palaces[*].flags
+    contains: void
+  weight: 45
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 落实前先核实
+    summary: 你可以从空亡标记提示的环节开始检查。
+    body: |-
+      你适合把尚未落实的环节单独标出来。空亡（本旬两支对应宫位的缺位标记）在盘中表示某宫的条件需要进一步核实，不等于事情没有希望。它可能提醒你区分已拿到的资料和只是听说的安排，尤其是对方尚未回复的部分。例如，讨论场地时，口头说可以借用和已经确认预约是两件事；把它们写在不同栏里，有助于减少来回等待。建议先确认资源是否实际可用，再安排后续。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 建议先确认资源是否实际可用，再安排后续。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Check What Is Actually Available
+    summary: Use the kōng wáng flag as a prompt for a practical check.
+    body: |-
+      You can benefit from distinguishing a possibility from something already arranged. Kongwang (空亡, kōng wáng — a vacant-position flag for the hour group) marks a palace whose conditions invite verification. Think of an event venue mentioned in conversation but never actually booked: the useful response is to check availability, not abandon the gathering. Separate a confirmed reservation from a promising lead, and ask who can provide the missing information. Consider requesting confirmation before committing the next dependent step. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context. Ask who can verify the remaining condition.
+    advice:
+      - Consider requesting confirmation before committing the next dependent step.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.flags.horse
+  system: qimen
+  section: patterns
+  topic: flags.horse
+  when:
+    path: palaces[*].flags
+    contains: horse
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 移动要配合准备
+    summary: 你可以从马星标记提示的环节开始检查。
+    body: |-
+      你可以把移动当成改变信息来源的机会。马星（按时支推得的移动标记）所在宫给出出行与切换场景的象征线索，但并不要求你立即离开原来的位置。这个标记与适合出发是不同层次的判断，仍需核对相关门星和交通条件。例如，远程沟通反复不清楚时，换到能安静谈话的场所可能有帮助；涉及实际旅程时，则要先了解路线和接驳。建议出发前列好路线、联系人和时间余量。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 建议出发前列好路线、联系人和时间余量。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Prepare Before You Move
+    summary: Use the mǎ xīng flag as a prompt for a practical check.
+    body: |-
+      A change of setting may help you see the question from another angle. Maxing (马星, mǎ xīng — the chart’s movement marker) highlights motion and transitions rather than certifying a journey. A useful move might be as ordinary as taking a conversation out of a noisy room. For an actual trip, transport connections, opening hours and the ability to return still deserve attention. Movement creates opportunities for new information only when it serves a clear purpose. Try preparing a route and a fallback contact before leaving. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context.
+    advice:
+      - Try preparing a route and a fallback contact before leaving.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.flags.fu_yin
+  system: qimen
+  section: patterns
+  topic: flags.fu_yin
+  when:
+    path: palaces[*].flags
+    contains: fu_yin
+  weight: 45
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 重复处适合复查
+    summary: 你可以从伏吟标记提示的环节开始检查。
+    body: |-
+      你倾向于从熟悉的流程里找到下一步。伏吟（天盘星回到地盘本位的重复结构）提示某宫的节奏可能停留在原有安排，适合检查已经做过的事情；它不是要求你无限等待。同一份资料反复传递时，问题可能在交接而非努力程度。例如，小组一直讨论相同议题却没决定负责人，可以回到上次纪要，找出没有明确归属的步骤，把讨论变成具体分工。建议给重复问题补一个负责人和复盘点。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 建议给重复问题补一个负责人和复盘点。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Use Repetition to Find a Missing Step
+    summary: Use the fú yín flag as a prompt for a practical check.
+    body: |-
+      Repetition can help you identify what a process is missing. Fuyin (伏吟, fú yín — a star occupying its original palace again) invites attention to familiar routines and unresolved loops. In a team that keeps reopening the same discussion, the useful question may be who owns the next decision. Revisiting a previous note can reveal a handoff that everyone assumed someone else would handle. The symbol supports review, not passive waiting without a deadline. Consider assigning an owner to the step that keeps returning. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context.
+    advice:
+      - Consider assigning an owner to the step that keeps returning.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.flags.fan_yin
+  system: qimen
+  section: patterns
+  topic: flags.fan_yin
+  when:
+    path: palaces[*].flags
+    contains: fan_yin
+  weight: 45
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 变动中留调整空间
+    summary: 你可以从反吟标记提示的环节开始检查。
+    body: |-
+      你适合预留调整方案的空间。反吟（天盘星移到本位对宫的对向结构）在盘中提示位置关系发生较明显的改变，因此行动节奏可能出现往返、转向或重新协调。它不能单独说明某人会改变心意，也不代表所有变动都不利。例如，团队突然换了会议时间，你可以先确认谁受影响，再决定是改成异步讨论还是保留一个短会，避免为了维持原计划让所有人赶路。建议为重要安排准备一个可切换的替代方案。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 建议为重要安排准备一个可切换的替代方案。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Keep Room for a Change of Course
+    summary: Use the fǎn yín flag as a prompt for a practical check.
+    body: |-
+      You may find flexibility more useful than defending the original arrangement. Fanyin (反吟, fǎn yín — a star positioned opposite its home palace) supplies an image of reversal or redirection. It does not reveal another person’s intentions. If a meeting time changes, checking who can still attend may lead to a short asynchronous exchange instead of a rushed gathering. The practical task is to distinguish the part that changed from the purpose that can remain intact. Try naming a workable alternative before the schedule becomes tight. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context.
+    advice:
+      - Try naming a workable alternative before the schedule becomes tight.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.flags.gate_forced
+  system: qimen
+  section: patterns
+  topic: flags.gate_forced
+  when:
+    path: palaces[*].flags
+    contains: gate_forced
+  weight: 45
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 减轻方式与环境的冲突
+    summary: 你可以从门迫标记提示的环节开始检查。
+    body: |-
+      你可以先减轻行动方式与环境之间的冲突。门迫（门的五行克制宫的五行）表示某宫所象征的做法与承载它的条件有张力，并不是你不能行动。用更强的推进方式可能增加协调成本，缩小一次行动的范围反而更容易看清阻碍。例如，新流程还未被团队理解时直接全面推广，容易收到互不相容的反馈；先在一个小环节试行，可以把讨论聚焦到具体体验上。不过，你可以通过缩小试行范围来减少摩擦。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 不过，你可以通过缩小试行范围来减少摩擦。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Adjust the Method to the Setting
+    summary: Use the mén pò flag as a prompt for a practical check.
+    body: |-
+      A smaller intervention may fit the setting better than a forceful rollout. Menpo (门迫, mén pò — a gate’s element controlling its palace’s element) represents tension between a method and the environment carrying it. That is a cue to adjust scale, not a verdict against your ability. Introducing an unfamiliar workflow across a whole team may produce scattered objections; testing one handoff first gives everyone something specific to evaluate and reduces the cost of revision. Consider a limited pilot with an easy way to reverse the change. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context.
+    advice:
+      - Consider a limited pilot with an easy way to reverse the change.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.flags.gate_controlled
+  system: qimen
+  section: patterns
+  topic: flags.gate_controlled
+  when:
+    path: palaces[*].flags
+    contains: gate_controlled
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先争取需要的条件
+    summary: 你可以从门制标记提示的环节开始检查。
+    body: |-
+      你适合先弄清行动需要哪些前提。门制（宫的五行克制门的五行）表示某种做法受到所在环境的限制；它与门迫的关系方向相反，不能把两个名称当成同一回事。困难可能来自时间、资源或流程，未必需要增加个人投入。例如，你准备展示一个方案，却只有很短的会议空档，可以先提出最需要讨论的问题，再把详细资料留给会后阅读，借此让有限空间发挥作用。建议先确认时间与资源，再决定行动规模。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 建议先确认时间与资源，再决定行动规模。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Ask for the Conditions Your Action Needs
+    summary: Use the mén zhì flag as a prompt for a practical check.
+    body: |-
+      You can start by asking what the setting will actually allow. Menzhi (门制, mén zhì — a palace’s element constraining its gate) describes an action limited by its surroundings. It differs from the gate imposing pressure on the palace. A short meeting slot may call for one decision question and a separate background note, rather than a compressed version of every detail. Recognising a constraint lets you negotiate a better format before treating limited capacity as a personal shortcoming. Try asking for the minimum space or support the task needs. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context.
+    advice:
+      - Try asking for the minimum space or support the task needs.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.flags.ji_xing
+  system: qimen
+  section: patterns
+  topic: flags.ji_xing
+  when:
+    path: palaces[*].flags
+    contains: ji_xing
+  weight: 45
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 先修容易卡住的细节
+    summary: 你可以从击刑标记提示的环节开始检查。
+    body: |-
+      你可以先检查容易引起反复返工的细节。击刑（特定天盘干落入特定宫位的牵制标记）提示局部推进可能有摩擦，但不意味着现实中的伤害事件。引擎也会检查寄干，因此这个标记需要结合原宫与寄宫读取。例如，一份表格总是被退回，不妨核对字段格式与接收流程，而不是连续提交同样的版本；修正一个明确的问题，比增加催促的频率更有帮助。不过，可以通过一次细节检查减少重复返工。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 不过，可以通过一次细节检查减少重复返工。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Repair a Friction Point Before Expanding
+    summary: Use the jī xíng flag as a prompt for a practical check.
+    body: |-
+      A recurring snag deserves a close look before you increase the pace. Jixing (击刑, jī xíng — a constraint flag for specified stem and palace placements) is a symbolic friction marker, not evidence of physical harm. The calculation also checks hosted stems, so tracing the marked cell matters. If a document keeps being returned, inspect its required fields and submission route. Fixing one identified mismatch gives you a clearer next attempt than sending the same version more often. Consider resolving one identifiable mismatch before resubmitting. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context.
+    advice:
+      - Consider resolving one identifiable mismatch before resubmitting.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.flags.ru_mu
+  system: qimen
+  section: patterns
+  topic: flags.ru_mu
+  when:
+    path: palaces[*].flags
+    contains: ru_mu
+  weight: 45
+  polarity: negative
+  tags:
+    - plain
+    - use_god
+    - zhi_fu
+    - zhi_shi
+  exclusive_with: []
+  zh:
+    title: 让未发挥的资源容易被使用
+    summary: 你可以从入墓标记提示的环节开始检查。
+    body: |-
+      你适合先把暂时不易使用的资源整理出来。入墓（特定天盘干落入收束宫位的标记）在这里描述力量不容易展开的象征状态，不是现实中的生命判断。某宫有此标记时，可以检查资料、能力或联系渠道是否还藏在准备阶段。例如，你已经做了很多研究，却还没有把结论整理成别人能阅读的内容，那么下一步可能是提炼一页摘要，而非继续积累更多材料。建议先开放一个能实际使用的小入口。复查时，可以只改一项条件，并记录调整前后的差别，避免同时改动太多而难以判断原因。盘面只标出此刻某宫的结构，是否与你的问题直接有关，还要看相关指标的实际位置。
+    advice:
+      - 建议先开放一个能实际使用的小入口。
+    do:
+      - 检查环节
+    dont:
+      - 急于扩大
+  en:
+    title: Make Quiet Resources Easier to Access
+    summary: Use the rù mù flag as a prompt for a practical check.
+    body: |-
+      Your next useful step may be to make an existing resource accessible. Rumu (入墓, rù mù — a stem placement associated with containment) describes something not yet readily expressed. Read it as a question about access, not as a literal event. Research kept in scattered notes can be valuable while remaining difficult for a colleague to use. Bringing its main findings onto one page may contribute more than gathering another batch of material that stays out of view. Try turning one stored resource into a form someone can use. Choose a change small enough to inspect afterwards, and record the difference it makes. Before applying this note to your question, locate the marked palace and check whether a relevant indicator is there; a flag elsewhere remains background context.
+    advice:
+      - Try turning one stored resource into a form someone can use.
+    do:
+      - Check context
+    dont:
+      - Escalate quickly
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

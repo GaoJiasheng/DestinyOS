@@ -30,7 +30,9 @@ describe('knowledge validation', () => {
   });
   it('loads the source disclaimer, glossary and bilingual transitions', async () => {
     const result = await loadContent();
-    expect(result.diagnostics).toEqual([]);
+    // 05 §7 makes similarity an editorial warning; schema, paths and style remain errors.
+    expect(result.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
+    expect(result.diagnostics.every((d) => d.message.startsWith('Similar 3-grams:'))).toBe(true);
     expect(result.glossary.length).toBeGreaterThan(400);
     expect(result.units.map((u) => u.id)).toContain('common.disclaimer');
   });

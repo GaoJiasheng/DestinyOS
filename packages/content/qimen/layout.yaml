@@ -1,0 +1,78 @@
+- id: qimen.layout.yang
+  system: qimen
+  section: overview
+  topic: layout.yang
+  when:
+    path: dun
+    eq: yang
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 阳遁：先理解布盘方向
+    summary: 你可以先把季节布局与问题判定分开理解。
+    body: |-
+      你可以先从布局理解这次起局，再回到问题本身。本局为阳遁（冬至至夏至前采用的顺布方向），局数为{{ju}}；这些字段确定地盘（九宫中作为基础的干层）如何排列，不是行动优劣的等级。值符星（领头星）在{{zhiFu.palaceSky}}，值使门（领头门）在{{zhiShi.palaceSky}}，要与各自原宫区分。例如，对照盘时先比较局数与现宫。建议保留流派与时刻设置，避免把不同步骤的差异混在一起。
+    advice:
+      - 先核对局数与领头星门的现宫。
+    do:
+      - 核对布局
+    dont:
+      - 混淆层次
+  en:
+    title: 'Yang Layout: Start with the Arrangement'
+    summary: Read the seasonal arrangement separately from the question’s verdict.
+    body: |-
+      You can begin by separating the layout from the decision you are exploring. Yang dun (阳遁, yáng dùn — the forward seasonal arrangement used from the winter solstice to before the summer solstice) supplies the earth layer with layout number {{ju}}. That number is a calculation reference, not a rank for the opportunity. The leading star’s current palace is {{zhiFu.palaceSky}}, and the leading gate’s current palace is {{zhiShi.palaceSky}}; a palace is one position in the nine-cell map. For a chart comparison, checking these locations before reading the verdict makes differences easier to trace. Try preserving the casting time and school settings with your notes, then use the relevant indicators to consider the next practical step. Keep that comparison connected to the circumstances you can observe.
+    advice:
+      - Check the layout number and the current leading positions.
+    do:
+      - Trace the layers
+    dont:
+      - Mix calculation steps
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: qimen.layout.yin
+  system: qimen
+  section: overview
+  topic: layout.yin
+  when:
+    path: dun
+    eq: yin
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 阴遁：核对当前季节局
+    summary: 你适合先核对基础位置，再使用问题相关的线索。
+    body: |-
+      你适合先核对季节布局，再读用神。此局为阴遁（夏至至冬至前采用的逆布方向），按拆补法（依节气与日数定局的规则）得到{{ju}}局；顺逆是计算方式，不决定现实中的推进速度。值符星（领头星）在{{zhiFu.palaceSky}}宫，值使门（领头门）在{{zhiShi.palaceSky}}宫，两者不要求同宫。例如，对照资料时分别检查地盘与移动层。建议先核对输入与流派，再把类别判定用于安排下一步。
+    advice:
+      - 先核对局数与领头星门的现宫。
+    do:
+      - 核对布局
+    dont:
+      - 混淆层次
+  en:
+    title: 'Yin Layout: Check the Seasonal Calculation'
+    summary: Check the foundation before applying the question’s indicators.
+    body: |-
+      You can inspect the chart’s foundation before using a symbol as guidance. Yin dun (阴遁, yīn dùn — the reverse seasonal arrangement used from the summer solstice to before the winter solstice) uses layout number {{ju}} here. The direction describes a calculation; it does not require a slower or more cautious personal response. The leading star occupies palace {{zhiFu.palaceSky}}, while the leading gate occupies palace {{zhiShi.palaceSky}}. These are separate moving layers within the nine-position map and need not share a location. Imagine checking a reference chart: tracing the earth arrangement, star movement and gate movement separately reveals which step differs. Consider confirming the input and hosting convention first, then turn to the indicators relevant to the actual question. Your direct observations can then guide the next practical choice.
+    advice:
+      - Check the layout number and the current leading positions.
+    do:
+      - Trace the layers
+    dont:
+      - Mix calculation steps
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

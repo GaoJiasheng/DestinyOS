@@ -68,8 +68,39 @@ export function interpret(input: InterpretInput): Report {
     });
   }
   evaluated.sort(order);
+  const variantGroups = new Map<string, Candidate[]>();
+  for (const candidate of evaluated) {
+    if (!/\.[abc]$/.test(candidate.unit.id)) continue;
+    const key = candidate.unit.id.slice(0, -2);
+    const group = variantGroups.get(key) ?? [];
+    group.push(candidate);
+    variantGroups.set(key, group);
+  }
+  const unchosenVariants = new Set<string>();
+  for (const [key, group] of variantGroups) {
+    const first = group[0];
+    if (
+      !first ||
+      group.length < 2 ||
+      !group.every(
+        (candidate) =>
+          candidate.unit.topic === first.unit.topic &&
+          candidate.unit.section === first.unit.section &&
+          candidate.unit.polarity === first.unit.polarity &&
+          equal(candidate.unit.when, first.unit.when),
+      )
+    )
+      continue;
+    group.sort((a, b) => a.unit.id.localeCompare(b.unit.id));
+    // DESIGN-GAP: Anonymous readings seed variants with chart JSON; authenticated callers may provide userId as specified by 05 §8.4.
+    const chosen = hash((context.userId ?? JSON.stringify(chart)) + key) % group.length;
+    group.forEach((candidate, index) => {
+      if (index !== chosen) unchosenVariants.add(candidate.unit.id);
+    });
+  }
   // Prefer an equivalent plain variant when the original exceeds the term-density budget.
   const candidates = evaluated.filter((candidate) => {
+    if (unchosenVariants.has(candidate.unit.id)) return false;
     const body = candidate.unit[locale].body;
     const dense =
       (termCount(body, knowledge.glossary, locale) * 100) /
