@@ -8,18 +8,23 @@ const ThemeContext = createContext<{
   preference: ThemePreference;
   setPreference: (value: ThemePreference) => void;
 }>({ preference: 'auto', setPreference: () => {} });
-// DESIGN-GAP: Before User settings exist, persist theme locks locally; auto follows routes.
+// DESIGN-GAP: Device preferences render immediately; authenticated settings synchronize after hydration.
 /** Apply route themes and locally persisted theme locks to the document. */
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [preference, setState] = useState<ThemePreference>('auto');
   const pathname = usePathname();
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('tianji-theme');
-      if (saved === 'east' || saved === 'west') setState(saved);
-    } catch {
-      /* Storage restrictions leave auto mode available. */
-    }
+    const update = () => {
+      try {
+        const saved = localStorage.getItem('tianji-theme');
+        setState(saved === 'east' || saved === 'west' ? saved : 'auto');
+      } catch {
+        /* Restricted storage leaves auto available. */
+      }
+    };
+    update();
+    window.addEventListener('tianji-settings', update);
+    return () => window.removeEventListener('tianji-settings', update);
   }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = routeTheme(pathname, preference);

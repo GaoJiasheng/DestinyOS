@@ -15,7 +15,7 @@
     "test": "vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
@@ -41,7 +41,9 @@
     "pwa:assets": "pnpm --filter @tianji/web exec tsx scripts/pwa-assets.ts",
     "test:home:e2e": "playwright test --config playwright.home.config.ts",
     "perf:ci": "tsx scripts/perf-run.ts",
-    "perf:budgets": "tsx scripts/perf-budgets.ts"
+    "perf:budgets": "tsx scripts/perf-budgets.ts",
+    "fonts:og": "python3 scripts/og-font-subset.py",
+    "test:daily-account:e2e": "playwright test --config playwright.daily-account.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

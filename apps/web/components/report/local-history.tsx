@@ -7,7 +7,7 @@ import type { MessageKey } from '@/i18n/catalog';
 import { readAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading } from '@/lib/reading-schema';
 /** Recover encrypted device reports so an offline tarot result remains accessible after the ritual ends. */
-export function LocalHistory() {
+export function LocalHistory({ limit = 50 }: { limit?: number }) {
   const t = useCopy();
   const locale = useLocale();
   const [readings, setReadings] = useState<LocalReading[]>([]);
@@ -16,7 +16,12 @@ export function LocalHistory() {
     let active = true;
     void readAnonymous()
       .then((data) => {
-        if (active) setReadings([...(data?.readings ?? [])].reverse());
+        if (active)
+          setReadings(
+            [...(data?.readings ?? [])]
+              .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+              .slice(0, limit),
+          );
       })
       .catch(() => {
         if (active) setError(true);
@@ -24,7 +29,7 @@ export function LocalHistory() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [limit]);
   if (error) return <p role="alert">{t('report.storageError')}</p>;
   return (
     <ul className="history-list">

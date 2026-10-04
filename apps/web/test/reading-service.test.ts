@@ -5,17 +5,33 @@ const mocked = vi.hoisted(() => ({
   rows: new Map<string, Reading>(),
   create: vi.fn(),
   find: vi.fn(),
+  history: vi.fn(),
+  deleteMany: vi.fn(),
+  plan: vi.fn(),
 }));
-vi.mock('../lib/db', () => ({
-  getDb: () => ({
-    reading: { create: mocked.create, findFirst: mocked.find, update: vi.fn() },
+vi.mock('../lib/db', () => {
+  const db = {
+    reading: {
+      create: mocked.create,
+      findFirst: mocked.find,
+      update: vi.fn(),
+      findMany: mocked.history,
+      deleteMany: mocked.deleteMany,
+    },
     birthProfile: { findUnique: vi.fn() },
-  }),
-}));
+    user: { findUniqueOrThrow: mocked.plan },
+  };
+  return {
+    getDb: () => ({
+      ...db,
+      $transaction: async (work: (tx: typeof db) => Promise<unknown>) => work(db),
+    }),
+  };
+});
 const redis = new RedisMock();
 vi.mock('../lib/redis', () => ({ getLocalRedis: () => redis, getUpstashRedis: () => redis }));
 import { computeTarot } from '@tianji/engine/tarot';
-import { generateReading, idempotentCreate, digest } from '../lib/reading-service';
+import { generateReading, idempotentCreate, digest, persistReading } from '../lib/reading-service';
 import { computeDivination } from '../lib/divination';
 import { parseReadingChart } from '../lib/reading-schema';
 import type { ReadingRequest } from '../lib/reading-schema';
@@ -43,6 +59,9 @@ beforeEach(async () => {
   mocked.rows.clear();
   mocked.create.mockReset();
   mocked.find.mockReset();
+  mocked.history.mockReset().mockResolvedValue([]);
+  mocked.deleteMany.mockReset();
+  mocked.plan.mockReset().mockResolvedValue({ plan: 'free' });
   mocked.create.mockImplementation(async ({ data }: { data: Record<string, unknown> }) => {
     const row = {
       ...data,
@@ -235,5 +254,26 @@ describe('reading pipeline and idempotency', () => {
       generateReading({ ...req, birth: { ...birth, year: 2020 } }, '2026-10-04T00:00:00Z', 'owner'),
     ).rejects.toMatchObject({ code: 'E_AGE_RESTRICTED' });
     expect(mocked.create).not.toHaveBeenCalled();
+  });
+});
+
+describe('free history retention', () => {
+  it('retains the newest fifty and protects older public reports while pruning private excess', async () => {
+    mocked.history.mockResolvedValue(
+      Array.from({ length: 53 }, (_, index) => ({
+        id: `history-${index}`,
+        isPublic: index === 51,
+      })),
+    );
+    await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
+    expect(mocked.deleteMany).toHaveBeenCalledWith({
+      where: { userId: 'owner', id: { in: ['history-50', 'history-52'] } },
+    });
+  });
+  it('keeps unlimited subscriber history', async () => {
+    mocked.plan.mockResolvedValue({ plan: 'pro' });
+    await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
+    expect(mocked.history).not.toHaveBeenCalled();
+    expect(mocked.deleteMany).not.toHaveBeenCalled();
   });
 });

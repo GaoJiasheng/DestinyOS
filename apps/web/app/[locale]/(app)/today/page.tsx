@@ -1,0 +1,34 @@
+import { auth } from '@/lib/auth';
+import { getDb } from '@/lib/db';
+import { TarotMessages } from '@/components/tarot/tarot-messages';
+import { TodayView } from '@/components/daily/today-view';
+export const dynamic = 'force-dynamic';
+export const metadata = { robots: { index: false, follow: false } };
+/** Daily view hydrates local anonymous state or requests the owner cache. */
+export default async function TodayPage() {
+  const session = await auth();
+  const user = session?.user.id
+    ? await getDb().user.findUnique({
+        where: { id: session.user.id },
+        select: { tz: true, plan: true },
+      })
+    : null;
+  const vedicUsed = session?.user.id
+    ? Boolean(
+        await getDb().reading.findFirst({
+          where: { userId: session.user.id, system: 'vedic' },
+          select: { id: true },
+        }),
+      )
+    : false;
+  return (
+    <TarotMessages daily>
+      <TodayView
+        signedIn={Boolean(session?.user.id)}
+        tz={user?.tz}
+        plan={user?.plan ?? 'free'}
+        vedicUsed={vedicUsed}
+      />
+    </TarotMessages>
+  );
+}

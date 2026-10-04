@@ -23,6 +23,7 @@ import {
   translateAnonymousReportAction,
 } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
+import { ShareDialog } from '@/components/share/share-dialog';
 import { ReportHeadline } from './report-headline';
 import { ChartPreview } from './chart-preview';
 import { ProfessionalData } from './professional-data';
@@ -247,9 +248,7 @@ export function ReportLayout({
           >
             {t('report.proView')}
           </Button>
-          <Button variant="ghost" onClick={() => toast(t('report.sharePlaceholder'))}>
-            {t('report.share')}
-          </Button>
+          <ShareDialog readingId={view.id} local={local} />
           {owner || local ? (
             <details className="report-more">
               <summary>{t('report.more')}</summary>

@@ -15,3 +15,6 @@ playwright-report/
 .pnpm-store/
 
 .lighthouseci/
+
+# Compiled public encyclopedia, recreated by content:build.
+apps/web/resources/learn.json

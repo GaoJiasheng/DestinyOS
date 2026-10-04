@@ -4100,3 +4100,197 @@ html[data-reduced-motion='true'] .system-symbol * {
   height: 100%;
   overflow: hidden;
 }
+
+/* T-39–42: daily cards, account controls, public sharing and encyclopedia articles. */
+.daily-page,
+.settings-page,
+.learn-page,
+.public-share {
+  max-width: 960px;
+  margin: auto;
+  padding: 32px 20px 96px;
+  overflow-wrap: anywhere;
+}
+.daily-page header,
+.settings-page h1,
+.learn-page h1 {
+  margin-bottom: 24px;
+}
+.daily-page .report-card,
+.settings-page .report-card,
+.learn-page .report-card,
+.public-share .report-card {
+  margin: 20px 0;
+  padding: 24px;
+}
+.daily-grid,
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+.daily-grid dt {
+  color: var(--text-2);
+  font-size: 14px;
+}
+.daily-grid dd {
+  margin: 8px 0;
+}
+.action-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.daily-overall {
+  width: 72px;
+  height: 72px;
+  border: 8px solid #bca36d;
+  border-radius: 50%;
+  margin: 20px auto;
+}
+.daily-overall.band-good {
+  border-color: #76bda7;
+}
+.color-dot {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.daily-body {
+  position: relative;
+}
+.daily-example-blur {
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.4;
+}
+.daily-example-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 48px;
+  left: 10%;
+  right: 10%;
+  background: var(--surface-1);
+  padding: 24px;
+  text-align: center;
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+}
+.settings-fields {
+  display: grid;
+  gap: 20px;
+}
+.settings-fields label,
+.dialog-content label,
+.history-filters label {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.settings-fields input:not([type='checkbox']),
+.settings-fields select,
+.dialog-content select,
+.dialog-content input,
+.history-filters input,
+.history-filters select {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--surface-1);
+  color: var(--text-1);
+}
+.settings-fields input[type='checkbox'],
+.dialog-content input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+}
+.dialog-content select {
+  margin: 10px 0 20px;
+}
+.danger-zone {
+  border-color: #b96d6d;
+}
+.me-avatar {
+  border-radius: 50%;
+}
+.share-preview {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  margin: 16px 0;
+  border-radius: 12px;
+}
+.learn-card-image {
+  margin: 24px auto;
+  border-radius: 12px;
+  height: auto;
+  max-width: 100%;
+}
+.learn-grid {
+  list-style: none;
+  padding: 0;
+}
+.learn-grid li a {
+  display: block;
+  padding: 8px;
+  border-bottom: 1px solid var(--line-2);
+}
+.learn-page details,
+.daily-page details {
+  padding: 12px 0;
+}
+.history-filters {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+.public-share pre {
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow: auto;
+}
+.daily-card-face {
+  animation: daily-reveal 400ms ease-out;
+  margin: 20px 0;
+}
+@keyframes daily-reveal {
+  from {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+html[data-reduced-motion='true'] *,
+html[data-reduced-motion='true'] *::before,
+html[data-reduced-motion='true'] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+@media (max-width: 600px) {
+  .daily-page,
+  .settings-page,
+  .learn-page,
+  .public-share {
+    padding: 24px 16px 100px;
+  }
+  .daily-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .daily-page .report-card,
+  .settings-page .report-card,
+  .learn-page .report-card {
+    padding: 16px;
+  }
+}

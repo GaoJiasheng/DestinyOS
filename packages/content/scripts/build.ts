@@ -1,3 +1,4 @@
+import { compileLearn } from './learn';
 import { mkdir, writeFile, readdir, unlink, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { System } from '@tianji/shared';
@@ -9,6 +10,7 @@ printDiagnostics(result.diagnostics);
 if (result.diagnostics.some((d) => d.severity === 'error') || !result.transitions)
   process.exitCode = 1;
 else {
+  await compileLearn(result.glossary);
   const dist = join(root, 'dist');
   await mkdir(dist, { recursive: true });
   // DESIGN-GAP: Remove only prior content bundles, preserving TypeScript build outputs.

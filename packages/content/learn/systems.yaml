@@ -1,0 +1,174 @@
+# DESIGN-GAP: The specifications define introduction topics but no source entries; these bilingual introductions summarize the documented implementation.
+- key: bazi
+  zh:
+    title: 八字
+    history: 子平法四柱是这一传统的基础；本项目采用节气定月与真太阳时修正。
+    principle: 四柱以出生年、月、日、时的干支为骨架，以五行与十神理解关系。
+    questions: 喜用、关系模式与流年节奏，适合文化学习和自我反思。
+    school: 晚子时换日；旺衰评分解释依据；未知时辰不补造时柱。
+    faq:
+      - question: 如何阅读结果？
+        answer: 先看结论，再查看依据与建议。将象征语言作为文化学习与自我反思，不把它当作确定的预言。
+  en:
+    title: BaZi
+    history: The Four Pillars tradition provides the framework; this implementation
+      uses solar terms for months and a true solar time correction.
+    principle: The Four Pillars arrange birth year, month, day and hour as stems and
+      branches, then compare Five Elements and Ten Gods.
+    questions: Favorable elements, relationship patterns and annual themes support
+      cultural study and reflection.
+    school: Late Zi-hour advances the day; strength findings are explained; an unknown
+      hour stays absent.
+    faq:
+      - question: How should I read the result?
+        answer: Start with the conclusion, then review the evidence and suggestions.
+          Treat the symbolic language as cultural learning and reflection rather than
+          a certain prediction.
+- key: ziwei
+  zh:
+    title: 紫微斗数
+    history: 紫微斗数的星曜与宫位传统构成本项目的解读基础。
+    principle: 以农历出生信息安命身宫，布置星曜，观察十二宫之间的关系。
+    questions: 十二宫主题、四化与大限；需要已知出生时间。
+    school: 采用主流排盘库；四化表与所用流派会在报告中显示。
+    faq:
+      - question: 如何阅读结果？
+        answer: 先看结论，再查看依据与建议。将象征语言作为文化学习与自我反思，不把它当作确定的预言。
+  en:
+    title: Zi Wei Dou Shu
+    history: The Zi Wei star and palace tradition is the foundation of these readings.
+    principle: Lunar birth information determines the life and body palaces; stars
+      are arranged across twelve palaces.
+    questions: Twelve life themes, transformations and decade periods require a known
+      birth time.
+    school: The established chart library supplies placements; transformation rules
+      and schools are disclosed in the report.
+    faq:
+      - question: How should I read the result?
+        answer: Start with the conclusion, then review the evidence and suggestions.
+          Treat the symbolic language as cultural learning and reflection rather than
+          a certain prediction.
+- key: iching
+  zh:
+    title: 周易
+    history: 卦辞、彖辞、象辞与爻辞来自《周易》的经典文本传统。
+    principle: 八卦两两相重成六十四卦，六爻由下向上读取，动爻连接本卦与变卦。
+    questions: 针对当下问题观察情境、行动与变化；不需要出生信息。
+    school: 梅花采用时间、报数或随机起卦；六爻采用三枚铜钱六次投掷。
+    faq:
+      - question: 如何阅读结果？
+        answer: 先看结论，再查看依据与建议。将象征语言作为文化学习与自我反思，不把它当作确定的预言。
+  en:
+    title: I Ching
+    history: Judgments, commentaries, images and line texts belong to the classical
+      I Ching tradition.
+    principle: Pairs of trigrams form sixty-four hexagrams. Six lines run bottom to
+      top; changing lines connect the initial and resulting figures.
+    questions: Explore a present question through situation, action and change, without
+      birth information.
+    school: Plum Blossom uses time, numbers or a random draw; Six Lines uses six tosses
+      of three coins.
+    faq:
+      - question: How should I read the result?
+        answer: Start with the conclusion, then review the evidence and suggestions.
+          Treat the symbolic language as cultural learning and reflection rather than
+          a certain prediction.
+- key: qimen
+  zh:
+    title: 奇门遁甲
+    history: 奇门遁甲以传统九宫时空模型为框架。
+    principle: 时刻与节气决定阴阳遁、局数及九宫布局；门、星、神与干共同构成读法。
+    questions: 观察决策的情境、方位与行动时机；不需要出生信息。
+    school: 采用时家转盘奇门、拆补法；具体参数在报告中标注。
+    faq:
+      - question: 如何阅读结果？
+        answer: 先看结论，再查看依据与建议。将象征语言作为文化学习与自我反思，不把它当作确定的预言。
+  en:
+    title: Qi Men Dun Jia
+    history: Qi Men uses a traditional nine-palace model of time and direction.
+    principle: Time and solar terms determine Yin or Yang arrangements and the nine-palace
+      board, read through gates, stars, deities and stems.
+    questions: Consider the context, direction and timing of a decision without birth
+      information.
+    school: This implementation uses hour-based rotating Qi Men and the splitting-and-supplementing
+      method, disclosed in each report.
+    faq:
+      - question: How should I read the result?
+        answer: Start with the conclusion, then review the evidence and suggestions.
+          Treat the symbolic language as cultural learning and reflection rather than
+          a certain prediction.
+- key: tarot
+  zh:
+    title: 塔罗
+    history: 采用 1909 年 Rider–Waite–Smith 牌组与 Pamela Colman Smith 原版图像。
+    principle: 78 张牌包括 22 张大阿卡纳与 56 张小阿卡纳；牌义与牌位、正逆位和问题类别共同解读。
+    questions: 适合反思情境、关系与选择；抽牌由种子驱动，不依赖出生信息。
+    school: RWS 与金色黎明对应；逆位可表示内收、过度或尚未展开。
+    faq:
+      - question: 如何阅读结果？
+        answer: 先看结论，再查看依据与建议。将象征语言作为文化学习与自我反思，不把它当作确定的预言。
+  en:
+    title: Tarot
+    history: The site uses the 1909 Rider–Waite–Smith deck and original Pamela Colman
+      Smith images.
+    principle: The deck contains 22 Major and 56 Minor Arcana. Meaning combines each
+      card, its position, orientation and question category.
+    questions: Reflect on situations, relationships and choices; a seeded draw requires
+      no birth data.
+    school: RWS and Golden Dawn correspondences are used; reversals can describe inward,
+      excessive or delayed qualities.
+    faq:
+      - question: How should I read the result?
+        answer: Start with the conclusion, then review the evidence and suggestions.
+          Treat the symbolic language as cultural learning and reflection rather than
+          a certain prediction.
+- key: astrology
+  zh:
+    title: 西方占星
+    history: 西方本命占星使用黄道与天体关系的传统象征语言。
+    principle: 热带黄道上的行星、星座、宫位与相位构成本命盘；出生时间决定上升与宫位。
+    questions: 探索个性主题、关系与行动风格；未知时辰不显示上升和宫位。
+    school: 默认 Placidus；高纬度或不可用时回退 Whole Sign，并明确标注。
+    faq:
+      - question: 如何阅读结果？
+        answer: 先看结论，再查看依据与建议。将象征语言作为文化学习与自我反思，不把它当作确定的预言。
+  en:
+    title: Western Astrology
+    history: Western natal astrology uses the traditional symbolic language of the
+      zodiac and relationships between celestial bodies.
+    principle: Planets, signs, houses and aspects on the tropical zodiac form a natal
+      chart; birth time determines the ascendant and houses.
+    questions: Explore personality themes, relationships and approaches to action;
+      unknown birth times omit the ascendant and houses.
+    school: Placidus is the default; high-latitude failures fall back to Whole Sign
+      with an explicit notice.
+    faq:
+      - question: How should I read the result?
+        answer: Start with the conclusion, then review the evidence and suggestions.
+          Treat the symbolic language as cultural learning and reflection rather than
+          a certain prediction.
+- key: vedic
+  zh:
+    title: 吠陀占星
+    history: 吠陀占星采用印度 Jyotish 的恒星黄道与月宿传统。
+    principle: 恒星黄道、Nakshatra、分盘与 Vimshottari Dasha 组成本命及时间主题。
+    questions: 理解月宿与阶段主题；Panchang 描述每日五要素。
+    school: Lahiri 岁差与 Whole Sign 宫制；未知时间会标注月宿的不确定性。
+    faq:
+      - question: 如何阅读结果？
+        answer: 先看结论，再查看依据与建议。将象征语言作为文化学习与自我反思，不把它当作确定的预言。
+  en:
+    title: Vedic Astrology
+    history: Vedic astrology follows the sidereal zodiac and lunar mansion tradition
+      of Indian Jyotish.
+    principle: The sidereal zodiac, Nakshatras, divisional charts and Vimshottari
+      Dasha describe natal and timing themes.
+    questions: Explore lunar mansion and period themes; Panchang describes five daily
+      calendar elements.
+    school: Lahiri ayanamsa and Whole Sign houses are used; unknown times disclose
+      lunar mansion uncertainty.
+    faq:
+      - question: How should I read the result?
+        answer: Start with the conclusion, then review the evidence and suggestions.
+          Treat the symbolic language as cultural learning and reflection rather than
+          a certain prediction.

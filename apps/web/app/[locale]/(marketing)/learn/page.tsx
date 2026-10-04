@@ -1,0 +1,73 @@
+import { setRequestLocale } from 'next-intl/server';
+import { getCopy } from '@/i18n/get-copy';
+import { Link } from '@/i18n/navigation';
+import { learnContent } from '@/lib/learn';
+import { learnMetadata } from '@/lib/learn-metadata';
+export const revalidate = 86400;
+/** Index metadata contains article-specific hreflang. */
+export async function generateMetadata({ params }: { params: Promise<{ locale: 'zh' | 'en' }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getCopy();
+  return learnMetadata(t('learn.title'), t('learn.intro'), '/learn', locale);
+}
+/** Link all seven systems, 78 cards, 64 hexagrams and every glossary entry from public content. */
+export default async function LearnPage({ params }: { params: Promise<{ locale: 'zh' | 'en' }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getCopy(),
+    content = await learnContent();
+  return (
+    <article className="learn-page">
+      <h1 className="type-h1">{t('learn.title')}</h1>
+      <p>{t('learn.intro')}</p>
+      <section className="report-card">
+        <h2>{t('learn.systems')}</h2>
+        <ul className="learn-grid">
+          {content.systems.map((s) => (
+            <li key={s.key}>
+              <Link href={`/learn/${s.key}`}>{t('report.content', { text: s[locale].title })}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="report-card">
+        <h2>{t('learn.cards')}</h2>
+        <ul className="learn-grid">
+          {content.cards.map((c) => (
+            <li key={c.key}>
+              <Link href={`/learn/tarot/${c.key}`}>
+                {t('report.content', { text: c.name[locale] })}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="report-card">
+        <h2>{t('learn.hexagrams')}</h2>
+        <ul className="learn-grid">
+          {content.hexagrams.map((h) => (
+            <li key={h.key}>
+              <Link href={`/learn/iching/${h.key}`}>
+                {h.number} ·{' '}
+                {t('report.content', { text: locale === 'zh' ? h.name : h.englishName })}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="report-card">
+        <h2>{t('learn.glossary')}</h2>
+        <ul className="learn-grid">
+          {content.glossary.map((g) => (
+            <li key={g.key}>
+              <Link href={`/learn/glossary/${g.key}`}>
+                {t('report.content', { text: g[locale].term })}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </article>
+  );
+}

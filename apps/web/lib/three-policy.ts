@@ -6,6 +6,7 @@ export function canUseThree(reducedMotion = false): boolean {
   };
   if (
     reducedMotion ||
+    document.documentElement.dataset.reducedMotion === 'true' ||
     matchMedia('(prefers-reduced-motion: reduce)').matches ||
     (device.deviceMemory !== undefined && device.deviceMemory < 4) ||
     device.connection?.saveData

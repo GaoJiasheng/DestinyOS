@@ -11,6 +11,15 @@ const parentMessages = new Set([
   'report.history',
   'tarot.category',
   'pwa.install',
+  'daily.lucky',
+  'daily.almanac',
+  'share.expires',
+  'share.template',
+  'share.reveal',
+  'me.history',
+  'me.billing',
+  'me.language',
+  'me.delete',
 ]);
 /** Resolve the documented parent-message/namespace collisions without bundling a catalog. */
 export function runtimeKey(key: string, catalog?: Record<string, string>): string {

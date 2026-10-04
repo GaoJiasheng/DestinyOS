@@ -22,6 +22,7 @@ export default async function HistoryPage() {
   return (
     <section className="history-page">
       <h1 className="type-h1">{t('report.history')}</h1>
+      {session.user.plan === 'free' ? <p>{t('me.history.freeLimit')}</p> : null}
       {result.ok ? (
         <HistoryList initial={result.data} />
       ) : (

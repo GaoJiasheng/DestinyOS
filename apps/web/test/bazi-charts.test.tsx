@@ -20,6 +20,11 @@ import { toMessages } from '../i18n/catalog';
 import zh from '../messages/zh.json';
 import en from '../messages/en.json';
 
+vi.mock('../app/share/actions', () => ({
+  createShareLinkAction: vi.fn(),
+  signDailyCardAction: vi.fn(),
+  revokeShareLinkAction: vi.fn(),
+}));
 vi.mock('../app/readings/actions', () => ({ submitFeedbackAction: vi.fn() }));
 vi.mock('../i18n/navigation', () => ({ Link: 'a', useRouter: () => ({ push: vi.fn() }) }));
 beforeAll(() => {

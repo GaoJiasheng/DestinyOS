@@ -1,3 +1,4 @@
+import { learnSources } from './learn';
 import { loadContent, printDiagnostics } from './load';
 const result = await loadContent();
 printDiagnostics(result.diagnostics);
@@ -6,3 +7,5 @@ else
   console.log(
     `Validated ${result.units.length} KUs and ${result.glossary.length} glossary entries.`,
   );
+
+await learnSources();

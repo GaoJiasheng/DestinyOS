@@ -63,7 +63,9 @@ export function TarotRitual({
           return;
         }
         setDraft(parsed.data);
-        setSound(data?.settings.tarotSound === true);
+        setSound(
+          localStorage.getItem('tianji-sound') === 'true' || data?.settings.tarotSound === true,
+        );
         setReady(true);
       })
       .catch(() => {
@@ -243,6 +245,7 @@ export function TarotRitual({
           onClick={() => {
             const next = !sound;
             setSound(next);
+            localStorage.setItem('tianji-sound', String(next));
             void updateAnonymous((data) => ({
               ...data,
               settings: { ...data.settings, tarotSound: next },
@@ -262,7 +265,13 @@ export function TarotRitual({
         </Button>
       </div>
       <p className="muted">{t('soundPlaceholder')}</p>
-      <MotionConfig reducedMotion="user">
+      <MotionConfig
+        reducedMotion={
+          typeof window !== 'undefined' && document.documentElement.dataset.reducedMotion === 'true'
+            ? 'always'
+            : 'user'
+        }
+      >
         <LayoutGroup>
           {step === 'shuffle' ? (
             <>

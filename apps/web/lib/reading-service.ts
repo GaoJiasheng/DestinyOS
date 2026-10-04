@@ -192,23 +192,39 @@ export async function persistReading(
   profile?: { id: string; version: number },
 ) {
   const generated = await generateReading(req, now, userId);
-  const row = await getDb().reading.create({
-    data: {
-      id,
-      userId,
-      profileId: profile?.id,
-      profileVersion: profile?.version,
-      system: req.system,
-      encInput: JSON.stringify(req),
-      chart: json(generated.chart),
-      schoolUsed: json(generated.meta.schoolUsed),
-      engineVersion: generated.report.engineVersion,
-      interpretVersion: generated.report.interpretVersion,
-      knowledgeVersion: generated.report.knowledgeVersion,
-      ...(req.locale === 'zh'
-        ? { reportZh: json(generated.report) }
-        : { reportEn: json(generated.report) }),
-    },
+  const row = await getDb().$transaction(async (tx) => {
+    const saved = await tx.reading.create({
+      data: {
+        id,
+        userId,
+        profileId: profile?.id,
+        profileVersion: profile?.version,
+        system: req.system,
+        encInput: JSON.stringify(req),
+        chart: json(generated.chart),
+        schoolUsed: json(generated.meta.schoolUsed),
+        engineVersion: generated.report.engineVersion,
+        interpretVersion: generated.report.interpretVersion,
+        knowledgeVersion: generated.report.knowledgeVersion,
+        ...(req.locale === 'zh'
+          ? { reportZh: json(generated.report) }
+          : { reportEn: json(generated.report) }),
+      },
+    });
+    const user = await tx.user.findUniqueOrThrow({ where: { id: userId }, select: { plan: true } });
+    if (user.plan === 'free') {
+      const rows = await tx.reading.findMany({
+        where: { userId },
+        orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+        select: { id: true, isPublic: true },
+      });
+      const excess = rows
+        .slice(50)
+        .filter((r) => !r.isPublic)
+        .map((r) => r.id);
+      if (excess.length) await tx.reading.deleteMany({ where: { userId, id: { in: excess } } });
+    }
+    return saved;
   });
   return { readingId: row.id, ...generated };
 }

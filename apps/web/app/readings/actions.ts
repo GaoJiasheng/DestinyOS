@@ -1,5 +1,6 @@
 'use server';
 import { cookies, headers } from 'next/headers';
+import { getLocale } from 'next-intl/server';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
@@ -7,6 +8,7 @@ import { ApiError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
 import {
   ReadingRequestSchema,
+  ReportSchema,
   ReadingMetaSchema,
   parseReadingChart,
   type ReadingView,
@@ -73,7 +75,7 @@ export async function createReadingAction(raw: unknown) {
     return idempotentCreate(resolved.req, id ?? ip, id, resolved.profile);
   });
 }
-/** Read only owner/public snapshots; public callers never receive the private input snapshot. */
+/** Read owner-only snapshots; public tokens use a separate privacy projection. */
 export async function getReadingAction(
   raw: string,
   locale: 'zh' | 'en' = 'zh',
@@ -85,7 +87,8 @@ export async function getReadingAction(
     const row = await getDb().reading.findUnique({ where: { id } });
     if (!row) throw new ApiError('E_NOT_FOUND', 'Reading not found', 404);
     const owner = row.userId === session?.user.id;
-    if (!owner && !row.isPublic) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+    // DESIGN-GAP: Public reports are served through token projections; isPublic must not bypass revealLevel.
+    if (!owner) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
     return readingView(row, lang, owner);
   });
 }
@@ -97,6 +100,8 @@ export async function listReadingsAction(raw: unknown = { limit: 20 }) {
       .object({
         system: z.nativeEnum(System).optional(),
         cursor: idSchema.optional(),
+        // DESIGN-GAP: Title search is a bounded optional argument for the documented history search UI.
+        search: z.string().trim().max(120).optional(),
         limit: z.number().int().min(1).max(50).default(20),
       })
       .strict()
@@ -106,8 +111,26 @@ export async function listReadingsAction(raw: unknown = { limit: 20 }) {
       !(await getDb().reading.findFirst({ where: { id: input.cursor, userId: owner } }))
     )
       throw new ApiError('E_NOT_FOUND', 'Cursor not found', 404);
+    const plan = await getDb().user.findUniqueOrThrow({
+      where: { id: owner },
+      select: { plan: true },
+    });
+    const recent =
+      plan.plan === 'free'
+        ? await getDb().reading.findMany({
+            where: { userId: owner },
+            orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+            take: 50,
+            select: { id: true },
+          })
+        : null;
     const rows = await getDb().reading.findMany({
-      where: { userId: owner, system: input.system },
+      where: {
+        userId: owner,
+        system: input.system,
+        ...(recent ? { id: { in: recent.map((r) => r.id) } } : {}),
+        ...(input.search ? { title: { contains: input.search, mode: 'insensitive' } } : {}),
+      },
       orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
       cursor: input.cursor ? { id: input.cursor } : undefined,
       skip: input.cursor ? 1 : 0,
@@ -121,20 +144,22 @@ export async function listReadingsAction(raw: unknown = { limit: 20 }) {
         reportEn: true,
       },
     });
+    const locale = await getLocale();
     const more = rows.length > input.limit;
     const visible = rows.slice(0, input.limit);
     return {
-      items: visible.map((row) => ({
-        id: row.id,
-        title: row.title,
-        system: row.system,
-        createdAt: row.createdAt.toISOString(),
-        keywords:
-          (row.reportZh ?? row.reportEn) && typeof (row.reportZh ?? row.reportEn) === 'object'
-            ? (((row.reportZh ?? row.reportEn) as { headline?: { keywords?: string[] } }).headline
-                ?.keywords ?? [])
-            : [],
-      })),
+      items: visible.map((row) => {
+        const report = ReportSchema.safeParse(
+          locale === 'en' ? (row.reportEn ?? row.reportZh) : (row.reportZh ?? row.reportEn),
+        );
+        return {
+          id: row.id,
+          title: row.title,
+          system: row.system,
+          createdAt: row.createdAt.toISOString(),
+          keywords: report.success ? report.data.headline.keywords : [],
+        };
+      }),
       nextCursor: more ? visible.at(-1)?.id : null,
     };
   });
@@ -424,7 +449,7 @@ export async function previewAstrologyHousesAction(raw: unknown) {
     if (input.readingId) {
       const row = await getDb().reading.findUnique({ where: { id: input.readingId } });
       if (!row) throw new ApiError('E_NOT_FOUND', 'Reading not found', 404);
-      if (row.userId !== session?.user.id && !row.isPublic)
+      if (row.userId !== session?.user.id)
         throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
       request = ReadingRequestSchema.parse(JSON.parse(row.encInput));
       now = row.createdAt.toISOString();
