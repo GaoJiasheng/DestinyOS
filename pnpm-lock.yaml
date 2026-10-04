@@ -119,6 +119,9 @@ importers:
       '@fontsource/noto-serif-sc':
         specifier: ^5.2.0
         version: 5.3.0
+      '@js-temporal/polyfill':
+        specifier: 0.5.1
+        version: 0.5.1
       '@prisma/client':
         specifier: ^6
         version: 6.19.3(prisma@6.19.3(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3)

@@ -7,6 +7,14 @@ import { spawn } from 'node:child_process';
 
 // DESIGN-GAP: PGlite and ioredis-mock are isolated test substitutes, exposed through PostgreSQL/RESP
 // so E2E exercises the real Prisma client and local Redis limiter without application mock branches.
+// DESIGN-GAP: Port overrides isolate concurrent worktree E2E runs; existing suites keep their defaults.
+const testPorts = {
+  postgres: Number(process.env.TEST_POSTGRES_PORT ?? 55432),
+  shadow: Number(process.env.TEST_SHADOW_PORT ?? 55433),
+  redis: Number(process.env.TEST_REDIS_PORT ?? 56379),
+  mail: Number(process.env.TEST_MAIL_PORT ?? 58081),
+  web: Number(process.env.TEST_WEB_PORT ?? 3100),
+};
 const pg = new PGlite();
 const shadow = new PGlite();
 // DESIGN-GAP: PGlite multiplexes sessions; clear session-local prepared statements on startup.
@@ -28,8 +36,12 @@ for (const database of [pg, shadow]) {
 }
 await pg.waitReady;
 await shadow.waitReady;
-const postgres = new PGLiteSocketServer({ db: pg, port: 55432, maxConnections: 20 });
-const shadowServer = new PGLiteSocketServer({ db: shadow, port: 55433, maxConnections: 10 });
+const postgres = new PGLiteSocketServer({ db: pg, port: testPorts.postgres, maxConnections: 20 });
+const shadowServer = new PGLiteSocketServer({
+  db: shadow,
+  port: testPorts.shadow,
+  maxConnections: 10,
+});
 await postgres.start();
 await shadowServer.start();
 const redis = new RedisMock();
@@ -82,7 +94,7 @@ const cache = createTcpServer((socket) => {
     }
   });
 });
-await new Promise<void>((resolve) => cache.listen(56379, '127.0.0.1', resolve));
+await new Promise<void>((resolve) => cache.listen(testPorts.redis, '127.0.0.1', resolve));
 const outbox: unknown[] = [];
 const mail = createHttpServer((request, response) => {
   if (request.method === 'POST' && request.url === '/mail') {
@@ -105,7 +117,7 @@ const mail = createHttpServer((request, response) => {
     response.end();
   }
 });
-await new Promise<void>((resolve) => mail.listen(58081, '127.0.0.1', resolve));
+await new Promise<void>((resolve) => mail.listen(testPorts.mail, '127.0.0.1', resolve));
 console.log('Test PostgreSQL, shadow database, Redis and mail sink are ready.');
 
 let child: ReturnType<typeof spawn> | undefined;
@@ -113,7 +125,9 @@ if (process.argv.includes('--web')) {
   const migrate = spawn('pnpm', ['db:deploy'], { stdio: 'inherit', env: process.env });
   const code = await new Promise<number | null>((resolve) => migrate.on('exit', resolve));
   if (code !== 0) throw new Error('Test database migration failed');
-  child = spawn('pnpm', ['--filter', '@tianji/web', 'dev', '--port', '3100'], {
+  // DESIGN-GAP: Production E2E reuses the same service harness with a prebuilt Next.js server.
+  const webCommand = process.argv.includes('--production') ? 'start' : 'dev';
+  child = spawn('pnpm', ['--filter', '@tianji/web', webCommand, '--port', String(testPorts.web)], {
     stdio: 'inherit',
     env: process.env,
   });

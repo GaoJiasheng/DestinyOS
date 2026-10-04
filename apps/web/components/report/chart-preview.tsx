@@ -1,5 +1,6 @@
 'use client';
-import { BaziChartSchema } from '@tianji/shared';
+import { BaziChartSchema, IchingChartSchema, QimenChartSchema } from '@tianji/shared';
+import { DivinationChart } from '@/components/charts/divination-chart';
 import { useTranslations } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
 /** Accessible first-system chart table; detailed chart visualizations continue in T-33. */
@@ -14,6 +15,18 @@ export function ChartPreview({
 }) {
   const t = useCopy();
   const translations = useTranslations();
+  const iching = IchingChartSchema.safeParse(chart);
+  const qimen = QimenChartSchema.safeParse(chart);
+  if (iching.success || qimen.success)
+    return (
+      <div
+        id="chart-root"
+        data-highlight={highlight}
+        className={highlight ? 'evidence-highlight' : undefined}
+      >
+        <DivinationChart chart={iching.success ? iching.data : qimen.data!} onSelect={onSelect} />
+      </div>
+    );
   const parsed = BaziChartSchema.safeParse(chart);
   if (!parsed.success)
     return (
