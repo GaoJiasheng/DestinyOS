@@ -11,11 +11,17 @@ import './globals.css';
 // DESIGN-GAP: A failed root layout has no provider; recover locale from the URL for this fallback.
 /** Catch root layout failures with an independent translated shell and retry control. */
 export default function GlobalError({
+  error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+      void import('@sentry/nextjs').then((Sentry) => Sentry.captureException(error));
+    }
+  }, [error]);
   const [locale, setLocale] = useState<'zh' | 'en'>('zh');
   useEffect(() => {
     if (window.location.pathname.split('/')[1] === 'en') setLocale('en');

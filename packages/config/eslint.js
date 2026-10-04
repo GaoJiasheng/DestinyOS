@@ -15,6 +15,18 @@ export default tseslint.config(
       '**/next-env.d.ts',
     ],
   },
+  {
+    files: ['apps/web/lib/**/*.{ts,tsx}', 'packages/engine/src/**/*.ts'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "MemberExpression[object.name='console']",
+          message: 'Use the redacting logger; console can leak sensitive data.',
+        },
+      ],
+    },
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

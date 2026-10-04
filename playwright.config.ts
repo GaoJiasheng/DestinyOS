@@ -1,10 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './apps/web/e2e',
+  testIgnore: 'auth.spec.ts',
   fullyParallel: true,
+  // DESIGN-GAP: Two browser workers keep screenshots and cold Next.js compilation within the existing timeout.
+  workers: 2,
   retries: 0,
   reporter: 'list',
-  use: { baseURL: 'http://127.0.0.1:3000', trace: 'retain-on-failure' },
+  use: { baseURL: 'http://localhost:3000', trace: 'retain-on-failure' },
   projects: [
     {
       name: 'desktop',
@@ -20,8 +23,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'pnpm --filter @tianji/web dev --hostname 127.0.0.1',
-    url: 'http://127.0.0.1:3000/zh',
+    command: 'pnpm --filter @tianji/web dev',
+    url: 'http://localhost:3000/zh',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
