@@ -1,0 +1,585 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: Non-life restrained brightness is supplied as a reusable palace modifier. It refers to at least one matched star and never applies its state to all stars in that palace.
+- id: ziwei.brightness.siblings.restrained
+  system: ziwei
+  section: love_family
+  topic: brightness_siblings
+  when:
+    path: palaces[key=siblings].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 兄弟宫的表达条件：给磨合留空间
+    summary: 你在同辈互助上，可以先改善表达与参与的条件。
+    body: 你在同辈互助上，可以先改善表达与参与的条件。兄弟宫（观察同辈、手足与熟悉伙伴之间的支持方式的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，几位熟悉的人商量共同出行时，留意谁负责搜集信息、谁安排时间，以及你想参与哪一部分。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。亲近程度和资源共享不是同一回事，彼此的时间也可能很不一样。建议先问对方是否方便，再约定具体的互助范围，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 先问对方是否方便，再约定具体的互助范围
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Siblings Palace: allow adjustment'
+    summary:
+      You can improve the conditions for participation in support among peers before judging the
+      result.
+    body: 'You can examine the conditions around support among peers before evaluating your own
+      response. At least one major star in the 兄弟宫 (xiōng dì gōng) — the area for how siblings,
+      contemporaries and familiar peers share support — carries bu or xian brightness. These
+      traditional labels describe a more context dependent expression, so the ordinary star reading
+      benefits from a closer look at available support. Imagine familiar peers arranging a shared
+      outing: one gathers information, another coordinates dates, and you decide which part you
+      actually want to handle. If communication, preparation time or the scope of participation does
+      not fit the task, a useful preference may be harder to express. Closeness does not imply equal
+      availability, similar income or an obligation to share every resource. Try to ask about
+      availability before agreeing on a specific and manageable exchange of help. Adjust one
+      practical condition and compare the next interaction with the previous one. Other stars in the
+      same area may have different brightness, and this modifier should not be generalized to every
+      symbol or every person involved.'
+    advice:
+      - Ask about availability before agreeing on a specific and manageable exchange of help
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.spouse.restrained
+  system: ziwei
+  section: love_family
+  topic: brightness_spouse
+  when:
+    path: palaces[key=spouse].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 夫妻宫的表达条件：给磨合留空间
+    summary: 你在亲密沟通上，可以先改善表达与参与的条件。
+    body: 你在亲密沟通上，可以先改善表达与参与的条件。夫妻宫（观察亲密关系中的协商方式与期待的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，你与伴侣或正在了解的人安排周末时，可以先分别说出需要安静、交流还是一起做事。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议把一个期待改写成对方能回应的具体请求，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 把一个期待改写成对方能回应的具体请求
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Spouse Palace: allow adjustment'
+    summary: You can improve the conditions for participation in negotiation in close relationships
+      before judging the result.
+    body: You can examine the conditions around negotiation in close relationships before evaluating
+      your own response. At least one major star in the 夫妻宫 (fū qī gōng) — the area for the
+      expectations and conversations that shape an intimate partnership — carries bu or xian
+      brightness. These traditional labels describe a more context dependent expression, so the
+      ordinary star reading benefits from a closer look at available support. While arranging a
+      weekend with a partner or someone you are getting to know, compare what each person needs from
+      the time together. If communication, preparation time or the scope of participation does not
+      fit the task, a useful preference may be harder to express. A symbolic relationship theme
+      cannot decide compatibility or tell you what kind of relationship to pursue. Try to turn one
+      expectation into a request the other person can clearly respond to. Adjust one practical
+      condition and compare the next interaction with the previous one. Other stars in the same area
+      may have different brightness, and this modifier should not be generalized to every symbol or
+      every person involved.
+    advice:
+      - Turn one expectation into a request the other person can clearly respond to
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.children.restrained
+  system: ziwei
+  section: love_family
+  topic: brightness_children
+  when:
+    path: palaces[key=children].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 子女宫的表达条件：给磨合留空间
+    summary: 你在陪伴与培育上，可以先改善表达与参与的条件。
+    body: 你在陪伴与培育上，可以先改善表达与参与的条件。子女宫（观察你对晚辈、学习者以及需要持续培育的事情的投入的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，指导新同事完成第一份作品时，不妨询问对方想先独立尝试，还是希望你示范一个步骤。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。这里也适用于教学与创作，不推断生育安排；被帮助的人仍有自己的节奏。建议设定一个能观察进步的小目标，留出尝试空间，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 设定一个能观察进步的小目标，留出尝试空间
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Children Palace: allow adjustment'
+    summary:
+      You can improve the conditions for participation in mentoring and nurturing before judging
+      the result.
+    body: 'You can examine the conditions around mentoring and nurturing before evaluating your own
+      response. At least one major star in the 子女宫 (zǐ nǚ gōng) — the area for your approach to
+      younger people, learners and projects that need patient development — carries bu or xian
+      brightness. These traditional labels describe a more context dependent expression, so the
+      ordinary star reading benefits from a closer look at available support. Think of helping a new
+      colleague with a first piece of work: ask whether they want a demonstration or room to attempt
+      it themselves. If communication, preparation time or the scope of participation does not fit
+      the task, a useful preference may be harder to express. This theme also applies to teaching
+      and creative work; it does not prescribe parenthood or replace a learner’s own pace. Try to
+      agree on a small sign of progress while leaving room for a learner’s own attempt. Adjust one
+      practical condition and compare the next interaction with the previous one. Other stars in the
+      same area may have different brightness, and this modifier should not be generalized to every
+      symbol or every person involved.'
+    advice:
+      - Agree on a small sign of progress while leaving room for a learner’s own attempt
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.wealth.restrained
+  system: ziwei
+  section: career_wealth
+  topic: brightness_wealth
+  when:
+    path: palaces[key=wealth].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 财帛宫的表达条件：给磨合留空间
+    summary: 你在资源安排上，可以先改善表达与参与的条件。
+    body: 你在资源安排上，可以先改善表达与参与的条件。财帛宫（观察日常收支、时间成本与资源分配的习惯的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，准备参加一门课程时，把费用、通勤和练习时间放在同一张清单上，再看这份投入是否适合现在的生活。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。象征上的资源倾向不代表收入水平，预算仍要依据实际收支和已有承诺。建议选一项可调整的日常开支，记录用途与满意度，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 选一项可调整的日常开支，记录用途与满意度
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Wealth Palace: allow adjustment'
+    summary: You can improve the conditions for participation in managing everyday resources before
+      judging the result.
+    body:
+      You can examine the conditions around managing everyday resources before evaluating your own
+      response. At least one major star in the 财帛宫 (cái bó gōng) — the area for habits around
+      ordinary spending, time costs and resource allocation — carries bu or xian brightness. These
+      traditional labels describe a more context dependent expression, so the ordinary star reading
+      benefits from a closer look at available support. Before joining a course, list its fee,
+      travel demands and practice hours together rather than judging the cost from the price alone.
+      If communication, preparation time or the scope of participation does not fit the task, a
+      useful preference may be harder to express. A resource symbol does not measure your income;
+      practical plans depend on actual costs, available funds and existing commitments. Try to
+      review one flexible expense and note what it delivered compared with what you expected. Adjust
+      one practical condition and compare the next interaction with the previous one. Other stars in
+      the same area may have different brightness, and this modifier should not be generalized to
+      every symbol or every person involved.
+    advice:
+      - Review one flexible expense and note what it delivered compared with what you expected
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.health.restrained
+  system: ziwei
+  section: health_travel
+  topic: brightness_health
+  when:
+    path: palaces[key=health].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 疾厄宫的表达条件：给磨合留空间
+    summary: 你在日常恢复上，可以先改善表达与参与的条件。
+    body: 你在日常恢复上，可以先改善表达与参与的条件。疾厄宫（观察作息、压力感受与生活节奏的观察角度的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，连续几天忙碌后，观察屏幕使用、晚间工作和休息时间怎样互相挤占，不急着给疲惫贴标签。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。这里只讨论生活习惯，星曜不能用于判断疾病；持续不适应交给合适的专业人士评估。建议给晚间安排留一个固定的收尾时段，观察是否更易放松，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 给晚间安排留一个固定的收尾时段，观察是否更易放松
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Health Palace: allow adjustment'
+    summary:
+      You can improve the conditions for participation in rest and daily recovery before judging
+      the result.
+    body: 'You can examine the conditions around rest and daily recovery before evaluating your own
+      response. At least one major star in the 疾厄宫 (jí è gōng) — the area for a symbolic perspective
+      on routines, perceived stress and the rhythm of your day — carries bu or xian brightness.
+      These traditional labels describe a more context dependent expression, so the ordinary star
+      reading benefits from a closer look at available support. After several busy days, look at how
+      screen time, evening work and breaks compete for space before assigning a label to tiredness.
+      If communication, preparation time or the scope of participation does not fit the task, a
+      useful preference may be harder to express. Keep this reading about habits: stars cannot
+      identify an illness, and persistent discomfort deserves appropriate professional assessment.
+      Try to set aside a consistent wind down period and observe whether it makes the evening easier
+      to settle into. Adjust one practical condition and compare the next interaction with the
+      previous one. Other stars in the same area may have different brightness, and this modifier
+      should not be generalized to every symbol or every person involved.'
+    advice:
+      - Set aside a consistent wind down period and observe whether it makes the evening easier to
+        settle into
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.travel.restrained
+  system: ziwei
+  section: health_travel
+  topic: brightness_travel
+  when:
+    path: palaces[key=travel].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 迁移宫的表达条件：给磨合留空间
+    summary: 你在外部环境适应上，可以先改善表达与参与的条件。
+    body: 你在外部环境适应上，可以先改善表达与参与的条件。迁移宫（观察离开熟悉环境后的互动与适应方式的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，到陌生城市参加活动时，先确认交通、日程和联络方式，再留意新环境里哪些习惯仍然有效。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。外出不自动意味着更好的发展，距离、照应与现实成本都需要纳入安排。建议尝试一次规模有限的外部活动，回来后复盘适应点，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 尝试一次规模有限的外部活动，回来后复盘适应点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Travel Palace: allow adjustment'
+    summary:
+      You can improve the conditions for participation in adapting beyond familiar surroundings
+      before judging the result.
+    body:
+      You can examine the conditions around adapting beyond familiar surroundings before evaluating
+      your own response. At least one major star in the 迁移宫 (qiān yí gōng) — the area for how you
+      engage with people and arrangements outside your usual environment — carries bu or xian
+      brightness. These traditional labels describe a more context dependent expression, so the
+      ordinary star reading benefits from a closer look at available support. On a visit to an
+      unfamiliar city, establish the route, schedule and contact details, then observe which
+      familiar habits still work there. If communication, preparation time or the scope of
+      participation does not fit the task, a useful preference may be harder to express. A different
+      location does not automatically improve your prospects; distance, support and practical costs
+      remain part of the decision. Try to try a limited activity outside your usual setting and
+      review what helped you adjust afterward. Adjust one practical condition and compare the next
+      interaction with the previous one. Other stars in the same area may have different brightness,
+      and this modifier should not be generalized to every symbol or every person involved.
+    advice:
+      - Try a limited activity outside your usual setting and review what helped you adjust afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.friends.restrained
+  system: ziwei
+  section: career_wealth
+  topic: brightness_friends
+  when:
+    path: palaces[key=friends].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 交友宫的表达条件：给磨合留空间
+    summary: 你在合作网络上，可以先改善表达与参与的条件。
+    body: 你在合作网络上，可以先改善表达与参与的条件。交友宫（观察朋友、团队伙伴和协作关系中的来往方式的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，几个伙伴准备一起办活动时，你可以先区分谁提供点子、谁负责执行、谁只愿意偶尔帮忙。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。友谊和工作约定可以同时存在，但不宜用熟悉感代替清晰的交接与权限。建议把一项共同任务的负责人与截止点写清楚，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 把一项共同任务的负责人与截止点写清楚
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Friends Palace: allow adjustment'
+    summary: You can improve the conditions for participation in working with your network before
+      judging the result.
+    body: You can examine the conditions around working with your network before evaluating your own
+      response. At least one major star in the 交友宫 (jiāo yǒu gōng) — the area for exchanges among
+      friends, team members and people you collaborate with — carries bu or xian brightness. These
+      traditional labels describe a more context dependent expression, so the ordinary star reading
+      benefits from a closer look at available support. If a group plans an event, distinguish those
+      offering ideas, those owning tasks and those available only for occasional support. If
+      communication, preparation time or the scope of participation does not fit the task, a useful
+      preference may be harder to express. Friendship can coexist with a work agreement, but
+      familiarity should not substitute for a clear handover or scope of authority. Try to write
+      down the owner and completion point for one shared task. Adjust one practical condition and
+      compare the next interaction with the previous one. Other stars in the same area may have
+      different brightness, and this modifier should not be generalized to every symbol or every
+      person involved.
+    advice:
+      - Write down the owner and completion point for one shared task
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.career.restrained
+  system: ziwei
+  section: career_wealth
+  topic: brightness_career
+  when:
+    path: palaces[key=career].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 官禄宫的表达条件：给磨合留空间
+    summary: 你在工作组织上，可以先改善表达与参与的条件。
+    body: 你在工作组织上，可以先改善表达与参与的条件。官禄宫（观察任务承担、职业学习与工作方法的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，团队开始一个新项目时，你可以观察自己喜欢确定目标、研究方法、核对细节还是协调交接。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议从现有任务里挑一处流程，和同事约定可检查的改进，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 从现有任务里挑一处流程，和同事约定可检查的改进
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Career Palace: allow adjustment'
+    summary: You can improve the conditions for participation in organizing work before judging the result.
+    body:
+      You can examine the conditions around organizing work before evaluating your own response. At
+      least one major star in the 官禄宫 (guān lù gōng) — the area for how you take responsibility,
+      learn professionally and arrange a task — carries bu or xian brightness. These traditional
+      labels describe a more context dependent expression, so the ordinary star reading benefits
+      from a closer look at available support. At the beginning of a project, notice whether you
+      naturally clarify the aim, research a method, check details or coordinate handovers. If
+      communication, preparation time or the scope of participation does not fit the task, a useful
+      preference may be harder to express. The reading explores a working style without assigning
+      you a profession; skills, interests and the conditions of a role matter together. Try to
+      choose one part of an existing workflow and agree with a colleague on an observable
+      improvement. Adjust one practical condition and compare the next interaction with the previous
+      one. Other stars in the same area may have different brightness, and this modifier should not
+      be generalized to every symbol or every person involved.
+    advice:
+      - Choose one part of an existing workflow and agree with a colleague on an observable
+        improvement
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.property.restrained
+  system: ziwei
+  section: love_family
+  topic: brightness_property
+  when:
+    path: palaces[key=property].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 田宅宫的表达条件：给磨合留空间
+    summary: 你在居住与归属上，可以先改善表达与参与的条件。
+    body: 你在居住与归属上，可以先改善表达与参与的条件。田宅宫（观察居住环境、共同空间与安定感的经营的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，调整工作角或公共区域时，先听听同住者需要安静、收纳还是方便走动，再决定布置方式。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。居住品质也来自边界和使用习惯，不以房产数量衡量，也不从命盘推断产权结果。建议先整理一个常用角落，约定共同使用与维护方式，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 先整理一个常用角落，约定共同使用与维护方式
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Property Palace: allow adjustment'
+    summary:
+      You can improve the conditions for participation in home and shared space before judging
+      the result.
+    body: You can examine the conditions around home and shared space before evaluating your own
+      response. At least one major star in the 田宅宫 (tián zhái gōng) — the area for how living
+      arrangements, shared surroundings and a sense of settlement are maintained — carries bu or
+      xian brightness. These traditional labels describe a more context dependent expression, so the
+      ordinary star reading benefits from a closer look at available support. When rearranging a
+      desk area or shared room, ask whether others most need quiet, storage or an easier route
+      through the space. If communication, preparation time or the scope of participation does not
+      fit the task, a useful preference may be harder to express. The quality of home life depends
+      on boundaries and habits as well as objects; this symbol does not indicate ownership outcomes.
+      Try to start with one frequently used area and agree on how it will be shared and maintained.
+      Adjust one practical condition and compare the next interaction with the previous one. Other
+      stars in the same area may have different brightness, and this modifier should not be
+      generalized to every symbol or every person involved.
+    advice:
+      - Start with one frequently used area and agree on how it will be shared and maintained
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.wellbeing.restrained
+  system: ziwei
+  section: body_fortune
+  topic: brightness_wellbeing
+  when:
+    path: palaces[key=wellbeing].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 福德宫的表达条件：给磨合留空间
+    summary: 你在内在满足上，可以先改善表达与参与的条件。
+    body: 你在内在满足上，可以先改善表达与参与的条件。福德宫（观察休闲偏好、精神空间与获得满足的方式的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，周末没有待办催促时，留意你自然选择阅读、独处、见朋友还是做一个有手感的小作品。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。休息不需要变成绩效项目，喜欢的事也可以没有产出，不必用别人的标准来评价。建议保留一段不交作业的兴趣时间，结束后记录感受，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 保留一段不交作业的兴趣时间，结束后记录感受
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Wellbeing Palace: allow adjustment'
+    summary: You can improve the conditions for participation in your inner sources of satisfaction
+      before judging the result.
+    body: You can examine the conditions around your inner sources of satisfaction before evaluating
+      your own response. At least one major star in the 福德宫 (fú dé gōng) — the area for the
+      interests, mental space and leisure practices that feel restorative — carries bu or xian
+      brightness. These traditional labels describe a more context dependent expression, so the
+      ordinary star reading benefits from a closer look at available support. During a weekend
+      without urgent tasks, notice whether you gravitate toward reading, quiet time, company or
+      making something tangible. If communication, preparation time or the scope of participation
+      does not fit the task, a useful preference may be harder to express. Leisure does not need to
+      become another performance task; an activity may be valuable without producing a visible
+      result. Try to protect a little time for an interest without a deliverable and note how you
+      feel afterward. Adjust one practical condition and compare the next interaction with the
+      previous one. Other stars in the same area may have different brightness, and this modifier
+      should not be generalized to every symbol or every person involved.
+    advice:
+      - Protect a little time for an interest without a deliverable and note how you feel afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.brightness.parents.restrained
+  system: ziwei
+  section: love_family
+  topic: brightness_parents
+  when:
+    path: palaces[key=parents].majorStars[*].brightness
+    in:
+      - bu
+      - xian
+  weight: 40
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 父母宫的表达条件：给磨合留空间
+    summary: 你在代际沟通上，可以先改善表达与参与的条件。
+    body: 你在代际沟通上，可以先改善表达与参与的条件。父母宫（观察你与长辈、师长及权威角色交换经验的方式的领域）中至少一颗主星显示不或陷（传统亮度中较需要情境支持的状态），因此不能把同宫的所有线索都当作轻松发挥。它提示你观察阻力出现在哪里，不是对相关人的能力下评价。例如，收到长辈或导师关于下一步的意见时，先问清对方担心什么，再说明你已有的信息和选择理由。当沟通渠道、准备时间或参与范围不合适时，即使原来的方法有长处，也可能需要调整。尊重经验和保留自主可以并行，这里不评价家庭成员的品格，也不把分歧解释为关系好坏。建议约定一次有时间边界的交流，围绕一个实际问题讨论，先选一个能改善的条件，再看一次实际互动是否更顺畅；其他主星的亮度要逐颗核对，不从这一条推断整个宫位都处于相同状态。
+    advice:
+      - 约定一次有时间边界的交流，围绕一个实际问题讨论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Expression conditions in Parents Palace: allow adjustment'
+    summary:
+      You can improve the conditions for participation in communication across experience levels
+      before judging the result.
+    body:
+      You can examine the conditions around communication across experience levels before evaluating
+      your own response. At least one major star in the 父母宫 (fù mǔ gōng) — the area for how you
+      exchange experience with elders, mentors and people in positions of authority — carries bu or
+      xian brightness. These traditional labels describe a more context dependent expression, so the
+      ordinary star reading benefits from a closer look at available support. When an elder or
+      mentor recommends a next step, ask what concern lies behind the advice before explaining the
+      information guiding your choice. If communication, preparation time or the scope of
+      participation does not fit the task, a useful preference may be harder to express. Respect for
+      experience can coexist with autonomy; disagreement alone does not measure a family member’s
+      character or the quality of a bond. Try to arrange a bounded conversation focused on one
+      practical question. Adjust one practical condition and compare the next interaction with the
+      previous one. Other stars in the same area may have different brightness, and this modifier
+      should not be generalized to every symbol or every person involved.
+    advice:
+      - Arrange a bounded conversation focused on one practical question
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

@@ -134,3 +134,24 @@ describe('knowledge validation', () => {
     expect(schema).toHaveProperty('$defs.when.oneOf');
   });
 });
+
+// Corpus comparisons must retain the documented Dice score while reusing tokenization.
+describe('cached duplicate comparison', () => {
+  it('matches the direct comparator for repeated bilingual and short inputs', async () => {
+    const { createSimilarityComparator, similarity } = await import('../src');
+    const cached = createSimilarityComparator();
+    const texts = [
+      '',
+      '甲',
+      '你可以先列出任务，再确定负责人。',
+      '你可以先列出安排，再确定检查点。',
+      'Try assigning a clear owner before starting.',
+      'Keep the invitation easy to decline.',
+    ];
+    for (const a of texts)
+      for (const b of texts) {
+        expect(cached(a, b)).toBe(similarity(a, b));
+        expect(cached(a, b)).toBe(similarity(a, b));
+      }
+  });
+});

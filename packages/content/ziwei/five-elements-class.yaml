@@ -1,0 +1,232 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: Five-element bureau units explain the documented calculation role and starting ages; they do not invent elemental personality traits.
+- id: ziwei.bureau.water_2
+  system: ziwei
+  section: overview
+  topic: bureau_water_2
+  when:
+    path: basics.fiveElementsClass.name
+    eq: water_2
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水二局：阶段的起算方式
+    summary: 你可以用水二局了解大限年龄区间的起算。
+    body: 你可以先先准备再启动。水二局（五行局的一种排盘参数）中的数字2，用于大限（传统上约十年的观察阶段）的起始岁数；本盘通常从两岁进入首段，其后依次延展。它不代表某个元素在你身上更强，也不是人格测量。比如，回顾学生时期与工作时期时，建议把时间轴与真实经历并排看，留意哪些描述有帮助，而不为了符合区间重写自己的故事。
+    advice:
+      - 把报告时间轴与自己的真实经历并排核对。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: '水二局: reading the phase boundaries'
+    summary: You can use this bureau to understand where the decadal age ranges begin.
+    body:
+      You can keep preparation distinct from the start when reading the timeline. 水二局 (shuǐ èr jú) —
+      one of the five element bureau settings used in chart construction — supplies the number 2 for
+      the initial decadal age boundary. The ordinary first ten year range begins at nominal age two;
+      subsequent ranges follow from that starting point. The bureau is a calculation setting rather
+      than a measure of an element in your personality. For example, compare a period of study with
+      a later period of work using your actual notes before assigning significance to a phase label.
+      Try keeping the report’s age ranges beside your own account of events. This lets the
+      traditional time structure organize reflection without requiring you to reinterpret an
+      experience merely to fit its boundaries.
+    advice:
+      - Compare the age ranges with your own record of experience.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.bureau.wood_3
+  system: ziwei
+  section: overview
+  topic: bureau_wood_3
+  when:
+    path: basics.fiveElementsClass.name
+    eq: wood_3
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木三局：阶段的起算方式
+    summary: 你可以用木三局了解大限年龄区间的起算。
+    body: 你可以先给学习留出连续性。木三局（五行局的一种排盘参数）中的数字3，用于大限（传统上约十年的观察阶段）的起始岁数；本盘通常从三岁进入首段，其后依次延展。它不代表某个元素在你身上更强，也不是人格测量。比如，回顾学生时期与工作时期时，建议把时间轴与真实经历并排看，留意哪些描述有帮助，而不为了符合区间重写自己的故事。
+    advice:
+      - 把报告时间轴与自己的真实经历并排核对。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: '木三局: reading the phase boundaries'
+    summary: You can use this bureau to understand where the decadal age ranges begin.
+    body:
+      You can leave continuity in a learning plan when reading the timeline. 木三局 (mù sān jú) — one
+      of the five element bureau settings used in chart construction — supplies the number 3 for the
+      initial decadal age boundary. The ordinary first ten year range begins at nominal age three;
+      subsequent ranges follow from that starting point. The bureau is a calculation setting rather
+      than a measure of an element in your personality. For example, compare a period of study with
+      a later period of work using your actual notes before assigning significance to a phase label.
+      Try keeping the report’s age ranges beside your own account of events. This lets the
+      traditional time structure organize reflection without requiring you to reinterpret an
+      experience merely to fit its boundaries.
+    advice:
+      - Compare the age ranges with your own record of experience.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.bureau.metal_4
+  system: ziwei
+  section: overview
+  topic: bureau_metal_4
+  when:
+    path: basics.fiveElementsClass.name
+    eq: metal_4
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金四局：阶段的起算方式
+    summary: 你可以用金四局了解大限年龄区间的起算。
+    body: 你可以先先确认观察的边界。金四局（五行局的一种排盘参数）中的数字4，用于大限（传统上约十年的观察阶段）的起始岁数；本盘通常从四岁进入首段，其后依次延展。它不代表某个元素在你身上更强，也不是人格测量。比如，回顾学生时期与工作时期时，建议把时间轴与真实经历并排看，留意哪些描述有帮助，而不为了符合区间重写自己的故事。
+    advice:
+      - 把报告时间轴与自己的真实经历并排核对。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: '金四局: reading the phase boundaries'
+    summary: You can use this bureau to understand where the decadal age ranges begin.
+    body:
+      You can clarify the scope of the timeline when reading the timeline. 金四局 (jīn sì jú) — one of
+      the five element bureau settings used in chart construction — supplies the number 4 for the
+      initial decadal age boundary. The ordinary first ten year range begins at nominal age four;
+      subsequent ranges follow from that starting point. The bureau is a calculation setting rather
+      than a measure of an element in your personality. For example, compare a period of study with
+      a later period of work using your actual notes before assigning significance to a phase label.
+      Try keeping the report’s age ranges beside your own account of events. This lets the
+      traditional time structure organize reflection without requiring you to reinterpret an
+      experience merely to fit its boundaries.
+    advice:
+      - Compare the age ranges with your own record of experience.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.bureau.earth_5
+  system: ziwei
+  section: overview
+  topic: bureau_earth_5
+  when:
+    path: basics.fiveElementsClass.name
+    eq: earth_5
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土五局：阶段的起算方式
+    summary: 你可以用土五局了解大限年龄区间的起算。
+    body: 你可以先把阶段放回经历。土五局（五行局的一种排盘参数）中的数字5，用于大限（传统上约十年的观察阶段）的起始岁数；本盘通常从五岁进入首段，其后依次延展。它不代表某个元素在你身上更强，也不是人格测量。比如，回顾学生时期与工作时期时，建议把时间轴与真实经历并排看，留意哪些描述有帮助，而不为了符合区间重写自己的故事。
+    advice:
+      - 把报告时间轴与自己的真实经历并排核对。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: '土五局: reading the phase boundaries'
+    summary: You can use this bureau to understand where the decadal age ranges begin.
+    body:
+      You can connect a phase with lived experience when reading the timeline. 土五局 (tǔ wǔ jú) — one
+      of the five element bureau settings used in chart construction — supplies the number 5 for the
+      initial decadal age boundary. The ordinary first ten year range begins at nominal age five;
+      subsequent ranges follow from that starting point. The bureau is a calculation setting rather
+      than a measure of an element in your personality. For example, compare a period of study with
+      a later period of work using your actual notes before assigning significance to a phase label.
+      Try keeping the report’s age ranges beside your own account of events. This lets the
+      traditional time structure organize reflection without requiring you to reinterpret an
+      experience merely to fit its boundaries.
+    advice:
+      - Compare the age ranges with your own record of experience.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.bureau.fire_6
+  system: ziwei
+  section: overview
+  topic: bureau_fire_6
+  when:
+    path: basics.fiveElementsClass.name
+    eq: fire_6
+  weight: 45
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火六局：阶段的起算方式
+    summary: 你可以用火六局了解大限年龄区间的起算。
+    body: 你可以先检查时间与实际节奏。火六局（五行局的一种排盘参数）中的数字6，用于大限（传统上约十年的观察阶段）的起始岁数；本盘通常从六岁进入首段，其后依次延展。它不代表某个元素在你身上更强，也不是人格测量。比如，回顾学生时期与工作时期时，建议把时间轴与真实经历并排看，留意哪些描述有帮助，而不为了符合区间重写自己的故事。
+    advice:
+      - 把报告时间轴与自己的真实经历并排核对。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: '火六局: reading the phase boundaries'
+    summary: You can use this bureau to understand where the decadal age ranges begin.
+    body:
+      You can compare a timeline with your real pace when reading the timeline. 火六局 (huǒ liù jú) —
+      one of the five element bureau settings used in chart construction — supplies the number 6 for
+      the initial decadal age boundary. The ordinary first ten year range begins at nominal age six;
+      subsequent ranges follow from that starting point. The bureau is a calculation setting rather
+      than a measure of an element in your personality. For example, compare a period of study with
+      a later period of work using your actual notes before assigning significance to a phase label.
+      Try keeping the report’s age ranges beside your own account of events. This lets the
+      traditional time structure organize reflection without requiring you to reinterpret an
+      experience merely to fit its boundaries.
+    advice:
+      - Compare the age ranges with your own record of experience.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

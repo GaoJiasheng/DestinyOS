@@ -1,0 +1,577 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: palaceIndex is the validated schema index, 0=life through 11=parents. The schema supplies only the current year; three-year planning is described as a rolling review rather than an invented forecast.
+- id: ziwei.decadal.palace.life
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_life
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 0
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联命宫
+    summary: 你可以把自我表达作为当前阶段的观察重点。
+    body: 你可以把自我表达作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联命宫（观察你怎样认识自己和回应日常处境的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，接到陌生任务时，先观察自己是急于定方向，还是先询问细节。别用一个盘中标签覆盖自己在不同场合的变化。建议记录一次选择的理由，过几天看看是否仍认可，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 记录一次选择的理由，过几天看看是否仍认可
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Life Palace
+    summary: You can use your everyday identity as one observation theme for the current phase.
+    body:
+      You can give deliberate attention to your everyday identity when reviewing the current longer
+      phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately ten years)
+      points to the 命宫 (mìng gōng), which concerns how you describe yourself and respond to ordinary
+      situations. The index marks a thematic entry point rather than a specific outcome. When a new
+      task arrives, notice whether you first seek a direction, gather details or ask what others
+      need. Your response at home may differ from your response at work; leave room for that
+      difference. Try to keep a short note on why you chose an approach and revisit it a few days
+      later. Set a review date and assess whether the practice helped you allocate attention more
+      clearly. The age boundaries arrange the traditional sequence; reaching one does not
+      automatically change your circumstances.
+    advice:
+      - Keep a short note on why you chose an approach and revisit it a few days later
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.siblings
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_siblings
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 1
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联兄弟宫
+    summary: 你可以把同辈互助作为当前阶段的观察重点。
+    body: 你可以把同辈互助作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联兄弟宫（观察同辈、手足与熟悉伙伴之间的支持方式的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，几位熟悉的人商量共同出行时，留意谁负责搜集信息、谁安排时间，以及你想参与哪一部分。亲近程度和资源共享不是同一回事，彼此的时间也可能很不一样。建议先问对方是否方便，再约定具体的互助范围，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 先问对方是否方便，再约定具体的互助范围
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Siblings Palace
+    summary: You can use support among peers as one observation theme for the current phase.
+    body:
+      'You can give deliberate attention to support among peers when reviewing the current longer
+      phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately ten years)
+      points to the 兄弟宫 (xiōng dì gōng), which concerns how siblings, contemporaries and familiar
+      peers share support. The index marks a thematic entry point rather than a specific outcome.
+      Imagine familiar peers arranging a shared outing: one gathers information, another coordinates
+      dates, and you decide which part you actually want to handle. Closeness does not imply equal
+      availability, similar income or an obligation to share every resource. Try to ask about
+      availability before agreeing on a specific and manageable exchange of help. Set a review date
+      and assess whether the practice helped you allocate attention more clearly. The age boundaries
+      arrange the traditional sequence; reaching one does not automatically change your
+      circumstances.'
+    advice:
+      - Ask about availability before agreeing on a specific and manageable exchange of help
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.spouse
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_spouse
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 2
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联夫妻宫
+    summary: 你可以把亲密沟通作为当前阶段的观察重点。
+    body: 你可以把亲密沟通作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联夫妻宫（观察亲密关系中的协商方式与期待的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，你与伴侣或正在了解的人安排周末时，可以先分别说出需要安静、交流还是一起做事。关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议把一个期待改写成对方能回应的具体请求，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 把一个期待改写成对方能回应的具体请求
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Spouse Palace
+    summary: You can use negotiation in close relationships as one observation theme for the current phase.
+    body: You can give deliberate attention to negotiation in close relationships when reviewing the
+      current longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately
+      ten years) points to the 夫妻宫 (fū qī gōng), which concerns the expectations and conversations
+      that shape an intimate partnership. The index marks a thematic entry point rather than a
+      specific outcome. While arranging a weekend with a partner or someone you are getting to know,
+      compare what each person needs from the time together. A symbolic relationship theme cannot
+      decide compatibility or tell you what kind of relationship to pursue. Try to turn one
+      expectation into a request the other person can clearly respond to. Set a review date and
+      assess whether the practice helped you allocate attention more clearly. The age boundaries
+      arrange the traditional sequence; reaching one does not automatically change your
+      circumstances.
+    advice:
+      - Turn one expectation into a request the other person can clearly respond to
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.children
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_children
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 3
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联子女宫
+    summary: 你可以把陪伴与培育作为当前阶段的观察重点。
+    body: 你可以把陪伴与培育作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联子女宫（观察你对晚辈、学习者以及需要持续培育的事情的投入的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，指导新同事完成第一份作品时，不妨询问对方想先独立尝试，还是希望你示范一个步骤。这里也适用于教学与创作，不推断生育安排；被帮助的人仍有自己的节奏。建议设定一个能观察进步的小目标，留出尝试空间，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 设定一个能观察进步的小目标，留出尝试空间
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Children Palace
+    summary: You can use mentoring and nurturing as one observation theme for the current phase.
+    body: 'You can give deliberate attention to mentoring and nurturing when reviewing the current
+      longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately ten
+      years) points to the 子女宫 (zǐ nǚ gōng), which concerns your approach to younger people,
+      learners and projects that need patient development. The index marks a thematic entry point
+      rather than a specific outcome. Think of helping a new colleague with a first piece of work:
+      ask whether they want a demonstration or room to attempt it themselves. This theme also
+      applies to teaching and creative work; it does not prescribe parenthood or replace a learner’s
+      own pace. Try to agree on a small sign of progress while leaving room for a learner’s own
+      attempt. Set a review date and assess whether the practice helped you allocate attention more
+      clearly. The age boundaries arrange the traditional sequence; reaching one does not
+      automatically change your circumstances.'
+    advice:
+      - Agree on a small sign of progress while leaving room for a learner’s own attempt
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.wealth
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_wealth
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 4
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联财帛宫
+    summary: 你可以把资源安排作为当前阶段的观察重点。
+    body: 你可以把资源安排作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联财帛宫（观察日常收支、时间成本与资源分配的习惯的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，准备参加一门课程时，把费用、通勤和练习时间放在同一张清单上，再看这份投入是否适合现在的生活。象征上的资源倾向不代表收入水平，预算仍要依据实际收支和已有承诺。建议选一项可调整的日常开支，记录用途与满意度，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 选一项可调整的日常开支，记录用途与满意度
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Wealth Palace
+    summary: You can use managing everyday resources as one observation theme for the current phase.
+    body:
+      You can give deliberate attention to managing everyday resources when reviewing the current
+      longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately ten
+      years) points to the 财帛宫 (cái bó gōng), which concerns habits around ordinary spending, time
+      costs and resource allocation. The index marks a thematic entry point rather than a specific
+      outcome. Before joining a course, list its fee, travel demands and practice hours together
+      rather than judging the cost from the price alone. A resource symbol does not measure your
+      income; practical plans depend on actual costs, available funds and existing commitments. Try
+      to review one flexible expense and note what it delivered compared with what you expected. Set
+      a review date and assess whether the practice helped you allocate attention more clearly. The
+      age boundaries arrange the traditional sequence; reaching one does not automatically change
+      your circumstances.
+    advice:
+      - Review one flexible expense and note what it delivered compared with what you expected
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.health
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_health
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 5
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联疾厄宫
+    summary: 你可以把日常恢复作为当前阶段的观察重点。
+    body: 你可以把日常恢复作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联疾厄宫（观察作息、压力感受与生活节奏的观察角度的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，连续几天忙碌后，观察屏幕使用、晚间工作和休息时间怎样互相挤占，不急着给疲惫贴标签。这里只讨论生活习惯，星曜不能用于判断疾病；持续不适应交给合适的专业人士评估。建议给晚间安排留一个固定的收尾时段，观察是否更易放松，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 给晚间安排留一个固定的收尾时段，观察是否更易放松
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Health Palace
+    summary: You can use rest and daily recovery as one observation theme for the current phase.
+    body: 'You can give deliberate attention to rest and daily recovery when reviewing the current
+      longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately ten
+      years) points to the 疾厄宫 (jí è gōng), which concerns a symbolic perspective on routines,
+      perceived stress and the rhythm of your day. The index marks a thematic entry point rather
+      than a specific outcome. After several busy days, look at how screen time, evening work and
+      breaks compete for space before assigning a label to tiredness. Keep this reading about
+      habits: stars cannot identify an illness, and persistent discomfort deserves appropriate
+      professional assessment. Try to set aside a consistent wind down period and observe whether it
+      makes the evening easier to settle into. Set a review date and assess whether the practice
+      helped you allocate attention more clearly. The age boundaries arrange the traditional
+      sequence; reaching one does not automatically change your circumstances.'
+    advice:
+      - Set aside a consistent wind down period and observe whether it makes the evening easier to
+        settle into
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.travel
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_travel
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 6
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联迁移宫
+    summary: 你可以把外部环境适应作为当前阶段的观察重点。
+    body: 你可以把外部环境适应作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联迁移宫（观察离开熟悉环境后的互动与适应方式的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，到陌生城市参加活动时，先确认交通、日程和联络方式，再留意新环境里哪些习惯仍然有效。外出不自动意味着更好的发展，距离、照应与现实成本都需要纳入安排。建议尝试一次规模有限的外部活动，回来后复盘适应点，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 尝试一次规模有限的外部活动，回来后复盘适应点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Travel Palace
+    summary:
+      You can use adapting beyond familiar surroundings as one observation theme for the current
+      phase.
+    body:
+      You can give deliberate attention to adapting beyond familiar surroundings when reviewing the
+      current longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately
+      ten years) points to the 迁移宫 (qiān yí gōng), which concerns how you engage with people and
+      arrangements outside your usual environment. The index marks a thematic entry point rather
+      than a specific outcome. On a visit to an unfamiliar city, establish the route, schedule and
+      contact details, then observe which familiar habits still work there. A different location
+      does not automatically improve your prospects; distance, support and practical costs remain
+      part of the decision. Try to try a limited activity outside your usual setting and review what
+      helped you adjust afterward. Set a review date and assess whether the practice helped you
+      allocate attention more clearly. The age boundaries arrange the traditional sequence; reaching
+      one does not automatically change your circumstances.
+    advice:
+      - Try a limited activity outside your usual setting and review what helped you adjust afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.friends
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_friends
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 7
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联交友宫
+    summary: 你可以把合作网络作为当前阶段的观察重点。
+    body: 你可以把合作网络作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联交友宫（观察朋友、团队伙伴和协作关系中的来往方式的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，几个伙伴准备一起办活动时，你可以先区分谁提供点子、谁负责执行、谁只愿意偶尔帮忙。友谊和工作约定可以同时存在，但不宜用熟悉感代替清晰的交接与权限。建议把一项共同任务的负责人与截止点写清楚，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 把一项共同任务的负责人与截止点写清楚
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Friends Palace
+    summary: You can use working with your network as one observation theme for the current phase.
+    body: You can give deliberate attention to working with your network when reviewing the current
+      longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately ten
+      years) points to the 交友宫 (jiāo yǒu gōng), which concerns exchanges among friends, team members
+      and people you collaborate with. The index marks a thematic entry point rather than a specific
+      outcome. If a group plans an event, distinguish those offering ideas, those owning tasks and
+      those available only for occasional support. Friendship can coexist with a work agreement, but
+      familiarity should not substitute for a clear handover or scope of authority. Try to write
+      down the owner and completion point for one shared task. Set a review date and assess whether
+      the practice helped you allocate attention more clearly. The age boundaries arrange the
+      traditional sequence; reaching one does not automatically change your circumstances.
+    advice:
+      - Write down the owner and completion point for one shared task
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.career
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_career
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 8
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联官禄宫
+    summary: 你可以把工作组织作为当前阶段的观察重点。
+    body: 你可以把工作组织作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联官禄宫（观察任务承担、职业学习与工作方法的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，团队开始一个新项目时，你可以观察自己喜欢确定目标、研究方法、核对细节还是协调交接。这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议从现有任务里挑一处流程，和同事约定可检查的改进，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 从现有任务里挑一处流程，和同事约定可检查的改进
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Career Palace
+    summary: You can use organizing work as one observation theme for the current phase.
+    body:
+      You can give deliberate attention to organizing work when reviewing the current longer phase.
+      The decadal cycle (大限, dà xiàn — a traditional period of approximately ten years) points to
+      the 官禄宫 (guān lù gōng), which concerns how you take responsibility, learn professionally and
+      arrange a task. The index marks a thematic entry point rather than a specific outcome. At the
+      beginning of a project, notice whether you naturally clarify the aim, research a method, check
+      details or coordinate handovers. The reading explores a working style without assigning you a
+      profession; skills, interests and the conditions of a role matter together. Try to choose one
+      part of an existing workflow and agree with a colleague on an observable improvement. Set a
+      review date and assess whether the practice helped you allocate attention more clearly. The
+      age boundaries arrange the traditional sequence; reaching one does not automatically change
+      your circumstances.
+    advice:
+      - Choose one part of an existing workflow and agree with a colleague on an observable
+        improvement
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.property
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_property
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 9
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联田宅宫
+    summary: 你可以把居住与归属作为当前阶段的观察重点。
+    body: 你可以把居住与归属作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联田宅宫（观察居住环境、共同空间与安定感的经营的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，调整工作角或公共区域时，先听听同住者需要安静、收纳还是方便走动，再决定布置方式。居住品质也来自边界和使用习惯，不以房产数量衡量，也不从命盘推断产权结果。建议先整理一个常用角落，约定共同使用与维护方式，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 先整理一个常用角落，约定共同使用与维护方式
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Property Palace
+    summary: You can use home and shared space as one observation theme for the current phase.
+    body:
+      You can give deliberate attention to home and shared space when reviewing the current longer
+      phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately ten years)
+      points to the 田宅宫 (tián zhái gōng), which concerns how living arrangements, shared
+      surroundings and a sense of settlement are maintained. The index marks a thematic entry point
+      rather than a specific outcome. When rearranging a desk area or shared room, ask whether
+      others most need quiet, storage or an easier route through the space. The quality of home life
+      depends on boundaries and habits as well as objects; this symbol does not indicate ownership
+      outcomes. Try to start with one frequently used area and agree on how it will be shared and
+      maintained. Set a review date and assess whether the practice helped you allocate attention
+      more clearly. The age boundaries arrange the traditional sequence; reaching one does not
+      automatically change your circumstances.
+    advice:
+      - Start with one frequently used area and agree on how it will be shared and maintained
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.wellbeing
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_wellbeing
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 10
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联福德宫
+    summary: 你可以把内在满足作为当前阶段的观察重点。
+    body: 你可以把内在满足作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联福德宫（观察休闲偏好、精神空间与获得满足的方式的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，周末没有待办催促时，留意你自然选择阅读、独处、见朋友还是做一个有手感的小作品。休息不需要变成绩效项目，喜欢的事也可以没有产出，不必用别人的标准来评价。建议保留一段不交作业的兴趣时间，结束后记录感受，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 保留一段不交作业的兴趣时间，结束后记录感受
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Wellbeing Palace
+    summary: You can use your inner sources of satisfaction as one observation theme for the current phase.
+    body: You can give deliberate attention to your inner sources of satisfaction when reviewing the
+      current longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately
+      ten years) points to the 福德宫 (fú dé gōng), which concerns the interests, mental space and
+      leisure practices that feel restorative. The index marks a thematic entry point rather than a
+      specific outcome. During a weekend without urgent tasks, notice whether you gravitate toward
+      reading, quiet time, company or making something tangible. Leisure does not need to become
+      another performance task; an activity may be valuable without producing a visible result. Try
+      to protect a little time for an interest without a deliverable and note how you feel
+      afterward. Set a review date and assess whether the practice helped you allocate attention
+      more clearly. The age boundaries arrange the traditional sequence; reaching one does not
+      automatically change your circumstances.
+    advice:
+      - Protect a little time for an interest without a deliverable and note how you feel afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.decadal.palace.parents
+  system: ziwei
+  section: decadal_yearly
+  topic: decadal_palace_parents
+  when:
+    path: horoscope.decadal.palaceIndex
+    eq: 11
+  weight: 78
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 当前大限关联父母宫
+    summary: 你可以把代际沟通作为当前阶段的观察重点。
+    body: 你可以把代际沟通作为当前较长阶段的一项观察重点。大限（传统上约十年的阶段划分）在本盘关联父母宫（观察你与长辈、师长及权威角色交换经验的方式的领域），说明时间层的入口与这个主题相接；其他领域仍需要一起看。比如，收到长辈或导师关于下一步的意见时，先问清对方担心什么，再说明你已有的信息和选择理由。尊重经验和保留自主可以并行，这里不评价家庭成员的品格，也不把分歧解释为关系好坏。建议约定一次有时间边界的交流，围绕一个实际问题讨论，并在一个约定好的日期回顾是否帮助你更清楚地分配时间。年龄边界用于排列阶段，不表示到达某岁就自动改变生活。
+    advice:
+      - 约定一次有时间边界的交流，围绕一个实际问题讨论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: Current decade linked to Parents Palace
+    summary:
+      You can use communication across experience levels as one observation theme for the current
+      phase.
+    body:
+      You can give deliberate attention to communication across experience levels when reviewing the
+      current longer phase. The decadal cycle (大限, dà xiàn — a traditional period of approximately
+      ten years) points to the 父母宫 (fù mǔ gōng), which concerns how you exchange experience with
+      elders, mentors and people in positions of authority. The index marks a thematic entry point
+      rather than a specific outcome. When an elder or mentor recommends a next step, ask what
+      concern lies behind the advice before explaining the information guiding your choice. Respect
+      for experience can coexist with autonomy; disagreement alone does not measure a family
+      member’s character or the quality of a bond. Try to arrange a bounded conversation focused on
+      one practical question. Set a review date and assess whether the practice helped you allocate
+      attention more clearly. The age boundaries arrange the traditional sequence; reaching one does
+      not automatically change your circumstances.
+    advice:
+      - Arrange a bounded conversation focused on one practical question
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

@@ -1,0 +1,443 @@
+{
+  "basics": {
+    "lunar": {
+      "year": 1986,
+      "month": 4,
+      "isLeap": false,
+      "day": 7,
+      "hourBranch": "chen"
+    },
+    "yearStem": "bing",
+    "yearBranch": "yin",
+    "fiveElementsClass": {
+      "name": "earth_5",
+      "number": 5
+    },
+    "soulMaster": "ju_men",
+    "bodyMaster": "tian_liang",
+    "soulPalaceBranch": "chou",
+    "bodyPalaceBranch": "you",
+    "zodiac": "yin"
+  },
+  "palaces": [
+    {
+      "index": 0,
+      "key": "life",
+      "branch": "chou",
+      "stem": "xin",
+      "isBodyPalace": false,
+      "majorStars": [],
+      "minorStars": [],
+      "adjectiveStars": ["hong_luan", "san_tai", "ba_zuo", "tian_gui", "gua_su"],
+      "changsheng12": "si",
+      "boshi12": "jiang_jun",
+      "jiangqian12": "tian_sha",
+      "suiqian12": "bing_fu",
+      "decadal": {
+        "fromAge": 5,
+        "toAge": 14,
+        "fromYear": 1990,
+        "toYear": 1999
+      },
+      "ages": [4, 16, 28, 40, 52, 64, 76, 88, 100, 112]
+    },
+    {
+      "index": 1,
+      "key": "siblings",
+      "branch": "zi",
+      "stem": "geng",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "zi_wei",
+          "brightness": "ping"
+        }
+      ],
+      "minorStars": [],
+      "adjectiveStars": ["tian_fu_aux", "tian_chu", "tian_xing"],
+      "changsheng12": "mu",
+      "boshi12": "zou_shu",
+      "jiangqian12": "zai_sha",
+      "suiqian12": "diao_ke",
+      "decadal": {
+        "fromAge": 15,
+        "toAge": 24,
+        "fromYear": 2000,
+        "toYear": 2009
+      },
+      "ages": [5, 17, 29, 41, 53, 65, 77, 89, 101, 113]
+    },
+    {
+      "index": 2,
+      "key": "spouse",
+      "branch": "hai",
+      "stem": "ji",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "tian_ji",
+          "brightness": "ping",
+          "mutagen": "quan"
+        }
+      ],
+      "minorStars": [
+        {
+          "key": "tian_kui"
+        }
+      ],
+      "adjectiveStars": ["en_guang", "tian_shou", "tian_wu", "tian_de"],
+      "changsheng12": "jue",
+      "boshi12": "fei_lian_doctor",
+      "jiangqian12": "jie_sha_annual",
+      "suiqian12": "tian_de",
+      "decadal": {
+        "fromAge": 25,
+        "toAge": 34,
+        "fromYear": 2010,
+        "toYear": 2019
+      },
+      "ages": [6, 18, 30, 42, 54, 66, 78, 90, 102, 114]
+    },
+    {
+      "index": 3,
+      "key": "children",
+      "branch": "xu",
+      "stem": "wu_stem",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "qi_sha",
+          "brightness": "miao"
+        }
+      ],
+      "minorStars": [],
+      "adjectiveStars": ["jie_shen", "tai_fu", "hua_gai", "xun_kong", "fei_lian"],
+      "changsheng12": "tai",
+      "boshi12": "xi_shen",
+      "jiangqian12": "hua_gai",
+      "suiqian12": "bai_hu",
+      "decadal": {
+        "fromAge": 35,
+        "toAge": 44,
+        "fromYear": 2020,
+        "toYear": 2029
+      },
+      "ages": [7, 19, 31, 43, 55, 67, 79, 91, 103, 115]
+    },
+    {
+      "index": 4,
+      "key": "wealth",
+      "branch": "you",
+      "stem": "ding",
+      "isBodyPalace": true,
+      "majorStars": [
+        {
+          "key": "tai_yang",
+          "brightness": "ping"
+        },
+        {
+          "key": "tian_liang",
+          "brightness": "de"
+        }
+      ],
+      "minorStars": [
+        {
+          "key": "tian_yue"
+        }
+      ],
+      "adjectiveStars": ["po_sui"],
+      "changsheng12": "yang",
+      "boshi12": "bing_fu",
+      "jiangqian12": "xi_shen_annual",
+      "suiqian12": "long_de",
+      "decadal": {
+        "fromAge": 45,
+        "toAge": 54,
+        "fromYear": 2030,
+        "toYear": 2039
+      },
+      "ages": [8, 20, 32, 44, 56, 68, 80, 92, 104, 116]
+    },
+    {
+      "index": 5,
+      "key": "health",
+      "branch": "shen",
+      "stem": "bing",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "wu_qu",
+          "brightness": "de"
+        },
+        {
+          "key": "tian_xiang",
+          "brightness": "miao"
+        }
+      ],
+      "minorStars": [
+        {
+          "key": "wen_qu",
+          "brightness": "de"
+        },
+        {
+          "key": "tian_ma"
+        }
+      ],
+      "adjectiveStars": ["feng_ge", "yin_sha", "tian_xu", "tian_shi", "nian_jie"],
+      "changsheng12": "chang_sheng",
+      "boshi12": "da_hao",
+      "jiangqian12": "sui_yi",
+      "suiqian12": "da_hao",
+      "decadal": {
+        "fromAge": 55,
+        "toAge": 64,
+        "fromYear": 2040,
+        "toYear": 2049
+      },
+      "ages": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]
+    },
+    {
+      "index": 6,
+      "key": "travel",
+      "branch": "wei",
+      "stem": "yi",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "tian_tong",
+          "brightness": "bu",
+          "mutagen": "lu"
+        },
+        {
+          "key": "ju_men",
+          "brightness": "bu"
+        }
+      ],
+      "minorStars": [
+        {
+          "key": "zuo_fu"
+        },
+        {
+          "key": "you_bi"
+        },
+        {
+          "key": "di_kong"
+        },
+        {
+          "key": "ling_xing",
+          "brightness": "li"
+        }
+      ],
+      "adjectiveStars": ["tian_xi", "yue_de"],
+      "changsheng12": "mu_yu",
+      "boshi12": "fu_bing",
+      "jiangqian12": "pan_an",
+      "suiqian12": "xiao_hao",
+      "decadal": {
+        "fromAge": 65,
+        "toAge": 74,
+        "fromYear": 2050,
+        "toYear": 2059
+      },
+      "ages": [10, 22, 34, 46, 58, 70, 82, 94, 106, 118]
+    },
+    {
+      "index": 7,
+      "key": "friends",
+      "branch": "wu",
+      "stem": "jia",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "tan_lang",
+          "brightness": "wang"
+        }
+      ],
+      "minorStars": [
+        {
+          "key": "wen_chang",
+          "brightness": "xian",
+          "mutagen": "ke"
+        },
+        {
+          "key": "qing_yang",
+          "brightness": "xian"
+        }
+      ],
+      "adjectiveStars": ["long_chi", "feng_gao", "tian_shang"],
+      "changsheng12": "guan_dai",
+      "boshi12": "guan_fu",
+      "jiangqian12": "jiang_xing",
+      "suiqian12": "guan_fu_annual",
+      "decadal": {
+        "fromAge": 75,
+        "toAge": 84,
+        "fromYear": 2060,
+        "toYear": 2069
+      },
+      "ages": [11, 23, 35, 47, 59, 71, 83, 95, 107, 119]
+    },
+    {
+      "index": 8,
+      "key": "career",
+      "branch": "si",
+      "stem": "gui",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "tai_yin",
+          "brightness": "xian"
+        }
+      ],
+      "minorStars": [
+        {
+          "key": "lu_cun"
+        },
+        {
+          "key": "huo_xing",
+          "brightness": "de"
+        }
+      ],
+      "adjectiveStars": ["tian_guan", "kong_wang", "gu_chen"],
+      "changsheng12": "lin_guan",
+      "boshi12": "bo_shi",
+      "jiangqian12": "wang_shen",
+      "suiqian12": "guan_suo",
+      "decadal": {
+        "fromAge": 85,
+        "toAge": 94,
+        "fromYear": 2070,
+        "toYear": 2079
+      },
+      "ages": [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+    },
+    {
+      "index": 9,
+      "key": "property",
+      "branch": "chen",
+      "stem": "ren",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "lian_zhen",
+          "brightness": "li",
+          "mutagen": "ji"
+        },
+        {
+          "key": "tian_fu",
+          "brightness": "miao"
+        }
+      ],
+      "minorStars": [
+        {
+          "key": "tuo_luo",
+          "brightness": "miao"
+        }
+      ],
+      "adjectiveStars": ["tian_yao", "jie_lu", "tian_ku"],
+      "changsheng12": "di_wang",
+      "boshi12": "li_shi",
+      "jiangqian12": "yue_sha",
+      "suiqian12": "sang_men",
+      "decadal": {
+        "fromAge": 95,
+        "toAge": 104,
+        "fromYear": 2080,
+        "toYear": 2089
+      },
+      "ages": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]
+    },
+    {
+      "index": 10,
+      "key": "wellbeing",
+      "branch": "mao",
+      "stem": "xin",
+      "isBodyPalace": false,
+      "majorStars": [],
+      "minorStars": [
+        {
+          "key": "di_jie"
+        }
+      ],
+      "adjectiveStars": ["xian_chi", "tian_cai", "tian_kong"],
+      "changsheng12": "shuai",
+      "boshi12": "qing_long",
+      "jiangqian12": "xian_chi",
+      "suiqian12": "hui_qi",
+      "decadal": {
+        "fromAge": 105,
+        "toAge": 114,
+        "fromYear": 2090,
+        "toYear": 2099
+      },
+      "ages": [2, 14, 26, 38, 50, 62, 74, 86, 98, 110]
+    },
+    {
+      "index": 11,
+      "key": "parents",
+      "branch": "yin",
+      "stem": "geng",
+      "isBodyPalace": false,
+      "majorStars": [
+        {
+          "key": "po_jun",
+          "brightness": "de"
+        }
+      ],
+      "minorStars": [],
+      "adjectiveStars": ["tian_yue_aux"],
+      "changsheng12": "bing",
+      "boshi12": "xiao_hao",
+      "jiangqian12": "zhi_bei",
+      "suiqian12": "sui_jian",
+      "decadal": {
+        "fromAge": 115,
+        "toAge": 124,
+        "fromYear": 2100,
+        "toYear": 2109
+      },
+      "ages": [3, 15, 27, 39, 51, 63, 75, 87, 99, 111]
+    }
+  ],
+  "horoscope": {
+    "decadal": {
+      "palaceIndex": 3,
+      "stem": "wu_stem",
+      "mutagens": {
+        "lu": "tan_lang",
+        "quan": "tai_yin",
+        "ke": "you_bi",
+        "ji": "tian_ji"
+      },
+      "fromAge": 35,
+      "toAge": 44
+    },
+    "yearly": {
+      "year": 2026,
+      "palaceIndex": 7,
+      "stem": "bing",
+      "branch": "wu",
+      "mutagens": {
+        "lu": "tian_tong",
+        "quan": "tian_ji",
+        "ke": "wen_chang",
+        "ji": "lian_zhen"
+      }
+    }
+  },
+  "patterns": [
+    {
+      "key": "shuang_lu_chao_yuan",
+      "palaces": ["career", "travel"],
+      "stars": ["lu_cun", "tian_tong"],
+      "strength": 0.5
+    },
+    {
+      "key": "ming_wu_zheng_yao",
+      "palaces": ["life"],
+      "stars": [],
+      "strength": 1
+    }
+  ],
+  "emptyPalaces": ["life", "wellbeing"]
+}

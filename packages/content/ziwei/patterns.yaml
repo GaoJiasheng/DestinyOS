@@ -1,0 +1,1330 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: Pattern meanings follow the existing twenty-five structural engine predicates. Neither names nor strength labels predict status or future events.
+- id: ziwei.pattern.zi_fu_tong_gong
+  system: ziwei
+  section: patterns
+  topic: pattern_zi_fu_tong_gong
+  when:
+    path: patterns[*].key
+    eq: zi_fu_tong_gong
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫府同宫：先确认要做什么，再确认凭什么持续做下去
+    summary: 你可以从先确认要做什么，再确认凭什么持续做下去这个角度观察生活。
+    body: 你可以从先确认要做什么，再确认凭什么持续做下去这个角度观察自己的选择。紫府同宫（传统上为这组星曜位置关系取的名称）在本盘命中，因为命宫同时有紫微与天府，合看方向统筹和资源保留。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你组织读书小组时，除了提出主题，还愿意安排资料归档和轮值，让下一次聚会不必从零开始。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议把负责方向和维护资源的职责分别列清，不把稳定安排变成个人包办。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 把负责方向和维护资源的职责分别列清，不把稳定安排变成个人包办
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Fǔ Tóng Gōng: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Zǐ Fǔ Tóng Gōng (紫府同宫) —
+      the traditional name for a relationship among chart elements — is present because the Life
+      Palace holds Zi Wei and Tian Fu together, connecting a sense of direction with stewardship of
+      existing resources. You may feel comfortable naming an aim and then arranging the support
+      needed to keep it going. A plan feels more convincing when somebody knows how it will be
+      maintained. When organizing a reading group, you might propose the theme but also arrange a
+      rotation and shared archive. That second step lets another participant continue the activity
+      without relying on you. Try naming the owner of the direction and the owner of the resources
+      separately. Invite a participant to suggest a simpler routine before making the arrangement
+      permanent. Check the result in your own setting and revise the interpretation when the
+      observed experience differs.
+    advice:
+      - Try naming the owner of the direction and the owner of the resources separately. Invite a
+        participant to suggest a simpler routine before making the arrangement permanent
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.zi_fu_chao_yuan
+  system: ziwei
+  section: patterns
+  topic: pattern_zi_fu_chao_yuan
+  when:
+    path: patterns[*].key
+    eq: zi_fu_chao_yuan
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫府朝垣：不同生活领域之间可能存在统筹与稳住资源的呼应
+    summary: 你可以从不同生活领域之间可能存在统筹与稳住资源的呼应这个角度观察生活。
+    body: 你可以从不同生活领域之间可能存在统筹与稳住资源的呼应这个角度观察自己的选择。紫府朝垣（传统上为这组星曜位置关系取的名称）在本盘命中，因为命、财、官、迁组成的观察范围会齐紫微与天府。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，工作方式调整时，你可能同时考虑外部配合与现有资源，让新计划接得上原来的积累。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议画出目标、支持条件与交接的关系，先处理一个真正缺少负责人的环节。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 画出目标、支持条件与交接的关系，先处理一个真正缺少负责人的环节
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Fǔ Cháo Yuán: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Zǐ Fǔ Cháo Yuán (紫府朝垣) —
+      the traditional name for a relationship among chart elements — is present because Zi Wei and
+      Tian Fu are both present across the life, wealth, career and travel areas considered together.
+      You may seek a connection between setting a direction and maintaining the resources that
+      support it. The configuration concerns coordination across settings, rather than a single
+      placement doing all the work. If a working routine changes, you might consider who outside the
+      team needs to be informed and which existing materials can still be used. This can help a new
+      method build on earlier effort. Consider drawing the connections between the aim, the
+      available support and the handover. Assign one neglected connection to a person who has agreed
+      to maintain it. Check the result in your own setting and revise the interpretation when the
+      observed experience differs.
+    advice:
+      - Consider drawing the connections between the aim, the available support and the handover.
+        Assign one neglected connection to a person who has agreed to maintain it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.fu_xiang_chao_yuan
+  system: ziwei
+  section: patterns
+  topic: pattern_fu_xiang_chao_yuan
+  when:
+    path: patterns[*].key
+    eq: fu_xiang_chao_yuan
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 府相朝垣：资源维护和程序协调可以互相补充
+    summary: 你可以从资源维护和程序协调可以互相补充这个角度观察生活。
+    body: 你可以从资源维护和程序协调可以互相补充这个角度观察自己的选择。府相朝垣（传统上为这组星曜位置关系取的名称）在本盘命中，因为天府与天相在命、财、官、迁的范围相会。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，共同筹备活动时，一边盘点场地和材料，一边讨论谁有权调整安排，能让稳定和公平并行。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议在已有流程中加一个可反馈的节点，让维护规则的人也能听到实际使用者的意见。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 在已有流程中加一个可反馈的节点，让维护规则的人也能听到实际使用者的意见
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Fǔ Xiàng Cháo Yuán: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Fǔ Xiàng Cháo Yuán (府相朝垣) —
+      the traditional name for a relationship among chart elements — is present because Tian Fu and
+      Tian Xiang meet within the combined life, wealth, career and travel areas. You may find
+      practical value in connecting resource stewardship with fair procedure. A dependable
+      arrangement is easier to use when people understand both what is available and how decisions
+      are made. While preparing an event, one person might check materials and venue access while
+      another clarifies who can change the schedule. Keeping those responsibilities visible can
+      reduce confusion without concentrating control. Try adding a feedback point to an established
+      process. Ask the people using it where a rule supports them and where a small revision would
+      improve the handover. Check the result in your own setting and revise the interpretation when
+      the observed experience differs.
+    advice:
+      - Try adding a feedback point to an established process. Ask the people using it where a rule
+        supports them and where a small revision would improve the handover
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.jun_chen_qing_hui
+  system: ziwei
+  section: patterns
+  topic: pattern_jun_chen_qing_hui
+  when:
+    path: patterns[*].key
+    eq: jun_chen_qing_hui
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 君臣庆会：统筹能力需要能互相回应的协作者
+    summary: 你可以从统筹能力需要能互相回应的协作者这个角度观察生活。
+    body: 你可以从统筹能力需要能互相回应的协作者这个角度观察自己的选择。君臣庆会（传统上为这组星曜位置关系取的名称）在本盘命中，因为紫微坐命，命、财、官、迁的范围会齐左辅与右弼。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，带一个小项目时，你提出方向，伙伴补充细节与执行反馈，比自己掌握全部信息更便于发现遗漏。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议问清每位伙伴愿意承担哪一部分，把不同意见当作修正目标的信息。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 问清每位伙伴愿意承担哪一部分，把不同意见当作修正目标的信息
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jūn Chén Qìng Huì: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Jūn Chén Qìng Huì (君臣庆会) —
+      the traditional name for a relationship among chart elements — is present because Zi Wei
+      occupies the Life Palace while Zuo Fu and You Bi appear across its associated life, wealth,
+      career and travel areas. You may work more effectively when a sense of direction is
+      accompanied by practical and responsive assistance. The traditional name uses court imagery,
+      but the everyday question is how cooperation supports a shared aim. On a small project, you
+      could propose the direction while collaborators bring details and feedback from execution.
+      Their different vantage points may identify something you could not see alone. Consider asking
+      each collaborator what they can own and where they need a response from you. Treat
+      disagreement as information for refining the aim, and check that responsibility matches
+      available time. Check the result in your own setting and revise the interpretation when the
+      observed experience differs.
+    advice:
+      - Consider asking each collaborator what they can own and where they need a response from you.
+        Treat disagreement as information for refining the aim, and check that responsibility
+        matches available time
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.zi_wei_qi_sha
+  system: ziwei
+  section: patterns
+  topic: pattern_zi_wei_qi_sha
+  when:
+    path: patterns[*].key
+    eq: zi_wei_qi_sha
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微七杀：明确目标能让果断用在需要的地方
+    summary: 你可以从明确目标能让果断用在需要的地方这个角度观察生活。
+    body: 你可以从明确目标能让果断用在需要的地方这个角度观察自己的选择。紫微七杀（传统上为这组星曜位置关系取的名称）在本盘命中，因为紫微与七杀同在命宫，方向感和独立决断并列。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，项目突然缩短时限时，你可能先圈定必要目标，再承担难处理的环节，而不是把所有事项一起加速。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议先讲清可交付范围与资源限制，给协作者留一个及时提出异议的入口。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 先讲清可交付范围与资源限制，给协作者留一个及时提出异议的入口
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi Qī Shā: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Zǐ Wēi Qī Shā (紫微七杀) — the
+      traditional name for a relationship among chart elements — is present because Zi Wei and Qi
+      Sha share the Life Palace, bringing overall direction together with independent decision
+      making. You may be drawn to clarifying a priority and taking responsibility for a difficult
+      part of the work. Focus can be useful under pressure, provided other people understand why the
+      pace or scope has changed. If a deadline suddenly shortens, you might reduce the work to its
+      necessary outcome before tackling a difficult handover. That is different from accelerating
+      every task without examining its purpose. Try briefing collaborators on the deliverable, the
+      resources available and what will be deferred. Establish a point for raising objections so
+      decisive action stays connected to the people affected. Check the result in your own setting
+      and revise the interpretation when the observed experience differs.
+    advice:
+      - Try briefing collaborators on the deliverable, the resources available and what will be
+        deferred. Establish a point for raising objections so decisive action stays connected to the
+        people affected
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ji_yue_tong_liang
+  system: ziwei
+  section: patterns
+  topic: pattern_ji_yue_tong_liang
+  when:
+    path: patterns[*].key
+    eq: ji_yue_tong_liang
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 机月同梁：方法、细节、舒适感和经验支持形成多角度观察
+    summary: 你可以从方法、细节、舒适感和经验支持形成多角度观察这个角度观察生活。
+    body: 你可以从方法、细节、舒适感和经验支持形成多角度观察这个角度观察自己的选择。机月同梁（传统上为这组星曜位置关系取的名称）在本盘命中，因为天机、太阴、天同、天梁在命、财、官、迁的范围会齐。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，改一项公共流程时，你可能想到如何简化步骤，也留意新人是否容易理解、老参与者能否适应。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议选一个真实使用场景试行，再收集使用者的困难，不为照顾每个角度而延后所有决定。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 选一个真实使用场景试行，再收集使用者的困难，不为照顾每个角度而延后所有决定
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jī Yuè Tóng Liáng: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      'You can use this configuration to reflect on a practical tendency. Jī Yuè Tóng Liáng (机月同梁) —
+      the traditional name for a relationship among chart elements — is present because Tian Ji, Tai
+      Yin, Tian Tong and Tian Liang occur across the combined life, wealth, career and travel areas.
+      You may approach an arrangement through several concerns: method, detail, ease of
+      participation and experience. These perspectives can support thoughtful design, although
+      considering every angle can also delay a workable trial. When revising a shared process, you
+      might simplify steps while checking whether a newcomer can understand them and an experienced
+      participant can adapt. The most useful design is the one people can actually use. Consider
+      piloting the process in one real situation. Gather the difficulties people encounter, then
+      prioritize one revision rather than waiting for a plan that anticipates every preference.
+      Check the result in your own setting and revise the interpretation when the observed
+      experience differs.'
+    advice:
+      - Consider piloting the process in one real situation. Gather the difficulties people
+        encounter, then prioritize one revision rather than waiting for a plan that anticipates
+        every preference
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.sha_po_lang
+  system: ziwei
+  section: patterns
+  topic: pattern_sha_po_lang
+  when:
+    path: patterns[*].key
+    eq: sha_po_lang
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 杀破狼：决断、重新组织与探索新经验可能互相推动
+    summary: 你可以从决断、重新组织与探索新经验可能互相推动这个角度观察生活。
+    body: 你可以从决断、重新组织与探索新经验可能互相推动这个角度观察自己的选择。杀破狼（传统上为这组星曜位置关系取的名称）在本盘命中，因为七杀、破军、贪狼在命、财、官、迁的范围相会。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，面对旧流程反复卡住，你可能想停止一段无效做法，尝试新工具并重新分配任务。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议为变化划清试验范围和回顾日期，保留资料与交接，让探索不会挤掉已有责任。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 为变化划清试验范围和回顾日期，保留资料与交接，让探索不会挤掉已有责任
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Shā Pò Láng: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Shā Pò Láng (杀破狼) — the
+      traditional name for a relationship among chart elements — is present because Qi Sha, Po Jun
+      and Tan Lang meet across the associated life, wealth, career and travel areas. You may feel a
+      connection between decisive action, structural change and exploring unfamiliar possibilities.
+      The dramatic traditional name describes this combination of tendencies; it does not establish
+      what will happen in your life. If an old process repeatedly stalls, you might want to retire
+      an ineffective step, try another tool and redistribute the work. Each change can be useful,
+      but making them together complicates learning from the result. Try defining a limited trial
+      and a review date before changing the arrangement. Preserve the information and handover
+      needed to meet existing commitments while you assess what the experiment actually improved.
+      Check the result in your own setting and revise the interpretation when the observed
+      experience differs.
+    advice:
+      - Try defining a limited trial and a review date before changing the arrangement. Preserve the
+        information and handover needed to meet existing commitments while you assess what the
+        experiment actually improved
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ri_yue_bing_ming
+  system: ziwei
+  section: patterns
+  topic: pattern_ri_yue_bing_ming
+  when:
+    path: patterns[*].key
+    eq: ri_yue_bing_ming
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 日月并明：外向表达与细致准备有机会相互支持
+    summary: 你可以从外向表达与细致准备有机会相互支持这个角度观察生活。
+    body: 你可以从外向表达与细致准备有机会相互支持这个角度观察自己的选择。日月并明（传统上为这组星曜位置关系取的名称）在本盘命中，因为太阳与太阴在命、财、官、迁的范围都显示庙旺亮度。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你介绍一项计划前认真整理细节，再在会上把想法讲清楚，准备和展示各自发挥作用。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议公开表达后请一位伙伴核对细节，把顺手的表现当作继续练习的起点。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 公开表达后请一位伙伴核对细节，把顺手的表现当作继续练习的起点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Rì Yuè Bìng Míng: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Rì Yuè Bìng Míng (日月并明) —
+      the traditional name for a relationship among chart elements — is present because Tai Yang and
+      Tai Yin both have miao or wang brightness within the associated life, wealth, career and
+      travel areas. You may find an accessible connection between visible contribution and quiet
+      preparation. Miao and wang are traditional brightness labels used for expression conditions,
+      rather than measurements of ability or a promise of recognition. Before presenting a plan, you
+      could prepare the details privately and then explain the main idea clearly in a meeting.
+      Preparation and presentation serve different needs, even when both feel comfortable. Consider
+      asking a collaborator to check the details after the presentation. Use an easy expression of
+      these preferences as a starting point for practice, and leave space for feedback that
+      challenges your first account. Check the result in your own setting and revise the
+      interpretation when the observed experience differs.
+    advice:
+      - Consider asking a collaborator to check the details after the presentation. Use an easy
+        expression of these preferences as a starting point for practice, and leave space for
+        feedback that challenges your first account
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ri_yue_fan_bei
+  system: ziwei
+  section: patterns
+  topic: pattern_ri_yue_fan_bei
+  when:
+    path: patterns[*].key
+    eq: ri_yue_fan_bei
+  weight: 72
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 日月反背：表达与安静准备更需要合适条件来衔接
+    summary: 你可以从表达与安静准备更需要合适条件来衔接这个角度观察生活。
+    body: 你可以从表达与安静准备更需要合适条件来衔接这个角度观察自己的选择。日月反背（传统上为这组星曜位置关系取的名称）在本盘命中，因为太阳与太阴在命、财、官、迁的范围都处于不或陷亮度。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，想分享想法却没有安静准备的时间时，你可能在公开回应和私下整理之间反复切换。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议先争取一段不被打断的准备时间，再选小范围交流；可以通过环境安排降低切换压力。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 先争取一段不被打断的准备时间，再选小范围交流；可以通过环境安排降低切换压力
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Rì Yuè Fǎn Bèi: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Rì Yuè Fǎn Bèi (日月反背) — the
+      traditional name for a relationship among chart elements — is present because Tai Yang and Tai
+      Yin both carry bu or xian brightness within the associated life, wealth, career and travel
+      areas. You may find that visible expression and private preparation need better conditions to
+      support one another. Bu and xian are traditional labels for restrained expression, not a
+      statement that a person lacks competence. Suppose you want to share an idea but cannot find a
+      quiet period to prepare it. Switching between immediate responses and unfinished notes may
+      make the task feel harder than its actual content warrants. Try protecting a short preparation
+      period and sharing the result first with a small audience. You can adjust the setting and
+      sequence before judging yourself, using the response as guidance for the next attempt. Check
+      the result in your own setting and revise the interpretation when the observed experience
+      differs.
+    advice:
+      - Try protecting a short preparation period and sharing the result first with a small
+        audience. You can adjust the setting and sequence before judging yourself, using the
+        response as guidance for the next attempt
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ming_zhu_chu_hai
+  system: ziwei
+  section: patterns
+  topic: pattern_ming_zhu_chu_hai
+  when:
+    path: patterns[*].key
+    eq: ming_zhu_chu_hai
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 明珠出海：自我描述可以从工作与资源使用的实际表现寻找线索
+    summary: 你可以从自我描述可以从工作与资源使用的实际表现寻找线索这个角度观察生活。
+    body: 你可以从自我描述可以从工作与资源使用的实际表现寻找线索这个角度观察自己的选择。明珠出海（传统上为这组星曜位置关系取的名称）在本盘命中，因为未位命宫无主星，财帛卯位太阳与官禄亥位太阴显示庙旺。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你不急着给自己找一个固定标签，而是从怎样准备任务、怎样整理材料来发现持续偏好。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议选一件近期工作与一项资源安排对照观察，借对宫的线索也要放回现实情境检验。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 选一件近期工作与一项资源安排对照观察，借对宫的线索也要放回现实情境检验
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Míng Zhū Chū Hǎi: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Míng Zhū Chū Hǎi (明珠出海) —
+      the traditional name for a relationship among chart elements — is present because the Life
+      Palace at Wei has no major star, while Tai Yang in the Mao wealth area and Tai Yin in the Hai
+      career area show supported brightness. You may find clearer clues about your preferences
+      through practical work and resource habits than through a single identity label. The
+      traditional image of a pearl emerging describes a structural relationship among these chart
+      areas. Instead of deciding immediately what kind of person you are, compare how you prepared a
+      recent task with how you organized the materials it needed. Those concrete choices may reveal
+      a recurring preference. Consider observing one work task and one resource decision together.
+      Treat the opposite area used for comparison as another perspective, and check the
+      interpretation against lived experience before adopting it. Check the result in your own
+      setting and revise the interpretation when the observed experience differs.
+    advice:
+      - Consider observing one work task and one resource decision together. Treat the opposite area
+        used for comparison as another perspective, and check the interpretation against lived
+        experience before adopting it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ju_ri_tong_gong
+  system: ziwei
+  section: patterns
+  topic: pattern_ju_ri_tong_gong
+  when:
+    path: patterns[*].key
+    eq: ju_ri_tong_gong
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 巨日同宫：提问与公开表达可能形成有用配合
+    summary: 你可以从提问与公开表达可能形成有用配合这个角度观察生活。
+    body: 你可以从提问与公开表达可能形成有用配合这个角度观察自己的选择。巨日同宫（传统上为这组星曜位置关系取的名称）在本盘命中，因为命宫在寅或申，巨门与太阳同坐。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，解释复杂规则时，你先找出容易误解的地方，再用例子对外说明，能让疑问转为共同理解。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议先辨清一个问题，再听听受众需要怎样的解释，不把表达热情变成长篇辩论。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 先辨清一个问题，再听听受众需要怎样的解释，不把表达热情变成长篇辩论
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jù Rì Tóng Gōng: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Jù Rì Tóng Gōng (巨日同宫) —
+      the traditional name for a relationship among chart elements — is present because Ju Men and
+      Tai Yang share the Life Palace at Yin or Shen. You may combine a questioning approach with a
+      willingness to explain an issue publicly. A useful question identifies what is unclear, while
+      visible communication helps more people work with the answer. Neither step requires winning an
+      argument. When explaining a complicated rule, you could first identify the point people often
+      misunderstand, then give an example they can recognize. This turns a private doubt into a
+      shared opportunity for clarification. Try asking the audience what explanation they need
+      before expanding your account. Address one question at a time and invite someone to describe
+      the practical step they would take after hearing you. Check the result in your own setting and
+      revise the interpretation when the observed experience differs.
+    advice:
+      - Try asking the audience what explanation they need before expanding your account. Address
+        one question at a time and invite someone to describe the practical step they would take
+        after hearing you
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.shi_zhong_yin_yu
+  system: ziwei
+  section: patterns
+  topic: pattern_shi_zhong_yin_yu
+  when:
+    path: patterns[*].key
+    eq: shi_zhong_yin_yu
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 石中隐玉：辨析能力可能需要经过整理与练习才容易被人理解
+    summary: 你可以从辨析能力可能需要经过整理与练习才容易被人理解这个角度观察生活。
+    body: 你可以从辨析能力可能需要经过整理与练习才容易被人理解这个角度观察自己的选择。石中隐玉（传统上为这组星曜位置关系取的名称）在本盘命中，因为巨门独坐子或午的命宫。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你已经发现讨论里的问题，却还没有简洁说法；先写提纲，比急着一次说完更便于别人回应。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议给一个观察找到事实和例子，再用短句提出；不要用传统名称给自己的成长设定固定时限。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 给一个观察找到事实和例子，再用短句提出；不要用传统名称给自己的成长设定固定时限
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Shí Zhōng Yǐn Yù: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Shí Zhōng Yǐn Yù (石中隐玉) —
+      the traditional name for a relationship among chart elements — is present because Ju Men sits
+      alone as a major star in the Life Palace at Zi or Wu. You may have a careful question before
+      you have an easy way to communicate it. The traditional image of jade within stone is a prompt
+      for developing expression through practice, rather than waiting for a particular age to reveal
+      a hidden ability. Suppose you notice an inconsistency in a discussion but struggle to explain
+      it briefly. Writing a short outline can separate the observation, the evidence and the
+      question you want answered. Consider supporting one observation with a concrete example and
+      presenting it in a few sentences. Ask what remained unclear, then revise the explanation. Let
+      actual practice determine your pace instead of attaching a fixed timeline to the traditional
+      image. Check the result in your own setting and revise the interpretation when the observed
+      experience differs.
+    advice:
+      - Consider supporting one observation with a concrete example and presenting it in a few
+        sentences. Ask what remained unclear, then revise the explanation. Let actual practice
+        determine your pace instead of attaching a fixed timeline to the traditional image
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.yang_liang_chang_lu
+  system: ziwei
+  section: patterns
+  topic: pattern_yang_liang_chang_lu
+  when:
+    path: patterns[*].key
+    eq: yang_liang_chang_lu
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 阳梁昌禄：公开说明、经验判断、条理表达与储备意识可以串成一套方法
+    summary: 你可以从公开说明、经验判断、条理表达与储备意识可以串成一套方法这个角度观察生活。
+    body: 你可以从公开说明、经验判断、条理表达与储备意识可以串成一套方法这个角度观察自己的选择。阳梁昌禄（传统上为这组星曜位置关系取的名称）在本盘命中，因为太阳、天梁、文昌、禄存会于命、财、官、迁的范围。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，准备共享教程时，你讲清目的、引用实际经验，再整理步骤和可重复使用的材料。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议把经验写成能被初学者验证的说明，安排一次试用，不以完整教程替代实际反馈。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 把经验写成能被初学者验证的说明，安排一次试用，不以完整教程替代实际反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Yáng Liáng Chāng Lù: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Yáng Liáng Chāng Lù (阳梁昌禄)
+      — the traditional name for a relationship among chart elements — is present because Tai Yang,
+      Tian Liang, Wen Chang and Lu Cun meet within the associated life, wealth, career and travel
+      areas. You may find a useful sequence linking explanation, experienced judgment, written
+      structure and reusable resources. The configuration offers a way to think about making
+      knowledge available, without assigning a profession or predicting formal success. While
+      preparing a shared tutorial, you could explain the purpose, include an experience that shaped
+      the method, arrange the steps and preserve the materials needed for another attempt. A
+      newcomer’s response tests whether the sequence works. Try letting a beginner use one section
+      before completing the entire guide. Ask where they stopped or improvised, and update the
+      instructions around that observation. Practical feedback can turn organized information into
+      usable support. Check the result in your own setting and revise the interpretation when the
+      observed experience differs.
+    advice:
+      - Try letting a beginner use one section before completing the entire guide. Ask where they
+        stopped or improvised, and update the instructions around that observation. Practical
+        feedback can turn organized information into usable support
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.wen_gui_wen_hua
+  system: ziwei
+  section: patterns
+  topic: pattern_wen_gui_wen_hua
+  when:
+    path: patterns[*].key
+    eq: wen_gui_wen_hua
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 文桂文华：条理与感受可以一起参与表达
+    summary: 你可以从条理与感受可以一起参与表达这个角度观察生活。
+    body: 你可以从条理与感受可以一起参与表达这个角度观察自己的选择。文桂文华（传统上为这组星曜位置关系取的名称）在本盘命中，因为文昌与文曲同时在命宫。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你写邀请说明时既关心事项顺序，也留意语气能否让收件人觉得自在，内容和形式相互补充。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议分别检查是否说清要做什么、是否给对方回应空间，让细致表达服务于沟通。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 分别检查是否说清要做什么、是否给对方回应空间，让细致表达服务于沟通
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wén Guì Wén Huá: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Wén Guì Wén Huá (文桂文华) —
+      the traditional name for a relationship among chart elements — is present because Wen Chang
+      and Wen Qu both appear in the Life Palace. You may notice both the structure of a message and
+      the experience of receiving it. These auxiliary stars are associated with organized expression
+      and expressive nuance, so their combination prompts attention to content as well as tone. When
+      writing an invitation, you might check that the recipient can find the time and place easily,
+      then consider whether the wording leaves them comfortable accepting or declining. The two
+      reviews answer different questions. Consider reading a draft once for practical instructions
+      and once for room to respond. Ask a reader what they understood and how the message felt. Use
+      the answer to simplify or soften a specific passage rather than polishing every sentence
+      indefinitely. Check the result in your own setting and revise the interpretation when the
+      observed experience differs.
+    advice:
+      - Consider reading a draft once for practical instructions and once for room to respond. Ask a
+        reader what they understood and how the message felt. Use the answer to simplify or soften a
+        specific passage rather than polishing every sentence indefinitely
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.lu_ma_jiao_chi
+  system: ziwei
+  section: patterns
+  topic: pattern_lu_ma_jiao_chi
+  when:
+    path: patterns[*].key
+    eq: lu_ma_jiao_chi
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 禄马交驰：保留资源与转换环境需要互相协调
+    summary: 你可以从保留资源与转换环境需要互相协调这个角度观察生活。
+    body: 你可以从保留资源与转换环境需要互相协调这个角度观察自己的选择。禄马交驰（传统上为这组星曜位置关系取的名称）在本盘命中，因为禄存与天马会于命、财、官、迁的范围。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，参与异地活动时，你既想获得新信息，也会盘点路程、资料和时间，提前准备能让移动更有目的。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议每次外出先列一个学习目标与一个成本限制，回来再核对获得了什么。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 每次外出先列一个学习目标与一个成本限制，回来再核对获得了什么
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lù Mǎ Jiāo Chí: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Lù Mǎ Jiāo Chí (禄马交驰) — the
+      traditional name for a relationship among chart elements — is present because Lu Cun and Tian
+      Ma meet across the associated life, wealth, career and travel areas. You may benefit from
+      connecting a change of setting with careful use of existing resources. Lu Cun represents
+      preservation, while Tian Ma concerns movement; their meeting raises the practical question of
+      what a transition is meant to accomplish. Before attending an activity away from home, you
+      could assess travel time, materials and available energy alongside the information you hope to
+      gain. The useful outcome need not be financial or visible to others. Try setting one learning
+      aim and one practical limit for the visit. Afterward, compare the experience with both. Keep
+      the part that served your purpose and revise the arrangement where transition costs crowded
+      out participation. Check the result in your own setting and revise the interpretation when the
+      observed experience differs.
+    advice:
+      - Try setting one learning aim and one practical limit for the visit. Afterward, compare the
+        experience with both. Keep the part that served your purpose and revise the arrangement
+        where transition costs crowded out participation
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.shuang_lu_chao_yuan
+  system: ziwei
+  section: patterns
+  topic: pattern_shuang_lu_chao_yuan
+  when:
+    path: patterns[*].key
+    eq: shuang_lu_chao_yuan
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 双禄朝垣：积累与接收支持可以相互补充
+    summary: 你可以从积累与接收支持可以相互补充这个角度观察生活。
+    body: 你可以从积累与接收支持可以相互补充这个角度观察自己的选择。双禄朝垣（传统上为这组星曜位置关系取的名称）在本盘命中，因为禄存与带生年化禄的星曜会于命、财、官、迁的范围。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你整理已有材料时，也收到愿意分享经验的邀请，盘点资源之后更容易知道如何使用新增帮助。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议把已有与新增资源放在同一清单，先安排用途，不用这个格局推断具体收入。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 把已有与新增资源放在同一清单，先安排用途，不用这个格局推断具体收入
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Shuāng Lù Cháo Yuán: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Shuāng Lù Cháo Yuán (双禄朝垣)
+      — the traditional name for a relationship among chart elements — is present because Lu Cun and
+      a star carrying the natal Lu transformation both occur within the associated life, wealth,
+      career and travel areas. You may find a useful connection between preserving what is available
+      and receiving additional support. Lu transformation is a symbolic emphasis on access and
+      participation, while Lu Cun concerns reserves; neither measures your income. Imagine reviewing
+      the materials you already have when somebody offers to share a relevant experience. Knowing
+      the gap in your current resources can help you ask a focused question and use the offer
+      thoughtfully. Consider listing existing resources beside newly offered ones and assigning a
+      purpose to each. Accept only what fits that purpose and your capacity to follow through.
+      Review usefulness in practical terms rather than reading the configuration as a forecast of
+      earnings. Check the result in your own setting and revise the interpretation when the observed
+      experience differs.
+    advice:
+      - Consider listing existing resources beside newly offered ones and assigning a purpose to
+        each. Accept only what fits that purpose and your capacity to follow through. Review
+        usefulness in practical terms rather than reading the configuration as a forecast of
+        earnings
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.huo_tan_ge
+  system: ziwei
+  section: patterns
+  topic: pattern_huo_tan_ge
+  when:
+    path: patterns[*].key
+    eq: huo_tan_ge
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火贪格：快速启动与探索兴趣可能一起增强参与热情
+    summary: 你可以从快速启动与探索兴趣可能一起增强参与热情这个角度观察生活。
+    body: 你可以从快速启动与探索兴趣可能一起增强参与热情这个角度观察自己的选择。火贪格（传统上为这组星曜位置关系取的名称）在本盘命中，因为火星与贪狼在命宫同时出现。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你看到一个新活动很想立即报名，也愿意临时找人一起尝试；热情可以帮助起步，但后续时间要核对。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议先做一次短体验，再确认是否继续，给兴奋留一段冷却时间后再扩大投入。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 先做一次短体验，再确认是否继续，给兴奋留一段冷却时间后再扩大投入
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Huǒ Tān Gé: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Huǒ Tān Gé (火贪格) — the
+      traditional name for a relationship among chart elements — is present because Huo Xing and Tan
+      Lang both appear in the Life Palace. You may notice a quick surge of enthusiasm when an
+      unfamiliar experience becomes available. Huo Xing concerns rapid activation and Tan Lang
+      exploration, making this combination a prompt to examine how an exciting start connects with
+      sustained participation. A new activity might make you want to sign up immediately and invite
+      friends along. The impulse can help you begin, yet the ongoing schedule and existing
+      commitments still need attention. Try a short introductory session before extending the
+      commitment. Leave a little time between the exciting first impression and a larger decision,
+      then review whether the activity remains interesting and manageable. A fast start becomes more
+      useful when its next step fits your real capacity. Check the result in your own setting and
+      revise the interpretation when the observed experience differs.
+    advice:
+      - Try a short introductory session before extending the commitment. Leave a little time
+        between the exciting first impression and a larger decision, then review whether the
+        activity remains interesting and manageable. A fast start becomes more useful when its next
+        step fits your real capacity
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ling_tan_ge
+  system: ziwei
+  section: patterns
+  topic: pattern_ling_tan_ge
+  when:
+    path: patterns[*].key
+    eq: ling_tan_ge
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 铃贪格：兴趣探索可能伴随持续惦记细节
+    summary: 你可以从兴趣探索可能伴随持续惦记细节这个角度观察生活。
+    body: 你可以从兴趣探索可能伴随持续惦记细节这个角度观察自己的选择。铃贪格（传统上为这组星曜位置关系取的名称）在本盘命中，因为铃星与贪狼在命宫同时出现。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你对一个新项目很有兴趣，结束讨论后还在反复想不同做法；把想法放到清单上能给休息留空间。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议约定一个专门探索的时段，先挑一个问题验证，让持续关注有开始也有结束。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 约定一个专门探索的时段，先挑一个问题验证，让持续关注有开始也有结束
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Líng Tān Gé: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Líng Tān Gé (铃贪格) — the
+      traditional name for a relationship among chart elements — is present because Ling Xing and
+      Tan Lang both occur in the Life Palace. You may keep returning mentally to a new interest
+      after the immediate activity has ended. Ling Xing symbolizes sustained alertness and Tan Lang
+      curiosity, so the practical issue is how to give exploration a useful place without letting it
+      occupy every interval. After discussing a project, you might continue imagining alternatives
+      during time intended for rest. Capturing the ideas in an external note can preserve them
+      without requiring you to work through each possibility immediately. Consider reserving a
+      particular period for exploration and selecting one question to test there. End the session
+      with a note on the next step. This makes continuing interest easier to resume while also
+      allowing the rest of your day to have a different purpose. Check the result in your own
+      setting and revise the interpretation when the observed experience differs.
+    advice:
+      - Consider reserving a particular period for exploration and selecting one question to test
+        there. End the session with a note on the next step. This makes continuing interest easier
+        to resume while also allowing the rest of your day to have a different purpose
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.huo_ling_jia_ming
+  system: ziwei
+  section: patterns
+  topic: pattern_huo_ling_jia_ming
+  when:
+    path: patterns[*].key
+    eq: huo_ling_jia_ming
+  weight: 72
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火铃夹命：即时任务与持续提醒可能从周围环境进入注意力
+    summary: 你可以从即时任务与持续提醒可能从周围环境进入注意力这个角度观察生活。
+    body: 你可以从即时任务与持续提醒可能从周围环境进入注意力这个角度观察自己的选择。火铃夹命（传统上为这组星曜位置关系取的名称）在本盘命中，因为命宫两侧相邻宫位分别出现火星与铃星。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，刚处理完一项加急请求，又想起尚未确认的细节，你可能觉得很难真正把工作收尾。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议把临时任务与待确认事项分开放，给非紧急提醒约一个检查点，可以通过安排恢复注意力。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 把临时任务与待确认事项分开放，给非紧急提醒约一个检查点，可以通过安排恢复注意力
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Huǒ Líng Jiā Mìng: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Huǒ Líng Jiā Mìng (火铃夹命) —
+      the traditional name for a relationship among chart elements — is present because Huo Xing and
+      Ling Xing occupy opposite flanking areas beside the Life Palace. You may find it useful to
+      examine how immediate demands and ongoing reminders enter your attention from surrounding
+      commitments. The flanking structure describes a relationship among chart areas rather than an
+      event that is going to occur. Suppose you finish an urgent request only to remember a detail
+      still awaiting confirmation. The task may be done while your attention remains at work, making
+      it difficult to mark a clear stopping point. Try separating immediate actions from items that
+      only need a later check. Assign nonurgent reminders a review period and state when the current
+      task is finished. You can create a recovery interval through practical scheduling and
+      communication, then observe whether the boundary helps. Check the result in your own setting
+      and revise the interpretation when the observed experience differs.
+    advice:
+      - Try separating immediate actions from items that only need a later check. Assign nonurgent
+        reminders a review period and state when the current task is finished. You can create a
+        recovery interval through practical scheduling and communication, then observe whether the
+        boundary helps
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.yang_tuo_jia_ji
+  system: ziwei
+  section: patterns
+  topic: pattern_yang_tuo_jia_ji
+  when:
+    path: patterns[*].key
+    eq: yang_tuo_jia_ji
+  weight: 72
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 羊陀夹忌：想迅速处理的要求可能与反复确认的条件拉扯
+    summary: 你可以从想迅速处理的要求可能与反复确认的条件拉扯这个角度观察生活。
+    body: 你可以从想迅速处理的要求可能与反复确认的条件拉扯这个角度观察自己的选择。羊陀夹忌（传统上为这组星曜位置关系取的名称）在本盘命中，因为命宫有带生年化忌的星曜，两侧分别出现擎羊与陀罗。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，一边希望尽快回复，一边担心细节没查清，容易让你对一个尚可讨论的任务投入过多注意。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议先区分必须核实和可以协商的条件；建议给核实设期限，再向相关的人说明仍有的疑问。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 先区分必须核实和可以协商的条件；建议给核实设期限，再向相关的人说明仍有的疑问
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Yáng Tuó Jiā Jì: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Yáng Tuó Jiā Jì (羊陀夹忌) —
+      the traditional name for a relationship among chart elements — is present because a star
+      carrying natal Ji appears in the Life Palace, with Qing Yang and Tuo Luo on its two flanks.
+      You may benefit from distinguishing urgent pressure from a detail that needs repeated
+      checking. Ji is a transformation associated with friction or concentrated concern; the
+      flanking stars add perspectives on direct force and slow adjustment. You might want to reply
+      quickly while feeling unable to proceed until every detail is settled. Those competing demands
+      can absorb more attention than the actual task requires, especially when some conditions are
+      negotiable. Consider separating what must be verified from what can be discussed openly. Set a
+      limit on the verification period and tell the relevant person what remains uncertain. A
+      transparent partial answer can help move a conversation forward while preserving appropriate
+      care. Check the result in your own setting and revise the interpretation when the observed
+      experience differs.
+    advice:
+      - Consider separating what must be verified from what can be discussed openly. Set a limit on
+        the verification period and tell the relevant person what remains uncertain. A transparent
+        partial answer can help move a conversation forward while preserving appropriate care
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.kong_jie_jia_ming
+  system: ziwei
+  section: patterns
+  topic: pattern_kong_jie_jia_ming
+  when:
+    path: patterns[*].key
+    eq: kong_jie_jia_ming
+  weight: 72
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 空劫夹命：意义上的留白与投入上的取舍可能一起需要照顾
+    summary: 你可以从意义上的留白与投入上的取舍可能一起需要照顾这个角度观察生活。
+    body: 你可以从意义上的留白与投入上的取舍可能一起需要照顾这个角度观察自己的选择。空劫夹命（传统上为这组星曜位置关系取的名称）在本盘命中，因为命宫两侧相邻宫分别出现地空与地劫。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你觉得一个安排不够有意义，又发现它占用许多时间，先暂停加码比急着证明价值更便于判断。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议检查目标是否仍成立，再选择可以缩小的投入；可以通过一个有限试验判断要不要继续。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 检查目标是否仍成立，再选择可以缩小的投入；可以通过一个有限试验判断要不要继续
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Kōng Jié Jiā Mìng: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Kōng Jié Jiā Mìng (空劫夹命) —
+      the traditional name for a relationship among chart elements — is present because Di Kong and
+      Di Jie occupy the two flanking areas beside the Life Palace. You may find it useful to review
+      both the purpose of an arrangement and the effort it consumes. Di Kong concerns space and
+      reappraisal; Di Jie draws attention to the cost of commitment. Their position describes
+      surrounding influences in the symbolic model. If an activity no longer feels meaningful yet
+      continues to occupy considerable time, adding more effort may make it harder to assess. A
+      pause can reveal whether the goal itself still matters to you. Try checking the purpose before
+      extending the commitment. Reduce the trial to a limited scope and observe what practical value
+      remains. You can adjust effort in response to evidence without treating the traditional
+      configuration as a prediction of a specific loss. Check the result in your own setting and
+      revise the interpretation when the observed experience differs.
+    advice:
+      - Try checking the purpose before extending the commitment. Reduce the trial to a limited
+        scope and observe what practical value remains. You can adjust effort in response to
+        evidence without treating the traditional configuration as a prediction of a specific loss
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ming_wu_zheng_yao
+  system: ziwei
+  section: patterns
+  topic: pattern_ming_wu_zheng_yao
+  when:
+    path: patterns[*].key
+    eq: ming_wu_zheng_yao
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 命无正曜：自我理解可以保留弹性，从外部互动寻找参照
+    summary: 你可以从自我理解可以保留弹性，从外部互动寻找参照这个角度观察生活。
+    body: 你可以从自我理解可以保留弹性，从外部互动寻找参照这个角度观察自己的选择。命无正曜（传统上为这组星曜位置关系取的名称）在本盘命中，因为命宫没有十四主星中的任何一颗，传统上借对宫主星辅助观察。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，面对不同团队时，你可能采用不同的参与方式；先观察哪些做法让自己舒服，比立即选一个标签更有帮助。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议记录两个不同场景的回应，把对宫线索当作比较视角，不把无主星理解为缺少能力。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 记录两个不同场景的回应，把对宫线索当作比较视角，不把无主星理解为缺少能力
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Mìng Wú Zhèng Yào: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Mìng Wú Zhèng Yào (命无正曜) —
+      the traditional name for a relationship among chart elements — is present because the Life
+      Palace contains none of the fourteen major stars, so the opposite area is traditionally
+      consulted for comparison. You may use this structure as permission to compare how your
+      responses change across settings. An empty major-star area is a feature of the chart layout;
+      it does not describe an absence of identity, ability or agency. Consider participating in two
+      teams with different working habits. You might contribute in different ways depending on what
+      is needed and how comfortable the setting feels. That flexibility deserves observation before
+      it is reduced to a single label. Try recording one response from each setting and what
+      supported it. Consult the opposite area as an additional perspective, then compare its themes
+      with the experience you observed. Keep the description open to revision as your surroundings
+      and choices change. Check the result in your own setting and revise the interpretation when
+      the observed experience differs.
+    advice:
+      - Try recording one response from each setting and what supported it. Consult the opposite
+        area as an additional perspective, then compare its themes with the experience you observed.
+        Keep the description open to revision as your surroundings and choices change
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.lu_feng_liang_sha
+  system: ziwei
+  section: patterns
+  topic: pattern_lu_feng_liang_sha
+  when:
+    path: patterns[*].key
+    eq: lu_feng_liang_sha
+  weight: 72
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 禄逢两杀：保留资源的想法需要兼顾推进阻力与反复磨合
+    summary: 你可以从保留资源的想法需要兼顾推进阻力与反复磨合这个角度观察生活。
+    body: 你可以从保留资源的想法需要兼顾推进阻力与反复磨合这个角度观察自己的选择。禄逢两杀（传统上为这组星曜位置关系取的名称）在本盘命中，因为命、财、官、迁范围中同时有禄存、擎羊与陀罗。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你为活动留了时间和材料，却遇到急着启动和不断改细节的不同要求，储备很快有了具体用途。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议给机动资源设优先顺序，先解决真正影响参与的阻碍，再评估是否值得增加投入。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 给机动资源设优先顺序，先解决真正影响参与的阻碍，再评估是否值得增加投入
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lù Féng Liǎng Shā: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Lù Féng Liǎng Shā (禄逢两杀) —
+      the traditional name for a relationship among chart elements — is present because Lu Cun, Qing
+      Yang and Tuo Luo all occur within the associated life, wealth, career and travel areas. You
+      may need to connect the wish to preserve resources with direct pressure and repeated
+      adjustment. The traditional name brings these symbols together, but its practical value lies
+      in asking what a reserve is for when a process becomes demanding. You could set aside time and
+      materials for an activity, then encounter both an urgent request to begin and a detail that
+      keeps changing. A reserve becomes useful when its purpose and limits are understood. Consider
+      ranking the demands before using the available buffer. Address the obstacle that genuinely
+      affects participation, then review whether additional effort would help. Keeping an explicit
+      limit allows you to adapt without treating every inconvenience as a reason to expand the
+      commitment. Check the result in your own setting and revise the interpretation when the
+      observed experience differs.
+    advice:
+      - Consider ranking the demands before using the available buffer. Address the obstacle that
+        genuinely affects participation, then review whether additional effort would help. Keeping
+        an explicit limit allows you to adapt without treating every inconvenience as a reason to
+        expand the commitment
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.qi_sha_chao_dou
+  system: ziwei
+  section: patterns
+  topic: pattern_qi_sha_chao_dou
+  when:
+    path: patterns[*].key
+    eq: qi_sha_chao_dou
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 七杀朝斗：独立推进可以借整体方向与资源维护来校准
+    summary: 你可以从独立推进可以借整体方向与资源维护来校准这个角度观察生活。
+    body: 你可以从独立推进可以借整体方向与资源维护来校准这个角度观察自己的选择。七杀朝斗（传统上为这组星曜位置关系取的名称）在本盘命中，因为七杀在寅、申、子或午的命宫，三方四正会紫微或天府。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，你愿意负责棘手任务，同时有人帮助明确目标或确认资源，这种配合能减少单独摸索的负担。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议启动困难任务前约定目标和检查点，把求助视为安排的一部分，不必等到余力耗尽才联络。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 启动困难任务前约定目标和检查点，把求助视为安排的一部分，不必等到余力耗尽才联络
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qī Shā Cháo Dǒu: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Qī Shā Cháo Dǒu (七杀朝斗) —
+      the traditional name for a relationship among chart elements — is present because Qi Sha
+      occupies the Life Palace at Yin, Shen, Zi or Wu, with Zi Wei or Tian Fu in the associated
+      areas. You may find independent action easier to coordinate when there is also a clear
+      direction or dependable resource support. This configuration connects the willingness to
+      handle a challenge with information from the broader arrangement. If you take responsibility
+      for a difficult task, another person might clarify the aim or confirm which resources are
+      available. That contribution can reduce unnecessary uncertainty without taking the decision
+      out of your hands. Try agreeing on the goal and a check in point before beginning. Include a
+      route for asking questions in the original plan, then use it when a constraint changes.
+      Focused ownership can coexist with timely support and a transparent handover. Check the result
+      in your own setting and revise the interpretation when the observed experience differs.
+    advice:
+      - Try agreeing on the goal and a check in point before beginning. Include a route for asking
+        questions in the original plan, then use it when a constraint changes. Focused ownership can
+        coexist with timely support and a transparent handover
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pattern.ji_ju_mao_you
+  system: ziwei
+  section: patterns
+  topic: pattern_ji_ju_mao_you
+  when:
+    path: patterns[*].key
+    eq: ji_ju_mao_you
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 极居卯酉：统筹的偏好可以从具体边界与沟通方式来观察
+    summary: 你可以从统筹的偏好可以从具体边界与沟通方式来观察这个角度观察生活。
+    body: 你可以从统筹的偏好可以从具体边界与沟通方式来观察这个角度观察自己的选择。极居卯酉（传统上为这组星曜位置关系取的名称）在本盘命中，因为紫微位于卯或酉的命宫，按当前引擎规则命中。这里说的是要素如何相互联系，而不是一件将要发生的事。比如，组织意见不一致的讨论时，你可能想先确定方向；若尚未听清限制，过早定案会让后面的执行变难。这个场景需要结合你已有的经验、参与者的实际需要和当前能投入的精力来看。建议先收集参与者各自不能忽略的条件，再明确一项共同目标；传统名称只用于定位这个结构。把尝试之后的新信息也纳入判断，若这个角度与你的经历不符，就调整观察方法，不必让名称限制自己的选择。
+    advice:
+      - 先收集参与者各自不能忽略的条件，再明确一项共同目标；传统名称只用于定位这个结构
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jí Jū Mǎo Yǒu: a practical configuration perspective'
+    summary:
+      You can explore this configuration through a specific situation and adjust the reading to
+      your experience.
+    body:
+      You can use this configuration to reflect on a practical tendency. Jí Jū Mǎo Yǒu (极居卯酉) — the
+      traditional name for a relationship among chart elements — is present because Zi Wei appears
+      in the Life Palace at Mao or You under the project’s documented structural detector. You may
+      use this placement to examine how a preference for direction interacts with the limits of a
+      particular setting. The traditional name identifies the arrangement; it does not establish
+      status, authority or the outcome of a decision. While organizing a discussion with competing
+      views, you might want to name a direction early. If important constraints have not yet been
+      heard, the decision can become difficult for others to carry out even when its intention is
+      sensible. Consider collecting the conditions each participant needs respected before defining
+      one shared aim. Explain what can be decided now and what requires another conversation. Review
+      the usefulness of your coordination through the resulting participation, rather than through
+      the prestige of a traditional label. Check the result in your own setting and revise the
+      interpretation when the observed experience differs.
+    advice:
+      - Consider collecting the conditions each participant needs respected before defining one
+        shared aim. Explain what can be decided now and what requires another conversation. Review
+        the usefulness of your coordination through the resulting participation, rather than through
+        the prestige of a traditional label
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

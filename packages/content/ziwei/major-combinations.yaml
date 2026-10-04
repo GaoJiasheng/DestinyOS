@@ -1,0 +1,1602 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: Twenty-four structurally possible major-star pairs receive life-palace units; six additional career applications bring the topic to the estimated thirty entries.
+- id: ziwei.pair.life.zi_wei_tian_fu
+  system: ziwei
+  section: life_palace
+  topic: pair_life_zi_wei_tian_fu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=tian_fu].key
+        eq: tian_fu
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与天府同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用统筹方向与承担责任和储备意识与稳定管理。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与天府（象征储备意识与稳定管理的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你往往先确认手里的资源，再考虑怎样让日常运转更稳。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Tiān Fǔ: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with stewardship, reserves and
+      dependable administration in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Zǐ Wēi (紫微) —
+      a symbol of setting direction and holding responsibility — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tiān Fǔ (天府) — a symbol
+      of stewardship, reserves and dependable administration. You often look for a coherent
+      direction before deciding who should carry each part of a task. You may prefer understanding
+      existing resources before making a change that others will rely on. Picture a shared task that
+      needs both a next step and an explanation people can follow. Notice which approach you use to
+      get started and which one helps when progress stalls. A pair describes interacting preferences
+      rather than twice as much of one quality. Try assigning the two approaches different moments:
+      use one to begin, then use the other to review what was missed. Ask a collaborator which part
+      helped, and adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.zi_wei_tan_lang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_zi_wei_tan_lang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=tan_lang].key
+        eq: tan_lang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与贪狼同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用统筹方向与承担责任和探索欲与社交学习。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与贪狼（象征探索欲与社交学习的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你倾向从新体验和人与人的交流里获得灵感，兴趣常跨越多个领域。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Tān Láng: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with curiosity, variety and
+      learning through contact in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Zǐ Wēi (紫微) —
+      a symbol of setting direction and holding responsibility — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tān Láng (贪狼) — a
+      symbol of curiosity, variety and learning through contact. You often look for a coherent
+      direction before deciding who should carry each part of a task. You may learn through new
+      experiences, informal conversations and interests that cross conventional categories. Picture
+      a shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.zi_wei_tian_xiang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_zi_wei_tian_xiang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与天相同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用统筹方向与承担责任和协调关系与维护程序。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与天相（象征协调关系与维护程序的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你往往愿意听两边的说法，重视规则能否让合作顺畅。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Tiān Xiàng: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with coordination, fairness
+      and procedural care in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Zǐ Wēi (紫微) —
+      a symbol of setting direction and holding responsibility — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tiān Xiàng (天相) — a
+      symbol of coordination, fairness and procedural care. You often look for a coherent direction
+      before deciding who should carry each part of a task. You may be comfortable hearing several
+      perspectives and using a fair process to keep cooperation workable. Picture a shared task that
+      needs both a next step and an explanation people can follow. Notice which approach you use to
+      get started and which one helps when progress stalls. A pair describes interacting preferences
+      rather than twice as much of one quality. Try assigning the two approaches different moments:
+      use one to begin, then use the other to review what was missed. Ask a collaborator which part
+      helped, and adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.zi_wei_qi_sha
+  system: ziwei
+  section: life_palace
+  topic: pair_life_zi_wei_qi_sha
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=qi_sha].key
+        eq: qi_sha
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与七杀同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用统筹方向与承担责任和独立决断与应对挑战。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与七杀（象征独立决断与应对挑战的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你容易在复杂局面里抓住优先事项，愿意承担有边界的困难任务。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Qī Shā: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with independent decisions and
+      focused responses to a challenge in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Zǐ Wēi (紫微) —
+      a symbol of setting direction and holding responsibility — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Qī Shā (七杀) — a symbol
+      of independent decisions and focused responses to a challenge. You often look for a coherent
+      direction before deciding who should carry each part of a task. You may cut through competing
+      demands, identify a priority and take ownership of a difficult task. Picture a shared task
+      that needs both a next step and an explanation people can follow. Notice which approach you
+      use to get started and which one helps when progress stalls. A pair describes interacting
+      preferences rather than twice as much of one quality. Try assigning the two approaches
+      different moments: use one to begin, then use the other to review what was missed. Ask a
+      collaborator which part helped, and adjust the sequence instead of forcing both habits into
+      every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.zi_wei_po_jun
+  system: ziwei
+  section: life_palace
+  topic: pair_life_zi_wei_po_jun
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=life].majorStars[key=po_jun].key
+        eq: po_jun
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与破军同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用统筹方向与承担责任和拆解旧法与重新组织。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与破军（象征拆解旧法与重新组织的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你倾向检视旧办法是否仍然有效，愿意从实际问题出发重新设计。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Pò Jūn: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with reworking structures and
+      experimenting with a new arrangement in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Zǐ Wēi (紫微) —
+      a symbol of setting direction and holding responsibility — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Pò Jūn (破军) — a symbol
+      of reworking structures and experimenting with a new arrangement. You often look for a
+      coherent direction before deciding who should carry each part of a task. You may question an
+      inherited arrangement and rebuild it around the problem it is supposed to solve. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tian_ji_tai_yin
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tian_ji_tai_yin
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=life].majorStars[key=tai_yin].key
+        eq: tai_yin
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天机与太阴同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用观察变化与设计方法和细致观察与安静积累。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。天机（象征观察变化与设计方法的主星）与太阴（象征细致观察与安静积累的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你容易看见流程里的细小差异，并想出几种替代办法；你容易注意未被说出口的需要，愿意在幕后把细节整理好。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī and Tài Yīn: coordinating two preferences'
+    summary: You may combine adaptive planning and practical ingenuity with careful observation and
+      quiet preparation in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tiān Jī (天机) —
+      a symbol of adaptive planning and practical ingenuity — shares the 命宫 (mìng gōng, the area for
+      how you describe yourself and respond to ordinary situations) with Tài Yīn (太阴) — a symbol of
+      careful observation and quiet preparation. You may notice small inefficiencies and quickly
+      imagine several workable alternatives. You may notice needs people have not voiced and
+      contribute through thoughtful preparation behind the scenes. Picture a shared task that needs
+      both a next step and an explanation people can follow. Notice which approach you use to get
+      started and which one helps when progress stalls. A pair describes interacting preferences
+      rather than twice as much of one quality. Try assigning the two approaches different moments:
+      use one to begin, then use the other to review what was missed. Ask a collaborator which part
+      helped, and adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tian_ji_ju_men
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tian_ji_ju_men
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=life].majorStars[key=ju_men].key
+        eq: ju_men
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天机与巨门同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用观察变化与设计方法和辨析问题与语言表达。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。天机（象征观察变化与设计方法的主星）与巨门（象征辨析问题与语言表达的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你容易看见流程里的细小差异，并想出几种替代办法；你容易发现说法里的漏洞，愿意追问证据与细节。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī and Jù Mén: coordinating two preferences'
+    summary:
+      You may combine adaptive planning and practical ingenuity with questioning assumptions and
+      working through language in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tiān Jī (天机) —
+      a symbol of adaptive planning and practical ingenuity — shares the 命宫 (mìng gōng, the area for
+      how you describe yourself and respond to ordinary situations) with Jù Mén (巨门) — a symbol of
+      questioning assumptions and working through language. You may notice small inefficiencies and
+      quickly imagine several workable alternatives. You may question a claim that others accept
+      quickly and want to understand what supports it. Picture a shared task that needs both a next
+      step and an explanation people can follow. Notice which approach you use to get started and
+      which one helps when progress stalls. A pair describes interacting preferences rather than
+      twice as much of one quality. Try assigning the two approaches different moments: use one to
+      begin, then use the other to review what was missed. Ask a collaborator which part helped, and
+      adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tian_ji_tian_liang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tian_ji_tian_liang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=life].majorStars[key=tian_liang].key
+        eq: tian_liang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天机与天梁同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用观察变化与设计方法和经验传递与保护意识。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。天机（象征观察变化与设计方法的主星）与天梁（象征经验传递与保护意识的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你容易看见流程里的细小差异，并想出几种替代办法；你倾向从长远角度看问题，也愿意替别人留意容易忽略的风险。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī and Tiān Liáng: coordinating two preferences'
+    summary: You may combine adaptive planning and practical ingenuity with protective judgment and
+      learning from experience in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tiān Jī (天机) —
+      a symbol of adaptive planning and practical ingenuity — shares the 命宫 (mìng gōng, the area for
+      how you describe yourself and respond to ordinary situations) with Tiān Liáng (天梁) — a symbol
+      of protective judgment and learning from experience. You may notice small inefficiencies and
+      quickly imagine several workable alternatives. You may look beyond an immediate result and
+      notice practical risks a less experienced person could overlook. Picture a shared task that
+      needs both a next step and an explanation people can follow. Notice which approach you use to
+      get started and which one helps when progress stalls. A pair describes interacting preferences
+      rather than twice as much of one quality. Try assigning the two approaches different moments:
+      use one to begin, then use the other to review what was missed. Ask a collaborator which part
+      helped, and adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tai_yang_tai_yin
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tai_yang_tai_yin
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yang].key
+        eq: tai_yang
+      - path: palaces[key=life].majorStars[key=tai_yin].key
+        eq: tai_yin
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳与太阴同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用公开表达与主动付出和细致观察与安静积累。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。太阳（象征公开表达与主动付出的主星）与太阴（象征细致观察与安静积累的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你往往愿意把信息说清楚，也愿意先向别人伸出援手；你容易注意未被说出口的需要，愿意在幕后把细节整理好。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng and Tài Yīn: coordinating two preferences'
+    summary:
+      You may combine visible contribution and outward engagement with careful observation and
+      quiet preparation in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tài Yáng (太阳)
+      — a symbol of visible contribution and outward engagement — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tài Yīn (太阴) — a symbol
+      of careful observation and quiet preparation. You may feel useful when you share what you know
+      and make a contribution people can see. You may notice needs people have not voiced and
+      contribute through thoughtful preparation behind the scenes. Picture a shared task that needs
+      both a next step and an explanation people can follow. Notice which approach you use to get
+      started and which one helps when progress stalls. A pair describes interacting preferences
+      rather than twice as much of one quality. Try assigning the two approaches different moments:
+      use one to begin, then use the other to review what was missed. Ask a collaborator which part
+      helped, and adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tai_yang_ju_men
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tai_yang_ju_men
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yang].key
+        eq: tai_yang
+      - path: palaces[key=life].majorStars[key=ju_men].key
+        eq: ju_men
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳与巨门同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用公开表达与主动付出和辨析问题与语言表达。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。太阳（象征公开表达与主动付出的主星）与巨门（象征辨析问题与语言表达的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你往往愿意把信息说清楚，也愿意先向别人伸出援手；你容易发现说法里的漏洞，愿意追问证据与细节。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng and Jù Mén: coordinating two preferences'
+    summary:
+      You may combine visible contribution and outward engagement with questioning assumptions
+      and working through language in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tài Yáng (太阳)
+      — a symbol of visible contribution and outward engagement — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Jù Mén (巨门) — a symbol
+      of questioning assumptions and working through language. You may feel useful when you share
+      what you know and make a contribution people can see. You may question a claim that others
+      accept quickly and want to understand what supports it. Picture a shared task that needs both
+      a next step and an explanation people can follow. Notice which approach you use to get started
+      and which one helps when progress stalls. A pair describes interacting preferences rather than
+      twice as much of one quality. Try assigning the two approaches different moments: use one to
+      begin, then use the other to review what was missed. Ask a collaborator which part helped, and
+      adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tai_yang_tian_liang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tai_yang_tian_liang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tai_yang].key
+        eq: tai_yang
+      - path: palaces[key=life].majorStars[key=tian_liang].key
+        eq: tian_liang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳与天梁同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用公开表达与主动付出和经验传递与保护意识。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。太阳（象征公开表达与主动付出的主星）与天梁（象征经验传递与保护意识的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你往往愿意把信息说清楚，也愿意先向别人伸出援手；你倾向从长远角度看问题，也愿意替别人留意容易忽略的风险。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng and Tiān Liáng: coordinating two preferences'
+    summary:
+      You may combine visible contribution and outward engagement with protective judgment and
+      learning from experience in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tài Yáng (太阳)
+      — a symbol of visible contribution and outward engagement — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tiān Liáng (天梁) — a
+      symbol of protective judgment and learning from experience. You may feel useful when you share
+      what you know and make a contribution people can see. You may look beyond an immediate result
+      and notice practical risks a less experienced person could overlook. Picture a shared task
+      that needs both a next step and an explanation people can follow. Notice which approach you
+      use to get started and which one helps when progress stalls. A pair describes interacting
+      preferences rather than twice as much of one quality. Try assigning the two approaches
+      different moments: use one to begin, then use the other to review what was missed. Ask a
+      collaborator which part helped, and adjust the sequence instead of forcing both habits into
+      every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.wu_qu_tian_fu
+  system: ziwei
+  section: life_palace
+  topic: pair_life_wu_qu_tian_fu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=tian_fu].key
+        eq: tian_fu
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 武曲与天府同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用执行纪律与资源核算和储备意识与稳定管理。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。武曲（象征执行纪律与资源核算的主星）与天府（象征储备意识与稳定管理的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白；你往往先确认手里的资源，再考虑怎样让日常运转更稳。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū and Tiān Fǔ: coordinating two preferences'
+    summary:
+      You may combine disciplined execution and resource accounting with stewardship, reserves
+      and dependable administration in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Wǔ Qū (武曲) — a
+      symbol of disciplined execution and resource accounting — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tiān Fǔ (天府) — a symbol
+      of stewardship, reserves and dependable administration. You often build trust through
+      measurable results, clear commitments and careful use of resources. You may prefer
+      understanding existing resources before making a change that others will rely on. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.wu_qu_tan_lang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_wu_qu_tan_lang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=tan_lang].key
+        eq: tan_lang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 武曲与贪狼同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用执行纪律与资源核算和探索欲与社交学习。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。武曲（象征执行纪律与资源核算的主星）与贪狼（象征探索欲与社交学习的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白；你倾向从新体验和人与人的交流里获得灵感，兴趣常跨越多个领域。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū and Tān Láng: coordinating two preferences'
+    summary:
+      You may combine disciplined execution and resource accounting with curiosity, variety and
+      learning through contact in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Wǔ Qū (武曲) — a
+      symbol of disciplined execution and resource accounting — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tān Láng (贪狼) — a
+      symbol of curiosity, variety and learning through contact. You often build trust through
+      measurable results, clear commitments and careful use of resources. You may learn through new
+      experiences, informal conversations and interests that cross conventional categories. Picture
+      a shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.wu_qu_tian_xiang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_wu_qu_tian_xiang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 武曲与天相同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用执行纪律与资源核算和协调关系与维护程序。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。武曲（象征执行纪律与资源核算的主星）与天相（象征协调关系与维护程序的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白；你往往愿意听两边的说法，重视规则能否让合作顺畅。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū and Tiān Xiàng: coordinating two preferences'
+    summary:
+      You may combine disciplined execution and resource accounting with coordination, fairness
+      and procedural care in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Wǔ Qū (武曲) — a
+      symbol of disciplined execution and resource accounting — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tiān Xiàng (天相) — a
+      symbol of coordination, fairness and procedural care. You often build trust through measurable
+      results, clear commitments and careful use of resources. You may be comfortable hearing
+      several perspectives and using a fair process to keep cooperation workable. Picture a shared
+      task that needs both a next step and an explanation people can follow. Notice which approach
+      you use to get started and which one helps when progress stalls. A pair describes interacting
+      preferences rather than twice as much of one quality. Try assigning the two approaches
+      different moments: use one to begin, then use the other to review what was missed. Ask a
+      collaborator which part helped, and adjust the sequence instead of forcing both habits into
+      every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.wu_qu_qi_sha
+  system: ziwei
+  section: life_palace
+  topic: pair_life_wu_qu_qi_sha
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=qi_sha].key
+        eq: qi_sha
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 武曲与七杀同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用执行纪律与资源核算和独立决断与应对挑战。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。武曲（象征执行纪律与资源核算的主星）与七杀（象征独立决断与应对挑战的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白；你容易在复杂局面里抓住优先事项，愿意承担有边界的困难任务。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū and Qī Shā: coordinating two preferences'
+    summary:
+      You may combine disciplined execution and resource accounting with independent decisions
+      and focused responses to a challenge in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Wǔ Qū (武曲) — a
+      symbol of disciplined execution and resource accounting — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Qī Shā (七杀) — a symbol
+      of independent decisions and focused responses to a challenge. You often build trust through
+      measurable results, clear commitments and careful use of resources. You may cut through
+      competing demands, identify a priority and take ownership of a difficult task. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.wu_qu_po_jun
+  system: ziwei
+  section: life_palace
+  topic: pair_life_wu_qu_po_jun
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=wu_qu].key
+        eq: wu_qu
+      - path: palaces[key=life].majorStars[key=po_jun].key
+        eq: po_jun
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 武曲与破军同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用执行纪律与资源核算和拆解旧法与重新组织。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。武曲（象征执行纪律与资源核算的主星）与破军（象征拆解旧法与重新组织的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白；你倾向检视旧办法是否仍然有效，愿意从实际问题出发重新设计。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū and Pò Jūn: coordinating two preferences'
+    summary:
+      You may combine disciplined execution and resource accounting with reworking structures and
+      experimenting with a new arrangement in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Wǔ Qū (武曲) — a
+      symbol of disciplined execution and resource accounting — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Pò Jūn (破军) — a symbol
+      of reworking structures and experimenting with a new arrangement. You often build trust
+      through measurable results, clear commitments and careful use of resources. You may question
+      an inherited arrangement and rebuild it around the problem it is supposed to solve. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tian_tong_tai_yin
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tian_tong_tai_yin
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_tong].key
+        eq: tian_tong
+      - path: palaces[key=life].majorStars[key=tai_yin].key
+        eq: tai_yin
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天同与太阴同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用舒适感与温和相处和细致观察与安静积累。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。天同（象征舒适感与温和相处的主星）与太阴（象征细致观察与安静积累的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你容易留意气氛是否轻松，愿意给别人一个缓和的台阶；你容易注意未被说出口的需要，愿意在幕后把细节整理好。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng and Tài Yīn: coordinating two preferences'
+    summary:
+      You may combine ease, belonging and gentle cooperation with careful observation and quiet
+      preparation in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tiān Tóng (天同)
+      — a symbol of ease, belonging and gentle cooperation — shares the 命宫 (mìng gōng, the area for
+      how you describe yourself and respond to ordinary situations) with Tài Yīn (太阴) — a symbol of
+      careful observation and quiet preparation. You may be sensitive to the atmosphere around you
+      and good at making participation feel less demanding. You may notice needs people have not
+      voiced and contribute through thoughtful preparation behind the scenes. Picture a shared task
+      that needs both a next step and an explanation people can follow. Notice which approach you
+      use to get started and which one helps when progress stalls. A pair describes interacting
+      preferences rather than twice as much of one quality. Try assigning the two approaches
+      different moments: use one to begin, then use the other to review what was missed. Ask a
+      collaborator which part helped, and adjust the sequence instead of forcing both habits into
+      every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tian_tong_ju_men
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tian_tong_ju_men
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_tong].key
+        eq: tian_tong
+      - path: palaces[key=life].majorStars[key=ju_men].key
+        eq: ju_men
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天同与巨门同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用舒适感与温和相处和辨析问题与语言表达。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。天同（象征舒适感与温和相处的主星）与巨门（象征辨析问题与语言表达的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你容易留意气氛是否轻松，愿意给别人一个缓和的台阶；你容易发现说法里的漏洞，愿意追问证据与细节。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng and Jù Mén: coordinating two preferences'
+    summary: You may combine ease, belonging and gentle cooperation with questioning assumptions and
+      working through language in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tiān Tóng (天同)
+      — a symbol of ease, belonging and gentle cooperation — shares the 命宫 (mìng gōng, the area for
+      how you describe yourself and respond to ordinary situations) with Jù Mén (巨门) — a symbol of
+      questioning assumptions and working through language. You may be sensitive to the atmosphere
+      around you and good at making participation feel less demanding. You may question a claim that
+      others accept quickly and want to understand what supports it. Picture a shared task that
+      needs both a next step and an explanation people can follow. Notice which approach you use to
+      get started and which one helps when progress stalls. A pair describes interacting preferences
+      rather than twice as much of one quality. Try assigning the two approaches different moments:
+      use one to begin, then use the other to review what was missed. Ask a collaborator which part
+      helped, and adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.tian_tong_tian_liang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_tian_tong_tian_liang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=tian_tong].key
+        eq: tian_tong
+      - path: palaces[key=life].majorStars[key=tian_liang].key
+        eq: tian_liang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天同与天梁同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用舒适感与温和相处和经验传递与保护意识。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。天同（象征舒适感与温和相处的主星）与天梁（象征经验传递与保护意识的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你容易留意气氛是否轻松，愿意给别人一个缓和的台阶；你倾向从长远角度看问题，也愿意替别人留意容易忽略的风险。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng and Tiān Liáng: coordinating two preferences'
+    summary: You may combine ease, belonging and gentle cooperation with protective judgment and
+      learning from experience in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Tiān Tóng (天同)
+      — a symbol of ease, belonging and gentle cooperation — shares the 命宫 (mìng gōng, the area for
+      how you describe yourself and respond to ordinary situations) with Tiān Liáng (天梁) — a symbol
+      of protective judgment and learning from experience. You may be sensitive to the atmosphere
+      around you and good at making participation feel less demanding. You may look beyond an
+      immediate result and notice practical risks a less experienced person could overlook. Picture
+      a shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.lian_zhen_tian_fu
+  system: ziwei
+  section: life_palace
+  topic: pair_life_lian_zhen_tian_fu
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=tian_fu].key
+        eq: tian_fu
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 廉贞与天府同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用边界意识与价值选择和储备意识与稳定管理。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。廉贞（象征边界意识与价值选择的主星）与天府（象征储备意识与稳定管理的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向认真分辨什么值得投入，也在意做法是否符合自己的原则；你往往先确认手里的资源，再考虑怎样让日常运转更稳。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn and Tiān Fǔ: coordinating two preferences'
+    summary:
+      You may combine personal boundaries and value based choices with stewardship, reserves and
+      dependable administration in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Lián Zhēn (廉贞)
+      — a symbol of personal boundaries and value based choices — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tiān Fǔ (天府) — a symbol
+      of stewardship, reserves and dependable administration. You may invest strongly in choices
+      that express your values and notice when a boundary feels blurred. You may prefer
+      understanding existing resources before making a change that others will rely on. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.lian_zhen_tan_lang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_lian_zhen_tan_lang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=tan_lang].key
+        eq: tan_lang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 廉贞与贪狼同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用边界意识与价值选择和探索欲与社交学习。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。廉贞（象征边界意识与价值选择的主星）与贪狼（象征探索欲与社交学习的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向认真分辨什么值得投入，也在意做法是否符合自己的原则；你倾向从新体验和人与人的交流里获得灵感，兴趣常跨越多个领域。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn and Tān Láng: coordinating two preferences'
+    summary: You may combine personal boundaries and value based choices with curiosity, variety and
+      learning through contact in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Lián Zhēn (廉贞)
+      — a symbol of personal boundaries and value based choices — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tān Láng (贪狼) — a
+      symbol of curiosity, variety and learning through contact. You may invest strongly in choices
+      that express your values and notice when a boundary feels blurred. You may learn through new
+      experiences, informal conversations and interests that cross conventional categories. Picture
+      a shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.lian_zhen_tian_xiang
+  system: ziwei
+  section: life_palace
+  topic: pair_life_lian_zhen_tian_xiang
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 廉贞与天相同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用边界意识与价值选择和协调关系与维护程序。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。廉贞（象征边界意识与价值选择的主星）与天相（象征协调关系与维护程序的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向认真分辨什么值得投入，也在意做法是否符合自己的原则；你往往愿意听两边的说法，重视规则能否让合作顺畅。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn and Tiān Xiàng: coordinating two preferences'
+    summary:
+      You may combine personal boundaries and value based choices with coordination, fairness and
+      procedural care in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Lián Zhēn (廉贞)
+      — a symbol of personal boundaries and value based choices — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Tiān Xiàng (天相) — a
+      symbol of coordination, fairness and procedural care. You may invest strongly in choices that
+      express your values and notice when a boundary feels blurred. You may be comfortable hearing
+      several perspectives and using a fair process to keep cooperation workable. Picture a shared
+      task that needs both a next step and an explanation people can follow. Notice which approach
+      you use to get started and which one helps when progress stalls. A pair describes interacting
+      preferences rather than twice as much of one quality. Try assigning the two approaches
+      different moments: use one to begin, then use the other to review what was missed. Ask a
+      collaborator which part helped, and adjust the sequence instead of forcing both habits into
+      every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.lian_zhen_qi_sha
+  system: ziwei
+  section: life_palace
+  topic: pair_life_lian_zhen_qi_sha
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=qi_sha].key
+        eq: qi_sha
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 廉贞与七杀同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用边界意识与价值选择和独立决断与应对挑战。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。廉贞（象征边界意识与价值选择的主星）与七杀（象征独立决断与应对挑战的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向认真分辨什么值得投入，也在意做法是否符合自己的原则；你容易在复杂局面里抓住优先事项，愿意承担有边界的困难任务。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn and Qī Shā: coordinating two preferences'
+    summary:
+      You may combine personal boundaries and value based choices with independent decisions and
+      focused responses to a challenge in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Lián Zhēn (廉贞)
+      — a symbol of personal boundaries and value based choices — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Qī Shā (七杀) — a symbol
+      of independent decisions and focused responses to a challenge. You may invest strongly in
+      choices that express your values and notice when a boundary feels blurred. You may cut through
+      competing demands, identify a priority and take ownership of a difficult task. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.life.lian_zhen_po_jun
+  system: ziwei
+  section: life_palace
+  topic: pair_life_lian_zhen_po_jun
+  when:
+    all:
+      - path: palaces[key=life].majorStars[key=lian_zhen].key
+        eq: lian_zhen
+      - path: palaces[key=life].majorStars[key=po_jun].key
+        eq: po_jun
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 廉贞与破军同宫：两种偏好的配合
+    summary: 你在自我表达上，倾向同时运用边界意识与价值选择和拆解旧法与重新组织。
+    body: 你在自我表达上，可能需要让两种不同的偏好彼此配合。廉贞（象征边界意识与价值选择的主星）与破军（象征拆解旧法与重新组织的主星）同在命宫（观察你怎样认识自己和回应日常处境的领域），说明这些线索出现在同一生活场景。你倾向认真分辨什么值得投入，也在意做法是否符合自己的原则；你倾向检视旧办法是否仍然有效，愿意从实际问题出发重新设计。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn and Pò Jūn: coordinating two preferences'
+    summary:
+      You may combine personal boundaries and value based choices with reworking structures and
+      experimenting with a new arrangement in your everyday identity.
+    body:
+      'You may find two approaches competing for attention in your everyday identity. Lián Zhēn (廉贞)
+      — a symbol of personal boundaries and value based choices — shares the 命宫 (mìng gōng, the area
+      for how you describe yourself and respond to ordinary situations) with Pò Jūn (破军) — a symbol
+      of reworking structures and experimenting with a new arrangement. You may invest strongly in
+      choices that express your values and notice when a boundary feels blurred. You may question an
+      inherited arrangement and rebuild it around the problem it is supposed to solve. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.career.zi_wei_tian_fu
+  system: ziwei
+  section: career_wealth
+  topic: pair_career_zi_wei_tian_fu
+  when:
+    all:
+      - path: palaces[key=career].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=career].majorStars[key=tian_fu].key
+        eq: tian_fu
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与天府同宫：两种偏好的配合
+    summary: 你在工作组织上，倾向同时运用统筹方向与承担责任和储备意识与稳定管理。
+    body: 你在工作组织上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与天府（象征储备意识与稳定管理的主星）同在官禄宫（观察任务承担、职业学习与工作方法的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你往往先确认手里的资源，再考虑怎样让日常运转更稳。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Tiān Fǔ: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with stewardship, reserves and
+      dependable administration in organizing work.
+    body: 'You may find two approaches competing for attention in organizing work. Zǐ Wēi (紫微) — a
+      symbol of setting direction and holding responsibility — shares the 官禄宫 (guān lù gōng, the
+      area for how you take responsibility, learn professionally and arrange a task) with Tiān Fǔ
+      (天府) — a symbol of stewardship, reserves and dependable administration. You often look for a
+      coherent direction before deciding who should carry each part of a task. You may prefer
+      understanding existing resources before making a change that others will rely on. Picture a
+      shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.career.zi_wei_tan_lang
+  system: ziwei
+  section: career_wealth
+  topic: pair_career_zi_wei_tan_lang
+  when:
+    all:
+      - path: palaces[key=career].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=career].majorStars[key=tan_lang].key
+        eq: tan_lang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与贪狼同宫：两种偏好的配合
+    summary: 你在工作组织上，倾向同时运用统筹方向与承担责任和探索欲与社交学习。
+    body: 你在工作组织上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与贪狼（象征探索欲与社交学习的主星）同在官禄宫（观察任务承担、职业学习与工作方法的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你倾向从新体验和人与人的交流里获得灵感，兴趣常跨越多个领域。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Tān Láng: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with curiosity, variety and
+      learning through contact in organizing work.
+    body: 'You may find two approaches competing for attention in organizing work. Zǐ Wēi (紫微) — a
+      symbol of setting direction and holding responsibility — shares the 官禄宫 (guān lù gōng, the
+      area for how you take responsibility, learn professionally and arrange a task) with Tān Láng
+      (贪狼) — a symbol of curiosity, variety and learning through contact. You often look for a
+      coherent direction before deciding who should carry each part of a task. You may learn through
+      new experiences, informal conversations and interests that cross conventional categories.
+      Picture a shared task that needs both a next step and an explanation people can follow. Notice
+      which approach you use to get started and which one helps when progress stalls. A pair
+      describes interacting preferences rather than twice as much of one quality. Try assigning the
+      two approaches different moments: use one to begin, then use the other to review what was
+      missed. Ask a collaborator which part helped, and adjust the sequence instead of forcing both
+      habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.career.zi_wei_tian_xiang
+  system: ziwei
+  section: career_wealth
+  topic: pair_career_zi_wei_tian_xiang
+  when:
+    all:
+      - path: palaces[key=career].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=career].majorStars[key=tian_xiang].key
+        eq: tian_xiang
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与天相同宫：两种偏好的配合
+    summary: 你在工作组织上，倾向同时运用统筹方向与承担责任和协调关系与维护程序。
+    body: 你在工作组织上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与天相（象征协调关系与维护程序的主星）同在官禄宫（观察任务承担、职业学习与工作方法的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你往往愿意听两边的说法，重视规则能否让合作顺畅。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Tiān Xiàng: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with coordination, fairness
+      and procedural care in organizing work.
+    body: 'You may find two approaches competing for attention in organizing work. Zǐ Wēi (紫微) — a
+      symbol of setting direction and holding responsibility — shares the 官禄宫 (guān lù gōng, the
+      area for how you take responsibility, learn professionally and arrange a task) with Tiān Xiàng
+      (天相) — a symbol of coordination, fairness and procedural care. You often look for a coherent
+      direction before deciding who should carry each part of a task. You may be comfortable hearing
+      several perspectives and using a fair process to keep cooperation workable. Picture a shared
+      task that needs both a next step and an explanation people can follow. Notice which approach
+      you use to get started and which one helps when progress stalls. A pair describes interacting
+      preferences rather than twice as much of one quality. Try assigning the two approaches
+      different moments: use one to begin, then use the other to review what was missed. Ask a
+      collaborator which part helped, and adjust the sequence instead of forcing both habits into
+      every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.career.zi_wei_qi_sha
+  system: ziwei
+  section: career_wealth
+  topic: pair_career_zi_wei_qi_sha
+  when:
+    all:
+      - path: palaces[key=career].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=career].majorStars[key=qi_sha].key
+        eq: qi_sha
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与七杀同宫：两种偏好的配合
+    summary: 你在工作组织上，倾向同时运用统筹方向与承担责任和独立决断与应对挑战。
+    body: 你在工作组织上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与七杀（象征独立决断与应对挑战的主星）同在官禄宫（观察任务承担、职业学习与工作方法的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你容易在复杂局面里抓住优先事项，愿意承担有边界的困难任务。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Qī Shā: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with independent decisions and
+      focused responses to a challenge in organizing work.
+    body: 'You may find two approaches competing for attention in organizing work. Zǐ Wēi (紫微) — a
+      symbol of setting direction and holding responsibility — shares the 官禄宫 (guān lù gōng, the
+      area for how you take responsibility, learn professionally and arrange a task) with Qī Shā
+      (七杀) — a symbol of independent decisions and focused responses to a challenge. You often look
+      for a coherent direction before deciding who should carry each part of a task. You may cut
+      through competing demands, identify a priority and take ownership of a difficult task. Picture
+      a shared task that needs both a next step and an explanation people can follow. Notice which
+      approach you use to get started and which one helps when progress stalls. A pair describes
+      interacting preferences rather than twice as much of one quality. Try assigning the two
+      approaches different moments: use one to begin, then use the other to review what was missed.
+      Ask a collaborator which part helped, and adjust the sequence instead of forcing both habits
+      into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.career.zi_wei_po_jun
+  system: ziwei
+  section: career_wealth
+  topic: pair_career_zi_wei_po_jun
+  when:
+    all:
+      - path: palaces[key=career].majorStars[key=zi_wei].key
+        eq: zi_wei
+      - path: palaces[key=career].majorStars[key=po_jun].key
+        eq: po_jun
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 紫微与破军同宫：两种偏好的配合
+    summary: 你在工作组织上，倾向同时运用统筹方向与承担责任和拆解旧法与重新组织。
+    body: 你在工作组织上，可能需要让两种不同的偏好彼此配合。紫微（象征统筹方向与承担责任的主星）与破军（象征拆解旧法与重新组织的主星）同在官禄宫（观察任务承担、职业学习与工作方法的领域），说明这些线索出现在同一生活场景。你倾向先建立整体框架，再把事情交给合适的人推进；你倾向检视旧办法是否仍然有效，愿意从实际问题出发重新设计。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi and Pò Jūn: coordinating two preferences'
+    summary:
+      You may combine setting direction and holding responsibility with reworking structures and
+      experimenting with a new arrangement in organizing work.
+    body: 'You may find two approaches competing for attention in organizing work. Zǐ Wēi (紫微) — a
+      symbol of setting direction and holding responsibility — shares the 官禄宫 (guān lù gōng, the
+      area for how you take responsibility, learn professionally and arrange a task) with Pò Jūn
+      (破军) — a symbol of reworking structures and experimenting with a new arrangement. You often
+      look for a coherent direction before deciding who should carry each part of a task. You may
+      question an inherited arrangement and rebuild it around the problem it is supposed to solve.
+      Picture a shared task that needs both a next step and an explanation people can follow. Notice
+      which approach you use to get started and which one helps when progress stalls. A pair
+      describes interacting preferences rather than twice as much of one quality. Try assigning the
+      two approaches different moments: use one to begin, then use the other to review what was
+      missed. Ask a collaborator which part helped, and adjust the sequence instead of forcing both
+      habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.pair.career.tian_ji_tai_yin
+  system: ziwei
+  section: career_wealth
+  topic: pair_career_tian_ji_tai_yin
+  when:
+    all:
+      - path: palaces[key=career].majorStars[key=tian_ji].key
+        eq: tian_ji
+      - path: palaces[key=career].majorStars[key=tai_yin].key
+        eq: tai_yin
+  weight: 90
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天机与太阴同宫：两种偏好的配合
+    summary: 你在工作组织上，倾向同时运用观察变化与设计方法和细致观察与安静积累。
+    body: 你在工作组织上，可能需要让两种不同的偏好彼此配合。天机（象征观察变化与设计方法的主星）与太阴（象征细致观察与安静积累的主星）同在官禄宫（观察任务承担、职业学习与工作方法的领域），说明这些线索出现在同一生活场景。你容易看见流程里的细小差异，并想出几种替代办法；你容易注意未被说出口的需要，愿意在幕后把细节整理好。比如，一项共同任务既要有人确定下一步，也要有人照顾参与者的理解程度，你可以观察自己先调动哪一种做法。两颗星并不需要时时表现得一样强。建议把推进和核对安排成两个步骤：先用你较顺手的方式起步，再让另一种偏好补充遗漏，结束后问问实际效果。
+    advice:
+      - 把两种偏好分别用于推进和核对，观察配合效果。
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī and Tài Yīn: coordinating two preferences'
+    summary: You may combine adaptive planning and practical ingenuity with careful observation and
+      quiet preparation in organizing work.
+    body:
+      'You may find two approaches competing for attention in organizing work. Tiān Jī (天机) — a
+      symbol of adaptive planning and practical ingenuity — shares the 官禄宫 (guān lù gōng, the area
+      for how you take responsibility, learn professionally and arrange a task) with Tài Yīn (太阴) —
+      a symbol of careful observation and quiet preparation. You may notice small inefficiencies and
+      quickly imagine several workable alternatives. You may notice needs people have not voiced and
+      contribute through thoughtful preparation behind the scenes. Picture a shared task that needs
+      both a next step and an explanation people can follow. Notice which approach you use to get
+      started and which one helps when progress stalls. A pair describes interacting preferences
+      rather than twice as much of one quality. Try assigning the two approaches different moments:
+      use one to begin, then use the other to review what was missed. Ask a collaborator which part
+      helped, and adjust the sequence instead of forcing both habits into every decision.'
+    advice:
+      - Give each preference a different role in starting and reviewing a task.
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

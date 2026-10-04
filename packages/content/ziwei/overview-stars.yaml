@@ -1,0 +1,687 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+- id: ziwei.overview.zi_wei
+  system: ziwei
+  section: overview
+  topic: overview_zi_wei
+  when:
+    path: palaces[key=life].majorStars[key=zi_wei].key
+    eq: zi_wei
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 紫微的命盘入口
+    summary: 你倾向以统筹方向与承担责任组织生活。
+    body: 你可以把统筹方向与承担责任当作理解自己的一个入口。命宫（观察日常回应的领域）出现紫微（象征统筹方向与承担责任的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己倾向先建立整体框架，再把事情交给合适的人推进。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 可以先公开判断标准，再邀请别人指出一个遗漏
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zǐ Wēi: a starting point for reflection'
+    summary: You may organize everyday choices around setting direction and holding responsibility.
+    body:
+      You can begin this reading by considering setting direction and holding responsibility. Zǐ Wēi
+      (紫微) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You often look for a coherent
+      direction before deciding who should carry each part of a task. Imagine joining a
+      collaboration where roles have not yet been agreed. Notice what you volunteer to clarify, what
+      you leave to others and what support makes participation easier. Try explaining your decision
+      criteria before asking someone to challenge one assumption. The chapters that follow look at
+      different settings for these preferences, including work, relationships and time outside
+      familiar surroundings. Compare each idea with a recent experience before adopting it as a
+      description of yourself. A chart provides several perspectives, and a single prominent symbol
+      need not explain everything you do.
+    advice:
+      - Try explaining your decision criteria before asking someone to challenge one assumption
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tian_ji
+  system: ziwei
+  section: overview
+  topic: overview_tian_ji
+  when:
+    path: palaces[key=life].majorStars[key=tian_ji].key
+    eq: tian_ji
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 天机的命盘入口
+    summary: 你倾向以观察变化与设计方法组织生活。
+    body: 你可以把观察变化与设计方法当作理解自己的一个入口。命宫（观察日常回应的领域）出现天机（象征观察变化与设计方法的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己容易看见流程里的细小差异，并想出几种替代办法。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 不妨给每次比较设定期限，只验证一个最关键的假设
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Jī: a starting point for reflection'
+    summary: You may organize everyday choices around adaptive planning and practical ingenuity.
+    body:
+      You can begin this reading by considering adaptive planning and practical ingenuity. Tiān Jī
+      (天机) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You may notice small
+      inefficiencies and quickly imagine several workable alternatives. Imagine joining a
+      collaboration where roles have not yet been agreed. Notice what you volunteer to clarify, what
+      you leave to others and what support makes participation easier. Consider setting a decision
+      deadline and testing the most important unknown first. The chapters that follow look at
+      different settings for these preferences, including work, relationships and time outside
+      familiar surroundings. Compare each idea with a recent experience before adopting it as a
+      description of yourself. A chart provides several perspectives, and a single prominent symbol
+      need not explain everything you do.
+    advice:
+      - Consider setting a decision deadline and testing the most important unknown first
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tai_yang
+  system: ziwei
+  section: overview
+  topic: overview_tai_yang
+  when:
+    path: palaces[key=life].majorStars[key=tai_yang].key
+    eq: tai_yang
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 太阳的命盘入口
+    summary: 你倾向以公开表达与主动付出组织生活。
+    body: 你可以把公开表达与主动付出当作理解自己的一个入口。命宫（观察日常回应的领域）出现太阳（象征公开表达与主动付出的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己往往愿意把信息说清楚，也愿意先向别人伸出援手。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 可以在答应帮忙前说清楚可投入的时间
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yáng: a starting point for reflection'
+    summary: You may organize everyday choices around visible contribution and outward engagement.
+    body: You can begin this reading by considering visible contribution and outward engagement. Tài
+      Yáng (太阳) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You may feel useful when you
+      share what you know and make a contribution people can see. Imagine joining a collaboration
+      where roles have not yet been agreed. Notice what you volunteer to clarify, what you leave to
+      others and what support makes participation easier. Try stating how much time you can offer
+      before agreeing to help. The chapters that follow look at different settings for these
+      preferences, including work, relationships and time outside familiar surroundings. Compare
+      each idea with a recent experience before adopting it as a description of yourself. A chart
+      provides several perspectives, and a single prominent symbol need not explain everything you
+      do.
+    advice:
+      - Try stating how much time you can offer before agreeing to help
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.wu_qu
+  system: ziwei
+  section: overview
+  topic: overview_wu_qu
+  when:
+    path: palaces[key=life].majorStars[key=wu_qu].key
+    eq: wu_qu
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 武曲的命盘入口
+    summary: 你倾向以执行纪律与资源核算组织生活。
+    body: 你可以把执行纪律与资源核算当作理解自己的一个入口。命宫（观察日常回应的领域）出现武曲（象征执行纪律与资源核算的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己倾向通过可检查的结果建立信任，喜欢把责任和数量讲明白。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 建议在讨论数量之后，再问一句对方最在意什么
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wǔ Qū: a starting point for reflection'
+    summary: You may organize everyday choices around disciplined execution and resource accounting.
+    body:
+      You can begin this reading by considering disciplined execution and resource accounting. Wǔ Qū
+      (武曲) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You often build trust through
+      measurable results, clear commitments and careful use of resources. Imagine joining a
+      collaboration where roles have not yet been agreed. Notice what you volunteer to clarify, what
+      you leave to others and what support makes participation easier. Consider asking what matters
+      emotionally after you have clarified the practical numbers. The chapters that follow look at
+      different settings for these preferences, including work, relationships and time outside
+      familiar surroundings. Compare each idea with a recent experience before adopting it as a
+      description of yourself. A chart provides several perspectives, and a single prominent symbol
+      need not explain everything you do.
+    advice:
+      - Consider asking what matters emotionally after you have clarified the practical numbers
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tian_tong
+  system: ziwei
+  section: overview
+  topic: overview_tian_tong
+  when:
+    path: palaces[key=life].majorStars[key=tian_tong].key
+    eq: tian_tong
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 天同的命盘入口
+    summary: 你倾向以舒适感与温和相处组织生活。
+    body: 你可以把舒适感与温和相处当作理解自己的一个入口。命宫（观察日常回应的领域）出现天同（象征舒适感与温和相处的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己容易留意气氛是否轻松，愿意给别人一个缓和的台阶。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 可以先处理一件小而具体的事情，再安排休息
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Tóng: a starting point for reflection'
+    summary: You may organize everyday choices around ease, belonging and gentle cooperation.
+    body:
+      You can begin this reading by considering ease, belonging and gentle cooperation. Tiān Tóng
+      (天同) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You may be sensitive to the
+      atmosphere around you and good at making participation feel less demanding. Imagine joining a
+      collaboration where roles have not yet been agreed. Notice what you volunteer to clarify, what
+      you leave to others and what support makes participation easier. Try completing one modest
+      task before settling into a restorative break. The chapters that follow look at different
+      settings for these preferences, including work, relationships and time outside familiar
+      surroundings. Compare each idea with a recent experience before adopting it as a description
+      of yourself. A chart provides several perspectives, and a single prominent symbol need not
+      explain everything you do.
+    advice:
+      - Try completing one modest task before settling into a restorative break
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.lian_zhen
+  system: ziwei
+  section: overview
+  topic: overview_lian_zhen
+  when:
+    path: palaces[key=life].majorStars[key=lian_zhen].key
+    eq: lian_zhen
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 廉贞的命盘入口
+    summary: 你倾向以边界意识与价值选择组织生活。
+    body: 你可以把边界意识与价值选择当作理解自己的一个入口。命宫（观察日常回应的领域）出现廉贞（象征边界意识与价值选择的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己倾向认真分辨什么值得投入，也在意做法是否符合自己的原则。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 不妨把事实、感受和请求分别写下来
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lián Zhēn: a starting point for reflection'
+    summary: You may organize everyday choices around personal boundaries and value based choices.
+    body:
+      You can begin this reading by considering personal boundaries and value based choices. Lián
+      Zhēn (廉贞) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You may invest strongly in
+      choices that express your values and notice when a boundary feels blurred. Imagine joining a
+      collaboration where roles have not yet been agreed. Notice what you volunteer to clarify, what
+      you leave to others and what support makes participation easier. Try separating observable
+      facts, your feelings and the specific change you are requesting. The chapters that follow look
+      at different settings for these preferences, including work, relationships and time outside
+      familiar surroundings. Compare each idea with a recent experience before adopting it as a
+      description of yourself. A chart provides several perspectives, and a single prominent symbol
+      need not explain everything you do.
+    advice:
+      - Try separating observable facts, your feelings and the specific change you are requesting
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tian_fu
+  system: ziwei
+  section: overview
+  topic: overview_tian_fu
+  when:
+    path: palaces[key=life].majorStars[key=tian_fu].key
+    eq: tian_fu
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 天府的命盘入口
+    summary: 你倾向以储备意识与稳定管理组织生活。
+    body: 你可以把储备意识与稳定管理当作理解自己的一个入口。命宫（观察日常回应的领域）出现天府（象征储备意识与稳定管理的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己往往先确认手里的资源，再考虑怎样让日常运转更稳。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 建议定期盘点一次保留、更新和放下的事项
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Fǔ: a starting point for reflection'
+    summary: You may organize everyday choices around stewardship, reserves and dependable administration.
+    body:
+      You can begin this reading by considering stewardship, reserves and dependable administration.
+      Tiān Fǔ (天府) — a major star associated with that tendency — appears in the Life Palace (命宫,
+      mìng gōng), the area used to discuss everyday responses and identity. You may prefer
+      understanding existing resources before making a change that others will rely on. Imagine
+      joining a collaboration where roles have not yet been agreed. Notice what you volunteer to
+      clarify, what you leave to others and what support makes participation easier. Consider
+      reviewing what to keep, refresh and retire from your current routine. The chapters that follow
+      look at different settings for these preferences, including work, relationships and time
+      outside familiar surroundings. Compare each idea with a recent experience before adopting it
+      as a description of yourself. A chart provides several perspectives, and a single prominent
+      symbol need not explain everything you do.
+    advice:
+      - Consider reviewing what to keep, refresh and retire from your current routine
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tai_yin
+  system: ziwei
+  section: overview
+  topic: overview_tai_yin
+  when:
+    path: palaces[key=life].majorStars[key=tai_yin].key
+    eq: tai_yin
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 太阴的命盘入口
+    summary: 你倾向以细致观察与安静积累组织生活。
+    body: 你可以把细致观察与安静积累当作理解自己的一个入口。命宫（观察日常回应的领域）出现太阴（象征细致观察与安静积累的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己容易注意未被说出口的需要，愿意在幕后把细节整理好。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 可以把一个具体需要用简短的话直接表达
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tài Yīn: a starting point for reflection'
+    summary: You may organize everyday choices around careful observation and quiet preparation.
+    body:
+      You can begin this reading by considering careful observation and quiet preparation. Tài Yīn
+      (太阴) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You may notice needs people
+      have not voiced and contribute through thoughtful preparation behind the scenes. Imagine
+      joining a collaboration where roles have not yet been agreed. Notice what you volunteer to
+      clarify, what you leave to others and what support makes participation easier. Try naming one
+      practical preference without waiting for someone to infer it. The chapters that follow look at
+      different settings for these preferences, including work, relationships and time outside
+      familiar surroundings. Compare each idea with a recent experience before adopting it as a
+      description of yourself. A chart provides several perspectives, and a single prominent symbol
+      need not explain everything you do.
+    advice:
+      - Try naming one practical preference without waiting for someone to infer it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tan_lang
+  system: ziwei
+  section: overview
+  topic: overview_tan_lang
+  when:
+    path: palaces[key=life].majorStars[key=tan_lang].key
+    eq: tan_lang
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 贪狼的命盘入口
+    summary: 你倾向以探索欲与社交学习组织生活。
+    body: 你可以把探索欲与社交学习当作理解自己的一个入口。命宫（观察日常回应的领域）出现贪狼（象征探索欲与社交学习的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己倾向从新体验和人与人的交流里获得灵感，兴趣常跨越多个领域。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 不妨为本周保留一个探索项目，其他灵感先记下来
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tān Láng: a starting point for reflection'
+    summary: You may organize everyday choices around curiosity, variety and learning through contact.
+    body:
+      You can begin this reading by considering curiosity, variety and learning through contact. Tān
+      Láng (贪狼) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You may learn through new
+      experiences, informal conversations and interests that cross conventional categories. Imagine
+      joining a collaboration where roles have not yet been agreed. Notice what you volunteer to
+      clarify, what you leave to others and what support makes participation easier. Consider
+      keeping one active experiment this week and saving the other ideas for later. The chapters
+      that follow look at different settings for these preferences, including work, relationships
+      and time outside familiar surroundings. Compare each idea with a recent experience before
+      adopting it as a description of yourself. A chart provides several perspectives, and a single
+      prominent symbol need not explain everything you do.
+    advice:
+      - Consider keeping one active experiment this week and saving the other ideas for later
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.ju_men
+  system: ziwei
+  section: overview
+  topic: overview_ju_men
+  when:
+    path: palaces[key=life].majorStars[key=ju_men].key
+    eq: ju_men
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 巨门的命盘入口
+    summary: 你倾向以辨析问题与语言表达组织生活。
+    body: 你可以把辨析问题与语言表达当作理解自己的一个入口。命宫（观察日常回应的领域）出现巨门（象征辨析问题与语言表达的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己容易发现说法里的漏洞，愿意追问证据与细节。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 建议先确认共同目标，再提出最关键的问题
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Jù Mén: a starting point for reflection'
+    summary: You may organize everyday choices around questioning assumptions and working through language.
+    body: You can begin this reading by considering questioning assumptions and working through
+      language. Jù Mén (巨门) — a major star associated with that tendency — appears in the Life
+      Palace (命宫, mìng gōng), the area used to discuss everyday responses and identity. You may
+      question a claim that others accept quickly and want to understand what supports it. Imagine
+      joining a collaboration where roles have not yet been agreed. Notice what you volunteer to
+      clarify, what you leave to others and what support makes participation easier. Try
+      establishing a shared aim before raising the question most likely to clarify it. The chapters
+      that follow look at different settings for these preferences, including work, relationships
+      and time outside familiar surroundings. Compare each idea with a recent experience before
+      adopting it as a description of yourself. A chart provides several perspectives, and a single
+      prominent symbol need not explain everything you do.
+    advice:
+      - Try establishing a shared aim before raising the question most likely to clarify it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tian_xiang
+  system: ziwei
+  section: overview
+  topic: overview_tian_xiang
+  when:
+    path: palaces[key=life].majorStars[key=tian_xiang].key
+    eq: tian_xiang
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 天相的命盘入口
+    summary: 你倾向以协调关系与维护程序组织生活。
+    body: 你可以把协调关系与维护程序当作理解自己的一个入口。命宫（观察日常回应的领域）出现天相（象征协调关系与维护程序的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己往往愿意听两边的说法，重视规则能否让合作顺畅。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 可以在听取意见后明确自己的选择和理由
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Xiàng: a starting point for reflection'
+    summary: You may organize everyday choices around coordination, fairness and procedural care.
+    body: You can begin this reading by considering coordination, fairness and procedural care. Tiān
+      Xiàng (天相) — a major star associated with that tendency — appears in the Life Palace (命宫, mìng
+      gōng), the area used to discuss everyday responses and identity. You may be comfortable
+      hearing several perspectives and using a fair process to keep cooperation workable. Imagine
+      joining a collaboration where roles have not yet been agreed. Notice what you volunteer to
+      clarify, what you leave to others and what support makes participation easier. Consider
+      stating your own recommendation after you have heard the relevant perspectives. The chapters
+      that follow look at different settings for these preferences, including work, relationships
+      and time outside familiar surroundings. Compare each idea with a recent experience before
+      adopting it as a description of yourself. A chart provides several perspectives, and a single
+      prominent symbol need not explain everything you do.
+    advice:
+      - Consider stating your own recommendation after you have heard the relevant perspectives
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.tian_liang
+  system: ziwei
+  section: overview
+  topic: overview_tian_liang
+  when:
+    path: palaces[key=life].majorStars[key=tian_liang].key
+    eq: tian_liang
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 天梁的命盘入口
+    summary: 你倾向以经验传递与保护意识组织生活。
+    body: 你可以把经验传递与保护意识当作理解自己的一个入口。命宫（观察日常回应的领域）出现天梁（象征经验传递与保护意识的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己倾向从长远角度看问题，也愿意替别人留意容易忽略的风险。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 不妨先问对方想要倾听、信息还是一起想办法
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Liáng: a starting point for reflection'
+    summary: You may organize everyday choices around protective judgment and learning from experience.
+    body:
+      You can begin this reading by considering protective judgment and learning from experience.
+      Tiān Liáng (天梁) — a major star associated with that tendency — appears in the Life Palace (命宫,
+      mìng gōng), the area used to discuss everyday responses and identity. You may look beyond an
+      immediate result and notice practical risks a less experienced person could overlook. Imagine
+      joining a collaboration where roles have not yet been agreed. Notice what you volunteer to
+      clarify, what you leave to others and what support makes participation easier. Try asking
+      whether someone wants listening, information or help thinking through options. The chapters
+      that follow look at different settings for these preferences, including work, relationships
+      and time outside familiar surroundings. Compare each idea with a recent experience before
+      adopting it as a description of yourself. A chart provides several perspectives, and a single
+      prominent symbol need not explain everything you do.
+    advice:
+      - Try asking whether someone wants listening, information or help thinking through options
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.qi_sha
+  system: ziwei
+  section: overview
+  topic: overview_qi_sha
+  when:
+    path: palaces[key=life].majorStars[key=qi_sha].key
+    eq: qi_sha
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 七杀的命盘入口
+    summary: 你倾向以独立决断与应对挑战组织生活。
+    body: 你可以把独立决断与应对挑战当作理解自己的一个入口。命宫（观察日常回应的领域）出现七杀（象征独立决断与应对挑战的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己容易在复杂局面里抓住优先事项，愿意承担有边界的困难任务。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 建议在启动之前交代目标、限制和求助的节点
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qī Shā: a starting point for reflection'
+    summary:
+      You may organize everyday choices around independent decisions and focused responses to a
+      challenge.
+    body: You can begin this reading by considering independent decisions and focused responses to a
+      challenge. Qī Shā (七杀) — a major star associated with that tendency — appears in the Life
+      Palace (命宫, mìng gōng), the area used to discuss everyday responses and identity. You may cut
+      through competing demands, identify a priority and take ownership of a difficult task. Imagine
+      joining a collaboration where roles have not yet been agreed. Notice what you volunteer to
+      clarify, what you leave to others and what support makes participation easier. Try briefing
+      others on the goal, constraints and point at which support will be needed. The chapters that
+      follow look at different settings for these preferences, including work, relationships and
+      time outside familiar surroundings. Compare each idea with a recent experience before adopting
+      it as a description of yourself. A chart provides several perspectives, and a single prominent
+      symbol need not explain everything you do.
+    advice:
+      - Try briefing others on the goal, constraints and point at which support will be needed
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.overview.po_jun
+  system: ziwei
+  section: overview
+  topic: overview_po_jun
+  when:
+    path: palaces[key=life].majorStars[key=po_jun].key
+    eq: po_jun
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - personality
+  exclusive_with: []
+  zh:
+    title: 破军的命盘入口
+    summary: 你倾向以拆解旧法与重新组织组织生活。
+    body: 你可以把拆解旧法与重新组织当作理解自己的一个入口。命宫（观察日常回应的领域）出现破军（象征拆解旧法与重新组织的主星），因此报告先从这种行为偏好谈起。比如，遇到新的合作任务时，你自己倾向检视旧办法是否仍然有效，愿意从实际问题出发重新设计。建议把这份描述与最近一次实际经历比较，再往后阅读不同生活领域的细节，允许经历修正标签。
+    advice:
+      - 可以先做可撤回的小实验，再决定是否扩大
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Pò Jūn: a starting point for reflection'
+    summary:
+      You may organize everyday choices around reworking structures and experimenting with a new
+      arrangement.
+    body:
+      You can begin this reading by considering reworking structures and experimenting with a new
+      arrangement. Pò Jūn (破军) — a major star associated with that tendency — appears in the Life
+      Palace (命宫, mìng gōng), the area used to discuss everyday responses and identity. You may
+      question an inherited arrangement and rebuild it around the problem it is supposed to solve.
+      Imagine joining a collaboration where roles have not yet been agreed. Notice what you
+      volunteer to clarify, what you leave to others and what support makes participation easier.
+      Consider a reversible trial before extending a new arrangement to everything. The chapters
+      that follow look at different settings for these preferences, including work, relationships
+      and time outside familiar surroundings. Compare each idea with a recent experience before
+      adopting it as a description of yourself. A chart provides several perspectives, and a single
+      prominent symbol need not explain everything you do.
+    advice:
+      - Consider a reversible trial before extending a new arrangement to everything
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

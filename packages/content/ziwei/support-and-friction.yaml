@@ -1,0 +1,2050 @@
+# Original bilingual editorial content for T-23; sources are not quotations.
+# // DESIGN-GAP: The document estimates forty auxiliary placements without listing key palaces; life, career and spouse receive all fourteen supported auxiliary/malefic stars.
+- id: ziwei.aux.life.wen_chang
+  system: ziwei
+  section: life_palace
+  topic: aux_life_wen_chang
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: wen_chang
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 文昌在命宫：条理表达
+    summary: 你在自我表达上，可以留意条理表达的作用。
+    body: 你在自我表达上，可以留意条理表达怎样改变参与方式。文昌（这里象征条理表达的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），整理清单与说明，能让合作更容易跟上你的思路。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，写活动说明时先列顺序，再补别人可能追问的背景；再看这一步在当前关系或任务里是否方便落实。别把形式完整当作沟通完成。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议先请一位读者复述重点，再改一处不清楚的地方，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 先请一位读者复述重点，再改一处不清楚的地方
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wén Chāng in Life Palace: clear written structure'
+    summary: You can notice how clear written structure affects your everyday identity.
+    body: You can examine clear written structure as a modifier of your everyday identity. Wén Chāng
+      (文昌) — an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which
+      concerns how you describe yourself and respond to ordinary situations. In this setting, an
+      outline or explanation can make your reasoning easier for others to follow. As an example,
+      drafting a short guide for an activity, begin with the sequence and include the context a
+      newcomer would ask for. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that a polished format still needs a reader who can use it.
+      However, your response at home may differ from your response at work; leave room for that
+      difference. Try to ask a reader to restate the main point and revise the passage they found
+      confusing. Review the result after one real attempt before making the practice routine. An
+      auxiliary placement adds a perspective to the broader reading; it cannot establish someone’s
+      character from a single symbol.
+    advice:
+      - ask a reader to restate the main point and revise the passage they found confusing
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.wen_chang
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_wen_chang
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: wen_chang
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 文昌在官禄宫：条理表达
+    summary: 你在工作组织上，可以留意条理表达的作用。
+    body: 你在工作组织上，可以留意条理表达怎样改变参与方式。文昌（这里象征条理表达的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），整理清单与说明，能让合作更容易跟上你的思路。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，写活动说明时先列顺序，再补别人可能追问的背景；再看这一步在当前关系或任务里是否方便落实。别把形式完整当作沟通完成。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议先请一位读者复述重点，再改一处不清楚的地方，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 先请一位读者复述重点，再改一处不清楚的地方
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wén Chāng in Career Palace: clear written structure'
+    summary: You can notice how clear written structure affects organizing work.
+    body:
+      You can examine clear written structure as a modifier of organizing work. Wén Chāng (文昌) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, an outline or explanation can make your reasoning easier for others to follow. As an
+      example, drafting a short guide for an activity, begin with the sequence and include the
+      context a newcomer would ask for. Notice whether the action fits the people involved as well
+      as the practical task. A caution is that a polished format still needs a reader who can use
+      it. However, the reading explores a working style without assigning you a profession; skills,
+      interests and the conditions of a role matter together. Try to ask a reader to restate the
+      main point and revise the passage they found confusing. Review the result after one real
+      attempt before making the practice routine. An auxiliary placement adds a perspective to the
+      broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - ask a reader to restate the main point and revise the passage they found confusing
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.wen_chang
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_wen_chang
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: wen_chang
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 文昌在夫妻宫：条理表达
+    summary: 你在亲密沟通上，可以留意条理表达的作用。
+    body: 你在亲密沟通上，可以留意条理表达怎样改变参与方式。文昌（这里象征条理表达的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），整理清单与说明，能让合作更容易跟上你的思路。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，写活动说明时先列顺序，再补别人可能追问的背景；再看这一步在当前关系或任务里是否方便落实。别把形式完整当作沟通完成。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议先请一位读者复述重点，再改一处不清楚的地方，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 先请一位读者复述重点，再改一处不清楚的地方
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wén Chāng in Spouse Palace: clear written structure'
+    summary: You can notice how clear written structure affects negotiation in close relationships.
+    body:
+      You can examine clear written structure as a modifier of negotiation in close relationships.
+      Wén Chāng (文昌) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī
+      gōng), which concerns the expectations and conversations that shape an intimate partnership.
+      In this setting, an outline or explanation can make your reasoning easier for others to
+      follow. As an example, drafting a short guide for an activity, begin with the sequence and
+      include the context a newcomer would ask for. Notice whether the action fits the people
+      involved as well as the practical task. A caution is that a polished format still needs a
+      reader who can use it. However, a symbolic relationship theme cannot decide compatibility or
+      tell you what kind of relationship to pursue. Try to ask a reader to restate the main point
+      and revise the passage they found confusing. Review the result after one real attempt before
+      making the practice routine. An auxiliary placement adds a perspective to the broader reading;
+      it cannot establish someone’s character from a single symbol.
+    advice:
+      - ask a reader to restate the main point and revise the passage they found confusing
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.wen_qu
+  system: ziwei
+  section: life_palace
+  topic: aux_life_wen_qu
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: wen_qu
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 文曲在命宫：感受与创意表达
+    summary: 你在自我表达上，可以留意感受与创意表达的作用。
+    body: 你在自我表达上，可以留意感受与创意表达怎样改变参与方式。文曲（这里象征感受与创意表达的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你对语气、细节和表达形式的留意，可以让信息更有温度。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，讨论一份设计稿时，把喜欢的细节和实际使用需求分别说出来；再看这一步在当前关系或任务里是否方便落实。感受丰富时也需要让对方知道你希望怎样落实。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议挑一个想法做成小样，邀请具体反馈，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 挑一个想法做成小样，邀请具体反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wén Qǔ in Life Palace: expressive nuance'
+    summary: You can notice how expressive nuance affects your everyday identity.
+    body:
+      You can examine expressive nuance as a modifier of your everyday identity. Wén Qǔ (文曲) — an
+      auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, attention to
+      tone and presentation can help another person feel included in an exchange. As an example,
+      giving feedback on a design, distinguish an appealing detail from a practical requirement.
+      Notice whether the action fits the people involved as well as the practical task. A caution is
+      that a rich impression becomes more useful when the next action is clear. However, your
+      response at home may differ from your response at work; leave room for that difference. Try to
+      turn one idea into a small sample and invite specific feedback. Review the result after one
+      real attempt before making the practice routine. An auxiliary placement adds a perspective to
+      the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - turn one idea into a small sample and invite specific feedback
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.wen_qu
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_wen_qu
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: wen_qu
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 文曲在官禄宫：感受与创意表达
+    summary: 你在工作组织上，可以留意感受与创意表达的作用。
+    body: 你在工作组织上，可以留意感受与创意表达怎样改变参与方式。文曲（这里象征感受与创意表达的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你对语气、细节和表达形式的留意，可以让信息更有温度。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，讨论一份设计稿时，把喜欢的细节和实际使用需求分别说出来；再看这一步在当前关系或任务里是否方便落实。感受丰富时也需要让对方知道你希望怎样落实。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议挑一个想法做成小样，邀请具体反馈，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 挑一个想法做成小样，邀请具体反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wén Qǔ in Career Palace: expressive nuance'
+    summary: You can notice how expressive nuance affects organizing work.
+    body:
+      You can examine expressive nuance as a modifier of organizing work. Wén Qǔ (文曲) — an auxiliary
+      symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which concerns how you
+      take responsibility, learn professionally and arrange a task. In this setting, attention to
+      tone and presentation can help another person feel included in an exchange. As an example,
+      giving feedback on a design, distinguish an appealing detail from a practical requirement.
+      Notice whether the action fits the people involved as well as the practical task. A caution is
+      that a rich impression becomes more useful when the next action is clear. However, the reading
+      explores a working style without assigning you a profession; skills, interests and the
+      conditions of a role matter together. Try to turn one idea into a small sample and invite
+      specific feedback. Review the result after one real attempt before making the practice
+      routine. An auxiliary placement adds a perspective to the broader reading; it cannot establish
+      someone’s character from a single symbol.
+    advice:
+      - turn one idea into a small sample and invite specific feedback
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.wen_qu
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_wen_qu
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: wen_qu
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 文曲在夫妻宫：感受与创意表达
+    summary: 你在亲密沟通上，可以留意感受与创意表达的作用。
+    body: 你在亲密沟通上，可以留意感受与创意表达怎样改变参与方式。文曲（这里象征感受与创意表达的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你对语气、细节和表达形式的留意，可以让信息更有温度。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，讨论一份设计稿时，把喜欢的细节和实际使用需求分别说出来；再看这一步在当前关系或任务里是否方便落实。感受丰富时也需要让对方知道你希望怎样落实。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议挑一个想法做成小样，邀请具体反馈，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 挑一个想法做成小样，邀请具体反馈
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Wén Qǔ in Spouse Palace: expressive nuance'
+    summary: You can notice how expressive nuance affects negotiation in close relationships.
+    body:
+      You can examine expressive nuance as a modifier of negotiation in close relationships. Wén Qǔ
+      (文曲) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī gōng), which
+      concerns the expectations and conversations that shape an intimate partnership. In this
+      setting, attention to tone and presentation can help another person feel included in an
+      exchange. As an example, giving feedback on a design, distinguish an appealing detail from a
+      practical requirement. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that a rich impression becomes more useful when the next action
+      is clear. However, a symbolic relationship theme cannot decide compatibility or tell you what
+      kind of relationship to pursue. Try to turn one idea into a small sample and invite specific
+      feedback. Review the result after one real attempt before making the practice routine. An
+      auxiliary placement adds a perspective to the broader reading; it cannot establish someone’s
+      character from a single symbol.
+    advice:
+      - turn one idea into a small sample and invite specific feedback
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.zuo_fu
+  system: ziwei
+  section: life_palace
+  topic: aux_life_zuo_fu
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: zuo_fu
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 左辅在命宫：分担与协同
+    summary: 你在自我表达上，可以留意分担与协同的作用。
+    body: 你在自我表达上，可以留意分担与协同怎样改变参与方式。左辅（这里象征分担与协同的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），借助可约定的分工，你容易把支持变成持续的配合。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，共同准备材料时，把搜集、核对和交接分给不同的人；再看这一步在当前关系或任务里是否方便落实。不要把别人主动帮一次理解为长期承诺。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议列出一件可以交接的任务，并确认双方余力，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 列出一件可以交接的任务，并确认双方余力
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zuǒ Fǔ in Life Palace: shared practical effort'
+    summary: You can notice how shared practical effort affects your everyday identity.
+    body:
+      You can examine shared practical effort as a modifier of your everyday identity. Zuǒ Fǔ (左辅) —
+      an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, a defined
+      contribution can turn goodwill into dependable cooperation. As an example, preparing materials
+      together, assign gathering, checking and handover as distinct contributions. Notice whether
+      the action fits the people involved as well as the practical task. A caution is that a single
+      offer of help is not automatically an ongoing commitment. However, your response at home may
+      differ from your response at work; leave room for that difference. Try to identify a task that
+      can be handed over and confirm both people have capacity. Review the result after one real
+      attempt before making the practice routine. An auxiliary placement adds a perspective to the
+      broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - identify a task that can be handed over and confirm both people have capacity
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.zuo_fu
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_zuo_fu
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: zuo_fu
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 左辅在官禄宫：分担与协同
+    summary: 你在工作组织上，可以留意分担与协同的作用。
+    body: 你在工作组织上，可以留意分担与协同怎样改变参与方式。左辅（这里象征分担与协同的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），借助可约定的分工，你容易把支持变成持续的配合。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，共同准备材料时，把搜集、核对和交接分给不同的人；再看这一步在当前关系或任务里是否方便落实。不要把别人主动帮一次理解为长期承诺。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议列出一件可以交接的任务，并确认双方余力，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 列出一件可以交接的任务，并确认双方余力
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zuǒ Fǔ in Career Palace: shared practical effort'
+    summary: You can notice how shared practical effort affects organizing work.
+    body:
+      You can examine shared practical effort as a modifier of organizing work. Zuǒ Fǔ (左辅) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, a defined contribution can turn goodwill into dependable cooperation. As an example,
+      preparing materials together, assign gathering, checking and handover as distinct
+      contributions. Notice whether the action fits the people involved as well as the practical
+      task. A caution is that a single offer of help is not automatically an ongoing commitment.
+      However, the reading explores a working style without assigning you a profession; skills,
+      interests and the conditions of a role matter together. Try to identify a task that can be
+      handed over and confirm both people have capacity. Review the result after one real attempt
+      before making the practice routine. An auxiliary placement adds a perspective to the broader
+      reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - identify a task that can be handed over and confirm both people have capacity
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.zuo_fu
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_zuo_fu
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: zuo_fu
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 左辅在夫妻宫：分担与协同
+    summary: 你在亲密沟通上，可以留意分担与协同的作用。
+    body: 你在亲密沟通上，可以留意分担与协同怎样改变参与方式。左辅（这里象征分担与协同的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），借助可约定的分工，你容易把支持变成持续的配合。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，共同准备材料时，把搜集、核对和交接分给不同的人；再看这一步在当前关系或任务里是否方便落实。不要把别人主动帮一次理解为长期承诺。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议列出一件可以交接的任务，并确认双方余力，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 列出一件可以交接的任务，并确认双方余力
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Zuǒ Fǔ in Spouse Palace: shared practical effort'
+    summary: You can notice how shared practical effort affects negotiation in close relationships.
+    body:
+      You can examine shared practical effort as a modifier of negotiation in close relationships.
+      Zuǒ Fǔ (左辅) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī
+      gōng), which concerns the expectations and conversations that shape an intimate partnership.
+      In this setting, a defined contribution can turn goodwill into dependable cooperation. As an
+      example, preparing materials together, assign gathering, checking and handover as distinct
+      contributions. Notice whether the action fits the people involved as well as the practical
+      task. A caution is that a single offer of help is not automatically an ongoing commitment.
+      However, a symbolic relationship theme cannot decide compatibility or tell you what kind of
+      relationship to pursue. Try to identify a task that can be handed over and confirm both people
+      have capacity. Review the result after one real attempt before making the practice routine. An
+      auxiliary placement adds a perspective to the broader reading; it cannot establish someone’s
+      character from a single symbol.
+    advice:
+      - identify a task that can be handed over and confirm both people have capacity
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.you_bi
+  system: ziwei
+  section: life_palace
+  topic: aux_life_you_bi
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: you_bi
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 右弼在命宫：响应与补位
+    summary: 你在自我表达上，可以留意响应与补位的作用。
+    body: 你在自我表达上，可以留意响应与补位怎样改变参与方式。右弼（这里象征响应与补位的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），当有人及时补充信息或提醒遗漏，你可以更稳地调整安排。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，临时改活动时间时，找人核对受影响的对象和遗漏的通知；再看这一步在当前关系或任务里是否方便落实。关系上的默契仍需要把新的需求讲清楚。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议先说清要对方帮你核对什么，再表达感谢，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 先说清要对方帮你核对什么，再表达感谢
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Yòu Bì in Life Palace: responsive assistance'
+    summary: You can notice how responsive assistance affects your everyday identity.
+    body:
+      You can examine responsive assistance as a modifier of your everyday identity. Yòu Bì (右弼) —
+      an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, timely
+      information or a second view may help you correct a gap before it becomes inconvenient. As an
+      example, changing an event time, ask a second person to check who is affected and which
+      notices may be missing. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that familiarity does not remove the need to explain a new
+      request. However, your response at home may differ from your response at work; leave room for
+      that difference. Try to specify what you want checked and acknowledge the effort afterward.
+      Review the result after one real attempt before making the practice routine. An auxiliary
+      placement adds a perspective to the broader reading; it cannot establish someone’s character
+      from a single symbol.
+    advice:
+      - specify what you want checked and acknowledge the effort afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.you_bi
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_you_bi
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: you_bi
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 右弼在官禄宫：响应与补位
+    summary: 你在工作组织上，可以留意响应与补位的作用。
+    body: 你在工作组织上，可以留意响应与补位怎样改变参与方式。右弼（这里象征响应与补位的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），当有人及时补充信息或提醒遗漏，你可以更稳地调整安排。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，临时改活动时间时，找人核对受影响的对象和遗漏的通知；再看这一步在当前关系或任务里是否方便落实。关系上的默契仍需要把新的需求讲清楚。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议先说清要对方帮你核对什么，再表达感谢，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 先说清要对方帮你核对什么，再表达感谢
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Yòu Bì in Career Palace: responsive assistance'
+    summary: You can notice how responsive assistance affects organizing work.
+    body: You can examine responsive assistance as a modifier of organizing work. Yòu Bì (右弼) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, timely information or a second view may help you correct a gap before it becomes
+      inconvenient. As an example, changing an event time, ask a second person to check who is
+      affected and which notices may be missing. Notice whether the action fits the people involved
+      as well as the practical task. A caution is that familiarity does not remove the need to
+      explain a new request. However, the reading explores a working style without assigning you a
+      profession; skills, interests and the conditions of a role matter together. Try to specify
+      what you want checked and acknowledge the effort afterward. Review the result after one real
+      attempt before making the practice routine. An auxiliary placement adds a perspective to the
+      broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - specify what you want checked and acknowledge the effort afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.you_bi
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_you_bi
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: you_bi
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 右弼在夫妻宫：响应与补位
+    summary: 你在亲密沟通上，可以留意响应与补位的作用。
+    body: 你在亲密沟通上，可以留意响应与补位怎样改变参与方式。右弼（这里象征响应与补位的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），当有人及时补充信息或提醒遗漏，你可以更稳地调整安排。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，临时改活动时间时，找人核对受影响的对象和遗漏的通知；再看这一步在当前关系或任务里是否方便落实。关系上的默契仍需要把新的需求讲清楚。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议先说清要对方帮你核对什么，再表达感谢，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 先说清要对方帮你核对什么，再表达感谢
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Yòu Bì in Spouse Palace: responsive assistance'
+    summary: You can notice how responsive assistance affects negotiation in close relationships.
+    body:
+      You can examine responsive assistance as a modifier of negotiation in close relationships. Yòu
+      Bì (右弼) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī gōng),
+      which concerns the expectations and conversations that shape an intimate partnership. In this
+      setting, timely information or a second view may help you correct a gap before it becomes
+      inconvenient. As an example, changing an event time, ask a second person to check who is
+      affected and which notices may be missing. Notice whether the action fits the people involved
+      as well as the practical task. A caution is that familiarity does not remove the need to
+      explain a new request. However, a symbolic relationship theme cannot decide compatibility or
+      tell you what kind of relationship to pursue. Try to specify what you want checked and
+      acknowledge the effort afterward. Review the result after one real attempt before making the
+      practice routine. An auxiliary placement adds a perspective to the broader reading; it cannot
+      establish someone’s character from a single symbol.
+    advice:
+      - specify what you want checked and acknowledge the effort afterward
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.tian_kui
+  system: ziwei
+  section: life_palace
+  topic: aux_life_tian_kui
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: tian_kui
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天魁在命宫：指引与经验支持
+    summary: 你在自我表达上，可以留意指引与经验支持的作用。
+    body: 你在自我表达上，可以留意指引与经验支持怎样改变参与方式。天魁（这里象征指引与经验支持的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），合适的经验分享，可能帮你少走一段反复摸索的路。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，准备第一次主持讨论时，向有经验的人请教开场与时间分配；再看这一步在当前关系或任务里是否方便落实。这不是等待某位人物替你决定，而是把经验变成可检验的方法。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议带着一个具体问题求教，记录哪些部分适用，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 带着一个具体问题求教，记录哪些部分适用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Kuí in Life Palace: access to experienced guidance'
+    summary: You can notice how access to experienced guidance affects your everyday identity.
+    body:
+      You can examine access to experienced guidance as a modifier of your everyday identity. Tiān
+      Kuí (天魁) — an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng),
+      which concerns how you describe yourself and respond to ordinary situations. In this setting,
+      a relevant explanation from someone experienced may shorten a period of avoidable trial and
+      error. As an example, preparing to chair a discussion for the first time, ask someone
+      experienced how they set the opening and allocate time. Notice whether the action fits the
+      people involved as well as the practical task. A caution is that guidance is useful when you
+      can examine it, rather than handing someone else the decision. However, your response at home
+      may differ from your response at work; leave room for that difference. Try to ask for guidance
+      on a precise question and note which parts fit your circumstances. Review the result after one
+      real attempt before making the practice routine. An auxiliary placement adds a perspective to
+      the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - ask for guidance on a precise question and note which parts fit your circumstances
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.tian_kui
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_tian_kui
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: tian_kui
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天魁在官禄宫：指引与经验支持
+    summary: 你在工作组织上，可以留意指引与经验支持的作用。
+    body: 你在工作组织上，可以留意指引与经验支持怎样改变参与方式。天魁（这里象征指引与经验支持的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），合适的经验分享，可能帮你少走一段反复摸索的路。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，准备第一次主持讨论时，向有经验的人请教开场与时间分配；再看这一步在当前关系或任务里是否方便落实。这不是等待某位人物替你决定，而是把经验变成可检验的方法。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议带着一个具体问题求教，记录哪些部分适用，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 带着一个具体问题求教，记录哪些部分适用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Kuí in Career Palace: access to experienced guidance'
+    summary: You can notice how access to experienced guidance affects organizing work.
+    body:
+      You can examine access to experienced guidance as a modifier of organizing work. Tiān Kuí (天魁)
+      — an auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, a relevant explanation from someone experienced may shorten a period of avoidable
+      trial and error. As an example, preparing to chair a discussion for the first time, ask
+      someone experienced how they set the opening and allocate time. Notice whether the action fits
+      the people involved as well as the practical task. A caution is that guidance is useful when
+      you can examine it, rather than handing someone else the decision. However, the reading
+      explores a working style without assigning you a profession; skills, interests and the
+      conditions of a role matter together. Try to ask for guidance on a precise question and note
+      which parts fit your circumstances. Review the result after one real attempt before making the
+      practice routine. An auxiliary placement adds a perspective to the broader reading; it cannot
+      establish someone’s character from a single symbol.
+    advice:
+      - ask for guidance on a precise question and note which parts fit your circumstances
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.tian_kui
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_tian_kui
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: tian_kui
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天魁在夫妻宫：指引与经验支持
+    summary: 你在亲密沟通上，可以留意指引与经验支持的作用。
+    body: 你在亲密沟通上，可以留意指引与经验支持怎样改变参与方式。天魁（这里象征指引与经验支持的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），合适的经验分享，可能帮你少走一段反复摸索的路。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，准备第一次主持讨论时，向有经验的人请教开场与时间分配；再看这一步在当前关系或任务里是否方便落实。这不是等待某位人物替你决定，而是把经验变成可检验的方法。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议带着一个具体问题求教，记录哪些部分适用，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 带着一个具体问题求教，记录哪些部分适用
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Kuí in Spouse Palace: access to experienced guidance'
+    summary: You can notice how access to experienced guidance affects negotiation in close relationships.
+    body: You can examine access to experienced guidance as a modifier of negotiation in close
+      relationships. Tiān Kuí (天魁) — an auxiliary symbol for this kind of influence — appears in the
+      夫妻宫 (fū qī gōng), which concerns the expectations and conversations that shape an intimate
+      partnership. In this setting, a relevant explanation from someone experienced may shorten a
+      period of avoidable trial and error. As an example, preparing to chair a discussion for the
+      first time, ask someone experienced how they set the opening and allocate time. Notice whether
+      the action fits the people involved as well as the practical task. A caution is that guidance
+      is useful when you can examine it, rather than handing someone else the decision. However, a
+      symbolic relationship theme cannot decide compatibility or tell you what kind of relationship
+      to pursue. Try to ask for guidance on a precise question and note which parts fit your
+      circumstances. Review the result after one real attempt before making the practice routine. An
+      auxiliary placement adds a perspective to the broader reading; it cannot establish someone’s
+      character from a single symbol.
+    advice:
+      - ask for guidance on a precise question and note which parts fit your circumstances
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.tian_yue
+  system: ziwei
+  section: life_palace
+  topic: aux_life_tian_yue
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: tian_yue
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天钺在命宫：细致提点
+    summary: 你在自我表达上，可以留意细致提点的作用。
+    body: 你在自我表达上，可以留意细致提点怎样改变参与方式。天钺（这里象征细致提点的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你可以从不抢眼的提醒里发现一个改进机会。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，提交材料之前，请熟悉流程的人帮你看一眼容易漏掉的细节；再看这一步在当前关系或任务里是否方便落实。帮助未必以热闹的方式出现，自己的判断也需要保留。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议回顾一条有用的提醒，把它加入下次检查清单，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 回顾一条有用的提醒，把它加入下次检查清单
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Yuè in Life Palace: thoughtful secondary guidance'
+    summary: You can notice how thoughtful secondary guidance affects your everyday identity.
+    body:
+      You can examine thoughtful secondary guidance as a modifier of your everyday identity. Tiān
+      Yuè (天钺) — an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng),
+      which concerns how you describe yourself and respond to ordinary situations. In this setting,
+      a quiet suggestion may reveal an improvement that the main discussion overlooked. As an
+      example, before submitting a set of materials, invite someone familiar with the process to
+      look for easily missed details. Notice whether the action fits the people involved as well as
+      the practical task. A caution is that help can arrive without fanfare, while the final
+      judgment remains yours. However, your response at home may differ from your response at work;
+      leave room for that difference. Try to turn a useful reminder into a check for the next
+      attempt. Review the result after one real attempt before making the practice routine. An
+      auxiliary placement adds a perspective to the broader reading; it cannot establish someone’s
+      character from a single symbol.
+    advice:
+      - turn a useful reminder into a check for the next attempt
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.tian_yue
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_tian_yue
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: tian_yue
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天钺在官禄宫：细致提点
+    summary: 你在工作组织上，可以留意细致提点的作用。
+    body: 你在工作组织上，可以留意细致提点怎样改变参与方式。天钺（这里象征细致提点的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你可以从不抢眼的提醒里发现一个改进机会。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，提交材料之前，请熟悉流程的人帮你看一眼容易漏掉的细节；再看这一步在当前关系或任务里是否方便落实。帮助未必以热闹的方式出现，自己的判断也需要保留。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议回顾一条有用的提醒，把它加入下次检查清单，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 回顾一条有用的提醒，把它加入下次检查清单
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Yuè in Career Palace: thoughtful secondary guidance'
+    summary: You can notice how thoughtful secondary guidance affects organizing work.
+    body:
+      You can examine thoughtful secondary guidance as a modifier of organizing work. Tiān Yuè (天钺)
+      — an auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, a quiet suggestion may reveal an improvement that the main discussion overlooked. As
+      an example, before submitting a set of materials, invite someone familiar with the process to
+      look for easily missed details. Notice whether the action fits the people involved as well as
+      the practical task. A caution is that help can arrive without fanfare, while the final
+      judgment remains yours. However, the reading explores a working style without assigning you a
+      profession; skills, interests and the conditions of a role matter together. Try to turn a
+      useful reminder into a check for the next attempt. Review the result after one real attempt
+      before making the practice routine. An auxiliary placement adds a perspective to the broader
+      reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - turn a useful reminder into a check for the next attempt
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.tian_yue
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_tian_yue
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: tian_yue
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天钺在夫妻宫：细致提点
+    summary: 你在亲密沟通上，可以留意细致提点的作用。
+    body: 你在亲密沟通上，可以留意细致提点怎样改变参与方式。天钺（这里象征细致提点的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你可以从不抢眼的提醒里发现一个改进机会。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，提交材料之前，请熟悉流程的人帮你看一眼容易漏掉的细节；再看这一步在当前关系或任务里是否方便落实。帮助未必以热闹的方式出现，自己的判断也需要保留。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议回顾一条有用的提醒，把它加入下次检查清单，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 回顾一条有用的提醒，把它加入下次检查清单
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Yuè in Spouse Palace: thoughtful secondary guidance'
+    summary: You can notice how thoughtful secondary guidance affects negotiation in close relationships.
+    body: You can examine thoughtful secondary guidance as a modifier of negotiation in close
+      relationships. Tiān Yuè (天钺) — an auxiliary symbol for this kind of influence — appears in the
+      夫妻宫 (fū qī gōng), which concerns the expectations and conversations that shape an intimate
+      partnership. In this setting, a quiet suggestion may reveal an improvement that the main
+      discussion overlooked. As an example, before submitting a set of materials, invite someone
+      familiar with the process to look for easily missed details. Notice whether the action fits
+      the people involved as well as the practical task. A caution is that help can arrive without
+      fanfare, while the final judgment remains yours. However, a symbolic relationship theme cannot
+      decide compatibility or tell you what kind of relationship to pursue. Try to turn a useful
+      reminder into a check for the next attempt. Review the result after one real attempt before
+      making the practice routine. An auxiliary placement adds a perspective to the broader reading;
+      it cannot establish someone’s character from a single symbol.
+    advice:
+      - turn a useful reminder into a check for the next attempt
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.lu_cun
+  system: ziwei
+  section: life_palace
+  topic: aux_life_lu_cun
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: lu_cun
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 禄存在命宫：保留与资源积累
+    summary: 你在自我表达上，可以留意保留与资源积累的作用。
+    body: 你在自我表达上，可以留意保留与资源积累怎样改变参与方式。禄存（这里象征保留与资源积累的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你倾向看重可持续使用的资源，而不是一次把所有余力用完。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，安排学习或活动时，留下一点机动时间应对临时改动；再看这一步在当前关系或任务里是否方便落实。储备应服务生活，不必为了保留而拒绝合理需要。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议盘点一项已有资源，给它设定清楚用途，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 盘点一项已有资源，给它设定清楚用途
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lù Cún in Life Palace: preserving useful reserves'
+    summary: You can notice how preserving useful reserves affects your everyday identity.
+    body: You can examine preserving useful reserves as a modifier of your everyday identity. Lù Cún
+      (禄存) — an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which
+      concerns how you describe yourself and respond to ordinary situations. In this setting, you
+      may value resources that remain available over time rather than using every reserve
+      immediately. As an example, when planning study or an event, leave some unallocated time for
+      an unexpected adjustment. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that a reserve should support life instead of becoming a reason
+      to deny every reasonable need. However, your response at home may differ from your response at
+      work; leave room for that difference. Try to review an existing reserve and name the purpose
+      it is meant to serve. Review the result after one real attempt before making the practice
+      routine. An auxiliary placement adds a perspective to the broader reading; it cannot establish
+      someone’s character from a single symbol.
+    advice:
+      - review an existing reserve and name the purpose it is meant to serve
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.lu_cun
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_lu_cun
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: lu_cun
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 禄存在官禄宫：保留与资源积累
+    summary: 你在工作组织上，可以留意保留与资源积累的作用。
+    body: 你在工作组织上，可以留意保留与资源积累怎样改变参与方式。禄存（这里象征保留与资源积累的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你倾向看重可持续使用的资源，而不是一次把所有余力用完。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，安排学习或活动时，留下一点机动时间应对临时改动；再看这一步在当前关系或任务里是否方便落实。储备应服务生活，不必为了保留而拒绝合理需要。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议盘点一项已有资源，给它设定清楚用途，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 盘点一项已有资源，给它设定清楚用途
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lù Cún in Career Palace: preserving useful reserves'
+    summary: You can notice how preserving useful reserves affects organizing work.
+    body:
+      You can examine preserving useful reserves as a modifier of organizing work. Lù Cún (禄存) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, you may value resources that remain available over time rather than using every
+      reserve immediately. As an example, when planning study or an event, leave some unallocated
+      time for an unexpected adjustment. Notice whether the action fits the people involved as well
+      as the practical task. A caution is that a reserve should support life instead of becoming a
+      reason to deny every reasonable need. However, the reading explores a working style without
+      assigning you a profession; skills, interests and the conditions of a role matter together.
+      Try to review an existing reserve and name the purpose it is meant to serve. Review the result
+      after one real attempt before making the practice routine. An auxiliary placement adds a
+      perspective to the broader reading; it cannot establish someone’s character from a single
+      symbol.
+    advice:
+      - review an existing reserve and name the purpose it is meant to serve
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.lu_cun
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_lu_cun
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: lu_cun
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 禄存在夫妻宫：保留与资源积累
+    summary: 你在亲密沟通上，可以留意保留与资源积累的作用。
+    body: 你在亲密沟通上，可以留意保留与资源积累怎样改变参与方式。禄存（这里象征保留与资源积累的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你倾向看重可持续使用的资源，而不是一次把所有余力用完。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，安排学习或活动时，留下一点机动时间应对临时改动；再看这一步在当前关系或任务里是否方便落实。储备应服务生活，不必为了保留而拒绝合理需要。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议盘点一项已有资源，给它设定清楚用途，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 盘点一项已有资源，给它设定清楚用途
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Lù Cún in Spouse Palace: preserving useful reserves'
+    summary: You can notice how preserving useful reserves affects negotiation in close relationships.
+    body: You can examine preserving useful reserves as a modifier of negotiation in close
+      relationships. Lù Cún (禄存) — an auxiliary symbol for this kind of influence — appears in the
+      夫妻宫 (fū qī gōng), which concerns the expectations and conversations that shape an intimate
+      partnership. In this setting, you may value resources that remain available over time rather
+      than using every reserve immediately. As an example, when planning study or an event, leave
+      some unallocated time for an unexpected adjustment. Notice whether the action fits the people
+      involved as well as the practical task. A caution is that a reserve should support life
+      instead of becoming a reason to deny every reasonable need. However, a symbolic relationship
+      theme cannot decide compatibility or tell you what kind of relationship to pursue. Try to
+      review an existing reserve and name the purpose it is meant to serve. Review the result after
+      one real attempt before making the practice routine. An auxiliary placement adds a perspective
+      to the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - review an existing reserve and name the purpose it is meant to serve
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.tian_ma
+  system: ziwei
+  section: life_palace
+  topic: aux_life_tian_ma
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: tian_ma
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天马在命宫：移动与切换
+    summary: 你在自我表达上，可以留意移动与切换的作用。
+    body: 你在自我表达上，可以留意移动与切换怎样改变参与方式。天马（这里象征移动与切换的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），转换环境可能给你新的信息，也需要认真安排切换成本。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，去不同地点参与工作时，提前确认交通和能带走的资料；再看这一步在当前关系或任务里是否方便落实。忙于移动不等于目标有进展。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议每次换环境前，写下这一趟要完成什么，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 每次换环境前，写下这一趟要完成什么
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Mǎ in Life Palace: movement and changing settings'
+    summary: You can notice how movement and changing settings affects your everyday identity.
+    body:
+      You can examine movement and changing settings as a modifier of your everyday identity. Tiān
+      Mǎ (天马) — an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng),
+      which concerns how you describe yourself and respond to ordinary situations. In this setting,
+      a change of setting can offer new information while creating practical transition costs. As an
+      example, working across locations, confirm travel arrangements and which materials can move
+      with you. Notice whether the action fits the people involved as well as the practical task. A
+      caution is that being in motion does not necessarily mean the underlying task is advancing.
+      However, your response at home may differ from your response at work; leave room for that
+      difference. Try to name what a change of setting is intended to accomplish before you make it.
+      Review the result after one real attempt before making the practice routine. An auxiliary
+      placement adds a perspective to the broader reading; it cannot establish someone’s character
+      from a single symbol.
+    advice:
+      - name what a change of setting is intended to accomplish before you make it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.tian_ma
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_tian_ma
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: tian_ma
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天马在官禄宫：移动与切换
+    summary: 你在工作组织上，可以留意移动与切换的作用。
+    body: 你在工作组织上，可以留意移动与切换怎样改变参与方式。天马（这里象征移动与切换的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），转换环境可能给你新的信息，也需要认真安排切换成本。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，去不同地点参与工作时，提前确认交通和能带走的资料；再看这一步在当前关系或任务里是否方便落实。忙于移动不等于目标有进展。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议每次换环境前，写下这一趟要完成什么，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 每次换环境前，写下这一趟要完成什么
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Mǎ in Career Palace: movement and changing settings'
+    summary: You can notice how movement and changing settings affects organizing work.
+    body:
+      You can examine movement and changing settings as a modifier of organizing work. Tiān Mǎ (天马)
+      — an auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, a change of setting can offer new information while creating practical transition
+      costs. As an example, working across locations, confirm travel arrangements and which
+      materials can move with you. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that being in motion does not necessarily mean the underlying
+      task is advancing. However, the reading explores a working style without assigning you a
+      profession; skills, interests and the conditions of a role matter together. Try to name what a
+      change of setting is intended to accomplish before you make it. Review the result after one
+      real attempt before making the practice routine. An auxiliary placement adds a perspective to
+      the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - name what a change of setting is intended to accomplish before you make it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.tian_ma
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_tian_ma
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: tian_ma
+  weight: 50
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 天马在夫妻宫：移动与切换
+    summary: 你在亲密沟通上，可以留意移动与切换的作用。
+    body: 你在亲密沟通上，可以留意移动与切换怎样改变参与方式。天马（这里象征移动与切换的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），转换环境可能给你新的信息，也需要认真安排切换成本。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，去不同地点参与工作时，提前确认交通和能带走的资料；再看这一步在当前关系或任务里是否方便落实。忙于移动不等于目标有进展。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议每次换环境前，写下这一趟要完成什么，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 每次换环境前，写下这一趟要完成什么
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tiān Mǎ in Spouse Palace: movement and changing settings'
+    summary: You can notice how movement and changing settings affects negotiation in close relationships.
+    body: You can examine movement and changing settings as a modifier of negotiation in close
+      relationships. Tiān Mǎ (天马) — an auxiliary symbol for this kind of influence — appears in the
+      夫妻宫 (fū qī gōng), which concerns the expectations and conversations that shape an intimate
+      partnership. In this setting, a change of setting can offer new information while creating
+      practical transition costs. As an example, working across locations, confirm travel
+      arrangements and which materials can move with you. Notice whether the action fits the people
+      involved as well as the practical task. A caution is that being in motion does not necessarily
+      mean the underlying task is advancing. However, a symbolic relationship theme cannot decide
+      compatibility or tell you what kind of relationship to pursue. Try to name what a change of
+      setting is intended to accomplish before you make it. Review the result after one real attempt
+      before making the practice routine. An auxiliary placement adds a perspective to the broader
+      reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - name what a change of setting is intended to accomplish before you make it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.qing_yang
+  system: ziwei
+  section: life_palace
+  topic: aux_life_qing_yang
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: qing_yang
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 擎羊在命宫：直接推进的锋芒
+    summary: 你在自我表达上，可以留意直接推进的锋芒的作用。
+    body: 你在自我表达上，可以留意直接推进的锋芒怎样改变参与方式。擎羊（这里象征直接推进的锋芒的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你可能希望迅速划清重点，遇到阻力时更容易用力推进。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，意见不一致的会议里，先复述对方的顾虑再说自己的结论；再看这一步在当前关系或任务里是否方便落实。急于定边界时，措辞可能比原意更尖锐。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议把一句强硬判断改成可讨论的具体请求，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 把一句强硬判断改成可讨论的具体请求
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qíng Yáng in Life Palace: forceful directness'
+    summary: You can notice how forceful directness affects your everyday identity.
+    body:
+      You can examine forceful directness as a modifier of your everyday identity. Qíng Yáng (擎羊) —
+      an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, you may want to
+      cut straight to the issue and push harder when resistance appears. As an example, in a meeting
+      with disagreement, restate the concern you heard before presenting your conclusion. Notice
+      whether the action fits the people involved as well as the practical task. A caution is that
+      language can become sharper than intended when a boundary feels urgent. However, your response
+      at home may differ from your response at work; leave room for that difference. Try to replace
+      a blunt verdict with a concrete request that can be discussed. Review the result after one
+      real attempt before making the practice routine. An auxiliary placement adds a perspective to
+      the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - replace a blunt verdict with a concrete request that can be discussed
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.qing_yang
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_qing_yang
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: qing_yang
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 擎羊在官禄宫：直接推进的锋芒
+    summary: 你在工作组织上，可以留意直接推进的锋芒的作用。
+    body: 你在工作组织上，可以留意直接推进的锋芒怎样改变参与方式。擎羊（这里象征直接推进的锋芒的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你可能希望迅速划清重点，遇到阻力时更容易用力推进。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，意见不一致的会议里，先复述对方的顾虑再说自己的结论；再看这一步在当前关系或任务里是否方便落实。急于定边界时，措辞可能比原意更尖锐。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议把一句强硬判断改成可讨论的具体请求，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 把一句强硬判断改成可讨论的具体请求
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qíng Yáng in Career Palace: forceful directness'
+    summary: You can notice how forceful directness affects organizing work.
+    body:
+      You can examine forceful directness as a modifier of organizing work. Qíng Yáng (擎羊) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, you may want to cut straight to the issue and push harder when resistance appears. As
+      an example, in a meeting with disagreement, restate the concern you heard before presenting
+      your conclusion. Notice whether the action fits the people involved as well as the practical
+      task. A caution is that language can become sharper than intended when a boundary feels
+      urgent. However, the reading explores a working style without assigning you a profession;
+      skills, interests and the conditions of a role matter together. Try to replace a blunt verdict
+      with a concrete request that can be discussed. Review the result after one real attempt before
+      making the practice routine. An auxiliary placement adds a perspective to the broader reading;
+      it cannot establish someone’s character from a single symbol.
+    advice:
+      - replace a blunt verdict with a concrete request that can be discussed
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.qing_yang
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_qing_yang
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: qing_yang
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 擎羊在夫妻宫：直接推进的锋芒
+    summary: 你在亲密沟通上，可以留意直接推进的锋芒的作用。
+    body: 你在亲密沟通上，可以留意直接推进的锋芒怎样改变参与方式。擎羊（这里象征直接推进的锋芒的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你可能希望迅速划清重点，遇到阻力时更容易用力推进。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，意见不一致的会议里，先复述对方的顾虑再说自己的结论；再看这一步在当前关系或任务里是否方便落实。急于定边界时，措辞可能比原意更尖锐。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议把一句强硬判断改成可讨论的具体请求，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 把一句强硬判断改成可讨论的具体请求
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Qíng Yáng in Spouse Palace: forceful directness'
+    summary: You can notice how forceful directness affects negotiation in close relationships.
+    body:
+      You can examine forceful directness as a modifier of negotiation in close relationships. Qíng
+      Yáng (擎羊) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī gōng),
+      which concerns the expectations and conversations that shape an intimate partnership. In this
+      setting, you may want to cut straight to the issue and push harder when resistance appears. As
+      an example, in a meeting with disagreement, restate the concern you heard before presenting
+      your conclusion. Notice whether the action fits the people involved as well as the practical
+      task. A caution is that language can become sharper than intended when a boundary feels
+      urgent. However, a symbolic relationship theme cannot decide compatibility or tell you what
+      kind of relationship to pursue. Try to replace a blunt verdict with a concrete request that
+      can be discussed. Review the result after one real attempt before making the practice routine.
+      An auxiliary placement adds a perspective to the broader reading; it cannot establish
+      someone’s character from a single symbol.
+    advice:
+      - replace a blunt verdict with a concrete request that can be discussed
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.tuo_luo
+  system: ziwei
+  section: life_palace
+  topic: aux_life_tuo_luo
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: tuo_luo
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 陀罗在命宫：反复与磨合
+    summary: 你在自我表达上，可以留意反复与磨合的作用。
+    body: 你在自我表达上，可以留意反复与磨合怎样改变参与方式。陀罗（这里象征反复与磨合的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你可能需要多一点时间确认细节，才能放心进入下一步。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，一项安排改了几次仍难确定时，把真正卡住的条件写出来；再看这一步在当前关系或任务里是否方便落实。反复核对也可能让讨论停在同一个位置。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议约定一个结束比较的时间，并确定最小可行步骤，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 约定一个结束比较的时间，并确定最小可行步骤
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tuó Luó in Life Palace: repeated adjustment'
+    summary: You can notice how repeated adjustment affects your everyday identity.
+    body:
+      You can examine repeated adjustment as a modifier of your everyday identity. Tuó Luó (陀罗) — an
+      auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, you may need
+      another pass through the details before feeling ready for the next step. As an example, when
+      an arrangement keeps changing, write down the condition that is actually preventing a
+      decision. Notice whether the action fits the people involved as well as the practical task. A
+      caution is that rechecking can leave a conversation circling the same issue. However, your
+      response at home may differ from your response at work; leave room for that difference. Try to
+      set an endpoint for comparison and choose a workable first step. Review the result after one
+      real attempt before making the practice routine. An auxiliary placement adds a perspective to
+      the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - set an endpoint for comparison and choose a workable first step
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.tuo_luo
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_tuo_luo
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: tuo_luo
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 陀罗在官禄宫：反复与磨合
+    summary: 你在工作组织上，可以留意反复与磨合的作用。
+    body: 你在工作组织上，可以留意反复与磨合怎样改变参与方式。陀罗（这里象征反复与磨合的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你可能需要多一点时间确认细节，才能放心进入下一步。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，一项安排改了几次仍难确定时，把真正卡住的条件写出来；再看这一步在当前关系或任务里是否方便落实。反复核对也可能让讨论停在同一个位置。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议约定一个结束比较的时间，并确定最小可行步骤，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 约定一个结束比较的时间，并确定最小可行步骤
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tuó Luó in Career Palace: repeated adjustment'
+    summary: You can notice how repeated adjustment affects organizing work.
+    body: You can examine repeated adjustment as a modifier of organizing work. Tuó Luó (陀罗) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, you may need another pass through the details before feeling ready for the next step.
+      As an example, when an arrangement keeps changing, write down the condition that is actually
+      preventing a decision. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that rechecking can leave a conversation circling the same issue.
+      However, the reading explores a working style without assigning you a profession; skills,
+      interests and the conditions of a role matter together. Try to set an endpoint for comparison
+      and choose a workable first step. Review the result after one real attempt before making the
+      practice routine. An auxiliary placement adds a perspective to the broader reading; it cannot
+      establish someone’s character from a single symbol.
+    advice:
+      - set an endpoint for comparison and choose a workable first step
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.tuo_luo
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_tuo_luo
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: tuo_luo
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 陀罗在夫妻宫：反复与磨合
+    summary: 你在亲密沟通上，可以留意反复与磨合的作用。
+    body: 你在亲密沟通上，可以留意反复与磨合怎样改变参与方式。陀罗（这里象征反复与磨合的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你可能需要多一点时间确认细节，才能放心进入下一步。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，一项安排改了几次仍难确定时，把真正卡住的条件写出来；再看这一步在当前关系或任务里是否方便落实。反复核对也可能让讨论停在同一个位置。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议约定一个结束比较的时间，并确定最小可行步骤，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 约定一个结束比较的时间，并确定最小可行步骤
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Tuó Luó in Spouse Palace: repeated adjustment'
+    summary: You can notice how repeated adjustment affects negotiation in close relationships.
+    body:
+      You can examine repeated adjustment as a modifier of negotiation in close relationships. Tuó
+      Luó (陀罗) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī gōng),
+      which concerns the expectations and conversations that shape an intimate partnership. In this
+      setting, you may need another pass through the details before feeling ready for the next step.
+      As an example, when an arrangement keeps changing, write down the condition that is actually
+      preventing a decision. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that rechecking can leave a conversation circling the same issue.
+      However, a symbolic relationship theme cannot decide compatibility or tell you what kind of
+      relationship to pursue. Try to set an endpoint for comparison and choose a workable first
+      step. Review the result after one real attempt before making the practice routine. An
+      auxiliary placement adds a perspective to the broader reading; it cannot establish someone’s
+      character from a single symbol.
+    advice:
+      - set an endpoint for comparison and choose a workable first step
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.huo_xing
+  system: ziwei
+  section: life_palace
+  topic: aux_life_huo_xing
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: huo_xing
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星在命宫：快速反应
+    summary: 你在自我表达上，可以留意快速反应的作用。
+    body: 你在自我表达上，可以留意快速反应怎样改变参与方式。火星（这里象征快速反应的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），突然增加的任务可能让你迅速进入行动状态。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，临时收到一项加急请求时，先确认范围，再决定今天能做到哪里；再看这一步在当前关系或任务里是否方便落实。即时兴奋或烦躁都可能缩短思考的停顿。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议在回复紧急要求之前，先检查已有安排，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 在回复紧急要求之前，先检查已有安排
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Huǒ Xīng in Life Palace: rapid activation'
+    summary: You can notice how rapid activation affects your everyday identity.
+    body:
+      You can examine rapid activation as a modifier of your everyday identity. Huǒ Xīng (火星) — an
+      auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, a sudden task
+      may activate a quick and concentrated response. As an example, when an urgent request arrives,
+      clarify the scope before deciding what can be done today. Notice whether the action fits the
+      people involved as well as the practical task. A caution is that a burst of enthusiasm or
+      irritation can shorten the pause needed for a careful choice. However, your response at home
+      may differ from your response at work; leave room for that difference. Try to check your
+      existing commitments before responding to an urgent request. Review the result after one real
+      attempt before making the practice routine. An auxiliary placement adds a perspective to the
+      broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - check your existing commitments before responding to an urgent request
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.huo_xing
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_huo_xing
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: huo_xing
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星在官禄宫：快速反应
+    summary: 你在工作组织上，可以留意快速反应的作用。
+    body: 你在工作组织上，可以留意快速反应怎样改变参与方式。火星（这里象征快速反应的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），突然增加的任务可能让你迅速进入行动状态。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，临时收到一项加急请求时，先确认范围，再决定今天能做到哪里；再看这一步在当前关系或任务里是否方便落实。即时兴奋或烦躁都可能缩短思考的停顿。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议在回复紧急要求之前，先检查已有安排，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 在回复紧急要求之前，先检查已有安排
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Huǒ Xīng in Career Palace: rapid activation'
+    summary: You can notice how rapid activation affects organizing work.
+    body: You can examine rapid activation as a modifier of organizing work. Huǒ Xīng (火星) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, a sudden task may activate a quick and concentrated response. As an example, when an
+      urgent request arrives, clarify the scope before deciding what can be done today. Notice
+      whether the action fits the people involved as well as the practical task. A caution is that a
+      burst of enthusiasm or irritation can shorten the pause needed for a careful choice. However,
+      the reading explores a working style without assigning you a profession; skills, interests and
+      the conditions of a role matter together. Try to check your existing commitments before
+      responding to an urgent request. Review the result after one real attempt before making the
+      practice routine. An auxiliary placement adds a perspective to the broader reading; it cannot
+      establish someone’s character from a single symbol.
+    advice:
+      - check your existing commitments before responding to an urgent request
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.huo_xing
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_huo_xing
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: huo_xing
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星在夫妻宫：快速反应
+    summary: 你在亲密沟通上，可以留意快速反应的作用。
+    body: 你在亲密沟通上，可以留意快速反应怎样改变参与方式。火星（这里象征快速反应的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），突然增加的任务可能让你迅速进入行动状态。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，临时收到一项加急请求时，先确认范围，再决定今天能做到哪里；再看这一步在当前关系或任务里是否方便落实。即时兴奋或烦躁都可能缩短思考的停顿。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议在回复紧急要求之前，先检查已有安排，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 在回复紧急要求之前，先检查已有安排
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Huǒ Xīng in Spouse Palace: rapid activation'
+    summary: You can notice how rapid activation affects negotiation in close relationships.
+    body:
+      You can examine rapid activation as a modifier of negotiation in close relationships. Huǒ Xīng
+      (火星) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī gōng), which
+      concerns the expectations and conversations that shape an intimate partnership. In this
+      setting, a sudden task may activate a quick and concentrated response. As an example, when an
+      urgent request arrives, clarify the scope before deciding what can be done today. Notice
+      whether the action fits the people involved as well as the practical task. A caution is that a
+      burst of enthusiasm or irritation can shorten the pause needed for a careful choice. However,
+      a symbolic relationship theme cannot decide compatibility or tell you what kind of
+      relationship to pursue. Try to check your existing commitments before responding to an urgent
+      request. Review the result after one real attempt before making the practice routine. An
+      auxiliary placement adds a perspective to the broader reading; it cannot establish someone’s
+      character from a single symbol.
+    advice:
+      - check your existing commitments before responding to an urgent request
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.ling_xing
+  system: ziwei
+  section: life_palace
+  topic: aux_life_ling_xing
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: ling_xing
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 铃星在命宫：持续警觉
+    summary: 你在自我表达上，可以留意持续警觉的作用。
+    body: 你在自我表达上，可以留意持续警觉怎样改变参与方式。铃星（这里象征持续警觉的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你可能对未完成的细节较敏感，容易在心里继续跟踪它。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，晚上还在想明天的交接时，用简短便条把待确认事项放到外部清单；再看这一步在当前关系或任务里是否方便落实。保持警觉需要恢复时间，不能让所有提醒都随时响起。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议给提醒分优先级，把非紧急项安排到固定时段，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 给提醒分优先级，把非紧急项安排到固定时段
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Líng Xīng in Life Palace: sustained alertness'
+    summary: You can notice how sustained alertness affects your everyday identity.
+    body:
+      You can examine sustained alertness as a modifier of your everyday identity. Líng Xīng (铃星) —
+      an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, an unfinished
+      detail may remain active in your attention long after the immediate discussion. As an example,
+      if tomorrow’s handover occupies your evening, place the unresolved questions on an external
+      note. Notice whether the action fits the people involved as well as the practical task. A
+      caution is that alertness needs a recovery interval; every reminder need not stay active all
+      the time. However, your response at home may differ from your response at work; leave room for
+      that difference. Try to rank reminders and move nonurgent items to a planned review period.
+      Review the result after one real attempt before making the practice routine. An auxiliary
+      placement adds a perspective to the broader reading; it cannot establish someone’s character
+      from a single symbol.
+    advice:
+      - rank reminders and move nonurgent items to a planned review period
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.ling_xing
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_ling_xing
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: ling_xing
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 铃星在官禄宫：持续警觉
+    summary: 你在工作组织上，可以留意持续警觉的作用。
+    body: 你在工作组织上，可以留意持续警觉怎样改变参与方式。铃星（这里象征持续警觉的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你可能对未完成的细节较敏感，容易在心里继续跟踪它。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，晚上还在想明天的交接时，用简短便条把待确认事项放到外部清单；再看这一步在当前关系或任务里是否方便落实。保持警觉需要恢复时间，不能让所有提醒都随时响起。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议给提醒分优先级，把非紧急项安排到固定时段，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 给提醒分优先级，把非紧急项安排到固定时段
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Líng Xīng in Career Palace: sustained alertness'
+    summary: You can notice how sustained alertness affects organizing work.
+    body:
+      You can examine sustained alertness as a modifier of organizing work. Líng Xīng (铃星) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, an unfinished detail may remain active in your attention long after the immediate
+      discussion. As an example, if tomorrow’s handover occupies your evening, place the unresolved
+      questions on an external note. Notice whether the action fits the people involved as well as
+      the practical task. A caution is that alertness needs a recovery interval; every reminder need
+      not stay active all the time. However, the reading explores a working style without assigning
+      you a profession; skills, interests and the conditions of a role matter together. Try to rank
+      reminders and move nonurgent items to a planned review period. Review the result after one
+      real attempt before making the practice routine. An auxiliary placement adds a perspective to
+      the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - rank reminders and move nonurgent items to a planned review period
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.ling_xing
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_ling_xing
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: ling_xing
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 铃星在夫妻宫：持续警觉
+    summary: 你在亲密沟通上，可以留意持续警觉的作用。
+    body: 你在亲密沟通上，可以留意持续警觉怎样改变参与方式。铃星（这里象征持续警觉的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你可能对未完成的细节较敏感，容易在心里继续跟踪它。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，晚上还在想明天的交接时，用简短便条把待确认事项放到外部清单；再看这一步在当前关系或任务里是否方便落实。保持警觉需要恢复时间，不能让所有提醒都随时响起。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议给提醒分优先级，把非紧急项安排到固定时段，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 给提醒分优先级，把非紧急项安排到固定时段
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Líng Xīng in Spouse Palace: sustained alertness'
+    summary: You can notice how sustained alertness affects negotiation in close relationships.
+    body:
+      You can examine sustained alertness as a modifier of negotiation in close relationships. Líng
+      Xīng (铃星) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī gōng),
+      which concerns the expectations and conversations that shape an intimate partnership. In this
+      setting, an unfinished detail may remain active in your attention long after the immediate
+      discussion. As an example, if tomorrow’s handover occupies your evening, place the unresolved
+      questions on an external note. Notice whether the action fits the people involved as well as
+      the practical task. A caution is that alertness needs a recovery interval; every reminder need
+      not stay active all the time. However, a symbolic relationship theme cannot decide
+      compatibility or tell you what kind of relationship to pursue. Try to rank reminders and move
+      nonurgent items to a planned review period. Review the result after one real attempt before
+      making the practice routine. An auxiliary placement adds a perspective to the broader reading;
+      it cannot establish someone’s character from a single symbol.
+    advice:
+      - rank reminders and move nonurgent items to a planned review period
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.di_kong
+  system: ziwei
+  section: life_palace
+  topic: aux_life_di_kong
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: di_kong
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 地空在命宫：留白与重新理解
+    summary: 你在自我表达上，可以留意留白与重新理解的作用。
+    body: 你在自我表达上，可以留意留白与重新理解怎样改变参与方式。地空（这里象征留白与重新理解的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你可能更愿意追问一件事的意义，而不只看形式是否齐全。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，一个计划看起来很完整却难以开始时，试着删去不服务目标的步骤；再看这一步在当前关系或任务里是否方便落实。抽象想法需要落到可观察的小行动。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议用一个小样检验想法，再决定是否继续投入，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 用一个小样检验想法，再决定是否继续投入
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Dì Kōng in Life Palace: space and reappraisal'
+    summary: You can notice how space and reappraisal affects your everyday identity.
+    body:
+      You can examine space and reappraisal as a modifier of your everyday identity. Dì Kōng (地空) —
+      an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng), which concerns
+      how you describe yourself and respond to ordinary situations. In this setting, you may
+      question the purpose of an arrangement rather than taking its familiar form for granted. As an
+      example, if a complete looking plan is hard to begin, examine which steps do not serve its
+      actual purpose. Notice whether the action fits the people involved as well as the practical
+      task. A caution is that an abstract possibility needs a small observable expression before its
+      usefulness can be assessed. However, your response at home may differ from your response at
+      work; leave room for that difference. Try to test an idea with a modest prototype before
+      adding further effort. Review the result after one real attempt before making the practice
+      routine. An auxiliary placement adds a perspective to the broader reading; it cannot establish
+      someone’s character from a single symbol.
+    advice:
+      - test an idea with a modest prototype before adding further effort
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.di_kong
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_di_kong
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: di_kong
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 地空在官禄宫：留白与重新理解
+    summary: 你在工作组织上，可以留意留白与重新理解的作用。
+    body: 你在工作组织上，可以留意留白与重新理解怎样改变参与方式。地空（这里象征留白与重新理解的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你可能更愿意追问一件事的意义，而不只看形式是否齐全。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，一个计划看起来很完整却难以开始时，试着删去不服务目标的步骤；再看这一步在当前关系或任务里是否方便落实。抽象想法需要落到可观察的小行动。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议用一个小样检验想法，再决定是否继续投入，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 用一个小样检验想法，再决定是否继续投入
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Dì Kōng in Career Palace: space and reappraisal'
+    summary: You can notice how space and reappraisal affects organizing work.
+    body:
+      You can examine space and reappraisal as a modifier of organizing work. Dì Kōng (地空) — an
+      auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng), which
+      concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, you may question the purpose of an arrangement rather than taking its familiar form
+      for granted. As an example, if a complete looking plan is hard to begin, examine which steps
+      do not serve its actual purpose. Notice whether the action fits the people involved as well as
+      the practical task. A caution is that an abstract possibility needs a small observable
+      expression before its usefulness can be assessed. However, the reading explores a working
+      style without assigning you a profession; skills, interests and the conditions of a role
+      matter together. Try to test an idea with a modest prototype before adding further effort.
+      Review the result after one real attempt before making the practice routine. An auxiliary
+      placement adds a perspective to the broader reading; it cannot establish someone’s character
+      from a single symbol.
+    advice:
+      - test an idea with a modest prototype before adding further effort
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.di_kong
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_di_kong
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: di_kong
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 地空在夫妻宫：留白与重新理解
+    summary: 你在亲密沟通上，可以留意留白与重新理解的作用。
+    body: 你在亲密沟通上，可以留意留白与重新理解怎样改变参与方式。地空（这里象征留白与重新理解的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你可能更愿意追问一件事的意义，而不只看形式是否齐全。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，一个计划看起来很完整却难以开始时，试着删去不服务目标的步骤；再看这一步在当前关系或任务里是否方便落实。抽象想法需要落到可观察的小行动。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议用一个小样检验想法，再决定是否继续投入，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 用一个小样检验想法，再决定是否继续投入
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Dì Kōng in Spouse Palace: space and reappraisal'
+    summary: You can notice how space and reappraisal affects negotiation in close relationships.
+    body:
+      You can examine space and reappraisal as a modifier of negotiation in close relationships. Dì
+      Kōng (地空) — an auxiliary symbol for this kind of influence — appears in the 夫妻宫 (fū qī gōng),
+      which concerns the expectations and conversations that shape an intimate partnership. In this
+      setting, you may question the purpose of an arrangement rather than taking its familiar form
+      for granted. As an example, if a complete looking plan is hard to begin, examine which steps
+      do not serve its actual purpose. Notice whether the action fits the people involved as well as
+      the practical task. A caution is that an abstract possibility needs a small observable
+      expression before its usefulness can be assessed. However, a symbolic relationship theme
+      cannot decide compatibility or tell you what kind of relationship to pursue. Try to test an
+      idea with a modest prototype before adding further effort. Review the result after one real
+      attempt before making the practice routine. An auxiliary placement adds a perspective to the
+      broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - test an idea with a modest prototype before adding further effort
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.life.di_jie
+  system: ziwei
+  section: life_palace
+  topic: aux_life_di_jie
+  when:
+    path: palaces[key=life].minorStars[*].key
+    eq: di_jie
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 地劫在命宫：投入落差与取舍
+    summary: 你在自我表达上，可以留意投入落差与取舍的作用。
+    body: 你在自我表达上，可以留意投入落差与取舍怎样改变参与方式。地劫（这里象征投入落差与取舍的辅助星）位于命宫（观察你怎样认识自己和回应日常处境的领域），你可能更需要留意投入和实际回报之间的差距。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，准备替别人多承担一项工作时，先估计会挤占哪件已经答应的事；再看这一步在当前关系或任务里是否方便落实。这里的耗损是资源反思，不能据此推断具体损失。不过，别用一个盘中标签覆盖自己在不同场合的变化。建议设一个投入上限，到达后先复盘再继续，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 设一个投入上限，到达后先复盘再继续
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Dì Jié in Life Palace: reconsidering the cost of commitment'
+    summary: You can notice how reconsidering the cost of commitment affects your everyday identity.
+    body:
+      You can examine reconsidering the cost of commitment as a modifier of your everyday identity.
+      Dì Jié (地劫) — an auxiliary symbol for this kind of influence — appears in the 命宫 (mìng gōng),
+      which concerns how you describe yourself and respond to ordinary situations. In this setting,
+      you may benefit from checking the gap between effort spent and the practical value received.
+      As an example, before taking on someone else’s task, identify which existing commitment would
+      lose time. Notice whether the action fits the people involved as well as the practical task. A
+      caution is that the symbol prompts a resource review without predicting a particular loss.
+      However, your response at home may differ from your response at work; leave room for that
+      difference. Try to set a limit on additional effort and review the result before extending it.
+      Review the result after one real attempt before making the practice routine. An auxiliary
+      placement adds a perspective to the broader reading; it cannot establish someone’s character
+      from a single symbol.
+    advice:
+      - set a limit on additional effort and review the result before extending it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.career.di_jie
+  system: ziwei
+  section: career_wealth
+  topic: aux_career_di_jie
+  when:
+    path: palaces[key=career].minorStars[*].key
+    eq: di_jie
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 地劫在官禄宫：投入落差与取舍
+    summary: 你在工作组织上，可以留意投入落差与取舍的作用。
+    body: 你在工作组织上，可以留意投入落差与取舍怎样改变参与方式。地劫（这里象征投入落差与取舍的辅助星）位于官禄宫（观察任务承担、职业学习与工作方法的领域），你可能更需要留意投入和实际回报之间的差距。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，准备替别人多承担一项工作时，先估计会挤占哪件已经答应的事；再看这一步在当前关系或任务里是否方便落实。这里的耗损是资源反思，不能据此推断具体损失。不过，这份解读讨论工作风格，不替你指定职业；现实能力、兴趣和岗位条件需要一起考虑。建议设一个投入上限，到达后先复盘再继续，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 设一个投入上限，到达后先复盘再继续
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Dì Jié in Career Palace: reconsidering the cost of commitment'
+    summary: You can notice how reconsidering the cost of commitment affects organizing work.
+    body:
+      You can examine reconsidering the cost of commitment as a modifier of organizing work. Dì Jié
+      (地劫) — an auxiliary symbol for this kind of influence — appears in the 官禄宫 (guān lù gōng),
+      which concerns how you take responsibility, learn professionally and arrange a task. In this
+      setting, you may benefit from checking the gap between effort spent and the practical value
+      received. As an example, before taking on someone else’s task, identify which existing
+      commitment would lose time. Notice whether the action fits the people involved as well as the
+      practical task. A caution is that the symbol prompts a resource review without predicting a
+      particular loss. However, the reading explores a working style without assigning you a
+      profession; skills, interests and the conditions of a role matter together. Try to set a limit
+      on additional effort and review the result before extending it. Review the result after one
+      real attempt before making the practice routine. An auxiliary placement adds a perspective to
+      the broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - set a limit on additional effort and review the result before extending it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: ziwei.aux.spouse.di_jie
+  system: ziwei
+  section: love_family
+  topic: aux_spouse_di_jie
+  when:
+    path: palaces[key=spouse].minorStars[*].key
+    eq: di_jie
+  weight: 50
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 地劫在夫妻宫：投入落差与取舍
+    summary: 你在亲密沟通上，可以留意投入落差与取舍的作用。
+    body: 你在亲密沟通上，可以留意投入落差与取舍怎样改变参与方式。地劫（这里象征投入落差与取舍的辅助星）位于夫妻宫（观察亲密关系中的协商方式与期待的领域），你可能更需要留意投入和实际回报之间的差距。这类辅助信号用来补充主要倾向，不宜单独给你或相关的人贴标签。例如，准备替别人多承担一项工作时，先估计会挤占哪件已经答应的事；再看这一步在当前关系或任务里是否方便落实。这里的耗损是资源反思，不能据此推断具体损失。不过，关系中的星象描述互动课题，不替你判断某个人是否合适，也不要求你进入某种关系。建议设一个投入上限，到达后先复盘再继续，先观察一次实际结果，再商量是否沿用这项安排。
+    advice:
+      - 设一个投入上限，到达后先复盘再继续
+    do:
+      - 记录观察
+    dont:
+      - 仓促定论
+  en:
+    title: 'Dì Jié in Spouse Palace: reconsidering the cost of commitment'
+    summary: You can notice how reconsidering the cost of commitment affects negotiation in close
+      relationships.
+    body: You can examine reconsidering the cost of commitment as a modifier of negotiation in close
+      relationships. Dì Jié (地劫) — an auxiliary symbol for this kind of influence — appears in the
+      夫妻宫 (fū qī gōng), which concerns the expectations and conversations that shape an intimate
+      partnership. In this setting, you may benefit from checking the gap between effort spent and
+      the practical value received. As an example, before taking on someone else’s task, identify
+      which existing commitment would lose time. Notice whether the action fits the people involved
+      as well as the practical task. A caution is that the symbol prompts a resource review without
+      predicting a particular loss. However, a symbolic relationship theme cannot decide
+      compatibility or tell you what kind of relationship to pursue. Try to set a limit on
+      additional effort and review the result before extending it. Review the result after one real
+      attempt before making the practice routine. An auxiliary placement adds a perspective to the
+      broader reading; it cannot establish someone’s character from a single symbol.
+    advice:
+      - set a limit on additional effort and review the result before extending it
+    do:
+      - Note observations
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-ziwei-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

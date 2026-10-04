@@ -16,10 +16,25 @@ export function textGrams(text: string): Set<string> {
 }
 /** Dice overlap of two precomputed sets; validators can reuse them across all pairs. */
 export function gramSimilarity(x: Set<string>, y: Set<string>): number {
-  return (2 * [...x].filter((g) => y.has(g)).length) / (x.size + y.size || 1);
+  let count = 0;
+  for (const gram of x) if (y.has(gram)) count++;
+  return (2 * count) / (x.size + y.size || 1);
 }
 export function similarity(a: string, b: string): number {
   return gramSimilarity(textGrams(a), textGrams(b));
+}
+/** Cache normalized 3-grams within one corpus comparison; the caller owns the cache lifetime. */
+export function createSimilarityComparator(): (a: string, b: string) => number {
+  const cache = new Map<string, Set<string>>();
+  const get = (text: string) => {
+    let value = cache.get(text);
+    if (!value) {
+      value = textGrams(text);
+      cache.set(text, value);
+    }
+    return value;
+  };
+  return (a, b) => gramSimilarity(get(a), get(b));
 }
 export function deduplicate(items: string[], limit: number): string[] {
   const selected: string[] = [];
