@@ -54,7 +54,7 @@ export type InterpretInput = {
   chart: unknown;
   locale: Locale;
   knowledge: KnowledgeBundle;
-  context: { now: Date | string; profileHasTime: boolean; engineVersion?: string };
+  context: { now: Date | string; profileHasTime: boolean; engineVersion?: string; userId?: string };
   sectionPlan?: SectionPlan;
   config?: Partial<SystemConfig>;
 };

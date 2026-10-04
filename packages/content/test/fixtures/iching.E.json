@@ -1,0 +1,57 @@
+{
+  "method": "meihua",
+  "category": "study",
+  "castAt": {
+    "local": "2026-10-04T12:00:00",
+    "tz": "Asia/Singapore",
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    },
+    "dayGanZhi": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "monthBranch": "you"
+  },
+  "primary": {
+    "number": 42,
+    "key": "hexagram_42",
+    "lines": [1, 0, 0, 0, 1, 1],
+    "upper": "xun",
+    "lower": "zhen"
+  },
+  "changing": {
+    "number": 27,
+    "key": "hexagram_27",
+    "lines": [1, 0, 0, 0, 0, 1],
+    "upper": "gen",
+    "lower": "zhen"
+  },
+  "mutual": {
+    "number": 23,
+    "key": "hexagram_23",
+    "lines": [0, 0, 0, 0, 0, 1],
+    "upper": "gen",
+    "lower": "kun"
+  },
+  "movingLines": [5],
+  "meihua": {
+    "numbers": {
+      "upper": 5,
+      "lower": 4,
+      "moving": 5,
+      "source": [5, 4, 5]
+    },
+    "body": "zhen",
+    "use": "xun",
+    "relation": "same",
+    "seasonalStrength": "dead",
+    "mutualRelation": "body_controls_use",
+    "changingRelation": "body_controls_use"
+  },
+  "verdict": "neutral",
+  "score": 58
+}

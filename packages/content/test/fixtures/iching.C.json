@@ -1,0 +1,57 @@
+{
+  "method": "meihua",
+  "category": "love",
+  "castAt": {
+    "local": "2026-10-04T12:00:00",
+    "tz": "Asia/Singapore",
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    },
+    "dayGanZhi": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "monthBranch": "you"
+  },
+  "primary": {
+    "number": 64,
+    "key": "hexagram_64",
+    "lines": [0, 1, 0, 1, 0, 1],
+    "upper": "li",
+    "lower": "kan"
+  },
+  "changing": {
+    "number": 50,
+    "key": "hexagram_50",
+    "lines": [0, 1, 1, 1, 0, 1],
+    "upper": "li",
+    "lower": "xun"
+  },
+  "mutual": {
+    "number": 63,
+    "key": "hexagram_63",
+    "lines": [1, 0, 1, 0, 1, 0],
+    "upper": "kan",
+    "lower": "li"
+  },
+  "movingLines": [3],
+  "meihua": {
+    "numbers": {
+      "upper": 3,
+      "lower": 6,
+      "moving": 3,
+      "source": [3, 6, 3]
+    },
+    "body": "li",
+    "use": "kan",
+    "relation": "use_controls_body",
+    "seasonalStrength": "trapped",
+    "mutualRelation": "same",
+    "changingRelation": "use_generates_body"
+  },
+  "verdict": "unfavorable",
+  "score": 37
+}

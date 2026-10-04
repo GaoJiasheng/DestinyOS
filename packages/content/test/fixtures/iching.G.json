@@ -1,0 +1,166 @@
+{
+  "method": "liuyao",
+  "category": "other",
+  "castAt": {
+    "local": "2026-10-04T12:00:00",
+    "tz": "Asia/Singapore",
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    },
+    "dayGanZhi": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "monthBranch": "you"
+  },
+  "primary": {
+    "number": 64,
+    "key": "hexagram_64",
+    "lines": [0, 1, 0, 1, 0, 1],
+    "upper": "li",
+    "lower": "kan"
+  },
+  "changing": {
+    "number": 63,
+    "key": "hexagram_63",
+    "lines": [1, 0, 1, 0, 1, 0],
+    "upper": "kan",
+    "lower": "li"
+  },
+  "movingLines": [1, 2, 3, 4, 5, 6],
+  "liuyao": {
+    "throws": [0, 3, 0, 3, 0, 3],
+    "lines": [
+      {
+        "stem": "wu_stem",
+        "branch": "yin",
+        "element": "wood",
+        "relative": "fu_mu",
+        "position": 1,
+        "yang": false,
+        "moving": true,
+        "spirit": "bai_hu",
+        "isShi": false,
+        "isYing": false,
+        "changedTo": {
+          "stem": "ji",
+          "branch": "mao",
+          "element": "wood",
+          "relative": "fu_mu"
+        }
+      },
+      {
+        "stem": "wu_stem",
+        "branch": "chen",
+        "element": "earth",
+        "relative": "zi_sun",
+        "position": 2,
+        "yang": true,
+        "moving": true,
+        "spirit": "xuan_wu",
+        "isShi": false,
+        "isYing": false,
+        "changedTo": {
+          "stem": "ji",
+          "branch": "chou",
+          "element": "earth",
+          "relative": "zi_sun"
+        }
+      },
+      {
+        "stem": "wu_stem",
+        "branch": "wu",
+        "element": "fire",
+        "relative": "xiong_di",
+        "position": 3,
+        "yang": false,
+        "moving": true,
+        "spirit": "qing_long",
+        "isShi": true,
+        "isYing": false,
+        "changedTo": {
+          "stem": "ji",
+          "branch": "hai",
+          "element": "water",
+          "relative": "guan_gui"
+        }
+      },
+      {
+        "stem": "ji",
+        "branch": "you",
+        "element": "metal",
+        "relative": "qi_cai",
+        "position": 4,
+        "yang": true,
+        "moving": true,
+        "spirit": "zhu_que",
+        "isShi": false,
+        "isYing": false,
+        "changedTo": {
+          "stem": "wu_stem",
+          "branch": "shen",
+          "element": "metal",
+          "relative": "qi_cai"
+        }
+      },
+      {
+        "stem": "ji",
+        "branch": "wei",
+        "element": "earth",
+        "relative": "zi_sun",
+        "position": 5,
+        "yang": false,
+        "moving": true,
+        "spirit": "gou_chen",
+        "isShi": false,
+        "isYing": false,
+        "changedTo": {
+          "stem": "wu_stem",
+          "branch": "xu",
+          "element": "earth",
+          "relative": "zi_sun"
+        }
+      },
+      {
+        "stem": "ji",
+        "branch": "si",
+        "element": "fire",
+        "relative": "xiong_di",
+        "position": 6,
+        "yang": true,
+        "moving": true,
+        "spirit": "teng_she",
+        "isShi": false,
+        "isYing": true,
+        "changedTo": {
+          "stem": "wu_stem",
+          "branch": "zi",
+          "element": "water",
+          "relative": "guan_gui"
+        }
+      }
+    ],
+    "palace": "li",
+    "palaceElement": "fire",
+    "hidden": [
+      {
+        "relative": "guan_gui",
+        "stem": "ji",
+        "branch": "hai",
+        "underLine": 3
+      }
+    ],
+    "useGod": {
+      "relative": "xiong_di",
+      "lines": [3],
+      "state": "weak"
+    },
+    "voidBranches": ["yin", "mao"],
+    "findings": ["day_controls", "moving", "return_controlled"]
+  },
+  "verdict": "unfavorable",
+  "score": 29
+}

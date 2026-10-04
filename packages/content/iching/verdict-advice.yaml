@@ -1,0 +1,2303 @@
+- id: iching.verdict.auspicious.career
+  system: iching
+  section: advice
+  topic: verdict_career
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: career
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 事业：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 把目标写成可核对的交付物
+      - 约定一次职责与进度核对
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. For example, a new
+      project may need a named owner, a clear handover, and one missing document. Write these
+      dependencies down before accepting responsibility for the whole schedule. This makes a request
+      for help easier for a colleague to answer. Try completing one bounded round of action and
+      arranging feedback. Keep an alternative for a missing condition instead of expanding every
+      goal on the strength of the overall label. A useful result should be something you can observe
+      and review.
+    advice:
+      - Define one reviewable deliverable
+      - Agree on a role and progress check
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.auspicious.wealth
+  system: iching
+  section: advice
+  topic: verdict_wealth
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: wealth
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 财运：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 记录一周收支并分类
+      - 说明共享费用的上限
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. Consider a shared
+      expense that sounded simple in conversation. Ask what each participant can voluntarily
+      contribute, when it is available, and how the record will be kept. A pleasant agreement is
+      different from resources that are actually ready to use. Try completing one bounded round of
+      action and arranging feedback. Keep an alternative for a missing condition instead of
+      expanding every goal on the strength of the overall label. A useful result should be something
+      you can observe and review.
+    advice:
+      - Track a week of spending
+      - State a shared-cost limit
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.auspicious.love
+  system: iching
+  section: advice
+  topic: verdict_love
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: love
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 感情：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 商量彼此舒适的联系节奏
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. For example, you might
+      want more frequent contact while another person has a different schedule. Make one invitation
+      and ask what feels comfortable. Leave room for a different preference instead of using a
+      delayed reply to infer the meaning of the entire relationship. Try completing one bounded
+      round of action and arranging feedback. Keep an alternative for a missing condition instead of
+      expanding every goal on the strength of the overall label. A useful result should be something
+      you can observe and review.
+    advice:
+      - Offer an unpressured invitation
+      - Discuss a comfortable contact rhythm
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.auspicious.health
+  system: iching
+  section: advice
+  topic: verdict_health
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: health
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 健康：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 给每天保留一段安静时间
+      - 记录作息变化与感受
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. Suppose a busy period
+      leaves you reluctant to attend another event. Ask whether you want quiet or someone who can
+      listen, then communicate that need. Remove one optional demand from the next day and check
+      whether the arrangement feels easier to sustain. Try completing one bounded round of action
+      and arranging feedback. Keep an alternative for a missing condition instead of expanding every
+      goal on the strength of the overall label. A useful result should be something you can observe
+      and review.
+    advice:
+      - Keep a daily quiet interval
+      - Note routine changes and feelings
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.auspicious.study
+  system: iching
+  section: advice
+  topic: verdict_study
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: study
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 学业：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 完成一次练习再复盘
+      - 带具体问题寻求反馈
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. For example, a recurring
+      mistake may begin at one unexamined step. Write down your attempt, mark where the reasoning
+      becomes unclear, and ask for feedback on that point. Collecting more finished answers may miss
+      the learning opportunity in your own work. Try completing one bounded round of action and
+      arranging feedback. Keep an alternative for a missing condition instead of expanding every
+      goal on the strength of the overall label. A useful result should be something you can observe
+      and review.
+    advice:
+      - Review a completed exercise
+      - Bring a specific learning question
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.auspicious.travel
+  system: iching
+  section: advice
+  topic: verdict_travel
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: travel
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 出行：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 核对一处关键衔接
+      - 保存联络与备用路线
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. Consider arriving
+      somewhere unfamiliar with several invitations already waiting. Confirm your base and return
+      arrangements before adding activities. You can decline an extra outing politely if it would
+      remove the time or resources needed for the rest of the journey. Try completing one bounded
+      round of action and arranging feedback. Keep an alternative for a missing condition instead of
+      expanding every goal on the strength of the overall label. A useful result should be something
+      you can observe and review.
+    advice:
+      - Check one key connection
+      - Save contacts and alternatives
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.auspicious.decision
+  system: iching
+  section: advice
+  topic: verdict_decision
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: decision
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 决策：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 比较两案的现实限制
+      - 先做可撤回的小试验
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. For example, two
+      appealing options may rely on different resources. List the time, dependencies, and least
+      acceptable condition for each. A small reversible trial can provide information that another
+      round of imagining the final outcome would not produce. Try completing one bounded round of
+      action and arranging feedback. Keep an alternative for a missing condition instead of
+      expanding every goal on the strength of the overall label. A useful result should be something
+      you can observe and review.
+    advice:
+      - Compare practical constraints
+      - Try a reversible step
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.auspicious.other
+  system: iching
+  section: advice
+  topic: verdict_other
+  when:
+    all:
+      - path: verdict
+        eq: auspicious
+      - path: category
+        eq: other
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 其他：象征评价偏积极，仍适合从可核对的小步开始
+    summary: 象征评价偏积极，仍适合从可核对的小步开始
+    body: 对这个问题，象征评价偏积极，仍适合从可核对的小步开始。吉（综合关系较有支持的评价）说明这次象征比较中可用条件偏多，吉凶不是事件预测，分数也不是发生概率。你可以把它当成检查已有准备的提醒，留意材料、协作与时间是否真正配合；总体顺眼不取消局部的限制。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    advice:
+      - 把问题缩成一个具体情境
+      - 记录下一步与复查时间
+      - 建议把较好的配合用来完成一轮实际行动，并安排一次反馈；保留应对缺口的替代方式，不只凭整体评价扩大所有目标，让选择始终能够回到可观察的事实。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: Use an encouraging assessment to plan a step you can verify'
+    summary: Use an encouraging assessment to plan a step you can verify
+    body: Use an encouraging assessment to plan a step you can verify. Auspicious, or jí (吉 — a
+      supportive overall symbolic assessment), summarizes the comparison rather than forecasting an
+      event. The score is not a probability. Inspect preparation, resources, and coordination so an
+      encouraging label remains tied to conditions you can actually verify. Consider an everyday
+      irritation that keeps returning. Record the setting and your response, then identify one part
+      you can influence. Ask a trusted person for another perspective before treating the pattern as
+      evidence that your circumstances cannot change. Try completing one bounded round of action and
+      arranging feedback. Keep an alternative for a missing condition instead of expanding every
+      goal on the strength of the overall label. A useful result should be something you can observe
+      and review.
+    advice:
+      - Name one concrete situation
+      - Record a step and review
+      - Try completing one bounded round of action and arranging feedback. Keep an alternative for a
+        missing condition instead of expanding every goal on the strength of the overall label. A
+        useful result should be something you can observe and review.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.career
+  system: iching
+  section: advice
+  topic: verdict_career
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: career
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 事业：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，在会议里讨论任务分配时，你可以先说明现有负荷与最需要配合的一项工作，再听取同事的安排，给协商保留具体入口。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 把目标写成可核对的交付物
+      - 约定一次职责与进度核对
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. Imagine a planning meeting in which several people assume you will fill every gap.
+      State your current workload and ask who can take one specific part. The conversation can then
+      concern an actual arrangement instead of your willingness to work harder. Consider moving
+      within the conditions already confirmed and naming what still needs to arrive. Set a review
+      point that can change the plan when feedback appears. A clear direction works better when it
+      leaves enough capacity for adjustment.
+    advice:
+      - Define one reviewable deliverable
+      - Agree on a role and progress check
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.wealth
+  system: iching
+  section: advice
+  topic: verdict_wealth
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: wealth
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 财运：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 记录一周收支并分类
+      - 说明共享费用的上限
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. For instance, several small recurring expenses may have become hard to track. List
+      their amounts and purposes, separate essentials from optional items, and choose one adjustable
+      expense to review. You need a usable record before deciding what to change. Consider moving
+      within the conditions already confirmed and naming what still needs to arrive. Set a review
+      point that can change the plan when feedback appears. A clear direction works better when it
+      leaves enough capacity for adjustment.
+    advice:
+      - Track a week of spending
+      - State a shared-cost limit
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.love
+  system: iching
+  section: advice
+  topic: verdict_love
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: love
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 感情：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，共处时间让你感到疲惫时，可以说清自己需要的安静时段，与对方商量如何安排；愿意照顾关系也可以包含适度距离与独立活动。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 商量彼此舒适的联系节奏
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. Imagine that shared time is becoming tiring despite genuine care. Describe the
+      quiet time you need and ask how both people would like to arrange it. A respectful bond can
+      include separate activities and a different pace of contact. Consider moving within the
+      conditions already confirmed and naming what still needs to arrive. Set a review point that
+      can change the plan when feedback appears. A clear direction works better when it leaves
+      enough capacity for adjustment.
+    advice:
+      - Offer an unpressured invitation
+      - Discuss a comfortable contact rhythm
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.health
+  system: iching
+  section: advice
+  topic: verdict_health
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: health
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 健康：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 给每天保留一段安静时间
+      - 记录作息变化与感受
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. For instance, evening messages may keep extending the working day. Record what
+      happens before bed and reserve a quiet interval to finish up. Observe whether the change makes
+      your next day more manageable, without treating the result as a diagnosis. Consider moving
+      within the conditions already confirmed and naming what still needs to arrive. Set a review
+      point that can change the plan when feedback appears. A clear direction works better when it
+      leaves enough capacity for adjustment.
+    advice:
+      - Keep a daily quiet interval
+      - Note routine changes and feelings
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.study
+  system: iching
+  section: advice
+  topic: verdict_study
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: study
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 学业：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，准备阶段觉得资料太多时，你可以选一份基础材料完成一次练习，再用实际错误决定下次补什么，避免不断更换资源而没有练习记录。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 完成一次练习再复盘
+      - 带具体问题寻求反馈
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. Imagine preparing with so many sources that none becomes usable. Choose one basic
+      resource, finish an exercise, and let the error record guide the next lesson. A smaller set of
+      materials can make practice more focused than repeatedly changing the entire study plan.
+      Consider moving within the conditions already confirmed and naming what still needs to arrive.
+      Set a review point that can change the plan when feedback appears. A clear direction works
+      better when it leaves enough capacity for adjustment.
+    advice:
+      - Review a completed exercise
+      - Bring a specific learning question
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.travel
+  system: iching
+  section: advice
+  topic: verdict_travel
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: travel
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 出行：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 核对一处关键衔接
+      - 保存联络与备用路线
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. For example, a journey with several transfers may depend on one tight connection.
+      Verify that link, save contact details, and keep an alternative route. A modest time buffer
+      can be more useful than expecting each stage to align exactly as planned. Consider moving
+      within the conditions already confirmed and naming what still needs to arrive. Set a review
+      point that can change the plan when feedback appears. A clear direction works better when it
+      leaves enough capacity for adjustment.
+    advice:
+      - Check one key connection
+      - Save contacts and alternatives
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.decision
+  system: iching
+  section: advice
+  topic: verdict_decision
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: decision
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 决策：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，别人希望你立即表态时，你可以说清还缺哪一项事实，以及何时能够回复，保留自己的判断空间，不因催促就把尚未核实的条件当成确定。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 比较两案的现实限制
+      - 先做可撤回的小试验
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. Imagine being asked for an immediate answer while one material fact is missing.
+      Name that fact and state when you can respond. Keeping a defined review interval protects your
+      ability to decide without requiring another person to share all your preferences. Consider
+      moving within the conditions already confirmed and naming what still needs to arrive. Set a
+      review point that can change the plan when feedback appears. A clear direction works better
+      when it leaves enough capacity for adjustment.
+    advice:
+      - Compare practical constraints
+      - Try a reversible step
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.favorable.other
+  system: iching
+  section: advice
+  topic: verdict_other
+  when:
+    all:
+      - path: verdict
+        eq: favorable
+      - path: category
+        eq: other
+  weight: 80
+  polarity: positive
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 其他：配合方向较好时，可以稳步推进并保留调整空间
+    summary: 配合方向较好时，可以稳步推进并保留调整空间
+    body: 对这个问题，配合方向较好时，可以稳步推进并保留调整空间。较利（支持因素略多的评价）提示有可用配合，但不说明所有环节都已成熟。吉凶评价是传统关系的综合标签，分数只表达内部比较，不代表现实成功率；你仍需检查最关键的依赖与自己愿意承担的范围。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    advice:
+      - 把问题缩成一个具体情境
+      - 记录下一步与复查时间
+      - 你可以按已确认的条件做一小步，同时说明哪些部分还要等待；给计划设定复查入口，新的反馈出现时及时修订，让推进既有方向也不过度压缩自己的余力。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can proceed steadily while checking the remaining conditions'
+    summary: You can proceed steadily while checking the remaining conditions
+    body: You can proceed steadily while checking the remaining conditions. Favorable is a mildly
+      supportive assessment, or jí xiōng — the traditional evaluation of supportive and limiting
+      factors. It does not establish that every dependency is ready, and the score is an internal
+      comparison rather than a real-world success rate. Keep attention on the least secure practical
+      condition. For instance, a vague sense of disorder can be narrowed to one thing you want to
+      arrange today. Put the current situation, your need, and a next action on the same page.
+      Review that small task before deciding that everything requires a larger change. Consider
+      moving within the conditions already confirmed and naming what still needs to arrive. Set a
+      review point that can change the plan when feedback appears. A clear direction works better
+      when it leaves enough capacity for adjustment.
+    advice:
+      - Name one concrete situation
+      - Record a step and review
+      - Consider moving within the conditions already confirmed and naming what still needs to
+        arrive. Set a review point that can change the plan when feedback appears. A clear direction
+        works better when it leaves enough capacity for adjustment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.career
+  system: iching
+  section: advice
+  topic: verdict_career
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: career
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 事业：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 把目标写成可核对的交付物
+      - 约定一次职责与进度核对
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can use a mixed assessment to design a modest information-gathering step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. For example, a new project may need a named owner, a clear handover, and one missing
+      document. Write these dependencies down before accepting responsibility for the whole
+      schedule. This makes a request for help easier for a colleague to answer. Try a reversible
+      action with a criterion for feedback and a stopping point. Ask someone trustworthy for an
+      independent observation, then use the new material in your next comparison. This turns
+      ambiguity into a useful inquiry rather than repeating the same uncertainty.
+    advice:
+      - Define one reviewable deliverable
+      - Agree on a role and progress check
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.wealth
+  system: iching
+  section: advice
+  topic: verdict_wealth
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: wealth
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 财运：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 记录一周收支并分类
+      - 说明共享费用的上限
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Resources: You can use a mixed assessment to design a modest information-gathering
+      step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. Consider a shared expense that sounded simple in conversation. Ask what each
+      participant can voluntarily contribute, when it is available, and how the record will be kept.
+      A pleasant agreement is different from resources that are actually ready to use. Try a
+      reversible action with a criterion for feedback and a stopping point. Ask someone trustworthy
+      for an independent observation, then use the new material in your next comparison. This turns
+      ambiguity into a useful inquiry rather than repeating the same uncertainty.
+    advice:
+      - Track a week of spending
+      - State a shared-cost limit
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.love
+  system: iching
+  section: advice
+  topic: verdict_love
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: love
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 感情：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 商量彼此舒适的联系节奏
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can use a mixed assessment to design a modest information-gathering step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. For example, you might want more frequent contact while another person has a
+      different schedule. Make one invitation and ask what feels comfortable. Leave room for a
+      different preference instead of using a delayed reply to infer the meaning of the entire
+      relationship. Try a reversible action with a criterion for feedback and a stopping point. Ask
+      someone trustworthy for an independent observation, then use the new material in your next
+      comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+      uncertainty.
+    advice:
+      - Offer an unpressured invitation
+      - Discuss a comfortable contact rhythm
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.health
+  system: iching
+  section: advice
+  topic: verdict_health
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: health
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 健康：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 给每天保留一段安静时间
+      - 记录作息变化与感受
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can use a mixed assessment to design a modest information-gathering step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. Suppose a busy period leaves you reluctant to attend another event. Ask whether you
+      want quiet or someone who can listen, then communicate that need. Remove one optional demand
+      from the next day and check whether the arrangement feels easier to sustain. Try a reversible
+      action with a criterion for feedback and a stopping point. Ask someone trustworthy for an
+      independent observation, then use the new material in your next comparison. This turns
+      ambiguity into a useful inquiry rather than repeating the same uncertainty.
+    advice:
+      - Keep a daily quiet interval
+      - Note routine changes and feelings
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.study
+  system: iching
+  section: advice
+  topic: verdict_study
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: study
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 学业：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 完成一次练习再复盘
+      - 带具体问题寻求反馈
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can use a mixed assessment to design a modest information-gathering step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. For example, a recurring mistake may begin at one unexamined step. Write down your
+      attempt, mark where the reasoning becomes unclear, and ask for feedback on that point.
+      Collecting more finished answers may miss the learning opportunity in your own work. Try a
+      reversible action with a criterion for feedback and a stopping point. Ask someone trustworthy
+      for an independent observation, then use the new material in your next comparison. This turns
+      ambiguity into a useful inquiry rather than repeating the same uncertainty.
+    advice:
+      - Review a completed exercise
+      - Bring a specific learning question
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.travel
+  system: iching
+  section: advice
+  topic: verdict_travel
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: travel
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 出行：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 核对一处关键衔接
+      - 保存联络与备用路线
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can use a mixed assessment to design a modest information-gathering step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. Consider arriving somewhere unfamiliar with several invitations already waiting.
+      Confirm your base and return arrangements before adding activities. You can decline an extra
+      outing politely if it would remove the time or resources needed for the rest of the journey.
+      Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+      trustworthy for an independent observation, then use the new material in your next comparison.
+      This turns ambiguity into a useful inquiry rather than repeating the same uncertainty.
+    advice:
+      - Check one key connection
+      - Save contacts and alternatives
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.decision
+  system: iching
+  section: advice
+  topic: verdict_decision
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: decision
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 决策：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 比较两案的现实限制
+      - 先做可撤回的小试验
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can use a mixed assessment to design a modest information-gathering step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. For example, two appealing options may rely on different resources. List the time,
+      dependencies, and least acceptable condition for each. A small reversible trial can provide
+      information that another round of imagining the final outcome would not produce. Try a
+      reversible action with a criterion for feedback and a stopping point. Ask someone trustworthy
+      for an independent observation, then use the new material in your next comparison. This turns
+      ambiguity into a useful inquiry rather than repeating the same uncertainty.
+    advice:
+      - Compare practical constraints
+      - Try a reversible step
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.neutral.other
+  system: iching
+  section: advice
+  topic: verdict_other
+  when:
+    all:
+      - path: verdict
+        eq: neutral
+      - path: category
+        eq: other
+  weight: 80
+  polarity: neutral
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 其他：支持与限制并存时，先把选择变成一次可观察的尝试
+    summary: 支持与限制并存时，先把选择变成一次可观察的尝试
+    body: 对这个问题，支持与限制并存时，先把选择变成一次可观察的尝试。平（支持与约束没有明显偏向的评价）提醒你多看实际条件，吉凶标签并不是各类结果的概率，分数也不能代替信息。与其反复询问同一问题，不如确定目前最缺哪一项事实，再选择能补足它的小步骤。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    advice:
+      - 把问题缩成一个具体情境
+      - 记录下一步与复查时间
+      - 可以把尝试控制在容易撤回的范围，事先约定如何看反馈与何时停止；也听取可信伙伴的观察，让下一次判断根据新材料，而不是把当前的模糊一直重复下去。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Questions: You can use a mixed assessment to design a modest information-gathering
+      step'
+    summary: You can use a mixed assessment to design a modest information-gathering step
+    body: You can use a mixed assessment to design a modest information-gathering step. Neutral is a
+      mixed jí xiōng assessment — a traditional label for the balance of symbolic influences. It
+      does not assign equal probabilities to outcomes. A score cannot supply missing information, so
+      identify the practical fact that would make your comparison clearer before seeking another
+      reading. Consider an everyday irritation that keeps returning. Record the setting and your
+      response, then identify one part you can influence. Ask a trusted person for another
+      perspective before treating the pattern as evidence that your circumstances cannot change. Try
+      a reversible action with a criterion for feedback and a stopping point. Ask someone
+      trustworthy for an independent observation, then use the new material in your next comparison.
+      This turns ambiguity into a useful inquiry rather than repeating the same uncertainty.
+    advice:
+      - Name one concrete situation
+      - Record a step and review
+      - Try a reversible action with a criterion for feedback and a stopping point. Ask someone
+        trustworthy for an independent observation, then use the new material in your next
+        comparison. This turns ambiguity into a useful inquiry rather than repeating the same
+        uncertainty.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.career
+  system: iching
+  section: advice
+  topic: verdict_career
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: career
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 事业：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，在会议里讨论任务分配时，你可以先说明现有负荷与最需要配合的一项工作，再听取同事的安排，给协商保留具体入口。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 把目标写成可核对的交付物
+      - 约定一次职责与进度核对
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can respond to a less supportive assessment by revising the arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. Imagine a planning meeting in which several people assume you will fill
+      every gap. State your current workload and ask who can take one specific part. The
+      conversation can then concern an actual arrangement instead of your willingness to work
+      harder. That said, you can lower the commitment, change the sequence, or ask for specific
+      assistance. Address the least workable condition and allow time to reassess. You do not need
+      to prove yourself under pressure or treat a pause as the loss of every future option.
+    advice:
+      - Define one reviewable deliverable
+      - Agree on a role and progress check
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.wealth
+  system: iching
+  section: advice
+  topic: verdict_wealth
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: wealth
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 财运：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 记录一周收支并分类
+      - 说明共享费用的上限
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can respond to a less supportive assessment by revising the
+      arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. For instance, several small recurring expenses may have become hard to
+      track. List their amounts and purposes, separate essentials from optional items, and choose
+      one adjustable expense to review. You need a usable record before deciding what to change.
+      That said, you can lower the commitment, change the sequence, or ask for specific assistance.
+      Address the least workable condition and allow time to reassess. You do not need to prove
+      yourself under pressure or treat a pause as the loss of every future option.
+    advice:
+      - Track a week of spending
+      - State a shared-cost limit
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.love
+  system: iching
+  section: advice
+  topic: verdict_love
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: love
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 感情：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，共处时间让你感到疲惫时，可以说清自己需要的安静时段，与对方商量如何安排；愿意照顾关系也可以包含适度距离与独立活动。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 商量彼此舒适的联系节奏
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can respond to a less supportive assessment by revising the arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. Imagine that shared time is becoming tiring despite genuine care. Describe
+      the quiet time you need and ask how both people would like to arrange it. A respectful bond
+      can include separate activities and a different pace of contact. That said, you can lower the
+      commitment, change the sequence, or ask for specific assistance. Address the least workable
+      condition and allow time to reassess. You do not need to prove yourself under pressure or
+      treat a pause as the loss of every future option.
+    advice:
+      - Offer an unpressured invitation
+      - Discuss a comfortable contact rhythm
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.health
+  system: iching
+  section: advice
+  topic: verdict_health
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: health
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 健康：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 给每天保留一段安静时间
+      - 记录作息变化与感受
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can respond to a less supportive assessment by revising the arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. For instance, evening messages may keep extending the working day. Record
+      what happens before bed and reserve a quiet interval to finish up. Observe whether the change
+      makes your next day more manageable, without treating the result as a diagnosis. That said,
+      you can lower the commitment, change the sequence, or ask for specific assistance. Address the
+      least workable condition and allow time to reassess. You do not need to prove yourself under
+      pressure or treat a pause as the loss of every future option.
+    advice:
+      - Keep a daily quiet interval
+      - Note routine changes and feelings
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.study
+  system: iching
+  section: advice
+  topic: verdict_study
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: study
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 学业：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，准备阶段觉得资料太多时，你可以选一份基础材料完成一次练习，再用实际错误决定下次补什么，避免不断更换资源而没有练习记录。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 完成一次练习再复盘
+      - 带具体问题寻求反馈
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can respond to a less supportive assessment by revising the arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. Imagine preparing with so many sources that none becomes usable. Choose one
+      basic resource, finish an exercise, and let the error record guide the next lesson. A smaller
+      set of materials can make practice more focused than repeatedly changing the entire study
+      plan. That said, you can lower the commitment, change the sequence, or ask for specific
+      assistance. Address the least workable condition and allow time to reassess. You do not need
+      to prove yourself under pressure or treat a pause as the loss of every future option.
+    advice:
+      - Review a completed exercise
+      - Bring a specific learning question
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.travel
+  system: iching
+  section: advice
+  topic: verdict_travel
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: travel
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 出行：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 核对一处关键衔接
+      - 保存联络与备用路线
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can respond to a less supportive assessment by revising the arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. For example, a journey with several transfers may depend on one tight
+      connection. Verify that link, save contact details, and keep an alternative route. A modest
+      time buffer can be more useful than expecting each stage to align exactly as planned. That
+      said, you can lower the commitment, change the sequence, or ask for specific assistance.
+      Address the least workable condition and allow time to reassess. You do not need to prove
+      yourself under pressure or treat a pause as the loss of every future option.
+    advice:
+      - Check one key connection
+      - Save contacts and alternatives
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.decision
+  system: iching
+  section: advice
+  topic: verdict_decision
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: decision
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 决策：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，别人希望你立即表态时，你可以说清还缺哪一项事实，以及何时能够回复，保留自己的判断空间，不因催促就把尚未核实的条件当成确定。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 比较两案的现实限制
+      - 先做可撤回的小试验
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can respond to a less supportive assessment by revising the arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. Imagine being asked for an immediate answer while one material fact is
+      missing. Name that fact and state when you can respond. Keeping a defined review interval
+      protects your ability to decide without requiring another person to share all your
+      preferences. That said, you can lower the commitment, change the sequence, or ask for specific
+      assistance. Address the least workable condition and allow time to reassess. You do not need
+      to prove yourself under pressure or treat a pause as the loss of every future option.
+    advice:
+      - Compare practical constraints
+      - Try a reversible step
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.unfavorable.other
+  system: iching
+  section: advice
+  topic: verdict_other
+  when:
+    all:
+      - path: verdict
+        eq: unfavorable
+      - path: category
+        eq: other
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 其他：限制稍多时，可以先调整范围再评估是否继续
+    summary: 限制稍多时，可以先调整范围再评估是否继续
+    body: 对这个问题，限制稍多时，可以先调整范围再评估是否继续。较不利（约束因素略多的评价）提示准备或配合值得再检查，吉凶是关系比较的标签，不是对个人能力的结论。分数没有预测事件的作用，眼前的限制也可能随着材料、时间或协作方式改变，需要回到现实核对。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    advice:
+      - 把问题缩成一个具体情境
+      - 记录下一步与复查时间
+      - 不过，你可以通过降低投入、修订顺序与明确求助增加选择；先处理一项最不合适的条件，留出再评估的时间，不用在压力下证明自己，也不把暂缓视作永远没有机会。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can respond to a less supportive assessment by revising the
+      arrangement'
+    summary: You can respond to a less supportive assessment by revising the arrangement
+    body:
+      You can respond to a less supportive assessment by revising the arrangement. Unfavorable is a
+      less supportive jí xiōng assessment — a comparison of symbolic conditions rather than a
+      judgment of your ability. The score does not predict an event. A limitation can change with
+      timing, resources, or coordination, so investigate the actual arrangement before deciding what
+      it means for you. For instance, a vague sense of disorder can be narrowed to one thing you
+      want to arrange today. Put the current situation, your need, and a next action on the same
+      page. Review that small task before deciding that everything requires a larger change. That
+      said, you can lower the commitment, change the sequence, or ask for specific assistance.
+      Address the least workable condition and allow time to reassess. You do not need to prove
+      yourself under pressure or treat a pause as the loss of every future option.
+    advice:
+      - Name one concrete situation
+      - Record a step and review
+      - That said, you can lower the commitment, change the sequence, or ask for specific
+        assistance. Address the least workable condition and allow time to reassess. You do not need
+        to prove yourself under pressure or treat a pause as the loss of every future option.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.career
+  system: iching
+  section: advice
+  topic: verdict_career
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: career
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 事业：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 把目标写成可核对的交付物
+      - 约定一次职责与进度核对
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. For example, a new project may need a named owner, a clear handover, and
+      one missing document. Write these dependencies down before accepting responsibility for the
+      whole schedule. This makes a request for help easier for a colleague to answer. Consider
+      reducing the plan and contacting reliable support. Name the conditions needed before resuming
+      a larger effort, and let actual improvements change your response. A pause or an alternative
+      route can preserve resources for something you can reasonably carry.
+    advice:
+      - Define one reviewable deliverable
+      - Agree on a role and progress check
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.wealth
+  system: iching
+  section: advice
+  topic: verdict_wealth
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: wealth
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 财运：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 记录一周收支并分类
+      - 说明共享费用的上限
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. Consider a shared expense that sounded simple in conversation. Ask what
+      each participant can voluntarily contribute, when it is available, and how the record will be
+      kept. A pleasant agreement is different from resources that are actually ready to use.
+      Consider reducing the plan and contacting reliable support. Name the conditions needed before
+      resuming a larger effort, and let actual improvements change your response. A pause or an
+      alternative route can preserve resources for something you can reasonably carry.
+    advice:
+      - Track a week of spending
+      - State a shared-cost limit
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.love
+  system: iching
+  section: advice
+  topic: verdict_love
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: love
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 感情：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 商量彼此舒适的联系节奏
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. For example, you might want more frequent contact while another person has
+      a different schedule. Make one invitation and ask what feels comfortable. Leave room for a
+      different preference instead of using a delayed reply to infer the meaning of the entire
+      relationship. Consider reducing the plan and contacting reliable support. Name the conditions
+      needed before resuming a larger effort, and let actual improvements change your response. A
+      pause or an alternative route can preserve resources for something you can reasonably carry.
+    advice:
+      - Offer an unpressured invitation
+      - Discuss a comfortable contact rhythm
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.health
+  system: iching
+  section: advice
+  topic: verdict_health
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: health
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 健康：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 给每天保留一段安静时间
+      - 记录作息变化与感受
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. Suppose a busy period leaves you reluctant to attend another event. Ask
+      whether you want quiet or someone who can listen, then communicate that need. Remove one
+      optional demand from the next day and check whether the arrangement feels easier to sustain.
+      Consider reducing the plan and contacting reliable support. Name the conditions needed before
+      resuming a larger effort, and let actual improvements change your response. A pause or an
+      alternative route can preserve resources for something you can reasonably carry.
+    advice:
+      - Keep a daily quiet interval
+      - Note routine changes and feelings
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.study
+  system: iching
+  section: advice
+  topic: verdict_study
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: study
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 学业：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 完成一次练习再复盘
+      - 带具体问题寻求反馈
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. For example, a recurring mistake may begin at one unexamined step. Write
+      down your attempt, mark where the reasoning becomes unclear, and ask for feedback on that
+      point. Collecting more finished answers may miss the learning opportunity in your own work.
+      Consider reducing the plan and contacting reliable support. Name the conditions needed before
+      resuming a larger effort, and let actual improvements change your response. A pause or an
+      alternative route can preserve resources for something you can reasonably carry.
+    advice:
+      - Review a completed exercise
+      - Bring a specific learning question
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.travel
+  system: iching
+  section: advice
+  topic: verdict_travel
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: travel
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 出行：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 核对一处关键衔接
+      - 保存联络与备用路线
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. Consider arriving somewhere unfamiliar with several invitations already
+      waiting. Confirm your base and return arrangements before adding activities. You can decline
+      an extra outing politely if it would remove the time or resources needed for the rest of the
+      journey. Consider reducing the plan and contacting reliable support. Name the conditions
+      needed before resuming a larger effort, and let actual improvements change your response. A
+      pause or an alternative route can preserve resources for something you can reasonably carry.
+    advice:
+      - Check one key connection
+      - Save contacts and alternatives
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.decision
+  system: iching
+  section: advice
+  topic: verdict_decision
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: decision
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 决策：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 比较两案的现实限制
+      - 先做可撤回的小试验
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. For example, two appealing options may rely on different resources. List
+      the time, dependencies, and least acceptable condition for each. A small reversible trial can
+      provide information that another round of imagining the final outcome would not produce.
+      Consider reducing the plan and contacting reliable support. Name the conditions needed before
+      resuming a larger effort, and let actual improvements change your response. A pause or an
+      alternative route can preserve resources for something you can reasonably carry.
+    advice:
+      - Compare practical constraints
+      - Try a reversible step
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.verdict.inauspicious.other
+  system: iching
+  section: advice
+  topic: verdict_other
+  when:
+    all:
+      - path: verdict
+        eq: inauspicious
+      - path: category
+        eq: other
+  weight: 80
+  polarity: negative
+  tags:
+    - plain
+    - iching.clarity
+    - iching.coordination
+  exclusive_with: []
+  zh:
+    title: 其他：阻力较集中时，先保留必要资源与判断空间
+    summary: 阻力较集中时，先保留必要资源与判断空间
+    body: 对这个问题，阻力较集中时，先保留必要资源与判断空间。凶（综合比较里约束较多的传统评价）只是象征分类，不用于预告现实事件或评价一个人的价值。吉凶关系与分数都不等于概率，限制较集中时适合检查任务是否超出已有资源，把必要安排与可选投入分开。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    advice:
+      - 把问题缩成一个具体情境
+      - 记录下一步与复查时间
+      - 建议先收小计划并联络可信的支持，把恢复推进所需的条件写清楚；新的信息与实际改善始终优先，也可以选择暂停或替代路线，让资源留给你能合理承担的事情。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can protect essentials when several limiting factors appear together'
+    summary: You can protect essentials when several limiting factors appear together
+    body: You can protect essentials when several limiting factors appear together. Inauspicious
+      corresponds to xiōng (凶 — several limiting factors in a traditional assessment). It is a
+      symbolic category, not a prediction or a statement about human worth. Neither the label nor
+      the score is a probability. Separate essential needs from optional commitments when inspecting
+      the practical load. Consider an everyday irritation that keeps returning. Record the setting
+      and your response, then identify one part you can influence. Ask a trusted person for another
+      perspective before treating the pattern as evidence that your circumstances cannot change.
+      Consider reducing the plan and contacting reliable support. Name the conditions needed before
+      resuming a larger effort, and let actual improvements change your response. A pause or an
+      alternative route can preserve resources for something you can reasonably carry.
+    advice:
+      - Name one concrete situation
+      - Record a step and review
+      - Consider reducing the plan and contacting reliable support. Name the conditions needed
+        before resuming a larger effort, and let actual improvements change your response. A pause
+        or an alternative route can preserve resources for something you can reasonably carry.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

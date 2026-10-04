@@ -13,7 +13,7 @@ import type { Hit, InterpretInput, Report, ReportBlock, Score, Section } from '.
 import { numeric, systemConfigs } from './config';
 import { termMarker, termCount } from './terms';
 import { checkReadability } from './readability';
-export const interpretVersion = '1.0.0';
+export const interpretVersion = '1.1.0';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>
   b.hit.weight - a.hit.weight || (a.unit.id < b.unit.id ? -1 : a.unit.id > b.unit.id ? 1 : 0);
@@ -68,8 +68,35 @@ export function interpret(input: InterpretInput): Report {
     });
   }
   evaluated.sort(order);
+  // §8 variants have the same conditions and reciprocal exclusions; select one before conflict resolution.
+  const variantChoices = new Map<string, string>();
+  for (const candidate of evaluated) {
+    if (!/\.[abc]$/.test(candidate.unit.id)) continue;
+    const root = candidate.unit.id.slice(0, -2);
+    if (variantChoices.has(root)) continue;
+    const variants = evaluated
+      .filter(
+        (other) =>
+          other.unit.id.slice(0, -2) === root &&
+          /\.[abc]$/.test(other.unit.id) &&
+          other.unit.topic === candidate.unit.topic &&
+          other.unit.section === candidate.unit.section &&
+          equal(other.unit.when, candidate.unit.when) &&
+          (other.unit.id === candidate.unit.id ||
+            (candidate.unit.exclusive_with.includes(other.unit.id) &&
+              other.unit.exclusive_with.includes(candidate.unit.id))),
+      )
+      .sort((a, b) => a.unit.id.localeCompare(b.unit.id, 'en'));
+    if (variants.length < 2) continue;
+    // DESIGN-GAP: InterpretContext did not expose §8's userId; accept it optionally.
+    // Anonymous callers use the schema-ordered chart as a stable fallback without adding identity storage.
+    const identity = context.userId ?? JSON.stringify(chart);
+    variantChoices.set(root, variants[hash(`${identity}:${root}`) % variants.length]!.unit.id);
+  }
   // Prefer an equivalent plain variant when the original exceeds the term-density budget.
   const candidates = evaluated.filter((candidate) => {
+    const variant = variantChoices.get(candidate.unit.id.slice(0, -2));
+    if (variant && variant !== candidate.unit.id) return false;
     const body = candidate.unit[locale].body;
     const dense =
       (termCount(body, knowledge.glossary, locale) * 100) /

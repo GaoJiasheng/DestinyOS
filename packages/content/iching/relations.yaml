@@ -1,0 +1,4659 @@
+# DESIGN-GAP: The KU schema has no variant field; a/b ids and reciprocal exclusions prevent stacking.
+# The interpreter chooses a stable variant using userId, or chart for anonymous callers.
+- id: iching.relation.use_generates_body.career.a
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: career
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.career.b
+  zh:
+    title: 事业：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 把目标写成可核对的交付物
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For example, a new
+      project may need a named owner, a clear handover, and one missing document. Write these
+      dependencies down before accepting responsibility for the whole schedule. This makes a request
+      for help easier for a colleague to answer. Start with a task that the available help can
+      genuinely carry. Let the result show how coordination works before expanding the request, and
+      recognize the other person’s time as part of the resource.
+    advice:
+      - Define one reviewable deliverable
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.career.b
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: career
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.career.a
+  zh:
+    title: 事业：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，在会议里讨论任务分配时，你可以先说明现有负荷与最需要配合的一项工作，再听取同事的安排，给协商保留具体入口。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 约定一次职责与进度核对
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready. Imagine
+      a planning meeting in which several people assume you will fill every gap. State your current
+      workload and ask who can take one specific part. The conversation can then concern an actual
+      arrangement instead of your willingness to work harder. Turn the offer into one clear
+      agreement and a check on progress. If the assistance is not yet ready, make the task smaller
+      instead of reading the delay as something wrong with you.
+    advice:
+      - Agree on a role and progress check
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.wealth.a
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.wealth.b
+  zh:
+    title: 财运：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 记录一周收支并分类
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For instance,
+      several small recurring expenses may have become hard to track. List their amounts and
+      purposes, separate essentials from optional items, and choose one adjustable expense to
+      review. You need a usable record before deciding what to change. Start with a task that the
+      available help can genuinely carry. Let the result show how coordination works before
+      expanding the request, and recognize the other person’s time as part of the resource.
+    advice:
+      - Track a week of spending
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.wealth.b
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.wealth.a
+  zh:
+    title: 财运：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 说明共享费用的上限
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready.
+      Consider a shared expense that sounded simple in conversation. Ask what each participant can
+      voluntarily contribute, when it is available, and how the record will be kept. A pleasant
+      agreement is different from resources that are actually ready to use. Turn the offer into one
+      clear agreement and a check on progress. If the assistance is not yet ready, make the task
+      smaller instead of reading the delay as something wrong with you.
+    advice:
+      - State a shared-cost limit
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.love.a
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: love
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.love.b
+  zh:
+    title: 感情：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For example, you
+      might want more frequent contact while another person has a different schedule. Make one
+      invitation and ask what feels comfortable. Leave room for a different preference instead of
+      using a delayed reply to infer the meaning of the entire relationship. Start with a task that
+      the available help can genuinely carry. Let the result show how coordination works before
+      expanding the request, and recognize the other person’s time as part of the resource.
+    advice:
+      - Offer an unpressured invitation
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.love.b
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: love
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.love.a
+  zh:
+    title: 感情：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，共处时间让你感到疲惫时，可以说清自己需要的安静时段，与对方商量如何安排；愿意照顾关系也可以包含适度距离与独立活动。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 商量彼此舒适的联系节奏
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready. Imagine
+      that shared time is becoming tiring despite genuine care. Describe the quiet time you need and
+      ask how both people would like to arrange it. A respectful bond can include separate
+      activities and a different pace of contact. Turn the offer into one clear agreement and a
+      check on progress. If the assistance is not yet ready, make the task smaller instead of
+      reading the delay as something wrong with you.
+    advice:
+      - Discuss a comfortable contact rhythm
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.health.a
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: health
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.health.b
+  zh:
+    title: 健康：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 给每天保留一段安静时间
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For instance,
+      evening messages may keep extending the working day. Record what happens before bed and
+      reserve a quiet interval to finish up. Observe whether the change makes your next day more
+      manageable, without treating the result as a diagnosis. Start with a task that the available
+      help can genuinely carry. Let the result show how coordination works before expanding the
+      request, and recognize the other person’s time as part of the resource.
+    advice:
+      - Keep a daily quiet interval
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.health.b
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: health
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.health.a
+  zh:
+    title: 健康：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 记录作息变化与感受
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready. Suppose
+      a busy period leaves you reluctant to attend another event. Ask whether you want quiet or
+      someone who can listen, then communicate that need. Remove one optional demand from the next
+      day and check whether the arrangement feels easier to sustain. Turn the offer into one clear
+      agreement and a check on progress. If the assistance is not yet ready, make the task smaller
+      instead of reading the delay as something wrong with you.
+    advice:
+      - Note routine changes and feelings
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.study.a
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: study
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.study.b
+  zh:
+    title: 学业：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 完成一次练习再复盘
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For example, a
+      recurring mistake may begin at one unexamined step. Write down your attempt, mark where the
+      reasoning becomes unclear, and ask for feedback on that point. Collecting more finished
+      answers may miss the learning opportunity in your own work. Start with a task that the
+      available help can genuinely carry. Let the result show how coordination works before
+      expanding the request, and recognize the other person’s time as part of the resource.
+    advice:
+      - Review a completed exercise
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.study.b
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: study
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.study.a
+  zh:
+    title: 学业：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，准备阶段觉得资料太多时，你可以选一份基础材料完成一次练习，再用实际错误决定下次补什么，避免不断更换资源而没有练习记录。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 带具体问题寻求反馈
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready. Imagine
+      preparing with so many sources that none becomes usable. Choose one basic resource, finish an
+      exercise, and let the error record guide the next lesson. A smaller set of materials can make
+      practice more focused than repeatedly changing the entire study plan. Turn the offer into one
+      clear agreement and a check on progress. If the assistance is not yet ready, make the task
+      smaller instead of reading the delay as something wrong with you.
+    advice:
+      - Bring a specific learning question
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.travel.a
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.travel.b
+  zh:
+    title: 出行：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 核对一处关键衔接
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For example, a
+      journey with several transfers may depend on one tight connection. Verify that link, save
+      contact details, and keep an alternative route. A modest time buffer can be more useful than
+      expecting each stage to align exactly as planned. Start with a task that the available help
+      can genuinely carry. Let the result show how coordination works before expanding the request,
+      and recognize the other person’s time as part of the resource.
+    advice:
+      - Check one key connection
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.travel.b
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.travel.a
+  zh:
+    title: 出行：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 保存联络与备用路线
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready.
+      Consider arriving somewhere unfamiliar with several invitations already waiting. Confirm your
+      base and return arrangements before adding activities. You can decline an extra outing
+      politely if it would remove the time or resources needed for the rest of the journey. Turn the
+      offer into one clear agreement and a check on progress. If the assistance is not yet ready,
+      make the task smaller instead of reading the delay as something wrong with you.
+    advice:
+      - Save contacts and alternatives
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.decision.a
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.decision.b
+  zh:
+    title: 决策：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 比较两案的现实限制
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For example, two
+      appealing options may rely on different resources. List the time, dependencies, and least
+      acceptable condition for each. A small reversible trial can provide information that another
+      round of imagining the final outcome would not produce. Start with a task that the available
+      help can genuinely carry. Let the result show how coordination works before expanding the
+      request, and recognize the other person’s time as part of the resource.
+    advice:
+      - Compare practical constraints
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.decision.b
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.decision.a
+  zh:
+    title: 决策：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，别人希望你立即表态时，你可以说清还缺哪一项事实，以及何时能够回复，保留自己的判断空间，不因催促就把尚未核实的条件当成确定。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 先做可撤回的小试验
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready. Imagine
+      being asked for an immediate answer while one material fact is missing. Name that fact and
+      state when you can respond. Keeping a defined review interval protects your ability to decide
+      without requiring another person to share all your preferences. Turn the offer into one clear
+      agreement and a check on progress. If the assistance is not yet ready, make the task smaller
+      instead of reading the delay as something wrong with you.
+    advice:
+      - Try a reversible step
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.other.a
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: other
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.other.b
+  zh:
+    title: 其他：外部支持有助于你开展手头的事
+    summary: 外部支持有助于你开展手头的事
+    body: 在这个问题上，外部支持有助于你开展手头的事。用生体（外部因素对你所处位置形成支持）提示可借力的条件。体是象征你自身处境的部分，用是象征当前事件的部分，这种关系重在辨认帮助如何到位，不等于每项期待都会自动落实。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    advice:
+      - 把问题缩成一个具体情境
+      - 在现有支持上先完成一件小事，确认配合能够持续之后再扩大范围，也把对方的时间与边界纳入安排。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can make practical use of support that fits your present capacity'
+    summary: You can make practical use of support that fits your present capacity
+    body: You can make practical use of support that fits your present capacity. Use generates body
+      (yòng shēng tǐ — the event side supports the side representing your position) points toward
+      useful assistance. Body and use are roles in this symbolic arrangement, not measurements of a
+      person. Notice what help is actually available and how it reaches the task. For instance, a
+      vague sense of disorder can be narrowed to one thing you want to arrange today. Put the
+      current situation, your need, and a next action on the same page. Review that small task
+      before deciding that everything requires a larger change. Start with a task that the available
+      help can genuinely carry. Let the result show how coordination works before expanding the
+      request, and recognize the other person’s time as part of the resource.
+    advice:
+      - Name one concrete situation
+      - Start with a task that the available help can genuinely carry. Let the result show how
+        coordination works before expanding the request, and recognize the other person’s time as
+        part of the resource.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_generates_body.other.b
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_generates_body
+      - path: category
+        eq: other
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_generates_body.other.a
+  zh:
+    title: 其他：得到支持也可以保留自己的节奏
+    summary: 得到支持也可以保留自己的节奏
+    body: 在这个问题上，得到支持也可以保留自己的节奏。卦中的用生体（事情一侧滋养自身处境一侧）描述的是支持方向，值得检查哪些材料、伙伴或时间安排正在帮助你。帮助只有进入实际使用才有价值；你仍需确定职责，不把有人愿意帮忙理解成已经具备全部条件。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    advice:
+      - 记录下一步与复查时间
+      - 先把帮助转成一项明确约定，约好何时查看实际进度；若支持暂时不到位，可以缩小任务而非责怪自己。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can receive assistance and still choose your own pace'
+    summary: You can receive assistance and still choose your own pace
+    body:
+      You can receive assistance and still choose your own pace. This reading shows use generates
+      body (yòng shēng tǐ — circumstances feeding the position that represents you). The useful
+      question is how an offer becomes access, coordination, or usable time. Receiving help does not
+      remove your part in the arrangement or establish that every needed condition is ready.
+      Consider an everyday irritation that keeps returning. Record the setting and your response,
+      then identify one part you can influence. Ask a trusted person for another perspective before
+      treating the pattern as evidence that your circumstances cannot change. Turn the offer into
+      one clear agreement and a check on progress. If the assistance is not yet ready, make the task
+      smaller instead of reading the delay as something wrong with you.
+    advice:
+      - Record a step and review
+      - Turn the offer into one clear agreement and a check on progress. If the assistance is not
+        yet ready, make the task smaller instead of reading the delay as something wrong with you.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.career.a
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: career
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.career.b
+  zh:
+    title: 事业：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 把目标写成可核对的交付物
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You may be supplying much of the effort, so review what the contribution costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For example, a new project
+      may need a named owner, a clear handover, and one missing document. Write these dependencies
+      down before accepting responsibility for the whole schedule. This makes a request for help
+      easier for a colleague to answer. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Define one reviewable deliverable
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.career.b
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: career
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.career.a
+  zh:
+    title: 事业：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，在会议里讨论任务分配时，你可以先说明现有负荷与最需要配合的一项工作，再听取同事的安排，给协商保留具体入口。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 约定一次职责与进度核对
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can contribute thoughtfully while protecting enough capacity for the next day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Imagine a planning meeting in
+      which several people assume you will fill every gap. State your current workload and ask who
+      can take one specific part. The conversation can then concern an actual arrangement instead of
+      your willingness to work harder. Try one bounded round and then inspect what it required.
+      Explain the revised limit before beginning again; a clearer arrangement may help more than an
+      additional round of effort nobody has agreed to share.
+    advice:
+      - Agree on a role and progress check
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.wealth.a
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.wealth.b
+  zh:
+    title: 财运：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 记录一周收支并分类
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Resources: You may be supplying much of the effort, so review what the contribution
+      costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For instance, several small
+      recurring expenses may have become hard to track. List their amounts and purposes, separate
+      essentials from optional items, and choose one adjustable expense to review. You need a usable
+      record before deciding what to change. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Track a week of spending
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.wealth.b
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.wealth.a
+  zh:
+    title: 财运：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 说明共享费用的上限
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Resources: You can contribute thoughtfully while protecting enough capacity for the
+      next day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Consider a shared expense
+      that sounded simple in conversation. Ask what each participant can voluntarily contribute,
+      when it is available, and how the record will be kept. A pleasant agreement is different from
+      resources that are actually ready to use. Try one bounded round and then inspect what it
+      required. Explain the revised limit before beginning again; a clearer arrangement may help
+      more than an additional round of effort nobody has agreed to share.
+    advice:
+      - State a shared-cost limit
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.love.a
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: love
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.love.b
+  zh:
+    title: 感情：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You may be supplying much of the effort, so review what the contribution costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For example, you might want
+      more frequent contact while another person has a different schedule. Make one invitation and
+      ask what feels comfortable. Leave room for a different preference instead of using a delayed
+      reply to infer the meaning of the entire relationship. Consider naming how much you can give
+      and which responsibility needs to be shared. Leave space to replenish capacity so the
+      contribution remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Offer an unpressured invitation
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.love.b
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: love
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.love.a
+  zh:
+    title: 感情：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，共处时间让你感到疲惫时，可以说清自己需要的安静时段，与对方商量如何安排；愿意照顾关系也可以包含适度距离与独立活动。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 商量彼此舒适的联系节奏
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Relationships: You can contribute thoughtfully while protecting enough capacity for the next
+      day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Imagine that shared time is
+      becoming tiring despite genuine care. Describe the quiet time you need and ask how both people
+      would like to arrange it. A respectful bond can include separate activities and a different
+      pace of contact. Try one bounded round and then inspect what it required. Explain the revised
+      limit before beginning again; a clearer arrangement may help more than an additional round of
+      effort nobody has agreed to share.
+    advice:
+      - Discuss a comfortable contact rhythm
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.health.a
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: health
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.health.b
+  zh:
+    title: 健康：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 给每天保留一段安静时间
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Daily Wellbeing: You may be supplying much of the effort, so review what the contribution
+      costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For instance, evening
+      messages may keep extending the working day. Record what happens before bed and reserve a
+      quiet interval to finish up. Observe whether the change makes your next day more manageable,
+      without treating the result as a diagnosis. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Keep a daily quiet interval
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.health.b
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: health
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.health.a
+  zh:
+    title: 健康：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 记录作息变化与感受
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Daily Wellbeing: You can contribute thoughtfully while protecting enough capacity for the
+      next day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Suppose a busy period leaves
+      you reluctant to attend another event. Ask whether you want quiet or someone who can listen,
+      then communicate that need. Remove one optional demand from the next day and check whether the
+      arrangement feels easier to sustain. Try one bounded round and then inspect what it required.
+      Explain the revised limit before beginning again; a clearer arrangement may help more than an
+      additional round of effort nobody has agreed to share.
+    advice:
+      - Note routine changes and feelings
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.study.a
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: study
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.study.b
+  zh:
+    title: 学业：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 完成一次练习再复盘
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You may be supplying much of the effort, so review what the contribution costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For example, a recurring
+      mistake may begin at one unexamined step. Write down your attempt, mark where the reasoning
+      becomes unclear, and ask for feedback on that point. Collecting more finished answers may miss
+      the learning opportunity in your own work. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Review a completed exercise
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.study.b
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: study
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.study.a
+  zh:
+    title: 学业：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，准备阶段觉得资料太多时，你可以选一份基础材料完成一次练习，再用实际错误决定下次补什么，避免不断更换资源而没有练习记录。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 带具体问题寻求反馈
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can contribute thoughtfully while protecting enough capacity for the next day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Imagine preparing with so
+      many sources that none becomes usable. Choose one basic resource, finish an exercise, and let
+      the error record guide the next lesson. A smaller set of materials can make practice more
+      focused than repeatedly changing the entire study plan. Try one bounded round and then inspect
+      what it required. Explain the revised limit before beginning again; a clearer arrangement may
+      help more than an additional round of effort nobody has agreed to share.
+    advice:
+      - Bring a specific learning question
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.travel.a
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.travel.b
+  zh:
+    title: 出行：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 核对一处关键衔接
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You may be supplying much of the effort, so review what the contribution costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For example, a journey with
+      several transfers may depend on one tight connection. Verify that link, save contact details,
+      and keep an alternative route. A modest time buffer can be more useful than expecting each
+      stage to align exactly as planned. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Check one key connection
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.travel.b
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.travel.a
+  zh:
+    title: 出行：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 保存联络与备用路线
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can contribute thoughtfully while protecting enough capacity for the next day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Consider arriving somewhere
+      unfamiliar with several invitations already waiting. Confirm your base and return arrangements
+      before adding activities. You can decline an extra outing politely if it would remove the time
+      or resources needed for the rest of the journey. Try one bounded round and then inspect what
+      it required. Explain the revised limit before beginning again; a clearer arrangement may help
+      more than an additional round of effort nobody has agreed to share.
+    advice:
+      - Save contacts and alternatives
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.decision.a
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.decision.b
+  zh:
+    title: 决策：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 比较两案的现实限制
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You may be supplying much of the effort, so review what the contribution costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For example, two appealing
+      options may rely on different resources. List the time, dependencies, and least acceptable
+      condition for each. A small reversible trial can provide information that another round of
+      imagining the final outcome would not produce. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Compare practical constraints
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.decision.b
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.decision.a
+  zh:
+    title: 决策：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，别人希望你立即表态时，你可以说清还缺哪一项事实，以及何时能够回复，保留自己的判断空间，不因催促就把尚未核实的条件当成确定。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 先做可撤回的小试验
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can contribute thoughtfully while protecting enough capacity for the next day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Imagine being asked for an
+      immediate answer while one material fact is missing. Name that fact and state when you can
+      respond. Keeping a defined review interval protects your ability to decide without requiring
+      another person to share all your preferences. Try one bounded round and then inspect what it
+      required. Explain the revised limit before beginning again; a clearer arrangement may help
+      more than an additional round of effort nobody has agreed to share.
+    advice:
+      - Try a reversible step
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.other.a
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: other
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.other.b
+  zh:
+    title: 其他：你可能付出较多，适合先看消耗是否可承受
+    summary: 你可能付出较多，适合先看消耗是否可承受
+    body: 在这个问题上，你可能付出较多，适合先看消耗是否可承受。体生用（自身处境向事情投入资源）提醒你留意付出与补充的关系。体代表你所处的一侧，用代表事件的一侧，向外投入能够推动事情，也可能让时间与精力变薄；是否值得要结合现实需要判断。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    advice:
+      - 把问题缩成一个具体情境
+      - 建议先说明能投入多少与哪些部分需要共同承担，留出补充精力的空档，让支持建立在可持续的范围内。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Questions: You may be supplying much of the effort, so review what the contribution
+      costs'
+    summary: You may be supplying much of the effort, so review what the contribution costs
+    body:
+      You may be supplying much of the effort, so review what the contribution costs. Body generates
+      use (tǐ shēng yòng — your side supplies the event side) highlights contribution and depletion.
+      An effort can be meaningful and still require a limit. Look at the resource being given, what
+      replenishes it, and whether the arrangement acknowledges the cost. For instance, a vague sense
+      of disorder can be narrowed to one thing you want to arrange today. Put the current situation,
+      your need, and a next action on the same page. Review that small task before deciding that
+      everything requires a larger change. Consider naming how much you can give and which
+      responsibility needs to be shared. Leave space to replenish capacity so the contribution
+      remains workable instead of growing through an unspoken assumption.
+    advice:
+      - Name one concrete situation
+      - Consider naming how much you can give and which responsibility needs to be shared. Leave
+        space to replenish capacity so the contribution remains workable instead of growing through
+        an unspoken assumption.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_generates_use.other.b
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_generates_use
+      - path: category
+        eq: other
+  weight: 82
+  polarity: mixed
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_generates_use.other.a
+  zh:
+    title: 其他：愿意投入时，也值得确认怎样保留余力
+    summary: 愿意投入时，也值得确认怎样保留余力
+    body: 在这个问题上，愿意投入时，也值得确认怎样保留余力。这里呈现体生用（你的一侧向事件一侧提供支持），重点不是评价付出好坏，而是看资源是否单向流出。投入可能来自时间、注意力或日常预算；若对方不知道成本，容易把一次帮助变成默认职责。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    advice:
+      - 记录下一步与复查时间
+      - 可以先做有限的一轮，结束后问自己哪些投入有效、哪些需要调整；把新的边界说清楚，比单独增加努力更有帮助。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Everyday Questions: You can contribute thoughtfully while protecting enough capacity for the
+      next day'
+    summary: You can contribute thoughtfully while protecting enough capacity for the next day
+    body: You can contribute thoughtfully while protecting enough capacity for the next day. The
+      relation is body generates use (tǐ shēng yòng — support flows from your position into the
+      matter). Attention, time, and everyday resources can all be involved. A voluntary gesture can
+      quietly become an expected duty if its scope is never discussed. Consider an everyday
+      irritation that keeps returning. Record the setting and your response, then identify one part
+      you can influence. Ask a trusted person for another perspective before treating the pattern as
+      evidence that your circumstances cannot change. Try one bounded round and then inspect what it
+      required. Explain the revised limit before beginning again; a clearer arrangement may help
+      more than an additional round of effort nobody has agreed to share.
+    advice:
+      - Record a step and review
+      - Try one bounded round and then inspect what it required. Explain the revised limit before
+        beginning again; a clearer arrangement may help more than an additional round of effort
+        nobody has agreed to share.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.career.a
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: career
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.career.b
+  zh:
+    title: 事业：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 把目标写成可核对的交付物
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For example, a new
+      project may need a named owner, a clear handover, and one missing document. Write these
+      dependencies down before accepting responsibility for the whole schedule. This makes a request
+      for help easier for a colleague to answer. That said, you can reduce scope and request
+      specific help. Keep essential arrangements intact, then review the situation when real
+      conditions change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Define one reviewable deliverable
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.career.b
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: career
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.career.a
+  zh:
+    title: 事业：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，在会议里讨论任务分配时，你可以先说明现有负荷与最需要配合的一项工作，再听取同事的安排，给协商保留具体入口。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 约定一次职责与进度核对
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can renegotiate the arrangement when demands exceed the support around you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Imagine a
+      planning meeting in which several people assume you will fill every gap. State your current
+      workload and ask who can take one specific part. The conversation can then concern an actual
+      arrangement instead of your willingness to work harder. Consider identifying the least
+      workable demand and proposing a concrete alternative. Seek reliable support and allow a
+      response interval. Continuing to add commitments under pressure may make an already unsuitable
+      arrangement harder to revise.
+    advice:
+      - Agree on a role and progress check
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.wealth.a
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.wealth.b
+  zh:
+    title: 财运：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 记录一周收支并分类
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For instance, several
+      small recurring expenses may have become hard to track. List their amounts and purposes,
+      separate essentials from optional items, and choose one adjustable expense to review. You need
+      a usable record before deciding what to change. That said, you can reduce scope and request
+      specific help. Keep essential arrangements intact, then review the situation when real
+      conditions change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Track a week of spending
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.wealth.b
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.wealth.a
+  zh:
+    title: 财运：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 说明共享费用的上限
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can renegotiate the arrangement when demands exceed the support
+      around you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Consider a
+      shared expense that sounded simple in conversation. Ask what each participant can voluntarily
+      contribute, when it is available, and how the record will be kept. A pleasant agreement is
+      different from resources that are actually ready to use. Consider identifying the least
+      workable demand and proposing a concrete alternative. Seek reliable support and allow a
+      response interval. Continuing to add commitments under pressure may make an already unsuitable
+      arrangement harder to revise.
+    advice:
+      - State a shared-cost limit
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.love.a
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: love
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.love.b
+  zh:
+    title: 感情：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For example, you might
+      want more frequent contact while another person has a different schedule. Make one invitation
+      and ask what feels comfortable. Leave room for a different preference instead of using a
+      delayed reply to infer the meaning of the entire relationship. That said, you can reduce scope
+      and request specific help. Keep essential arrangements intact, then review the situation when
+      real conditions change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Offer an unpressured invitation
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.love.b
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: love
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.love.a
+  zh:
+    title: 感情：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，共处时间让你感到疲惫时，可以说清自己需要的安静时段，与对方商量如何安排；愿意照顾关系也可以包含适度距离与独立活动。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 商量彼此舒适的联系节奏
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can renegotiate the arrangement when demands exceed the support around you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Imagine that
+      shared time is becoming tiring despite genuine care. Describe the quiet time you need and ask
+      how both people would like to arrange it. A respectful bond can include separate activities
+      and a different pace of contact. Consider identifying the least workable demand and proposing
+      a concrete alternative. Seek reliable support and allow a response interval. Continuing to add
+      commitments under pressure may make an already unsuitable arrangement harder to revise.
+    advice:
+      - Discuss a comfortable contact rhythm
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.health.a
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: health
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.health.b
+  zh:
+    title: 健康：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 给每天保留一段安静时间
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For instance, evening
+      messages may keep extending the working day. Record what happens before bed and reserve a
+      quiet interval to finish up. Observe whether the change makes your next day more manageable,
+      without treating the result as a diagnosis. That said, you can reduce scope and request
+      specific help. Keep essential arrangements intact, then review the situation when real
+      conditions change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Keep a daily quiet interval
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.health.b
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: health
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.health.a
+  zh:
+    title: 健康：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 记录作息变化与感受
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Daily Wellbeing: You can renegotiate the arrangement when demands exceed the support around
+      you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Suppose a busy
+      period leaves you reluctant to attend another event. Ask whether you want quiet or someone who
+      can listen, then communicate that need. Remove one optional demand from the next day and check
+      whether the arrangement feels easier to sustain. Consider identifying the least workable
+      demand and proposing a concrete alternative. Seek reliable support and allow a response
+      interval. Continuing to add commitments under pressure may make an already unsuitable
+      arrangement harder to revise.
+    advice:
+      - Note routine changes and feelings
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.study.a
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: study
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.study.b
+  zh:
+    title: 学业：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 完成一次练习再复盘
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For example, a recurring
+      mistake may begin at one unexamined step. Write down your attempt, mark where the reasoning
+      becomes unclear, and ask for feedback on that point. Collecting more finished answers may miss
+      the learning opportunity in your own work. That said, you can reduce scope and request
+      specific help. Keep essential arrangements intact, then review the situation when real
+      conditions change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Review a completed exercise
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.study.b
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: study
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.study.a
+  zh:
+    title: 学业：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，准备阶段觉得资料太多时，你可以选一份基础材料完成一次练习，再用实际错误决定下次补什么，避免不断更换资源而没有练习记录。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 带具体问题寻求反馈
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can renegotiate the arrangement when demands exceed the support around you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Imagine
+      preparing with so many sources that none becomes usable. Choose one basic resource, finish an
+      exercise, and let the error record guide the next lesson. A smaller set of materials can make
+      practice more focused than repeatedly changing the entire study plan. Consider identifying the
+      least workable demand and proposing a concrete alternative. Seek reliable support and allow a
+      response interval. Continuing to add commitments under pressure may make an already unsuitable
+      arrangement harder to revise.
+    advice:
+      - Bring a specific learning question
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.travel.a
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.travel.b
+  zh:
+    title: 出行：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 核对一处关键衔接
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For example, a journey
+      with several transfers may depend on one tight connection. Verify that link, save contact
+      details, and keep an alternative route. A modest time buffer can be more useful than expecting
+      each stage to align exactly as planned. That said, you can reduce scope and request specific
+      help. Keep essential arrangements intact, then review the situation when real conditions
+      change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Check one key connection
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.travel.b
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.travel.a
+  zh:
+    title: 出行：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 保存联络与备用路线
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can renegotiate the arrangement when demands exceed the support around you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Consider
+      arriving somewhere unfamiliar with several invitations already waiting. Confirm your base and
+      return arrangements before adding activities. You can decline an extra outing politely if it
+      would remove the time or resources needed for the rest of the journey. Consider identifying
+      the least workable demand and proposing a concrete alternative. Seek reliable support and
+      allow a response interval. Continuing to add commitments under pressure may make an already
+      unsuitable arrangement harder to revise.
+    advice:
+      - Save contacts and alternatives
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.decision.a
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.decision.b
+  zh:
+    title: 决策：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 比较两案的现实限制
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For example, two
+      appealing options may rely on different resources. List the time, dependencies, and least
+      acceptable condition for each. A small reversible trial can provide information that another
+      round of imagining the final outcome would not produce. That said, you can reduce scope and
+      request specific help. Keep essential arrangements intact, then review the situation when real
+      conditions change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Compare practical constraints
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.decision.b
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.decision.a
+  zh:
+    title: 决策：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，别人希望你立即表态时，你可以说清还缺哪一项事实，以及何时能够回复，保留自己的判断空间，不因催促就把尚未核实的条件当成确定。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 先做可撤回的小试验
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can renegotiate the arrangement when demands exceed the support around you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Imagine being
+      asked for an immediate answer while one material fact is missing. Name that fact and state
+      when you can respond. Keeping a defined review interval protects your ability to decide
+      without requiring another person to share all your preferences. Consider identifying the least
+      workable demand and proposing a concrete alternative. Seek reliable support and allow a
+      response interval. Continuing to add commitments under pressure may make an already unsuitable
+      arrangement harder to revise.
+    advice:
+      - Try a reversible step
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.other.a
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: other
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.other.b
+  zh:
+    title: 其他：外部限制较明显时，先保护能自主安排的部分
+    summary: 外部限制较明显时，先保护能自主安排的部分
+    body: 在这个问题上，外部限制较明显时，先保护能自主安排的部分。用克体（事件一侧限制你所处的一侧）提示压力或条件不合，并不是对个人能力的否定。体象征自身处境，用象征当前事情，受制的关系适合先辨认边界、缺口与可用支援，而非把每个阻碍都归到自己身上。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    advice:
+      - 把问题缩成一个具体情境
+      - 不过，你可以通过缩小范围与明确求助减轻消耗；先守住必要安排，等实际条件变化后再评估是否适合继续推进。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You may need to respond to a constraint before expecting normal progress'
+    summary: You may need to respond to a constraint before expecting normal progress
+    body:
+      You may need to respond to a constraint before expecting normal progress. Use controls body
+      (yòng kè tǐ — the event side constrains your position) describes a limit, not a verdict about
+      your ability. Identify whether the constraint concerns time, access, or a demand you cannot
+      currently meet. This makes an appropriate response easier to choose. For instance, a vague
+      sense of disorder can be narrowed to one thing you want to arrange today. Put the current
+      situation, your need, and a next action on the same page. Review that small task before
+      deciding that everything requires a larger change. That said, you can reduce scope and request
+      specific help. Keep essential arrangements intact, then review the situation when real
+      conditions change rather than treating pressure as a reason to abandon your judgment.
+    advice:
+      - Name one concrete situation
+      - That said, you can reduce scope and request specific help. Keep essential arrangements
+        intact, then review the situation when real conditions change rather than treating pressure
+        as a reason to abandon your judgment.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.use_controls_body.other.b
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: use_controls_body
+      - path: category
+        eq: other
+  weight: 82
+  polarity: negative
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.use_controls_body.other.a
+  zh:
+    title: 其他：面对不合适的条件，可以先重新谈范围
+    summary: 面对不合适的条件，可以先重新谈范围
+    body: 在这个问题上，面对不合适的条件，可以先重新谈范围。卦里是用克体（当前事情对自身处境形成约束），提醒你检查要求与已有条件是否相配。体与用只是象征角色，不说明谁更有价值；被限制可能来自流程或资源，不能直接推成他人的动机。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    advice:
+      - 记录下一步与复查时间
+      - 建议列出最难承接的一项要求，提出可以调整的替代方案，也联系可信的支持；给回应留时间，不在催促中继续加码。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can renegotiate the arrangement when demands exceed the support
+      around you'
+    summary: You can renegotiate the arrangement when demands exceed the support around you
+    body: You can renegotiate the arrangement when demands exceed the support around you. Here use
+      controls body (yòng kè tǐ — the matter places a constraint on the side representing you). The
+      roles are symbolic, not a hierarchy of human worth. Check a mismatch in requirements or
+      resources before inferring another person’s motives from the pressure you feel. Consider an
+      everyday irritation that keeps returning. Record the setting and your response, then identify
+      one part you can influence. Ask a trusted person for another perspective before treating the
+      pattern as evidence that your circumstances cannot change. Consider identifying the least
+      workable demand and proposing a concrete alternative. Seek reliable support and allow a
+      response interval. Continuing to add commitments under pressure may make an already unsuitable
+      arrangement harder to revise.
+    advice:
+      - Record a step and review
+      - Consider identifying the least workable demand and proposing a concrete alternative. Seek
+        reliable support and allow a response interval. Continuing to add commitments under pressure
+        may make an already unsuitable arrangement harder to revise.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.career.a
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: career
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.career.b
+  zh:
+    title: 事业：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 把目标写成可核对的交付物
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can influence the matter, though doing so may require deliberate effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For example, a
+      new project may need a named owner, a clear handover, and one missing document. Write these
+      dependencies down before accepting responsibility for the whole schedule. This makes a request
+      for help easier for a colleague to answer. Try one influential practical step and give it a
+      time limit. Agree on a review, and ask for consent where the choice belongs to someone else.
+      Effective agency can remain bounded rather than becoming a demand to direct everything.
+    advice:
+      - Define one reviewable deliverable
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.career.b
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: career
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.career.a
+  zh:
+    title: 事业：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，在会议里讨论任务分配时，你可以先说明现有负荷与最需要配合的一项工作，再听取同事的安排，给协商保留具体入口。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 约定一次职责与进度核对
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can direct your effort toward the part of the situation that is yours to arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Imagine a planning meeting in which several people assume you will fill every gap. State your
+      current workload and ask who can take one specific part. The conversation can then concern an
+      actual arrangement instead of your willingness to work harder. Consider translating the
+      intended change into one usable rule. Hear from the people affected before extending it, so an
+      improvement that feels convenient to you does not become an unexamined burden for everyone
+      else.
+    advice:
+      - Agree on a role and progress check
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.wealth.a
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.wealth.b
+  zh:
+    title: 财运：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 记录一周收支并分类
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can influence the matter, though doing so may require deliberate
+      effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For instance,
+      several small recurring expenses may have become hard to track. List their amounts and
+      purposes, separate essentials from optional items, and choose one adjustable expense to
+      review. You need a usable record before deciding what to change. Try one influential practical
+      step and give it a time limit. Agree on a review, and ask for consent where the choice belongs
+      to someone else. Effective agency can remain bounded rather than becoming a demand to direct
+      everything.
+    advice:
+      - Track a week of spending
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.wealth.b
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.wealth.a
+  zh:
+    title: 财运：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 说明共享费用的上限
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can direct your effort toward the part of the situation that is
+      yours to arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Consider a shared expense that sounded simple in conversation. Ask what each participant can
+      voluntarily contribute, when it is available, and how the record will be kept. A pleasant
+      agreement is different from resources that are actually ready to use. Consider translating the
+      intended change into one usable rule. Hear from the people affected before extending it, so an
+      improvement that feels convenient to you does not become an unexamined burden for everyone
+      else.
+    advice:
+      - State a shared-cost limit
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.love.a
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: love
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.love.b
+  zh:
+    title: 感情：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can influence the matter, though doing so may require deliberate effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For example, you
+      might want more frequent contact while another person has a different schedule. Make one
+      invitation and ask what feels comfortable. Leave room for a different preference instead of
+      using a delayed reply to infer the meaning of the entire relationship. Try one influential
+      practical step and give it a time limit. Agree on a review, and ask for consent where the
+      choice belongs to someone else. Effective agency can remain bounded rather than becoming a
+      demand to direct everything.
+    advice:
+      - Offer an unpressured invitation
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.love.b
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: love
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.love.a
+  zh:
+    title: 感情：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，共处时间让你感到疲惫时，可以说清自己需要的安静时段，与对方商量如何安排；愿意照顾关系也可以包含适度距离与独立活动。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 商量彼此舒适的联系节奏
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Relationships: You can direct your effort toward the part of the situation that is yours to
+      arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Imagine that shared time is becoming tiring despite genuine care. Describe the quiet time you
+      need and ask how both people would like to arrange it. A respectful bond can include separate
+      activities and a different pace of contact. Consider translating the intended change into one
+      usable rule. Hear from the people affected before extending it, so an improvement that feels
+      convenient to you does not become an unexamined burden for everyone else.
+    advice:
+      - Discuss a comfortable contact rhythm
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.health.a
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: health
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.health.b
+  zh:
+    title: 健康：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 给每天保留一段安静时间
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can influence the matter, though doing so may require deliberate effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For instance,
+      evening messages may keep extending the working day. Record what happens before bed and
+      reserve a quiet interval to finish up. Observe whether the change makes your next day more
+      manageable, without treating the result as a diagnosis. Try one influential practical step and
+      give it a time limit. Agree on a review, and ask for consent where the choice belongs to
+      someone else. Effective agency can remain bounded rather than becoming a demand to direct
+      everything.
+    advice:
+      - Keep a daily quiet interval
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.health.b
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: health
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.health.a
+  zh:
+    title: 健康：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 记录作息变化与感受
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title:
+      'Daily Wellbeing: You can direct your effort toward the part of the situation that is yours
+      to arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Suppose a busy period leaves you reluctant to attend another event. Ask whether you want quiet
+      or someone who can listen, then communicate that need. Remove one optional demand from the
+      next day and check whether the arrangement feels easier to sustain. Consider translating the
+      intended change into one usable rule. Hear from the people affected before extending it, so an
+      improvement that feels convenient to you does not become an unexamined burden for everyone
+      else.
+    advice:
+      - Note routine changes and feelings
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.study.a
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: study
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.study.b
+  zh:
+    title: 学业：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 完成一次练习再复盘
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can influence the matter, though doing so may require deliberate effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For example, a
+      recurring mistake may begin at one unexamined step. Write down your attempt, mark where the
+      reasoning becomes unclear, and ask for feedback on that point. Collecting more finished
+      answers may miss the learning opportunity in your own work. Try one influential practical step
+      and give it a time limit. Agree on a review, and ask for consent where the choice belongs to
+      someone else. Effective agency can remain bounded rather than becoming a demand to direct
+      everything.
+    advice:
+      - Review a completed exercise
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.study.b
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: study
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.study.a
+  zh:
+    title: 学业：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，准备阶段觉得资料太多时，你可以选一份基础材料完成一次练习，再用实际错误决定下次补什么，避免不断更换资源而没有练习记录。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 带具体问题寻求反馈
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can direct your effort toward the part of the situation that is yours to
+      arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Imagine preparing with so many sources that none becomes usable. Choose one basic resource,
+      finish an exercise, and let the error record guide the next lesson. A smaller set of materials
+      can make practice more focused than repeatedly changing the entire study plan. Consider
+      translating the intended change into one usable rule. Hear from the people affected before
+      extending it, so an improvement that feels convenient to you does not become an unexamined
+      burden for everyone else.
+    advice:
+      - Bring a specific learning question
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.travel.a
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.travel.b
+  zh:
+    title: 出行：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 核对一处关键衔接
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can influence the matter, though doing so may require deliberate effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For example, a
+      journey with several transfers may depend on one tight connection. Verify that link, save
+      contact details, and keep an alternative route. A modest time buffer can be more useful than
+      expecting each stage to align exactly as planned. Try one influential practical step and give
+      it a time limit. Agree on a review, and ask for consent where the choice belongs to someone
+      else. Effective agency can remain bounded rather than becoming a demand to direct everything.
+    advice:
+      - Check one key connection
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.travel.b
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.travel.a
+  zh:
+    title: 出行：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 保存联络与备用路线
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can direct your effort toward the part of the situation that is yours to
+      arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Consider arriving somewhere unfamiliar with several invitations already waiting. Confirm your
+      base and return arrangements before adding activities. You can decline an extra outing
+      politely if it would remove the time or resources needed for the rest of the journey. Consider
+      translating the intended change into one usable rule. Hear from the people affected before
+      extending it, so an improvement that feels convenient to you does not become an unexamined
+      burden for everyone else.
+    advice:
+      - Save contacts and alternatives
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.decision.a
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.decision.b
+  zh:
+    title: 决策：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 比较两案的现实限制
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can influence the matter, though doing so may require deliberate effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For example, two
+      appealing options may rely on different resources. List the time, dependencies, and least
+      acceptable condition for each. A small reversible trial can provide information that another
+      round of imagining the final outcome would not produce. Try one influential practical step and
+      give it a time limit. Agree on a review, and ask for consent where the choice belongs to
+      someone else. Effective agency can remain bounded rather than becoming a demand to direct
+      everything.
+    advice:
+      - Compare practical constraints
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.decision.b
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.decision.a
+  zh:
+    title: 决策：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，别人希望你立即表态时，你可以说清还缺哪一项事实，以及何时能够回复，保留自己的判断空间，不因催促就把尚未核实的条件当成确定。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 先做可撤回的小试验
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can direct your effort toward the part of the situation that is yours to arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Imagine being asked for an immediate answer while one material fact is missing. Name that fact
+      and state when you can respond. Keeping a defined review interval protects your ability to
+      decide without requiring another person to share all your preferences. Consider translating
+      the intended change into one usable rule. Hear from the people affected before extending it,
+      so an improvement that feels convenient to you does not become an unexamined burden for
+      everyone else.
+    advice:
+      - Try a reversible step
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.other.a
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: other
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.other.b
+  zh:
+    title: 其他：你有调整事情的空间，但推进可能需要额外精力
+    summary: 你有调整事情的空间，但推进可能需要额外精力
+    body: 在这个问题上，你有调整事情的空间，但推进可能需要额外精力。体克用（自身处境对事件一侧形成约束）提示你能够管理一部分条件。体象征你的位置，用象征事情；这不等于事情毫无阻力，也不授权你控制别人，重点是把精力用在确实有权限与资源处理的地方。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    advice:
+      - 把问题缩成一个具体情境
+      - 可以先选一个影响较大的具体环节，投入有限时间去整理，并约定检查点；若超出职责范围，先协商而不强行代替别人决定。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can influence the matter, though doing so may require deliberate
+      effort'
+    summary: You can influence the matter, though doing so may require deliberate effort
+    body:
+      You can influence the matter, though doing so may require deliberate effort. Body controls use
+      (tǐ kè yòng — your side can constrain the event side) concerns agency within the arrangement.
+      It does not establish control over another person or remove the effort involved. Identify the
+      part you can responsibly influence with the authority and resources you have. For instance, a
+      vague sense of disorder can be narrowed to one thing you want to arrange today. Put the
+      current situation, your need, and a next action on the same page. Review that small task
+      before deciding that everything requires a larger change. Try one influential practical step
+      and give it a time limit. Agree on a review, and ask for consent where the choice belongs to
+      someone else. Effective agency can remain bounded rather than becoming a demand to direct
+      everything.
+    advice:
+      - Name one concrete situation
+      - Try one influential practical step and give it a time limit. Agree on a review, and ask for
+        consent where the choice belongs to someone else. Effective agency can remain bounded rather
+        than becoming a demand to direct everything.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.body_controls_use.other.b
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: body_controls_use
+      - path: category
+        eq: other
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.body_controls_use.other.a
+  zh:
+    title: 其他：能主动安排的部分，适合用清楚规则来推进
+    summary: 能主动安排的部分，适合用清楚规则来推进
+    body: 在这个问题上，能主动安排的部分，适合用清楚规则来推进。这里的体克用（你的一侧能够约束事情一侧）强调可管理的空间，也提醒你照顾推进成本。体用不是人与人之间的高低排序；有主动权时，清楚分工与有分寸的做法更容易让行动被承接。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    advice:
+      - 记录下一步与复查时间
+      - 建议将想改变的环节缩成一项可执行规则，先听取受影响的人如何使用，再决定是否扩大，不以一时顺手增加所有人的负担。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can direct your effort toward the part of the situation that is
+      yours to arrange'
+    summary: You can direct your effort toward the part of the situation that is yours to arrange
+    body:
+      You can direct your effort toward the part of the situation that is yours to arrange. This is
+      body controls use (tǐ kè yòng — influence runs from your represented position toward the
+      matter). The relationship is not a ranking between people. When you have room to arrange
+      something, a clear process helps others understand the purpose and boundaries of the action.
+      Consider an everyday irritation that keeps returning. Record the setting and your response,
+      then identify one part you can influence. Ask a trusted person for another perspective before
+      treating the pattern as evidence that your circumstances cannot change. Consider translating
+      the intended change into one usable rule. Hear from the people affected before extending it,
+      so an improvement that feels convenient to you does not become an unexamined burden for
+      everyone else.
+    advice:
+      - Record a step and review
+      - Consider translating the intended change into one usable rule. Hear from the people affected
+        before extending it, so an improvement that feels convenient to you does not become an
+        unexamined burden for everyone else.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.career.a
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: career
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.career.b
+  zh:
+    title: 事业：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，项目刚开始时，你可以列出交付内容、负责的人和缺少的材料，把依赖说清楚，避免把整个团队的进展都压在自己身上。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 把目标写成可核对的交付物
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For example, a new project may
+      need a named owner, a clear handover, and one missing document. Write these dependencies down
+      before accepting responsibility for the whole schedule. This makes a request for help easier
+      for a colleague to answer. Use the easy contact to confirm one shared arrangement, including
+      responsibility and timing. Keep a way to give feedback, so cooperation rests on something
+      observable rather than the assumption that everyone means the same thing.
+    advice:
+      - Define one reviewable deliverable
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.career.b
+  system: iching
+  section: process_outcome
+  topic: relation_career
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: career
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.career.a
+  zh:
+    title: 事业：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，在会议里讨论任务分配时，你可以先说明现有负荷与最需要配合的一项工作，再听取同事的安排，给协商保留具体入口。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 约定一次职责与进度核对
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Work: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Imagine a planning meeting in which
+      several people assume you will fill every gap. State your current workload and ask who can
+      take one specific part. The conversation can then concern an actual arrangement instead of
+      your willingness to work harder. Try exchanging expectations about a specific part of the
+      plan, such as time or scope. Revise a mismatch calmly if it appears. Preserving a friendly
+      atmosphere need not require either person to hide a practical need.
+    advice:
+      - Agree on a role and progress check
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.wealth.a
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.wealth.b
+  zh:
+    title: 财运：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，月底发现几项零散开支时，你可以逐项记录金额与用途，分清固定需要和可调整的部分，先处理一个持续占用预算的小项目。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 记录一周收支并分类
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For instance, several small
+      recurring expenses may have become hard to track. List their amounts and purposes, separate
+      essentials from optional items, and choose one adjustable expense to review. You need a usable
+      record before deciding what to change. Use the easy contact to confirm one shared arrangement,
+      including responsibility and timing. Keep a way to give feedback, so cooperation rests on
+      something observable rather than the assumption that everyone means the same thing.
+    advice:
+      - Track a week of spending
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.wealth.b
+  system: iching
+  section: process_outcome
+  topic: relation_wealth
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: wealth
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.wealth.a
+  zh:
+    title: 财运：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，有人提出共同分担一笔费用时，你可以先确认每个人愿意承担的范围、付款时间和记录方式，不把口头热情当成已经到位的资源。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 说明共享费用的上限
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Resources: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Consider a shared expense that
+      sounded simple in conversation. Ask what each participant can voluntarily contribute, when it
+      is available, and how the record will be kept. A pleasant agreement is different from
+      resources that are actually ready to use. Try exchanging expectations about a specific part of
+      the plan, such as time or scope. Revise a mismatch calmly if it appears. Preserving a friendly
+      atmosphere need not require either person to hide a practical need.
+    advice:
+      - State a shared-cost limit
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.love.a
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: love
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.love.b
+  zh:
+    title: 感情：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，你想增加联系频率时，可以清楚提出一个邀请，听对方是否愿意与何时方便，允许回应与你的期待不同，而不根据一次沉默猜测全部关系。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 提出一个允许拒绝的邀请
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For example, you might want
+      more frequent contact while another person has a different schedule. Make one invitation and
+      ask what feels comfortable. Leave room for a different preference instead of using a delayed
+      reply to infer the meaning of the entire relationship. Use the easy contact to confirm one
+      shared arrangement, including responsibility and timing. Keep a way to give feedback, so
+      cooperation rests on something observable rather than the assumption that everyone means the
+      same thing.
+    advice:
+      - Offer an unpressured invitation
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.love.b
+  system: iching
+  section: process_outcome
+  topic: relation_love
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: love
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.love.a
+  zh:
+    title: 感情：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，共处时间让你感到疲惫时，可以说清自己需要的安静时段，与对方商量如何安排；愿意照顾关系也可以包含适度距离与独立活动。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 商量彼此舒适的联系节奏
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Relationships: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Imagine that shared time is becoming
+      tiring despite genuine care. Describe the quiet time you need and ask how both people would
+      like to arrange it. A respectful bond can include separate activities and a different pace of
+      contact. Try exchanging expectations about a specific part of the plan, such as time or scope.
+      Revise a mismatch calmly if it appears. Preserving a friendly atmosphere need not require
+      either person to hide a practical need.
+    advice:
+      - Discuss a comfortable contact rhythm
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.health.a
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: health
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.health.b
+  zh:
+    title: 健康：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，连续几天睡前仍在处理消息，你可以记录入睡前的活动，把一段时间留给安静收尾，并观察这样的调整是否让第二天的安排更容易承受。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 给每天保留一段安静时间
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For instance, evening messages
+      may keep extending the working day. Record what happens before bed and reserve a quiet
+      interval to finish up. Observe whether the change makes your next day more manageable, without
+      treating the result as a diagnosis. Use the easy contact to confirm one shared arrangement,
+      including responsibility and timing. Keep a way to give feedback, so cooperation rests on
+      something observable rather than the assumption that everyone means the same thing.
+    advice:
+      - Keep a daily quiet interval
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.health.b
+  system: iching
+  section: process_outcome
+  topic: relation_health
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: health
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.health.a
+  zh:
+    title: 健康：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，忙碌后不想再参加活动时，可以先分清想独处还是需要有人倾听，向可信的人说明状态，并为接下来的一天减少一个可选的安排。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 记录作息变化与感受
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Daily Wellbeing: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Suppose a busy period leaves you
+      reluctant to attend another event. Ask whether you want quiet or someone who can listen, then
+      communicate that need. Remove one optional demand from the next day and check whether the
+      arrangement feels easier to sustain. Try exchanging expectations about a specific part of the
+      plan, such as time or scope. Revise a mismatch calmly if it appears. Preserving a friendly
+      atmosphere need not require either person to hide a practical need.
+    advice:
+      - Note routine changes and feelings
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.study.a
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: study
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.study.b
+  zh:
+    title: 学业：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，练习总卡在同一题型时，你可以把自己的解题过程写下来，找出从哪一步开始不理解，带着这份记录请教，而不是只收集更多答案。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 完成一次练习再复盘
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For example, a recurring
+      mistake may begin at one unexamined step. Write down your attempt, mark where the reasoning
+      becomes unclear, and ask for feedback on that point. Collecting more finished answers may miss
+      the learning opportunity in your own work. Use the easy contact to confirm one shared
+      arrangement, including responsibility and timing. Keep a way to give feedback, so cooperation
+      rests on something observable rather than the assumption that everyone means the same thing.
+    advice:
+      - Review a completed exercise
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.study.b
+  system: iching
+  section: process_outcome
+  topic: relation_study
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: study
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.study.a
+  zh:
+    title: 学业：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，准备阶段觉得资料太多时，你可以选一份基础材料完成一次练习，再用实际错误决定下次补什么，避免不断更换资源而没有练习记录。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 带具体问题寻求反馈
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Learning: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Imagine preparing with so many
+      sources that none becomes usable. Choose one basic resource, finish an exercise, and let the
+      error record guide the next lesson. A smaller set of materials can make practice more focused
+      than repeatedly changing the entire study plan. Try exchanging expectations about a specific
+      part of the plan, such as time or scope. Revise a mismatch calmly if it appears. Preserving a
+      friendly atmosphere need not require either person to hide a practical need.
+    advice:
+      - Bring a specific learning question
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.travel.a
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.travel.b
+  zh:
+    title: 出行：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，行程需要几次转乘时，你可以先核对最紧的一段衔接，保存联络方式与替代路线，给等待留出余量，不用为了赶进度取消基本准备。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 核对一处关键衔接
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For example, a journey with
+      several transfers may depend on one tight connection. Verify that link, save contact details,
+      and keep an alternative route. A modest time buffer can be more useful than expecting each
+      stage to align exactly as planned. Use the easy contact to confirm one shared arrangement,
+      including responsibility and timing. Keep a way to give feedback, so cooperation rests on
+      something observable rather than the assumption that everyone means the same thing.
+    advice:
+      - Check one key connection
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.travel.b
+  system: iching
+  section: process_outcome
+  topic: relation_travel
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: travel
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.travel.a
+  zh:
+    title: 出行：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，到达不熟悉的地方后，你可以先确认落脚点和返程方式，再按精力安排活动；临时邀请也可以在核对时间与条件后温和拒绝。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 保存联络与备用路线
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Journeys: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Consider arriving somewhere
+      unfamiliar with several invitations already waiting. Confirm your base and return arrangements
+      before adding activities. You can decline an extra outing politely if it would remove the time
+      or resources needed for the rest of the journey. Try exchanging expectations about a specific
+      part of the plan, such as time or scope. Revise a mismatch calmly if it appears. Preserving a
+      friendly atmosphere need not require either person to hide a practical need.
+    advice:
+      - Save contacts and alternatives
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.decision.a
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.decision.b
+  zh:
+    title: 决策：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，两个方案都很吸引你时，可以分别写出需要投入的时间、依赖与最难接受的条件，先试一个成本较小的步骤，再带着新信息比较。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 比较两案的现实限制
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For example, two appealing
+      options may rely on different resources. List the time, dependencies, and least acceptable
+      condition for each. A small reversible trial can provide information that another round of
+      imagining the final outcome would not produce. Use the easy contact to confirm one shared
+      arrangement, including responsibility and timing. Keep a way to give feedback, so cooperation
+      rests on something observable rather than the assumption that everyone means the same thing.
+    advice:
+      - Compare practical constraints
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.decision.b
+  system: iching
+  section: process_outcome
+  topic: relation_decision
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: decision
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.decision.a
+  zh:
+    title: 决策：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，别人希望你立即表态时，你可以说清还缺哪一项事实，以及何时能够回复，保留自己的判断空间，不因催促就把尚未核实的条件当成确定。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 先做可撤回的小试验
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Choices: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Imagine being asked for an immediate
+      answer while one material fact is missing. Name that fact and state when you can respond.
+      Keeping a defined review interval protects your ability to decide without requiring another
+      person to share all your preferences. Try exchanging expectations about a specific part of the
+      plan, such as time or scope. Revise a mismatch calmly if it appears. Preserving a friendly
+      atmosphere need not require either person to hide a practical need.
+    advice:
+      - Try a reversible step
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.other.a
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: other
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.other.b
+  zh:
+    title: 其他：双方节奏较容易衔接，仍需把默契说清楚
+    summary: 双方节奏较容易衔接，仍需把默契说清楚
+    body: 在这个问题上，双方节奏较容易衔接，仍需把默契说清楚。比和（体与用的五行（木火土金水的关系分类）属性相同）象征自身处境与当前事情较容易同向。体代表你的一侧，用代表事件一侧，相同不是完全没有差异；顺畅的感觉可以作为交流入口，但承诺与边界仍值得核实。例如，最近总觉得事情零散时，你可以挑出今天最想整理的一项，把现状、需要与下一步写在同一张纸上，做完再看是否还需要更大的调整。可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    advice:
+      - 把问题缩成一个具体情境
+      - 可以借着较顺的交流确认一项共同安排，把谁做什么与何时回应说清楚；保留反馈机会，让默契有现实行为可以承接。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You may find coordination easier when the two sides have a similar rhythm'
+    summary: You may find coordination easier when the two sides have a similar rhythm
+    body:
+      You may find coordination easier when the two sides have a similar rhythm. Same relation, or
+      bǐ hé (比和 — body and use share an element), suggests a compatible rhythm between your position
+      and the matter. Similarity can make an initial exchange easier. It does not establish
+      identical preferences or remove the need to check commitments. For instance, a vague sense of
+      disorder can be narrowed to one thing you want to arrange today. Put the current situation,
+      your need, and a next action on the same page. Review that small task before deciding that
+      everything requires a larger change. Use the easy contact to confirm one shared arrangement,
+      including responsibility and timing. Keep a way to give feedback, so cooperation rests on
+      something observable rather than the assumption that everyone means the same thing.
+    advice:
+      - Name one concrete situation
+      - Use the easy contact to confirm one shared arrangement, including responsibility and timing.
+        Keep a way to give feedback, so cooperation rests on something observable rather than the
+        assumption that everyone means the same thing.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.relation.same.other.b
+  system: iching
+  section: process_outcome
+  topic: relation_other
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.relation
+        eq: same
+      - path: category
+        eq: other
+  weight: 82
+  polarity: neutral
+  tags:
+    - plain
+    - iching.coordination
+    - iching.pacing
+  exclusive_with:
+    - iching.relation.same.other.a
+  zh:
+    title: 其他：配合感觉相近时，也可以主动核对不同需要
+    summary: 配合感觉相近时，也可以主动核对不同需要
+    body: 在这个问题上，配合感觉相近时，也可以主动核对不同需要。卦中比和（自身与事情一侧同属一种五行（木火土金水的关系分类））提示可能存在较好配合的基础。体与用分别象征你的位置与当前事件，共同属性只是一个观察角度，不说明你和任何人都应有相同想法或步调。例如，某件小事反复让你烦心时，可以记录它通常发生的场景与自己的回应，找出其中能调整的一点，邀请可信的人提供另一个观察角度。建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    advice:
+      - 记录下一步与复查时间
+      - 建议在一处具体安排上交换期待，例如时间与投入范围；若发现不同，也可以温和调整，避免为了保持和气把实际需要藏起来。
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: 'Everyday Questions: You can enjoy an easy exchange and still ask where your needs differ'
+    summary: You can enjoy an easy exchange and still ask where your needs differ
+    body:
+      You can enjoy an easy exchange and still ask where your needs differ. The relation is bǐ hé
+      (比和 — the represented position and the matter belong to the same element). This offers an
+      image of alignment, not proof that two people think alike. An easy beginning can be used to
+      discover the differences that still deserve an agreement. Consider an everyday irritation that
+      keeps returning. Record the setting and your response, then identify one part you can
+      influence. Ask a trusted person for another perspective before treating the pattern as
+      evidence that your circumstances cannot change. Try exchanging expectations about a specific
+      part of the plan, such as time or scope. Revise a mismatch calmly if it appears. Preserving a
+      friendly atmosphere need not require either person to hide a practical need.
+    advice:
+      - Record a step and review
+      - Try exchanging expectations about a specific part of the plan, such as time or scope. Revise
+        a mismatch calmly if it appears. Preserving a friendly atmosphere need not require either
+        person to hide a practical need.
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

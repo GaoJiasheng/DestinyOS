@@ -275,8 +275,8 @@ describe('iching documented casts and independent liuyao oracle', () => {
       }).chart.primary,
     ).toMatchObject({ number: 60 });
   });
-  it('validates all 64 source records, 384 yao and xiang, and empty bilingual white-language fields', () => {
-    const bilingual = z.object({ zh: z.literal(''), en: z.literal('') });
+  it('validates all 64 source records, 384 yao and xiang, and completed bilingual commentary', () => {
+    const bilingual = z.object({ zh: z.string().min(1), en: z.string().min(1) });
     const rows = z
       .array(
         z.object({

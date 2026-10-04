@@ -46,6 +46,9 @@ describe('source tables and KU integration', () => {
     ]);
     expect(result.units.filter((unit) => unit.system === 'bazi')).toHaveLength(346);
     expect(result.units.map((unit) => unit.id)).toContain('ziwei.fallback.overview');
+    expect(result.units.map((unit) => unit.id)).toContain('common.disclaimer');
+    expect(result.units.some((unit) => unit.id.startsWith('iching.primary.'))).toBe(true);
+    expect(result.units.some((unit) => unit.id.startsWith('hexagram_'))).toBe(false);
     expect(result.glossary.length).toBeGreaterThan(400);
   });
 });

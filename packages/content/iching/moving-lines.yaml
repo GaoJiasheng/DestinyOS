@@ -1,0 +1,329 @@
+- id: iching.moving_lines.count_0
+  system: iching
+  section: moving_lines
+  topic: moving_count
+  when:
+    path: movingLines.length
+    eq: 0
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 没有动爻时，先看本卦的整体提醒
+    summary: 没有动爻时，先看本卦的整体提醒
+    body: 你可以把注意力先放在本卦（起卦得到的主要六条线）整体，不必为了寻找转折补出没有的动爻（被标记为翻转阴阳的线）。静卦（六条线都没有翻转的结构）在当前起卦里没有动态标记，本卦是主要情境图；传统阅读以卦辞（整体卦象的象征文字）为入口，卦辞是整体意象的简要文字，原文只放在折叠引用中。没有变化不等于现实停止，也不说明你不能采取行动，重点是检视正在维持的基础与习惯。例如，一项安排长期照常运行，可以先检查谁在维护它、哪些部分已经顺手、哪里缺少一次沟通。建议选一个符合实际的小改进，观察原有结构能否更容易使用；如果新信息出现，也可以更新判断，不需等待象征给出变化才允许自己回应现实。
+    advice:
+      - 检查一个长期维持的安排
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Read the whole primary image when no lines are moving
+    summary: Read the whole primary image when no lines are moving
+    body:
+      You can start with the whole primary image instead of supplying a turning point that is not
+      marked. A static hexagram, or jìng guà — a figure with no flipped lines, has no moving
+      positions in this cast. The traditional entry is the judgment, a short account of the overall
+      image available as a folded source. Stillness does not establish that ordinary life has
+      stopped or that you cannot act. If a routine has continued unchanged, inspect who maintains
+      it, what works smoothly, and where contact is missing. Consider one grounded improvement and
+      observe whether the existing arrangement becomes easier to use. New information can still
+      alter your judgment. You do not need a symbolic movement before allowing yourself to respond
+      to an actual change in circumstances.
+    advice:
+      - Review one continuing arrangement
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.moving_lines.count_1
+  system: iching
+  section: moving_lines
+  topic: moving_count
+  when:
+    path: movingLines.length
+    eq: 1
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 一爻变化时，重点查看这一位置怎样接上整体
+    summary: 一爻变化时，重点查看这一位置怎样接上整体
+    body: 你可以先阅读唯一变化的位置，再把它放回整体情境。动爻（本卦（起卦得到的主要六条线）中翻转阴阳的线）只有一条时，传统规则以该爻的文字为主要入口；爻辞（一条线对应的象征文字）是描述该位置的象征文字，原文与白话分开展示，不需要把古代角色直接指定为现实中的人。一个位置提供焦点，并不说明其他条件都不重要，也不预测变化会何时完成。例如，共同任务只调整了材料交接方式，可以重点核对这一环节怎样影响前后步骤，同时保留对整体资源的检查。建议先确认图上标记的实际位置，再读对应白话，写下一个需要核实的问题；让焦点帮助安排观察，不用一次局部改变替全部过程作判断。
+    advice:
+      - 核对唯一动爻的前后衔接
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Focus on the single changed position and its connections
+    summary: Focus on the single changed position and its connections
+    body:
+      You can inspect the one marked position and then return it to the whole arrangement. A single
+      moving line, or dòng yáo — a line selected to flip, is the main entry under the traditional
+      rule. Its line statement describes a symbolic position; the source and plain commentary are
+      separate, and historical roles need not be assigned to people in your life. One focus does not
+      make all other conditions irrelevant or specify when a transition will finish. If a shared
+      task changes only its material handover, check how that link connects to the stages before and
+      after it. Consider verifying the actual position and writing down one question from its
+      commentary. Let the focus organize attention without making a local change stand in for the
+      entire process.
+    advice:
+      - Check the single changed link
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.moving_lines.count_2
+  system: iching
+  section: moving_lines
+  topic: moving_count
+  when:
+    path: movingLines.length
+    eq: 2
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 两爻变化时，先看较上的动爻，再核对两者联系
+    summary: 两爻变化时，先看较上的动爻，再核对两者联系
+    body: 你可以先看位置较上的动爻（被标记为翻转阴阳的线），再比较另一处变化怎样影响它。动爻（本卦（起卦得到的主要六条线）里翻转阴阳的线）有两条时，传统规则主要取较上的一条，较上是从下往上计数中数字较大的位置，不是固定第五或第六爻。这个顺序只是阅读入口，不能据此忽略另一处条件，也不代表上方的人更有价值。例如，流程同时改了开头与交付环节，可以先看交付要求，再检查准备如何跟上，避免分别修改后接不起来。建议在图上按实际位置确定重点，阅读两处白话后写一份联系清单；若现实依赖指向其他部分，也继续核实，让传统顺序与生活信息一起服务于清楚而可调整的安排。
+    advice:
+      - 比较两处变化怎样相接
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Read the upper of two moving positions without ignoring the other
+    summary: Read the upper of two moving positions without ignoring the other
+    body:
+      You can begin with the upper of the two marked positions, then inspect the connection between
+      them. With two moving lines, or dòng yáo — positions that flip, the traditional rule
+      emphasizes the upper one. Upper means the larger index in bottom-to-top order, not a fixed
+      fifth or sixth line and not a ranking of people. If both preparation and delivery change,
+      first inspect the delivery requirement and then how preparation can support it. Consider
+      locating the actual pair on the figure, reading both commentaries, and recording the
+      dependency that links them. The reading order is an entry point rather than a reason to
+      discard ordinary evidence. Let practical information about other stages remain available as
+      you revise the arrangement. Keep the pair visible.
+    advice:
+      - Compare the two changed links
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.moving_lines.count_3
+  system: iching
+  section: moving_lines
+  topic: moving_count
+  when:
+    path: movingLines.length
+    eq: 3
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 三爻变化时，先读位于中间的动爻
+    summary: 三爻变化时，先读位于中间的动爻
+    body: 你可以先确定三处变化的排列，再阅读居中的那一条。动爻（起卦中翻转阴阳的线）有三条时，传统规则取三条动爻中的中间位置；中间指按位置排序后的第二条，不固定指第三爻，也不替另外两条作价值判断。这种取用方式帮助你先有一个入口，但过程中的前后关系仍需观察。例如，任务的准备、接洽与完成都改变时，可以先核对接洽怎样承接准备，又如何影响完成，再逐项检查其他条件。建议从实际标记确定排序，读对应白话后写出两条相邻依赖；多处变化可能需要协调而非加速，给确认与复查留出时间，不把居中焦点当成独自控制全部安排的人或事。
+    advice:
+      - 按实际位置确定中间动爻
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Use the middle of the three marked positions as an entry
+    summary: Use the middle of the three marked positions as an entry
+    body:
+      'You can sort the three marked positions before selecting the middle one. With three moving
+      lines, or dòng yáo — positions whose values flip, the traditional rule uses the middle moving
+      position. This means the second of the three ordered indexes, not necessarily line three. It
+      provides an entry rather than deciding that the other lines have less value. Suppose
+      preparation, contact, and completion all change: inspect how contact receives the prepared
+      material and affects completion, then check the other conditions. Consider identifying the
+      actual order on the figure and writing down the two neighboring dependencies after reading the
+      commentary. Several changes may need coordination rather than speed. Leave time for
+      confirmation and review instead of treating one central focus as something that must control
+      the whole arrangement.'
+    advice:
+      - Locate the middle marked position
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.moving_lines.count_4
+  system: iching
+  section: moving_lines
+  topic: moving_count
+  when:
+    path: movingLines.length
+    eq: 4
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 四爻变化时，先看较下的静爻如何承接变化
+    summary: 四爻变化时，先看较下的静爻如何承接变化
+    body: 你可以先找到没有变化的两条线，再阅读位置较下的一条。静爻（没有翻转阴阳的线）在四条动爻（被标记为翻转阴阳的线）的结构里只剩两条，传统规则取较下静爻，较下是两者中从下往上计数较小的位置。它让你在较多变化中观察一个仍能承接的基础，不说明未变的部分永远稳定，也不要求压住现实里的新需要。例如，任务多数环节调整了，但入口与记录方式仍保留，可以先核对较早的入口能否承接新材料，再看记录是否要补充。建议按图上的实际标记找出重点，整理一个保留条件与变化条件的对照；若基础已经不适用，就依据事实修订，不为了维持静止而忽略自己的判断。
+    advice:
+      - 找出较下静爻与变化的联系
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Inspect the lower static position within a largely changing figure
+    summary: Inspect the lower static position within a largely changing figure
+    body: You can locate the two unchanged positions and begin with the lower one. A static line, or
+      jìng yáo — a line whose value does not flip, provides the traditional entry when four lines
+      move. Lower means the smaller of the two static indexes in bottom-to-top order. It offers a
+      foothold within extensive change, not proof that the unchanged part will always remain stable.
+      If most task stages are revised while the entrance and record remain, inspect how the earlier
+      retained link can receive new material. Consider comparing the preserved condition with the
+      changed requirements after locating the actual marked pattern. If the old foundation no longer
+      fits, revise it according to facts rather than defending stillness for its own sake or
+      overlooking a legitimate new need.
+    advice:
+      - Find the lower static foothold
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.moving_lines.count_5
+  system: iching
+  section: moving_lines
+  topic: moving_count
+  when:
+    path: movingLines.length
+    eq: 5
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 五爻变化时，先看唯一静爻是否仍能提供支点
+    summary: 五爻变化时，先看唯一静爻是否仍能提供支点
+    body: 你可以在多处变化中，先检查唯一没有翻转的位置。静爻（本次起卦里保持阴阳不变的线）在五条动爻（被标记为翻转阴阳的线）时只有一条，传统规则以它为主要阅读入口；这不是说只有这一处值得关心，也不是把不变当成应当永久守住的要求。多变的结构适合提醒你找一个可核对的支点，同时看它是否还符合新安排。例如，职责、工具与时间都在调整，但资料保存方式暂时不变，可以核对它是否足够清楚，让新的参与者也能找到材料。建议先按实际图示确定唯一静爻，再对照白话问一个具体问题；把能保留的做法记录下来，必要时也允许改动，让稳定服务于变化的承接而非限制后续选择。
+    advice:
+      - 核对唯一保留条件是否适用
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Check the remaining static position as a possible foothold
+    summary: Check the remaining static position as a possible foothold
+    body:
+      You can inspect the only unchanged position as a possible foothold among many transitions. A
+      static line, or jìng yáo — a position that retains its value, is the traditional entry when
+      five lines move. This does not make it the only relevant condition or require it to remain
+      untouched indefinitely. If responsibilities, tools, and timing all change while the archive
+      stays the same, check whether new participants can still find and use the material. Consider
+      locating the one static position on the actual figure and using its commentary to ask a
+      practical question. Record a preserved method when it works, while allowing revision if it no
+      longer serves the task. Stability is useful when it supports the changed arrangement rather
+      than closing the choices that follow.
+    advice:
+      - Check the remaining foothold
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.moving_lines.count_6
+  system: iching
+  section: moving_lines
+  topic: moving_count
+  when:
+    path: movingLines.length
+    eq: 6
+  weight: 76
+  polarity: neutral
+  tags:
+    - plain
+    - iching.pacing
+  exclusive_with: []
+  zh:
+    title: 六爻都变时，先看变卦的整体方向再安排衔接
+    summary: 六爻都变时，先看变卦的整体方向再安排衔接
+    body: 你可以先看变化后的整体意象，再逐项确认现实需要怎样接合。变卦（把全部动爻（被标记为翻转阴阳的线）翻转后得到的六条线）在六爻都变时成为传统规则的主要入口，通常先阅读变卦卦辞（整体卦象的象征文字）；这是新的观察结构，不是对未来必成结果的判定。原有安排即使整体调整，也仍需资源、沟通与维护来承接，不宜因为变化范围大就一次作出所有承诺。例如，一个项目换了目标与分工，可以先写清新目标、基本材料与第一轮交接，而不是把旧责任直接搬到新计划。建议把变化前后做一次整体对照，选一个能实际完成的起步；如果准备尚不足，也可以暂缓，让下一步根据现实条件与自愿参与形成。
+    advice:
+      - 比较整体变化并确认第一步
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Read the changed figure as a whole and plan the transition
+    summary: Read the changed figure as a whole and plan the transition
+    body: You can read the changed figure as a whole before planning how its arrangement might be
+      supported. The changing hexagram, or biàn guà — the six-line figure after marked values flip,
+      becomes the traditional entry when all six lines move, usually through its judgment. It is a
+      new viewpoint rather than a prediction that a particular future will be achieved. A project
+      replacing both its purpose and roles still needs resources, communication, and upkeep.
+      Consider stating the new goal, essential material, and first handover instead of carrying
+      every old responsibility straight into the new plan. Compare the whole before-and-after
+      arrangement and choose a beginning you can actually complete. If preparation is insufficient,
+      a pause remains available so the transition can develop through real conditions and voluntary
+      participation.
+    advice:
+      - Compare the change and first step
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published

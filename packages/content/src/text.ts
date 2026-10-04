@@ -44,3 +44,8 @@ export function deduplicate(items: string[], limit: number): string[] {
   }
   return selected;
 }
+
+/** Prepares normalized character trigrams for repeated corpus comparisons. */
+export const trigrams = textGrams;
+/** Computes Dice overlap of prepared trigram sets. */
+export const trigramSimilarity = gramSimilarity;

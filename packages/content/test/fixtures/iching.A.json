@@ -1,0 +1,57 @@
+{
+  "method": "meihua",
+  "category": "career",
+  "castAt": {
+    "local": "2026-10-04T12:00:00",
+    "tz": "Asia/Singapore",
+    "lunar": {
+      "year": 2026,
+      "month": 8,
+      "day": 24,
+      "isLeap": false
+    },
+    "dayGanZhi": {
+      "stem": "xin",
+      "branch": "hai"
+    },
+    "monthBranch": "you"
+  },
+  "primary": {
+    "number": 12,
+    "key": "hexagram_12",
+    "lines": [0, 0, 0, 1, 1, 1],
+    "upper": "qian",
+    "lower": "kun"
+  },
+  "changing": {
+    "number": 25,
+    "key": "hexagram_25",
+    "lines": [1, 0, 0, 1, 1, 1],
+    "upper": "qian",
+    "lower": "zhen"
+  },
+  "mutual": {
+    "number": 53,
+    "key": "hexagram_53",
+    "lines": [0, 0, 1, 0, 1, 1],
+    "upper": "xun",
+    "lower": "gen"
+  },
+  "movingLines": [1],
+  "meihua": {
+    "numbers": {
+      "upper": 1,
+      "lower": 8,
+      "moving": 1,
+      "source": [1, 8, 1]
+    },
+    "body": "qian",
+    "use": "kun",
+    "relation": "use_generates_body",
+    "seasonalStrength": "prosperous",
+    "mutualRelation": "use_generates_body",
+    "changingRelation": "body_controls_use"
+  },
+  "verdict": "favorable",
+  "score": 79
+}

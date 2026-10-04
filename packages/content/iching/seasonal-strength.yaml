@@ -1,0 +1,251 @@
+- id: iching.seasonal_strength.prosperous
+  system: iching
+  section: pro_view
+  topic: seasonal_strength
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.seasonalStrength
+        eq: prosperous
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - body
+  exclusive_with: []
+  zh:
+    title: 精力条件较贴合时，适合推进有准备的小目标
+    summary: 精力条件较贴合时，适合推进有准备的小目标
+    body: 你可以把眼下较有余力的部分用于一个准备充分的小目标。旺（体卦（象征自身处境的三条线）五行（木火土金水的关系分类）与起卦季节同向的状态）是传统的季节比喻，体卦指象征你自身处境的一侧；它并不测量体能，也不说明事情会自行顺利。当前标记为旺，提示在象征层面看资源与时机的配合，仍需核对实际时间、材料与伙伴。例如，一项已经练习过的任务可以先做一次小范围尝试，观察哪里配合良好，而不是同时扩大所有计划。建议把较好的条件用来建立稳定习惯，留出复查与休息；如果现实中的负荷已经偏大，就按真实情况降低安排，不用为了符合卦中的状态勉强加码。
+    advice:
+      - 先试做一个准备好的小目标
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: Use a supportive seasonal image to consider a prepared next step
+    summary: Use a supportive seasonal image to consider a prepared next step
+    body:
+      You can put available capacity toward a small task that is already prepared. Prosperous, or
+      wàng (旺 — the body element matches the casting season), is a traditional seasonal
+      classification. The body trigram represents your side of the question; it does not measure
+      stamina or establish that events will proceed easily. Here the classification invites you to
+      inspect how actual timing and resources support your plan. For example, rehearse a familiar
+      task with a limited group and observe which parts coordinate well before widening the effort.
+      Consider using favorable conditions to build a repeatable routine, with a review point and
+      time to rest. If your real workload is already high, reduce the plan accordingly. Your present
+      capacity matters more than matching the image’s label.
+    advice:
+      - Test one prepared modest task
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.seasonal_strength.strong
+  system: iching
+  section: pro_view
+  topic: seasonal_strength
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.seasonalStrength
+        eq: strong
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - body
+  exclusive_with: []
+  zh:
+    title: 有支持的条件下，适合逐步培养可持续的能力
+    summary: 有支持的条件下，适合逐步培养可持续的能力
+    body: 你可以利用已有支持练习下一步，而不必一下承担最大任务。相（季节五行（木火土金水的关系分类）生扶体卦（象征自身处境的三条线）五行）描述一个有支持但仍在发展的象征状态，体卦是代表你处境的一侧；它不是对个人强弱或身体状态的判断。这里标记为相，适合把注意力放在支持如何成为实际练习与反馈，尤其留意自己是否有时间吸收帮助。例如，同事愿意带你熟悉新流程时，可以先完成一个简单环节，再带着记录请对方查看，不急着独立包办全过程。建议约定循序增加任务的标准，也保留说明困难的机会；支持如果尚未实际到位，就先确认安排，让成长建立在可用条件上，而非一句鼓励带来的期待。
+    advice:
+      - 约定增加任务的具体标准
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: You can develop capacity gradually when the surrounding conditions offer support
+    summary: You can develop capacity gradually when the surrounding conditions offer support
+    body:
+      'You can use support to learn the next step without taking on the largest version of the task.
+      Strong in the chart corresponds to xiàng (相 — the seasonal element supports the body element).
+      Body is the trigram representing your position, and the label is a symbolic classification
+      rather than an assessment of your health or personal strength. It suggests examining how
+      assistance turns into practice and feedback. Suppose a colleague offers to guide you through a
+      new routine: complete one manageable part and bring the record back for review before taking
+      over the whole process. Try agreeing on a criterion for adding responsibility. Keep a way to
+      name difficulties, and confirm when help is actually available. Encouragement becomes more
+      useful when it has a practical arrangement to carry it.'
+    advice:
+      - Agree on a growth criterion
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.seasonal_strength.resting
+  system: iching
+  section: pro_view
+  topic: seasonal_strength
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.seasonalStrength
+        eq: resting
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - body
+  exclusive_with: []
+  zh:
+    title: 适合整理与补充，不必把暂缓当作失去方向
+    summary: 适合整理与补充，不必把暂缓当作失去方向
+    body: 你可以先整理资源与节奏，把暂时少做一点视作调整。休（体卦（象征自身处境的三条线）五行（木火土金水的关系分类）处于季节里的休整关系）属于传统旺衰（与季节及支持条件比较的分类）分类，体卦代表你在这次问题中的位置；这里的休不等于人的能力停滞，也不预测具体日期。当前处于休，适合观察哪些准备需要补齐，哪些任务可以延后，让行动有承接而不是只追求速度。例如，持续输出之后可以整理资料、补写交接说明，把容易遗忘的经验留下，下一轮开始时就少一些重复摸索。建议为整理工作设一个可完成的范围，同时留意作息与情绪；若已有现实机会且准备充分，也可以小步推进，不必为了符合象征分类而放弃自己的判断。
+    advice:
+      - 整理一项反复使用的材料
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: You can use a quieter interval to restore the arrangements that make activity possible
+    summary: You can use a quieter interval to restore the arrangements that make activity possible
+    body:
+      You can use a quieter interval to organize resources rather than measuring progress only by
+      output. Resting, or xiū (休 — a seasonal rest relationship for the body element), belongs to
+      the traditional strength classification. Body represents your position in the question, not a
+      fixed level of ability. This state suggests inspecting what needs replenishment and what can
+      reasonably wait; it does not identify a date when action must resume. For instance, after a
+      series of deliveries, organize notes and write a handover so the next round does not repeat
+      the same confusion. Consider giving this maintenance a bounded scope and attending to your
+      daily rhythm. If a real opening is ready and your resources fit, you can still proceed
+      modestly. The seasonal image should support your judgment rather than replace it.
+    advice:
+      - Organize a reusable resource
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.seasonal_strength.trapped
+  system: iching
+  section: pro_view
+  topic: seasonal_strength
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.seasonalStrength
+        eq: trapped
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - body
+  exclusive_with: []
+  zh:
+    title: 受到条件牵制时，先寻找能松动的一小处
+    summary: 受到条件牵制时，先寻找能松动的一小处
+    body: 你可以先缩小安排，找一个不依赖全部条件的小入口。囚（体卦（象征自身处境的三条线）五行（木火土金水的关系分类）被季节五行约束的分类）是象征层面的受限，不是说你被困住或缺少价值；体卦指代表自身处境的一侧。当前标记提示条件可能不相配，值得把时间、协作与材料分开核对，找出实际是哪一项不足，而不笼统责怪自己。例如，计划需要多人同时配合却迟迟无法约齐时，可以先做各自能够独立完成的部分，留下清楚记录再安排接合。建议说明最需要调整的范围并寻求具体支持，保留一个复查点；如果现实条件已经改变，就按新的信息更新做法，不让传统分类限制你能采取的行动。
+    advice:
+      - 找出一项能调整的依赖
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: You can inspect the constraint and reduce a demand that currently has little support
+    summary: You can inspect the constraint and reduce a demand that currently has little support
+    body: You can reduce a demand and find one step that does not require every condition to align.
+      Trapped corresponds to qiú (囚 — the seasonal element constrains the body element), a symbolic
+      category rather than a statement that you are helpless. Body is the figure representing your
+      position. Inspect timing, cooperation, and materials separately so a vague sense of
+      restriction becomes a concrete issue. For example, if a task depends on everyone meeting
+      together, prepare the parts that can be completed independently and record how they will
+      connect. Consider asking for one specific adjustment and setting a review point. If actual
+      conditions improve, use the new information instead of remaining attached to the label. The
+      practical purpose is to widen workable choices, not to make the restriction part of your
+      identity.
+    advice:
+      - Identify one adjustable dependency
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: iching.seasonal_strength.dead
+  system: iching
+  section: pro_view
+  topic: seasonal_strength
+  when:
+    all:
+      - path: method
+        eq: meihua
+      - path: meihua.seasonalStrength
+        eq: dead
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - body
+  exclusive_with: []
+  zh:
+    title: 资源暂时不贴合时，可以把计划改得更轻
+    summary: 资源暂时不贴合时，可以把计划改得更轻
+    body: 你可以先保留必要安排，把新增任务放到更可承接的范围。死（传统旺衰（与季节及支持条件比较的分类）中体卦（象征自身处境的三条线）五行（木火土金水的关系分类）缺乏季节支持的最低一档）只是五行关系的术语，不用于描述生命状态，也不能据此判断健康；体卦是代表自身处境的一侧。这里强调象征上支持偏少，适合检视计划是否需要过多条件，而不是理解成没有未来选择。例如，一项长期安排若暂时缺少时间与协作者，可以缩成材料整理或一次讨论，先保存有效部分，等资源清楚后再评估。建议把是否继续的条件写出来，并联系可信的人帮忙核对；现实中的可行路径始终优先，不需要用勉强坚持证明自己，也不用因为这个名称而害怕。
+    advice:
+      - 写清恢复计划所需的条件
+    do:
+      - 核对事实
+    dont:
+      - 仓促承诺
+  en:
+    title: You can conserve effort when the seasonal image points to a poor fit in resources
+    summary: You can conserve effort when the seasonal image points to a poor fit in resources
+    body:
+      'You can conserve effort and keep the useful part of a plan when support is poorly matched.
+      The chart key dead corresponds to sǐ (死 — the lowest seasonal support category for the body
+      element). This is historical elemental terminology, not a description of life, health, or a
+      person’s future. Body represents your position in the question. The practical emphasis is on a
+      plan that may ask for more conditions than currently exist. Suppose a continuing project lacks
+      time and collaborators: reduce it to organizing material or holding one purposeful discussion,
+      then reassess when resources are clearer. Consider writing down what would make a larger
+      commitment workable and asking someone trustworthy to review it. Real options remain more
+      important than the label, and you do not need to prove determination by sustaining an
+      unsuitable load.'
+    advice:
+      - Name conditions for resuming
+    do:
+      - Check facts
+    dont:
+      - Rush commitments
+  meta:
+    author: t23-original-v1
+    reviewed_by: null
+    version: 1
+    status: published
