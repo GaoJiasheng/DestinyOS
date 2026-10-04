@@ -1,0 +1,781 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+- id: bazi.day_master.jia
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: jia
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 甲木：观察你的推进方式
+    summary: 甲木：观察你的推进方式
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你正在为搬家做准备，可以把必须先完成的事项列成短清单，并给依赖他人的环节预留缓冲时间。建议每天只确认一个关键节点，把可推迟的小事移到后面；稳妥来自清楚的优先级，不需要靠不断增加检查来获得安心。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood: Observe your working rhythm'
+    summary: 'Jia Wood: Observe your working rhythm'
+    body: You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. A character metaphor is one perspective on habits; your experience and setting still matter. Preparing for a move can expose the difference between useful structure and endless checking. List the necessary first steps and allow extra time for anything that depends on another person. Try reviewing one key milestone each day while postponing minor choices that do not affect it. A reliable plan needs priorities and room for delays. More checks do not always add useful information, especially when they interrupt the work itself.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.jia
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: jia
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 甲木：先认识一个习惯
+    summary: 甲木：先认识一个习惯
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood: Begin with a familiar habit'
+    summary: 'Jia Wood: Begin with a familiar habit'
+    body: You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.yi
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: yi
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 乙木：观察你的推进方式
+    summary: 乙木：观察你的推进方式
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你在两种兴趣之间犹豫，可以分别安排一次轻量体验，比较投入后是否愿意继续，而不是先决定长期身份。建议写下体验差异与下一步条件，让选择保留弹性；暂时没有明显偏好时，也可以以当前资源最方便的一项作为起点。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood: Observe your working rhythm'
+    summary: 'Yi Wood: Observe your working rhythm'
+    body: You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. A character metaphor is one perspective on habits; your experience and setting still matter. Choosing between interests need not begin with a permanent identity. Arrange one modest experience in each and compare whether you want to continue afterward. You can note what differed and what the next step would require. Try using current access and available time as a starting criterion if no strong preference emerges. A reversible choice can produce useful information while preserving room for a different direction later.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.yi
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: yi
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 乙木：先认识一个习惯
+    summary: 乙木：先认识一个习惯
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood: Begin with a familiar habit'
+    summary: 'Yi Wood: Begin with a familiar habit'
+    body: You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.bing
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: bing
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 丙火：观察你的推进方式
+    summary: 丙火：观察你的推进方式
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你照料一个长期的小项目，可以用简短记录跟踪每次维护内容，把自己最熟悉的步骤整理成别人也能接手的说明。建议每月删掉一项已经没有用途的检查，让细致投入保持轻量，也给协作者留出按自己方法完成工作的空间。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire: Observe your working rhythm'
+    summary: 'Bing Fire: Observe your working rhythm'
+    body: You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. A character metaphor is one perspective on habits; your experience and setting still matter. A small ongoing project often depends on quiet maintenance. Brief notes can show what was checked and help another person take over when you are unavailable. Try reviewing the checklist monthly and removing an item that no longer serves a purpose. This makes care easier to share. A clear handover also allows someone else to achieve the same useful result without copying every detail of your preferred method.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.bing
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: bing
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 丙火：先认识一个习惯
+    summary: 丙火：先认识一个习惯
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire: Begin with a familiar habit'
+    summary: 'Bing Fire: Begin with a familiar habit'
+    body: You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.ding
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: ding
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 丁火：观察你的推进方式
+    summary: 丁火：观察你的推进方式
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你拥有熟悉的做法但项目需求变了，可以让另一位参与者先说明新条件，再共同调整原有流程。建议保留有效的核心，删掉不再适用的步骤；资源充足时也值得听取不同经验，让惯性变成可选择的方法，而不是默认的唯一道路。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire: Observe your working rhythm'
+    summary: 'Ding Fire: Observe your working rhythm'
+    body: You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. A character metaphor is one perspective on habits; your experience and setting still matter. A familiar process may need revision when the project changes. Invite another participant to describe the new conditions before adapting the old routine together. You can preserve a useful core while removing steps that no longer serve the task. Try asking which assumption changed most. Having ample resources does not make every established method appropriate; listening to another person’s experience can turn habit into a deliberate choice.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.ding
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: ding
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 丁火：先认识一个习惯
+    summary: 丁火：先认识一个习惯
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire: Begin with a familiar habit'
+    summary: 'Ding Fire: Begin with a familiar habit'
+    body: You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.wu_stem
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: wu_stem
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 戊土：观察你的推进方式
+    summary: 戊土：观察你的推进方式
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你想分享刚完成的作品，可以先选一个小范围展示，问观众哪些信息最清楚、哪里仍有疑问，再决定下一次公开表达的重点。建议把反馈写成可修改的事项，不把赞许或沉默当作全部评价，给持续投入留出稳定节奏。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth: Observe your working rhythm'
+    summary: 'Wu Earth: Observe your working rhythm'
+    body: You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. A character metaphor is one perspective on habits; your experience and setting still matter. Sharing a new piece of work can begin with a small audience. Ask which part was clear and where people still had questions, then use the answers to shape the next presentation. You can turn feedback into specific edits rather than a general verdict about the work or its maker. Try keeping a steady sharing rhythm that leaves room for preparation and rest, instead of relying entirely on immediate audience response.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.wu_stem
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: wu_stem
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 戊土：先认识一个习惯
+    summary: 戊土：先认识一个习惯
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth: Begin with a familiar habit'
+    summary: 'Wu Earth: Begin with a familiar habit'
+    body: You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.ji
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: ji
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 己土：观察你的推进方式
+    summary: 己土：观察你的推进方式
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你对一段交流仍有疑问，可以把听到的话与自己的猜测分开，找一个合适时机提出具体问题。建议允许对方补充背景，不用细微语气推断全部意思；敏感的观察可以帮助沟通，但仍需要真实回应来修正理解。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth: Observe your working rhythm'
+    summary: 'Ji Earth: Observe your working rhythm'
+    body: You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. A character metaphor is one perspective on habits; your experience and setting still matter. An ambiguous conversation can leave room for several explanations. Separate what was actually said from what you inferred, then ask a specific question at a suitable moment. You can let the other person supply context that a tone or brief message cannot reveal. Try updating your understanding with their response. Sensitivity to detail can support communication, provided an interpretation remains open to correction rather than growing into certainty through repeated private analysis.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.ji
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: ji
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 己土：先认识一个习惯
+    summary: 己土：先认识一个习惯
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth: Begin with a familiar habit'
+    summary: 'Ji Earth: Begin with a familiar habit'
+    body: You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.geng
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: geng
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 庚金：观察你的推进方式
+    summary: 庚金：观察你的推进方式
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如刚进入陌生社群，你可以先参与一个有明确分工的活动，观察哪些交流方式让你舒服，再逐渐增加投入。建议为自己保留独处或休息的间隔，既寻找连接，也尊重适应速度；不用一次聊天是否顺利评价自己的社交能力。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal: Observe your working rhythm'
+    summary: 'Geng Metal: Observe your working rhythm'
+    body: You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. A character metaphor is one perspective on habits; your experience and setting still matter. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.geng
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: geng
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 庚金：先认识一个习惯
+    summary: 庚金：先认识一个习惯
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal: Begin with a familiar habit'
+    summary: 'Geng Metal: Begin with a familiar habit'
+    body: You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.xin
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: xin
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 辛金：观察你的推进方式
+    summary: 辛金：观察你的推进方式
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal: Observe your working rhythm'
+    summary: 'Xin Metal: Observe your working rhythm'
+    body: You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. A character metaphor is one perspective on habits; your experience and setting still matter. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.xin
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: xin
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 辛金：先认识一个习惯
+    summary: 辛金：先认识一个习惯
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal: Begin with a familiar habit'
+    summary: 'Xin Metal: Begin with a familiar habit'
+    body: You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.ren
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: ren
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 壬水：观察你的推进方式
+    summary: 壬水：观察你的推进方式
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你准备学习一个跨度较大的技能，可以把最终目标拆成能在两周内完成的练习，并找一位熟悉该领域的人校对起点。建议先验证练习方法是否合适，再延长计划；进度慢时也可以缩小任务，而不是把停顿解释成个人失败。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water: Observe your working rhythm'
+    summary: 'Ren Water: Observe your working rhythm'
+    body: You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. A character metaphor is one perspective on habits; your experience and setting still matter. A demanding skill can feel more approachable when the first milestone is visible. You might choose a two-week practice task and ask an experienced learner whether it is a sensible starting point. Try checking the method before extending the schedule. A slower week may call for a smaller exercise, not a broad conclusion about your capacity. Progress becomes easier to assess when each attempt has a clear purpose.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.ren
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: ren
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 壬水：先认识一个习惯
+    summary: 壬水：先认识一个习惯
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water: Begin with a familiar habit'
+    summary: 'Ren Water: Begin with a familiar habit'
+    body: You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master.gui
+  system: bazi
+  section: day_master
+  topic: day_master
+  when:
+    path: dayMaster.stem
+    eq: gui
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 癸水：观察你的推进方式
+    summary: 癸水：观察你的推进方式
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。性格隐喻只是认识习惯的一种角度，你的经验与环境仍要一起看。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water: Observe your working rhythm'
+    summary: 'Gui Water: Observe your working rhythm'
+    body: You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. A character metaphor is one perspective on habits; your experience and setting still matter. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information.
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.overview.gui
+  system: bazi
+  section: overview
+  topic: overview
+  when:
+    path: dayMaster.stem
+    eq: gui
+  weight: 70
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 癸水：先认识一个习惯
+    summary: 癸水：先认识一个习惯
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。例如你可以回看最近一次顺利完成的小事，辨认自己用了哪些习惯。建议先保留一个有帮助的做法，再结合实际资源调整节奏，不用一次经历概括全部生活。
+    advice:
+      - 回看一件顺利完成的小事，辨认有用习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water: Begin with a familiar habit'
+    summary: 'Gui Water: Begin with a familiar habit'
+    body: You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. The Day Master (rì zhǔ — the stem used to represent you) is only one part of the chart, so the wider distribution and your real circumstances still matter. For a first reflection, you can recall a recent task that went smoothly and notice which choice helped it move forward. Consider repeating one useful habit on a modest scale, then checking the result. This overview offers a starting question rather than a complete personality assessment; keep room for new information and for situations in which you respond differently.
+    advice:
+      - Recall a successful task and identify one useful choice.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

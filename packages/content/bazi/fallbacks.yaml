@@ -1,0 +1,382 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+# // DESIGN-GAP: General fallbacks use dayMaster.stem existence and weight 1, including dates outside the displayed decade cycles.
+- id: bazi.fallback.overview
+  system: bazi
+  section: overview
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 你可以先把命盘当作观察生活习惯的地图。
+    summary: 你可以先把命盘当作观察生活习惯的地图。
+    body: 日主（代表自己的日干）、五行（五类变化象征）与阶段信息提供不同角度，不能单独决定你是谁。这里先保留整体观察，不把缺少时辰的部分补成确定结论。例如你可以挑一件最近反复遇到的小事，比较不同章节的解释。建议只选一条符合经验的提示实践，再用真实感受判断它是否有帮助。
+    advice:
+      - 选择一条符合经验的提示做一周实验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Start with a map of habits, not a verdict.
+    summary: Start with a map of habits, not a verdict.
+    body: A chart offers several symbolic viewpoints rather than one complete description of you. The Day Master (rì zhǔ — the stem representing you), elemental distribution, and cycle markers ask different questions; none measures your value or determines an outcome. An unknown birth time also leaves part of the picture open. Imagine noticing that you repeatedly postpone a familiar task. You could compare a few chapter themes with your experience, then choose one modest change in the way you start. Consider reviewing that change after a week and keeping it only if it helps. The purpose of this overview is to orient reflection, while your choices, circumstances, and actual observations remain the basis for practical decisions. Keep the reflection specific, gentle, and open to change.
+    advice:
+      - Test one observation against a week of experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.day_master
+  system: bazi
+  section: day_master
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 你可以从日常反应认识自己的性格底色。
+    summary: 你可以从日常反应认识自己的性格底色。
+    body: 日主（出生日期天干在盘中代表自己的符号）给出一种性格隐喻，不能囊括成长经历、价值观或环境影响。这里先从稳定的观察方法入手，让你在更多具体信息出现前也有可用的起点。这种倾向可以作为认识自己的起点，但不会覆盖你的全部性格。把过去的经历与眼前的环境一起考虑，比只给自己贴一个标签更有帮助。比如面对同事临时更改计划，你可以观察自己先坚持原方案，还是先询问对方的难处。建议把这次反应记下来，过几天再看哪些部分值得保留、哪些部分需要调整，给习惯留下变化的余地。
+    advice:
+      - 记录一次具体反应，再选择一个可调整的习惯。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Notice how you respond to ordinary situations.
+    summary: Notice how you respond to ordinary situations.
+    body: 'The Day Master (rì zhǔ — the day stem representing you) is a metaphorical starting point. It cannot summarize your upbringing, values, or every situation you encounter. This general reading therefore focuses on observing responses before attaching a character label. Your everyday responses offer a useful way to test this reading. Imagine a friend cancelling plans at short notice: you might focus on the inconvenience, look for an alternative, or need a little time before replying. None of those reactions defines your entire character. Consider writing down what you wanted in that moment and what you actually said. Revisiting the note later can separate a recurring preference from fatigue or a particularly difficult day. Let experience refine the description rather than arranging your life around a label.'
+    advice:
+      - Notice one response and name the need behind it.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.elements
+  system: bazi
+  section: elements
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先看整体分布，再尝试小幅调整。
+    summary: 你可以先看整体分布，再尝试小幅调整。
+    body: 五行（木火土金水五类变化象征）的比例来自天干与地支内含成分的加权统计，还受到出生月份的修正。这里的数值说明传统模型如何分类，不等于你的生活实际拥有什么或缺少什么。五行（传统用来描述变化关系的五类象征）之间还要一起比较，单项数值并不等于现实中的能力评分。你可以把相关意象当作整理生活的提醒。例如重新安排书桌时，先考虑光线、噪声和工具是否顺手，再决定是否加入喜欢的颜色。建议只做成本低、可撤回的小调整，观察实际体验，不必用颜色、方位或物件代替对现实问题的处理。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Compare the whole distribution before making changes.
+    summary: Compare the whole distribution before making changes.
+    body: 'The Five Elements (wǔ xíng — five symbolic modes of change) are weighted from the recorded stems and the components within branches. The birth month also affects that calculation. These figures describe a traditional model, not possessions, abilities, or needs measured in daily life. Elemental language offers metaphors for comparing habits, not measurements of your abilities. Suppose you are arranging a workspace: light, noise, comfort, and access to the tools you need deserve attention before symbolic colours. You can add a colour you enjoy, but there is no need to purchase special objects or reorganize your plans around a direction. Consider changing one practical detail and checking whether your day feels easier. The whole distribution and the circumstances of your life provide context; an isolated percentage should not carry the entire explanation.'
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.pattern_career
+  system: bazi
+  section: pattern_career
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以从做事方式寻找适合自己的任务。
+    summary: 你可以从做事方式寻找适合自己的任务。
+    body: 格局（按出生月份主要成分归纳的工作风格线索）需要与实际技能和机会一起看。这里不指定职业去向，而是给你一个比较任务体验的起点，避免从一个传统名称推导出能力高低。这类配置描述的是处理任务的偏好，并不能直接衡量你的职业能力。你可以从运营协调、专业研究、内容设计三类任务中，选一个小项目检验自己的工作方式。例如在周会上，先说明问题、再给出选项，最后约定负责人和复盘时间。建议以成果质量、合作体验和实际精力为标准调整分工，不必为了符合命盘描述而更换职业。
+    advice:
+      - 用一个小项目比较协调、研究与创作的体验。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Explore the tasks that make your contribution useful.
+    summary: Explore the tasks that make your contribution useful.
+    body: 'A life pattern (gé jú — a theme derived from the main component of the birth month) provides a work-style prompt. Skills, training, and available opportunities add the practical detail. This general interpretation invites comparison of tasks rather than assigning you a profession. At work, the useful question is how you contribute under actual conditions. A small assignment can reveal more than a broad job label: compare coordinating a handover, investigating a technical question, and preparing a customer explanation. You can ask a colleague which part made their next step easier. Keep the experiment limited enough that feedback arrives quickly. Qualifications, access to training, and the demands of your workplace still matter. Use those observations to negotiate responsibilities rather than treating a symbolic pattern as a career placement test.'
+    advice:
+      - Ask for feedback on a small, completed assignment.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.wealth
+  system: bazi
+  section: wealth
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 你可以用清楚的收支边界改善资源安排。
+    summary: 你可以用清楚的收支边界改善资源安排。
+    body: 财星（描述自己与所管理资源关系的符号）适合讨论预算习惯，不是财富规模的测量。即使没有特别突出的配置，收入、支出和责任也可以通过现实记录逐步看清，不需要先给自己贴上某种财务标签。这一线索更适合用来观察你怎样分配资源，而不是推测收入高低。财务决定还受现实收入、固定支出与家庭安排影响。例如准备参加一个收费课程时，把学费、通勤和投入时间放在同一张清单里，再看它是否符合当前目标。建议先给日常开支与临时变化留出余地，定期回看预算；涉及具体财务选择时，另行获取可靠信息与合适的专业意见。
+    advice:
+      - 每月检查固定支出，并预留临时变化的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Clear commitments can support everyday resource planning.
+    summary: Clear commitments can support everyday resource planning.
+    body: 'Wealth stars (cái xīng — symbols for your relationship with managed resources) offer questions about habits rather than an income forecast. A general reading can still help you review commitments. Actual records of earnings, costs, and responsibilities supply the evidence that the symbolism does not. Treat this as a prompt about resource habits rather than an estimate of what you will earn. Picture an invitation to share the cost of a group activity: the practical questions concern your available budget, the agreement between participants, and how much uncertainty you accept. Consider checking those details before responding. A short monthly review can make small commitments visible before they accumulate. Your earnings, obligations, and access to trustworthy information have more bearing on financial decisions than this symbolism. Keep any substantial decision separate from the chart and seek suitable professional guidance.'
+    advice:
+      - Review recurring commitments before adding a new one.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.love
+  system: bazi
+  section: love
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 你可以用尊重和清楚表达建立相处基础。
+    summary: 你可以用尊重和清楚表达建立相处基础。
+    body: 日支（出生日地支，在传统里也作为亲密关系的观察位置）不能直接描绘伴侣或关系结果。这里优先关注双方如何表达需求、确认意愿和安排时间，单身与不同关系状态都可以使用这样的观察角度。这一点只提供相处方式的观察角度，不描述伴侣的身份，也不安排关系进度。无论你是否在一段关系中，都可以用它练习表达需要。例如两人对周末安排意见不同，先说各自期待，再共同寻找能照顾双方精力的方案。建议把边界与偏好讲清楚，并确认对方是否愿意参与；关系质量要看持续的尊重和实际沟通，不由某个符号独自决定。
+    advice:
+      - 提出一个具体需要，并给对方真实回应的空间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Build connection through clear requests and mutual respect.
+    summary: Build connection through clear requests and mutual respect.
+    body: The day branch (rì zhī — the branch of your birth day, traditionally used as a relationship reference) does not identify a partner or determine how a relationship develops. This general interpretation focuses on mutual understanding, regardless of whether you are currently partnered. Relationships benefit from checking what both people actually want. For example, one person may enjoy frequent messages while the other prefers a longer conversation after work. You can discuss those preferences without deciding that either style is wrong. This reading does not identify a future partner or set a schedule for commitment. Whether you are single, dating, or building an established partnership, consent and mutual respect remain central. Consider making one clear request and giving the other person room to answer honestly, including the possibility that your preferences differ.
+    advice:
+      - Agree on a communication rhythm that suits both people.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.health
+  system: bazi
+  section: health
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 你可以先照顾作息，再观察忙闲变化。
+    summary: 你可以先照顾作息，再观察忙闲变化。
+    body: 五行（用五类象征理解生活节奏的传统框架）在这里仅作为作息与情绪的提醒，不提供身体状况的判断。无论比例如何，生活环境、实际活动与休息安排都需要优先考虑，不能凭一个符号安排个人健康选择。这里谈的是作息和情绪的自我观察，不是医疗判断，也不能由命盘推断身体状况。你可以记录睡觉时间、忙碌程度与第二天的精神感受，寻找生活节奏里的关联。例如连续几天安排过满，就把一项非必要活动移开，留出安静休息的时间。建议按照实际舒适度安排饮食、活动和休息；若有持续不适，请及时向合格的医疗专业人士咨询。
+    advice:
+      - 记录一周作息，给忙碌日留出休息间隔。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Begin with a routine that gives you room to rest.
+    summary: Begin with a routine that gives you room to rest.
+    body: 'The Five Elements (wǔ xíng — a traditional symbolic framework) are used here only to prompt attention to routine and mood. Their proportions cannot establish a health condition. Your actual environment, activities, and opportunities for rest deserve priority when considering wellbeing. Wellbeing here means noticing your routine, not diagnosing a condition. Traditional associations do not show whether an organ is healthy or predict symptoms. Imagine finishing several busy evenings with little time to unwind: a practical experiment is to protect a quieter transition before bed and observe how you feel. You can keep brief notes about rest, mood, and workload without turning the notes into a medical conclusion. Choose comfortable, ordinary habits that fit your circumstances. If discomfort persists or worries you, consult a qualified healthcare professional rather than using the chart to explain it.'
+    advice:
+      - Protect a manageable rest interval and observe your experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.luck_timeline
+  system: bazi
+  section: luck_timeline
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 你可以按阶段回顾经验，而不预设事件。
+    summary: 你可以按阶段回顾经验，而不预设事件。
+    body: 大运（传统按十年排列的阶段主题）与流年（按年排列的主题）提供时间参照，不是现实事件的预告。尚未进入第一步或已经超出列表时，也可以从自己的学习、工作与生活节点进行复盘，不需要补出不存在的当前阶段。时间线（把阶段性象征按年份排列的视图）适合帮助你安排复盘，不是未来事件的日历。阶段标记需要与现实机会、责任和年龄一起理解，前后两步也只提供不同主题的比较。例如你可以在季度末回看学到的技能、合作变化和未完成事项，再为下一季保留一个重点。建议每次只调整一项计划，并记录理由，避免把一年中的所有变化都归因于同一个符号。
+    advice:
+      - 季度复盘一次，只为下一阶段保留一个重点。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Use a timeline to review priorities without expecting events.
+    summary: Use a timeline to review priorities without expecting events.
+    body: Decade cycles (dà yùn — ten-year symbolic themes) and annual markers (liú nián — themes assigned to a year) provide review intervals. Some lives fall before or beyond the displayed decade list. In those cases, no current cycle should be invented; your own milestones still provide a useful basis for reflection. A cycle is best used as a review interval, not as an event forecast. Compare the theme with what is already changing in your work, responsibilities, and available time. For example, you might review a course at the end of each term and decide whether to practise, pause, or seek feedback next. You can use the adjacent periods to ask how your priorities have shifted, without expecting a sudden change on a particular date. Consider recording the reasons for each adjustment so that later reviews remain grounded in experience rather than retrospective explanations.
+    advice:
+      - Review one priority each quarter using real observations.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.shensha_notes
+  system: bazi
+  section: shensha_notes
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以把特殊标记当作补充性的提问。
+    summary: 你可以把特殊标记当作补充性的提问。
+    body: 神煞（传统查表所得的补充标记）与空亡（按日柱分组标出的两支）都需要结合整体理解。空亡并不表示现实中的某件事物不存在；没有某个标记也不代表缺少相应能力，这一章先保留核对与观察的方法。神煞（传统用来补充观察角度的特殊标记）应放在整体结构之后理解，单个名称不具有决定作用。它也不能替代对真实环境与个人经历的了解。例如你可以把某个标记当作本周的一道提问，看看它能否帮助你留意平常忽略的细节。建议先核对标记所在的位置和计算依据，再选择一个有用的小行动；若描述与你的经验不符，就保留疑问，不必勉强套用。
+    advice:
+      - 核对标记位置，再把它改写成一条观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Treat special markers as optional reflection prompts.
+    summary: Treat special markers as optional reflection prompts.
+    body: Special markers (shén shà — supplementary table-based symbols) and void branches (kōng wáng — two branches marked by the day-pillar grouping) are secondary cues. A void label does not erase a real relationship or resource, and an absent marker does not imply a missing ability. A special marker is a secondary reading cue, not a verdict about your circumstances. Several markers may appear together, and their names often sound more dramatic than their practical use warrants. For instance, you can turn a marker into a journaling question and see whether a real example comes to mind. There is no need to manufacture an event to make the symbolism fit. Consider checking the recorded pillar and calculation basis in the detailed chart, then keeping only the reflection that helps you. Ordinary evidence and your own judgment remain more informative than an isolated label.
+    advice:
+      - Check the marker’s location and keep a useful reflection.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.fallback.summary_actions
+  system: bazi
+  section: summary_actions
+  topic: fallback
+  when:
+    path: dayMaster.stem
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 你可以从最轻量的一项实践开始。
+    summary: 你可以从最轻量的一项实践开始。
+    body: 建议需要与你的时间、资源和真实目标相匹配，才容易成为有用的行动。这里把报告收束为可回看的生活实验，既不要求你接受每一段描述，也不把行动结果当作命盘正确与否的证明。行动清单（把观察转成可实践事项的列表）应当服务于你的真实需要，而不是增加负担。各章描述只是不同角度的提示，你仍可以选择哪些值得尝试。例如本周从工作、预算、沟通、休息和复盘中各挑一个轻量行动，写明何时做、怎样判断是否有帮助。建议先完成最容易的一项，周末回看效果，保留适合自己的做法；本报告仅供娱乐与自我反思，不替代专业意见。
+    advice:
+      - 本周先实践一项，周末保留有帮助的做法。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Start with one manageable action from the reading.
+    summary: Start with one manageable action from the reading.
+    body: An action is useful when it fits your time, resources, and real priorities. This closing perspective turns the report into a set of reviewable experiments. You do not need to accept every description or use the outcome of an experiment to prove that a chart is correct. Turn the reading into a few choices that you can actually review. An action list should lighten the next step rather than create another standard to meet. For example, choose one modest change in work, spending habits, communication, rest, and reflection, then decide which deserves attention first. You can record what you tried and what happened without assigning a score to your personality. Keep the actions that fit and revise those that do not. Consider starting with the smallest useful step this week. This report is for entertainment and self-reflection and does not replace qualified professional advice.
+    advice:
+      - Choose a small action and review whether it helped.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

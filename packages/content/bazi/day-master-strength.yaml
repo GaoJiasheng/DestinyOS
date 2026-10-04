@@ -1,0 +1,2642 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+# // DESIGN-GAP: Schema has no variant field; .a/.b IDs and reciprocal exclusions keep the two alternatives from appearing together.
+- id: bazi.day_master_strength.jia.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.jia
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: jia
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.jia.strong.b
+  zh:
+    title: 甲木，身强：主动检验
+    summary: 甲木，身强：主动检验
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如你要为小组拟定活动目标，可以先问清每个人希望带走什么，再把共同需求收束成一项可交付成果。建议约定一次中途检查，允许根据反馈改写方法，不把维护方向变成坚持所有细节。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood, supported: Test a small plan'
+    summary: 'Jia Wood, supported: Test a small plan'
+    body: You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. Imagine helping a group define an event. One participant wants new contacts, another wants practical learning, and a third has limited time. You can identify a shared outcome before deciding the format. Consider a midpoint check so that the original purpose remains useful while details can change. This distinguishes continuity from defending every early decision, and gives others a clear way to contribute.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.jia.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.jia
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: jia
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.jia.strong.a
+  zh:
+    title: 甲木，身强：留出回应空间
+    summary: 甲木，身强：留出回应空间
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你准备学习一个跨度较大的技能，可以把最终目标拆成能在两周内完成的练习，并找一位熟悉该领域的人校对起点。建议先验证练习方法是否合适，再延长计划；进度慢时也可以缩小任务，而不是把停顿解释成个人失败。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood, supported: Make room to respond'
+    summary: 'Jia Wood, supported: Make room to respond'
+    body: You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A demanding skill can feel more approachable when the first milestone is visible. You might choose a two-week practice task and ask an experienced learner whether it is a sensible starting point. Try checking the method before extending the schedule. A slower week may call for a smaller exercise, not a broad conclusion about your capacity. Progress becomes easier to assess when each attempt has a clear purpose.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.jia.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.jia
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: jia
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.jia.balanced.b
+  zh:
+    title: 甲木，中和：主动检验
+    summary: 甲木，中和：主动检验
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如合作对象提出不同方案时，你可以先复述对方的目标，再说明自己想保留的关键条件，找到双方都能尝试的小步骤。建议给试行设一个结束日期，届时依据体验调整；灵活不需要以忽略自己的需要为代价。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood, balanced: Test a small plan'
+    summary: 'Jia Wood, balanced: Test a small plan'
+    body: 'You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Suppose a collaborator proposes a different method. You can first check what they are trying to achieve, then name the condition that matters most to you. A limited trial may reveal a route neither person initially considered. Consider agreeing when the trial ends and what feedback you will examine. Flexibility works better when your needs are visible, rather than disappearing into an arrangement you quietly dislike.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.jia.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.jia
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: jia
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.jia.balanced.a
+  zh:
+    title: 甲木，中和：留出回应空间
+    summary: 甲木，中和：留出回应空间
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如刚进入陌生社群，你可以先参与一个有明确分工的活动，观察哪些交流方式让你舒服，再逐渐增加投入。建议为自己保留独处或休息的间隔，既寻找连接，也尊重适应速度；不用一次聊天是否顺利评价自己的社交能力。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood, balanced: Make room to respond'
+    summary: 'Jia Wood, balanced: Make room to respond'
+    body: 'You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.jia.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.jia
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: jia
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.jia.weak.b
+  zh:
+    title: 甲木，身弱：主动检验
+    summary: 甲木，身弱：主动检验
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你主持一次讨论，可以先用两句话说清要解决的问题，再邀请尚未发言的人补充，而不是连续给出自己的全部想法。建议在总结前留一段安静思考时间，观察参与者是否真正理解目标，让热情成为帮助别人参与的条件。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood, less supported: Test a small plan'
+    summary: 'Jia Wood, less supported: Test a small plan'
+    body: You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. When leading a discussion, visibility is useful only if other people can take part. You could state the question briefly and invite someone who has not yet spoken to contribute. Consider leaving a quiet thinking interval before the final summary. The responses may show whether your enthusiasm clarified the task or filled the available space. A useful meeting can contain both expressive moments and deliberate pauses.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.jia.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.jia
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: jia
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.jia.weak.a
+  zh:
+    title: 甲木，身弱：留出回应空间
+    summary: 甲木，身弱：留出回应空间
+    body: 你倾向于先确定方向，再沿着清楚的目标持续推进。甲木（日主的一种象征，像向上生长的树干）侧重原则与长程发展，你的日干采用这一标记，所以这里更关注目标感，而不是把你描绘成永远坚定的人。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如你想分享刚完成的作品，可以先选一个小范围展示，问观众哪些信息最清楚、哪里仍有疑问，再决定下一次公开表达的重点。建议把反馈写成可修改的事项，不把赞许或沉默当作全部评价，给持续投入留出稳定节奏。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Jia Wood, less supported: Make room to respond'
+    summary: 'Jia Wood, less supported: Make room to respond'
+    body: You may prefer a clear purpose before investing effort. Jia Wood (jiǎ mù — the upright tree metaphor for your day stem) emphasizes direction and continuity; your recorded day stem supplies the basis for this reading. A volunteer project, for instance, may feel easier once you understand who it serves. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Sharing a new piece of work can begin with a small audience. Ask which part was clear and where people still had questions, then use the answers to shape the next presentation. You can turn feedback into specific edits rather than a general verdict about the work or its maker. Try keeping a steady sharing rhythm that leaves room for preparation and rest, instead of relying entirely on immediate audience response.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.yi.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.yi
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: yi
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.yi.strong.b
+  zh:
+    title: 乙木，身强：主动检验
+    summary: 乙木，身强：主动检验
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如朋友请你帮忙修改一份说明，你可以先确认读者是谁、最需要看懂哪一步，再集中处理两三个关键细节。建议约定修改范围与截止时间，让专注服务于实际用途，避免为了润色每句话而耗尽整晚的精力。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood, supported: Test a small plan'
+    summary: 'Yi Wood, supported: Test a small plan'
+    body: You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A friend may ask you to review an explanation. Before editing, check who will read it and which action the reader needs to understand. You can then focus on the two or three details that affect that action most. Consider setting a revision limit and a finishing time. Careful attention becomes more useful when it improves the message without consuming the whole evening in changes that readers barely notice.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.yi.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.yi
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: yi
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.yi.strong.a
+  zh:
+    title: 乙木，身强：留出回应空间
+    summary: 乙木，身强：留出回应空间
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你照料一个长期的小项目，可以用简短记录跟踪每次维护内容，把自己最熟悉的步骤整理成别人也能接手的说明。建议每月删掉一项已经没有用途的检查，让细致投入保持轻量，也给协作者留出按自己方法完成工作的空间。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood, supported: Make room to respond'
+    summary: 'Yi Wood, supported: Make room to respond'
+    body: You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A small ongoing project often depends on quiet maintenance. Brief notes can show what was checked and help another person take over when you are unavailable. Try reviewing the checklist monthly and removing an item that no longer serves a purpose. This makes care easier to share. A clear handover also allows someone else to achieve the same useful result without copying every detail of your preferred method.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.yi.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.yi
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: yi
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.yi.balanced.b
+  zh:
+    title: 乙木，中和：主动检验
+    summary: 乙木，中和：主动检验
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如多人共用一个日程表，你可以先列出固定事项，再把临时需求留在可调整区域，减少反复重排。建议明确哪些决定由谁负责，别因为自己擅长整理就默认接下全部管理任务；可靠的安排也应当包含可交接的边界。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood, balanced: Test a small plan'
+    summary: 'Yi Wood, balanced: Test a small plan'
+    body: 'You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. A shared calendar can provide structure without making you responsible for every change. Separate fixed commitments from flexible ones and agree who updates each part. You can offer a clear format while distributing the actual maintenance. Consider preparing a simple handover note so that the arrangement still works when you are away. Reliability is more sustainable when it comes from agreed roles rather than one person remembering everything.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.yi.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.yi
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: yi
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.yi.balanced.a
+  zh:
+    title: 乙木，中和：留出回应空间
+    summary: 乙木，中和：留出回应空间
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你正在为搬家做准备，可以把必须先完成的事项列成短清单，并给依赖他人的环节预留缓冲时间。建议每天只确认一个关键节点，把可推迟的小事移到后面；稳妥来自清楚的优先级，不需要靠不断增加检查来获得安心。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood, balanced: Make room to respond'
+    summary: 'Yi Wood, balanced: Make room to respond'
+    body: 'You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Preparing for a move can expose the difference between useful structure and endless checking. List the necessary first steps and allow extra time for anything that depends on another person. Try reviewing one key milestone each day while postponing minor choices that do not affect it. A reliable plan needs priorities and room for delays. More checks do not always add useful information, especially when they interrupt the work itself.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.yi.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.yi
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: yi
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.yi.weak.b
+  zh:
+    title: 乙木，身弱：主动检验
+    summary: 乙木，身弱：主动检验
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你发现共用物品总被放错位置，可以先了解大家取用的路线，再提出容易执行的收纳方式，而不是只要求别人遵守自己的习惯。建议试行一周后询问使用体验，让维护规则贴近日常，也让照料成为共同参与的事。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood, less supported: Test a small plan'
+    summary: 'Yi Wood, less supported: Test a small plan'
+    body: You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. If shared items are repeatedly misplaced, the useful starting point may be how people actually use them. You could watch the usual sequence and suggest a storage arrangement that reduces effort. Consider a one-week trial followed by a short conversation about what worked. Maintenance then becomes a shared practical decision rather than a demand that others adopt your habits. The best system is often the one people can comfortably keep using.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.yi.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.yi
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: yi
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.wood
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.yi.weak.a
+  zh:
+    title: 乙木，身弱：留出回应空间
+    summary: 乙木，身弱：留出回应空间
+    body: 你往往能察觉环境变化，并寻找柔韧的推进方式。乙木（日主的一种象征，像攀援生长的藤蔓）强调适应与连接，你的日干以此为标记，所以观察重点是如何借助环境，不是评价你是否缺少主见。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如你经常替团队补上遗漏，可以把最近三次补位记录下来，看看哪些是偶发情况、哪些需要重新分工。建议把可见的工作量带进讨论，提出一项具体交接方案；关照整体并不需要把自己的时间放在最后，也可以通过规则减少反复补位。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Yi Wood, less supported: Make room to respond'
+    summary: 'Yi Wood, less supported: Make room to respond'
+    body: You may notice a workable opening where a direct approach stalls. Yi Wood (yǐ mù — the climbing plant metaphor for your day stem) points toward adaptation and connection. In a shared household, you might find a workable routine by listening to several preferences before suggesting an arrangement. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Repeatedly filling gaps can hide how much work a group actually needs. Record three recent instances and distinguish a one-off favour from a recurring responsibility. You can bring those examples to a discussion and propose a specific handover. Try making the hidden workload visible before agreeing to more. Supporting the group may mean improving the arrangement, not continuing to absorb every omission at the expense of your own commitments.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.bing.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.bing
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: bing
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.bing.strong.b
+  zh:
+    title: 丙火，身强：主动检验
+    summary: 丙火，身强：主动检验
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如一个流程经常卡在最后一步，你可以先找出真正阻碍交付的条件，再处理它，而不是同时改动所有环节。建议让使用者测试新方法，并记录是否减少等待；果断可以体现在选择一个清楚的问题，不需要用更快的语速或更强的姿态证明自己。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire, supported: Test a small plan'
+    summary: 'Bing Fire, supported: Test a small plan'
+    body: You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A process that repeatedly stalls near completion may need one well-chosen repair. Identify the actual blocking condition before changing the whole workflow. You can ask a user to test the revised step and observe whether waiting decreases. Consider treating that observation as the measure of a useful decision. Decisiveness can mean choosing a precise problem and checking the result, rather than increasing urgency or pressing everyone to move at the same speed.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.bing.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.bing
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: bing
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.bing.strong.a
+  zh:
+    title: 丙火，身强：留出回应空间
+    summary: 丙火，身强：留出回应空间
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你与同事对处理次序意见不同，可以分别列出风险、期限和已有证据，再选择最可撤回的一步先做。建议把检验时间写进方案，允许事实改变决定；明确行动与愿意修正可以同时存在，不必把改变主意视为失去立场。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire, supported: Make room to respond'
+    summary: 'Bing Fire, supported: Make room to respond'
+    body: You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.bing.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.bing
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: bing
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.bing.balanced.b
+  zh:
+    title: 丙火，中和：主动检验
+    summary: 丙火，中和：主动检验
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如你审阅一份公开资料，可以把影响理解的错误与个人偏好的格式分开，先修正前者，再在时间允许时处理后者。建议设定完成标准，达到后就交付，让对质量的关注帮助读者，而不是使每个版本都停留在等待打磨的状态。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire, balanced: Test a small plan'
+    summary: 'Bing Fire, balanced: Test a small plan'
+    body: 'You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Reviewing public information calls for distinguishing errors from preferences. Correct anything that changes the reader’s understanding before debating stylistic details. You can define a finishing standard in advance and release the work once it meets that standard. Consider asking one reader whether the key action is now clear. Precision serves a purpose when it helps someone use the material; it becomes less helpful if every version remains indefinitely unfinished.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.bing.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.bing
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: bing
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.bing.balanced.a
+  zh:
+    title: 丙火，中和：留出回应空间
+    summary: 丙火，中和：留出回应空间
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire, balanced: Make room to respond'
+    summary: 'Bing Fire, balanced: Make room to respond'
+    body: 'You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.bing.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.bing
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: bing
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.bing.weak.b
+  zh:
+    title: 丙火，身弱：主动检验
+    summary: 丙火，身弱：主动检验
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你同时对几个学习方向感兴趣，可以先画出它们与当前目标的关系，再挑一个最容易验证的入口。建议把暂时不做的想法存进清单，约定以后再看；广阔视野需要一个落脚点，保留可能性不等于现在就承担所有路线。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire, less supported: Test a small plan'
+    summary: 'Bing Fire, less supported: Test a small plan'
+    body: You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Several learning interests may connect with the same wider goal. Map those connections and choose the entry point that you can test most easily. You can keep other ideas in a later list instead of treating each as a current obligation. Consider deciding when to revisit that list. A broad view becomes more useful with a definite starting point, while postponing an option allows you to preserve it without splitting your attention immediately.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.bing.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.bing
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: bing
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.bing.weak.a
+  zh:
+    title: 丙火，身弱：留出回应空间
+    summary: 丙火，身弱：留出回应空间
+    body: 你容易用直接表达和主动参与带动周围的气氛。丙火（日主的一种象征，像照亮环境的日光）关注公开表达与热情，你的日干落在这一类，所以这里观察的是参与感，而不是要求你随时保持外向。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Bing Fire, less supported: Make room to respond'
+    summary: 'Bing Fire, less supported: Make room to respond'
+    body: You may make an idea easier to grasp by bringing it into the open. Bing Fire (bǐng huǒ — the daylight metaphor attached to your day stem) highlights visibility and enthusiasm. At a community meeting, you might help others participate by stating an aim clearly and inviting their questions. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ding.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ding
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ding
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.ding.strong.b
+  zh:
+    title: 丁火，身强：主动检验
+    summary: 丁火，身强：主动检验
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如你练习一项新技能，可以每次只记一个细小变化，隔几天再比较记录，避免反复分析同一次尝试。建议在信息足够时做一个小决定，并观察结果；细察的价值在于形成可用理解，不需要等到所有不确定都消失才开始行动。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire, supported: Test a small plan'
+    summary: 'Ding Fire, supported: Test a small plan'
+    body: You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. Learning a new skill can benefit from one brief observation after each attempt. Compare the notes after several sessions instead of repeatedly analysing the same result. You can make a small decision once there is enough information to try something useful. Consider checking what changed rather than waiting for all uncertainty to disappear. Careful observation is most helpful when it supports an action that produces new evidence, not when it postpones every next step.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ding.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ding
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ding
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.ding.strong.a
+  zh:
+    title: 丁火，身强：留出回应空间
+    summary: 丁火，身强：留出回应空间
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你对一段交流仍有疑问，可以把听到的话与自己的猜测分开，找一个合适时机提出具体问题。建议允许对方补充背景，不用细微语气推断全部意思；敏感的观察可以帮助沟通，但仍需要真实回应来修正理解。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire, supported: Make room to respond'
+    summary: 'Ding Fire, supported: Make room to respond'
+    body: You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. An ambiguous conversation can leave room for several explanations. Separate what was actually said from what you inferred, then ask a specific question at a suitable moment. You can let the other person supply context that a tone or brief message cannot reveal. Try updating your understanding with their response. Sensitivity to detail can support communication, provided an interpretation remains open to correction rather than growing into certainty through repeated private analysis.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ding.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ding
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ding
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.ding.balanced.b
+  zh:
+    title: 丁火，中和：主动检验
+    summary: 丁火，中和：主动检验
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如任务堆叠时，你可以把需要独立完成、可以请人协作和暂时可延后的事项分开，先解决最影响交付的一项。建议明确求助内容与期限，让支持变得容易提供，不把请求帮助理解为能力评价，也不把等待他人当作唯一的推进方法。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire, balanced: Test a small plan'
+    summary: 'Ding Fire, balanced: Test a small plan'
+    body: 'You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. When tasks accumulate, sort them into work you must do yourself, work someone can share, and work that can wait. A specific request with a clear deadline makes help easier to provide. You can still move a small independent part forward while waiting for a reply. Consider judging the arrangement by its usefulness, not by whether you handled everything alone. The aim is to connect available support with actual demands.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ding.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ding
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ding
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.ding.balanced.a
+  zh:
+    title: 丁火，中和：留出回应空间
+    summary: 丁火，中和：留出回应空间
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你拥有熟悉的做法但项目需求变了，可以让另一位参与者先说明新条件，再共同调整原有流程。建议保留有效的核心，删掉不再适用的步骤；资源充足时也值得听取不同经验，让惯性变成可选择的方法，而不是默认的唯一道路。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire, balanced: Make room to respond'
+    summary: 'Ding Fire, balanced: Make room to respond'
+    body: 'You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. A familiar process may need revision when the project changes. Invite another participant to describe the new conditions before adapting the old routine together. You can preserve a useful core while removing steps that no longer serve the task. Try asking which assumption changed most. Having ample resources does not make every established method appropriate; listening to another person’s experience can turn habit into a deliberate choice.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ding.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ding
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ding
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.ding.weak.b
+  zh:
+    title: 丁火，身弱：主动检验
+    summary: 丁火，身弱：主动检验
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如忙闲起伏较大的周，你可以在周初确认固定责任，再留一块可调整的时间处理临时请求。建议用实际完成量检验安排，不因某一天轻松就把整周排满；节奏的平衡是持续调整的过程，可以随着条件变化重新分配。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire, less supported: Test a small plan'
+    summary: 'Ding Fire, less supported: Test a small plan'
+    body: You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A week with uneven demands can begin with identifying fixed responsibilities and reserving one flexible interval. Use what you actually complete to assess the plan. You can avoid filling the entire week simply because one morning felt easy. Consider revising the schedule when conditions change. Balance is an ongoing adjustment between demands and available support, not a requirement to sustain the same pace regardless of interruptions or unexpected work.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ding.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ding
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ding
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.fire
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.ding.weak.a
+  zh:
+    title: 丁火，身弱：留出回应空间
+    summary: 丁火，身弱：留出回应空间
+    body: 你倾向于在细节和熟悉的互动里维持稳定的投入。丁火（日主的一种象征，像需要照料的灯火）强调专注与细腻，你的日干采用这一标记，所以它更适合描述关注方式，不能据此推断情绪强弱。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如你在两种兴趣之间犹豫，可以分别安排一次轻量体验，比较投入后是否愿意继续，而不是先决定长期身份。建议写下体验差异与下一步条件，让选择保留弹性；暂时没有明显偏好时，也可以以当前资源最方便的一项作为起点。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ding Fire, less supported: Make room to respond'
+    summary: 'Ding Fire, less supported: Make room to respond'
+    body: You may engage most fully when attention has a definite focus. Ding Fire (dīng huǒ — the lamplight metaphor for your day stem) emphasizes care and concentration. You might prefer helping a learner solve one difficult step to delivering a broad speech, especially when their response helps you adjust. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Choosing between interests need not begin with a permanent identity. Arrange one modest experience in each and compare whether you want to continue afterward. You can note what differed and what the next step would require. Try using current access and available time as a starting criterion if no strong preference emerges. A reversible choice can produce useful information while preserving room for a different direction later.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.wu_stem.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.wu_stem
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: wu_stem
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.wu_stem.strong.b
+  zh:
+    title: 戊土，身强：主动检验
+    summary: 戊土，身强：主动检验
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如团队期待你带动进度，你可以先确认可用人手与大家的理解，再把目标分成共同认可的阶段。建议在每个阶段请一位协作者反馈负担是否合适，让主动推进与照顾节奏并行，避免把自己熟悉的速度变成他人的隐形要求。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth, supported: Test a small plan'
+    summary: 'Wu Earth, supported: Test a small plan'
+    body: You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A team asking you to maintain momentum also needs an achievable shared pace. Check available help and whether everyone understands the aim before dividing it into stages. You can invite a colleague to comment on the workload at each stage. Consider adjusting the pace when the response reveals a constraint you missed. Initiative works better when people can participate knowingly, rather than discovering that your familiar speed has become an unspoken requirement.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.wu_stem.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.wu_stem
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: wu_stem
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.wu_stem.strong.a
+  zh:
+    title: 戊土，身强：留出回应空间
+    summary: 戊土，身强：留出回应空间
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如收到一个超出熟悉范围的邀请，可以先确认是否有指导、资料和试行时间，再说明愿意承担的部分。建议把学习成本列进安排，必要时缩小范围；谨慎接受条件并不妨碍探索，清楚的支持反而有助于持续投入。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth, supported: Make room to respond'
+    summary: 'Wu Earth, supported: Make room to respond'
+    body: You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. An invitation outside your familiar area can be assessed by the guidance, materials, and trial time available. State the part you are prepared to take on and include learning time in the arrangement. You can narrow the scope if those conditions are missing. Try asking for a first checkpoint rather than accepting the whole assignment at once. Clear support makes exploration easier to sustain and allows both sides to understand what the commitment includes.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.wu_stem.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.wu_stem
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: wu_stem
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.wu_stem.balanced.b
+  zh:
+    title: 戊土，中和：主动检验
+    summary: 戊土，中和：主动检验
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如你正在整理积累很久的资料，可以先围绕一个实际问题筛选内容，把暂时用不到的部分归档。建议用一段短说明检验自己是否理解了要点，再决定要不要继续收集；积累与输出可以交替进行，不需要把准备阶段无限延长。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth, balanced: Test a small plan'
+    summary: 'Wu Earth, balanced: Test a small plan'
+    body: 'You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. A collection of material becomes easier to use when you begin with a real question. Select what addresses it and archive the rest for later. You can test your understanding by writing a short explanation before gathering more. Consider alternating preparation with a small output. Additional information has value when it answers a remaining question, but continuing to collect without using anything can hide which part you already understand well enough to act on.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.wu_stem.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.wu_stem
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: wu_stem
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.wu_stem.balanced.a
+  zh:
+    title: 戊土，中和：留出回应空间
+    summary: 戊土，中和：留出回应空间
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你与合作伙伴都想负责同一环节，可以先比较各自最擅长和最想练习的部分，再约定轮换或分工。建议写清交接方式，把自主空间与共同标准放在一起讨论；相近的能力可以互相支持，不必让每次分工都变成谁更值得认可的比较。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth, balanced: Make room to respond'
+    summary: 'Wu Earth, balanced: Make room to respond'
+    body: 'You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Two collaborators may both want the same role. Compare what each person already handles well and what each wants to practise, then consider a rotation or a clear division. You can agree on a handover while leaving room for individual methods. Try discussing shared standards alongside autonomy. Similar abilities can support each other without making every allocation of work a contest over who deserves greater recognition.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.wu_stem.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.wu_stem
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: wu_stem
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.wu_stem.weak.b
+  zh:
+    title: 戊土，身弱：主动检验
+    summary: 戊土，身弱：主动检验
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你想在日常安排中加入新习惯，可以先把它接到一个已有的稳定步骤之后，持续几次再判断是否合适。建议记录容易中断的情境，并调整难度而不是责备自己；生活里的支持也包括可重复的环境条件，不只来自个人意志。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth, less supported: Test a small plan'
+    summary: 'Wu Earth, less supported: Test a small plan'
+    body: You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A new habit may be easier to try after an existing stable routine. Repeat it a few times and notice when it is interrupted. You can adjust the difficulty or the surrounding conditions instead of making the interruption a criticism of yourself. Consider what makes repetition convenient. Available support can include a predictable setting and a manageable starting step, not only determination or encouragement from other people.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.wu_stem.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.wu_stem
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: wu_stem
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.wu_stem.weak.a
+  zh:
+    title: 戊土，身弱：留出回应空间
+    summary: 戊土，身弱：留出回应空间
+    body: 你往往愿意建立可靠的框架，让事情有序落地。戊土（日主的一种象征，像承托地形的山体）侧重稳定与边界，你的日干属于这一类，因此这里观察的是承载方式，不把承担更多视作你的义务。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如一件事情同时有推进和暂停的理由，你可以列出当前证据，选一个能在短时间内带来新信息的试验。建议事先写下继续与停止的条件，让决定有可回看的依据；面对不确定时保持适度行动，也可以成为认识自身节奏的方法。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wu Earth, less supported: Make room to respond'
+    summary: 'Wu Earth, less supported: Make room to respond'
+    body: You may feel comfortable providing a structure that others can use. Wu Earth (wù tǔ — the mountain metaphor for your day stem) emphasizes steadiness and boundaries. Organizing a shared timetable could suit this tendency, provided the responsibility is agreed rather than quietly becoming yours by default. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A decision may have sensible reasons both to proceed and to pause. List the evidence available now and choose a brief trial that can supply new information. You can define conditions for continuing or stopping before the trial begins. Try keeping those criteria visible during the review. Moderate action in an uncertain situation can teach you about your preferred pace while preventing a temporary choice from quietly becoming an open-ended commitment.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ji.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ji
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ji
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.ji.strong.b
+  zh:
+    title: 己土，身强：主动检验
+    summary: 己土，身强：主动检验
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如你要为小组拟定活动目标，可以先问清每个人希望带走什么，再把共同需求收束成一项可交付成果。建议约定一次中途检查，允许根据反馈改写方法，不把维护方向变成坚持所有细节。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth, supported: Test a small plan'
+    summary: 'Ji Earth, supported: Test a small plan'
+    body: You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. Imagine helping a group define an event. One participant wants new contacts, another wants practical learning, and a third has limited time. You can identify a shared outcome before deciding the format. Consider a midpoint check so that the original purpose remains useful while details can change. This distinguishes continuity from defending every early decision, and gives others a clear way to contribute.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ji.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ji
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ji
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.ji.strong.a
+  zh:
+    title: 己土，身强：留出回应空间
+    summary: 己土，身强：留出回应空间
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你准备学习一个跨度较大的技能，可以把最终目标拆成能在两周内完成的练习，并找一位熟悉该领域的人校对起点。建议先验证练习方法是否合适，再延长计划；进度慢时也可以缩小任务，而不是把停顿解释成个人失败。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth, supported: Make room to respond'
+    summary: 'Ji Earth, supported: Make room to respond'
+    body: You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A demanding skill can feel more approachable when the first milestone is visible. You might choose a two-week practice task and ask an experienced learner whether it is a sensible starting point. Try checking the method before extending the schedule. A slower week may call for a smaller exercise, not a broad conclusion about your capacity. Progress becomes easier to assess when each attempt has a clear purpose.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ji.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ji
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ji
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.ji.balanced.b
+  zh:
+    title: 己土，中和：主动检验
+    summary: 己土，中和：主动检验
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如合作对象提出不同方案时，你可以先复述对方的目标，再说明自己想保留的关键条件，找到双方都能尝试的小步骤。建议给试行设一个结束日期，届时依据体验调整；灵活不需要以忽略自己的需要为代价。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth, balanced: Test a small plan'
+    summary: 'Ji Earth, balanced: Test a small plan'
+    body: 'You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Suppose a collaborator proposes a different method. You can first check what they are trying to achieve, then name the condition that matters most to you. A limited trial may reveal a route neither person initially considered. Consider agreeing when the trial ends and what feedback you will examine. Flexibility works better when your needs are visible, rather than disappearing into an arrangement you quietly dislike.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ji.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ji
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ji
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.ji.balanced.a
+  zh:
+    title: 己土，中和：留出回应空间
+    summary: 己土，中和：留出回应空间
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如刚进入陌生社群，你可以先参与一个有明确分工的活动，观察哪些交流方式让你舒服，再逐渐增加投入。建议为自己保留独处或休息的间隔，既寻找连接，也尊重适应速度；不用一次聊天是否顺利评价自己的社交能力。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth, balanced: Make room to respond'
+    summary: 'Ji Earth, balanced: Make room to respond'
+    body: 'You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ji.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ji
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ji
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.ji.weak.b
+  zh:
+    title: 己土，身弱：主动检验
+    summary: 己土，身弱：主动检验
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你主持一次讨论，可以先用两句话说清要解决的问题，再邀请尚未发言的人补充，而不是连续给出自己的全部想法。建议在总结前留一段安静思考时间，观察参与者是否真正理解目标，让热情成为帮助别人参与的条件。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth, less supported: Test a small plan'
+    summary: 'Ji Earth, less supported: Test a small plan'
+    body: You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. When leading a discussion, visibility is useful only if other people can take part. You could state the question briefly and invite someone who has not yet spoken to contribute. Consider leaving a quiet thinking interval before the final summary. The responses may show whether your enthusiasm clarified the task or filled the available space. A useful meeting can contain both expressive moments and deliberate pauses.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ji.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ji
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ji
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.earth
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.ji.weak.a
+  zh:
+    title: 己土，身弱：留出回应空间
+    summary: 己土，身弱：留出回应空间
+    body: 你容易留意实际需要，愿意通过细致照料改善日常。己土（日主的一种象征，像可以培育作物的田地）强调整理与养护，你的日干以此为标记，所以这里关注具体维护，不能把照顾别人当作固定角色。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如你想分享刚完成的作品，可以先选一个小范围展示，问观众哪些信息最清楚、哪里仍有疑问，再决定下一次公开表达的重点。建议把反馈写成可修改的事项，不把赞许或沉默当作全部评价，给持续投入留出稳定节奏。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ji Earth, less supported: Make room to respond'
+    summary: 'Ji Earth, less supported: Make room to respond'
+    body: You may see improvement in careful maintenance rather than dramatic changes. Ji Earth (jǐ tǔ — the cultivated ground metaphor for your day stem) stresses practical care. Keeping a shared resource list accurate might matter to you because it saves people effort, but the task should still have fair boundaries. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Sharing a new piece of work can begin with a small audience. Ask which part was clear and where people still had questions, then use the answers to shape the next presentation. You can turn feedback into specific edits rather than a general verdict about the work or its maker. Try keeping a steady sharing rhythm that leaves room for preparation and rest, instead of relying entirely on immediate audience response.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.geng.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.geng
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: geng
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.geng.strong.b
+  zh:
+    title: 庚金，身强：主动检验
+    summary: 庚金，身强：主动检验
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如朋友请你帮忙修改一份说明，你可以先确认读者是谁、最需要看懂哪一步，再集中处理两三个关键细节。建议约定修改范围与截止时间，让专注服务于实际用途，避免为了润色每句话而耗尽整晚的精力。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal, supported: Test a small plan'
+    summary: 'Geng Metal, supported: Test a small plan'
+    body: You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A friend may ask you to review an explanation. Before editing, check who will read it and which action the reader needs to understand. You can then focus on the two or three details that affect that action most. Consider setting a revision limit and a finishing time. Careful attention becomes more useful when it improves the message without consuming the whole evening in changes that readers barely notice.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.geng.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.geng
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: geng
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.geng.strong.a
+  zh:
+    title: 庚金，身强：留出回应空间
+    summary: 庚金，身强：留出回应空间
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你照料一个长期的小项目，可以用简短记录跟踪每次维护内容，把自己最熟悉的步骤整理成别人也能接手的说明。建议每月删掉一项已经没有用途的检查，让细致投入保持轻量，也给协作者留出按自己方法完成工作的空间。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal, supported: Make room to respond'
+    summary: 'Geng Metal, supported: Make room to respond'
+    body: You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A small ongoing project often depends on quiet maintenance. Brief notes can show what was checked and help another person take over when you are unavailable. Try reviewing the checklist monthly and removing an item that no longer serves a purpose. This makes care easier to share. A clear handover also allows someone else to achieve the same useful result without copying every detail of your preferred method.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.geng.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.geng
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: geng
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.geng.balanced.b
+  zh:
+    title: 庚金，中和：主动检验
+    summary: 庚金，中和：主动检验
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如多人共用一个日程表，你可以先列出固定事项，再把临时需求留在可调整区域，减少反复重排。建议明确哪些决定由谁负责，别因为自己擅长整理就默认接下全部管理任务；可靠的安排也应当包含可交接的边界。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal, balanced: Test a small plan'
+    summary: 'Geng Metal, balanced: Test a small plan'
+    body: 'You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. A shared calendar can provide structure without making you responsible for every change. Separate fixed commitments from flexible ones and agree who updates each part. You can offer a clear format while distributing the actual maintenance. Consider preparing a simple handover note so that the arrangement still works when you are away. Reliability is more sustainable when it comes from agreed roles rather than one person remembering everything.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.geng.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.geng
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: geng
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.geng.balanced.a
+  zh:
+    title: 庚金，中和：留出回应空间
+    summary: 庚金，中和：留出回应空间
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你正在为搬家做准备，可以把必须先完成的事项列成短清单，并给依赖他人的环节预留缓冲时间。建议每天只确认一个关键节点，把可推迟的小事移到后面；稳妥来自清楚的优先级，不需要靠不断增加检查来获得安心。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal, balanced: Make room to respond'
+    summary: 'Geng Metal, balanced: Make room to respond'
+    body: 'You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Preparing for a move can expose the difference between useful structure and endless checking. List the necessary first steps and allow extra time for anything that depends on another person. Try reviewing one key milestone each day while postponing minor choices that do not affect it. A reliable plan needs priorities and room for delays. More checks do not always add useful information, especially when they interrupt the work itself.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.geng.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.geng
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: geng
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.geng.weak.b
+  zh:
+    title: 庚金，身弱：主动检验
+    summary: 庚金，身弱：主动检验
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你发现共用物品总被放错位置，可以先了解大家取用的路线，再提出容易执行的收纳方式，而不是只要求别人遵守自己的习惯。建议试行一周后询问使用体验，让维护规则贴近日常，也让照料成为共同参与的事。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal, less supported: Test a small plan'
+    summary: 'Geng Metal, less supported: Test a small plan'
+    body: You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. If shared items are repeatedly misplaced, the useful starting point may be how people actually use them. You could watch the usual sequence and suggest a storage arrangement that reduces effort. Consider a one-week trial followed by a short conversation about what worked. Maintenance then becomes a shared practical decision rather than a demand that others adopt your habits. The best system is often the one people can comfortably keep using.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.geng.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.geng
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: geng
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.geng.weak.a
+  zh:
+    title: 庚金，身弱：留出回应空间
+    summary: 庚金，身弱：留出回应空间
+    body: 你倾向于抓住问题核心，并把想法转成明确的行动。庚金（日主的一种象征，像经过锻炼的工具）关注决断与执行，你的日干属于这一类，因此这里观察的是解决问题的节奏，不等于你总要强硬。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如你经常替团队补上遗漏，可以把最近三次补位记录下来，看看哪些是偶发情况、哪些需要重新分工。建议把可见的工作量带进讨论，提出一项具体交接方案；关照整体并不需要把自己的时间放在最后，也可以通过规则减少反复补位。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Geng Metal, less supported: Make room to respond'
+    summary: 'Geng Metal, less supported: Make room to respond'
+    body: You may appreciate a task with a concrete problem and a visible result. Geng Metal (gēng jīn — the working tool metaphor for your day stem) highlights decisive effort. Fixing a confusing handover can be satisfying when the new process actually works; speed alone is not the measure of success. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Repeatedly filling gaps can hide how much work a group actually needs. Record three recent instances and distinguish a one-off favour from a recurring responsibility. You can bring those examples to a discussion and propose a specific handover. Try making the hidden workload visible before agreeing to more. Supporting the group may mean improving the arrangement, not continuing to absorb every omission at the expense of your own commitments.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.xin.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.xin
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: xin
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.xin.strong.b
+  zh:
+    title: 辛金，身强：主动检验
+    summary: 辛金，身强：主动检验
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如一个流程经常卡在最后一步，你可以先找出真正阻碍交付的条件，再处理它，而不是同时改动所有环节。建议让使用者测试新方法，并记录是否减少等待；果断可以体现在选择一个清楚的问题，不需要用更快的语速或更强的姿态证明自己。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal, supported: Test a small plan'
+    summary: 'Xin Metal, supported: Test a small plan'
+    body: You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A process that repeatedly stalls near completion may need one well-chosen repair. Identify the actual blocking condition before changing the whole workflow. You can ask a user to test the revised step and observe whether waiting decreases. Consider treating that observation as the measure of a useful decision. Decisiveness can mean choosing a precise problem and checking the result, rather than increasing urgency or pressing everyone to move at the same speed.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.xin.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.xin
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: xin
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.xin.strong.a
+  zh:
+    title: 辛金，身强：留出回应空间
+    summary: 辛金，身强：留出回应空间
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你与同事对处理次序意见不同，可以分别列出风险、期限和已有证据，再选择最可撤回的一步先做。建议把检验时间写进方案，允许事实改变决定；明确行动与愿意修正可以同时存在，不必把改变主意视为失去立场。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal, supported: Make room to respond'
+    summary: 'Xin Metal, supported: Make room to respond'
+    body: You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.xin.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.xin
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: xin
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.xin.balanced.b
+  zh:
+    title: 辛金，中和：主动检验
+    summary: 辛金，中和：主动检验
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如你审阅一份公开资料，可以把影响理解的错误与个人偏好的格式分开，先修正前者，再在时间允许时处理后者。建议设定完成标准，达到后就交付，让对质量的关注帮助读者，而不是使每个版本都停留在等待打磨的状态。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal, balanced: Test a small plan'
+    summary: 'Xin Metal, balanced: Test a small plan'
+    body: 'You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Reviewing public information calls for distinguishing errors from preferences. Correct anything that changes the reader’s understanding before debating stylistic details. You can define a finishing standard in advance and release the work once it meets that standard. Consider asking one reader whether the key action is now clear. Precision serves a purpose when it helps someone use the material; it becomes less helpful if every version remains indefinitely unfinished.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.xin.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.xin
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: xin
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.xin.balanced.a
+  zh:
+    title: 辛金，中和：留出回应空间
+    summary: 辛金，中和：留出回应空间
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal, balanced: Make room to respond'
+    summary: 'Xin Metal, balanced: Make room to respond'
+    body: 'You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.xin.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.xin
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: xin
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.xin.weak.b
+  zh:
+    title: 辛金，身弱：主动检验
+    summary: 辛金，身弱：主动检验
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你同时对几个学习方向感兴趣，可以先画出它们与当前目标的关系，再挑一个最容易验证的入口。建议把暂时不做的想法存进清单，约定以后再看；广阔视野需要一个落脚点，保留可能性不等于现在就承担所有路线。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal, less supported: Test a small plan'
+    summary: 'Xin Metal, less supported: Test a small plan'
+    body: You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Several learning interests may connect with the same wider goal. Map those connections and choose the entry point that you can test most easily. You can keep other ideas in a later list instead of treating each as a current obligation. Consider deciding when to revisit that list. A broad view becomes more useful with a definite starting point, while postponing an option allows you to preserve it without splitting your attention immediately.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.xin.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.xin
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: xin
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.metal
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.xin.weak.a
+  zh:
+    title: 辛金，身弱：留出回应空间
+    summary: 辛金，身弱：留出回应空间
+    body: 你往往能发现细微差别，并对完成质量保持关注。辛金（日主的一种象征，像经过打磨的饰物）侧重精度与辨别，你的日干采用这一标记，所以重点是标准感，不是给自己增加处处完美的要求。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Xin Metal, less supported: Make room to respond'
+    summary: 'Xin Metal, less supported: Make room to respond'
+    body: You may notice distinctions that a quick first pass misses. Xin Metal (xīn jīn — the refined metal metaphor for your day stem) draws attention to precision. Reviewing a short public notice might reveal an unclear phrase or missing detail; the useful question is which correction helps readers most. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ren.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ren
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ren
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.ren.strong.b
+  zh:
+    title: 壬水，身强：主动检验
+    summary: 壬水，身强：主动检验
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如你练习一项新技能，可以每次只记一个细小变化，隔几天再比较记录，避免反复分析同一次尝试。建议在信息足够时做一个小决定，并观察结果；细察的价值在于形成可用理解，不需要等到所有不确定都消失才开始行动。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water, supported: Test a small plan'
+    summary: 'Ren Water, supported: Test a small plan'
+    body: You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. Learning a new skill can benefit from one brief observation after each attempt. Compare the notes after several sessions instead of repeatedly analysing the same result. You can make a small decision once there is enough information to try something useful. Consider checking what changed rather than waiting for all uncertainty to disappear. Careful observation is most helpful when it supports an action that produces new evidence, not when it postpones every next step.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ren.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ren
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ren
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.ren.strong.a
+  zh:
+    title: 壬水，身强：留出回应空间
+    summary: 壬水，身强：留出回应空间
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如你对一段交流仍有疑问，可以把听到的话与自己的猜测分开，找一个合适时机提出具体问题。建议允许对方补充背景，不用细微语气推断全部意思；敏感的观察可以帮助沟通，但仍需要真实回应来修正理解。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water, supported: Make room to respond'
+    summary: 'Ren Water, supported: Make room to respond'
+    body: You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. An ambiguous conversation can leave room for several explanations. Separate what was actually said from what you inferred, then ask a specific question at a suitable moment. You can let the other person supply context that a tone or brief message cannot reveal. Try updating your understanding with their response. Sensitivity to detail can support communication, provided an interpretation remains open to correction rather than growing into certainty through repeated private analysis.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ren.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ren
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ren
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.ren.balanced.b
+  zh:
+    title: 壬水，中和：主动检验
+    summary: 壬水，中和：主动检验
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如任务堆叠时，你可以把需要独立完成、可以请人协作和暂时可延后的事项分开，先解决最影响交付的一项。建议明确求助内容与期限，让支持变得容易提供，不把请求帮助理解为能力评价，也不把等待他人当作唯一的推进方法。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water, balanced: Test a small plan'
+    summary: 'Ren Water, balanced: Test a small plan'
+    body: 'You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. When tasks accumulate, sort them into work you must do yourself, work someone can share, and work that can wait. A specific request with a clear deadline makes help easier to provide. You can still move a small independent part forward while waiting for a reply. Consider judging the arrangement by its usefulness, not by whether you handled everything alone. The aim is to connect available support with actual demands.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ren.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ren
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ren
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.ren.balanced.a
+  zh:
+    title: 壬水，中和：留出回应空间
+    summary: 壬水，中和：留出回应空间
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你拥有熟悉的做法但项目需求变了，可以让另一位参与者先说明新条件，再共同调整原有流程。建议保留有效的核心，删掉不再适用的步骤；资源充足时也值得听取不同经验，让惯性变成可选择的方法，而不是默认的唯一道路。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water, balanced: Make room to respond'
+    summary: 'Ren Water, balanced: Make room to respond'
+    body: 'You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. A familiar process may need revision when the project changes. Invite another participant to describe the new conditions before adapting the old routine together. You can preserve a useful core while removing steps that no longer serve the task. Try asking which assumption changed most. Having ample resources does not make every established method appropriate; listening to another person’s experience can turn habit into a deliberate choice.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ren.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ren
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ren
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.ren.weak.b
+  zh:
+    title: 壬水，身弱：主动检验
+    summary: 壬水，身弱：主动检验
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如忙闲起伏较大的周，你可以在周初确认固定责任，再留一块可调整的时间处理临时请求。建议用实际完成量检验安排，不因某一天轻松就把整周排满；节奏的平衡是持续调整的过程，可以随着条件变化重新分配。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water, less supported: Test a small plan'
+    summary: 'Ren Water, less supported: Test a small plan'
+    body: You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A week with uneven demands can begin with identifying fixed responsibilities and reserving one flexible interval. Use what you actually complete to assess the plan. You can avoid filling the entire week simply because one morning felt easy. Consider revising the schedule when conditions change. Balance is an ongoing adjustment between demands and available support, not a requirement to sustain the same pace regardless of interruptions or unexpected work.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.ren.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.ren
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: ren
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.ren.weak.a
+  zh:
+    title: 壬水，身弱：留出回应空间
+    summary: 壬水，身弱：留出回应空间
+    body: 你倾向于从较宽的视野寻找关联，愿意探索多种可能。壬水（日主的一种象征，像流动开阔的江河）关注联通与流动，你的日干落在这一类，因此这里观察的是探索方式，不把兴趣广泛等同于无法专注。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如你在两种兴趣之间犹豫，可以分别安排一次轻量体验，比较投入后是否愿意继续，而不是先决定长期身份。建议写下体验差异与下一步条件，让选择保留弹性；暂时没有明显偏好时，也可以以当前资源最方便的一项作为起点。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Ren Water, less supported: Make room to respond'
+    summary: 'Ren Water, less supported: Make room to respond'
+    body: You may understand a question by connecting it with a wider setting. Ren Water (rén shuǐ — the broad river metaphor for your day stem) highlights movement and perspective. Planning a trip could lead you to compare routes, local conditions, and companions’ needs before settling on one workable itinerary. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. Choosing between interests need not begin with a permanent identity. Arrange one modest experience in each and compare whether you want to continue afterward. You can note what differed and what the next step would require. Try using current access and available time as a starting criterion if no strong preference emerges. A reversible choice can produce useful information while preserving room for a different direction later.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.gui.strong.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.gui
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: gui
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.gui.strong.b
+  zh:
+    title: 癸水，身强：主动检验
+    summary: 癸水，身强：主动检验
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。例如团队期待你带动进度，你可以先确认可用人手与大家的理解，再把目标分成共同认可的阶段。建议在每个阶段请一位协作者反馈负担是否合适，让主动推进与照顾节奏并行，避免把自己熟悉的速度变成他人的隐形要求。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water, supported: Test a small plan'
+    summary: 'Gui Water, supported: Test a small plan'
+    body: You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. A team asking you to maintain momentum also needs an achievable shared pace. Check available help and whether everyone understands the aim before dividing it into stages. You can invite a colleague to comment on the workload at each stage. Consider adjusting the pace when the response reveals a constraint you missed. Initiative works better when people can participate knowingly, rather than discovering that your familiar speed has become an unspoken requirement.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.gui.strong.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.gui
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: gui
+      - path: strength.level
+        eq: strong
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.strong
+  exclusive_with:
+    - bazi.day_master_strength.gui.strong.a
+  zh:
+    title: 癸水，身强：留出回应空间
+    summary: 癸水，身强：留出回应空间
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。身强（评分中扶助力量较多）表示这里较强调主动消化已有资源，不是身体强壮或能力更高。你的分类落在这一档，容易在熟悉事务上想继续加码，也需要留意别人是否跟得上。比如收到一个超出熟悉范围的邀请，可以先确认是否有指导、资料和试行时间，再说明愿意承担的部分。建议把学习成本列进安排，必要时缩小范围；谨慎接受条件并不妨碍探索，清楚的支持反而有助于持续投入。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water, supported: Make room to respond'
+    summary: 'Gui Water, supported: Make room to respond'
+    body: You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. A strong classification (shēn qiáng — relatively greater support in the chart score) concerns symbolic balance, not physical strength or superior ability. Your score falls in this band, so the question is how you channel resources without assuming that other people share your pace. An invitation outside your familiar area can be assessed by the guidance, materials, and trial time available. State the part you are prepared to take on and include learning time in the arrangement. You can narrow the scope if those conditions are missing. Try asking for a first checkpoint rather than accepting the whole assignment at once. Clear support makes exploration easier to sustain and allows both sides to understand what the commitment includes.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.gui.balanced.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.gui
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: gui
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.gui.balanced.b
+  zh:
+    title: 癸水，中和：主动检验
+    summary: 癸水，中和：主动检验
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。例如你正在整理积累很久的资料，可以先围绕一个实际问题筛选内容，把暂时用不到的部分归档。建议用一段短说明检验自己是否理解了要点，再决定要不要继续收集；积累与输出可以交替进行，不需要把准备阶段无限延长。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water, balanced: Test a small plan'
+    summary: 'Gui Water, balanced: Test a small plan'
+    body: 'You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. A collection of material becomes easier to use when you begin with a real question. Select what addresses it and archive the rest for later. You can test your understanding by writing a short explanation before gathering more. Consider alternating preparation with a small output. Additional information has value when it answers a remaining question, but continuing to collect without using anything can hide which part you already understand well enough to act on.'
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.gui.balanced.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.gui
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: gui
+      - path: strength.level
+        eq: balanced
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.balanced
+  exclusive_with:
+    - bazi.day_master_strength.gui.balanced.a
+  zh:
+    title: 癸水，中和：留出回应空间
+    summary: 癸水，中和：留出回应空间
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。中和（扶助与消耗相对接近）表示这里更适合根据环境调整力度，不是所有事情都处于理想状态。你的评分落在中间档，选择常受当下资源影响，既可主动推进，也值得适时寻求协作。比如你与合作伙伴都想负责同一环节，可以先比较各自最擅长和最想练习的部分，再约定轮换或分工。建议写清交接方式，把自主空间与共同标准放在一起讨论；相近的能力可以互相支持，不必让每次分工都变成谁更值得认可的比较。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water, balanced: Make room to respond'
+    summary: 'Gui Water, balanced: Make room to respond'
+    body: 'You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. A balanced classification (zhōng hé — support and expenditure are relatively close in the score) invites attention to context. It does not mean every area of life is settled. Your middle band makes changing demands a useful focus: the same approach may feel manageable one week and need adjustment the next. Two collaborators may both want the same role. Compare what each person already handles well and what each wants to practise, then consider a rotation or a clear division. You can agree on a handover while leaving room for individual methods. Try discussing shared standards alongside autonomy. Similar abilities can support each other without making every allocation of work a contest over who deserves greater recognition.'
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.gui.weak.a
+  system: bazi
+  section: day_master
+  topic: day_master_strength.gui
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: gui
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.gui.weak.b
+  zh:
+    title: 癸水，身弱：主动检验
+    summary: 癸水，身弱：主动检验
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。例如你想在日常安排中加入新习惯，可以先把它接到一个已有的稳定步骤之后，持续几次再判断是否合适。建议记录容易中断的情境，并调整难度而不是责备自己；生活里的支持也包括可重复的环境条件，不只来自个人意志。
+    advice:
+      - 先做一个小方案，完成后再决定是否扩大。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water, less supported: Test a small plan'
+    summary: 'Gui Water, less supported: Test a small plan'
+    body: You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A new habit may be easier to try after an existing stable routine. Repeat it a few times and notice when it is interrupted. You can adjust the difficulty or the surrounding conditions instead of making the interruption a criticism of yourself. Consider what makes repetition convenient. Available support can include a predictable setting and a manageable starting step, not only determination or encouragement from other people.
+    advice:
+      - Start with an outline and review it after a small trial.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.day_master_strength.gui.weak.b
+  system: bazi
+  section: day_master
+  topic: day_master_strength.gui
+  when:
+    all:
+      - path: dayMaster.stem
+        eq: gui
+      - path: strength.level
+        eq: weak
+  weight: 85
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+    - element.water
+    - strength.weak
+  exclusive_with:
+    - bazi.day_master_strength.gui.weak.a
+  zh:
+    title: 癸水，身弱：留出回应空间
+    summary: 癸水，身弱：留出回应空间
+    body: 你容易从细小线索中形成理解，倾向于留些思考空间。癸水（日主的一种象征，像缓慢润泽的雨露）强调细察与积累，你的日干采用这一标记，所以这里关注信息处理，不由此判断你是否善于社交。身弱（评分中消耗力量相对较多）提示先留意可用支持，不是身体虚弱或能力不足。你的分类采用这一档，忙碌时容易把任务都揽在自己身上，更值得辨认哪些责任可以分担、哪些要求需要商量。比如一件事情同时有推进和暂停的理由，你可以列出当前证据，选一个能在短时间内带来新信息的试验。建议事先写下继续与停止的条件，让决定有可回看的依据；面对不确定时保持适度行动，也可以成为认识自身节奏的方法。
+    advice:
+      - 答应新任务前，先说明可投入的时间。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Gui Water, less supported: Make room to respond'
+    summary: 'Gui Water, less supported: Make room to respond'
+    body: You may form an understanding through small observations gathered over time. Gui Water (guǐ shuǐ — the rain and dew metaphor for your day stem) emphasizes subtle attention. When learning a skill, brief notes about what changed between attempts might help you see a pattern that a single result hides. A weak classification (shēn ruò — expenditure outweighs support in the symbolic score) asks what help is available. It does not measure health, confidence, or talent. In this band, a useful focus is whether your commitments have enough time, guidance, and cooperation behind them before you accept another demand. A decision may have sensible reasons both to proceed and to pause. List the evidence available now and choose a brief trial that can supply new information. You can define conditions for continuing or stopping before the trial begins. Try keeping those criteria visible during the review. Moderate action in an uncertain situation can teach you about your preferred pace while preventing a temporary choice from quietly becoming an open-ended commitment.
+    advice:
+      - State your available time before accepting a new request.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

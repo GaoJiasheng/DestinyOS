@@ -1,0 +1,39 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+- id: bazi.void_branches
+  system: bazi
+  section: shensha_notes
+  topic: void_branches
+  when:
+    path: voidBranches.length
+    eq: 2
+  weight: 40
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 空亡：保留核对与观察
+    summary: 空亡：保留核对与观察
+    body: 你可以先理解空亡的计算含义，再决定是否保留这个观察角度。空亡（按日柱所在分组标出的两支）在每张合法命盘里都有对应记录，不意味着某段关系、某个资源或某种能力不存在。若某柱落入标记，专业视图可以帮助你核对位置；日常判断仍需现实证据。补充标记需要核对位置与依据，不由一个名称决定结论。例如合作对象提出不同方案时，你可以先复述对方的目标，再说明自己想保留的关键条件，找到双方都能尝试的小步骤。建议给试行设一个结束日期，届时依据体验调整；灵活不需要以忽略自己的需要为代价。
+    advice:
+      - 核对标记位置，再把它改写成一条观察问题。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Void branches: Review the calculation'
+    summary: 'Void branches: Review the calculation'
+    body: You can begin with the calculation rather than the dramatic sound of the label. Void branches (kōng wáng — two branches marked by the day-pillar grouping) are recorded in every valid chart. They do not erase a relationship, resource, or ability. The detailed view helps identify a marked pillar, while actual circumstances remain the basis for practical judgment. Check the recorded location and calculation basis; a supplementary label cannot decide a conclusion. Suppose a collaborator proposes a different method. You can first check what they are trying to achieve, then name the condition that matters most to you. A limited trial may reveal a route neither person initially considered. Consider agreeing when the trial ends and what feedback you will examine. Flexibility works better when your needs are visible, rather than disappearing into an arrangement you quietly dislike.
+    advice:
+      - Check the marker’s location and keep a useful reflection.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

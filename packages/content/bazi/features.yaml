@@ -1,0 +1,874 @@
+- id: bazi.feature.bi_jian_heavy
+  system: bazi
+  section: pattern_career
+  topic: feature
+  when:
+    path: features.bi_jian_heavy
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 比肩较多
+    summary: 比肩较多
+    body: 你可以留意自主方法与共同标准之间的配合。比肩较多（原盘同类且同阴阳成分达到引擎计数阈值）侧重同行与自主空间。计数不等于合作质量，也不能据此判断谁更适合负责。比如你与同事对处理次序意见不同，可以分别列出风险、期限和已有证据，再选择最可撤回的一步先做。建议把检验时间写进方案，允许事实改变决定；明确行动与愿意修正可以同时存在，不必把改变主意视为失去立场。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Peer components are frequent
+    summary: Peer components are frequent
+    body: Bǐ jiān — peer components sharing your day stem’s element and polarity — reaches the engine’s frequency threshold. Counted occurrences do not measure the quality of cooperation; they prompt a look at autonomy and shared standards. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.jie_cai_heavy
+  system: bazi
+  section: wealth
+  topic: feature
+  when:
+    path: features.jie_cai_heavy
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 劫财较多
+    summary: 劫财较多
+    body: 你可以先把共同投入的边界说明白。劫财较多（原盘同类但阴阳不同成分达到计数阈值）关注资源边界，名称不描述财务损失。实际分配仍需依据约定和记录。例如团队期待你带动进度，你可以先确认可用人手与大家的理解，再把目标分成共同认可的阶段。建议在每个阶段请一位协作者反馈负担是否合适，让主动推进与照顾节奏并行，避免把自己熟悉的速度变成他人的隐形要求。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Shared-resource components are frequent
+    summary: Shared-resource components are frequent
+    body: Jié cái — peer components of opposite polarity to your day stem — reaches the frequency threshold. This is a shared-resource prompt, not an account of a financial loss. Actual agreements and records show what is being shared. A team asking you to maintain momentum also needs an achievable shared pace. Check available help and whether everyone understands the aim before dividing it into stages. You can invite a colleague to comment on the workload at each stage. Consider adjusting the pace when the response reveals a constraint you missed. Initiative works better when people can participate knowingly, rather than discovering that your familiar speed has become an unspoken requirement. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.guan_sha_hun_za
+  system: bazi
+  section: pattern_career
+  topic: feature
+  when:
+    path: features.guan_sha_hun_za
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 官杀并见
+    summary: 官杀并见
+    body: 你可以分清稳定规则与临时挑战各自需要什么。官杀混杂（代表稳定标准与外部挑战的两类成分同时存在）在引擎里只表示共存，不是人格评价。不同任务需要不同回应，适合先明确要求来自哪里。比如你想分享刚完成的作品，可以先选一个小范围展示，问观众哪些信息最清楚、哪里仍有疑问，再决定下一次公开表达的重点。建议把反馈写成可修改的事项，不把赞许或沉默当作全部评价，给持续投入留出稳定节奏。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Different demand styles coexist
+    summary: Different demand styles coexist
+    body: Guān shā hùn zá — regular-standard and challenge components coexisting — is a presence flag, not a character judgment. It prompts a distinction between ongoing expectations and demands that need a more immediate response. Sharing a new piece of work can begin with a small audience. Ask which part was clear and where people still had questions, then use the answers to shape the next presentation. You can turn feedback into specific edits rather than a general verdict about the work or its maker. Try keeping a steady sharing rhythm that leaves room for preparation and rest, instead of relying entirely on immediate audience response. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.cai_duo_shen_ruo
+  system: bazi
+  section: wealth
+  topic: feature
+  when:
+    path: features.cai_duo_shen_ruo
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 资源要求与支持
+    summary: 资源要求与支持
+    body: 你可以先核对支持条件，再决定新增投入。财多身弱（资源管理成分达到计数阈值且扶助评分较少）只说明两项计算结果同时出现，不衡量财富规模。这里更适合观察责任与可用时间是否相称。例如你同时对几个学习方向感兴趣，可以先画出它们与当前目标的关系，再挑一个最容易验证的入口。建议把暂时不做的想法存进清单，约定以后再看；广阔视野需要一个落脚点，保留可能性不等于现在就承担所有路线。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Resource demands and available support
+    summary: Resource demands and available support
+    body: Cái duō shēn ruò — frequent resource-management components paired with less chart support — combines two calculation results. It does not measure wealth; the practical prompt concerns the conditions behind a new commitment. Several learning interests may connect with the same wider goal. Map those connections and choose the entry point that you can test most easily. You can keep other ideas in a later list instead of treating each as a current obligation. Consider deciding when to revisit that list. A broad view becomes more useful with a definite starting point, while postponing an option allows you to preserve it without splitting your attention immediately. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.shi_shang_sheng_cai
+  system: bazi
+  section: pattern_career
+  topic: feature
+  when:
+    path: features.shi_shang_sheng_cai
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 输出与资源并见
+    summary: 输出与资源并见
+    body: 你可以留意技能成果怎样接上实际需求。食伤生财（技能输出成分与资源管理成分同时存在）在当前引擎里表示共存，不证明收入增长或五行转化。适合先检验成果是否解决了一个明确问题。比如你与合作伙伴都想负责同一环节，可以先比较各自最擅长和最想练习的部分，再约定轮换或分工。建议写清交接方式，把自主空间与共同标准放在一起讨论；相近的能力可以互相支持，不必让每次分工都变成谁更值得认可的比较。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Output and resources coexist
+    summary: Output and resources coexist
+    body: Shí shāng shēng cái — output and resource-management components coexisting — is a presence relation in this engine. It does not prove an income increase or elemental transformation. Test whether a skill output addresses an actual need. Two collaborators may both want the same role. Compare what each person already handles well and what each wants to practise, then consider a rotation or a clear division. You can agree on a handover while leaving room for individual methods. Try discussing shared standards alongside autonomy. Similar abilities can support each other without making every allocation of work a contest over who deserves greater recognition. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.shang_guan_jian_guan
+  system: bazi
+  section: pattern_career
+  topic: feature
+  when:
+    path: features.shang_guan_jian_guan
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 表达与标准并见
+    summary: 表达与标准并见
+    body: 你可以把不同意见写成具体、可讨论的改进。伤官见官（质疑表达与规则标准的成分同时存在）不表示现实冲突。这里提示你观察提出新方法时，是否也说明怎样符合必要的共同要求。例如多人共用一个日程表，你可以先列出固定事项，再把临时需求留在可调整区域，减少反复重排。建议明确哪些决定由谁负责，别因为自己擅长整理就默认接下全部管理任务；可靠的安排也应当包含可交接的边界。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Expression meets established standards
+    summary: Expression meets established standards
+    body: Shāng guān jiàn guān — questioning expression and formal-standard components coexisting — does not establish a real conflict. The prompt asks whether a proposed change explains how necessary shared requirements will still be met. A shared calendar can provide structure without making you responsible for every change. Separate fixed commitments from flexible ones and agree who updates each part. You can offer a clear format while distributing the actual maintenance. Consider preparing a simple handover note so that the arrangement still works when you are away. Reliability is more sustainable when it comes from agreed roles rather than one person remembering everything. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.sha_yin_xiang_sheng
+  system: bazi
+  section: pattern_career
+  topic: feature
+  when:
+    path: features.sha_yin_xiang_sheng
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 挑战与学习支持
+    summary: 挑战与学习支持
+    body: 你可以在接受挑战时，明确可获得的指导。杀印相生（外部挑战成分与学习支持成分同时存在）在引擎中不推断转化已经发生。这里适合观察资料、指导与反馈是否能够回应任务难度。比如你对一段交流仍有疑问，可以把听到的话与自己的猜测分开，找一个合适时机提出具体问题。建议允许对方补充背景，不用细微语气推断全部意思；敏感的观察可以帮助沟通，但仍需要真实回应来修正理解。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Challenge and learning support
+    summary: Challenge and learning support
+    body: Shā yìn xiāng shēng — challenge and learning-support components coexisting — does not establish a transformation. It prompts a check of whether reference material, guidance, and feedback match the demands of an assignment. An ambiguous conversation can leave room for several explanations. Separate what was actually said from what you inferred, then ask a specific question at a suitable moment. You can let the other person supply context that a tone or brief message cannot reveal. Try updating your understanding with their response. Sensitivity to detail can support communication, provided an interpretation remains open to correction rather than growing into certainty through repeated private analysis. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.yin_xing_heavy
+  system: bazi
+  section: pattern_career
+  topic: feature
+  when:
+    path: features.yin_xing_heavy
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 学习支持较多
+    summary: 学习支持较多
+    body: 你可以让准备阶段接上一项实际输出。印星较多（学习支持类成分达到引擎计数阈值）提示观察积累与使用的关系，不说明学历或理解能力。是否继续准备，应看当前问题还有哪些信息缺口。例如你要为小组拟定活动目标，可以先问清每个人希望带走什么，再把共同需求收束成一项可交付成果。建议约定一次中途检查，允许根据反馈改写方法，不把维护方向变成坚持所有细节。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Learning-support components are frequent
+    summary: Learning-support components are frequent
+    body: Yìn xīng — supporting components associated with learning — reaches the frequency threshold. It does not measure qualifications or understanding; notice which remaining question more preparation would actually answer. Imagine helping a group define an event. One participant wants new contacts, another wants practical learning, and a third has limited time. You can identify a shared outcome before deciding the format. Consider a midpoint check so that the original purpose remains useful while details can change. This distinguishes continuity from defending every early decision, and gives others a clear way to contribute. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly. You can check which detail matches an actual situation, ask for relevant feedback, and revise the next step using what you learn. Keep the reflection open to information that the chart itself cannot supply.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.cai_xing_heavy
+  system: bazi
+  section: wealth
+  topic: feature
+  when:
+    path: features.cai_xing_heavy
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - wealth
+  exclusive_with: []
+  zh:
+    title: 资源主题较多
+    summary: 资源主题较多
+    body: 你可以把零散的投入收束到可回看的清单。财星较多（资源管理类成分达到计数阈值）提示留意投入安排，不表示收入丰厚。多个资源主题同时出现时，明确已有承诺比不断寻找新项目更有用。比如你经常替团队补上遗漏，可以把最近三次补位记录下来，看看哪些是偶发情况、哪些需要重新分工。建议把可见的工作量带进讨论，提出一项具体交接方案；关照整体并不需要把自己的时间放在最后，也可以通过规则减少反复补位。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Resource-management themes are frequent
+    summary: Resource-management themes are frequent
+    body: Cái xīng — resource-management components — reaches the frequency threshold. This does not establish high earnings. A useful question is whether existing commitments are visible before another opportunity is added. Repeatedly filling gaps can hide how much work a group actually needs. Record three recent instances and distinguish a one-off favour from a recurring responsibility. You can bring those examples to a discussion and propose a specific handover. Try making the hidden workload visible before agreeing to more. Supporting the group may mean improving the arrangement, not continuing to absorb every omission at the expense of your own commitments. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly. You can check which detail matches an actual situation, ask for relevant feedback, and revise the next step using what you learn. Keep the reflection open to information that the chart itself cannot supply.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.has_root
+  system: bazi
+  section: day_master
+  topic: feature
+  when:
+    path: features.has_root
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 根的支持
+    summary: 根的支持
+    body: 你可以留意哪些熟悉条件帮助你持续行动。有根（地支内含成分中存在与日干同五行的一项）是原盘的支持标记，不表示现实支持已经到位。它可以作为观察已有练习与环境条件的比喻。例如忙闲起伏较大的周，你可以在周初确认固定责任，再留一块可调整的时间处理临时请求。建议用实际完成量检验安排，不因某一天轻松就把整周排满；节奏的平衡是持续调整的过程，可以随着条件变化重新分配。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A same-element root is present
+    summary: A same-element root is present
+    body: A root (gēn — a branch component sharing the day stem’s element) is present. This is a symbolic support marker, not proof of real assistance. It prompts attention to familiar practices and conditions that make effort repeatable. A week with uneven demands can begin with identifying fixed responsibilities and reserving one flexible interval. Use what you actually complete to assess the plan. You can avoid filling the entire week simply because one morning felt easy. Consider revising the schedule when conditions change. Balance is an ongoing adjustment between demands and available support, not a requirement to sustain the same pace regardless of interruptions or unexpected work. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.suspected_cong
+  system: bazi
+  section: elements
+  topic: feature
+  when:
+    path: features.suspected_cong
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 待核对的特殊倾向
+    summary: 待核对的特殊倾向
+    body: 你可以先核对评分与依据，再保留解释空间。疑似从格（评分极低且未计入同类根的暂定标记）只是一项需要谨慎核对的提示。当前引擎仍保留普通分类，不能把暂定结果当作已经确立的特殊格局。比如刚进入陌生社群，你可以先参与一个有明确分工的活动，观察哪些交流方式让你舒服，再逐渐增加投入。建议为自己保留独处或休息的间隔，既寻找连接，也尊重适应速度；不用一次聊天是否顺利评价自己的社交能力。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A tentative special-pattern flag
+    summary: A tentative special-pattern flag
+    body: Suspected following pattern (cóng gé — a tentative flag for a very low score without a same-element root) remains provisional. The engine retains the ordinary classification. Review the calculation rather than treating this flag as a confirmed special pattern. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.san_he_huo_ju
+  system: bazi
+  section: elements
+  topic: feature
+  when:
+    path: features.san_he_huo_ju
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 完整火组合
+    summary: 完整火组合
+    body: 你可以把共同表达的主题放进一个具体场景。三合火局（原盘记录完整的寅午戌三支组合）提供火的表达意象。完整只说明组合条件齐备，不证明五行已经转化，也不能单独决定喜忌。例如你审阅一份公开资料，可以把影响理解的错误与个人偏好的格式分开，先修正前者，再在时间允许时处理后者。建议设定完成标准，达到后就交付，让对质量的关注帮助读者，而不是使每个版本都停留在等待打磨的状态。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A complete Fire grouping
+    summary: A complete Fire grouping
+    body: Sān hé huǒ jú — a complete Yin, Wu, Xu Fire-associated grouping — supplies an expression metaphor. Completeness describes the branch set, not an established elemental transformation or an independent decision about suitability. Reviewing public information calls for distinguishing errors from preferences. Correct anything that changes the reader’s understanding before debating stylistic details. You can define a finishing standard in advance and release the work once it meets that standard. Consider asking one reader whether the key action is now clear. Precision serves a purpose when it helps someone use the material; it becomes less helpful if every version remains indefinitely unfinished. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.san_he_shui_ju
+  system: bazi
+  section: elements
+  topic: feature
+  when:
+    path: features.san_he_shui_ju
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 完整水组合
+    summary: 完整水组合
+    body: 你可以把信息连接的主题收束到一个行动入口。三合水局（原盘记录完整的申子辰三支组合）提供水的流动意象。完整不是现实资源充足的说明，也不证明五行已经转化，仍要看全部比例与评分。比如收到一个超出熟悉范围的邀请，可以先确认是否有指导、资料和试行时间，再说明愿意承担的部分。建议把学习成本列进安排，必要时缩小范围；谨慎接受条件并不妨碍探索，清楚的支持反而有助于持续投入。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A complete Water grouping
+    summary: A complete Water grouping
+    body: Sān hé shuǐ jú — a complete Shen, Zi, Chen Water-associated grouping — supplies a movement metaphor. It does not establish plentiful resources or an elemental transformation. The full distribution and score remain part of the context. An invitation outside your familiar area can be assessed by the guidance, materials, and trial time available. State the part you are prepared to take on and include learning time in the arrangement. You can narrow the scope if those conditions are missing. Try asking for a first checkpoint rather than accepting the whole assignment at once. Clear support makes exploration easier to sustain and allows both sides to understand what the commitment includes. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.san_he_mu_ju
+  system: bazi
+  section: elements
+  topic: feature
+  when:
+    path: features.san_he_mu_ju
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 完整木组合
+    summary: 完整木组合
+    body: 你可以把发展的愿望转成可以检验的小目标。三合木局（原盘记录完整的亥卯未三支组合）提供木的生长意象。完整不意味着目标会自行实现，也不证明五行已经转化，实际发展仍要匹配条件。例如朋友请你帮忙修改一份说明，你可以先确认读者是谁、最需要看懂哪一步，再集中处理两三个关键细节。建议约定修改范围与截止时间，让专注服务于实际用途，避免为了润色每句话而耗尽整晚的精力。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A complete Wood grouping
+    summary: A complete Wood grouping
+    body: Sān hé mù jú — a complete Hai, Mao, Wei Wood-associated grouping — supplies a growth metaphor. The set does not bring a goal about or establish an elemental transformation; practical development still needs appropriate conditions. A friend may ask you to review an explanation. Before editing, check who will read it and which action the reader needs to understand. You can then focus on the two or three details that affect that action most. Consider setting a revision limit and a finishing time. Careful attention becomes more useful when it improves the message without consuming the whole evening in changes that readers barely notice. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.san_he_jin_ju
+  system: bazi
+  section: elements
+  topic: feature
+  when:
+    path: features.san_he_jin_ju
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 完整金组合
+    summary: 完整金组合
+    body: 你可以把共同标准整理成容易执行的步骤。三合金局（原盘记录完整的巳酉丑三支组合）提供金的辨别意象。完整不能说明工作成果已经精良，也不证明五行已经转化，需要用实际反馈检验。比如朋友向你征求建议，你可能很快想到多种方案，可以先询问对方最在意的限制，再只分享两条与情境相关的选择。建议确认对方需要建议还是倾听，把丰富联想收束到当前问题，让信息流动帮助理解，而不是使谈话增加更多待决定事项。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A complete Metal grouping
+    summary: A complete Metal grouping
+    body: Sān hé jīn jú — a complete Si, You, Chou Metal-associated grouping — supplies a distinction metaphor. It does not certify the quality of work or establish an elemental transformation. Real feedback remains the useful test. A friend asking for help may need a listening ear rather than a long list of options. Check the main constraint and whether advice is welcome before sharing possibilities. You can offer two relevant choices and pause for their response. Try keeping the conversation close to the question they actually brought. Connecting ideas is valuable when it increases understanding, but a widening range of suggestions can also create more decisions than someone wanted to make. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.has_clash
+  system: bazi
+  section: day_master
+  topic: feature
+  when:
+    path: features.has_clash
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - day_master
+  exclusive_with: []
+  zh:
+    title: 差异的整体提示
+    summary: 差异的整体提示
+    body: 你可以留意自己面对不同节奏时的第一反应。有冲（原盘至少记录一组六冲配对）是关系表的存在标记，不描述事件。这里优先观察你的回应方式，具体涉及哪两柱可在专业视图中核对。例如你想在日常安排中加入新习惯，可以先把它接到一个已有的稳定步骤之后，持续几次再判断是否合适。建议记录容易中断的情境，并调整难度而不是责备自己；生活里的支持也包括可重复的环境条件，不只来自个人意志。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A general difference prompt
+    summary: A general difference prompt
+    body: A clash flag (chōng — at least one opposing branch pair) records a relationship-table hit, not an event. This reading focuses on your response to differences; the detailed chart identifies the actual pillars involved. A new habit may be easier to try after an existing stable routine. Repeat it a few times and notice when it is interrupted. You can adjust the difficulty or the surrounding conditions instead of making the interruption a criticism of yourself. Consider what makes repetition convenient. Available support can include a predictable setting and a manageable starting step, not only determination or encouragement from other people. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.has_punishment
+  system: bazi
+  section: love
+  topic: feature
+  when:
+    path: features.has_punishment
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 反复要求的提示
+    summary: 反复要求的提示
+    body: 你可以把反复出现的要求说成清楚的边界。有刑（原盘至少记录一组刑关系）只说明传统配对条件存在，不是对他人行为的评价。具体相处中仍需先了解双方实际期待，不凭标记推测动机。比如你正在为搬家做准备，可以把必须先完成的事项列成短清单，并给依赖他人的环节预留缓冲时间。建议每天只确认一个关键节点，把可推迟的小事移到后面；稳妥来自清楚的优先级，不需要靠不断增加检查来获得安心。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A prompt about recurring demands
+    summary: A prompt about recurring demands
+    body: A punishment flag (xíng — at least one specified branch relationship) records a table condition. It does not judge another person’s conduct. Check actual expectations before interpreting repeated requests or assigning motives. Preparing for a move can expose the difference between useful structure and endless checking. List the necessary first steps and allow extra time for anything that depends on another person. Try reviewing one key milestone each day while postponing minor choices that do not affect it. A reliable plan needs priorities and room for delays. More checks do not always add useful information, especially when they interrupt the work itself. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.has_tao_hua
+  system: bazi
+  section: love
+  topic: feature
+  when:
+    path: features.has_tao_hua
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - love
+  exclusive_with: []
+  zh:
+    title: 互动活跃的提示
+    summary: 互动活跃的提示
+    body: 你可以在表达好感时，同样确认对方的意愿。有桃花（原盘命中传统人际吸引标记）只记录查表结果，不说明关系数量、身份或发展进度。相处中的清楚表达与尊重比标签更值得关注。例如任务堆叠时，你可以把需要独立完成、可以请人协作和暂时可延后的事项分开，先解决最影响交付的一项。建议明确求助内容与期限，让支持变得容易提供，不把请求帮助理解为能力评价，也不把等待他人当作唯一的推进方法。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A prompt about lively interaction
+    summary: A prompt about lively interaction
+    body: A social-attraction flag (táo huā — a traditional visibility marker) is present. It does not specify relationship numbers, identities, or progress. Clear expression and respect for another person’s wishes provide the practical focus. When tasks accumulate, sort them into work you must do yourself, work someone can share, and work that can wait. A specific request with a clear deadline makes help easier to provide. You can still move a small independent part forward while waiting for a reply. Consider judging the arrangement by its usefulness, not by whether you handled everything alone. The aim is to connect available support with actual demands. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.has_yi_ma
+  system: bazi
+  section: luck_timeline
+  topic: feature
+  when:
+    path: features.has_yi_ma
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 变化安排的提示
+    summary: 变化安排的提示
+    body: 你可以为环境转换保留一个可调整的步骤。有驿马（原盘命中传统移动标记）不表示某年会迁居或远行。它可以作为定期查看行程、任务与环境变化的提示，具体计划仍依据现实条件。比如你准备学习一个跨度较大的技能，可以把最终目标拆成能在两周内完成的练习，并找一位熟悉该领域的人校对起点。建议先验证练习方法是否合适，再延长计划；进度慢时也可以缩小任务，而不是把停顿解释成个人失败。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A prompt about changing arrangements
+    summary: A prompt about changing arrangements
+    body: A movement flag (yì mǎ — a traditional mobility marker) is present. It does not predict travel or relocation in a year. Use it to review changing arrangements while grounding any plan in actual circumstances. A demanding skill can feel more approachable when the first milestone is visible. You might choose a two-week practice task and ask an experienced learner whether it is a sensible starting point. Try checking the method before extending the schedule. A slower week may call for a smaller exercise, not a broad conclusion about your capacity. Progress becomes easier to assess when each attempt has a clear purpose. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.missing_element
+  system: bazi
+  section: elements
+  topic: feature
+  when:
+    path: features.missing_element
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 整体缺项的提示
+    summary: 整体缺项的提示
+    body: 你可以留意哪些生活做法值得尝试，而不是急于补物件。缺失五行（加权分布至少一项为零）说明原盘没有计入某类成分，不表示生活缺陷。具体缺项可以查看比例表，改善日常仍应从现实需要入手。例如一个流程经常卡在最后一步，你可以先找出真正阻碍交付的条件，再处理它，而不是同时改动所有环节。建议让使用者测试新方法，并记录是否减少等待；果断可以体现在选择一个清楚的问题，不需要用更快的语速或更强的姿态证明自己。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A prompt about a missing category
+    summary: A prompt about a missing category
+    body: A missing element (wǔ xíng — at least one category with zero weighted contribution) describes the calculation, not a personal defect. Check the distribution for the category and start any practical adjustment from an actual need. A process that repeatedly stalls near completion may need one well-chosen repair. Identify the actual blocking condition before changing the whole workflow. You can ask a user to test the revised step and observe whether waiting decreases. Consider treating that observation as the measure of a useful decision. Decisiveness can mean choosing a precise problem and checking the result, rather than increasing urgency or pressing everyone to move at the same speed. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.tiao_hou_needed
+  system: bazi
+  section: health
+  topic: feature
+  when:
+    path: features.tiao_hou_needed
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - health
+  exclusive_with: []
+  zh:
+    title: 季节修正的提示
+    summary: 季节修正的提示
+    body: 你可以根据实际环境调整忙闲安排。调候（按出生月份与火水比例讨论寒暖的辅助标记）在你的盘中存在，具体修正方向需要核对已有字段。它只提供季节性的生活提醒，不是身体状况的判断。例如消息与信息不断涌入，你可以选一个固定时段处理非紧急内容，给安静休息留出不被打断的空间。建议告诉有关的人怎样联系急事，再检验这种安排是否适合；象征不能解释身体状况，持续不适请咨询合格医疗人士。你可以结合所在地区的天气、实际活动和可用时间来微调日程，让季节意象成为温和提醒，而不是必须执行的规则。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: A seasonal-correction prompt
+    summary: A seasonal-correction prompt
+    body: Seasonal correction (tiáo hòu — an auxiliary warmth or coolness flag derived from the birth month and Fire or Water proportion) appears in your chart. Check the recorded direction. It supplies a seasonal prompt for routine, not evidence about your health. A steady stream of nonurgent messages can interrupt a quiet interval. You could gather them into a chosen checking period and let relevant people know how to contact you about an urgent matter. Consider whether this boundary fits your circumstances before keeping it. The aim is a more manageable routine, not an explanation of physical symptoms. Symbolic categories cannot establish a health condition; consult a qualified healthcare professional about discomfort that persists or concerns you. You can keep the seasonal metaphor secondary to the conditions you actually observe.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.day_branch_void
+  system: bazi
+  section: shensha_notes
+  topic: feature
+  when:
+    path: features.day_branch_void
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - social
+  exclusive_with: []
+  zh:
+    title: 日支空亡核对
+    summary: 日支空亡核对
+    body: 你可以先核对计算依据，再理解补充标记。日支空亡（日支被记录为空亡标记）在通常按日柱分组的算法里很少成立，因此命中时更需要核对数据。它不表示亲密关系不存在，也不评价关系状态。例如你主持一次讨论，可以先用两句话说清要解决的问题，再邀请尚未发言的人补充，而不是连续给出自己的全部想法。建议在总结前留一段安静思考时间，观察参与者是否真正理解目标，让热情成为帮助别人参与的条件。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Reviewing a day-branch void flag
+    summary: Reviewing a day-branch void flag
+    body: A day-branch void flag (kōng wáng — the day branch marked within the void grouping) is unusual under the normal day-pillar calculation. Review the data if it appears. It does not erase a relationship or judge relationship status. When leading a discussion, visibility is useful only if other people can take part. You could state the question briefly and invite someone who has not yet spoken to contribute. Consider leaving a quiet thinking interval before the final summary. The responses may show whether your enthusiasm clarified the task or filled the available space. A useful meeting can contain both expressive moments and deliberate pauses. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.feature.month_main_exposed
+  system: bazi
+  section: pattern_career
+  topic: feature
+  when:
+    path: features.month_main_exposed
+    eq: true
+  weight: 69
+  polarity: neutral
+  tags:
+    - plain
+    - career
+  exclusive_with: []
+  zh:
+    title: 月份成分透出
+    summary: 月份成分透出
+    body: 你可以留意熟悉的方法怎样被别人看见。月令本气透出（月份主要内含成分出现在其他可见天干）说明格局取法有可见依据，不等于工作成果已经被认可。表达方式仍需结合具体任务检验。比如你要挑选一件日常工具，可以先写出三个实际需求，再比较少量选项，避免把所有细节都纳入排名。建议给比较过程设一个时间范围，选好后用真实体验检验；辨别力可以用来缩短决策，不需要让选择不断延后。你可以先从一次具体经历检验这个角度，再决定它是否值得放进自己的行动计划；传统标记只能提供提问，不能替代现实判断。
+    advice:
+      - 核对命盘依据，再用一次实际经历检验提示。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: The main month component is exposed
+    summary: The main month component is exposed
+    body: Main month exposure (tòu chū — the primary month component appearing in another visible stem) supplies visible evidence for the pattern calculation. It does not establish recognition at work; a concrete task offers the useful test. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.
+    advice:
+      - Verify the chart evidence and test the prompt against experience.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

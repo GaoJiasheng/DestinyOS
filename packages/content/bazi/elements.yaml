@@ -1,0 +1,762 @@
+# T-23: original bilingual editorial content; reviewed_by remains null pending human sampling.
+# // DESIGN-GAP: Prominent means pct >= 40; missing means pct = 0. These editorial thresholds do not replace the engine strength score.
+- id: bazi.element.wood.excess.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id001
+    path: elements.pct.wood
+    gte: 40
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 木：占比突出
+    summary: 木：占比突出
+    body: 你可以观察目标增加时，是否仍给调整留有余地。木（传统五类象征中偏向生长与展开的一类）在这里提供规划和伸展的比喻，不表示某个身体部位的实际状态。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如忙闲起伏较大的周，你可以在周初确认固定责任，再留一块可调整的时间处理临时请求。建议用实际完成量检验安排，不因某一天轻松就把整周排满；节奏的平衡是持续调整的过程，可以随着条件变化重新分配。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wood: Prominent proportion'
+    summary: 'Wood: Prominent proportion'
+    body: Wood (mù — the growth and expansion category in the traditional five-element model) offers a planning metaphor. It does not describe the condition of any body part. You can reflect on whether new aims leave enough room to revise the route. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. A week with uneven demands can begin with identifying fixed responsibilities and reserving one flexible interval. Use what you actually complete to assess the plan. You can avoid filling the entire week simply because one morning felt easy. Consider revising the schedule when conditions change. Balance is an ongoing adjustment between demands and available support, not a requirement to sustain the same pace regardless of interruptions or unexpected work.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.wood.excess.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id001
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 木：占比突出
+    summary: 木：占比突出
+    body: 你可以观察目标增加时，是否仍给调整留有余地。木（传统五类象征中偏向生长与展开的一类）在这里提供规划和伸展的比喻，不表示某个身体部位的实际状态。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。比如你想增加户外活动，可以先选一个自己感觉舒适的时段与轻量安排，观察天气和实际精力，再决定是否重复。建议用体验而不是象征比例确定节奏，不强迫自己一次改变太多；本章不作医疗判断，持续不适应当咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wood: Prominent proportion'
+    summary: 'Wood: Prominent proportion'
+    body: Wood (mù — the growth and expansion category in the traditional five-element model) offers a planning metaphor. It does not describe the condition of any body part. You can reflect on whether new aims leave enough room to revise the route. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation.  A little outdoor time can begin with a comfortable period and a modest plan. Check the weather and how you actually feel rather than using an elemental percentage to choose the intensity. You can repeat the arrangement if it fits and adapt it if it does not. Try changing one part at a time. This is routine reflection, not a medical assessment; persistent or concerning discomfort deserves attention from a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.wood.missing.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id002
+    path: elements.pct.wood
+    eq: 0
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 木：未计入原盘
+    summary: 木：未计入原盘
+    body: 你可以观察目标增加时，是否仍给调整留有余地。木（传统五类象征中偏向生长与展开的一类）在这里提供规划和伸展的比喻，不表示某个身体部位的实际状态。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如朋友请你帮忙修改一份说明，你可以先确认读者是谁、最需要看懂哪一步，再集中处理两三个关键细节。建议约定修改范围与截止时间，让专注服务于实际用途，避免为了润色每句话而耗尽整晚的精力。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wood: No natal contribution'
+    summary: 'Wood: No natal contribution'
+    body: Wood (mù — the growth and expansion category in the traditional five-element model) offers a planning metaphor. It does not describe the condition of any body part. You can reflect on whether new aims leave enough room to revise the route. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. A friend may ask you to review an explanation. Before editing, check who will read it and which action the reader needs to understand. You can then focus on the two or three details that affect that action most. Consider setting a revision limit and a finishing time. Careful attention becomes more useful when it improves the message without consuming the whole evening in changes that readers barely notice.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.wood.missing.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id002
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.wood
+  exclusive_with: []
+  zh:
+    title: 木：未计入原盘
+    summary: 木：未计入原盘
+    body: 你可以观察目标增加时，是否仍给调整留有余地。木（传统五类象征中偏向生长与展开的一类）在这里提供规划和伸展的比喻，不表示某个身体部位的实际状态。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。比如你总在忙碌之后责备自己没有按理想时间休息，可以先看有哪些现实限制，再选择一个最容易改变的环节。建议让计划适合当下条件，不用苛刻标准评价自己；本章不诊断身体或情绪，若有持续不适，请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Wood: No natal contribution'
+    summary: 'Wood: No natal contribution'
+    body: Wood (mù — the growth and expansion category in the traditional five-element model) offers a planning metaphor. It does not describe the condition of any body part. You can reflect on whether new aims leave enough room to revise the route. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it.  If rest does not happen at the time you hoped, begin with the practical constraint rather than self-criticism. Identify one part of the evening that is easiest to change under current conditions. You can make the plan more workable without demanding an ideal schedule. Try checking the adjustment after several days. This discussion does not diagnose physical or emotional conditions; persistent discomfort calls for advice from a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.fire.excess.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id003
+    path: elements.pct.fire
+    gte: 40
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 火：占比突出
+    summary: 火：占比突出
+    body: 你可以观察投入热情时，是否也保留安静间隔。火（传统五类象征中偏向明亮与表达的一类）在这里提供参与和节奏的比喻，不能凭它判断情绪或睡眠状况。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如任务堆叠时，你可以把需要独立完成、可以请人协作和暂时可延后的事项分开，先解决最影响交付的一项。建议明确求助内容与期限，让支持变得容易提供，不把请求帮助理解为能力评价，也不把等待他人当作唯一的推进方法。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Fire: Prominent proportion'
+    summary: 'Fire: Prominent proportion'
+    body: Fire (huǒ — the visibility and expression category) supplies a metaphor for participation and pace. It cannot establish your mood or sleep quality. You can notice how periods of active engagement are balanced with quieter intervals in your actual schedule. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. When tasks accumulate, sort them into work you must do yourself, work someone can share, and work that can wait. A specific request with a clear deadline makes help easier to provide. You can still move a small independent part forward while waiting for a reply. Consider judging the arrangement by its usefulness, not by whether you handled everything alone. The aim is to connect available support with actual demands.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.fire.excess.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id003
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 火：占比突出
+    summary: 火：占比突出
+    body: 你可以观察投入热情时，是否也保留安静间隔。火（传统五类象征中偏向明亮与表达的一类）在这里提供参与和节奏的比喻，不能凭它判断情绪或睡眠状况。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。比如你在热闹活动之后仍想继续回应邀请，可以先停下来问自己是否需要安静，再选择一段无需社交的时间。建议向他人说明可联系的时段，让休整成为可见的安排；本章不诊断情绪或睡眠状况，持续不适请向合格医疗人士求助。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Fire: Prominent proportion'
+    summary: 'Fire: Prominent proportion'
+    body: Fire (huǒ — the visibility and expression category) supplies a metaphor for participation and pace. It cannot establish your mood or sleep quality. You can notice how periods of active engagement are balanced with quieter intervals in your actual schedule. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation.  After a lively gathering, check whether you want more conversation or a quieter interval before accepting another invitation. You can tell people when you will next be available rather than leaving the decision open all evening. Try making recovery time a visible part of the schedule. This reflection does not diagnose mood or sleep conditions, and a chart cannot replace a health assessment. Persistent discomfort is a reason to consult a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.fire.missing.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id004
+    path: elements.pct.fire
+    eq: 0
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 火：未计入原盘
+    summary: 火：未计入原盘
+    body: 你可以观察投入热情时，是否也保留安静间隔。火（传统五类象征中偏向明亮与表达的一类）在这里提供参与和节奏的比喻，不能凭它判断情绪或睡眠状况。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如你主持一次讨论，可以先用两句话说清要解决的问题，再邀请尚未发言的人补充，而不是连续给出自己的全部想法。建议在总结前留一段安静思考时间，观察参与者是否真正理解目标，让热情成为帮助别人参与的条件。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Fire: No natal contribution'
+    summary: 'Fire: No natal contribution'
+    body: Fire (huǒ — the visibility and expression category) supplies a metaphor for participation and pace. It cannot establish your mood or sleep quality. You can notice how periods of active engagement are balanced with quieter intervals in your actual schedule. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. When leading a discussion, visibility is useful only if other people can take part. You could state the question briefly and invite someone who has not yet spoken to contribute. Consider leaving a quiet thinking interval before the final summary. The responses may show whether your enthusiasm clarified the task or filled the available space. A useful meeting can contain both expressive moments and deliberate pauses.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.fire.missing.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id004
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.fire
+  exclusive_with: []
+  zh:
+    title: 火：未计入原盘
+    summary: 火：未计入原盘
+    body: 你可以观察投入热情时，是否也保留安静间隔。火（传统五类象征中偏向明亮与表达的一类）在这里提供参与和节奏的比喻，不能凭它判断情绪或睡眠状况。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。比如你在安静时仍不停整理待办，可以把想到的事项简短记下，约定下一次查看的时间，再回到当下的休息。建议不要把记录延伸成新一轮规划，观察这样是否更容易停下来；这里不作医疗判断，持续不适请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Fire: No natal contribution'
+    summary: 'Fire: No natal contribution'
+    body: Fire (huǒ — the visibility and expression category) supplies a metaphor for participation and pace. It cannot establish your mood or sleep quality. You can notice how periods of active engagement are balanced with quieter intervals in your actual schedule. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it.  Quiet time can turn into another planning session when unfinished tasks keep coming to mind. Write a brief note and choose when to review it, then return to the break you intended. You can avoid expanding the note into a new schedule immediately. Try noticing whether that small boundary makes stopping easier. This is a reflection on routine, not a medical conclusion. Persistent discomfort should be discussed with a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.earth.excess.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id005
+    path: elements.pct.earth
+    gte: 40
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 土：占比突出
+    summary: 土：占比突出
+    body: 你可以观察维护日常时，是否能让安排保持轻量。土（传统五类象征中偏向承托与整理的一类）在这里提供日常维护的比喻，不描述消化功能，也不把承担更多视作你的责任。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如你练习一项新技能，可以每次只记一个细小变化，隔几天再比较记录，避免反复分析同一次尝试。建议在信息足够时做一个小决定，并观察结果；细察的价值在于形成可用理解，不需要等到所有不确定都消失才开始行动。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Earth: Prominent proportion'
+    summary: 'Earth: Prominent proportion'
+    body: Earth (tǔ — the support and organization category) prompts reflection on everyday maintenance. It does not assess digestion or make caring for everything your responsibility. You can compare the usefulness of a routine with the effort it requires to keep going. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. Learning a new skill can benefit from one brief observation after each attempt. Compare the notes after several sessions instead of repeatedly analysing the same result. You can make a small decision once there is enough information to try something useful. Consider checking what changed rather than waiting for all uncertainty to disappear. Careful observation is most helpful when it supports an action that produces new evidence, not when it postpones every next step.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.earth.excess.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id005
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 土：占比突出
+    summary: 土：占比突出
+    body: 你可以观察维护日常时，是否能让安排保持轻量。土（传统五类象征中偏向承托与整理的一类）在这里提供日常维护的比喻，不描述消化功能，也不把承担更多视作你的责任。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。比如你习惯把休息排在所有事情之后，可以先给日程留一块空白，让临时事务不能自动填满它。建议与共同生活的人说明这段时间的用途，保留适度的弹性；不要由五行判断身体功能，本章仅谈作息，持续不适请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Earth: Prominent proportion'
+    summary: 'Earth: Prominent proportion'
+    body: Earth (tǔ — the support and organization category) prompts reflection on everyday maintenance. It does not assess digestion or make caring for everything your responsibility. You can compare the usefulness of a routine with the effort it requires to keep going. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation.  Rest can disappear if it is always scheduled after everything else. You might reserve an open interval before adding optional tasks and discuss its purpose with the people sharing your space. You can keep the arrangement flexible without allowing every request to fill it. Try reviewing whether the interval remains usable. Elemental language cannot assess body functions; this concerns routine only. Seek qualified healthcare guidance for ongoing discomfort.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.earth.missing.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id006
+    path: elements.pct.earth
+    eq: 0
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 土：未计入原盘
+    summary: 土：未计入原盘
+    body: 你可以观察维护日常时，是否能让安排保持轻量。土（传统五类象征中偏向承托与整理的一类）在这里提供日常维护的比喻，不描述消化功能，也不把承担更多视作你的责任。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如合作对象提出不同方案时，你可以先复述对方的目标，再说明自己想保留的关键条件，找到双方都能尝试的小步骤。建议给试行设一个结束日期，届时依据体验调整；灵活不需要以忽略自己的需要为代价。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Earth: No natal contribution'
+    summary: 'Earth: No natal contribution'
+    body: Earth (tǔ — the support and organization category) prompts reflection on everyday maintenance. It does not assess digestion or make caring for everything your responsibility. You can compare the usefulness of a routine with the effort it requires to keep going. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. Suppose a collaborator proposes a different method. You can first check what they are trying to achieve, then name the condition that matters most to you. A limited trial may reveal a route neither person initially considered. Consider agreeing when the trial ends and what feedback you will examine. Flexibility works better when your needs are visible, rather than disappearing into an arrangement you quietly dislike.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.earth.missing.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id006
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.earth
+  exclusive_with: []
+  zh:
+    title: 土：未计入原盘
+    summary: 土：未计入原盘
+    body: 你可以观察维护日常时，是否能让安排保持轻量。土（传统五类象征中偏向承托与整理的一类）在这里提供日常维护的比喻，不描述消化功能，也不把承担更多视作你的责任。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。比如你想增加户外活动，可以先选一个自己感觉舒适的时段与轻量安排，观察天气和实际精力，再决定是否重复。建议用体验而不是象征比例确定节奏，不强迫自己一次改变太多；本章不作医疗判断，持续不适应当咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Earth: No natal contribution'
+    summary: 'Earth: No natal contribution'
+    body: Earth (tǔ — the support and organization category) prompts reflection on everyday maintenance. It does not assess digestion or make caring for everything your responsibility. You can compare the usefulness of a routine with the effort it requires to keep going. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it.  A little outdoor time can begin with a comfortable period and a modest plan. Check the weather and how you actually feel rather than using an elemental percentage to choose the intensity. You can repeat the arrangement if it fits and adapt it if it does not. Try changing one part at a time. This is routine reflection, not a medical assessment; persistent or concerning discomfort deserves attention from a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.metal.excess.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id007
+    path: elements.pct.metal
+    gte: 40
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 金：占比突出
+    summary: 金：占比突出
+    body: 你可以观察追求清晰时，是否给不同方法留有空间。金（传统五类象征中偏向辨别与收束的一类）在这里提供标准和界限的比喻，不是身体系统的检查结果，也不等同于性格严厉。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如你同时对几个学习方向感兴趣，可以先画出它们与当前目标的关系，再挑一个最容易验证的入口。建议把暂时不做的想法存进清单，约定以后再看；广阔视野需要一个落脚点，保留可能性不等于现在就承担所有路线。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Metal: Prominent proportion'
+    summary: 'Metal: Prominent proportion'
+    body: Metal (jīn — the distinction and completion category) offers a metaphor for standards and boundaries. It is not a health assessment or proof of severity. You can consider when a clear standard helps a task and when it unnecessarily narrows the available methods. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. Several learning interests may connect with the same wider goal. Map those connections and choose the entry point that you can test most easily. You can keep other ideas in a later list instead of treating each as a current obligation. Consider deciding when to revisit that list. A broad view becomes more useful with a definite starting point, while postponing an option allows you to preserve it without splitting your attention immediately.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.metal.excess.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id007
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 金：占比突出
+    summary: 金：占比突出
+    body: 你可以观察追求清晰时，是否给不同方法留有空间。金（传统五类象征中偏向辨别与收束的一类）在这里提供标准和界限的比喻，不是身体系统的检查结果，也不等同于性格严厉。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。比如你总在忙碌之后责备自己没有按理想时间休息，可以先看有哪些现实限制，再选择一个最容易改变的环节。建议让计划适合当下条件，不用苛刻标准评价自己；本章不诊断身体或情绪，若有持续不适，请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Metal: Prominent proportion'
+    summary: 'Metal: Prominent proportion'
+    body: Metal (jīn — the distinction and completion category) offers a metaphor for standards and boundaries. It is not a health assessment or proof of severity. You can consider when a clear standard helps a task and when it unnecessarily narrows the available methods. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation.  If rest does not happen at the time you hoped, begin with the practical constraint rather than self-criticism. Identify one part of the evening that is easiest to change under current conditions. You can make the plan more workable without demanding an ideal schedule. Try checking the adjustment after several days. This discussion does not diagnose physical or emotional conditions; persistent discomfort calls for advice from a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.metal.missing.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id008
+    path: elements.pct.metal
+    eq: 0
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 金：未计入原盘
+    summary: 金：未计入原盘
+    body: 你可以观察追求清晰时，是否给不同方法留有空间。金（传统五类象征中偏向辨别与收束的一类）在这里提供标准和界限的比喻，不是身体系统的检查结果，也不等同于性格严厉。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如你要为小组拟定活动目标，可以先问清每个人希望带走什么，再把共同需求收束成一项可交付成果。建议约定一次中途检查，允许根据反馈改写方法，不把维护方向变成坚持所有细节。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Metal: No natal contribution'
+    summary: 'Metal: No natal contribution'
+    body: Metal (jīn — the distinction and completion category) offers a metaphor for standards and boundaries. It is not a health assessment or proof of severity. You can consider when a clear standard helps a task and when it unnecessarily narrows the available methods. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. Imagine helping a group define an event. One participant wants new contacts, another wants practical learning, and a third has limited time. You can identify a shared outcome before deciding the format. Consider a midpoint check so that the original purpose remains useful while details can change. This distinguishes continuity from defending every early decision, and gives others a clear way to contribute.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.metal.missing.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id008
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.metal
+  exclusive_with: []
+  zh:
+    title: 金：未计入原盘
+    summary: 金：未计入原盘
+    body: 你可以观察追求清晰时，是否给不同方法留有空间。金（传统五类象征中偏向辨别与收束的一类）在这里提供标准和界限的比喻，不是身体系统的检查结果，也不等同于性格严厉。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。比如你在热闹活动之后仍想继续回应邀请，可以先停下来问自己是否需要安静，再选择一段无需社交的时间。建议向他人说明可联系的时段，让休整成为可见的安排；本章不诊断情绪或睡眠状况，持续不适请向合格医疗人士求助。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Metal: No natal contribution'
+    summary: 'Metal: No natal contribution'
+    body: Metal (jīn — the distinction and completion category) offers a metaphor for standards and boundaries. It is not a health assessment or proof of severity. You can consider when a clear standard helps a task and when it unnecessarily narrows the available methods. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it.  After a lively gathering, check whether you want more conversation or a quieter interval before accepting another invitation. You can tell people when you will next be available rather than leaving the decision open all evening. Try making recovery time a visible part of the schedule. This reflection does not diagnose mood or sleep conditions, and a chart cannot replace a health assessment. Persistent discomfort is a reason to consult a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.water.excess.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id009
+    path: elements.pct.water
+    gte: 40
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 水：占比突出
+    summary: 水：占比突出
+    body: 你可以观察接收信息时，是否也给行动确定一个起点。水（传统五类象征中偏向流动与储备的一类）在这里提供信息和休整的比喻，不表示身体含水量，也不能据此判断任何器官的状况。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如你审阅一份公开资料，可以把影响理解的错误与个人偏好的格式分开，先修正前者，再在时间允许时处理后者。建议设定完成标准，达到后就交付，让对质量的关注帮助读者，而不是使每个版本都停留在等待打磨的状态。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Water: Prominent proportion'
+    summary: 'Water: Prominent proportion'
+    body: Water (shuǐ — the movement and reserve category) prompts reflection on information and recovery time. It does not measure bodily fluids or establish an organ’s condition. You can notice whether gathering possibilities is followed by a manageable starting point for action. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. Reviewing public information calls for distinguishing errors from preferences. Correct anything that changes the reader’s understanding before debating stylistic details. You can define a finishing standard in advance and release the work once it meets that standard. Consider asking one reader whether the key action is now clear. Precision serves a purpose when it helps someone use the material; it becomes less helpful if every version remains indefinitely unfinished.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.water.excess.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id009
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 水：占比突出
+    summary: 水：占比突出
+    body: 你可以观察接收信息时，是否也给行动确定一个起点。水（传统五类象征中偏向流动与储备的一类）在这里提供信息和休整的比喻，不表示身体含水量，也不能据此判断任何器官的状况。你的盘中这一项占比达到四成，说明在加权分布里相对突出，不能独自判断它是有益还是需要调整。比如你在安静时仍不停整理待办，可以把想到的事项简短记下，约定下一次查看的时间，再回到当下的休息。建议不要把记录延伸成新一轮规划，观察这样是否更容易停下来；这里不作医疗判断，持续不适请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Water: Prominent proportion'
+    summary: 'Water: Prominent proportion'
+    body: Water (shuǐ — the movement and reserve category) prompts reflection on information and recovery time. It does not measure bodily fluids or establish an organ’s condition. You can notice whether gathering possibilities is followed by a manageable starting point for action. Its weighted proportion reaches forty percent in this chart, making it prominent within the distribution. Prominence alone does not decide whether a symbolic theme is useful in a particular situation.  Quiet time can turn into another planning session when unfinished tasks keep coming to mind. Write a brief note and choose when to review it, then return to the break you intended. You can avoid expanding the note into a new schedule immediately. Try noticing whether that small boundary makes stopping easier. This is a reflection on routine, not a medical conclusion. Persistent discomfort should be discussed with a qualified healthcare professional.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.water.missing.elements
+  system: bazi
+  section: elements
+  topic: element
+  when: &id010
+    path: elements.pct.water
+    eq: 0
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 水：未计入原盘
+    summary: 水：未计入原盘
+    body: 你可以观察接收信息时，是否也给行动确定一个起点。水（传统五类象征中偏向流动与储备的一类）在这里提供信息和休整的比喻，不表示身体含水量，也不能据此判断任何器官的状况。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。五行（五类变化象征）需要整体比较，小幅调整也应先看实际环境与体验。例如你想在日常安排中加入新习惯，可以先把它接到一个已有的稳定步骤之后，持续几次再判断是否合适。建议记录容易中断的情境，并调整难度而不是责备自己；生活里的支持也包括可重复的环境条件，不只来自个人意志。
+    advice:
+      - 先调整一个实际环境因素，再观察是否更顺手。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Water: No natal contribution'
+    summary: 'Water: No natal contribution'
+    body: Water (shuǐ — the movement and reserve category) prompts reflection on information and recovery time. It does not measure bodily fluids or establish an organ’s condition. You can notice whether gathering possibilities is followed by a manageable starting point for action. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it. The Five Elements (wǔ xíng — five symbolic modes) need whole-chart context; practical experience should guide any small adjustment. A new habit may be easier to try after an existing stable routine. Repeat it a few times and notice when it is interrupted. You can adjust the difficulty or the surrounding conditions instead of making the interruption a criticism of yourself. Consider what makes repetition convenient. Available support can include a predictable setting and a manageable starting step, not only determination or encouragement from other people.
+    advice:
+      - Change one practical detail before adding symbolic decoration.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.element.water.missing.health
+  system: bazi
+  section: health
+  topic: element
+  when: *id010
+  weight: 73
+  polarity: neutral
+  tags:
+    - plain
+    - health
+    - element.water
+  exclusive_with: []
+  zh:
+    title: 水：未计入原盘
+    summary: 水：未计入原盘
+    body: 你可以观察接收信息时，是否也给行动确定一个起点。水（传统五类象征中偏向流动与储备的一类）在这里提供信息和休整的比喻，不表示身体含水量，也不能据此判断任何器官的状况。你的盘中这一项加权占比为零，表示原盘没有计算到该类成分，不等于现实生活缺少相应能力，也不要求补充物件。比如你习惯把休息排在所有事情之后，可以先给日程留一块空白，让临时事务不能自动填满它。建议与共同生活的人说明这段时间的用途，保留适度的弹性；不要由五行判断身体功能，本章仅谈作息，持续不适请咨询合格医疗人士。
+    advice:
+      - 根据实际精力安排休整，持续不适咨询专业人士。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'Water: No natal contribution'
+    summary: 'Water: No natal contribution'
+    body: Water (shuǐ — the movement and reserve category) prompts reflection on information and recovery time. It does not measure bodily fluids or establish an organ’s condition. You can notice whether gathering possibilities is followed by a manageable starting point for action. Its weighted proportion is zero in this chart. That means the natal calculation contains no contribution from this category, not that you lack a corresponding ability or need special objects to supply it.  Rest can disappear if it is always scheduled after everything else. You might reserve an open interval before adding optional tasks and discuss its purpose with the people sharing your space. You can keep the arrangement flexible without allowing every request to fill it. Try reviewing whether the interval remains usable. Elemental language cannot assess body functions; this concerns routine only. Seek qualified healthcare guidance for ongoing discomfort.
+    advice:
+      - Adjust rest to actual conditions and seek qualified help for persistent discomfort.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: t23-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
