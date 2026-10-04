@@ -56,6 +56,14 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'east');
     await page.getByRole('button', { name: messages['dev.tokens.toast'], exact: true }).click();
     await expect(page.getByText(messages['dev.tokens.toastMessage'])).toBeVisible();
+    // Audit the settled theme, rather than intermediate colors during its documented transition.
+    await expect(page.locator('.theme-sample[data-theme="east"] .button-primary')).toHaveCSS(
+      'color',
+      'rgb(255, 255, 255)',
+    );
+    await expect(
+      page.getByRole('button', { name: messages['dev.tokens.toast'], exact: true }),
+    ).toHaveCSS('color', 'rgb(255, 255, 255)');
     const result = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
       .analyze();
@@ -75,7 +83,8 @@ test('initial language negotiation honors Accept-Language and defaults to zh', a
     ['ja', 'zh'],
   ] as const) {
     const response = await request.get('/', {
-      headers: { 'Accept-Language': language },
+      // Each case tests a fresh visitor; preceding redirects must not supply a locale cookie.
+      headers: { 'Accept-Language': language, Cookie: '' },
       maxRedirects: 0,
     });
     expect(response.status()).toBe(307);
