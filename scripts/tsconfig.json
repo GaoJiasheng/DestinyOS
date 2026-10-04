@@ -11,6 +11,7 @@
     "../playwright.ziwei.config.ts",
     "../apps/web/e2e/**/*.ts",
     "../packages/engine/test/**/*.ts",
-    "../packages/shared/test/**/*.ts"
+    "../packages/shared/test/**/*.ts",
+    "../playwright.tarot.config.ts"
   ]
 }

@@ -14,6 +14,7 @@ vi.mock('../lib/db', () => ({
 }));
 const redis = new RedisMock();
 vi.mock('../lib/redis', () => ({ getLocalRedis: () => redis, getUpstashRedis: () => redis }));
+import { computeTarot } from '@tianji/engine/tarot';
 import { generateReading, idempotentCreate, digest } from '../lib/reading-service';
 import { computeDivination } from '../lib/divination';
 import { parseReadingChart } from '../lib/reading-schema';
@@ -60,6 +61,40 @@ beforeEach(async () => {
   });
 });
 describe('reading pipeline and idempotency', () => {
+  it('persists tarot choices and reversal controls with the same seeded chart as the client', async () => {
+    const req: ReadingRequest = {
+      system: 'tarot',
+      locale: 'en',
+      seed: 'test-seed-001',
+      spread: 'three_ppf',
+      category: 'decision',
+      question: 'Private tarot question',
+      allowReversed: false,
+      pickedIndices: [7, 13, 42],
+      idempotencyKey: crypto.randomUUID(),
+    };
+    const expected = computeTarot({
+      seed: req.seed!,
+      spread: 'three_ppf',
+      category: 'decision',
+      question: 'Private tarot question',
+      allowReversed: false,
+      pickedIndices: req.pickedIndices,
+    });
+    const result = await generateReading(req, '2026-10-05T00:00:00Z');
+    expect(result.chart).toEqual(expected);
+    expect(result.report.sections.slice(0, 6).map((section) => section.key)).toEqual([
+      'overview',
+      'cards',
+      'dynamics',
+      'answer',
+      'advice',
+      'learn',
+    ]);
+    expect(JSON.stringify(result.chart)).not.toContain('Private tarot question');
+    expect(result.meta.schoolUsed).toMatchObject({ deck: 'rws', allowReversed: false });
+  });
+
   it('adapts documented flat divination inputs and retains schema-valid event clocks', async () => {
     for (const req of [
       {

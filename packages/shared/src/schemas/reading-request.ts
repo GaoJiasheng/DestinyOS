@@ -21,6 +21,9 @@ export const ReadingRequestSchema = z
     numbers: z.array(z.number().int()).max(3).optional(),
     throws: z.array(z.number().int()).max(6).optional(),
     seed: z.string().max(200).optional(),
+    // DESIGN-GAP: Expose documented tarot engine controls on the reading boundary so saved/imported rituals preserve choices and orientation.
+    allowReversed: z.boolean().optional(),
+    pickedIndices: z.array(z.number().int().min(0).max(77)).max(13).optional(),
     idempotencyKey: z.string().uuid(),
   })
   .strict();

@@ -4,9 +4,11 @@ import {
   ZiweiChartSchema,
   IchingChartSchema,
   QimenChartSchema,
+  TarotChartSchema,
 } from '@tianji/shared';
 import { ZiweiGrid, ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
 import { DivinationChart } from '@/components/charts/divination-chart';
+import { SpreadLayout } from '@/components/tarot/spread-layout';
 import { useCopy } from '@/i18n/use-copy';
 import { BaziPillars } from '@/components/charts/bazi-pillars';
 import { ElementRing } from '@/components/charts/element-ring';
@@ -55,6 +57,13 @@ export function ChartPreview({
         className={highlight ? 'evidence-highlight' : undefined}
       >
         <DivinationChart chart={iching.success ? iching.data : qimen.data!} onSelect={onSelect} />
+      </div>
+    );
+  const tarot = TarotChartSchema.safeParse(chart);
+  if (tarot.success)
+    return (
+      <div id="chart-root">
+        <SpreadLayout spread={tarot.data.spread} cards={tarot.data.cards} />
       </div>
     );
   const parsed = BaziChartSchema.safeParse(chart);

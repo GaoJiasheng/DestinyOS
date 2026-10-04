@@ -160,7 +160,10 @@ export function ReportLayout({
     }
   };
   return (
-    <article className="report-layout" data-system={view.system}>
+    <article
+      className={`report-layout${view.system === 'tarot' ? ' tarot-report' : ''}`}
+      data-system={view.system}
+    >
       <header className="report-toolbar">
         <div>
           <p className="eyebrow">{t(`nav.${view.system}` as MessageKey)}</p>

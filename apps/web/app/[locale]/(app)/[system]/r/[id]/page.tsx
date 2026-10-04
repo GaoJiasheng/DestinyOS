@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getReadingAction } from '@/app/readings/actions';
+import { TarotMessages } from '@/components/tarot/tarot-messages';
 import { ReportLayout } from '@/components/report/report-layout';
 import { getCopy } from '@/i18n/get-copy';
 import { auth } from '@/lib/auth';
@@ -34,11 +35,12 @@ export default async function ReadingPage({
   if (result.data.system !== system) notFound();
   const session = await auth();
   const row = await getDb().reading.findUnique({ where: { id }, select: { userId: true } });
-  return (
+  const report = (
     <ReportLayout
       reading={result.data}
       owner={row?.userId === session?.user.id}
       plan={session?.user.plan ?? 'free'}
     />
   );
+  return system === 'tarot' ? <TarotMessages>{report}</TarotMessages> : report;
 }

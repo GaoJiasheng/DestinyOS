@@ -1,4 +1,7 @@
 import { notFound } from 'next/navigation';
+import { auth } from '@/lib/auth';
+import { TarotMessages } from '@/components/tarot/tarot-messages';
+import { DailyTarotCard } from '@/components/tarot/daily-tarot-card';
 import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
@@ -37,6 +40,17 @@ export default async function Placeholder({
   const key = destinations[path];
   if (!key) notFound();
   const t = await getCopy();
+  if (path === 'today') {
+    const session = await auth();
+    return (
+      <section className="tarot-page">
+        <h1 className="type-h1">{t('nav.today')}</h1>
+        <TarotMessages daily>
+          <DailyTarotCard userId={session?.user?.id} />
+        </TarotMessages>
+      </section>
+    );
+  }
   if (['bazi', 'ziwei', 'astrology', 'vedic'].includes(path))
     return (
       <section className="status-page">

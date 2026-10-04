@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import { TarotChartSchema } from '@tianji/shared';
+import { TarotDetails } from '@/components/tarot/tarot-details';
 import { toast } from 'sonner';
 import type { Section, ReportBlock } from '@tianji/interpret';
 import { useCopy } from '@/i18n/use-copy';
@@ -115,6 +117,7 @@ export function ReportSection({
   onChartSelect?: (path: string) => void;
   selected?: boolean;
 }) {
+  const tarot = section.key === 'cards' ? TarotChartSchema.safeParse(chart) : null;
   return (
     <section
       id={`section-${section.key}`}
@@ -127,6 +130,7 @@ export function ReportSection({
       <p className="section-lead">
         <ReportText text={section.lead} />
       </p>
+      {tarot?.success ? <TarotDetails chart={tarot.data} /> : null}
       {section.blocks.map((block, i) => {
         switch (block.type) {
           case 'paragraph':

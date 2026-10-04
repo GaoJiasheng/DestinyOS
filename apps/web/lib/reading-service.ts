@@ -72,12 +72,15 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
           birth,
           now,
           options: req.options,
+          allowReversed: req.allowReversed,
+          pickedIndices: req.pickedIndices,
           question,
           seed: req.seed ?? digest(req.idempotencyKey),
           spread: req.spread ? SpreadKeySchema.parse(req.spread) : undefined,
           category:
             req.system === 'tarot' && req.category ? CategorySchema.parse(req.category) : undefined,
         });
+
   const knowledge = await loadKnowledge(req.system, req.locale);
   const report = interpret({
     system: req.system,
