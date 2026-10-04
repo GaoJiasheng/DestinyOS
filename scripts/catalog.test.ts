@@ -16,4 +16,9 @@ describe('documented catalog contracts', () => {
     expect(zh['brand.tagline']).toBe(brand.tagline.zh);
     expect(en['brand.tagline']).toBe(brand.tagline.en);
   });
+  it('keeps the lightweight runtime namespace table in sync with both catalogs', () => {
+    for (const catalog of [zh, en])
+      for (const key of Object.keys(catalog))
+        expect(runtimeKey(key)).toBe(runtimeKey(key, catalog));
+  });
 });

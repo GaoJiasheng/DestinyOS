@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -9,14 +9,15 @@ import { Providers } from '@/components/providers';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { Starfield } from '@/components/starfield';
+import { FontLoader } from '@/components/pwa/font-loader';
+import { InstallPrompt } from '@/components/pwa/install-prompt';
 import { Disclaimer } from '@/components/disclaimer';
-import '@fontsource/noto-serif-sc/400.css';
-import '@fontsource/noto-serif-sc/600.css';
+import './fonts.css';
 import '@fontsource/cinzel/600.css';
 import '@fontsource/cormorant-garamond/600.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
-import 'lxgw-wenkai-webfont/style.css';
+
 import '../globals.css';
 /** Pre-render each supported locale without depending on request headers. */
 export function generateStaticParams() {
@@ -35,10 +36,18 @@ export async function generateMetadata({
   return {
     title: t('common.brandTitle', { nameZh: brand.nameZh, nameEn: brand.nameEn }),
     description: t('brand.tagline'),
+    manifest: '/manifest.webmanifest',
+    icons: { icon: '/icons/icon-192.png', apple: '/icons/apple-touch-icon.png' },
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'black-translucent',
+      title: t('brand.nameEn', { name: brand.nameEn }),
+    },
     metadataBase: new URL(`https://${brand.domain}`),
     alternates: { languages: { zh: '/zh', en: '/en' } },
   };
 }
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#05070f' };
 /** Localized root shell: accessible navigation, starfield, footer, toast, and first-visit dialog. */
 export default async function LocaleLayout({
   children,
@@ -67,6 +76,8 @@ export default async function LocaleLayout({
             </main>
             <Footer />
             <Disclaimer />
+            <InstallPrompt />
+            <FontLoader />
           </Providers>
         </NextIntlClientProvider>
       </body>

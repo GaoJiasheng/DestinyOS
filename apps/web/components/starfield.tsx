@@ -1,5 +1,5 @@
 /** CSS-only stars remain visible without WebGL and stop under reduced motion. */
-export function Starfield() {
+export function StarfieldCSS() {
   return (
     <div className="starfield" aria-hidden>
       <div className="stars stars-small" />
@@ -7,3 +7,5 @@ export function Starfield() {
     </div>
   );
 }
+
+export { StarfieldCSS as Starfield };

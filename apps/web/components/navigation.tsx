@@ -1,14 +1,16 @@
 'use client';
 import { useState } from 'react';
+import { useLocale } from 'next-intl';
 import { Sun, Compass, Sparkles, BookOpen, UserRound } from 'lucide-react';
 import { brand } from '@tianji/shared/brand';
-import { Link, usePathname } from '@/i18n/navigation';
+import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { useCopy } from '@/i18n/use-copy';
 import { LocaleSwitch } from './locale-switch';
 import { ThemeSwitch } from './theme-provider';
 import { Dialog } from './ui/dialog';
 import { Button } from './ui/button';
-export const systems = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'] as const;
+import { systems } from '@/lib/system-links';
+export { systems } from '@/lib/system-links';
 /** Responsive desktop navigation and the five-item mobile tab bar. */
 export function Navigation() {
   const t = useCopy();
@@ -66,34 +68,99 @@ export function Navigation() {
 export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
   const [open, setOpen] = useState(false);
   const t = useCopy();
+  const locale = useLocale() === 'en' ? 'en' : 'zh';
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const show = () => {
+    setOpen(true);
+    window.dispatchEvent(new CustomEvent('tianji:event', { detail: { name: 'home.cta.start' } }));
+  };
   return (
     <>
       {tab ? (
-        <button type="button" onClick={() => setOpen(true)}>
+        <button type="button" onClick={show}>
           <Compass size={21} aria-hidden />
           <span>{t('nav.reading')}</span>
         </button>
       ) : (
-        <Button onClick={() => setOpen(true)}>
+        <Button onClick={show}>
           {t('home.cta.start')}
           <Sparkles size={17} aria-hidden />
         </Button>
       )}
       <Dialog
         open={open}
-        onOpenChange={setOpen}
+        onOpenChange={(value) => {
+          if (!busy) setOpen(value);
+        }}
         title={t('home.systems.title')}
         description={t('home.systems.note')}
       >
-        <div className="system-picker">
+        {busy ? <p role="status">{t('report.loading')}</p> : null}
+        {error ? <p role="alert">{t(`report.error.${error}` as Parameters<typeof t>[0])}</p> : null}
+        <div className="system-picker" aria-busy={busy}>
           {systems.map((system, index) => (
-            <Link key={system} href={`/${system}`} onClick={() => setOpen(false)}>
+            <Link
+              key={system}
+              href={
+                ['bazi', 'ziwei', 'astrology', 'vedic'].includes(system)
+                  ? `/${system}/new`
+                  : `/${system}`
+              }
+              aria-disabled={busy}
+              onClick={async (event) => {
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                window.dispatchEvent(
+                  new CustomEvent('tianji:event', { detail: { name: `home.card.${system}` } }),
+                );
+                if (busy) {
+                  event.preventDefault();
+                  return;
+                }
+                if (
+                  system !== 'bazi' &&
+                  system !== 'ziwei' &&
+                  system !== 'astrology' &&
+                  system !== 'vedic'
+                ) {
+                  setOpen(false);
+                  return;
+                }
+                event.preventDefault();
+                setBusy(true);
+                setError(null);
+                try {
+                  const { launchSystem } = await import('@/lib/launch-system');
+                  const result = await launchSystem(system, locale);
+                  if ('error' in result) setError(result.error);
+                  else {
+                    setOpen(false);
+                    router.push(result.href);
+                  }
+                } catch {
+                  setError('E_INTERNAL');
+                } finally {
+                  setBusy(false);
+                }
+              }}
+            >
               <span className="system-index" aria-hidden>
                 {t('common.number', { value: index + 1 })}
               </span>
               <span>
                 <strong>{t(`nav.${system}`)}</strong>
                 <span className="muted type-small">{t(`${system}.placeholder`)}</span>
+                <span className="muted type-caption">
+                  {t(
+                    ['bazi', 'ziwei', 'astrology', 'vedic'].includes(system)
+                      ? 'home.cards.birth'
+                      : system === 'qimen'
+                        ? 'home.cards.location'
+                        : 'home.cards.noBirth',
+                  )}{' '}
+                  · {t('home.cards.duration')}
+                </span>
               </span>
               <span aria-hidden>↗</span>
             </Link>

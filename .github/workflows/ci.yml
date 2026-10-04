@@ -21,10 +21,18 @@ jobs:
       - run: pnpm engine:bundle
       - run: pnpm i18n:check
       - run: pnpm build
+      - run: pnpm perf:budgets
+      - run: pnpm perf:ci
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ui-screenshots
           path: test-results/
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/reports/
           if-no-files-found: ignore

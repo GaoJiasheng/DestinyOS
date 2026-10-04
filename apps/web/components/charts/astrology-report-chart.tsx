@@ -1,12 +1,14 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { canUseThree, reportThreeFallback } from '@/lib/three-policy';
+import { readAnonymous } from '@/lib/anonymous-storage';
 import { useTranslations } from 'next-intl';
 import type { AstroChart, HouseSystem } from '@tianji/shared';
 import { NatalWheel } from './natal-wheel';
 import { PlanetTable } from './planet-table';
-const NatalSphereShell = dynamic(() => import('../three/natal-sphere-shell'), { ssr: false });
-/** Western report controls, SVG fallback, lazy 3D shell and collapsible positions table. */
+const NatalWheel3D = dynamic(() => import('../three/natal-wheel-3d'), { ssr: false });
+/** Western report controls, SVG fallback, lazy celestial sphere and collapsible positions table. */
 export function AstrologyReportChart({
   chart,
   highlight,
@@ -23,21 +25,56 @@ export function AstrologyReportChart({
   const t = useTranslations();
   const [three, setThree] = useState(false);
   const [fallback, setFallback] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const reported = useRef(false);
+  useEffect(() => {
+    let live = true;
+    let preference = false;
+    Promise.all([
+      readAnonymous().catch(() => null),
+      import('@/app/home/actions')
+        .then(({ getMotionPreferenceAction }) => getMotionPreferenceAction())
+        .catch(() => false),
+    ]).then(([data, account]) => {
+      preference = account || data?.settings.reducedMotion === true;
+      if (!live) return;
+      setReducedMotion(preference);
+      document.documentElement.dataset.reducedMotion = String(preference);
+      if (preference) {
+        setThree(false);
+        setFallback(true);
+      }
+    });
+    const media = matchMedia('(prefers-reduced-motion: reduce)');
+    const connection = (navigator as Navigator & { connection?: EventTarget }).connection;
+    const update = () => {
+      if (!canUseThree(preference)) {
+        setThree(false);
+        setFallback(true);
+      }
+    };
+    media.addEventListener('change', update);
+    connection?.addEventListener('change', update);
+    return () => {
+      live = false;
+      media.removeEventListener('change', update);
+      connection?.removeEventListener('change', update);
+    };
+  }, []);
+  const onFailure = useCallback(() => {
+    setThree(false);
+    setFallback(true);
+    if (!reported.current) {
+      reported.current = true;
+      reportThreeFallback('natal', 'render-or-fps');
+    }
+  }, []);
   const toggle = () => {
     if (three) {
       setThree(false);
       return;
     }
-    const capabilities = navigator as Navigator & {
-      deviceMemory?: number;
-      connection?: { saveData?: boolean };
-    };
-    const canvas = document.createElement('canvas');
-    const unavailable =
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      (capabilities.deviceMemory !== undefined && capabilities.deviceMemory < 4) ||
-      capabilities.connection?.saveData ||
-      !canvas.getContext('webgl2');
+    const unavailable = !canUseThree(reducedMotion);
     setFallback(Boolean(unavailable));
     setThree(!unavailable);
   };
@@ -73,7 +110,14 @@ export function AstrologyReportChart({
         </button>
       </div>
       {busy ? <p role="status">{t('charts.natal.recalculating')}</p> : null}
-      {three ? <NatalSphereShell /> : null}
+      {three ? (
+        <NatalWheel3D
+          chart={chart}
+          highlight={highlight}
+          onSelect={onSelect}
+          onFailure={onFailure}
+        />
+      ) : null}
       {fallback ? (
         <p role="status" className="notice">
           {t('charts.natal.threeFallback')}

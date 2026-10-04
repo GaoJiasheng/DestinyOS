@@ -9,6 +9,7 @@ export default defineConfig({
     'divination.spec.ts',
     'tarot.spec.ts',
     'astrology.spec.ts',
+    'home.spec.ts',
   ],
   fullyParallel: true,
   // DESIGN-GAP: Two browser workers keep screenshots and cold Next.js compilation within the existing timeout.

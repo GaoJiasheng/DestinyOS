@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { it, expect, afterEach, vi } from 'vitest';
+import { it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { Planet } from '@tianji/shared';
@@ -34,7 +34,18 @@ const noon = normalize(BirthInputSchema.parse(E), 'en');
 const now = '2026-10-04T12:00:00Z';
 const astro = computeAstrology(birth),
   vedic = computeVedic(birth, now);
-afterEach(cleanup);
+vi.mock('next/dynamic', () => ({ default: () => () => <div data-natal-wheel-3d /> }));
+beforeEach(() =>
+  vi.stubGlobal('matchMedia', () => ({
+    matches: false,
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+  })),
+);
+afterEach(() => {
+  cleanup();
+  vi.unstubAllGlobals();
+});
 // Keep normalization imported from the browser-safe common entry; no server or network dependency.
 
 it('separates circular clusters and identical longitudes by seven degrees while retaining true positions', () => {
@@ -157,8 +168,12 @@ for (const [locale, catalog] of [
     );
   });
 }
-it('uses SVG fallback for reduced motion without mounting the deferred 3D shell', () => {
-  vi.stubGlobal('matchMedia', () => ({ matches: true }));
+it('uses SVG fallback for reduced motion without mounting the deferred lazy 3D renderer', () => {
+  vi.stubGlobal('matchMedia', () => ({
+    matches: true,
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+  }));
   const { container } = render(
     <NextIntlClientProvider locale="en" messages={toMessages(en)}>
       <AstrologyReportChart chart={astro} />
@@ -166,27 +181,31 @@ it('uses SVG fallback for reduced motion without mounting the deferred 3D shell'
   );
   fireEvent.click(screen.getByRole('button', { name: '3D mode' }));
   expect(screen.getByText(en['charts.natal.threeFallback'])).toBeTruthy();
-  expect(container.querySelector('[data-three-shell]')).toBeNull();
+  expect(container.querySelector('[data-natal-wheel-3d]')).toBeNull();
   expect(container.querySelector('.natal-wheel')).toBeTruthy();
   vi.unstubAllGlobals();
 });
 
-it('mounts the 3D shell only after an explicit supported-device toggle and keeps SVG available', async () => {
-  vi.stubGlobal('matchMedia', () => ({ matches: false }));
+it('mounts the lazy 3D renderer only after an explicit supported-device toggle and keeps SVG available', async () => {
+  vi.stubGlobal('matchMedia', () => ({
+    matches: false,
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+  }));
   const context = vi
     .spyOn(HTMLCanvasElement.prototype, 'getContext')
-    .mockReturnValue({} as WebGL2RenderingContext);
+    .mockReturnValue({ getExtension: () => null } as unknown as WebGL2RenderingContext);
   const { container } = render(
     <NextIntlClientProvider locale="en" messages={toMessages(en)}>
       <AstrologyReportChart chart={astro} />
     </NextIntlClientProvider>,
   );
-  expect(container.querySelector('[data-three-shell]')).toBeNull();
+  expect(container.querySelector('[data-natal-wheel-3d]')).toBeNull();
   fireEvent.click(screen.getByRole('button', { name: '3D mode' }));
-  await waitFor(() => expect(container.querySelector('[data-three-shell]')).toBeTruthy());
+  await waitFor(() => expect(container.querySelector('[data-natal-wheel-3d]')).toBeTruthy());
   expect(container.querySelector('.natal-wheel')).toBeTruthy();
   fireEvent.click(screen.getByRole('button', { name: '3D mode' }));
-  expect(container.querySelector('[data-three-shell]')).toBeNull();
+  expect(container.querySelector('[data-natal-wheel-3d]')).toBeNull();
   context.mockRestore();
   vi.unstubAllGlobals();
 });

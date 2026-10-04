@@ -48,6 +48,12 @@ export function Footer() {
           {t('legal.geonamesLicense')}
         </a>
       </p>
+      <p className="type-caption footer-note">
+        <a href="https://github.com/lxgw/LxgwWenKai">{t('legal.fontCredits')}</a>
+      </p>
+      <p className="type-caption footer-note">
+        <a href="https://cdsarc.cds.unistra.fr/viz-bin/cat/V/50">{t('legal.skyCredits')}</a>
+      </p>
       <p className="type-caption footer-note">{t('legal.cookieNotice')}</p>
       <p className="type-caption footer-note">
         {t('common.copyright', { year: new Date().getFullYear(), brand: brand.nameEn })}

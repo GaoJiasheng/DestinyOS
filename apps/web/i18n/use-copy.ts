@@ -1,6 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { runtimeKey, type MessageKey } from './catalog';
+import type { MessageKey } from './catalog';
+import { runtimeKey } from './runtime-key';
 /** Translate exact documented keys via next-intl; values use ICU variables. */
 export function useCopy() {
   const t = useTranslations();

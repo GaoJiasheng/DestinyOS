@@ -1,0 +1,10 @@
+{
+  "source": "https://cdsarc.cds.unistra.fr/ftp/V/50/catalog.gz",
+  "reference": "https://cdsarc.cds.unistra.fr/ftp/V/50/ReadMe",
+  "title": "Yale Bright Star Catalogue 5, Hoffleit & Warren (1991)",
+  "license": "Public-domain astronomical data",
+  "records": 9096,
+  "layout": "little-endian Float32 ra(J2000 degrees), dec(degrees), mag(V), ci(B-V)",
+  "catalogSha256": "3dc44b1e90be8fbe5bcc7656032560f51275f985c7e3f783c9028e1838ec7bed",
+  "binarySha256": "f0bbf20f93b9c233e10830f9386bf3a858bad035c1e3964993ba9d8a3d9e2a22"
+}

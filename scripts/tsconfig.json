@@ -8,6 +8,7 @@
     "*.ts",
     "engines/*.ts",
     "../playwright.config.ts",
+    "../playwright.home.config.ts",
     "../playwright.ziwei.config.ts",
     "../apps/web/e2e/**/*.ts",
     "../packages/engine/test/**/*.ts",
