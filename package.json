@@ -27,12 +27,16 @@
     "esbuild": "^0.25.0",
     "eslint": "^9.39.0",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "liuyao": "0.5.1",
     "prettier": "^3.6.2",
+    "qimen-dunjia": "3.1.0",
     "tsx": "^4.20.6",
     "turbo": "^2.5.8",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "yaml": "^2.9.1",
+    "zod": "^3.25.76"
   },
   "type": "module"
 }

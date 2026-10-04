@@ -10,3 +10,4 @@ export * from './schemas/charts/qimen';
 export * from './schemas/charts/tarot';
 export * from './schemas/charts/astrology';
 export * from './schemas/charts/vedic';
+export * from './schemas/charts/divination';

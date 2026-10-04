@@ -56,4 +56,22 @@ it('bundles and executes without Node globals, network, clock or unseeded random
     engine.compute({ system: 'tarot', now: '2026-10-04T00:00:00Z', seed: 'browser' }).computedAt,
   ).toBe('2026-10-04T00:00:00Z');
   expect(engine.createRandom('browser').next()).toBeGreaterThanOrEqual(0);
+  const iching = engine.compute({
+    system: 'iching',
+    now: '2026-10-04T00:00:00Z',
+    seed: 'browser',
+    question: {
+      method: 'meihua',
+      category: 'other',
+      meihua: { castBy: 'random', at: '2026-10-04T08:00[Asia/Shanghai]' },
+    },
+  });
+  expect(iching.chart.primary).toBeDefined();
+  expect(
+    engine.compute({
+      system: 'qimen',
+      now: '2026-10-04T07:30Z',
+      question: { at: '2026-10-04T15:30[Asia/Shanghai]' },
+    }).chart.ju,
+  ).toBe(4);
 });
