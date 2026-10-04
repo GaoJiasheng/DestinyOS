@@ -15,8 +15,8 @@ import { Button } from '@/components/ui/button';
 import { CitySearch } from './city-search';
 import { HourBranchPicker } from './hour-branch-picker';
 import { LunarDatePicker } from './lunar-date-picker';
-import { DivinationLoader } from '@/components/divination-loader';
 import { ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
+import { DivinationLoader } from '@/components/divination-loader';
 /** Two-step shared birth editor with live calendar/timezone validation and privacy-safe submission. */
 export function BirthForm({
   system = 'bazi',
@@ -53,6 +53,9 @@ export function BirthForm({
   const [house, setHouse] = useState('placidus');
   const [leap, setLeap] = useState('split');
   const [manual, setManual] = useState(false);
+  // DESIGN-GAP: Disable pre-hydration edits so native checkbox changes cannot be lost before React attaches handlers.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [requestId, setRequestId] = useState<string | null>(null);
@@ -225,311 +228,315 @@ export function BirthForm({
           else void submit();
         }}
       >
-        <h2 className="type-h2">
-          {t(step === 1 ? 'form.birth.dateTime' : 'form.birth.placeGender')}
-        </h2>
-        {step === 1 ? (
-          <>
-            <div className="birth-segment" role="group" aria-label={t('form.birth.dateTime')}>
-              {(['gregorian', 'lunar'] as const).map((c) => (
-                <Button
-                  key={c}
-                  type="button"
-                  variant={birth.calendar === c ? 'default' : 'secondary'}
-                  aria-pressed={birth.calendar === c}
-                  onClick={() =>
-                    change({ calendar: c, isLeapMonth: false, day: Math.min(birth.day, 28) })
-                  }
-                >
-                  {t(`form.birth.calendar.${c}`)}
-                </Button>
-              ))}
-            </div>
-            <div className="birth-grid">
-              <label className="birth-field">
-                {t('form.birth.year')}
-                <input
-                  type="number"
-                  min={1900}
-                  max={2100}
-                  required
-                  value={birth.year || ''}
-                  onChange={(e) => changeYear(Number(e.target.value))}
-                />
-              </label>
-              {birth.calendar === 'lunar' ? (
-                <LunarDatePicker
-                  year={birth.year}
-                  month={birth.isLeapMonth ? -birth.month : birth.month}
-                  day={birth.day}
-                  onChange={(m, d) => change({ month: Math.abs(m), day: d, isLeapMonth: m < 0 })}
-                />
-              ) : (
-                <>
-                  <label className="birth-field">
-                    {t('form.birth.month')}
-                    <input
-                      type="number"
-                      min={1}
-                      max={12}
-                      required
-                      value={birth.month}
-                      onChange={(e) => change({ month: Number(e.target.value) })}
-                    />
-                  </label>
-                  <label className="birth-field">
-                    {t('form.birth.day')}
-                    <input
-                      type="number"
-                      min={1}
-                      max={31}
-                      required
-                      value={birth.day}
-                      onChange={(e) => change({ day: Number(e.target.value) })}
-                    />
-                  </label>
-                </>
-              )}
-            </div>
-            <label className="birth-check">
-              <input
-                type="checkbox"
-                checked={precise}
-                disabled={birth.timeUnknown}
-                onChange={(e) => setPrecise(e.target.checked)}
-              />
-              {t('form.birth.precise')}
-            </label>
-            {precise ? (
-              <label className="birth-field">
-                {t('form.birth.time')}
-                <input
-                  type="time"
-                  disabled={birth.timeUnknown}
-                  value={`${String(birth.hour ?? 0).padStart(2, '0')}:${String(birth.minute ?? 0).padStart(2, '0')}`}
-                  onChange={(e) => {
-                    const [hour, minute] = e.target.value.split(':').map(Number);
-                    change({ hour, minute });
-                  }}
-                />
-              </label>
-            ) : (
-              <HourBranchPicker
-                hour={birth.hour ?? 0}
-                onChange={(hour) => change({ hour, minute: 0 })}
-                disabled={birth.timeUnknown}
-              />
-            )}
-            <label className="birth-check">
-              <input
-                type="checkbox"
-                checked={birth.timeUnknown}
-                onChange={(e) => change({ timeUnknown: e.target.checked })}
-              />
-              {t('form.birth.timeUnknown')}
-            </label>
-            {birth.timeUnknown ? (
-              <p className="notice">{t('form.birth.timeUnknown.help')}</p>
-            ) : null}
-            {birth.timeUnknown && system === 'ziwei' && !profileMode ? <ZiweiTimeRequired /> : null}
-          </>
-        ) : (
-          <>
-            <CitySearch place={birth.place} onSelect={(place) => change({ place })} />
-            <p className="muted">{t('form.birth.placeOptional')}</p>
-            <details open={manual} onToggle={(e) => setManual(e.currentTarget.open)}>
-              <summary>{t('form.birth.manual')}</summary>
+        <fieldset disabled={!hydrated || busy} className="birth-controls">
+          <h2 className="type-h2">
+            {t(step === 1 ? 'form.birth.dateTime' : 'form.birth.placeGender')}
+          </h2>
+          {step === 1 ? (
+            <>
+              <div className="birth-segment" role="group" aria-label={t('form.birth.dateTime')}>
+                {(['gregorian', 'lunar'] as const).map((c) => (
+                  <Button
+                    key={c}
+                    type="button"
+                    variant={birth.calendar === c ? 'default' : 'secondary'}
+                    aria-pressed={birth.calendar === c}
+                    onClick={() =>
+                      change({ calendar: c, isLeapMonth: false, day: Math.min(birth.day, 28) })
+                    }
+                  >
+                    {t(`form.birth.calendar.${c}`)}
+                  </Button>
+                ))}
+              </div>
               <div className="birth-grid">
                 <label className="birth-field">
-                  {t('form.birth.lat')}
+                  {t('form.birth.year')}
                   <input
                     type="number"
-                    step="any"
-                    min={-90}
-                    max={90}
-                    value={birth.place?.lat ?? ''}
-                    onChange={(e) => setPlace({ lat: Number(e.target.value) })}
+                    min={1900}
+                    max={2100}
+                    required
+                    value={birth.year || ''}
+                    onChange={(e) => changeYear(Number(e.target.value))}
                   />
                 </label>
-                <label className="birth-field">
-                  {t('form.birth.lng')}
-                  <input
-                    type="number"
-                    step="any"
-                    min={-180}
-                    max={180}
-                    value={birth.place?.lng ?? ''}
-                    onChange={(e) => setPlace({ lng: Number(e.target.value) })}
+                {birth.calendar === 'lunar' ? (
+                  <LunarDatePicker
+                    year={birth.year}
+                    month={birth.isLeapMonth ? -birth.month : birth.month}
+                    day={birth.day}
+                    onChange={(m, d) => change({ month: Math.abs(m), day: d, isLeapMonth: m < 0 })}
                   />
-                </label>
+                ) : (
+                  <>
+                    <label className="birth-field">
+                      {t('form.birth.month')}
+                      <input
+                        type="number"
+                        min={1}
+                        max={12}
+                        required
+                        value={birth.month}
+                        onChange={(e) => change({ month: Number(e.target.value) })}
+                      />
+                    </label>
+                    <label className="birth-field">
+                      {t('form.birth.day')}
+                      <input
+                        type="number"
+                        min={1}
+                        max={31}
+                        required
+                        value={birth.day}
+                        onChange={(e) => change({ day: Number(e.target.value) })}
+                      />
+                    </label>
+                  </>
+                )}
               </div>
-              <label className="birth-field">
-                {t('form.birth.tz')}
-                <input
-                  list="iana-timezones"
-                  value={birth.place?.tz ?? ''}
-                  onChange={(e) => setPlace({ tz: e.target.value })}
-                />
-                <datalist id="iana-timezones">
-                  {Intl.supportedValuesOf('timeZone').map((tz) => (
-                    <option key={tz} value={tz} />
-                  ))}
-                </datalist>
-              </label>
-              <Button
-                type="button"
-                variant="secondary"
-                onClick={() => {
-                  void fetch(
-                    `/api/v1/geo/tz?lat=${birth.place?.lat ?? ''}&lng=${birth.place?.lng ?? ''}`,
-                  )
-                    .then((r) => r.json())
-                    .then((raw: unknown) => {
-                      if (
-                        raw &&
-                        typeof raw === 'object' &&
-                        'data' in raw &&
-                        raw.data &&
-                        typeof raw.data === 'object' &&
-                        'tz' in raw.data &&
-                        typeof raw.data.tz === 'string'
-                      )
-                        setPlace({ tz: raw.data.tz });
-                      else setError('engine.errors.E_INVALID_INPUT');
-                    })
-                    .catch(() => setError('report.error.E_INTERNAL'));
-                }}
-              >
-                {t('form.birth.resolveTz')}
-              </Button>
-            </details>
-            {preview?.warnings.some((w) => w.code === 'W_DST_PERIOD') ? (
-              <p className="notice">{t('form.birth.dst.note')}</p>
-            ) : null}
-            {solar &&
-            preview?.solarTime.offsetMinutes !== null &&
-            preview?.solarTime.offsetMinutes !== undefined ? (
-              <p className="notice">
-                {t('form.birth.solarTime.note', {
-                  minutes: Math.round(preview.solarTime.offsetMinutes),
-                })}
-              </p>
-            ) : null}
-            <label className="birth-field">
-              {t('form.birth.gender')}
-              <select
-                aria-label={t('form.birth.gender')}
-                value={birth.gender}
-                onChange={(e) => change({ gender: e.target.value as BirthInput['gender'] })}
-              >
-                {(['male', 'female', 'unspecified'] as const).map((g) => (
-                  <option key={g} value={g}>
-                    {t(`form.birth.gender.${g}`)}
-                  </option>
-                ))}
-              </select>
-            </label>
-            {birth.gender === 'unspecified' ? (
-              <p className="muted">{t('form.birth.gender.unspecified.note')}</p>
-            ) : null}
-            <label className="birth-field">
-              {t('form.birth.displayName')}
-              <input
-                maxLength={80}
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                  setRequestId(null);
-                }}
-              />
-            </label>
-            <details>
-              <summary>{t('form.birth.advanced')}</summary>
               <label className="birth-check">
                 <input
                   type="checkbox"
-                  checked={solar}
+                  checked={precise}
+                  disabled={birth.timeUnknown}
+                  onChange={(e) => setPrecise(e.target.checked)}
+                />
+                {t('form.birth.precise')}
+              </label>
+              {precise ? (
+                <label className="birth-field">
+                  {t('form.birth.time')}
+                  <input
+                    type="time"
+                    disabled={birth.timeUnknown}
+                    value={`${String(birth.hour ?? 0).padStart(2, '0')}:${String(birth.minute ?? 0).padStart(2, '0')}`}
+                    onChange={(e) => {
+                      const [hour, minute] = e.target.value.split(':').map(Number);
+                      change({ hour, minute });
+                    }}
+                  />
+                </label>
+              ) : (
+                <HourBranchPicker
+                  hour={birth.hour ?? 0}
+                  onChange={(hour) => change({ hour, minute: 0 })}
+                  disabled={birth.timeUnknown}
+                />
+              )}
+              <label className="birth-check">
+                <input
+                  type="checkbox"
+                  checked={birth.timeUnknown}
+                  onChange={(e) => change({ timeUnknown: e.target.checked })}
+                />
+                {t('form.birth.timeUnknown')}
+              </label>
+              {birth.timeUnknown ? (
+                <p className="notice">{t('form.birth.timeUnknown.help')}</p>
+              ) : null}
+              {birth.timeUnknown && system === 'ziwei' && !profileMode ? (
+                <ZiweiTimeRequired />
+              ) : null}
+            </>
+          ) : (
+            <>
+              <CitySearch place={birth.place} onSelect={(place) => change({ place })} />
+              <p className="muted">{t('form.birth.placeOptional')}</p>
+              <details open={manual} onToggle={(e) => setManual(e.currentTarget.open)}>
+                <summary>{t('form.birth.manual')}</summary>
+                <div className="birth-grid">
+                  <label className="birth-field">
+                    {t('form.birth.lat')}
+                    <input
+                      type="number"
+                      step="any"
+                      min={-90}
+                      max={90}
+                      value={birth.place?.lat ?? ''}
+                      onChange={(e) => setPlace({ lat: Number(e.target.value) })}
+                    />
+                  </label>
+                  <label className="birth-field">
+                    {t('form.birth.lng')}
+                    <input
+                      type="number"
+                      step="any"
+                      min={-180}
+                      max={180}
+                      value={birth.place?.lng ?? ''}
+                      onChange={(e) => setPlace({ lng: Number(e.target.value) })}
+                    />
+                  </label>
+                </div>
+                <label className="birth-field">
+                  {t('form.birth.tz')}
+                  <input
+                    list="iana-timezones"
+                    value={birth.place?.tz ?? ''}
+                    onChange={(e) => setPlace({ tz: e.target.value })}
+                  />
+                  <datalist id="iana-timezones">
+                    {Intl.supportedValuesOf('timeZone').map((tz) => (
+                      <option key={tz} value={tz} />
+                    ))}
+                  </datalist>
+                </label>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => {
+                    void fetch(
+                      `/api/v1/geo/tz?lat=${birth.place?.lat ?? ''}&lng=${birth.place?.lng ?? ''}`,
+                    )
+                      .then((r) => r.json())
+                      .then((raw: unknown) => {
+                        if (
+                          raw &&
+                          typeof raw === 'object' &&
+                          'data' in raw &&
+                          raw.data &&
+                          typeof raw.data === 'object' &&
+                          'tz' in raw.data &&
+                          typeof raw.data.tz === 'string'
+                        )
+                          setPlace({ tz: raw.data.tz });
+                        else setError('engine.errors.E_INVALID_INPUT');
+                      })
+                      .catch(() => setError('report.error.E_INTERNAL'));
+                  }}
+                >
+                  {t('form.birth.resolveTz')}
+                </Button>
+              </details>
+              {preview?.warnings.some((w) => w.code === 'W_DST_PERIOD') ? (
+                <p className="notice">{t('form.birth.dst.note')}</p>
+              ) : null}
+              {solar &&
+              preview?.solarTime.offsetMinutes !== null &&
+              preview?.solarTime.offsetMinutes !== undefined ? (
+                <p className="notice">
+                  {t('form.birth.solarTime.note', {
+                    minutes: Math.round(preview.solarTime.offsetMinutes),
+                  })}
+                </p>
+              ) : null}
+              <label className="birth-field">
+                {t('form.birth.gender')}
+                <select
+                  aria-label={t('form.birth.gender')}
+                  value={birth.gender}
+                  onChange={(e) => change({ gender: e.target.value as BirthInput['gender'] })}
+                >
+                  {(['male', 'female', 'unspecified'] as const).map((g) => (
+                    <option key={g} value={g}>
+                      {t(`form.birth.gender.${g}`)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {birth.gender === 'unspecified' ? (
+                <p className="muted">{t('form.birth.gender.unspecified.note')}</p>
+              ) : null}
+              <label className="birth-field">
+                {t('form.birth.displayName')}
+                <input
+                  maxLength={80}
+                  value={name}
                   onChange={(e) => {
-                    setSolar(e.target.checked);
+                    setName(e.target.value);
                     setRequestId(null);
                   }}
                 />
-                {t('form.birth.apparentSolarTime')}
               </label>
-              <label className="birth-field">
-                {t('form.birth.ziHour')}
-                <select
-                  aria-label={t('form.birth.ziHour')}
-                  value={ziHour}
-                  onChange={(e) => {
-                    setZiHour(e.target.value);
-                    setRequestId(null);
-                  }}
-                >
-                  {['zi_unified', 'zi_split'].map((s) => (
-                    <option key={s} value={s}>
-                      {t(`form.birth.${s}` as MessageKey)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label className="birth-field">
-                {t('form.birth.houseSystem')}
-                <select
-                  aria-label={t('form.birth.houseSystem')}
-                  value={house}
-                  onChange={(e) => setHouse(e.target.value)}
-                >
-                  {['placidus', 'whole_sign', 'equal', 'koch'].map((h) => (
-                    <option key={h} value={h} disabled={h === 'koch'}>
-                      {t(`form.birth.house.${h}` as MessageKey)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label className="birth-field">
-                {t('form.birth.leapRule')}
-                <select
-                  aria-label={t('form.birth.leapRule')}
-                  value={leap}
-                  onChange={(e) => setLeap(e.target.value)}
-                >
-                  {['split', 'current', 'next'].map((l) => (
-                    <option key={l} value={l}>
-                      {t(`form.birth.leap.${l}` as MessageKey)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </details>
-          </>
-        )}
-        {error || validError ? (
-          <p role="alert" className="form-error">
-            {t((error ?? validError) as MessageKey)}
-          </p>
-        ) : null}
-        <div className="hero-actions">
-          {step === 2 ? (
-            <Button type="button" variant="secondary" disabled={busy} onClick={() => setStep(1)}>
-              {t('form.birth.back')}
-            </Button>
+              <details>
+                <summary>{t('form.birth.advanced')}</summary>
+                <label className="birth-check">
+                  <input
+                    type="checkbox"
+                    checked={solar}
+                    onChange={(e) => {
+                      setSolar(e.target.checked);
+                      setRequestId(null);
+                    }}
+                  />
+                  {t('form.birth.apparentSolarTime')}
+                </label>
+                <label className="birth-field">
+                  {t('form.birth.ziHour')}
+                  <select
+                    aria-label={t('form.birth.ziHour')}
+                    value={ziHour}
+                    onChange={(e) => {
+                      setZiHour(e.target.value);
+                      setRequestId(null);
+                    }}
+                  >
+                    {['zi_unified', 'zi_split'].map((s) => (
+                      <option key={s} value={s}>
+                        {t(`form.birth.${s}` as MessageKey)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="birth-field">
+                  {t('form.birth.houseSystem')}
+                  <select
+                    aria-label={t('form.birth.houseSystem')}
+                    value={house}
+                    onChange={(e) => setHouse(e.target.value)}
+                  >
+                    {['placidus', 'whole_sign', 'equal', 'koch'].map((h) => (
+                      <option key={h} value={h} disabled={h === 'koch'}>
+                        {t(`form.birth.house.${h}` as MessageKey)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="birth-field">
+                  {t('form.birth.leapRule')}
+                  <select
+                    aria-label={t('form.birth.leapRule')}
+                    value={leap}
+                    onChange={(e) => setLeap(e.target.value)}
+                  >
+                    {['split', 'current', 'next'].map((l) => (
+                      <option key={l} value={l}>
+                        {t(`form.birth.leap.${l}` as MessageKey)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </details>
+            </>
+          )}
+          {error || validError ? (
+            <p role="alert" className="form-error">
+              {t((error ?? validError) as MessageKey)}
+            </p>
           ) : null}
-          <Button
-            type="submit"
-            disabled={busy || (system === 'ziwei' && birth.timeUnknown && !profileMode)}
-          >
-            {t(
-              step === 1
-                ? 'form.birth.next'
-                : busy
-                  ? 'form.birth.saving'
-                  : profileMode
-                    ? 'form.birth.save'
-                    : 'form.birth.submit',
-            )}
-          </Button>
-        </div>
+          <div className="hero-actions">
+            {step === 2 ? (
+              <Button type="button" variant="secondary" disabled={busy} onClick={() => setStep(1)}>
+                {t('form.birth.back')}
+              </Button>
+            ) : null}
+            <Button
+              type="submit"
+              disabled={busy || (system === 'ziwei' && birth.timeUnknown && !profileMode)}
+            >
+              {t(
+                step === 1
+                  ? 'form.birth.next'
+                  : busy
+                    ? 'form.birth.saving'
+                    : profileMode
+                      ? 'form.birth.save'
+                      : 'form.birth.submit',
+              )}
+            </Button>
+          </div>
+        </fieldset>
       </form>
       {!signedIn ? <p className="muted">{t('report.localNotice')}</p> : null}
       {busy && !profileMode ? <DivinationLoader /> : null}

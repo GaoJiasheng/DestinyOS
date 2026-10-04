@@ -1,0 +1,11 @@
+/* DESIGN-GAP: Hide only date-dependent pointer/caption while preserving their layout. */
+.dasha-pointer,
+.dasha-timeline > p.muted {
+  visibility: hidden;
+}
+
+/* DESIGN-GAP: Component baselines exclude fixed navigation and the development indicator from locator clips. */
+.mobile-tabs,
+nextjs-portal {
+  visibility: hidden;
+}

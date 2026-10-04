@@ -127,10 +127,17 @@ if (process.argv.includes('--web')) {
   const code = await new Promise<number | null>((resolve) => migrate.on('exit', resolve));
   if (code !== 0) throw new Error('Test database migration failed');
   // DESIGN-GAP: Production E2E reuses the same service harness with a prebuilt Next.js server.
-  const webCommand = process.argv.includes('--production') ? 'start' : 'dev';
+  const production =
+    process.argv.includes('--production') || process.env.TEST_WEB_MODE === 'production';
+  const webCommand = production ? 'start' : 'dev';
   child = spawn('pnpm', ['--filter', '@tianji/web', webCommand, '--port', String(testPorts.web)], {
     stdio: 'inherit',
-    env: process.env,
+    env: production
+      ? {
+          ...process.env,
+          NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}`,
+        }
+      : process.env,
   });
 }
 async function stop() {

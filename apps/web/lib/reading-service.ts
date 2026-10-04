@@ -6,6 +6,8 @@ import { interpret } from '@tianji/interpret';
 import {
   BirthInputSchema,
   BaziChartSchema,
+  AstroChartSchema,
+  VedicChartSchema,
   type BirthInput,
   type Locale,
   SpreadKeySchema,
@@ -138,9 +140,25 @@ export async function readingView(
     : null;
   const normalized = snapshot.birth ? normalizeBirth(snapshot.birth, locale) : null;
   const bazi = row.system === 'bazi' ? BaziChartSchema.safeParse(row.chart) : null;
+  const astro = row.system === 'astrology' ? AstroChartSchema.safeParse(row.chart) : null;
+  const vedic = row.system === 'vedic' ? VedicChartSchema.safeParse(row.chart) : null;
   const warnings = [
     ...(normalized?.warnings ?? []),
     ...(normalized && bazi?.success ? baziWarnings(normalized, bazi.data) : []),
+    ...((astro?.success && astro.data.noonChart) || (vedic?.success && vedic.data.noonChart)
+      ? [{ code: 'W_NOON_CHART' as const, messageKey: 'engine.warnings.W_NOON_CHART' }]
+      : []),
+    ...(astro?.success &&
+    astro.data.houseSystem === 'whole_sign' &&
+    (snapshot.options?.school?.houseSystem === undefined ||
+      snapshot.options.school.houseSystem === 'placidus')
+      ? [
+          {
+            code: 'W_HOUSE_SYSTEM_FALLBACK' as const,
+            messageKey: 'engine.warnings.W_HOUSE_SYSTEM_FALLBACK',
+          },
+        ]
+      : []),
   ];
   return {
     id: row.id,
@@ -152,7 +170,12 @@ export async function readingView(
     meta: {
       schoolUsed: ReadingMetaSchema.shape.schoolUsed.parse(row.schoolUsed),
       warnings,
-      debug: { engineVersion: row.engineVersion, solarTime: stripPII(normalized?.solarTime) },
+      debug: {
+        engineVersion: row.engineVersion,
+        solarTime: stripPII(normalized?.solarTime),
+        ...(astro?.success ? { jdUT: astro.data.jdUT, obliquity: astro.data.obliquity } : {}),
+        ...(vedic?.success ? { jdUT: vedic.data.jdUT, ayanamsa: vedic.data.ayanamsa } : {}),
+      },
     },
     birthYear: normalized?.local.year,
     displayName: owner ? snapshot.displayName : undefined,

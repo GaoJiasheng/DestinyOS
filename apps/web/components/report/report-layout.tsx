@@ -1,4 +1,10 @@
 'use client';
+import { AstroChartSchema, VedicChartSchema, type HouseSystem } from '@tianji/shared';
+import { AstrologyReportChart } from '../charts/astrology-report-chart';
+import { VedicReportChart } from '../charts/vedic-report-chart';
+import { PlanetTable, HouseTable } from '../charts/planet-table';
+import { AspectTable } from '../charts/aspect-table';
+import { DashaTimeline } from '../charts/dasha-timeline';
 import { Fragment, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
@@ -9,13 +15,14 @@ import { Link, useRouter } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import {
+  previewAstrologyHousesAction,
   getReadingBirthAction,
   deleteReadingAction,
   renameReadingAction,
   regenerateReportAction,
   translateAnonymousReportAction,
 } from '@/app/readings/actions';
-import { updateAnonymous } from '@/lib/anonymous-storage';
+import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import { ReportHeadline } from './report-headline';
 import { ChartPreview } from './chart-preview';
 import { ProfessionalData } from './professional-data';
@@ -53,6 +60,37 @@ export function ReportLayout({
   const [title, setTitle] = useState(reading.title ?? '');
   const [busy, setBusy] = useState(false);
   const [details, setDetails] = useState(birthDetails);
+  const [chartBusy, setChartBusy] = useState(false);
+  const [housePreview, setHousePreview] = useState(false);
+  const astro = view.system === 'astrology' ? AstroChartSchema.safeParse(view.chart) : null;
+  const vedic = view.system === 'vedic' ? VedicChartSchema.safeParse(view.chart) : null;
+  const switchHouses = async (houseSystem: HouseSystem) => {
+    setChartBusy(true);
+    try {
+      const data = local ? await readAnonymous() : null;
+      const snapshot = data?.readings.find((r) => r.id === view.id);
+      if (local && !snapshot) throw new Error('Missing local reading');
+      const result = await previewAstrologyHousesAction({
+        locale,
+        houseSystem,
+        ...(snapshot
+          ? { request: snapshot.request, createdAt: snapshot.createdAt }
+          : { readingId: view.id }),
+      });
+      if (!result.ok) {
+        toast.error(t(`report.error.${result.error.code}` as MessageKey));
+        return false;
+      }
+      setView((v) => ({ ...v, ...result.data }));
+      setHousePreview(true);
+      return true;
+    } catch {
+      toast.error(t('report.error.E_INTERNAL'));
+      return false;
+    } finally {
+      setChartBusy(false);
+    }
+  };
   const revealBirth = async () => {
     if (details || local || !owner) return;
     const result = await getReadingBirthAction(view.id);
@@ -83,16 +121,18 @@ export function ReportLayout({
       focusChartAnchor(exact ?? candidates[0] ?? root);
     });
   };
-  const selectChart = (path: string) => {
-    setHighlight(path);
-    const key = baziSection(path);
+  const selectChart = (section: string, path?: string) => {
+    setHighlight(path ?? section);
+    const key = view.system === 'bazi' ? baziSection(section) : section;
     setSelectedSection(key);
     focusChartAnchor(document.getElementById(`section-${key}`));
   };
   const regenerate = async () => {
     setBusy(true);
     try {
-      if (local) {
+      if (housePreview && astro?.success) {
+        if (!(await switchHouses(astro.data.houseSystem))) return;
+      } else if (local) {
         const data = await updateAnonymous((d) => d);
         const found = data.readings.find((r) => r.id === view.id);
         if (!found) return;
@@ -176,6 +216,18 @@ export function ReportLayout({
           {view.birthYear ? (
             <p className="muted">{t('report.birthYear', { year: view.birthYear })}</p>
           ) : null}
+          {astro?.success && astro.data.bodies.find((body) => body.key === 'sun') ? (
+            <p className="muted">
+              {intl('charts.planet.sun')} ·{' '}
+              {intl(`charts.sign.${astro.data.bodies.find((body) => body.key === 'sun')!.sign}`)}
+            </p>
+          ) : null}
+          {vedic?.success ? (
+            <p className="muted">
+              {intl('charts.vedic.rashi')} · {intl(`charts.sign.${vedic.data.moon.rashi}`)}
+            </p>
+          ) : null}
+
           {birthDetails || owner ? (
             <details
               onToggle={(e) => {
@@ -236,14 +288,37 @@ export function ReportLayout({
         <aside className="report-chart">
           <details open className="report-card">
             <summary>{t('report.chart')}</summary>
-            <ChartPreview
-              chart={view.chart}
-              system={view.system}
-              professional={professional}
-              highlight={highlight}
-              professional={professional}
-              onSelect={selectChart}
-            />
+            <div
+              id={astro?.success || vedic?.success ? 'chart-root' : undefined}
+              data-highlight={highlight}
+              className={highlight ? 'evidence-highlight' : undefined}
+            >
+              {astro?.success ? (
+                <AstrologyReportChart
+                  chart={astro.data}
+                  highlight={highlight}
+                  onSelect={selectChart}
+                  onHouseSystem={(system) => void switchHouses(system)}
+                  busy={chartBusy}
+                />
+              ) : vedic?.success ? (
+                <VedicReportChart
+                  chart={vedic.data}
+                  nowISO={view.createdAt}
+                  highlight={highlight}
+                  onSelect={selectChart}
+                />
+              ) : (
+                <ChartPreview
+                  chart={view.chart}
+                  system={view.system}
+                  professional={professional}
+                  highlight={highlight}
+                  onSelect={selectChart}
+                />
+              )}
+              {housePreview ? <p className="notice">{intl('charts.natal.preview')}</p> : null}
+            </div>
           </details>
         </aside>
         <div className="report-body">
@@ -267,6 +342,19 @@ export function ReportLayout({
           {professional ? (
             <section className="report-card professional-view">
               <h2 className="type-h2">{t('report.proView')}</h2>
+              {astro?.success ? (
+                <>
+                  <PlanetTable chart={astro.data} highlight={highlight} onSelect={selectChart} />
+                  <AspectTable chart={astro.data} highlight={highlight} onSelect={selectChart} />
+                  <HouseTable chart={astro.data} />
+                </>
+              ) : null}
+              {vedic?.success ? (
+                <>
+                  <PlanetTable chart={vedic.data} highlight={highlight} onSelect={selectChart} />
+                  <DashaTimeline chart={vedic.data} nowISO={view.createdAt} all />
+                </>
+              ) : null}
               {[
                 [t('report.school'), view.meta.schoolUsed],
                 [t('report.debug'), view.meta.debug],

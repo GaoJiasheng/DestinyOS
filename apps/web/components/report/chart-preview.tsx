@@ -4,11 +4,15 @@ import {
   ZiweiChartSchema,
   IchingChartSchema,
   QimenChartSchema,
+  AstroChartSchema,
+  VedicChartSchema,
   TarotChartSchema,
 } from '@tianji/shared';
 import { ZiweiGrid, ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
 import { DivinationChart } from '@/components/charts/divination-chart';
 import { SpreadLayout } from '@/components/tarot/spread-layout';
+import { NatalWheel } from '../charts/natal-wheel';
+import { VedicSouthChart } from '../charts/vedic-south-chart';
 import { useCopy } from '@/i18n/use-copy';
 import { BaziPillars } from '@/components/charts/bazi-pillars';
 import { ElementRing } from '@/components/charts/element-ring';
@@ -66,6 +70,12 @@ export function ChartPreview({
         <SpreadLayout spread={tarot.data.spread} cards={tarot.data.cards} />
       </div>
     );
+  const astro = AstroChartSchema.safeParse(chart);
+  const vedic = VedicChartSchema.safeParse(chart);
+  if (astro.success)
+    return <NatalWheel chart={astro.data} highlight={highlight} onSelect={onSelect} />;
+  if (vedic.success)
+    return <VedicSouthChart chart={vedic.data} highlight={highlight} onSelect={onSelect} />;
   const parsed = BaziChartSchema.safeParse(chart);
   if (!parsed.success)
     return (

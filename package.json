@@ -15,7 +15,7 @@
     "test": "vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
@@ -34,7 +34,8 @@
     "test:ziwei:e2e": "pnpm build && playwright test --config playwright.ziwei.config.ts",
     "test:divination:e2e": "pnpm build && playwright test --config playwright.divination.config.ts",
     "tarot:assets": "tsx scripts/tarot-assets.ts",
-    "test:tarot:e2e": "pnpm build && playwright test --config playwright.tarot.config.ts"
+    "test:tarot:e2e": "pnpm build && playwright test --config playwright.tarot.config.ts",
+    "test:astrology:e2e": "playwright test --config playwright.astrology.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

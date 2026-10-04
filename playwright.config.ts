@@ -8,6 +8,7 @@ export default defineConfig({
     'ziwei.spec.ts',
     'divination.spec.ts',
     'tarot.spec.ts',
+    'astrology.spec.ts',
   ],
   fullyParallel: true,
   // DESIGN-GAP: Two browser workers keep screenshots and cold Next.js compilation within the existing timeout.
