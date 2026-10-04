@@ -16,7 +16,7 @@ import A from './fixtures/birth/A.json';
 import E from './fixtures/birth/E.json';
 const now = '2026-10-04T00:00:00Z';
 describe('uniform dispatch and safe errors', () => {
-  it.each(Object.values(System))(
+  it.each(Object.values(System).filter((system) => system !== 'bazi'))(
     'registers %s with a valid placeholder result envelope',
     (system) => {
       const birth = normalizeBirth(A);
