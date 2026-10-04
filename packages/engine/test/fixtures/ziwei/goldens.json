@@ -1,0 +1,2468 @@
+{
+  "source": "iztro 2.6.1, default algorithm, normalized common clocks; frozen on 2026-10-04",
+  "cases": [
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1984,
+        "month": 1,
+        "day": 15,
+        "hour": 0,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1983,
+            "month": 12,
+            "isLeap": false,
+            "day": 13,
+            "hourBranch": "zi"
+          },
+          "yearStem": "gui",
+          "yearBranch": "hai",
+          "fiveElementsClass": {
+            "name": "metal_4",
+            "number": 4
+          },
+          "soulMaster": "ju_men",
+          "bodyMaster": "tian_ji",
+          "soulPalaceBranch": "chou",
+          "bodyPalaceBranch": "chou",
+          "zodiac": "hai"
+        },
+        "ziweiBranch": "yin",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "chou",
+          "stem": "yi",
+          "isBodyPalace": true,
+          "majorStars": [
+            {
+              "key": "tian_ji",
+              "brightness": "xian"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "qing_yang",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["xun_kong", "kong_wang", "fei_lian"],
+          "changsheng12": "di_wang",
+          "boshi12": "guan_fu",
+          "jiangqian12": "yue_sha",
+          "suiqian12": "sang_men",
+          "decadal": {
+            "fromAge": 4,
+            "toAge": 13,
+            "fromYear": 1986,
+            "toYear": 1995
+          },
+          "ages": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 4,
+            "stem": "xin",
+            "mutagens": {
+              "lu": "ju_men",
+              "quan": "tai_yang",
+              "ke": "wen_qu",
+              "ji": "wen_chang"
+            },
+            "fromAge": 44,
+            "toAge": 53
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 7,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1985,
+        "month": 2,
+        "day": 15,
+        "hour": 1,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1984,
+            "month": 12,
+            "isLeap": false,
+            "day": 26,
+            "hourBranch": "chou"
+          },
+          "yearStem": "jia",
+          "yearBranch": "zi",
+          "fiveElementsClass": {
+            "name": "water_2",
+            "number": 2
+          },
+          "soulMaster": "tan_lang",
+          "bodyMaster": "huo_xing",
+          "soulPalaceBranch": "zi",
+          "bodyPalaceBranch": "yin",
+          "zodiac": "zi"
+        },
+        "ziweiBranch": "yin",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "zi",
+          "stem": "bing",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "po_jun",
+              "brightness": "miao",
+              "mutagen": "quan"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "di_jie"
+            }
+          ],
+          "adjectiveStars": ["tian_yao", "tian_cai"],
+          "changsheng12": "mu",
+          "boshi12": "qing_long",
+          "jiangqian12": "jiang_xing",
+          "suiqian12": "sui_jian",
+          "decadal": {
+            "fromAge": 2,
+            "toAge": 11,
+            "fromYear": 1985,
+            "toYear": 1994
+          },
+          "ages": [11, 23, 35, 47, 59, 71, 83, 95, 107, 119]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 4,
+            "stem": "ren",
+            "mutagens": {
+              "lu": "tian_liang",
+              "quan": "zi_wei",
+              "ke": "zuo_fu",
+              "ji": "wu_qu"
+            },
+            "fromAge": 42,
+            "toAge": 51
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 6,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1986,
+        "month": 3,
+        "day": 15,
+        "hour": 2,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1986,
+            "month": 2,
+            "isLeap": false,
+            "day": 6,
+            "hourBranch": "chou"
+          },
+          "yearStem": "bing",
+          "yearBranch": "yin",
+          "fiveElementsClass": {
+            "name": "wood_3",
+            "number": 3
+          },
+          "soulMaster": "lu_cun",
+          "bodyMaster": "tian_liang",
+          "soulPalaceBranch": "yin",
+          "bodyPalaceBranch": "chen",
+          "zodiac": "yin"
+        },
+        "ziweiBranch": "mao",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "yin",
+          "stem": "geng",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_ji",
+              "brightness": "de",
+              "mutagen": "quan"
+            },
+            {
+              "key": "tai_yin",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "huo_xing",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["tian_yao"],
+          "changsheng12": "lin_guan",
+          "boshi12": "da_hao",
+          "jiangqian12": "zhi_bei",
+          "suiqian12": "sui_jian",
+          "decadal": {
+            "fromAge": 3,
+            "toAge": 12,
+            "fromYear": 1988,
+            "toYear": 1997
+          },
+          "ages": [11, 23, 35, 47, 59, 71, 83, 95, 107, 119]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 9,
+            "stem": "gui",
+            "mutagens": {
+              "lu": "po_jun",
+              "quan": "ju_men",
+              "ke": "tai_yin",
+              "ji": "tan_lang"
+            },
+            "fromAge": 33,
+            "toAge": 42
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 8,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1987,
+        "month": 4,
+        "day": 15,
+        "hour": 3,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1987,
+            "month": 3,
+            "isLeap": false,
+            "day": 18,
+            "hourBranch": "yin"
+          },
+          "yearStem": "ding",
+          "yearBranch": "mao",
+          "fiveElementsClass": {
+            "name": "metal_4",
+            "number": 4
+          },
+          "soulMaster": "lu_cun",
+          "bodyMaster": "tian_tong",
+          "soulPalaceBranch": "yin",
+          "bodyPalaceBranch": "wu",
+          "zodiac": "mao"
+        },
+        "ziweiBranch": "shen",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "yin",
+          "stem": "ren",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "qi_sha",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["tian_wu", "tian_guan", "jie_lu"],
+          "changsheng12": "jue",
+          "boshi12": "bing_fu",
+          "jiangqian12": "wang_shen",
+          "suiqian12": "bing_fu",
+          "decadal": {
+            "fromAge": 4,
+            "toAge": 13,
+            "fromYear": 1990,
+            "toYear": 1999
+          },
+          "ages": [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 9,
+            "stem": "yi",
+            "mutagens": {
+              "lu": "tian_ji",
+              "quan": "tian_liang",
+              "ke": "zi_wei",
+              "ji": "tai_yin"
+            },
+            "fromAge": 34,
+            "toAge": 43
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 8,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1988,
+        "month": 5,
+        "day": 15,
+        "hour": 4,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1988,
+            "month": 3,
+            "isLeap": false,
+            "day": 30,
+            "hourBranch": "yin"
+          },
+          "yearStem": "wu_stem",
+          "yearBranch": "chen",
+          "fiveElementsClass": {
+            "name": "water_2",
+            "number": 2
+          },
+          "soulMaster": "lu_cun",
+          "bodyMaster": "wen_chang",
+          "soulPalaceBranch": "yin",
+          "bodyPalaceBranch": "wu",
+          "zodiac": "chen"
+        },
+        "ziweiBranch": "chen",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "yin",
+          "stem": "jia",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tan_lang",
+              "brightness": "ping",
+              "mutagen": "lu"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "tian_ma"
+            }
+          ],
+          "adjectiveStars": ["tian_wu", "tian_ku"],
+          "changsheng12": "bing",
+          "boshi12": "da_hao",
+          "jiangqian12": "sui_yi",
+          "suiqian12": "diao_ke",
+          "decadal": {
+            "fromAge": 2,
+            "toAge": 11,
+            "fromYear": 1989,
+            "toYear": 1998
+          },
+          "ages": [5, 17, 29, 41, 53, 65, 77, 89, 101, 113]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 9,
+            "stem": "ding",
+            "mutagens": {
+              "lu": "tai_yin",
+              "quan": "tian_tong",
+              "ke": "tian_ji",
+              "ji": "ju_men"
+            },
+            "fromAge": 32,
+            "toAge": 41
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 8,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1989,
+        "month": 6,
+        "day": 15,
+        "hour": 5,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1989,
+            "month": 5,
+            "isLeap": false,
+            "day": 12,
+            "hourBranch": "yin"
+          },
+          "yearStem": "ji",
+          "yearBranch": "si",
+          "fiveElementsClass": {
+            "name": "wood_3",
+            "number": 3
+          },
+          "soulMaster": "lian_zhen",
+          "bodyMaster": "tian_ji",
+          "soulPalaceBranch": "chen",
+          "bodyPalaceBranch": "shen",
+          "zodiac": "si"
+        },
+        "ziweiBranch": "si",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "chen",
+          "stem": "wu_stem",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_ji",
+              "brightness": "li"
+            },
+            {
+              "key": "tian_liang",
+              "brightness": "miao",
+              "mutagen": "ke"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["tian_xi", "tian_gui", "feng_gao", "gua_su"],
+          "changsheng12": "shuai",
+          "boshi12": "fu_bing",
+          "jiangqian12": "tian_sha",
+          "suiqian12": "bing_fu",
+          "decadal": {
+            "fromAge": 3,
+            "toAge": 12,
+            "fromYear": 1991,
+            "toYear": 2000
+          },
+          "ages": [4, 16, 28, 40, 52, 64, 76, 88, 100, 112]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 9,
+            "stem": "xin",
+            "mutagens": {
+              "lu": "ju_men",
+              "quan": "tai_yang",
+              "ke": "wen_qu",
+              "ji": "wen_chang"
+            },
+            "fromAge": 33,
+            "toAge": 42
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 10,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1990,
+        "month": 7,
+        "day": 15,
+        "hour": 6,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1990,
+            "month": 5,
+            "isLeap": true,
+            "day": 23,
+            "hourBranch": "mao"
+          },
+          "yearStem": "geng",
+          "yearBranch": "wu",
+          "fiveElementsClass": {
+            "name": "metal_4",
+            "number": 4
+          },
+          "soulMaster": "lian_zhen",
+          "bodyMaster": "huo_xing",
+          "soulPalaceBranch": "chen",
+          "bodyPalaceBranch": "xu",
+          "zodiac": "wu"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "chen",
+          "stem": "geng",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "qi_sha",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "huo_xing",
+              "brightness": "xian"
+            }
+          ],
+          "adjectiveStars": [
+            "en_guang",
+            "tian_gui",
+            "feng_ge",
+            "tian_shou",
+            "gua_su",
+            "yin_sha",
+            "nian_jie"
+          ],
+          "changsheng12": "yang",
+          "boshi12": "bing_fu",
+          "jiangqian12": "yue_sha",
+          "suiqian12": "diao_ke",
+          "decadal": {
+            "fromAge": 4,
+            "toAge": 13,
+            "fromYear": 1993,
+            "toYear": 2002
+          },
+          "ages": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 9,
+            "stem": "gui",
+            "mutagens": {
+              "lu": "po_jun",
+              "quan": "ju_men",
+              "ke": "tai_yin",
+              "ji": "tan_lang"
+            },
+            "fromAge": 34,
+            "toAge": 43
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 10,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1991,
+        "month": 8,
+        "day": 15,
+        "hour": 7,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1991,
+            "month": 7,
+            "isLeap": false,
+            "day": 6,
+            "hourBranch": "mao"
+          },
+          "yearStem": "xin",
+          "yearBranch": "wei",
+          "fiveElementsClass": {
+            "name": "water_2",
+            "number": 2
+          },
+          "soulMaster": "wu_qu",
+          "bodyMaster": "tian_xiang",
+          "soulPalaceBranch": "si",
+          "bodyPalaceBranch": "hai",
+          "zodiac": "wei"
+        },
+        "ziweiBranch": "chen",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "si",
+          "stem": "gui",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_liang",
+              "brightness": "xian"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "tian_ma"
+            }
+          ],
+          "adjectiveStars": ["feng_gao", "tian_fu_aux", "kong_wang"],
+          "changsheng12": "jue",
+          "boshi12": "bing_fu",
+          "jiangqian12": "sui_yi",
+          "suiqian12": "diao_ke",
+          "decadal": {
+            "fromAge": 2,
+            "toAge": 11,
+            "fromYear": 1992,
+            "toYear": 2001
+          },
+          "ages": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 9,
+            "stem": "bing",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            },
+            "fromAge": 32,
+            "toAge": 41
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 11,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1992,
+        "month": 9,
+        "day": 15,
+        "hour": 8,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1992,
+            "month": 8,
+            "isLeap": false,
+            "day": 19,
+            "hourBranch": "chen"
+          },
+          "yearStem": "ren",
+          "yearBranch": "shen",
+          "fiveElementsClass": {
+            "name": "fire_6",
+            "number": 6
+          },
+          "soulMaster": "wu_qu",
+          "bodyMaster": "tian_liang",
+          "soulPalaceBranch": "si",
+          "bodyPalaceBranch": "chou",
+          "zodiac": "shen"
+        },
+        "ziweiBranch": "zi",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "si",
+          "stem": "yi",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tai_yin",
+              "brightness": "xian"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "tian_yue"
+            }
+          ],
+          "adjectiveStars": ["san_tai", "tian_de"],
+          "changsheng12": "lin_guan",
+          "boshi12": "fei_lian_doctor",
+          "jiangqian12": "jie_sha_annual",
+          "suiqian12": "tian_de",
+          "decadal": {
+            "fromAge": 6,
+            "toAge": 15,
+            "fromYear": 1997,
+            "toYear": 2006
+          },
+          "ages": [8, 20, 32, 44, 56, 68, 80, 92, 104, 116]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ding",
+            "mutagens": {
+              "lu": "tai_yin",
+              "quan": "tian_tong",
+              "ke": "tian_ji",
+              "ji": "ju_men"
+            },
+            "fromAge": 26,
+            "toAge": 35
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 11,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1993,
+        "month": 10,
+        "day": 15,
+        "hour": 9,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1993,
+            "month": 9,
+            "isLeap": false,
+            "day": 1,
+            "hourBranch": "si"
+          },
+          "yearStem": "gui",
+          "yearBranch": "you",
+          "fiveElementsClass": {
+            "name": "earth_5",
+            "number": 5
+          },
+          "soulMaster": "wu_qu",
+          "bodyMaster": "tian_tong",
+          "soulPalaceBranch": "si",
+          "bodyPalaceBranch": "mao",
+          "zodiac": "you"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "si",
+          "stem": "ding",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_ji",
+              "brightness": "ping"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "wen_chang",
+              "brightness": "miao"
+            },
+            {
+              "key": "tian_yue"
+            }
+          ],
+          "adjectiveStars": ["tian_wu", "tian_fu_aux", "po_sui", "tian_xing"],
+          "changsheng12": "jue",
+          "boshi12": "zou_shu",
+          "jiangqian12": "zhi_bei",
+          "suiqian12": "bai_hu",
+          "decadal": {
+            "fromAge": 5,
+            "toAge": 14,
+            "fromYear": 1997,
+            "toYear": 2006
+          },
+          "ages": [3, 15, 27, 39, 51, 63, 75, 87, 99, 111]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ji",
+            "mutagens": {
+              "lu": "wu_qu",
+              "quan": "tan_lang",
+              "ke": "tian_liang",
+              "ji": "wen_qu"
+            },
+            "fromAge": 25,
+            "toAge": 34
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 11,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1994,
+        "month": 11,
+        "day": 15,
+        "hour": 10,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1994,
+            "month": 10,
+            "isLeap": false,
+            "day": 13,
+            "hourBranch": "si"
+          },
+          "yearStem": "jia",
+          "yearBranch": "xu",
+          "fiveElementsClass": {
+            "name": "earth_5",
+            "number": 5
+          },
+          "soulMaster": "po_jun",
+          "bodyMaster": "wen_chang",
+          "soulPalaceBranch": "wu",
+          "bodyPalaceBranch": "chen",
+          "zodiac": "xu"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "wu",
+          "stem": "geng",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "zi_wei",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "di_kong"
+            },
+            {
+              "key": "huo_xing",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["tian_yue_aux", "tian_xing"],
+          "changsheng12": "tai",
+          "boshi12": "jiang_jun",
+          "jiangqian12": "jiang_xing",
+          "suiqian12": "bai_hu",
+          "decadal": {
+            "fromAge": 5,
+            "toAge": 14,
+            "fromYear": 1998,
+            "toYear": 2007
+          },
+          "ages": [3, 15, 27, 39, 51, 63, 75, 87, 99, 111]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ren",
+            "mutagens": {
+              "lu": "tian_liang",
+              "quan": "zi_wei",
+              "ke": "zuo_fu",
+              "ji": "wu_qu"
+            },
+            "fromAge": 25,
+            "toAge": 34
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 0,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1995,
+        "month": 12,
+        "day": 15,
+        "hour": 11,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1995,
+            "month": 10,
+            "isLeap": false,
+            "day": 24,
+            "hourBranch": "wu"
+          },
+          "yearStem": "yi",
+          "yearBranch": "hai",
+          "fiveElementsClass": {
+            "name": "metal_4",
+            "number": 4
+          },
+          "soulMaster": "wu_qu",
+          "bodyMaster": "tian_ji",
+          "soulPalaceBranch": "si",
+          "bodyPalaceBranch": "si",
+          "zodiac": "hai"
+        },
+        "ziweiBranch": "wei",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "si",
+          "stem": "xin",
+          "isBodyPalace": true,
+          "majorStars": [],
+          "minorStars": [
+            {
+              "key": "tian_ma"
+            },
+            {
+              "key": "di_kong"
+            },
+            {
+              "key": "di_jie"
+            }
+          ],
+          "adjectiveStars": ["tian_xu"],
+          "changsheng12": "chang_sheng",
+          "boshi12": "qing_long",
+          "jiangqian12": "sui_yi",
+          "suiqian12": "da_hao",
+          "decadal": {
+            "fromAge": 4,
+            "toAge": 13,
+            "fromYear": 1998,
+            "toYear": 2007
+          },
+          "ages": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "gui",
+            "mutagens": {
+              "lu": "po_jun",
+              "quan": "ju_men",
+              "ke": "tai_yin",
+              "ji": "tan_lang"
+            },
+            "fromAge": 24,
+            "toAge": 33
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 11,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1996,
+        "month": 1,
+        "day": 15,
+        "hour": 12,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1995,
+            "month": 11,
+            "isLeap": false,
+            "day": 25,
+            "hourBranch": "wu"
+          },
+          "yearStem": "yi",
+          "yearBranch": "hai",
+          "fiveElementsClass": {
+            "name": "wood_3",
+            "number": 3
+          },
+          "soulMaster": "po_jun",
+          "bodyMaster": "tian_ji",
+          "soulPalaceBranch": "wu",
+          "bodyPalaceBranch": "wu",
+          "zodiac": "hai"
+        },
+        "ziweiBranch": "zi",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "wu",
+          "stem": "ren",
+          "isBodyPalace": true,
+          "majorStars": [
+            {
+              "key": "tan_lang",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["jie_shen", "tian_chu", "jie_lu", "yin_sha"],
+          "changsheng12": "shuai",
+          "boshi12": "da_hao",
+          "jiangqian12": "xi_shen_annual",
+          "suiqian12": "long_de",
+          "decadal": {
+            "fromAge": 3,
+            "toAge": 12,
+            "fromYear": 1997,
+            "toYear": 2006
+          },
+          "ages": [6, 18, 30, 42, 54, 66, 78, 90, 102, 114]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 2,
+            "stem": "geng",
+            "mutagens": {
+              "lu": "tai_yang",
+              "quan": "wu_qu",
+              "ke": "tai_yin",
+              "ji": "tian_tong"
+            },
+            "fromAge": 23,
+            "toAge": 32
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 0,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1997,
+        "month": 2,
+        "day": 15,
+        "hour": 13,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1997,
+            "month": 1,
+            "isLeap": false,
+            "day": 9,
+            "hourBranch": "wei"
+          },
+          "yearStem": "ding",
+          "yearBranch": "chou",
+          "fiveElementsClass": {
+            "name": "water_2",
+            "number": 2
+          },
+          "soulMaster": "wu_qu",
+          "bodyMaster": "tian_xiang",
+          "soulPalaceBranch": "wei",
+          "bodyPalaceBranch": "you",
+          "zodiac": "chou"
+        },
+        "ziweiBranch": "si",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "wei",
+          "stem": "ding",
+          "isBodyPalace": false,
+          "majorStars": [],
+          "minorStars": [
+            {
+              "key": "qing_yang",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["tian_xu"],
+          "changsheng12": "yang",
+          "boshi12": "li_shi",
+          "jiangqian12": "yue_sha",
+          "suiqian12": "da_hao",
+          "decadal": {
+            "fromAge": 2,
+            "toAge": 11,
+            "fromYear": 1998,
+            "toYear": 2007
+          },
+          "ages": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ji",
+            "mutagens": {
+              "lu": "wu_qu",
+              "quan": "tan_lang",
+              "ke": "tian_liang",
+              "ji": "wen_qu"
+            },
+            "fromAge": 22,
+            "toAge": 31
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 1,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1998,
+        "month": 3,
+        "day": 15,
+        "hour": 14,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1998,
+            "month": 2,
+            "isLeap": false,
+            "day": 17,
+            "hourBranch": "wei"
+          },
+          "yearStem": "wu_stem",
+          "yearBranch": "yin",
+          "fiveElementsClass": {
+            "name": "wood_3",
+            "number": 3
+          },
+          "soulMaster": "lian_zhen",
+          "bodyMaster": "tian_liang",
+          "soulPalaceBranch": "shen",
+          "bodyPalaceBranch": "xu",
+          "zodiac": "yin"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "shen",
+          "stem": "geng",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "po_jun",
+              "brightness": "de"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "tian_ma"
+            },
+            {
+              "key": "huo_xing",
+              "brightness": "xian"
+            }
+          ],
+          "adjectiveStars": ["jie_shen", "feng_ge", "tian_wu", "xun_kong", "tian_xu", "nian_jie"],
+          "changsheng12": "jue",
+          "boshi12": "xiao_hao",
+          "jiangqian12": "sui_yi",
+          "suiqian12": "da_hao",
+          "decadal": {
+            "fromAge": 3,
+            "toAge": 12,
+            "fromYear": 2000,
+            "toYear": 2009
+          },
+          "ages": [5, 17, 29, 41, 53, 65, 77, 89, 101, 113]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ren",
+            "mutagens": {
+              "lu": "tian_liang",
+              "quan": "zi_wei",
+              "ke": "zuo_fu",
+              "ji": "wu_qu"
+            },
+            "fromAge": 23,
+            "toAge": 32
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 2,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 1999,
+        "month": 4,
+        "day": 15,
+        "hour": 15,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 1999,
+            "month": 2,
+            "isLeap": false,
+            "day": 29,
+            "hourBranch": "shen"
+          },
+          "yearStem": "ji",
+          "yearBranch": "mao",
+          "fiveElementsClass": {
+            "name": "earth_5",
+            "number": 5
+          },
+          "soulMaster": "wu_qu",
+          "bodyMaster": "tian_tong",
+          "soulPalaceBranch": "wei",
+          "bodyPalaceBranch": "hai",
+          "zodiac": "mao"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "wei",
+          "stem": "xin",
+          "isBodyPalace": false,
+          "majorStars": [],
+          "minorStars": [
+            {
+              "key": "di_jie"
+            },
+            {
+              "key": "qing_yang",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["long_chi", "feng_ge", "hua_gai", "nian_jie"],
+          "changsheng12": "yang",
+          "boshi12": "li_shi",
+          "jiangqian12": "hua_gai",
+          "suiqian12": "guan_fu_annual",
+          "decadal": {
+            "fromAge": 5,
+            "toAge": 14,
+            "fromYear": 2003,
+            "toYear": 2012
+          },
+          "ages": [7, 19, 31, 43, 55, 67, 79, 91, 103, 115]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "gui",
+            "mutagens": {
+              "lu": "po_jun",
+              "quan": "ju_men",
+              "ke": "tai_yin",
+              "ji": "tan_lang"
+            },
+            "fromAge": 25,
+            "toAge": 34
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 1,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2000,
+        "month": 5,
+        "day": 15,
+        "hour": 16,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2000,
+            "month": 4,
+            "isLeap": false,
+            "day": 12,
+            "hourBranch": "shen"
+          },
+          "yearStem": "geng",
+          "yearBranch": "chen",
+          "fiveElementsClass": {
+            "name": "water_2",
+            "number": 2
+          },
+          "soulMaster": "wen_qu",
+          "bodyMaster": "wen_chang",
+          "soulPalaceBranch": "you",
+          "bodyPalaceBranch": "chou",
+          "zodiac": "chen"
+        },
+        "ziweiBranch": "wei",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "you",
+          "stem": "yi",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_fu",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "qing_yang",
+              "brightness": "xian"
+            }
+          ],
+          "adjectiveStars": ["xian_chi", "yue_de"],
+          "changsheng12": "mu_yu",
+          "boshi12": "li_shi",
+          "jiangqian12": "xian_chi",
+          "suiqian12": "xiao_hao",
+          "decadal": {
+            "fromAge": 2,
+            "toAge": 11,
+            "fromYear": 2001,
+            "toYear": 2010
+          },
+          "ages": [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ding",
+            "mutagens": {
+              "lu": "tai_yin",
+              "quan": "tian_tong",
+              "ke": "tian_ji",
+              "ji": "ju_men"
+            },
+            "fromAge": 22,
+            "toAge": 31
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 3,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2001,
+        "month": 6,
+        "day": 15,
+        "hour": 17,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2001,
+            "month": 4,
+            "isLeap": true,
+            "day": 24,
+            "hourBranch": "you"
+          },
+          "yearStem": "xin",
+          "yearBranch": "si",
+          "fiveElementsClass": {
+            "name": "fire_6",
+            "number": 6
+          },
+          "soulMaster": "wen_qu",
+          "bodyMaster": "tian_ji",
+          "soulPalaceBranch": "you",
+          "bodyPalaceBranch": "mao",
+          "zodiac": "si"
+        },
+        "ziweiBranch": "si",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "you",
+          "stem": "ding",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "lian_zhen",
+              "brightness": "ping"
+            },
+            {
+              "key": "po_jun",
+              "brightness": "xian"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "lu_cun"
+            }
+          ],
+          "adjectiveStars": ["long_chi", "tian_guan", "xun_kong", "po_sui"],
+          "changsheng12": "si",
+          "boshi12": "bo_shi",
+          "jiangqian12": "jiang_xing",
+          "suiqian12": "guan_fu_annual",
+          "decadal": {
+            "fromAge": 6,
+            "toAge": 15,
+            "fromYear": 2006,
+            "toYear": 2015
+          },
+          "ages": [11, 23, 35, 47, 59, 71, 83, 95, 107, 119]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ji",
+            "mutagens": {
+              "lu": "wu_qu",
+              "quan": "tan_lang",
+              "ke": "tian_liang",
+              "ji": "wen_qu"
+            },
+            "fromAge": 26,
+            "toAge": 35
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 3,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2002,
+        "month": 7,
+        "day": 15,
+        "hour": 18,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2002,
+            "month": 6,
+            "isLeap": false,
+            "day": 6,
+            "hourBranch": "you"
+          },
+          "yearStem": "ren",
+          "yearBranch": "wu",
+          "fiveElementsClass": {
+            "name": "metal_4",
+            "number": 4
+          },
+          "soulMaster": "lu_cun",
+          "bodyMaster": "huo_xing",
+          "soulPalaceBranch": "xu",
+          "bodyPalaceBranch": "chen",
+          "zodiac": "wu"
+        },
+        "ziweiBranch": "si",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "xu",
+          "stem": "geng",
+          "isBodyPalace": false,
+          "majorStars": [],
+          "minorStars": [
+            {
+              "key": "huo_xing",
+              "brightness": "miao"
+            },
+            {
+              "key": "tuo_luo",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["long_chi", "tian_shou", "hua_gai", "tian_guan"],
+          "changsheng12": "shuai",
+          "boshi12": "guan_fu",
+          "jiangqian12": "hua_gai",
+          "suiqian12": "guan_fu_annual",
+          "decadal": {
+            "fromAge": 4,
+            "toAge": 13,
+            "fromYear": 2005,
+            "toYear": 2014
+          },
+          "ages": [7, 19, 31, 43, 55, 67, 79, 91, 103, 115]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "ren",
+            "mutagens": {
+              "lu": "tian_liang",
+              "quan": "zi_wei",
+              "ke": "zuo_fu",
+              "ji": "wu_qu"
+            },
+            "fromAge": 24,
+            "toAge": 33
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 4,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2003,
+        "month": 8,
+        "day": 15,
+        "hour": 19,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2003,
+            "month": 7,
+            "isLeap": false,
+            "day": 18,
+            "hourBranch": "xu"
+          },
+          "yearStem": "gui",
+          "yearBranch": "wei",
+          "fiveElementsClass": {
+            "name": "water_2",
+            "number": 2
+          },
+          "soulMaster": "lu_cun",
+          "bodyMaster": "tian_xiang",
+          "soulPalaceBranch": "xu",
+          "bodyPalaceBranch": "wu",
+          "zodiac": "wei"
+        },
+        "ziweiBranch": "xu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "xu",
+          "stem": "ren",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "zi_wei",
+              "brightness": "de"
+            },
+            {
+              "key": "tian_xiang",
+              "brightness": "de"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "zuo_fu"
+            }
+          ],
+          "adjectiveStars": [],
+          "changsheng12": "guan_dai",
+          "boshi12": "fu_bing",
+          "jiangqian12": "tian_sha",
+          "suiqian12": "guan_suo",
+          "decadal": {
+            "fromAge": 2,
+            "toAge": 11,
+            "fromYear": 2004,
+            "toYear": 2013
+          },
+          "ages": [4, 16, 28, 40, 52, 64, 76, 88, 100, 112]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 10,
+            "stem": "jia",
+            "mutagens": {
+              "lu": "lian_zhen",
+              "quan": "po_jun",
+              "ke": "wu_qu",
+              "ji": "tai_yang"
+            },
+            "fromAge": 22,
+            "toAge": 31
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 4,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2004,
+        "month": 9,
+        "day": 15,
+        "hour": 20,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2004,
+            "month": 8,
+            "isLeap": false,
+            "day": 2,
+            "hourBranch": "xu"
+          },
+          "yearStem": "jia",
+          "yearBranch": "shen",
+          "fiveElementsClass": {
+            "name": "fire_6",
+            "number": 6
+          },
+          "soulMaster": "ju_men",
+          "bodyMaster": "tian_liang",
+          "soulPalaceBranch": "hai",
+          "bodyPalaceBranch": "wei",
+          "zodiac": "shen"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "hai",
+          "stem": "yi",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tai_yin",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "zuo_fu"
+            }
+          ],
+          "adjectiveStars": ["tian_wu", "gu_chen"],
+          "changsheng12": "jue",
+          "boshi12": "da_hao",
+          "jiangqian12": "wang_shen",
+          "suiqian12": "guan_suo",
+          "decadal": {
+            "fromAge": 6,
+            "toAge": 15,
+            "fromYear": 2009,
+            "toYear": 2018
+          },
+          "ages": [2, 14, 26, 38, 50, 62, 74, 86, 98, 110]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 11,
+            "stem": "bing",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            },
+            "fromAge": 16,
+            "toAge": 25
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 5,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2005,
+        "month": 10,
+        "day": 15,
+        "hour": 21,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": false
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2005,
+            "month": 9,
+            "isLeap": false,
+            "day": 13,
+            "hourBranch": "hai"
+          },
+          "yearStem": "yi",
+          "yearBranch": "you",
+          "fiveElementsClass": {
+            "name": "earth_5",
+            "number": 5
+          },
+          "soulMaster": "ju_men",
+          "bodyMaster": "tian_tong",
+          "soulPalaceBranch": "hai",
+          "bodyPalaceBranch": "you",
+          "zodiac": "you"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "hai",
+          "stem": "ding",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tai_yin",
+              "brightness": "miao",
+              "mutagen": "ji"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "wen_chang",
+              "brightness": "li"
+            },
+            {
+              "key": "tian_ma"
+            }
+          ],
+          "adjectiveStars": ["gu_chen", "fei_lian"],
+          "changsheng12": "lin_guan",
+          "boshi12": "bing_fu",
+          "jiangqian12": "sui_yi",
+          "suiqian12": "sang_men",
+          "decadal": {
+            "fromAge": 5,
+            "toAge": 14,
+            "fromYear": 2009,
+            "toYear": 2018
+          },
+          "ages": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 11,
+            "stem": "wu_stem",
+            "mutagens": {
+              "lu": "tan_lang",
+              "quan": "tai_yin",
+              "ke": "you_bi",
+              "ji": "tian_ji"
+            },
+            "fromAge": 15,
+            "toAge": 24
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 5,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2006,
+        "month": 11,
+        "day": 15,
+        "hour": 22,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "male"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2006,
+            "month": 9,
+            "isLeap": false,
+            "day": 25,
+            "hourBranch": "hai"
+          },
+          "yearStem": "bing",
+          "yearBranch": "xu",
+          "fiveElementsClass": {
+            "name": "wood_3",
+            "number": 3
+          },
+          "soulMaster": "ju_men",
+          "bodyMaster": "wen_chang",
+          "soulPalaceBranch": "hai",
+          "bodyPalaceBranch": "you",
+          "zodiac": "xu"
+        },
+        "ziweiBranch": "zi",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "hai",
+          "stem": "ji",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_ji",
+              "brightness": "ping",
+              "mutagen": "quan"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "wen_chang",
+              "brightness": "li",
+              "mutagen": "ke"
+            },
+            {
+              "key": "tian_kui"
+            }
+          ],
+          "adjectiveStars": ["tian_xi", "tian_kong", "gu_chen"],
+          "changsheng12": "chang_sheng",
+          "boshi12": "fei_lian_doctor",
+          "jiangqian12": "jie_sha_annual",
+          "suiqian12": "hui_qi",
+          "decadal": {
+            "fromAge": 3,
+            "toAge": 12,
+            "fromYear": 2008,
+            "toYear": 2017
+          },
+          "ages": [8, 20, 32, 44, 56, 68, 80, 92, 104, 116]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 11,
+            "stem": "geng",
+            "mutagens": {
+              "lu": "tai_yang",
+              "quan": "wu_qu",
+              "ke": "tai_yin",
+              "ji": "tian_tong"
+            },
+            "fromAge": 13,
+            "toAge": 22
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 5,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    },
+    {
+      "birth": {
+        "calendar": "gregorian",
+        "year": 2007,
+        "month": 12,
+        "day": 15,
+        "hour": 23,
+        "minute": 30,
+        "timeUnknown": false,
+        "place": {
+          "name": "Beijing",
+          "lat": 39.9,
+          "lng": 116.4,
+          "tz": "Asia/Shanghai"
+        },
+        "gender": "female"
+      },
+      "school": {
+        "useApparentSolarTime": true
+      },
+      "now": "2026-10-04T00:00:00Z",
+      "expected": {
+        "basics": {
+          "lunar": {
+            "year": 2007,
+            "month": 11,
+            "isLeap": false,
+            "day": 7,
+            "hourBranch": "zi"
+          },
+          "yearStem": "ding",
+          "yearBranch": "hai",
+          "fiveElementsClass": {
+            "name": "wood_3",
+            "number": 3
+          },
+          "soulMaster": "tan_lang",
+          "bodyMaster": "tian_ji",
+          "soulPalaceBranch": "zi",
+          "bodyPalaceBranch": "zi",
+          "zodiac": "hai"
+        },
+        "ziweiBranch": "wu",
+        "life": {
+          "index": 0,
+          "key": "life",
+          "branch": "zi",
+          "stem": "ren",
+          "isBodyPalace": true,
+          "majorStars": [
+            {
+              "key": "tan_lang",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "you_bi"
+            }
+          ],
+          "adjectiveStars": ["xian_chi", "tian_kong"],
+          "changsheng12": "mu_yu",
+          "boshi12": "fei_lian_doctor",
+          "jiangqian12": "xian_chi",
+          "suiqian12": "hui_qi",
+          "decadal": {
+            "fromAge": 3,
+            "toAge": 12,
+            "fromYear": 2009,
+            "toYear": 2018
+          },
+          "ages": [2, 14, 26, 38, 50, 62, 74, 86, 98, 110]
+        },
+        "horoscope": {
+          "decadal": {
+            "palaceIndex": 11,
+            "stem": "gui",
+            "mutagens": {
+              "lu": "po_jun",
+              "quan": "ju_men",
+              "ke": "tai_yin",
+              "ji": "tan_lang"
+            },
+            "fromAge": 13,
+            "toAge": 22
+          },
+          "yearly": {
+            "year": 2026,
+            "palaceIndex": 6,
+            "stem": "bing",
+            "branch": "wu",
+            "mutagens": {
+              "lu": "tian_tong",
+              "quan": "tian_ji",
+              "ke": "wen_chang",
+              "ji": "lian_zhen"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

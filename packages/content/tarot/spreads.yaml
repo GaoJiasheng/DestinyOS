@@ -1,0 +1,615 @@
+# DESIGN-GAP: Decision, Celtic Cross and Year Ahead coordinates instantiate the documented conventional layouts.
+- key: single
+  name:
+    zh: 单张指引
+    en: One Card
+  positions:
+    - key: focus
+      name:
+        zh: 核心指引
+        en: Focus
+      meaning:
+        zh: 观察核心指引所呈现的主题与影响。
+        en: Explore the themes and influences of focus.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.5
+      rotation: 0
+      readUpright: false
+- key: yes_no
+  name:
+    zh: 是非一问
+    en: Yes or No
+  positions:
+    - key: answer
+      name:
+        zh: 回应
+        en: Answer
+      meaning:
+        zh: 观察回应所呈现的主题与影响。
+        en: Explore the themes and influences of answer.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.5
+      rotation: 0
+      readUpright: false
+- key: three_ppf
+  name:
+    zh: 过去·现在·未来
+    en: Past-Present-Future
+  positions:
+    - key: past
+      name:
+        zh: 过去
+        en: Past
+      meaning:
+        zh: 观察过去所呈现的主题与影响。
+        en: Explore the themes and influences of past.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.2
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: present
+      name:
+        zh: 现在
+        en: Present
+      meaning:
+        zh: 观察现在所呈现的主题与影响。
+        en: Explore the themes and influences of present.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: future
+      name:
+        zh: 未来
+        en: Future
+      meaning:
+        zh: 观察未来所呈现的主题与影响。
+        en: Explore the themes and influences of future.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.8
+      y: 0.5
+      rotation: 0
+      readUpright: false
+- key: three_sao
+  name:
+    zh: 情境·行动·结果
+    en: Situation-Action-Outcome
+  positions:
+    - key: situation
+      name:
+        zh: 情境
+        en: Situation
+      meaning:
+        zh: 观察情境所呈现的主题与影响。
+        en: Explore the themes and influences of situation.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.2
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: action
+      name:
+        zh: 行动
+        en: Action
+      meaning:
+        zh: 观察行动所呈现的主题与影响。
+        en: Explore the themes and influences of action.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: outcome
+      name:
+        zh: 结果
+        en: Outcome
+      meaning:
+        zh: 观察结果所呈现的主题与影响。
+        en: Explore the themes and influences of outcome.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.8
+      y: 0.5
+      rotation: 0
+      readUpright: false
+- key: relationship
+  name:
+    zh: 关系牌阵
+    en: Relationship
+  positions:
+    - key: you
+      name:
+        zh: 你
+        en: You
+      meaning:
+        zh: 观察你所呈现的主题与影响。
+        en: Explore the themes and influences of you.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.25
+      y: 0.35
+      rotation: 0
+      readUpright: false
+    - key: them
+      name:
+        zh: 对方
+        en: Them
+      meaning:
+        zh: 观察对方所呈现的主题与影响。
+        en: Explore the themes and influences of them.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.75
+      y: 0.35
+      rotation: 0
+      readUpright: false
+    - key: connection
+      name:
+        zh: 联系
+        en: Connection
+      meaning:
+        zh: 观察联系所呈现的主题与影响。
+        en: Explore the themes and influences of connection.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: challenge
+      name:
+        zh: 挑战
+        en: Challenge
+      meaning:
+        zh: 观察挑战所呈现的主题与影响。
+        en: Explore the themes and influences of challenge.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.8
+      rotation: 0
+      readUpright: false
+    - key: potential
+      name:
+        zh: 潜力
+        en: Potential
+      meaning:
+        zh: 观察潜力所呈现的主题与影响。
+        en: Explore the themes and influences of potential.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.15
+      rotation: 0
+      readUpright: false
+- key: decision
+  name:
+    zh: 抉择牌阵
+    en: Decision
+  positions:
+    - key: situation
+      name:
+        zh: 情境
+        en: Situation
+      meaning:
+        zh: 观察情境所呈现的主题与影响。
+        en: Explore the themes and influences of situation.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: option_a
+      name:
+        zh: 选择 A
+        en: Option A
+      meaning:
+        zh: 观察选择 A所呈现的主题与影响。
+        en: Explore the themes and influences of option a.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.2
+      y: 0.3
+      rotation: 0
+      readUpright: false
+    - key: option_a_outcome
+      name:
+        zh: 选择 A 的结果
+        en: Option A Outcome
+      meaning:
+        zh: 观察选择 A 的结果所呈现的主题与影响。
+        en: Explore the themes and influences of option a outcome.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.2
+      y: 0.7
+      rotation: 0
+      readUpright: false
+    - key: option_b
+      name:
+        zh: 选择 B
+        en: Option B
+      meaning:
+        zh: 观察选择 B所呈现的主题与影响。
+        en: Explore the themes and influences of option b.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.8
+      y: 0.3
+      rotation: 0
+      readUpright: false
+    - key: option_b_outcome
+      name:
+        zh: 选择 B 的结果
+        en: Option B Outcome
+      meaning:
+        zh: 观察选择 B 的结果所呈现的主题与影响。
+        en: Explore the themes and influences of option b outcome.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.8
+      y: 0.7
+      rotation: 0
+      readUpright: false
+- key: celtic_cross
+  name:
+    zh: 凯尔特十字
+    en: Celtic Cross
+  positions:
+    - key: present
+      name:
+        zh: 现在
+        en: Present
+      meaning:
+        zh: 观察现在所呈现的主题与影响。
+        en: Explore the themes and influences of present.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.35
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: challenge
+      name:
+        zh: 挑战
+        en: Challenge
+      meaning:
+        zh: 观察挑战所呈现的主题与影响。
+        en: Explore the themes and influences of challenge.
+      readingTip:
+        zh: 此牌横置，按正位解读，强调其阻碍性质。
+        en: Read this crossed card upright, emphasizing the obstacle it represents.
+      x: 0.35
+      y: 0.5
+      rotation: 90
+      readUpright: true
+    - key: foundation
+      name:
+        zh: 基础
+        en: Foundation
+      meaning:
+        zh: 观察基础所呈现的主题与影响。
+        en: Explore the themes and influences of foundation.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.35
+      y: 0.8
+      rotation: 0
+      readUpright: false
+    - key: past
+      name:
+        zh: 过去
+        en: Past
+      meaning:
+        zh: 观察过去所呈现的主题与影响。
+        en: Explore the themes and influences of past.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.1
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: crown
+      name:
+        zh: 目标
+        en: Crown
+      meaning:
+        zh: 观察目标所呈现的主题与影响。
+        en: Explore the themes and influences of crown.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.35
+      y: 0.2
+      rotation: 0
+      readUpright: false
+    - key: near_future
+      name:
+        zh: 近期发展
+        en: Near Future
+      meaning:
+        zh: 观察近期发展所呈现的主题与影响。
+        en: Explore the themes and influences of near future.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.6
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: self
+      name:
+        zh: 自我
+        en: Self
+      meaning:
+        zh: 观察自我所呈现的主题与影响。
+        en: Explore the themes and influences of self.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.85
+      y: 0.85
+      rotation: 0
+      readUpright: false
+    - key: environment
+      name:
+        zh: 环境
+        en: Environment
+      meaning:
+        zh: 观察环境所呈现的主题与影响。
+        en: Explore the themes and influences of environment.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.85
+      y: 0.62
+      rotation: 0
+      readUpright: false
+    - key: hopes_fears
+      name:
+        zh: 希望与恐惧
+        en: Hopes Fears
+      meaning:
+        zh: 观察希望与恐惧所呈现的主题与影响。
+        en: Explore the themes and influences of hopes fears.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.85
+      y: 0.38
+      rotation: 0
+      readUpright: false
+    - key: outcome
+      name:
+        zh: 结果
+        en: Outcome
+      meaning:
+        zh: 观察结果所呈现的主题与影响。
+        en: Explore the themes and influences of outcome.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.85
+      y: 0.15
+      rotation: 0
+      readUpright: false
+- key: year_ahead
+  name:
+    zh: 年度牌阵
+    en: Year Ahead
+  positions:
+    - key: theme
+      name:
+        zh: 年度主题
+        en: Theme
+      meaning:
+        zh: 观察年度主题所呈现的主题与影响。
+        en: Explore the themes and influences of theme.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: m01
+      name:
+        zh: 01月
+        en: Month 1
+      meaning:
+        zh: 观察01月所呈现的主题与影响。
+        en: Explore the themes and influences of month 1.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.08
+      rotation: 0
+      readUpright: false
+    - key: m02
+      name:
+        zh: 02月
+        en: Month 2
+      meaning:
+        zh: 观察02月所呈现的主题与影响。
+        en: Explore the themes and influences of month 2.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.71
+      y: 0.136269
+      rotation: 0
+      readUpright: false
+    - key: m03
+      name:
+        zh: 03月
+        en: Month 3
+      meaning:
+        zh: 观察03月所呈现的主题与影响。
+        en: Explore the themes and influences of month 3.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.863731
+      y: 0.29
+      rotation: 0
+      readUpright: false
+    - key: m04
+      name:
+        zh: 04月
+        en: Month 4
+      meaning:
+        zh: 观察04月所呈现的主题与影响。
+        en: Explore the themes and influences of month 4.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.92
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: m05
+      name:
+        zh: 05月
+        en: Month 5
+      meaning:
+        zh: 观察05月所呈现的主题与影响。
+        en: Explore the themes and influences of month 5.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.863731
+      y: 0.71
+      rotation: 0
+      readUpright: false
+    - key: m06
+      name:
+        zh: 06月
+        en: Month 6
+      meaning:
+        zh: 观察06月所呈现的主题与影响。
+        en: Explore the themes and influences of month 6.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.71
+      y: 0.863731
+      rotation: 0
+      readUpright: false
+    - key: m07
+      name:
+        zh: 07月
+        en: Month 7
+      meaning:
+        zh: 观察07月所呈现的主题与影响。
+        en: Explore the themes and influences of month 7.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.5
+      y: 0.92
+      rotation: 0
+      readUpright: false
+    - key: m08
+      name:
+        zh: 08月
+        en: Month 8
+      meaning:
+        zh: 观察08月所呈现的主题与影响。
+        en: Explore the themes and influences of month 8.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.29
+      y: 0.863731
+      rotation: 0
+      readUpright: false
+    - key: m09
+      name:
+        zh: 09月
+        en: Month 9
+      meaning:
+        zh: 观察09月所呈现的主题与影响。
+        en: Explore the themes and influences of month 9.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.136269
+      y: 0.71
+      rotation: 0
+      readUpright: false
+    - key: m10
+      name:
+        zh: 10月
+        en: Month 10
+      meaning:
+        zh: 观察10月所呈现的主题与影响。
+        en: Explore the themes and influences of month 10.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.08
+      y: 0.5
+      rotation: 0
+      readUpright: false
+    - key: m11
+      name:
+        zh: 11月
+        en: Month 11
+      meaning:
+        zh: 观察11月所呈现的主题与影响。
+        en: Explore the themes and influences of month 11.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.136269
+      y: 0.29
+      rotation: 0
+      readUpright: false
+    - key: m12
+      name:
+        zh: 12月
+        en: Month 12
+      meaning:
+        zh: 观察12月所呈现的主题与影响。
+        en: Explore the themes and influences of month 12.
+      readingTip:
+        zh: 结合牌义、牌位及问题类别理解此牌。
+        en: Read the card through its position and the question category.
+      x: 0.29
+      y: 0.136269
+      rotation: 0
+      readUpright: false

@@ -16,7 +16,7 @@ import A from './fixtures/birth/A.json';
 import E from './fixtures/birth/E.json';
 const now = '2026-10-04T00:00:00Z';
 describe('uniform dispatch and safe errors', () => {
-  it.each(Object.values(System))(
+  it.each(Object.values(System).filter((system) => !['ziwei', 'tarot'].includes(system)))(
     'registers %s with a valid placeholder result envelope',
     (system) => {
       const birth = normalizeBirth(A);
@@ -37,9 +37,9 @@ describe('uniform dispatch and safe errors', () => {
   );
   it('allows divination without birth and preserves explicit Temporal now', () => {
     expect(compute({ system: 'tarot', now, seed: 'fixed' }).input).toBeNull();
-    expect(compute({ system: 'tarot', now: '2026-10-04T00:00:00.123456789Z' }).computedAt).toBe(
-      '2026-10-04T00:00:00.123456789Z',
-    );
+    expect(
+      compute({ system: 'tarot', seed: 'fixed', now: '2026-10-04T00:00:00.123456789Z' }).computedAt,
+    ).toBe('2026-10-04T00:00:00.123456789Z');
     expect(
       compute({ system: 'iching', now: Temporal.Instant.from(now), question: { method: 'time' } })
         .computedAt,

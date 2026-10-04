@@ -52,6 +52,13 @@ it('bundles and executes without Node globals, network, clock or unseeded random
     context,
   );
   expect(engine.normalizeBirth(A)).toEqual(birth);
+  const ziwei = engine.compute({ system: 'ziwei', birth, now: '2026-10-04T00:00:00Z' });
+  expect(ziwei.chart.palaces).toHaveLength(12);
+  expect(ziwei.chart.basics).toMatchObject({
+    soulPalaceBranch: 'chou',
+    fiveElementsClass: { name: 'fire_6', number: 6 },
+  });
+  expect(engine.compute({ system: 'ziwei', birth, now: '2026-10-04T00:00:00Z' })).toEqual(ziwei);
   expect(
     engine.compute({ system: 'tarot', now: '2026-10-04T00:00:00Z', seed: 'browser' }).computedAt,
   ).toBe('2026-10-04T00:00:00Z');

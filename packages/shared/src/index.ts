@@ -10,3 +10,6 @@ export * from './schemas/charts/qimen';
 export * from './schemas/charts/tarot';
 export * from './schemas/charts/astrology';
 export * from './schemas/charts/vedic';
+export * from './constants/tarot-cards';
+export * from './constants/tarot-spreads';
+export * from './constants/ziwei';

@@ -1,0 +1,1500 @@
+{
+  "source": "xoshiro128** / SHA-256 / Fisher-Yates; frozen protocol on 2026-10-04",
+  "cases": [
+    {
+      "input": {
+        "seed": "golden-tarot-0",
+        "spread": "single",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "single",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "focus",
+            "cardKey": "swords_02",
+            "reversed": false,
+            "order": 0
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 0,
+            "earth": 0,
+            "air": 1,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "air",
+          "missingElements": ["fire", "earth", "water"]
+        },
+        "combos": ["dominant_air", "missing_fire", "missing_earth", "missing_water"],
+        "seed": "golden-tarot-0"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-1",
+        "spread": "yes_no",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "yes_no",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "answer",
+            "cardKey": "major_19_sun",
+            "reversed": false,
+            "order": 0
+          }
+        ],
+        "stats": {
+          "majorPct": 100,
+          "elements": {
+            "fire": 1,
+            "earth": 0,
+            "air": 0,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "fire",
+          "missingElements": ["earth", "air", "water"]
+        },
+        "combos": ["major_theme", "dominant_fire", "missing_earth", "missing_air", "missing_water"],
+        "yesNo": {
+          "answer": "yes",
+          "confidence": 0.75
+        },
+        "seed": "golden-tarot-1"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-2",
+        "spread": "three_ppf",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "three_ppf",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "past",
+            "cardKey": "wands_knight",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "present",
+            "cardKey": "pentacles_01",
+            "reversed": true,
+            "order": 1
+          },
+          {
+            "position": "future",
+            "cardKey": "wands_queen",
+            "reversed": false,
+            "order": 2
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 2,
+            "earth": 1,
+            "air": 0,
+            "water": 0
+          },
+          "courtCount": 2,
+          "reversedPct": 33.33333333333333,
+          "repeatedNumbers": [],
+          "dominantElement": "fire",
+          "missingElements": ["air", "water"]
+        },
+        "combos": ["dominant_fire", "missing_air", "missing_water", "court_roles"],
+        "seed": "golden-tarot-2"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-3",
+        "spread": "three_sao",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "three_sao",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "situation",
+            "cardKey": "pentacles_08",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "action",
+            "cardKey": "swords_07",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "outcome",
+            "cardKey": "pentacles_king",
+            "reversed": false,
+            "order": 2
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 0,
+            "earth": 2,
+            "air": 1,
+            "water": 0
+          },
+          "courtCount": 1,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "earth",
+          "missingElements": ["fire", "water"]
+        },
+        "combos": ["dominant_earth", "missing_fire", "missing_water"],
+        "seed": "golden-tarot-3"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-4",
+        "spread": "relationship",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "relationship",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "you",
+            "cardKey": "swords_03",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "them",
+            "cardKey": "major_11_justice",
+            "reversed": true,
+            "order": 1
+          },
+          {
+            "position": "connection",
+            "cardKey": "pentacles_04",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "challenge",
+            "cardKey": "swords_01",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "potential",
+            "cardKey": "pentacles_10",
+            "reversed": false,
+            "order": 4
+          }
+        ],
+        "stats": {
+          "majorPct": 20,
+          "elements": {
+            "fire": 0,
+            "earth": 2,
+            "air": 3,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 20,
+          "repeatedNumbers": [],
+          "dominantElement": "air",
+          "missingElements": ["fire", "water"]
+        },
+        "combos": ["justice_ace_swords", "dominant_air", "missing_fire", "missing_water"],
+        "seed": "golden-tarot-4"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-5",
+        "spread": "decision",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "decision",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "situation",
+            "cardKey": "pentacles_06",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "option_a",
+            "cardKey": "cups_05",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "option_a_outcome",
+            "cardKey": "major_01_magician",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "option_b",
+            "cardKey": "wands_02",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "option_b_outcome",
+            "cardKey": "major_09_hermit",
+            "reversed": false,
+            "order": 4
+          }
+        ],
+        "stats": {
+          "majorPct": 40,
+          "elements": {
+            "fire": 1,
+            "earth": 2,
+            "air": 1,
+            "water": 1
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "missingElements": []
+        },
+        "combos": [],
+        "seed": "golden-tarot-5"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-6",
+        "spread": "celtic_cross",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "celtic_cross",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "present",
+            "cardKey": "wands_09",
+            "reversed": true,
+            "order": 0
+          },
+          {
+            "position": "challenge",
+            "cardKey": "major_01_magician",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "foundation",
+            "cardKey": "major_00_fool",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "past",
+            "cardKey": "swords_05",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "crown",
+            "cardKey": "major_08_strength",
+            "reversed": false,
+            "order": 4
+          },
+          {
+            "position": "near_future",
+            "cardKey": "major_07_chariot",
+            "reversed": false,
+            "order": 5
+          },
+          {
+            "position": "self",
+            "cardKey": "swords_09",
+            "reversed": true,
+            "order": 6
+          },
+          {
+            "position": "environment",
+            "cardKey": "wands_02",
+            "reversed": true,
+            "order": 7
+          },
+          {
+            "position": "hopes_fears",
+            "cardKey": "cups_knight",
+            "reversed": true,
+            "order": 8
+          },
+          {
+            "position": "outcome",
+            "cardKey": "wands_king",
+            "reversed": false,
+            "order": 9
+          }
+        ],
+        "stats": {
+          "majorPct": 40,
+          "elements": {
+            "fire": 4,
+            "earth": 0,
+            "air": 4,
+            "water": 2
+          },
+          "courtCount": 2,
+          "reversedPct": 40,
+          "repeatedNumbers": [9],
+          "missingElements": ["earth"]
+        },
+        "combos": [
+          "fool_magician",
+          "chariot_strength",
+          "missing_earth",
+          "court_roles",
+          "repeated_9",
+          "present_outcome_orientation_shift"
+        ],
+        "seed": "golden-tarot-6"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-7",
+        "spread": "year_ahead",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "year_ahead",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "theme",
+            "cardKey": "major_09_hermit",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "m01",
+            "cardKey": "swords_10",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "m02",
+            "cardKey": "swords_07",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "m03",
+            "cardKey": "pentacles_knight",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "m04",
+            "cardKey": "pentacles_05",
+            "reversed": false,
+            "order": 4
+          },
+          {
+            "position": "m05",
+            "cardKey": "wands_10",
+            "reversed": false,
+            "order": 5
+          },
+          {
+            "position": "m06",
+            "cardKey": "wands_knight",
+            "reversed": false,
+            "order": 6
+          },
+          {
+            "position": "m07",
+            "cardKey": "wands_09",
+            "reversed": false,
+            "order": 7
+          },
+          {
+            "position": "m08",
+            "cardKey": "pentacles_01",
+            "reversed": false,
+            "order": 8
+          },
+          {
+            "position": "m09",
+            "cardKey": "pentacles_queen",
+            "reversed": false,
+            "order": 9
+          },
+          {
+            "position": "m10",
+            "cardKey": "swords_queen",
+            "reversed": false,
+            "order": 10
+          },
+          {
+            "position": "m11",
+            "cardKey": "cups_09",
+            "reversed": false,
+            "order": 11
+          },
+          {
+            "position": "m12",
+            "cardKey": "major_19_sun",
+            "reversed": false,
+            "order": 12
+          }
+        ],
+        "stats": {
+          "majorPct": 15.384615384615385,
+          "elements": {
+            "fire": 4,
+            "earth": 5,
+            "air": 3,
+            "water": 1
+          },
+          "courtCount": 4,
+          "reversedPct": 0,
+          "repeatedNumbers": [9, 10],
+          "missingElements": []
+        },
+        "combos": ["court_roles", "repeated_9", "repeated_10"],
+        "seed": "golden-tarot-7"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-8",
+        "spread": "single",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "single",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "focus",
+            "cardKey": "cups_04",
+            "reversed": false,
+            "order": 0
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 0,
+            "earth": 0,
+            "air": 0,
+            "water": 1
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "water",
+          "missingElements": ["fire", "earth", "air"]
+        },
+        "combos": ["dominant_water", "missing_fire", "missing_earth", "missing_air"],
+        "seed": "golden-tarot-8"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-9",
+        "spread": "yes_no",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "yes_no",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "answer",
+            "cardKey": "pentacles_01",
+            "reversed": false,
+            "order": 0
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 0,
+            "earth": 1,
+            "air": 0,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "earth",
+          "missingElements": ["fire", "air", "water"]
+        },
+        "combos": ["dominant_earth", "missing_fire", "missing_air", "missing_water"],
+        "yesNo": {
+          "answer": "yes",
+          "confidence": 0.75
+        },
+        "seed": "golden-tarot-9"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-10",
+        "spread": "three_ppf",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "three_ppf",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "past",
+            "cardKey": "swords_03",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "present",
+            "cardKey": "cups_07",
+            "reversed": true,
+            "order": 1
+          },
+          {
+            "position": "future",
+            "cardKey": "major_21_world",
+            "reversed": true,
+            "order": 2
+          }
+        ],
+        "stats": {
+          "majorPct": 33.33333333333333,
+          "elements": {
+            "fire": 0,
+            "earth": 1,
+            "air": 1,
+            "water": 1
+          },
+          "courtCount": 0,
+          "reversedPct": 66.66666666666666,
+          "repeatedNumbers": [],
+          "missingElements": ["fire"]
+        },
+        "combos": [
+          "missing_fire",
+          "reversed_theme",
+          "trend_element_shift",
+          "trend_orientation_shift"
+        ],
+        "seed": "golden-tarot-10"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-11",
+        "spread": "three_sao",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "three_sao",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "situation",
+            "cardKey": "wands_10",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "action",
+            "cardKey": "swords_04",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "outcome",
+            "cardKey": "major_18_moon",
+            "reversed": false,
+            "order": 2
+          }
+        ],
+        "stats": {
+          "majorPct": 33.33333333333333,
+          "elements": {
+            "fire": 1,
+            "earth": 0,
+            "air": 1,
+            "water": 1
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "missingElements": ["earth"]
+        },
+        "combos": ["missing_earth", "trend_element_shift"],
+        "seed": "golden-tarot-11"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-12",
+        "spread": "relationship",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "relationship",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "you",
+            "cardKey": "swords_02",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "them",
+            "cardKey": "pentacles_09",
+            "reversed": true,
+            "order": 1
+          },
+          {
+            "position": "connection",
+            "cardKey": "pentacles_04",
+            "reversed": true,
+            "order": 2
+          },
+          {
+            "position": "challenge",
+            "cardKey": "swords_knight",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "potential",
+            "cardKey": "cups_page",
+            "reversed": true,
+            "order": 4
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 0,
+            "earth": 2,
+            "air": 2,
+            "water": 1
+          },
+          "courtCount": 2,
+          "reversedPct": 60,
+          "repeatedNumbers": [],
+          "missingElements": ["fire"]
+        },
+        "combos": ["missing_fire", "court_roles", "reversed_theme"],
+        "seed": "golden-tarot-12"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-13",
+        "spread": "decision",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "decision",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "situation",
+            "cardKey": "wands_06",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "option_a",
+            "cardKey": "wands_king",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "option_a_outcome",
+            "cardKey": "major_07_chariot",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "option_b",
+            "cardKey": "major_19_sun",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "option_b_outcome",
+            "cardKey": "wands_queen",
+            "reversed": false,
+            "order": 4
+          }
+        ],
+        "stats": {
+          "majorPct": 40,
+          "elements": {
+            "fire": 4,
+            "earth": 0,
+            "air": 0,
+            "water": 1
+          },
+          "courtCount": 2,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "fire",
+          "missingElements": ["earth", "air"]
+        },
+        "combos": ["dominant_fire", "missing_earth", "missing_air", "court_roles"],
+        "seed": "golden-tarot-13"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-14",
+        "spread": "celtic_cross",
+        "allowReversed": true
+      },
+      "expected": {
+        "spread": "celtic_cross",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "present",
+            "cardKey": "wands_08",
+            "reversed": true,
+            "order": 0
+          },
+          {
+            "position": "challenge",
+            "cardKey": "swords_05",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "foundation",
+            "cardKey": "wands_02",
+            "reversed": true,
+            "order": 2
+          },
+          {
+            "position": "past",
+            "cardKey": "major_11_justice",
+            "reversed": true,
+            "order": 3
+          },
+          {
+            "position": "crown",
+            "cardKey": "pentacles_10",
+            "reversed": true,
+            "order": 4
+          },
+          {
+            "position": "near_future",
+            "cardKey": "wands_page",
+            "reversed": false,
+            "order": 5
+          },
+          {
+            "position": "self",
+            "cardKey": "wands_03",
+            "reversed": false,
+            "order": 6
+          },
+          {
+            "position": "environment",
+            "cardKey": "swords_04",
+            "reversed": false,
+            "order": 7
+          },
+          {
+            "position": "hopes_fears",
+            "cardKey": "swords_07",
+            "reversed": true,
+            "order": 8
+          },
+          {
+            "position": "outcome",
+            "cardKey": "cups_03",
+            "reversed": true,
+            "order": 9
+          }
+        ],
+        "stats": {
+          "majorPct": 10,
+          "elements": {
+            "fire": 4,
+            "earth": 1,
+            "air": 4,
+            "water": 1
+          },
+          "courtCount": 1,
+          "reversedPct": 60,
+          "repeatedNumbers": [3],
+          "missingElements": []
+        },
+        "combos": ["reversed_theme", "repeated_3", "present_outcome_element_shift"],
+        "seed": "golden-tarot-14"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-15",
+        "spread": "year_ahead",
+        "allowReversed": false
+      },
+      "expected": {
+        "spread": "year_ahead",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "theme",
+            "cardKey": "wands_08",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "m01",
+            "cardKey": "wands_05",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "m02",
+            "cardKey": "wands_04",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "m03",
+            "cardKey": "pentacles_knight",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "m04",
+            "cardKey": "major_11_justice",
+            "reversed": false,
+            "order": 4
+          },
+          {
+            "position": "m05",
+            "cardKey": "swords_king",
+            "reversed": false,
+            "order": 5
+          },
+          {
+            "position": "m06",
+            "cardKey": "major_17_star",
+            "reversed": false,
+            "order": 6
+          },
+          {
+            "position": "m07",
+            "cardKey": "swords_06",
+            "reversed": false,
+            "order": 7
+          },
+          {
+            "position": "m08",
+            "cardKey": "wands_07",
+            "reversed": false,
+            "order": 8
+          },
+          {
+            "position": "m09",
+            "cardKey": "swords_03",
+            "reversed": false,
+            "order": 9
+          },
+          {
+            "position": "m10",
+            "cardKey": "cups_09",
+            "reversed": false,
+            "order": 10
+          },
+          {
+            "position": "m11",
+            "cardKey": "major_04_emperor",
+            "reversed": false,
+            "order": 11
+          },
+          {
+            "position": "m12",
+            "cardKey": "swords_04",
+            "reversed": false,
+            "order": 12
+          }
+        ],
+        "stats": {
+          "majorPct": 23.076923076923077,
+          "elements": {
+            "fire": 5,
+            "earth": 1,
+            "air": 6,
+            "water": 1
+          },
+          "courtCount": 2,
+          "reversedPct": 0,
+          "repeatedNumbers": [4],
+          "missingElements": []
+        },
+        "combos": ["court_roles", "repeated_4"],
+        "seed": "golden-tarot-15"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-16",
+        "spread": "single",
+        "allowReversed": true,
+        "pickedIndices": [0]
+      },
+      "expected": {
+        "spread": "single",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "focus",
+            "cardKey": "pentacles_08",
+            "reversed": false,
+            "order": 0
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 0,
+            "earth": 1,
+            "air": 0,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "earth",
+          "missingElements": ["fire", "air", "water"]
+        },
+        "combos": ["dominant_earth", "missing_fire", "missing_air", "missing_water"],
+        "seed": "b961bba70bce936509ff7e7d81702022bd68fe786269fb0dfeb6e42a81c6a53e"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-17",
+        "spread": "yes_no",
+        "allowReversed": false,
+        "pickedIndices": [0]
+      },
+      "expected": {
+        "spread": "yes_no",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "answer",
+            "cardKey": "wands_02",
+            "reversed": false,
+            "order": 0
+          }
+        ],
+        "stats": {
+          "majorPct": 0,
+          "elements": {
+            "fire": 1,
+            "earth": 0,
+            "air": 0,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "fire",
+          "missingElements": ["earth", "air", "water"]
+        },
+        "combos": ["dominant_fire", "missing_earth", "missing_air", "missing_water"],
+        "yesNo": {
+          "answer": "maybe",
+          "confidence": 0.5
+        },
+        "seed": "1f02905d9b45626184c35444f98110547918a3fd029350d0bada0f165743ba94"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-18",
+        "spread": "three_ppf",
+        "allowReversed": true,
+        "pickedIndices": [0, 2, 4]
+      },
+      "expected": {
+        "spread": "three_ppf",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "past",
+            "cardKey": "major_10_wheel_of_fortune",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "present",
+            "cardKey": "pentacles_09",
+            "reversed": true,
+            "order": 1
+          },
+          {
+            "position": "future",
+            "cardKey": "swords_06",
+            "reversed": true,
+            "order": 2
+          }
+        ],
+        "stats": {
+          "majorPct": 33.33333333333333,
+          "elements": {
+            "fire": 1,
+            "earth": 1,
+            "air": 1,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 66.66666666666666,
+          "repeatedNumbers": [],
+          "missingElements": ["water"]
+        },
+        "combos": [
+          "missing_water",
+          "reversed_theme",
+          "trend_element_shift",
+          "trend_orientation_shift"
+        ],
+        "seed": "c26f3bc68dcc9e74f001127c4682921b8348bc1edee7612f2c9dd65852e9fe9f"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-19",
+        "spread": "three_sao",
+        "allowReversed": false,
+        "pickedIndices": [0, 2, 4]
+      },
+      "expected": {
+        "spread": "three_sao",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "situation",
+            "cardKey": "wands_03",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "action",
+            "cardKey": "major_04_emperor",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "outcome",
+            "cardKey": "major_06_lovers",
+            "reversed": false,
+            "order": 2
+          }
+        ],
+        "stats": {
+          "majorPct": 66.66666666666666,
+          "elements": {
+            "fire": 2,
+            "earth": 0,
+            "air": 1,
+            "water": 0
+          },
+          "courtCount": 0,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "dominantElement": "fire",
+          "missingElements": ["earth", "water"]
+        },
+        "combos": [
+          "major_theme",
+          "dominant_fire",
+          "missing_earth",
+          "missing_water",
+          "trend_element_shift"
+        ],
+        "seed": "afd8d5aeff5863b4e47a30d79276d317c625b90ebc6e5a1afa78a7ffaedc2859"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-20",
+        "spread": "relationship",
+        "allowReversed": true,
+        "pickedIndices": [0, 2, 4, 6, 8]
+      },
+      "expected": {
+        "spread": "relationship",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "you",
+            "cardKey": "wands_knight",
+            "reversed": true,
+            "order": 0
+          },
+          {
+            "position": "them",
+            "cardKey": "major_07_chariot",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "connection",
+            "cardKey": "cups_king",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "challenge",
+            "cardKey": "major_00_fool",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "potential",
+            "cardKey": "pentacles_10",
+            "reversed": true,
+            "order": 4
+          }
+        ],
+        "stats": {
+          "majorPct": 40,
+          "elements": {
+            "fire": 1,
+            "earth": 1,
+            "air": 1,
+            "water": 2
+          },
+          "courtCount": 2,
+          "reversedPct": 40,
+          "repeatedNumbers": [],
+          "missingElements": []
+        },
+        "combos": ["court_roles"],
+        "seed": "d2e9cd9ed03db0e696e60a0d1487f16ed67e150f82443358a24aa26d8da7cd4b"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-21",
+        "spread": "decision",
+        "allowReversed": false,
+        "pickedIndices": [0, 2, 4, 6, 8]
+      },
+      "expected": {
+        "spread": "decision",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "situation",
+            "cardKey": "pentacles_king",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "option_a",
+            "cardKey": "pentacles_09",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "option_a_outcome",
+            "cardKey": "major_16_tower",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "option_b",
+            "cardKey": "swords_10",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "option_b_outcome",
+            "cardKey": "swords_king",
+            "reversed": false,
+            "order": 4
+          }
+        ],
+        "stats": {
+          "majorPct": 20,
+          "elements": {
+            "fire": 1,
+            "earth": 2,
+            "air": 2,
+            "water": 0
+          },
+          "courtCount": 2,
+          "reversedPct": 0,
+          "repeatedNumbers": [],
+          "missingElements": ["water"]
+        },
+        "combos": ["missing_water", "court_roles"],
+        "seed": "af05ea2c58b5fcfe576f2213194243be4243b413ec29003ce7d28a8f11728077"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-22",
+        "spread": "celtic_cross",
+        "allowReversed": true,
+        "pickedIndices": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+      },
+      "expected": {
+        "spread": "celtic_cross",
+        "category": "general",
+        "allowReversed": true,
+        "cards": [
+          {
+            "position": "present",
+            "cardKey": "swords_05",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "challenge",
+            "cardKey": "swords_10",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "foundation",
+            "cardKey": "cups_07",
+            "reversed": true,
+            "order": 2
+          },
+          {
+            "position": "past",
+            "cardKey": "swords_06",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "crown",
+            "cardKey": "swords_07",
+            "reversed": true,
+            "order": 4
+          },
+          {
+            "position": "near_future",
+            "cardKey": "wands_09",
+            "reversed": true,
+            "order": 5
+          },
+          {
+            "position": "self",
+            "cardKey": "major_13_death",
+            "reversed": true,
+            "order": 6
+          },
+          {
+            "position": "environment",
+            "cardKey": "major_14_temperance",
+            "reversed": false,
+            "order": 7
+          },
+          {
+            "position": "hopes_fears",
+            "cardKey": "cups_knight",
+            "reversed": false,
+            "order": 8
+          },
+          {
+            "position": "outcome",
+            "cardKey": "swords_01",
+            "reversed": true,
+            "order": 9
+          }
+        ],
+        "stats": {
+          "majorPct": 20,
+          "elements": {
+            "fire": 2,
+            "earth": 0,
+            "air": 5,
+            "water": 3
+          },
+          "courtCount": 1,
+          "reversedPct": 50,
+          "repeatedNumbers": [7],
+          "dominantElement": "air",
+          "missingElements": ["earth"]
+        },
+        "combos": [
+          "death_ten_swords",
+          "dominant_air",
+          "missing_earth",
+          "repeated_7",
+          "present_outcome_orientation_shift"
+        ],
+        "seed": "3b06b8612c03ad1abf524dee1d0d1c1566d0c2735140e8e631ec8415903770ae"
+      }
+    },
+    {
+      "input": {
+        "seed": "golden-tarot-23",
+        "spread": "year_ahead",
+        "allowReversed": false,
+        "pickedIndices": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+      },
+      "expected": {
+        "spread": "year_ahead",
+        "category": "general",
+        "allowReversed": false,
+        "cards": [
+          {
+            "position": "theme",
+            "cardKey": "cups_knight",
+            "reversed": false,
+            "order": 0
+          },
+          {
+            "position": "m01",
+            "cardKey": "swords_05",
+            "reversed": false,
+            "order": 1
+          },
+          {
+            "position": "m02",
+            "cardKey": "major_05_hierophant",
+            "reversed": false,
+            "order": 2
+          },
+          {
+            "position": "m03",
+            "cardKey": "major_09_hermit",
+            "reversed": false,
+            "order": 3
+          },
+          {
+            "position": "m04",
+            "cardKey": "cups_queen",
+            "reversed": false,
+            "order": 4
+          },
+          {
+            "position": "m05",
+            "cardKey": "pentacles_08",
+            "reversed": false,
+            "order": 5
+          },
+          {
+            "position": "m06",
+            "cardKey": "major_12_hanged_man",
+            "reversed": false,
+            "order": 6
+          },
+          {
+            "position": "m07",
+            "cardKey": "wands_king",
+            "reversed": false,
+            "order": 7
+          },
+          {
+            "position": "m08",
+            "cardKey": "cups_04",
+            "reversed": false,
+            "order": 8
+          },
+          {
+            "position": "m09",
+            "cardKey": "swords_page",
+            "reversed": false,
+            "order": 9
+          },
+          {
+            "position": "m10",
+            "cardKey": "major_10_wheel_of_fortune",
+            "reversed": false,
+            "order": 10
+          },
+          {
+            "position": "m11",
+            "cardKey": "major_11_justice",
+            "reversed": false,
+            "order": 11
+          },
+          {
+            "position": "m12",
+            "cardKey": "pentacles_10",
+            "reversed": false,
+            "order": 12
+          }
+        ],
+        "stats": {
+          "majorPct": 38.46153846153847,
+          "elements": {
+            "fire": 2,
+            "earth": 4,
+            "air": 3,
+            "water": 4
+          },
+          "courtCount": 4,
+          "reversedPct": 0,
+          "repeatedNumbers": [5, 10],
+          "missingElements": []
+        },
+        "combos": ["court_roles", "repeated_5", "repeated_10"],
+        "seed": "f76b5a0b238984238987a1db37b9c18e550d5ecaf748c02989dc08e1818c6f44"
+      }
+    }
+  ]
+}

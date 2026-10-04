@@ -136,5 +136,6 @@
   "engine.warnings.W_DST_PERIOD": "Daylight saving time was in effect. Please confirm whether the birth certificate time includes it.",
   "engine.warnings.W_NO_PLACE": "No birthplace was provided. The default time zone is used without apparent solar time correction.",
   "engine.warnings.W_NO_HOUR_PILLAR": "Birth time is unknown. The hour pillar is omitted and confidence is reduced.",
-  "engine.warnings.W_NOON_CHART": "Birth time is unknown. The chart uses local noon without houses or angles."
+  "engine.warnings.W_NOON_CHART": "Birth time is unknown. The chart uses local noon without houses or angles.",
+  "engine.errors.E_ENGINE_INTERNAL": "Chart integrity validation failed. Please try again later."
 }

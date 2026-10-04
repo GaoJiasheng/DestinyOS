@@ -136,5 +136,6 @@
   "engine.warnings.W_DST_PERIOD": "出生时处于夏令时期间，请确认出生证明时间是否已包含夏令时。",
   "engine.warnings.W_NO_PLACE": "未提供出生地点，已使用默认时区，不作真太阳时修正。",
   "engine.warnings.W_NO_HOUR_PILLAR": "出生时辰未知，命盘不含时柱，结果置信度降低。",
-  "engine.warnings.W_NOON_CHART": "出生时间未知，按当地正午计算，不显示宫位与四轴。"
+  "engine.warnings.W_NOON_CHART": "出生时间未知，按当地正午计算，不显示宫位与四轴。",
+  "engine.errors.E_ENGINE_INTERNAL": "命盘完整性校验失败，请稍后重试。"
 }

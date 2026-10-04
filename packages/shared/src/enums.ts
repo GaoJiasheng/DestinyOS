@@ -316,6 +316,7 @@ export const EngineErrorCode = {
   E_REQUIRES_PLACE: 'E_REQUIRES_PLACE',
   E_UNSUPPORTED_SCHOOL: 'E_UNSUPPORTED_SCHOOL',
   E_EPHEMERIS: 'E_EPHEMERIS',
+  E_ENGINE_INTERNAL: 'E_ENGINE_INTERNAL',
 } as const;
 export type EngineErrorCode = (typeof EngineErrorCode)[keyof typeof EngineErrorCode];
 export const EngineWarningCode = {
