@@ -1,0 +1,275 @@
+{
+  "noonChart": true,
+  "ayanamsa": 23.72253588453081,
+  "jdUT": 2448026.625,
+  "lagna": null,
+  "bodies": [
+    {
+      "key": "surya",
+      "sidLon": 30.311693948856746,
+      "sign": "taurus",
+      "degInSign": 0.31169394885674606,
+      "house": null,
+      "nakshatra": "krittika",
+      "pada": 2,
+      "retro": false,
+      "combust": false,
+      "dignity": "enemy",
+      "navamsaSign": "capricorn"
+    },
+    {
+      "key": "chandra",
+      "sidLon": 268.8223238036936,
+      "sign": "sagittarius",
+      "degInSign": 28.82232380369362,
+      "house": null,
+      "nakshatra": "uttara_ashadha",
+      "pada": 1,
+      "retro": false,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "sagittarius"
+    },
+    {
+      "key": "mangala",
+      "sidLon": 324.3329845454409,
+      "sign": "aquarius",
+      "degInSign": 24.332984545440922,
+      "house": null,
+      "nakshatra": "purva_bhadrapada",
+      "pada": 2,
+      "retro": false,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "taurus"
+    },
+    {
+      "key": "budha",
+      "sidLon": 14.33997184531933,
+      "sign": "aries",
+      "degInSign": 14.33997184531933,
+      "house": null,
+      "nakshatra": "bharani",
+      "pada": 1,
+      "retro": true,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "leo"
+    },
+    {
+      "key": "guru",
+      "sidLon": 75.74842158446648,
+      "sign": "gemini",
+      "degInSign": 15.748421584466485,
+      "house": null,
+      "nakshatra": "ardra",
+      "pada": 3,
+      "retro": false,
+      "combust": false,
+      "dignity": "enemy",
+      "navamsaSign": "aquarius"
+    },
+    {
+      "key": "shukra",
+      "sidLon": 348.6682295828735,
+      "sign": "pisces",
+      "degInSign": 18.668229582873494,
+      "house": null,
+      "nakshatra": "revati",
+      "pada": 1,
+      "retro": false,
+      "combust": false,
+      "dignity": "exalted",
+      "navamsaSign": "sagittarius"
+    },
+    {
+      "key": "shani",
+      "sidLon": 271.53308228073564,
+      "sign": "capricorn",
+      "degInSign": 1.5330822807356412,
+      "house": null,
+      "nakshatra": "uttara_ashadha",
+      "pada": 2,
+      "retro": true,
+      "combust": false,
+      "dignity": "own",
+      "navamsaSign": "capricorn"
+    },
+    {
+      "key": "rahu",
+      "sidLon": 287.6332013663322,
+      "sign": "capricorn",
+      "degInSign": 17.633201366332173,
+      "house": null,
+      "nakshatra": "shravana",
+      "pada": 3,
+      "retro": true,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "gemini"
+    },
+    {
+      "key": "ketu",
+      "sidLon": 107.63320136633217,
+      "sign": "cancer",
+      "degInSign": 17.633201366332173,
+      "house": null,
+      "nakshatra": "ashlesha",
+      "pada": 1,
+      "retro": true,
+      "combust": false,
+      "dignity": "neutral",
+      "navamsaSign": "sagittarius"
+    }
+  ],
+  "houses": null,
+  "moon": {
+    "nakshatra": "uttara_ashadha",
+    "pada": 1,
+    "lord": "surya",
+    "rashi": "sagittarius",
+    "possibleNakshatras": ["purva_ashadha", "uttara_ashadha"]
+  },
+  "dasha": {
+    "sequence": [
+      {
+        "lord": "surya",
+        "from": "1990-05-15T03:00:00.000Z",
+        "to": "1995-05-26T07:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "chandra",
+        "from": "1995-05-26T07:34:45.450Z",
+        "to": "2005-05-25T19:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "mangala",
+        "from": "2005-05-25T19:34:45.450Z",
+        "to": "2012-05-25T13:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "rahu",
+        "from": "2012-05-25T13:34:45.450Z",
+        "to": "2030-05-26T01:34:45.450Z",
+        "current": true,
+        "antar": []
+      },
+      {
+        "lord": "guru",
+        "from": "2030-05-26T01:34:45.450Z",
+        "to": "2046-05-26T01:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "shani",
+        "from": "2046-05-26T01:34:45.450Z",
+        "to": "2065-05-25T19:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "budha",
+        "from": "2065-05-25T19:34:45.450Z",
+        "to": "2082-05-26T01:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "ketu",
+        "from": "2082-05-26T01:34:45.450Z",
+        "to": "2089-05-25T19:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "shukra",
+        "from": "2089-05-25T19:34:45.450Z",
+        "to": "2109-05-26T19:34:45.450Z",
+        "current": false,
+        "antar": []
+      },
+      {
+        "lord": "surya",
+        "from": "2109-05-26T19:34:45.450Z",
+        "to": "2110-05-16T03:00:00.000Z",
+        "current": false,
+        "antar": []
+      }
+    ]
+  },
+  "yogas": [
+    {
+      "key": "gajakesari",
+      "bodies": ["chandra", "guru"],
+      "houses": []
+    }
+  ],
+  "panchangAtBirth": {
+    "date": "1990-05-15",
+    "tz": "Asia/Shanghai",
+    "sunrise": "1990-05-14T21:00:04.215Z",
+    "sunset": "1990-05-15T11:21:52.395Z",
+    "tithi": {
+      "index": 20,
+      "key": "panchami",
+      "endsAt": "1990-05-15T06:09:25.757Z"
+    },
+    "nakshatra": {
+      "index": 20,
+      "key": "uttara_ashadha",
+      "endsAt": "1990-05-16T00:40:42.235Z"
+    },
+    "yoga": {
+      "index": 22,
+      "key": "shubha",
+      "endsAt": "1990-05-15T16:35:39.107Z"
+    },
+    "karana": {
+      "index": 39,
+      "key": "taitila",
+      "endsAt": "1990-05-15T06:09:25.757Z"
+    },
+    "vara": {
+      "index": 2,
+      "key": "mangalawara",
+      "endsAt": "1990-05-15T20:59:08.677Z"
+    },
+    "transitions": [
+      {
+        "limb": "tithi",
+        "index": 21,
+        "key": "shashthi",
+        "startsAt": "1990-05-15T06:09:25.757Z",
+        "endsAt": "1990-05-16T07:17:07.797Z"
+      },
+      {
+        "limb": "karana",
+        "index": 40,
+        "key": "garaja",
+        "startsAt": "1990-05-15T06:09:25.757Z",
+        "endsAt": "1990-05-15T18:47:37.038Z"
+      },
+      {
+        "limb": "yoga",
+        "index": 23,
+        "key": "shukla",
+        "startsAt": "1990-05-15T16:35:39.107Z",
+        "endsAt": "1990-05-16T16:18:12.694Z"
+      },
+      {
+        "limb": "karana",
+        "index": 41,
+        "key": "vanija",
+        "startsAt": "1990-05-15T18:47:37.038Z",
+        "endsAt": "1990-05-16T07:17:07.797Z"
+      }
+    ]
+  }
+}

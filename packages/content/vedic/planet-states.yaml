@@ -1,0 +1,2908 @@
+# // DESIGN-GAP: 状态限定于引擎可达值；月亮没有 enemy 状态，节点仅 neutral。
+- id: vedic.state.surya.exalted
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=surya].dignity
+    eq: exalted
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳 · 旺：观察实际条件
+    summary: 你可以在顺手的条件下使用能力，结合太阳的主题回看经验。
+    body: 你可以在表达立场时在顺手的条件下使用能力。太阳（在吠陀框架中观察身份与意志的象征）描述你怎样承担自己的选择。它所在的位置把注意力引向表达立场、接受反馈和确认责任，而不是给权力或社会地位打分。你可以在需要拍板时先说清判断依据，让参与者知道哪些意见还能补充。这颗行星的状态标为旺；旺（Exalted，行星落在传统认为较便于发挥的星座）只是模型内的一种位置标记。你盘中的这颗行星获得了这个状态，适合观察相关习惯在什么条件下更顺手。它不衡量现实能力，也不说明事情会自动完成。比如一项任务恰好符合你熟悉的方法，你可以利用经验先做示范，同时问同伴哪里仍然难懂。建议把顺手当作分享和试验的入口，别让一个有利标签代替准备与反馈。
+    advice:
+      - 说清一次决定的理由，再邀请具体反馈。
+    do:
+      - 明确责任
+    dont:
+      - 压过他人
+  en:
+    title: 'Surya: exalted'
+    summary: You can use a comfortable symbolic setting in questions of visible ownership.
+    body:
+      'You can use a comfortable symbolic setting when exploring visible ownership. Surya — the Sun, a symbol
+      of personal direction — concerns how you take ownership of a choice. Its position offers a question about
+      visibility and responsibility rather than a ranking of your status. A helpful contribution makes both your
+      reasoning and its limits understandable to the people affected. You can practise explaining why a choice matters
+      without asking everyone to share your enthusiasm. This planet is marked exalted. Exalted — a dignity label
+      for a traditionally supportive zodiac placement — describes a setting within the model. Your recorded planet
+      carries this label, inviting a question about where its symbolic function feels easier to use. It does not
+      measure ability or finish a task for you. Imagine a responsibility that suits a method you know well: a short
+      demonstration may help, but a colleague still needs room to ask about unfamiliar steps. Consider using comfort
+      as a starting point for sharing and testing, and let preparation and actual feedback determine how well the
+      approach works.'
+    advice:
+      - Explain the reason for a decision before asking for feedback.
+    do:
+      - Own decisions
+    dont:
+      - Dominate discussions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.surya.own
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=surya].dignity
+    eq: own
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳 · 自宫：观察实际条件
+    summary: 你可以用熟悉方法也接纳反馈，结合太阳的主题回看经验。
+    body: 你可以在表达立场时用熟悉方法也接纳反馈。太阳（在吠陀框架中观察身份与意志的象征）描述你怎样承担自己的选择。它所在的位置把注意力引向表达立场、接受反馈和确认责任，而不是给权力或社会地位打分。你可以在需要拍板时先说清判断依据，让参与者知道哪些意见还能补充。这颗行星的状态标为自宫；自宫（Own，行星位于自己传统守护的星座）表示符号之间有较直接的对应关系。你盘中的这颗行星处在这样的环境，适合比较熟悉方法带来的便利与局限。熟悉不能替代对新情境的了解。比如你负责一项做过的任务，先核对这次的目标和参与者，再取用旧资料。建议把经验整理成别人也能看懂的步骤，遇到不同需要时及时调整，而不是只重复原有做法。
+    advice:
+      - 说清一次决定的理由，再邀请具体反馈。
+    do:
+      - 明确责任
+    dont:
+      - 压过他人
+  en:
+    title: 'Surya: own sign'
+    summary: You can use familiarity without closing enquiry in questions of visible ownership.
+    body:
+      You can use familiarity without closing enquiry when exploring visible ownership. Surya — the Sun, a symbol
+      of personal direction — concerns how you take ownership of a choice. Its position offers a question about
+      visibility and responsibility rather than a ranking of your status. A helpful contribution makes both your
+      reasoning and its limits understandable to the people affected. You can practise explaining why a choice matters
+      without asking everyone to share your enthusiasm. This planet is marked own sign. Own sign — a placement in
+      a planet’s traditional domicile — indicates a direct relationship between the symbols used here. It offers
+      a prompt about familiarity, not proof that a method suits every situation. Before repeating an established
+      routine, check what the present task asks of you and who else is involved. An old checklist can be useful
+      if its assumptions still hold. You can make your experience easier to share by explaining the steps and inviting
+      corrections. A comfortable approach gains value when it remains responsive to changed requirements rather
+      than simply feeling recognizable.
+    advice:
+      - Explain the reason for a decision before asking for feedback.
+    do:
+      - Own decisions
+    dont:
+      - Dominate discussions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.surya.moolatrikona
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=surya].dignity
+    eq: moolatrikona
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳 · 本源三角：观察实际条件
+    summary: 你可以让专长有清楚的适用范围，结合太阳的主题回看经验。
+    body: 你可以在表达立场时让专长有清楚的适用范围。太阳（在吠陀框架中观察身份与意志的象征）描述你怎样承担自己的选择。它所在的位置把注意力引向表达立场、接受反馈和确认责任，而不是给权力或社会地位打分。你可以在需要拍板时先说清判断依据，让参与者知道哪些意见还能补充。这颗行星的状态标为本源三角；本源三角（Moolatrikona，按星座和度数标记的传统强势区间）强调模型里较稳定的发挥环境。你盘中的行星落在引擎划定的区间，但这不是专业资格或表现等级。比如你熟悉某种整理方法，就先说明它能解决哪些问题、哪些情况需要另找工具。建议把擅长的步骤做成可核对的小范例，再依据使用者的反馈更新；清楚的适用边界比把一种方法推广到所有事情更有帮助。
+    advice:
+      - 说清一次决定的理由，再邀请具体反馈。
+    do:
+      - 明确责任
+    dont:
+      - 压过他人
+  en:
+    title: 'Surya: moolatrikona'
+    summary: You can define where a practiced method fits in questions of visible ownership.
+    body:
+      'You can define where a practiced method fits when exploring visible ownership. Surya — the Sun, a symbol
+      of personal direction — concerns how you take ownership of a choice. Its position offers a question about
+      visibility and responsibility rather than a ranking of your status. A helpful contribution makes both your
+      reasoning and its limits understandable to the people affected. You can practise explaining why a choice matters
+      without asking everyone to share your enthusiasm. This planet is marked moolatrikona. Moolatrikona — a degree-defined
+      zone treated as supportive in the traditional model — is a label for the planet’s recorded position. It does
+      not certify expertise or assess the quality of your work. Suppose you have a familiar way of organizing notes:
+      showing a small example and explaining where it stops being useful can make the method easier to evaluate.
+      Consider describing its scope before recommending it to someone else. A practiced approach remains useful
+      through review and adaptation, and actual training, experience, and feedback provide the information that
+      this positional label cannot.'
+    advice:
+      - Explain the reason for a decision before asking for feedback.
+    do:
+      - Own decisions
+    dont:
+      - Dominate discussions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.surya.debilitated
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=surya].dignity
+    eq: debilitated
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳 · 落：观察实际条件
+    summary: 你可以给不顺手的部分安排练习，结合太阳的主题回看经验。
+    body: 你可以在表达立场时给不顺手的部分安排练习。太阳（在吠陀框架中观察身份与意志的象征）描述你怎样承担自己的选择。它所在的位置把注意力引向表达立场、接受反馈和确认责任，而不是给权力或社会地位打分。你可以在需要拍板时先说清判断依据，让参与者知道哪些意见还能补充。这颗行星的状态标为落；落（Debilitated，传统把某些位置标为较不顺手的环境）描述的是符号关系，不是对你的贬低。你盘中的这颗行星带有此标记，可以用来提醒自己多看条件和方法，而不急着评价结果。比如一个不熟悉的任务让你犹豫，就把最难的步骤单独练习，或请同伴示范。建议先改善可以调整的一项条件，保留足够准备时间；不过，一个状态不能概括整体配置，更不能取代对真实能力的了解。
+    advice:
+      - 说清一次决定的理由，再邀请具体反馈。
+    do:
+      - 明确责任
+    dont:
+      - 压过他人
+  en:
+    title: 'Surya: debilitated'
+    summary: You can give an awkward step a manageable practice in questions of visible ownership.
+    body:
+      You can give an awkward step a manageable practice when exploring visible ownership. Surya — the Sun,
+      a symbol of personal direction — concerns how you take ownership of a choice. Its position offers a question
+      about visibility and responsibility rather than a ranking of your status. A helpful contribution makes both
+      your reasoning and its limits understandable to the people affected. You can practise explaining why a choice
+      matters without asking everyone to share your enthusiasm. This planet is marked debilitated. Debilitated —
+      a traditional dignity label for a less comfortable placement — describes a symbolic relationship, not a shortcoming
+      in you. The recorded state can prompt attention to methods and conditions before judging an outcome. If a
+      task feels unfamiliar, isolate the difficult step and ask for an example rather than expecting immediate fluency.
+      You can adjust one practical condition and allow time to practise. Other chart factors supply context, while
+      your actual skills and access to support matter in everyday decisions. Consider treating this as a question
+      about what makes participation easier, not as a reason to lower your expectations of yourself.
+    advice:
+      - Explain the reason for a decision before asking for feedback.
+    do:
+      - Own decisions
+    dont:
+      - Dominate discussions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.surya.friend
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=surya].dignity
+    eq: friend
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳 · 友宫：观察实际条件
+    summary: 你可以利用合适条件也明确自己的需要，结合太阳的主题回看经验。
+    body: 你可以在表达立场时利用合适条件也明确自己的需要。太阳（在吠陀框架中观察身份与意志的象征）描述你怎样承担自己的选择。它所在的位置把注意力引向表达立场、接受反馈和确认责任，而不是给权力或社会地位打分。你可以在需要拍板时先说清判断依据，让参与者知道哪些意见还能补充。这颗行星的状态标为友宫；友宫（Friend，按行星与星座主星的传统友好表标记的位置）说明引擎如何分类环境。你盘中的行星获得这项标记，不表示现实中的人自动支持你。比如加入熟悉的学习小组，你仍然需要说清希望讨论什么、能投入多少时间。建议把便利转成具体协作，核对资源是否确实可用；对真实关系的理解要来自回应和约定，不能从行星之间的象征关系直接推断。
+    advice:
+      - 说清一次决定的理由，再邀请具体反馈。
+    do:
+      - 明确责任
+    dont:
+      - 压过他人
+  en:
+    title: 'Surya: friendly sign'
+    summary: You can use support while naming your needs in questions of visible ownership.
+    body:
+      You can use support while naming your needs when exploring visible ownership. Surya — the Sun, a symbol
+      of personal direction — concerns how you take ownership of a choice. Its position offers a question about
+      visibility and responsibility rather than a ranking of your status. A helpful contribution makes both your
+      reasoning and its limits understandable to the people affected. You can practise explaining why a choice matters
+      without asking everyone to share your enthusiasm. This planet is marked friendly sign. Friendly sign — a label
+      drawn from the traditional relationship between a planet and the sign’s ruler — classifies the symbolic setting.
+      It does not establish who will support you in real life. In a familiar study group, useful cooperation still
+      depends on explaining your question and checking whether someone has time to discuss it. Try turning an apparently
+      convenient situation into a specific arrangement. Actual responses and available resources reveal the support
+      you can use; relationships between chart symbols cannot supply that evidence or speak for another person’s
+      intentions.
+    advice:
+      - Explain the reason for a decision before asking for feedback.
+    do:
+      - Own decisions
+    dont:
+      - Dominate discussions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.surya.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=surya].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合太阳的主题回看经验。
+    body: 你可以在表达立场时先看情境再评价表现。太阳（在吠陀框架中观察身份与意志的象征）描述你怎样承担自己的选择。它所在的位置把注意力引向表达立场、接受反馈和确认责任，而不是给权力或社会地位打分。你可以在需要拍板时先说清判断依据，让参与者知道哪些意见还能补充。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 说清一次决定的理由，再邀请具体反馈。
+    do:
+      - 明确责任
+    dont:
+      - 压过他人
+  en:
+    title: 'Surya: neutral sign'
+    summary: You can let context guide the evaluation in questions of visible ownership.
+    body:
+      You can let context guide the evaluation when exploring visible ownership. Surya — the Sun, a symbol of
+      personal direction — concerns how you take ownership of a choice. Its position offers a question about visibility
+      and responsibility rather than a ranking of your status. A helpful contribution makes both your reasoning
+      and its limits understandable to the people affected. You can practise explaining why a choice matters without
+      asking everyone to share your enthusiasm. This planet is marked neutral sign. Neutral sign — a dignity category
+      without a special friendship or friction label in this implementation — leaves the symbolic setting open to
+      context. It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking
+      the purpose, tools, and expectations can tell you more than the absence of a striking label. You can compare
+      two practical approaches and note which one makes the work clearer. Ordinary experience deserves attention
+      even when a classification seems unremarkable. Consider evaluating the method through use, with the rest of
+      the chart and your real circumstances providing additional perspective.
+    advice:
+      - Explain the reason for a decision before asking for feedback.
+    do:
+      - Own decisions
+    dont:
+      - Dominate discussions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.surya.enemy
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=surya].dignity
+    eq: enemy
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 太阳 · 敌宫：观察实际条件
+    summary: 你可以把摩擦转成条件核对，结合太阳的主题回看经验。
+    body: 你可以在表达立场时把摩擦转成条件核对。太阳（在吠陀框架中观察身份与意志的象征）描述你怎样承担自己的选择。它所在的位置把注意力引向表达立场、接受反馈和确认责任，而不是给权力或社会地位打分。你可以在需要拍板时先说清判断依据，让参与者知道哪些意见还能补充。这颗行星的状态标为敌宫；敌宫（Enemy，传统按行星与星座主星的关系标记的较费力环境）不是对现实人物的称呼。你盘中的行星带有这个状态，可以提醒你在表达或执行时核对条件，而不是把谁当成阻碍。比如合作节奏不同，你先讨论交接时间和信息格式，找到能够调整的部分。建议把摩擦落实为一个具体问题，给双方选择不同方法的空间；不过，标签不能替代沟通，也不能说明实际结果会怎样发展。
+    advice:
+      - 说清一次决定的理由，再邀请具体反馈。
+    do:
+      - 明确责任
+    dont:
+      - 压过他人
+  en:
+    title: 'Surya: challenging sign'
+    summary: You can translate friction into a context check in questions of visible ownership.
+    body:
+      You can translate friction into a context check when exploring visible ownership. Surya — the Sun, a symbol
+      of personal direction — concerns how you take ownership of a choice. Its position offers a question about
+      visibility and responsibility rather than a ranking of your status. A helpful contribution makes both your
+      reasoning and its limits understandable to the people affected. You can practise explaining why a choice matters
+      without asking everyone to share your enthusiasm. This planet is marked challenging sign. Challenging sign
+      — the category called enemy in the traditional friendship table — concerns relationships between symbols,
+      not hostility between people. The recorded state invites a check of how a method fits its context. If collaborators
+      work at different speeds, agreeing on a handover time and information format can make the friction more specific.
+      You can adjust that arrangement without deciding that someone opposes you. Consider asking what each person
+      needs to proceed, and test one change before expanding it. A chart label cannot establish another person’s
+      intentions or determine the outcome of an actual collaboration.
+    advice:
+      - Explain the reason for a decision before asking for feedback.
+    do:
+      - Own decisions
+    dont:
+      - Dominate discussions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.chandra.exalted
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=chandra].dignity
+    eq: exalted
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮 · 旺：观察实际条件
+    summary: 你可以在顺手的条件下使用能力，结合月亮的主题回看经验。
+    body: 你可以在安顿感受时在顺手的条件下使用能力。月亮（在这一体系中作为心绪与日常反应的观察点）描述你怎样恢复熟悉的节奏。它的位置为情绪需要提供比喻，不能用来评估心理状况。你可以从一天里最容易放松的时刻入手，比较陪伴、独处与环境变化对实际感受的影响。这颗行星的状态标为旺；旺（Exalted，行星落在传统认为较便于发挥的星座）只是模型内的一种位置标记。你盘中的这颗行星获得了这个状态，适合观察相关习惯在什么条件下更顺手。它不衡量现实能力，也不说明事情会自动完成。比如一项任务恰好符合你熟悉的方法，你可以利用经验先做示范，同时问同伴哪里仍然难懂。建议把顺手当作分享和试验的入口，别让一个有利标签代替准备与反馈。
+    advice:
+      - 记录一项让你恢复节奏的日常安排。
+    do:
+      - 留出休息
+    dont:
+      - 压抑感受
+  en:
+    title: 'Chandra: exalted'
+    summary: You can use a comfortable symbolic setting in questions of emotional continuity.
+    body:
+      'You can use a comfortable symbolic setting when exploring emotional continuity. Chandra — the Moon, used
+      here as a reference for everyday responses — highlights what helps you feel settled. The position is a symbolic
+      prompt about experience rather than an assessment of mental health. Notice how you move between company, solitude,
+      and changing surroundings. You can describe what feels supportive without expecting another person to manage
+      every shift in your mood. This planet is marked exalted. Exalted — a dignity label for a traditionally supportive
+      zodiac placement — describes a setting within the model. Your recorded planet carries this label, inviting
+      a question about where its symbolic function feels easier to use. It does not measure ability or finish a
+      task for you. Imagine a responsibility that suits a method you know well: a short demonstration may help,
+      but a colleague still needs room to ask about unfamiliar steps. Consider using comfort as a starting point
+      for sharing and testing, and let preparation and actual feedback determine how well the approach works.'
+    advice:
+      - Notice one ordinary arrangement that helps you settle.
+    do:
+      - Make room
+    dont:
+      - Dismiss feelings
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.chandra.own
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=chandra].dignity
+    eq: own
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮 · 自宫：观察实际条件
+    summary: 你可以用熟悉方法也接纳反馈，结合月亮的主题回看经验。
+    body: 你可以在安顿感受时用熟悉方法也接纳反馈。月亮（在这一体系中作为心绪与日常反应的观察点）描述你怎样恢复熟悉的节奏。它的位置为情绪需要提供比喻，不能用来评估心理状况。你可以从一天里最容易放松的时刻入手，比较陪伴、独处与环境变化对实际感受的影响。这颗行星的状态标为自宫；自宫（Own，行星位于自己传统守护的星座）表示符号之间有较直接的对应关系。你盘中的这颗行星处在这样的环境，适合比较熟悉方法带来的便利与局限。熟悉不能替代对新情境的了解。比如你负责一项做过的任务，先核对这次的目标和参与者，再取用旧资料。建议把经验整理成别人也能看懂的步骤，遇到不同需要时及时调整，而不是只重复原有做法。
+    advice:
+      - 记录一项让你恢复节奏的日常安排。
+    do:
+      - 留出休息
+    dont:
+      - 压抑感受
+  en:
+    title: 'Chandra: own sign'
+    summary: You can use familiarity without closing enquiry in questions of emotional continuity.
+    body:
+      You can use familiarity without closing enquiry when exploring emotional continuity. Chandra — the Moon,
+      used here as a reference for everyday responses — highlights what helps you feel settled. The position is
+      a symbolic prompt about experience rather than an assessment of mental health. Notice how you move between
+      company, solitude, and changing surroundings. You can describe what feels supportive without expecting another
+      person to manage every shift in your mood. This planet is marked own sign. Own sign — a placement in a planet’s
+      traditional domicile — indicates a direct relationship between the symbols used here. It offers a prompt about
+      familiarity, not proof that a method suits every situation. Before repeating an established routine, check
+      what the present task asks of you and who else is involved. An old checklist can be useful if its assumptions
+      still hold. You can make your experience easier to share by explaining the steps and inviting corrections.
+      A comfortable approach gains value when it remains responsive to changed requirements rather than simply feeling
+      recognizable.
+    advice:
+      - Notice one ordinary arrangement that helps you settle.
+    do:
+      - Make room
+    dont:
+      - Dismiss feelings
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.chandra.moolatrikona
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=chandra].dignity
+    eq: moolatrikona
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮 · 本源三角：观察实际条件
+    summary: 你可以让专长有清楚的适用范围，结合月亮的主题回看经验。
+    body: 你可以在安顿感受时让专长有清楚的适用范围。月亮（在这一体系中作为心绪与日常反应的观察点）描述你怎样恢复熟悉的节奏。它的位置为情绪需要提供比喻，不能用来评估心理状况。你可以从一天里最容易放松的时刻入手，比较陪伴、独处与环境变化对实际感受的影响。这颗行星的状态标为本源三角；本源三角（Moolatrikona，按星座和度数标记的传统强势区间）强调模型里较稳定的发挥环境。你盘中的行星落在引擎划定的区间，但这不是专业资格或表现等级。比如你熟悉某种整理方法，就先说明它能解决哪些问题、哪些情况需要另找工具。建议把擅长的步骤做成可核对的小范例，再依据使用者的反馈更新；清楚的适用边界比把一种方法推广到所有事情更有帮助。
+    advice:
+      - 记录一项让你恢复节奏的日常安排。
+    do:
+      - 留出休息
+    dont:
+      - 压抑感受
+  en:
+    title: 'Chandra: moolatrikona'
+    summary: You can define where a practiced method fits in questions of emotional continuity.
+    body:
+      'You can define where a practiced method fits when exploring emotional continuity. Chandra — the Moon,
+      used here as a reference for everyday responses — highlights what helps you feel settled. The position is
+      a symbolic prompt about experience rather than an assessment of mental health. Notice how you move between
+      company, solitude, and changing surroundings. You can describe what feels supportive without expecting another
+      person to manage every shift in your mood. This planet is marked moolatrikona. Moolatrikona — a degree-defined
+      zone treated as supportive in the traditional model — is a label for the planet’s recorded position. It does
+      not certify expertise or assess the quality of your work. Suppose you have a familiar way of organizing notes:
+      showing a small example and explaining where it stops being useful can make the method easier to evaluate.
+      Consider describing its scope before recommending it to someone else. A practiced approach remains useful
+      through review and adaptation, and actual training, experience, and feedback provide the information that
+      this positional label cannot.'
+    advice:
+      - Notice one ordinary arrangement that helps you settle.
+    do:
+      - Make room
+    dont:
+      - Dismiss feelings
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.chandra.debilitated
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=chandra].dignity
+    eq: debilitated
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮 · 落：观察实际条件
+    summary: 你可以给不顺手的部分安排练习，结合月亮的主题回看经验。
+    body: 你可以在安顿感受时给不顺手的部分安排练习。月亮（在这一体系中作为心绪与日常反应的观察点）描述你怎样恢复熟悉的节奏。它的位置为情绪需要提供比喻，不能用来评估心理状况。你可以从一天里最容易放松的时刻入手，比较陪伴、独处与环境变化对实际感受的影响。这颗行星的状态标为落；落（Debilitated，传统把某些位置标为较不顺手的环境）描述的是符号关系，不是对你的贬低。你盘中的这颗行星带有此标记，可以用来提醒自己多看条件和方法，而不急着评价结果。比如一个不熟悉的任务让你犹豫，就把最难的步骤单独练习，或请同伴示范。建议先改善可以调整的一项条件，保留足够准备时间；不过，一个状态不能概括整体配置，更不能取代对真实能力的了解。
+    advice:
+      - 记录一项让你恢复节奏的日常安排。
+    do:
+      - 留出休息
+    dont:
+      - 压抑感受
+  en:
+    title: 'Chandra: debilitated'
+    summary: You can give an awkward step a manageable practice in questions of emotional continuity.
+    body:
+      You can give an awkward step a manageable practice when exploring emotional continuity. Chandra — the
+      Moon, used here as a reference for everyday responses — highlights what helps you feel settled. The position
+      is a symbolic prompt about experience rather than an assessment of mental health. Notice how you move between
+      company, solitude, and changing surroundings. You can describe what feels supportive without expecting another
+      person to manage every shift in your mood. This planet is marked debilitated. Debilitated — a traditional
+      dignity label for a less comfortable placement — describes a symbolic relationship, not a shortcoming in you.
+      The recorded state can prompt attention to methods and conditions before judging an outcome. If a task feels
+      unfamiliar, isolate the difficult step and ask for an example rather than expecting immediate fluency. You
+      can adjust one practical condition and allow time to practise. Other chart factors supply context, while your
+      actual skills and access to support matter in everyday decisions. Consider treating this as a question about
+      what makes participation easier, not as a reason to lower your expectations of yourself.
+    advice:
+      - Notice one ordinary arrangement that helps you settle.
+    do:
+      - Make room
+    dont:
+      - Dismiss feelings
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.chandra.friend
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=chandra].dignity
+    eq: friend
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮 · 友宫：观察实际条件
+    summary: 你可以利用合适条件也明确自己的需要，结合月亮的主题回看经验。
+    body: 你可以在安顿感受时利用合适条件也明确自己的需要。月亮（在这一体系中作为心绪与日常反应的观察点）描述你怎样恢复熟悉的节奏。它的位置为情绪需要提供比喻，不能用来评估心理状况。你可以从一天里最容易放松的时刻入手，比较陪伴、独处与环境变化对实际感受的影响。这颗行星的状态标为友宫；友宫（Friend，按行星与星座主星的传统友好表标记的位置）说明引擎如何分类环境。你盘中的行星获得这项标记，不表示现实中的人自动支持你。比如加入熟悉的学习小组，你仍然需要说清希望讨论什么、能投入多少时间。建议把便利转成具体协作，核对资源是否确实可用；对真实关系的理解要来自回应和约定，不能从行星之间的象征关系直接推断。
+    advice:
+      - 记录一项让你恢复节奏的日常安排。
+    do:
+      - 留出休息
+    dont:
+      - 压抑感受
+  en:
+    title: 'Chandra: friendly sign'
+    summary: You can use support while naming your needs in questions of emotional continuity.
+    body:
+      You can use support while naming your needs when exploring emotional continuity. Chandra — the Moon, used
+      here as a reference for everyday responses — highlights what helps you feel settled. The position is a symbolic
+      prompt about experience rather than an assessment of mental health. Notice how you move between company, solitude,
+      and changing surroundings. You can describe what feels supportive without expecting another person to manage
+      every shift in your mood. This planet is marked friendly sign. Friendly sign — a label drawn from the traditional
+      relationship between a planet and the sign’s ruler — classifies the symbolic setting. It does not establish
+      who will support you in real life. In a familiar study group, useful cooperation still depends on explaining
+      your question and checking whether someone has time to discuss it. Try turning an apparently convenient situation
+      into a specific arrangement. Actual responses and available resources reveal the support you can use; relationships
+      between chart symbols cannot supply that evidence or speak for another person’s intentions.
+    advice:
+      - Notice one ordinary arrangement that helps you settle.
+    do:
+      - Make room
+    dont:
+      - Dismiss feelings
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.chandra.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=chandra].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合月亮的主题回看经验。
+    body: 你可以在安顿感受时先看情境再评价表现。月亮（在这一体系中作为心绪与日常反应的观察点）描述你怎样恢复熟悉的节奏。它的位置为情绪需要提供比喻，不能用来评估心理状况。你可以从一天里最容易放松的时刻入手，比较陪伴、独处与环境变化对实际感受的影响。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 记录一项让你恢复节奏的日常安排。
+    do:
+      - 留出休息
+    dont:
+      - 压抑感受
+  en:
+    title: 'Chandra: neutral sign'
+    summary: You can let context guide the evaluation in questions of emotional continuity.
+    body:
+      You can let context guide the evaluation when exploring emotional continuity. Chandra — the Moon, used
+      here as a reference for everyday responses — highlights what helps you feel settled. The position is a symbolic
+      prompt about experience rather than an assessment of mental health. Notice how you move between company, solitude,
+      and changing surroundings. You can describe what feels supportive without expecting another person to manage
+      every shift in your mood. This planet is marked neutral sign. Neutral sign — a dignity category without a
+      special friendship or friction label in this implementation — leaves the symbolic setting open to context.
+      It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking the
+      purpose, tools, and expectations can tell you more than the absence of a striking label. You can compare two
+      practical approaches and note which one makes the work clearer. Ordinary experience deserves attention even
+      when a classification seems unremarkable. Consider evaluating the method through use, with the rest of the
+      chart and your real circumstances providing additional perspective.
+    advice:
+      - Notice one ordinary arrangement that helps you settle.
+    do:
+      - Make room
+    dont:
+      - Dismiss feelings
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.mangala.exalted
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=mangala].dignity
+    eq: exalted
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星 · 旺：观察实际条件
+    summary: 你可以在顺手的条件下使用能力，结合火星的主题回看经验。
+    body: 你可以在把力量放进行动时在顺手的条件下使用能力。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这颗行星的状态标为旺；旺（Exalted，行星落在传统认为较便于发挥的星座）只是模型内的一种位置标记。你盘中的这颗行星获得了这个状态，适合观察相关习惯在什么条件下更顺手。它不衡量现实能力，也不说明事情会自动完成。比如一项任务恰好符合你熟悉的方法，你可以利用经验先做示范，同时问同伴哪里仍然难懂。建议把顺手当作分享和试验的入口，别让一个有利标签代替准备与反馈。
+    advice:
+      - 把争执改写成一个可完成的请求。
+    do:
+      - 分步行动
+    dont:
+      - 急于对抗
+  en:
+    title: 'Mangala: exalted'
+    summary: You can use a comfortable symbolic setting in questions of directed effort.
+    body:
+      'You can use a comfortable symbolic setting when exploring directed effort. Mangala — Mars, a symbol of
+      effort and assertion — asks where you put energy when something needs doing. This position can also prompt
+      you to notice what happens when a disagreement becomes a contest. You can name the task you want completed
+      and make a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. This planet is marked exalted. Exalted — a dignity label for a traditionally supportive zodiac
+      placement — describes a setting within the model. Your recorded planet carries this label, inviting a question
+      about where its symbolic function feels easier to use. It does not measure ability or finish a task for you.
+      Imagine a responsibility that suits a method you know well: a short demonstration may help, but a colleague
+      still needs room to ask about unfamiliar steps. Consider using comfort as a starting point for sharing and
+      testing, and let preparation and actual feedback determine how well the approach works.'
+    advice:
+      - Turn a disagreement into a concrete request for action.
+    do:
+      - Direct effort
+    dont:
+      - Escalate friction
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.mangala.own
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=mangala].dignity
+    eq: own
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星 · 自宫：观察实际条件
+    summary: 你可以用熟悉方法也接纳反馈，结合火星的主题回看经验。
+    body: 你可以在把力量放进行动时用熟悉方法也接纳反馈。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这颗行星的状态标为自宫；自宫（Own，行星位于自己传统守护的星座）表示符号之间有较直接的对应关系。你盘中的这颗行星处在这样的环境，适合比较熟悉方法带来的便利与局限。熟悉不能替代对新情境的了解。比如你负责一项做过的任务，先核对这次的目标和参与者，再取用旧资料。建议把经验整理成别人也能看懂的步骤，遇到不同需要时及时调整，而不是只重复原有做法。
+    advice:
+      - 把争执改写成一个可完成的请求。
+    do:
+      - 分步行动
+    dont:
+      - 急于对抗
+  en:
+    title: 'Mangala: own sign'
+    summary: You can use familiarity without closing enquiry in questions of directed effort.
+    body:
+      You can use familiarity without closing enquiry when exploring directed effort. Mangala — Mars, a symbol
+      of effort and assertion — asks where you put energy when something needs doing. This position can also prompt
+      you to notice what happens when a disagreement becomes a contest. You can name the task you want completed
+      and make a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. This planet is marked own sign. Own sign — a placement in a planet’s traditional domicile — indicates
+      a direct relationship between the symbols used here. It offers a prompt about familiarity, not proof that
+      a method suits every situation. Before repeating an established routine, check what the present task asks
+      of you and who else is involved. An old checklist can be useful if its assumptions still hold. You can make
+      your experience easier to share by explaining the steps and inviting corrections. A comfortable approach gains
+      value when it remains responsive to changed requirements rather than simply feeling recognizable.
+    advice:
+      - Turn a disagreement into a concrete request for action.
+    do:
+      - Direct effort
+    dont:
+      - Escalate friction
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.mangala.moolatrikona
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=mangala].dignity
+    eq: moolatrikona
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星 · 本源三角：观察实际条件
+    summary: 你可以让专长有清楚的适用范围，结合火星的主题回看经验。
+    body: 你可以在把力量放进行动时让专长有清楚的适用范围。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这颗行星的状态标为本源三角；本源三角（Moolatrikona，按星座和度数标记的传统强势区间）强调模型里较稳定的发挥环境。你盘中的行星落在引擎划定的区间，但这不是专业资格或表现等级。比如你熟悉某种整理方法，就先说明它能解决哪些问题、哪些情况需要另找工具。建议把擅长的步骤做成可核对的小范例，再依据使用者的反馈更新；清楚的适用边界比把一种方法推广到所有事情更有帮助。
+    advice:
+      - 把争执改写成一个可完成的请求。
+    do:
+      - 分步行动
+    dont:
+      - 急于对抗
+  en:
+    title: 'Mangala: moolatrikona'
+    summary: You can define where a practiced method fits in questions of directed effort.
+    body:
+      'You can define where a practiced method fits when exploring directed effort. Mangala — Mars, a symbol
+      of effort and assertion — asks where you put energy when something needs doing. This position can also prompt
+      you to notice what happens when a disagreement becomes a contest. You can name the task you want completed
+      and make a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. This planet is marked moolatrikona. Moolatrikona — a degree-defined zone treated as supportive
+      in the traditional model — is a label for the planet’s recorded position. It does not certify expertise or
+      assess the quality of your work. Suppose you have a familiar way of organizing notes: showing a small example
+      and explaining where it stops being useful can make the method easier to evaluate. Consider describing its
+      scope before recommending it to someone else. A practiced approach remains useful through review and adaptation,
+      and actual training, experience, and feedback provide the information that this positional label cannot.'
+    advice:
+      - Turn a disagreement into a concrete request for action.
+    do:
+      - Direct effort
+    dont:
+      - Escalate friction
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.mangala.debilitated
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=mangala].dignity
+    eq: debilitated
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星 · 落：观察实际条件
+    summary: 你可以给不顺手的部分安排练习，结合火星的主题回看经验。
+    body: 你可以在把力量放进行动时给不顺手的部分安排练习。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这颗行星的状态标为落；落（Debilitated，传统把某些位置标为较不顺手的环境）描述的是符号关系，不是对你的贬低。你盘中的这颗行星带有此标记，可以用来提醒自己多看条件和方法，而不急着评价结果。比如一个不熟悉的任务让你犹豫，就把最难的步骤单独练习，或请同伴示范。建议先改善可以调整的一项条件，保留足够准备时间；不过，一个状态不能概括整体配置，更不能取代对真实能力的了解。
+    advice:
+      - 把争执改写成一个可完成的请求。
+    do:
+      - 分步行动
+    dont:
+      - 急于对抗
+  en:
+    title: 'Mangala: debilitated'
+    summary: You can give an awkward step a manageable practice in questions of directed effort.
+    body:
+      You can give an awkward step a manageable practice when exploring directed effort. Mangala — Mars, a symbol
+      of effort and assertion — asks where you put energy when something needs doing. This position can also prompt
+      you to notice what happens when a disagreement becomes a contest. You can name the task you want completed
+      and make a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. This planet is marked debilitated. Debilitated — a traditional dignity label for a less comfortable
+      placement — describes a symbolic relationship, not a shortcoming in you. The recorded state can prompt attention
+      to methods and conditions before judging an outcome. If a task feels unfamiliar, isolate the difficult step
+      and ask for an example rather than expecting immediate fluency. You can adjust one practical condition and
+      allow time to practise. Other chart factors supply context, while your actual skills and access to support
+      matter in everyday decisions. Consider treating this as a question about what makes participation easier,
+      not as a reason to lower your expectations of yourself.
+    advice:
+      - Turn a disagreement into a concrete request for action.
+    do:
+      - Direct effort
+    dont:
+      - Escalate friction
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.mangala.friend
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=mangala].dignity
+    eq: friend
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星 · 友宫：观察实际条件
+    summary: 你可以利用合适条件也明确自己的需要，结合火星的主题回看经验。
+    body: 你可以在把力量放进行动时利用合适条件也明确自己的需要。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这颗行星的状态标为友宫；友宫（Friend，按行星与星座主星的传统友好表标记的位置）说明引擎如何分类环境。你盘中的行星获得这项标记，不表示现实中的人自动支持你。比如加入熟悉的学习小组，你仍然需要说清希望讨论什么、能投入多少时间。建议把便利转成具体协作，核对资源是否确实可用；对真实关系的理解要来自回应和约定，不能从行星之间的象征关系直接推断。
+    advice:
+      - 把争执改写成一个可完成的请求。
+    do:
+      - 分步行动
+    dont:
+      - 急于对抗
+  en:
+    title: 'Mangala: friendly sign'
+    summary: You can use support while naming your needs in questions of directed effort.
+    body:
+      You can use support while naming your needs when exploring directed effort. Mangala — Mars, a symbol of
+      effort and assertion — asks where you put energy when something needs doing. This position can also prompt
+      you to notice what happens when a disagreement becomes a contest. You can name the task you want completed
+      and make a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. This planet is marked friendly sign. Friendly sign — a label drawn from the traditional relationship
+      between a planet and the sign’s ruler — classifies the symbolic setting. It does not establish who will support
+      you in real life. In a familiar study group, useful cooperation still depends on explaining your question
+      and checking whether someone has time to discuss it. Try turning an apparently convenient situation into a
+      specific arrangement. Actual responses and available resources reveal the support you can use; relationships
+      between chart symbols cannot supply that evidence or speak for another person’s intentions.
+    advice:
+      - Turn a disagreement into a concrete request for action.
+    do:
+      - Direct effort
+    dont:
+      - Escalate friction
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.mangala.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=mangala].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合火星的主题回看经验。
+    body: 你可以在把力量放进行动时先看情境再评价表现。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 把争执改写成一个可完成的请求。
+    do:
+      - 分步行动
+    dont:
+      - 急于对抗
+  en:
+    title: 'Mangala: neutral sign'
+    summary: You can let context guide the evaluation in questions of directed effort.
+    body:
+      You can let context guide the evaluation when exploring directed effort. Mangala — Mars, a symbol of effort
+      and assertion — asks where you put energy when something needs doing. This position can also prompt you to
+      notice what happens when a disagreement becomes a contest. You can name the task you want completed and make
+      a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. This planet is marked neutral sign. Neutral sign — a dignity category without a special friendship
+      or friction label in this implementation — leaves the symbolic setting open to context. It does not mean the
+      planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking the purpose, tools, and
+      expectations can tell you more than the absence of a striking label. You can compare two practical approaches
+      and note which one makes the work clearer. Ordinary experience deserves attention even when a classification
+      seems unremarkable. Consider evaluating the method through use, with the rest of the chart and your real circumstances
+      providing additional perspective.
+    advice:
+      - Turn a disagreement into a concrete request for action.
+    do:
+      - Direct effort
+    dont:
+      - Escalate friction
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.mangala.enemy
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=mangala].dignity
+    eq: enemy
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星 · 敌宫：观察实际条件
+    summary: 你可以把摩擦转成条件核对，结合火星的主题回看经验。
+    body: 你可以在把力量放进行动时把摩擦转成条件核对。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这颗行星的状态标为敌宫；敌宫（Enemy，传统按行星与星座主星的关系标记的较费力环境）不是对现实人物的称呼。你盘中的行星带有这个状态，可以提醒你在表达或执行时核对条件，而不是把谁当成阻碍。比如合作节奏不同，你先讨论交接时间和信息格式，找到能够调整的部分。建议把摩擦落实为一个具体问题，给双方选择不同方法的空间；不过，标签不能替代沟通，也不能说明实际结果会怎样发展。
+    advice:
+      - 把争执改写成一个可完成的请求。
+    do:
+      - 分步行动
+    dont:
+      - 急于对抗
+  en:
+    title: 'Mangala: challenging sign'
+    summary: You can translate friction into a context check in questions of directed effort.
+    body:
+      You can translate friction into a context check when exploring directed effort. Mangala — Mars, a symbol
+      of effort and assertion — asks where you put energy when something needs doing. This position can also prompt
+      you to notice what happens when a disagreement becomes a contest. You can name the task you want completed
+      and make a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. This planet is marked challenging sign. Challenging sign — the category called enemy in the traditional
+      friendship table — concerns relationships between symbols, not hostility between people. The recorded state
+      invites a check of how a method fits its context. If collaborators work at different speeds, agreeing on a
+      handover time and information format can make the friction more specific. You can adjust that arrangement
+      without deciding that someone opposes you. Consider asking what each person needs to proceed, and test one
+      change before expanding it. A chart label cannot establish another person’s intentions or determine the outcome
+      of an actual collaboration.
+    advice:
+      - Turn a disagreement into a concrete request for action.
+    do:
+      - Direct effort
+    dont:
+      - Escalate friction
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.budha.exalted
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=budha].dignity
+    eq: exalted
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星 · 旺：观察实际条件
+    summary: 你可以在顺手的条件下使用能力，结合水星的主题回看经验。
+    body: 你可以在让信息便于使用时在顺手的条件下使用能力。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这颗行星的状态标为旺；旺（Exalted，行星落在传统认为较便于发挥的星座）只是模型内的一种位置标记。你盘中的这颗行星获得了这个状态，适合观察相关习惯在什么条件下更顺手。它不衡量现实能力，也不说明事情会自动完成。比如一项任务恰好符合你熟悉的方法，你可以利用经验先做示范，同时问同伴哪里仍然难懂。建议把顺手当作分享和试验的入口，别让一个有利标签代替准备与反馈。
+    advice:
+      - 先问用途，再给出对应的信息。
+    do:
+      - 核对理解
+    dont:
+      - 堆积信息
+  en:
+    title: 'Budha: exalted'
+    summary: You can use a comfortable symbolic setting in questions of usable communication.
+    body:
+      'You can use a comfortable symbolic setting when exploring usable communication. Budha — Mercury, a symbol
+      of learning and exchange — focuses on the route between an idea and its practical use. Good communication
+      depends on the listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with
+      the information before adding detail. An example or a short check of understanding often reveals more than
+      another round of explanation. This planet is marked exalted. Exalted — a dignity label for a traditionally
+      supportive zodiac placement — describes a setting within the model. Your recorded planet carries this label,
+      inviting a question about where its symbolic function feels easier to use. It does not measure ability or
+      finish a task for you. Imagine a responsibility that suits a method you know well: a short demonstration may
+      help, but a colleague still needs room to ask about unfamiliar steps. Consider using comfort as a starting
+      point for sharing and testing, and let preparation and actual feedback determine how well the approach works.'
+    advice:
+      - Ask what the listener needs to do with the information.
+    do:
+      - Check understanding
+    dont:
+      - Overload listeners
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.budha.own
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=budha].dignity
+    eq: own
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星 · 自宫：观察实际条件
+    summary: 你可以用熟悉方法也接纳反馈，结合水星的主题回看经验。
+    body: 你可以在让信息便于使用时用熟悉方法也接纳反馈。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这颗行星的状态标为自宫；自宫（Own，行星位于自己传统守护的星座）表示符号之间有较直接的对应关系。你盘中的这颗行星处在这样的环境，适合比较熟悉方法带来的便利与局限。熟悉不能替代对新情境的了解。比如你负责一项做过的任务，先核对这次的目标和参与者，再取用旧资料。建议把经验整理成别人也能看懂的步骤，遇到不同需要时及时调整，而不是只重复原有做法。
+    advice:
+      - 先问用途，再给出对应的信息。
+    do:
+      - 核对理解
+    dont:
+      - 堆积信息
+  en:
+    title: 'Budha: own sign'
+    summary: You can use familiarity without closing enquiry in questions of usable communication.
+    body:
+      You can use familiarity without closing enquiry when exploring usable communication. Budha — Mercury,
+      a symbol of learning and exchange — focuses on the route between an idea and its practical use. Good communication
+      depends on the listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with
+      the information before adding detail. An example or a short check of understanding often reveals more than
+      another round of explanation. This planet is marked own sign. Own sign — a placement in a planet’s traditional
+      domicile — indicates a direct relationship between the symbols used here. It offers a prompt about familiarity,
+      not proof that a method suits every situation. Before repeating an established routine, check what the present
+      task asks of you and who else is involved. An old checklist can be useful if its assumptions still hold. You
+      can make your experience easier to share by explaining the steps and inviting corrections. A comfortable approach
+      gains value when it remains responsive to changed requirements rather than simply feeling recognizable.
+    advice:
+      - Ask what the listener needs to do with the information.
+    do:
+      - Check understanding
+    dont:
+      - Overload listeners
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.budha.moolatrikona
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=budha].dignity
+    eq: moolatrikona
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星 · 本源三角：观察实际条件
+    summary: 你可以让专长有清楚的适用范围，结合水星的主题回看经验。
+    body: 你可以在让信息便于使用时让专长有清楚的适用范围。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这颗行星的状态标为本源三角；本源三角（Moolatrikona，按星座和度数标记的传统强势区间）强调模型里较稳定的发挥环境。你盘中的行星落在引擎划定的区间，但这不是专业资格或表现等级。比如你熟悉某种整理方法，就先说明它能解决哪些问题、哪些情况需要另找工具。建议把擅长的步骤做成可核对的小范例，再依据使用者的反馈更新；清楚的适用边界比把一种方法推广到所有事情更有帮助。
+    advice:
+      - 先问用途，再给出对应的信息。
+    do:
+      - 核对理解
+    dont:
+      - 堆积信息
+  en:
+    title: 'Budha: moolatrikona'
+    summary: You can define where a practiced method fits in questions of usable communication.
+    body:
+      'You can define where a practiced method fits when exploring usable communication. Budha — Mercury, a
+      symbol of learning and exchange — focuses on the route between an idea and its practical use. Good communication
+      depends on the listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with
+      the information before adding detail. An example or a short check of understanding often reveals more than
+      another round of explanation. This planet is marked moolatrikona. Moolatrikona — a degree-defined zone treated
+      as supportive in the traditional model — is a label for the planet’s recorded position. It does not certify
+      expertise or assess the quality of your work. Suppose you have a familiar way of organizing notes: showing
+      a small example and explaining where it stops being useful can make the method easier to evaluate. Consider
+      describing its scope before recommending it to someone else. A practiced approach remains useful through review
+      and adaptation, and actual training, experience, and feedback provide the information that this positional
+      label cannot.'
+    advice:
+      - Ask what the listener needs to do with the information.
+    do:
+      - Check understanding
+    dont:
+      - Overload listeners
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.budha.debilitated
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=budha].dignity
+    eq: debilitated
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星 · 落：观察实际条件
+    summary: 你可以给不顺手的部分安排练习，结合水星的主题回看经验。
+    body: 你可以在让信息便于使用时给不顺手的部分安排练习。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这颗行星的状态标为落；落（Debilitated，传统把某些位置标为较不顺手的环境）描述的是符号关系，不是对你的贬低。你盘中的这颗行星带有此标记，可以用来提醒自己多看条件和方法，而不急着评价结果。比如一个不熟悉的任务让你犹豫，就把最难的步骤单独练习，或请同伴示范。建议先改善可以调整的一项条件，保留足够准备时间；不过，一个状态不能概括整体配置，更不能取代对真实能力的了解。
+    advice:
+      - 先问用途，再给出对应的信息。
+    do:
+      - 核对理解
+    dont:
+      - 堆积信息
+  en:
+    title: 'Budha: debilitated'
+    summary: You can give an awkward step a manageable practice in questions of usable communication.
+    body:
+      You can give an awkward step a manageable practice when exploring usable communication. Budha — Mercury,
+      a symbol of learning and exchange — focuses on the route between an idea and its practical use. Good communication
+      depends on the listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with
+      the information before adding detail. An example or a short check of understanding often reveals more than
+      another round of explanation. This planet is marked debilitated. Debilitated — a traditional dignity label
+      for a less comfortable placement — describes a symbolic relationship, not a shortcoming in you. The recorded
+      state can prompt attention to methods and conditions before judging an outcome. If a task feels unfamiliar,
+      isolate the difficult step and ask for an example rather than expecting immediate fluency. You can adjust
+      one practical condition and allow time to practise. Other chart factors supply context, while your actual
+      skills and access to support matter in everyday decisions. Consider treating this as a question about what
+      makes participation easier, not as a reason to lower your expectations of yourself.
+    advice:
+      - Ask what the listener needs to do with the information.
+    do:
+      - Check understanding
+    dont:
+      - Overload listeners
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.budha.friend
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=budha].dignity
+    eq: friend
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星 · 友宫：观察实际条件
+    summary: 你可以利用合适条件也明确自己的需要，结合水星的主题回看经验。
+    body: 你可以在让信息便于使用时利用合适条件也明确自己的需要。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这颗行星的状态标为友宫；友宫（Friend，按行星与星座主星的传统友好表标记的位置）说明引擎如何分类环境。你盘中的行星获得这项标记，不表示现实中的人自动支持你。比如加入熟悉的学习小组，你仍然需要说清希望讨论什么、能投入多少时间。建议把便利转成具体协作，核对资源是否确实可用；对真实关系的理解要来自回应和约定，不能从行星之间的象征关系直接推断。
+    advice:
+      - 先问用途，再给出对应的信息。
+    do:
+      - 核对理解
+    dont:
+      - 堆积信息
+  en:
+    title: 'Budha: friendly sign'
+    summary: You can use support while naming your needs in questions of usable communication.
+    body:
+      You can use support while naming your needs when exploring usable communication. Budha — Mercury, a symbol
+      of learning and exchange — focuses on the route between an idea and its practical use. Good communication
+      depends on the listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with
+      the information before adding detail. An example or a short check of understanding often reveals more than
+      another round of explanation. This planet is marked friendly sign. Friendly sign — a label drawn from the
+      traditional relationship between a planet and the sign’s ruler — classifies the symbolic setting. It does
+      not establish who will support you in real life. In a familiar study group, useful cooperation still depends
+      on explaining your question and checking whether someone has time to discuss it. Try turning an apparently
+      convenient situation into a specific arrangement. Actual responses and available resources reveal the support
+      you can use; relationships between chart symbols cannot supply that evidence or speak for another person’s
+      intentions.
+    advice:
+      - Ask what the listener needs to do with the information.
+    do:
+      - Check understanding
+    dont:
+      - Overload listeners
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.budha.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=budha].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合水星的主题回看经验。
+    body: 你可以在让信息便于使用时先看情境再评价表现。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 先问用途，再给出对应的信息。
+    do:
+      - 核对理解
+    dont:
+      - 堆积信息
+  en:
+    title: 'Budha: neutral sign'
+    summary: You can let context guide the evaluation in questions of usable communication.
+    body:
+      You can let context guide the evaluation when exploring usable communication. Budha — Mercury, a symbol
+      of learning and exchange — focuses on the route between an idea and its practical use. Good communication
+      depends on the listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with
+      the information before adding detail. An example or a short check of understanding often reveals more than
+      another round of explanation. This planet is marked neutral sign. Neutral sign — a dignity category without
+      a special friendship or friction label in this implementation — leaves the symbolic setting open to context.
+      It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking the
+      purpose, tools, and expectations can tell you more than the absence of a striking label. You can compare two
+      practical approaches and note which one makes the work clearer. Ordinary experience deserves attention even
+      when a classification seems unremarkable. Consider evaluating the method through use, with the rest of the
+      chart and your real circumstances providing additional perspective.
+    advice:
+      - Ask what the listener needs to do with the information.
+    do:
+      - Check understanding
+    dont:
+      - Overload listeners
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.budha.enemy
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=budha].dignity
+    eq: enemy
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星 · 敌宫：观察实际条件
+    summary: 你可以把摩擦转成条件核对，结合水星的主题回看经验。
+    body: 你可以在让信息便于使用时把摩擦转成条件核对。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这颗行星的状态标为敌宫；敌宫（Enemy，传统按行星与星座主星的关系标记的较费力环境）不是对现实人物的称呼。你盘中的行星带有这个状态，可以提醒你在表达或执行时核对条件，而不是把谁当成阻碍。比如合作节奏不同，你先讨论交接时间和信息格式，找到能够调整的部分。建议把摩擦落实为一个具体问题，给双方选择不同方法的空间；不过，标签不能替代沟通，也不能说明实际结果会怎样发展。
+    advice:
+      - 先问用途，再给出对应的信息。
+    do:
+      - 核对理解
+    dont:
+      - 堆积信息
+  en:
+    title: 'Budha: challenging sign'
+    summary: You can translate friction into a context check in questions of usable communication.
+    body:
+      You can translate friction into a context check when exploring usable communication. Budha — Mercury,
+      a symbol of learning and exchange — focuses on the route between an idea and its practical use. Good communication
+      depends on the listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with
+      the information before adding detail. An example or a short check of understanding often reveals more than
+      another round of explanation. This planet is marked challenging sign. Challenging sign — the category called
+      enemy in the traditional friendship table — concerns relationships between symbols, not hostility between
+      people. The recorded state invites a check of how a method fits its context. If collaborators work at different
+      speeds, agreeing on a handover time and information format can make the friction more specific. You can adjust
+      that arrangement without deciding that someone opposes you. Consider asking what each person needs to proceed,
+      and test one change before expanding it. A chart label cannot establish another person’s intentions or determine
+      the outcome of an actual collaboration.
+    advice:
+      - Ask what the listener needs to do with the information.
+    do:
+      - Check understanding
+    dont:
+      - Overload listeners
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.guru.exalted
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=guru].dignity
+    eq: exalted
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星 · 旺：观察实际条件
+    summary: 你可以在顺手的条件下使用能力，结合木星的主题回看经验。
+    body: 你可以在把见识转为学习时在顺手的条件下使用能力。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这颗行星的状态标为旺；旺（Exalted，行星落在传统认为较便于发挥的星座）只是模型内的一种位置标记。你盘中的这颗行星获得了这个状态，适合观察相关习惯在什么条件下更顺手。它不衡量现实能力，也不说明事情会自动完成。比如一项任务恰好符合你熟悉的方法，你可以利用经验先做示范，同时问同伴哪里仍然难懂。建议把顺手当作分享和试验的入口，别让一个有利标签代替准备与反馈。
+    advice:
+      - 用真实例子检验一个宽泛观点。
+    do:
+      - 持续学习
+    dont:
+      - 自居权威
+  en:
+    title: 'Guru: exalted'
+    summary: You can use a comfortable symbolic setting in questions of learning with perspective.
+    body:
+      'You can use a comfortable symbolic setting when exploring learning with perspective. Guru — Jupiter,
+      a symbol of perspective and learning — asks how a larger idea changes an ordinary decision. The position invites
+      reflection on guidance, without establishing that your advice is appropriate for everyone. You can test a
+      broad principle against a real example and ask an experienced person where it stops being useful. Curiosity
+      leaves more room for growth than needing to sound certain. This planet is marked exalted. Exalted — a dignity
+      label for a traditionally supportive zodiac placement — describes a setting within the model. Your recorded
+      planet carries this label, inviting a question about where its symbolic function feels easier to use. It does
+      not measure ability or finish a task for you. Imagine a responsibility that suits a method you know well:
+      a short demonstration may help, but a colleague still needs room to ask about unfamiliar steps. Consider using
+      comfort as a starting point for sharing and testing, and let preparation and actual feedback determine how
+      well the approach works.'
+    advice:
+      - Test a broad principle against a specific example.
+    do:
+      - Stay curious
+    dont:
+      - Claim authority
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.guru.own
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=guru].dignity
+    eq: own
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星 · 自宫：观察实际条件
+    summary: 你可以用熟悉方法也接纳反馈，结合木星的主题回看经验。
+    body: 你可以在把见识转为学习时用熟悉方法也接纳反馈。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这颗行星的状态标为自宫；自宫（Own，行星位于自己传统守护的星座）表示符号之间有较直接的对应关系。你盘中的这颗行星处在这样的环境，适合比较熟悉方法带来的便利与局限。熟悉不能替代对新情境的了解。比如你负责一项做过的任务，先核对这次的目标和参与者，再取用旧资料。建议把经验整理成别人也能看懂的步骤，遇到不同需要时及时调整，而不是只重复原有做法。
+    advice:
+      - 用真实例子检验一个宽泛观点。
+    do:
+      - 持续学习
+    dont:
+      - 自居权威
+  en:
+    title: 'Guru: own sign'
+    summary: You can use familiarity without closing enquiry in questions of learning with perspective.
+    body:
+      You can use familiarity without closing enquiry when exploring learning with perspective. Guru — Jupiter,
+      a symbol of perspective and learning — asks how a larger idea changes an ordinary decision. The position invites
+      reflection on guidance, without establishing that your advice is appropriate for everyone. You can test a
+      broad principle against a real example and ask an experienced person where it stops being useful. Curiosity
+      leaves more room for growth than needing to sound certain. This planet is marked own sign. Own sign — a placement
+      in a planet’s traditional domicile — indicates a direct relationship between the symbols used here. It offers
+      a prompt about familiarity, not proof that a method suits every situation. Before repeating an established
+      routine, check what the present task asks of you and who else is involved. An old checklist can be useful
+      if its assumptions still hold. You can make your experience easier to share by explaining the steps and inviting
+      corrections. A comfortable approach gains value when it remains responsive to changed requirements rather
+      than simply feeling recognizable.
+    advice:
+      - Test a broad principle against a specific example.
+    do:
+      - Stay curious
+    dont:
+      - Claim authority
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.guru.moolatrikona
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=guru].dignity
+    eq: moolatrikona
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星 · 本源三角：观察实际条件
+    summary: 你可以让专长有清楚的适用范围，结合木星的主题回看经验。
+    body: 你可以在把见识转为学习时让专长有清楚的适用范围。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这颗行星的状态标为本源三角；本源三角（Moolatrikona，按星座和度数标记的传统强势区间）强调模型里较稳定的发挥环境。你盘中的行星落在引擎划定的区间，但这不是专业资格或表现等级。比如你熟悉某种整理方法，就先说明它能解决哪些问题、哪些情况需要另找工具。建议把擅长的步骤做成可核对的小范例，再依据使用者的反馈更新；清楚的适用边界比把一种方法推广到所有事情更有帮助。
+    advice:
+      - 用真实例子检验一个宽泛观点。
+    do:
+      - 持续学习
+    dont:
+      - 自居权威
+  en:
+    title: 'Guru: moolatrikona'
+    summary: You can define where a practiced method fits in questions of learning with perspective.
+    body:
+      'You can define where a practiced method fits when exploring learning with perspective. Guru — Jupiter,
+      a symbol of perspective and learning — asks how a larger idea changes an ordinary decision. The position invites
+      reflection on guidance, without establishing that your advice is appropriate for everyone. You can test a
+      broad principle against a real example and ask an experienced person where it stops being useful. Curiosity
+      leaves more room for growth than needing to sound certain. This planet is marked moolatrikona. Moolatrikona
+      — a degree-defined zone treated as supportive in the traditional model — is a label for the planet’s recorded
+      position. It does not certify expertise or assess the quality of your work. Suppose you have a familiar way
+      of organizing notes: showing a small example and explaining where it stops being useful can make the method
+      easier to evaluate. Consider describing its scope before recommending it to someone else. A practiced approach
+      remains useful through review and adaptation, and actual training, experience, and feedback provide the information
+      that this positional label cannot.'
+    advice:
+      - Test a broad principle against a specific example.
+    do:
+      - Stay curious
+    dont:
+      - Claim authority
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.guru.debilitated
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=guru].dignity
+    eq: debilitated
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星 · 落：观察实际条件
+    summary: 你可以给不顺手的部分安排练习，结合木星的主题回看经验。
+    body: 你可以在把见识转为学习时给不顺手的部分安排练习。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这颗行星的状态标为落；落（Debilitated，传统把某些位置标为较不顺手的环境）描述的是符号关系，不是对你的贬低。你盘中的这颗行星带有此标记，可以用来提醒自己多看条件和方法，而不急着评价结果。比如一个不熟悉的任务让你犹豫，就把最难的步骤单独练习，或请同伴示范。建议先改善可以调整的一项条件，保留足够准备时间；不过，一个状态不能概括整体配置，更不能取代对真实能力的了解。
+    advice:
+      - 用真实例子检验一个宽泛观点。
+    do:
+      - 持续学习
+    dont:
+      - 自居权威
+  en:
+    title: 'Guru: debilitated'
+    summary: You can give an awkward step a manageable practice in questions of learning with perspective.
+    body:
+      You can give an awkward step a manageable practice when exploring learning with perspective. Guru — Jupiter,
+      a symbol of perspective and learning — asks how a larger idea changes an ordinary decision. The position invites
+      reflection on guidance, without establishing that your advice is appropriate for everyone. You can test a
+      broad principle against a real example and ask an experienced person where it stops being useful. Curiosity
+      leaves more room for growth than needing to sound certain. This planet is marked debilitated. Debilitated
+      — a traditional dignity label for a less comfortable placement — describes a symbolic relationship, not a
+      shortcoming in you. The recorded state can prompt attention to methods and conditions before judging an outcome.
+      If a task feels unfamiliar, isolate the difficult step and ask for an example rather than expecting immediate
+      fluency. You can adjust one practical condition and allow time to practise. Other chart factors supply context,
+      while your actual skills and access to support matter in everyday decisions. Consider treating this as a question
+      about what makes participation easier, not as a reason to lower your expectations of yourself.
+    advice:
+      - Test a broad principle against a specific example.
+    do:
+      - Stay curious
+    dont:
+      - Claim authority
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.guru.friend
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=guru].dignity
+    eq: friend
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星 · 友宫：观察实际条件
+    summary: 你可以利用合适条件也明确自己的需要，结合木星的主题回看经验。
+    body: 你可以在把见识转为学习时利用合适条件也明确自己的需要。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这颗行星的状态标为友宫；友宫（Friend，按行星与星座主星的传统友好表标记的位置）说明引擎如何分类环境。你盘中的行星获得这项标记，不表示现实中的人自动支持你。比如加入熟悉的学习小组，你仍然需要说清希望讨论什么、能投入多少时间。建议把便利转成具体协作，核对资源是否确实可用；对真实关系的理解要来自回应和约定，不能从行星之间的象征关系直接推断。
+    advice:
+      - 用真实例子检验一个宽泛观点。
+    do:
+      - 持续学习
+    dont:
+      - 自居权威
+  en:
+    title: 'Guru: friendly sign'
+    summary: You can use support while naming your needs in questions of learning with perspective.
+    body:
+      You can use support while naming your needs when exploring learning with perspective. Guru — Jupiter,
+      a symbol of perspective and learning — asks how a larger idea changes an ordinary decision. The position invites
+      reflection on guidance, without establishing that your advice is appropriate for everyone. You can test a
+      broad principle against a real example and ask an experienced person where it stops being useful. Curiosity
+      leaves more room for growth than needing to sound certain. This planet is marked friendly sign. Friendly sign
+      — a label drawn from the traditional relationship between a planet and the sign’s ruler — classifies the symbolic
+      setting. It does not establish who will support you in real life. In a familiar study group, useful cooperation
+      still depends on explaining your question and checking whether someone has time to discuss it. Try turning
+      an apparently convenient situation into a specific arrangement. Actual responses and available resources reveal
+      the support you can use; relationships between chart symbols cannot supply that evidence or speak for another
+      person’s intentions.
+    advice:
+      - Test a broad principle against a specific example.
+    do:
+      - Stay curious
+    dont:
+      - Claim authority
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.guru.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=guru].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合木星的主题回看经验。
+    body: 你可以在把见识转为学习时先看情境再评价表现。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 用真实例子检验一个宽泛观点。
+    do:
+      - 持续学习
+    dont:
+      - 自居权威
+  en:
+    title: 'Guru: neutral sign'
+    summary: You can let context guide the evaluation in questions of learning with perspective.
+    body:
+      You can let context guide the evaluation when exploring learning with perspective. Guru — Jupiter, a symbol
+      of perspective and learning — asks how a larger idea changes an ordinary decision. The position invites reflection
+      on guidance, without establishing that your advice is appropriate for everyone. You can test a broad principle
+      against a real example and ask an experienced person where it stops being useful. Curiosity leaves more room
+      for growth than needing to sound certain. This planet is marked neutral sign. Neutral sign — a dignity category
+      without a special friendship or friction label in this implementation — leaves the symbolic setting open to
+      context. It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking
+      the purpose, tools, and expectations can tell you more than the absence of a striking label. You can compare
+      two practical approaches and note which one makes the work clearer. Ordinary experience deserves attention
+      even when a classification seems unremarkable. Consider evaluating the method through use, with the rest of
+      the chart and your real circumstances providing additional perspective.
+    advice:
+      - Test a broad principle against a specific example.
+    do:
+      - Stay curious
+    dont:
+      - Claim authority
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.guru.enemy
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=guru].dignity
+    eq: enemy
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星 · 敌宫：观察实际条件
+    summary: 你可以把摩擦转成条件核对，结合木星的主题回看经验。
+    body: 你可以在把见识转为学习时把摩擦转成条件核对。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这颗行星的状态标为敌宫；敌宫（Enemy，传统按行星与星座主星的关系标记的较费力环境）不是对现实人物的称呼。你盘中的行星带有这个状态，可以提醒你在表达或执行时核对条件，而不是把谁当成阻碍。比如合作节奏不同，你先讨论交接时间和信息格式，找到能够调整的部分。建议把摩擦落实为一个具体问题，给双方选择不同方法的空间；不过，标签不能替代沟通，也不能说明实际结果会怎样发展。
+    advice:
+      - 用真实例子检验一个宽泛观点。
+    do:
+      - 持续学习
+    dont:
+      - 自居权威
+  en:
+    title: 'Guru: challenging sign'
+    summary: You can translate friction into a context check in questions of learning with perspective.
+    body:
+      You can translate friction into a context check when exploring learning with perspective. Guru — Jupiter,
+      a symbol of perspective and learning — asks how a larger idea changes an ordinary decision. The position invites
+      reflection on guidance, without establishing that your advice is appropriate for everyone. You can test a
+      broad principle against a real example and ask an experienced person where it stops being useful. Curiosity
+      leaves more room for growth than needing to sound certain. This planet is marked challenging sign. Challenging
+      sign — the category called enemy in the traditional friendship table — concerns relationships between symbols,
+      not hostility between people. The recorded state invites a check of how a method fits its context. If collaborators
+      work at different speeds, agreeing on a handover time and information format can make the friction more specific.
+      You can adjust that arrangement without deciding that someone opposes you. Consider asking what each person
+      needs to proceed, and test one change before expanding it. A chart label cannot establish another person’s
+      intentions or determine the outcome of an actual collaboration.
+    advice:
+      - Test a broad principle against a specific example.
+    do:
+      - Stay curious
+    dont:
+      - Claim authority
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shukra.exalted
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shukra].dignity
+    eq: exalted
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星 · 旺：观察实际条件
+    summary: 你可以在顺手的条件下使用能力，结合金星的主题回看经验。
+    body: 你可以在认真看待互惠时在顺手的条件下使用能力。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这颗行星的状态标为旺；旺（Exalted，行星落在传统认为较便于发挥的星座）只是模型内的一种位置标记。你盘中的这颗行星获得了这个状态，适合观察相关习惯在什么条件下更顺手。它不衡量现实能力，也不说明事情会自动完成。比如一项任务恰好符合你熟悉的方法，你可以利用经验先做示范，同时问同伴哪里仍然难懂。建议把顺手当作分享和试验的入口，别让一个有利标签代替准备与反馈。
+    advice:
+      - 表达一种偏好，并认真听取对方回应。
+    do:
+      - 尊重意愿
+    dont:
+      - 单向迎合
+  en:
+    title: 'Shukra: exalted'
+    summary: You can use a comfortable symbolic setting in questions of reciprocity and enjoyment.
+    body:
+      'You can use a comfortable symbolic setting when exploring reciprocity and enjoyment. Shukra — Venus,
+      a symbol of enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading can
+      prompt a conversation about preferences without assigning a partner or a timetable for commitment. You can
+      describe what you enjoy and ask whether someone else wants to share it. Mutual interest matters more than
+      a scene that merely looks harmonious from outside. This planet is marked exalted. Exalted — a dignity label
+      for a traditionally supportive zodiac placement — describes a setting within the model. Your recorded planet
+      carries this label, inviting a question about where its symbolic function feels easier to use. It does not
+      measure ability or finish a task for you. Imagine a responsibility that suits a method you know well: a short
+      demonstration may help, but a colleague still needs room to ask about unfamiliar steps. Consider using comfort
+      as a starting point for sharing and testing, and let preparation and actual feedback determine how well the
+      approach works.'
+    advice:
+      - Share a preference and check whether the interest is mutual.
+    do:
+      - Respect consent
+    dont:
+      - Perform harmony
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shukra.own
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shukra].dignity
+    eq: own
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星 · 自宫：观察实际条件
+    summary: 你可以用熟悉方法也接纳反馈，结合金星的主题回看经验。
+    body: 你可以在认真看待互惠时用熟悉方法也接纳反馈。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这颗行星的状态标为自宫；自宫（Own，行星位于自己传统守护的星座）表示符号之间有较直接的对应关系。你盘中的这颗行星处在这样的环境，适合比较熟悉方法带来的便利与局限。熟悉不能替代对新情境的了解。比如你负责一项做过的任务，先核对这次的目标和参与者，再取用旧资料。建议把经验整理成别人也能看懂的步骤，遇到不同需要时及时调整，而不是只重复原有做法。
+    advice:
+      - 表达一种偏好，并认真听取对方回应。
+    do:
+      - 尊重意愿
+    dont:
+      - 单向迎合
+  en:
+    title: 'Shukra: own sign'
+    summary: You can use familiarity without closing enquiry in questions of reciprocity and enjoyment.
+    body:
+      You can use familiarity without closing enquiry when exploring reciprocity and enjoyment. Shukra — Venus,
+      a symbol of enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading can
+      prompt a conversation about preferences without assigning a partner or a timetable for commitment. You can
+      describe what you enjoy and ask whether someone else wants to share it. Mutual interest matters more than
+      a scene that merely looks harmonious from outside. This planet is marked own sign. Own sign — a placement
+      in a planet’s traditional domicile — indicates a direct relationship between the symbols used here. It offers
+      a prompt about familiarity, not proof that a method suits every situation. Before repeating an established
+      routine, check what the present task asks of you and who else is involved. An old checklist can be useful
+      if its assumptions still hold. You can make your experience easier to share by explaining the steps and inviting
+      corrections. A comfortable approach gains value when it remains responsive to changed requirements rather
+      than simply feeling recognizable.
+    advice:
+      - Share a preference and check whether the interest is mutual.
+    do:
+      - Respect consent
+    dont:
+      - Perform harmony
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shukra.moolatrikona
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shukra].dignity
+    eq: moolatrikona
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星 · 本源三角：观察实际条件
+    summary: 你可以让专长有清楚的适用范围，结合金星的主题回看经验。
+    body: 你可以在认真看待互惠时让专长有清楚的适用范围。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这颗行星的状态标为本源三角；本源三角（Moolatrikona，按星座和度数标记的传统强势区间）强调模型里较稳定的发挥环境。你盘中的行星落在引擎划定的区间，但这不是专业资格或表现等级。比如你熟悉某种整理方法，就先说明它能解决哪些问题、哪些情况需要另找工具。建议把擅长的步骤做成可核对的小范例，再依据使用者的反馈更新；清楚的适用边界比把一种方法推广到所有事情更有帮助。
+    advice:
+      - 表达一种偏好，并认真听取对方回应。
+    do:
+      - 尊重意愿
+    dont:
+      - 单向迎合
+  en:
+    title: 'Shukra: moolatrikona'
+    summary: You can define where a practiced method fits in questions of reciprocity and enjoyment.
+    body:
+      'You can define where a practiced method fits when exploring reciprocity and enjoyment. Shukra — Venus,
+      a symbol of enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading can
+      prompt a conversation about preferences without assigning a partner or a timetable for commitment. You can
+      describe what you enjoy and ask whether someone else wants to share it. Mutual interest matters more than
+      a scene that merely looks harmonious from outside. This planet is marked moolatrikona. Moolatrikona — a degree-defined
+      zone treated as supportive in the traditional model — is a label for the planet’s recorded position. It does
+      not certify expertise or assess the quality of your work. Suppose you have a familiar way of organizing notes:
+      showing a small example and explaining where it stops being useful can make the method easier to evaluate.
+      Consider describing its scope before recommending it to someone else. A practiced approach remains useful
+      through review and adaptation, and actual training, experience, and feedback provide the information that
+      this positional label cannot.'
+    advice:
+      - Share a preference and check whether the interest is mutual.
+    do:
+      - Respect consent
+    dont:
+      - Perform harmony
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shukra.debilitated
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shukra].dignity
+    eq: debilitated
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星 · 落：观察实际条件
+    summary: 你可以给不顺手的部分安排练习，结合金星的主题回看经验。
+    body: 你可以在认真看待互惠时给不顺手的部分安排练习。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这颗行星的状态标为落；落（Debilitated，传统把某些位置标为较不顺手的环境）描述的是符号关系，不是对你的贬低。你盘中的这颗行星带有此标记，可以用来提醒自己多看条件和方法，而不急着评价结果。比如一个不熟悉的任务让你犹豫，就把最难的步骤单独练习，或请同伴示范。建议先改善可以调整的一项条件，保留足够准备时间；不过，一个状态不能概括整体配置，更不能取代对真实能力的了解。
+    advice:
+      - 表达一种偏好，并认真听取对方回应。
+    do:
+      - 尊重意愿
+    dont:
+      - 单向迎合
+  en:
+    title: 'Shukra: debilitated'
+    summary: You can give an awkward step a manageable practice in questions of reciprocity and enjoyment.
+    body:
+      You can give an awkward step a manageable practice when exploring reciprocity and enjoyment. Shukra —
+      Venus, a symbol of enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading
+      can prompt a conversation about preferences without assigning a partner or a timetable for commitment. You
+      can describe what you enjoy and ask whether someone else wants to share it. Mutual interest matters more than
+      a scene that merely looks harmonious from outside. This planet is marked debilitated. Debilitated — a traditional
+      dignity label for a less comfortable placement — describes a symbolic relationship, not a shortcoming in you.
+      The recorded state can prompt attention to methods and conditions before judging an outcome. If a task feels
+      unfamiliar, isolate the difficult step and ask for an example rather than expecting immediate fluency. You
+      can adjust one practical condition and allow time to practise. Other chart factors supply context, while your
+      actual skills and access to support matter in everyday decisions. Consider treating this as a question about
+      what makes participation easier, not as a reason to lower your expectations of yourself.
+    advice:
+      - Share a preference and check whether the interest is mutual.
+    do:
+      - Respect consent
+    dont:
+      - Perform harmony
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shukra.friend
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shukra].dignity
+    eq: friend
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星 · 友宫：观察实际条件
+    summary: 你可以利用合适条件也明确自己的需要，结合金星的主题回看经验。
+    body: 你可以在认真看待互惠时利用合适条件也明确自己的需要。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这颗行星的状态标为友宫；友宫（Friend，按行星与星座主星的传统友好表标记的位置）说明引擎如何分类环境。你盘中的行星获得这项标记，不表示现实中的人自动支持你。比如加入熟悉的学习小组，你仍然需要说清希望讨论什么、能投入多少时间。建议把便利转成具体协作，核对资源是否确实可用；对真实关系的理解要来自回应和约定，不能从行星之间的象征关系直接推断。
+    advice:
+      - 表达一种偏好，并认真听取对方回应。
+    do:
+      - 尊重意愿
+    dont:
+      - 单向迎合
+  en:
+    title: 'Shukra: friendly sign'
+    summary: You can use support while naming your needs in questions of reciprocity and enjoyment.
+    body:
+      You can use support while naming your needs when exploring reciprocity and enjoyment. Shukra — Venus,
+      a symbol of enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading can
+      prompt a conversation about preferences without assigning a partner or a timetable for commitment. You can
+      describe what you enjoy and ask whether someone else wants to share it. Mutual interest matters more than
+      a scene that merely looks harmonious from outside. This planet is marked friendly sign. Friendly sign — a
+      label drawn from the traditional relationship between a planet and the sign’s ruler — classifies the symbolic
+      setting. It does not establish who will support you in real life. In a familiar study group, useful cooperation
+      still depends on explaining your question and checking whether someone has time to discuss it. Try turning
+      an apparently convenient situation into a specific arrangement. Actual responses and available resources reveal
+      the support you can use; relationships between chart symbols cannot supply that evidence or speak for another
+      person’s intentions.
+    advice:
+      - Share a preference and check whether the interest is mutual.
+    do:
+      - Respect consent
+    dont:
+      - Perform harmony
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shukra.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shukra].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合金星的主题回看经验。
+    body: 你可以在认真看待互惠时先看情境再评价表现。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 表达一种偏好，并认真听取对方回应。
+    do:
+      - 尊重意愿
+    dont:
+      - 单向迎合
+  en:
+    title: 'Shukra: neutral sign'
+    summary: You can let context guide the evaluation in questions of reciprocity and enjoyment.
+    body:
+      You can let context guide the evaluation when exploring reciprocity and enjoyment. Shukra — Venus, a symbol
+      of enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading can prompt
+      a conversation about preferences without assigning a partner or a timetable for commitment. You can describe
+      what you enjoy and ask whether someone else wants to share it. Mutual interest matters more than a scene that
+      merely looks harmonious from outside. This planet is marked neutral sign. Neutral sign — a dignity category
+      without a special friendship or friction label in this implementation — leaves the symbolic setting open to
+      context. It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking
+      the purpose, tools, and expectations can tell you more than the absence of a striking label. You can compare
+      two practical approaches and note which one makes the work clearer. Ordinary experience deserves attention
+      even when a classification seems unremarkable. Consider evaluating the method through use, with the rest of
+      the chart and your real circumstances providing additional perspective.
+    advice:
+      - Share a preference and check whether the interest is mutual.
+    do:
+      - Respect consent
+    dont:
+      - Perform harmony
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shukra.enemy
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shukra].dignity
+    eq: enemy
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星 · 敌宫：观察实际条件
+    summary: 你可以把摩擦转成条件核对，结合金星的主题回看经验。
+    body: 你可以在认真看待互惠时把摩擦转成条件核对。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这颗行星的状态标为敌宫；敌宫（Enemy，传统按行星与星座主星的关系标记的较费力环境）不是对现实人物的称呼。你盘中的行星带有这个状态，可以提醒你在表达或执行时核对条件，而不是把谁当成阻碍。比如合作节奏不同，你先讨论交接时间和信息格式，找到能够调整的部分。建议把摩擦落实为一个具体问题，给双方选择不同方法的空间；不过，标签不能替代沟通，也不能说明实际结果会怎样发展。
+    advice:
+      - 表达一种偏好，并认真听取对方回应。
+    do:
+      - 尊重意愿
+    dont:
+      - 单向迎合
+  en:
+    title: 'Shukra: challenging sign'
+    summary: You can translate friction into a context check in questions of reciprocity and enjoyment.
+    body:
+      You can translate friction into a context check when exploring reciprocity and enjoyment. Shukra — Venus,
+      a symbol of enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading can
+      prompt a conversation about preferences without assigning a partner or a timetable for commitment. You can
+      describe what you enjoy and ask whether someone else wants to share it. Mutual interest matters more than
+      a scene that merely looks harmonious from outside. This planet is marked challenging sign. Challenging sign
+      — the category called enemy in the traditional friendship table — concerns relationships between symbols,
+      not hostility between people. The recorded state invites a check of how a method fits its context. If collaborators
+      work at different speeds, agreeing on a handover time and information format can make the friction more specific.
+      You can adjust that arrangement without deciding that someone opposes you. Consider asking what each person
+      needs to proceed, and test one change before expanding it. A chart label cannot establish another person’s
+      intentions or determine the outcome of an actual collaboration.
+    advice:
+      - Share a preference and check whether the interest is mutual.
+    do:
+      - Respect consent
+    dont:
+      - Perform harmony
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shani.exalted
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shani].dignity
+    eq: exalted
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星 · 旺：观察实际条件
+    summary: 你可以在顺手的条件下使用能力，结合土星的主题回看经验。
+    body: 你可以在把责任拆成步骤时在顺手的条件下使用能力。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这颗行星的状态标为旺；旺（Exalted，行星落在传统认为较便于发挥的星座）只是模型内的一种位置标记。你盘中的这颗行星获得了这个状态，适合观察相关习惯在什么条件下更顺手。它不衡量现实能力，也不说明事情会自动完成。比如一项任务恰好符合你熟悉的方法，你可以利用经验先做示范，同时问同伴哪里仍然难懂。建议把顺手当作分享和试验的入口，别让一个有利标签代替准备与反馈。
+    advice:
+      - 把长期责任分成自己的部分与可协作部分。
+    do:
+      - 安排交接
+    dont:
+      - 独自承担
+  en:
+    title: 'Shani: exalted'
+    summary: You can use a comfortable symbolic setting in questions of responsibility in practice.
+    body:
+      'You can use a comfortable symbolic setting when exploring responsibility in practice. Shani — Saturn,
+      a symbol of time and boundaries — asks which commitments you can maintain under ordinary conditions. A patient
+      method may be useful, while carrying every responsibility yourself can make a process fragile. You can separate
+      essential work from optional demands and agree on a handover before capacity runs low. Reliability includes
+      limits and the ability to request support. This planet is marked exalted. Exalted — a dignity label for a
+      traditionally supportive zodiac placement — describes a setting within the model. Your recorded planet carries
+      this label, inviting a question about where its symbolic function feels easier to use. It does not measure
+      ability or finish a task for you. Imagine a responsibility that suits a method you know well: a short demonstration
+      may help, but a colleague still needs room to ask about unfamiliar steps. Consider using comfort as a starting
+      point for sharing and testing, and let preparation and actual feedback determine how well the approach works.'
+    advice:
+      - Agree on a handover for a responsibility that recurs.
+    do:
+      - Plan handovers
+    dont:
+      - Absorb everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shani.own
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shani].dignity
+    eq: own
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星 · 自宫：观察实际条件
+    summary: 你可以用熟悉方法也接纳反馈，结合土星的主题回看经验。
+    body: 你可以在把责任拆成步骤时用熟悉方法也接纳反馈。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这颗行星的状态标为自宫；自宫（Own，行星位于自己传统守护的星座）表示符号之间有较直接的对应关系。你盘中的这颗行星处在这样的环境，适合比较熟悉方法带来的便利与局限。熟悉不能替代对新情境的了解。比如你负责一项做过的任务，先核对这次的目标和参与者，再取用旧资料。建议把经验整理成别人也能看懂的步骤，遇到不同需要时及时调整，而不是只重复原有做法。
+    advice:
+      - 把长期责任分成自己的部分与可协作部分。
+    do:
+      - 安排交接
+    dont:
+      - 独自承担
+  en:
+    title: 'Shani: own sign'
+    summary: You can use familiarity without closing enquiry in questions of responsibility in practice.
+    body:
+      You can use familiarity without closing enquiry when exploring responsibility in practice. Shani — Saturn,
+      a symbol of time and boundaries — asks which commitments you can maintain under ordinary conditions. A patient
+      method may be useful, while carrying every responsibility yourself can make a process fragile. You can separate
+      essential work from optional demands and agree on a handover before capacity runs low. Reliability includes
+      limits and the ability to request support. This planet is marked own sign. Own sign — a placement in a planet’s
+      traditional domicile — indicates a direct relationship between the symbols used here. It offers a prompt about
+      familiarity, not proof that a method suits every situation. Before repeating an established routine, check
+      what the present task asks of you and who else is involved. An old checklist can be useful if its assumptions
+      still hold. You can make your experience easier to share by explaining the steps and inviting corrections.
+      A comfortable approach gains value when it remains responsive to changed requirements rather than simply feeling
+      recognizable.
+    advice:
+      - Agree on a handover for a responsibility that recurs.
+    do:
+      - Plan handovers
+    dont:
+      - Absorb everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shani.moolatrikona
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shani].dignity
+    eq: moolatrikona
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星 · 本源三角：观察实际条件
+    summary: 你可以让专长有清楚的适用范围，结合土星的主题回看经验。
+    body: 你可以在把责任拆成步骤时让专长有清楚的适用范围。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这颗行星的状态标为本源三角；本源三角（Moolatrikona，按星座和度数标记的传统强势区间）强调模型里较稳定的发挥环境。你盘中的行星落在引擎划定的区间，但这不是专业资格或表现等级。比如你熟悉某种整理方法，就先说明它能解决哪些问题、哪些情况需要另找工具。建议把擅长的步骤做成可核对的小范例，再依据使用者的反馈更新；清楚的适用边界比把一种方法推广到所有事情更有帮助。
+    advice:
+      - 把长期责任分成自己的部分与可协作部分。
+    do:
+      - 安排交接
+    dont:
+      - 独自承担
+  en:
+    title: 'Shani: moolatrikona'
+    summary: You can define where a practiced method fits in questions of responsibility in practice.
+    body:
+      'You can define where a practiced method fits when exploring responsibility in practice. Shani — Saturn,
+      a symbol of time and boundaries — asks which commitments you can maintain under ordinary conditions. A patient
+      method may be useful, while carrying every responsibility yourself can make a process fragile. You can separate
+      essential work from optional demands and agree on a handover before capacity runs low. Reliability includes
+      limits and the ability to request support. This planet is marked moolatrikona. Moolatrikona — a degree-defined
+      zone treated as supportive in the traditional model — is a label for the planet’s recorded position. It does
+      not certify expertise or assess the quality of your work. Suppose you have a familiar way of organizing notes:
+      showing a small example and explaining where it stops being useful can make the method easier to evaluate.
+      Consider describing its scope before recommending it to someone else. A practiced approach remains useful
+      through review and adaptation, and actual training, experience, and feedback provide the information that
+      this positional label cannot.'
+    advice:
+      - Agree on a handover for a responsibility that recurs.
+    do:
+      - Plan handovers
+    dont:
+      - Absorb everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shani.debilitated
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shani].dignity
+    eq: debilitated
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星 · 落：观察实际条件
+    summary: 你可以给不顺手的部分安排练习，结合土星的主题回看经验。
+    body: 你可以在把责任拆成步骤时给不顺手的部分安排练习。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这颗行星的状态标为落；落（Debilitated，传统把某些位置标为较不顺手的环境）描述的是符号关系，不是对你的贬低。你盘中的这颗行星带有此标记，可以用来提醒自己多看条件和方法，而不急着评价结果。比如一个不熟悉的任务让你犹豫，就把最难的步骤单独练习，或请同伴示范。建议先改善可以调整的一项条件，保留足够准备时间；不过，一个状态不能概括整体配置，更不能取代对真实能力的了解。
+    advice:
+      - 把长期责任分成自己的部分与可协作部分。
+    do:
+      - 安排交接
+    dont:
+      - 独自承担
+  en:
+    title: 'Shani: debilitated'
+    summary: You can give an awkward step a manageable practice in questions of responsibility in practice.
+    body:
+      You can give an awkward step a manageable practice when exploring responsibility in practice. Shani —
+      Saturn, a symbol of time and boundaries — asks which commitments you can maintain under ordinary conditions.
+      A patient method may be useful, while carrying every responsibility yourself can make a process fragile. You
+      can separate essential work from optional demands and agree on a handover before capacity runs low. Reliability
+      includes limits and the ability to request support. This planet is marked debilitated. Debilitated — a traditional
+      dignity label for a less comfortable placement — describes a symbolic relationship, not a shortcoming in you.
+      The recorded state can prompt attention to methods and conditions before judging an outcome. If a task feels
+      unfamiliar, isolate the difficult step and ask for an example rather than expecting immediate fluency. You
+      can adjust one practical condition and allow time to practise. Other chart factors supply context, while your
+      actual skills and access to support matter in everyday decisions. Consider treating this as a question about
+      what makes participation easier, not as a reason to lower your expectations of yourself.
+    advice:
+      - Agree on a handover for a responsibility that recurs.
+    do:
+      - Plan handovers
+    dont:
+      - Absorb everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shani.friend
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shani].dignity
+    eq: friend
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星 · 友宫：观察实际条件
+    summary: 你可以利用合适条件也明确自己的需要，结合土星的主题回看经验。
+    body: 你可以在把责任拆成步骤时利用合适条件也明确自己的需要。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这颗行星的状态标为友宫；友宫（Friend，按行星与星座主星的传统友好表标记的位置）说明引擎如何分类环境。你盘中的行星获得这项标记，不表示现实中的人自动支持你。比如加入熟悉的学习小组，你仍然需要说清希望讨论什么、能投入多少时间。建议把便利转成具体协作，核对资源是否确实可用；对真实关系的理解要来自回应和约定，不能从行星之间的象征关系直接推断。
+    advice:
+      - 把长期责任分成自己的部分与可协作部分。
+    do:
+      - 安排交接
+    dont:
+      - 独自承担
+  en:
+    title: 'Shani: friendly sign'
+    summary: You can use support while naming your needs in questions of responsibility in practice.
+    body:
+      You can use support while naming your needs when exploring responsibility in practice. Shani — Saturn,
+      a symbol of time and boundaries — asks which commitments you can maintain under ordinary conditions. A patient
+      method may be useful, while carrying every responsibility yourself can make a process fragile. You can separate
+      essential work from optional demands and agree on a handover before capacity runs low. Reliability includes
+      limits and the ability to request support. This planet is marked friendly sign. Friendly sign — a label drawn
+      from the traditional relationship between a planet and the sign’s ruler — classifies the symbolic setting.
+      It does not establish who will support you in real life. In a familiar study group, useful cooperation still
+      depends on explaining your question and checking whether someone has time to discuss it. Try turning an apparently
+      convenient situation into a specific arrangement. Actual responses and available resources reveal the support
+      you can use; relationships between chart symbols cannot supply that evidence or speak for another person’s
+      intentions.
+    advice:
+      - Agree on a handover for a responsibility that recurs.
+    do:
+      - Plan handovers
+    dont:
+      - Absorb everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shani.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shani].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合土星的主题回看经验。
+    body: 你可以在把责任拆成步骤时先看情境再评价表现。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 把长期责任分成自己的部分与可协作部分。
+    do:
+      - 安排交接
+    dont:
+      - 独自承担
+  en:
+    title: 'Shani: neutral sign'
+    summary: You can let context guide the evaluation in questions of responsibility in practice.
+    body:
+      You can let context guide the evaluation when exploring responsibility in practice. Shani — Saturn, a
+      symbol of time and boundaries — asks which commitments you can maintain under ordinary conditions. A patient
+      method may be useful, while carrying every responsibility yourself can make a process fragile. You can separate
+      essential work from optional demands and agree on a handover before capacity runs low. Reliability includes
+      limits and the ability to request support. This planet is marked neutral sign. Neutral sign — a dignity category
+      without a special friendship or friction label in this implementation — leaves the symbolic setting open to
+      context. It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking
+      the purpose, tools, and expectations can tell you more than the absence of a striking label. You can compare
+      two practical approaches and note which one makes the work clearer. Ordinary experience deserves attention
+      even when a classification seems unremarkable. Consider evaluating the method through use, with the rest of
+      the chart and your real circumstances providing additional perspective.
+    advice:
+      - Agree on a handover for a responsibility that recurs.
+    do:
+      - Plan handovers
+    dont:
+      - Absorb everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.shani.enemy
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=shani].dignity
+    eq: enemy
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星 · 敌宫：观察实际条件
+    summary: 你可以把摩擦转成条件核对，结合土星的主题回看经验。
+    body: 你可以在把责任拆成步骤时把摩擦转成条件核对。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这颗行星的状态标为敌宫；敌宫（Enemy，传统按行星与星座主星的关系标记的较费力环境）不是对现实人物的称呼。你盘中的行星带有这个状态，可以提醒你在表达或执行时核对条件，而不是把谁当成阻碍。比如合作节奏不同，你先讨论交接时间和信息格式，找到能够调整的部分。建议把摩擦落实为一个具体问题，给双方选择不同方法的空间；不过，标签不能替代沟通，也不能说明实际结果会怎样发展。
+    advice:
+      - 把长期责任分成自己的部分与可协作部分。
+    do:
+      - 安排交接
+    dont:
+      - 独自承担
+  en:
+    title: 'Shani: challenging sign'
+    summary: You can translate friction into a context check in questions of responsibility in practice.
+    body:
+      You can translate friction into a context check when exploring responsibility in practice. Shani — Saturn,
+      a symbol of time and boundaries — asks which commitments you can maintain under ordinary conditions. A patient
+      method may be useful, while carrying every responsibility yourself can make a process fragile. You can separate
+      essential work from optional demands and agree on a handover before capacity runs low. Reliability includes
+      limits and the ability to request support. This planet is marked challenging sign. Challenging sign — the
+      category called enemy in the traditional friendship table — concerns relationships between symbols, not hostility
+      between people. The recorded state invites a check of how a method fits its context. If collaborators work
+      at different speeds, agreeing on a handover time and information format can make the friction more specific.
+      You can adjust that arrangement without deciding that someone opposes you. Consider asking what each person
+      needs to proceed, and test one change before expanding it. A chart label cannot establish another person’s
+      intentions or determine the outcome of an actual collaboration.
+    advice:
+      - Agree on a handover for a responsibility that recurs.
+    do:
+      - Plan handovers
+    dont:
+      - Absorb everything
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.rahu.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=rahu].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 罗睺 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合罗睺的主题回看经验。
+    body: 你可以在核对新鲜感时先看情境再评价表现。罗睺（Rahu，月球轨道与黄道交点之一，作为追求新经验的象征）描述你如何接近陌生领域。它并不是一颗实体行星，相关意象也不能预测突发事件。你可以比较新机会带来的学习价值与实际负担，在好奇心最强时仍核对信息来源。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 为新尝试设一个低成本的观察期。
+    do:
+      - 核对来源
+    dont:
+      - 追逐噱头
+  en:
+    title: 'Rahu: neutral sign'
+    summary: You can let context guide the evaluation in questions of discern unfamiliar attractions.
+    body:
+      You can let context guide the evaluation when exploring discern unfamiliar attractions. Rahu — the north
+      lunar node, a calculated orbital intersection — symbolizes attraction toward unfamiliar experience in this
+      reading. It is not a physical planet or a predictor of sudden events. You can notice what feels compelling
+      about a new environment while checking how well you understand its demands. A small trial supplies better
+      feedback than making a large commitment on novelty alone. This planet is marked neutral sign. Neutral sign
+      — a dignity category without a special friendship or friction label in this implementation — leaves the symbolic
+      setting open to context. It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar
+      assignment, checking the purpose, tools, and expectations can tell you more than the absence of a striking
+      label. You can compare two practical approaches and note which one makes the work clearer. Ordinary experience
+      deserves attention even when a classification seems unremarkable. Consider evaluating the method through use,
+      with the rest of the chart and your real circumstances providing additional perspective.
+    advice:
+      - Use a small trial to check the demands behind an attractive idea.
+    do:
+      - Verify sources
+    dont:
+      - Chase novelty
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.state.ketu.neutral
+  system: vedic
+  section: lagna_planets
+  topic: planet_state
+  when:
+    path: bodies[key=ketu].dignity
+    eq: neutral
+  weight: 61
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 计都 · 中性：观察实际条件
+    summary: 你可以先看情境再评价表现，结合计都的主题回看经验。
+    body: 你可以在给减法留出依据时先看情境再评价表现。计都（Ketu，与罗睺相对的月球轨道交点，作为简化和回顾的象征）描述你如何重新评估熟悉的投入。它不是一颗实体行星，也不要求你放弃关系或现实责任。你可以观察哪些重复动作仍有作用，哪些只是习惯，先做可撤回的减法再决定是否保留。这颗行星的状态标为中性；中性（Neutral，传统状态表中没有特别强调友好或阻力的位置）给你留下比较实际情境的空间。你盘中的行星带有这一标记，不等于相关主题缺少力量或意义。比如参加一个新任务，你先核对目标、工具和同伴的期待，再观察自己哪种方法更顺手。建议用具体体验填充观察，既不把普通表现看低，也不因为缺少突出标签就忽略已有经验；整体命盘和现实条件都需要一起考虑。
+    advice:
+      - 暂停一项非必要安排，再回看实际影响。
+    do:
+      - 简化安排
+    dont:
+      - 突然抽离
+  en:
+    title: 'Ketu: neutral sign'
+    summary: You can let context guide the evaluation in questions of choose what to release.
+    body:
+      You can let context guide the evaluation when exploring choose what to release. Ketu — the south lunar
+      node, opposite Rahu — serves as a symbol of simplification and reconsideration. It does not ask you to withdraw
+      from people or abandon practical responsibilities. You can examine a familiar activity and ask what purpose
+      it still serves. Pausing one optional commitment for a short interval gives you evidence about its value while
+      leaving space to restore it. This planet is marked neutral sign. Neutral sign — a dignity category without
+      a special friendship or friction label in this implementation — leaves the symbolic setting open to context.
+      It does not mean the planet’s theme lacks relevance. When beginning an unfamiliar assignment, checking the
+      purpose, tools, and expectations can tell you more than the absence of a striking label. You can compare two
+      practical approaches and note which one makes the work clearer. Ordinary experience deserves attention even
+      when a classification seems unremarkable. Consider evaluating the method through use, with the rest of the
+      chart and your real circumstances providing additional perspective.
+    advice:
+      - Pause one optional activity and review what the pause changes.
+    do:
+      - Simplify gently
+    dont:
+      - Withdraw abruptly
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.combust.chandra
+  system: vedic
+  section: lagna_planets
+  topic: combust
+  when:
+    path: bodies[key=chandra].combust
+    eq: true
+  weight: 63
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮焦伤：留出表达空间
+    summary: 你可以给安顿感受留出停顿和核对的空间。
+    body: 你可以在安顿感受时，为自己的表达留出一点距离。焦伤（Combust，行星在黄经上靠近太阳的传统位置标记）在你的月亮上出现；这不是实际灼伤，也不能用于身体判断。月亮（在这一体系中作为心绪与日常反应的观察点）描述你怎样恢复熟悉的节奏。它的位置为情绪需要提供比喻，不能用来评估心理状况。你可以从一天里最容易放松的时刻入手，比较陪伴、独处与环境变化对实际感受的影响。这种组合适合观察个人立场与该行星主题是否挤在同一件事里。例如讨论任务时，你先把希望传达的信息与想得到认可的部分分开，再请对方反馈理解。建议给沟通安排一次停顿，用事实和具体问题核对，不因为一个标签否定自己的声音。
+    advice:
+      - 把立场与信息分开说明，再核对对方理解。
+    do:
+      - 停顿核对
+    dont:
+      - 否定自己
+  en:
+    title: 'Chandra combust: space for a response'
+    summary: You can make room to clarify emotional continuity beside a strongly held position.
+    body:
+      'You can give emotional continuity a little room beside your personal position. Combust — a traditional
+      label for closeness to the Sun in zodiac longitude — is recorded for your Chandra. It is a symbolic condition,
+      not physical burning or a health assessment. Chandra — the Moon, used here as a reference for everyday responses
+      — highlights what helps you feel settled. The position is a symbolic prompt about experience rather than an
+      assessment of mental health. Notice how you move between company, solitude, and changing surroundings. You
+      can describe what feels supportive without expecting another person to manage every shift in your mood. Imagine
+      explaining a plan that matters to you personally: separating the information from the wish to be understood
+      may help a listener respond more clearly. Consider taking a pause and asking which point needs clarification.
+      This position supplies a reflection question, while actual exchanges determine whether your message reaches
+      someone.'
+    advice:
+      - Separate your personal stake from the information a listener needs.
+    do:
+      - Pause first
+    dont:
+      - Dismiss yourself
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.combust.mangala
+  system: vedic
+  section: lagna_planets
+  topic: combust
+  when:
+    path: bodies[key=mangala].combust
+    eq: true
+  weight: 63
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星焦伤：留出表达空间
+    summary: 你可以给把力量放进行动留出停顿和核对的空间。
+    body: 你可以在把力量放进行动时，为自己的表达留出一点距离。焦伤（Combust，行星在黄经上靠近太阳的传统位置标记）在你的火星上出现；这不是实际灼伤，也不能用于身体判断。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这种组合适合观察个人立场与该行星主题是否挤在同一件事里。例如讨论任务时，你先把希望传达的信息与想得到认可的部分分开，再请对方反馈理解。建议给沟通安排一次停顿，用事实和具体问题核对，不因为一个标签否定自己的声音。
+    advice:
+      - 把立场与信息分开说明，再核对对方理解。
+    do:
+      - 停顿核对
+    dont:
+      - 否定自己
+  en:
+    title: 'Mangala combust: space for a response'
+    summary: You can make room to clarify directed effort beside a strongly held position.
+    body:
+      'You can give directed effort a little room beside your personal position. Combust — a traditional label
+      for closeness to the Sun in zodiac longitude — is recorded for your Mangala. It is a symbolic condition, not
+      physical burning or a health assessment. Mangala — Mars, a symbol of effort and assertion — asks where you
+      put energy when something needs doing. This position can also prompt you to notice what happens when a disagreement
+      becomes a contest. You can name the task you want completed and make a specific request rather than pursue
+      the last word. Sustainable effort includes a pause before escalating a conflict. Imagine explaining a plan
+      that matters to you personally: separating the information from the wish to be understood may help a listener
+      respond more clearly. Consider taking a pause and asking which point needs clarification. This position supplies
+      a reflection question, while actual exchanges determine whether your message reaches someone.'
+    advice:
+      - Separate your personal stake from the information a listener needs.
+    do:
+      - Pause first
+    dont:
+      - Dismiss yourself
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.combust.budha
+  system: vedic
+  section: lagna_planets
+  topic: combust
+  when:
+    path: bodies[key=budha].combust
+    eq: true
+  weight: 63
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星焦伤：留出表达空间
+    summary: 你可以给让信息便于使用留出停顿和核对的空间。
+    body: 你可以在让信息便于使用时，为自己的表达留出一点距离。焦伤（Combust，行星在黄经上靠近太阳的传统位置标记）在你的水星上出现；这不是实际灼伤，也不能用于身体判断。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这种组合适合观察个人立场与该行星主题是否挤在同一件事里。例如讨论任务时，你先把希望传达的信息与想得到认可的部分分开，再请对方反馈理解。建议给沟通安排一次停顿，用事实和具体问题核对，不因为一个标签否定自己的声音。
+    advice:
+      - 把立场与信息分开说明，再核对对方理解。
+    do:
+      - 停顿核对
+    dont:
+      - 否定自己
+  en:
+    title: 'Budha combust: space for a response'
+    summary: You can make room to clarify usable communication beside a strongly held position.
+    body:
+      'You can give usable communication a little room beside your personal position. Combust — a traditional
+      label for closeness to the Sun in zodiac longitude — is recorded for your Budha. It is a symbolic condition,
+      not physical burning or a health assessment. Budha — Mercury, a symbol of learning and exchange — focuses
+      on the route between an idea and its practical use. Good communication depends on the listener’s context as
+      well as the speaker’s fluency. You can ask what someone needs to do with the information before adding detail.
+      An example or a short check of understanding often reveals more than another round of explanation. Imagine
+      explaining a plan that matters to you personally: separating the information from the wish to be understood
+      may help a listener respond more clearly. Consider taking a pause and asking which point needs clarification.
+      This position supplies a reflection question, while actual exchanges determine whether your message reaches
+      someone.'
+    advice:
+      - Separate your personal stake from the information a listener needs.
+    do:
+      - Pause first
+    dont:
+      - Dismiss yourself
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.combust.guru
+  system: vedic
+  section: lagna_planets
+  topic: combust
+  when:
+    path: bodies[key=guru].combust
+    eq: true
+  weight: 63
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星焦伤：留出表达空间
+    summary: 你可以给把见识转为学习留出停顿和核对的空间。
+    body: 你可以在把见识转为学习时，为自己的表达留出一点距离。焦伤（Combust，行星在黄经上靠近太阳的传统位置标记）在你的木星上出现；这不是实际灼伤，也不能用于身体判断。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这种组合适合观察个人立场与该行星主题是否挤在同一件事里。例如讨论任务时，你先把希望传达的信息与想得到认可的部分分开，再请对方反馈理解。建议给沟通安排一次停顿，用事实和具体问题核对，不因为一个标签否定自己的声音。
+    advice:
+      - 把立场与信息分开说明，再核对对方理解。
+    do:
+      - 停顿核对
+    dont:
+      - 否定自己
+  en:
+    title: 'Guru combust: space for a response'
+    summary: You can make room to clarify learning with perspective beside a strongly held position.
+    body:
+      'You can give learning with perspective a little room beside your personal position. Combust — a traditional
+      label for closeness to the Sun in zodiac longitude — is recorded for your Guru. It is a symbolic condition,
+      not physical burning or a health assessment. Guru — Jupiter, a symbol of perspective and learning — asks how
+      a larger idea changes an ordinary decision. The position invites reflection on guidance, without establishing
+      that your advice is appropriate for everyone. You can test a broad principle against a real example and ask
+      an experienced person where it stops being useful. Curiosity leaves more room for growth than needing to sound
+      certain. Imagine explaining a plan that matters to you personally: separating the information from the wish
+      to be understood may help a listener respond more clearly. Consider taking a pause and asking which point
+      needs clarification. This position supplies a reflection question, while actual exchanges determine whether
+      your message reaches someone.'
+    advice:
+      - Separate your personal stake from the information a listener needs.
+    do:
+      - Pause first
+    dont:
+      - Dismiss yourself
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.combust.shukra
+  system: vedic
+  section: lagna_planets
+  topic: combust
+  when:
+    path: bodies[key=shukra].combust
+    eq: true
+  weight: 63
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星焦伤：留出表达空间
+    summary: 你可以给认真看待互惠留出停顿和核对的空间。
+    body: 你可以在认真看待互惠时，为自己的表达留出一点距离。焦伤（Combust，行星在黄经上靠近太阳的传统位置标记）在你的金星上出现；这不是实际灼伤，也不能用于身体判断。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这种组合适合观察个人立场与该行星主题是否挤在同一件事里。例如讨论任务时，你先把希望传达的信息与想得到认可的部分分开，再请对方反馈理解。建议给沟通安排一次停顿，用事实和具体问题核对，不因为一个标签否定自己的声音。
+    advice:
+      - 把立场与信息分开说明，再核对对方理解。
+    do:
+      - 停顿核对
+    dont:
+      - 否定自己
+  en:
+    title: 'Shukra combust: space for a response'
+    summary: You can make room to clarify reciprocity and enjoyment beside a strongly held position.
+    body:
+      'You can give reciprocity and enjoyment a little room beside your personal position. Combust — a traditional
+      label for closeness to the Sun in zodiac longitude — is recorded for your Shukra. It is a symbolic condition,
+      not physical burning or a health assessment. Shukra — Venus, a symbol of enjoyment and reciprocity — highlights
+      how you recognize a satisfying exchange. The reading can prompt a conversation about preferences without assigning
+      a partner or a timetable for commitment. You can describe what you enjoy and ask whether someone else wants
+      to share it. Mutual interest matters more than a scene that merely looks harmonious from outside. Imagine
+      explaining a plan that matters to you personally: separating the information from the wish to be understood
+      may help a listener respond more clearly. Consider taking a pause and asking which point needs clarification.
+      This position supplies a reflection question, while actual exchanges determine whether your message reaches
+      someone.'
+    advice:
+      - Separate your personal stake from the information a listener needs.
+    do:
+      - Pause first
+    dont:
+      - Dismiss yourself
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.combust.shani
+  system: vedic
+  section: lagna_planets
+  topic: combust
+  when:
+    path: bodies[key=shani].combust
+    eq: true
+  weight: 63
+  polarity: mixed
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星焦伤：留出表达空间
+    summary: 你可以给把责任拆成步骤留出停顿和核对的空间。
+    body: 你可以在把责任拆成步骤时，为自己的表达留出一点距离。焦伤（Combust，行星在黄经上靠近太阳的传统位置标记）在你的土星上出现；这不是实际灼伤，也不能用于身体判断。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这种组合适合观察个人立场与该行星主题是否挤在同一件事里。例如讨论任务时，你先把希望传达的信息与想得到认可的部分分开，再请对方反馈理解。建议给沟通安排一次停顿，用事实和具体问题核对，不因为一个标签否定自己的声音。
+    advice:
+      - 把立场与信息分开说明，再核对对方理解。
+    do:
+      - 停顿核对
+    dont:
+      - 否定自己
+  en:
+    title: 'Shani combust: space for a response'
+    summary: You can make room to clarify responsibility in practice beside a strongly held position.
+    body:
+      'You can give responsibility in practice a little room beside your personal position. Combust — a traditional
+      label for closeness to the Sun in zodiac longitude — is recorded for your Shani. It is a symbolic condition,
+      not physical burning or a health assessment. Shani — Saturn, a symbol of time and boundaries — asks which
+      commitments you can maintain under ordinary conditions. A patient method may be useful, while carrying every
+      responsibility yourself can make a process fragile. You can separate essential work from optional demands
+      and agree on a handover before capacity runs low. Reliability includes limits and the ability to request support.
+      Imagine explaining a plan that matters to you personally: separating the information from the wish to be understood
+      may help a listener respond more clearly. Consider taking a pause and asking which point needs clarification.
+      This position supplies a reflection question, while actual exchanges determine whether your message reaches
+      someone.'
+    advice:
+      - Separate your personal stake from the information a listener needs.
+    do:
+      - Pause first
+    dont:
+      - Dismiss yourself
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.retro.mangala
+  system: vedic
+  section: lagna_planets
+  topic: retro
+  when:
+    path: bodies[key=mangala].retro
+    eq: true
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 火星逆行：回顾一个步骤
+    summary: 你可以通过回顾，检查把力量放进行动的方法是否仍适用。
+    body: 你可以在把力量放进行动时，多留一个回顾的方法。逆行（Retrograde，从地球看行星在黄道方向上暂时反向移动）在你的火星上被标记；它不是行星实际倒着绕行，也不表示安排会出错。火星（以行动和应对摩擦为象征的行星）描述你怎样启动任务、表达不同意见。它的位置提示精力可能投向哪里，不表示你需要与谁竞争。你可以把不满改写成具体的改进请求，区分眼前要完成的事和一时想赢的争论。这个位置适合把重复核对当成学习过程。例如整理一次未完成的任务，你先找出原先理解与实际需要的差异，再修改一个步骤。建议依据现实期限安排复盘，用新的信息更新方法；不必因为天象标签暂停正常选择，也不用把所有变化都归到这一点。
+    advice:
+      - 用新信息核对一项旧安排，再决定是否调整。
+    do:
+      - 回看方法
+    dont:
+      - 预设失误
+  en:
+    title: 'Mangala retrograde: review one step'
+    summary: You can review a method connected with directed effort using present information.
+    body:
+      'You can give directed effort a second look through deliberate review. Retrograde — apparent backward
+      zodiac motion as viewed from Earth — is marked for your Mangala. The planet does not physically reverse its
+      orbit, and the label does not establish that an arrangement will go wrong. Mangala — Mars, a symbol of effort
+      and assertion — asks where you put energy when something needs doing. This position can also prompt you to
+      notice what happens when a disagreement becomes a contest. You can name the task you want completed and make
+      a specific request rather than pursue the last word. Sustainable effort includes a pause before escalating
+      a conflict. An unfinished task can provide a useful scene: compare what you first understood with what the
+      task now requires before changing one step. You can set a review date from the real deadline rather than the
+      symbolism. Consider using new information to improve a method, while allowing ordinary plans to continue on
+      their actual merits.'
+    advice:
+      - Compare a previous plan with its present requirements.
+    do:
+      - Review method
+    dont:
+      - Expect failure
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.retro.budha
+  system: vedic
+  section: lagna_planets
+  topic: retro
+  when:
+    path: bodies[key=budha].retro
+    eq: true
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 水星逆行：回顾一个步骤
+    summary: 你可以通过回顾，检查让信息便于使用的方法是否仍适用。
+    body: 你可以在让信息便于使用时，多留一个回顾的方法。逆行（Retrograde，从地球看行星在黄道方向上暂时反向移动）在你的水星上被标记；它不是行星实际倒着绕行，也不表示安排会出错。水星（以学习和信息交流为象征的行星）描述你如何整理问题、交换想法。它的位置强调信息怎样进入实际生活，不替你判断哪种观点正确。你可以先问对方需要什么程度的解释，再用例子核对彼此是否理解同一件事。这个位置适合把重复核对当成学习过程。例如整理一次未完成的任务，你先找出原先理解与实际需要的差异，再修改一个步骤。建议依据现实期限安排复盘，用新的信息更新方法；不必因为天象标签暂停正常选择，也不用把所有变化都归到这一点。
+    advice:
+      - 用新信息核对一项旧安排，再决定是否调整。
+    do:
+      - 回看方法
+    dont:
+      - 预设失误
+  en:
+    title: 'Budha retrograde: review one step'
+    summary: You can review a method connected with usable communication using present information.
+    body:
+      'You can give usable communication a second look through deliberate review. Retrograde — apparent backward
+      zodiac motion as viewed from Earth — is marked for your Budha. The planet does not physically reverse its
+      orbit, and the label does not establish that an arrangement will go wrong. Budha — Mercury, a symbol of learning
+      and exchange — focuses on the route between an idea and its practical use. Good communication depends on the
+      listener’s context as well as the speaker’s fluency. You can ask what someone needs to do with the information
+      before adding detail. An example or a short check of understanding often reveals more than another round of
+      explanation. An unfinished task can provide a useful scene: compare what you first understood with what the
+      task now requires before changing one step. You can set a review date from the real deadline rather than the
+      symbolism. Consider using new information to improve a method, while allowing ordinary plans to continue on
+      their actual merits.'
+    advice:
+      - Compare a previous plan with its present requirements.
+    do:
+      - Review method
+    dont:
+      - Expect failure
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.retro.guru
+  system: vedic
+  section: lagna_planets
+  topic: retro
+  when:
+    path: bodies[key=guru].retro
+    eq: true
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 木星逆行：回顾一个步骤
+    summary: 你可以通过回顾，检查把见识转为学习的方法是否仍适用。
+    body: 你可以在把见识转为学习时，多留一个回顾的方法。逆行（Retrograde，从地球看行星在黄道方向上暂时反向移动）在你的木星上被标记；它不是行星实际倒着绕行，也不表示安排会出错。木星（以学习、引导和拓展为象征的行星）描述你怎样寻找更大的理解框架。它的位置提醒你比较经验和观点，不等于拥有某种权威。你可以把一个宽泛道理改写成具体问题，邀请有相关经历的人提供不同看法。这个位置适合把重复核对当成学习过程。例如整理一次未完成的任务，你先找出原先理解与实际需要的差异，再修改一个步骤。建议依据现实期限安排复盘，用新的信息更新方法；不必因为天象标签暂停正常选择，也不用把所有变化都归到这一点。
+    advice:
+      - 用新信息核对一项旧安排，再决定是否调整。
+    do:
+      - 回看方法
+    dont:
+      - 预设失误
+  en:
+    title: 'Guru retrograde: review one step'
+    summary: You can review a method connected with learning with perspective using present information.
+    body:
+      'You can give learning with perspective a second look through deliberate review. Retrograde — apparent
+      backward zodiac motion as viewed from Earth — is marked for your Guru. The planet does not physically reverse
+      its orbit, and the label does not establish that an arrangement will go wrong. Guru — Jupiter, a symbol of
+      perspective and learning — asks how a larger idea changes an ordinary decision. The position invites reflection
+      on guidance, without establishing that your advice is appropriate for everyone. You can test a broad principle
+      against a real example and ask an experienced person where it stops being useful. Curiosity leaves more room
+      for growth than needing to sound certain. An unfinished task can provide a useful scene: compare what you
+      first understood with what the task now requires before changing one step. You can set a review date from
+      the real deadline rather than the symbolism. Consider using new information to improve a method, while allowing
+      ordinary plans to continue on their actual merits.'
+    advice:
+      - Compare a previous plan with its present requirements.
+    do:
+      - Review method
+    dont:
+      - Expect failure
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.retro.shukra
+  system: vedic
+  section: lagna_planets
+  topic: retro
+  when:
+    path: bodies[key=shukra].retro
+    eq: true
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 金星逆行：回顾一个步骤
+    summary: 你可以通过回顾，检查认真看待互惠的方法是否仍适用。
+    body: 你可以在认真看待互惠时，多留一个回顾的方法。逆行（Retrograde，从地球看行星在黄道方向上暂时反向移动）在你的金星上被标记；它不是行星实际倒着绕行，也不表示安排会出错。金星（以愉悦、关系和协调为象征的行星）描述你怎样发现值得珍惜的体验。它的位置可以讨论审美和互惠，不替你安排伴侣身份或关系进度。你可以把喜欢的方式说清楚，再询问参与者是否也觉得舒服，让共同体验有真实的回应。这个位置适合把重复核对当成学习过程。例如整理一次未完成的任务，你先找出原先理解与实际需要的差异，再修改一个步骤。建议依据现实期限安排复盘，用新的信息更新方法；不必因为天象标签暂停正常选择，也不用把所有变化都归到这一点。
+    advice:
+      - 用新信息核对一项旧安排，再决定是否调整。
+    do:
+      - 回看方法
+    dont:
+      - 预设失误
+  en:
+    title: 'Shukra retrograde: review one step'
+    summary: You can review a method connected with reciprocity and enjoyment using present information.
+    body:
+      'You can give reciprocity and enjoyment a second look through deliberate review. Retrograde — apparent
+      backward zodiac motion as viewed from Earth — is marked for your Shukra. The planet does not physically reverse
+      its orbit, and the label does not establish that an arrangement will go wrong. Shukra — Venus, a symbol of
+      enjoyment and reciprocity — highlights how you recognize a satisfying exchange. The reading can prompt a conversation
+      about preferences without assigning a partner or a timetable for commitment. You can describe what you enjoy
+      and ask whether someone else wants to share it. Mutual interest matters more than a scene that merely looks
+      harmonious from outside. An unfinished task can provide a useful scene: compare what you first understood
+      with what the task now requires before changing one step. You can set a review date from the real deadline
+      rather than the symbolism. Consider using new information to improve a method, while allowing ordinary plans
+      to continue on their actual merits.'
+    advice:
+      - Compare a previous plan with its present requirements.
+    do:
+      - Review method
+    dont:
+      - Expect failure
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.retro.shani
+  system: vedic
+  section: lagna_planets
+  topic: retro
+  when:
+    path: bodies[key=shani].retro
+    eq: true
+  weight: 60
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 土星逆行：回顾一个步骤
+    summary: 你可以通过回顾，检查把责任拆成步骤的方法是否仍适用。
+    body: 你可以在把责任拆成步骤时，多留一个回顾的方法。逆行（Retrograde，从地球看行星在黄道方向上暂时反向移动）在你的土星上被标记；它不是行星实际倒着绕行，也不表示安排会出错。土星（以时间、边界和持续投入为象征的行星）描述你怎样面对需要耐心的过程。它的位置适合讨论可承担的责任，不表示你应当独自忍受压力。你可以先区分必须完成、能够委托和可以暂停的部分，为长期任务留下交接与休息空间。这个位置适合把重复核对当成学习过程。例如整理一次未完成的任务，你先找出原先理解与实际需要的差异，再修改一个步骤。建议依据现实期限安排复盘，用新的信息更新方法；不必因为天象标签暂停正常选择，也不用把所有变化都归到这一点。
+    advice:
+      - 用新信息核对一项旧安排，再决定是否调整。
+    do:
+      - 回看方法
+    dont:
+      - 预设失误
+  en:
+    title: 'Shani retrograde: review one step'
+    summary: You can review a method connected with responsibility in practice using present information.
+    body:
+      'You can give responsibility in practice a second look through deliberate review. Retrograde — apparent
+      backward zodiac motion as viewed from Earth — is marked for your Shani. The planet does not physically reverse
+      its orbit, and the label does not establish that an arrangement will go wrong. Shani — Saturn, a symbol of
+      time and boundaries — asks which commitments you can maintain under ordinary conditions. A patient method
+      may be useful, while carrying every responsibility yourself can make a process fragile. You can separate essential
+      work from optional demands and agree on a handover before capacity runs low. Reliability includes limits and
+      the ability to request support. An unfinished task can provide a useful scene: compare what you first understood
+      with what the task now requires before changing one step. You can set a review date from the real deadline
+      rather than the symbolism. Consider using new information to improve a method, while allowing ordinary plans
+      to continue on their actual merits.'
+    advice:
+      - Compare a previous plan with its present requirements.
+    do:
+      - Review method
+    dont:
+      - Expect failure
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

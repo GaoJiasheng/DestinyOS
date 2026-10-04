@@ -137,6 +137,50 @@ describe('knowledge validation', () => {
 
 // Corpus comparisons must retain the documented Dice score while reusing tokenization.
 describe('cached duplicate comparison', () => {
+  it('preserves every pairwise warning and its order with an inverted index', async () => {
+    const { similarity } = await import('../src');
+    const corpus = units.slice(0, 8).map((unit, index) => ({
+      unit: {
+        ...unit,
+        id: `bazi.comparison.case_${index}`,
+        exclusive_with: [],
+        zh: { ...unit.zh, body: index % 2 ? units[0]!.zh.body : unit.zh.body },
+        en: { ...unit.en, body: index % 3 ? units[1]!.en.body : unit.en.body },
+      },
+      file: 'comparison.yaml',
+      locate: () => ({ line: 1, column: 1 }),
+    }));
+    const expected: string[] = [];
+    for (let left = 0; left < corpus.length; left++)
+      for (let right = left + 1; right < corpus.length; right++)
+        for (const locale of ['zh', 'en'] as const)
+          if (similarity(corpus[left]!.unit[locale].body, corpus[right]!.unit[locale].body) > 0.6)
+            expected.push(
+              `Similar 3-grams: ${corpus[left]!.unit.id} / ${corpus[right]!.unit.id} (${locale})`,
+            );
+    expect(
+      validateRelations(corpus)
+        .filter((d) => d.severity === 'warning')
+        .map((d) => d.message),
+    ).toEqual(expected);
+    const repeated = [corpus[0]!, corpus[1]!, corpus[0]!];
+    const repeatedExpected: string[] = [];
+    for (let left = 0; left < repeated.length; left++)
+      for (let right = left + 1; right < repeated.length; right++)
+        for (const locale of ['zh', 'en'] as const)
+          if (
+            similarity(repeated[left]!.unit[locale].body, repeated[right]!.unit[locale].body) > 0.6
+          )
+            repeatedExpected.push(
+              `Similar 3-grams: ${repeated[left]!.unit.id} / ${repeated[right]!.unit.id} (${locale})`,
+            );
+    expect(
+      validateRelations(repeated)
+        .filter((d) => d.severity === 'warning')
+        .map((d) => d.message),
+    ).toEqual(repeatedExpected);
+  });
+
   it('matches the direct comparator for repeated bilingual and short inputs', async () => {
     const { createSimilarityComparator, similarity } = await import('../src');
     const cached = createSimilarityComparator();

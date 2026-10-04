@@ -1,0 +1,541 @@
+# // DESIGN-GAP: 兜底采用 noonChart exists 与低权重；无时辰不补精确位置。
+- id: vedic.fallback.overview
+  system: vedic
+  section: overview
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 先从日常体验读懂命盘
+    summary: 你可以先从日常体验读懂命盘，选择适合实际生活的小行动。
+    body: 你可以把命盘当作整理日常体验的一组提问。恒星黄道（以相对恒星的位置作为参照的黄道划分）与月亮信息是这份报告的基础，上升和宫位则需要出生时间支持。这里把计算依据与生活观察联系起来，不用单一符号定义你。例如回看最近一次安排变化，记录什么让你更容易适应。建议先读懂月亮、周期和已有信息的范围，再挑一个轻量行动；对不符合经验的描述保留疑问，以真实需要决定哪些部分值得尝试。
+    advice:
+      - 从最近一项生活变化中，记录一个有用的经验。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Begin with everyday experience
+    summary: Begin with everyday experience.
+    body:
+      You can treat this chart as a set of questions about ordinary experience. A sidereal zodiac — a division
+      referenced to the fixed-star background — provides the positional framework, while the Moon supplies a starting
+      point for this reading. A rising sign and houses also need a known birth time. These different references
+      help organize reflection without offering a complete description of you. For example, think about a recent
+      change to a familiar routine and note what actually helped you adapt. Compare that observation with the lunar
+      and period chapters rather than trying to accept every phrase at once. You can keep a question open when a
+      description does not fit. Consider choosing one modest action from the report and checking whether it serves
+      a real need in your present life.
+    advice:
+      - Record one useful observation from a recent change in routine.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.fallback.moon_nakshatra
+  system: vedic
+  section: moon_nakshatra
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 先理解月亮线索的范围
+    summary: 你可以先理解月亮线索的范围，选择适合实际生活的小行动。
+    body: 你可以先留意自己怎样回应变化，再阅读星宿的描述。月亮星宿（Nakshatra，月亮所处的二十七段恒星黄道区域之一）在传统框架中用于讨论心绪与熟悉感，分段（Pada，每段星宿的四等分之一）提供更细的修饰。这些位置不是心理测量，也不要求你表现出某种固定性格。例如一周里出现几次安排变化，你记录当时最需要的信息、陪伴或安静时间。建议比较具体情境，留意哪些安排真正有帮助；若出生时间未知，月亮可能跨过星宿边界，更适合把描述看成待核对的方向。
+    advice:
+      - 记录一次变化中的真实需要，不急着贴性格标签。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Understand the lunar reference first
+    summary: Understand the lunar reference first.
+    body:
+      You can begin with how you respond when an ordinary arrangement changes. A Nakshatra — one of the twenty-seven
+      sidereal sectors occupied by the Moon — supplies a cultural reference for this reflection. A Pada is one quarter
+      of that sector and adds detail to the symbolic account. Neither position is a psychological measurement or
+      a fixed personality requirement. Think of several changes during a week and note whether you needed clearer
+      information, company, or quiet time in each case. You can compare those observations without expecting one
+      response to explain every situation. Consider keeping the arrangement that helped in practice. An unknown
+      birth time may leave more than one lunar sector possible, so that reading remains a direction to check rather
+      than a precise conclusion.
+    advice:
+      - Record what you needed in a real change before applying a label.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.fallback.lagna_planets
+  system: vedic
+  section: lagna_planets
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 把行星主题放回具体情境
+    summary: 你可以把行星主题放回具体情境，选择适合实际生活的小行动。
+    body: 你可以从实际任务比较自己的表达、学习和行动方式。九曜（Graha，七颗传统行星与两个计算得到的月球交点）在这份命盘中提供不同观察角度，状态标记只是符号之间的关系。上升（Lagna，出生时东方地平线所在星座）还需要时间明确；没有它时仍可读行星星座，但不补出宫位。比如准备一项分享，你比较自己怎样整理信息、如何开始，以及什么时候需要反馈。建议一次只选一个主题实践，用实际效果调整方法；相关位置不能评估能力等级，也不能替你安排职业或关系角色。
+    advice:
+      - 在一个真实任务中，只比较一种做事方式。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Put planetary themes in context
+    summary: Put planetary themes in context.
+    body:
+      'You can compare expression, learning, and action through a task you actually face. Graha — the seven
+      traditional planets together with two calculated lunar nodes — provide different symbolic perspectives in
+      this chart. Condition labels describe relationships within the model rather than levels of ability. Lagna,
+      the sign on the eastern horizon at birth, also needs a known clock; planetary signs can still be discussed
+      when that reference is missing. Preparing a short talk offers a useful scene: notice how you organize material,
+      begin the task, and use feedback. You can choose one aspect to practise rather than redesign your whole approach.
+      Consider checking the result in use, with actual training and circumstances supplying the information a positional
+      chart cannot establish. Keep your present responsibilities in view.'
+    advice:
+      - Compare one working habit within an actual task.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.fallback.houses
+  system: vedic
+  section: houses
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 用生活领域整理实际安排
+    summary: 你可以用生活领域整理实际安排，选择适合实际生活的小行动。
+    body: 你可以把不同生活领域当作复盘清单，而不预设会发生什么。宫位（Bhava，按上升星座排列的十二类生活观察领域）需要出生时间和地点支持；没有这些条件时，不应推断行星落宫。宫主星（守护该宫星座的传统行星）则把两个领域联系起来，仍须与现实安排共同理解。比如本周工作、居处和共同活动争用时间，你先列清责任和可用精力，再选择最需要协商的一项。建议用清楚的约定减少重复猜测，保留自己的判断；宫位不替别人说明意愿，也不指定健康、财务或职业结果。
+    advice:
+      - 列出本周的责任与可用时间，选择一项重新协商。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Use life areas to organize arrangements
+    summary: Use life areas to organize arrangements.
+    body:
+      'You can use life areas as a review checklist without expecting a sequence of events. Bhava — the twelve
+      house domains arranged from the rising sign — need a usable birth time and place. Planetary house placements
+      should remain open when those references are unavailable. A house lord, the traditional ruler of its zodiac
+      sign, offers a symbolic link between two domains rather than a practical instruction. Suppose work, home,
+      and a shared activity compete for attention this week: listing commitments and available time can reveal which
+      arrangement needs discussion. Consider making one agreement explicit instead of relying on assumptions. The
+      chart cannot speak for another person’s wishes or determine health, financial, or professional outcomes; actual
+      information keeps these questions grounded. Let each person clarify their own priorities.'
+    advice:
+      - List this week’s commitments and choose one arrangement to clarify.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.fallback.yogas
+  system: vedic
+  section: yogas
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 把格局当作补充观察
+    summary: 你可以把格局当作补充观察，选择适合实际生活的小行动。
+    body: 你可以先理解整体安排，再看有没有格局带来补充问题。瑜伽格局（Yoga，传统把某些行星或宫主关系归纳的名称）在这里按一期十二种简化规则识别；未命中不代表缺少某种能力，命中也不表示生活会按名称发展。不同位置与状态仍要一起理解，不宜把一个格局从语境中单独拿出来。例如回看一项合作，你先检查实际分工、技能和资源，再考虑某个主题是否帮助提问。建议核对专业视图中的触发依据，保留能支持现实行动的部分；没有特定格局时，也可以通过明确责任、邀请反馈和规律复盘改善体验。
+    advice:
+      - 先核对实际条件，再把一个格局改写成观察问题。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Treat patterns as additional perspectives
+    summary: Treat patterns as additional perspectives.
+    body:
+      You can read the overall arrangement before asking whether a named pattern adds a useful question. Yoga
+      — a traditional name for a relationship among planets or functional rulers — is detected here through twelve
+      simplified rules. An absent pattern does not establish a missing ability, and a recorded one does not make
+      its name a prediction. Positions and condition labels still provide context for each other. When reviewing
+      a collaboration, begin with actual skills, responsibilities, and resources, then ask whether a symbolic theme
+      makes your enquiry clearer. You can check the triggering evidence in the detailed view. Consider keeping only
+      the perspective that supports a practical next step. Clear agreements, feedback, and an ordinary review remain
+      available even when no specific pattern is recorded.
+    advice:
+      - Start with actual conditions and turn a pattern into a useful question.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.fallback.dasha
+  system: vedic
+  section: dasha
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 按时间表复盘，不预设事件
+    summary: 你可以按时间表复盘，不预设事件，选择适合实际生活的小行动。
+    body: 你可以用周期安排回顾，而不把日期当作事件预告。大运（Mahadasha，按月亮位置起算的长周期）和次运（Antardasha，长周期内部的较短分段）提供象征性的主题与起止边界。无时辰时次运列表留空；日期在当前计算范围之外时，也不补造当前周期。比如为接下来三次阶段回顾预留时间，你先核对时间表中的实际边界，再记下学习、沟通和休息各一项重点。建议每次只调整一个符合现实需要的安排，把体验记录下来；周期前后可以比较主题，但变化不要求在边界当天发生，也不替代真实计划的期限。
+    advice:
+      - 核对真实时间边界，每次复盘只调整一项安排。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Review intervals without expecting events
+    summary: Review intervals without expecting events.
+    body:
+      You can use period intervals to organize reviews without expecting events on their boundaries. Mahadasha
+      — a longer cycle calculated from the Moon’s position — and Antardasha, its shorter subdivision, supply symbolic
+      themes and dates. With an unknown birth time, the subperiod list remains empty. A birth or reference date
+      outside the displayed range also should not acquire an invented current period. If you plan three upcoming
+      review points, first check the actual rows of the timetable, then choose a modest focus such as learning,
+      communication, or rest. You can keep notes about what you tried and what happened. Consider changing one practical
+      arrangement at a time; the calculation does not require a sudden shift on a boundary date or replace the deadlines
+      in your real plans.
+    advice:
+      - Check the recorded boundaries and revise one practical arrangement per review.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.fallback.navamsa
+  system: vedic
+  section: navamsa
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 从真实互动理解承诺
+    summary: 你可以从真实互动理解承诺，选择适合实际生活的小行动。
+    body: 你可以从日常互动回看哪些安排适合长期维护。九分盘（Navamsa/D9，把每个星座细分为九段所得的补充命盘）在传统中常被用于讨论关系与内在力量，这里只保留互惠、沟通和持续投入的观察角度。它要与本命盘一起看，不能决定伴侣身份，也不规定关系进度；没有可靠出生时间时，不对精细落座作结论。比如讨论共同活动，你先说明偏好和可用时间，再询问对方是否愿意参与。建议以持续的尊重与真实回应判断相处体验，无论单身还是处在某种关系里，都可以选择适合自己的节奏。
+    advice:
+      - 讨论共同安排时，核对偏好、时间与双方意愿。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Understand commitment through actual interaction
+    summary: Understand commitment through actual interaction.
+    body:
+      You can examine which arrangements you would want to maintain through actual interaction. Navamsa, or
+      D9 — a supplementary chart formed from nine divisions of each zodiac sign — is traditionally discussed alongside
+      relationships and inner steadiness. Here the practical focus is reciprocity, communication, and sustained
+      involvement. It belongs beside the main chart and cannot identify a partner or prescribe a timetable for commitment.
+      Detailed placements also remain open without a reliable birth time. Before a shared activity, describing preferences
+      and available time gives both people room to choose. You can judge the experience through ongoing respect
+      and real responses. Consider retaining a rhythm that suits you, whether you are single, getting to know someone,
+      or maintaining an established partnership. Your preferences can remain open to revision.
+    advice:
+      - Check preferences, availability, and mutual willingness for a shared plan.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.fallback.summary_actions
+  system: vedic
+  section: summary_actions
+  topic: fallback
+  when:
+    path: noonChart
+    exists: true
+  weight: 1
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 选一项适合自己的实践
+    summary: 你可以选一项适合自己的实践，选择适合实际生活的小行动。
+    body: 你可以把报告收束为一项轻量、可回看的实践。各章的行星、星宿与周期只是文化观察框架，不能替代实际信息，也不需要你接受每一段描述。这里把建议放回你的时间、精力和真实目标，行动是否有用要看体验。比如本周分别留意一个工作交接、一项普通开支、一次清楚沟通、一段休息和一次复盘，再挑最容易的一项开始。建议记录做法与结果，保留合适部分，调整不适合的部分。传统颂念或安静回顾可以作为可选的文化体验，喜欢时再尝试，不要求信仰、不承诺效果；本报告仅供娱乐与自我反思。
+    advice:
+      - 本周试一项轻量行动，周末回看是否有帮助。
+    do:
+      - 记录体验
+    dont:
+      - 急于定论
+  en:
+    title: Choose one practice that fits
+    summary: Choose one practice that fits.
+    body:
+      You can turn the reading into one manageable practice that you can revisit. The planetary, lunar, and
+      period chapters offer cultural prompts; they do not replace actual information or require agreement with every
+      description. A useful action should fit your time, capacity, and present aims. This week you might notice
+      a work handover, an ordinary spending commitment, a clear conversation, a rest interval, and a brief review,
+      then choose the easiest one to try. You can record what changed without using the result as proof of the chart.
+      Consider keeping the part that served you and revising the rest. Chanting or quiet reflection may be explored
+      as optional cultural practices if you enjoy them, without a required belief or promised effect. This report
+      is for entertainment and self-reflection.
+    advice:
+      - Try one manageable action and review whether it served you.
+    do:
+      - Observe experience
+    dont:
+      - Force conclusions
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.unknown_time.lagna_planets
+  system: vedic
+  section: lagna_planets
+  topic: unknown_time
+  when:
+    path: noonChart
+    eq: true
+  weight: 95
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 无时辰：上升与宫位保留待核对
+    summary: 你可以先读已有信息，保留上升与宫位的不确定性。
+    body: 你现在可以先读已有信息，暂时保留上升与宫位的不确定性。出生时间未知时，正午盘（以当地中午计算行星位置的参考盘）不能提供可靠的上升与宫位，月亮和九分盘细分位置也可能随时刻改变。这是输入信息的限制，不是你缺少某种生活领域；本章不补造精确位置。比如整理旧出生记录时，你可以核对有没有较可靠的时间来源，但不必为完成报告猜一个时刻。建议先从行星星座和实际日常体验入手，比较哪些描述有帮助；后来得到明确时间再重新排盘，仍以真实需要决定如何使用结果。
+    advice:
+      - 没有可靠来源时不猜出生时间，先使用已知信息。
+    do:
+      - 保留疑问
+    dont:
+      - 猜测时刻
+  en:
+    title: 'Unknown birth time: keep precise placements open'
+    summary: You can use the available information without inventing precise placements.
+    body:
+      You can read the available information while leaving this chapter’s precise placements open. A noon chart
+      — a reference calculated for local midday when the clock is unknown — cannot provide a reliable rising sign
+      or houses. Lunar and fine Navamsa divisions may also change across the day. This is a limit of the input,
+      not a missing life area, and a precise placement should not be invented. If an old record offers a possible
+      time, checking its reliability is more useful than selecting an hour just to complete the report. You can
+      begin with planetary signs and compare them with ordinary experience. Consider recomputing only when clearer
+      information becomes available, while keeping your actual needs as the reason for using any interpretation.
+    advice:
+      - Use reliable records if available; leave the clock open when it is unknown.
+    do:
+      - Keep uncertainty
+    dont:
+      - Invent a time
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.unknown_time.houses
+  system: vedic
+  section: houses
+  topic: unknown_time
+  when:
+    path: noonChart
+    eq: true
+  weight: 95
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 无时辰：十二宫保留待核对
+    summary: 你可以先读已有信息，保留十二宫的不确定性。
+    body: 你现在可以先读已有信息，暂时保留十二宫的不确定性。出生时间未知时，正午盘（以当地中午计算行星位置的参考盘）不能提供可靠的上升与宫位，月亮和九分盘细分位置也可能随时刻改变。这是输入信息的限制，不是你缺少某种生活领域；本章不补造精确位置。比如整理旧出生记录时，你可以核对有没有较可靠的时间来源，但不必为完成报告猜一个时刻。建议先从行星星座和实际日常体验入手，比较哪些描述有帮助；后来得到明确时间再重新排盘，仍以真实需要决定如何使用结果。
+    advice:
+      - 没有可靠来源时不猜出生时间，先使用已知信息。
+    do:
+      - 保留疑问
+    dont:
+      - 猜测时刻
+  en:
+    title: 'Unknown birth time: keep precise placements open'
+    summary: You can use the available information without inventing precise placements.
+    body:
+      You can read the available information while leaving this chapter’s precise placements open. A noon chart
+      — a reference calculated for local midday when the clock is unknown — cannot provide a reliable rising sign
+      or houses. Lunar and fine Navamsa divisions may also change across the day. This is a limit of the input,
+      not a missing life area, and a precise placement should not be invented. If an old record offers a possible
+      time, checking its reliability is more useful than selecting an hour just to complete the report. You can
+      begin with planetary signs and compare them with ordinary experience. Consider recomputing only when clearer
+      information becomes available, while keeping your actual needs as the reason for using any interpretation.
+    advice:
+      - Use reliable records if available; leave the clock open when it is unknown.
+    do:
+      - Keep uncertainty
+    dont:
+      - Invent a time
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.unknown_time.navamsa
+  system: vedic
+  section: navamsa
+  topic: unknown_time
+  when:
+    path: noonChart
+    eq: true
+  weight: 95
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 无时辰：九分盘细分位置保留待核对
+    summary: 你可以先读已有信息，保留九分盘细分位置的不确定性。
+    body: 你现在可以先读已有信息，暂时保留九分盘细分位置的不确定性。出生时间未知时，正午盘（以当地中午计算行星位置的参考盘）不能提供可靠的上升与宫位，月亮和九分盘细分位置也可能随时刻改变。这是输入信息的限制，不是你缺少某种生活领域；本章不补造精确位置。比如整理旧出生记录时，你可以核对有没有较可靠的时间来源，但不必为完成报告猜一个时刻。建议先从行星星座和实际日常体验入手，比较哪些描述有帮助；后来得到明确时间再重新排盘，仍以真实需要决定如何使用结果。
+    advice:
+      - 没有可靠来源时不猜出生时间，先使用已知信息。
+    do:
+      - 保留疑问
+    dont:
+      - 猜测时刻
+  en:
+    title: 'Unknown birth time: keep precise placements open'
+    summary: You can use the available information without inventing precise placements.
+    body:
+      You can read the available information while leaving this chapter’s precise placements open. A noon chart
+      — a reference calculated for local midday when the clock is unknown — cannot provide a reliable rising sign
+      or houses. Lunar and fine Navamsa divisions may also change across the day. This is a limit of the input,
+      not a missing life area, and a precise placement should not be invented. If an old record offers a possible
+      time, checking its reliability is more useful than selecting an hour just to complete the report. You can
+      begin with planetary signs and compare them with ordinary experience. Consider recomputing only when clearer
+      information becomes available, while keeping your actual needs as the reason for using any interpretation.
+    advice:
+      - Use reliable records if available; leave the clock open when it is unknown.
+    do:
+      - Keep uncertainty
+    dont:
+      - Invent a time
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: vedic.unknown_time.moon_boundary
+  system: vedic
+  section: moon_nakshatra
+  topic: moon_uncertainty
+  when:
+    all:
+      - path: noonChart
+        eq: true
+      - path: moon.possibleNakshatras.length
+        gte: 2
+  weight: 96
+  polarity: neutral
+  tags:
+    - plain
+  exclusive_with: []
+  zh:
+    title: 月亮可能跨星宿：比较描述的范围
+    summary: 你可以比较可能的月亮区域，不把正午位置当作精确结论。
+    body: 你可以把月亮描述看成两个或更多方向的比较。可能星宿（在出生地当天实际经过的月亮区域）列表显示至少两个区域，说明缺少时辰时不能只认正午盘的一个位置。分段也会变化，不能从列表挑一个最像自己的名称来补回出生时间。比如某段描述让你想到熟悉的反应，你记录对应情境，再与另一段的观察角度比较。建议把这些体验当作自我了解的材料，保留计算限制；若日后找到可靠时间来源，可以重新核对。你不需要为了阅读这份报告强行确定一个星宿，也不必以符合某一描述来证明自己。
+    advice:
+      - 记录不同描述对应的情境，保留时刻不确定性。
+    do:
+      - 比较情境
+    dont:
+      - 反推时刻
+  en:
+    title: The Moon may cross a sector boundary
+    summary: You can compare possible lunar sectors without treating the noon position as exact.
+    body:
+      You can compare more than one lunar reference while keeping the birth clock open. The possible Nakshatras
+      — sectors traversed by the Moon during the local civil day — include at least two entries here. That means
+      a single midday position cannot settle the birth sector, and quarter divisions can change as well. If one
+      portrait feels familiar, note a real situation that brought it to mind rather than choosing it as evidence
+      for a missing time. You can compare that experience with the other possible descriptions and leave the calculation
+      uncertain. Consider checking a reliable record if one later becomes available. There is no need to select
+      a sector just to finish the reading, and resemblance to a paragraph is not a method of recovering a birth
+      clock.
+    advice:
+      - Compare descriptions with real situations while leaving the clock uncertain.
+    do:
+      - Compare situations
+    dont:
+      - Infer time
+  meta:
+    author: t23-vedic-editorial-v1
+    reviewed_by: null
+    version: 1
+    status: published

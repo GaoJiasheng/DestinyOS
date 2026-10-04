@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv';
 import { LineCounter, parseDocument } from 'yaml';
-import { resolvePath, textGrams, gramSimilarity, zhChars, enWords, evaluateWhen } from '../src';
+import { resolvePath, textGrams, zhChars, enWords, evaluateWhen } from '../src';
 import type { KnowledgeUnit, GlossaryEntry, Transitions } from '../src';
 import schema from '../schema/ku.schema.json';
 const ajv = new Ajv({ allErrors: true });
@@ -266,12 +266,68 @@ export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
       { zh: textGrams(unit.zh.body), en: textGrams(unit.en.body) },
     ]),
   );
+  // DESIGN-GAP: Full editorial corpora outgrew pairwise Set lookups. An inverted
+  // index counts the exact same shared trigrams; Dice scores and the 0.6 threshold
+  // remain unchanged, including duplicate-ID diagnostics and warning order.
+  const groups = new Map<string, LocatedUnit[]>();
+  for (const item of units) {
+    const group = groups.get(item.unit.system) ?? [];
+    group.push(item);
+    groups.set(item.unit.system, group);
+  }
+  const comparisons = new Map<
+    string,
+    {
+      size: number;
+      lengths: Record<'zh' | 'en', number[]>;
+      overlaps: Record<'zh' | 'en', Uint32Array>;
+    }
+  >();
+  const positions = new Map<LocatedUnit, number>();
+  for (const [system, group] of groups) {
+    const size = group.length;
+    const lengths = { zh: [] as number[], en: [] as number[] };
+    const overlaps = { zh: new Uint32Array(size * size), en: new Uint32Array(size * size) };
+    group.forEach((item, index) => positions.set(item, index));
+    for (const locale of ['zh', 'en'] as const) {
+      const postings = new Map<string, number[]>();
+      group.forEach((item, index) => {
+        const fingerprint = grams.get(item.unit.id)![locale];
+        lengths[locale].push(fingerprint.size);
+        for (const gram of fingerprint) {
+          const posting = postings.get(gram);
+          if (posting) posting.push(index);
+          else postings.set(gram, [index]);
+        }
+      });
+      for (const posting of postings.values())
+        for (let a = 0; a < posting.length; a++) {
+          const row = posting[a]! * size;
+          for (let b = a + 1; b < posting.length; b++) {
+            const at = row + posting[b]!;
+            overlaps[locale][at] = overlaps[locale][at]! + 1;
+          }
+        }
+    }
+    comparisons.set(system, { size, lengths, overlaps });
+  }
   for (let i = 0; i < units.length; i++)
     for (const b of units.slice(i + 1)) {
       const a = units[i];
       if (!a || a.unit.system !== b.unit.system) continue;
+      const comparison = comparisons.get(a.unit.system)!;
+      const left = positions.get(a)!;
+      const right = positions.get(b)!;
       for (const locale of ['zh', 'en'] as const)
-        if (gramSimilarity(grams.get(a.unit.id)![locale], grams.get(b.unit.id)![locale]) > 0.6)
+        if (
+          left === right ||
+          (2 *
+            comparison.overlaps[locale][
+              Math.min(left, right) * comparison.size + Math.max(left, right)
+            ]!) /
+            (comparison.lengths[locale][left]! + comparison.lengths[locale][right]! || 1) >
+            0.6
+        )
           add(b, locale, 'warning', `Similar 3-grams: ${a.unit.id} / ${b.unit.id} (${locale})`);
     }
   return diagnostics;

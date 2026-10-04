@@ -12,7 +12,8 @@
     "validate": "tsx scripts/validate.ts",
     "checkCoverage": "tsx scripts/check-bazi-coverage.ts",
     "content:build": "tsx scripts/build.ts",
-    "coverage:qimen": "tsx scripts/qimen-coverage.ts"
+    "coverage:qimen": "tsx scripts/qimen-coverage.ts",
+    "coverage:vedic": "tsx scripts/check-vedic-coverage.ts"
   },
   "dependencies": {
     "@tianji/shared": "workspace:*",
