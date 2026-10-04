@@ -15,7 +15,7 @@
     "test": "vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
@@ -30,7 +30,8 @@
     "content:daily:coverage": "pnpm --filter @tianji/content coverage:daily",
     "geo:build": "tsx scripts/geo-preprocess.ts",
     "test:readings:e2e": "playwright test --config playwright.readings.config.ts",
-    "test:bazi:e2e": "playwright test --config playwright.bazi.config.ts"
+    "test:bazi:e2e": "playwright test --config playwright.bazi.config.ts",
+    "test:ziwei:e2e": "pnpm build && playwright test --config playwright.ziwei.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

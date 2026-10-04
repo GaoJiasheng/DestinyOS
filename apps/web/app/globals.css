@@ -2414,3 +2414,312 @@ meter {
     grid-column: 1 / -1;
   }
 }
+
+/* DESIGN-GAP: Chart density, fullscreen sizing and 100–300% zoom bounds extend the documented layout tokens. */
+:root {
+  --ziwei-cell-height: var(--space-11);
+  --ziwei-leading: 1.3;
+  --ziwei-expanded-cell-height: 160px;
+  --ziwei-fullscreen-width: 1120px;
+}
+.ziwei-chart {
+  min-width: 0;
+  font-size: var(--size-caption);
+}
+.ziwei-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block: var(--space-3);
+}
+.ziwei-controls .button {
+  font-size: var(--size-caption);
+}
+.ziwei-toggle,
+.ziwei-controls label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--space-9);
+}
+.ziwei-toggle input {
+  accent-color: var(--gold);
+}
+.ziwei-board {
+  line-height: var(--ziwei-leading);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(var(--ziwei-cell-height), 1fr));
+  position: relative;
+  border: 1px solid var(--gold);
+  background: var(--bg-1);
+  isolation: isolate;
+}
+.ziwei-palace {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  min-width: 0;
+  text-align: start;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  background: var(--surface-1);
+  color: var(--text-2);
+  position: relative;
+}
+.ziwei-palace[data-related='true'] {
+  background: var(--surface-2);
+}
+.ziwei-palace[aria-pressed='true'] {
+  box-shadow: inset 0 0 0 2px var(--gold-soft);
+}
+.ziwei-palace[data-current='true']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--gold);
+  box-shadow: inset var(--glow-gold);
+  animation: breathe var(--duration-breathe) var(--ease-in-out) infinite;
+  pointer-events: none;
+}
+.ziwei-palace:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: -4px;
+}
+.ziwei-palace-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+.ziwei-seal {
+  font-family: var(--font-heading-current);
+  border-radius: var(--r-seal);
+  background: var(--accent);
+  color: var(--on-accent);
+  padding-inline: var(--space-1);
+}
+.ziwei-stars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+.ziwei-stars > span {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+.ziwei-major {
+  font-size: var(--size-small);
+  color: var(--gold-soft);
+  font-family: var(--font-heading-current);
+  font-weight: 600;
+}
+.ziwei-supporting {
+  color: var(--text-1);
+}
+.ziwei-challenging {
+  color: var(--danger);
+}
+.ziwei-adjective,
+.ziwei-empty {
+  color: var(--text-3);
+}
+.ziwei-brightness {
+  color: var(--text-2);
+  font-size: var(--size-caption);
+}
+.ziwei-palace .ziwei-brightness,
+.ziwei-cell-minor {
+  display: none;
+}
+.ziwei-body,
+.ziwei-annual {
+  color: var(--gold-soft);
+}
+.ziwei-annual {
+  border-bottom: 1px dashed var(--info);
+}
+.ziwei-palace-age {
+  margin-top: auto;
+  font-variant-numeric: tabular-nums;
+}
+.ziwei-center {
+  grid-area: 2 / 2 / 4 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+  padding: var(--space-2);
+  color: var(--text-2);
+}
+.ziwei-center strong {
+  font-family: var(--font-heading-current);
+  color: var(--gold-soft);
+}
+.ziwei-connections {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.ziwei-connections polygon,
+.ziwei-connections line {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.ziwei-mutagen {
+  color: var(--text-1);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-inline: var(--space-1);
+  border: 1px solid currentColor;
+  border-radius: var(--r-seal);
+  font-size: var(--size-caption);
+  font-family: var(--font-data);
+}
+.ziwei-mutagen-lu {
+  color: var(--hua-lu);
+}
+.ziwei-mutagen-quan {
+  color: var(--hua-quan);
+}
+.ziwei-mutagen-ke {
+  color: var(--hua-ke);
+}
+.ziwei-mutagen-ji {
+  color: var(--hua-ji);
+}
+.ziwei-mutagen[data-source='yearMutagen'] {
+  border-style: dashed;
+}
+.ziwei-legend,
+.ziwei-layer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block: var(--space-3);
+}
+.ziwei-detail {
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  background: var(--surface-1);
+}
+.ziwei-detail h3 {
+  color: var(--gold-soft);
+  font-size: var(--size-h3);
+  font-family: var(--font-heading-current);
+}
+.ziwei-detail h4 {
+  margin-block: var(--space-2);
+}
+.ziwei-decadal {
+  min-width: 0;
+  margin-block: var(--space-4);
+}
+.ziwei-decadal-scroll {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-block: var(--space-2);
+}
+.ziwei-decadal-scroll button {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: start;
+  padding: var(--space-2);
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+}
+.ziwei-decadal-scroll button[data-current='true'],
+.ziwei-decadal-scroll button[aria-pressed='true'] {
+  border-color: var(--gold);
+  color: var(--gold-soft);
+}
+.dialog-content.ziwei-fullscreen {
+  width: 100vw;
+  max-width: var(--ziwei-fullscreen-width);
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: var(--space-5);
+  overflow: hidden;
+  border-radius: 0;
+}
+.ziwei-viewport {
+  width: 100%;
+  max-height: 65dvh;
+  overflow: auto;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+.ziwei-board-expanded .ziwei-cell-minor {
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ziwei-palace[data-current='true']::after {
+    animation: none;
+  }
+}
+.ziwei-board-expanded {
+  font-size: calc(var(--size-caption) * var(--ziwei-scale, 1));
+  grid-template-rows: repeat(
+    4,
+    minmax(calc(var(--ziwei-expanded-cell-height) * var(--ziwei-scale, 1)), 1fr)
+  );
+}
+.ziwei-board-expanded .ziwei-major {
+  font-size: calc(var(--size-small) * var(--ziwei-scale, 1));
+}
+.ziwei-board-expanded .ziwei-mutagen {
+  font-size: inherit;
+}
+/* DESIGN-GAP: A long Zi Wei sidebar scrolls within the desktop viewport; fullscreen uses a fixed pan viewport to prevent grid compression. */
+@media (min-width: 1024px) {
+  .report-chart:has(.ziwei-chart) {
+    max-height: calc(100dvh - var(--space-12) - var(--space-6));
+    overflow-y: auto;
+  }
+}
+.dialog-content.ziwei-fullscreen {
+  display: flex;
+  flex-direction: column;
+}
+.ziwei-fullscreen > * {
+  flex-shrink: 0;
+}
+.ziwei-fullscreen .ziwei-viewport {
+  height: 65dvh;
+}
+.ziwei-fullscreen > .type-h2 {
+  padding-right: var(--space-9);
+}
+.ziwei-fullscreen .dialog-close {
+  z-index: 2;
+}
+
+/* DESIGN-GAP: Keep the fullscreen header and close control outside the scrolling chart/details body. */
+.ziwei-fullscreen .ziwei-fullscreen-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}

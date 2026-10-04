@@ -235,6 +235,8 @@ export function ReportLayout({
             <summary>{t('report.chart')}</summary>
             <ChartPreview
               chart={view.chart}
+              system={view.system}
+              professional={professional}
               highlight={highlight}
               professional={professional}
               onSelect={selectChart}

@@ -99,6 +99,36 @@ describe('reading pipeline and idempotency', () => {
     expect(JSON.stringify(result.meta)).not.toContain('Beijing');
     expect(result.birthYear).toBe(1990);
   });
+  it.each(['zh', 'en'] as const)(
+    'Zi Wei %s: engine → full interpretation and unknown-time rejection',
+    async (locale) => {
+      const req = { ...request(), system: 'ziwei' as const, locale };
+      const result = await generateReading(req, '2026-10-04T00:00:00Z');
+      expect(() => parseReadingChart('ziwei', result.chart)).not.toThrow();
+      expect(result.report.system).toBe('ziwei');
+      expect(result.report.locale).toBe(locale);
+      expect(result.report.sections.map((s) => s.key)).toEqual([
+        'overview',
+        'life_palace',
+        'body_fortune',
+        'career_wealth',
+        'love_family',
+        'health_travel',
+        'patterns',
+        'decadal_yearly',
+        'summary_actions',
+      ]);
+      expect(result.report.readability.passed).toBe(true);
+      expect(result.report.hits.length).toBeGreaterThan(0);
+      await expect(
+        generateReading(
+          { ...req, birth: { ...birth, timeUnknown: true, hour: undefined, minute: undefined } },
+          '2026-10-04T00:00:00Z',
+        ),
+      ).rejects.toMatchObject({ code: 'E_REQUIRES_BIRTH_TIME' });
+      expect(mocked.create).not.toHaveBeenCalled();
+    },
+  );
   it('repeats anonymous requests deterministically and caches no birth input or report text', async () => {
     const req = request();
     const a = await idempotentCreate(req, 'test-ip');

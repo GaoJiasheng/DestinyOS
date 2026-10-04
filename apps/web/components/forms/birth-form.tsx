@@ -16,6 +16,7 @@ import { CitySearch } from './city-search';
 import { HourBranchPicker } from './hour-branch-picker';
 import { LunarDatePicker } from './lunar-date-picker';
 import { DivinationLoader } from '@/components/divination-loader';
+import { ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
 /** Two-step shared birth editor with live calendar/timezone validation and privacy-safe submission. */
 export function BirthForm({
   system = 'bazi',
@@ -112,6 +113,10 @@ export function BirthForm({
     return true;
   };
   const submit = async () => {
+    if (system === 'ziwei' && birth.timeUnknown && !profileMode) {
+      setError('errors.E_REQUIRES_BIRTH_TIME');
+      return;
+    }
     if (!(await validate())) return;
     setBusy(true);
     setError(null);
@@ -326,6 +331,7 @@ export function BirthForm({
             {birth.timeUnknown ? (
               <p className="notice">{t('form.birth.timeUnknown.help')}</p>
             ) : null}
+            {birth.timeUnknown && system === 'ziwei' && !profileMode ? <ZiweiTimeRequired /> : null}
           </>
         ) : (
           <>
@@ -509,7 +515,10 @@ export function BirthForm({
               {t('form.birth.back')}
             </Button>
           ) : null}
-          <Button type="submit" disabled={busy}>
+          <Button
+            type="submit"
+            disabled={busy || (system === 'ziwei' && birth.timeUnknown && !profileMode)}
+          >
             {t(
               step === 1
                 ? 'form.birth.next'
