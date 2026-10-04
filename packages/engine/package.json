@@ -1,12 +1,14 @@
 {
   "name": "@tianji/engine",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./common": "./src/common/index.ts",
-    "./bazi": "./src/bazi/index.ts"
+    "./bazi": "./src/bazi/index.ts",
+    "./ziwei": "./src/ziwei/index.ts",
+    "./tarot": "./src/tarot/index.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -17,6 +19,7 @@
     "@noble/hashes": "1.8.0",
     "@openfate/true-solar-time": "4.0.2",
     "@tianji/shared": "workspace:*",
+    "iztro": "2.6.1",
     "lunar-typescript": "1.8.6",
     "zod": "^3.25.76"
   }

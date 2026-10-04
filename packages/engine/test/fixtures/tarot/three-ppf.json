@@ -1,0 +1,46 @@
+{
+  "spread": "three_ppf",
+  "category": "general",
+  "allowReversed": true,
+  "cards": [
+    {
+      "position": "past",
+      "cardKey": "pentacles_king",
+      "reversed": true,
+      "order": 0
+    },
+    {
+      "position": "present",
+      "cardKey": "wands_01",
+      "reversed": true,
+      "order": 1
+    },
+    {
+      "position": "future",
+      "cardKey": "swords_01",
+      "reversed": false,
+      "order": 2
+    }
+  ],
+  "stats": {
+    "majorPct": 0,
+    "elements": {
+      "fire": 1,
+      "earth": 1,
+      "air": 1,
+      "water": 0
+    },
+    "courtCount": 1,
+    "reversedPct": 66.66666666666666,
+    "repeatedNumbers": [1],
+    "missingElements": ["water"]
+  },
+  "combos": [
+    "missing_water",
+    "reversed_theme",
+    "repeated_1",
+    "trend_element_shift",
+    "trend_orientation_shift"
+  ],
+  "seed": "test-seed-001"
+}

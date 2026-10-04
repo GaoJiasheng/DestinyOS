@@ -11,14 +11,20 @@ import {
   TarotChartSchema,
   AstrologyChartSchema,
   VedicChartSchema,
+  SpreadKeySchema,
+  CategorySchema,
   type EngineResult,
   type EngineWarning,
 } from '@tianji/shared';
 import { EngineError } from './common/error';
+import { computeZiwei, ZIWEI_SCHOOL_DEFAULTS, type ZiweiSchool } from './ziwei';
+import { computeTarot } from './tarot';
 import { version } from '../package.json';
 export * from './common';
 export * from './bazi';
 import { computeBazi, BaziSchoolSchema, baziWarnings } from './bazi';
+export * from './ziwei';
+export * from './tarot';
 export const ENGINE_VERSION = version;
 const chartSchemas = {
   bazi: BaziChartSchema,
@@ -49,6 +55,10 @@ const requestSchema = z
     ]),
     question: z.record(z.unknown()).optional(),
     seed: z.string().optional(),
+    spread: SpreadKeySchema.optional(),
+    category: CategorySchema.optional(),
+    allowReversed: z.boolean().optional(),
+    pickedIndices: z.array(z.number().int()).optional(),
   })
   .strict();
 export type ComputeInput = z.infer<typeof requestSchema>;
@@ -68,10 +78,10 @@ export function compute(raw: ComputeInput): EngineResult {
     if (input.now instanceof Temporal.ZonedDateTime) computedAt = input.now.toInstant().toString();
     else throw new EngineError('E_INVALID_INPUT');
   }
-  // DESIGN-GAP: T-10 registers strict empty charts and reports placeholder status in debug; no computed chart is implied.
-  if (input.system !== 'bazi' && Object.keys(input.options?.school ?? {}).length)
+  // DESIGN-GAP: Unimplemented systems retain T-10 strict placeholders until their own engine tasks.
+  if (!['bazi', 'ziwei'].includes(input.system) && Object.keys(input.options?.school ?? {}).length)
     throw new EngineError('E_UNSUPPORTED_SCHOOL');
-  const birth = input.birth ?? null;
+  const birth = input.system === 'tarot' ? null : (input.birth ?? null);
   if (['bazi', 'ziwei', 'astrology', 'vedic', 'daily'].includes(input.system) && !birth)
     throw new EngineError('E_INVALID_INPUT');
   if (input.system === 'ziwei' && birth?.timeUnknown)
@@ -111,12 +121,48 @@ export function compute(raw: ComputeInput): EngineResult {
   const warnings: EngineWarning[] = [...(birth?.warnings ?? [])];
   if (birth?.timeUnknown && ['astrology', 'vedic'].includes(input.system))
     warnings.push({ code: 'W_NOON_CHART', messageKey: 'engine.warnings.W_NOON_CHART' });
+  let chart: Record<string, unknown>;
+  let schoolUsed: Record<string, string | number | boolean> = {};
+  if (input.system === 'ziwei') {
+    chart = computeZiwei({
+      birth: birth!,
+      now: input.now,
+      options: { school: input.options?.school as ZiweiSchool | undefined },
+    });
+    schoolUsed = { ...ZIWEI_SCHOOL_DEFAULTS, ...input.options?.school, algorithm: 'default' };
+    // DESIGN-GAP: Echo the unspecified-gender layout choice in metadata.
+    if (birth!.gender === 'unspecified') schoolUsed.genderLayout = 'male';
+  } else if (input.system === 'tarot') {
+    // DESIGN-GAP: Divination fields follow 07 §createReadingAction; question.text carries the private question.
+    if (!input.seed) throw new EngineError('E_INVALID_INPUT');
+    if (
+      input.question &&
+      (Object.keys(input.question).some((key) => key !== 'text') ||
+        typeof input.question.text !== 'string')
+    )
+      throw new EngineError('E_INVALID_INPUT');
+    chart = computeTarot({
+      seed: input.seed,
+      spread: input.spread,
+      category: input.category,
+      allowReversed: input.allowReversed,
+      pickedIndices: input.pickedIndices,
+      question: input.question?.text as string | undefined,
+    });
+    schoolUsed = { deck: 'rws', allowReversed: chart.allowReversed as boolean };
+  } else chart = chartSchemas[input.system].parse({});
   return EngineResultSchema.parse({
     system: input.system,
     engineVersion: ENGINE_VERSION,
     computedAt,
     input: birth,
-    chart: chartSchemas[input.system].parse({}),
-    meta: { schoolUsed: {}, warnings, debug: { placeholder: true } },
+    chart,
+    meta: {
+      schoolUsed,
+      warnings,
+      ...(!['bazi', 'ziwei', 'tarot'].includes(input.system)
+        ? { debug: { placeholder: true } }
+        : {}),
+    },
   });
 }
