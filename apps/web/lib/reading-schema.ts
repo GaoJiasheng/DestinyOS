@@ -81,6 +81,8 @@ export const ReportSchema: z.ZodType<Report> = z.object({
 export { ReadingRequestSchema };
 export type ReadingRequest = z.infer<typeof ReadingRequestSchema>;
 export const ReadingMetaSchema = z.object({
+  timeSource: z.literal('rectified').optional(),
+  rectificationConfidence: z.number().min(0).max(1).optional(),
   schoolUsed: z.record(z.union([z.string(), z.number(), z.boolean()])),
   warnings: z.array(EngineWarningSchema),
   debug: z.record(z.unknown()).optional(),

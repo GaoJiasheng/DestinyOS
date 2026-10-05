@@ -280,6 +280,18 @@ export function ReportLayout({
           </Link>
         </aside>
       ) : null}
+      {view.meta.timeSource === 'rectified' ? (
+        <aside className="notice" data-testid="rectification-notice">
+          <p>
+            {intl('rectification.reportNotice', {
+              percent: Math.round((view.meta.rectificationConfidence ?? 0) * 100),
+            })}
+          </p>
+          <Link href="/me/birth">{intl('rectification.editBirth')}</Link>
+          {' · '}
+          <Link href="/rectify">{intl('rectification.retry')}</Link>
+        </aside>
+      ) : null}
       {view.staleProfile ? <p className="notice">{t('report.stale')}</p> : null}
       {view.isPublic ? <p className="notice">{t('report.public')}</p> : null}
       {view.meta.warnings.map((w) => (
@@ -288,7 +300,16 @@ export function ReportLayout({
         </p>
       ))}
       <div className="report-columns">
-        <ReportHeadline headline={view.report.headline} />
+        <ReportHeadline
+          headline={{
+            ...view.report.headline,
+            // DESIGN-GAP: Trial similarity caps the displayed report confidence so an inferred hour cannot appear fully verified.
+            confidence:
+              view.meta.timeSource === 'rectified'
+                ? Math.min(view.report.headline.confidence, view.meta.rectificationConfidence ?? 0)
+                : view.report.headline.confidence,
+          }}
+        />
         <aside className="report-chart">
           <details open className="report-card">
             <summary>{t('report.chart')}</summary>

@@ -4615,3 +4615,30 @@ html[data-reduced-motion='true'] .tarot-face img.is-reversed {
   justify-self: center;
   color: var(--accent-2);
 }
+
+.rectification-page {
+  max-width: 64rem;
+  margin-inline: auto;
+}
+.rectification-page fieldset {
+  margin-block: 1.5rem;
+  min-width: 0;
+}
+.rectification-page .birth-check {
+  align-items: flex-start;
+  margin-block: 0.75rem;
+}
+.rectification-results {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+.rectification-results article {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (min-width: 64rem) {
+  .rectification-results {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

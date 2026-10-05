@@ -86,3 +86,39 @@ describe('calendar and age validation', () => {
     expect(birthError({ ...input, timeUnknown: true, hour: 99, minute: 99 }, 'en')).toBeNull();
   });
 });
+
+describe('rectified birth provenance', () => {
+  it('preserves trial metadata on reuse and clears it when the user changes birth facts', async () => {
+    const complete = vi.fn();
+    render(
+      <NextIntlClientProvider locale="zh" messages={toMessages(zh)} timeZone="UTC">
+        <BirthForm
+          initial={{ ...input, timeSource: 'rectified', rectificationConfidence: 0.4 }}
+          onComplete={complete}
+        />
+      </NextIntlClientProvider>,
+    );
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    await screen.findByRole('button', { name: zh['rectification.start'] });
+    fireEvent.click(screen.getByRole('button', { name: zh['rectification.start'] }));
+    await vi.waitFor(() =>
+      expect(complete).toHaveBeenCalledWith(
+        expect.objectContaining({ timeSource: 'rectified', rectificationConfidence: 0.4 }),
+        '',
+      ),
+    );
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.back'] }));
+    fireEvent.change(screen.getByLabelText(zh['form.birth.time'], { exact: true }), {
+      target: { value: '10:00' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    await screen.findByRole('button', { name: zh['rectification.start'] });
+    fireEvent.click(screen.getByRole('button', { name: zh['rectification.start'] }));
+    await vi.waitFor(() => expect(complete).toHaveBeenCalledTimes(2));
+    expect(complete.mock.calls[1]![0]).toMatchObject({
+      hour: 10,
+      timeSource: undefined,
+      rectificationConfidence: undefined,
+    });
+  });
+});

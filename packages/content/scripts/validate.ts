@@ -1,3 +1,4 @@
+import { loadRectificationFeatures } from './rectification';
 import { learnSources } from './learn';
 import { loadContent, printDiagnostics } from './load';
 const result = await loadContent();
@@ -9,3 +10,5 @@ else
   );
 
 await learnSources();
+
+await loadRectificationFeatures();
