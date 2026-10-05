@@ -8,6 +8,7 @@ import { BirthInputSchema } from '@tianji/shared';
 import A from '../../../packages/engine/test/fixtures/birth/A.json';
 import zh from '../messages/zh.json';
 import en from '../messages/en.json';
+import tw from '../messages/zh-TW.json';
 const birth = BirthInputSchema.parse(A);
 const db = new PrismaClient({
   datasourceUrl:
@@ -19,8 +20,8 @@ test.afterAll(async () => {
   await db.$disconnect();
   redis.disconnect();
 });
-for (const locale of ['zh', 'en'] as const) {
-  const copy = locale === 'zh' ? zh : en;
+for (const locale of ['zh', 'en', 'zh-TW'] as const) {
+  const copy = locale === 'zh-TW' ? tw : locale === 'zh' ? zh : en;
   test(`${locale}: owner calendar, yearly cache, month navigation and dated daily report`, async ({
     page,
     request,

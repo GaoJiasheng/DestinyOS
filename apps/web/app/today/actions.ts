@@ -17,7 +17,7 @@ import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
 import { actionError } from '@/lib/reading-service';
 import type { ActionResult } from '@/lib/reading-schema';
 import type { DailyReport } from '@/lib/daily-compute';
-import { IanaTimezoneSchema } from '@tianji/shared';
+import { IanaTimezoneSchema, Locale } from '@tianji/shared';
 /** Fetch a signed-in user's daily fortune; anonymous clients calculate locally. */
 export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<DailyReport>> {
   try {
@@ -37,7 +37,7 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
           })
           .optional(),
         tz: IanaTimezoneSchema.optional(),
-        locale: z.enum(['zh', 'en', 'zh-TW']).optional(),
+        locale: z.nativeEnum(Locale).optional(),
       })
       .strict()
       .parse(raw);
@@ -78,7 +78,7 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
 /** Record a local anonymous daily visit using dimensions only; no birth or device identifier leaves the browser. */
 export async function recordAnonymousDailyViewAction(locale: string) {
   try {
-    const language = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
+    const language = z.nativeEnum(Locale).parse(locale);
     const ip = requestIp(await headers());
     if (!(await ratelimit('daily', ip)).success) return;
     await recordEvent('daily.viewed', { system: 'daily', locale: language, plan: 'free' });
@@ -95,7 +95,7 @@ export async function getDailyRangeAction(raw: unknown): Promise<ActionResult<Da
         from: z.string(),
         to: z.string(),
         tz: IanaTimezoneSchema,
-        locale: z.enum(['zh', 'en']).default('zh'),
+        locale: z.nativeEnum(Locale).default('zh'),
       })
       .strict()
       .parse(raw);
@@ -119,7 +119,7 @@ export async function getCalendarYearAction(raw: unknown): Promise<ActionResult<
       .object({
         year: z.number().int().min(1900).max(2100),
         tz: IanaTimezoneSchema,
-        locale: z.enum(['zh', 'en']).default('zh'),
+        locale: z.nativeEnum(Locale).default('zh'),
       })
       .strict()
       .parse(raw);

@@ -10,6 +10,7 @@ import { SolarTerm, BirthInputSchema } from '@tianji/shared';
 import A from './fixtures/birth/A.json';
 import zh from '../../../apps/web/messages/zh.json';
 import en from '../../../apps/web/messages/en.json';
+import tw from '../../../apps/web/messages/zh-TW.json';
 const profile = BirthInputSchema.parse(A),
   birth = normalizeBirth(profile);
 describe('B-06 monthly scores', () => {
@@ -132,7 +133,7 @@ describe('B-06 engine annual events', () => {
     expect(a.some((e) => e.kind === 'antardasha')).toBe(false);
     expect(computeCalendarYear({ ...profile, timeUnknown: true }, 2026, 'UTC', 'zh')).toEqual(a);
   });
-  it('every event title and explanation exists in both catalogs', () => {
+  it('every event title and explanation exists in all three catalogs', () => {
     for (const kind of [
       'solar_term',
       'bazi_year',
@@ -148,7 +149,7 @@ describe('B-06 engine annual events', () => {
       'mahadasha',
       'antardasha',
     ]) {
-      for (const catalog of [zh, en])
+      for (const catalog of [zh, en, tw])
         for (const prefix of ['event', 'explanation'])
           expect((catalog as Record<string, string>)[`calendar.${prefix}.${kind}`]).toBeTruthy();
     }

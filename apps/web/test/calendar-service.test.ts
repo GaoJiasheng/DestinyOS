@@ -142,3 +142,25 @@ it('calendar dates reuse getDailyAction for dates beyond yesterday and tomorrow'
     error: { code: 'E_VALIDATION' },
   });
 });
+
+it('zh-TW calendar actions compute scores and retain a separate annual cache', async () => {
+  const days = await getDailyRangeAction({
+    from: '2026-10-01',
+    to: '2026-10-31',
+    tz: 'Asia/Shanghai',
+    locale: 'zh-TW',
+  });
+  expect(days).toMatchObject({ ok: true });
+  if (!days.ok) throw new Error(days.error.code);
+  expect(days.data).toEqual(
+    await dailyRangeForUser('owner', '2026-10-01', '2026-10-31', 'Asia/Shanghai', 'zh'),
+  );
+  const annual = await getCalendarYearAction({ year: 2026, tz: 'Asia/Shanghai', locale: 'zh-TW' });
+  expect(annual).toMatchObject({ ok: true });
+  expect(mocks.set.mock.calls.at(-1)?.[0]).toMatch(/^calendar:owner:1:2026:Asia%2FShanghai:zh-TW:/);
+  mocks.daily.mockResolvedValue({ chart: { date: { local: '2026-10-01' } } });
+  expect(
+    await getDailyAction({ date: '2026-10-01', tz: 'Asia/Shanghai', locale: 'zh-TW' }),
+  ).toMatchObject({ ok: true });
+  expect(mocks.daily).toHaveBeenCalledWith('owner', '2026-10-01', 'Asia/Shanghai', 'zh-TW');
+});
