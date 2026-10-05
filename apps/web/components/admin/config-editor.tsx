@@ -85,23 +85,5 @@ export function ConfigEditor({ initial }: { initial: SiteSettings }) {
       {(
         [
           'ads.enabled',
-          'export.freeEnabled',
           'feature.llmPolish',
-          'feature.panchangDefaultOpen',
-          'maintenance',
-        ] as const
-      ).map((key) => (
-        <label key={key}>
-          <input
-            type="checkbox"
-            checked={value[key]}
-            onChange={(e) => change({ ...value, [key]: e.target.checked })}
-          />
-          {t(`admin.config.${key}`)}
-        </label>
-      ))}
-      <Button disabled={pending}>{pending ? t('admin.pending') : t('admin.config.save')}</Button>
-      <p role="status">{message}</p>
-    </form>
-  );
-}
+          'feature.llmChat',

@@ -36,7 +36,9 @@
     "SENTRY_DSN",
     "TEST_MAIL_URL",
     "STRIPE_*",
-    "CRON_SECRET"
+    "CRON_SECRET",
+    "MINIMAX_*",
+    "FEATURE_LLM_CHAT"
   ],
   "globalDependencies": ["prisma/schema.prisma", "prisma/migrations/**"]
 }

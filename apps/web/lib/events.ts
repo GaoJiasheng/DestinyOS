@@ -13,7 +13,11 @@ export type EventName =
   | 'sub.ended'
   | 'user.registered'
   | 'user.active'
-  | 'ad.impression';
+  | 'ad.impression'
+  | 'chat.completed'
+  | 'chat.failed'
+  | 'chat.deleted'
+  | 'chat.denied';
 /** Return UTC day and a purpose-separated rotating pseudonym; never persist the owner ID. */
 export function eventIdentity(userId?: string, now = new Date()) {
   const day = new Date(now.toISOString().slice(0, 10));

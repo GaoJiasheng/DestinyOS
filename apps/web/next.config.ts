@@ -14,6 +14,7 @@ const config: NextConfig = {
     '/api/export': ['./node_modules/@sparticuz/chromium/bin/**/*'],
     '/*': [
       './resources/**/*',
+      './lib/llm/prompts/*.md',
       './node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff',
       './node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff',
       '../../packages/content/dist/*.json',

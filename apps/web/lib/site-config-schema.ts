@@ -15,6 +15,10 @@ export const SiteConfigSchema = z
     'ads.enabled': z.boolean(),
     'export.freeEnabled': z.boolean().default(true),
     'feature.llmPolish': z.boolean(),
+    // DESIGN-GAP: B-05 specifies configurable quotas but no keys; keep them under the chat namespace.
+    'feature.llmChat': z.boolean().default(false),
+    'chat.freeDailyLimit': z.number().int().min(0).max(10000).default(3),
+    'chat.proDailyLimit': z.number().int().min(0).max(10000).default(30),
     'feature.panchangDefaultOpen': z.boolean(),
     maintenance: z.boolean(),
   })

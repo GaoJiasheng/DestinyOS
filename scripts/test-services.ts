@@ -142,13 +142,19 @@ if (process.argv.includes('--web')) {
   const webCommand = production ? 'start' : 'dev';
   child = spawn('pnpm', ['--filter', '@tianji/web', webCommand, '--port', String(testPorts.web)], {
     stdio: 'inherit',
-    env: production
-      ? {
-          ...process.env,
-          TEST_WEB_MODE: 'production',
-          NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}${process.env.TEST_STRIPE_MOCK === '1' ? ` --import ${new URL('./test-stripe-interceptor.ts', import.meta.url).href}` : ''}`,
-        }
-      : process.env,
+    env:
+      process.env.TEST_CHAT_MOCK === '1'
+        ? {
+            ...process.env,
+            NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import=${new URL('./test-chat-preload.mjs', import.meta.url).href}`,
+          }
+        : production
+          ? {
+              ...process.env,
+              TEST_WEB_MODE: 'production',
+              NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}${process.env.TEST_STRIPE_MOCK === '1' ? ` --import ${new URL('./test-stripe-interceptor.ts', import.meta.url).href}` : ''}`,
+            }
+          : process.env,
   });
 }
 async function stop() {

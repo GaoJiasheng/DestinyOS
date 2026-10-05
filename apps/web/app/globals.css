@@ -4494,3 +4494,69 @@ html[data-reduced-motion='true'] .tarot-face img.is-reversed {
   stroke: none !important;
   pointer-events: all;
 }
+
+/* DESIGN-GAP: B-05 has no visual tokens; reuse report cards and existing mobile-first form primitives. */
+.chat-panel {
+  margin-block: 1.5rem;
+}
+.chat-panel > summary {
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+.chat-body {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.chat-history {
+  max-height: 28rem;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+.chat-message {
+  padding: 1rem;
+  margin-block: 0.75rem;
+  border: 1px solid var(--line-1);
+  border-radius: 0.75rem;
+}
+.chat-message p {
+  white-space: pre-wrap;
+}
+.chat-user {
+  margin-left: 1rem;
+}
+.chat-assistant {
+  margin-right: 1rem;
+}
+.chat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chat-chips button {
+  white-space: normal;
+  height: auto;
+  text-align: left;
+}
+.chat-body textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  padding: var(--space-3);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  background: var(--bg-1);
+  color: var(--text-1);
+}
+.chat-body textarea:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.chat-fullscreen {
+  min-height: 70vh;
+  width: min(100%, 56rem);
+  margin-inline: auto;
+}
+.chat-fullscreen .chat-history {
+  max-height: 50vh;
+}
