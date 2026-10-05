@@ -44,7 +44,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
     // DESIGN-GAP: Secure cookies require HTTPS; localhost HTTP development uses Auth.js's automatic exception.
     useSecureCookies: process.env.NODE_ENV === 'production',
     providers: [
-      Google({ authorization: { params: { scope: 'openid email profile' } } }),
+      Google({
+        // DESIGN-GAP: Auth.js defaults to PKCE only; require state and OIDC nonce explicitly.
+        checks: ['pkce', 'state', 'nonce'],
+        authorization: { params: { scope: 'openid email profile' } },
+      }),
       Resend({
         apiKey: process.env.RESEND_API_KEY,
         from: process.env.EMAIL_FROM,

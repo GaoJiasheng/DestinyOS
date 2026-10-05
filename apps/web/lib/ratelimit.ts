@@ -75,7 +75,13 @@ export async function ratelimit(route: RateLimitRoute, identity: string): Promis
     });
     limiters.set(route, limiter);
   }
-  return limiter.limit(createHash('sha256').update(identity.trim().toLowerCase()).digest('hex'));
+  const result = await limiter.limit(
+    createHash('sha256').update(identity.trim().toLowerCase()).digest('hex'),
+  );
+  // DESIGN-GAP: Upstash reports success on timeout by default; infrastructure failures must fail closed.
+  if (result.reason === 'timeout')
+    throw new ApiError('E_INTERNAL', 'Rate limit service unavailable', 503);
+  return result;
 }
 
 /** Throw the standard 429 error with retryAfter in seconds when a quota is exhausted. */

@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { find } from 'geo-tz';
 import { ApiError, errorResponse } from '@/lib/api-error';
 const schema = z.object({
-  lat: z.coerce.number().finite().min(-90).max(90),
-  lng: z.coerce.number().finite().min(-180).max(180),
+  lat: z.string().trim().min(1).pipe(z.coerce.number().finite().min(-90).max(90)),
+  lng: z.string().trim().min(1).pipe(z.coerce.number().finite().min(-180).max(180)),
 });
 /** Resolve WGS84 degrees to an IANA timezone using local geo-tz boundary data. */
 export async function GET(request: Request) {

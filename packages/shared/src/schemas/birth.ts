@@ -6,6 +6,20 @@ const month = z.number().int().min(1).max(12);
 const day = z.number().int().min(1).max(31);
 const hour = z.number().int().min(0).max(23);
 const minute = z.number().int().min(0).max(59);
+// DESIGN-GAP: Bound city labels to 200 characters and validate IANA names before engine/IO work.
+export const IanaTimezoneSchema = z
+  .string()
+  .min(1)
+  .max(100)
+  .refine((zone) => {
+    if (/^[+-]/.test(zone)) return false;
+    try {
+      new Intl.DateTimeFormat('en', { timeZone: zone });
+      return true;
+    } catch {
+      return false;
+    }
+  }, 'Invalid IANA time zone');
 export const GanZhiSchema = z
   .object({ stem: z.nativeEnum(Stem), branch: z.nativeEnum(Branch) })
   .strict();
@@ -28,10 +42,10 @@ const birthInputObject = z
     timeUnknown: z.boolean(),
     place: z
       .object({
-        name: z.string().min(1),
+        name: z.string().min(1).max(200),
         lat: z.number().finite().min(-90).max(90),
         lng: z.number().finite().min(-180).max(180),
-        tz: z.string().min(1),
+        tz: IanaTimezoneSchema,
       })
       .strict()
       .optional(),

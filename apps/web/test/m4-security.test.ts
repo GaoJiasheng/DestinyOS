@@ -70,6 +70,11 @@ describe('M4 policy boundaries', () => {
   });
   it('sets security headers and a nonce-bearing report-only collection policy', () => {
     expect(securityHeaders()).toContainEqual({ key: 'X-Content-Type-Options', value: 'nosniff' });
+    expect(securityHeaders()).toContainEqual({ key: 'X-Frame-Options', value: 'DENY' });
+    expect(securityHeaders()).toContainEqual({
+      key: 'Content-Security-Policy',
+      value: "base-uri 'self'; object-src 'none'; frame-ancestors 'none'",
+    });
     expect(reportOnlyCsp('unique')).toContain("'nonce-unique'");
     expect(reportOnlyCsp('unique')).toContain('report-uri /api/v1/csp/report');
     expect(reportOnlyCsp('unique')).not.toContain("'unsafe-eval'");

@@ -14,7 +14,22 @@ export const ReadingRequestSchema = z
       })
       .strict()
       .optional(),
-    question: z.union([z.string().trim().max(120), z.record(z.unknown())]).optional(),
+    // DESIGN-GAP: Structured cast options remain supported; their text/question fields share the 120-character boundary.
+    question: z
+      .union([
+        z.string().trim().max(120),
+        z.record(z.unknown()).superRefine((value, context) => {
+          for (const field of ['text', 'question']) {
+            if (value[field] !== undefined && !z.string().max(120).safeParse(value[field]).success)
+              context.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: [field],
+                message: 'Invalid question text',
+              });
+          }
+        }),
+      ])
+      .optional(),
     category: z.string().max(40).optional(),
     spread: z.string().max(40).optional(),
     method: z.string().max(40).optional(),

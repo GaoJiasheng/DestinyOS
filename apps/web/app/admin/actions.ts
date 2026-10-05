@@ -1,4 +1,5 @@
 'use server';
+import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
@@ -179,10 +180,7 @@ export async function reauthEmailAction(): Promise<AdminState> {
   const admin = await requireAdmin(false);
   try {
     if (!admin.email) throw new Error('Email required');
-    await limitMagicLink(
-      admin.email,
-      (await headers()).get('x-forwarded-for')?.split(',')[0] ?? 'unknown',
-    );
+    await limitMagicLink(admin.email, requestIp(await headers()));
     (await cookies()).set('NEXT_LOCALE', await adminLocale(), { path: '/', sameSite: 'lax' });
     const target: unknown = await signIn('resend', {
       email: admin.email,

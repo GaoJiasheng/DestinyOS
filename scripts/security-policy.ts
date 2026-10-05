@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 const require = createRequire(import.meta.url);
-// DESIGN-GAP: Keep documented next-intl 3.x and Vitest Node-only tests; narrowly suppress non-applicable advisories and verify the extract-zip security backport before audit.
+// DESIGN-GAP: Keep documented next-intl 3.x; narrowly suppress non-applicable advisories and verify the extract-zip security backport before audit.
 const routing = await readFile('apps/web/i18n/routing.ts', 'utf8');
 assert.match(routing, /localePrefix:\s*'always'/);
 const nextConfig = await readFile('apps/web/next.config.ts', 'utf8');
