@@ -7,7 +7,7 @@ import { useRouter, Link } from '@/i18n/navigation';
 import { createReadingAction } from '@/app/readings/actions';
 import { BirthForm } from './birth-form';
 import { Button } from '@/components/ui/button';
-import { DivinationLoader } from '@/components/divination-loader';
+import { DivinationLoader } from '@/components/ui/divination-loader';
 import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 /** Two profile selectors never put private inputs in URLs; anonymous pairs stay in encrypted device storage. */

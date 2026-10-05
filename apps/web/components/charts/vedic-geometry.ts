@@ -1,17 +1,6 @@
-import type { Graha, VedicChart, Sign } from '@tianji/shared';
+import type { VedicChart, Sign } from '@tianji/shared';
 import { SIGNS } from './astro-geometry';
 export type Division = 'D1' | 'D9';
-export const GRAHA_SHORT: Record<Graha, string> = {
-  surya: 'Su',
-  chandra: 'Mo',
-  mangala: 'Ma',
-  budha: 'Me',
-  guru: 'Ju',
-  shukra: 'Ve',
-  shani: 'Sa',
-  rahu: 'Ra',
-  ketu: 'Ke',
-};
 // DESIGN-GAP: D9 degrees are the exact ninth-harmonic longitude; they are not copied from D1.
 /** Sign and degree positions for D1 or Navamsa, with no inferred Lagna for noon charts. */
 export function vedicDivision(chart: VedicChart, division: Division) {

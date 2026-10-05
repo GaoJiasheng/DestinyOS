@@ -50,6 +50,9 @@ export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
     !exactNames.has(key) || exactNames.get(key)!.has(matched);
   return { regex: pattern ? new RegExp(pattern, 'giu') : null, unique, isTechnicalMatch };
 }
+/** Create a report-scoped annotator marking only the first unambiguous term occurrence.
+ * @param glossary Fixed glossary entries for one report.
+ * @param locale Matching language; Chinese variants use localized terms. */
 export function termMarker(glossary: GlossaryEntry[], locale: Locale) {
   const { regex, unique, isTechnicalMatch } = termPattern(glossary, locale);
   const seen = new Set<string>();
@@ -75,6 +78,10 @@ export function termMarker(glossary: GlossaryEntry[], locale: Locale) {
       .join('');
   };
 }
+/** Expand explicit term markers to localized display terms, retaining unknown markers.
+ * @param text Prose containing [[term:key]] markers.
+ * @param glossary Known term definitions.
+ * @param locale Target display language. */
 export function expandTerms(text: string, glossary: GlossaryEntry[], locale: Locale): string {
   return text.replace(/\[\[term:([^\]]+)\]\]/g, (mark: string, key: string) =>
     localeText(
@@ -83,6 +90,10 @@ export function expandTerms(text: string, glossary: GlossaryEntry[], locale: Loc
     ),
   );
 }
+/** Count automatic and explicit terminology references using the report matching rules.
+ * @param text Report prose or marked text.
+ * @param glossary Known term definitions.
+ * @param locale Matching language. */
 export function termCount(text: string, glossary: GlossaryEntry[], locale: Locale): number {
   return createTermCounter(glossary, locale)(text);
 }

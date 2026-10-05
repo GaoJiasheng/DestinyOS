@@ -1,34 +1,20 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { DailyPanchang } from './daily-panchang';
+import { useRef } from 'react';
+import { dailyStars } from '@tianji/engine/daily';
+import { useDailyReport } from './use-daily-report';
 import { useSearchParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Temporal } from '@js-temporal/polyfill';
-import { type BirthInput, type Locale } from '@tianji/shared';
+import { type Locale } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
-import { getDailyAction, recordAnonymousDailyViewAction } from '@/app/today/actions';
 import { submitFeedbackAction } from '@/app/readings/actions';
-import { readAnonymous } from '@/lib/anonymous-storage';
-import { localToday } from '@/lib/daily-date';
-import type { DailyReport } from '@/lib/daily-compute';
-import { calculateDailyInWorker } from '@/lib/daily-worker';
 import { dailyExcerpt } from '@/lib/daily-excerpt';
 import { ShareDialog } from '@/components/share/share-dialog';
 import { JournalForm } from '@/components/me/journal-form';
 import { AdSlot } from '@/components/report/report-section';
-const demo: BirthInput = {
-  calendar: 'gregorian',
-  year: 1990,
-  month: 5,
-  day: 15,
-  hour: 8,
-  minute: 30,
-  timeUnknown: false,
-  gender: 'male',
-  place: { name: 'Example', lat: 39.9, lng: 116.4, tz: 'Asia/Shanghai' },
-};
 /** Thirteen daily blocks, local anonymous computation, bounded date controls and touch navigation. */
 // DESIGN-GAP: 未规定的五要素历中文名采用月日/瑜伽序号、半日类型号与中文星期；星宿复用已有 glossary 译名。
 export function TodayView({
@@ -50,98 +36,32 @@ export function TodayView({
   const t = useCopy(),
     intl = useTranslations(),
     locale = useLocale() as Locale;
-  // DESIGN-GAP: Panchang expansion is a device preference because the documented User schema has no field for it.
-  const [offset, setOffset] = useState(0),
-    [zone, setZone] = useState<string | null>(tz ?? null),
-    [value, setValue] = useState<DailyReport | null>(null),
-    [example, setExample] = useState(false),
-    [error, setError] = useState(false),
-    [busy, setBusy] = useState(true),
-    [retry, setRetry] = useState(0),
-    [panchang, setPanchang] = useState(vedicUsed || panchangDefaultOpen),
-    [flipped, setFlipped] = useState(false),
-    [vote, setVote] = useState<number | null>(null);
+  const {
+    offset,
+    setOffset,
+    zone,
+    value,
+    example,
+    error,
+    setError,
+    busy,
+    setRetry,
+    panchang,
+    setPanchang,
+    flipped,
+    setFlipped,
+    vote,
+    setVote,
+  } = useDailyReport({
+    signedIn,
+    profileId,
+    tz,
+    locale,
+    requestedDate,
+    vedicUsed,
+    panchangDefaultOpen,
+  });
   const touch = useRef<{ x: number; y: number } | null>(null);
-  useEffect(() => {
-    const saved = localStorage.getItem('tianji-tz');
-    setZone(tz ?? saved ?? Intl.DateTimeFormat().resolvedOptions().timeZone);
-    const pref = localStorage.getItem('tianji-panchang');
-    if (pref !== null) setPanchang(pref === 'true');
-  }, [tz]);
-  useEffect(() => {
-    if (!zone) return;
-    document.cookie = `tz=${encodeURIComponent(zone)}; Path=/; SameSite=Lax`;
-    let active = true;
-    const controller = new AbortController();
-    setBusy(true);
-    setError(false);
-    setFlipped(false);
-    setVote(null);
-    void (async () => {
-      const date = Temporal.PlainDate.from(requestedDate ?? localToday(zone))
-        .add({ days: offset })
-        .toString();
-      if (signedIn) {
-        const result = await getDailyAction({ date, tz: zone, locale, profileId });
-        if (result.ok) {
-          if (active) {
-            setValue(result.data);
-            setExample(false);
-          }
-          window.dispatchEvent(new CustomEvent('tianji:event', { detail: { name: 'daily.view' } }));
-          return;
-        }
-        if (result.error.code !== 'E_PROFILE_REQUIRED') throw new Error(result.error.code);
-      }
-      const device = signedIn ? Promise.resolve(null) : readAnonymous();
-      const input = device.then(async (data) => {
-        const hash = await crypto.subtle.digest(
-          'SHA-256',
-          new TextEncoder().encode(`${data?.anonId ?? 'example'}|${date}`),
-        );
-        const seed = Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, '0')).join(
-          '',
-        );
-        return { profile: data?.profile ?? demo, date, tz: zone, seed, locale };
-      });
-      const computed = await calculateDailyInWorker(input, controller.signal, locale);
-      const data = await device;
-      if (active) {
-        setValue(computed);
-        setExample(!data?.profile);
-        window.dispatchEvent(new CustomEvent('tianji:event', { detail: { name: 'daily.view' } }));
-        if (
-          localStorage.getItem('tianji-panchang') === null &&
-          data?.readings.some((r) => r.system === 'vedic')
-        )
-          setPanchang(true);
-      }
-    })()
-      .catch(() => {
-        if (active) setError(true);
-      })
-      .finally(() => {
-        if (active) setBusy(false);
-      });
-    return () => {
-      active = false;
-      controller.abort();
-    };
-  }, [signedIn, profileId, zone, offset, locale, retry, requestedDate]);
-  useEffect(() => {
-    if (signedIn || !value) return;
-    // DESIGN-GAP: Record anonymous visit dimensions after the first result paint; telemetry's RSC response must not delay the locally computed content.
-    let second = 0;
-    const first = requestAnimationFrame(() => {
-      second = requestAnimationFrame(() => {
-        void recordAnonymousDailyViewAction(locale).catch(() => undefined);
-      });
-    });
-    return () => {
-      cancelAnimationFrame(first);
-      cancelAnimationFrame(second);
-    };
-  }, [signedIn, value, locale]);
   const chart = value?.chart,
     report = value?.report,
     vedic = value?.chart.vedic;
@@ -161,8 +81,6 @@ export function TodayView({
       );
   };
   const title = (key: string) => intl(`report.sections.daily.${key}`);
-  const stars = (score: number) =>
-    score >= 85 ? 5 : score >= 70 ? 4 : score >= 55 ? 3 : score >= 40 ? 2 : 1;
   function switchDate(n: number) {
     window.dispatchEvent(
       new CustomEvent('tianji:event', { detail: { name: 'daily.date.switch' } }),
@@ -292,21 +210,21 @@ export function TodayView({
               <div
                 className={`daily-overall band-${chart.scores.overall >= 70 ? 'good' : 'mixed'}`}
                 role="img"
-                aria-label={`${t('daily.overall')} · ${t(`daily.rating.${stars(chart.scores.overall)}` as MessageKey)}`}
+                aria-label={`${t('daily.overall')} · ${t(`daily.rating.${dailyStars(chart.scores.overall)}` as MessageKey)}`}
               >
                 <span aria-hidden>
-                  {t(`daily.rating.${stars(chart.scores.overall)}` as MessageKey)}
+                  {t(`daily.rating.${dailyStars(chart.scores.overall)}` as MessageKey)}
                 </span>
               </div>
               <div className="daily-grid">
                 {(['career', 'wealth', 'love', 'health', 'social'] as const).map((k) => (
                   <div key={k}>
                     <h3>{t(`daily.dimension.${k}`)}</h3>
-                    <p aria-label={t('daily.stars', { count: stars(chart.scores[k]) })}>
-                      {'★'.repeat(stars(chart.scores[k]))}
-                      {'☆'.repeat(5 - stars(chart.scores[k]))}
+                    <p aria-label={t('daily.stars', { count: dailyStars(chart.scores[k]) })}>
+                      {'★'.repeat(dailyStars(chart.scores[k]))}
+                      {'☆'.repeat(5 - dailyStars(chart.scores[k]))}
                     </p>
-                    <p>{t(`daily.rating.${stars(chart.scores[k])}` as MessageKey)}</p>
+                    <p>{t(`daily.rating.${dailyStars(chart.scores[k])}` as MessageKey)}</p>
                   </div>
                 ))}
               </div>
@@ -399,34 +317,15 @@ export function TodayView({
                 </div>
               ) : null}
             </section>
-            <section className="report-card" data-daily-block="9">
-              <details open={panchang} onToggle={(e) => setPanchang(e.currentTarget.open)}>
-                <summary>{title('panchang')}</summary>
-                {vedic ? (
-                  <dl className="daily-grid">
-                    {(['tithi', 'nakshatra', 'yoga', 'karana', 'vara'] as const).map((k) => (
-                      <div key={k}>
-                        <dt>{t(`daily.panchang.${k}`)}</dt>
-                        <dd>
-                          {t('report.content', {
-                            text: intl.has(`charts.panchang.${k}.${vedic[k].key}`)
-                              ? intl(`charts.panchang.${k}.${vedic[k].key}`)
-                              : t('daily.panchang.value', {
-                                  index: vedic[k].index,
-                                  time: new Intl.DateTimeFormat(locale, {
-                                    timeStyle: 'short',
-                                    timeZone: zone ?? 'UTC',
-                                  }).format(new Date(vedic[k].endsAt)),
-                                }),
-                          })}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                ) : null}
-                {content('panchang')}
-              </details>
-            </section>
+            <DailyPanchang
+              vedic={vedic}
+              panchang={panchang}
+              setPanchang={setPanchang}
+              locale={locale}
+              zone={zone}
+            >
+              {content('panchang')}
+            </DailyPanchang>
             <section className="report-card" data-daily-block="10">
               <h2>{t('daily.doDont')}</h2>
               <div className="daily-grid">
@@ -446,7 +345,7 @@ export function TodayView({
                   locale,
                   date: chart.date.local,
                   headline: intl(chart.oneLiner),
-                  stars: stars(chart.scores.overall),
+                  stars: dailyStars(chart.scores.overall),
                   color: intl(chart.bazi.luckyColor[0]!),
                   numbers: chart.bazi.luckyNumbers,
                   do: report.doDont?.do ?? [],

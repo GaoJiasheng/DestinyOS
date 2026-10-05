@@ -30,6 +30,10 @@ export const systemConfigs: Record<System, SystemConfig> = {
     confidence: (chart) => (resolvePath(chart, 'availability.complete')[0] === true ? 1 : 0.65),
   },
 };
+/** Read the first finite numeric chart-path value or return the supplied fallback.
+ * @param chart Structured chart output.
+ * @param path Documented JSONPath-lite field.
+ * @param fallback Value used for missing or nonnumeric fields. */
 export function numeric(chart: unknown, path: string, fallback: number): number {
   const value = resolvePath(chart, path)[0];
   return typeof value === 'number' && Number.isFinite(value) ? value : fallback;

@@ -1,6 +1,6 @@
 import { Ajv } from 'ajv';
 import { LineCounter, parseDocument } from 'yaml';
-import { resolvePath, textGrams, zhChars, enWords, evaluateWhen } from '../src';
+import { resolvePath, textGrams, zhChars, enWords } from '../src';
 import type { KnowledgeUnit, GlossaryEntry, Transitions } from '../src';
 import schema from '../schema/ku.schema.json';
 const ajv = new Ajv({ allErrors: true });
@@ -100,6 +100,9 @@ export const banned = {
     'will rise',
   ],
 };
+/** Parse a YAML source with locations and accumulate syntax diagnostics.
+ * @param file Source filename used in diagnostics.
+ * @param source Raw UTF-8 YAML content. */
 export function parseSource(file: string, source: string) {
   const lines = new LineCounter();
   const doc = parseDocument(source, { lineCounter: lines, uniqueKeys: true });
@@ -129,6 +132,10 @@ export function parseSource(file: string, source: string) {
   }
   return { data, locate, diagnostics };
 }
+/** Validate KU schema, bilingual prose and trigger paths against representative charts.
+ * @param file Source filename used in diagnostics.
+ * @param source Raw UTF-8 YAML content.
+ * @param fixtures Representative charts grouped by system. */
 export function validateSource(
   file: string,
   source: string,
@@ -237,6 +244,8 @@ export function validateSource(
   });
   return { units, diagnostics };
 }
+/** Check global KU identifiers, reciprocal exclusions and suspicious prose similarity.
+ * @param units Validated units with their source locations. */
 export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
   const diagnostics: Diagnostic[] = [];
   const ids = new Map<string, LocatedUnit>();
@@ -332,6 +341,9 @@ export function validateRelations(units: LocatedUnit[]): Diagnostic[] {
     }
   return diagnostics;
 }
+/** Validate glossary YAML and return located diagnostics with parsed entries.
+ * @param file Source filename used in diagnostics.
+ * @param source Raw UTF-8 YAML content. */
 export function validateGlossary(file: string, source: string) {
   const parsed = parseSource(file, source);
   const entries: GlossaryEntry[] = [];
@@ -356,6 +368,9 @@ export function validateGlossary(file: string, source: string) {
     });
   return { entries, diagnostics: parsed.diagnostics };
 }
+/** Validate bilingual transition templates and return parsed groups plus diagnostics.
+ * @param file Source filename used in diagnostics.
+ * @param source Raw UTF-8 YAML content. */
 export function validateTransitions(file: string, source: string) {
   const parsed = parseSource(file, source);
   if (!checkTransitions(parsed.data))
@@ -370,28 +385,4 @@ export function validateTransitions(file: string, source: string) {
     diagnostics: parsed.diagnostics,
   };
 }
-/** T-23 supplies A–G plus 500 computed charts; this checker never invents valid births. */
-export function checkCoverage(
-  units: KnowledgeUnit[],
-  charts: unknown[],
-  sections: string[],
-): string[] {
-  if (!charts.length) return ['Coverage requires chart fixtures'];
-  return sections.flatMap((section) => {
-    const missing = charts.flatMap((chart, index) =>
-      units.some(
-        (u) =>
-          u.meta.status === 'published' &&
-          u.section === section &&
-          evaluateWhen(chart, u.when).matched,
-      )
-        ? []
-        : [index],
-    );
-    return missing.length / charts.length > 0.01
-      ? [
-          `${section}: ${missing.length}/${charts.length} empty; fixture indexes ${missing.join(',')}`,
-        ]
-      : [];
-  });
-}
+export { checkCoverage } from './coverage';

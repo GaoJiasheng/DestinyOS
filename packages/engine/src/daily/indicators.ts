@@ -45,6 +45,9 @@ export const DAILY_DIRECTIONS: Record<Element, string> = {
   metal: 'daily.direction.west',
   water: 'daily.direction.north',
 };
+/** Select a stable sRGB color and translation key from an elemental family.
+ * @param element Favorable natal element.
+ * @param seed Caller-provided deterministic daily seed. */
 export function luckyColor(element: Element, seed: string) {
   const family = COLOR_FAMILIES[element];
   const [name, hex] = family[Math.floor(createRandom(`${seed}|color`).next() * family.length)]!;
@@ -73,6 +76,8 @@ export function goodHours(
     };
   });
 }
+/** Return branches combining with the daily branch, preserving canonical branch order.
+ * @param dayBranch Daily terrestrial branch. */
 export function nobleZodiac(dayBranch: Branch): Branch[] {
   return BRANCHES.filter((branch) =>
     branchRelations(dayBranch, branch).some((type) => type === 'combine' || type === 'tri_combine'),
@@ -104,6 +109,8 @@ export const ALMANAC_MAPPING: Readonly<Record<string, string>> = {
   赴任: 'roles',
   求嗣: 'family',
 };
+/** Map library almanac tokens to deduplicated modern activity translation keys.
+ * @param words Library Chinese lookup tokens; unlisted activities are omitted. */
 export function mapAlmanac(words: readonly string[]): string[] {
   return [
     ...new Set(

@@ -27,6 +27,8 @@ export async function ownedProfile(userId: string, id: string) {
   return row;
 }
 // DESIGN-GAP: Selection is per browser in an HTTP-only cookie; validate owner on every read and fall back to default.
+/** Resolve the owned active profile from the selection cookie, falling back to the default.
+ * @param userId Authenticated owner identifier. */
 export async function currentProfile(userId: string) {
   let selected: string | undefined;
   try {

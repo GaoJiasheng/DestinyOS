@@ -2,6 +2,9 @@ import { enWords, zhChars } from '@tianji/content';
 import type { GlossaryEntry } from '@tianji/content';
 import type { Report } from './types';
 import { expandTerms, termCount } from './terms';
+/** Check expanded article length, terminology density and unresolved placeholders.
+ * @param report Sections and system/locale used to select the documented minimum length.
+ * @param glossary Entries used for marker expansion and terminology counting. */
 export function checkReadability(
   report: Pick<Report, 'system' | 'locale' | 'sections'>,
   glossary: GlossaryEntry[],

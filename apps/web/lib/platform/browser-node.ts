@@ -1,3 +1,4 @@
+import { printSettled, zoomPrintReport, selectPrintSheet } from './print-dom';
 import { chromium } from 'playwright-core';
 import type { ReportPage } from './browser';
 /** Run Playwright locally or with Vercel's serverless Chromium. */
@@ -39,14 +40,7 @@ export async function openNodePage(
           throw new Error('Print route unavailable');
       },
       async validate() {
-        await page.waitForFunction(
-          () =>
-            ['true', 'error'].includes(
-              document.querySelector('.print-report')?.getAttribute('data-ready') ?? '',
-            ),
-          {},
-          { timeout: 60000 },
-        );
+        await page.waitForFunction(printSettled, {}, { timeout: 60000 });
         if ((await page.locator('.print-report').getAttribute('data-ready')) !== 'true')
           throw new Error('Print pagination failed');
         if (
@@ -67,18 +61,11 @@ export async function openNodePage(
       },
       async preparePng() {
         await page.setViewportSize({ width: 2480, height: 3508 });
-        await page.locator('.print-report').evaluate((node) => {
-          (node as HTMLElement).style.zoom = String(2480 / ((210 * 96) / 25.4));
-        });
+        await page.locator('.print-report').evaluate(zoomPrintReport);
       },
       pageCount: () => page.locator('.print-sheet').count(),
       async screenshot(index) {
-        await page.locator('.print-sheet').evaluateAll((nodes, selected) => {
-          nodes.forEach((node, i) => {
-            (node as HTMLElement).style.display = i === selected ? '' : 'none';
-          });
-          window.scrollTo(0, 0);
-        }, index);
+        await page.locator('.print-sheet').evaluateAll(selectPrintSheet, index);
         return page.screenshot({ type: 'png', animations: 'disabled', scale: 'css' });
       },
       close: () => browser.close(),

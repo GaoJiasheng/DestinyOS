@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
-import { actionError } from '@/lib/reading-service';
+import { runAction as run } from '@/lib/action-result';
 import {
   currentProfile,
   ownedProfile,
@@ -20,13 +20,6 @@ async function owner() {
   const session = await auth();
   if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
   return session.user.id;
-}
-async function run<T>(work: () => Promise<T>) {
-  try {
-    return { ok: true as const, data: await work() };
-  } catch (error) {
-    return { ok: false as const, error: { code: actionError(error) } };
-  }
 }
 /** Owner-only profile menu metadata, excluding birth facts. */
 export async function listProfilesAction() {

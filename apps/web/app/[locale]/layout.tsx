@@ -9,7 +9,7 @@ import { getCopy } from '@/i18n/get-copy';
 import { Providers } from '@/components/providers';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
-import { Starfield } from '@/components/starfield';
+import { Starfield } from '@/components/three/starfield';
 import { FontLoader } from '@/components/pwa/font-loader';
 import { InstallPrompt } from '@/components/pwa/install-prompt';
 import { Disclaimer } from '@/components/disclaimer';

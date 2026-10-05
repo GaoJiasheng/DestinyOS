@@ -1,84 +1,34 @@
-import { describe, expect, it } from 'vitest';
 import { Temporal } from '@js-temporal/polyfill';
-import { readFileSync, readdirSync } from 'node:fs';
+import { QimenCategorySchema, QimenChartSchema, SolarTerm } from '@tianji/shared';
+import { readFileSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
-import {
-  QimenChartSchema,
-  QimenCategorySchema,
-  PillarSchema,
-  Stem,
-  Branch,
-  SolarTerm,
-  type QimenChart,
-  type QimenPalace,
-} from '@tianji/shared';
-import {
-  computeQimen,
-  rotatingPlate,
-  earthPlate,
-  JU_TABLE,
-  RING,
-  DEITIES,
-  xunShou,
-  horseBranch,
-  JI_XING,
-  RU_MU,
-  STARS,
-  GATES,
-  PATTERN_RULES,
-  matchesPattern,
-  detectPatterns,
-  type PatternContext,
-  type QimenInput,
-} from '../src/qimen';
+import { compute } from '../src';
 import {
   calendarAt,
-  solarTerms,
   solarTermAt,
-  zonedTime,
+  solarTerms,
   verdictFor,
+  zonedTime,
 } from '../src/common/divination';
-import { STEMS, BRANCHES, ganZhiAt, voidBranches } from '../src/common/ganzhi';
-import { compute } from '../src';
-const options = {
-  school: {
-    layout: 'rotating',
-    juMethod: 'chaibu',
-    centerLodge: 'kun2',
-    useApparentSolarTime: false,
-  },
-} as const;
-const cast = (at: string, category: QimenInput['category'] = 'general') =>
-  computeQimen({ at, category, options });
-const directory = 'packages/engine/test/fixtures/qimen-baseline';
-const fixtureSchema = z.object({
-  at: z.string(),
-  raw: z.record(z.unknown()),
-  documented: QimenChartSchema.pick({
-    pillars: true,
-    dun: true,
-    ju: true,
-    solarTerm: true,
-    xunShou: true,
-    zhiFu: true,
-    zhiShi: true,
-  }).extend({
-    palaces: z.array(
-      z.object({
-        index: z.number(),
-        earthStem: z.nativeEnum(Stem),
-        skyStem: z.nativeEnum(Stem),
-        star: z.string(),
-        gate: z.string().nullable(),
-        deity: z.string().nullable(),
-        hiddenStem: z.nativeEnum(Stem).optional(),
-      }),
-    ),
-  }),
-});
-const fixtures = readdirSync(directory)
-  .filter((f) => f.endsWith('.json'))
-  .map((f) => fixtureSchema.parse(JSON.parse(readFileSync(`${directory}/${f}`, 'utf8'))));
+import { BRANCHES, ganZhiAt, voidBranches } from '../src/common/ganzhi';
+import {
+  DEITIES,
+  GATES,
+  JI_XING,
+  JU_TABLE,
+  RING,
+  RU_MU,
+  STARS,
+  computeQimen,
+  earthPlate,
+  horseBranch,
+  rotatingPlate,
+  xunShou,
+  type QimenInput,
+} from '../src/qimen';
+import { cast, fixtures, options } from './qimen-fixtures';
+
 describe('Qimen independent Python baseline and documented rotating-school projection', () => {
   it.each(fixtures)('matches independent projected complete chart at $at', (fixture) => {
     expect(cast(fixture.at)).toMatchObject(fixture.documented);
@@ -364,121 +314,3 @@ describe('Qimen independent Python baseline and documented rotating-school proje
     ).toThrow();
   });
 });
-const palace: QimenPalace = {
-  index: 1,
-  trigram: 'kan',
-  direction: 'north',
-  earthStem: 'yi',
-  skyStem: 'bing',
-  star: 'tian_peng',
-  gate: 'xiu',
-  deity: 'zhi_fu',
-  flags: [],
-  patterns: [],
-};
-describe('40 explicit Qimen pattern predicates', () => {
-  it('keeps independently checked classical predicates and concealed Jia handling', () => {
-    const context: PatternContext = {
-      palace: { ...palace, skyStem: 'geng', earthStem: 'yi' },
-      zhiShiPalace: 1,
-      dayStem: 'yi',
-      hourStem: 'bing',
-      yi: 'wu_stem',
-    };
-    expect(detectPatterns(context)).toContain('fu_gan_ge');
-    expect(detectPatterns(context)).not.toContain('fei_gan_ge');
-    expect(
-      detectPatterns({ ...context, palace: { ...palace, skyStem: 'yi', earthStem: 'geng' } }),
-    ).toContain('fei_gan_ge');
-    expect(
-      detectPatterns({ ...context, palace: { ...palace, skyStem: 'ding', index: 7 } }),
-    ).toContain('san_qi_sheng_dian_ding');
-    expect(
-      detectPatterns({ ...context, palace: { ...palace, skyStem: 'ding', index: 9 } }),
-    ).not.toContain('san_qi_sheng_dian_ding');
-    expect(detectPatterns({ ...context, palace: { ...palace, earthStem: 'ding' } })).toContain(
-      'yu_nv_shou_men',
-    );
-    expect(
-      detectPatterns({
-        ...context,
-        dayStem: 'jia',
-        palace: { ...palace, skyStem: 'geng', earthStem: 'wu_stem' },
-      }),
-    ).toContain('fu_gan_ge');
-  });
-  it('contains exactly forty unique named configurations', () => {
-    expect(PATTERN_RULES).toHaveLength(40);
-    expect(new Set(PATTERN_RULES.map((r) => r.key)).size).toBe(40);
-  });
-  it.each(PATTERN_RULES)('matches positive and rejects negative conditions for $key', (rule) => {
-    const c = rule.condition;
-    const context: PatternContext = {
-      palace: {
-        ...palace,
-        ...(c.sky ? { skyStem: c.sky } : {}),
-        ...(c.earth ? { earthStem: typeof c.earth === 'string' ? c.earth : c.earth[0]! } : {}),
-        ...(c.gate ? { gate: c.gate } : {}),
-        ...(c.deity ? { deity: c.deity } : {}),
-        ...(c.index ? { index: c.index } : {}),
-      },
-      zhiShiPalace: c.index ?? 1,
-      dayStem: 'yi',
-      hourStem: 'bing',
-      yi: 'wu_stem',
-    };
-    if (c.dayEarth) context.palace.earthStem = context.dayStem;
-    if (c.daySky) context.palace.skyStem = context.dayStem;
-    if (c.xunEarth) context.palace.earthStem = context.yi;
-    if (c.xunSky) context.palace.skyStem = context.yi;
-    if (c.fiveMismatch) {
-      context.dayStem = 'jia';
-      context.hourStem = 'geng';
-    }
-    expect(matchesPattern(rule, context)).toBe(true);
-    expect(detectPatterns(context)).toContain(rule.key);
-    // Independently break every required predicate, ensuring no accidental OR or omitted condition.
-    if (c.sky)
-      expect(
-        matchesPattern(rule, {
-          ...context,
-          palace: { ...context.palace, skyStem: STEMS.find((s) => s !== c.sky)! },
-        }),
-      ).toBe(false);
-    if (c.earth)
-      expect(
-        matchesPattern(rule, {
-          ...context,
-          palace: {
-            ...context.palace,
-            earthStem: STEMS.find((s) =>
-              typeof c.earth === 'string' ? s !== c.earth : !c.earth?.includes(s),
-            )!,
-          },
-        }),
-      ).toBe(false);
-    if (c.gate)
-      expect(matchesPattern(rule, { ...context, palace: { ...context.palace, gate: null } })).toBe(
-        false,
-      );
-    if (c.deity)
-      expect(matchesPattern(rule, { ...context, palace: { ...context.palace, deity: null } })).toBe(
-        false,
-      );
-    if (c.index)
-      expect(
-        matchesPattern(rule, {
-          ...context,
-          palace: { ...context.palace, index: c.index === 1 ? 2 : 1 },
-        }),
-      ).toBe(false);
-    if (c.zhiShi) expect(matchesPattern(rule, { ...context, zhiShiPalace: 9 })).toBe(false);
-    if (c.dayEarth) expect(matchesPattern(rule, { ...context, dayStem: 'gui' })).toBe(false);
-    if (c.daySky) expect(matchesPattern(rule, { ...context, dayStem: 'gui' })).toBe(false);
-    if (c.xunEarth || c.xunSky) expect(matchesPattern(rule, { ...context, yi: 'gui' })).toBe(false);
-    if (c.fiveMismatch) expect(matchesPattern(rule, { ...context, hourStem: 'jia' })).toBe(false);
-  });
-});
-void (null as unknown as QimenChart);
-void PillarSchema;
-void Branch;

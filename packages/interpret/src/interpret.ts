@@ -1,3 +1,5 @@
+import { hash } from './hash';
+export { hash } from './hash';
 import {
   dimensions,
   evaluateWhen,
@@ -19,11 +21,6 @@ export const interpretVersion = '1.2.0';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>
   b.hit.weight - a.hit.weight || (a.unit.id < b.unit.id ? -1 : a.unit.id > b.unit.id ? 1 : 0);
-export function hash(text: string): number {
-  let result = 2166136261;
-  for (const char of text) result = Math.imul(result ^ char.charCodeAt(0), 16777619) >>> 0;
-  return result;
-}
 function opposite(a: KnowledgeUnit, b: KnowledgeUnit): boolean {
   return (
     a.topic === b.topic &&
@@ -31,6 +28,9 @@ function opposite(a: KnowledgeUnit, b: KnowledgeUnit): boolean {
       (a.polarity === 'negative' && b.polarity === 'positive'))
   );
 }
+/** Compose a deterministic, traceable bilingual report from a chart and published knowledge.
+ * @param input Chart, locale, in-memory knowledge and explicit caller context; performs no IO.
+ * @returns Versioned report with sections, KU hits, scores and readability diagnostics. */
 export function interpret(input: InterpretInput): Report {
   if (input.locale === 'zh-TW')
     return localizeReport(interpret({ ...input, locale: 'zh' }), input.locale);

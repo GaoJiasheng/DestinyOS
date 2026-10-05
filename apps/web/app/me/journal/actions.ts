@@ -4,7 +4,7 @@ import { IanaTimezoneSchema, Locale, JournalInputSchema, JournalKeySchema } from
 import { auth } from '@/lib/auth';
 import { ApiError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
-import { actionError } from '@/lib/reading-service';
+import { actionError } from '@/lib/api-error';
 import { journalEntryForUser, journalMonthForUser, saveJournalEntry } from '@/lib/journal-service';
 async function owner() {
   const session = await auth();

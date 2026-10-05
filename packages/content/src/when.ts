@@ -6,6 +6,8 @@ type Token =
 function record(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
+/** Parse a documented JSONPath-lite expression into property, wildcard and filter tokens.
+ * @param path Dot path with optional array selectors; invalid syntax throws. */
 export function parsePath(path: string): Token[] {
   const tokens: Token[] = [];
   let rest = path;
@@ -47,6 +49,9 @@ export function parsePath(path: string): Token[] {
   if (needsProperty || !tokens.length) throw new Error(`Invalid path: ${path}`);
   return tokens;
 }
+/** Compare JSON-like values structurally using the trigger evaluator equality rules.
+ * @param a First JSON-like value.
+ * @param b Second JSON-like value. */
 export function equal(a: unknown, b: unknown): boolean {
   if (a === b) return true;
   if (Array.isArray(a) && Array.isArray(b))
@@ -84,18 +89,25 @@ export function resolvePath(chart: unknown, path: string, shapeOnly = false): un
   }
   return values;
 }
+/** Flatten leaf predicates for source validation and evidence analysis.
+ * @param when Nested all/any/not condition tree. */
 export function conditions(when: When): Condition[] {
   if ('all' in when) return when.all.flatMap(conditions);
   if ('any' in when) return when.any.flatMap(conditions);
   if ('not' in when) return conditions(when.not);
   return [when];
 }
+/** Count leaf predicates for deterministic KU specificity weighting.
+ * @param when Nested trigger condition tree. */
 export function specificity(when: When): number {
   if ('all' in when) return when.all.length * 3 + when.all.reduce((n, c) => n + specificity(c), 0);
   if ('any' in when) return 0;
   if ('not' in when) return specificity(when.not);
   return 0;
 }
+/** Evaluate a trigger tree against a chart and collect matching path/value evidence.
+ * @param chart Structured chart output.
+ * @param when Validated KU trigger tree. */
 export function evaluateWhen(
   chart: unknown,
   when: When,
