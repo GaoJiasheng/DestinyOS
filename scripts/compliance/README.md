@@ -39,7 +39,7 @@ Audit exceptions (verified by `pnpm security:policy`, never blanket severity ign
   `as-needed` redirect flow; middleware also rejects off-origin redirects.
 - GHSA-4c35-wcg5-mm9h: experimental catalog precompilation is not enabled;
   our catalog expander independently rejects prototype-related keys.
-- CVE-2026-84373: Vitest runs Node tests, no browser mock interceptor/dev server.
+- CVE-2026-84373: resolved by upgrading Vitest and coverage-v8 to 4.1.11 or newer; no audit suppression remains.
 - CVE-2026-56876 and CVE-2026-19693: extract-zip has no upstream fixed version;
   the committed pnpm patch bounds symlink targets and uses exclusive file writes.
   Regression tests cover escape links and duplicate symlink/file entries.

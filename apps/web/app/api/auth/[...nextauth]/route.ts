@@ -1,3 +1,4 @@
+import { requestIp } from '@/lib/request-ip';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { handlers } from '@/lib/auth';
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
       const email = z.string().trim().toLowerCase().email().max(254).safeParse(form.get('email'));
       if (!email.success)
         return errorResponse(new ApiError('E_VALIDATION', 'Invalid email address', 400));
-      const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+      const ip = requestIp(request.headers);
       await limitMagicLink(email.data, ip);
     } catch (error) {
       return errorResponse(

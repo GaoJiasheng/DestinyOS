@@ -1,4 +1,5 @@
 'use server';
+import { requestIp } from '@/lib/request-ip';
 import { cookies } from 'next/headers';
 import { auth } from '@/lib/auth';
 import { siteConfig } from '@/lib/site-config';
@@ -36,15 +37,7 @@ export async function recordAdImpressionAction(placement: string) {
   try {
     const { headers } = await import('next/headers');
     const { ratelimit } = await import('@/lib/ratelimit');
-    if (
-      !(
-        await ratelimit(
-          'feedback',
-          (await headers()).get('x-forwarded-for')?.split(',')[0] ?? 'unknown',
-        )
-      ).success
-    )
-      return;
+    if (!(await ratelimit('feedback', requestIp(await headers()))).success) return;
     await getDb().event.create({
       data: {
         day: new Date(new Date().toISOString().slice(0, 10)),

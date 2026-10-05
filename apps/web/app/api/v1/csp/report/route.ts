@@ -1,3 +1,4 @@
+import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
 import { getDb } from '@/lib/db';
 import { ratelimit } from '@/lib/ratelimit';
@@ -35,14 +36,7 @@ export async function POST(request: Request) {
       }
     }
     // DESIGN-GAP: Reuse the feedback quota for anonymous CSP counts; missing telemetry infrastructure drops counts without breaking pages.
-    if (
-      (
-        await ratelimit(
-          'feedback',
-          request.headers.get('x-forwarded-for')?.split(',')[0] ?? 'unknown',
-        )
-      ).success
-    )
+    if ((await ratelimit('feedback', requestIp(request.headers))).success)
       await getDb().event.create({
         data: {
           day: new Date(new Date().toISOString().slice(0, 10)),

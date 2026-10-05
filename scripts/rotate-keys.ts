@@ -1,10 +1,11 @@
 import { PrismaClient } from '@prisma/client';
+import { pathToFileURL } from 'node:url';
 import { decryptField, encryptField } from '../apps/web/lib/crypto';
 
-const db = new PrismaClient();
 // DESIGN-GAP: Rotation intentionally uses a raw client; extension writes would encrypt twice.
 // Rows are re-read inside each transaction to avoid overwriting concurrent application edits.
-try {
+/** Rotate owner-bound fields in serializable batches of 500; a failed batch rolls back for safe reruns. */
+export async function rotateKeys(db: PrismaClient): Promise<void> {
   let cursor: string | undefined;
   while (true) {
     const rows: { id: string }[] = await db.birthProfile.findMany({
@@ -68,6 +69,14 @@ try {
     );
     cursor = rows.at(-1)?.id;
   }
-} finally {
-  await db.$disconnect();
+}
+
+// DESIGN-GAP: Export the real rotation operation for database regression tests; only direct CLI execution runs it.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const db = new PrismaClient();
+  try {
+    await rotateKeys(db);
+  } finally {
+    await db.$disconnect();
+  }
 }

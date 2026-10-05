@@ -1,5 +1,6 @@
 'use server';
 
+import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
@@ -27,8 +28,7 @@ export async function sendMagicLinkAction(email: string, locale: string): Promis
   if (!parsed.success) return { ok: false, code: 'E_VALIDATION' };
   try {
     const requestHeaders = await headers();
-    // DESIGN-GAP: Deploy behind a proxy that overwrites x-forwarded-for (Vercel); absent IPs share a safe fallback bucket.
-    const ip = requestHeaders.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = requestIp(requestHeaders);
     await limitMagicLink(parsed.data.email, ip);
     const result: unknown = await signIn('resend', {
       email: parsed.data.email,

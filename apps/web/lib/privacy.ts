@@ -1,12 +1,29 @@
 const privateKeys =
-  /^(?:birth|birthInput|normalizedBirth|enc\w+|question|email|authorization|cookie|password|token|sessionToken|access_token|refresh_token|id_token|secret)$/i;
+  /^(?:birth|birthInput|normalizedBirth|birthYear|birthDate|dateOfBirth|dob|year|month|day|hour|minute|place|lat|lng|latitude|longitude|displayName|questionText|body|headers|cookies|query_string|queryString|enc\w+|question|email|authorization|cookie|password|token|sessionToken|access_token|refresh_token|id_token|secret)$/i;
 
 /** Scrub dates, email addresses and sensitive URL parameters from telemetry strings. */
 export function scrubText(value: string): string {
-  return value
-    .replace(/\d{4}-\d{2}-\d{2}/g, '[REDACTED]')
-    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, '[REDACTED]')
-    .replace(/((?:question|email|token|code)=)[^&#\s]*/gi, '$1[REDACTED]');
+  // DESIGN-GAP: Decode bounded URL encoding before scrubbing, including nested callback URLs.
+  for (let pass = 0; pass < 3; pass++) {
+    value = value.replace(/(?:%[0-9a-f]{2})+/gi, (encoded) => {
+      try {
+        return decodeURIComponent(encoded);
+      } catch {
+        return '[REDACTED]';
+      }
+    });
+  }
+  return (
+    value
+      // URL query values can encode a birth as separate year/month/day fields or free text.
+      .replace(/((?:https?:\/\/|\/)[^\s?#]*\?)[^\r\n]*/gi, '$1[REDACTED]')
+      .replace(/\d{4}-\d{2}-\d{2}/g, '[REDACTED]')
+      .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, '[REDACTED]')
+      .replace(
+        /((?:question|email|token|code|state|nonce|signature|payload|password|secret|access_token|refresh_token|id_token)=)[^\r\n]*/gi,
+        '$1[REDACTED]',
+      )
+  );
 }
 
 /** Recursively sanitize arbitrary telemetry, including nested objects and serialized errors. */

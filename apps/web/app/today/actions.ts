@@ -1,4 +1,5 @@
 'use server';
+import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
 import { cookies, headers } from 'next/headers';
@@ -12,6 +13,7 @@ import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
 import { actionError } from '@/lib/reading-service';
 import type { ActionResult } from '@/lib/reading-schema';
 import type { DailyReport } from '@/lib/daily-compute';
+import { IanaTimezoneSchema } from '@tianji/shared';
 /** Fetch a signed-in user's daily fortune; anonymous clients calculate locally. */
 export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<DailyReport>> {
   try {
@@ -21,8 +23,16 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
         date: z
           .string()
           .regex(/^\d{4}-\d{2}-\d{2}$/)
+          .refine((date) => {
+            try {
+              Temporal.PlainDate.from(date, { overflow: 'reject' });
+              return true;
+            } catch {
+              return false;
+            }
+          })
           .optional(),
-        tz: z.string().max(100).optional(),
+        tz: IanaTimezoneSchema.optional(),
         locale: z.enum(['zh', 'en']).optional(),
       })
       .strict()
@@ -72,7 +82,7 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
 export async function recordAnonymousDailyViewAction(locale: string) {
   try {
     const language = z.enum(['zh', 'en']).parse(locale);
-    const ip = (await headers()).get('x-forwarded-for')?.split(',')[0] ?? 'unknown';
+    const ip = requestIp(await headers());
     if (!(await ratelimit('daily', ip)).success) return;
     await recordEvent('daily.viewed', { system: 'daily', locale: language, plan: 'free' });
   } catch {

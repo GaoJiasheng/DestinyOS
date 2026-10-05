@@ -110,18 +110,14 @@ export function fieldEncryptionExtension() {
           if ((operation === 'aggregate' || operation === 'groupBy') && containsEncrypted(input))
             throw new Error('Encrypted aggregates are unsupported');
           const fields = encrypted[model] ?? [];
-          const write = async (data: unknown): Promise<void> => {
+          const write = async (data: unknown, updating = false): Promise<void> => {
             if (Array.isArray(data)) {
-              for (const row of data) await write(row);
+              for (const row of data) await write(row, updating);
               return;
             }
             if (!record(data)) return;
             if (model === 'Reading' && data.chart !== undefined) data.chart = stripPII(data.chart);
-            if (
-              operation === 'update' &&
-              fields.length &&
-              (data.userId !== undefined || data.user !== undefined)
-            )
+            if (updating && fields.length && (data.userId !== undefined || data.user !== undefined))
               throw new Error('Encrypted ownership cannot be changed');
             // DESIGN-GAP: Prisma query extensions do not intercept nested writes. Reject encrypted nested writes;
             // use top-level model operations in a transaction so encryption cannot be silently bypassed.
@@ -168,7 +164,7 @@ export function fieldEncryptionExtension() {
                 : typeof compound.userId === 'string'
                   ? compound.userId
                   : undefined;
-            if (operation === 'update' && hasEncrypted && !existingOwner)
+            if (updating && hasEncrypted && !existingOwner)
               throw new Error('Encrypted update requires where.userId');
             const connected =
               record(data.user) && record(data.user.connect) ? data.user.connect.id : undefined;
@@ -192,9 +188,10 @@ export function fieldEncryptionExtension() {
               data[field] = record(value) ? { set: cipher } : cipher;
             }
           };
-          await write(input.data);
+          await write(input.data, operation === 'update');
           await write(input.create);
-          await write(input.update);
+          // DESIGN-GAP: Upsert's update branch obeys the same immutable-owner checks as update.
+          await write(input.update, true);
           prepareSelection(model, input);
           return decode(model, await query(args), original);
         },

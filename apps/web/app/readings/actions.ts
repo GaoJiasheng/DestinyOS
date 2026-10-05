@@ -1,4 +1,5 @@
 'use server';
+import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
 import { getLocale } from 'next-intl/server';
 import { z } from 'zod';
@@ -56,6 +57,20 @@ async function guardAge() {
   if ((await cookies()).get('age_gate')?.value === 'blocked')
     throw new ApiError('E_AGE_RESTRICTED', 'Age restricted', 403);
 }
+// DESIGN-GAP: All server interpretation/compute entry points consume the documented report quota.
+async function limitReadingWork() {
+  const session = await auth();
+  assertRateLimit(
+    await ratelimit(
+      session?.user.id
+        ? session.user.plan === 'pro'
+          ? 'reading.pro'
+          : 'reading.free'
+        : 'reading.anon',
+      session?.user.id ?? requestIp(await headers()),
+    ),
+  );
+}
 /** Validate, normalize, compute and interpret; authenticated results are persisted, anonymous results are returned only. */
 export async function createReadingAction(raw: unknown) {
   return run(async () => {
@@ -64,7 +79,7 @@ export async function createReadingAction(raw: unknown) {
     if (req.birth) checkAge(req.birth, req.locale);
     const session = await auth();
     const id = session?.user.id;
-    const ip = (await headers()).get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = requestIp(await headers());
     const resolved = await resolveBirth(req, id);
     if (resolved.req.birth) checkAge(resolved.req.birth, req.locale);
     assertRateLimit(
@@ -96,12 +111,12 @@ export async function getReadingAction(
     const id = idSchema.parse(raw);
     const lang = z.enum(['zh', 'en']).parse(locale);
     const session = await auth();
-    const row = await getDb().reading.findUnique({ where: { id } });
-    if (!row) throw new ApiError('E_NOT_FOUND', 'Reading not found', 404);
-    const owner = row.userId === session?.user.id;
+    if (!session?.user.id) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+    // DESIGN-GAP: Missing and foreign IDs use the same response; authorization precedes decryption.
+    const row = await getDb().reading.findFirst({ where: { id, userId: session.user.id } });
+    if (!row) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
     // DESIGN-GAP: Public reports are served through token projections; isPublic must not bypass revealLevel.
-    if (!owner) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
-    return readingView(row, lang, owner);
+    return readingView(row, lang, true);
   });
 }
 /** Paginate owner-only history, excluding encrypted inputs and full chart/report payloads. */
@@ -208,6 +223,7 @@ export async function regenerateReportAction(raw: string, locale: 'zh' | 'en') {
     const lang = z.enum(['zh', 'en']).parse(locale);
     const row = await getDb().reading.findFirst({ where: { id, userId: owner } });
     if (!row) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+    await limitReadingWork();
     const snapshot = ReadingRequestSchema.parse(JSON.parse(row.encInput));
     const report = interpret({
       system: row.system,
@@ -348,7 +364,10 @@ export async function importAnonymousDataAction(raw: unknown) {
     for (const local of input.readings) {
       const id = `r${digest(owner + ':' + input.anonId + ':' + local.id).slice(0, 30)}`;
       const exists = await getDb().reading.findFirst({ where: { id, userId: owner } });
-      if (!exists) await persistReading(owner, local.request, local.createdAt, id);
+      if (!exists) {
+        await limitReadingWork();
+        await persistReading(owner, local.request, local.createdAt, id);
+      }
       ids.push(id);
     }
     await getDb().user.update({ where: { id: owner }, data: { anonId: input.anonId } });
@@ -376,12 +395,12 @@ export async function submitFeedbackAction(raw: unknown) {
       const row = await getDb().reading.findFirst({
         where: {
           id: input.readingId,
-          OR: [{ userId: session?.user.id ?? '' }, { isPublic: true }],
+          userId: session?.user.id ?? '',
         },
       });
       if (!row) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
     }
-    const ip = (await headers()).get('x-forwarded-for') || 'unknown';
+    const ip = requestIp(await headers());
     assertRateLimit(await ratelimit('feedback', session?.user.id ?? ip));
     await getDb().feedback.create({ data: { ...input, userId: session?.user.id } });
     return { saved: true };
@@ -404,6 +423,7 @@ export async function translateAnonymousReportAction(raw: unknown, locale: 'zh' 
     if (input.request.birth) checkAge(input.request.birth, lang);
     const chart = parseReadingChart(input.system, stripPII(input.chart));
     ReadingMetaSchema.parse(input.meta);
+    await limitReadingWork();
     return interpret({
       system: input.system,
       chart,
@@ -459,8 +479,11 @@ export async function previewAstrologyHousesAction(raw: unknown) {
     let request = input.request;
     let now = input.createdAt;
     if (input.readingId) {
-      const row = await getDb().reading.findUnique({ where: { id: input.readingId } });
-      if (!row) throw new ApiError('E_NOT_FOUND', 'Reading not found', 404);
+      if (!session?.user.id) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+      const row = await getDb().reading.findFirst({
+        where: { id: input.readingId, userId: session.user.id },
+      });
+      if (!row) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
       if (row.userId !== session?.user.id)
         throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
       request = ReadingRequestSchema.parse(JSON.parse(row.encInput));
@@ -469,7 +492,7 @@ export async function previewAstrologyHousesAction(raw: unknown) {
     if (!request?.birth || request.system !== 'astrology' || !now)
       throw new ApiError('E_INVALID_INPUT', 'Natal birth snapshot required', 400);
     checkAge(request.birth, input.locale);
-    const ip = (await headers()).get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = requestIp(await headers());
     assertRateLimit(
       await ratelimit(
         session?.user.id

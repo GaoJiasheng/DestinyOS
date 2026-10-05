@@ -1,4 +1,5 @@
 'use server';
+import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
 import { headers } from 'next/headers';
 import { getLocale } from 'next-intl/server';
@@ -96,7 +97,7 @@ export async function signDailyCardAction(raw: unknown) {
   try {
     const input = DailyCardSchema.parse(raw);
     const session = await auth();
-    const ip = (await headers()).get('x-forwarded-for')?.split(',')[0] ?? 'unknown';
+    const ip = requestIp(await headers());
     assertRateLimit(await ratelimit('share', session?.user.id ?? ip));
     const signed = signDailyCard(input);
     await recordEvent('share.created', {

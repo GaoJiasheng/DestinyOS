@@ -4,6 +4,8 @@ import { PGlite } from '@electric-sql/pglite';
 import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
 import { PrismaClient } from '@prisma/client';
 import { fieldEncryptionExtension } from '../lib/db-encryption';
+import { encryptField, decryptField } from '../lib/crypto';
+import { rotateKeys } from '../../../scripts/rotate-keys';
 
 const pg = new PGlite();
 const server = new PGLiteSocketServer({ db: pg, port: 0, maxConnections: 1 });
@@ -36,7 +38,54 @@ afterAll(async () => {
   vi.unstubAllEnvs();
 });
 
+it('rotates real raw database ciphertext in 500-row batches and rolls back a tampered batch', async () => {
+  const user = await raw.user.create({ data: { email: 'rotation@example.test' } });
+  const old = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
+  const current = `v2:${Buffer.alloc(32, 2).toString('base64')}`;
+  await raw.birthProfile.createMany({
+    data: Array.from({ length: 501 }, (_, index) => ({
+      id: `rotation-${String(index).padStart(4, '0')}`,
+      userId: user.id,
+      version: index + 1,
+      encBirth: encryptField('private birth', 'BirthProfile.encBirth', user.id, old),
+      encPlace: encryptField('private city', 'BirthProfile.encPlace', user.id, old),
+      encName: null,
+      gender: 'unspecified',
+      timeUnknown: true,
+      tz: 'UTC',
+      birthYear: 1990,
+      chartHash: 'rotation',
+    })),
+  });
+  const first = await raw.birthProfile.findUniqueOrThrow({ where: { id: 'rotation-0000' } });
+  await raw.birthProfile.update({ where: { id: 'rotation-0001' }, data: { encBirth: 'tampered' } });
+  vi.stubEnv('FIELD_ENCRYPTION_KEYS', `${current},${old}`);
+  await expect(rotateKeys(raw)).rejects.toThrow();
+  expect((await raw.birthProfile.findUniqueOrThrow({ where: { id: first.id } })).encBirth).toBe(
+    first.encBirth,
+  );
+  await raw.birthProfile.update({
+    where: { id: 'rotation-0001' },
+    data: {
+      encBirth: encryptField('private birth', 'BirthProfile.encBirth', user.id, old),
+    },
+  });
+  await rotateKeys(raw);
+  const rows = await raw.birthProfile.findMany({ where: { userId: user.id } });
+  expect(rows).toHaveLength(501);
+  for (const row of rows) {
+    expect(row.encBirth).toMatch(/^v2:/);
+    expect(decryptField(row.encBirth, 'BirthProfile.encBirth', user.id, current)).toBe(
+      'private birth',
+    );
+    expect(decryptField(row.encPlace!, 'BirthProfile.encPlace', user.id, current)).toBe(
+      'private city',
+    );
+  }
+});
+
 it('encrypts all profile fields at rest and decrypts creates, projections, nested reads and updates', async () => {
+  vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);
   const user = await encryptedDb.user.create({ data: { email: 'crypto@example.com' } });
   const data = {
     userId: user.id,
@@ -172,6 +221,27 @@ it('encrypts reading snapshots, strips chart PII and round-trips createMany/upse
     select: { encBirth: true },
   });
   expect(upsert).toEqual({ encBirth: '{}' });
+  // High-risk regression: upsert must not transplant owner-bound ciphertext or replace its owner.
+  const existing = await raw.birthProfile.findUniqueOrThrow({
+    where: { userId_version: { userId: user.id, version: 4 } },
+  });
+  await expect(
+    encryptedDb.birthProfile.upsert({
+      where: { id: existing.id },
+      create: { ...base, version: 5 },
+      update: { userId: 'other-owner' },
+    }),
+  ).rejects.toThrow('ownership');
+  await expect(
+    encryptedDb.birthProfile.upsert({
+      where: { id: existing.id },
+      create: { ...base, version: 5 },
+      update: { encBirth: 'attacker-replacement' },
+    }),
+  ).rejects.toThrow('where.userId');
+  expect((await raw.birthProfile.findUniqueOrThrow({ where: { id: existing.id } })).encBirth).toBe(
+    existing.encBirth,
+  );
   await expect(
     encryptedDb.reading.create({
       data: {

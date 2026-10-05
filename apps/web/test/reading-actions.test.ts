@@ -10,10 +10,11 @@ const mocks = vi.hoisted(() => ({
   setCookie: vi.fn(),
   getCookie: vi.fn(),
   create: vi.fn(),
+  rate: vi.fn(),
 }));
-vi.mock('../lib/ratelimit', () => ({
-  ratelimit: vi.fn(async () => ({ success: true })),
-  assertRateLimit: vi.fn(),
+vi.mock('../lib/ratelimit', async (original) => ({
+  ...(await original<typeof import('../lib/ratelimit')>()),
+  ratelimit: mocks.rate,
 }));
 vi.mock('../lib/auth', () => ({ auth: mocks.auth }));
 vi.mock('../lib/db', () => ({
@@ -38,14 +39,58 @@ import {
   deleteReadingAction,
   createReadingAction,
   importAnonymousDataAction,
+  regenerateReportAction,
+  translateAnonymousReportAction,
 } from '../app/readings/actions';
 beforeEach(() => {
   vi.clearAllMocks();
   mocks.auth.mockResolvedValue(null);
+  mocks.rate.mockResolvedValue({ success: true });
   mocks.getCookie.mockReturnValue(undefined);
   mocks.find.mockResolvedValue({ id: 'private', userId: 'other', isPublic: false });
   mocks.updateMany.mockResolvedValue({ count: 0 });
   mocks.deleteMany.mockResolvedValue({ count: 0 });
+});
+it('filters by the authenticated owner before reading/decrypting a report or preview snapshot', async () => {
+  mocks.auth.mockResolvedValue({ user: { id: 'intruder', plan: 'free' } });
+  mocks.findFirst.mockResolvedValue(null);
+  expect(await getReadingAction('private')).toEqual({ ok: false, error: { code: 'E_FORBIDDEN' } });
+  expect(mocks.findFirst).toHaveBeenCalledWith({ where: { id: 'private', userId: 'intruder' } });
+  expect(mocks.find).not.toHaveBeenCalled();
+});
+
+it('applies the report quota to regeneration and anonymous translation before interpretation', async () => {
+  mocks.auth.mockResolvedValue({ user: { id: 'owner', plan: 'free' } });
+  mocks.findFirst.mockResolvedValue({ id: 'private', userId: 'owner', encInput: 'invalid' });
+  mocks.rate.mockResolvedValue({ success: false, reset: Date.now() + 3600000 });
+  expect(await regenerateReportAction('private', 'en')).toEqual({
+    ok: false,
+    error: { code: 'E_RATE_LIMITED' },
+  });
+  expect(mocks.rate).toHaveBeenCalledWith('reading.free', 'owner');
+  mocks.auth.mockResolvedValue(null);
+  mocks.rate.mockResolvedValue({ success: true });
+  const request = {
+    system: 'astrology' as const,
+    locale: 'en' as const,
+    birth: BirthInputSchema.parse(A),
+    idempotencyKey: crypto.randomUUID(),
+  };
+  const preview = await previewAstrologyHousesAction({
+    request,
+    createdAt: '2026-10-04T12:00:00Z',
+    locale: 'en',
+    houseSystem: 'equal',
+  });
+  if (!preview.ok) throw new Error(preview.error.code);
+  mocks.rate.mockResolvedValue({ success: false, reset: Date.now() + 3600000 });
+  expect(
+    await translateAnonymousReportAction(
+      { ...preview.data, system: 'astrology', request, createdAt: '2026-10-04T12:00:00Z' },
+      'en',
+    ),
+  ).toEqual({ ok: false, error: { code: 'E_RATE_LIMITED' } });
+  expect(mocks.create).not.toHaveBeenCalled();
 });
 it('rejects anonymous reads and all mutations on private owner reports', async () => {
   expect(await getReadingAction('private')).toEqual({ ok: false, error: { code: 'E_FORBIDDEN' } });
