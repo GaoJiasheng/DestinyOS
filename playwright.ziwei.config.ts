@@ -9,7 +9,11 @@ export default defineConfig({
   snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   expect: {
     ...base.expect,
-    toHaveScreenshot: { maxDiffPixelRatio: 0.005, animations: 'disabled' },
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.005,
+      animations: 'disabled',
+      stylePath: new URL('./apps/web/e2e/component-screenshot.css', import.meta.url).pathname,
+    },
   },
   use: { ...base.use, baseURL: 'http://localhost:3134', reducedMotion: 'reduce' },
   webServer: {

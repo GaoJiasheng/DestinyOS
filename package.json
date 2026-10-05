@@ -9,10 +9,10 @@
   },
   "scripts": {
     "dev": "turbo run dev",
-    "build": "pnpm content:build && turbo run build",
+    "build": "pnpm content:build && pnpm worker:build && turbo run build",
     "lint": "pnpm content:validate && eslint . --max-warnings 0 && prettier --check .",
     "typecheck": "turbo run typecheck && tsc -p scripts/tsconfig.json --noEmit",
-    "test": "vitest run --coverage",
+    "test": "pnpm content:build && vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
     "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e",
@@ -39,8 +39,8 @@
     "stars:build": "tsx scripts/stars-preprocess.ts",
     "fonts:build": "python3 scripts/font-subsets.py",
     "pwa:assets": "pnpm --filter @tianji/web exec tsx scripts/pwa-assets.ts",
-    "test:home:e2e": "playwright test --config playwright.home.config.ts",
-    "perf:ci": "tsx scripts/perf-run.ts",
+    "test:home:e2e": "pnpm build && playwright test --config playwright.home.config.ts",
+    "perf:ci": "pnpm build && playwright test --config playwright.daily-account.config.ts --grep \"anonymous example\" && tsx scripts/perf-run.ts",
     "perf:budgets": "tsx scripts/perf-budgets.ts",
     "fonts:og": "python3 scripts/og-font-subset.py",
     "test:daily-account:e2e": "playwright test --config playwright.daily-account.config.ts",
@@ -48,7 +48,10 @@
     "licenses:check": "tsx scripts/license-check.ts",
     "security:policy": "tsx scripts/security-policy.ts",
     "test:m4:e2e": "playwright test --config playwright.m4.config.ts",
-    "test:m5:e2e": "playwright test --config playwright.m5.config.ts"
+    "test:m5:e2e": "playwright test --config playwright.m5.config.ts",
+    "launch:check": "pnpm content:build && tsx scripts/launch-check.ts",
+    "content:import": "pnpm content:build && tsx scripts/content-import.ts",
+    "worker:build": "tsx scripts/daily-worker-build.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

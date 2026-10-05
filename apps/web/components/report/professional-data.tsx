@@ -8,6 +8,7 @@ function rows(value: unknown, path = ''): Array<{ path: string; value: string }>
     : Object.entries(value);
   return entries.flatMap(([key, item]) => rows(item, path ? `${path}.${key}` : key));
 }
+// DESIGN-GAP: Professional field paths and raw enum values are machine references; mark them as code while localizing table headings.
 /** Render every nested calculation field as an accessible, scrollable table without hiding arrays or intermediate values. */
 export function ProfessionalData({ value }: { value: unknown }) {
   const t = useCopy();
@@ -23,8 +24,12 @@ export function ProfessionalData({ value }: { value: unknown }) {
         <tbody>
           {rows(value).map((row, i) => (
             <tr key={i}>
-              <th scope="row">{t('report.content', { text: row.path })}</th>
-              <td>{t('report.content', { text: row.value })}</td>
+              <th scope="row">
+                <code>{t('report.content', { text: row.path })}</code>
+              </th>
+              <td>
+                <code>{t('report.content', { text: row.value })}</code>
+              </td>
             </tr>
           ))}
         </tbody>

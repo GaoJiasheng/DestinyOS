@@ -2,13 +2,7 @@
 import { useTranslations } from 'next-intl';
 import type { VedicChart } from '@tianji/shared';
 import { bodyFromEvidence, houseFromEvidence, SIGNS } from './astro-geometry';
-import {
-  GRAHA_SHORT,
-  NORTH_CELLS,
-  houseSign,
-  vedicDivision,
-  type Division,
-} from './vedic-geometry';
+import { NORTH_CELLS, houseSign, vedicDivision, type Division } from './vedic-geometry';
 /** Fixed-house North Indian diamond; house one is upper center and zodiac numbers follow the Lagna. */
 export function VedicNorthChart({
   chart,
@@ -21,6 +15,7 @@ export function VedicNorthChart({
   highlight?: string;
   onSelect?: (section: string, path?: string) => void;
 }) {
+  // DESIGN-GAP: Compact graha labels use Chinese planetary abbreviations in zh and conventional Latin abbreviations in en via next-intl.
   const t = useTranslations();
   const { lagna, bodies } = vedicDivision(chart, division);
   const selected = bodyFromEvidence(bodies, highlight);
@@ -95,7 +90,7 @@ export function VedicNorthChart({
                   fill="transparent"
                 />
                 <text x={cell.x} y={cell.y + 12 + i * 10} className="vedic-body">
-                  {GRAHA_SHORT[b.key]} {b.degree.toFixed(0)}°
+                  {t(`charts.grahaShort.${b.key}`)} {b.degree.toFixed(0)}°
                 </text>
               </g>
             ))}

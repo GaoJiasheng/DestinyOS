@@ -12,6 +12,7 @@ import { Button } from './ui/button';
 import { systems } from '@/lib/system-links';
 export { systems } from '@/lib/system-links';
 /** Responsive desktop navigation and the five-item mobile tab bar. */
+// DESIGN-GAP: Menu links fetch on explicit navigation; preserve mobile bandwidth for the requested chart and keep normal client routing.
 export function Navigation() {
   const t = useCopy();
   const pathname = usePathname();
@@ -19,6 +20,7 @@ export function Navigation() {
     <>
       <header className="site-header">
         <Link
+          prefetch={false}
           href="/"
           className="brand-mark"
           aria-label={t('brand.nameEn', { name: brand.nameEn })}
@@ -29,6 +31,7 @@ export function Navigation() {
         <nav className="desktop-nav" aria-label={t('nav.label')}>
           {(['today', ...systems] as const).map((item) => (
             <Link
+              prefetch={false}
               key={item}
               href={`/${item}`}
               aria-current={pathname.startsWith(`/${item}`) ? 'page' : undefined}
@@ -40,23 +43,35 @@ export function Navigation() {
         <div className="header-tools">
           <LocaleSwitch />
           <ThemeSwitch />
-          <Link href="/auth/login" className="login-link">
+          <Link prefetch={false} href="/auth/login" className="login-link">
             {t('nav.login')}
           </Link>
         </div>
       </header>
       <nav className="mobile-tabs" aria-label={t('nav.label')}>
-        <Link href="/today" aria-current={pathname.startsWith('/today') ? 'page' : undefined}>
+        <Link
+          prefetch={false}
+          href="/today"
+          aria-current={pathname.startsWith('/today') ? 'page' : undefined}
+        >
           <Sun size={21} aria-hidden />
           <span>{t('nav.today')}</span>
         </Link>
         <ReadingLauncher tab />
         <AskLauncher />
-        <Link href="/learn" aria-current={pathname.startsWith('/learn') ? 'page' : undefined}>
+        <Link
+          prefetch={false}
+          href="/learn"
+          aria-current={pathname.startsWith('/learn') ? 'page' : undefined}
+        >
           <BookOpen size={21} aria-hidden />
           <span>{t('nav.learn')}</span>
         </Link>
-        <Link href="/me" aria-current={pathname.startsWith('/me') ? 'page' : undefined}>
+        <Link
+          prefetch={false}
+          href="/me"
+          aria-current={pathname.startsWith('/me') ? 'page' : undefined}
+        >
           <UserRound size={21} aria-hidden />
           <span>{t('nav.me')}</span>
         </Link>
@@ -102,6 +117,7 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
         <div className="system-picker" aria-busy={busy}>
           {systems.map((system, index) => (
             <Link
+              prefetch={false}
               key={system}
               href={
                 ['bazi', 'ziwei', 'astrology', 'vedic'].includes(system)
@@ -187,12 +203,12 @@ function AskLauncher() {
       <Dialog open={open} onOpenChange={setOpen} title={t('home.ask.title')}>
         <div className="dialog-actions">
           <Button asChild>
-            <Link href="/tarot" onClick={() => setOpen(false)}>
+            <Link prefetch={false} href="/tarot" onClick={() => setOpen(false)}>
               {t('home.ask.tarot')}
             </Link>
           </Button>
           <Button variant="secondary" asChild>
-            <Link href="/iching/cast?method=random" onClick={() => setOpen(false)}>
+            <Link prefetch={false} href="/iching/cast?method=random" onClick={() => setOpen(false)}>
               {t('home.ask.iching')}
             </Link>
           </Button>

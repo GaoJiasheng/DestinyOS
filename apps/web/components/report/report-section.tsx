@@ -182,7 +182,19 @@ function ChartReference({
   return (
     <figure className="chart-reference">
       <figcaption className="sr-only">
-        {t('report.chartRef', { component: block.component })}
+        {t('report.chartRef', {
+          component: t(
+            (
+              {
+                BaziPillars: 'bazi.chart.pillars',
+                ElementRing: 'bazi.chart.elements',
+                StrengthGauge: 'bazi.chart.strength',
+                LuckTimeline: 'bazi.chart.luck',
+                BranchRelationDiagram: 'bazi.chart.relations',
+              } as Record<string, MessageKey>
+            )[block.component] ?? 'report.chart',
+          ),
+        })}
       </figcaption>
       <ChartPreview
         chart={chart}

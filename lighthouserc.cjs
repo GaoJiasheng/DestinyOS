@@ -1,10 +1,10 @@
 /* global module, process */
-// DESIGN-GAP: T-39 today currently uses its existing placeholder; the report fixture is a full production-KU anonymous report.
+// DESIGN-GAP: Lighthouse uses isolated local DB/Redis services and a full anonymous production-KU report, with no external account credentials.
 module.exports = {
   ci: {
     collect: {
       chromePath: process.env.CHROME_PATH,
-      startServerCommand: 'pnpm --filter @tianji/web start --port 38100',
+      startServerCommand: 'pnpm exec tsx scripts/test-services.ts --web --production',
       startServerReadyPattern: 'Ready in',
       startServerReadyTimeout: 120000,
       url: [

@@ -48,7 +48,10 @@ export function TarotDetails({ chart }: { chart: TarotChart }) {
       ))}
       <details>
         <summary>{t('seed')}</summary>
-        <p className="tarot-seed">{chart.seed}</p>
+        {/* DESIGN-GAP: Replay seeds are user-provided machine identifiers; code semantics distinguish them from translated prose. */}
+        <p className="tarot-seed">
+          <code>{chart.seed}</code>
+        </p>
         <p>{t('seedHelp')}</p>
       </details>
     </div>

@@ -3,11 +3,14 @@ import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { TarotMessages } from '@/components/tarot/tarot-messages';
 import { TodayView } from '@/components/daily/today-view';
+import { preload } from 'react-dom';
+import workerAsset from '@/lib/daily-worker-asset.json';
 export const dynamic = 'force-dynamic';
 export const metadata = { robots: { index: false, follow: false } };
 /** Daily view hydrates local anonymous state or requests the owner cache. */
 export default async function TodayPage() {
   const session = await auth();
+  if (!session?.user.id) preload(workerAsset.url, { as: 'script' });
   const user = session?.user.id
     ? await getDb().user.findUnique({
         where: { id: session.user.id },

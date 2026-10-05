@@ -3,7 +3,7 @@ import { normalizeBirth } from '@tianji/engine/common';
 import { computeBazi } from '@tianji/engine/bazi';
 import { computeAstrology } from '@tianji/engine/astrology';
 import { computeDaily } from '@tianji/engine/daily';
-import { ENGINE_VERSION } from '@tianji/engine';
+import { ENGINE_VERSION } from '@tianji/engine/version';
 import { interpret, type Report } from '@tianji/interpret';
 import type { KnowledgeBundle } from '@tianji/content';
 import type { BirthInput, DailyChart, Locale } from '@tianji/shared';
@@ -41,10 +41,7 @@ export function calculateDaily(
     }),
   };
 }
-/** Resolve a local date using an explicit IANA zone. */
-export function localToday(tz: string, instant = Temporal.Now.instant().toString()) {
-  return Temporal.Instant.from(instant).toZonedDateTimeISO(tz).toPlainDate().toString();
-}
+export { localToday } from './daily-date';
 /** Cache identity follows systems/daily §7, including both release versions. */
 export function dailyCacheKey(
   userId: string,

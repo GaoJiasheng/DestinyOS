@@ -1,0 +1,363 @@
+import assert from 'node:assert/strict';
+import { createHash, randomBytes } from 'node:crypto';
+import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
+import { spawn } from 'node:child_process';
+import { dirname, resolve } from 'node:path';
+import { z } from 'zod';
+import {
+  BirthInputSchema,
+  BaziChartSchema,
+  AstroChartSchema,
+  VedicChartSchema,
+  type System,
+} from '../packages/shared/src';
+import { compute, normalizeBirth } from '../packages/engine/src';
+import { interpret, systemConfigs, expandTerms } from '../packages/interpret/src';
+import type { KnowledgeBundle } from '../packages/content/src';
+import { banned } from '../packages/content/scripts/validation';
+import { encryptField, decryptField } from '../apps/web/lib/crypto';
+import { createLogger } from '../apps/web/lib/logger';
+import { beforeSend } from '../apps/web/lib/sentry';
+import { projectShare } from '../apps/web/lib/share-projection';
+
+type Result = { id: string; passed: boolean; detail: string };
+const results: Result[] = [];
+async function check(id: string, probe: () => string | Promise<string>) {
+  try {
+    results.push({ id, passed: true, detail: await probe() });
+  } catch (error) {
+    results.push({
+      id,
+      passed: false,
+      detail: error instanceof Error ? error.message : String(error),
+    });
+  }
+}
+const birth = BirthInputSchema.parse(
+  JSON.parse(await readFile('packages/engine/test/fixtures/birth/A.json', 'utf8')),
+);
+const normalized = normalizeBirth(birth);
+const now = '2026-10-04T00:00:00Z';
+const systems: System[] = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'];
+await check('I18N/glossary', async () => {
+  const entries = new Map<string, KnowledgeBundle['glossary'][number]>();
+  for (const system of [...systems, 'daily']) {
+    const bundle = JSON.parse(
+      await readFile(`packages/content/dist/${system}.zh.json`, 'utf8'),
+    ) as KnowledgeBundle;
+    for (const entry of bundle.glossary) entries.set(entry.key, entry);
+  }
+  assert.ok(entries.size >= 600);
+  for (const entry of entries.values()) {
+    for (const field of ['term', 'short', 'long'] as const) {
+      assert.ok(!/[A-Za-z]{2,}/.test(entry.zh[field]), `English glossary ${entry.key}.${field}`);
+      assert.ok(!/\p{Script=Han}/u.test(entry.en[field]), `Chinese glossary ${entry.key}.${field}`);
+    }
+  }
+  return `${entries.size} bilingual term/short/long definitions checked`;
+});
+await check('VISUAL/config', async () => {
+  const config = await readFile('playwright.config.ts', 'utf8');
+  assert.ok(config.includes('{arg}-{projectName}{ext}'));
+  const snapshots = (await readdir('apps/web/e2e', { recursive: true })).filter((p) =>
+    p.endsWith('.png'),
+  );
+  assert.ok(snapshots.length > 0);
+  assert.ok(!snapshots.some((p) => /-(darwin|linux|win32)\.png$/.test(p)));
+  return `${snapshots.length} baselines share names across macOS/Ubuntu; rendering remains covered by E2E`;
+});
+// DESIGN-GAP: Divination has no birth dependency; fix the clock, Beijing location, number cast and seed for repeatable Fixture A acceptance.
+for (const system of systems)
+  for (const locale of ['zh', 'en'] as const) {
+    await check(`PRD-1/${system}/${locale}`, async () => {
+      const knowledge = JSON.parse(
+        await readFile(`packages/content/dist/${system}.${locale}.json`, 'utf8'),
+      ) as KnowledgeBundle;
+      const chart = compute({
+        system,
+        birth: normalized,
+        now,
+        seed: 'fixture-A',
+        spread: 'celtic_cross',
+        ...(system === 'iching'
+          ? {
+              question: {
+                method: 'meihua',
+                category: 'career',
+                meihua: { castBy: 'numbers', numbers: [1, 8, 1], at: `${now}[UTC]` },
+              },
+            }
+          : {}),
+        ...(system === 'qimen'
+          ? {
+              question: {
+                at: `${now}[UTC]`,
+                place: { lng: birth.place!.lng, tz: birth.place!.tz },
+                category: 'general',
+              },
+            }
+          : {}),
+      }).chart;
+      if (system === 'bazi') {
+        const pillars = BaziChartSchema.parse(chart).pillars;
+        assert.deepEqual(
+          Object.values(pillars).map((p) => p && [p.stem, p.branch]),
+          [
+            ['geng', 'wu'],
+            ['xin', 'si'],
+            ['geng', 'chen'],
+            ['geng', 'chen'],
+          ],
+        );
+      }
+      const report = interpret({
+        system,
+        chart,
+        locale,
+        knowledge,
+        context: { now, profileHasTime: true },
+      });
+      const prose = [
+        report.headline.persona,
+        ...report.headline.keywords,
+        ...(report.doDont?.do ?? []),
+        ...(report.doDont?.dont ?? []),
+        ...report.sections.flatMap((section) => [
+          section.title,
+          section.lead,
+          ...section.blocks.flatMap((block) =>
+            block.type === 'paragraph' || block.type === 'transition'
+              ? [block.text]
+              : block.type === 'advice'
+                ? block.items
+                : block.type === 'evidence'
+                  ? block.items.flatMap((item) => [item.label, item.value])
+                  : [],
+          ),
+        ]),
+      ].join('\n');
+      const expanded = expandTerms(prose, knowledge.glossary, locale).replace(
+        /\[([^\]]+)\]\([^)]*\)/g,
+        '$1',
+      );
+      const forbidden = banned[locale].filter((word) =>
+        locale === 'zh'
+          ? expanded.includes(word)
+          : new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(expanded),
+      );
+      assert.equal(forbidden.length, 0, `Banned phrases: ${forbidden.join(', ')}`);
+      assert.ok(!expanded.includes('{{'), 'Unresolved placeholder');
+      assert.deepEqual(
+        report.sections.map((s) => s.key),
+        [
+          ...systemConfigs[system].sectionPlan.map((s) => s.key),
+          ...(['iching', 'qimen', 'tarot'].includes(system) ? ['summary_actions'] : []),
+        ],
+      );
+      for (const section of report.sections)
+        assert.ok(
+          section.blocks.some((b) => b.type === 'paragraph'),
+          `Empty chapter: ${section.key}`,
+        );
+      // DESIGN-GAP: Language scanning excludes glossary IDs before expansion and classical sources; technical acronyms are checked in browser translation tests.
+      if (locale === 'en')
+        assert.ok(
+          !/\p{Script=Han}/u.test(expanded),
+          `Chinese in English prose: ${expanded
+            .match(/.{0,40}\p{Script=Han}.{0,40}/gu)
+            ?.slice(0, 15)
+            .join(' | ')}`,
+        );
+      else
+        assert.ok(
+          !/[A-Za-z]{2,}/.test(expanded.replace(/DestinyOS/g, '')),
+          `English in Chinese prose: ${expanded
+            .match(/.{0,60}[A-Za-z]{2,}.{0,60}/g)
+            ?.slice(0, 15)
+            .join(', ')}`,
+        );
+      assert.ok(report.readability.passed, JSON.stringify(report.readability));
+      const share = JSON.stringify(projectShare(system, chart, report, 'chart', 0));
+      assert.ok(
+        !/1990-05-15|08:30|39\.9|116\.4|Beijing/.test(share),
+        'Private birth in public projection',
+      );
+      return `${report.readability.zhChars} chars / ${report.readability.enWords} words; ${report.sections.length} populated chapters; level 0 private fields absent`;
+    });
+  }
+await check('PRD-2', () => {
+  const unknown = normalizeBirth({
+    ...birth,
+    timeUnknown: true,
+    hour: undefined,
+    minute: undefined,
+  });
+  const bazi = BaziChartSchema.parse(compute({ system: 'bazi', birth: unknown, now }).chart);
+  assert.equal(bazi.pillars.hour, null);
+  assert.throws(() => compute({ system: 'ziwei', birth: unknown, now }), /E_REQUIRES_BIRTH_TIME/);
+  const astro = AstroChartSchema.parse(compute({ system: 'astrology', birth: unknown, now }).chart);
+  const vedic = VedicChartSchema.parse(compute({ system: 'vedic', birth: unknown, now }).chart);
+  assert.equal(astro.houses, null);
+  assert.equal(vedic.lagna, null);
+  assert.equal(vedic.houses, null);
+  assert.ok(vedic.moon.rashi);
+  return 'Three pillars / Ziwei rejected / no astrology houses / Vedic unknown-time flag';
+});
+await check('PRD-5 + SEC-1', () => {
+  const key = `v1:${randomBytes(32).toString('base64')}`;
+  for (const aad of ['BirthProfile.encBirth', 'BirthProfile.encPlace', 'Reading.encInput']) {
+    const plain = JSON.stringify(birth),
+      encrypted = encryptField(plain, aad, 'launch-fixture', key);
+    assert.ok(!encrypted.includes('1990'));
+    assert.equal(decryptField(encrypted, aad, 'launch-fixture', key), plain);
+    assert.throws(() => decryptField(encrypted, 'Other.encBirth', 'launch-fixture', key));
+    assert.throws(() => decryptField(encrypted, aad, 'another-owner', key));
+  }
+  return 'AES-GCM roundtrip and cross-column/cross-owner rejection; actual DB ciphertext also covered by E2E';
+});
+await check('SEC-2', () => {
+  const lines: string[] = [];
+  const logger = createLogger({
+    write: (line: string) => {
+      lines.push(line);
+    },
+  });
+  for (let i = 0; i < 1000; i++)
+    logger.info(
+      {
+        birth,
+        email: 'fixture@example.invalid',
+        question: 'private-question-marker',
+        req: { body: birth },
+      },
+      '1990-05-15 fixture@example.invalid',
+    );
+  assert.equal(lines.length, 1000);
+  assert.ok(!/1990-05-15|fixture@example.invalid|private-question-marker/.test(lines.join('')));
+  return '1000 actual pino output lines contain no seeded date/email/question';
+});
+await check('SEC-3', () => {
+  const event = beforeSend({
+    type: undefined,
+    user: { id: 'fixture', email: 'fixture@example.invalid' },
+    request: { data: birth, headers: { cookie: 'private' } },
+    extra: { birth, question: 'private-question-marker' },
+    message: '1990-05-15 fixture@example.invalid',
+  });
+  assert.ok(
+    !/1990-05-15|fixture@example.invalid|private-question-marker|Beijing/.test(
+      JSON.stringify(event),
+    ),
+  );
+  return 'Sentry beforeSend removes PII from seeded event';
+});
+// DESIGN-GAP: Vercel uses apps/web as project root; deployment resources must be present in Next.js file traces, and cron config must live at that app root.
+await check('DEPLOY/config', async () => {
+  const worker = z
+    .object({ url: z.string().regex(/^\/workers\/daily-[a-f0-9]{16}\.js$/) })
+    .parse(JSON.parse(await readFile('apps/web/lib/daily-worker-asset.json', 'utf8')));
+  const bytes = await readFile(`apps/web/public${worker.url}`);
+  assert.ok(worker.url.includes(createHash('sha256').update(bytes).digest('hex').slice(0, 16)));
+  const config = z
+    .object({
+      crons: z.array(z.object({ path: z.string(), schedule: z.string() })),
+      buildCommand: z.string(),
+    })
+    .parse(JSON.parse(await readFile('apps/web/vercel.json', 'utf8')));
+  assert.ok(config.buildCommand.includes('pnpm db:deploy && pnpm build'));
+  assert.ok(
+    config.crons.some(
+      (cron) => cron.path === '/api/v1/cron/daily-maintenance' && cron.schedule === '0 3 * * *',
+    ),
+  );
+  const traceFile = 'apps/web/.next/server/app/[locale]/(app)/[system]/r/[id]/page.js.nft.json';
+  const trace = z
+    .object({ files: z.array(z.string()) })
+    .parse(JSON.parse(await readFile(traceFile, 'utf8')));
+  const files = new Set(trace.files.map((file) => resolve(dirname(traceFile), file)));
+  for (const system of systems)
+    for (const locale of ['zh', 'en'])
+      assert.ok(
+        files.has(resolve(`packages/content/dist/${system}.${locale}.json`)),
+        `Missing deployed ${system}.${locale} knowledge`,
+      );
+  return 'Workspace knowledge traced; hashed daily worker present; app-root cron and migration-before-build configured';
+});
+// DESIGN-GAP: Browser-dependent checklist items execute the real-app suites; a quick run never claims their evidence.
+const browserGates = [
+  [
+    'PRD-3',
+    'All public route templates and seven report/technical views: language residue and axe scans',
+  ],
+  ['PRD-4', 'Downloaded share PNG privacy/OCR checks'],
+  ['PRD-6', 'Reduced-motion workflows, keyboard and WebGL fallback'],
+  ['PRD-7', 'Signed Stripe subscription/cancel/expiry restores free ads'],
+  ['SEC-4', 'Level-zero public page and PNG omit private birth fields'],
+  ['SEC-5', 'Eight-day deleted user is purged by authenticated cron with PII-free audit'],
+  ['SEC-7', 'Rate limits and idempotent readings/webhooks/cron'],
+  ['SEC-8', 'Under-13 input blocked and cookie prevents re-entry'],
+  ['SEC-9/pages', 'Bilingual privacy/terms/disclaimer exist and are reachable from home'],
+] as const;
+if (process.argv.includes('--full')) {
+  for (const command of ['test:e2e', 'perf:ci'] as const) {
+    await check(command === 'test:e2e' ? 'BROWSER' : 'LIGHTHOUSE', async () => {
+      const child = spawn('pnpm', [command], { stdio: 'inherit', env: process.env });
+      child.on('error', (error) => console.error(error.message));
+      const code = await new Promise<number | null>((resolve) => child.on('close', resolve));
+      assert.equal(code, 0, `${command} exited ${code}`);
+      return `${command} passed; see Playwright/Lighthouse artifacts`;
+    });
+  }
+}
+const browserPassed = results.find((result) => result.id === 'BROWSER')?.passed === true;
+for (const [id, detail] of browserGates)
+  results.push({
+    id,
+    passed: browserPassed,
+    detail: browserPassed ? detail : `Unverified: ${detail}; run pnpm launch:check --full`,
+  });
+results.push({
+  id: 'PRD-8',
+  passed: false,
+  detail: `Local auth deletion/re-registration: ${browserPassed ? 'verified by E2E' : 'unverified'}; real Google re-login requires production OAuth credentials`,
+});
+results.push({
+  id: 'SEC-9/OAuth',
+  passed: false,
+  detail: 'Owner must verify production OAuth consent policy links match the deployed legal pages',
+});
+results.push({
+  id: 'SEC-6',
+  passed: false,
+  detail:
+    'CSP remains Report-Only; production AdSense/CMP/Stripe observation and zero violations required before enforce',
+});
+results.push({
+  id: 'OWNER',
+  passed: false,
+  detail:
+    'OAuth consent, real Google re-login, service credentials, AdSense approval, backups, Sentry alerts and production CSP observation require Owner evidence; see LAUNCH.md',
+});
+await mkdir('.launch-check', { recursive: true });
+await writeFile(
+  '.launch-check/results.json',
+  JSON.stringify({ checkedAt: new Date().toISOString(), results }, null, 2) + '\n',
+);
+for (const result of results)
+  console.log(`${result.passed ? '通过' : '未通过'} ${result.id}: ${result.detail}`);
+// External gates are reported separately; --release requires every manual gate as well.
+if (
+  results.some(
+    (r) =>
+      !r.passed &&
+      (process.argv.includes('--release') ||
+        ![
+          'SEC-6',
+          'OWNER',
+          'PRD-8',
+          'SEC-9/OAuth',
+          ...(!process.argv.includes('--full') ? browserGates.map(([id]) => id) : []),
+        ].includes(r.id)),
+  )
+)
+  process.exitCode = 1;

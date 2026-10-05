@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { audit, login, db, seedReading, copies } from './m5-helpers';
+import { audit, auditLocale, login, db, seedReading, copies } from './m5-helpers';
 const publicPaths = [
   '',
   '/about',
@@ -40,6 +40,7 @@ for (const locale of ['zh', 'en'] as const) {
         const response = await page.goto(`/${locale}${path}`);
         expect(response?.status()).toBe(200);
         const result = await audit(page);
+        await auditLocale(page, locale);
         await info.attach('axe-document', {
           body: JSON.stringify(result),
           contentType: 'application/json',
@@ -71,6 +72,7 @@ for (const locale of ['zh', 'en'] as const) {
       await page.goto(`/${locale}/${system}/r/${row.id}`);
       await expect(page.locator('#chart-root')).toBeVisible();
       const result = await audit(page, true);
+      await auditLocale(page, locale);
       await info.attach(`axe-${system}`, {
         body: JSON.stringify(result),
         contentType: 'application/json',
@@ -79,6 +81,7 @@ for (const locale of ['zh', 'en'] as const) {
       const copy = copies[locale];
       await page.getByRole('button', { name: copy['report.proView'], exact: true }).click();
       await audit(page, true);
+      await auditLocale(page, locale);
     }
     await db.$disconnect();
   });

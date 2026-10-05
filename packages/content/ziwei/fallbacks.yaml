@@ -27,7 +27,7 @@
     summary: You can use the chart as a set of perspectives for reflecting on your experience.
     body:
       You can begin with a recent experience and use the chart to ask several different questions
-      about it. The twelve palaces (十二宫, shí èr gōng — areas representing everyday themes)
+      about it. The twelve palaces (shí èr gōng — areas representing everyday themes)
       distinguish identity, relationships, work and life rhythms. A single area offers a partial
       perspective, so the reading benefits from comparison across contexts. You might feel
       comfortable contributing within a familiar team yet prefer more preparation in a new setting.
@@ -45,7 +45,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.life_palace
   system: ziwei
@@ -74,7 +74,7 @@
     summary: You can understand your preferences through specific responses while leaving room for change.
     body:
       You can explore your preferences through a concrete response rather than an all purpose label.
-      The Life Palace (命宫, mìng gōng — the area traditionally used to discuss identity and everyday
+      The Life Palace (mìng gōng — the area traditionally used to discuss identity and everyday
       reactions) offers an entry point. Major stars can be considered individually, while an empty
       area invites comparison with the opposite palace and actual interactions. You may speak
       readily in a discussion you have prepared for and pause longer when the rules of a task are
@@ -91,7 +91,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.body_fortune
   system: ziwei
@@ -120,8 +120,8 @@
     summary: You can observe both sustained involvement and what helps your mind settle.
     body:
       You can notice what holds your attention and what leaves you feeling settled afterward. The
-      Body Palace (身宫, shēn gōng — an additional perspective on sustained action) concerns where
-      involvement goes. The Wellbeing Palace (福德宫, fú dé gōng — the area for interests and inner
+      Body Palace (shēn gōng — an additional perspective on sustained action) concerns where
+      involvement goes. The Wellbeing Palace (fú dé gōng — the area for interests and inner
       satisfaction) invites a separate look at what makes that involvement feel worthwhile or what
       helps you step away. Someone who enjoys responsibility at work may prefer slow reading during
       time off. At the end of a week, compare the activity that used the most time with the one that
@@ -137,7 +137,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.career_wealth
   system: ziwei
@@ -164,9 +164,8 @@
   en:
     title: Work alongside resources
     summary: You can begin with the connection between task organization and practical resources.
-    body:
-      You can review work alongside the resources it uses. The Career Palace (官禄宫, guān lù gōng —
-      the area for working methods) and Wealth Palace (财帛宫, cái bó gōng — the area for resource
+    body: You can review work alongside the resources it uses. The Career Palace (guān lù gōng —
+      the area for working methods) and Wealth Palace (cái bó gōng — the area for resource
       habits) offer related questions. The associated life, wealth, career and travel areas provide
       a broader structural comparison. Actual skills, role conditions and available time deserve
       attention before any symbolic interpretation. For example, before taking on a task, list what
@@ -184,7 +183,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.love_family
   system: ziwei
@@ -213,8 +212,8 @@
     summary: You can state an expectation clearly while leaving room for another person’s choice.
     body:
       You can make a relationship expectation easier to discuss by turning it into a clear request.
-      The Spouse Palace (夫妻宫, fū qī gōng — a perspective on intimate negotiation), Children Palace
-      (子女宫, zǐ nǚ gōng — a perspective on nurturing) and the parent and sibling areas examine
+      The Spouse Palace (fū qī gōng — a perspective on intimate negotiation), Children Palace
+      (zǐ nǚ gōng — a perspective on nurturing) and the parent and sibling areas examine
       different kinds of interaction. They do not establish anyone’s character or prescribe a
       standard path for partnership or family life. When arranging a shared occasion, state the time
       you can offer and ask what each person would enjoy. Try converting one unspoken expectation
@@ -230,7 +229,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.health_travel
   system: ziwei
@@ -257,10 +256,9 @@
   en:
     title: Routine and adjustment to surroundings
     summary: You can look for a small adjustment in your routine or arrangements outside home.
-    body:
-      You can review how your routine responds to a change of surroundings. The Health Palace (疾厄宫,
+    body: You can review how your routine responds to a change of surroundings. The Health Palace (
       jí è gōng — used here only for everyday rhythms and perceived stress) cannot identify illness.
-      The Travel Palace (迁移宫, qiān yí gōng — the area for unfamiliar settings and outward
+      The Travel Palace (qiān yí gōng — the area for unfamiliar settings and outward
       interaction) does not decide where you should live. Consider whether a visit or schedule
       change crowds out preparation, rest or contact with people who support you. Before an activity
       away from home, check the route and timing, then leave space to finish the previous day
@@ -276,7 +274,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.patterns
   system: ziwei
@@ -305,7 +303,7 @@
     summary: You can examine connections among themes before adopting a configuration label.
     body:
       You can begin with connections rather than searching for an impressive name. A configuration
-      (格局, gé jú — a traditional label for a relationship among stars and chart areas) organizes the
+      (gé jú — a traditional label for a relationship among stars and chart areas) organizes the
       symbolic structure. It is not a ranking of achievement, and the absence of a named
       configuration does not limit the possibilities available to you. Compare the life, wealth,
       career and travel themes with circumstances you can actually observe. You might value a clear
@@ -323,7 +321,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.decadal_yearly
   system: ziwei
@@ -351,9 +349,8 @@
     title: Use timing layers for review
     summary: You can organize reflection by phases and years while updating plans from practical
       information.
-    body:
-      You can use the timing layers to organize questions at different scales. A decadal cycle (大限,
-      dà xiàn — a traditional phase of approximately ten years) and a yearly layer (流年, liú nián — a
+    body: You can use the timing layers to organize questions at different scales. A decadal cycle (
+      dà xiàn — a traditional phase of approximately ten years) and a yearly layer (liú nián — a
       perspective calculated for the year) offer distinct review periods. Transformations add themes
       involving access, responsibility, explanation or friction. The present chart supplies the
       current phase and year, so a single position cannot establish events for the next three years.
@@ -371,7 +368,7 @@
   meta:
     author: t23-ziwei-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: ziwei.fallback.summary_actions
   system: ziwei

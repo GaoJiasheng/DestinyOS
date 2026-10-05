@@ -30,11 +30,11 @@
     summary: Look for the practical form of longer-running support
     body:
       'You can inspect the practical shape of support that is meant to continue. Month support comes
-      from yuè jiàn (月建 — the casting month’s branch) sharing or feeding the element of a selected
+      from yuè jiàn (the casting month’s branch) sharing or feeding the element of a selected
       line. It is a longer-background comparison within Liuyao, not a promise about a number of days
       or the readiness of every resource. Suppose a team regularly reserves time for learning: a
       mentor, accessible material, and an agreed task are still needed before the allowance becomes
-      useful practice. Consider writing down how the support can be used and testing it once. Record
+      useful practice. Consider explicitly writing down how the support can be used and testing it once. Record
       a short-term constraint as well if one appears. A supportive background is easier to apply
       when you distinguish its steady provision from the specific arrangements needed today.'
     advice:
@@ -46,7 +46,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.month_controls
   system: iching
@@ -79,7 +79,7 @@
     summary: Identify a background constraint before adding more effort
     body:
       You can identify a repeating constraint before deciding how much more effort to invest. Month
-      control comes from yuè jiàn (月建 — the casting month’s branch) constraining the element of a
+      control comes from yuè jiàn (the casting month’s branch) constraining the element of a
       selected line. It is a background comparison, not a measure of competence or a revelation of
       someone’s motives. The label does not establish how long an actual obstruction will last. For
       instance, a task may repeatedly wait at the same review point; collecting the requirements and
@@ -96,7 +96,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.day_supports
   system: iching
@@ -129,11 +129,11 @@
     summary: Use immediate help without assuming it settles the whole plan
     body:
       You can use an immediate opening to complete one concrete part of the task. Day support comes
-      from rì chén (日辰 — the casting day’s branch) sharing or feeding the element of a selected
+      from rì chén (the casting day’s branch) sharing or feeding the element of a selected
       line. It emphasizes a nearer influence, but does not set a literal expiry today or determine
       someone’s attitude toward you. A colleague who can check material now may help unlock a
       difficult point, while the next handover still needs its own arrangement. Try making the
-      request specific, acknowledging the assistance, and recording what was actually completed.
+      request more specific, acknowledging the assistance, and recording what was actually completed.
       Continue checking other conditions separately. Immediate convenience becomes more useful when
       it connects to a realistic next stage, rather than being treated as evidence that the whole
       outcome is already settled.
@@ -146,7 +146,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.day_controls
   system: iching
@@ -178,7 +178,7 @@
     title: Adjust the sequence around an immediate constraint
     summary: Adjust the sequence around an immediate constraint
     body: 'You can isolate an immediate obstacle without rejecting the entire direction. Day control
-      comes from rì chén (日辰 — the casting day’s branch) constraining the element of a selected
+      comes from rì chén (the casting day’s branch) constraining the element of a selected
       line. This is a nearer-condition comparison, not a prediction of today’s events or an account
       of someone’s intentions. Suppose a conversation is postponed: organize the part you can
       complete independently and agree on another point of contact, rather than inferring that the
@@ -195,7 +195,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.void
   system: iching
@@ -227,7 +227,7 @@
     title: Check readiness behind an apparent commitment
     summary: Check readiness behind an apparent commitment
     body: You can distinguish a stated intention from a condition ready for use. Void comes from xún
-      kōng (旬空 — two unpaired branches in the casting day’s cycle), with a relevant line falling
+      kōng (two unpaired branches in the casting day’s cycle), with a relevant line falling
       within that pair. It does not establish the absence of a real person or the impossibility of
       an event. For example, people may be interested in a shared activity while the place and time
       remain unconfirmed. Record the interest, then ask for the actual availability needed to
@@ -244,7 +244,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.moving
   system: iching
@@ -277,7 +277,7 @@
     summary: Inspect the transition around the selected focus
     body:
       You can inspect what is changing before deciding how to connect the next step. Moving refers
-      to dòng yáo (动爻 — a marked line whose value flips), here involving a selected focus of the
+      to dòng yáo (a marked line whose value flips), here involving a selected focus of the
       question. Motion does not itself mean help, obstruction, or a particular speed of transition.
       A team changing roles may move a material handover to another person while the task retains
       its familiar name. Consider making a short before-and-after list of responsibilities and
@@ -293,7 +293,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.return_generated
   system: iching
@@ -424,7 +424,7 @@
     title: Find a usable route to a less visible resource
     summary: Find a usable route to a less visible resource
     body: You can organize existing clues before asking how to reach a less visible resource. Hidden
-      refers to fú shén (伏神 — a relative supplied from the pure palace figure when it is missing
+      refers to fú shén (a relative supplied from the pure palace figure when it is missing
       from the primary one), here relevant to the question’s focus. It is an additional symbolic
       position, not an allegation that someone has a secret. A useful guide may exist in another
       group’s archive while the contact, permission, and purpose needed to use it remain unclear.
@@ -441,7 +441,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.absent
   system: iching
@@ -522,7 +522,7 @@
     title: Keep this wellbeing marker within ordinary routine reflection
     summary: Keep this wellbeing marker within ordinary routine reflection
     body: You can keep this marker within reflection on routine and everyday load. The illness key
-      indicates that guān guǐ (官鬼 — the relative associated with constraints and duties) is present
+      indicates that guān guǐ (the relative associated with constraints and duties) is present
       in a health-category chart. It cannot assess a symptom, its cause, or an appropriate
       treatment. Actual discomfort needs real-world attention and qualified evaluation when
       appropriate. For example, after several overfilled days, record evening activities and the
@@ -540,7 +540,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.rank
   system: iching
@@ -573,7 +573,7 @@
     summary: Use the performance marker to review practice rather than predict a ranking
     body:
       You can turn concern about performance into a useful practice review. Rank indicates guān guǐ
-      (官鬼 — a relative associated with duty and constraint) in a study question, where tradition
+      (a relative associated with duty and constraint) in a study question, where tradition
       links it to standing. Its presence cannot predict a ranking or define your ability to learn.
       Materials, practice, setting, and feedback still need ordinary inspection. For example, review
       a common error from a recent exercise and identify the first step where your reasoning became
@@ -590,7 +590,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.ying
   system: iching
@@ -622,7 +622,7 @@
     title: Check the contact and arrival arrangements outside your own control
     summary: Check the contact and arrival arrangements outside your own control
     body:
-      You can confirm how an external contact will receive your journey. Ying line, or yìng yáo (应爻
+      You can confirm how an external contact will receive your journey. Ying line, or yìng yáo (
       — the position opposite the shi line representing your side), directs attention to the other
       setting and its response. The marker does not disclose a person’s motives or predict events
       along the way. Before a visit, verify the address, access point, and contact person, and
@@ -640,7 +640,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.vehicle
   system: iching
@@ -672,7 +672,7 @@
     title: Verify the means of travel rather than reading an event into the marker
     summary: Verify the means of travel rather than reading an event into the marker
     body: You can verify the practical means of travel and the material needed to use them. Vehicle
-      indicates fù mǔ yáo (父母爻 — the relative linked to documents and carrying structures),
+      indicates fù mǔ yáo (the relative linked to documents and carrying structures),
       traditionally used as a transport clue in journey questions. Its presence does not assess
       transport conditions or predict an incident. For a route with several stages, check ticket
       details, the departure entrance, and the tightest transfer, then keep a copy accessible
@@ -689,7 +689,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.finding.shi_ying_same
   system: iching

@@ -148,14 +148,29 @@ for (const locale of ['zh', 'en'] as const) {
           nodes.map((n) => [n.getAttribute('data-card'), n.getAttribute('data-reversed')]),
         ),
     ).toEqual(drawn);
+    // DESIGN-GAP: T-39 replaced the old standalone daily-card markup with the documented profile-dependent 13-block page; verify its actual flipped card with a real Fixture A device profile.
+    const dailyCopy = otherLocale === 'zh' ? zh : en;
+    await page.goto(`/${otherLocale}/me/birth`);
+    await page.getByLabel(dailyCopy['form.birth.year'], { exact: true }).fill('1990');
+    await page.getByLabel(dailyCopy['form.birth.month'], { exact: true }).fill('5');
+    await page.getByLabel(dailyCopy['form.birth.day'], { exact: true }).fill('15');
+    await page.getByLabel(dailyCopy['form.birth.precise'], { exact: true }).check();
+    await page.getByLabel(dailyCopy['form.birth.time'], { exact: true }).fill('08:30');
+    await page.getByRole('button', { name: dailyCopy['form.birth.next'], exact: true }).click();
+    await page.getByLabel(dailyCopy['form.birth.city'], { exact: true }).fill('Beijing');
+    await page.getByRole('option').filter({ hasText: 'Asia/Shanghai' }).first().click();
+    await page.getByRole('button', { name: dailyCopy['form.birth.save'], exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`/${otherLocale}/me$`));
     await page.goto(`/${otherLocale}/today`);
-    const daily = page.locator('.daily-tarot .tarot-card');
-    await expect(daily).toHaveAttribute('data-card', /.+/);
-    const dailyKey = await daily.getAttribute('data-card');
-    const dailyOrientation = await daily.getAttribute('data-reversed');
+    await page.getByRole('button', { name: dailyCopy['daily.cardFlip'], exact: true }).click();
+    const daily = page.locator('.daily-card-face');
+    await expect(daily.locator('img')).toHaveAttribute('src', /\/tarot\/rws\/.+\.webp$/);
+    const dailyKey = await daily.locator('img').getAttribute('src');
+    const dailyOrientation = await daily.locator('h3').textContent();
     await page.reload();
-    await expect(daily).toHaveAttribute('data-card', dailyKey!);
-    await expect(daily).toHaveAttribute('data-reversed', dailyOrientation!);
+    await page.getByRole('button', { name: dailyCopy['daily.cardFlip'], exact: true }).click();
+    await expect(daily.locator('img')).toHaveAttribute('src', dailyKey!);
+    await expect(daily.locator('h3')).toHaveText(dailyOrientation!);
     expect(errors).toEqual([]);
   });
 }

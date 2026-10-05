@@ -10,7 +10,9 @@ import { Button } from '@/components/ui/button';
 import { getDailyAction, recordAnonymousDailyViewAction } from '@/app/today/actions';
 import { submitFeedbackAction } from '@/app/readings/actions';
 import { readAnonymous } from '@/lib/anonymous-storage';
-import { localToday, type DailyReport } from '@/lib/daily-compute';
+import { localToday } from '@/lib/daily-date';
+import type { DailyReport } from '@/lib/daily-compute';
+import { calculateDailyInWorker } from '@/lib/daily-worker';
 import { dailyExcerpt } from '@/lib/daily-excerpt';
 import { ShareDialog } from '@/components/share/share-dialog';
 import { AdSlot } from '@/components/report/report-section';
@@ -26,6 +28,7 @@ const demo: BirthInput = {
   place: { name: 'Example', lat: 39.9, lng: 116.4, tz: 'Asia/Shanghai' },
 };
 /** Thirteen daily blocks, local anonymous computation, bounded date controls and touch navigation. */
+// DESIGN-GAP: 未规定的五要素历中文名采用月日/瑜伽序号、半日类型号与中文星期；星宿复用已有 glossary 译名。
 export function TodayView({
   signedIn,
   tz,
@@ -64,6 +67,7 @@ export function TodayView({
     if (!zone) return;
     document.cookie = `tz=${encodeURIComponent(zone)}; Path=/; SameSite=Lax`;
     let active = true;
+    const controller = new AbortController();
     setBusy(true);
     setError(false);
     setFlipped(false);
@@ -84,10 +88,6 @@ export function TodayView({
       }
       const data = signedIn ? null : await readAnonymous();
       const profile = data?.profile ?? demo;
-      const [{ calculateDaily }, bundle] = await Promise.all([
-        import('@/lib/daily-compute'),
-        import('../../../../packages/content/dist/daily.zh.json'),
-      ]);
       const hash = await crypto.subtle.digest(
         'SHA-256',
         new TextEncoder().encode(`${data?.anonId ?? 'example'}|${date}`),
@@ -95,19 +95,19 @@ export function TodayView({
       const seed = Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, '0')).join(
         '',
       );
-      // DESIGN-GAP: This bundle is validated at build time; the trusted JSON boundary preserves its domain types.
-      const computed = calculateDaily(
-        profile,
-        date,
-        zone,
-        seed,
-        locale,
-        bundle.default as unknown as import('@tianji/content').KnowledgeBundle,
+      const computed = await calculateDailyInWorker(
+        {
+          profile,
+          date,
+          tz: zone,
+          seed,
+          locale,
+        },
+        controller.signal,
       );
       if (active) {
         setValue(computed);
         setExample(!data?.profile);
-        void recordAnonymousDailyViewAction(locale).catch(() => undefined);
         window.dispatchEvent(new CustomEvent('tianji:event', { detail: { name: 'daily.view' } }));
         if (
           localStorage.getItem('tianji-panchang') === null &&
@@ -124,8 +124,23 @@ export function TodayView({
       });
     return () => {
       active = false;
+      controller.abort();
     };
   }, [signedIn, zone, offset, locale, retry]);
+  useEffect(() => {
+    if (signedIn || !value) return;
+    // DESIGN-GAP: Record anonymous visit dimensions after the first result paint; telemetry's RSC response must not delay the locally computed content.
+    let second = 0;
+    const first = requestAnimationFrame(() => {
+      second = requestAnimationFrame(() => {
+        void recordAnonymousDailyViewAction(locale).catch(() => undefined);
+      });
+    });
+    return () => {
+      cancelAnimationFrame(first);
+      cancelAnimationFrame(second);
+    };
+  }, [signedIn, value, locale]);
   const chart = value?.chart,
     report = value?.report,
     vedic = value?.chart.vedic;

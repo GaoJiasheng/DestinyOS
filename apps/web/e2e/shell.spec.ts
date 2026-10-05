@@ -9,7 +9,8 @@ for (const locale of ['zh', 'en'] as const) {
     page,
   }, testInfo) => {
     await page.goto(`/${locale}`);
-    await expect(page.getByRole('dialog')).toBeVisible();
+    // DESIGN-GAP: A cold local dev build can spend over 5s compiling client hydration; require the first-visit dialog before interaction within the existing 30s test budget.
+    await expect(page.getByRole('dialog')).toBeVisible({ timeout: 15_000 });
     await page.keyboard.press('Escape');
     await expect(page.getByRole('dialog')).toBeVisible();
     await page.getByRole('button', { name: messages['legal.firstVisit.confirm'] }).click();

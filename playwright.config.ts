@@ -17,6 +17,8 @@ export default defineConfig({
     'm5-accessibility.spec.ts',
   ],
   fullyParallel: true,
+  // DESIGN-GAP: Self-hosted fonts use one baseline name across macOS developers and Ubuntu CI; keep the same pixel tolerance.
+  snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   // DESIGN-GAP: Two browser workers keep screenshots and cold Next.js compilation within the existing timeout.
   workers: 2,
   retries: 0,

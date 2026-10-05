@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { resolve } from 'node:path';
 import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
@@ -7,6 +8,8 @@ const config: NextConfig = {
   // DESIGN-GAP: Bounded imports of up to 50 chart snapshots need more than Next.js's default 1MB action body.
   // DESIGN-GAP: Bound static generation to two workers on shared CI hosts; content and request behavior are unchanged.
   experimental: { cpus: 2, serverActions: { bodySizeLimit: '8mb' } },
+  // DESIGN-GAP: Vercel's app root is apps/web; trace the monorepo so deployed functions retain shared knowledge and fixtures.
+  outputFileTracingRoot: resolve(__dirname, '../..'),
   outputFileTracingIncludes: {
     '/*': [
       './resources/**/*',
@@ -20,6 +23,11 @@ const config: NextConfig = {
   async headers() {
     return [
       { source: '/:path*', headers: securityHeaders() },
+      // DESIGN-GAP: Daily worker filenames contain their content hash, so immutable caching avoids revalidating the preload and every date-switch worker.
+      {
+        source: '/workers/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
       {
         source: '/admin/:path*',
         headers: [

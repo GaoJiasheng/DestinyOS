@@ -1,0 +1,10 @@
+{
+  "crons": [
+    {
+      "path": "/api/v1/cron/daily-maintenance",
+      "schedule": "0 3 * * *"
+    }
+  ],
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "buildCommand": "cd ../.. && pnpm db:deploy && pnpm build"
+}

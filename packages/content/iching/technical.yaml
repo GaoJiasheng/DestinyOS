@@ -24,7 +24,7 @@
     title: Check the inputs and comparisons behind a Meihua cast
     summary: Check the inputs and comparisons behind a Meihua cast
     body: You can check a Meihua cast through its input numbers, positions, and comparisons. Meihua
-      Yishu (梅花易数, méi huā yì shù — a method using time or numbers) forms two trigrams and one
+      Yishu (méi huā yì shù — a method using time or numbers) forms two trigrams and one
       moving line (dòng yáo — a position selected to flip). The moving trigram is use (yòng — the
       event side); the other is body (tǐ — your represented situation). Elemental relationships
       compare support and constraint, while seasonal strength is a traditional classification rather
@@ -43,7 +43,7 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: iching.technical.liuyao
   system: iching
@@ -70,8 +70,7 @@
   en:
     title: Read the Liuyao table in order and distinguish its symbolic roles
     summary: Read the Liuyao table in order and distinguish its symbolic roles
-    body:
-      You can read the Liuyao table from bottom to top before interpreting its roles. Liuyao (六爻,
+    body: You can read the Liuyao table from bottom to top before interpreting its roles. Liuyao (
       liù yáo — a six-throw coin method) assigns branches, elements, and symbolic relatives to six
       lines. Na Jia, or nà jiǎ — assigning stems and branches to positions, supplies the structural
       table; Six Relatives (liù qīn — elemental roles) compare each line with its palace element,
@@ -91,5 +90,5 @@
   meta:
     author: t23-original-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published

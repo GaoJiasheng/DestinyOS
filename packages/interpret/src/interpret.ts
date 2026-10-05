@@ -13,7 +13,8 @@ import type { Hit, InterpretInput, Report, ReportBlock, Score, Section } from '.
 import { numeric, systemConfigs } from './config';
 import { termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
-export const interpretVersion = '1.1.0';
+import displayLabels from './display-labels.json';
+export const interpretVersion = '1.1.1';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>
   b.hit.weight - a.hit.weight || (a.unit.id < b.unit.id ? -1 : a.unit.id > b.unit.id ? 1 : 0);
@@ -193,11 +194,16 @@ export function interpret(input: InterpretInput): Report {
     return replace(text);
   };
   const display = (value: unknown): string => {
+    // DESIGN-GAP: Boolean evidence denotes whether a chart predicate holds, displayed in the report locale rather than as raw code.
+    if (typeof value === 'boolean')
+      return locale === 'zh' ? (value ? '成立' : '不成立') : value ? 'Present' : 'Absent';
     if (typeof value === 'string') {
       const g = knowledge.glossary.find(
         (entry) => entry.key === value || entry.key.endsWith(`.${value}`),
       );
-      return g?.[locale].term ?? value;
+      // DESIGN-GAP: Evidence enums lack a complete glossary. Bilingual labels reuse the chart catalogs and editorial names; serialized chart keys stay unchanged.
+      const labels: Record<string, { zh: string; en: string }> = displayLabels;
+      return g?.[locale].term ?? labels[value]?.[locale] ?? value;
     }
     if (Array.isArray(value)) return value.map(display).join(locale === 'zh' ? '、' : ', ');
     return typeof value === 'object' && value !== null ? JSON.stringify(value) : String(value);
@@ -255,6 +261,8 @@ export function interpret(input: InterpretInput): Report {
     });
     const evidence = chapter
       .flatMap((c) => c.hit.evidence)
+      // DESIGN-GAP: Random seeds are internal replay inputs, not reader-facing evidence; preserve them only in the hit trace.
+      .filter((item) => item.path !== 'seed')
       .filter(
         (item, n, items) =>
           items.findIndex((other) => other.path === item.path && equal(other.value, item.value)) ===
@@ -333,7 +341,7 @@ export function interpret(input: InterpretInput): Report {
   const keywords = [...tags]
     .sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))
     .slice(0, 3)
-    .map(([tag]) => knowledge.glossary.find((g) => g.key === tag)?.[locale].term ?? tag);
+    .map(([tag]) => display(tag));
   // DESIGN-GAP: Non-daily base-score formulas are unspecified; neutral 3 is configurable via baseScores.
   const base = config.baseScores?.(chart) ?? {};
   const scores = {} as Record<Dim, Score>;
@@ -356,7 +364,7 @@ export function interpret(input: InterpretInput): Report {
     system,
     locale,
     knowledgeVersion: knowledge.knowledgeVersion,
-    // DESIGN-GAP: The chart engine is still a skeleton; callers may pass the generating engine version.
+    // DESIGN-GAP: Pure interpretation callers without an engine context use the unknown-version sentinel.
     engineVersion: context.engineVersion ?? '0.0.0',
     interpretVersion,
     headline: { persona, keywords, scores, confidence },

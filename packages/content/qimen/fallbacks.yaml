@@ -29,7 +29,7 @@
     title: Read the Situation Before Choosing a Step
     summary: You have a snapshot for reflection, with room to revise your next step.
     body: |-
-      You can use this reading to decide what deserves attention next. Qimen (奇门, qí mén — a symbolic arrangement of the casting time) maps a question into nine positions. The seasonal layout and its number describe how that map was constructed; they do not rank your worth or ability. A score combines several selected indicators, so two charts with similar totals may still call for different conversations. Imagine preparing to discuss a new plan: identifying the person whose feedback matters is more useful than treating a single number as an answer. Try writing down one uncertainty before reading the details, then decide what observation could clarify it. Keep the question, the casting time and your later observations together so that reflection remains connected to experience.
+      You can use this reading to decide what deserves attention next. Qimen (qí mén — a symbolic arrangement of the casting time) maps a question into nine positions. The seasonal layout and its number describe how that map was constructed; they do not rank your worth or ability. A score combines several selected indicators, so two charts with similar totals may still call for different conversations. Imagine preparing to discuss a new plan: identifying the person whose feedback matters is more useful than treating a single number as an answer. Try writing down one uncertainty before reading the details, then decide what observation could clarify it. Keep the question, the casting time and your later observations together so that reflection remains connected to experience.
     advice:
       - Write down one question you can verify.
     do:
@@ -39,7 +39,7 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.fallback.use_gods
   system: qimen
@@ -71,7 +71,7 @@
     title: Keep Each Indicator Connected to Your Question
     summary: You can separate your role, the available resources and the next practical move.
     body: |-
-      You can make this chapter useful by separating your own preparation from the circumstances around the question. Yongshen (用神, yòng shén — an indicator selected for the subject) is a reference point, not a supernatural actor or a complete description of another person. Its palace is the location used to read surrounding symbols at the casting time. Gates describe modes of action, stars suggest styles of work and deities add contextual imagery. For example, when looking for a missing item, reconstructing where you last used it and how you put it away gives you two concrete checks. Neither a symbol nor an unfamiliar label is evidence against anyone. Consider listing what is known first, then choose one missing fact you could verify without making an assumption about someone else.
+      You can make this chapter useful by separating your own preparation from the circumstances around the question. Yongshen (yòng shén — an indicator selected for the subject) is a reference point, not a supernatural actor or a complete description of another person. Its palace is the location used to read surrounding symbols at the casting time. Gates describe modes of action, stars suggest styles of work and deities add contextual imagery. For example, when looking for a missing item, reconstructing where you last used it and how you put it away gives you two concrete checks. Neither a symbol nor an unfamiliar label is evidence against anyone. Consider listing what is known first, then choose one missing fact you could verify without making an assumption about someone else.
     advice:
       - Write down one question you can verify.
     do:
@@ -81,7 +81,7 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.fallback.patterns
   system: qimen
@@ -113,7 +113,7 @@
     title: Read Configurations in Their Local Context
     summary: A configuration can prompt a useful check without deciding the outcome.
     body: |-
-      You can read configurations as prompts for checking the structure of a plan. Geju (格局, gé jú — a traditional combination of symbols within a palace) describes a local arrangement. A match somewhere in the chart does not establish that your selected indicator occupies that same position. If no named configuration stands out, ordinary gate, star and flag information still offers a starting point. Imagine coordinating a small collaboration: the channel for feedback, the available materials and the schedule deserve inspection before a dramatic label does. Try locating each matched palace and asking what role it actually plays in your question. When supportive and difficult symbols coexist, prioritise the practical condition you can change and observe what happens after that change, rather than counting labels as votes about your future.
+      You can read configurations as prompts for checking the structure of a plan. Geju (gé jú — a traditional combination of symbols within a palace) describes a local arrangement. A match somewhere in the chart does not establish that your selected indicator occupies that same position. If no named configuration stands out, ordinary gate, star and flag information still offers a starting point. Imagine coordinating a small collaboration: the channel for feedback, the available materials and the schedule deserve inspection before a dramatic label does. Try locating each matched palace and asking what role it actually plays in your question. When supportive and difficult symbols coexist, prioritise the practical condition you can change and observe what happens after that change, rather than counting labels as votes about your future.
     advice:
       - Write down one question you can verify.
     do:
@@ -123,7 +123,7 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.fallback.directions_timing
   system: qimen
@@ -239,7 +239,7 @@
     title: Keep a Clear Audit Trail
     summary: You can audit the chart by checking time, season and layout layers in order.
     body: |-
-      You can use the full chart to trace how the layout was calculated. Chaibu (拆补, chāi bǔ — a method using solar terms and elapsed days) establishes the seasonal layout, period and number. Xunshou (旬首, xún shǒu — the start of the hour pillar’s ten-day group) identifies the leading star and gate. The star follows the hour stem while the gate follows the hour branch, so their starting and current positions serve different purposes. Centre hosting also matters when tracing a concealed stem. If a reference chart differs, compare timezone, solar-time adjustment and school settings before comparing individual cells. Consider checking the earth layer first, then the moving layers and finally the flags. That order helps you locate a disagreement in a calculation step instead of treating different conventions as interchangeable.
+      You can use the full chart to trace how the layout was calculated. Chaibu (chāi bǔ — a method using solar terms and elapsed days) establishes the seasonal layout, period and number. Xunshou (xún shǒu — the start of the hour pillar’s ten-day group) identifies the leading star and gate. The star follows the hour stem while the gate follows the hour branch, so their starting and current positions serve different purposes. Centre hosting also matters when tracing a concealed stem. If a reference chart differs, compare timezone, solar-time adjustment and school settings before comparing individual cells. Consider checking the earth layer first, then the moving layers and finally the flags. That order helps you locate a disagreement in a calculation step instead of treating different conventions as interchangeable.
     advice:
       - Write down one question you can verify.
     do:
@@ -249,5 +249,5 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published

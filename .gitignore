@@ -18,3 +18,9 @@ playwright-report/
 
 # Compiled public encyclopedia, recreated by content:build.
 apps/web/resources/learn.json
+
+# Local launch acceptance evidence (may contain test-process diagnostics).
+.launch-check/
+.vercel/
+# Generated daily worker assets, recreated before web dev/build.
+apps/web/public/workers/

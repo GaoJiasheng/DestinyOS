@@ -11,6 +11,10 @@ const child = spawn('pnpm', ['exec', 'lhci', 'autorun', '--config=lighthouserc.c
     TEST_SERVICE_PORT_OFFSET: '2000',
     TEST_WEB_PORT: '38100',
     TEST_WEB_MODE: 'production',
+    // DESIGN-GAP: The production service harness requires its loopback mail preload even for anonymous Lighthouse pages; use isolated test credentials.
+    TEST_MAIL_URL: 'http://127.0.0.1:60081/mail',
+    RESEND_API_KEY: 're_test',
+    EMAIL_FROM: 'Tianji <noreply@example.com>',
     DATABASE_URL:
       'postgresql://postgres:postgres@127.0.0.1:57432/postgres?connection_limit=1&statement_cache_size=0',
     DIRECT_DATABASE_URL: 'postgresql://postgres:postgres@127.0.0.1:57432/postgres',

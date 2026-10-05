@@ -33,6 +33,9 @@ async function create(
   await page.getByRole('button', { name: copy['form.birth.submit'], exact: true }).click();
   await expect(page).toHaveURL(new RegExp(`/${locale}/${system}/r/local/`), { timeout: 90_000 });
   await expect(page.locator('#chart-root')).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true', {
+    timeout: 15_000,
+  });
   await page.evaluate(() => document.fonts.ready);
   return copy;
 }

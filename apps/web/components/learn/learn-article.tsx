@@ -7,12 +7,14 @@ import { brand } from '@tianji/shared';
 export async function LearnArticle({
   title,
   description,
+  descriptionLang,
   path,
   locale,
   children,
 }: {
   title: string;
   description: string;
+  descriptionLang?: string;
   path: string;
   locale: 'zh' | 'en';
   children: React.ReactNode;
@@ -22,7 +24,7 @@ export async function LearnArticle({
     <article className="learn-page">
       <Link href="/learn">{t('learn.title')}</Link>
       <h1 className="type-h1">{t('report.content', { text: title })}</h1>
-      <p>{t('report.content', { text: description })}</p>
+      <p lang={descriptionLang}>{t('report.content', { text: description })}</p>
       {children}
       <AdSlot slot="learn" />
       <p>{t('report.disclaimer.short')}</p>
@@ -34,6 +36,7 @@ export async function LearnArticle({
             '@type': 'Article',
             headline: title,
             description,
+            descriptionLang,
             inLanguage: locale,
             mainEntityOfPage: `https://${brand.domain}/${locale}${path}`,
             author: { '@type': 'Organization', name: brand.nameEn },

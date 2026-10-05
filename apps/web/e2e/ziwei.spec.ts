@@ -1,5 +1,11 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
 import { PrismaClient } from '@prisma/client';
+async function settleFonts(page: Page) {
+  await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true', {
+    timeout: 15_000,
+  });
+  await page.evaluate(() => document.fonts.ready);
+}
 // DESIGN-GAP: Remove sidebar scrolling only during component captures so the baseline includes all twelve cells.
 async function chartScreenshot(page: Page, board: Locator, name: string) {
   const style = await page.addStyleTag({
@@ -7,6 +13,7 @@ async function chartScreenshot(page: Page, board: Locator, name: string) {
       '.report-chart { position: static !important; max-height: none !important; overflow: visible !important; }',
   });
   try {
+    await settleFonts(page);
     await expect(board).toHaveScreenshot(name);
   } finally {
     await style.evaluate((element) => element.parentNode?.removeChild(element));
@@ -84,6 +91,7 @@ for (const locale of ['zh', 'en'] as const) {
       'true',
     );
     await expect(expanded.locator('[data-related="true"]')).toHaveCount(4);
+    await settleFonts(page);
     await expect(dialog.locator('.ziwei-viewport')).toHaveScreenshot(
       `ziwei-${locale}-fullscreen.png`,
     );
@@ -208,6 +216,7 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(
       page.getByRole('link', { name: locale === 'zh' ? '先看八字' : 'Explore BaZi', exact: true }),
     ).toHaveAttribute('href', `/${locale}/bazi/new`);
+    await settleFonts(page);
     await expect(page.locator('.ziwei-time-required')).toHaveScreenshot(
       `ziwei-${locale}-no-time.png`,
     );

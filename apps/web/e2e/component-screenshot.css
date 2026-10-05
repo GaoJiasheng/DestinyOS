@@ -1,0 +1,5 @@
+/* DESIGN-GAP: Fixed navigation and dev chrome are outside the chart component; exclude their scroll-dependent overlap from locator baselines. */
+.mobile-tabs,
+nextjs-portal {
+  visibility: hidden;
+}

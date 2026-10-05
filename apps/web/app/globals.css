@@ -263,6 +263,11 @@
     font-size: var(--size-body);
     line-height: var(--leading-body);
   }
+  /* DESIGN-GAP: Reserve the viewport while encrypted reports/daily data hydrate; contain child margins so loading cannot shift the shell or a visible footer. */
+  main#main {
+    display: flow-root;
+    min-height: calc(100svh - var(--header-height));
+  }
   h1,
   h2,
   h3,
@@ -3686,6 +3691,11 @@ meter {
 }
 .antar-table {
   margin-top: var(--space-3);
+}
+/* DESIGN-GAP: Keep short ruler/status labels together while the existing wrapper scrolls narrower tables. */
+.antar-table th,
+.antar-table td:last-child {
+  white-space: nowrap;
 }
 .antar-table tr[aria-current='date'] {
   background: var(--surface-2);

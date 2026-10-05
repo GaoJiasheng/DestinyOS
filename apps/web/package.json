@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "tsx ../../scripts/daily-worker-build.ts && next dev",
+    "build": "tsx ../../scripts/daily-worker-build.ts && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },

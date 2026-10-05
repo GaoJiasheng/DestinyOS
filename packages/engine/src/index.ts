@@ -20,7 +20,7 @@ import {
 import { EngineError } from './common/error';
 import { computeZiwei, ZIWEI_SCHOOL_DEFAULTS, type ZiweiSchool } from './ziwei';
 import { computeTarot } from './tarot';
-import enginePackage from '../package.json';
+import { ENGINE_VERSION } from './version';
 import { computeIching, IchingInputSchema } from './iching';
 import { computeQimen, QimenInputSchema } from './qimen';
 import { parseInput } from './common/divination';
@@ -38,7 +38,7 @@ import { computeDaily, dailyDateAt } from './daily';
 export { detectPatterns } from './ziwei';
 export { detectPatterns as detectQimenPatterns } from './qimen';
 import { computeAstrology, computeVedic, YOGA_CONDITIONS } from './astrology';
-export const ENGINE_VERSION = enginePackage.version;
+export { ENGINE_VERSION } from './version';
 const chartSchemas = {
   bazi: BaziChartSchema,
   ziwei: ZiweiChartSchema,

@@ -2,7 +2,7 @@
 import { useTranslations } from 'next-intl';
 import type { VedicChart } from '@tianji/shared';
 import { bodyFromEvidence, houseFromEvidence, SIGNS } from './astro-geometry';
-import { GRAHA_SHORT, SOUTH_CELLS, vedicDivision, type Division } from './vedic-geometry';
+import { SOUTH_CELLS, vedicDivision, type Division } from './vedic-geometry';
 /** Fixed-sign South Indian chart with a diagonal Lagna mark and true D1/D9 positions. */
 export function VedicSouthChart({
   chart,
@@ -15,6 +15,7 @@ export function VedicSouthChart({
   highlight?: string;
   onSelect?: (section: string, path?: string) => void;
 }) {
+  // DESIGN-GAP: Compact graha labels use Chinese planetary abbreviations in zh and conventional Latin abbreviations in en via next-intl.
   const t = useTranslations();
   const { lagna, bodies } = vedicDivision(chart, division);
   const selected = bodyFromEvidence(bodies, highlight);
@@ -108,7 +109,7 @@ export function VedicSouthChart({
                   y={y + 29 + Math.floor(i / 2) * 15}
                   className="vedic-body"
                 >
-                  {GRAHA_SHORT[b.key]} {b.degree.toFixed(0)}°
+                  {t(`charts.grahaShort.${b.key}`)} {b.degree.toFixed(0)}°
                 </text>
               </g>
             ))}

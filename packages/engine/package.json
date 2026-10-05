@@ -6,6 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./common": "./src/common/index.ts",
+    "./version": "./src/version.ts",
     "./bazi": "./src/bazi/index.ts",
     "./ziwei": "./src/ziwei/index.ts",
     "./tarot": "./src/tarot/index.ts",

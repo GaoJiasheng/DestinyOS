@@ -1,0 +1,1578 @@
+{
+  "zheng_guan": {
+    "zh": "正官格",
+    "en": "Direct Officer pattern"
+  },
+  "qi_sha": {
+    "zh": "七杀格",
+    "en": "Seven Killings pattern"
+  },
+  "zheng_cai": {
+    "zh": "正财格",
+    "en": "Direct Wealth pattern"
+  },
+  "pian_cai": {
+    "zh": "偏财格",
+    "en": "Indirect Wealth pattern"
+  },
+  "shi_shen": {
+    "zh": "食神格",
+    "en": "Eating God pattern"
+  },
+  "shang_guan": {
+    "zh": "伤官格",
+    "en": "Hurting Officer pattern"
+  },
+  "zheng_yin": {
+    "zh": "正印格",
+    "en": "Direct Resource pattern"
+  },
+  "pian_yin": {
+    "zh": "偏印格",
+    "en": "Indirect Resource pattern"
+  },
+  "jian_lu": {
+    "zh": "建禄格",
+    "en": "Established Fortune pattern"
+  },
+  "yue_ren": {
+    "zh": "月刃格",
+    "en": "Monthly Blade pattern"
+  },
+  "combine": {
+    "zh": "六合",
+    "en": "Combination"
+  },
+  "tri_combine": {
+    "zh": "三合（含半合）",
+    "en": "Trine or half trine"
+  },
+  "clash": {
+    "zh": "六冲",
+    "en": "Clash"
+  },
+  "punish": {
+    "zh": "三刑（含自刑）",
+    "en": "Punishment or self-punishment"
+  },
+  "harm": {
+    "zh": "六害",
+    "en": "Harm"
+  },
+  "break": {
+    "zh": "六破",
+    "en": "Break"
+  },
+  "use_generates_body": {
+    "zh": "用生体",
+    "en": "Use nourishes body"
+  },
+  "body_generates_use": {
+    "zh": "体生用",
+    "en": "Body nourishes use"
+  },
+  "use_controls_body": {
+    "zh": "用克体",
+    "en": "Use restrains body"
+  },
+  "body_controls_use": {
+    "zh": "体克用",
+    "en": "Body restrains use"
+  },
+  "same": {
+    "zh": "比和",
+    "en": "Same element"
+  },
+  "prosperous": {
+    "zh": "旺",
+    "en": "Prosperous"
+  },
+  "strong": {
+    "zh": "旺",
+    "en": "Strong"
+  },
+  "resting": {
+    "zh": "休",
+    "en": "Resting"
+  },
+  "trapped": {
+    "zh": "囚",
+    "en": "Trapped"
+  },
+  "dead": {
+    "zh": "死",
+    "en": "Dormant"
+  },
+  "xiong_di": {
+    "zh": "兄弟",
+    "en": "Peers"
+  },
+  "fu_mu": {
+    "zh": "父母",
+    "en": "Parents"
+  },
+  "zi_sun": {
+    "zh": "子孙",
+    "en": "Offspring"
+  },
+  "qi_cai": {
+    "zh": "妻财",
+    "en": "Wealth"
+  },
+  "guan_gui": {
+    "zh": "官鬼",
+    "en": "Authority"
+  },
+  "qing_long": {
+    "zh": "青龙",
+    "en": "Azure Dragon"
+  },
+  "zhu_que": {
+    "zh": "朱雀",
+    "en": "Vermilion Bird"
+  },
+  "gou_chen": {
+    "zh": "勾陈",
+    "en": "Gou Chen"
+  },
+  "teng_she": {
+    "zh": "腾蛇",
+    "en": "Soaring Snake"
+  },
+  "bai_hu": {
+    "zh": "白虎",
+    "en": "White Tiger"
+  },
+  "xuan_wu": {
+    "zh": "玄武",
+    "en": "Black Tortoise"
+  },
+  "weak": {
+    "zh": "弱",
+    "en": "Weak"
+  },
+  "neutral": {
+    "zh": "中性",
+    "en": "Neutral"
+  },
+  "void": {
+    "zh": "空亡",
+    "en": "Void"
+  },
+  "hidden": {
+    "zh": "伏藏",
+    "en": "Hidden"
+  },
+  "absent": {
+    "zh": "缺失",
+    "en": "Absent"
+  },
+  "moving": {
+    "zh": "发动",
+    "en": "Moving"
+  },
+  "return_generated": {
+    "zh": "回头生",
+    "en": "Return nourishes"
+  },
+  "return_controlled": {
+    "zh": "回头克",
+    "en": "Return restrains"
+  },
+  "north": {
+    "zh": "北",
+    "en": "N"
+  },
+  "northeast": {
+    "zh": "东北",
+    "en": "NE"
+  },
+  "east": {
+    "zh": "东",
+    "en": "E"
+  },
+  "southeast": {
+    "zh": "东南",
+    "en": "SE"
+  },
+  "south": {
+    "zh": "南",
+    "en": "S"
+  },
+  "southwest": {
+    "zh": "西南",
+    "en": "SW"
+  },
+  "west": {
+    "zh": "西",
+    "en": "W"
+  },
+  "northwest": {
+    "zh": "西北",
+    "en": "NW"
+  },
+  "center": {
+    "zh": "中宫",
+    "en": "Center"
+  },
+  "tian_peng": {
+    "zh": "天蓬",
+    "en": "Tian Peng"
+  },
+  "tian_rui": {
+    "zh": "天芮",
+    "en": "Tian Rui"
+  },
+  "tian_chong": {
+    "zh": "天冲",
+    "en": "Tian Chong"
+  },
+  "tian_fu": {
+    "zh": "天辅",
+    "en": "Tian Fu"
+  },
+  "tian_qin": {
+    "zh": "天禽",
+    "en": "Tian Qin"
+  },
+  "tian_xin": {
+    "zh": "天心",
+    "en": "Tian Xin"
+  },
+  "tian_zhu": {
+    "zh": "天柱",
+    "en": "Tian Zhu"
+  },
+  "tian_ren": {
+    "zh": "天任",
+    "en": "Tian Ren"
+  },
+  "tian_ying": {
+    "zh": "天英",
+    "en": "Tian Ying"
+  },
+  "xiu": {
+    "zh": "休门",
+    "en": "Rest"
+  },
+  "si": {
+    "zh": "死门",
+    "en": "Death"
+  },
+  "shang": {
+    "zh": "伤门",
+    "en": "Injury"
+  },
+  "du": {
+    "zh": "杜门",
+    "en": "Obstruction"
+  },
+  "kai": {
+    "zh": "开门",
+    "en": "Open"
+  },
+  "jing": {
+    "zh": "惊门",
+    "en": "Fear"
+  },
+  "sheng": {
+    "zh": "生门",
+    "en": "Life"
+  },
+  "jing_view": {
+    "zh": "景门",
+    "en": "View"
+  },
+  "zhi_fu": {
+    "zh": "值符",
+    "en": "Chief"
+  },
+  "tai_yin": {
+    "zh": "太阴",
+    "en": "Great Yin"
+  },
+  "liu_he": {
+    "zh": "六合",
+    "en": "Six Harmony"
+  },
+  "jiu_di": {
+    "zh": "九地",
+    "en": "Nine Earth"
+  },
+  "jiu_tian": {
+    "zh": "九天",
+    "en": "Nine Heaven"
+  },
+  "day_stem": {
+    "zh": "日干",
+    "en": "Day stem"
+  },
+  "hour_stem": {
+    "zh": "时干",
+    "en": "Hour stem"
+  },
+  "wu_stem": {
+    "zh": "戊",
+    "en": "Wu"
+  },
+  "yi": {
+    "zh": "乙",
+    "en": "Yi"
+  },
+  "geng": {
+    "zh": "庚",
+    "en": "Geng"
+  },
+  "ding": {
+    "zh": "丁",
+    "en": "Ding"
+  },
+  "horse": {
+    "zh": "马星",
+    "en": "Horse"
+  },
+  "zhi_shi": {
+    "zh": "值使",
+    "en": "Chief gate"
+  },
+  "fu_yin": {
+    "zh": "伏吟",
+    "en": "Repeating"
+  },
+  "fan_yin": {
+    "zh": "反吟",
+    "en": "Opposing"
+  },
+  "gate_forced": {
+    "zh": "门迫",
+    "en": "Gate forcing"
+  },
+  "gate_controlled": {
+    "zh": "门制",
+    "en": "Gate restrained"
+  },
+  "ji_xing": {
+    "zh": "击刑",
+    "en": "Punishment"
+  },
+  "ru_mu": {
+    "zh": "入墓",
+    "en": "Tomb"
+  },
+  "hexagram_01": {
+    "zh": "乾",
+    "en": "The Creative"
+  },
+  "hexagram_02": {
+    "zh": "坤",
+    "en": "The Receptive"
+  },
+  "hexagram_03": {
+    "zh": "屯",
+    "en": "Difficulty at the Beginning"
+  },
+  "hexagram_04": {
+    "zh": "蒙",
+    "en": "Youthful Folly"
+  },
+  "hexagram_05": {
+    "zh": "需",
+    "en": "Waiting"
+  },
+  "hexagram_06": {
+    "zh": "讼",
+    "en": "Conflict"
+  },
+  "hexagram_07": {
+    "zh": "师",
+    "en": "The Army"
+  },
+  "hexagram_08": {
+    "zh": "比",
+    "en": "Holding Together"
+  },
+  "hexagram_09": {
+    "zh": "小畜",
+    "en": "The Taming Power of the Small"
+  },
+  "hexagram_10": {
+    "zh": "履",
+    "en": "Treading"
+  },
+  "hexagram_11": {
+    "zh": "泰",
+    "en": "Peace"
+  },
+  "hexagram_12": {
+    "zh": "否",
+    "en": "Standstill"
+  },
+  "hexagram_13": {
+    "zh": "同人",
+    "en": "Fellowship with Men"
+  },
+  "hexagram_14": {
+    "zh": "大有",
+    "en": "Possession in Great Measure"
+  },
+  "hexagram_15": {
+    "zh": "谦",
+    "en": "Modesty"
+  },
+  "hexagram_16": {
+    "zh": "豫",
+    "en": "Enthusiasm"
+  },
+  "hexagram_17": {
+    "zh": "随",
+    "en": "Following"
+  },
+  "hexagram_18": {
+    "zh": "蛊",
+    "en": "Work on What Has Been Spoiled"
+  },
+  "hexagram_19": {
+    "zh": "临",
+    "en": "Approach"
+  },
+  "hexagram_20": {
+    "zh": "观",
+    "en": "Contemplation"
+  },
+  "hexagram_21": {
+    "zh": "噬嗑",
+    "en": "Biting Through"
+  },
+  "hexagram_22": {
+    "zh": "贲",
+    "en": "Grace"
+  },
+  "hexagram_23": {
+    "zh": "剥",
+    "en": "Splitting Apart"
+  },
+  "hexagram_24": {
+    "zh": "复",
+    "en": "Return"
+  },
+  "hexagram_25": {
+    "zh": "无妄",
+    "en": "Innocence"
+  },
+  "hexagram_26": {
+    "zh": "大畜",
+    "en": "The Taming Power of the Great"
+  },
+  "hexagram_27": {
+    "zh": "颐",
+    "en": "The Corners of the Mouth"
+  },
+  "hexagram_28": {
+    "zh": "大过",
+    "en": "Preponderance of the Great"
+  },
+  "hexagram_29": {
+    "zh": "坎",
+    "en": "The Abysmal"
+  },
+  "hexagram_30": {
+    "zh": "离",
+    "en": "The Clinging"
+  },
+  "hexagram_31": {
+    "zh": "咸",
+    "en": "Influence"
+  },
+  "hexagram_32": {
+    "zh": "恒",
+    "en": "Duration"
+  },
+  "hexagram_33": {
+    "zh": "遯",
+    "en": "Retreat"
+  },
+  "hexagram_34": {
+    "zh": "大壮",
+    "en": "The Power of the Great"
+  },
+  "hexagram_35": {
+    "zh": "晋",
+    "en": "Progress"
+  },
+  "hexagram_36": {
+    "zh": "明夷",
+    "en": "Darkening of the Light"
+  },
+  "hexagram_37": {
+    "zh": "家人",
+    "en": "The Family"
+  },
+  "hexagram_38": {
+    "zh": "睽",
+    "en": "Opposition"
+  },
+  "hexagram_39": {
+    "zh": "蹇",
+    "en": "Obstruction"
+  },
+  "hexagram_40": {
+    "zh": "解",
+    "en": "Deliverance"
+  },
+  "hexagram_41": {
+    "zh": "损",
+    "en": "Decrease"
+  },
+  "hexagram_42": {
+    "zh": "益",
+    "en": "Increase"
+  },
+  "hexagram_43": {
+    "zh": "夬",
+    "en": "Break-through"
+  },
+  "hexagram_44": {
+    "zh": "姤",
+    "en": "Coming to Meet"
+  },
+  "hexagram_45": {
+    "zh": "萃",
+    "en": "Gathering Together"
+  },
+  "hexagram_46": {
+    "zh": "升",
+    "en": "Pushing Upward"
+  },
+  "hexagram_47": {
+    "zh": "困",
+    "en": "Oppression"
+  },
+  "hexagram_48": {
+    "zh": "井",
+    "en": "The Well"
+  },
+  "hexagram_49": {
+    "zh": "革",
+    "en": "Revolution"
+  },
+  "hexagram_50": {
+    "zh": "鼎",
+    "en": "The Cauldron"
+  },
+  "hexagram_51": {
+    "zh": "震",
+    "en": "The Arousing"
+  },
+  "hexagram_52": {
+    "zh": "艮",
+    "en": "Keeping Still"
+  },
+  "hexagram_53": {
+    "zh": "渐",
+    "en": "Development"
+  },
+  "hexagram_54": {
+    "zh": "归妹",
+    "en": "The Marrying Maiden"
+  },
+  "hexagram_55": {
+    "zh": "丰",
+    "en": "Abundance"
+  },
+  "hexagram_56": {
+    "zh": "旅",
+    "en": "The Wanderer"
+  },
+  "hexagram_57": {
+    "zh": "巽",
+    "en": "The Gentle"
+  },
+  "hexagram_58": {
+    "zh": "兑",
+    "en": "The Joyous"
+  },
+  "hexagram_59": {
+    "zh": "涣",
+    "en": "Dispersion"
+  },
+  "hexagram_60": {
+    "zh": "节",
+    "en": "Limitation"
+  },
+  "hexagram_61": {
+    "zh": "中孚",
+    "en": "Inner Truth"
+  },
+  "hexagram_62": {
+    "zh": "小过",
+    "en": "Preponderance of the Small"
+  },
+  "hexagram_63": {
+    "zh": "既济",
+    "en": "After Completion"
+  },
+  "hexagram_64": {
+    "zh": "未济",
+    "en": "Before Completion"
+  },
+  "focus": {
+    "zh": "核心指引",
+    "en": "Focus"
+  },
+  "answer": {
+    "zh": "回应",
+    "en": "Answer"
+  },
+  "past": {
+    "zh": "过去",
+    "en": "Past"
+  },
+  "present": {
+    "zh": "现在",
+    "en": "Present"
+  },
+  "future": {
+    "zh": "未来",
+    "en": "Future"
+  },
+  "situation": {
+    "zh": "情境",
+    "en": "Situation"
+  },
+  "action": {
+    "zh": "行动",
+    "en": "Action"
+  },
+  "outcome": {
+    "zh": "结果",
+    "en": "Outcome"
+  },
+  "you": {
+    "zh": "你",
+    "en": "You"
+  },
+  "them": {
+    "zh": "对方",
+    "en": "Them"
+  },
+  "connection": {
+    "zh": "联系",
+    "en": "Connection"
+  },
+  "challenge": {
+    "zh": "挑战",
+    "en": "Challenge"
+  },
+  "potential": {
+    "zh": "潜力",
+    "en": "Potential"
+  },
+  "option_a": {
+    "zh": "选择 A",
+    "en": "Option A"
+  },
+  "option_a_outcome": {
+    "zh": "选择 A 的结果",
+    "en": "Option A Outcome"
+  },
+  "option_b": {
+    "zh": "选择 B",
+    "en": "Option B"
+  },
+  "option_b_outcome": {
+    "zh": "选择 B 的结果",
+    "en": "Option B Outcome"
+  },
+  "foundation": {
+    "zh": "基础",
+    "en": "Foundation"
+  },
+  "crown": {
+    "zh": "目标",
+    "en": "Crown"
+  },
+  "near_future": {
+    "zh": "近期发展",
+    "en": "Near Future"
+  },
+  "self": {
+    "zh": "自我",
+    "en": "Self"
+  },
+  "environment": {
+    "zh": "环境",
+    "en": "Environment"
+  },
+  "hopes_fears": {
+    "zh": "希望与恐惧",
+    "en": "Hopes Fears"
+  },
+  "theme": {
+    "zh": "年度主题",
+    "en": "Theme"
+  },
+  "m01": {
+    "zh": "01月",
+    "en": "Month 1"
+  },
+  "m02": {
+    "zh": "02月",
+    "en": "Month 2"
+  },
+  "m03": {
+    "zh": "03月",
+    "en": "Month 3"
+  },
+  "m04": {
+    "zh": "04月",
+    "en": "Month 4"
+  },
+  "m05": {
+    "zh": "05月",
+    "en": "Month 5"
+  },
+  "m06": {
+    "zh": "06月",
+    "en": "Month 6"
+  },
+  "m07": {
+    "zh": "07月",
+    "en": "Month 7"
+  },
+  "m08": {
+    "zh": "08月",
+    "en": "Month 8"
+  },
+  "m09": {
+    "zh": "09月",
+    "en": "Month 9"
+  },
+  "m10": {
+    "zh": "10月",
+    "en": "Month 10"
+  },
+  "m11": {
+    "zh": "11月",
+    "en": "Month 11"
+  },
+  "m12": {
+    "zh": "12月",
+    "en": "Month 12"
+  },
+  "aries": {
+    "zh": "白羊",
+    "en": "Aries"
+  },
+  "taurus": {
+    "zh": "金牛",
+    "en": "Taurus"
+  },
+  "gemini": {
+    "zh": "双子",
+    "en": "Gemini"
+  },
+  "cancer": {
+    "zh": "巨蟹",
+    "en": "Cancer"
+  },
+  "leo": {
+    "zh": "狮子",
+    "en": "Leo"
+  },
+  "virgo": {
+    "zh": "处女",
+    "en": "Virgo"
+  },
+  "libra": {
+    "zh": "天秤",
+    "en": "Libra"
+  },
+  "scorpio": {
+    "zh": "天蝎",
+    "en": "Scorpio"
+  },
+  "sagittarius": {
+    "zh": "射手",
+    "en": "Sagittarius"
+  },
+  "capricorn": {
+    "zh": "摩羯",
+    "en": "Capricorn"
+  },
+  "aquarius": {
+    "zh": "水瓶",
+    "en": "Aquarius"
+  },
+  "pisces": {
+    "zh": "双鱼",
+    "en": "Pisces"
+  },
+  "surya": {
+    "zh": "太阳",
+    "en": "Sun (Surya)"
+  },
+  "chandra": {
+    "zh": "月亮",
+    "en": "Moon (Chandra)"
+  },
+  "mangala": {
+    "zh": "火星",
+    "en": "Mars (Mangala)"
+  },
+  "budha": {
+    "zh": "水星",
+    "en": "Mercury (Budha)"
+  },
+  "guru": {
+    "zh": "木星",
+    "en": "Jupiter (Guru)"
+  },
+  "shukra": {
+    "zh": "金星",
+    "en": "Venus (Shukra)"
+  },
+  "shani": {
+    "zh": "土星",
+    "en": "Saturn (Shani)"
+  },
+  "rahu": {
+    "zh": "罗睺",
+    "en": "Rahu"
+  },
+  "ketu": {
+    "zh": "计都",
+    "en": "Ketu"
+  },
+  "exalted": {
+    "zh": "擢升",
+    "en": "Exalted"
+  },
+  "own": {
+    "zh": "入庙",
+    "en": "Own sign"
+  },
+  "moolatrikona": {
+    "zh": "根本三角",
+    "en": "Moolatrikona"
+  },
+  "debilitated": {
+    "zh": "落陷",
+    "en": "Debilitated"
+  },
+  "friend": {
+    "zh": "友星座",
+    "en": "Friend"
+  },
+  "enemy": {
+    "zh": "敌星座",
+    "en": "Enemy"
+  },
+  "ashwini": {
+    "zh": "阿湿毗尼",
+    "en": "Ashwini"
+  },
+  "bharani": {
+    "zh": "婆罗尼",
+    "en": "Bharani"
+  },
+  "krittika": {
+    "zh": "克里提卡",
+    "en": "Krittika"
+  },
+  "rohini": {
+    "zh": "罗希尼",
+    "en": "Rohini"
+  },
+  "mrigashira": {
+    "zh": "弥利伽尸罗",
+    "en": "Mrigashira"
+  },
+  "ardra": {
+    "zh": "阿尔德拉",
+    "en": "Ardra"
+  },
+  "punarvasu": {
+    "zh": "补那伐苏",
+    "en": "Punarvasu"
+  },
+  "pushya": {
+    "zh": "普沙",
+    "en": "Pushya"
+  },
+  "ashlesha": {
+    "zh": "阿湿勒沙",
+    "en": "Ashlesha"
+  },
+  "magha": {
+    "zh": "摩伽",
+    "en": "Magha"
+  },
+  "purva_phalguni": {
+    "zh": "前颇尔古尼",
+    "en": "Purva Phalguni"
+  },
+  "uttara_phalguni": {
+    "zh": "后颇尔古尼",
+    "en": "Uttara Phalguni"
+  },
+  "hasta": {
+    "zh": "诃斯多",
+    "en": "Hasta"
+  },
+  "chitra": {
+    "zh": "质多罗",
+    "en": "Chitra"
+  },
+  "swati": {
+    "zh": "斯瓦提",
+    "en": "Swati"
+  },
+  "vishakha": {
+    "zh": "毗舍佉",
+    "en": "Vishakha"
+  },
+  "anuradha": {
+    "zh": "阿努罗陀",
+    "en": "Anuradha"
+  },
+  "jyeshtha": {
+    "zh": "逝瑟吒",
+    "en": "Jyeshtha"
+  },
+  "mula": {
+    "zh": "牟罗",
+    "en": "Mula"
+  },
+  "purva_ashadha": {
+    "zh": "前阿沙荼",
+    "en": "Purva Ashadha"
+  },
+  "uttara_ashadha": {
+    "zh": "后阿沙荼",
+    "en": "Uttara Ashadha"
+  },
+  "shravana": {
+    "zh": "室罗伐那",
+    "en": "Shravana"
+  },
+  "dhanishta": {
+    "zh": "檀尼湿吒",
+    "en": "Dhanishta"
+  },
+  "shatabhisha": {
+    "zh": "沙多毗沙",
+    "en": "Shatabhisha"
+  },
+  "purva_bhadrapada": {
+    "zh": "前跋陀罗",
+    "en": "Purva Bhadrapada"
+  },
+  "uttara_bhadrapada": {
+    "zh": "后跋陀罗",
+    "en": "Uttara Bhadrapada"
+  },
+  "revati": {
+    "zh": "雷瓦蒂",
+    "en": "Revati"
+  },
+  "personality": {
+    "zh": "性格",
+    "en": "Personality"
+  },
+  "use_god": {
+    "zh": "用神",
+    "en": "Use God"
+  },
+  "meihua": {
+    "zh": "梅花易数",
+    "en": "Meihua"
+  },
+  "liuyao": {
+    "zh": "六爻",
+    "en": "Six Lines"
+  },
+  "favorable": {
+    "zh": "偏顺",
+    "en": "Favorable"
+  },
+  "mixed": {
+    "zh": "吉凶参半",
+    "en": "Mixed"
+  },
+  "unfavorable": {
+    "zh": "需谨慎",
+    "en": "Unfavorable"
+  },
+  "good_gate": {
+    "zh": "吉门",
+    "en": "Supportive gate"
+  },
+  "good_star": {
+    "zh": "吉星",
+    "en": "Supportive star"
+  },
+  "court_roles": {
+    "zh": "宫廷角色",
+    "en": "Court roles"
+  },
+  "major_theme": {
+    "zh": "大牌主题",
+    "en": "Major themes"
+  },
+  "reversed_theme": {
+    "zh": "逆位主题",
+    "en": "Reversed themes"
+  },
+  "present_outcome_element_shift": {
+    "zh": "现状与结果元素变化",
+    "en": "Present to outcome element shift"
+  },
+  "present_outcome_orientation_shift": {
+    "zh": "现状与结果正逆变化",
+    "en": "Present to outcome orientation shift"
+  },
+  "trend_element_shift": {
+    "zh": "趋势元素变化",
+    "en": "Trend element shift"
+  },
+  "trend_orientation_shift": {
+    "zh": "趋势正逆变化",
+    "en": "Trend orientation shift"
+  },
+  "gajakesari": {
+    "zh": "象狮瑜伽",
+    "en": "Gajakesari"
+  },
+  "budha_aditya": {
+    "zh": "日水瑜伽",
+    "en": "Budha-Aditya"
+  },
+  "chandra_mangala": {
+    "zh": "月火瑜伽",
+    "en": "Chandra-Mangala"
+  },
+  "ruchaka": {
+    "zh": "火曜瑜伽",
+    "en": "Ruchaka"
+  },
+  "bhadra": {
+    "zh": "水曜瑜伽",
+    "en": "Bhadra"
+  },
+  "hamsa": {
+    "zh": "木曜瑜伽",
+    "en": "Hamsa"
+  },
+  "malavya": {
+    "zh": "金曜瑜伽",
+    "en": "Malavya"
+  },
+  "shasha": {
+    "zh": "土曜瑜伽",
+    "en": "Shasha"
+  },
+  "raja_yoga": {
+    "zh": "王者瑜伽",
+    "en": "Raja Yoga"
+  },
+  "dhana_yoga": {
+    "zh": "财富瑜伽",
+    "en": "Dhana Yoga"
+  },
+  "kemadruma": {
+    "zh": "孤月瑜伽",
+    "en": "Kemadruma"
+  },
+  "neecha_bhanga": {
+    "zh": "落陷缓解瑜伽",
+    "en": "Neecha Bhanga"
+  },
+  "grand_trine": {
+    "zh": "大三角",
+    "en": "Grand trine"
+  },
+  "t_square": {
+    "zh": "直角三角格局",
+    "en": "T-square"
+  },
+  "grand_cross": {
+    "zh": "大十字",
+    "en": "Grand cross"
+  },
+  "kite": {
+    "zh": "风筝",
+    "en": "Kite"
+  },
+  "yod": {
+    "zh": "指向格局",
+    "en": "Yod"
+  },
+  "stellium": {
+    "zh": "星群",
+    "en": "Stellium"
+  },
+  "san_qi_de_shi_yi": {
+    "zh": "乙奇得使",
+    "en": "yǐ qí dé shǐ"
+  },
+  "san_qi_de_shi_bing": {
+    "zh": "丙奇得使",
+    "en": "bǐng qí dé shǐ"
+  },
+  "san_qi_de_shi_ding": {
+    "zh": "丁奇得使",
+    "en": "dīng qí dé shǐ"
+  },
+  "san_qi_sheng_dian_yi": {
+    "zh": "乙奇升殿",
+    "en": "yǐ qí shēng diàn"
+  },
+  "san_qi_sheng_dian_bing": {
+    "zh": "丙奇升殿",
+    "en": "bǐng qí shēng diàn"
+  },
+  "san_qi_sheng_dian_ding": {
+    "zh": "丁奇升殿",
+    "en": "dīng qí shēng diàn"
+  },
+  "qing_long_fan_shou": {
+    "zh": "青龙返首",
+    "en": "qīng lóng fǎn shǒu"
+  },
+  "fei_niao_die_xue": {
+    "zh": "飞鸟跌穴",
+    "en": "fēi niǎo dié xué"
+  },
+  "yu_nv_shou_men": {
+    "zh": "玉女守门",
+    "en": "yù nǚ shǒu mén"
+  },
+  "tian_dun": {
+    "zh": "天遁",
+    "en": "tiān dùn"
+  },
+  "di_dun": {
+    "zh": "地遁",
+    "en": "dì dùn"
+  },
+  "ren_dun": {
+    "zh": "人遁",
+    "en": "rén dùn"
+  },
+  "feng_dun": {
+    "zh": "风遁",
+    "en": "fēng dùn"
+  },
+  "yun_dun": {
+    "zh": "云遁",
+    "en": "yún dùn"
+  },
+  "long_dun": {
+    "zh": "龙遁",
+    "en": "lóng dùn"
+  },
+  "hu_dun": {
+    "zh": "虎遁",
+    "en": "hǔ dùn"
+  },
+  "shen_dun": {
+    "zh": "神遁",
+    "en": "shén dùn"
+  },
+  "gui_dun": {
+    "zh": "鬼遁",
+    "en": "guǐ dùn"
+  },
+  "qing_long_tao_zou": {
+    "zh": "青龙逃走",
+    "en": "qīng lóng táo zǒu"
+  },
+  "bai_hu_chang_kuang": {
+    "zh": "白虎猖狂",
+    "en": "bái hǔ chāng kuáng"
+  },
+  "zhu_que_tou_jiang": {
+    "zh": "朱雀投江",
+    "en": "zhū què tóu jiāng"
+  },
+  "teng_she_yao_jiao": {
+    "zh": "腾蛇夭矫",
+    "en": "téng shé yāo jiǎo"
+  },
+  "tai_bai_ru_ying": {
+    "zh": "太白入荧",
+    "en": "tài bái rù yíng"
+  },
+  "ying_ru_tai_bai": {
+    "zh": "荧入太白",
+    "en": "yíng rù tài bái"
+  },
+  "da_ge": {
+    "zh": "大格",
+    "en": "dà gé"
+  },
+  "xiao_ge": {
+    "zh": "小格",
+    "en": "xiǎo gé"
+  },
+  "xing_ge": {
+    "zh": "刑格",
+    "en": "xíng gé"
+  },
+  "qi_ge": {
+    "zh": "奇格",
+    "en": "qí gé"
+  },
+  "fu_gan_ge": {
+    "zh": "伏干格",
+    "en": "fú gān gé"
+  },
+  "fei_gan_ge": {
+    "zh": "飞干格",
+    "en": "fēi gān gé"
+  },
+  "wu_bu_yu_shi": {
+    "zh": "五不遇时",
+    "en": "wǔ bù yù shí"
+  },
+  "ri_yue_bing_xing": {
+    "zh": "日月并行",
+    "en": "rì yuè bìng xíng"
+  },
+  "qi_yi_xiang_zuo": {
+    "zh": "奇仪相佐",
+    "en": "qí yí xiāng zuǒ"
+  },
+  "xing_qi_zhu_que": {
+    "zh": "星奇朱雀",
+    "en": "xīng qí zhū què"
+  },
+  "qi_ru_tai_yin": {
+    "zh": "奇入太阴",
+    "en": "qí rù tài yīn"
+  },
+  "san_qi_ru_mu_bing": {
+    "zh": "丙奇入墓",
+    "en": "bǐng qí rù mù"
+  },
+  "fu_gong_ge": {
+    "zh": "伏宫格",
+    "en": "fú gōng gé"
+  },
+  "fei_gong_ge": {
+    "zh": "飞宫格",
+    "en": "fēi gōng gé"
+  },
+  "tian_wang_si_zhang": {
+    "zh": "天网四张",
+    "en": "tiān wǎng sì zhāng"
+  },
+  "tian_yu": {
+    "zh": "天狱",
+    "en": "tiān yù"
+  },
+  "repeated_1": {
+    "zh": "数字1重复",
+    "en": "Repeated 1"
+  },
+  "repeated_2": {
+    "zh": "数字2重复",
+    "en": "Repeated 2"
+  },
+  "repeated_3": {
+    "zh": "数字3重复",
+    "en": "Repeated 3"
+  },
+  "repeated_4": {
+    "zh": "数字4重复",
+    "en": "Repeated 4"
+  },
+  "repeated_5": {
+    "zh": "数字5重复",
+    "en": "Repeated 5"
+  },
+  "repeated_6": {
+    "zh": "数字6重复",
+    "en": "Repeated 6"
+  },
+  "repeated_7": {
+    "zh": "数字7重复",
+    "en": "Repeated 7"
+  },
+  "repeated_8": {
+    "zh": "数字8重复",
+    "en": "Repeated 8"
+  },
+  "repeated_9": {
+    "zh": "数字9重复",
+    "en": "Repeated 9"
+  },
+  "repeated_10": {
+    "zh": "数字10重复",
+    "en": "Repeated 10"
+  },
+  "repeated_11": {
+    "zh": "数字11重复",
+    "en": "Repeated 11"
+  },
+  "repeated_12": {
+    "zh": "数字12重复",
+    "en": "Repeated 12"
+  },
+  "repeated_13": {
+    "zh": "数字13重复",
+    "en": "Repeated 13"
+  },
+  "repeated_14": {
+    "zh": "数字14重复",
+    "en": "Repeated 14"
+  },
+  "repeated_15": {
+    "zh": "数字15重复",
+    "en": "Repeated 15"
+  },
+  "repeated_16": {
+    "zh": "数字16重复",
+    "en": "Repeated 16"
+  },
+  "repeated_17": {
+    "zh": "数字17重复",
+    "en": "Repeated 17"
+  },
+  "repeated_18": {
+    "zh": "数字18重复",
+    "en": "Repeated 18"
+  },
+  "repeated_19": {
+    "zh": "数字19重复",
+    "en": "Repeated 19"
+  },
+  "repeated_20": {
+    "zh": "数字20重复",
+    "en": "Repeated 20"
+  },
+  "repeated_21": {
+    "zh": "数字21重复",
+    "en": "Repeated 21"
+  },
+  "missing_fire": {
+    "zh": "火元素缺少",
+    "en": "Missing fire"
+  },
+  "dominant_fire": {
+    "zh": "火元素突出",
+    "en": "Dominant fire"
+  },
+  "missing_earth": {
+    "zh": "土元素缺少",
+    "en": "Missing earth"
+  },
+  "dominant_earth": {
+    "zh": "土元素突出",
+    "en": "Dominant earth"
+  },
+  "missing_air": {
+    "zh": "风元素缺少",
+    "en": "Missing air"
+  },
+  "dominant_air": {
+    "zh": "风元素突出",
+    "en": "Dominant air"
+  },
+  "missing_water": {
+    "zh": "水元素缺少",
+    "en": "Missing water"
+  },
+  "dominant_water": {
+    "zh": "水元素突出",
+    "en": "Dominant water"
+  },
+  "career": {
+    "zh": "事业",
+    "en": "Career"
+  },
+  "wealth": {
+    "zh": "财运",
+    "en": "Wealth"
+  },
+  "love": {
+    "zh": "感情",
+    "en": "Love"
+  },
+  "health": {
+    "zh": "健康",
+    "en": "Health"
+  },
+  "study": {
+    "zh": "学业",
+    "en": "Study"
+  },
+  "travel": {
+    "zh": "出行",
+    "en": "Travel"
+  },
+  "decision": {
+    "zh": "决策",
+    "en": "Decision"
+  },
+  "other": {
+    "zh": "其他",
+    "en": "Other"
+  },
+  "exam": {
+    "zh": "考试竞赛",
+    "en": "Exams"
+  },
+  "lost": {
+    "zh": "寻物寻人",
+    "en": "Lost items"
+  },
+  "general": {
+    "zh": "综合",
+    "en": "General"
+  },
+  "use_god_generated": {
+    "zh": "用神受生",
+    "en": "Use God supported"
+  },
+  "use_god_controlled": {
+    "zh": "用神受克",
+    "en": "Use God restrained"
+  },
+  "lovers_two_cups": {
+    "zh": "恋人与圣杯二",
+    "en": "The Lovers and Two of Cups"
+  },
+  "tower_death": {
+    "zh": "高塔与死神",
+    "en": "The Tower and Death"
+  },
+  "sun_star": {
+    "zh": "太阳与星星",
+    "en": "The Sun and The Star"
+  },
+  "three_swords_three_cups": {
+    "zh": "宝剑三与圣杯三",
+    "en": "Three of Swords and Three of Cups"
+  },
+  "fool_magician": {
+    "zh": "愚人与魔术师",
+    "en": "The Fool and The Magician"
+  },
+  "priestess_moon": {
+    "zh": "女祭司与月亮",
+    "en": "The High Priestess and The Moon"
+  },
+  "empress_emperor": {
+    "zh": "皇后与皇帝",
+    "en": "The Empress and The Emperor"
+  },
+  "hierophant_lovers": {
+    "zh": "教皇与恋人",
+    "en": "The Hierophant and The Lovers"
+  },
+  "chariot_strength": {
+    "zh": "战车与力量",
+    "en": "The Chariot and Strength"
+  },
+  "hermit_priestess": {
+    "zh": "隐者与女祭司",
+    "en": "The Hermit and The High Priestess"
+  },
+  "wheel_world": {
+    "zh": "命运之轮与世界",
+    "en": "Wheel of Fortune and The World"
+  },
+  "justice_judgement": {
+    "zh": "正义与审判",
+    "en": "Justice and Judgement"
+  },
+  "hanged_man_death": {
+    "zh": "倒吊人与死神",
+    "en": "The Hanged Man and Death"
+  },
+  "temperance_star": {
+    "zh": "节制与星星",
+    "en": "Temperance and The Star"
+  },
+  "devil_tower": {
+    "zh": "恶魔与高塔",
+    "en": "The Devil and The Tower"
+  },
+  "moon_sun": {
+    "zh": "月亮与太阳",
+    "en": "The Moon and The Sun"
+  },
+  "judgement_world": {
+    "zh": "审判与世界",
+    "en": "Judgement and The World"
+  },
+  "magician_ace_wands": {
+    "zh": "魔术师与权杖一",
+    "en": "The Magician and Ace of Wands"
+  },
+  "empress_ace_pentacles": {
+    "zh": "皇后与星币一",
+    "en": "The Empress and Ace of Pentacles"
+  },
+  "lovers_ten_cups": {
+    "zh": "恋人与圣杯十",
+    "en": "The Lovers and Ten of Cups"
+  },
+  "emperor_king_pentacles": {
+    "zh": "皇帝与星币国王",
+    "en": "The Emperor and King of Pentacles"
+  },
+  "star_ace_cups": {
+    "zh": "星星与圣杯一",
+    "en": "The Star and Ace of Cups"
+  },
+  "sun_four_wands": {
+    "zh": "太阳与权杖四",
+    "en": "The Sun and Four of Wands"
+  },
+  "death_ten_swords": {
+    "zh": "死神与宝剑十",
+    "en": "Death and Ten of Swords"
+  },
+  "devil_eight_swords": {
+    "zh": "恶魔与宝剑八",
+    "en": "The Devil and Eight of Swords"
+  },
+  "hermit_four_swords": {
+    "zh": "隐者与宝剑四",
+    "en": "The Hermit and Four of Swords"
+  },
+  "wheel_two_pentacles": {
+    "zh": "命运之轮与星币二",
+    "en": "Wheel of Fortune and Two of Pentacles"
+  },
+  "justice_ace_swords": {
+    "zh": "正义与宝剑一",
+    "en": "Justice and Ace of Swords"
+  },
+  "three_pentacles_eight_pentacles": {
+    "zh": "星币三与星币八",
+    "en": "Three of Pentacles and Eight of Pentacles"
+  },
+  "five_cups_six_cups": {
+    "zh": "圣杯五与圣杯六",
+    "en": "Five of Cups and Six of Cups"
+  },
+  "fire": {
+    "zh": "火",
+    "en": "Fire"
+  },
+  "earth": {
+    "zh": "土",
+    "en": "Earth"
+  },
+  "air": {
+    "zh": "风",
+    "en": "Air"
+  },
+  "water": {
+    "zh": "水",
+    "en": "Water"
+  }
+}

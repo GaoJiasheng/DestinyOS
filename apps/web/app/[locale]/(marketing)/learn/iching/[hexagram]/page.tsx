@@ -40,6 +40,7 @@ export default async function HexagramLearnPage({
     <LearnArticle
       title={locale === 'zh' ? h.name : h.englishName}
       description={h.pinyin}
+      descriptionLang="zh-Latn"
       path={`/learn/iching/${hexagram}`}
       locale={locale}
     >

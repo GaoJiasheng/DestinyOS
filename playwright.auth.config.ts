@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+import root from './playwright.config';
 
 export default defineConfig({
+  // DESIGN-GAP: Auth/readings-derived suites share the root cross-platform baseline convention as well.
+  snapshotPathTemplate: root.snapshotPathTemplate,
   testDir: './apps/web/e2e',
   testMatch: 'auth.spec.ts',
   workers: 1,

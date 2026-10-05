@@ -57,7 +57,9 @@ for (const [locale, catalog] of [
     fireEvent.click(screen.getByText(catalog['report.sources']));
     expect(screen.getByText('Source text')).toBeTruthy();
     expect(
-      screen.getByText(catalog['report.chartRef'].replace('{component}', 'BaziPillars')),
+      screen.getByText(
+        catalog['report.chartRef'].replace('{component}', catalog['bazi.chart.pillars']),
+      ),
     ).toBeTruthy();
   });
 }

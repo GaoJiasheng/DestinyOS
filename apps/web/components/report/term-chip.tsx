@@ -20,7 +20,11 @@ export function TermChip({ termKey }: { termKey: string }) {
               ? t(`${path}.bilingual`)
               : copy('report.content', { text: termKey })}
           </p>
-          {t.has(`${path}.pinyin`) ? <p className="muted">{t(`${path}.pinyin`)}</p> : null}
+          {t.has(`${path}.pinyin`) ? (
+            <p className="muted" lang="zh-Latn">
+              {t(`${path}.pinyin`)}
+            </p>
+          ) : null}
           <p>{t.has(`${path}.short`) ? t(`${path}.short`) : copy('common.learnMore')}</p>
           <Link href={`/learn/glossary/${termKey}`} className="text-link">
             {copy('common.learnMore')}

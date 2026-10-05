@@ -39,7 +39,9 @@ export default async function GlossaryPage({
       locale={locale}
     >
       <section className="report-card">
-        {g[locale].pinyin ? <p>{t('report.content', { text: g[locale].pinyin! })}</p> : null}
+        {g[locale].pinyin ? (
+          <p lang="zh-Latn">{t('report.content', { text: g[locale].pinyin! })}</p>
+        ) : null}
         <p>{t('report.content', { text: g[locale].long })}</p>
       </section>
     </LearnArticle>
