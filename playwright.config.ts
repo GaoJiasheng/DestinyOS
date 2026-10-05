@@ -1,6 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './apps/web/e2e',
+  // DESIGN-GAP: Preserve paid evaluation evidence in sibling test-results directories when Playwright cleans output.
+  outputDir: 'test-results/playwright',
   testIgnore: [
     // DESIGN-GAP: Merged feature suites seed private data and require their dedicated isolated-service configs, just like the original auth/report suites.
     'export.spec.ts',

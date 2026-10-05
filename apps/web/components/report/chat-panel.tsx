@@ -63,11 +63,13 @@ export function ChatPanel({
         ? 'report.chat.quota'
         : code === 'E_RATE_LIMITED'
           ? 'report.chat.rateLimited'
-          : code === 'E_UNAUTHORIZED'
-            ? 'report.chat.login'
-            : code === 'E_FORBIDDEN'
-              ? 'report.chat.forbidden'
-              : 'report.chat.away',
+          : code === 'E_INVALID_INPUT' || code === 'E_VALIDATION'
+            ? 'report.chat.tooLong'
+            : code === 'E_UNAUTHORIZED'
+              ? 'report.chat.login'
+              : code === 'E_FORBIDDEN'
+                ? 'report.chat.forbidden'
+                : 'report.chat.away',
     );
   useEffect(() => {
     if (!open || !owner || busy) return;
@@ -98,6 +100,10 @@ export function ChatPanel({
   const send = async () => {
     if (busy || !question.trim()) return;
     const submitted = question.trim();
+    if (submitted.length > 120) {
+      setError(t('report.chat.tooLong'));
+      return;
+    }
     setBusy(true);
     setError('');
     setAnswer('');

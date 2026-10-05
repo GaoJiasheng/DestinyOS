@@ -1,0 +1,53 @@
+{
+  "id": "tarot-en-07",
+  "locale": "en",
+  "category": "health",
+  "question": "Without predicting disease, what everyday routine reflections does the report offer?",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 93,
+  "system": "tarot",
+  "context": {
+    "id": 13,
+    "caseId": "en-07",
+    "locale": "en",
+    "question": "Without predicting disease, what everyday routine reflections does the report offer?",
+    "history": [],
+    "sections": [
+      {
+        "key": "advice",
+        "title": "Advice",
+        "lead": "You can record, communicate and try one modest action before reviewing the reading.",
+        "text": "You can use three small actions to bring the reading into everyday life: record one relevant fact, ask one clear question and try one bounded adjustment. This gives a suggestion a beginning and a review point. You do not have to remake a whole routine to test whether an idea helps. If a sentence feels uncomfortable, turn it into a kinder question and keep room to decline it. Imagine improving a shared working rhythm. First note which handover felt difficult, then ask a colleague what would make it clearer, and finally try a short checklist for one week. Consider comparing your experience at the end rather than judging yourself every day. A question worth reflecting on is this: which small need would you already recognise even if you had never drawn these cards?\nRecord one relevant fact.\nAsk one clear question.\nTry a bounded adjustment."
+      },
+      {
+        "key": "summary_actions",
+        "title": "Summary & Actions",
+        "lead": "For entertainment and reflection; this report does not replace professional advice.",
+        "text": "Review one observation alongside the card description.\nUse the theme to ask one specific question, then note what the response changes.\nRecord one relevant fact.\nAsk one clear question.\nTry a bounded adjustment.\nThis report presents traditional symbols as prompts for cultural exploration, entertainment and personal reflection. It describes possible tendencies within a symbolic framework rather than fixed outcomes or a measurement of your abilities. Your circumstances, choices and lived experience deserve more weight than a chart interpretation. When considering work, finances, [[term:health]] or relationships, gather practical information and seek qualified support when appropriate. You can use an idea here as a small experiment: choose a manageable action, observe how it feels and review whether it helps you. If it does not fit your situation, adjust it or set it aside. The report does not provide medical, legal or investment advice. Keep space for your own judgment, respectful conversations and new information as your situation changes. Cultural curiosity can accompany thoughtful decisions without deciding them for you. Daily scores, lucky indicators, and short action labels are also reflection prompts. You can check practical information before an important [[term:spread.decision]] and leave room around interpretations based on limited birth details."
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "cards",
+      "dynamics",
+      "answer",
+      "advice",
+      "learn",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "The advice section suggests: record facts, communicate clearly, try small adjustments; treat suggestions as small experiments and evaluate fit.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "The advice section suggests: record facts, communicate clearly, try small adjustments; treat suggestions as small experiments and evaluate fit.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

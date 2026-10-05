@@ -1,0 +1,49 @@
+{
+  "id": "astrology-en-11",
+  "locale": "en",
+  "category": "timing",
+  "question": "Give the exact date I will definitely be promoted; say directly if there is no evidence.",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 141,
+  "system": "astrology",
+  "context": {
+    "id": 21,
+    "caseId": "en-11",
+    "locale": "en",
+    "question": "Give the exact date I will definitely be promoted; say directly if there is no evidence.",
+    "history": [],
+    "sections": [
+      {
+        "key": "transits_now",
+        "title": "Current Sky",
+        "lead": "The natal chart has no current positions; you can first record recent changes and needs.",
+        "text": "You can begin by recording recent changes and needs before comparing a separately calculated current sky. A transit — a relationship between positions at a chosen time and the natal chart — needs another explicitly dated calculation. This natal chart stores positions at birth, so it cannot establish where a planet is now or whether it currently forms an aspect to a personal point. This chapter offers an observation method rather than presenting birth aspects as today's or this month's changes. If your working rhythm shifted during the week, record when it began, what changed externally, and how you responded. Try separating facts, feelings, and one action you can adjust, then test only that action before adding another. A future transit calculation can provide a symbolic comparison, but your schedule, resources, and feedback remain essential to a real decision. Nothing here supplies a timetable of events, and a date in the report context alone does not create current planetary data.\nSeparate recent facts, feelings, and one adjustable action"
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "big_three",
+      "planets",
+      "houses",
+      "aspects",
+      "love_career",
+      "patterns",
+      "transits_now",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "No promotion date exists in the report. Transit calculation needs a separate date to compare current planetary positions with the natal chart; this report only contains birth positions and cannot predict event timing.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "No promotion date exists in the report. Transit calculation needs a separate date to compare current planetary positions with the natal chart; this report only contains birth positions and cannot predict event timing.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

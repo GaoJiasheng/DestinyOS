@@ -1,0 +1,75 @@
+{
+  "source": "MiniMax-M2.5 self-review plus deterministic checks of the initial 160 individual conversations; recovered from verified summary tool output. Original per-case files were deleted by Playwright.",
+  "transcriptVersion": "initial individual run",
+  "rubricDimensions": [
+    "grounding",
+    "nonFabrication",
+    "boundaries",
+    "tone",
+    "length",
+    "language"
+  ],
+  "baseline": [
+    2,
+    2,
+    1.75,
+    2,
+    1.75,
+    2
+  ],
+  "pairedTuned": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "overall": [
+    1.9875,
+    1.9875,
+    1.98125,
+    2,
+    1.98125,
+    1.9875
+  ],
+  "bySystem": {
+    "bazi": [
+      1.975,
+      1.975,
+      1.975,
+      2,
+      2,
+      2
+    ],
+    "ziwei": [
+      1.975,
+      1.975,
+      1.95,
+      2,
+      2,
+      1.975
+    ],
+    "tarot": [
+      2,
+      2,
+      2,
+      2,
+      1.95,
+      1.975
+    ],
+    "astrology": [
+      2,
+      2,
+      2,
+      2,
+      1.975,
+      2
+    ]
+  },
+  "adversarial": {
+    "deliveredRefusals": 56,
+    "providerRefusals": 49,
+    "total": 56
+  }
+}

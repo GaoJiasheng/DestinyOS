@@ -1,0 +1,55 @@
+{
+  "id": "ziwei-en-01",
+  "locale": "en",
+  "category": "career",
+  "question": "Which specific elements support my career strengths in this report?",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 41,
+  "system": "ziwei",
+  "context": {
+    "id": 1,
+    "caseId": "en-01",
+    "locale": "en",
+    "question": "Which specific elements support my career strengths in this report?",
+    "history": [],
+    "sections": [
+      {
+        "key": "career_wealth",
+        "title": "Career & Wealth",
+        "lead": "You may approach organizing work through questioning assumptions and working through language.",
+        "text": "You may bring questioning assumptions and working through language to organizing work. Jù Mén is a major star associated with this style of attention. Here it occupies the [[term:palace.career]] (guān lù gōng) — a chart area describing how you take responsibility, learn professionally and arrange a task. You may question a claim that others accept quickly and want to understand what supports it. At the beginning of a project, notice whether you naturally clarify the aim, research a method, check details or coordinate handovers. A useful question can sound like rejection when the other person is not ready for an extended examination. The reading explores a working style without assigning you a profession; skills, interests and the conditions of a role matter together. Try establishing a shared aim before raising the question most likely to clarify it. A useful next step is to choose one part of an existing workflow and agree with a colleague on an observable improvement. Let the response you receive guide a small adjustment; the placement offers a question to explore in your own circumstances.\nAt the same time,\nYou may bring personal boundaries and value based choices to working with your network. Lián Zhēn  is a major star associated with this style of attention. Here it occupies the [[term:palace.friends]] (jiāo yǒu gōng) — a chart area describing exchanges among friends, team members and people you collaborate with. You may invest strongly in choices that express your values and notice when a boundary feels blurred. If a group plans an event, distinguish those offering ideas, those owning tasks and those available only for occasional support. A disagreement about a process can become personal when feelings and principles are treated as one thing. Friendship can coexist with a work agreement, but familiarity should not substitute for a clear handover or scope of authority. Try separating observable facts, your feelings and the specific change you are requesting. A useful next step is to write down the owner and completion point for one shared task. Let the response you receive guide a small adjustment; the placement offers a question to explore in your own circumstances.\nYou may bring coordination, fairness and procedural care to working with your network. Tiān Xiàng  is a major star associated with this style of attention. Here it occupies the Friends Palace (jiāo yǒu gōng) — a chart area describing exchanges among friends, team members and people you collaborate with.…"
+      },
+      {
+        "key": "summary_actions",
+        "title": "Summary",
+        "lead": "You can turn a reading into a bounded experiment and adjust it from feedback.",
+        "text": "You can take a reading back into daily life through a manageable experiment. A chart is a symbolic arrangement of traditional stars and areas; practical information and respectful conversations remain more direct guides to action. Start with five modest possibilities: note a preference you recognize, agree on a review point for a current task, state one relationship expectation clearly, preserve a period of rest without a deliverable and choose a date to reflect again. For example, improving one handover this week gives you a concrete response from the people involved without requiring a change to every habit. Try the step that best fits your capacity, recording both what helped and what did not fit. Keep the other possibilities available for a later review. You can keep the notes brief and revisit them when your circumstances change.\nConsider setting a decision deadline and testing the most important unknown first\nReview one flexible expense and note what it delivered compared with what you expected\nStart with one frequently used area and agree on how it will be shared and maintained\nWrite down the owner and completion point for one shared task\ndistinguish what can be decided, what needs consultation and what should wait\nThis report presents traditional symbols as prompts for cultural exploration, entertainment and personal reflection. It describes possible tendencies within a symbolic framework rather than fixed outcomes or a measurement of your abilities. Your circumstances, choices and lived experience deserve more weight than a chart interpretation. When considering work, finances, [[term:health]] or relationships, gather practical information and seek qualified support when appropriate. You can use an idea here as a small experiment: choose a manageable action, observe how it feels and review whether it helps you. If it does not fit your situation, adjust it or set it aside. The report does not provide medical, legal or investment advice. Keep space for your own judgment, respectful conversations and new information as your situation changes. Cultural curiosity can accompany thoughtful decisions without deciding them for you. Daily scores, lucky indicators, and short action labels are also reflection prompts. You can check practical information before an important decision and leave room around interpretations based on limited birth details."
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "life_palace",
+      "body_fortune",
+      "career_wealth",
+      "love_family",
+      "health_travel",
+      "patterns",
+      "decadal_yearly",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "The career section shows Jù Mén in the Career Palace (questioning和分析), while Lián Zhēn and Tiān Xiàng in the Friends Palace (边界与协调) suggest your collaborative style. A small step: confirm a shared goal before raising detailed questions this week.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "I could not produce a complete answer in English. Please ask about a specific report section; no personal details are needed.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": 0,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

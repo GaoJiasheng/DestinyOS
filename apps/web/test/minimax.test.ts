@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, appendFileSync, writeFileSync } from 'node:fs';
 import { streamMiniMax, type LlmEvent } from '../lib/llm/minimax';
 import { logger } from '../lib/logger';
 const messages = [
@@ -66,6 +66,23 @@ describe('MiniMax streaming boundary', () => {
     await expect(collect(fetcher)).rejects.toThrow('LLM unavailable');
     expect(fetcher).toHaveBeenCalledTimes(2);
   });
+  it('bounds offline output budgets and disables retries when a paid audit has no retry allowance', async () => {
+    let body: unknown;
+    const fetcher = vi.fn<typeof fetch>(async (_url, options) => {
+      body = JSON.parse(String(options?.body));
+      return new Response('', { status: 503 });
+    });
+    const run = async (maxTokens: number) => {
+      for await (const event of streamMiniMax(messages, { fetcher, maxTokens, maxAttempts: 1 }))
+        expect(event).toBeDefined();
+    };
+    await expect(run(16384)).rejects.toThrow('LLM unavailable');
+    expect(fetcher).toHaveBeenCalledOnce();
+    expect(body).toMatchObject({ max_tokens: 16384 });
+    fetcher.mockClear();
+    await expect(run(32769)).rejects.toThrow();
+    expect(fetcher).not.toHaveBeenCalled();
+  });
   it('does not retry credentials or a truncated stream after visible text', async () => {
     const fetcher = vi
       .fn<typeof fetch>()
@@ -112,7 +129,7 @@ describe('MiniMax streaming boundary', () => {
     expect(fetcher).not.toHaveBeenCalled();
   });
 });
-// DESIGN-GAP: Smoke is the sole real-provider test; read only MiniMax variables from the ignored local file and skip without a key.
+// DESIGN-GAP: Smoke supplements the explicit evaluation runner; read only MiniMax variables from the ignored local file and skip without a key.
 const local = existsSync('apps/web/.env.local') ? readFileSync('apps/web/.env.local', 'utf8') : '';
 const smokeEnv: Record<string, string> = Object.fromEntries(
   local.split('\n').flatMap((line) => {
@@ -125,29 +142,55 @@ for (const name of ['MINIMAX_API_KEY', 'MINIMAX_BASE_URL', 'MINIMAX_MODEL']) {
   const value = process.env[name];
   if (value) smokeEnv[name] = value;
 }
-it.skipIf(!smokeEnv.MINIMAX_API_KEY)(
+// DESIGN-GAP: Real-provider smoke is opt-in so ordinary unit-test reruns cannot spend an evaluation budget implicitly.
+it.skipIf(!smokeEnv.MINIMAX_API_KEY || process.env.RUN_MINIMAX_SMOKE !== '1')(
   'real MiniMax bilingual smoke with synthetic non-identifying context',
   async () => {
     vi.stubEnv('MINIMAX_API_KEY', smokeEnv.MINIMAX_API_KEY);
     vi.stubEnv('MINIMAX_BASE_URL', smokeEnv.MINIMAX_BASE_URL ?? 'https://api.minimax.io/v1');
     vi.stubEnv('MINIMAX_MODEL', smokeEnv.MINIMAX_MODEL ?? 'MiniMax-M2.5');
+    // DESIGN-GAP: During the bounded evaluation task, include verification calls in the same persistent attempt ledger and token accounting.
+    const recording = process.env.CHAT_EVAL_RECORD_SMOKE === '1';
+    const ledger = 'test-results/chat-eval/requests.ndjson';
+    const smokeUsage: {
+      locale: string;
+      usage: { promptTokens: number; completionTokens: number; totalTokens: number };
+    }[] = [];
+    const fetcher: typeof fetch = async (url, options) => {
+      if (recording) {
+        const count = readFileSync(ledger, 'utf8').trim().split('\n').filter(Boolean).length;
+        expect(count).toBeLessThan(200);
+        appendFileSync(
+          ledger,
+          JSON.stringify({
+            request: count + 1,
+            at: new Date().toISOString(),
+            kind: 'verification-smoke',
+          }) + '\n',
+        );
+      }
+      return fetch(url, options);
+    };
     // DESIGN-GAP: Probe each locale independently, matching the app's per-locale conversations; a mixed-language request can legitimately receive only the user's English language.
     for (const locale of ['zh', 'en'] as const) {
       const events: LlmEvent[] = [];
-      for await (const event of streamMiniMax([
-        {
-          role: 'system',
-          content:
-            'Use only these synthetic symbolic elements: wood and water. No personal information or professional advice. ' +
-            (locale === 'zh'
-              ? 'Reply only in Simplified Chinese with one brief sentence.'
-              : 'Reply only in English with one brief sentence.'),
-        },
-        {
-          role: 'user',
-          content: locale === 'zh' ? '请用中文给出一句温和的思考。' : 'Give a gentle reflection.',
-        },
-      ]))
+      for await (const event of streamMiniMax(
+        [
+          {
+            role: 'system',
+            content:
+              'Use only these synthetic symbolic elements: wood and water. No personal information or professional advice. ' +
+              (locale === 'zh'
+                ? 'Reply only in Simplified Chinese with one brief sentence.'
+                : 'Reply only in English with one brief sentence.'),
+          },
+          {
+            role: 'user',
+            content: locale === 'zh' ? '请用中文给出一句温和的思考。' : 'Give a gentle reflection.',
+          },
+        ],
+        { fetcher },
+      ))
         events.push(event);
       const content = events
         .filter((event) => event.type === 'delta')
@@ -156,7 +199,14 @@ it.skipIf(!smokeEnv.MINIMAX_API_KEY)(
       expect(content).toMatch(locale === 'zh' ? /\p{Script=Han}/u : /[a-zA-Z]/);
       if (locale === 'en') expect(content).not.toMatch(/\p{Script=Han}/u);
       expect(events.some((event) => event.type === 'usage')).toBe(true);
+      const usage = events.find((event) => event.type === 'usage');
+      if (usage?.type === 'usage') smokeUsage.push({ locale, usage: usage.usage });
     }
+    if (recording)
+      writeFileSync(
+        'test-results/chat-eval/smoke.json',
+        JSON.stringify(smokeUsage, null, 2) + '\n',
+      );
   },
   150000,
 );

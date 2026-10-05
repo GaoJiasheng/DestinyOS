@@ -1,0 +1,47 @@
+{
+  "id": "tarot-en-04",
+  "locale": "en",
+  "category": "relationship",
+  "question": "What relationship communication patterns does this report suggest? Explain the evidence.",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 87,
+  "system": "tarot",
+  "context": {
+    "id": 7,
+    "caseId": "en-04",
+    "locale": "en",
+    "question": "What relationship communication patterns does this report suggest? Explain the evidence.",
+    "history": [],
+    "sections": [
+      {
+        "key": "dynamics",
+        "title": "The Story Between Cards",
+        "lead": "You can focus on the process without assigning each picture to a person.",
+        "text": "You can focus on the process without assigning each picture to a person. With no more than one court card in this draw, scenes and themes provide much of the material. That does not mean you are the only participant. For a shared piece of work, understanding the sequence may be more helpful than deciding which card represents each contributor. Try describing the task without names first: a request arrives, information is checked and a result is handed over. Where does that sequence become unclear? Once the point is visible, ask who can clarify it. You can still discuss participants when it helps, but the spread need not supply a portrait of each one. Attention to the process may reveal a small agreement everyone can understand.\nIn everyday life,\nYou can pay attention to ordinary arrangements. Fewer than half the cards in this draw are majors, leaving more space for the everyday scenes of the minor cards. This emphasis can support a question about methods and conditions without making your concern less important. Planning a gathering may improve through clearer invitations, materials and handovers rather than through one sweeping change. Consider tracing one process from the initial message to the finished arrangement. A missing confirmation may matter more than an overall change in direction. Choose the step easiest to check and ask the relevant person about it. Everyday details deserve care because they shape how an experience unfolds. You can improve one of them without needing a dramatic story to explain why the question matters to you.\nFollowing this thread,\nYou can make room for a response beyond logistics. [[term:element.water]] is absent from the elemental count here, without defining you as unemotional. The gap can invite a check of whether feeling has been left outside a busy discussion. Before closing a scheduling conversation, asking how people feel about the arrangement may reveal something the timetable misses. You can add a short check at the end of the discussion: is the proposed rhythm comfortable for everyone? Wait for answers before describing the arrangement as settled. A person may need more notice, another format or a smaller role. Including that information makes the schedule more responsive. The absent element offers a reminder to ask, without implying that an emotional quality was absent from the people involved.\nFrom another angle,\nYou can use repeated 1 as a prompt to examine a beginning. A repeated number is a way of comparing themes across pictures, not a count of events or a date.…"
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "cards",
+      "dynamics",
+      "answer",
+      "advice",
+      "learn",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "The dynamics section shows water element absent, suggesting feelings may be neglected; with few court cards, focus on process not personal assignment.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "The card dynamics section shows water element absent, suggesting feelings may be neglected; with few court card interpretations, focus on process not personal assignment.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

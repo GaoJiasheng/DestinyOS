@@ -1,0 +1,2091 @@
+{
+  "source": "Codex assistant direct review of all archived responses and shared chart facts; not a MiniMax self-review.",
+  "reviewedTranscriptVersion": "provider batch receipts with final next-intl field-label localization",
+  "usage": {
+    "promptTokens": 0,
+    "completionTokens": 0,
+    "totalTokens": 0
+  },
+  "judgment": [
+    {
+      "id": 0,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 1,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 2,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 3,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 4,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 5,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 6,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 7,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 8,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 9,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 10,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 11,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 12,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 13,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 14,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 15,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 16,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 17,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 18,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 19,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 20,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 21,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 22,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 23,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 24,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "p": false,
+      "r": "Chinese typo or nonstandard Eight Characters English naming."
+    },
+    {
+      "id": 25,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "p": false,
+      "r": "Chinese typo or nonstandard Eight Characters English naming."
+    },
+    {
+      "id": 26,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 27,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 28,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 29,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 30,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 31,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 32,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 33,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 34,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 35,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 36,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 37,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 38,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 39,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 40,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 41,
+      "s": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Language recovery message is safe but does not answer the question."
+    },
+    {
+      "id": 42,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 43,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 44,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 45,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 46,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 47,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 48,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 49,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 50,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 51,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 52,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 53,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 54,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 55,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 56,
+      "s": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Career teamwork observations do not directly answer the money-habits question."
+    },
+    {
+      "id": 57,
+      "s": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Career teamwork observations do not directly answer the money-habits question."
+    },
+    {
+      "id": 58,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 59,
+      "s": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Language recovery message is safe but does not answer the question."
+    },
+    {
+      "id": 60,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 61,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 62,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 63,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 64,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 65,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 66,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 67,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 68,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 69,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 70,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 71,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 72,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 73,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 74,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 75,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 76,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 77,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 78,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 79,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 80,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 81,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 82,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 83,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 84,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 85,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 86,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 87,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 88,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 89,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 90,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 91,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 92,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 93,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 94,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 95,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 96,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 97,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 98,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 99,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 100,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Known report labels are localized by the final delivery boundary; evidence is adequate."
+    },
+    {
+      "id": 101,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 102,
+      "s": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Two tarot reports alone would not establish natal synastry; comparison scope needs clarification."
+    },
+    {
+      "id": 103,
+      "s": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Two tarot reports alone would not establish natal synastry; comparison scope needs clarification."
+    },
+    {
+      "id": 104,
+      "s": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Explains positions and reversals generically without the actual drawn cards."
+    },
+    {
+      "id": 105,
+      "s": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Explains positions and reversals generically without the actual drawn cards."
+    },
+    {
+      "id": 106,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 107,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 108,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 109,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 110,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 111,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 112,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 113,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 114,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 115,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 116,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 117,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 118,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 119,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 120,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 121,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 122,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 123,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 124,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 125,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 126,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 127,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 128,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 129,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 130,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 131,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 132,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 133,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 134,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 135,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 136,
+      "s": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Tenth-house career framing only indirectly addresses money habits."
+    },
+    {
+      "id": 137,
+      "s": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Tenth-house career framing only indirectly addresses money habits."
+    },
+    {
+      "id": 138,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 139,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 140,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 141,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 142,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 143,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 144,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 145,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": false,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 146,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 147,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 148,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 149,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 150,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 151,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 152,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 153,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 154,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 155,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 156,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 157,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 158,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    },
+    {
+      "id": 159,
+      "s": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "p": true,
+      "r": "Supported evidence or an appropriate explicit refusal; concise and respectful."
+    }
+  ]
+}
