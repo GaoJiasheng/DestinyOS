@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Tianji Print Symbols';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/print-symbols.woff2') format('woff2');
+  unicode-range:
+    U+260A, U+263D, U+263F, U+2640, U+2642, U+2643, U+2644, U+2645, U+2646, U+2647, U+2648, U+2649,
+    U+264A, U+264B, U+264C, U+264D, U+264E, U+264F, U+2650, U+2651, U+2652, U+2653, U+26B7, U+26B8;
+}
+@font-face {
+  font-family: 'Tianji Print Symbols';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/print-symbols2.woff2') format('woff2');
+  unicode-range: U+2609;
+}

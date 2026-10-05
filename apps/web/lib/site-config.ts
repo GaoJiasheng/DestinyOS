@@ -8,6 +8,7 @@ export async function siteConfig(): Promise<SiteSettings> {
   const defaults: SiteSettings = {
     announcement: { zh: '', en: '', scope: ['/'], startsAt: null, endsAt: null },
     'ads.enabled': process.env.FEATURE_ADS === 'true',
+    'export.freeEnabled': true,
     'feature.llmPolish': false,
     'feature.panchangDefaultOpen': false,
     maintenance: false,

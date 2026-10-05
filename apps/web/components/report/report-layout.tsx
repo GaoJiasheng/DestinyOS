@@ -24,6 +24,7 @@ import {
 } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import { ShareDialog } from '@/components/share/share-dialog';
+import { ExportMenu } from './export-menu';
 import { ReportHeadline } from './report-headline';
 import { ChartPreview } from './chart-preview';
 import { ProfessionalData } from './professional-data';
@@ -251,6 +252,7 @@ export function ReportLayout({
             {t('report.proView')}
           </Button>
           <ShareDialog readingId={view.id} local={local} />
+          <ExportMenu readingId={view.id} local={local} owner={owner} />
           {owner || local ? (
             <details className="report-more">
               <summary>{t('report.more')}</summary>

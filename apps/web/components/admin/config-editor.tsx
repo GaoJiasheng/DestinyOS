@@ -83,7 +83,13 @@ export function ConfigEditor({ initial }: { initial: SiteSettings }) {
         </div>
       ))}
       {(
-        ['ads.enabled', 'feature.llmPolish', 'feature.panchangDefaultOpen', 'maintenance'] as const
+        [
+          'ads.enabled',
+          'export.freeEnabled',
+          'feature.llmPolish',
+          'feature.panchangDefaultOpen',
+          'maintenance',
+        ] as const
       ).map((key) => (
         <label key={key}>
           <input

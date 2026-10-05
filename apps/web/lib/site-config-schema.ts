@@ -13,6 +13,7 @@ export const SiteConfigSchema = z
       .strict()
       .refine((v) => !v.startsAt || !v.endsAt || v.startsAt < v.endsAt),
     'ads.enabled': z.boolean(),
+    'export.freeEnabled': z.boolean().default(true),
     'feature.llmPolish': z.boolean(),
     'feature.panchangDefaultOpen': z.boolean(),
     maintenance: z.boolean(),

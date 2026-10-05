@@ -10,6 +10,7 @@ export const RATE_LIMITS = {
   'reading.pro': 200,
   daily: 120,
   share: 30,
+  export: 10,
   'magic.email': 5,
   'magic.ip': 20,
   feedback: 30,

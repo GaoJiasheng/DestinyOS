@@ -1,0 +1,452 @@
+@page {
+  size: A4;
+  margin: 16mm;
+}
+/* DESIGN-GAP: Paper colors are print-only tokens; the screen theme remains the documented starfield palette. */
+body:has(.print-report) {
+  margin: 0;
+  background: var(--bg-0);
+}
+body:has(.print-report) > * {
+  padding: 0;
+}
+body:has(.print-report) .site-header,
+body:has(.print-report) .site-notice,
+body:has(.print-report) [data-sonner-toaster],
+body:has(.print-report) .starfield,
+body:has(.print-report) nav,
+body:has(.print-report) > footer,
+body:has(.print-report) .site-footer,
+body:has(.print-report) .skip-link,
+body:has(.print-report) [role='dialog'],
+body:has(.print-report) .dialog-overlay,
+body:has(.print-report) .install-prompt {
+  display: none !important;
+}
+body:has(.print-report) #main {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+.print-report {
+  /* DESIGN-GAP: Bind the documented dark palette locally so OS/site theme preferences never change print contrast. */
+  --bg-0: #05070f;
+  --bg-1: #0a0e1c;
+  --surface-1: #111628;
+  --surface-2: #181f36;
+  --line-1: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.16);
+  --text-1: #f3f1ea;
+  --text-2: #b8b5ac;
+  --text-3: #7d7b74;
+  --gold: #d4af6a;
+  --gold-soft: #e8d3a3;
+  --wu-metal: #d8d4c8;
+  --print-paper: #f3f1ea;
+  --print-ink: #1b1d2a;
+  --print-muted: #57534e;
+  --print-gold: #846126;
+  --print-paper-line: #cdc4b4;
+  color: var(--text-1);
+  font:
+    10.5pt/1.8 'Noto Serif SC',
+    serif;
+}
+.print-report[data-locale='en'] {
+  font:
+    10pt/1.6 'Cormorant Garamond',
+    'Noto Serif SC',
+    serif;
+}
+.print-report[data-print-theme='light'] {
+  --bg-0: var(--print-paper);
+  --bg-1: var(--print-paper);
+  --surface-1: #ebe7dc;
+  --surface-2: #e3ddcf;
+  --text-1: var(--print-ink);
+  --text-2: var(--print-muted);
+  --text-3: var(--print-muted);
+  --gold: var(--print-gold);
+  --gold-soft: var(--print-gold);
+  --line-1: var(--print-paper-line);
+  --line-2: var(--print-paper-line);
+  --wu-metal: #6d665c;
+}
+.print-report *,
+.print-report *::before,
+.print-report *::after {
+  box-sizing: border-box;
+  animation: none !important;
+  transition: none !important;
+}
+.print-source {
+  position: absolute;
+  width: 178mm;
+  visibility: hidden;
+  pointer-events: none;
+}
+.print-sheet {
+  width: 210mm;
+  height: 297mm;
+  padding: 16mm;
+  margin: 0 auto;
+  position: relative;
+  background: var(--bg-0);
+  break-after: page;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+.print-sheet:last-child {
+  break-after: auto;
+}
+.print-page-inner {
+  height: 265mm;
+  display: grid;
+  grid-template-rows: 12mm 1fr 12mm;
+  gap: 4mm;
+}
+.print-header,
+.print-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: var(--text-2);
+  border-bottom: 0.3mm solid var(--gold);
+  letter-spacing: 0.03em;
+}
+.print-footer {
+  border-bottom: 0;
+  border-top: 0.2mm solid var(--line-2);
+  font-size: 7pt;
+}
+.print-footer span:last-child {
+  white-space: nowrap;
+  margin-left: 5mm;
+}
+.print-page-content {
+  min-height: 0;
+  display: flow-root;
+}
+.print-report h1,
+.print-report h2,
+.print-report h3 {
+  font-family: 'LXGW WenKai', 'Noto Serif SC', serif;
+  font-weight: 400;
+  color: var(--gold-soft);
+  break-after: avoid;
+}
+.print-report[data-locale='en'] h1,
+.print-report[data-locale='en'] h2 {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.04em;
+}
+.print-report h1 {
+  font-size: 25pt;
+  margin: 3mm 0 5mm;
+}
+.print-report h2 {
+  font-size: 24pt;
+  line-height: 1.3;
+  margin: 0 0 6mm;
+}
+.print-report h3 {
+  font-size: 14pt;
+  margin: 6mm 0 3mm;
+}
+.print-report p {
+  margin: 0 0 4mm;
+  orphans: 3;
+  widows: 3;
+  overflow-wrap: anywhere;
+}
+.print-report [data-print-block] {
+  break-inside: avoid;
+}
+.print-kicker {
+  font:
+    8pt/1.5 'Cinzel',
+    'Noto Serif SC',
+    serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.print-chapter-heading {
+  border-bottom: 0.2mm solid var(--line-2);
+  margin-bottom: 6mm;
+}
+.print-lead {
+  font-size: 15pt;
+  line-height: 1.6;
+  color: var(--gold-soft);
+}
+.print-cover {
+  position: relative;
+  padding: 4mm 9mm 0;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 25%, var(--surface-1), transparent 68%);
+}
+.print-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 0.25mm solid var(--line-2);
+  pointer-events: none;
+}
+.print-brand-zh {
+  font:
+    46pt/1.2 'LXGW WenKai',
+    serif;
+  letter-spacing: 0.2em;
+  margin: 4mm 0;
+}
+.print-brand-en {
+  font:
+    12pt/1.6 'Cinzel',
+    serif;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+}
+.print-persona {
+  font-size: 15pt;
+  line-height: 1.6;
+}
+.print-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3mm;
+  margin: 4mm 0;
+}
+.print-keywords span,
+.print-evidence span {
+  border: 0.2mm solid var(--gold);
+  padding: 1mm 3mm;
+  font-size: 8pt;
+  color: var(--gold-soft);
+  border-radius: 3mm;
+}
+.print-radar {
+  width: 74mm;
+  height: 72mm;
+  display: block;
+  margin: 0 auto 4mm;
+}
+.print-cover-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5mm;
+  text-align: left;
+  border-top: 0.2mm solid var(--line-2);
+  padding: 5mm 0;
+  font-size: 8pt;
+}
+.print-cover-bottom p {
+  margin-bottom: 1mm;
+}
+.print-cover-bottom img {
+  background: white;
+  padding: 2mm;
+  width: 24mm;
+  height: 24mm;
+}
+.print-domain {
+  color: var(--gold);
+  letter-spacing: 0.07em;
+}
+.print-advice {
+  border-left: 0.7mm solid var(--gold);
+  background: var(--surface-1);
+  padding: 3mm 5mm;
+  margin: 4mm 0;
+}
+.print-advice strong,
+.print-evidence strong {
+  font-size: 8pt;
+  color: var(--gold);
+}
+.print-advice p {
+  margin: 1mm 0 0;
+}
+.print-evidence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2mm;
+  align-items: center;
+  margin: 4mm 0;
+}
+.print-footnote {
+  border-top: 0.2mm solid var(--line-2);
+  font-size: 8pt;
+  color: var(--text-2);
+  padding-top: 2mm;
+  margin: 4mm 0;
+  line-height: 1.6;
+}
+.print-footnote summary {
+  font-size: 8pt;
+  color: var(--gold-soft);
+}
+.print-footnote blockquote {
+  margin: 2mm 0;
+}
+.print-footnote cite {
+  display: block;
+  font-style: normal;
+}
+.print-action {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  border-bottom: 0.2mm solid var(--line-2);
+  padding: 4mm 0;
+}
+.print-checkbox {
+  display: inline-block;
+  width: 3mm;
+  height: 3mm;
+  border: 0.2mm solid var(--gold);
+  flex: none;
+}
+.print-parameter {
+  display: flex;
+  justify-content: space-between;
+  gap: 5mm;
+  font-size: 8pt;
+  border-bottom: 0.2mm solid var(--line-2);
+}
+.print-chart {
+  position: relative;
+  margin: 6mm auto;
+}
+.print-chart > svg {
+  display: block;
+  width: 170mm;
+  height: 170mm;
+  max-width: 100%;
+}
+.print-chart .print-navamsa {
+  position: absolute;
+  left: 47mm;
+  top: 47mm;
+  width: 76mm;
+  height: 76mm;
+  /* DESIGN-GAP: The inset SVG has a transparent center; opaque paper prevents the outer D1 title from overlapping its D9 labels. */
+  background: var(--bg-0);
+}
+.print-navamsa svg {
+  width: 100%;
+  height: 100%;
+}
+.print-vector {
+  fill: var(--text-1);
+  font-family: 'Noto Serif SC', serif;
+}
+.print-report .natal-wheel text,
+.print-report .vedic-chart text {
+  font-family: 'Noto Serif SC', serif;
+}
+.print-report .natal-wheel .zodiac-glyph,
+.print-report .natal-wheel .planet-glyph {
+  font-family: 'Tianji Print Symbols', serif;
+}
+.print-ganzhi {
+  font:
+    64px 'LXGW WenKai',
+    serif;
+  text-anchor: middle;
+}
+/* DESIGN-GAP: English stem/branch names contain several letters; size them to stay inside each fixed pillar. */
+.print-report[data-locale='en'] .print-ganzhi {
+  font:
+    44px 'Cinzel',
+    serif;
+}
+.print-legend {
+  color: var(--text-2);
+  border-top: 0.2mm solid var(--gold);
+  padding-top: 4mm;
+  font-size: 8pt;
+}
+@media print {
+  html,
+  body {
+    background: var(--bg-0);
+  }
+  body:has(.print-report) #main ~ *,
+  body:has(.print-report) #main > :not(:has(.print-report)):not(.print-report) {
+    display: none !important;
+  }
+  .print-sheet {
+    width: 178mm;
+    height: 265mm;
+    padding: 0;
+    margin: 0;
+  }
+  .print-source {
+    display: none;
+  }
+}
+
+.print-report:is(
+    [data-system='tarot'],
+    [data-system='astrology'],
+    [data-system='vedic']
+  )[data-locale='zh']
+  h1,
+.print-report:is(
+    [data-system='tarot'],
+    [data-system='astrology'],
+    [data-system='vedic']
+  )[data-locale='zh']
+  h2 {
+  font-family: 'Noto Serif SC', serif;
+}
+.print-cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45mm;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image:
+    radial-gradient(circle at 12% 15%, var(--gold) 0.2mm, transparent 0.3mm),
+    radial-gradient(circle at 87% 45%, var(--gold) 0.15mm, transparent 0.25mm),
+    radial-gradient(circle at 24% 72%, var(--gold) 0.15mm, transparent 0.25mm),
+    radial-gradient(circle at 76% 18%, var(--gold) 0.2mm, transparent 0.3mm);
+}
+
+html:has(.print-report[data-print-theme='dark']),
+body:has(.print-report[data-print-theme='dark']) {
+  color-scheme: only light;
+  background: #05070f;
+}
+html:has(.print-report[data-print-theme='light']),
+body:has(.print-report[data-print-theme='light']) {
+  color-scheme: only light;
+  background: #f3f1ea;
+}
+.print-report code {
+  font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+}
+
+@page print-dark {
+  size: A4;
+  margin: 16mm;
+  background: #05070f;
+}
+@page print-light {
+  size: A4;
+  margin: 16mm;
+  background: #f3f1ea;
+}
+.print-report[data-print-theme='dark'] .print-sheet {
+  page: print-dark;
+}
+.print-report[data-print-theme='light'] .print-sheet {
+  page: print-light;
+}
