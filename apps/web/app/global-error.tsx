@@ -7,7 +7,7 @@ import { isLocale } from '@/i18n/routing';
 import tw from '@/messages/zh-TW.json';
 import zh from '@/messages/zh.json';
 import en from '@/messages/en.json';
-import { Starfield } from '@/components/starfield';
+import { Starfield } from '@/components/three/starfield';
 import { Button } from '@/components/ui/button';
 import './globals.css';
 // DESIGN-GAP: A failed root layout has no provider; recover locale from the URL for this fallback.

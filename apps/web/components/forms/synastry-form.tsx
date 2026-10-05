@@ -7,7 +7,7 @@ import { useRouter, Link } from '@/i18n/navigation';
 import { createReadingAction } from '@/app/readings/actions';
 import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
-import { DivinationLoader } from '@/components/divination-loader';
+import { DivinationLoader } from '@/components/ui/divination-loader';
 import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 // DESIGN-GAP: Signed-in pairing uses saved profiles; load the birth editor only for the anonymous input flow.

@@ -1,6 +1,10 @@
+/** Count Unicode code points after removing whitespace.
+ * @param text Report prose with expanded terminology. */
 export function zhChars(text: string): number {
   return [...text.replace(/\s/g, '')].length;
 }
+/** Count Unicode word tokens, retaining internal apostrophes and hyphens.
+ * @param text English report prose. */
 export function enWords(text: string): number {
   return text.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu)?.length ?? 0;
 }
@@ -20,6 +24,9 @@ export function gramSimilarity(x: Set<string>, y: Set<string>): number {
   for (const gram of x) if (y.has(gram)) count++;
   return (2 * count) / (x.size + y.size || 1);
 }
+/** Measure normalized character-trigram Dice similarity in the range 0–1.
+ * @param a First text.
+ * @param b Second text. */
 export function similarity(a: string, b: string): number {
   return gramSimilarity(textGrams(a), textGrams(b));
 }
@@ -36,6 +43,9 @@ export function createSimilarityComparator(): (a: string, b: string) => number {
   };
   return (a, b) => gramSimilarity(get(a), get(b));
 }
+/** Keep advice in input order, rejecting texts with similarity greater than 0.8.
+ * @param items Candidate advice strings.
+ * @param limit Maximum number selected. */
 export function deduplicate(items: string[], limit: number): string[] {
   const selected: string[] = [];
   for (const item of items) {

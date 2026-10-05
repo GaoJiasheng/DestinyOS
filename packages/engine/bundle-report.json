@@ -9,62 +9,68 @@
   "entries": [
     {
       "entry": "@tianji/engine",
-      "bytes": 1266996,
-      "gzipBytes": 384027,
+      "bytes": 1287252,
+      "gzipBytes": 391059,
       "budgetPassed": false
     },
     {
       "entry": "@tianji/engine/common",
-      "bytes": 609051,
-      "gzipBytes": 179806,
+      "bytes": 614997,
+      "gzipBytes": 181520,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/bazi",
-      "bytes": 602076,
-      "gzipBytes": 176761,
+      "bytes": 608143,
+      "gzipBytes": 178697,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/ziwei",
-      "bytes": 1108045,
-      "gzipBytes": 322919,
+      "bytes": 1113978,
+      "gzipBytes": 324709,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/iching",
-      "bytes": 606684,
-      "gzipBytes": 178644,
+      "bytes": 612640,
+      "gzipBytes": 180434,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/qimen",
-      "bytes": 612161,
-      "gzipBytes": 179754,
+      "bytes": 618110,
+      "gzipBytes": 181452,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/tarot",
-      "bytes": 271456,
-      "gzipBytes": 75423,
+      "bytes": 277389,
+      "gzipBytes": 77081,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/astrology",
-      "bytes": 334264,
-      "gzipBytes": 103568,
+      "bytes": 340314,
+      "gzipBytes": 105260,
+      "budgetPassed": true
+    },
+    {
+      "entry": "@tianji/engine/numerology",
+      "bytes": 595222,
+      "gzipBytes": 173882,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/vedic",
-      "bytes": 327361,
-      "gzipBytes": 100541,
+      "bytes": 333411,
+      "gzipBytes": 102262,
       "budgetPassed": true
     },
     {
       "entry": "@tianji/engine/daily",
-      "bytes": 675985,
-      "gzipBytes": 208767,
+      "bytes": 715721,
+      "gzipBytes": 222325,
       "budgetPassed": true
     }
   ]

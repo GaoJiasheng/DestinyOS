@@ -4,7 +4,7 @@ import { toDbLocale } from '@/lib/db-locale';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
-import { actionError } from '@/lib/reading-service';
+import { actionError } from '@/lib/api-error';
 import { SettingsSchema, softDeleteAccount } from '@/lib/account-service';
 import { cookies } from 'next/headers';
 /** Persist only validated owner settings. */

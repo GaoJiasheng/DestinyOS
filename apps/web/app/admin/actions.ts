@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { requireAdmin, adminLocale } from '@/lib/admin-auth';
 import { signIn } from '@/lib/auth';
 import { limitMagicLink } from '@/lib/ratelimit';
-import { actionError } from '@/lib/reading-service';
+import { actionError } from '@/lib/api-error';
 import {
   listUsers,
   getUser,

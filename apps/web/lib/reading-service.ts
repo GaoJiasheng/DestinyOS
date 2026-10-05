@@ -1,7 +1,7 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { Prisma, type Reading } from '@prisma/client';
 import { z } from 'zod';
-import { compute, normalizeBirth, EngineError, baziWarnings } from '@tianji/engine';
+import { compute, normalizeBirth, baziWarnings } from '@tianji/engine';
 import { interpret, localizeReport } from '@tianji/interpret';
 import {
   BaziChartSchema,
@@ -375,12 +375,5 @@ export async function idempotentCreate(
     else await getLocalRedis().eval(script, 1, key + ':lock', token);
   }
 }
-/** Map domain errors without passing birth data or exception details to the client. */
-export function actionError(error: unknown): string {
-  return error instanceof ApiError || error instanceof EngineError
-    ? error.code
-    : error instanceof z.ZodError
-      ? 'E_VALIDATION'
-      : 'E_INTERNAL';
-}
+export { actionError } from './api-error';
 export { json, digest };

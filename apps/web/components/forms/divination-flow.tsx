@@ -4,12 +4,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { interpret } from '@tianji/interpret';
 import { ENGINE_VERSION } from '@tianji/engine';
 import { Solar } from 'lunar-typescript';
-import {
-  IchingCategorySchema,
-  QimenCategorySchema,
-  type IchingChart,
-  type QimenChart,
-} from '@tianji/shared';
+import { type IchingChart, type QimenChart } from '@tianji/shared';
 import type { KnowledgeBundle } from '@tianji/content';
 import { createReadingAction } from '@/app/readings/actions';
 import { useRouter } from '@/i18n/navigation';
@@ -24,6 +19,8 @@ import { useReducedMotionPreference } from '@/components/ui/use-reduced-motion';
 import { CoinToss } from '@/components/charts/coin-toss';
 import { ReportLayout } from '@/components/report/report-layout';
 import { DivinationChart } from '@/components/charts/divination-chart';
+import { useDivinationExit } from './use-divination-exit';
+import { DivinationFields } from './divination-fields';
 import { NumberPad } from './number-pad';
 export type CastMethod = 'time' | 'numbers' | 'random' | 'liuyao';
 const pause = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
@@ -80,41 +77,7 @@ export function DivinationFlow({
       active.current = false;
     };
   }, []);
-  useEffect(() => {
-    const unload = (event: BeforeUnloadEvent) => {
-      if (!completed.current && (question || step !== 'question' || system === 'qimen')) {
-        event.preventDefault();
-        event.returnValue = '';
-      }
-    };
-    const click = (event: MouseEvent) => {
-      const anchor = event.target instanceof Element ? event.target.closest('a') : null;
-      if (
-        anchor &&
-        anchor.origin === location.origin &&
-        // DESIGN-GAP: Same-page anchors (including the skip link) move focus without leaving the ritual.
-        !(
-          anchor.pathname === location.pathname &&
-          anchor.search === location.search &&
-          anchor.hash
-        ) &&
-        !completed.current &&
-        !event.ctrlKey &&
-        !event.metaKey
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        setExitHref(anchor.href);
-        setLeaving(true);
-      }
-    };
-    window.addEventListener('beforeunload', unload);
-    document.addEventListener('click', click, true);
-    return () => {
-      window.removeEventListener('beforeunload', unload);
-      document.removeEventListener('click', click, true);
-    };
-  }, [question, step, system]);
+  useDivinationExit({ question, step, system, completed, setExitHref, setLeaving });
   const prepare = () => {
     if (snapshot.current) return snapshot.current;
     const at = castClock(local, tz);
@@ -285,8 +248,6 @@ export function DivinationFlow({
       return null;
     }
   })();
-  const categories =
-    system === 'iching' ? IchingCategorySchema.options : QimenCategorySchema.options;
   if (offlineReading) return <ReportLayout reading={offlineReading} local />;
   return (
     <section className="birth-shell divination-shell">
@@ -309,83 +270,25 @@ export function DivinationFlow({
           }}
         >
           <fieldset className="cast-fields" disabled={busy || !local}>
-            {step === 'question' ? (
-              <>
-                <label className="birth-field">
-                  {t('question')}
-                  <textarea
-                    maxLength={120}
-                    placeholder={t('questionPlaceholder')}
-                    value={question}
-                    onChange={(e) => {
-                      setQuestion(e.target.value);
-                      snapshot.current = null;
-                    }}
-                  />
-                </label>
-                <p className="muted">{t('questionOptional')}</p>
-                <fieldset disabled={busy}>
-                  <legend>{t('category')}</legend>
-                  <div className="category-chips">
-                    {categories.map((c) => (
-                      <Button
-                        type="button"
-                        key={c}
-                        variant={c === category ? 'default' : 'secondary'}
-                        aria-pressed={c === category}
-                        onClick={() => {
-                          setCategory(c);
-                          snapshot.current = null;
-                        }}
-                      >
-                        {t(`categories.${c}`)}
-                      </Button>
-                    ))}
-                  </div>
-                </fieldset>
-              </>
-            ) : null}
-            {system === 'qimen' || (step === 'ritual' && method === 'time') ? (
-              <>
-                <label className="birth-field">
-                  {t('castAt')}
-                  <input
-                    type="datetime-local"
-                    required
-                    min="1900-01-01T00:00"
-                    max="2100-12-31T23:59"
-                    disabled={busy}
-                    value={local}
-                    onChange={(e) => {
-                      setLocal(e.target.value);
-                      snapshot.current = null;
-                    }}
-                  />
-                </label>
-                <label className="birth-field">
-                  {t('timezone')}
-                  <input
-                    required
-                    list="cast-timezones"
-                    disabled={busy}
-                    value={tz}
-                    onChange={(e) => {
-                      setTz(e.target.value);
-                      snapshot.current = null;
-                    }}
-                  />
-                </label>
-                <datalist id="cast-timezones">
-                  {Intl.supportedValuesOf('timeZone').map((zone) => (
-                    <option key={zone} value={zone} />
-                  ))}
-                </datalist>
-                <Button type="button" variant="secondary" disabled={busy} onClick={now}>
-                  {t('now')}
-                </Button>
-                {system === 'iching' && lunar ? <p className="notice">{lunar}</p> : null}
-              </>
-            ) : null}
+            <DivinationFields
+              system={system}
+              method={method}
+              step={step}
+              busy={busy}
+              question={question}
+              setQuestion={setQuestion}
+              category={category}
+              setCategory={setCategory}
+              local={local}
+              setLocal={setLocal}
+              tz={tz}
+              setTz={setTz}
+              now={now}
+              lunar={lunar}
+              resetSnapshot={() => {
+                snapshot.current = null;
+              }}
+            />
             {step === 'ritual' && method === 'numbers' ? (
               <NumberPad
                 values={numbers}

@@ -2,9 +2,7 @@
 import { AstroChartSchema, VedicChartSchema, type HouseSystem } from '@tianji/shared';
 import { AstrologyReportChart } from '../charts/astrology-report-chart';
 import { VedicReportChart } from '../charts/vedic-report-chart';
-import { PlanetTable, HouseTable } from '../charts/planet-table';
-import { AspectTable } from '../charts/aspect-table';
-import { DashaTimeline } from '../charts/dasha-timeline';
+import { focusEvidence } from './focus-evidence';
 import { Fragment, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
@@ -13,7 +11,7 @@ import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { Link, useRouter } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
-import { Dialog } from '@/components/ui/dialog';
+import { ReportOwnerDialog } from './report-owner-dialog';
 import {
   previewAstrologyHousesAction,
   getReadingBirthAction,
@@ -26,15 +24,14 @@ import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import { ShareDialog } from '@/components/share/share-dialog';
 import { ChatPanel } from './chat-panel';
 import { ExportMenu } from './export-menu';
+import { ReportProfessional } from './report-professional';
 import { ReportHeadline } from './report-headline';
 import { ChartPreview } from './chart-preview';
-import { ProfessionalData } from './professional-data';
 import { SectionNav, ReportSection, AdSlot, AdviceList } from './report-section';
 import {
   baziSection,
   chartPath,
   focusChartAnchor,
-  isHighlighted,
   resolveChartPaths,
 } from '@/components/charts/bazi-shared';
 /** Shared snapshot renderer with chart anchors, professional data, owner controls and bounded ad slots. */
@@ -109,22 +106,7 @@ export function ReportLayout({
     const resolved = resolveChartPaths(view.chart, path)[0] ?? chartPath(path);
     setHighlight(resolved);
     setSelectedSection('');
-    const root = document.getElementById('chart-root');
-    if (!root) return;
-    const details = root.closest('details');
-    if (details) details.open = true;
-    // DESIGN-GAP: Evidence paths can point inside arrays; choose the most specific rendered parent and fall back to the chart root.
-    requestAnimationFrame(() => {
-      const candidates = Array.from(
-        root.querySelectorAll<HTMLElement | SVGElement>('[data-chart-path]'),
-      )
-        .filter((element) => isHighlighted(resolved, element.dataset.chartPath ?? ''))
-        .sort((a, b) => (b.dataset.chartPath?.length ?? 0) - (a.dataset.chartPath?.length ?? 0));
-      const exact = candidates.find(
-        (element) => chartPath(element.dataset.chartPath ?? '') === resolved,
-      );
-      focusChartAnchor(exact ?? candidates[0] ?? root);
-    });
+    focusEvidence(resolved);
   };
   const selectChart = (section: string, path?: string) => {
     setHighlight(path ?? section);
@@ -366,33 +348,13 @@ export function ReportLayout({
             </Fragment>
           ))}
           {professional ? (
-            <section className="report-card professional-view">
-              <h2 className="type-h2">{t('report.proView')}</h2>
-              {astro?.success ? (
-                <>
-                  <PlanetTable chart={astro.data} highlight={highlight} onSelect={selectChart} />
-                  <AspectTable chart={astro.data} highlight={highlight} onSelect={selectChart} />
-                  <HouseTable chart={astro.data} />
-                </>
-              ) : null}
-              {vedic?.success ? (
-                <>
-                  <PlanetTable chart={vedic.data} highlight={highlight} onSelect={selectChart} />
-                  <DashaTimeline chart={vedic.data} nowISO={view.createdAt} all />
-                </>
-              ) : null}
-              {[
-                [t('report.school'), view.meta.schoolUsed],
-                [t('report.debug'), view.meta.debug],
-                [t('report.rawChart'), view.chart],
-                [t('report.hits'), view.report.hits],
-              ].map(([label, value], i) => (
-                <details key={i} open>
-                  <summary>{String(label)}</summary>
-                  <ProfessionalData value={value ?? {}} />
-                </details>
-              ))}
-            </section>
+            <ReportProfessional
+              view={view}
+              astro={astro?.success ? astro.data : undefined}
+              vedic={vedic?.success ? vedic.data : undefined}
+              highlight={highlight}
+              selectChart={selectChart}
+            />
           ) : null}
           {view.report.doDont ? (
             <section className="report-card">
@@ -412,32 +374,14 @@ export function ReportLayout({
           </section>
         </div>
       </div>
-      <Dialog
-        open={dialog !== null}
-        onOpenChange={(open) => {
-          if (!open) setDialog(null);
-        }}
-        title={t(dialog === 'delete' ? 'report.delete' : 'report.rename')}
-        description={t(dialog === 'delete' ? 'report.deleteConfirm' : 'report.renameHint')}
-      >
-        {dialog === 'rename' ? (
-          <label className="birth-field">
-            {t('report.rename')}
-            <input value={title} maxLength={120} onChange={(e) => setTitle(e.target.value)} />
-          </label>
-        ) : null}
-        <div className="hero-actions">
-          <Button variant="secondary" disabled={busy} onClick={() => setDialog(null)}>
-            {t('report.cancel')}
-          </Button>
-          <Button
-            disabled={busy || (dialog === 'rename' && !title.trim())}
-            onClick={() => void confirm()}
-          >
-            {t('report.confirm')}
-          </Button>
-        </div>
-      </Dialog>
+      <ReportOwnerDialog
+        dialog={dialog}
+        setDialog={setDialog}
+        title={title}
+        setTitle={setTitle}
+        busy={busy}
+        confirm={confirm}
+      />
     </article>
   );
 }

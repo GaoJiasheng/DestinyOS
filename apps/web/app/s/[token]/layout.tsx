@@ -1,6 +1,6 @@
 import { isLocale } from '@/i18n/routing';
 import { headers } from 'next/headers';
-import { Starfield } from '@/components/starfield';
+import { Starfield } from '@/components/three/starfield';
 import { FontGlyphLoader } from '@/components/pwa/font-loader';
 import { routeTheme } from '@/lib/themes';
 import { publicShare } from '@/lib/share-service';

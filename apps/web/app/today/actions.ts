@@ -15,7 +15,7 @@ import { dailyForUser } from '@/lib/daily-service';
 import { localToday } from '@/lib/daily-compute';
 import { ApiError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
-import { actionError } from '@/lib/reading-service';
+import { actionError } from '@/lib/api-error';
 import type { ActionResult } from '@/lib/reading-schema';
 import type { DailyReport } from '@/lib/daily-compute';
 import { IanaTimezoneSchema, Locale } from '@tianji/shared';

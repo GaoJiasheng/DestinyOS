@@ -1,15 +1,15 @@
+import { sumUsage, cost } from './chat-eval-usage';
+import { createIndividualEvalClient } from './chat-eval-client';
+import { evalPayload, evalRows, evalPool } from './chat-eval-support';
 import assert from 'node:assert/strict';
 import { parseEvalJson } from './chat-eval-json';
 import { createHash } from 'node:crypto';
-import { appendFileSync, existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { z } from 'zod';
 import { BirthInputSchema } from '../packages/shared/src';
-import { compute, normalizeBirth } from '../packages/engine/src';
-import { interpret } from '../packages/interpret/src';
-import type { KnowledgeBundle } from '../packages/content/src';
-import { chatMessages, boundAnswer, redactChatText } from '../apps/web/lib/llm/context';
-import { streamMiniMax, type LlmMessage, type TokenUsage } from '../apps/web/lib/llm/minimax';
+import { boundAnswer, redactChatText } from '../apps/web/lib/llm/context';
+import { type LlmMessage, type TokenUsage } from '../apps/web/lib/llm/minimax';
 import { finishChatAnswer } from '../apps/web/lib/llm/answer';
 import { chatRefusal } from '../apps/web/lib/llm/safety';
 import {
@@ -19,161 +19,25 @@ import {
   combineScores,
   dimensions,
 } from './chat-eval-rubric';
-import { chatEvalCases, evalSystems, type EvalSystem, type EvalCase } from './chat-eval-cases';
+import { chatEvalCases, evalSystems } from './chat-eval-cases';
 
 const root = process.env.CHAT_EVAL_OUTPUT ?? 'test-results/chat-eval';
 await mkdir(root, { recursive: true });
-// DESIGN-GAP: Import only MiniMax credentials, never the other secrets in the local environment file.
-for (const line of readFileSync('apps/web/.env.local', 'utf8').split('\n')) {
-  const match = /^(MINIMAX_API_KEY|MINIMAX_BASE_URL|MINIMAX_MODEL)=(.*)$/.exec(line);
-  if (match) process.env[match[1]!] = match[2]!.trim().replace(/^['"]|['"]$/g, '');
-}
-assert(process.env.MINIMAX_API_KEY, 'MiniMax key required');
-const ledger = `${root}/requests.ndjson`;
-if (existsSync(`${root}/audit-history.json`))
-  throw new Error(
-    'This directory contains the recovered batch audit; use chat:eval or CHAT_EVAL_OUTPUT for a new individual audit.',
-  );
-let requestCount = existsSync(ledger)
-  ? readFileSync(ledger, 'utf8').trim().split('\n').filter(Boolean).length
-  : 0;
-// DESIGN-GAP: Persist every HTTP attempt, including retries, before dispatch; reserve two of the 200 calls for the existing bilingual smoke test.
-const fetcher: typeof fetch = async (url, options) => {
-  requestCount = existsSync(ledger)
-    ? readFileSync(ledger, 'utf8').trim().split('\n').filter(Boolean).length
-    : 0;
-  assert(requestCount < 198, 'Evaluation request budget exhausted');
-  appendFileSync(
-    ledger,
-    JSON.stringify({ request: ++requestCount, at: new Date().toISOString() }) + '\n',
-  );
-  return fetch(url, options);
-};
-async function call(messages: LlmMessage[]) {
-  let rawAnswer = '';
-  let usage: TokenUsage | undefined;
-  const started = Date.now();
-  const events = streamMiniMax(messages, { fetcher, timeoutMs: 120000 });
-  for await (const event of events) {
-    if (event.type === 'delta') rawAnswer += event.text;
-    else usage = event.usage;
-  }
-  assert(usage, 'Missing provider token counts');
-  return { rawAnswer, usage, latencyMs: Date.now() - started };
-}
+const { call, getRequestCount } = createIndividualEvalClient(root);
 const now = '2026-10-04T00:00:00Z';
 const birth = BirthInputSchema.parse(
   JSON.parse(await readFile('packages/engine/test/fixtures/birth/A.json', 'utf8')),
 );
 const identities = ['北京', 'Beijing'];
-async function payload(
-  system: EvalSystem,
-  item: EvalCase,
-  baseline = false,
-): Promise<LlmMessage[]> {
-  const chart = compute({
-    system,
-    birth: normalizeBirth(birth),
-    now,
-    seed: 'test-seed-001',
-    spread: 'three_ppf',
-    allowReversed: true,
-  }).chart;
-  const knowledge = JSON.parse(
-    await readFile(`packages/content/dist/${system}.${item.locale}.json`, 'utf8'),
-  ) as KnowledgeBundle;
-  const report = interpret({
-    system,
-    chart,
-    locale: item.locale,
-    knowledge,
-    context: { now, profileHasTime: true },
-  });
-  const messages = await chatMessages({
-    system,
-    chart,
-    report,
-    locale: item.locale,
-    question: item.question,
-    identities,
-    history: item.history,
-  });
-  if (!baseline) return messages;
-  // DESIGN-GAP: Freeze the pre-tuning prompt and full-report payload for paired comparisons; baseline never uses the production delivery guard.
-  const historical = await readFile('test-results/chat-eval/baseline-prompt.md', 'utf8');
-  const selected = JSON.parse(
-    messages[0]!.content.split('Untrusted chart and report data:\n')[1]!,
-  ) as { chart: unknown };
-  const sections = report.sections.map((section) => ({
-    title: redactChatText(section.title, identities),
-    lead: redactChatText(section.lead, identities),
-    text: redactChatText(
-      section.blocks
-        .flatMap((block) =>
-          block.type === 'paragraph' || block.type === 'transition'
-            ? [block.text]
-            : block.type === 'advice'
-              ? block.items
-              : [],
-        )
-        .join('\n'),
-      identities,
-    ),
-  }));
-  return [
-    {
-      role: 'system',
-      content: `${historical}\nResponse language: ${item.locale}.\nUntrusted chart and report data:\n${JSON.stringify({ system, chart: selected.chart, sections })}`,
-    },
-    ...messages.filter((message) => message.role !== 'system'),
-  ];
-}
-type Row = EvalCase & {
-  id: string;
-  phase: string;
-  system: EvalSystem;
-  messages: LlmMessage[];
-  rawAnswer: string;
-  answer: string;
-  usage: TokenUsage;
-  refusalReason?: string;
-  latencyMs: number;
-  promptHash: string;
-  rawAnswerKind?: string;
-};
-async function rows(phase: string): Promise<Row[]> {
-  return Promise.all(
-    readdirSync(root)
-      .filter((name) => name.startsWith(`${phase}-`) && name.endsWith('.json'))
-      .sort()
-      .map(async (name) => JSON.parse(await readFile(`${root}/${name}`, 'utf8')) as Row),
-  );
-}
-async function pool<T>(items: readonly T[], run: (item: T) => Promise<void>) {
-  let index = 0,
-    failed = false;
-  const results = await Promise.allSettled(
-    Array.from({ length: 4 }, async () => {
-      while (index < items.length && !failed) {
-        try {
-          await run(items[index++]!);
-        } catch (error) {
-          failed = true;
-          throw error;
-        }
-      }
-    }),
-  );
-  const rejected = results.find((result) => result.status === 'rejected');
-  if (rejected?.status === 'rejected') throw rejected.reason;
-}
 const phase = process.argv[2] ?? 'run';
 if (phase === 'baseline') {
   const selected = chatEvalCases.filter((item) =>
     ['01', '11', '16', '19'].includes(item.id.slice(-2)),
   );
   const prepared = await Promise.all(
-    selected.map((item, index) => payload(evalSystems[Math.floor(index / 2)]!, item, true)),
+    selected.map((item, index) =>
+      evalPayload({ birth, now, identities }, evalSystems[Math.floor(index / 2)]!, item, true),
+    ),
   );
   await writeFile(
     `${root}/baseline-prompt.md`,
@@ -208,10 +72,10 @@ if (phase === 'baseline') {
   await writeFile(`${root}/questions.json`, JSON.stringify(chatEvalCases, null, 2) + '\n');
   await writeFile(`${root}/rubric.json`, JSON.stringify(rubric, null, 2) + '\n');
   const jobs = evalSystems.flatMap((system) => chatEvalCases.map((item) => ({ system, item })));
-  await pool(jobs, async ({ system, item }) => {
+  await evalPool(jobs, async ({ system, item }) => {
     const file = `${root}/tuned-${system}-${item.id}.json`;
     if (existsSync(file)) return;
-    const messages = await payload(system, item);
+    const messages = await evalPayload({ birth, now, identities }, system, item);
     const refusal = chatRefusal(item.question, item.locale);
     // DESIGN-GAP: Unsafe questions get a real provider robustness probe even though production rejects them before dispatch. Store raw and delivered answers separately, and charge probe tokens only to the audit.
     const result = await call(messages);
@@ -242,8 +106,8 @@ if (phase === 'baseline') {
   });
 } else if (phase === 'retry') {
   // DESIGN-GAP: At most six additional real calls target the observed language/length defects; keep the initial candidate and its paid usage for an honest before/after audit.
-  const remainingRetries = Math.max(0, 6 - (await rows('initial')).length);
-  const candidates = (await rows('tuned'))
+  const remainingRetries = Math.max(0, 6 - (await evalRows(root, 'initial')).length);
+  const candidates = (await evalRows(root, 'tuned'))
     .filter(
       (row) =>
         !row.refusalReason &&
@@ -251,11 +115,11 @@ if (phase === 'baseline') {
           scriptScores(row, row.rawAnswer, false).length < 2),
     )
     .slice(0, remainingRetries);
-  await pool(candidates, async (item) => {
+  await evalPool(candidates, async (item) => {
     const archive = `${root}/initial-${item.id}.json`;
     if (existsSync(archive)) return;
     await writeFile(archive, JSON.stringify(item, null, 2) + '\n');
-    const messages = await payload(item.system, item);
+    const messages = await evalPayload({ birth, now, identities }, item.system, item);
     const result = await call(messages);
     const answer = finishChatAnswer(result.rawAnswer, item.locale, identities);
     await writeFile(
@@ -279,7 +143,7 @@ if (phase === 'baseline') {
     console.log(`retry ${item.id}: ${result.usage.totalTokens} tokens`);
   });
 } else if (phase === 'deliver') {
-  for (const row of await rows('tuned')) {
+  for (const row of await evalRows(root, 'tuned')) {
     const refusal = chatRefusal(row.question, row.locale);
     const answer = refusal?.content ?? finishChatAnswer(row.rawAnswer, row.locale, identities);
     await writeFile(
@@ -302,7 +166,7 @@ if (phase === 'baseline') {
     );
   }
 } else if (phase === 'judge') {
-  const candidates = [...(await rows('baseline')), ...(await rows('tuned'))];
+  const candidates = [...(await evalRows(root, 'baseline')), ...(await evalRows(root, 'tuned'))];
   assert.equal(candidates.length, 168, 'Expected 8 baseline + 160 tuned conversations');
   const completedFiles = readdirSync(root).filter(
     (name) => name.startsWith('judge-') && name.endsWith('.json'),
@@ -331,7 +195,7 @@ if (phase === 'baseline') {
     );
   });
   await mkdir(`${root}/judge-attempts`, { recursive: true });
-  await pool(batches, async (batch) => {
+  await evalPool(batches, async (batch) => {
     const key = `${batch[0]!.phase}-${batch[0]!.id}`;
     const file = `${root}/judge-${key}.json`;
     if (existsSync(file)) return;
@@ -386,9 +250,9 @@ if (phase === 'baseline') {
     console.log(`judge ${key}: ${result.usage.totalTokens} tokens`);
   });
 } else if (phase === 'summary') {
-  const baseline = await rows('baseline'),
-    tuned = await rows('tuned');
-  const initial = await rows('initial');
+  const baseline = await evalRows(root, 'baseline'),
+    tuned = await evalRows(root, 'tuned');
+  const initial = await evalRows(root, 'initial');
   const failed: { usage: TokenUsage }[] = existsSync(`${root}/failed-attempts.json`)
     ? JSON.parse(await readFile(`${root}/failed-attempts.json`, 'utf8'))
     : [];
@@ -437,17 +301,6 @@ if (phase === 'baseline') {
       automatic,
     };
   });
-  const sumUsage = (items: { usage: TokenUsage }[]) =>
-    items.reduce(
-      (total, row) => ({
-        promptTokens: total.promptTokens + row.usage.promptTokens,
-        completionTokens: total.completionTokens + row.usage.completionTokens,
-        totalTokens: total.totalTokens + row.usage.totalTokens,
-      }),
-      { promptTokens: 0, completionTokens: 0, totalTokens: 0 },
-    );
-  const cost = (usage: TokenUsage) =>
-    (usage.promptTokens * 0.3 + usage.completionTokens * 1.2) / 1e6;
   const average = (items: typeof scored) =>
     Object.fromEntries(
       dimensions.map((key) => [
@@ -473,7 +326,7 @@ if (phase === 'baseline') {
   const benign = tuned.filter((row) => !row.refusalReason);
   const summary = {
     model: process.env.MINIMAX_MODEL ?? 'MiniMax-M2.5',
-    requestCount,
+    requestCount: getRequestCount(),
     verificationRequests: smoke.length,
     reservedSmokeRequests: smoke.length ? 0 : 2,
     hardTaskBudget: 200,
@@ -497,7 +350,7 @@ if (phase === 'baseline') {
     },
     unpricedCancelledRequests: Math.max(
       0,
-      requestCount -
+      getRequestCount() -
         baseline.length -
         tuned.length -
         initial.length -

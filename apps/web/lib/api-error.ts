@@ -1,3 +1,5 @@
+import { z } from 'zod';
+import { EngineError } from '@tianji/engine/common';
 /** Uniform API failure with an English developer message and optional structured details. */
 export class ApiError extends Error {
   constructor(
@@ -27,4 +29,13 @@ export function errorResponse(error: ApiError): Response {
       headers: typeof retryAfter === 'number' ? { 'Retry-After': String(retryAfter) } : undefined,
     },
   );
+}
+
+/** Map domain errors without passing birth data or exception details to the client. */
+export function actionError(error: unknown): string {
+  return error instanceof ApiError || error instanceof EngineError
+    ? error.code
+    : error instanceof z.ZodError
+      ? 'E_VALIDATION'
+      : 'E_INTERNAL';
 }

@@ -1,10 +1,17 @@
 'use server';
+import {
+  idSchema,
+  userId,
+  run,
+  guardAge,
+  limitReadingWork,
+  blockAge,
+} from '@/lib/reading-action-context';
+import { listReadingHistory } from '@/lib/reading-history';
 import { getCopy } from '@/i18n/get-copy';
 import { currentProfile, profileBirth, saveProfile, removeProfile } from '@/lib/profile-service';
 import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
-import { getLocale } from 'next-intl/server';
-import { localeText } from '@tianji/shared/locale';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';
 import { recordEvent } from '@/lib/events';
@@ -13,7 +20,6 @@ import { ApiError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
 import {
   ReadingRequestSchema,
-  ReportSchema,
   ReadingMetaSchema,
   parseReadingChart,
   type ReadingView,
@@ -21,7 +27,6 @@ import {
 } from '@/lib/reading-schema';
 import {
   generateReading,
-  actionError,
   resolveBirth,
   idempotentCreate,
   readingView,
@@ -35,45 +40,6 @@ import { loadKnowledge } from '@/lib/knowledge';
 import { BirthInputSchema, System } from '@tianji/shared';
 import { ENGINE_VERSION } from '@tianji/engine';
 import { stripPII } from '@/lib/strip-pii';
-const idSchema = z.string().min(1).max(100);
-async function userId() {
-  const session = await auth();
-  if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
-  return session.user.id;
-}
-async function run<T>(work: () => Promise<T>): Promise<ActionResult<T>> {
-  try {
-    return { ok: true, data: await work() };
-  } catch (error) {
-    const code = actionError(error);
-    if (code === 'E_AGE_RESTRICTED')
-      (await cookies()).set('age_gate', 'blocked', {
-        httpOnly: true,
-        sameSite: 'lax',
-        secure: process.env.NODE_ENV === 'production',
-        path: '/',
-      });
-    return { ok: false, error: { code } };
-  }
-}
-async function guardAge() {
-  if ((await cookies()).get('age_gate')?.value === 'blocked')
-    throw new ApiError('E_AGE_RESTRICTED', 'Age restricted', 403);
-}
-// DESIGN-GAP: All server interpretation/compute entry points consume the documented report quota.
-async function limitReadingWork() {
-  const session = await auth();
-  assertRateLimit(
-    await ratelimit(
-      session?.user.id
-        ? session.user.plan === 'pro'
-          ? 'reading.pro'
-          : 'reading.free'
-        : 'reading.anon',
-      session?.user.id ?? requestIp(await headers()),
-    ),
-  );
-}
 /** Validate, normalize, compute and interpret; authenticated results are persisted, anonymous results are returned only. */
 export async function createReadingAction(raw: unknown) {
   return run(async () => {
@@ -124,90 +90,7 @@ export async function getReadingAction(
 }
 /** Paginate owner-only history, excluding encrypted inputs and full chart/report payloads. */
 export async function listReadingsAction(raw: unknown = { limit: 20 }) {
-  return run(async () => {
-    const owner = await userId();
-    const input = z
-      .object({
-        system: z.nativeEnum(System).optional(),
-        cursor: idSchema.optional(),
-        // DESIGN-GAP: Title search is a bounded optional argument for the documented history search UI.
-        search: z.string().trim().max(120).optional(),
-        limit: z.number().int().min(1).max(50).default(20),
-      })
-      .strict()
-      .parse(raw);
-    if (
-      input.cursor &&
-      !(await getDb().reading.findFirst({ where: { id: input.cursor, userId: owner } }))
-    )
-      throw new ApiError('E_NOT_FOUND', 'Cursor not found', 404);
-    const plan = await getDb().user.findUniqueOrThrow({
-      where: { id: owner },
-      select: { plan: true },
-    });
-    const recent =
-      plan.plan === 'free'
-        ? await getDb().reading.findMany({
-            where: { userId: owner },
-            orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
-            take: 50,
-            select: { id: true },
-          })
-        : null;
-    const selected = await currentProfile(owner);
-    const rows = await getDb().reading.findMany({
-      where: {
-        userId: owner,
-        system: input.system,
-        // DESIGN-GAP: Legacy divination and anonymous imports without a profile remain visible in owner history.
-        ...(selected
-          ? {
-              OR: [
-                { profileId: selected.id },
-                { partnerProfileId: selected.id },
-                { profileId: null },
-              ],
-            }
-          : { profileId: null }),
-        ...(recent ? { id: { in: recent.map((r) => r.id) } } : {}),
-        ...(input.search ? { title: { contains: input.search, mode: 'insensitive' } } : {}),
-      },
-      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
-      cursor: input.cursor ? { id: input.cursor } : undefined,
-      skip: input.cursor ? 1 : 0,
-      take: input.limit + 1,
-      select: {
-        id: true,
-        title: true,
-        system: true,
-        createdAt: true,
-        reportZh: true,
-        reportEn: true,
-      },
-    });
-    const locale = await getLocale();
-    const more = rows.length > input.limit;
-    const visible = rows.slice(0, input.limit);
-    return {
-      items: visible.map((row) => {
-        const report = ReportSchema.safeParse(
-          locale === 'en' ? (row.reportEn ?? row.reportZh) : (row.reportZh ?? row.reportEn),
-        );
-        return {
-          id: row.id,
-          title: row.title,
-          system: row.system,
-          createdAt: row.createdAt.toISOString(),
-          keywords: report.success
-            ? report.data.headline.keywords.map((text) =>
-                locale === 'zh-TW' ? localeText(text, 'zh-TW') : text,
-              )
-            : [],
-        };
-      }),
-      nextCursor: more ? visible.at(-1)?.id : null,
-    };
-  });
+  return listReadingHistory(raw);
 }
 /** Rename an owner reading, using a bounded title that the UI asks to keep free of personal information. */
 export async function renameReadingAction(raw: string, title: string) {
@@ -436,12 +319,7 @@ export async function translateAnonymousReportAction(raw: unknown, locale: 'zh' 
 }
 /** Set the session age gate before anonymous client data can be created. */
 export async function blockAgeAction() {
-  (await cookies()).set('age_gate', 'blocked', {
-    httpOnly: true,
-    sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
-    path: '/',
-  });
+  await blockAge();
 }
 /** Reveal the encrypted birth snapshot only to its owner after an explicit expand interaction. */
 export async function getReadingBirthAction(raw: string) {

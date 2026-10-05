@@ -57,6 +57,11 @@ export function findDailyTransits(
     )
     .slice(0, 3);
 }
+/** Compute daily tropical positions, Moon transitions and ranked natal transits.
+ * @param localDate Target ISO civil date (YYYY-MM-DD).
+ * @param tz IANA timezone for the local day boundaries.
+ * @param natal Optional natal chart for transit aspects.
+ * @param timeUnknown Whether natal birth time is unknown. */
 export function dailyAstro(
   localDate: string,
   tz: string,

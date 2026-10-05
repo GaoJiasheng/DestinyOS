@@ -194,11 +194,20 @@ export const DAILY_SCORE_RULES: readonly DailyScoreRule[] = [
     delta: all(-2),
   },
 ];
+/** Clamp a daily score to the documented 15–95 point range.
+ * @param value Accumulated score in points. */
 export const clampDailyScore = (value: number): number => Math.max(15, Math.min(95, value));
+/** Convert a daily score to its one-to-five-star display band.
+ * @param score Daily dimension or overall score in points. */
 export const dailyStars = (score: number): 1 | 2 | 3 | 4 | 5 =>
   score >= 85 ? 5 : score >= 70 ? 4 : score >= 55 ? 3 : score >= 40 ? 2 : 1;
+/** Select the documented daily oneliner band.
+ * @param score Overall daily score in points. */
 export const dailyBand = (score: number): 'great' | 'good' | 'mixed' | 'careful' =>
   score >= 85 ? 'great' : score >= 70 ? 'good' : score >= 55 ? 'mixed' : 'careful';
+/** Apply matching daily rules once each, retaining evidence and deterministic dominant theme.
+ * @param context Natal and daily inputs needed by the rules.
+ * @param rules Ordered scoring table; defaults to the documented rule set. */
 export function scoreDaily(context: DailyScoreContext, rules = DAILY_SCORE_RULES) {
   const scores: Record<Dimension, number> = {
     career: 60,

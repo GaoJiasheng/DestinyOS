@@ -7,7 +7,7 @@ import { auth } from '@/lib/auth';
 import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
-import { actionError } from '@/lib/reading-service';
+import { actionError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
 import { shareToken, signDailyCard } from '@/lib/share-service';
 import { ShareTemplateSchema, DailyCardSchema } from '@/lib/share-projection';

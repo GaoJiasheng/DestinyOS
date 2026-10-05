@@ -12,6 +12,9 @@ import type { LocatedUnit, Diagnostic } from './validation';
 import type { GlossaryEntry } from '../src';
 import { validateAsset } from './assets';
 export const root = dirname(dirname(fileURLToPath(import.meta.url)));
+/** List matching files recursively in stable path order; missing directories yield an empty list.
+ * @param directory Source directory to scan.
+ * @param suffix Required filename suffix, including the dot. */
 export async function files(directory: string, suffix: string): Promise<string[]> {
   try {
     const entries = await readdir(directory, { withFileTypes: true });
@@ -28,6 +31,7 @@ export async function files(directory: string, suffix: string): Promise<string[]
     throw error;
   }
 }
+/** Load and validate bilingual source units, glossary, transitions and fixture paths for compilation. */
 export async function loadContent() {
   const fixtures: Record<string, unknown[]> = {};
   for (const file of await files(join(root, 'test/fixtures'), '.json')) {
@@ -80,6 +84,8 @@ export async function loadContent() {
     diagnostics,
   };
 }
+/** Print source-located validation diagnostics to the matching stderr console level.
+ * @param diagnostics Schema and editorial issues collected by the source validator. */
 export function printDiagnostics(diagnostics: Diagnostic[]) {
   for (const d of diagnostics)
     console[d.severity === 'error' ? 'error' : 'warn'](
