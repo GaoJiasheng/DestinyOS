@@ -48,8 +48,13 @@ export function trueNorthNode(jdUT: number): number {
 /** Mean lunar apogee (Lilith), Meeus mean perigee plus 180°, degrees. */
 export function meanLilith(jdUT: number): number {
   const t = astroTime(jdUT).tt / 36525;
+  const apogee =
+    83.3532465 + 4069.0137287 * t - 0.01032 * t * t - t ** 3 / 80053 + t ** 4 / 18999000 + 180;
+  const node = meanNorthNode(jdUT),
+    argument = (apogee - node) * DEG;
+  // DESIGN-GAP: Mean Lilith is the projected apogee of the inclined lunar orbit; use the mean 5.145° inclination.
   return wrap(
-    83.3532465 + 4069.0137287 * t - 0.01032 * t * t - t ** 3 / 80053 + t ** 4 / 18999000 + 180,
+    node + Math.atan2(Math.sin(argument) * Math.cos(5.145 * DEG), Math.cos(argument)) / DEG,
   );
 }
 function chiron(jdUT: number): { lon: number; lat: number } {

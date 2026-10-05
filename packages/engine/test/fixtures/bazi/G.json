@@ -315,9 +315,9 @@
       "startAge": {
         "years": 7,
         "months": 11,
-        "days": 7
+        "days": 9
       },
-      "startDate": "1967-12-08",
+      "startDate": "1967-12-10",
       "periods": [
         {
           "index": 1,
@@ -325,8 +325,8 @@
           "branch": "hai",
           "fromYear": 1967,
           "toYear": 1977,
-          "fromAge": 7.936111111111112,
-          "toAge": 17.93611111111111,
+          "fromAge": 7.941666666666667,
+          "toAge": 17.941666666666666,
           "tenGod": "zheng_guan",
           "branchTenGod": "pian_cai",
           "isCurrent": false
@@ -337,8 +337,8 @@
           "branch": "xu",
           "fromYear": 1977,
           "toYear": 1987,
-          "fromAge": 17.93611111111111,
-          "toAge": 27.93611111111111,
+          "fromAge": 17.941666666666666,
+          "toAge": 27.941666666666666,
           "tenGod": "qi_sha",
           "branchTenGod": "bi_jian",
           "isCurrent": false
@@ -349,8 +349,8 @@
           "branch": "you",
           "fromYear": 1987,
           "toYear": 1997,
-          "fromAge": 27.93611111111111,
-          "toAge": 37.93611111111111,
+          "fromAge": 27.941666666666666,
+          "toAge": 37.94166666666666,
           "tenGod": "zheng_cai",
           "branchTenGod": "shang_guan",
           "isCurrent": false
@@ -361,8 +361,8 @@
           "branch": "shen",
           "fromYear": 1997,
           "toYear": 2007,
-          "fromAge": 37.93611111111111,
-          "toAge": 47.93611111111111,
+          "fromAge": 37.94166666666667,
+          "toAge": 47.94166666666667,
           "tenGod": "pian_cai",
           "branchTenGod": "shi_shen",
           "isCurrent": false
@@ -373,8 +373,8 @@
           "branch": "wei",
           "fromYear": 2007,
           "toYear": 2017,
-          "fromAge": 47.93611111111111,
-          "toAge": 57.93611111111111,
+          "fromAge": 47.94166666666667,
+          "toAge": 57.94166666666667,
           "tenGod": "shang_guan",
           "branchTenGod": "jie_cai",
           "isCurrent": false
@@ -385,8 +385,8 @@
           "branch": "wu",
           "fromYear": 2017,
           "toYear": 2027,
-          "fromAge": 57.93611111111111,
-          "toAge": 67.9361111111111,
+          "fromAge": 57.94166666666667,
+          "toAge": 67.94166666666666,
           "tenGod": "shi_shen",
           "branchTenGod": "zheng_yin",
           "isCurrent": true
@@ -397,8 +397,8 @@
           "branch": "si",
           "fromYear": 2027,
           "toYear": 2037,
-          "fromAge": 67.93611111111112,
-          "toAge": 77.93611111111112,
+          "fromAge": 67.94166666666666,
+          "toAge": 77.94166666666666,
           "tenGod": "jie_cai",
           "branchTenGod": "pian_yin",
           "isCurrent": false
@@ -409,8 +409,8 @@
           "branch": "chen",
           "fromYear": 2037,
           "toYear": 2047,
-          "fromAge": 77.93611111111112,
-          "toAge": 87.93611111111112,
+          "fromAge": 77.94166666666666,
+          "toAge": 87.94166666666666,
           "tenGod": "bi_jian",
           "branchTenGod": "bi_jian",
           "isCurrent": false
@@ -421,8 +421,8 @@
           "branch": "mao",
           "fromYear": 2047,
           "toYear": 2057,
-          "fromAge": 87.93611111111112,
-          "toAge": 97.93611111111112,
+          "fromAge": 87.94166666666666,
+          "toAge": 97.94166666666666,
           "tenGod": "zheng_yin",
           "branchTenGod": "zheng_guan",
           "isCurrent": false
@@ -433,8 +433,8 @@
           "branch": "yin",
           "fromYear": 2057,
           "toYear": 2067,
-          "fromAge": 97.93611111111112,
-          "toAge": 107.93611111111112,
+          "fromAge": 97.94166666666666,
+          "toAge": 107.94166666666666,
           "tenGod": "pian_yin",
           "branchTenGod": "qi_sha",
           "isCurrent": false

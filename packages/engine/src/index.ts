@@ -204,7 +204,13 @@ export function compute(raw: ComputeInput): EngineResult {
       },
     });
     chart = computeQimen(cast);
-    schoolUsed = { ...cast.options.school, ziHour: 'zi_unified' };
+    // DESIGN-GAP: The documented elapsed-day yuan differs from reference libraries' fu-tou yuan; identify the applied rule explicitly.
+    schoolUsed = {
+      ...cast.options.school,
+      ziHour: 'zi_unified',
+      yuanBasis: 'solar_term_elapsed_days',
+      deityNames: 'bai_hu_xuan_wu',
+    };
   }
   if (birth && (input.system === 'astrology' || input.system === 'vedic')) {
     // DESIGN-GAP: School option names follow the chart fields; expose node/rulership as explicit professional-view choices.

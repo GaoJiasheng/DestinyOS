@@ -151,12 +151,12 @@
     },
     {
       "key": "lilith",
-      "lon": 352.46632413205305,
+      "lon": 352.5008238445305,
       "lat": 0,
       "sign": "pisces",
-      "degInSign": 22.466324132053046,
+      "degInSign": 22.500823844530487,
       "retro": false,
-      "speed": 0.11140356247096861,
+      "speed": 0.11203811911286721,
       "house": 11,
       "nearCusp": false,
       "anaretic": false
@@ -263,7 +263,7 @@
       "a": "uranus",
       "b": "lilith",
       "type": "sextile",
-      "orb": 0.3146531816545348,
+      "orb": 0.3491528941319757,
       "applying": false,
       "major": true
     },
@@ -303,7 +303,7 @@
       "a": "neptune",
       "b": "lilith",
       "type": "sextile",
-      "orb": 1.3588579881393343,
+      "orb": 1.3933577006167752,
       "applying": false,
       "major": true
     },
@@ -316,18 +316,18 @@
       "major": false
     },
     {
-      "a": "mars",
-      "b": "jupiter",
-      "type": "sextile",
-      "orb": 1.9192846920481372,
+      "a": "pluto",
+      "b": "lilith",
+      "type": "trine",
+      "orb": 1.8906814500037967,
       "applying": true,
       "major": true
     },
     {
-      "a": "pluto",
-      "b": "lilith",
-      "type": "trine",
-      "orb": 1.9251811624812376,
+      "a": "mars",
+      "b": "jupiter",
+      "type": "sextile",
+      "orb": 1.9192846920481372,
       "applying": true,
       "major": true
     },

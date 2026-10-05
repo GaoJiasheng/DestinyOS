@@ -83,7 +83,9 @@ export function computeBazi(rawBirth: NormalizedBirth, rawOptions: BaziOptions):
         ? lunar.getDayZhiIndexExact()
         : lunar.getDayZhiIndexExact2()
     ]!;
-  const termLunar = termFrame(clock, birth.local.tz).getLunar();
+  // DESIGN-GAP: Solar time changes the civil day/hour, not the physical instant of a jie crossing.
+  const instantClock = Temporal.Instant.from(birth.utc!).toZonedDateTimeISO(birth.local.tz);
+  const termLunar = termFrame(instantClock.toPlainDateTime(), birth.local.tz).getLunar();
   const pillars: BaziChart['pillars'] = {
     year: makePillar(
       STEMS[termLunar.getYearGanIndexExact()]!,
@@ -106,7 +108,7 @@ export function computeBazi(rawBirth: NormalizedBirth, rawOptions: BaziOptions):
     strength = assessStrength(pillars);
   const useGod = selectUseGod(pillars, strength, elements),
     pattern = detectPattern(pillars, strength);
-  const luck = computeLuck(birth, clock, now, pillars);
+  const luck = computeLuck(birth, now, pillars);
   const chart: Omit<BaziChart, 'features'> = {
     pillars,
     dayMaster: { stem: dm, element: pillars.day.stemElement, yinYang: STEM_YIN_YANG[dm] },

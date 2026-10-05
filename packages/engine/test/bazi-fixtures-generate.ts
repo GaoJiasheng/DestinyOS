@@ -10,7 +10,7 @@ for (const id of ['A', 'B', 'C', 'D', 'E', 'G']) {
   const birth = normalizeBirth(input);
   const time = birthClock(birth, true),
     lib = toSolar(time).getLunar().getEightChar();
-  const fixed = termFrame(time, birth.local.tz).getLunar().getEightChar();
+  const fixed = termFrame(birthClock(birth, false), birth.local.tz).getLunar().getEightChar();
   lib.setSect(1);
   const next = lib.getDay();
   lib.setSect(2);

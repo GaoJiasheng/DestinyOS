@@ -1,0 +1,22 @@
+{
+  "seed": 865649,
+  "births": 300,
+  "casts": 60,
+  "termEdges": 192,
+  "libraries": {
+    "sxtwl": "2.0.6",
+    "pyswisseph": "2.10.3.2",
+    "kinqimen": "0.0.6.6",
+    "ephem": "4.2.1",
+    "iztro-py": "0.5.0"
+  },
+  "swissBackend": "Moshier analytical, no external ephemeris files",
+  "ziweiProvenance": "iztro-py pure Python reimplementation; shares iztro algorithm, not JS runtime",
+  "excludedBodies": {
+    "chiron": "No Moshier Chiron; runtime two-body approximation, not verified here"
+  },
+  "schools": {
+    "qimen": "docs elapsed-day yuan vs kinqimen fu-tou; forced ju results stored separately",
+    "bazi": "sxtwl day-level jie adapted to exact sxtwl instant; zi_unified/split separately"
+  }
+}

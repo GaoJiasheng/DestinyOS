@@ -151,12 +151,12 @@
     },
     {
       "key": "lilith",
-      "lon": 267.1410486846463,
+      "lon": 267.25110486576295,
       "lat": 0,
       "sign": "sagittarius",
-      "degInSign": 27.141048684646307,
+      "degInSign": 27.251104865762954,
       "retro": false,
-      "speed": 0.1114035225441512,
+      "speed": 0.11119966066530651,
       "house": 4,
       "nearCusp": false,
       "anaretic": false
@@ -300,6 +300,14 @@
       "major": false
     },
     {
+      "a": "jupiter",
+      "b": "lilith",
+      "type": "trine",
+      "orb": 1.1716806517999316,
+      "applying": false,
+      "major": true
+    },
+    {
       "a": "moon",
       "b": "neptune",
       "type": "conjunction",
@@ -316,10 +324,10 @@
       "major": true
     },
     {
-      "a": "jupiter",
+      "a": "mercury",
       "b": "lilith",
-      "type": "trine",
-      "orb": 1.2817368329165788,
+      "type": "sextile",
+      "orb": 1.332182966885341,
       "applying": false,
       "major": true
     },
@@ -327,17 +335,9 @@
       "a": "saturn",
       "b": "lilith",
       "type": "sesquiquadrate",
-      "orb": 1.3481001007086206,
+      "orb": 1.4581562818252678,
       "applying": false,
       "major": false
-    },
-    {
-      "a": "mercury",
-      "b": "lilith",
-      "type": "sextile",
-      "orb": 1.4422391480019883,
-      "applying": false,
-      "major": true
     },
     {
       "a": "mars",
@@ -391,7 +391,7 @@
       "a": "mars",
       "b": "lilith",
       "type": "square",
-      "orb": 2.911173303434964,
+      "orb": 3.021229484551611,
       "applying": true,
       "major": true
     },

@@ -100,21 +100,20 @@ export function startAgeFromMinutes(minutes: number): BaziChart['luck']['startAg
 /** Ten real luck periods (童限 appears in debug), using precise start dates for current-period selection. */
 export function computeLuck(
   birth: NormalizedBirth,
-  t: Temporal.PlainDateTime,
   now: Temporal.ZonedDateTime,
   pillars: BaziChart['pillars'],
 ): BaziChart['luck'] {
   const forward = (STEM_YIN_YANG[pillars.year.stem] === 'yang') === (birth.gender !== 'female');
-  const frame = termFrame(t, birth.local.tz),
+  // DESIGN-GAP: Use the physical birth instant for jie distance; solar clock is only a civil pillar coordinate.
+  const frame = birth.utc
+      ? toSolar(Temporal.Instant.from(birth.utc).toZonedDateTimeISO('+08:00').toPlainDateTime())
+      : termFrame(birthClock(birth, false), birth.local.tz),
     lunar = frame.getLunar();
   const boundary = (forward ? lunar.getNextJie() : lunar.getPrevJie()).getSolar();
   const minutes = Math.abs(boundary.subtractMinute(frame));
   const startAge = startAgeFromMinutes(minutes);
-  const start = t.add(startAge).toZonedDateTime(birth.local.tz);
-  const monthIndex = ganZhiIndex(
-    STEMS[lunar.getMonthGanIndexExact()]!,
-    BRANCHES[lunar.getMonthZhiIndexExact()]!,
-  );
+  const start = birthClock(birth, false).add(startAge).toZonedDateTime(birth.local.tz);
+  const monthIndex = ganZhiIndex(pillars.month.stem, pillars.month.branch);
   // DESIGN-GAP: Age bounds are chronological fractional years [fromAge,toAge); year bounds include any partially covered calendar year, so adjacent periods can share a year.
   const age = startAge.years + startAge.months / 12 + startAge.days / 360;
   const periods = Array.from({ length: 10 }, (_, i) => {
