@@ -4,13 +4,14 @@ import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
   transpilePackages: ['@tianji/shared', '@tianji/engine', '@tianji/interpret', '@tianji/content'],
-  serverExternalPackages: ['geo-tz'],
+  serverExternalPackages: ['geo-tz', 'playwright-core', '@sparticuz/chromium', 'sharp'],
   // DESIGN-GAP: Bounded imports of up to 50 chart snapshots need more than Next.js's default 1MB action body.
   // DESIGN-GAP: Bound static generation to two workers on shared CI hosts; content and request behavior are unchanged.
   experimental: { cpus: 2, serverActions: { bodySizeLimit: '8mb' } },
   // DESIGN-GAP: Vercel's app root is apps/web; trace the monorepo so deployed functions retain shared knowledge and fixtures.
   outputFileTracingRoot: resolve(__dirname, '../..'),
   outputFileTracingIncludes: {
+    '/api/export': ['./node_modules/@sparticuz/chromium/bin/**/*'],
     '/*': [
       './resources/**/*',
       './node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff',

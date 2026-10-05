@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/noto-print-00.woff2') format('woff2');
+  unicode-range:
+    U+20, U+22, U+23, U+24, U+25, U+26, U+27, U+28, U+29, U+2A, U+2C, U+2D, U+2E, U+2F, U+30, U+31,
+    U+32, U+33, U+34, U+35, U+36, U+37, U+38, U+39, U+3A, U+3B, U+3D, U+3F, U+41, U+42, U+43, U+44,
+    U+45, U+46, U+47, U+48, U+49, U+4A, U+4B, U+4C, U+4D, U+4E, U+4F, U+50, U+51, U+52, U+53, U+54,
+    U+55, U+56, U+57, U+58, U+59, U+5A, U+5B, U+5C, U+5D, U+5F, U+61, U+62, U+63, U+64, U+65, U+66,
+    U+67, U+68, U+69, U+6A, U+6B, U+6C, U+6D, U+6E, U+6F, U+70, U+71, U+72, U+73, U+74, U+75, U+76,
+    U+77, U+78, U+79, U+7A, U+7B, U+7D, U+A9, U+B0, U+B1, U+B7, U+E0, U+E1, U+E8, U+E9, U+EC, U+ED,
+    U+F2, U+F3, U+F9, U+FA, U+101, U+113, U+11B, U+12B, U+14D, U+16B, U+1CE, U+1D0, U+1D2, U+1D4,
+    U+1DA, U+2013, U+2014, U+2019, U+201C, U+201D, U+2026, U+2032, U+2192, U+300A, U+300B, U+5315,
+    U+532E, U+54A5, U+5671, U+5919, U+592D, U+5BA5, U+5E37, U+6070, U+61FF, U+6538, U+6555, U+66F7,
+    U+6861, U+6C54, U+6D0A, U+6E0E, U+6FE1, U+725D, U+76E5, U+771A, U+7B5D, U+7B6E, U+7C0B, U+8046,
+    U+8385, U+8543, U+8669, U+8725, U+8734, U+88D2, U+8A8D, U+8C5A, U+9608, U+9899, U+9B2F, U+9B45,
+    U+FF08, U+FF09, U+FF0C, U+FF1A, U+FF1B, U+FF1F;
+}
