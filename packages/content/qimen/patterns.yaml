@@ -1,11 +1,56 @@
+# // DESIGN-GAP: §9 does not specify relevance scoping; bind each symbol to a selected useGods palace via its index, using the existing condition DSL.
 # // DESIGN-GAP: Configuration prose uses modest planning analogies; predicates and polarity follow the existing engine rule table.
 - id: qimen.patterns.san_qi_de_shi_yi
   system: qimen
   section: patterns
   topic: patterns.san_qi_de_shi_yi
   when:
-    path: palaces[*].patterns
-    contains: san_qi_de_shi_yi
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: san_qi_de_shi_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: san_qi_de_shi_yi
   weight: 65
   polarity: positive
   tags:
@@ -39,15 +84,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.san_qi_de_shi_bing
   system: qimen
   section: patterns
   topic: patterns.san_qi_de_shi_bing
   when:
-    path: palaces[*].patterns
-    contains: san_qi_de_shi_bing
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: san_qi_de_shi_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: san_qi_de_shi_bing
   weight: 65
   polarity: positive
   tags:
@@ -81,15 +170,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.san_qi_de_shi_ding
   system: qimen
   section: patterns
   topic: patterns.san_qi_de_shi_ding
   when:
-    path: palaces[*].patterns
-    contains: san_qi_de_shi_ding
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: san_qi_de_shi_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: san_qi_de_shi_ding
   weight: 65
   polarity: positive
   tags:
@@ -123,15 +256,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.san_qi_sheng_dian_yi
   system: qimen
   section: patterns
   topic: patterns.san_qi_sheng_dian_yi
   when:
-    path: palaces[*].patterns
-    contains: san_qi_sheng_dian_yi
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: san_qi_sheng_dian_yi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: san_qi_sheng_dian_yi
   weight: 65
   polarity: positive
   tags:
@@ -165,15 +342,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.san_qi_sheng_dian_bing
   system: qimen
   section: patterns
   topic: patterns.san_qi_sheng_dian_bing
   when:
-    path: palaces[*].patterns
-    contains: san_qi_sheng_dian_bing
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: san_qi_sheng_dian_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: san_qi_sheng_dian_bing
   weight: 65
   polarity: positive
   tags:
@@ -207,15 +428,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.san_qi_sheng_dian_ding
   system: qimen
   section: patterns
   topic: patterns.san_qi_sheng_dian_ding
   when:
-    path: palaces[*].patterns
-    contains: san_qi_sheng_dian_ding
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: san_qi_sheng_dian_ding
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: san_qi_sheng_dian_ding
   weight: 65
   polarity: positive
   tags:
@@ -249,15 +514,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.qing_long_fan_shou
   system: qimen
   section: patterns
   topic: patterns.qing_long_fan_shou
   when:
-    path: palaces[*].patterns
-    contains: qing_long_fan_shou
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: qing_long_fan_shou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: qing_long_fan_shou
   weight: 65
   polarity: positive
   tags:
@@ -291,15 +600,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.fei_niao_die_xue
   system: qimen
   section: patterns
   topic: patterns.fei_niao_die_xue
   when:
-    path: palaces[*].patterns
-    contains: fei_niao_die_xue
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: fei_niao_die_xue
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: fei_niao_die_xue
   weight: 65
   polarity: positive
   tags:
@@ -333,15 +686,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.yu_nv_shou_men
   system: qimen
   section: patterns
   topic: patterns.yu_nv_shou_men
   when:
-    path: palaces[*].patterns
-    contains: yu_nv_shou_men
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: yu_nv_shou_men
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: yu_nv_shou_men
   weight: 65
   polarity: positive
   tags:
@@ -375,15 +772,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.tian_dun
   system: qimen
   section: patterns
   topic: patterns.tian_dun
   when:
-    path: palaces[*].patterns
-    contains: tian_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: tian_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: tian_dun
   weight: 65
   polarity: positive
   tags:
@@ -417,15 +858,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.di_dun
   system: qimen
   section: patterns
   topic: patterns.di_dun
   when:
-    path: palaces[*].patterns
-    contains: di_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: di_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: di_dun
   weight: 65
   polarity: positive
   tags:
@@ -459,15 +944,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.ren_dun
   system: qimen
   section: patterns
   topic: patterns.ren_dun
   when:
-    path: palaces[*].patterns
-    contains: ren_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: ren_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: ren_dun
   weight: 65
   polarity: positive
   tags:
@@ -501,15 +1030,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.feng_dun
   system: qimen
   section: patterns
   topic: patterns.feng_dun
   when:
-    path: palaces[*].patterns
-    contains: feng_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: feng_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: feng_dun
   weight: 65
   polarity: positive
   tags:
@@ -543,15 +1116,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.yun_dun
   system: qimen
   section: patterns
   topic: patterns.yun_dun
   when:
-    path: palaces[*].patterns
-    contains: yun_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: yun_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: yun_dun
   weight: 65
   polarity: positive
   tags:
@@ -585,15 +1202,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.long_dun
   system: qimen
   section: patterns
   topic: patterns.long_dun
   when:
-    path: palaces[*].patterns
-    contains: long_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: long_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: long_dun
   weight: 65
   polarity: positive
   tags:
@@ -627,15 +1288,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.hu_dun
   system: qimen
   section: patterns
   topic: patterns.hu_dun
   when:
-    path: palaces[*].patterns
-    contains: hu_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: hu_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: hu_dun
   weight: 65
   polarity: positive
   tags:
@@ -669,15 +1374,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.shen_dun
   system: qimen
   section: patterns
   topic: patterns.shen_dun
   when:
-    path: palaces[*].patterns
-    contains: shen_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: shen_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: shen_dun
   weight: 65
   polarity: positive
   tags:
@@ -711,15 +1460,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.gui_dun
   system: qimen
   section: patterns
   topic: patterns.gui_dun
   when:
-    path: palaces[*].patterns
-    contains: gui_dun
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: gui_dun
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: gui_dun
   weight: 65
   polarity: positive
   tags:
@@ -753,15 +1546,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.qing_long_tao_zou
   system: qimen
   section: patterns
   topic: patterns.qing_long_tao_zou
   when:
-    path: palaces[*].patterns
-    contains: qing_long_tao_zou
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: qing_long_tao_zou
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: qing_long_tao_zou
   weight: 50
   polarity: negative
   tags:
@@ -795,15 +1632,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.bai_hu_chang_kuang
   system: qimen
   section: patterns
   topic: patterns.bai_hu_chang_kuang
   when:
-    path: palaces[*].patterns
-    contains: bai_hu_chang_kuang
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: bai_hu_chang_kuang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: bai_hu_chang_kuang
   weight: 50
   polarity: negative
   tags:
@@ -837,15 +1718,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.zhu_que_tou_jiang
   system: qimen
   section: patterns
   topic: patterns.zhu_que_tou_jiang
   when:
-    path: palaces[*].patterns
-    contains: zhu_que_tou_jiang
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: zhu_que_tou_jiang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: zhu_que_tou_jiang
   weight: 50
   polarity: negative
   tags:
@@ -879,15 +1804,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.teng_she_yao_jiao
   system: qimen
   section: patterns
   topic: patterns.teng_she_yao_jiao
   when:
-    path: palaces[*].patterns
-    contains: teng_she_yao_jiao
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: teng_she_yao_jiao
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: teng_she_yao_jiao
   weight: 50
   polarity: negative
   tags:
@@ -921,15 +1890,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.tai_bai_ru_ying
   system: qimen
   section: patterns
   topic: patterns.tai_bai_ru_ying
   when:
-    path: palaces[*].patterns
-    contains: tai_bai_ru_ying
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: tai_bai_ru_ying
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: tai_bai_ru_ying
   weight: 50
   polarity: negative
   tags:
@@ -963,15 +1976,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.ying_ru_tai_bai
   system: qimen
   section: patterns
   topic: patterns.ying_ru_tai_bai
   when:
-    path: palaces[*].patterns
-    contains: ying_ru_tai_bai
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: ying_ru_tai_bai
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: ying_ru_tai_bai
   weight: 50
   polarity: negative
   tags:
@@ -1005,15 +2062,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.da_ge
   system: qimen
   section: patterns
   topic: patterns.da_ge
   when:
-    path: palaces[*].patterns
-    contains: da_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: da_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: da_ge
   weight: 50
   polarity: negative
   tags:
@@ -1047,15 +2148,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.xiao_ge
   system: qimen
   section: patterns
   topic: patterns.xiao_ge
   when:
-    path: palaces[*].patterns
-    contains: xiao_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: xiao_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: xiao_ge
   weight: 50
   polarity: negative
   tags:
@@ -1089,15 +2234,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.xing_ge
   system: qimen
   section: patterns
   topic: patterns.xing_ge
   when:
-    path: palaces[*].patterns
-    contains: xing_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: xing_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: xing_ge
   weight: 50
   polarity: negative
   tags:
@@ -1131,15 +2320,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.qi_ge
   system: qimen
   section: patterns
   topic: patterns.qi_ge
   when:
-    path: palaces[*].patterns
-    contains: qi_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: qi_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: qi_ge
   weight: 50
   polarity: negative
   tags:
@@ -1173,15 +2406,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.fu_gan_ge
   system: qimen
   section: patterns
   topic: patterns.fu_gan_ge
   when:
-    path: palaces[*].patterns
-    contains: fu_gan_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: fu_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: fu_gan_ge
   weight: 50
   polarity: negative
   tags:
@@ -1215,15 +2492,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.fei_gan_ge
   system: qimen
   section: patterns
   topic: patterns.fei_gan_ge
   when:
-    path: palaces[*].patterns
-    contains: fei_gan_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: fei_gan_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: fei_gan_ge
   weight: 50
   polarity: negative
   tags:
@@ -1257,15 +2578,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.wu_bu_yu_shi
   system: qimen
   section: patterns
   topic: patterns.wu_bu_yu_shi
   when:
-    path: palaces[*].patterns
-    contains: wu_bu_yu_shi
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: wu_bu_yu_shi
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: wu_bu_yu_shi
   weight: 50
   polarity: negative
   tags:
@@ -1299,15 +2664,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.ri_yue_bing_xing
   system: qimen
   section: patterns
   topic: patterns.ri_yue_bing_xing
   when:
-    path: palaces[*].patterns
-    contains: ri_yue_bing_xing
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: ri_yue_bing_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: ri_yue_bing_xing
   weight: 65
   polarity: positive
   tags:
@@ -1341,15 +2750,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.qi_yi_xiang_zuo
   system: qimen
   section: patterns
   topic: patterns.qi_yi_xiang_zuo
   when:
-    path: palaces[*].patterns
-    contains: qi_yi_xiang_zuo
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: qi_yi_xiang_zuo
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: qi_yi_xiang_zuo
   weight: 65
   polarity: positive
   tags:
@@ -1383,15 +2836,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.xing_qi_zhu_que
   system: qimen
   section: patterns
   topic: patterns.xing_qi_zhu_que
   when:
-    path: palaces[*].patterns
-    contains: xing_qi_zhu_que
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: xing_qi_zhu_que
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: xing_qi_zhu_que
   weight: 65
   polarity: positive
   tags:
@@ -1425,15 +2922,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.qi_ru_tai_yin
   system: qimen
   section: patterns
   topic: patterns.qi_ru_tai_yin
   when:
-    path: palaces[*].patterns
-    contains: qi_ru_tai_yin
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: qi_ru_tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: qi_ru_tai_yin
   weight: 65
   polarity: positive
   tags:
@@ -1467,15 +3008,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.san_qi_ru_mu_bing
   system: qimen
   section: patterns
   topic: patterns.san_qi_ru_mu_bing
   when:
-    path: palaces[*].patterns
-    contains: san_qi_ru_mu_bing
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: san_qi_ru_mu_bing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: san_qi_ru_mu_bing
   weight: 50
   polarity: negative
   tags:
@@ -1509,15 +3094,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.fu_gong_ge
   system: qimen
   section: patterns
   topic: patterns.fu_gong_ge
   when:
-    path: palaces[*].patterns
-    contains: fu_gong_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: fu_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: fu_gong_ge
   weight: 50
   polarity: negative
   tags:
@@ -1551,15 +3180,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.patterns.fei_gong_ge
   system: qimen
   section: patterns
   topic: patterns.fei_gong_ge
   when:
-    path: palaces[*].patterns
-    contains: fei_gong_ge
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: fei_gong_ge
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: fei_gong_ge
   weight: 50
   polarity: negative
   tags:
@@ -1593,15 +3266,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.tian_wang_si_zhang
   system: qimen
   section: patterns
   topic: patterns.tian_wang_si_zhang
   when:
-    path: palaces[*].patterns
-    contains: tian_wang_si_zhang
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: tian_wang_si_zhang
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: tian_wang_si_zhang
   weight: 50
   polarity: negative
   tags:
@@ -1635,15 +3352,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published
 - id: qimen.patterns.tian_yu
   system: qimen
   section: patterns
   topic: patterns.tian_yu
   when:
-    path: palaces[*].patterns
-    contains: tian_yu
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].patterns
+            contains: tian_yu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].patterns
+            contains: tian_yu
   weight: 50
   polarity: negative
   tags:
@@ -1677,5 +3438,5 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 1
+    version: 2
     status: published

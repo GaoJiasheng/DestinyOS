@@ -1,11 +1,56 @@
+# // DESIGN-GAP: §9 does not specify relevance scoping; bind each symbol to a selected useGods palace via its index, using the existing condition DSL.
 # // DESIGN-GAP: Narrative meanings use mainstream symbolic associations; selection and scoring follow only existing engine fields.
 - id: qimen.flags.void
   system: qimen
   section: patterns
   topic: flags.void
   when:
-    path: palaces[*].flags
-    contains: void
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: void
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: void
   weight: 45
   polarity: negative
   tags:
@@ -39,15 +84,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.flags.horse
   system: qimen
   section: patterns
   topic: flags.horse
   when:
-    path: palaces[*].flags
-    contains: horse
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: horse
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: horse
   weight: 45
   polarity: neutral
   tags:
@@ -81,15 +170,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.flags.fu_yin
   system: qimen
   section: patterns
   topic: flags.fu_yin
   when:
-    path: palaces[*].flags
-    contains: fu_yin
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: fu_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: fu_yin
   weight: 45
   polarity: negative
   tags:
@@ -123,15 +256,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.flags.fan_yin
   system: qimen
   section: patterns
   topic: flags.fan_yin
   when:
-    path: palaces[*].flags
-    contains: fan_yin
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: fan_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: fan_yin
   weight: 45
   polarity: negative
   tags:
@@ -165,15 +342,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.flags.gate_forced
   system: qimen
   section: patterns
   topic: flags.gate_forced
   when:
-    path: palaces[*].flags
-    contains: gate_forced
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: gate_forced
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: gate_forced
   weight: 45
   polarity: negative
   tags:
@@ -207,15 +428,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.flags.gate_controlled
   system: qimen
   section: patterns
   topic: flags.gate_controlled
   when:
-    path: palaces[*].flags
-    contains: gate_controlled
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: gate_controlled
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: gate_controlled
   weight: 45
   polarity: neutral
   tags:
@@ -249,15 +514,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.flags.ji_xing
   system: qimen
   section: patterns
   topic: flags.ji_xing
   when:
-    path: palaces[*].flags
-    contains: ji_xing
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: ji_xing
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: ji_xing
   weight: 45
   polarity: negative
   tags:
@@ -291,15 +600,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.flags.ru_mu
   system: qimen
   section: patterns
   topic: flags.ru_mu
   when:
-    path: palaces[*].flags
-    contains: ru_mu
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].flags
+            contains: ru_mu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].flags
+            contains: ru_mu
   weight: 45
   polarity: negative
   tags:
@@ -333,5 +686,5 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
