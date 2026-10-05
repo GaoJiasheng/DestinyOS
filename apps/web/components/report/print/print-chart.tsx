@@ -8,6 +8,7 @@ import {
   TarotChartSchema,
   AstroChartSchema,
   VedicChartSchema,
+  NumerologyChartSchema,
   TAROT_SPREADS,
 } from '@tianji/shared';
 import { ZIWEI_POSITIONS } from '@/components/charts/ziwei-geometry';
@@ -23,6 +24,115 @@ export function PrintChart({ chart }: { chart: unknown }) {
   const a = AstroChartSchema.safeParse(chart);
   const v = VedicChartSchema.safeParse(chart);
   const r = TarotChartSchema.safeParse(chart);
+  const n = NumerologyChartSchema.safeParse(chart);
+  // DESIGN-GAP: The newly merged numerology system gets a static SVG print layout without interactive controls or entrance animation.
+  if (n.success) {
+    const value = (number: number | null) =>
+      number === null ? t('numerology.empty') : t('common.number', { value: number });
+    const metrics = [
+      ['lifePath', n.data.lifePath.number],
+      ['birthday', n.data.birthday.number],
+      ['expression', n.data.nameNumbers?.expression.number ?? null],
+      ['soul', n.data.nameNumbers?.soul.number ?? null],
+      ['personality', n.data.nameNumbers?.personality.number ?? null],
+    ] as const;
+    return (
+      <svg viewBox="0 0 680 680" role="img" aria-label={t('report.chart')} className="print-vector">
+        <title>{t('report.chart')}</title>
+        {metrics.map(([key, number], i) => (
+          <g key={key}>
+            <rect
+              x={i * 136 + 5}
+              y="30"
+              width="126"
+              height="125"
+              rx="8"
+              fill="var(--surface-1)"
+              stroke="var(--gold)"
+            />
+            <text x={i * 136 + 68} y="62" textAnchor="middle" fontSize="12">
+              {t(`numerology.${key}`)}
+            </text>
+            <text x={i * 136 + 68} y="122" textAnchor="middle" fontSize="40" fill="var(--gold)">
+              {value(number)}
+            </text>
+          </g>
+        ))}
+        <text x="170" y="220" textAnchor="middle" fontSize="18">
+          {t('numerology.grid')}
+        </text>
+        {[3, 6, 9, 2, 5, 8, 1, 4, 7].map((digit, i) => {
+          const count = n.data.grid.find((cell) => cell.digit === digit)!.count;
+          const x = 20 + (i % 3) * 100,
+            y = 265 + Math.floor(i / 3) * 100;
+          return (
+            <g key={digit} aria-label={t('numerology.gridCell', { digit, count })}>
+              <rect
+                x={x}
+                y={y}
+                width="96"
+                height="96"
+                fill="var(--surface-1)"
+                stroke="var(--gold)"
+              />
+              <text x={x + 12} y={y + 24} fontSize="14">
+                {value(digit)}
+              </text>
+              <text
+                x={x + 48}
+                y={y + 62}
+                textAnchor="middle"
+                fontSize={count > 4 ? 12 : 18}
+                fill="var(--gold)"
+              >
+                {count
+                  ? t('report.content', {
+                      text: Array.from({ length: count }, () => digit).join(' '),
+                    })
+                  : t('numerology.empty')}
+              </text>
+            </g>
+          );
+        })}
+        <text x="500" y="220" textAnchor="middle" fontSize="18">
+          {t('numerology.cycles')}
+        </text>
+        <circle cx="500" cy="415" r="115" fill="none" stroke="var(--gold)" />
+        {n.data.cycles.map((cycle, i) => {
+          const angle = (i * Math.PI * 2) / 9 - Math.PI / 2;
+          const x = 500 + 115 * Math.cos(angle),
+            y = 415 + 115 * Math.sin(angle);
+          return (
+            <g key={cycle.year}>
+              <circle
+                cx={x}
+                cy={y}
+                r="23"
+                fill="var(--surface-1)"
+                stroke="var(--gold)"
+                strokeWidth={cycle.isCurrent ? 3 : 1}
+              />
+              <text x={x} y={y + 6} textAnchor="middle" fontSize="18">
+                {value(cycle.number)}
+              </text>
+              <text x={x} y={y + 40} textAnchor="middle" fontSize="12">
+                {t('report.content', { text: String(cycle.year) })}
+              </text>
+            </g>
+          );
+        })}
+        <text x="500" y="410" textAnchor="middle" fontSize="16">
+          {t('numerology.personalYear')}
+        </text>
+        <text x="500" y="445" textAnchor="middle" fontSize="26" fill="var(--gold)">
+          {value(n.data.personal.year)}
+        </text>
+        <text x="340" y="645" textAnchor="middle" fontSize="16">
+          {t('numerology.personalSummary', n.data.personal)}
+        </text>
+      </svg>
+    );
+  }
   if (a.success) return <NatalWheel chart={a.data} />;
   if (v.success)
     return (

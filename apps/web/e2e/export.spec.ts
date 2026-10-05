@@ -8,7 +8,16 @@ import { login, seedReading, db, birth, copies } from './m5-helpers';
 import { generateReading, json } from '../lib/reading-service';
 import { encryptField } from '../lib/crypto';
 import sharp from 'sharp';
-const systems = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'] as const;
+const systems = [
+  'bazi',
+  'ziwei',
+  'iching',
+  'qimen',
+  'tarot',
+  'astrology',
+  'vedic',
+  'numerology',
+] as const;
 const output = 'test-results/export';
 // Fixture A follows launch-check's documented fixed birth/clock, number cast and seeded Celtic Cross.
 async function seedExportReading(
@@ -67,7 +76,7 @@ test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
 });
 for (const locale of ['zh', 'en'] as const)
-  test(`${locale}: Fixture A seven-system PDF and 300dpi PNG acceptance`, async ({
+  test(`${locale}: Fixture A eight-system PDF and 300dpi PNG acceptance`, async ({
     page,
     request,
   }) => {
@@ -78,7 +87,7 @@ for (const locale of ['zh', 'en'] as const)
       `export-${locale}-${randomUUID()}@example.test`,
     );
     await mkdir(output, { recursive: true });
-    // Test-fixture entitlement allows seven pairs while production quotas remain ten per hour per account.
+    // Test-fixture entitlement allows eight pairs while production quotas remain ten per hour per account.
     for (const system of systems) {
       const reading = await seedExportReading(user.id, system, locale);
       const source = await db.reading.findUniqueOrThrow({ where: { id: reading.id } });

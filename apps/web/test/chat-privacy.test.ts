@@ -10,6 +10,7 @@ import { System } from '@tianji/shared';
 import { streamMiniMax } from '../lib/llm/minimax';
 import { encryptField, decryptField } from '../lib/crypto';
 import { SiteConfigSchema } from '../lib/site-config-schema';
+import numerology from '../../../packages/content/test/fixtures/numerology.a.json';
 const report = {
   system: 'bazi',
   locale: 'zh',
@@ -47,6 +48,27 @@ const report = {
   disclaimerKey: 'report.disclaimer.short',
 };
 describe('B-05 privacy boundary', () => {
+  it('supports numerology follow-up without sending birthday digits or dated cycles', async () => {
+    const chart = chatChart(System.numerology, numerology);
+    expect(chart).toEqual({
+      lifePath: numerology.lifePath,
+      nameNumbers: numerology.nameNumbers,
+      compatibility: numerology.compatibility,
+    });
+    const messages = await chatMessages({
+      system: System.numerology,
+      chart: numerology,
+      report: { ...report, system: System.numerology },
+      locale: 'en',
+      question: 'What does my Life Path Number mean?',
+      identities: ['Alice', '北京', 'Beijing'],
+      history: [],
+    });
+    expect(messages[0]!.content).toContain('"system":"numerology"');
+    for (const key of ['birthday', 'grid', 'personal', 'cycles', 'targetDate'])
+      expect(JSON.stringify(chart)).not.toContain(`"${key}"`);
+    expect(messages[0]!.content).not.toContain(numerology.personal.targetDate);
+  });
   it('actual outbound payload excludes birth/name/place/email from chart, report, question and history', async () => {
     vi.stubEnv('MINIMAX_API_KEY', 'unit-secret');
     vi.stubEnv('MINIMAX_BASE_URL', 'https://api.minimaxi.com/v1');

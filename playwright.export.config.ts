@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 import base from './playwright.m5.config';
-/** Seven-system bilingual production export acceptance on the isolated database/Redis/mail stack. */
+/** Eight-system bilingual production export acceptance on the isolated database/Redis/mail stack. */
 export default defineConfig({
   ...base,
   testMatch: 'export.spec.ts',

@@ -59,6 +59,8 @@ const roots: Record<System, readonly string[]> = {
     'patterns',
   ],
   vedic: ['noonChart', 'lagna', 'bodies', 'houses', 'moon', 'yogas'],
+  // DESIGN-GAP: Numerology follow-up uses derived numbers only; exclude birthday, digit grid, dated cycles and target date.
+  numerology: ['lifePath', 'nameNumbers', 'compatibility'],
   daily: [],
 };
 const forbidden =
