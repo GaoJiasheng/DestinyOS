@@ -86,25 +86,19 @@ export function TodayView({
         }
         if (result.error.code !== 'E_PROFILE_REQUIRED') throw new Error(result.error.code);
       }
-      const data = signedIn ? null : await readAnonymous();
-      const profile = data?.profile ?? demo;
-      const hash = await crypto.subtle.digest(
-        'SHA-256',
-        new TextEncoder().encode(`${data?.anonId ?? 'example'}|${date}`),
-      );
-      const seed = Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, '0')).join(
-        '',
-      );
-      const computed = await calculateDailyInWorker(
-        {
-          profile,
-          date,
-          tz: zone,
-          seed,
-          locale,
-        },
-        controller.signal,
-      );
+      const device = signedIn ? Promise.resolve(null) : readAnonymous();
+      const input = device.then(async (data) => {
+        const hash = await crypto.subtle.digest(
+          'SHA-256',
+          new TextEncoder().encode(`${data?.anonId ?? 'example'}|${date}`),
+        );
+        const seed = Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, '0')).join(
+          '',
+        );
+        return { profile: data?.profile ?? demo, date, tz: zone, seed, locale };
+      });
+      const computed = await calculateDailyInWorker(input, controller.signal);
+      const data = await device;
       if (active) {
         setValue(computed);
         setExample(!data?.profile);

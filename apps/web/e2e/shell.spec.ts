@@ -9,7 +9,7 @@ for (const locale of ['zh', 'en'] as const) {
     page,
   }, testInfo) => {
     await page.goto(`/${locale}`);
-    // DESIGN-GAP: A cold local dev build can spend over 5s compiling client hydration; require the first-visit dialog before interaction within the existing 30s test budget.
+    // DESIGN-GAP: A cold local dev build can spend over 5s compiling client hydration; allow 15s for the dialog within the shared 60s cold-start budget.
     await expect(page.getByRole('dialog')).toBeVisible({ timeout: 15_000 });
     await page.keyboard.press('Escape');
     await expect(page.getByRole('dialog')).toBeVisible();

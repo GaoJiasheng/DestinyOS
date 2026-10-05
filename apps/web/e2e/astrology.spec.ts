@@ -37,6 +37,8 @@ async function create(
     timeout: 15_000,
   });
   await page.evaluate(() => document.fonts.ready);
+  // DESIGN-GAP: Form taps can leave the emulated pointer over the newly mounted wheel; capture the neutral chart before testing explicit interactions.
+  await page.mouse.move(0, 0);
   return copy;
 }
 for (const locale of ['zh', 'en'] as const) {

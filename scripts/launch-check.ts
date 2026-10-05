@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash, randomBytes } from 'node:crypto';
-import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
+import { brotliDecompressSync } from 'node:zlib';
+import { cp, readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { z } from 'zod';
@@ -254,9 +255,12 @@ await check('SEC-3', () => {
 // DESIGN-GAP: Vercel uses apps/web as project root; deployment resources must be present in Next.js file traces, and cron config must live at that app root.
 await check('DEPLOY/config', async () => {
   const worker = z
-    .object({ url: z.string().regex(/^\/workers\/daily-[a-f0-9]{16}\.js$/) })
+    .object({ url: z.string().regex(/^\/workers\/br\/daily-[a-f0-9]{16}\.js$/) })
     .parse(JSON.parse(await readFile('apps/web/lib/daily-worker-asset.json', 'utf8')));
-  const bytes = await readFile(`apps/web/public${worker.url}`);
+  const compressed = await readFile(`apps/web/public${worker.url}`);
+  const bytes = brotliDecompressSync(compressed);
+  assert.deepEqual(bytes, await readFile(`apps/web/public${worker.url.replace('/br/', '/')}`));
+  assert.ok(compressed.byteLength < bytes.byteLength);
   assert.ok(worker.url.includes(createHash('sha256').update(bytes).digest('hex').slice(0, 16)));
   const config = z
     .object({
@@ -304,6 +308,16 @@ if (process.argv.includes('--full')) {
       const child = spawn('pnpm', [command], { stdio: 'inherit', env: process.env });
       child.on('error', (error) => console.error(error.message));
       const code = await new Promise<number | null>((resolve) => child.on('close', resolve));
+      // DESIGN-GAP: Lighthouse's prerequisite Playwright run clears test-results; preserve failed E2E screenshots/traces before collecting independent performance evidence.
+      if (command === 'test:e2e' && code !== 0) {
+        await mkdir('.launch-check', { recursive: true });
+        const directory = `.launch-check/browser-failure-${Date.now()}`;
+        await cp('test-results', directory, { recursive: true })
+          .then(() => console.log(`E2E failure screenshots and traces preserved in ${directory}`))
+          .catch(() =>
+            console.warn('E2E artifacts could not be copied; inspect the Playwright output.'),
+          );
+      }
       assert.equal(code, 0, `${command} exited ${code}`);
       return `${command} passed; see Playwright/Lighthouse artifacts`;
     });

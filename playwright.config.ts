@@ -17,10 +17,12 @@ export default defineConfig({
     'm5-accessibility.spec.ts',
   ],
   fullyParallel: true,
+  // DESIGN-GAP: Cold dev compilation and hydration share the test budget; allow 60s without relaxing individual UI assertions.
+  timeout: 60_000,
   // DESIGN-GAP: Self-hosted fonts use one baseline name across macOS developers and Ubuntu CI; keep the same pixel tolerance.
   snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
-  // DESIGN-GAP: Two browser workers keep screenshots and cold Next.js compilation within the existing timeout.
-  workers: 2,
+  // DESIGN-GAP: Serialize the dev-server suite so simultaneous cold route compilations do not compete with browser hydration.
+  workers: 1,
   retries: 0,
   reporter: 'list',
   use: { baseURL: 'http://localhost:3000', trace: 'retain-on-failure' },

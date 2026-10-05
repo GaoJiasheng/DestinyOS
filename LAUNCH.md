@@ -96,6 +96,22 @@ pnpm launch:check --full
 `--release` 将任何外部门槛未通过也视为非零退出，不会仅凭本地成功声明可以公开上线。
 语言扫描保留文档要求的古文原文、拼音、品牌/署名/技术缩写；正常界面、报告正文和命盘标签仍须本地化。
 
+## 本次本地验证结果（2026-10-05）
+
+最终使用 Node.js 22.23.3 / pnpm 9.15.9；安装、lint、typecheck、test、content:validate、i18n:check、build、`launch:check --full` 均退出 0；许可证与安全策略检查通过。
+单元测试 55 文件 / 1201 项，行覆盖率 99.95%、分支 99.07%；完整 `test:e2e` 197 项通过，性能前置真实内容/离线检查另 4 项通过。
+Fixture A 七体系共 14 份双语报告，篇幅、章节、占位符、禁词和语言检查全部通过；详细字数见 `docs/progress/T-64.md`。
+以下是各页面三次移动 Lighthouse 的最差值，使用完整报告，阈值保持 Performance ≥85、Accessibility ≥90：
+
+| 页面         | Performance | Accessibility |
+| ------------ | ----------: | ------------: |
+| 首页         |          99 |            99 |
+| today        |          88 |           100 |
+| 八字完整报告 |         100 |           100 |
+
+最终结果为 `.launch-check/results.json`，性能产物为 `.lighthouseci/reports/manifest.json`；这四项外部门槛明确显示未通过：真实 Google 重登、OAuth consent 链接、生产 CSP enforce、Owner 服务/审核/恢复证据。
+失败 E2E 的截图与 trace 在后续性能预检前复制至 `.launch-check/browser-failure-*`，避免排错证据被覆盖。
+
 ## 仍需发布证据
 
 - CSP 按 08 §5 先 Report-Only 至少一周，查看 `/api/v1/csp/report` 的匿名违规计数，带真实 AdSense/CMP/Stripe 遍历页面；静态页内联脚本也必须审计。

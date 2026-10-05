@@ -3,7 +3,7 @@
 面向海外华人的中英双语命理平台，域名 `tianji.gavin.pub`。`docs/` 是唯一需求来源。
 七体系与每日运势使用确定性排盘、结构化知识库，运行时不调用 LLM。Next.js 15、React 19、TypeScript strict、next-intl、Prisma/PostgreSQL、Redis，部署目标 Vercel Pro。
 
-当前为 **T-64 上线验收阶段**：本地自动验收与服务发布门槛分开记录。Vercel CLI 未登录，尚无 Preview；生产账户、内容人工审稿、CSP enforce 等待 Owner 完成。
+当前 **T-64 本地自动验收已完成**：1201 项单测、197 项 E2E 全部通过；服务发布门槛单独记录。Vercel CLI 未登录，尚无 Preview；生产账户、内容人工审稿、CSP enforce 等待 Owner 完成。
 完整任务状态与已知问题见 [进度汇总](docs/progress/SUMMARY.md)，部署和环境变量见 [LAUNCH.md](LAUNCH.md)。
 
 ## 本地运行
@@ -46,6 +46,7 @@ pnpm launch:check --full
 
 `launch:check --full` 实际执行 `pnpm test:e2e` 与 `pnpm perf:ci`。E2E 自动启动本地 dev server 和隔离数据库/Redis/邮件/签名 Stripe 测试服务；无需真实付款密钥。
 Lighthouse 先验证中英双语每日页真实内容与离线计算，再使用生产构建审计首页、today、八字完整报告各 3 次，移动端最差 Performance ≥85、Accessibility ≥90。
+本次九次移动审计的最差 Performance：首页 / today / 八字完整报告为 99 / 88 / 100，Accessibility 为 99 / 100 / 100。
 不要并发运行 dev、build 和性能审计，它们共用 `apps/web/.next`；截图和性能结果分别在 `test-results/`、`.lighthouseci/reports/`。
 
 `pnpm launch:check` 是快速质量/隐私/部署产物探针，浏览器项会显示未验证；JSON 记录在 `.launch-check/results.json`。

@@ -28,6 +28,11 @@ const config: NextConfig = {
         source: '/workers/:path*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      // DESIGN-GAP: Modern supported browsers decode Brotli over HTTPS/localhost; only build-time compressed workers receive this header, never the raw fallback files.
+      {
+        source: '/workers/br/:path*',
+        headers: [{ key: 'Content-Encoding', value: 'br' }],
+      },
       {
         source: '/admin/:path*',
         headers: [

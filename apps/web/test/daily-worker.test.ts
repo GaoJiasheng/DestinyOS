@@ -36,6 +36,47 @@ beforeEach(() => {
 });
 afterEach(() => vi.unstubAllGlobals());
 describe('anonymous daily worker lifecycle', () => {
+  it('starts before profile decryption finishes and posts only the resolved input', async () => {
+    let resolveInput!: (value: DailyWorkerRequest) => void;
+    const input = new Promise<DailyWorkerRequest>((resolve) => {
+      resolveInput = resolve;
+    });
+    const pending = calculateDailyInWorker(input, new AbortController().signal);
+    const rejected = expect(pending).rejects.toThrow('E_INTERNAL');
+    const worker = BrowserWorker.instances[0]!;
+    expect(worker.postMessage).not.toHaveBeenCalled();
+    resolveInput(request);
+    await Promise.resolve();
+    expect(worker.postMessage).toHaveBeenCalledExactlyOnceWith(request);
+    worker.onmessage!({
+      data: { ok: false, code: 'E_INTERNAL' },
+    } as MessageEvent<DailyWorkerResponse>);
+    await rejected;
+    expect(worker.terminate).toHaveBeenCalledOnce();
+  });
+  it('never posts a late profile after navigation cancels the calculation', async () => {
+    let resolveInput!: (value: DailyWorkerRequest) => void;
+    const input = new Promise<DailyWorkerRequest>((resolve) => {
+      resolveInput = resolve;
+    });
+    const controller = new AbortController();
+    const pending = calculateDailyInWorker(input, controller.signal);
+    const rejected = expect(pending).rejects.toMatchObject({ name: 'AbortError' });
+    controller.abort();
+    resolveInput(request);
+    await rejected;
+    expect(BrowserWorker.instances[0]!.postMessage).not.toHaveBeenCalled();
+    expect(BrowserWorker.instances[0]!.terminate).toHaveBeenCalledOnce();
+  });
+  it('terminates on decryption failure without exposing the private error', async () => {
+    const pending = calculateDailyInWorker(
+      Promise.reject(new Error('Private birth 1990-05-15')),
+      new AbortController().signal,
+    );
+    await expect(pending).rejects.toThrow('E_INTERNAL');
+    expect(BrowserWorker.instances[0]!.postMessage).not.toHaveBeenCalled();
+    expect(BrowserWorker.instances[0]!.terminate).toHaveBeenCalledOnce();
+  });
   it('cancels obsolete profile/date computations and releases their worker', async () => {
     const controller = new AbortController();
     const pending = calculateDailyInWorker(request, controller.signal);
@@ -46,6 +87,9 @@ describe('anonymous daily worker lifecycle', () => {
     await expect(calculateDailyInWorker(request, controller.signal)).rejects.toMatchObject({
       name: 'AbortError',
     });
+    await expect(
+      calculateDailyInWorker(Promise.reject(new Error('Private profile')), controller.signal),
+    ).rejects.toMatchObject({ name: 'AbortError' });
     expect(BrowserWorker.instances).toHaveLength(1);
   });
   it('reports a sanitized failure and terminates a broken worker', async () => {
