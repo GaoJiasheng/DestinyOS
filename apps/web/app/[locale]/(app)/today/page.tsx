@@ -37,6 +37,7 @@ export default async function TodayPage() {
       <TodayView
         key={profile ? `${profile.id}:${profile.version}` : 'local'}
         signedIn={Boolean(session?.user.id)}
+        profileId={profile?.id}
         tz={user?.tz}
         plan={user?.plan ?? 'free'}
         vedicUsed={vedicUsed}

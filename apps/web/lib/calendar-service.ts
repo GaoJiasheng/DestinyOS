@@ -29,8 +29,9 @@ export async function dailyRangeForUser(
   tz: string,
   locale: Locale,
 ): Promise<DailyRangeDay[]> {
-  const { birth } = await ownerProfile(userId);
-  return computeDailyRange(birth, from, to, tz, userId, locale);
+  const { profile, birth } = await ownerProfile(userId);
+  // DESIGN-GAP: Multi-profile daily seeds include the profile identity, matching the daily report cache.
+  return computeDailyRange(birth, from, to, tz, `${userId}|${profile.id}`, locale);
 }
 // DESIGN-GAP: Annual cache TTL is 24 hours; profile version, engine version, locale and zone prevent stale personal transitions after edits or travel.
 /** Annual events cached by owner and year, with validated data on cache reads. */

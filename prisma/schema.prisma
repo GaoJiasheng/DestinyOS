@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
 }
 
@@ -92,6 +92,7 @@ model User {
   subscription         Subscription?
   shareLinks           ShareLink[]
   feedbacks            Feedback[]
+  journalEntries       JournalEntry[]
 
   @@index([deletedAt])
 }
@@ -134,30 +135,32 @@ model VerificationToken {
 }
 
 model BirthProfile {
-  id          String    @id @default(cuid())
-  userId      String
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  version     Int       @default(1) // 每次编辑 +1；isCurrent=false 仅兼容一期旧版本归档
-  isCurrent   Boolean   @default(true) // Legacy archived rows remain false; multiple live profiles are allowed.
+  id              String          @id @default(cuid())
+  userId          String
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  version         Int             @default(1) // 每次编辑 +1；isCurrent=false 仅兼容一期旧版本归档
+  isCurrent       Boolean         @default(true) // Legacy archived rows remain false; multiple live profiles are allowed.
   // DESIGN-GAP: Legacy labels remain nullable and fall back to encName; new labels are application-encrypted.
-  label       String? // Never a public chart field.
-  isDefault   Boolean   @default(false)
-  relation    ProfileRelation @default(self)
+  label           String? // Never a public chart field.
+  isDefault       Boolean         @default(false)
+  relation        ProfileRelation @default(self)
   // ---- 加密列：ciphertext 格式 "v<keyVersion>:<iv b64>:<tag b64>:<data b64>" ----
-  encBirth    String // JSON {calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown}
-  encPlace    String? // JSON {name, lat, lng, tz}
-  encName     String? // 用户给该档案起的名字（一期只有"我"）
+  encBirth        String // JSON {calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown}
+  encPlace        String? // JSON {name, lat, lng, tz}
+  encName         String? // 用户给该档案起的名字（一期只有"我"）
   // ---- 明文派生字段（低敏感，用于查询/统计/缓存键，不足以反推生日）----
-  gender      Gender
-  timeUnknown Boolean
-  tz          String // 出生地时区（IANA），用于每日运势默认时区
-  birthYear   Int // 年龄门槛检查（<13 阻断）与粗粒度统计；不存月日
-  chartHash   String // sha256(规范化出生输入 + 流派参数)，用作排盘缓存键
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  readings    Reading[] @relation("ReadingProfile")
-  partnerReadings Reading[] @relation("SynastryPartner")
+  gender          Gender
+  timeUnknown     Boolean
+  tz              String // 出生地时区（IANA），用于每日运势默认时区
+  birthYear       Int // 年龄门槛检查（<13 阻断）与粗粒度统计；不存月日
+  chartHash       String // sha256(规范化出生输入 + 流派参数)，用作排盘缓存键
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  readings        Reading[]       @relation("ReadingProfile")
+  partnerReadings Reading[]       @relation("SynastryPartner")
+  journalEntries  JournalEntry[]
 
+  @@unique([id, userId])
   @@index([userId, isDefault])
   @@index([userId, isCurrent])
 }
@@ -336,4 +339,21 @@ model ChatQuota {
   count  Int      @default(0)
 
   @@id([userId, day])
+}
+
+// DESIGN-GAP: Daily edits keep one immutable prediction snapshot; profile deletion cascades private journals.
+model JournalEntry {
+  id         String       @id @default(cuid())
+  userId     String
+  user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  profileId  String
+  profile    BirthProfile @relation(fields: [profileId, userId], references: [id, userId], onDelete: Cascade)
+  date       DateTime     @db.Date
+  mood       Int
+  text       String // AES-256-GCM, JournalEntry.text AAD, per-user key
+  prediction Json
+  createdAt  DateTime     @default(now())
+
+  @@unique([profileId, date])
+  @@index([userId, profileId, date(sort: Desc)])
 }

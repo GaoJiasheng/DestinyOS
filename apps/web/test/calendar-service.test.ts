@@ -171,3 +171,16 @@ it('zh-TW calendar actions compute scores and retain a separate annual cache', a
   ).toMatchObject({ ok: true });
   expect(mocks.daily).toHaveBeenCalledWith('owner', '2026-10-01', 'Asia/Shanghai', 'zh-TW');
 });
+
+it('pins journal-linked daily requests to an explicitly owned profile across cookie changes', async () => {
+  mocks.daily.mockResolvedValue({ chart: { date: { local: '2026-10-06' } } });
+  const input = { profileId: 'profile-one', date: '2026-10-06', tz: 'UTC', locale: 'en' };
+  expect(await getDailyAction(input)).toMatchObject({ ok: true });
+  expect(mocks.profile).toHaveBeenCalledWith({
+    where: { id: 'profile-one', userId: 'owner', isCurrent: true },
+  });
+  expect(mocks.daily).toHaveBeenCalledWith('owner', input.date, 'UTC', 'en', 'profile-one');
+  mocks.profile.mockResolvedValue(null);
+  expect(await getDailyAction(input)).toMatchObject({ ok: false, error: { code: 'E_FORBIDDEN' } });
+  expect(mocks.daily).toHaveBeenCalledTimes(1);
+});

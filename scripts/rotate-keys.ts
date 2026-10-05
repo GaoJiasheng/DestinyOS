@@ -70,6 +70,36 @@ export async function rotateKeys(db: PrismaClient): Promise<void> {
     );
     cursor = rows.at(-1)?.id;
   }
+  cursor = undefined;
+  while (true) {
+    const rows: { id: string }[] = await db.journalEntry.findMany({
+      take: 500,
+      orderBy: { id: 'asc' },
+      ...(cursor ? { cursor: { id: cursor }, skip: 1 } : {}),
+      select: { id: true },
+    });
+    if (!rows.length) break;
+    await db.$transaction(
+      async (tx) => {
+        for (const { id } of rows) {
+          const row = await tx.journalEntry.findUnique({ where: { id } });
+          if (!row) continue;
+          await tx.journalEntry.update({
+            where: { id },
+            data: {
+              text: encryptField(
+                decryptField(row.text, 'JournalEntry.text', row.userId),
+                'JournalEntry.text',
+                row.userId,
+              ),
+            },
+          });
+        }
+      },
+      { isolationLevel: 'Serializable', timeout: 60_000 },
+    );
+    cursor = rows.at(-1)?.id;
+  }
 }
 
 // DESIGN-GAP: Export the real rotation operation for database regression tests; only direct CLI execution runs it.

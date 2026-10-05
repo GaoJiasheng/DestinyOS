@@ -36,7 +36,8 @@ export function encryptField(plain: string, aad: string, userId: string, config?
     !(
       /^[A-Za-z]+\.enc[A-Za-z]+$/.test(aad) ||
       aad === 'ChatMessage.content' ||
-      aad === 'BirthProfile.label'
+      aad === 'BirthProfile.label' ||
+      aad === 'JournalEntry.text'
     )
   )
     throw new Error('Invalid encryption context');

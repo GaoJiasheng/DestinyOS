@@ -385,6 +385,9 @@ importers:
 
   packages/shared:
     dependencies:
+      '@js-temporal/polyfill':
+        specifier: ^0.5.1
+        version: 0.5.1
       opencc-js:
         specifier: 1.4.2
         version: 1.4.2

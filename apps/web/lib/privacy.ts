@@ -1,5 +1,5 @@
 const privateKeys =
-  /^(?:birth|birthInput|normalizedBirth|birthYear|birthDate|dateOfBirth|dob|year|month|day|hour|minute|place|lat|lng|latitude|longitude|displayName|questionText|body|headers|cookies|query_string|queryString|enc\w+|question|email|authorization|cookie|password|token|sessionToken|access_token|refresh_token|id_token|secret)$/i;
+  /^(?:journal|journalEntry|journalEntries|journalText|mood|text|birth|birthInput|normalizedBirth|birthYear|birthDate|dateOfBirth|dob|year|month|day|hour|minute|place|lat|lng|latitude|longitude|displayName|questionText|body|headers|cookies|query_string|queryString|enc\w+|question|email|authorization|cookie|password|token|sessionToken|access_token|refresh_token|id_token|secret)$/i;
 
 /** Scrub dates, email addresses and sensitive URL parameters from telemetry strings. */
 export function scrubText(value: string): string {

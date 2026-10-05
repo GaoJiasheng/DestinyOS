@@ -4736,3 +4736,71 @@ html[data-reduced-motion='true'] .tarot-face img.is-reversed {
   line-height: 1.9;
   overflow-wrap: anywhere;
 }
+
+/* B-16: private mood journal and forecast comparison. */
+.journal-moods {
+  border: 0;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+}
+.journal-moods legend {
+  margin-bottom: var(--space-3);
+}
+.journal-moods label {
+  min-height: 44px;
+  padding: var(--space-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+}
+.journal-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--space-1);
+  margin-top: var(--space-5);
+}
+.journal-weekday {
+  text-align: center;
+  font-size: var(--size-caption);
+  color: var(--text-2);
+}
+.journal-day {
+  min-width: 0;
+  min-height: 80px;
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  padding: var(--space-2) var(--space-1);
+  text-align: center;
+  font-size: var(--size-caption);
+}
+.journal-day:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.journal-recorded {
+  background: var(--surface-2);
+  border-color: var(--gold);
+}
+.journal-forecast {
+  color: var(--gold-soft);
+  font-size: clamp(7px, 2vw, 12px);
+  white-space: nowrap;
+}
+.journal-actual {
+  color: var(--text-2);
+}
+.journal-list {
+  list-style: none;
+  padding: 0;
+}
+.journal-list li {
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--line-2);
+}
+.journal-moods input[type='radio'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold);
+}

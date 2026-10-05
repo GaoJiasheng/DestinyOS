@@ -7,6 +7,7 @@ type RecordValue = Record<string, unknown>;
 const encrypted: Record<string, readonly string[]> = {
   BirthProfile: ['encBirth', 'encPlace', 'encName', 'label'],
   Reading: ['encInput'],
+  JournalEntry: ['text'],
 };
 const models = new Map(relationModels.map((model) => [model.name, model]));
 function record(value: unknown): value is RecordValue {
@@ -113,6 +114,16 @@ export function fieldEncryptionExtension() {
             throw new Error('Encrypted labels cannot be used in where');
           if ((operation === 'aggregate' || operation === 'groupBy') && containsEncrypted(input))
             throw new Error('Encrypted aggregates are unsupported');
+          // DESIGN-GAP: The required text field has no enc prefix; reject its filters and aggregates explicitly.
+          if (model === 'JournalEntry') {
+            const filters = [input.where, input.cursor, input.orderBy, input.having, input.by];
+            if (
+              filters.some((filter) => /"text"/.test(JSON.stringify(filter) ?? '')) ||
+              ((operation === 'aggregate' || operation === 'groupBy') &&
+                /"text"/.test(JSON.stringify(input)))
+            )
+              throw new Error('Encrypted text cannot be used in where or aggregates');
+          }
           const fields = encrypted[model] ?? [];
           const write = async (data: unknown, updating = false): Promise<void> => {
             if (Array.isArray(data)) {

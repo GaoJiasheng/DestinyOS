@@ -9,7 +9,8 @@
       { "name": "readings", "kind": "object", "type": "Reading" },
       { "name": "subscription", "kind": "object", "type": "Subscription" },
       { "name": "shareLinks", "kind": "object", "type": "ShareLink" },
-      { "name": "feedbacks", "kind": "object", "type": "Feedback" }
+      { "name": "feedbacks", "kind": "object", "type": "Feedback" },
+      { "name": "journalEntries", "kind": "object", "type": "JournalEntry" }
     ]
   },
   {
@@ -26,7 +27,8 @@
     "fields": [
       { "name": "user", "kind": "object", "type": "User" },
       { "name": "readings", "kind": "object", "type": "Reading" },
-      { "name": "partnerReadings", "kind": "object", "type": "Reading" }
+      { "name": "partnerReadings", "kind": "object", "type": "Reading" },
+      { "name": "journalEntries", "kind": "object", "type": "JournalEntry" }
     ]
   },
   {
@@ -71,5 +73,12 @@
   {
     "name": "ChatQuota",
     "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+  },
+  {
+    "name": "JournalEntry",
+    "fields": [
+      { "name": "user", "kind": "object", "type": "User" },
+      { "name": "profile", "kind": "object", "type": "BirthProfile" }
+    ]
   }
 ]
