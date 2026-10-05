@@ -24,3 +24,8 @@ apps/web/resources/learn.json
 .vercel/
 # Generated daily worker assets, recreated before web dev/build.
 apps/web/public/workers/
+
+.open-next/
+.wrangler/
+.dev.vars*
+apps/web/public/_data/

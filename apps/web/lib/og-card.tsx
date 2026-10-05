@@ -1,9 +1,7 @@
 import { localeText } from '@tianji/shared/locale';
 import { ShareDiagram } from '@/components/share/share-diagram';
-import { ImageResponse } from '@vercel/og';
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
-import { webDirectory } from './server-resources';
+import { ImageResponse } from 'next/og';
+import { resourceBytes } from './platform/resources';
 import { brand } from '@tianji/shared';
 import type { PublicShare, DailyCard } from './share-projection';
 import { publicText } from './share-projection';
@@ -29,15 +27,10 @@ export async function renderCard(
     width = story ? 1080 : 1200,
     height = story ? 1920 : 630;
   const [font, cinzel, cormorant, qr] = await Promise.all([
-    readFile(resolve(webDirectory(), 'resources/og-font.ttf')),
-    readFile(
-      resolve(webDirectory(), 'node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff'),
-    ),
-    readFile(
-      resolve(
-        webDirectory(),
-        'node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff',
-      ),
+    resourceBytes('resources/og-font.ttf'),
+    resourceBytes('node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff'),
+    resourceBytes(
+      'node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff',
     ),
     QRCode.toDataURL(destination ?? `https://${brand.domain}/${card.locale}/today`, {
       width: 156,

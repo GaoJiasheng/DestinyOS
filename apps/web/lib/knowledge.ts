@@ -1,9 +1,7 @@
-import { readFile } from 'node:fs/promises';
+import { resourceText } from './platform/resources';
 import type { KnowledgeBundle } from '@tianji/content';
 import type { System, Locale } from '@tianji/shared';
 import { getDb } from './db';
-import { resolve } from 'node:path';
-import { webDirectory } from './server-resources';
 import { cacheRead, cacheWrite } from './cache';
 const bundled = new Map<string, Promise<KnowledgeBundle>>();
 /** Read the validated build-time fallback without resolving a database release. */
@@ -12,10 +10,9 @@ export async function bundledKnowledge(system: System, locale: Locale): Promise<
   let bundle = bundled.get(key);
   if (!bundle) {
     // DESIGN-GAP: Build validates the complete corpus; trusted compiled artifacts are typed at this filesystem boundary.
-    bundle = readFile(
-      resolve(webDirectory(), `../../packages/content/dist/${key}.json`),
-      'utf8',
-    ).then((text) => JSON.parse(text) as KnowledgeBundle);
+    bundle = resourceText(`../../packages/content/dist/${key}.json`).then(
+      (text) => JSON.parse(text) as KnowledgeBundle,
+    );
     bundled.set(key, bundle);
   }
   return bundle;

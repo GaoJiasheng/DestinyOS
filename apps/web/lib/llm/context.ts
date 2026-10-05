@@ -1,7 +1,5 @@
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { resourceText } from '../platform/resources';
 import type { System } from '@tianji/shared';
-import { webDirectory } from '../server-resources';
 import { ReportSchema } from '../reading-schema';
 import type { LlmMessage } from './minimax';
 
@@ -176,7 +174,7 @@ export async function chatMessages(input: {
   });
   // DESIGN-GAP: Bound context below the provider window and use the latest 12 turns to keep costs predictable.
   if (data.length > 100000) throw new Error('Chat context too large');
-  const prompt = await readFile(resolve(webDirectory(), 'lib/llm/prompts/chat.md'), 'utf8');
+  const prompt = await resourceText('lib/llm/prompts/chat.md');
   return [
     {
       role: 'system',

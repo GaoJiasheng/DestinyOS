@@ -1,6 +1,5 @@
-import { aggregateEvents } from '@/lib/events';
-import { scrubFeedback, maintainShares } from '@/lib/maintenance';
-import { cronAuthorized, hardDeleteAccounts } from '@/lib/account-service';
+import { cronAuthorized } from '@/lib/account-service';
+import { dailyMaintenance } from '@/lib/platform/cron';
 import { ApiError, errorResponse } from '@/lib/api-error';
 import { logger } from '@/lib/logger';
 export const dynamic = 'force-dynamic';
@@ -12,12 +11,7 @@ export async function POST(request: Request) {
     return Response.json(
       {
         ok: true,
-        data: {
-          aggregates: await aggregateEvents(),
-          deleted: await hardDeleteAccounts(),
-          scrubbed: await scrubFeedback(),
-          expiredShares: await maintainShares(),
-        },
+        data: await dailyMaintenance(),
       },
       { headers: { 'Cache-Control': 'no-store' } },
     );

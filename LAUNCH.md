@@ -31,15 +31,96 @@
 9. **Preview**：安装/使用 Vercel CLI，`pnpm dlx vercel login`；在仓库根 `pnpm dlx vercel link`，确认项目 Root Directory；`pnpm dlx vercel deploy`。
    将生成的实际 URL 写回本文，跑健康检查与完整双语验收，确认 Preview 使用隔离服务。Owner 批准后才执行 Production 发布并绑定 `tianji.gavin.pub`，DNS 以 Vercel 控制台实际提示为准。
 
+## Cloudflare Workers 部署（保留上面的 Vercel 路径）
+
+两条路径共用 Next.js、数据库 schema、认证、支付与 API。Vercel 设置 `PLATFORM=vercel`；
+Cloudflare 的 `wrangler.toml` 设置 `PLATFORM=cloudflare`。不设置时自动检测 Workers，Node 默认 Vercel。
+
+1. 开通 **Workers Paid**，使用 Node.js 22 和本仓库锁定的 OpenNext/Wrangler。
+   当前适配基于 [OpenNext 官方步骤](https://opennext.js.org/cloudflare/get-started)；Workers 的 CPU、启动、内存、压缩包及资产限制见 [官方配额](https://developers.cloudflare.com/workers/platform/limits/)。
+2. 在 `apps/web` 下运行 `pnpm exec wrangler login`（CI 使用最小权限的 `CLOUDFLARE_API_TOKEN` 和 `CLOUDFLARE_ACCOUNT_ID`）。
+   创建桶：`pnpm exec wrangler r2 bucket create destinyos-exports` 和 `pnpm exec wrangler r2 bucket create destinyos-next-cache`。
+   `EXPORT_BUCKET` 禁止启用 r2.dev/公共域名；在控制台为 `report-exports/` 设置 1 天删除的 lifecycle rule。
+   应用同时检查精确 24h TTL；下载仍要求登录、所有权及导出权限。缓存桶不得与私有导出桶混用。
+3. 启用 Browser Rendering（现名 Browser Run），绑定 `BROWSER`；字体由本站 `/_next/static` / `fonts` 资源提供，无第三方字体请求。
+   按 [当前计费](https://developers.cloudflare.com/browser-run/pricing/) 设置预算告警；Paid 含每月 10 browser hours 和 10 个平均并发会话，超额计费。
+   [硬性并发/新会话限制](https://developers.cloudflare.com/browser-run/limits/) 与计费额度不同；配额不足时导出返回失败，不降级为无权限公开链接。
+4. **Neon 与 Upstash**：生产使用独立分支/实例，Neon 选择接近主要用户的区域（亚洲用户优先 Singapore，可用性以控制台为准）；
+   Upstash REST 同区优先。Workers 从全球访问，跨区数据库事务会增加延迟，应从目标地区实测。
+   `DATABASE_URL` 保留 Neon TLS/pooled 参数；Workers 通过 `@prisma/adapter-neon` WebSocket 支持交互事务。
+   不配置 TCP `REDIS_URL`。迁移仍由 Node CI/可信终端通过 `DIRECT_DATABASE_URL` 执行，不能在请求或 Cron 中迁移。
+5. 将 `.env.example` 的服务配置逐一填入 Worker secrets。以下命令在 `apps/web` 下执行，每次交互粘贴对应值：
+
+   ```bash
+   pnpm exec wrangler secret put DATABASE_URL
+   pnpm exec wrangler secret put UPSTASH_REDIS_REST_URL
+   pnpm exec wrangler secret put UPSTASH_REDIS_REST_TOKEN
+   pnpm exec wrangler secret put AUTH_SECRET
+   pnpm exec wrangler secret put AUTH_GOOGLE_ID
+   pnpm exec wrangler secret put AUTH_GOOGLE_SECRET
+   pnpm exec wrangler secret put RESEND_API_KEY
+   pnpm exec wrangler secret put FIELD_ENCRYPTION_KEYS
+   pnpm exec wrangler secret put STRIPE_SECRET_KEY
+   pnpm exec wrangler secret put STRIPE_WEBHOOK_SECRET
+   pnpm exec wrangler secret put CRON_SECRET
+   # 仅启用 AI 追问时：
+   pnpm exec wrangler secret put MINIMAX_API_KEY
+   ```
+
+   `DIRECT_DATABASE_URL` 只需配置在迁移终端/CI；如将其存入 Worker，也必须用 `wrangler secret put`。
+   `EMAIL_FROM`、`ADMIN_EMAILS`、Stripe price IDs、法律身份、功能开关等非秘密项配置于 `wrangler.toml` 的 `[vars]`。
+   `NEXT_PUBLIC_*` 在构建时注入；运行时修改不能改变已编译客户端。不要把秘密放进 NEXT_PUBLIC 或 Wrangler `[vars]`。
+
+6. 仓库根执行 `pnpm install --frozen-lockfile`、`pnpm db:deploy`、`pnpm content:import`、`pnpm cf:build`。
+   `pnpm cf:preview` 调用 wrangler dev，默认本地 R2 模拟；`apps/web/.dev.vars` 放隔离本地 secrets，禁止 Git 提交。
+   锁定的 Wrangler 支持本地 Browser proxy，并自动下载测试 Chromium；本地绑定验证不代表已验证云端配额与网络。
+   真正远程浏览器无法访问 localhost；部署后使用隔离 HTTPS 预览源复验八大体系 PDF/PNG 的页数、字体和权限。
+   本地 Chromium 不可用时运行 Browser Rendering mock 单测，并明确记录该限制。
+7. `pnpm cf:deploy` 构建并发布 Workers。CI 的 `cloudflare-build` 仅构建和 dry-run，绝不部署。
+   Cron Triggers 已设 `0 3 * * *`（UTC）；scheduled 进入同一个带 CRON_SECRET 的维护函数，无公开网络调用。
+   在隔离环境用 `wrangler dev --test-scheduled` 和 `/__scheduled?cron=0+3+*+*+*` 验证，禁止把测试 Cron 接入生产数据库。
+8. 预览验收后，把 `tianji.gavin.pub` 纳入 Cloudflare 托管 zone，在 Workers → Settings → Domains 添加 Custom Domain，
+   或启用 `wrangler.toml` 注释中的 `[[routes]] custom_domain=true`；DNS/TLS 以控制台实际状态为准。
+   同步 `AUTH_URL`、`NEXT_PUBLIC_SITE_URL`、Google callback 和 Stripe webhook；一个生产域名一次只指向一个平台。
+   `AUTH_TRUST_HOST=true` 仅用于可信代理；Google/Resend/Stripe 的真实验收继续按上文执行。
+9. 在 Workers Logs / `wrangler tail` 检查脱敏 JSON、响应错误与配额；设置与 08 文档一致的日志保留期。
+   回滚 Workers 至上一已验收版本，同时保留兼容的 Neon schema 和字段密钥。Vercel 的回滚流程继续有效。
+
+### Cloudflare 本地验收命令
+
+先用隔离 `.dev.vars` 配置 AUTH_SECRET、CRON_SECRET、Stripe 测试 secrets 和 MiniMax key；不要接生产数据库。
+无真实 Upstash 时可设置 `UPSTASH_REDIS_REST_URL=http://127.0.0.1:8791`、测试 token，分别运行：
+
+```bash
+pnpm exec tsx scripts/cloudflare-redis-mock.ts
+pnpm cf:preview
+pnpm test:cloudflare:e2e
+# 独立 workerd SDK/存储/浏览器探针，始终不部署此测试入口：
+pnpm --filter @tianji/web exec wrangler dev test/cloudflare-runtime-worker.ts --port 8788 --name destinyos-runtime-smoke
+```
+
+探针 `/services` mock 验证 Resend 序列化与 Stripe 原始 body 签名；`/storage` 验证本地 R2 和 Upstash REST；
+`/llm` 使用实际配置的 MiniMax key 输出 NDJSON；`/render?format=pdf|png` 使用本地 Browser binding 渲染三页字体 fixture。
+测试入口不被生产 `worker.ts` 导入；真实 Google/Resend 邮件、Neon 事务和付费账户追问仍须在隔离云端服务上验收。
+Cloudflare Assets 自行协商压缩；`cf:build` 会展开每日 worker 的预压缩副本，避免重复压缩，Vercel 继续使用原 Brotli 产物。
+
+2026-10-06 本地适配验收使用 Node 25.8.2 / pnpm 9.15.9：Wrangler 中英首页、匿名完整八字、每日运势与日期切换均通过；
+真实 MiniMax key 的 workerd 流式探针收到 delta 与 usage，双语 `next/og` 返回 PNG。
+本地 Browser binding 的字体 fixture 生成三页 A4 PDF（中文 Noto、英文 Cormorant 均嵌入）及 2480×3508、300dpi PNG。
+R2 本地存取、Upstash REST mock、Resend mock 与 Stripe WebCrypto 原始 body 签名通过。
+最终部署 dry-run 压缩 Worker 为 9180.18 KiB，构建产物密钥扫描通过；这些证据不替代云端服务与真实账户验收，未进行部署。
+Vercel 路径 `pnpm build` 与 5 项原有导出 E2E 通过（中英八体系 PDF/PNG、所有权、会员、缓存、配额及下载进度）；
+本轮必需 install/lint/typecheck/test 均通过，单测为 85 文件 / 3565 项。
+
 ## 环境变量清单
 
-完整模板为 `.env.example`，秘密仅放 Vercel 环境变量/密钥管理，区分 Production 与 Preview，不能进入 NEXT_PUBLIC、Git 或日志。
+完整模板为 `.env.example`，秘密仅放所选平台的环境变量/密钥管理，区分 Production 与 Preview，不能进入 NEXT_PUBLIC、Git 或日志。
 
 | 分组      | 变量与配置                                                                                                                                                                                                         |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 数据库    | `DATABASE_URL`、`DIRECT_DATABASE_URL`，Neon pooled/直连，独立 Preview 分支                                                                                                                                         |
 | 缓存      | `UPSTASH_REDIS_REST_URL`、`UPSTASH_REDIS_REST_TOKEN`；`REDIS_URL` 仅本地可替代 REST                                                                                                                                |
-| 认证      | `AUTH_SECRET`、`AUTH_GOOGLE_ID`、`AUTH_GOOGLE_SECRET`、`AUTH_URL`（实际环境 origin）、`AUTH_TRUST_HOST=true`（可信 Vercel 代理）                                                                                   |
+| 认证      | `AUTH_SECRET`、`AUTH_GOOGLE_ID`、`AUTH_GOOGLE_SECRET`、`AUTH_URL`（实际环境 origin）、`AUTH_TRUST_HOST=true`（可信 Vercel/Cloudflare 代理）                                                                        |
 | 邮件      | `RESEND_API_KEY`、`EMAIL_FROM`（域名已验证）                                                                                                                                                                       |
 | 字段加密  | `FIELD_ENCRYPTION_KEYS`（32 字节，首项当前写入，旧版本保留以读历史密文）                                                                                                                                           |
 | 支付      | `STRIPE_SECRET_KEY`、`STRIPE_WEBHOOK_SECRET`、`STRIPE_PRICE_MONTHLY`、`STRIPE_PRICE_YEARLY`                                                                                                                        |
@@ -52,7 +133,7 @@
 
 附加功能变量（均已列入 `.env.example`）：
 
-- PDF/PNG 导出：生产启用导出时配置 `BLOB_READ_WRITE_TOKEN` 并使用私有 Vercel Blob，确保不同函数实例能下载同一产物；本地未配置时使用临时目录。Preview 保护启用时设置服务端 `VERCEL_AUTOMATION_BYPASS_SECRET`。
+- PDF/PNG 导出：Vercel 生产配置 `BLOB_READ_WRITE_TOKEN` 并使用私有 Blob，确保不同函数实例能下载同一产物；本地未配置时使用临时目录。Preview 保护启用时设置服务端 `VERCEL_AUTOMATION_BYPASS_SECRET`。Cloudflare 使用私有 `EXPORT_BUCKET` 与 `BROWSER`，无需 Blob token。
 - 可选 AI 追问：`MINIMAX_API_KEY`、`MINIMAX_BASE_URL`、`MINIMAX_MODEL`；端点和模型须与账户匹配。默认关闭 `FEATURE_LLM_CHAT`，开启前复核去 PII 边界与付费用量；核心报告保持离线规则生成。
 
 单独生成 AUTH_SECRET、CRON_SECRET：每次运行 `openssl rand -base64 32`，不要复用字段加密密钥。

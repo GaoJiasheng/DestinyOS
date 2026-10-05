@@ -1,0 +1,75 @@
+[
+  {
+    "name": "User",
+    "fields": [
+      { "name": "chatQuotas", "kind": "object", "type": "ChatQuota" },
+      { "name": "accounts", "kind": "object", "type": "Account" },
+      { "name": "sessions", "kind": "object", "type": "Session" },
+      { "name": "profiles", "kind": "object", "type": "BirthProfile" },
+      { "name": "readings", "kind": "object", "type": "Reading" },
+      { "name": "subscription", "kind": "object", "type": "Subscription" },
+      { "name": "shareLinks", "kind": "object", "type": "ShareLink" },
+      { "name": "feedbacks", "kind": "object", "type": "Feedback" }
+    ]
+  },
+  {
+    "name": "Account",
+    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+  },
+  {
+    "name": "Session",
+    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+  },
+  { "name": "VerificationToken", "fields": [] },
+  {
+    "name": "BirthProfile",
+    "fields": [
+      { "name": "user", "kind": "object", "type": "User" },
+      { "name": "readings", "kind": "object", "type": "Reading" },
+      { "name": "partnerReadings", "kind": "object", "type": "Reading" }
+    ]
+  },
+  {
+    "name": "Reading",
+    "fields": [
+      { "name": "user", "kind": "object", "type": "User" },
+      { "name": "partnerProfile", "kind": "object", "type": "BirthProfile" },
+      { "name": "profile", "kind": "object", "type": "BirthProfile" },
+      { "name": "chatMessages", "kind": "object", "type": "ChatMessage" },
+      { "name": "shareLinks", "kind": "object", "type": "ShareLink" },
+      { "name": "feedbacks", "kind": "object", "type": "Feedback" }
+    ]
+  },
+  {
+    "name": "ShareLink",
+    "fields": [
+      { "name": "reading", "kind": "object", "type": "Reading" },
+      { "name": "user", "kind": "object", "type": "User" }
+    ]
+  },
+  {
+    "name": "Subscription",
+    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+  },
+  { "name": "KnowledgeUnit", "fields": [] },
+  { "name": "KnowledgeRelease", "fields": [] },
+  {
+    "name": "Feedback",
+    "fields": [
+      { "name": "user", "kind": "object", "type": "User" },
+      { "name": "reading", "kind": "object", "type": "Reading" }
+    ]
+  },
+  { "name": "SiteConfig", "fields": [] },
+  { "name": "AdminAuditLog", "fields": [] },
+  { "name": "Event", "fields": [] },
+  { "name": "EventDaily", "fields": [] },
+  {
+    "name": "ChatMessage",
+    "fields": [{ "name": "reading", "kind": "object", "type": "Reading" }]
+  },
+  {
+    "name": "ChatQuota",
+    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+  }
+]

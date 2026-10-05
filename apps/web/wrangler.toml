@@ -1,0 +1,58 @@
+name = "destinyos"
+main = "worker.ts"
+# DESIGN-GAP: Latest supported UTC date in the installed workerd; 2026-10-06 is still future at build time.
+compatibility_date = "2026-10-05"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "destinyos"
+
+[[r2_buckets]]
+binding = "EXPORT_BUCKET"
+bucket_name = "destinyos-exports"
+
+[[r2_buckets]]
+binding = "NEXT_INC_CACHE_R2_BUCKET"
+bucket_name = "destinyos-next-cache"
+
+[browser]
+binding = "BROWSER"
+
+[triggers]
+crons = ["0 3 * * *"]
+
+[observability]
+enabled = true
+
+[vars]
+PLATFORM = "cloudflare"
+AUTH_TRUST_HOST = "true"
+AUTH_URL = "https://tianji.gavin.pub"
+NEXT_PUBLIC_SITE_URL = "https://tianji.gavin.pub"
+FEATURE_ADS = "true"
+FEATURE_LLM_CHAT = "false"
+FEATURE_LLM_POLISH = "false"
+MINIMAX_BASE_URL = "https://api.minimaxi.com/v1"
+MINIMAX_MODEL = "MiniMax-M2.5"
+
+# Set other non-secret values for each environment: EMAIL_FROM, ADMIN_EMAILS,
+# STRIPE_PRICE_MONTHLY, STRIPE_PRICE_YEARLY, STRIPE_TAX_ENABLED,
+# PRIVACY_CONTROLLER_NAME, PRIVACY_CONTACT_EMAIL, SENTRY_DSN.
+# Build-time public vars: NEXT_PUBLIC_DEFAULT_LOCALE, NEXT_PUBLIC_ADSENSE_CLIENT,
+# NEXT_PUBLIC_ADSENSE_SLOT_{HOME,REPORT_TOP,REPORT_BOTTOM,TODAY,LEARN}, NEXT_PUBLIC_SENTRY_DSN.
+# Secrets: wrangler secret put <NAME> (never place values here):
+# DATABASE_URL, DIRECT_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN,
+# AUTH_SECRET, AUTH_GOOGLE_ID, AUTH_GOOGLE_SECRET, RESEND_API_KEY,
+# FIELD_ENCRYPTION_KEYS, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, CRON_SECRET,
+# MINIMAX_API_KEY (only when chat is enabled).
+# Deployment-only credentials: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN.
+# No BLOB_READ_WRITE_TOKEN or REDIS_URL on Workers; R2/Upstash REST replace them.
+# Bind the custom domain after preview verification:
+# [[routes]]
+# pattern = "tianji.gavin.pub"
+# custom_domain = true

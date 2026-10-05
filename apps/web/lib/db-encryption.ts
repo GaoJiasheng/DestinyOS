@@ -1,3 +1,4 @@
+import relationModels from './prisma-models.json';
 import { Prisma } from '@prisma/client';
 import { decryptField, encryptField } from './crypto';
 import { stripPII } from './strip-pii';
@@ -7,7 +8,7 @@ const encrypted: Record<string, readonly string[]> = {
   BirthProfile: ['encBirth', 'encPlace', 'encName', 'label'],
   Reading: ['encInput'],
 };
-const models = new Map(Prisma.dmmf.datamodel.models.map((model) => [model.name, model]));
+const models = new Map(relationModels.map((model) => [model.name, model]));
 function record(value: unknown): value is RecordValue {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }

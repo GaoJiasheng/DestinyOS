@@ -6,6 +6,8 @@ export default tseslint.config(
     ignores: [
       '**/node_modules/**',
       '**/.next/**',
+      '**/.open-next/**',
+      '**/.wrangler/**',
       '**/dist/**',
       '**/.turbo/**',
       'docs/**',
@@ -28,6 +30,7 @@ export default tseslint.config(
       ],
     },
   },
+  { files: ['apps/web/lib/platform/logger.ts'], rules: { 'no-restricted-syntax': 'off' } },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -41,3 +44,5 @@ export default tseslint.config(
     },
   },
 );
+
+// DESIGN-GAP: This single console sink serializes already-redacted Workers telemetry.

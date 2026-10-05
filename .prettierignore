@@ -16,3 +16,8 @@ apps/web/resources/learn.json
 .launch-check
 .vercel
 apps/web/public/workers
+
+.open-next/
+.wrangler/
+.dev.vars*
+apps/web/public/_data/

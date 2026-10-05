@@ -22,10 +22,10 @@
     "content:qimen:coverage": "pnpm --filter @tianji/content coverage:qimen",
     "content:tarot:coverage": "pnpm --filter @tianji/content coverage:tarot",
     "content:astrology:coverage": "pnpm --filter @tianji/content coverage:astrology",
-    "db:generate": "prisma generate",
+    "db:generate": "prisma generate && tsx scripts/prisma-metadata.ts",
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate && tsx scripts/prisma-metadata.ts",
     "test:auth:e2e": "playwright test --config playwright.auth.config.ts",
     "content:daily:coverage": "pnpm --filter @tianji/content coverage:daily",
     "geo:build": "tsx scripts/geo-preprocess.ts",
@@ -61,7 +61,11 @@
     "test:calendar:e2e": "playwright test --config playwright.calendar.config.ts",
     "i18n:traditional": "tsx scripts/i18n-traditional.ts",
     "test:zhtw:e2e": "playwright test --config playwright.zhtw.config.ts",
-    "test:synastry:e2e": "playwright test --config playwright.synastry.config.ts"
+    "test:synastry:e2e": "playwright test --config playwright.synastry.config.ts",
+    "cf:build": "pnpm --filter @tianji/web cf:build",
+    "cf:preview": "pnpm --filter @tianji/web cf:preview",
+    "cf:deploy": "pnpm --filter @tianji/web cf:deploy",
+    "test:cloudflare:e2e": "playwright test --config playwright.cloudflare.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

@@ -1,0 +1,9 @@
+# DESIGN-GAP: Workers Assets bypass Next headers(); mirror immutable caching here; cf:build expands precompressed JS so Assets negotiates encoding.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+/workers/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=86400
+/_data/*
+  Cache-Control: public, max-age=86400

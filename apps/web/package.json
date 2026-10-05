@@ -6,15 +6,22 @@
     "dev": "tsx ../../scripts/daily-worker-build.ts && next dev",
     "build": "tsx ../../scripts/daily-worker-build.ts && next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cf:build": "PLATFORM=cloudflare opennextjs-cloudflare build && tsx ../../scripts/cloudflare-assets.ts",
+    "cf:preview": "opennextjs-cloudflare preview",
+    "cf:deploy": "pnpm cf:build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",
+    "@cloudflare/puppeteer": "^1.4.0",
     "@fontsource/cinzel": "^5.2.0",
     "@fontsource/cormorant-garamond": "^5.2.0",
     "@fontsource/inter": "^5.2.0",
     "@fontsource/noto-serif-sc": "^5.2.0",
     "@js-temporal/polyfill": "0.5.1",
+    "@neondatabase/serverless": "^1.2.0",
+    "@opennextjs/cloudflare": "^1.20.8",
+    "@prisma/adapter-neon": "6.19.3",
     "@prisma/client": "^6",
     "@radix-ui/react-dialog": "^1.1.0",
     "@radix-ui/react-popover": "^1.1.0",
@@ -28,15 +35,17 @@
     "@tianji/engine": "workspace:^",
     "@tianji/interpret": "workspace:^",
     "@tianji/shared": "workspace:*",
+    "@turf/boolean-point-in-polygon": "^7.4.0",
+    "@turf/helpers": "^7.4.0",
     "@upstash/ratelimit": "^2.2.0",
     "@upstash/redis": "^1.39.0",
     "@vercel/blob": "^2.8.0",
-    "@vercel/og": "^0.8.5",
     "astronomy-engine": "2.1.19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "fflate": "^0.8.2",
     "geo-tz": "^8",
+    "geobuf": "^4.0.0",
     "ioredis": "^5.11.1",
     "lucide-react": "^0.468.0",
     "lunar-typescript": "1.8.6",
@@ -45,6 +54,7 @@
     "next": "^15.5.0",
     "next-auth": "5.0.0-beta.32",
     "next-intl": "^3.26.5",
+    "pbf": "^4.0.2",
     "pino": "^10.4.0",
     "playwright-core": "1.63.0",
     "qrcode": "1.5.4",
@@ -60,10 +70,13 @@
     "zod": "^3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261005.1",
+    "@types/geobuf": "^4.0.0",
     "@types/qrcode": "1.5.6",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "@types/three": "^0.170.0"
+    "@types/three": "^0.170.0",
+    "wrangler": "^4.147.0"
   },
   "engines": {
     "node": ">=22.17.0"

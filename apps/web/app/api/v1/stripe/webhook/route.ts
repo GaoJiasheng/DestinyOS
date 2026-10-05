@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   if (!signature) return errorResponse(new ApiError('E_PAYMENT', 'Invalid webhook signature', 400));
   let event: Stripe.Event;
   try {
-    event = getStripe().webhooks.constructEvent(await request.text(), signature, secret);
+    event = await getStripe().webhooks.constructEventAsync(await request.text(), signature, secret);
   } catch {
     return errorResponse(new ApiError('E_PAYMENT', 'Invalid webhook signature', 400));
   }

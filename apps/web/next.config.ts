@@ -4,7 +4,15 @@ import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
   transpilePackages: ['@tianji/shared', '@tianji/engine', '@tianji/interpret', '@tianji/content'],
-  serverExternalPackages: ['geo-tz', 'playwright-core', '@sparticuz/chromium', 'sharp'],
+  serverExternalPackages: [
+    'geo-tz',
+    'playwright-core',
+    '@sparticuz/chromium',
+    'sharp',
+    '@prisma/client',
+    '.prisma/client',
+    '@cloudflare/puppeteer',
+  ],
   // DESIGN-GAP: Bounded imports of up to 50 chart snapshots need more than Next.js's default 1MB action body.
   // DESIGN-GAP: Bound static generation to two workers on shared CI hosts; content and request behavior are unchanged.
   experimental: { cpus: 2, serverActions: { bodySizeLimit: '8mb' } },
@@ -22,6 +30,24 @@ const config: NextConfig = {
       '../../packages/engine/test/fixtures/birth/*.json',
       './node_modules/geo-tz/data/**/*',
     ],
+  },
+  // DESIGN-GAP: Exclude Node-only binaries from Workers bundles while preserving the Vercel build.
+  webpack(config) {
+    if (process.env.PLATFORM === 'cloudflare') {
+      for (const module of [
+        'browser-node',
+        'storage-node',
+        'logger-node',
+        'png-node',
+        'timezone-node',
+      ]) {
+        config.resolve.alias[resolve(__dirname, `lib/platform/${module}.ts`)] = resolve(
+          __dirname,
+          'lib/platform/node-unavailable.ts',
+        );
+      }
+    }
+    return config;
   },
   poweredByHeader: false,
   async headers() {

@@ -1,10 +1,8 @@
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { resourceText } from './platform/resources';
 import { toTraditional } from '@tianji/shared/locale';
 import { cache } from 'react';
 import { z } from 'zod';
 import { LearnSystemsSchema, LearnCardsSchema, LearnHexagramsSchema } from '@tianji/content';
-import { webDirectory } from './server-resources';
 const glossaryText = z.object({
   term: z.string(),
   short: z.string(),
@@ -21,7 +19,7 @@ const schema = z.object({
 });
 /** Public build artifact only; no Prisma, cookies or authentication can opt these ISR pages into private state. */
 const loadLearnContent = cache(async () =>
-  schema.parse(JSON.parse(await readFile(resolve(webDirectory(), 'resources/learn.json'), 'utf8'))),
+  schema.parse(JSON.parse(await resourceText('resources/learn.json'))),
 );
 /** Convert public Chinese prose at the output boundary while keeping keys and routes stable. */
 export const learnContent = cache(async (locale?: string) => {
