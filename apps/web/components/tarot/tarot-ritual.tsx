@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { LayoutGroup, MotionConfig } from 'motion/react';
 import { computeTarot } from '@tianji/engine/tarot';
-import { interpret } from '@tianji/interpret';
+import { interpret, localizeReport } from '@tianji/interpret';
 import type { KnowledgeBundle } from '@tianji/content';
 import { TAROT_SPREADS, type Locale, type TarotChart } from '@tianji/shared';
 import { useRouter } from '@/i18n/navigation';
@@ -97,7 +97,7 @@ export function TarotRitual({
       if (
         select instanceof HTMLSelectElement &&
         select.getAttribute('aria-label') === languageLabel &&
-        (select.value === 'zh' || select.value === 'en') &&
+        (select.value === 'zh' || select.value === 'zh-TW' || select.value === 'en') &&
         select.value !== locale
       ) {
         exitHref.current = window.location.href.replace(`/${locale}/`, `/${select.value}/`);
@@ -191,7 +191,7 @@ export function TarotRitual({
         createdAt,
         title: null,
         chart,
-        report: locale === 'zh' ? reportZh : reportEn,
+        report: locale === 'en' ? reportEn : localizeReport(reportZh, locale),
         reportZh,
         reportEn,
         meta: { schoolUsed: { deck: 'rws', allowReversed: draft.allowReversed }, warnings: [] },

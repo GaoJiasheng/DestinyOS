@@ -13,36 +13,43 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; term: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; term: string }>;
 }) {
   const { locale, term } = await params,
-    g = (await learnContent()).glossary.find((g) => g.key === term);
+    g = (await learnContent(locale)).glossary.find((g) => g.key === term);
   if (!g) notFound();
-  return learnMetadata(g[locale].term, g[locale].short, `/learn/glossary/${term}`, locale);
+  return learnMetadata(
+    g[locale === 'en' ? 'en' : 'zh'].term,
+    g[locale === 'en' ? 'en' : 'zh'].short,
+    `/learn/glossary/${term}`,
+    locale,
+  );
 }
 /** Render the full source glossary entry as a publicly indexable article. */
 export default async function GlossaryPage({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; term: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; term: string }>;
 }) {
   const { locale, term } = await params;
   setRequestLocale(locale);
-  const g = (await learnContent()).glossary.find((g) => g.key === term);
+  const g = (await learnContent(locale)).glossary.find((g) => g.key === term);
   if (!g) notFound();
   const t = await getCopy();
   return (
     <LearnArticle
-      title={g[locale].term}
-      description={g[locale].short}
+      title={g[locale === 'en' ? 'en' : 'zh'].term}
+      description={g[locale === 'en' ? 'en' : 'zh'].short}
       path={`/learn/glossary/${term}`}
       locale={locale}
     >
       <section className="report-card">
-        {g[locale].pinyin ? (
-          <p lang="zh-Latn">{t('report.content', { text: g[locale].pinyin! })}</p>
+        {g[locale === 'en' ? 'en' : 'zh'].pinyin ? (
+          <p lang="zh-Latn">
+            {t('report.content', { text: g[locale === 'en' ? 'en' : 'zh'].pinyin! })}
+          </p>
         ) : null}
-        <p>{t('report.content', { text: g[locale].long })}</p>
+        <p>{t('report.content', { text: g[locale === 'en' ? 'en' : 'zh'].long })}</p>
       </section>
     </LearnArticle>
   );

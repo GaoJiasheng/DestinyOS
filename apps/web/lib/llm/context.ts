@@ -145,7 +145,7 @@ export async function chatMessages(input: {
   system: System;
   chart: unknown;
   report: unknown;
-  locale: 'zh' | 'en';
+  locale: 'zh' | 'en' | 'zh-TW';
   question: string;
   identities: readonly string[];
   history: readonly { role: 'user' | 'assistant'; content: string }[];
@@ -189,8 +189,8 @@ export async function chatMessages(input: {
   ];
 }
 /** Enforce the documented visible-answer limit independent of model compliance. */
-export function boundAnswer(text: string, locale: 'zh' | 'en'): string {
-  return locale === 'zh'
+export function boundAnswer(text: string, locale: 'zh' | 'en' | 'zh-TW'): string {
+  return locale !== 'en'
     ? Array.from(text).slice(0, 300).join('')
     : (text.match(/\S+\s*/g) ?? []).slice(0, 200).join('').trimEnd();
 }

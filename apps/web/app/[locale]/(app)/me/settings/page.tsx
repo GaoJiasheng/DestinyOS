@@ -1,3 +1,4 @@
+import { fromDbLocale } from '@/lib/db-locale';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { SettingsForm } from '@/components/me/settings-form';
@@ -19,5 +20,10 @@ export default async function SettingsPage() {
         },
       })
     : null;
-  return <SettingsForm initial={user} signedIn={Boolean(session?.user.id)} />;
+  return (
+    <SettingsForm
+      initial={user ? { ...user, locale: fromDbLocale(user.locale) } : null}
+      signedIn={Boolean(session?.user.id)}
+    />
+  );
 }

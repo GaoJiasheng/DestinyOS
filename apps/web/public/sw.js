@@ -4,6 +4,7 @@ const CACHE = 'tianji-public-shell-c64ec96567f0';
 const SHELL = [
   '/offline/zh.html',
   '/offline/en.html',
+  '/offline/zh-TW.html',
   '/offline/style.css',
   '/fonts/selection.json',
   '/fonts/fonts.css',
@@ -35,7 +36,7 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin) return;
-  if (request.mode === 'navigate' && /^\/(?:zh|en)?\/?$/.test(url.pathname)) {
+  if (request.mode === 'navigate' && /^\/(?:zh-TW|zh|en)?\/?$/.test(url.pathname)) {
     event.respondWith(
       fetch(request)
         .then((response) => {
@@ -43,7 +44,13 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch(() =>
-          caches.match(url.pathname.startsWith('/en') ? '/offline/en.html' : '/offline/zh.html'),
+          caches.match(
+            url.pathname.startsWith('/zh-TW')
+              ? '/offline/zh-TW.html'
+              : url.pathname.startsWith('/en')
+                ? '/offline/en.html'
+                : '/offline/zh.html',
+          ),
         ),
     );
     return;

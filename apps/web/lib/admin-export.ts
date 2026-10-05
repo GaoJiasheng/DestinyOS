@@ -1,3 +1,4 @@
+import { fromDbLocale } from './db-locale';
 import { createHash, randomBytes } from 'node:crypto';
 import { Resend } from 'resend';
 import { createTranslator } from 'next-intl';
@@ -7,6 +8,7 @@ import { cacheWrite } from './cache';
 import { getLocalRedis, getUpstashRedis } from './redis';
 import { toMessages } from '@/i18n/catalog';
 import zh from '@/messages/zh.json';
+import tw from '../messages/zh-TW.json';
 import en from '@/messages/en.json';
 import { brand } from '@tianji/shared';
 const digest = (token: string) => createHash('sha256').update(token).digest('hex');
@@ -24,8 +26,8 @@ export async function emailUserExport(adminId: string, userId: string) {
     data: { adminId, action: 'user.export_email', target: userId },
   });
   const t = createTranslator({
-    locale: user.locale,
-    messages: toMessages(user.locale === 'zh' ? zh : en),
+    locale: fromDbLocale(user.locale),
+    messages: toMessages(user.locale === 'zh_TW' ? tw : user.locale === 'zh' ? zh : en),
   });
   const url = `${process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`}/api/v1/admin/export/${token}`;
   const result = await new Resend(process.env.RESEND_API_KEY).emails.send({

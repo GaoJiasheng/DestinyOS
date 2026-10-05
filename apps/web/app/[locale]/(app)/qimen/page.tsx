@@ -10,7 +10,7 @@ export const metadata = { robots: { index: false, follow: false } };
 export default async function QimenPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  if (locale !== 'zh' && locale !== 'en') notFound();
+  if (locale !== 'zh' && locale !== 'en' && locale !== 'zh-TW') notFound();
   if ((await cookies()).get('age_gate')?.value === 'blocked') redirect(`/${locale}/age-restricted`);
   return (
     <DivinationFlow

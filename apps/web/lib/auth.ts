@@ -1,3 +1,5 @@
+import { isLocale } from '../i18n/routing';
+import { toDbLocale, fromDbLocale } from './db-locale';
 import NextAuth from 'next-auth';
 import { cookies } from 'next/headers';
 import Google from 'next-auth/providers/google';
@@ -16,6 +18,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
   const adapter: Adapter = {
     ...baseAdapter,
     async createUser(data) {
+      const preferred = (await cookies()).get('NEXT_LOCALE')?.value ?? 'zh';
       const user = await db.user.create({
         data: {
           email: data.email,
@@ -23,12 +26,12 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
           name: data.name,
           image: data.image,
           role: roleForEmail(data.email),
-          locale: (await cookies()).get('NEXT_LOCALE')?.value === 'en' ? 'en' : 'zh',
+          locale: toDbLocale(isLocale(preferred) ? preferred : 'zh'),
         },
       });
       await recordEvent('user.registered', {
         userId: user.id,
-        locale: user.locale,
+        locale: fromDbLocale(user.locale),
         plan: user.plan,
       });
       return { ...user, email: data.email };
@@ -56,9 +59,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
         async sendVerificationRequest({ identifier, url }) {
           const original = new URL(url);
           const callbackUrl = original.searchParams.get('callbackUrl') ?? '';
-          const locale = new URL(callbackUrl, original.origin).pathname.startsWith('/en')
-            ? 'en'
-            : 'zh';
+          const segment = new URL(callbackUrl, original.origin).pathname.split('/')[1] ?? '';
+          const locale = isLocale(segment) ? segment : 'zh';
           const confirmation = new URL(`/${locale}/auth/verify`, original.origin);
           confirmation.searchParams.set('token', original.searchParams.get('token') ?? '');
           confirmation.searchParams.set('email', identifier);

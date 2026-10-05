@@ -53,7 +53,7 @@ export function LunarDatePicker({
             <option key={i + 1} value={i + 1}>
               {t('form.birth.lunar.day', {
                 day:
-                  locale === 'zh'
+                  locale !== 'en'
                     ? Lunar.fromYmd(validYear, month, i + 1).getDayInChinese()
                     : String(i + 1),
               })}
@@ -65,7 +65,7 @@ export function LunarDatePicker({
         {t('form.birth.lunar.year', {
           year: validYear,
           ganzhi:
-            locale === 'zh'
+            locale !== 'en'
               ? LunarYear.fromYear(validYear).getGanZhi()
               : `${intl(`bazi.stems.${pair.stem}`)} ${intl(`bazi.branches.${pair.branch}`)}`,
         })}

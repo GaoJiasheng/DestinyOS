@@ -187,7 +187,7 @@ export function projectShare(
 }
 export const DailyCardSchema = z
   .object({
-    locale: z.enum(['zh', 'en']),
+    locale: z.enum(['zh', 'en', 'zh-TW']),
     date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     headline: z.string().max(240),
     stars: z.number().int().min(1).max(5),

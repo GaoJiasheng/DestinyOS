@@ -2,7 +2,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { Prisma, type Reading } from '@prisma/client';
 import { z } from 'zod';
 import { compute, normalizeBirth, EngineError, baziWarnings } from '@tianji/engine';
-import { interpret } from '@tianji/interpret';
+import { interpret, localizeReport } from '@tianji/interpret';
 import {
   BirthInputSchema,
   BaziChartSchema,
@@ -112,14 +112,14 @@ export async function readingView(
   locale: Locale,
   owner: boolean,
 ): Promise<ReadingView> {
-  let report: unknown = locale === 'zh' ? row.reportZh : row.reportEn;
+  let report: unknown = locale !== 'en' ? row.reportZh : row.reportEn;
   const snapshot = ReadingRequestSchema.parse(JSON.parse(row.encInput));
   if (!report) {
     report = json(
       interpret({
         system: row.system,
         chart: row.chart,
-        locale,
+        locale: locale === 'en' ? 'en' : 'zh',
         knowledge: await loadKnowledge(row.system, locale, row.knowledgeVersion),
         context: {
           now: row.createdAt.toISOString(),
@@ -131,7 +131,7 @@ export async function readingView(
     );
     await getDb().reading.update({
       where: { id: row.id },
-      data: locale === 'zh' ? { reportZh: json(report) } : { reportEn: json(report) },
+      data: locale !== 'en' ? { reportZh: json(report) } : { reportEn: json(report) },
     });
   }
   const profile = row.profileId
@@ -168,7 +168,7 @@ export async function readingView(
     createdAt: row.createdAt.toISOString(),
     title: row.title,
     chart: row.chart,
-    report: ReportSchema.parse(report),
+    report: localizeReport(ReportSchema.parse(report), locale),
     meta: {
       schoolUsed: ReadingMetaSchema.shape.schoolUsed.parse(row.schoolUsed),
       warnings,
@@ -193,7 +193,11 @@ export async function persistReading(
   id?: string,
   profile?: { id: string; version: number },
 ) {
-  const generated = await generateReading(req, now, userId);
+  const generated = await generateReading(
+    { ...req, locale: req.locale === 'en' ? 'en' : 'zh' },
+    now,
+    userId,
+  );
   let plan: 'free' | 'pro' = 'free';
   const row = await getDb().$transaction(async (tx) => {
     const saved = await tx.reading.create({
@@ -209,7 +213,7 @@ export async function persistReading(
         engineVersion: generated.report.engineVersion,
         interpretVersion: generated.report.interpretVersion,
         knowledgeVersion: generated.report.knowledgeVersion,
-        ...(req.locale === 'zh'
+        ...(req.locale !== 'en'
           ? { reportZh: json(generated.report) }
           : { reportEn: json(generated.report) }),
       },
@@ -231,7 +235,7 @@ export async function persistReading(
     return saved;
   });
   await recordEvent('reading.created', { userId, system: req.system, locale: req.locale, plan });
-  return { readingId: row.id, ...generated };
+  return { readingId: row.id, ...generated, report: localizeReport(generated.report, req.locale) };
 }
 /** Expand the current encrypted profile when a signed-in request omits birth. */
 export async function resolveBirth(req: ReadingRequest, userId?: string) {

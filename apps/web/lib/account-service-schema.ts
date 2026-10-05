@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
 export const SettingsSchema = z
   .object({
-    locale: z.enum(['zh', 'en']).optional(),
+    locale: z.enum(['zh', 'en', 'zh-TW']).optional(),
     theme: z.enum(['auto', 'east', 'west']).optional(),
     soundOn: z.boolean().optional(),
     reducedMotion: z.boolean().optional(),

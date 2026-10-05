@@ -1,3 +1,4 @@
+import { fromDbLocale } from '@/lib/db-locale';
 import { requireAdmin } from '@/lib/admin-auth';
 import { listUsers } from '@/lib/admin-service';
 import { getAdminCopy } from '@/i18n/admin-copy';
@@ -52,7 +53,7 @@ export default async function UsersPage({
                 </a>
               </td>
               <td>{t(`me.plan.${user.plan}`)}</td>
-              <td>{t(`me.language.${user.locale}`)}</td>
+              <td>{t(`me.language.${fromDbLocale(user.locale)}`)}</td>
               <td>{t('admin.content', { text: user.createdAt.toISOString().slice(0, 10) })}</td>
               <td>
                 {user.lastActiveAt

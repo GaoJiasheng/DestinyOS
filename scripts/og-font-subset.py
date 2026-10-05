@@ -18,6 +18,10 @@ if hashlib.sha256(SOURCE.read_bytes()).hexdigest() != SHA256:
     raise ValueError('Font source changed; review the source before changing the pinned hash')
 characters = set((ROOT / 'scripts/resources/common-3500.txt').read_text(encoding='utf-8-sig'))
 characters.update(''.join(json.loads((ROOT / 'apps/web/messages/zh.json').read_text()).values()))
+characters.update((ROOT / 'scripts/resources/common-3500-tw.txt').read_text(encoding='utf-8-sig'))
+for catalog in (ROOT / 'apps/web/messages/zh-TW').glob('*.json'):
+    characters.update(''.join(json.loads(catalog.read_text()).values()))
+characters.update(''.join(json.loads((ROOT / 'apps/web/messages/zh-TW.json').read_text()).values()))
 characters.update(chr(i) for i in range(32, 127))
 characters.update('★☆·–—‘’“”')
 # DESIGN-GAP: Public headline glyphs supplement the common-3500 set; images never include full report bodies.

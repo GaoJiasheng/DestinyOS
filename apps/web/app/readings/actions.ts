@@ -2,6 +2,7 @@
 import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
 import { getLocale } from 'next-intl/server';
+import { localeText } from '@tianji/shared/locale';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';
 import { recordEvent } from '@/lib/events';
@@ -27,7 +28,7 @@ import {
   digest,
   checkAge,
 } from '@/lib/reading-service';
-import { interpret } from '@tianji/interpret';
+import { interpret, localizeReport } from '@tianji/interpret';
 import { loadKnowledge } from '@/lib/knowledge';
 import { BirthInputSchema, System } from '@tianji/shared';
 import { normalizeBirth, ENGINE_VERSION } from '@tianji/engine';
@@ -105,11 +106,11 @@ export async function createReadingAction(raw: unknown) {
 /** Read owner-only snapshots; public tokens use a separate privacy projection. */
 export async function getReadingAction(
   raw: string,
-  locale: 'zh' | 'en' = 'zh',
+  locale: 'zh' | 'en' | 'zh-TW' = 'zh',
 ): Promise<ActionResult<ReadingView>> {
   return run(async () => {
     const id = idSchema.parse(raw);
-    const lang = z.enum(['zh', 'en']).parse(locale);
+    const lang = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
     // DESIGN-GAP: Missing and foreign IDs use the same response; authorization precedes decryption.
@@ -184,7 +185,11 @@ export async function listReadingsAction(raw: unknown = { limit: 20 }) {
           title: row.title,
           system: row.system,
           createdAt: row.createdAt.toISOString(),
-          keywords: report.success ? report.data.headline.keywords : [],
+          keywords: report.success
+            ? report.data.headline.keywords.map((text) =>
+                locale === 'zh-TW' ? localeText(text, 'zh-TW') : text,
+              )
+            : [],
         };
       }),
       nextCursor: more ? visible.at(-1)?.id : null,
@@ -216,11 +221,11 @@ export async function deleteReadingAction(raw: string) {
   });
 }
 /** Reinterpret the saved chart using the current knowledge release without recomputing the chart. */
-export async function regenerateReportAction(raw: string, locale: 'zh' | 'en') {
+export async function regenerateReportAction(raw: string, locale: 'zh' | 'en' | 'zh-TW') {
   return run(async () => {
     const owner = await userId();
     const id = idSchema.parse(raw);
-    const lang = z.enum(['zh', 'en']).parse(locale);
+    const lang = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const row = await getDb().reading.findFirst({ where: { id, userId: owner } });
     if (!row) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
     await limitReadingWork();
@@ -228,7 +233,7 @@ export async function regenerateReportAction(raw: string, locale: 'zh' | 'en') {
     const report = interpret({
       system: row.system,
       chart: row.chart,
-      locale: lang,
+      locale: lang === 'en' ? 'en' : 'zh',
       knowledge: await loadKnowledge(row.system, lang),
       context: {
         now: row.createdAt.toISOString(),
@@ -240,12 +245,12 @@ export async function regenerateReportAction(raw: string, locale: 'zh' | 'en') {
     await getDb().reading.update({
       where: { id, userId: owner },
       data: {
-        [lang === 'zh' ? 'reportZh' : 'reportEn']: json(report),
+        [lang !== 'en' ? 'reportZh' : 'reportEn']: json(report),
         knowledgeVersion: report.knowledgeVersion,
         interpretVersion: report.interpretVersion,
       },
     });
-    return report;
+    return localizeReport(report, lang);
   });
 }
 /** Return the current decrypted birth profile to its owner. */
@@ -270,12 +275,12 @@ export async function getProfileAction() {
 export async function upsertProfileAction(
   raw: unknown,
   displayName = '',
-  locale: 'zh' | 'en' = 'zh',
+  locale: 'zh' | 'en' | 'zh-TW' = 'zh',
 ) {
   return run(async () => {
     await guardAge();
     const birth = BirthInputSchema.parse(raw);
-    const lang = z.enum(['zh', 'en']).parse(locale);
+    const lang = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const name = z.string().trim().max(80).parse(displayName);
     checkAge(birth, lang);
     const normalized = normalizeBirth(birth, lang);
@@ -407,10 +412,10 @@ export async function submitFeedbackAction(raw: unknown) {
   });
 }
 /** Translate a validated anonymous chart without recomputing it or storing anonymous input. */
-export async function translateAnonymousReportAction(raw: unknown, locale: 'zh' | 'en') {
+export async function translateAnonymousReportAction(raw: unknown, locale: 'zh' | 'en' | 'zh-TW') {
   return run(async () => {
     await guardAge();
-    const lang = z.enum(['zh', 'en']).parse(locale);
+    const lang = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const input = z
       .object({
         system: z.nativeEnum(System),
@@ -469,7 +474,7 @@ export async function previewAstrologyHousesAction(raw: unknown) {
         readingId: idSchema.optional(),
         request: ReadingRequestSchema.optional(),
         createdAt: z.string().datetime().optional(),
-        locale: z.enum(['zh', 'en']),
+        locale: z.enum(['zh', 'en', 'zh-TW']),
         houseSystem: z.enum(['placidus', 'whole_sign', 'equal']),
       })
       .strict()

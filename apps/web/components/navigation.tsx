@@ -91,7 +91,7 @@ export function Navigation() {
 export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
   const [open, setOpen] = useState(false);
   const t = useCopy();
-  const locale = useLocale() === 'en' ? 'en' : 'zh';
+  const locale = useLocale() as import('@tianji/shared').Locale;
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);

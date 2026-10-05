@@ -1,3 +1,4 @@
+import { localeText } from '@tianji/shared/locale';
 import type { GlossaryEntry } from '@tianji/content';
 import type { Locale } from '@tianji/shared';
 function escape(text: string): string {
@@ -8,14 +9,14 @@ function escape(text: string): string {
 export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
   const terms = glossary.flatMap((entry) =>
     [
-      entry[locale].term,
+      localeText(entry[locale === 'en' ? 'en' : 'zh'].term, locale),
       ...entry.aliases.filter((alias) =>
-        locale === 'zh' ? /\p{Script=Han}/u.test(alias) : !/\p{Script=Han}/u.test(alias),
+        locale !== 'en' ? /\p{Script=Han}/u.test(alias) : !/\p{Script=Han}/u.test(alias),
       ),
     ]
       // DESIGN-GAP: The branch transliteration "You" is also an English pronoun; require an explicit marker rather than automatically linking ordinary prose.
       .filter((term) => !(locale === 'en' && entry.key === 'branch.you' && /^you$/i.test(term)))
-      .map((term) => ({ term, key: entry.key })),
+      .map((term) => ({ term: localeText(term, locale), key: entry.key })),
   );
   terms.sort((a, b) => b.term.length - a.term.length || (a.key < b.key ? -1 : 1));
   const unique = new Map<string, string>();
@@ -75,9 +76,11 @@ export function termMarker(glossary: GlossaryEntry[], locale: Locale) {
   };
 }
 export function expandTerms(text: string, glossary: GlossaryEntry[], locale: Locale): string {
-  return text.replace(
-    /\[\[term:([^\]]+)\]\]/g,
-    (mark: string, key: string) => glossary.find((g) => g.key === key)?.[locale].term ?? mark,
+  return text.replace(/\[\[term:([^\]]+)\]\]/g, (mark: string, key: string) =>
+    localeText(
+      glossary.find((g) => g.key === key)?.[locale === 'en' ? 'en' : 'zh'].term ?? mark,
+      locale,
+    ),
   );
 }
 export function termCount(text: string, glossary: GlossaryEntry[], locale: Locale): number {
@@ -97,7 +100,12 @@ export function createTermCounter(
   const { regex, unique, isTechnicalMatch } = termPattern(glossary, locale);
   const explicitOnly = new Set(
     glossary
-      .filter((entry) => unique.get(entry[locale].term.toLowerCase()) !== entry.key)
+      .filter(
+        (entry) =>
+          unique.get(
+            localeText(entry[locale === 'en' ? 'en' : 'zh'].term, locale).toLowerCase(),
+          ) !== entry.key,
+      )
       .map((entry) => entry.key),
   );
   return (text) => {

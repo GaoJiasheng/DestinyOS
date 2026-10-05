@@ -38,7 +38,7 @@ export type Report = {
 };
 export type SectionSpec = {
   key: string;
-  title: Record<Locale, string>;
+  title: Record<'zh' | 'en', string>;
   maxUnits: number;
   chartRef?: { component: string; props: Record<string, unknown> };
 };

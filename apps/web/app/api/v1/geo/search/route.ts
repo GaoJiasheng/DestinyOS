@@ -3,7 +3,7 @@ import { searchCities } from '@/lib/geo';
 import { ApiError, errorResponse } from '@/lib/api-error';
 const schema = z.object({
   q: z.string().trim().min(1).max(100),
-  locale: z.enum(['zh', 'en']).default('zh'),
+  locale: z.enum(['zh', 'en', 'zh-TW']).default('zh'),
 });
 /** Return at most 12 deterministic bilingual GeoNames matches in the documented envelope. */
 export async function GET(request: Request) {

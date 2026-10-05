@@ -11,6 +11,8 @@ const allowed = new Set([
   'MIT-0',
   'ISC',
   'Apache-2.0',
+  // B-09: opencc-js code is MIT; its bundled OpenCC dictionaries are Apache-2.0 (reviewed THIRD_PARTY_LICENSES.md).
+  'MIT AND Apache-2.0',
   'BSD-2-Clause',
   'BSD-3-Clause',
   '0BSD',

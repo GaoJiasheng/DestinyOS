@@ -21,9 +21,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...c.glossary.map((s) => `/learn/glossary/${s.key}`),
   ];
   return paths.flatMap((path) =>
-    (['zh', 'en'] as const).map((locale) => ({
+    (['zh', 'zh-TW', 'en'] as const).map((locale) => ({
       url: `${origin}/${locale}${path}`,
-      alternates: { languages: { zh: `${origin}/zh${path}`, en: `${origin}/en${path}` } },
+      alternates: {
+        languages: {
+          zh: `${origin}/zh${path}`,
+          'zh-TW': `${origin}/zh-TW${path}`,
+          en: `${origin}/en${path}`,
+        },
+      },
       changeFrequency: 'weekly' as const,
       priority: path === '' ? 1 : 0.6,
     })),

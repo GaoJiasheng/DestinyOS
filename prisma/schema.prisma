@@ -21,6 +21,7 @@ enum Role {
 enum Locale {
   zh
   en
+  zh_TW @map("zh-TW")
 }
 
 enum System {

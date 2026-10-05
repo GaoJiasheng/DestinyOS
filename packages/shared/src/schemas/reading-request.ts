@@ -7,7 +7,7 @@ export const ReadingRequestSchema = z
   .object({
     system: z.nativeEnum(System).refine((s) => s !== 'daily'),
     birth: BirthInputSchema.optional(),
-    locale: z.enum(['zh', 'en']).default('zh'),
+    locale: z.enum(['zh', 'en', 'zh-TW']).default('zh'),
     name: NumerologyNameSchema.optional(),
     displayName: z.string().trim().max(80).optional(),
     options: z

@@ -5,18 +5,26 @@ import { learnContent } from '@/lib/learn';
 import { learnMetadata } from '@/lib/learn-metadata';
 export const revalidate = 86400;
 /** Index metadata contains article-specific hreflang. */
-export async function generateMetadata({ params }: { params: Promise<{ locale: 'zh' | 'en' }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW' }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getCopy();
   return learnMetadata(t('learn.title'), t('learn.intro'), '/learn', locale);
 }
 /** Link all seven systems, 78 cards, 64 hexagrams and every glossary entry from public content. */
-export default async function LearnPage({ params }: { params: Promise<{ locale: 'zh' | 'en' }> }) {
+export default async function LearnPage({
+  params,
+}: {
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW' }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getCopy(),
-    content = await learnContent();
+    content = await learnContent(locale);
   return (
     <article className="learn-page">
       <h1 className="type-h1">{t('learn.title')}</h1>
@@ -26,7 +34,9 @@ export default async function LearnPage({ params }: { params: Promise<{ locale: 
         <ul className="learn-grid">
           {content.systems.map((s) => (
             <li key={s.key}>
-              <Link href={`/learn/${s.key}`}>{t('report.content', { text: s[locale].title })}</Link>
+              <Link href={`/learn/${s.key}`}>
+                {t('report.content', { text: s[locale === 'en' ? 'en' : 'zh'].title })}
+              </Link>
             </li>
           ))}
         </ul>
@@ -37,7 +47,7 @@ export default async function LearnPage({ params }: { params: Promise<{ locale: 
           {content.cards.map((c) => (
             <li key={c.key}>
               <Link href={`/learn/tarot/${c.key}`}>
-                {t('report.content', { text: c.name[locale] })}
+                {t('report.content', { text: c.name[locale === 'en' ? 'en' : 'zh'] })}
               </Link>
             </li>
           ))}
@@ -50,7 +60,7 @@ export default async function LearnPage({ params }: { params: Promise<{ locale: 
             <li key={h.key}>
               <Link href={`/learn/iching/${h.key}`}>
                 {h.number} ·{' '}
-                {t('report.content', { text: locale === 'zh' ? h.name : h.englishName })}
+                {t('report.content', { text: locale !== 'en' ? h.name : h.englishName })}
               </Link>
             </li>
           ))}
@@ -62,7 +72,7 @@ export default async function LearnPage({ params }: { params: Promise<{ locale: 
           {content.glossary.map((g) => (
             <li key={g.key}>
               <Link href={`/learn/glossary/${g.key}`}>
-                {t('report.content', { text: g[locale].term })}
+                {t('report.content', { text: g[locale === 'en' ? 'en' : 'zh'].term })}
               </Link>
             </li>
           ))}

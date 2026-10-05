@@ -1,3 +1,4 @@
+import { fromDbLocale } from './db-locale';
 import { timingSafeEqual } from 'node:crypto';
 import { BirthInputSchema } from '@tianji/shared';
 import { getDb } from './db';
@@ -39,7 +40,7 @@ export async function exportAccount(userId: string) {
     select: { status: true, currentPeriodEnd: true, cancelAtPeriodEnd: true },
   });
   return {
-    user,
+    user: { ...user, locale: fromDbLocale(user.locale) },
     profiles: profiles.map((p) => ({
       version: p.version,
       isCurrent: p.isCurrent,

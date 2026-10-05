@@ -31,7 +31,13 @@ vi.mock('../lib/db', () => {
 const redis = new RedisMock();
 vi.mock('../lib/redis', () => ({ getLocalRedis: () => redis, getUpstashRedis: () => redis }));
 import { computeTarot } from '@tianji/engine/tarot';
-import { generateReading, idempotentCreate, digest, persistReading } from '../lib/reading-service';
+import {
+  generateReading,
+  idempotentCreate,
+  digest,
+  persistReading,
+  readingView,
+} from '../lib/reading-service';
 import { computeDivination } from '../lib/divination';
 import { parseReadingChart } from '../lib/reading-schema';
 import type { ReadingRequest } from '../lib/reading-schema';
@@ -276,4 +282,19 @@ describe('free history retention', () => {
     expect(mocked.history).not.toHaveBeenCalled();
     expect(mocked.deleteMany).not.toHaveBeenCalled();
   });
+});
+
+it('stores the canonical zh snapshot for zh-TW and reads either locale without cache pollution', async () => {
+  const req = { ...request(), locale: 'zh-TW' as const };
+  const result = await persistReading('owner', req, '2026-10-05T00:00:00Z', 'tw-report');
+  expect(result.report.locale).toBe('zh-TW');
+  const row = mocked.rows.get('tw-report')!;
+  expect(row.reportEn).toBeUndefined();
+  expect(row.reportZh).toMatchObject({ locale: 'zh' });
+  const zh = await readingView(row, 'zh', true);
+  const tw = await readingView(row, 'zh-TW', true);
+  expect(zh.report.locale).toBe('zh');
+  expect(tw.report.locale).toBe('zh-TW');
+  expect(tw.report.hits).toEqual(zh.report.hits);
+  expect(JSON.stringify(row.reportZh)).not.toContain('"locale":"zh-TW"');
 });

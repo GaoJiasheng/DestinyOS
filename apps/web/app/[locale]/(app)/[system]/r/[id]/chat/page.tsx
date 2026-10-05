@@ -10,7 +10,7 @@ export const metadata = { robots: { index: false, follow: false } };
 export default async function ChatPage({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; system: string; id: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; system: string; id: string }>;
 }) {
   const { locale, system, id } = await params;
   setRequestLocale(locale);

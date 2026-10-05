@@ -13,8 +13,9 @@ import type { Hit, InterpretInput, Report, ReportBlock, Score, Section } from '.
 import { numeric, systemConfigs } from './config';
 import { termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
+import { localizeReport } from './localize-report';
 import displayLabels from './display-labels.json';
-export const interpretVersion = '1.1.2';
+export const interpretVersion = '1.2.0';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>
   b.hit.weight - a.hit.weight || (a.unit.id < b.unit.id ? -1 : a.unit.id > b.unit.id ? 1 : 0);
@@ -31,6 +32,8 @@ function opposite(a: KnowledgeUnit, b: KnowledgeUnit): boolean {
   );
 }
 export function interpret(input: InterpretInput): Report {
+  if (input.locale === 'zh-TW')
+    return localizeReport(interpret({ ...input, locale: 'zh' }), input.locale);
   const { system, chart, locale, context } = input;
   // A caller can load the complete offline corpus; unrelated system terms must
   // not annotate this report or inflate its terminology-density check.

@@ -1,3 +1,4 @@
+import { fromDbLocale } from './db-locale';
 import { randomUUID } from 'node:crypto';
 import type Stripe from 'stripe';
 import { createTranslator } from 'next-intl';
@@ -9,6 +10,7 @@ import { getLocalRedis, getUpstashRedis } from './redis';
 import { ApiError } from './api-error';
 import { toMessages } from '@/i18n/catalog';
 import zh from '@/messages/zh.json';
+import tw from '../messages/zh-TW.json';
 import en from '@/messages/en.json';
 
 async function reserve(key: string, value: string, seconds: number) {
@@ -117,8 +119,11 @@ async function processEvent(event: Stripe.Event) {
       if (!subscription?.user.email || subscription.user.deletedAt) break;
       // DESIGN-GAP: Missing optional mail credentials skip reminders; billing entitlement remains unchanged.
       if (!process.env.RESEND_API_KEY || !process.env.EMAIL_FROM) break;
-      const locale = subscription.user.locale;
-      const t = createTranslator({ locale, messages: toMessages(locale === 'zh' ? zh : en) });
+      const locale = fromDbLocale(subscription.user.locale);
+      const t = createTranslator({
+        locale,
+        messages: toMessages(locale === 'zh-TW' ? tw : locale !== 'en' ? zh : en),
+      });
       const sent = await new Resend(process.env.RESEND_API_KEY).emails.send(
         {
           from: process.env.EMAIL_FROM,

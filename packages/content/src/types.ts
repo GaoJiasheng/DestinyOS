@@ -1,4 +1,6 @@
-import type { Locale, System } from '@tianji/shared';
+import type { System } from '@tianji/shared';
+// B-09: KU and compiled bundles retain only their two editorial source languages.
+type Locale = 'zh' | 'en';
 export type Polarity = 'positive' | 'negative' | 'neutral' | 'mixed';
 export type Dim = 'career' | 'wealth' | 'love' | 'health' | 'social';
 export const dimensions: Dim[] = ['career', 'wealth', 'love', 'health', 'social'];

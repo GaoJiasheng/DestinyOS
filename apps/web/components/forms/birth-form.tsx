@@ -221,7 +221,7 @@ export function BirthForm({
         name: birth.place?.name ?? t('form.birth.manual'),
         lat: birth.place?.lat ?? 0,
         lng: birth.place?.lng ?? 0,
-        tz: birth.place?.tz ?? (locale === 'zh' ? 'Asia/Shanghai' : 'UTC'),
+        tz: birth.place?.tz ?? (locale !== 'en' ? 'Asia/Shanghai' : 'UTC'),
         ...patch,
       },
     });
