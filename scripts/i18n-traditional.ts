@@ -20,3 +20,10 @@ for (const file of ['.json', '/glossary.json', '/interpretation.json', '/tarot.j
 
 const common = await readFile(resolve('scripts/resources/common-3500.txt'), 'utf8');
 await writeFile(resolve('scripts/resources/common-3500-tw.txt'), toTraditional(common));
+
+// DESIGN-GAP: Public article/card titles can use traditional glyphs outside the UI subset; retain only the unique public characters needed by the OG font builder.
+const publicEditorial = await readFile(resolve('apps/web/resources/learn.json'), 'utf8');
+await writeFile(
+  resolve('scripts/resources/og-public-tw.txt'),
+  [...new Set(toTraditional(publicEditorial))].sort().join('') + '\n',
+);

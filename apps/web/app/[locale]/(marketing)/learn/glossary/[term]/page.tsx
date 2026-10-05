@@ -4,6 +4,7 @@ import { getCopy } from '@/i18n/get-copy';
 import { learnContent } from '@/lib/learn';
 import { learnMetadata } from '@/lib/learn-metadata';
 import { LearnArticle } from '@/components/learn/learn-article';
+import { Link } from '@/i18n/navigation';
 export const revalidate = 86400;
 /** Generate every glossary term, retaining its exact content key in the URL. */
 export async function generateStaticParams() {
@@ -44,6 +45,7 @@ export default async function GlossaryPage({
       locale={locale}
     >
       <section className="report-card">
+        <Link href={`/learn/glossary#system-${g.system}`}>{t('learn.groupNavigation')}</Link>
         {g[locale === 'en' ? 'en' : 'zh'].pinyin ? (
           <p lang="zh-Latn">
             {t('report.content', { text: g[locale === 'en' ? 'en' : 'zh'].pinyin! })}

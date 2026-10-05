@@ -56,7 +56,9 @@ export default async function CardLearnPage({
         src={`/tarot/rws/${c.key}.webp`}
         alt={t('report.content', { text: c.name[locale === 'en' ? 'en' : 'zh'] })}
       />
-      {(['meaningUpright', 'meaningReversed', 'imagery', 'advice'] as const).map((k) => (
+      {(
+        ['meaningUpright', 'meaningReversed', 'imagery', 'historySymbolism', 'advice'] as const
+      ).map((k) => (
         <section className="report-card" key={k}>
           <h2>{t(`learn.${k}`)}</h2>
           {k === 'meaningReversed' ? (

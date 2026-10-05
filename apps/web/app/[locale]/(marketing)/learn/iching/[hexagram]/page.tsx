@@ -4,6 +4,7 @@ import { getCopy } from '@/i18n/get-copy';
 import { learnContent } from '@/lib/learn';
 import { learnMetadata } from '@/lib/learn-metadata';
 import { LearnArticle } from '@/components/learn/learn-article';
+import { Link } from '@/i18n/navigation';
 export const revalidate = 86400;
 /** Pre-render all 64 King Wen hexagrams from the editorial source. */
 export async function generateStaticParams() {
@@ -57,6 +58,10 @@ export default async function HexagramLearnPage({
         </div>
       </figure>
       <section className="report-card">
+        <h2>{t('learn.historySymbolism')}</h2>
+        <p>{t('report.content', { text: h.historySymbolism[locale === 'en' ? 'en' : 'zh'] })}</p>
+      </section>
+      <section className="report-card">
         <h2>{t('learn.meaning')}</h2>
         <p>{t('report.content', { text: h.meaning[locale === 'en' ? 'en' : 'zh'] })}</p>
         <details>
@@ -68,6 +73,9 @@ export default async function HexagramLearnPage({
           ))}
         </details>
       </section>
+      <p>
+        <Link href="/learn/iching">{t('learn.tutorials')}</Link>
+      </p>
       <section className="report-card">
         <h2>{t('learn.lines')}</h2>
         {h.yao.map((y) => (

@@ -29,6 +29,9 @@ export function Footer() {
         </Link>
       </div>
       <div className="footer-links legal-links">
+        <Link prefetch={false} href="/faq">
+          {t('learn.faq')}
+        </Link>
         {(['about', 'privacy', 'terms', 'disclaimer', 'contact'] as const).map((page) => (
           <Link prefetch={false} key={page} href={`/${page}`}>
             {t(`legal.${page}`)}

@@ -188,6 +188,7 @@ describe('daily editorial dimensions and report integration', () => {
       'astrology',
       'vedic',
       'numerology',
+      'synastry',
     ])
       expect(glossary.some((g) => g.system === system)).toBe(true);
     for (const entry of glossary)

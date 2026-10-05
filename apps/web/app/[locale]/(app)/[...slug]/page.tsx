@@ -1,3 +1,4 @@
+import { publicRouteMetadata } from '@/lib/public-seo';
 import { notFound } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import { TarotMessages } from '@/components/tarot/tarot-messages';
@@ -91,4 +92,14 @@ export default async function Placeholder({
       </div>
     </section>
   );
+}
+
+/** Indexable system destinations receive precise language alternates; private shell destinations stay excluded. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string[] }>;
+}) {
+  const p = await params;
+  return publicRouteMetadata(Promise.resolve(p), `/${p.slug.join('/')}`);
 }

@@ -3,6 +3,7 @@ export default defineConfig({
   testDir: './apps/web/e2e',
   testIgnore: [
     // DESIGN-GAP: Merged feature suites seed private data and require their dedicated isolated-service configs, just like the original auth/report suites.
+    'seo-content.spec.ts',
     'export.spec.ts',
     'chat.spec.ts',
     'numerology.spec.ts',

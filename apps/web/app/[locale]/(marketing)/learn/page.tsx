@@ -2,6 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
 import { learnContent } from '@/lib/learn';
+import { GlossaryNavigation } from '@/components/learn/glossary-navigation';
 import { learnMetadata } from '@/lib/learn-metadata';
 export const revalidate = 86400;
 /** Index metadata contains article-specific hreflang. */
@@ -15,7 +16,7 @@ export async function generateMetadata({
   const t = await getCopy();
   return learnMetadata(t('learn.title'), t('learn.intro'), '/learn', locale);
 }
-/** Link all seven systems, 78 cards, 64 hexagrams and every glossary entry from public content. */
+/** Link all nine system guides, 78 cards, 64 hexagrams and every glossary entry from public content. */
 export default async function LearnPage({
   params,
 }: {
@@ -29,6 +30,9 @@ export default async function LearnPage({
     <article className="learn-page">
       <h1 className="type-h1">{t('learn.title')}</h1>
       <p>{t('learn.intro')}</p>
+      <p>
+        <Link href="/faq">{t('learn.faq')}</Link>
+      </p>
       <section className="report-card">
         <h2>{t('learn.systems')}</h2>
         <ul className="learn-grid">
@@ -68,15 +72,8 @@ export default async function LearnPage({
       </section>
       <section className="report-card">
         <h2>{t('learn.glossary')}</h2>
-        <ul className="learn-grid">
-          {content.glossary.map((g) => (
-            <li key={g.key}>
-              <Link href={`/learn/glossary/${g.key}`}>
-                {t('report.content', { text: g[locale === 'en' ? 'en' : 'zh'].term })}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Link href="/learn/glossary">{t('learn.glossaryIntro')}</Link>
+        <GlossaryNavigation locale={locale} />
       </section>
     </article>
   );

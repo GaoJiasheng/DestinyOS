@@ -1,0 +1,66 @@
+# DESIGN-GAP: The new public synastry group needs explicit glossary keys; these entries describe the existing documented comparison fields.
+- key: synastry.cross_aspect
+  system: synastry
+  zh:
+    term: 跨盘相位
+    pinyin: kuà pán xiàng wèi
+    short: 两份盘中各一颗行星之间的黄道角度关系。
+    long: 跨盘相位比较来源盘与目标盘的行星主题，不等于一份本命盘内部的相位。阅读时先确认两端行星、相位类型与容许度，再讨论互动。它可以成为沟通问题的起点，但不能确认任何一方的意图，也不是关系结果的概率。
+  en:
+    term: Cross-chart aspect
+    pinyin: kuà pán xiàng wèi
+    short: A zodiac angular relationship between one planet in each of two charts.
+    long: A cross-chart aspect compares planetary themes from separate charts. It is distinct from an aspect within one natal chart. Identify both planets, the type, and orb before interpreting the interaction. The theme can prompt a conversation, but it cannot establish either person's intentions or a relationship outcome probability.
+  aliases: []
+- key: synastry.overlay
+  system: synastry
+  zh:
+    term: 合盘落宫
+    pinyin: hé pán luò gōng
+    short: 来源盘行星在目标盘宫位中的位置，具有方向。
+    long: A 的行星落入 B 的宫位，与 B 的行星落入 A 的宫位是两个方向。目标盘宫位需要可靠出生时间与地点；缺少时辰时不补造落宫。它把一个象征主题放入目标盘的情境，不能直接确认现实中的关系角色或安排。
+  en:
+    term: House overlay
+    pinyin: hé pán luò gōng
+    short: A source-chart planet placed in a target-chart house, with direction preserved.
+    long: A's planet in B's house and B's planet in A's house are different directions. The target houses require reliable birth time and location, and missing time leaves the overlay absent. An overlay places a symbolic theme in a chart context; it does not establish actual roles or arrangements in a relationship.
+  aliases: []
+- key: synastry.ashtakoot
+  system: synastry
+  zh:
+    term: Ashtakoot 八项计分
+    pinyin: bā xiàng jì fēn
+    short: 吠陀合盘中的八项传统表格，总分上限 36。
+    long: 八项分数需分别保留并相加核验总分。本项目采用文档规定的北印度基础表，记录版本、方向与暂定状态，不自动添加有争议的补分。总分不是关系成功率，不能用于推断健康、家庭或关系结局；实际协作仍依靠双方同意与沟通。
+  en:
+    term: Ashtakoot
+    pinyin: bā xiàng jì fēn
+    short: An eight-component traditional Vedic matching table with a maximum total of 36.
+    long: Preserve the components and verify their sum. The project uses the documented North Indian base table and records version, direction, and provisional status without automatically adding disputed bonus rules. The total is not a relationship success rate and does not support claims about health, family, or relationship outcomes. Cooperation still depends on both participants' consent and communication.
+  aliases: []
+- key: synastry.provisional
+  system: synastry
+  zh:
+    term: 暂定比较
+    pinyin: zàn dìng bǐ jiào
+    short: 缺失时辰导致部分比较依据尚不完整的状态。
+    long: 未知时辰时，八字缺少时柱，紫微比较与相应宫位不可用，吠陀月亮分数可按正午位置暂定并警示。暂定不是另一种完整排盘，也不应通过增加文字掩盖。你可以先学习已知部分，并保留哪些结论需要更可靠输入的记录。
+  en:
+    term: Provisional comparison
+    pinyin: zàn dìng bǐ jiào
+    short: A comparison whose time-sensitive basis is incomplete because a birth hour is unknown.
+    long: Unknown time leaves BaZi without an hour pillar and Zi Wei comparison or corresponding house data unavailable. Vedic Moon-based scores can use a provisional noon position with a warning. This is not another complete chart. Extra prose does not resolve the missing input. Study the known parts and record which conclusions require more reliable information.
+  aliases: []
+- key: synastry.element_difference
+  system: synastry
+  zh:
+    term: 五行差异指数
+    pinyin: wǔ xíng chā yì zhǐ shù
+    short: 比较两组五行百分比分布差异的指标，不是成功率。
+    long: 指数是两组五行百分比差值绝对值之和的一半，范围为 0–100。数值较高只表示分布较不同；相似也不等于相处更顺畅。可以把差异转成对双方习惯的提问，再通过真实沟通核实，而不据它评价关系。
+  en:
+    term: Element difference index
+    pinyin: wǔ xíng chā yì zhǐ shù
+    short: A difference between two Five Element percentage distributions, rather than a success rate.
+    long: The index is half the sum of absolute differences between the two percentage distributions, on a 0–100 scale. A higher value only means the distributions differ more; similarity does not establish easier cooperation. Use a difference to ask about habits, then check through conversation rather than evaluating the relationship from the number.
+  aliases: []
