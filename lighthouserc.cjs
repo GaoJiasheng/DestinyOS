@@ -11,6 +11,8 @@ module.exports = {
         'http://localhost:38100/zh',
         'http://localhost:38100/zh/today',
         'http://localhost:38100/zh/bazi/r/local/33333333-3333-4333-8333-333333333333',
+        'http://localhost:38100/zh/synastry/r/local/44444444-4444-4444-8444-444444444444',
+        'http://localhost:38100/zh/today/calendar',
       ],
       numberOfRuns: 3,
       puppeteerScript: './scripts/lighthouse-setup.cjs',

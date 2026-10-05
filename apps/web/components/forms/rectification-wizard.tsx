@@ -13,11 +13,12 @@ import {
 import type { RankedRectificationCandidate } from '@tianji/engine/rectification';
 import { createReadingAction, upsertProfileAction, blockAgeAction } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
-import { isUnderThirteen } from '@/lib/birth-form';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { useRouter } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
-import { BirthForm } from './birth-form';
+import dynamic from 'next/dynamic';
+// DESIGN-GAP: Existing profiles enter the questionnaire directly; defer the birth editor and its calendar dependencies until needed.
+const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm));
 const draftSchema = z.object({ birth: BirthInputSchema, displayName: z.string() });
 
 /** Keep answers and candidate charts on-device; only a selected trial reaches the existing profile/report actions. */
@@ -82,6 +83,7 @@ export function RectificationWizard({
     setBusy(true);
     setError(null);
     try {
+      const { isUnderThirteen } = await import('@/lib/birth-form');
       if (isUnderThirteen(birth, locale)) {
         await blockAgeAction();
         router.replace('/age-restricted');

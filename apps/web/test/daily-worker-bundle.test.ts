@@ -6,6 +6,11 @@ import { brotliDecompressSync } from 'node:zlib';
 import { calculateDaily } from '../lib/daily-compute';
 import type { DailyWorkerRequest } from '../lib/daily-worker-types';
 import type { KnowledgeBundle } from '@tianji/content';
+import type { CalendarWorkerRequest } from '../lib/calendar-worker-types';
+import { computeDailyRange } from '@tianji/engine/daily';
+import { computeCalendarYear } from '@tianji/engine/calendar';
+import { BirthInputSchema } from '@tianji/shared';
+import birthFixture from '../../../packages/engine/test/fixtures/birth/A.json';
 
 beforeAll(() => {
   execFileSync('pnpm', ['worker:build'], { stdio: 'pipe' });
@@ -60,4 +65,54 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const)
       ok: true,
       value: calculateDaily(input.profile, input.date, input.tz, input.seed, locale, knowledge),
     });
+  });
+
+for (const locale of ['zh', 'en', 'zh-TW'] as const)
+  it(`${locale}: shipped calendar worker preserves month scores and annual event dates`, () => {
+    const input: CalendarWorkerRequest = {
+      profile: BirthInputSchema.parse(birthFixture),
+      month: '2026-10',
+      tz: 'Asia/Shanghai',
+      identity: 'calendar-fixture',
+      locale,
+    };
+    const asset = JSON.parse(readFileSync('apps/web/lib/daily-worker-asset.json', 'utf8')) as {
+      calendarUrl: string;
+    };
+    let listener: ((event: { data: CalendarWorkerRequest }) => void) | undefined;
+    let response: unknown;
+    runInNewContext(
+      brotliDecompressSync(readFileSync(`apps/web/public${asset.calendarUrl}`)).toString('utf8'),
+      {
+        TextEncoder,
+        TextDecoder,
+        structuredClone,
+        self: {
+          addEventListener(
+            _name: string,
+            handle: (event: { data: CalendarWorkerRequest }) => void,
+          ) {
+            listener = handle;
+          },
+          postMessage(value: unknown) {
+            response = value;
+          },
+        },
+      },
+    );
+    listener?.({ data: input });
+    expect(JSON.parse(JSON.stringify(response))).toEqual({
+      ok: true,
+      days: computeDailyRange(
+        input.profile,
+        '2026-10-01',
+        '2026-10-31',
+        input.tz,
+        input.identity,
+        locale,
+      ),
+      events: computeCalendarYear(input.profile, 2026, input.tz, locale),
+    });
+    listener?.({ data: { ...input, month: 'private-invalid-month' } });
+    expect(response).toEqual({ ok: false, code: 'E_INTERNAL' });
   });

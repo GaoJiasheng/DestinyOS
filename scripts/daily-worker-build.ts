@@ -23,10 +23,10 @@ const withoutTraditional: Plugin = {
     }));
   },
 };
-async function emit(traditional: boolean) {
+async function emit(traditional: boolean, calendar = false) {
   const result = await build({
     absWorkingDir: root,
-    entryPoints: ['apps/web/lib/daily.worker.ts'],
+    entryPoints: [calendar ? 'apps/web/lib/calendar.worker.ts' : 'apps/web/lib/daily.worker.ts'],
     tsconfig: 'apps/web/tsconfig.json',
     bundle: true,
     platform: 'browser',
@@ -40,7 +40,7 @@ async function emit(traditional: boolean) {
   });
   const bytes = result.outputFiles[0]!.contents;
   const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 16);
-  const name = `daily-${hash}.js`;
+  const name = `${calendar ? 'calendar' : 'daily'}-${hash}.js`;
   const assets = resolve(root, 'apps/web/public/workers');
   await mkdir(assets, { recursive: true });
   await writeFile(resolve(assets, name), bytes);
@@ -54,7 +54,8 @@ async function emit(traditional: boolean) {
 }
 const url = await emit(false);
 const traditionalUrl = await emit(true);
+const calendarUrl = await emit(true, true);
 await writeFile(
   resolve(root, 'apps/web/lib/daily-worker-asset.json'),
-  JSON.stringify({ url, traditionalUrl }, null, 2) + '\n',
+  JSON.stringify({ url, traditionalUrl, calendarUrl }, null, 2) + '\n',
 );

@@ -1,10 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import type { BirthInput, Locale } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import { useRouter } from '@/i18n/navigation';
-import { BirthForm } from '@/components/forms/birth-form';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import {
@@ -17,11 +17,18 @@ import {
 } from '@/app/profiles/actions';
 type Data = Extract<Awaited<ReturnType<typeof listProfilesAction>>, { ok: true }>['data'];
 type Relation = Data['items'][number]['relation'];
+// DESIGN-GAP: The birth editor is needed only after add/edit; keep its calendar engine out of the profile list's initial chunks.
+const BirthForm = dynamic(() =>
+  import('@/components/forms/birth-form').then((module) => module.BirthForm),
+);
 /** Add/edit/delete/default controls share the existing validated birth editor. */
 export function ProfileManager({ initial }: { initial: Data }) {
   const t = useCopy(),
     locale = useLocale() as Locale,
     router = useRouter();
+  // DESIGN-GAP: Inline editors focus their first field on opening and restore their add/edit button on cancellation, keeping keyboard navigation in context.
+  const editorOpener = useRef<HTMLButtonElement | null>(null);
+  const relationField = useRef<HTMLSelectElement>(null);
   const [data, setData] = useState(initial),
     [edit, setEdit] = useState<{
       id?: string;
@@ -31,6 +38,9 @@ export function ProfileManager({ initial }: { initial: Data }) {
     [deleting, setDeleting] = useState<string | null>(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    if (edit) relationField.current?.focus();
+  }, [edit]);
   async function reload() {
     const r = await listProfilesAction();
     if (r.ok) setData(r.data);
@@ -81,7 +91,8 @@ export function ProfileManager({ initial }: { initial: Data }) {
                 <Button
                   disabled={busy}
                   variant="secondary"
-                  onClick={async () => {
+                  onClick={async (event) => {
+                    editorOpener.current = event.currentTarget;
                     setBusy(true);
                     setError(null);
                     try {
@@ -118,7 +129,8 @@ export function ProfileManager({ initial }: { initial: Data }) {
       )}
       <Button
         disabled={busy || data.items.length >= data.limit}
-        onClick={() => {
+        onClick={(event) => {
+          editorOpener.current = event.currentTarget;
           setEdit({});
           setRelation('other');
           setError(null);
@@ -130,7 +142,11 @@ export function ProfileManager({ initial }: { initial: Data }) {
         <div className="report-card">
           <label className="birth-field">
             {t('profiles.relation')}
-            <select value={relation} onChange={(e) => setRelation(e.target.value as Relation)}>
+            <select
+              ref={relationField}
+              value={relation}
+              onChange={(e) => setRelation(e.target.value as Relation)}
+            >
               {(['self', 'partner', 'family', 'friend', 'other'] as const).map((r) => (
                 <option key={r} value={r}>
                   {t(`profiles.relation.${r}`)}
@@ -165,7 +181,14 @@ export function ProfileManager({ initial }: { initial: Data }) {
               }
             }}
           />
-          <Button variant="ghost" disabled={busy} onClick={() => setEdit(null)}>
+          <Button
+            variant="ghost"
+            disabled={busy}
+            onClick={() => {
+              setEdit(null);
+              editorOpener.current?.focus();
+            }}
+          >
             {t('profiles.cancel')}
           </Button>
         </div>

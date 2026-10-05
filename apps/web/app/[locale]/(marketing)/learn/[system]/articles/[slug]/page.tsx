@@ -8,7 +8,8 @@ import { LearnArticle } from '@/components/learn/learn-article';
 
 type Params = { locale: 'zh' | 'en' | 'zh-TW'; system: string; slug: string };
 export const revalidate = 86400;
-export const dynamicParams = false;
+// DESIGN-GAP: Allow on-demand ISR when the installed Next.js cache misses a promoted locale entry; the compiled content lookup still returns 404 for unknown slugs.
+export const dynamicParams = true;
 /** Pre-render only the three tutorials belonging to the inherited system. */
 export async function generateStaticParams({ params }: { params: { system?: string } }) {
   return (await learnContent()).articles

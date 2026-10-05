@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
-import { normalizeBirth } from '@tianji/engine/common';
 import {
   BirthInputSchema,
   NumerologyNameSchema,
@@ -40,6 +39,8 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
       try {
         const profile = initial ?? (!signedIn ? (await readAnonymous())?.profile : undefined);
         if (active && profile) {
+          // DESIGN-GAP: Calendar normalization is required only for a saved profile or submission, so date-only input avoids downloading it at first render.
+          const { normalizeBirth } = await import('@tianji/engine/common');
           const { year, month, day } = normalizeBirth(profile, locale).local;
           setBirth({ ...profile, calendar: 'gregorian', year, month, day, isLeapMonth: false });
         }
@@ -70,6 +71,7 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
         setError('engine.errors.E_INVALID_INPUT');
         return;
       }
+      const { normalizeBirth } = await import('@tianji/engine/common');
       normalizeBirth(parsed.data, locale);
     } catch {
       setError('engine.errors.E_INVALID_INPUT');
