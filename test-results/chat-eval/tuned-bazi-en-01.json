@@ -1,0 +1,56 @@
+{
+  "id": "bazi-en-01",
+  "locale": "en",
+  "category": "career",
+  "question": "Which specific elements support my career strengths in this report?",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 1,
+  "system": "bazi",
+  "context": {
+    "id": 1,
+    "caseId": "en-01",
+    "locale": "en",
+    "question": "Which specific elements support my career strengths in this report?",
+    "history": [],
+    "sections": [
+      {
+        "key": "pattern_career",
+        "title": "Life Pattern & Career",
+        "lead": "Qī shā pattern: Working preferences",
+        "text": "You may be attentive to demanding deadlines or external expectations. Qī shā — a component that checks the day stem and shares its polarity — symbolizes challenge and response. The dramatic traditional name does not predict danger. The relevant question is whether a demanding task comes with enough support and a clear scope. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy.\nBǐ jiān — peer components sharing your day stem’s element and polarity — reaches the engine’s frequency threshold. Counted occurrences do not measure the quality of cooperation; they prompt a look at autonomy and shared standards. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.\nGuān shā hùn zá — regular-standard and challenge components coexisting — is a presence flag, not a character judgment. It prompts a distinction between ongoing expectations and demands that need a more immediate response. Sharing a new piece of work can begin with a small audience. Ask which part was clear and where people still had questions, then use the answers to shape the next presentation. You can turn feedback into specific edits rather than a general verdict about the work or its maker. Try keeping a steady sharing rhythm that leaves room for preparation and [[term:life_stage.bing]], instead of relying entirely on immediate audience response.…"
+      },
+      {
+        "key": "elements",
+        "title": "Elemental Balance",
+        "lead": "[[term:element.earth]]: Review the commitment",
+        "text": "Earth (tǔ — the support and organization category) prompts reflection on everyday maintenance. It does not assess digestion or make caring for everything your responsibility. You can compare the usefulness of a routine with the effort it requires to keep going. Your unfavorable list includes this category, meaning the simplified model does not prioritize adding its symbolic theme. This does not make real colours, seasons, directions, or occupations harmful. Actual conditions determine what is suitable for you. Choosing an everyday tool can become easier with three practical requirements. Compare a few suitable options against those needs rather than ranking every possible feature. Try limiting the comparison time and evaluating the choice through actual use afterward. Discernment need not make a decision more elaborate. It can reduce distractions and help you identify what matters, while leaving room to change a minor preference once experience provides better information.\n[[term:element.fire]] (huǒ — the visibility and expression category) supplies a metaphor for participation and pace. It cannot establish your mood or sleep quality. You can notice how periods of active engagement are balanced with quieter intervals in your actual schedule. Your favorable list includes this category as a balancing direction in the simplified model. Traditional associations with colours, seasons, directions, and occupations can add cultural interest, but they are not evidence for a practical decision. Reviewing public information calls for distinguishing errors from preferences. Correct anything that changes the reader’s understanding before debating stylistic details. You can define a finishing standard in advance and release the work once it meets that standard. Consider asking one reader whether the key action is now clear. Precision serves a purpose when it helps someone use the material; it becomes less helpful if every version remains indefinitely unfinished.\nMetal (jīn — the distinction and completion category) offers a metaphor for standards and boundaries. It is not a health assessment or proof of severity. You can consider when a clear standard helps a task and when it unnecessarily narrows the available methods. Your unfavorable list includes this category, meaning the simplified model does not prioritize adding its symbolic theme. This does not make real colours, seasons, directions, or occupations harmful. Actual conditions determine what is suitable for you. A friend asking for help may need a listening ear rather than a long list of options.…"
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "day_master",
+      "elements",
+      "pattern_career",
+      "wealth",
+      "love",
+      "health",
+      "luck_timeline",
+      "shensha_notes",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "The career section mentions Qī shā pattern for deadline attention, Bǐ jiān frequency for peer independence, Guān shā hùn zá for distinguishing steady rules from challenges, and Sha-Yin interaction for challenge-response balance. These form your work-style observation framework.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "The career section mentions Qī shā pattern for deadline attention, Bǐ jiān frequency for peer independence, Guān shā hùn zá for distinguishing steady rules from challenges, and Sha-Yin interaction for challenge-response balance. These form your work-style observation framework.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

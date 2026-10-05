@@ -1,0 +1,55 @@
+{
+  "id": "astrology-en-10",
+  "locale": "en",
+  "category": "timing",
+  "question": "Does the report contain annual-cycle evidence about career timing this year? State any limits.",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 139,
+  "system": "astrology",
+  "context": {
+    "id": 19,
+    "caseId": "en-10",
+    "locale": "en",
+    "question": "Does the report contain annual-cycle evidence about career timing this year? State any limits.",
+    "history": [],
+    "sections": [
+      {
+        "key": "transits_now",
+        "title": "Current Sky",
+        "lead": "The natal chart has no current positions; you can first record recent changes and needs.",
+        "text": "You can begin by recording recent changes and needs before comparing a separately calculated current sky. A transit — a relationship between positions at a chosen time and the natal chart — needs another explicitly dated calculation. This natal chart stores positions at birth, so it cannot establish where a planet is now or whether it currently forms an aspect to a personal point. This chapter offers an observation method rather than presenting birth aspects as today's or this month's changes. If your working rhythm shifted during the week, record when it began, what changed externally, and how you responded. Try separating facts, feelings, and one action you can adjust, then test only that action before adding another. A future transit calculation can provide a symbolic comparison, but your schedule, resources, and feedback remain essential to a real decision. Nothing here supplies a timetable of events, and a date in the report context alone does not create current planetary data.\nSeparate recent facts, feelings, and one adjustable action"
+      },
+      {
+        "key": "love_career",
+        "title": "Love & Career",
+        "lead": "You may explore work direction through building through repetition.",
+        "text": "You may approach work direction by building through repetition, while a useful arrangement still needs feedback from real people. This unit follows the Sun — the chart factor for chosen direction and identity — in Taurus — a sign associated with steadiness and tangible experience —, offering an entry into this area rather than a prediction of its outcome. This approach suggests testing an idea through repeated contact with something real. Comfort can support persistence, provided it leaves space for a useful adjustment. For example, when choosing a work responsibility, compare the contribution you want to make with the actual decisions and resources the role provides. Notice whether treating a familiar routine as the only workable option makes that conversation one-sided. Try this: keep the useful routine and alter one detail, then agree on an opportunity to revisit the arrangement if needs change; a role title does not measure your whole value, and external praise is only one form of feedback.\nYou may approach partnership by starting directly, while a useful arrangement still needs feedback from real people. This unit follows [[term:body.venus]] — the chart factor for appreciation and relationship preferences — in Aries — a sign associated with initiating and responding directly —, offering an entry into this area rather than a prediction of its outcome. This approach suggests learning through a first attempt. The useful distinction is between opening a possibility and insisting that everybody follow at your pace. For example, when arranging time with a partner or friend, distinguish an activity you both enjoy from one you accept to avoid naming a difference. Notice whether passing urgency to people who need context makes that conversation one-sided. Try this: agree on the purpose before moving quickly, then agree on an opportunity to revisit the arrangement if needs change; a relationship status does not measure the ability to care, and closeness still needs explicit questions.\nYou can begin choices in relationships and work with a clear need and a contribution you are willing to make. Venus — a lens on appreciation — Mars — a lens on action and boundaries — the Sun — a lens on chosen direction — and [[term:body.saturn]] — a lens on responsibility — ask different questions. Relevant houses add context when time is known, while missing house information should remain open. The reading does not predict a partner's identity, a relationship outcome, or a career result, and it does not require a particular relationship form.…"
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "big_three",
+      "planets",
+      "houses",
+      "aspects",
+      "love_career",
+      "patterns",
+      "transits_now",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "No current transit information exists in the report. Transits require separately calculated dates compared to the natal chart; this report only stores birth positions and cannot establish current planetary relationships for career timing.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "No current transit information exists in the report. Transits require separately calculated dates compared to the natal chart; this report only stores birth positions and cannot establish current planetary relationships for career timing.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

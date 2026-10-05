@@ -1,0 +1,20 @@
+{
+  "knownRequests": 193,
+  "reservedUncertainSmokeRequests": 2,
+  "usage": {
+    "promptTokens": 1050356,
+    "completionTokens": 98117,
+    "totalTokens": 1148473
+  },
+  "source": "Verified summary captured in tool output before Playwright cleared test-results.",
+  "originalTranscriptsLost": true,
+  "pairedPromptTokens": {
+    "baseline": 65087,
+    "tuned": 21575,
+    "reduction": 0.6685205955106243
+  },
+  "originalAverageProbeCostUsd": 0.00128826375,
+  "originalAverageBenignProductionCostUsd": 0.0014189420454545454,
+  "unpricedInterruptedJudgeRequests": 3,
+  "originalAllConversationMixCostUsd": 0.0007804181249999999
+}

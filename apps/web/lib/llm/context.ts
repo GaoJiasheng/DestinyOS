@@ -2,6 +2,7 @@ import { resourceText } from '../platform/resources';
 import type { System } from '@tianji/shared';
 import { ReportSchema } from '../reading-schema';
 import type { LlmMessage } from './minimax';
+import { selectChatSections, excerptChatText } from './selection';
 
 // DESIGN-GAP: Existing chart stripping retains reversible clocks; the LLM uses an independent derived-element allowlist.
 const roots: Record<System, readonly string[]> = {
@@ -150,40 +151,63 @@ export async function chatMessages(input: {
   history: readonly { role: 'user' | 'assistant'; content: string }[];
 }): Promise<LlmMessage[]> {
   const report = ReportSchema.parse(input.report);
-  const sections = report.sections.map((section) => ({
+  const previousQuestion =
+    [...input.history].reverse().find((message) => message.role === 'user')?.content ?? '';
+  const selected = selectChatSections(report.sections, input.question, previousQuestion);
+  const proseLimit = input.locale === 'en' ? 2600 : 900;
+  const sections = selected.map((section) => ({
+    key: section.key,
     title: redactChatText(section.title, input.identities),
-    lead: redactChatText(section.lead, input.identities),
-    text: redactChatText(
-      section.blocks
-        .flatMap((block) =>
-          block.type === 'paragraph' || block.type === 'transition'
-            ? [block.text]
-            : block.type === 'advice'
-              ? block.items
-              : [],
-        )
-        .join('\n'),
-      input.identities,
+    lead: excerptChatText(
+      redactChatText(section.lead, input.identities),
+      input.locale === 'en' ? 500 : 180,
+    ),
+    text: excerptChatText(
+      redactChatText(
+        section.blocks
+          .flatMap((block) =>
+            block.type === 'paragraph' || block.type === 'transition'
+              ? [block.text]
+              : block.type === 'advice'
+                ? block.items
+                : [],
+          )
+          .join('\n'),
+        input.identities,
+      ),
+      proseLimit,
     ),
   }));
   // DESIGN-GAP: Redact prose before JSON escaping so quoted/backslash-containing identities cannot bypass matching.
   const data = JSON.stringify({
     system: input.system,
     chart: chatChart(input.system, input.chart, input.identities),
+    availableSections: report.sections.map((section) => section.key),
     sections,
   });
-  // DESIGN-GAP: Bound context below the provider window and use the latest 12 turns to keep costs predictable.
-  if (data.length > 100000) throw new Error('Chat context too large');
+  // DESIGN-GAP: Cap excerpts and the latest three exchanges independently; never truncate serialized JSON or source chart facts.
+  if (data.length > 30000) throw new Error('Chat context too large');
   const prompt = await resourceText('lib/llm/prompts/chat.md');
   return [
     {
       role: 'system',
       content: `${prompt}\nResponse language: ${input.locale}.\nUntrusted chart and report data:\n${data}`,
     },
-    ...input.history.slice(-12).map((message) => ({
+    ...input.history.slice(-6).map((message) => ({
       role: message.role,
-      content: redactChatText(message.content, input.identities),
+      content: excerptChatText(
+        redactChatText(message.content, input.identities),
+        input.locale === 'en' ? 1000 : 400,
+      ),
     })),
+    // DESIGN-GAP: Restate delivery constraints after long untrusted context/history; real evaluations showed language and verbosity drift.
+    {
+      role: 'system',
+      content:
+        input.locale === 'en'
+          ? 'Final answer: English only, no Chinese characters, no raw field names. At most 140 words in 2–4 complete sentences. Plain prose, no Markdown. Refuse unsafe requests; do not ask for birth details.'
+          : `Final answer: ${input.locale === 'zh-TW' ? 'Traditional' : 'Simplified'} Chinese only, no raw field names. At most 240 Unicode characters in 2–4 complete sentences. Plain prose, no Markdown. Refuse unsafe requests; do not ask for birth details.`,
+    },
     { role: 'user', content: redactChatText(input.question, input.identities) },
   ];
 }

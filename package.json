@@ -66,7 +66,9 @@
     "cf:preview": "pnpm --filter @tianji/web cf:preview",
     "cf:deploy": "pnpm --filter @tianji/web cf:deploy",
     "test:cloudflare:e2e": "playwright test --config playwright.cloudflare.config.ts",
-    "test:seo-content:e2e": "playwright test --config playwright.seo-content.config.ts"
+    "test:seo-content:e2e": "playwright test --config playwright.seo-content.config.ts",
+    "chat:eval": "pnpm content:build && tsx scripts/chat-eval-batch.ts run && tsx scripts/chat-eval-batch.ts judge && tsx scripts/chat-eval-batch.ts summary",
+    "chat:eval:individual": "pnpm content:build && tsx scripts/chat-eval.ts baseline && tsx scripts/chat-eval.ts run && tsx scripts/chat-eval.ts retry && tsx scripts/chat-eval.ts deliver && tsx scripts/chat-eval.ts judge && tsx scripts/chat-eval.ts summary"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
@@ -91,6 +93,7 @@
     "ioredis": "^5.11.1",
     "ioredis-mock": "^8.13.1",
     "jsdom": "^26",
+    "jsonrepair": "^3.15.0",
     "license-checker-rseidelsohn": "^5.0.1",
     "liuyao": "0.5.1",
     "prettier": "^3.6.2",

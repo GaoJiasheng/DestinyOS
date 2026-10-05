@@ -1,0 +1,63 @@
+{
+  "recordedAt": "2026-10-05T18:03:43.287475+00:00",
+  "checks": [
+    {
+      "command": "pnpm install",
+      "exitCode": 0,
+      "localLogSha256": "8fa1c2dced9ecba3ae08f65ec03a4e4d2127070310787aa54ddc383370d0b6ab"
+    },
+    {
+      "command": "pnpm lint",
+      "exitCode": 0,
+      "localLogSha256": "a8ef37dbccf9bb9f5deb582c2b59683fead6dd93259dff55c78da25a2aab7e51"
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "localLogSha256": "6ae17f580c5a31958127e61901f7023afbdbe8da3f40d61ece8acf0b5e82cada"
+    },
+    {
+      "command": "pnpm test",
+      "exitCode": 0,
+      "localLogSha256": "521f5bee7723aadb7cd701563322ee8f2e5b925d9a69196a87b7ca62dea93af2"
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0,
+      "localLogSha256": "d1356cfb9b98aca38707ff470c1dc0bfefd917e7bd149a2213985c7c3e28d3f6"
+    },
+    {
+      "command": "TEST_SERVICE_PORT_OFFSET=100 pnpm test:chat:e2e",
+      "exitCode": 0,
+      "localLogSha256": "e08db8fdecad41f42162afd86a9c4e4ec7345bcb718d810f597ed5a3f0c2c4ba"
+    }
+  ],
+  "unitTests": {
+    "filesPassed": 87,
+    "passed": 3590,
+    "skipped": 1,
+    "skipReason": "Real MiniMax smoke is explicitly opt-in."
+  },
+  "targetedFinalRegression": {
+    "filesPassed": 4,
+    "passed": 40,
+    "skipped": 1
+  },
+  "chatE2e": {
+    "passed": 12,
+    "provider": "Isolated protocol mock; no real MiniMax requests."
+  },
+  "configuredCoverage": {
+    "statements": 99.58,
+    "branches": 98.87,
+    "functions": 100,
+    "lines": 99.85
+  },
+  "archiveIntegrity": {
+    "conversations": 160,
+    "adversarialRefusals": 56,
+    "requestUpperBound": 200,
+    "keyScan": "Passed; actual key absent from all archived JSON/Markdown/NDJSON."
+  },
+  "limitations": "Full local logs are excluded from git; the listed checks actually ran. MiniMax judgment and transcript provenance limitations are described in README.md and summary.json."
+}

@@ -22,7 +22,13 @@ const chunkSchema = z.object({
 /** OpenAI-compatible SSE stream; retries once before any visible answer, never logs provider bodies or errors. */
 export async function* streamMiniMax(
   messages: readonly LlmMessage[],
-  options: { signal?: AbortSignal; fetcher?: typeof fetch; timeoutMs?: number } = {},
+  options: {
+    signal?: AbortSignal;
+    fetcher?: typeof fetch;
+    timeoutMs?: number;
+    maxTokens?: number;
+    maxAttempts?: 1 | 2;
+  } = {},
 ): AsyncGenerator<LlmEvent> {
   const key = process.env.MINIMAX_API_KEY;
   if (!key) throw new Error('LLM unavailable');
@@ -32,7 +38,15 @@ export async function* streamMiniMax(
     throw new Error('Invalid LLM endpoint');
   const fetcher = options.fetcher ?? fetch;
   let visible = false;
-  for (let attempt = 0; attempt < 2; attempt++) {
+  // DESIGN-GAP: Offline batched evaluations need a larger output budget and one-attempt mode; production retains 4096 tokens and one retry.
+  const attempts = options.maxAttempts ?? 2;
+  const maxTokens = z
+    .number()
+    .int()
+    .min(1)
+    .max(32768)
+    .parse(options.maxTokens ?? 4096);
+  for (let attempt = 0; attempt < attempts; attempt++) {
     const timeout = new AbortController();
     const timer = setTimeout(() => timeout.abort(), options.timeoutMs ?? 60000);
     const signal = options.signal
@@ -49,7 +63,7 @@ export async function* streamMiniMax(
           stream: true,
           stream_options: { include_usage: true },
           reasoning_split: true,
-          max_tokens: 4096,
+          max_tokens: maxTokens,
           temperature: 0.7,
         }),
         signal,
@@ -118,7 +132,12 @@ export async function* streamMiniMax(
       if (!visible || !usageSeen) throw new Error('Incomplete LLM stream');
       return;
     } catch (error) {
-      if (attempt === 1 || visible || options.signal?.aborted || error instanceof NonRetryableError)
+      if (
+        attempt === attempts - 1 ||
+        visible ||
+        options.signal?.aborted ||
+        error instanceof NonRetryableError
+      )
         throw new Error('LLM unavailable');
       // DESIGN-GAP: Retry transient network/5xx/429/timeout failures once; no retry after visible output to avoid duplicate answers.
     } finally {

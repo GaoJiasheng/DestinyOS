@@ -1,0 +1,10 @@
+{
+  "cause": "Provider reached 16384 completion tokens and closed with a truncated result; no final judgments were returned.",
+  "usage": {
+    "promptTokens": 122145,
+    "completionTokens": 16384,
+    "totalTokens": 138529
+  },
+  "source": "Provider usage event in batch-judge.log",
+  "request": 198
+}

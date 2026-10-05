@@ -11,8 +11,9 @@ import { digest, readingView } from './reading-service';
 import { searchCities } from './geo';
 import { parseReadingChart } from './reading-schema';
 import { recordEvent } from './events';
-import { chatMessages, privateIdentifiers, redactChatText, boundAnswer } from './llm/context';
-import { streamMiniMax, type TokenUsage } from './llm/minimax';
+import { chatMessages, privateIdentifiers } from './llm/context';
+import type { TokenUsage } from './llm/minimax';
+import { streamChatReply } from './llm/reply';
 
 export const ChatRequestSchema = z
   .object({ locale: z.enum(['zh', 'en', 'zh-TW']), question: z.string().trim().min(1).max(120) })
@@ -159,30 +160,21 @@ export async function prepareChat(id: string, raw: unknown, signal: AbortSignal)
     reserved = true;
     let finished = false;
     const stream = async function* () {
-      let answer = '',
-        emitted = '',
+      let content = '',
         usage: TokenUsage = { promptTokens: 0, completionTokens: 0, totalTokens: 0 };
       try {
-        for await (const event of streamMiniMax(messages, { signal })) {
+        for await (const event of streamChatReply(
+          messages,
+          { question: req.question, locale: req.locale, identities },
+          { signal },
+        )) {
           if (event.type === 'usage') usage = event.usage;
           else {
-            answer += event.text;
-            // Buffer any known identifier crossing chunk boundaries before releasing text.
-            const safe = boundAnswer(redactChatText(answer, identities), req.locale);
-            const hold = Math.max(160, ...identities.map((identity) => identity.length));
-            const stable = safe.slice(0, Math.max(0, safe.length - hold));
-            if (stable.startsWith(emitted) && stable.length > emitted.length) {
-              yield { type: 'delta', text: stable.slice(emitted.length) };
-              emitted = stable;
-            }
+            content += event.text;
+            yield event;
           }
         }
         if (signal.aborted) throw new Error('Cancelled chat');
-        const content = boundAnswer(redactChatText(answer, identities), req.locale);
-        if (!content.trim()) throw new Error('Empty chat answer');
-        if (!content.startsWith(emitted)) throw new Error('Unstable chat answer');
-        if (content.length > emitted.length)
-          yield { type: 'delta', text: content.slice(emitted.length) };
         // DESIGN-GAP: Store both turns atomically on success; prompt token count includes chart/report/history, completion count includes reasoning.
         await db.$transaction(async (tx) => {
           const stillOwned = await tx.reading.findFirst({

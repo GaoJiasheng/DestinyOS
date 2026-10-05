@@ -1,0 +1,50 @@
+{
+  "id": "bazi-en-02",
+  "locale": "en",
+  "category": "career",
+  "question": "I am considering a job change. What can this report suggest, and what is uncertain?",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 3,
+  "system": "bazi",
+  "context": {
+    "id": 3,
+    "caseId": "en-02",
+    "locale": "en",
+    "question": "I am considering a job change. What can this report suggest, and what is uncertain?",
+    "history": [],
+    "sections": [
+      {
+        "key": "pattern_career",
+        "title": "Life Pattern & Career",
+        "lead": "Qī shā pattern: Working preferences",
+        "text": "You may be attentive to demanding deadlines or external expectations. Qī shā — a component that checks the day stem and shares its polarity — symbolizes challenge and response. The dramatic traditional name does not predict danger. The relevant question is whether a demanding task comes with enough support and a clear scope. Your recorded pattern uses the main birth-month component as its starting point; it does not replace evidence about your circumstances. Test working preferences through real tasks, such as operational coordination, specialist research, or content design. Joining an unfamiliar community does not require immediate closeness with everyone. You might begin with a practical role at one event and notice which conversations feel comfortable. Try increasing participation gradually while keeping time to recover. An awkward exchange can reflect unfamiliar expectations rather than a fixed social trait. Adaptation is easier to sustain when you can participate at a pace that fits your actual energy.\nBǐ jiān — peer components sharing your day stem’s element and polarity — reaches the engine’s frequency threshold. Counted occurrences do not measure the quality of cooperation; they prompt a look at autonomy and shared standards. Different views about task order can be compared using deadlines, risks, and available evidence. You might choose the most reversible next step rather than debating the entire plan at once. Try setting a review point so that new information can change the decision. Clear action and openness to revision can coexist. An updated plan need not mean the earlier position lacked value; it can show that the test produced information worth using. You can compare this prompt with a real example and retain only what helps you describe the practical situation more clearly.\nGuān shā hùn zá — regular-standard and challenge components coexisting — is a presence flag, not a character judgment. It prompts a distinction between ongoing expectations and demands that need a more immediate response. Sharing a new piece of work can begin with a small audience. Ask which part was clear and where people still had questions, then use the answers to shape the next presentation. You can turn feedback into specific edits rather than a general verdict about the work or its maker. Try keeping a steady sharing rhythm that leaves room for preparation and [[term:life_stage.bing]], instead of relying entirely on immediate audience response.…"
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "day_master",
+      "elements",
+      "pattern_career",
+      "wealth",
+      "love",
+      "health",
+      "luck_timeline",
+      "shensha_notes",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "The report can suggest how you respond to tasks (Qī shā), maintain autonomy (Bǐ jiān), and distinguish roles (Guān shā hùn zá), but cannot determine specific job choices or success; actual opportunities matter.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "The report can suggest how you respond to tasks (Qī shā), maintain autonomy (Bǐ jiān), and distinguish roles (Guān shā hùn zá), but cannot determine specific job choices or success; actual opportunities matter.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

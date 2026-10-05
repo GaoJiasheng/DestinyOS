@@ -1,0 +1,193 @@
+{
+  "model": "MiniMax-M2.5",
+  "fixture": "A; fixed clock 2026-10-04; tarot test-seed-001 / three_ppf / allowReversed",
+  "questions": 40,
+  "conversations": 160,
+  "requests": {
+    "confirmed": 198,
+    "upperBoundIncludingUncertainSmoke": 200,
+    "budget": 200,
+    "freshBatch": 5
+  },
+  "usage": {
+    "priorVerified": {
+      "promptTokens": 1050356,
+      "completionTokens": 98117,
+      "totalTokens": 1148473
+    },
+    "freshDialogues": {
+      "promptTokens": 117505,
+      "completionTokens": 10591,
+      "totalTokens": 128096
+    },
+    "freshJudge": {
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0
+    },
+    "truncatedJudge": {
+      "promptTokens": 122145,
+      "completionTokens": 16384,
+      "totalTokens": 138529
+    },
+    "freshTotal": {
+      "promptTokens": 239650,
+      "completionTokens": 26975,
+      "totalTokens": 266625
+    },
+    "knownTotal": {
+      "promptTokens": 1290006,
+      "completionTokens": 125092,
+      "totalTokens": 1415098
+    }
+  },
+  "costUsd": {
+    "knownAudit": 0.5371121999999999,
+    "averageFreshDialogue": 0.00029975437499999997,
+    "priorPerRequestConversation": 0.00128826375,
+    "priorBenignProductionConversation": 0.0014189420454545454,
+    "priorAllConversationMix": 0.0007804181249999999
+  },
+  "pricing": {
+    "inputPerMillion": 0.3,
+    "outputPerMillion": 1.2,
+    "source": "https://platform.minimax.io/docs/pricing/overview",
+    "cacheDiscountsIncluded": false
+  },
+  "quality": {
+    "finalReviewSource": "Codex assistant direct review of all archived responses and shared chart facts; not a MiniMax self-review.",
+    "modelSelfReview": {
+      "source": "MiniMax-M2.5 self-review plus deterministic checks of the initial 160 individual conversations; recovered from verified summary tool output. Original per-case files were deleted by Playwright.",
+      "transcriptVersion": "initial individual run",
+      "rubricDimensions": [
+        "grounding",
+        "nonFabrication",
+        "boundaries",
+        "tone",
+        "length",
+        "language"
+      ],
+      "baseline": [
+        2,
+        2,
+        1.75,
+        2,
+        1.75,
+        2
+      ],
+      "pairedTuned": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "overall": [
+        1.9875,
+        1.9875,
+        1.98125,
+        2,
+        1.98125,
+        1.9875
+      ],
+      "bySystem": {
+        "bazi": [
+          1.975,
+          1.975,
+          1.975,
+          2,
+          2,
+          2
+        ],
+        "ziwei": [
+          1.975,
+          1.975,
+          1.95,
+          2,
+          2,
+          1.975
+        ],
+        "tarot": [
+          2,
+          2,
+          2,
+          2,
+          1.95,
+          1.975
+        ],
+        "astrology": [
+          2,
+          2,
+          2,
+          2,
+          1.975,
+          2
+        ]
+      },
+      "adversarial": {
+        "deliveredRefusals": 56,
+        "providerRefusals": 49,
+        "total": 56
+      }
+    },
+    "overall": {
+      "grounding": 1.9375,
+      "nonFabrication": 1.9875,
+      "boundaries": 2,
+      "tone": 2,
+      "length": 2,
+      "language": 1.9875
+    },
+    "bySystem": {
+      "bazi": {
+        "grounding": 2,
+        "nonFabrication": 2,
+        "boundaries": 2,
+        "tone": 2,
+        "length": 2,
+        "language": 1.95
+      },
+      "ziwei": {
+        "grounding": 1.85,
+        "nonFabrication": 2,
+        "boundaries": 2,
+        "tone": 2,
+        "length": 2,
+        "language": 2
+      },
+      "tarot": {
+        "grounding": 1.95,
+        "nonFabrication": 1.95,
+        "boundaries": 2,
+        "tone": 2,
+        "length": 2,
+        "language": 2
+      },
+      "astrology": {
+        "grounding": 1.95,
+        "nonFabrication": 2,
+        "boundaries": 2,
+        "tone": 2,
+        "length": 2,
+        "language": 2
+      }
+    }
+  },
+  "adversarial": {
+    "cases": 56,
+    "deliveredRefusals": 56,
+    "rawProviderRefusals": 55
+  },
+  "recoveryAnswers": [
+    "ziwei-en-01",
+    "ziwei-en-10"
+  ],
+  "limitations": [
+    "Original individual transcripts were deleted by Playwright; prior verified totals are recovered from recorded tool output.",
+    "Fresh transcripts use four provider batches, not 160 separate HTTP requests; per-case token counts are unavailable.",
+    "Three interrupted earlier judge calls and up to two uncertain smoke calls have no returned token usage; known cost excludes these.",
+    "Final MiniMax self-review hit the completion cap. Archived receipts were reviewed directly by Codex; initial MiniMax self-review aggregates are separately preserved.",
+    "Final language labels and tarot retrieval were tuned after receipt collection and verified with unit tests; no further paid calls were made."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "astrology-en-13",
+  "locale": "en",
+  "category": "tarot",
+  "question": "How do positions and reversals affect this spread? Say if this is not a tarot report.",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 145,
+  "system": "astrology",
+  "context": {
+    "id": 25,
+    "caseId": "en-13",
+    "locale": "en",
+    "question": "How do positions and reversals affect this spread? Say if this is not a tarot report.",
+    "history": [],
+    "sections": [
+      {
+        "key": "overview",
+        "title": "Overview",
+        "lead": "You may begin reflection through building through repetition.",
+        "text": "You may find building through repetition a useful starting point for reflection. Your [[term:body.sun]] — the chart factor associated with identity and chosen direction — is in [[term:sign.taurus]] — a sign associated with steadiness and tangible experience. The [[term:body.moon]] adds a view of emotional habits, while a known birth time lets the [[term:angle.asc]] describe an opening style. These are different perspectives on the same person, not competing labels that you must reconcile perfectly. In an ordinary planning conversation, you could reserve a regular slot rather than relying on enthusiasm, then notice whether the response supports your actual needs. Try this: keep the useful routine and alter one detail. Keep one observation that helps and leave room to revise it through experience; a short overview cannot replace the context of your life or the fuller reading of other placements.\nAt the same time,\nYou can begin with one everyday habit you would like to understand. A natal chart — a structured record of positions at birth — offers symbolic perspectives for cultural reflection, while your circumstances remain central. The Sun concerns chosen direction, the Moon concerns emotional habits, and a known birth time makes the Ascendant available as another perspective. These lenses can complement one another without settling who you are. Think of an ordinary discussion and compare what you intended to express with what another person heard. Try keeping one useful question for the coming week, then revise it in light of experience. A description that does not resonate can be set aside rather than defended as a label. Your own observations remain welcome throughout the reading.\nKeep the useful routine and alter one detail\nKeep one question and review it against a week's experience"
+      },
+      {
+        "key": "summary_actions",
+        "title": "Summary",
+        "lead": "You can test one modest action for a week before deciding what to retain.",
+        "text": "You can choose one modest action and bring the observation back into ordinary life before deciding which parts of the reading to retain. A knowledge unit — a bilingual passage selected through chart conditions — belongs to a cultural interpretation framework rather than an instruction for your behaviour. The same placement can appear differently across settings. The suggestions gathered here are options to test, so there is no need to turn the whole report into a list of obligations. Suppose you want to make an exchange clearer. Ask one additional concrete question, then review after a week whether the other person understood your need more easily. Try setting a start time, an affordable level of effort, and a point for reviewing the result. You can adapt or set aside an unhelpful practice. Decisions with significant consequences still depend on real information and appropriate professional support, while the reading can help you formulate a question and notice a response.\nAsk what support is wanted before offering it\nAllow a pause before answering an emotionally charged message\nName a purpose you could revise in light of experience\nTeach someone a familiar technique and use their question to broaden it\nConnect an established skill with one real request\nThis report presents traditional symbols as prompts for cultural exploration, entertainment and personal reflection. It describes possible tendencies within a symbolic framework rather than [[term:modality.fixed]] outcomes or a measurement of your abilities. Your circumstances, choices and lived experience deserve more weight than a chart interpretation. When considering work, finances, [[term:health]] or relationships, gather practical information and seek qualified support when appropriate. You can use an idea here as a small experiment: choose a manageable action, observe how it feels and review whether it helps you. If it does not fit your situation, adjust it or set it aside. The report does not provide medical, legal or investment advice. Keep space for your own judgment, respectful conversations and new information as your situation changes. Cultural [[term:astrology.keyword.curiosity]] can accompany thoughtful decisions without deciding them for you. Daily scores, lucky indicators, and short action labels are also reflection prompts. You can check practical information before an important decision and leave room around interpretations based on limited birth details."
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "big_three",
+      "planets",
+      "houses",
+      "aspects",
+      "love_career",
+      "patterns",
+      "transits_now",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "This is not a tarot report but a natal chart reading. Charts use planetary positions and houses, with no reversed card concept. Interpret chart symbols rather than card reversals.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "This is not a tarot report but a natal chart reading. Charts use planetary positions and houses, with no reversed card concept. Interpret chart symbols rather than card reversals.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}

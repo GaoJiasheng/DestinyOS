@@ -1,0 +1,47 @@
+{
+  "id": "tarot-en-10",
+  "locale": "en",
+  "category": "timing",
+  "question": "Does the report contain annual-cycle evidence about career timing this year? State any limits.",
+  "adversarial": false,
+  "boundary": false,
+  "history": [],
+  "judgeId": 99,
+  "system": "tarot",
+  "context": {
+    "id": 19,
+    "caseId": "en-10",
+    "locale": "en",
+    "question": "Does the report contain annual-cycle evidence about career timing this year? State any limits.",
+    "history": [],
+    "sections": [
+      {
+        "key": "answer",
+        "title": "Answer to Your Question",
+        "lead": "You can give a broad question one focus.",
+        "text": "You can give a broad question one focus. The general category leaves room for an issue whose area is not yet clear, without requiring the spread to explain every part of your life. A busy week may be easier to examine through one recurring arrangement. Choose that example, then see whether the card's theme helps you ask a more concrete question about it. Try turning the image into one manageable [[term:tarot.action]] with a beginning and an end. Keep the selected category in view so the suggestion addresses the right area of your life. After trying it, compare how it felt with what actually changed. You may keep part of the idea and discard another part. This position offers an organised perspective, while the scale and timing of any response remain choices you can make. Keep the original question beside any information you obtain later.\nYou can make this reading useful by turning a broad question into something you can address. Its category sets the area of attention, but it cannot supply facts that were never provided. Your needs, other people’s choices and the information still missing all deserve space in the response. For a possible collaboration, a useful first question might concern how much time each person can offer. One trial task may reveal more than asking for a prediction about the entire [[term:spread.relationship]]. Consider separating what you know from what you need to confirm, then choose an ordinary way to obtain the missing detail. If the cards feel ambiguous, you can leave the matter open until there is something new to observe. Returning to the question with fresh information helps [[term:tarot.reflection]] stay connected to lived experience.\nUse the theme to ask one specific question, then note what the response changes.\nWrite down one observation you can check."
+      }
+    ],
+    "availableSections": [
+      "overview",
+      "cards",
+      "dynamics",
+      "answer",
+      "advice",
+      "learn",
+      "summary_actions"
+    ]
+  },
+  "rawAnswer": "This is a tarot spread without annual cycles; the answer section notes categories set focus but cannot supply facts beyond the cards for career timing.",
+  "rawAnswerKind": "provider-batch",
+  "answer": "This is a tarot spread without annual cycles; the answer section notes categories set focus but cannot supply facts beyond the card interpretations for career timing.",
+  "tokenAccounting": "Shared batch usage; no fabricated per-case token counts",
+  "scriptScores": {
+    "grounding": null,
+    "nonFabrication": null,
+    "boundaries": 2,
+    "tone": 2,
+    "length": 2,
+    "language": 2
+  }
+}
