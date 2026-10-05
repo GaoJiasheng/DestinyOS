@@ -1,0 +1,3 @@
+任务：引擎独立交叉验证（只改 packages/engine 与其测试、必要时 packages/shared；不改前端）。
+阅读：docs/04-engine-overview.md §4、§9；docs/systems/*.md 的「核验与测试」节。
+要做：用 Python 虚拟环境安装独立参考库做对照（仅用于本地测试脚本，不进入发布产物、不加入运行时依赖）：sxtwl（八字四柱、节气、农历）、pyswisseph（行星黄经、ASC/MC、Placidus/Whole Sign 宫头、Lahiri ayanamsa；AGPL 仅本地对照）、kinqimen（奇门）、以及用 iztro 之外的紫微参考（若 pip 有 py-iztro 或其他库则用，否则跳过并说明）。生成 300 个随机合法出生档案（覆盖 1900–2030、南北半球、东西经、DST、晚子时、无时辰）与 60 个起卦/起局时刻的参考结果 JSON（存 packages/engine/test/fixtures/xval/），编写 Vitest 对照测试，容差按文档。对每个差异判断是流派差异（在文档流派表范围内，记录到 docs/progress/XVAL.md 并在 schoolUsed 标注）还是 bug（修复）。重点核查：立春/节气边界、真太阳时跨日、西经夏令时、Placidus 高纬、Nakshatra 边界、Dasha 起运比例、拆补法三元边界。

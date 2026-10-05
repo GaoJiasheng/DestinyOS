@@ -8,5 +8,6 @@
 - 完成后必须实际运行 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（若有）、`pnpm build`，全部通过才算完成；把失败修到通过。
 - 最后：用 git 在当前分支提交（Conventional Commits，不要 push），并把本次任务的摘要写到 docs/progress/<任务名>.md：完成项、未完成项、DESIGN-GAP 列表、如何验证。摘要控制在 60 行内。
 - 全程不要询问，自行决策。网络可用，可以安装 npm 包。
-任务：合并分支。把环境变量 BRANCHES 中列出的分支（空格分隔，已在本地）逐个 merge 进当前分支 main。冲突时保留双方功能并修正，package.json 依赖合并后重新 `pnpm install` 更新 lockfile。合并后运行 `pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build`，把失败修到通过。每个分支一次 merge commit，最后如有修复再提交 `chore: post-merge fixes`。不要 push。合并完成后把各分支的 docs/progress/*.md 保留。另外：若 docs/04-engine-overview.md §9 的 Fixture F 仍写 1992 年闰六月，请改为「农历 1993 年闰三月十五 06:00，成都」（1993 年确有闰三月），并同步 packages/engine/test/fixtures 中的 F。
-BRANCHES=wt/a11y_perf wt/simplify
+任务：公共内容与 SEO 扩充（为 AdSense 审核与自然流量）。
+阅读：docs/02 §3.7、§7；docs/12 语气规范；docs/05 §8 写作规范。
+要做：/learn 下每个体系（含 numerology、synastry）写 3 篇 1500–2500 字的双语入门长文（例如八字：「怎么看懂自己的四柱」「十神是什么」「大运流年怎么读」），带内部链接与结构化数据；FAQ 页（20 问，含流派说明、隐私、准不准、怎么用）；About 页正式文案（品牌故事、方法论「排盘—知识库—组文」、不用运行时 AI 编造的说明、团队与联系方式占位）；78 牌与 64 卦页补「历史与象征」段；术语页按体系分组导航；sitemap 与 hreflang 覆盖 zh/zh-TW/en；OG 图模板给公共页。内容通过禁用词检查；E2E 抽查 5 页。

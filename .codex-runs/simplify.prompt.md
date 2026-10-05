@@ -8,5 +8,4 @@
 - 完成后必须实际运行 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（若有）、`pnpm build`，全部通过才算完成；把失败修到通过。
 - 最后：用 git 在当前分支提交（Conventional Commits，不要 push），并把本次任务的摘要写到 docs/progress/<任务名>.md：完成项、未完成项、DESIGN-GAP 列表、如何验证。摘要控制在 60 行内。
 - 全程不要询问，自行决策。网络可用，可以安装 npm 包。
-任务：合并分支。把环境变量 BRANCHES 中列出的分支（空格分隔，已在本地）逐个 merge 进当前分支 main。冲突时保留双方功能并修正，package.json 依赖合并后重新 `pnpm install` 更新 lockfile。合并后运行 `pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build`，把失败修到通过。每个分支一次 merge commit，最后如有修复再提交 `chore: post-merge fixes`。不要 push。合并完成后把各分支的 docs/progress/*.md 保留。另外：若 docs/04-engine-overview.md §9 的 Fixture F 仍写 1992 年闰六月，请改为「农历 1993 年闰三月十五 06:00，成都」（1993 年确有闰三月），并同步 packages/engine/test/fixtures 中的 F。
-BRANCHES=wt/a11y_perf wt/simplify
+任务：代码质量收敛。不改行为：删除死代码与重复实现、统一平台抽象与错误处理、拆分超过 400 行的组件/模块、补齐缺失的 JSDoc、消除 eslint 警告、统一命名与目录结构到 docs/09 §2；对 packages/engine 与 interpret 做一次 API 表面审查并写 packages/*/README.md；全部测试通过、覆盖率不下降。

@@ -8,5 +8,4 @@
 - 完成后必须实际运行 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（若有）、`pnpm build`，全部通过才算完成；把失败修到通过。
 - 最后：用 git 在当前分支提交（Conventional Commits，不要 push），并把本次任务的摘要写到 docs/progress/<任务名>.md：完成项、未完成项、DESIGN-GAP 列表、如何验证。摘要控制在 60 行内。
 - 全程不要询问，自行决策。网络可用，可以安装 npm 包。
-任务：合并分支。把环境变量 BRANCHES 中列出的分支（空格分隔，已在本地）逐个 merge 进当前分支 main。冲突时保留双方功能并修正，package.json 依赖合并后重新 `pnpm install` 更新 lockfile。合并后运行 `pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build`，把失败修到通过。每个分支一次 merge commit，最后如有修复再提交 `chore: post-merge fixes`。不要 push。合并完成后把各分支的 docs/progress/*.md 保留。另外：若 docs/04-engine-overview.md §9 的 Fixture F 仍写 1992 年闰六月，请改为「农历 1993 年闰三月十五 06:00，成都」（1993 年确有闰三月），并同步 packages/engine/test/fixtures 中的 F。
-BRANCHES=wt/a11y_perf wt/simplify
+任务：新功能的无障碍与性能复审。对本轮新增页面（导出、追问大师、生命灵数、辅助定盘、运势日历、繁体、多档案、合盘、学习长文）跑 axe 与键盘走查修到无 serious/critical；Lighthouse 移动端三页 + 合盘报告页 + 日历页 Performance ≥ 85；检查新增 chunk 体积并按需拆分；检查 zh-TW 下字体子集是否缺字；更新 test:polish 覆盖新页面并重新生成截图基线。

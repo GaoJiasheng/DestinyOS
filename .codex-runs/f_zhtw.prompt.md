@@ -8,5 +8,5 @@
 - 完成后必须实际运行 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（若有）、`pnpm build`，全部通过才算完成；把失败修到通过。
 - 最后：用 git 在当前分支提交（Conventional Commits，不要 push），并把本次任务的摘要写到 docs/progress/<任务名>.md：完成项、未完成项、DESIGN-GAP 列表、如何验证。摘要控制在 60 行内。
 - 全程不要询问，自行决策。网络可用，可以安装 npm 包。
-任务：合并分支。把环境变量 BRANCHES 中列出的分支（空格分隔，已在本地）逐个 merge 进当前分支 main。冲突时保留双方功能并修正，package.json 依赖合并后重新 `pnpm install` 更新 lockfile。合并后运行 `pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build`，把失败修到通过。每个分支一次 merge commit，最后如有修复再提交 `chore: post-merge fixes`。不要 push。合并完成后把各分支的 docs/progress/*.md 保留。另外：若 docs/04-engine-overview.md §9 的 Fixture F 仍写 1992 年闰六月，请改为「农历 1993 年闰三月十五 06:00，成都」（1993 年确有闰三月），并同步 packages/engine/test/fixtures 中的 F。
-BRANCHES=wt/a11y_perf wt/simplify
+任务：繁体中文 zh-TW（docs/14 B-09）。
+要做：next-intl 加 zh-TW；messages/zh-TW.json 由 zh 经 opencc-js（s2twp）转换并用术语覆盖表修正（如 軟體/體系/資料 等台湾用语及命理术语繁体正字：乾坤、罗睺→羅睺、裡/裏 统一）；知识库报告文本在 interpret 输出层按 locale 做转换（加缓存），不复制 KU；路由 /zh-TW，语言切换三项，hreflang，SEO；字体子集补繁体常用字；E2E 一条验证无简体残留（用 opencc 反向检查抽样）。

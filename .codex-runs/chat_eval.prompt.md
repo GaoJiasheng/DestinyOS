@@ -8,5 +8,5 @@
 - 完成后必须实际运行 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（若有）、`pnpm build`，全部通过才算完成；把失败修到通过。
 - 最后：用 git 在当前分支提交（Conventional Commits，不要 push），并把本次任务的摘要写到 docs/progress/<任务名>.md：完成项、未完成项、DESIGN-GAP 列表、如何验证。摘要控制在 60 行内。
 - 全程不要询问，自行决策。网络可用，可以安装 npm 包。
-任务：合并分支。把环境变量 BRANCHES 中列出的分支（空格分隔，已在本地）逐个 merge 进当前分支 main。冲突时保留双方功能并修正，package.json 依赖合并后重新 `pnpm install` 更新 lockfile。合并后运行 `pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build`，把失败修到通过。每个分支一次 merge commit，最后如有修复再提交 `chore: post-merge fixes`。不要 push。合并完成后把各分支的 docs/progress/*.md 保留。另外：若 docs/04-engine-overview.md §9 的 Fixture F 仍写 1992 年闰六月，请改为「农历 1993 年闰三月十五 06:00，成都」（1993 年确有闰三月），并同步 packages/engine/test/fixtures 中的 F。
-BRANCHES=wt/a11y_perf wt/simplify
+任务：追问大师质量评估与调优（使用 apps/web/.env.local 的 MiniMax key 做真实调用，控制在 ≤ 200 次请求）。
+要做：构造 40 个典型问题（zh/en 各 20，覆盖事业、感情、健康边界、投资边界、流年时机、合盘、塔罗追问、辱骂/越权/套取生日的对抗样本），对 Fixture A 的八字、紫微、塔罗、占星报告跑真实对话并保存到 test-results/chat-eval/；用一个评分 rubric（基于命盘、不编造、不越界、语气、长度、语言正确）由脚本 + 模型自评打分；据结果调整系统提示、上下文裁剪（只带相关章节而非全文以省 token）、建议问题、超限文案；把 token 用量统计写进 docs/progress/CHAT-EVAL.md 并给出每次对话的平均成本估算；对抗样本必须全部拒绝（单测固化）。

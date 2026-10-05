@@ -8,5 +8,6 @@
 - 完成后必须实际运行 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（若有）、`pnpm build`，全部通过才算完成；把失败修到通过。
 - 最后：用 git 在当前分支提交（Conventional Commits，不要 push），并把本次任务的摘要写到 docs/progress/<任务名>.md：完成项、未完成项、DESIGN-GAP 列表、如何验证。摘要控制在 60 行内。
 - 全程不要询问，自行决策。网络可用，可以安装 npm 包。
-任务：合并分支。把环境变量 BRANCHES 中列出的分支（空格分隔，已在本地）逐个 merge 进当前分支 main。冲突时保留双方功能并修正，package.json 依赖合并后重新 `pnpm install` 更新 lockfile。合并后运行 `pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build`，把失败修到通过。每个分支一次 merge commit，最后如有修复再提交 `chore: post-merge fixes`。不要 push。合并完成后把各分支的 docs/progress/*.md 保留。另外：若 docs/04-engine-overview.md §9 的 Fixture F 仍写 1992 年闰六月，请改为「农历 1993 年闰三月十五 06:00，成都」（1993 年确有闰三月），并同步 packages/engine/test/fixtures 中的 F。
-BRANCHES=wt/a11y_perf wt/simplify
+任务：知识库职业审稿。你现在的角色是一位有二十年经验、同时精通八字、紫微、六爻梅花、奇门、塔罗、西方与吠陀占星的职业命理师兼编辑，审阅 packages/content 下全部 KU、64 卦白话、78 牌文本与 glossary。
+标准：docs/05-interpretation-engine.md §7–§8；各体系文档的解读要点。
+要做：逐条检查并直接修改：(1) 命理逻辑错误（如十神生克方向写反、紫微星曜特性张冠李戴、相位性质混淆、Nakshatra 主星错、卦辞理解偏差）；(2) 同一主题内前后矛盾或与其他 KU 冲突；(3) 空泛套话（任何命盘都能套的段落）改为与触发条件紧扣的具体内容；(4) 中英文各自是否地道、是否有机翻腔；(5) 负面段落是否都有出口；(6) 术语首次出现是否有白话；(7) when 条件是否过宽导致误触发。每修改一处在 docs/progress/KU-REVIEW.md 记录（unitId、问题类型、一句话说明），最后给出按体系的问题统计。修改后 content:validate 与覆盖率检查必须通过，knowledgeVersion 递增。

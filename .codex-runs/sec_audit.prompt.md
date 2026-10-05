@@ -8,5 +8,6 @@
 - 完成后必须实际运行 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（若有）、`pnpm build`，全部通过才算完成；把失败修到通过。
 - 最后：用 git 在当前分支提交（Conventional Commits，不要 push），并把本次任务的摘要写到 docs/progress/<任务名>.md：完成项、未完成项、DESIGN-GAP 列表、如何验证。摘要控制在 60 行内。
 - 全程不要询问，自行决策。网络可用，可以安装 npm 包。
-任务：合并分支。把环境变量 BRANCHES 中列出的分支（空格分隔，已在本地）逐个 merge 进当前分支 main。冲突时保留双方功能并修正，package.json 依赖合并后重新 `pnpm install` 更新 lockfile。合并后运行 `pnpm lint && pnpm typecheck && pnpm test && pnpm content:validate 2>/dev/null; pnpm build`，把失败修到通过。每个分支一次 merge commit，最后如有修复再提交 `chore: post-merge fixes`。不要 push。合并完成后把各分支的 docs/progress/*.md 保留。另外：若 docs/04-engine-overview.md §9 的 Fixture F 仍写 1992 年闰六月，请改为「农历 1993 年闰三月十五 06:00，成都」（1993 年确有闰三月），并同步 packages/engine/test/fixtures 中的 F。
-BRANCHES=wt/a11y_perf wt/simplify
+任务：安全审计与修复。角色：渗透测试工程师。
+阅读：docs/08-security-privacy.md 全文；docs/07-api.md §1–§2。
+要做：审计并修复：认证流程（魔法链接重放、会话固定、OAuth state）、字段加密实现（IV 重用、AAD、密钥轮换脚本）、授权（IDOR：读取/删除他人报告与分享、admin 路由、cron 路由鉴权）、限流绕过、分享 token 熵与枚举、公开页与 OG 图是否泄露生日、日志与 Sentry 脱敏实测、CSP 与安全头、Zod 校验遗漏、SSRF/路径穿越（城市库、导出、图片生成）、依赖漏洞（pnpm audit）、Stripe webhook 验签与幂等、Prisma 原始查询注入、匿名本地存储加密。每个发现写入 docs/progress/SECURITY-AUDIT.md（严重度、位置、修复、验证方法），并为每个高危项补一条回归测试。
