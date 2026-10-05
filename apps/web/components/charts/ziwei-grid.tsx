@@ -15,12 +15,16 @@ import {
 } from './ziwei-geometry';
 
 /** Birth time is mandatory: provide recovery links without fabricating a Zi Wei chart. */
-export function ZiweiTimeRequired() {
+export function ZiweiTimeRequired({ onRectify }: { onRectify?: () => void } = {}) {
   const t = useTranslations('ziwei.chart');
+  const rectify = useTranslations('rectification');
   return (
     <aside className="notice ziwei-time-required" role="status">
       <p>{t('timeRequired')}</p>
       <div className="hero-actions">
+        <Button type="button" asChild={!onRectify} variant="secondary" onClick={onRectify}>
+          {onRectify ? rectify('entry') : <Link href="/rectify">{rectify('entry')}</Link>}
+        </Button>
         <Button asChild>
           <Link href="/ziwei/new">{t('editTime')}</Link>
         </Button>

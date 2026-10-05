@@ -133,6 +133,9 @@ for (const [locale, catalog] of [
     expect(
       screen.getByRole('link', { name: catalog['ziwei.chart.tryBazi'] }).getAttribute('href'),
     ).toBe('/bazi/new');
+    expect(
+      screen.getByRole('link', { name: catalog['rectification.entry'] }).getAttribute('href'),
+    ).toBe('/rectify');
     expect(screen.queryByTestId('ziwei-board')).toBeNull();
   });
 }

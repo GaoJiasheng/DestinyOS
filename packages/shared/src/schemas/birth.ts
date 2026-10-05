@@ -40,6 +40,9 @@ const birthInputObject = z
     hour: hour.optional(),
     minute: minute.optional(),
     timeUnknown: z.boolean(),
+    // DESIGN-GAP: Keep trial provenance inside the existing encrypted birth payload, without a new plaintext database column.
+    timeSource: z.literal('rectified').optional(),
+    rectificationConfidence: z.number().finite().min(0).max(1).optional(),
     place: z
       .object({
         name: z.string().min(1).max(200),
@@ -53,6 +56,20 @@ const birthInputObject = z
   })
   .strict()
   .superRefine((value, context) => {
+    if (
+      (value.timeSource === 'rectified' &&
+        (value.timeUnknown ||
+          value.hour === undefined ||
+          value.minute === undefined ||
+          value.rectificationConfidence === undefined)) ||
+      (value.timeSource !== 'rectified' && value.rectificationConfidence !== undefined)
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['timeSource'],
+        message: 'engine.errors.E_INVALID_INPUT',
+      });
+    }
     if (value.calendar === 'gregorian' && !validGregorianDate(value)) {
       context.addIssue({
         code: z.ZodIssueCode.custom,

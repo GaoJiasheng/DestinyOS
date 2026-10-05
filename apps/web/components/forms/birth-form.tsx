@@ -23,11 +23,13 @@ export function BirthForm({
   initial,
   profileMode = false,
   signedIn = false,
+  onComplete,
 }: {
   system?: Exclude<System, 'daily'>;
   initial?: BirthInput & { displayName?: string };
   profileMode?: boolean;
   signedIn?: boolean;
+  onComplete?: (birth: BirthInput, displayName: string) => void;
 }) {
   const t = useCopy();
   const locale = useLocale() as Locale;
@@ -36,7 +38,20 @@ export function BirthForm({
     if (initial) {
       const { calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown, place, gender } =
         initial;
-      return { calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown, place, gender };
+      return {
+        calendar,
+        year,
+        month,
+        day,
+        isLeapMonth,
+        hour,
+        minute,
+        timeUnknown,
+        place,
+        gender,
+        timeSource: initial.timeSource,
+        rectificationConfidence: initial.rectificationConfidence,
+      };
     }
     return {
       calendar: 'gregorian',
@@ -101,7 +116,13 @@ export function BirthForm({
     setTouched(true);
     setRequestId(null);
     setError(null);
-    setBirth((current) => ({ ...current, ...patch }));
+    // DESIGN-GAP: Manual changes to birth facts clear trial provenance; a display-name-only edit retains it.
+    setBirth((current) => ({
+      ...current,
+      ...patch,
+      timeSource: undefined,
+      rectificationConfidence: undefined,
+    }));
   };
   const changeYear = (year: number) => {
     const patch: Partial<BirthInput> = { year };
@@ -128,11 +149,15 @@ export function BirthForm({
     return true;
   };
   const submit = async () => {
-    if (system === 'ziwei' && birth.timeUnknown && !profileMode) {
+    if (system === 'ziwei' && birth.timeUnknown && !profileMode && !onComplete) {
       setError('errors.E_REQUIRES_BIRTH_TIME');
       return;
     }
     if (!(await validate())) return;
+    if (onComplete) {
+      onComplete(BirthInputSchema.parse(birth), name);
+      return;
+    }
     setBusy(true);
     setError(null);
     const began = performance.now();
@@ -209,6 +234,25 @@ export function BirthForm({
         readings: [local, ...data.readings].slice(0, 50),
       }));
       router.push(`/${system}/r/local/${localId}`);
+    } catch {
+      setError('report.storageError');
+    } finally {
+      setBusy(false);
+    }
+  };
+  const openRectification = async () => {
+    setBusy(true);
+    try {
+      const draft = BirthInputSchema.safeParse(birth);
+      // DESIGN-GAP: The encrypted device draft bridges routes for guests and signed-in users without putting birth facts in URLs.
+      await updateAnonymous((data) => ({
+        ...data,
+        settings: {
+          ...data.settings,
+          rectificationDraft: draft.success ? { birth: draft.data, displayName: name } : null,
+        },
+      }));
+      router.push('/rectify');
     } catch {
       setError('report.storageError');
     } finally {
@@ -345,10 +389,22 @@ export function BirthForm({
                 {t('form.birth.timeUnknown')}
               </label>
               {birth.timeUnknown ? (
-                <p className="notice">{t('form.birth.timeUnknown.help')}</p>
+                <div className="notice">
+                  <p>{t('form.birth.timeUnknown.help')}</p>
+                  {!onComplete ? (
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      disabled={busy}
+                      onClick={() => void openRectification()}
+                    >
+                      {t('rectification.entry')}
+                    </Button>
+                  ) : null}
+                </div>
               ) : null}
               {birth.timeUnknown && system === 'ziwei' && !profileMode ? (
-                <ZiweiTimeRequired />
+                <ZiweiTimeRequired onRectify={() => void openRectification()} />
               ) : null}
             </>
           ) : (
@@ -542,9 +598,11 @@ export function BirthForm({
                   ? 'form.birth.next'
                   : busy
                     ? 'form.birth.saving'
-                    : profileMode
-                      ? 'form.birth.save'
-                      : 'form.birth.submit',
+                    : onComplete
+                      ? 'rectification.start'
+                      : profileMode
+                        ? 'form.birth.save'
+                        : 'form.birth.submit',
               )}
             </Button>
           </div>

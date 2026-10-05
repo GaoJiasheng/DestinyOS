@@ -102,6 +102,8 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
   const chart = stripPII(result.chart);
   const meta = ReadingMetaSchema.parse({
     ...result.meta,
+    timeSource: req.birth?.timeSource,
+    rectificationConfidence: req.birth?.rectificationConfidence,
     debug: stripPII({ ...result.meta.debug, solarTime: birth?.solarTime }),
   });
   return { chart, report, meta, birthYear: birth?.local.year, displayName: req.displayName };
@@ -170,6 +172,8 @@ export async function readingView(
     chart: row.chart,
     report: ReportSchema.parse(report),
     meta: {
+      timeSource: snapshot.birth?.timeSource,
+      rectificationConfidence: snapshot.birth?.rectificationConfidence,
       schoolUsed: ReadingMetaSchema.shape.schoolUsed.parse(row.schoolUsed),
       warnings,
       debug: {

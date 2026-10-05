@@ -1,3 +1,4 @@
+import { loadRectificationFeatures } from './rectification';
 import { compileLearn } from './learn';
 import { mkdir, writeFile, readdir, unlink, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -6,6 +7,7 @@ import type { CompiledBundle } from '../src';
 import version from '../version.json';
 import { loadContent, printDiagnostics, root } from './load';
 const result = await loadContent();
+const rectificationFeatures = await loadRectificationFeatures();
 printDiagnostics(result.diagnostics);
 if (result.diagnostics.some((d) => d.severity === 'error') || !result.transitions)
   process.exitCode = 1;
@@ -59,7 +61,12 @@ else {
       ),
     );
     await writeFile(join(dir, 'glossary.json'), JSON.stringify(catalog, null, 2) + '\n');
-    const messages: Record<string, string> = {};
+    const messages: Record<string, string> = Object.fromEntries(
+      Object.entries(rectificationFeatures).map(([branch, copy]) => [
+        `rectification.feature.${branch}`,
+        copy[locale],
+      ]),
+    );
     for (const system of Object.values(System)) {
       const plan: unknown = JSON.parse(
         await readFile(join(root, '../interpret/src/plans', `${system}.json`), 'utf8'),
