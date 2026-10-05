@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+import root from './playwright.config';
 // DESIGN-GAP: Public-content acceptance runs the built server without private seed services; the app's existing unavailable-service fallbacks retain public access.
 export default defineConfig({
+  // DESIGN-GAP: Public acceptance must share the isolated Playwright output directory so it preserves archived chat evaluation evidence.
+  outputDir: root.outputDir,
   testDir: './apps/web/e2e',
   testMatch: 'seo-content.spec.ts',
   workers: 1,
