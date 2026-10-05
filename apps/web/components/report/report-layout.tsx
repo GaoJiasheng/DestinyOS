@@ -24,6 +24,7 @@ import {
 } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import { ShareDialog } from '@/components/share/share-dialog';
+import { ChatPanel } from './chat-panel';
 import { ReportHeadline } from './report-headline';
 import { ChartPreview } from './chart-preview';
 import { ProfessionalData } from './professional-data';
@@ -378,6 +379,7 @@ export function ReportLayout({
               <AdviceList items={view.report.doDont.dont} />
             </section>
           ) : null}
+          <ChatPanel readingId={view.id} system={view.system} owner={owner && !local} />
           <section className="report-card">
             <p className="legal-body">{t('legal.disclaimer.full')}</p>
             <Button variant="secondary" asChild>

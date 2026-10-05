@@ -83,7 +83,13 @@ export function ConfigEditor({ initial }: { initial: SiteSettings }) {
         </div>
       ))}
       {(
-        ['ads.enabled', 'feature.llmPolish', 'feature.panchangDefaultOpen', 'maintenance'] as const
+        [
+          'ads.enabled',
+          'feature.llmPolish',
+          'feature.llmChat',
+          'feature.panchangDefaultOpen',
+          'maintenance',
+        ] as const
       ).map((key) => (
         <label key={key}>
           <input
@@ -92,6 +98,18 @@ export function ConfigEditor({ initial }: { initial: SiteSettings }) {
             onChange={(e) => change({ ...value, [key]: e.target.checked })}
           />
           {t(`admin.config.${key}`)}
+        </label>
+      ))}
+      {(['chat.freeDailyLimit', 'chat.proDailyLimit'] as const).map((key) => (
+        <label key={key}>
+          {t(`admin.config.${key}`)}
+          <input
+            type="number"
+            min={0}
+            max={10000}
+            value={value[key]}
+            onChange={(e) => change({ ...value, [key]: Number(e.target.value) })}
+          />
         </label>
       ))}
       <Button disabled={pending}>{pending ? t('admin.pending') : t('admin.config.save')}</Button>

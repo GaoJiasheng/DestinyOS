@@ -9,6 +9,10 @@ export async function siteConfig(): Promise<SiteSettings> {
     announcement: { zh: '', en: '', scope: ['/'], startsAt: null, endsAt: null },
     'ads.enabled': process.env.FEATURE_ADS === 'true',
     'feature.llmPolish': false,
+    // DESIGN-GAP: Chat config is runtime-only; Turbo passes MINIMAX_* and FEATURE_LLM_CHAT through strict mode without embedding secrets.
+    'feature.llmChat': process.env.FEATURE_LLM_CHAT === 'true',
+    'chat.freeDailyLimit': 3,
+    'chat.proDailyLimit': 30,
     'feature.panchangDefaultOpen': false,
     maintenance: false,
   };

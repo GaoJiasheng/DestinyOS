@@ -72,6 +72,7 @@ model User {
   // DESIGN-GAP: Explicit activity timestamp avoids treating preference edits as sign-ins.
   lastActiveAt         DateTime?
   deletedAt            DateTime? // 软删除；7 天后 cron 硬删除
+  chatQuotas           ChatQuota[]
   accounts             Account[]
   sessions             Session[]
   profiles             BirthProfile[]
@@ -166,6 +167,7 @@ model Reading {
   title            String? // 用户可改的标题（如"关于换工作的占卜"），加密不必要但不含 PII 要求：前端提示勿填个人信息
   isPublic         Boolean       @default(false)
   createdAt        DateTime      @default(now())
+  chatMessages     ChatMessage[]
   shareLinks       ShareLink[]
   feedbacks        Feedback[]
 
@@ -291,4 +293,27 @@ model EventDaily {
   uniques Int
 
   @@index([day, name])
+}
+
+// DESIGN-GAP: String roles use a database CHECK for the two dialogue roles; no new shared system enum.
+model ChatMessage {
+  id        String   @id @default(cuid())
+  readingId String
+  reading   Reading  @relation(fields: [readingId], references: [id], onDelete: Cascade)
+  role      String
+  content   String // AES-256-GCM, ChatMessage.content AAD, reading owner's derived key
+  tokens    Int
+  createdAt DateTime @default(now())
+
+  @@index([readingId, createdAt])
+}
+
+// DESIGN-GAP: UTC daily counters survive history deletion; transactional reservations enforce quota across servers.
+model ChatQuota {
+  userId String
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  day    DateTime @db.Date
+  count  Int      @default(0)
+
+  @@id([userId, day])
 }

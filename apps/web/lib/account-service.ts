@@ -1,6 +1,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import { BirthInputSchema } from '@tianji/shared';
 import { getDb } from './db';
+import { decryptField } from './crypto';
 import { ApiError } from './api-error';
 import { getLocalRedis, getUpstashRedis } from './redis';
 export { SettingsSchema } from './account-service-schema';
@@ -29,6 +30,10 @@ export async function exportAccount(userId: string) {
     orderBy: { version: 'asc' },
   });
   const readings = await db.reading.findMany({ where: { userId }, orderBy: { createdAt: 'desc' } });
+  const chatMessages = await db.chatMessage.findMany({
+    where: { reading: { userId } },
+    orderBy: { createdAt: 'asc' },
+  });
   const subscription = await db.subscription.findUnique({
     where: { userId },
     select: { status: true, currentPeriodEnd: true, cancelAtPeriodEnd: true },
@@ -56,6 +61,13 @@ export async function exportAccount(userId: string) {
       reportEn: r.reportEn,
       engineVersion: r.engineVersion,
       knowledgeVersion: r.knowledgeVersion,
+    })),
+    chatMessages: chatMessages.map((m) => ({
+      readingId: m.readingId,
+      role: m.role,
+      content: decryptField(m.content, 'ChatMessage.content', userId),
+      tokens: m.tokens,
+      createdAt: m.createdAt,
     })),
     subscription,
   };
