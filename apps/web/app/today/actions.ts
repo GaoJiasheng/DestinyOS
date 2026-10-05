@@ -4,7 +4,7 @@ import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
 import { cookies, headers } from 'next/headers';
-import { currentProfile } from '@/lib/profile-service';
+import { currentProfile, ownedProfile } from '@/lib/profile-service';
 import { auth } from '@/lib/auth';
 import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
@@ -37,6 +37,8 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
             }
           })
           .optional(),
+        // DESIGN-GAP: Pin the displayed daily forecast to the same owned profile as the journal, even if another tab changes the profile cookie.
+        profileId: z.string().min(1).optional(),
         tz: IanaTimezoneSchema.optional(),
         locale: z.nativeEnum(Locale).optional(),
       })
@@ -45,7 +47,9 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
     const user = await getDb().user.findUniqueOrThrow({ where: { id: session.user.id } });
-    const profile = await currentProfile(user.id);
+    const profile = input.profileId
+      ? await ownedProfile(user.id, input.profileId)
+      : await currentProfile(user.id);
     const tz =
       input.tz ??
       user.tz ??
@@ -60,7 +64,10 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
     if (target.year < 1900 || target.year > 2100)
       throw new ApiError('E_DATE_OUT_OF_RANGE', 'Date outside engine range', 400);
     assertRateLimit(await ratelimit('daily', user.id));
-    const data = await dailyForUser(user.id, date, tz, input.locale ?? fromDbLocale(user.locale));
+    const language = input.locale ?? fromDbLocale(user.locale);
+    const data = input.profileId
+      ? await dailyForUser(user.id, date, tz, language, input.profileId)
+      : await dailyForUser(user.id, date, tz, language);
     await recordEvent('daily.viewed', {
       userId: user.id,
       system: 'daily',

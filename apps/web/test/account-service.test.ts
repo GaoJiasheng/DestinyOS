@@ -3,6 +3,7 @@ const mocked = vi.hoisted(() => ({
   subscription: vi.fn(),
   userUpdate: vi.fn(),
   sessions: vi.fn(),
+  journals: vi.fn(),
   shares: vi.fn(),
   readings: vi.fn(),
   feedbackDelete: vi.fn(),
@@ -17,6 +18,7 @@ vi.mock('../lib/db', () => {
     subscription: { findUnique: mocked.subscription, update: mocked.subUpdate },
     user: { update: mocked.userUpdate, findMany: mocked.due, delete: mocked.userDelete },
     session: { deleteMany: mocked.sessions },
+    journalEntry: { deleteMany: mocked.journals },
     shareLink: { updateMany: mocked.shares },
     reading: { updateMany: mocked.readings },
     feedback: { deleteMany: mocked.feedbackDelete, updateMany: mocked.feedbackUpdate },
@@ -39,6 +41,7 @@ describe('account lifecycle', () => {
   it('revokes sessions/shares and anonymizes feedback in the deletion transaction', async () => {
     await softDeleteAccount('owner');
     expect(mocked.sessions).toHaveBeenCalledWith({ where: { userId: 'owner' } });
+    expect(mocked.journals).toHaveBeenCalledWith({ where: { userId: 'owner' } });
     expect(mocked.shares).toHaveBeenCalledWith(
       expect.objectContaining({ where: { userId: 'owner', revokedAt: null } }),
     );

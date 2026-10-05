@@ -16,6 +16,7 @@ import type { DailyReport } from '@/lib/daily-compute';
 import { calculateDailyInWorker } from '@/lib/daily-worker';
 import { dailyExcerpt } from '@/lib/daily-excerpt';
 import { ShareDialog } from '@/components/share/share-dialog';
+import { JournalForm } from '@/components/me/journal-form';
 import { AdSlot } from '@/components/report/report-section';
 const demo: BirthInput = {
   calendar: 'gregorian',
@@ -32,12 +33,14 @@ const demo: BirthInput = {
 // DESIGN-GAP: 未规定的五要素历中文名采用月日/瑜伽序号、半日类型号与中文星期；星宿复用已有 glossary 译名。
 export function TodayView({
   signedIn,
+  profileId,
   tz,
   plan,
   vedicUsed,
   panchangDefaultOpen = false,
 }: {
   signedIn: boolean;
+  profileId?: string;
   tz?: string | null;
   plan: 'free' | 'pro';
   vedicUsed: boolean;
@@ -79,7 +82,7 @@ export function TodayView({
         .add({ days: offset })
         .toString();
       if (signedIn) {
-        const result = await getDailyAction({ date, tz: zone, locale });
+        const result = await getDailyAction({ date, tz: zone, locale, profileId });
         if (result.ok) {
           if (active) {
             setValue(result.data);
@@ -124,7 +127,7 @@ export function TodayView({
       active = false;
       controller.abort();
     };
-  }, [signedIn, zone, offset, locale, retry, requestedDate]);
+  }, [signedIn, profileId, zone, offset, locale, retry, requestedDate]);
   useEffect(() => {
     if (signedIn || !value) return;
     // DESIGN-GAP: Record anonymous visit dimensions after the first result paint; telemetry's RSC response must not delay the locally computed content.
@@ -170,6 +173,11 @@ export function TodayView({
     <article
       className="daily-page"
       onTouchStart={(e) => {
+        // DESIGN-GAP: Editing journal inputs must not trigger date swipes and discard an unsaved sentence.
+        if (e.target instanceof Element && e.target.closest('[data-journal-form]')) {
+          touch.current = null;
+          return;
+        }
         const p = e.touches[0];
         if (p) touch.current = { x: p.clientX, y: p.clientY };
       }}
@@ -476,6 +484,15 @@ export function TodayView({
             </section>
           </div>
         </div>
+      ) : null}
+      {chart && zone && !busy && !error ? (
+        <JournalForm
+          key={`${profileId}:${chart.date.local}`}
+          profileId={profileId}
+          signedIn={signedIn}
+          date={chart.date.local}
+          tz={zone}
+        />
       ) : null}
       <p>{t('report.disclaimer.short')}</p>
     </article>

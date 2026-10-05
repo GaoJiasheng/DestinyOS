@@ -15,7 +15,7 @@
     "test": "pnpm content:build && vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e && pnpm test:polish && pnpm test:export:e2e && pnpm test:chat:e2e && pnpm test:numerology:e2e && pnpm test:rectification:e2e && pnpm test:calendar:e2e && pnpm test:zhtw:e2e && pnpm test:synastry:e2e",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e && pnpm test:polish && pnpm test:export:e2e && pnpm test:chat:e2e && pnpm test:numerology:e2e && pnpm test:rectification:e2e && pnpm test:calendar:e2e && pnpm test:zhtw:e2e && pnpm test:synastry:e2e && pnpm test:journal:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build && pnpm i18n:traditional",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
@@ -65,7 +65,8 @@
     "cf:build": "pnpm --filter @tianji/web cf:build",
     "cf:preview": "pnpm --filter @tianji/web cf:preview",
     "cf:deploy": "pnpm --filter @tianji/web cf:deploy",
-    "test:cloudflare:e2e": "playwright test --config playwright.cloudflare.config.ts"
+    "test:cloudflare:e2e": "playwright test --config playwright.cloudflare.config.ts",
+    "test:journal:e2e": "playwright test --config playwright.journal.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

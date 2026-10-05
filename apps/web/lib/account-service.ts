@@ -35,6 +35,10 @@ export async function exportAccount(userId: string) {
     where: { reading: { userId } },
     orderBy: { createdAt: 'asc' },
   });
+  const journalEntries = await db.journalEntry.findMany({
+    where: { userId },
+    orderBy: { date: 'desc' },
+  });
   const subscription = await db.subscription.findUnique({
     where: { userId },
     select: { status: true, currentPeriodEnd: true, cancelAtPeriodEnd: true },
@@ -76,6 +80,10 @@ export async function exportAccount(userId: string) {
       tokens: m.tokens,
       createdAt: m.createdAt,
     })),
+    journalEntries: journalEntries.map((entry) => ({
+      ...entry,
+      date: entry.date.toISOString().slice(0, 10),
+    })),
     subscription,
   };
 }
@@ -115,6 +123,7 @@ export async function softDeleteAccount(
   await db.$transaction(async (tx) => {
     await tx.user.update({ where: { id: userId }, data: { deletedAt: new Date(), plan: 'free' } });
     await tx.session.deleteMany({ where: { userId } });
+    await tx.journalEntry.deleteMany({ where: { userId } });
     await tx.shareLink.updateMany({
       where: { userId, revokedAt: null },
       data: { revokedAt: new Date() },
