@@ -35,7 +35,7 @@ export function calendarAt(time: Temporal.ZonedDateTime, clock = time.toPlainDat
     clock.second,
   ).getLunar();
   // Year/month term boundaries are astronomical instants; lunar-typescript's ephemeris clock is UTC+8.
-  const ephemerisClock = time.withTimeZone('Asia/Shanghai');
+  const ephemerisClock = time.withTimeZone('+08:00');
   const ephemeris = Solar.fromYmdHms(
     ephemerisClock.year,
     ephemerisClock.month,
@@ -112,8 +112,8 @@ export function solarTerms(year: number) {
           hour: solar.getHour(),
           minute: solar.getMinute(),
           second: solar.getSecond(),
-          timeZone: 'Asia/Shanghai',
-        });
+          timeZone: '+08:00',
+        }).withTimeZone('Asia/Shanghai');
         if (!terms.some((t) => t.time.epochNanoseconds === time.epochNanoseconds))
           terms.push({ name: Object.values(SolarTerm)[i]!, time });
       }

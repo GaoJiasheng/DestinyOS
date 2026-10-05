@@ -260,7 +260,7 @@ describe('solar term, late zi and luck boundaries', () => {
   it('selects luck at exact start and ten-year boundaries; no current luck in childhood', () => {
     const birth = normalizeBirth(A.input),
       first = computeBazi(birth, { now });
-    const t = birthClock(birth, true).add(first.luck.startAge).toZonedDateTime(birth.local.tz);
+    const t = birthClock(birth, false).add(first.luck.startAge).toZonedDateTime(birth.local.tz);
     expect(
       computeBazi(birth, { now: t.subtract({ seconds: 1 }) }).luck.periods.some((p) => p.isCurrent),
     ).toBe(false);

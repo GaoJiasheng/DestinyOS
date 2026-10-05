@@ -151,12 +151,12 @@
     },
     {
       "key": "lilith",
-      "lon": 47.079698424289575,
+      "lon": 47.047441703193314,
       "lat": 0,
       "sign": "taurus",
-      "degInSign": 17.079698424289575,
+      "degInSign": 17.047441703193314,
       "retro": false,
-      "speed": 0.11140360368244728,
+      "speed": 0.11076762328627865,
       "house": 10,
       "nearCusp": false,
       "anaretic": false
@@ -255,7 +255,7 @@
       "a": "neptune",
       "b": "lilith",
       "type": "sesquiquadrate",
-      "orb": 0.5332068089200561,
+      "orb": 0.50095008782381,
       "applying": false,
       "major": false
     },
@@ -287,7 +287,7 @@
       "a": "uranus",
       "b": "lilith",
       "type": "quincunx",
-      "orb": 1.0724101382846243,
+      "orb": 1.0401534171883782,
       "applying": false,
       "major": false
     },
@@ -335,7 +335,7 @@
       "a": "moon",
       "b": "lilith",
       "type": "semisquare",
-      "orb": 1.516349855524311,
+      "orb": 1.548606576620557,
       "applying": false,
       "major": false
     },
@@ -351,7 +351,7 @@
       "a": "mars",
       "b": "lilith",
       "type": "sesquiquadrate",
-      "orb": 1.6911536031982735,
+      "orb": 1.723410324294548,
       "applying": false,
       "major": false
     },
@@ -455,7 +455,7 @@
       "a": "sun",
       "b": "lilith",
       "type": "opposition",
-      "orb": 6.917827373863531,
+      "orb": 6.885570652767285,
       "applying": true,
       "major": true
     },
@@ -463,7 +463,7 @@
       "a": "north_node",
       "b": "lilith",
       "type": "conjunction",
-      "orb": 7.900498364230742,
+      "orb": 7.868241643134468,
       "applying": false,
       "major": true
     }

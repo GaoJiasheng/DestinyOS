@@ -140,12 +140,12 @@
     },
     {
       "key": "lilith",
-      "lon": 85.61826626230376,
+      "lon": 85.51108666799325,
       "lat": 0,
       "sign": "gemini",
-      "degInSign": 25.618266262303763,
+      "degInSign": 25.511086667993254,
       "retro": false,
-      "speed": 0.11140354937708707,
+      "speed": 0.11165309735190476,
       "house": null,
       "anaretic": false
     }
@@ -194,14 +194,6 @@
       "major": false
     },
     {
-      "a": "venus",
-      "b": "lilith",
-      "type": "sextile",
-      "orb": 0.7344223237238623,
-      "applying": false,
-      "major": true
-    },
-    {
       "a": "sun",
       "b": "uranus",
       "type": "quincunx",
@@ -210,20 +202,20 @@
       "major": false
     },
     {
+      "a": "venus",
+      "b": "lilith",
+      "type": "sextile",
+      "orb": 0.841601918034371,
+      "applying": false,
+      "major": true
+    },
+    {
       "a": "pluto",
       "b": "north_node",
       "type": "semisextile",
       "orb": 0.8789237854301462,
       "applying": true,
       "major": false
-    },
-    {
-      "a": "sun",
-      "b": "lilith",
-      "type": "sextile",
-      "orb": 0.9869965843049613,
-      "applying": false,
-      "major": true
     },
     {
       "a": "moon",
@@ -240,6 +232,14 @@
       "orb": 1.0319814418430155,
       "applying": true,
       "major": false
+    },
+    {
+      "a": "sun",
+      "b": "lilith",
+      "type": "sextile",
+      "orb": 1.09417617861547,
+      "applying": false,
+      "major": true
     },
     {
       "a": "mercury",
@@ -285,7 +285,7 @@
       "a": "uranus",
       "b": "lilith",
       "type": "quincunx",
-      "orb": 1.7664037655669063,
+      "orb": 1.8735833598773866,
       "applying": true,
       "major": false
     },
@@ -306,6 +306,14 @@
       "major": true
     },
     {
+      "a": "saturn",
+      "b": "lilith",
+      "type": "square",
+      "orb": 2.314506475693065,
+      "applying": false,
+      "major": true
+    },
+    {
       "a": "venus",
       "b": "north_node",
       "type": "sextile",
@@ -314,18 +322,10 @@
       "major": true
     },
     {
-      "a": "saturn",
-      "b": "lilith",
-      "type": "square",
-      "orb": 2.4216860700036023,
-      "applying": false,
-      "major": true
-    },
-    {
       "a": "north_node",
       "b": "lilith",
       "type": "trine",
-      "orb": 3.114068807746662,
+      "orb": 3.221248402057171,
       "applying": true,
       "major": true
     },
@@ -333,7 +333,7 @@
       "a": "chiron",
       "b": "lilith",
       "type": "square",
-      "orb": 3.755897735297566,
+      "orb": 3.8630773296080747,
       "applying": false,
       "major": true
     },
@@ -429,7 +429,7 @@
       "a": "moon",
       "b": "lilith",
       "type": "conjunction",
-      "orb": 7.6634154759952935,
+      "orb": 7.556235881684756,
       "applying": true,
       "major": true
     }

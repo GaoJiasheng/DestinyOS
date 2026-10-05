@@ -26,16 +26,14 @@ export function computeAngles(
     ramc = wrap(Astronomy.SiderealTime(time) * 15 + lng),
     t = ramc * DEG,
     e = obliquity * DEG;
-  return {
-    asc: wrap(
-      Math.atan2(-Math.cos(t), Math.sin(t) * Math.cos(e) + Math.tan(lat * DEG) * Math.sin(e)) /
-        DEG +
-        180,
-    ),
-    mc: wrap(Math.atan2(Math.sin(t) / Math.cos(e), Math.cos(t)) / DEG),
-    ramc,
-    obliquity,
-  };
+  let asc = wrap(
+    Math.atan2(-Math.cos(t), Math.sin(t) * Math.cos(e) + Math.tan(lat * DEG) * Math.sin(e)) / DEG +
+      180,
+  );
+  const mc = wrap(Math.atan2(Math.sin(t) / Math.cos(e), Math.cos(t)) / DEG);
+  // DESIGN-GAP: At polar latitudes select the eastern ecliptic/horizon intersection, including when MC is below the horizon.
+  if (wrap(asc - mc) > 180) asc = wrap(asc + 180);
+  return { asc, mc, ramc, obliquity };
 }
 const raToLon = (ra: number, e: number): number =>
   wrap(Math.atan2(Math.sin(ra * DEG) / Math.cos(e * DEG), Math.cos(ra * DEG)) / DEG);
