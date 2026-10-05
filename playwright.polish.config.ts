@@ -5,7 +5,7 @@ if (!server) throw new Error('Polish requires the isolated production web server
 /** Reproducible launch polish on the full production app and isolated PostgreSQL/Redis/mail services. */
 export default defineConfig({
   ...base,
-  testMatch: ['polish.spec.ts', 'tarot.spec.ts'],
+  testMatch: ['polish.spec.ts', 'polish-new-pages.spec.ts', 'tarot.spec.ts'],
   webServer: {
     ...server,
     env: {
@@ -18,6 +18,11 @@ export default defineConfig({
       NEXT_PUBLIC_ADSENSE_SLOT_TODAY: '1000000004',
       NEXT_PUBLIC_ADSENSE_SLOT_LEARN: '1000000005',
       FEATURE_ADS: 'true',
+      FEATURE_LLM_CHAT: 'true',
+      MINIMAX_API_KEY: 'isolated-chat-key',
+      MINIMAX_MODEL: 'MiniMax-M2.5',
+      MINIMAX_BASE_URL: 'https://api.minimaxi.com/v1',
+      TEST_CHAT_MOCK: '1',
     },
   },
   // DESIGN-GAP: Keep runner traces outside the requested evidence folder so reruns preserve content audits and screenshots.

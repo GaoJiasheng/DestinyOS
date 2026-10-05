@@ -10,6 +10,7 @@ import { readAnonymous } from '@/lib/anonymous-storage';
 import { localToday } from '@/lib/daily-date';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import { calculateCalendarInWorker } from '@/lib/calendar-worker';
 // DESIGN-GAP: B-06 omits shades and copy keys; the calendar namespace and five gold steps use the existing daily star thresholds.
 const gold = ['#3d301d', '#69502a', '#997139', '#c69b52', '#f0cf80'];
 /** SVG month grid with keyboard-accessible day links and non-color score labels. */
@@ -45,10 +46,16 @@ export function CalendarView({
   useEffect(() => {
     if (!zone || !month) return;
     let active = true;
+    const controller = new AbortController();
     setBusy(true);
     setError(null);
     setDays([]);
     setMissing(false);
+    if (!signedIn) {
+      setYearBusy(true);
+      setYearError(false);
+      setEvents([]);
+    }
     void (async () => {
       const start = Temporal.PlainDate.from(`${month}-01`),
         to = start.with({ day: start.daysInMonth }).toString();
@@ -68,33 +75,36 @@ export function CalendarView({
           if (active) setMissing(true);
           return;
         }
-        const { computeDailyRange } = await import('@tianji/engine/daily');
-        const result = computeDailyRange(
-          device.profile,
-          start.toString(),
-          to,
-          zone,
-          device.anonId,
-          locale,
+        const result = await calculateCalendarInWorker(
+          { profile: device.profile, month, tz: zone, identity: device.anonId, locale },
+          controller.signal,
         );
         if (active) {
-          setDays(result);
+          setDays(result.days);
+          setEvents(result.events);
+          setYearBusy(false);
+          setYearError(false);
           setUnknownTime(device.profile.timeUnknown);
         }
       }
     })()
       .catch(() => {
         if (active) setError('report.error.E_INTERNAL');
+        if (active && !signedIn) {
+          setYearBusy(false);
+          setYearError(true);
+        }
       })
       .finally(() => {
         if (active) setBusy(false);
       });
     return () => {
       active = false;
+      controller.abort();
     };
   }, [signedIn, zone, month, locale, retry]);
   useEffect(() => {
-    if (!zone || year === null) return;
+    if (!zone || year === null || !signedIn) return;
     let active = true;
     setYearBusy(true);
     setYearError(false);
@@ -107,12 +117,6 @@ export function CalendarView({
           throw new Error(result.error.code);
         }
         if (active) setEvents(result.data);
-      } else {
-        const device = await readAnonymous();
-        if (!device?.profile) return;
-        const { computeCalendarYear } = await import('@tianji/engine/calendar');
-        const result = computeCalendarYear(device.profile, year, zone, locale);
-        if (active) setEvents(result);
       }
     })()
       .catch(() => {
@@ -143,7 +147,7 @@ export function CalendarView({
           {t('nav.today')}
         </Link>
       </header>
-      <section className="report-card" aria-busy={busy}>
+      <section className="report-card calendar-month" aria-busy={busy}>
         <nav className="action-row" aria-label={t('calendar.monthNav')}>
           <Button
             variant="ghost"
@@ -183,7 +187,7 @@ export function CalendarView({
         {days.length && month ? (
           <>
             <svg
-              viewBox="0 0 350 338"
+              viewBox="0 0 336 338"
               className="calendar-heatmap"
               role="group"
               aria-label={t('calendar.heatmap')}
@@ -191,7 +195,7 @@ export function CalendarView({
               {Array.from({ length: 7 }, (_, i) => (
                 <text
                   key={i}
-                  x={i * 50 + 25}
+                  x={i * 48 + 24}
                   y="20"
                   textAnchor="middle"
                   fill="currentColor"
@@ -202,7 +206,7 @@ export function CalendarView({
               ))}
               {days.map((day, i) => {
                 const cell = i + Temporal.PlainDate.from(`${month}-01`).dayOfWeek - 1,
-                  x = (cell % 7) * 50,
+                  x = (cell % 7) * 48,
                   y = Math.floor(cell / 7) * 50 + 32;
                 const band =
                   day.overall >= 85
@@ -226,21 +230,21 @@ export function CalendarView({
                     data-calendar-day={day.date}
                   >
                     <title>{label}</title>
-                    <rect x={x + 2} y={y} width="46" height="46" rx="8" fill={gold[band]} />
+                    <rect x={x + 1} y={y} width="46" height="46" rx="8" fill={gold[band]} />
                     <text
-                      x={x + 25}
+                      x={x + 24}
                       y={y + 20}
                       textAnchor="middle"
-                      fill={band >= 2 ? '#17130d' : '#fff5dc'}
+                      fill={band >= 2 ? 'var(--bg-0)' : 'var(--text-1)'}
                       fontSize="14"
                     >
                       {i + 1}
                     </text>
                     <text
-                      x={x + 25}
+                      x={x + 24}
                       y={y + 36}
                       textAnchor="middle"
-                      fill={band >= 2 ? '#17130d' : '#fff5dc'}
+                      fill={band >= 2 ? 'var(--bg-0)' : 'var(--text-1)'}
                       fontSize="11"
                     >
                       {day.overall}

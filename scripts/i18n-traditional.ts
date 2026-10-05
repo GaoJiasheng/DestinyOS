@@ -27,3 +27,18 @@ await writeFile(
   resolve('scripts/resources/og-public-tw.txt'),
   [...new Set(toTraditional(publicEditorial))].sort().join('') + '\n',
 );
+
+// DESIGN-GAP: Audit the actual converted report and editorial corpus, not only common/UI characters; the subset builder must cover every CJK glyph used by new pages.
+const { readdir } = await import('node:fs/promises');
+let screenCorpus = toTraditional(publicEditorial);
+for (const file of await readdir(resolve('packages/content/dist'))) {
+  if (file.endsWith('.zh.json'))
+    screenCorpus += toTraditional(await readFile(resolve('packages/content/dist', file), 'utf8'));
+}
+await writeFile(
+  resolve('scripts/resources/screen-tw.txt'),
+  [...new Set(screenCorpus)]
+    .filter((char) => /[\u3000-\u9fff]/u.test(char))
+    .sort()
+    .join('') + '\n',
+);

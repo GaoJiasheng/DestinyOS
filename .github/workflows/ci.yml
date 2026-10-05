@@ -13,6 +13,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # DESIGN-GAP: Polish now audits real WOFF2 cmaps using the existing pinned font tooling.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r scripts/resources/font-requirements.txt
       - run: pnpm install
       - run: pnpm licenses:check
       - run: pnpm security:policy

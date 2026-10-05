@@ -5,11 +5,13 @@ import type { BirthInput, Locale } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import { useRouter, Link } from '@/i18n/navigation';
 import { createReadingAction } from '@/app/readings/actions';
-import { BirthForm } from './birth-form';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { DivinationLoader } from '@/components/divination-loader';
 import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
+// DESIGN-GAP: Signed-in pairing uses saved profiles; load the birth editor only for the anonymous input flow.
+const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm));
 /** Two profile selectors never put private inputs in URLs; anonymous pairs stay in encrypted device storage. */
 export function SynastryForm({
   profiles = [],

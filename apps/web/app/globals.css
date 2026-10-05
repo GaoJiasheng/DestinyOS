@@ -4654,6 +4654,12 @@ html[data-reduced-motion='true'] .tarot-face img.is-reversed {
   stroke: var(--color-text, #fff);
   stroke-width: 3px;
 }
+/* DESIGN-GAP: Compact mobile month padding keeps all seven SVG day targets at least 44px at the documented 375px viewport. */
+@media (max-width: 640px) {
+  .daily-page .report-card.calendar-month {
+    padding-inline: var(--space-1);
+  }
+}
 .calendar-legend {
   display: flex;
   flex-wrap: wrap;

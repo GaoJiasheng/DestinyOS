@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { toTraditional } from '../packages/shared/src/locale';
 // DESIGN-GAP: E2E preloads intercept only isolated credentials; application code always uses the actual provider protocol.
 if (process.env.TEST_CHAT_MOCK !== '1' || process.env.MINIMAX_API_KEY !== 'isolated-chat-key')
   throw new Error('Chat interception requires isolated credentials');
@@ -12,7 +13,9 @@ const payloadSchema = z.object({
 globalThis.fetch = async (input, init) => {
   const url = new URL(input instanceof Request ? input.url : String(input));
   if (!['api.minimaxi.com', 'api.minimax.io'].includes(url.hostname)) return original(input, init);
-  const payload = payloadSchema.parse(JSON.parse(String(init?.body)));
+  // DESIGN-GAP: Combined production preloads pass Request objects rather than init.body; consume either Fetch signature and retain its cancellation signal.
+  const request = new Request(input, init);
+  const payload = payloadSchema.parse(await request.json());
   if (
     url.pathname !== '/v1/chat/completions' ||
     /PrivateName|1990-05-15|1990年5月15日|Beijing|北京|private-chat@example.com|2448026/.test(
@@ -23,13 +26,15 @@ globalThis.fetch = async (input, init) => {
   const last = payload.messages.at(-1)?.content ?? '';
   if (last.includes('Failure probe')) return new Response('', { status: 503 });
   const zh = payload.messages[0]?.content.includes('Response language: zh');
-  const text = zh
+  let text = zh
     ? '从给定报告来看，木象征成长与适应。你可以回顾自己在哪些情境中愿意主动学习。命盘只能提供反思的方向，不能确定现实结果。保留这种不确定性，让自己的实际体验帮助你判断。'.repeat(
         4,
       )
     : 'The supplied chart describes a tendency toward growth and adaptability. You could reflect on situations where learning feels natural and compare that theme with your own experience. This symbolic reading offers a perspective rather than a certain outcome. '.repeat(
         6,
       );
+  // DESIGN-GAP: The mock honors the requested Taiwan response language, so traditional-page baselines exercise the correct glyphs.
+  if (payload.messages[0]?.content.includes('Response language: zh-TW')) text = toTraditional(text);
   const encoder = new TextEncoder();
   let index = 0,
     cancelled = false;
@@ -38,7 +43,7 @@ globalThis.fetch = async (input, init) => {
       await new Promise<void>((resolve) =>
         setTimeout(resolve, last.includes('Slow probe') ? 500 : 25),
       );
-      if (cancelled || init?.signal?.aborted) {
+      if (cancelled || request.signal.aborted) {
         controller.error(new Error('Cancelled mock stream'));
         return;
       }

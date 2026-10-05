@@ -56,6 +56,7 @@ export function ChatPanel({
     [error, setError] = useState('');
   const abort = useRef<AbortController | null>(null);
   const end = useRef<HTMLDivElement>(null);
+  const composer = useRef<HTMLTextAreaElement>(null);
   const url = `/api/v1/readings/${encodeURIComponent(readingId)}/chat`;
   const errorCopy = (code: string) =>
     t(
@@ -99,6 +100,8 @@ export function ChatPanel({
   }, [answer, busy]);
   const send = async () => {
     if (busy || !question.trim()) return;
+    const submittedFrom = document.activeElement;
+    const restoreComposer = composer.current?.form?.contains(submittedFrom) ?? false;
     const submitted = question.trim();
     if (submitted.length > 120) {
       setError(t('report.chat.tooLong'));
@@ -166,6 +169,12 @@ export function ChatPanel({
     } finally {
       setBusy(false);
       abort.current = null;
+      // DESIGN-GAP: Sending disables the focused composer control; restore its textarea after completion when focus has not moved elsewhere.
+      if (restoreComposer)
+        requestAnimationFrame(() => {
+          if (document.activeElement === document.body || document.activeElement === submittedFrom)
+            composer.current?.focus();
+        });
     }
   };
   const clear = async () => {
@@ -182,6 +191,7 @@ export function ChatPanel({
       setBusy(false);
     }
   };
+  // DESIGN-GAP: A scrollable conversation log joins the Tab order so PageDown/arrow keys can read retained messages.
   const body = (
     <div className="chat-body">
       <p className="muted">{t('report.chat.privacy')}</p>
@@ -202,6 +212,7 @@ export function ChatPanel({
           <div
             className="chat-history"
             role="log"
+            tabIndex={0}
             aria-label={t('report.chat.history')}
             aria-live="polite"
             aria-relevant="additions text"
@@ -246,6 +257,7 @@ export function ChatPanel({
                 <label className="birth-field">
                   {t('report.chat.question')}
                   <textarea
+                    ref={composer}
                     value={question}
                     onChange={(event) => setQuestion(event.target.value)}
                     maxLength={120}

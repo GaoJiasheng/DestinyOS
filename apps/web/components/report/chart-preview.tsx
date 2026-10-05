@@ -1,5 +1,5 @@
 'use client';
-import { SynastryChartView } from '@/components/charts/synastry-chart';
+import dynamic from 'next/dynamic';
 import {
   SynastryChartSchema,
   NumerologyChartSchema,
@@ -11,7 +11,6 @@ import {
   VedicChartSchema,
   TarotChartSchema,
 } from '@tianji/shared';
-import { NumerologyChart } from '@/components/charts/numerology-chart';
 import { ZiweiGrid, ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
 import { DivinationChart } from '@/components/charts/divination-chart';
 import { SpreadLayout } from '@/components/tarot/spread-layout';
@@ -25,6 +24,13 @@ import { LuckTimeline } from '@/components/charts/luck-timeline';
 import { BranchRelationDiagram } from '@/components/charts/branch-relation-diagram';
 import { BaziProfessionalTable } from '@/components/charts/bazi-professional-table';
 const COMPONENTS = { BaziPillars, ElementRing, StrengthGauge, LuckTimeline, BranchRelationDiagram };
+// DESIGN-GAP: New chart renderers load only when their validated snapshot matches; original reports do not download paired wheels or numerology UI.
+const SynastryChartView = dynamic(() =>
+  import('@/components/charts/synastry-chart').then((module) => module.SynastryChartView),
+);
+const NumerologyChart = dynamic(() =>
+  import('@/components/charts/numerology-chart').then((module) => module.NumerologyChart),
+);
 /** Render a validated chart snapshot or the named local visualization referenced by a report block. */
 export function ChartPreview({
   chart,

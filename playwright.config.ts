@@ -29,6 +29,7 @@ export default defineConfig({
     'm5-accessibility.spec.ts',
     // DESIGN-GAP: The polish suite seeds private reports through isolated production services, so it must run with playwright.polish.config.ts.
     'polish.spec.ts',
+    'polish-new-pages.spec.ts',
   ],
   fullyParallel: true,
   // DESIGN-GAP: Cold dev compilation and hydration share the test budget; allow 60s without relaxing individual UI assertions.
