@@ -3,9 +3,16 @@ import type { PublicDiagram } from '@/lib/share-projection';
 export function ShareDiagram({
   diagram,
   translate,
+  colors = {
+    surface: 'var(--surface-1)',
+    gold: 'var(--gold)',
+    text: 'var(--text-1)',
+    line: 'var(--line-2)',
+  },
 }: {
   diagram: PublicDiagram;
   translate: (key: string) => string;
+  colors?: { surface: string; gold: string; text: string; line: string };
 }) {
   const text = (key: string) => (key.includes('.') ? translate(key) : key);
   if (diagram.kind === 'wheel')
@@ -17,16 +24,23 @@ export function ShareDiagram({
         role="img"
         aria-label={translate('share.diagram')}
       >
-        <circle cx="160" cy="160" r="140" fill="#101525" stroke="#c9a66b" strokeWidth="2" />
-        <circle cx="160" cy="160" r="100" fill="none" stroke="#c9a66b" />
+        <circle
+          cx="160"
+          cy="160"
+          r="140"
+          fill={colors.surface}
+          stroke={colors.gold}
+          strokeWidth="2"
+        />
+        <circle cx="160" cy="160" r="100" fill="none" stroke={colors.gold} />
         {diagram.items.map((p, i) => {
           const angle = (((p.longitude ?? 0) - 90) * Math.PI) / 180,
             x = 160 + 120 * Math.cos(angle),
             y = 160 + 120 * Math.sin(angle);
           return (
             <g key={i}>
-              <line x1="160" y1="160" x2={x} y2={y} stroke="#575378" />
-              <circle cx={x} cy={y} r="6" fill="#c9a66b" />
+              <line x1="160" y1="160" x2={x} y2={y} stroke={colors.line} />
+              <circle cx={x} cy={y} r="6" fill={colors.gold} />
               <title>
                 {text(p.label)} · {text(p.value)}
               </title>
@@ -43,8 +57,8 @@ export function ShareDiagram({
       >
         {diagram.items.map((p, i) => (
           <div key={i} style={{ display: 'flex', gap: 18, height: 10 }}>
-            <span style={{ background: '#c9a66b', width: p.yang ? '100%' : '45%' }} />
-            {!p.yang ? <span style={{ background: '#c9a66b', width: '45%' }} /> : null}
+            <span style={{ background: colors.gold, width: p.yang ? '100%' : '45%' }} />
+            {!p.yang ? <span style={{ background: colors.gold, width: '45%' }} /> : null}
           </div>
         ))}
       </div>
@@ -57,12 +71,13 @@ export function ShareDiagram({
           style={{
             display: 'flex',
             flexDirection: 'column',
+            ...(diagram.kind === 'pillars' ? { width: '45%', maxWidth: 180 } : {}),
             gap: 8,
             padding: 16,
-            border: '1px solid #c9a66b',
+            border: `1px solid ${colors.gold}`,
             borderRadius: 8,
-            background: '#101525',
-            color: '#f3eadb',
+            background: colors.surface,
+            color: colors.text,
           }}
         >
           <span style={{ fontSize: 16 }}>{text(p.label)}</span>

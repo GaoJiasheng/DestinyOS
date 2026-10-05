@@ -13,6 +13,7 @@
     "../apps/web/e2e/**/*.ts",
     "../packages/engine/test/**/*.ts",
     "../packages/shared/test/**/*.ts",
-    "../playwright.tarot.config.ts"
+    "../playwright.tarot.config.ts",
+    "../playwright.polish.config.ts"
   ]
 }

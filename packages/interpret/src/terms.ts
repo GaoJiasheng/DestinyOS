@@ -12,12 +12,24 @@ export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
       ...entry.aliases.filter((alias) =>
         locale === 'zh' ? /\p{Script=Han}/u.test(alias) : !/\p{Script=Han}/u.test(alias),
       ),
-    ].map((term) => ({ term, key: entry.key })),
+    ]
+      // DESIGN-GAP: The branch transliteration "You" is also an English pronoun; require an explicit marker rather than automatically linking ordinary prose.
+      .filter((term) => !(locale === 'en' && entry.key === 'branch.you' && /^you$/i.test(term)))
+      .map((term) => ({ term, key: entry.key })),
   );
   terms.sort((a, b) => b.term.length - a.term.length || (a.key < b.key ? -1 : 1));
   const unique = new Map<string, string>();
-  for (const entry of terms)
-    if (!unique.has(entry.term.toLowerCase())) unique.set(entry.term.toLowerCase(), entry.key);
+  const ambiguous = new Set<string>();
+  // DESIGN-GAP: Shared spellings such as Yin (polarity/branch) and Wu (stem/branch) need explicit references instead of an arbitrary alphabetic winner.
+  for (const entry of terms) {
+    const spelling = entry.term.toLowerCase();
+    if (ambiguous.has(spelling)) continue;
+    const previous = unique.get(spelling);
+    if (previous && previous !== entry.key) {
+      unique.delete(spelling);
+      ambiguous.add(spelling);
+    } else unique.set(spelling, entry.key);
+  }
   const pattern = [...unique.keys()]
     .map((term) =>
       locale === 'en'
@@ -27,10 +39,18 @@ export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
           : escape(term),
     )
     .join('|');
-  return { regex: pattern ? new RegExp(pattern, 'giu') : null, unique };
+  // DESIGN-GAP: English hexagram names are proper titles; lowercase prose such as approach, progress or waiting is not a reference to another hexagram.
+  const exactNames = new Map(
+    glossary
+      .filter((entry) => locale === 'en' && /^hexagram\.\d+$/.test(entry.key))
+      .map((entry) => [entry.key, new Set([entry.en.term, ...entry.aliases])]),
+  );
+  const isTechnicalMatch = (matched: string, key: string) =>
+    !exactNames.has(key) || exactNames.get(key)!.has(matched);
+  return { regex: pattern ? new RegExp(pattern, 'giu') : null, unique, isTechnicalMatch };
 }
 export function termMarker(glossary: GlossaryEntry[], locale: Locale) {
-  const { regex, unique } = termPattern(glossary, locale);
+  const { regex, unique, isTechnicalMatch } = termPattern(glossary, locale);
   const seen = new Set<string>();
   return (text: string): string => {
     if (!regex) return text;
@@ -46,7 +66,7 @@ export function termMarker(glossary: GlossaryEntry[], locale: Locale) {
         if (part.startsWith('{{') || /^\[[^\]\n]+\]\(/.test(part)) return part;
         return part.replace(regex, (matched) => {
           const key = unique.get(matched.toLowerCase());
-          if (!key || seen.has(key)) return matched;
+          if (!key || seen.has(key) || !isTechnicalMatch(matched, key)) return matched;
           seen.add(key);
           return `[[term:${key}]]`;
         });
@@ -74,6 +94,23 @@ export function createTermCounter(
   glossary: GlossaryEntry[],
   locale: Locale,
 ): (text: string) => number {
-  const { regex } = termPattern(glossary, locale);
-  return (text) => (regex ? [...expandTerms(text, glossary, locale).matchAll(regex)].length : 0);
+  const { regex, unique, isTechnicalMatch } = termPattern(glossary, locale);
+  const explicitOnly = new Set(
+    glossary
+      .filter((entry) => unique.get(entry[locale].term.toLowerCase()) !== entry.key)
+      .map((entry) => entry.key),
+  );
+  return (text) => {
+    const automatic = regex
+      ? [...expandTerms(text, glossary, locale).matchAll(regex)].filter((match) => {
+          const key = unique.get(match[0].toLowerCase());
+          return key && isTechnicalMatch(match[0], key);
+        }).length
+      : 0;
+    // Explicit references to ambiguous names still count once as technical terms.
+    const explicit = [...text.matchAll(/\[\[term:([^\]]+)\]\]/g)].filter((match) =>
+      explicitOnly.has(match[1]!),
+    ).length;
+    return automatic + explicit;
+  };
 }

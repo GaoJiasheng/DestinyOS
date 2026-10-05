@@ -120,7 +120,7 @@ describe('deterministic interpretation', () => {
       'chart:dayMaster.stem',
     );
   });
-  it('uses no repeated transition text within a section and obeys caps', () => {
+  it('uses no repeated transition text across a complete report and obeys caps', () => {
     const extra = Array.from({ length: 8 }, (_, n) => ({
       ...copyUnit('bazi.overview.focus'),
       id: `bazi.overview.extra_${n}`,
@@ -132,10 +132,10 @@ describe('deterministic interpretation', () => {
       knowledge: { ...knowledge, units: [...knowledge.units, ...extra] },
     });
     expect(report.hits.filter((h) => h.section === 'overview')).toHaveLength(3);
-    for (const section of report.sections) {
-      const transitions = section.blocks.flatMap((b) => (b.type === 'transition' ? [b.text] : []));
-      expect(new Set(transitions).size).toBe(transitions.length);
-    }
+    const transitions = report.sections.flatMap((section) =>
+      section.blocks.flatMap((b) => (b.type === 'transition' ? [b.text] : [])),
+    );
+    expect(new Set(transitions).size).toBe(transitions.length);
   });
   it('qualifies conclusions when confidence is low or birth time is missing', () => {
     const report = interpret({ ...input(), context: { now: '2026-10-04', profileHasTime: false } });
@@ -143,6 +143,17 @@ describe('deterministic interpretation', () => {
     expect(
       knowledge.transitions.zh.low_confidence.some((t) => report.sections[0]?.lead.startsWith(t)),
     ).toBe(true);
+  });
+  it('preserves divination confidence when the birth time is unknown', () => {
+    for (const system of ['iching', 'qimen', 'tarot'] as const) {
+      const known = interpret({ ...input(), system });
+      const unknown = interpret({
+        ...input(),
+        system,
+        context: { now: '2026-10-04', profileHasTime: false },
+      });
+      expect(unknown.headline.confidence).toBe(known.headline.confidence);
+    }
   });
   it('substitutes chart and glossary variables while surfacing unresolved placeholders', () => {
     const unit = copyUnit('bazi.overview.focus');

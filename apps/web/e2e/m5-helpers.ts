@@ -150,7 +150,7 @@ export async function seedReading(
   });
 }
 
-// DESIGN-GAP: Language-switch autonyms, code, classical quotations, user input and documented proper names retain their original form; audit the remaining visible prose.
+// DESIGN-GAP: Language-switch autonyms, the exact DELETE confirmation token, code, classical quotations, user input and documented proper names retain their original form; audit the remaining visible prose.
 /** Check rendered language after hydration, including labels on chart and technical views. */
 export async function auditLocale(page: Page, locale: 'zh' | 'en') {
   const text = await page.evaluate((language) => {
@@ -166,6 +166,12 @@ export async function auditLocale(page: Page, locale: 'zh' | 'en') {
         )
       )
         continue;
+      // DESIGN-GAP: The documented bilingual glossary heading marks each name with its own language.
+      if (
+        parent.closest('.term-popover') &&
+        parent.closest(language === 'en' ? '[lang="zh"]' : '[lang="en"]')
+      )
+        continue;
       if (language === 'en' && parent.closest('[lang="zh"]')) continue;
       if (!parent.getClientRects().length || getComputedStyle(parent).visibility === 'hidden')
         continue;
@@ -176,7 +182,7 @@ export async function auditLocale(page: Page, locale: 'zh' | 'en') {
   const normalized = text
     .replace(/https?:\/\/[^\s）)]+/g, '')
     .replace(
-      /(?<![A-Za-z])(?:天机|DestinyOS|ASC|MC|DSC|IC|Cookie|Noto Serif SC|Cinzel|Cormorant Garamond|Yale Bright Star Catalogue|AI|Safari|PDF|US|Apple Pay|Pay|AES|GCM|URL|openid|email|profile|Vercel|SCC|DPF|ID|IANA|GA4|Meta Pixel|Inter|LXGW WenKai|Fontsource|Pamela Colman Smith|Arthur Edward Waite|Rider–Waite–Smith|Commons|CDS|CI|AGPL|GPL|Google|Stripe|Resend|GeoNames|Wikimedia|OpenStreetMap|AdSense|Auth\.js|Next\.js|Neon|Upstash|Sentry|OAuth|JSON|PNG|SVG|PWA|UTC|GMT|DST|RWS|Placidus|Whole Sign|Lahiri|D1|D9|TCF|CMP|GDPR|CCPA|GPC|RDP|CC BY|CC0|OFL|SIL|MIT|Apache|English|Beijing|Asia\/Shanghai|Asia\/Singapore|—)(?![A-Za-z])/g,
+      /(?<![A-Za-z])(?:天机|DestinyOS|DELETE|ASC|MC|DSC|IC|Cookie|Noto Serif SC|Cinzel|Cormorant Garamond|Yale Bright Star Catalogue|AI|Safari|PDF|US|Apple Pay|Pay|AES|GCM|URL|openid|email|profile|Vercel|SCC|DPF|ID|IANA|GA4|Meta Pixel|Inter|LXGW WenKai|Fontsource|Pamela Colman Smith|Arthur Edward Waite|Rider–Waite–Smith|Commons|CDS|CI|AGPL|GPL|Google|Stripe|Resend|GeoNames|Wikimedia|OpenStreetMap|AdSense|Auth\.js|Next\.js|Neon|Upstash|Sentry|OAuth|JSON|PNG|SVG|PWA|UTC|GMT|DST|RWS|Placidus|Whole Sign|Lahiri|D1|D9|TCF|CMP|GDPR|CCPA|GPC|RDP|CC BY|CC0|OFL|SIL|MIT|Apache|English|Beijing|Asia\/Shanghai|Asia\/Singapore|—)(?![A-Za-z])/g,
       '',
     );
   const residues =

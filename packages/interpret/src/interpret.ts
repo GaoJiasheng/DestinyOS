@@ -14,7 +14,7 @@ import { numeric, systemConfigs } from './config';
 import { termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
 import displayLabels from './display-labels.json';
-export const interpretVersion = '1.1.1';
+export const interpretVersion = '1.1.2';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>
   b.hit.weight - a.hit.weight || (a.unit.id < b.unit.id ? -1 : a.unit.id > b.unit.id ? 1 : 0);
@@ -154,7 +154,9 @@ export function interpret(input: InterpretInput): Report {
   if (!Number.isFinite(confidence)) throw new Error('Invalid confidence');
   confidence = Math.max(0, Math.min(1, confidence));
   // DESIGN-GAP: Missing birth time caps confidence at 0.65 until each system provides its own uncertainty model.
-  if (!context.profileHasTime) confidence = Math.min(confidence, 0.65);
+  // Divination depends on its casting time, so missing birth time does not reduce its confidence.
+  if (!context.profileHasTime && !['iching', 'qimen', 'tarot'].includes(system))
+    confidence = Math.min(confidence, 0.65);
   const substitute = (text: string, unit: KnowledgeUnit): string => {
     const resolved = new Set<string>();
     const lookup = (key: string, destination: boolean): string | undefined => {
@@ -232,14 +234,15 @@ export function interpret(input: InterpretInput): Report {
     retained.flatMap((c) => c.unit[locale].advice.map((text) => substitute(text, c.unit))),
     5,
   );
+  // DESIGN-GAP: Transition variety applies to the complete report, including confidence leads.
+  const used = new Set<string>();
   for (const spec of plan) {
     const chapter = retained.filter((c) => c.unit.section === spec.key);
     const first = chapter[0];
     let lead = first ? substitute(first.unit[locale].summary, first.unit) : '';
     if (lead && confidence < 0.7)
-      lead = `${chooseTransition('low_confidence', first?.unit.id ?? spec.key, new Set()) ?? ''}${locale === 'en' ? ' ' : ''}${lead}`;
-    const blocks: ReportBlock[] = [],
-      used = new Set<string>();
+      lead = `${chooseTransition('low_confidence', first?.unit.id ?? spec.key, used) ?? ''}${locale === 'en' ? ' ' : ''}${lead}`;
+    const blocks: ReportBlock[] = [];
     chapter.forEach((candidate, index) => {
       const { unit } = candidate;
       const previous = chapter[index - 1];

@@ -192,7 +192,8 @@
   --font-heading-current: var(--font-east-zh);
   color-scheme: dark;
 }
-:lang(en) {
+/* Language font defaults belong to the document root so descendants inherit their route theme. */
+html:lang(en) {
   --font-body-current: var(--font-body-en);
   --font-heading-current: var(--font-east-en);
 }
@@ -1881,6 +1882,24 @@ meter {
   width: 100%;
   accent-color: var(--gold);
 }
+.report-headline progress {
+  appearance: none;
+  height: var(--space-2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--gold);
+}
+.report-headline progress::-webkit-progress-bar {
+  background: var(--surface-2);
+}
+.report-headline progress::-webkit-progress-value {
+  background: var(--gold);
+}
+.report-headline progress::-moz-progress-bar {
+  background: var(--gold);
+}
 .report-columns {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1920,11 +1939,12 @@ meter {
   background: var(--bg-0);
 }
 .section-nav a {
+  flex: 0 0 auto;
   white-space: nowrap;
   border: 1px solid var(--line-2);
   border-radius: var(--r-pill);
-  padding: 10px 16px;
-  min-height: 44px;
+  padding: var(--space-3) var(--space-4);
+  min-height: var(--touch-target);
 }
 .evidence-tags {
   display: flex;
@@ -2178,6 +2198,28 @@ meter {
   background: color-mix(in srgb, var(--pillar-color) 8%, transparent);
   border: 1px solid color-mix(in srgb, var(--pillar-color) 30%, var(--line-1));
   border-radius: var(--r-md);
+  animation: bazi-pillar-rise var(--duration-enter-max) var(--ease-out) both;
+  animation-delay: calc(var(--pillar-order) * var(--stagger-max));
+}
+@keyframes bazi-pillar-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-6));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bazi-pillar {
+    animation-name: fade-in;
+    animation-delay: 0ms;
+  }
+}
+html[data-reduced-motion='true'] .bazi-pillar {
+  animation-name: fade-in;
+  animation-delay: 0ms;
 }
 .bazi-pillar button {
   display: flex;
@@ -2188,6 +2230,17 @@ meter {
   height: 100%;
   padding: var(--space-4) var(--space-2);
   border-radius: var(--r-md);
+}
+/* DESIGN-GAP: Single Chinese glyphs fit four mobile columns; longer Latin stem/branch names keep the scrollable layout. */
+@media (max-width: 767px) {
+  :lang(zh) .bazi-pillars {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    min-width: 0;
+    gap: var(--space-1);
+  }
+  :lang(zh) .bazi-pillar button {
+    padding-inline: var(--space-1);
+  }
 }
 .bazi-pillar-label,
 .bazi-element-name {
@@ -3651,17 +3704,21 @@ meter {
   padding: var(--space-3) 0;
 }
 .dasha-track {
+  --dasha-track-min: 900px;
   position: relative;
   display: flex;
-  min-width: 900px;
+  min-width: var(--dasha-track-min);
 }
 .dasha-track button {
   flex-basis: 0;
   padding: var(--space-2) var(--space-1);
   border-top: 4px solid;
-  min-width: 0;
-  font-size: 11px;
+  min-width: var(--touch-target);
+  font-size: var(--size-caption);
   color: var(--text-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .dasha-track button[aria-expanded='true'] {
   outline: 1px solid var(--gold-soft);
@@ -3669,8 +3726,10 @@ meter {
 }
 .dasha-track small {
   display: block;
-  font-size: 9px;
+  font-size: var(--size-caption);
   color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dasha-pointer {
   position: absolute;
@@ -4119,37 +4178,37 @@ html[data-reduced-motion='true'] .system-symbol * {
 .public-share {
   max-width: 960px;
   margin: auto;
-  padding: 32px 20px 96px;
+  padding: var(--space-7) var(--space-5) var(--space-12);
   overflow-wrap: anywhere;
 }
 .daily-page header,
 .settings-page h1,
 .learn-page h1 {
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
 }
 .daily-page .report-card,
 .settings-page .report-card,
 .learn-page .report-card,
 .public-share .report-card {
-  margin: 20px 0;
-  padding: 24px;
+  margin: var(--space-5) 0;
+  padding: var(--space-6);
 }
 .daily-grid,
 .learn-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  gap: var(--space-5);
 }
 .daily-grid dt {
   color: var(--text-2);
-  font-size: 14px;
+  font-size: var(--size-small);
 }
 .daily-grid dd {
-  margin: 8px 0;
+  margin: var(--space-2) 0;
 }
 .action-row {
   display: flex;
-  gap: 12px;
+  gap: var(--space-3);
   flex-wrap: wrap;
   align-items: center;
 }
@@ -4160,19 +4219,19 @@ html[data-reduced-motion='true'] .system-symbol * {
   font-size: var(--size-caption);
   width: 72px;
   height: 72px;
-  border: 8px solid #bca36d;
+  border: var(--space-2) solid var(--gold);
   border-radius: 50%;
-  margin: 20px auto;
+  margin: var(--space-5) auto;
 }
 .daily-overall.band-good {
-  border-color: #76bda7;
+  border-color: var(--success);
 }
 .color-dot {
   display: inline-block;
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  margin-right: 8px;
+  margin-right: var(--space-2);
   vertical-align: middle;
 }
 .daily-body {
@@ -4191,20 +4250,20 @@ html[data-reduced-motion='true'] .system-symbol * {
   left: 10%;
   right: 10%;
   background: var(--surface-1);
-  padding: 24px;
+  padding: var(--space-6);
   text-align: center;
   border: 1px solid var(--accent);
-  border-radius: 16px;
+  border-radius: var(--r-md);
 }
 .settings-fields {
   display: grid;
-  gap: 20px;
+  gap: var(--space-5);
 }
 .settings-fields label,
 .dialog-content label,
 .history-filters label {
   display: flex;
-  gap: 10px;
+  gap: var(--space-3);
   flex-wrap: wrap;
   align-items: center;
 }
@@ -4217,8 +4276,8 @@ html[data-reduced-motion='true'] .system-symbol * {
   width: 100%;
   max-width: 100%;
   border: 1px solid var(--line-2);
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: var(--r-sm);
+  padding: var(--space-3);
   background: var(--surface-1);
   color: var(--text-1);
 }
@@ -4228,10 +4287,10 @@ html[data-reduced-motion='true'] .system-symbol * {
   height: 18px;
 }
 .dialog-content select {
-  margin: 10px 0 20px;
+  margin: var(--space-3) 0 var(--space-5);
 }
 .danger-zone {
-  border-color: #b96d6d;
+  border-color: var(--danger);
 }
 .me-avatar {
   border-radius: 50%;
@@ -4240,12 +4299,12 @@ html[data-reduced-motion='true'] .system-symbol * {
   width: 100%;
   max-height: 300px;
   object-fit: contain;
-  margin: 16px 0;
-  border-radius: 12px;
+  margin: var(--space-4) 0;
+  border-radius: var(--r-md);
 }
 .learn-card-image {
-  margin: 24px auto;
-  border-radius: 12px;
+  margin: var(--space-6) auto;
+  border-radius: var(--r-md);
   height: auto;
   max-width: 100%;
 }
@@ -4255,17 +4314,17 @@ html[data-reduced-motion='true'] .system-symbol * {
 }
 .learn-grid li a {
   display: block;
-  padding: 8px;
+  padding: var(--space-2);
   border-bottom: 1px solid var(--line-2);
 }
 .learn-page details,
 .daily-page details {
-  padding: 12px 0;
+  padding: var(--space-3) 0;
 }
 .history-filters {
   display: grid;
-  gap: 12px;
-  margin: 20px 0;
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
 }
 .public-share pre {
   white-space: pre-wrap;
@@ -4273,8 +4332,8 @@ html[data-reduced-motion='true'] .system-symbol * {
   overflow: auto;
 }
 .daily-card-face {
-  animation: daily-reveal 400ms ease-out;
-  margin: 20px 0;
+  animation: daily-reveal var(--duration-theme) var(--ease-out);
+  margin: var(--space-5) 0;
 }
 @keyframes daily-reveal {
   from {
@@ -4289,8 +4348,8 @@ html[data-reduced-motion='true'] .system-symbol * {
 html[data-reduced-motion='true'] *,
 html[data-reduced-motion='true'] *::before,
 html[data-reduced-motion='true'] *::after {
-  animation-duration: 0.01ms !important;
-  transition-duration: 0.01ms !important;
+  animation-duration: var(--duration-reduced) !important;
+  transition-duration: var(--duration-reduced) !important;
   scroll-behavior: auto !important;
 }
 @media (max-width: 600px) {
@@ -4298,7 +4357,7 @@ html[data-reduced-motion='true'] *::after {
   .settings-page,
   .learn-page,
   .public-share {
-    padding: 24px 16px 100px;
+    padding: var(--space-6) var(--space-4) var(--space-12);
   }
   .daily-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4306,7 +4365,7 @@ html[data-reduced-motion='true'] *::after {
   .daily-page .report-card,
   .settings-page .report-card,
   .learn-page .report-card {
-    padding: 16px;
+    padding: var(--space-4);
   }
 }
 
@@ -4351,4 +4410,80 @@ html[data-reduced-motion='true'] *::after {
 .report-card li a {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* DESIGN-GAP: Inline glossary/link controls retain their text treatment while sharing the documented 44px touch minimum with standalone controls. */
+:root {
+  --touch-target: 44px;
+}
+button,
+select,
+input:not([type='checkbox'], [type='radio'], [type='hidden']),
+summary {
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+}
+a,
+.term-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+}
+label:has(input[type='checkbox'], input[type='radio']) {
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+  align-items: center;
+}
+.term-popover {
+  background: var(--surface-2);
+}
+/* DESIGN-GAP: Device motion preferences use the same 150ms, one-iteration downgrade as the OS media query. */
+html[data-reduced-motion='true'] *,
+html[data-reduced-motion='true'] *::before,
+html[data-reduced-motion='true'] *::after {
+  animation-iteration-count: 1 !important;
+}
+/* Account motion locks use the same static geometry and fade as the OS media query. */
+html[data-reduced-motion='true'] .coin-falling,
+html[data-reduced-motion='true'] .hexagram-flip,
+html[data-reduced-motion='true'] .hexagram-enter .hexagram-line,
+html[data-reduced-motion='true'] .hexagram-enter .moving-mark,
+html[data-reduced-motion='true'] .qimen-enter .qimen-layer,
+html[data-reduced-motion='true'] .zodiac-ring,
+html[data-reduced-motion='true'] .planet-ring,
+html[data-reduced-motion='true'] .aspect-lines,
+html[data-reduced-motion='true'] .daily-card-face {
+  animation-name: fade-in;
+  animation-delay: 0ms !important;
+}
+html[data-reduced-motion='true'] .hexagram-enter .hexagram-line::after,
+html[data-reduced-motion='true'] .tarot-flipper.is-revealed .tarot-back,
+html[data-reduced-motion='true'] .tarot-flipper:not(.is-revealed) .tarot-face {
+  display: none;
+}
+html[data-reduced-motion='true'] .tarot-flipper {
+  transition-property: opacity;
+  transform-style: flat;
+}
+html[data-reduced-motion='true'] .tarot-flipper.is-revealed,
+html[data-reduced-motion='true'] .tarot-face {
+  transform: none;
+}
+html[data-reduced-motion='true'] .tarot-face img.is-reversed {
+  animation: none;
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .daily-card-face {
+    animation-name: fade-in;
+  }
+}
+
+.natal-wheel .chart-hit-target,
+.vedic-chart .chart-hit-target {
+  /* DESIGN-GAP: Expanded SVG hit areas remain invisible even inside selected chart groups. */
+  fill: transparent !important;
+  stroke: none !important;
+  pointer-events: all;
 }

@@ -28,7 +28,8 @@ export default async function MePage() {
           <img className="me-avatar" width="48" height="48" src={user.image} alt={t('me.avatar')} />
         ) : null}
         {user ? (
-          <h2>{user.name ? t('report.content', { text: user.name }) : t('me.guest')}</h2>
+          // DESIGN-GAP: A signed-in member without a display name uses the existing authenticated-state copy.
+          <h2>{user.name ? t('report.content', { text: user.name }) : t('auth.login.signedIn')}</h2>
         ) : (
           <LocalDisplayName />
         )}

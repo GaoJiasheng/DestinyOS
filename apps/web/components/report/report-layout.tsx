@@ -113,7 +113,9 @@ export function ReportLayout({
     if (details) details.open = true;
     // DESIGN-GAP: Evidence paths can point inside arrays; choose the most specific rendered parent and fall back to the chart root.
     requestAnimationFrame(() => {
-      const candidates = Array.from(root.querySelectorAll<HTMLElement>('[data-chart-path]'))
+      const candidates = Array.from(
+        root.querySelectorAll<HTMLElement | SVGElement>('[data-chart-path]'),
+      )
         .filter((element) => isHighlighted(resolved, element.dataset.chartPath ?? ''))
         .sort((a, b) => (b.dataset.chartPath?.length ?? 0) - (a.dataset.chartPath?.length ?? 0));
       const exact = candidates.find(

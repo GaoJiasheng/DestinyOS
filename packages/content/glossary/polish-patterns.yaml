@@ -1,0 +1,39 @@
+- key: pattern.yod
+  system: astrology
+  zh:
+    term: 指向格局
+    pinyin: zhǐ xiàng gé jú
+    short: 两颗形成六分相的行星，同时与第三颗形成梅花相
+    long: 指向格局由一组六分相与两组梅花相构成。它描述三颗行星之间需要反复调整的表达关系，适合结合行星位置和实际经历提出观察问题，不表示特殊身份或固定的人生使命。
+  en:
+    term: Yod
+    pinyin: zhǐ xiàng gé jú
+    short: Two sextile-linked planets both form quincunxes to a third planet.
+    long: A Yod combines one sextile with two quincunxes. It describes a relationship among three planetary themes that may call for repeated adjustment. Read it with the placements and actual experience; it does not confer a special identity or a fixed life mission.
+  aliases: []
+- key: pattern.zi_fu_chao_yuan
+  system: ziwei
+  zh:
+    term: 紫府朝垣
+    pinyin: zǐ fǔ cháo yuán
+    short: 命财官迁的观察范围会齐紫微与天府
+    long: 紫府朝垣是紫微与天府在命、财、官、迁观察范围相会的传统格局名称，可以用来思考统筹方向和维持资源如何配合。它补充星曜位置的解读，不独立预告成就或事件。
+  en:
+    term: Zi Fu Chao Yuan
+    pinyin: zǐ fǔ cháo yuán
+    short: Zi Wei and Tian Fu meet across the life, wealth, career and travel areas.
+    long: Zi Fu Chao Yuan names a traditional configuration involving Zi Wei and Tian Fu across the life, wealth, career and travel areas. It invites reflection on coordinating direction and maintaining resources, supplementing individual placements without independently predicting an achievement or event.
+  aliases: []
+- key: pattern.fu_xiang_chao_yuan
+  system: ziwei
+  zh:
+    term: 府相朝垣
+    pinyin: fǔ xiàng cháo yuán
+    short: 命财官迁的观察范围会齐天府与天相
+    long: 府相朝垣是天府与天相在命、财、官、迁观察范围相会的传统格局名称，可以用来思考资源维护和程序协调如何互相补充。它需要结合整体配置与现实条件，不独立预告结果。
+  en:
+    term: Fu Xiang Chao Yuan
+    pinyin: fǔ xiàng cháo yuán
+    short: Tian Fu and Tian Xiang meet across the life, wealth, career and travel areas.
+    long: Fu Xiang Chao Yuan names a traditional configuration involving Tian Fu and Tian Xiang across the life, wealth, career and travel areas. It invites reflection on maintaining resources and coordinating procedures. Read it with the whole chart and practical conditions rather than treating it as an independent prediction.
+  aliases: []

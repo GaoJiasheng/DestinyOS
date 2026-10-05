@@ -54,14 +54,15 @@ export function DashaTimeline({
       {sequence.length ? (
         <>
           <div className="dasha-scroll">
+            {/* DESIGN-GAP: Complete periods retain duration-derived widths; a truncated boundary period keeps its 44px minimum without stretching the entire scale. */}
             <div className="dasha-track">
               {sequence.map((period, i) => (
                 <button
                   type="button"
                   key={period.from}
+                  title={`${t(`charts.graha.${period.lord}`)} · ${date(period.from)}–${date(period.to)}`}
                   style={{
-                    flexGrow:
-                      total > 0 ? (Date.parse(period.to) - Date.parse(period.from)) / total : 1,
+                    flex: `0 0 ${100 * (total > 0 ? (Date.parse(period.to) - Date.parse(period.from)) / total : 1 / sequence.length)}%`,
                     borderColor: COLORS[period.lord],
                     background: `linear-gradient(180deg, color-mix(in srgb, ${COLORS[period.lord]} 28%, var(--surface-1)), var(--surface-1))`,
                   }}

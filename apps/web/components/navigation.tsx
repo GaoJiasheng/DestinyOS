@@ -10,12 +10,14 @@ import { ThemeSwitch } from './theme-provider';
 import { Dialog } from './ui/dialog';
 import { Button } from './ui/button';
 import { systems } from '@/lib/system-links';
+import { useSignedIn } from './providers';
 export { systems } from '@/lib/system-links';
 /** Responsive desktop navigation and the five-item mobile tab bar. */
 // DESIGN-GAP: Menu links fetch on explicit navigation; preserve mobile bandwidth for the requested chart and keep normal client routing.
 export function Navigation() {
   const t = useCopy();
   const pathname = usePathname();
+  const signedIn = useSignedIn();
   return (
     <>
       <header className="site-header">
@@ -43,8 +45,14 @@ export function Navigation() {
         <div className="header-tools">
           <LocaleSwitch />
           <ThemeSwitch />
-          <Link prefetch={false} href="/auth/login" className="login-link">
-            {t('nav.login')}
+          <Link
+            prefetch={false}
+            href={signedIn ? '/me' : '/auth/login'}
+            className="login-link"
+            aria-label={t(signedIn ? 'nav.me' : 'nav.login')}
+          >
+            {/* DESIGN-GAP: Use the standard user avatar for authenticated accounts without a profile image. */}
+            {signedIn ? <UserRound size={21} aria-hidden /> : t('nav.login')}
           </Link>
         </div>
       </header>

@@ -18,7 +18,9 @@ export async function GET(request: Request, { params }: { params: Promise<{ toke
       .enum(['story', 'landscape'])
       .parse(url.searchParams.get('format') ?? 'landscape');
     const share = await publicShare(token, locale);
-    const image = await renderCard(share.daily ?? share, format);
+    const destination = new URL(`/s/${token}`, process.env.NEXT_PUBLIC_SITE_URL ?? request.url);
+    destination.searchParams.set('locale', share.locale);
+    const image = await renderCard(share.daily ?? share, format, destination.toString());
     image.headers.set('Cache-Control', 'public, max-age=0, s-maxage=86400');
     return image;
   } catch (e) {

@@ -1,9 +1,8 @@
 'use client';
 import { useEffect } from 'react';
 import { usePathname } from '@/i18n/navigation';
-/** Load budgeted body glyph shards after paint/idle, refreshing when client-rendered reports arrive. */
-export function FontLoader() {
-  const pathname = usePathname();
+/** Load budgeted glyph shards after paint/idle, including shells without a locale router. */
+export function FontGlyphLoader({ revisionKey }: { revisionKey: string }) {
   useEffect(() => {
     let idle = 0,
       timer = 0,
@@ -48,6 +47,12 @@ export function FontLoader() {
       if (idle) cancelIdleCallback(idle);
       delete document.documentElement.dataset.fontsSettled;
     };
-  }, [pathname]);
+  }, [revisionKey]);
   return null;
+}
+
+/** Refresh glyph selection when localized application navigation changes. */
+export function FontLoader() {
+  const pathname = usePathname();
+  return <FontGlyphLoader revisionKey={pathname} />;
 }

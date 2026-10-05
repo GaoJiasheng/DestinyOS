@@ -1,6 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import type { VedicChart } from '@tianji/shared';
+import { closestBodyKey } from './chart-hit-target';
 import { bodyFromEvidence, houseFromEvidence, SIGNS } from './astro-geometry';
 import { NORTH_CELLS, houseSign, vedicDivision, type Division } from './vedic-geometry';
 /** Fixed-house North Indian diamond; house one is upper center and zodiac numbers follow the Lagna. */
@@ -64,12 +65,22 @@ export function VedicNorthChart({
                 tabIndex={0}
                 aria-label={`${t(`charts.graha.${b.key}`)} · ${t('charts.houseNumber', { number: index + 1 })} · ${b.degree.toFixed(1)}°`}
                 aria-pressed={selected === b.key}
+                data-chart-path={`bodies.${chart.bodies.findIndex((body) => body.key === b.key)}`}
                 data-body={b.key}
                 className={selected === b.key ? 'chart-selected' : undefined}
-                onClick={() =>
+                onClick={(e) =>
                   onSelect?.(
                     division === 'D9' ? 'navamsa' : 'lagna_planets',
-                    `bodies.${chart.bodies.findIndex((p) => p.key === b.key)}`,
+                    `bodies.${chart.bodies.findIndex(
+                      (p) =>
+                        p.key ===
+                        closestBodyKey(
+                          e.currentTarget,
+                          { x: e.clientX, y: e.clientY },
+                          chart.bodies.map((body) => body.key),
+                          b.key,
+                        ),
+                    )}`,
                   )
                 }
                 onKeyDown={(e) => {
@@ -83,10 +94,11 @@ export function VedicNorthChart({
                 }}
               >
                 <rect
-                  x={cell.x - 30}
-                  y={cell.y + 6 + i * 10}
-                  width="60"
-                  height="10"
+                  className="chart-hit-target"
+                  x={cell.x - 32}
+                  y={cell.y + 12 + i * 10 - 32}
+                  width="64"
+                  height="64"
                   fill="transparent"
                 />
                 <text x={cell.x} y={cell.y + 12 + i * 10} className="vedic-body">

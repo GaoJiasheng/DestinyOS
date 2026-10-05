@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import type { AstroChart, Planet } from '@tianji/shared';
+import { closestBodyKey } from './chart-hit-target';
 import {
   aspectColor,
   bodyFromEvidence,
@@ -97,6 +98,7 @@ export function NatalWheel({
           return (
             <g
               key={house.index}
+              data-chart-path={`houses.${i}`}
               data-house={house.index}
               role="button"
               tabIndex={0}
@@ -111,7 +113,8 @@ export function NatalWheel({
               className={activeHouse === i ? 'chart-selected' : undefined}
             >
               <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="var(--line-2)" />
-              <circle cx={p.x} cy={p.y} r="12" fill="transparent" />
+              {/* DESIGN-GAP: Invisible 64-unit targets preserve wheel artwork while meeting 44px at the mobile chart scale. */}
+              <circle className="chart-hit-target" cx={p.x} cy={p.y} r="32" fill="transparent" />
               <text x={p.x} y={p.y} className="house-number">
                 {house.index}
               </text>
@@ -161,6 +164,7 @@ export function NatalWheel({
           return (
             <g
               key={body.key}
+              data-chart-path={`bodies.${chart.bodies.findIndex((b) => b.key === body.key)}`}
               data-body={body.key}
               data-true-lon={body.lon}
               data-display-lon={body.displayLon}
@@ -173,7 +177,16 @@ export function NatalWheel({
               onMouseLeave={() => setHovered(undefined)}
               onFocus={() => setHovered(body.key)}
               onBlur={() => setHovered(undefined)}
-              onClick={() => select(body.key)}
+              onClick={(e) =>
+                select(
+                  closestBodyKey(
+                    e.currentTarget,
+                    { x: e.clientX, y: e.clientY },
+                    chart.bodies.map((b) => b.key),
+                    body.key,
+                  ),
+                )
+              }
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
@@ -182,6 +195,7 @@ export function NatalWheel({
               }}
             >
               <title>{label}</title>
+              <circle className="chart-hit-target" cx={p.x} cy={p.y} r="32" fill="transparent" />
               <line
                 x1={truePoint.x}
                 y1={truePoint.y}

@@ -159,6 +159,8 @@ async function stop() {
   redis.disconnect();
   await postgres.stop();
   await shadowServer.stop();
+  // DESIGN-GAP: The adapter schedules close handlers after stop; drain them before WASM teardown.
+  await new Promise<void>((resolve) => setImmediate(resolve));
   await pg.close();
   await shadow.close();
   process.exit(0);

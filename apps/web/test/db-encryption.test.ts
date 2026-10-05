@@ -30,6 +30,8 @@ beforeAll(async () => {
 afterAll(async () => {
   await raw?.$disconnect();
   await server.stop();
+  // DESIGN-GAP: Drain the adapter's deferred close handlers before destroying its database.
+  await new Promise<void>((resolve) => setImmediate(resolve));
   await pg.close();
   vi.unstubAllEnvs();
 });

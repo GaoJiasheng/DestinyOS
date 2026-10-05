@@ -107,6 +107,7 @@ export function ZiweiPalace({
     <button
       type="button"
       className="ziwei-palace"
+      data-chart-path={`palaces.${palace.index}`}
       data-palace={palace.key}
       data-branch={palace.branch}
       data-related={related}

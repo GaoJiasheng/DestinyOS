@@ -90,9 +90,11 @@ export function baziSection(path: string): string {
 }
 
 /** Scroll and focus an anchor while honoring the operating system's reduced-motion preference. */
-export function focusChartAnchor(target: HTMLElement | null): void {
+export function focusChartAnchor(target: HTMLElement | SVGElement | null): void {
   if (!target) return;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduced =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    document.documentElement.dataset.reducedMotion === 'true';
   target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
   target.focus({ preventScroll: true });
 }

@@ -20,6 +20,7 @@ import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
+import { useReducedMotionPreference } from '@/components/ui/use-reduced-motion';
 import { CoinToss } from '@/components/charts/coin-toss';
 import { ReportLayout } from '@/components/report/report-layout';
 import { DivinationChart } from '@/components/charts/divination-chart';
@@ -62,7 +63,7 @@ export function DivinationFlow({
   const active = useRef(true);
   const snapshot = useRef<{ req: ReadingRequest; chart: IchingChart | QimenChart } | null>(null);
   const completed = useRef(false);
-  const [reduced, setReduced] = useState(false);
+  const reduced = useReducedMotionPreference();
   const now = () => {
     const date = new Date();
     const zone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
@@ -75,13 +76,8 @@ export function DivinationFlow({
   useEffect(() => {
     active.current = true;
     now();
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const change = () => setReduced(media.matches);
-    change();
-    media.addEventListener('change', change);
     return () => {
       active.current = false;
-      media.removeEventListener('change', change);
     };
   }, []);
   useEffect(() => {

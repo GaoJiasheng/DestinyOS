@@ -17,6 +17,7 @@ import { PlanetTable } from '../components/charts/planet-table';
 import { AspectTable } from '../components/charts/aspect-table';
 import { AstrologyReportChart } from '../components/charts/astrology-report-chart';
 import { VedicReportChart } from '../components/charts/vedic-report-chart';
+import { closestBodyKey } from '../components/charts/chart-hit-target';
 import {
   aspectColor,
   bodyFromEvidence,
@@ -75,6 +76,29 @@ it('maps documented aspects to blue, red and green semantic colors', () => {
   expect(aspectColor('conjunction')).toBe('var(--success)');
   expect(aspectColor('trine')).toBe(aspectColor('sextile'));
   expect(aspectColor('square')).toBe(aspectColor('opposition'));
+});
+it('selects the nearest glyph when expanded chart touch areas overlap', () => {
+  const { container } = render(
+    <svg>
+      <g data-body="sun">
+        <circle className="chart-hit-target" />
+      </g>
+      <g data-body="moon">
+        <circle className="chart-hit-target" />
+      </g>
+    </svg>,
+  );
+  const sun = container.querySelector<SVGGElement>('[data-body="sun"]')!;
+  const moon = container.querySelector<SVGGElement>('[data-body="moon"]')!;
+  vi.spyOn(sun.firstElementChild!, 'getBoundingClientRect').mockReturnValue(
+    new DOMRect(100, 100, 64, 64),
+  );
+  vi.spyOn(moon.firstElementChild!, 'getBoundingClientRect').mockReturnValue(
+    new DOMRect(110, 100, 64, 64),
+  );
+  expect(closestBodyKey(moon, { x: 132, y: 132 }, ['sun', 'moon'], 'moon')).toBe('sun');
+  expect(closestBodyKey(sun, { x: 142, y: 132 }, ['sun', 'moon'], 'sun')).toBe('moon');
+  expect(closestBodyKey(moon, { x: 0, y: 0 }, ['sun', 'moon'], 'moon')).toBe('moon');
 });
 it('keeps D1/D9 and fixed house/sign topology accurate', () => {
   expect(SOUTH_CELLS[0]).toEqual([1, 0]);

@@ -21,6 +21,9 @@ beforeAll(async () => {
 afterAll(async () => {
   await db?.$disconnect();
   await server.stop();
+  // DESIGN-GAP: The socket adapter schedules close/detach with setImmediate; drain it before
+  // destroying PGlite's WASM backend so delayed handlers can inspect transaction state.
+  await new Promise<void>((resolve) => setImmediate(resolve));
   await pg.close();
 });
 it('imports the compiled production corpus twice without duplicates and rejects changed published content atomically', async () => {

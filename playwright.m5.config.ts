@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import base from './playwright.m4.config';
 const server = Array.isArray(base.webServer) ? base.webServer[0] : base.webServer;
+if (!server) throw new Error('M5 requires the isolated production web server');
 /** M5 production-browser suite uses the real app with isolated database, Redis, mail and signed Stripe events. */
 export default defineConfig({
   ...base,

@@ -1,6 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import { TAROT_SPREADS, type SpreadKey, type TarotChart } from '@tianji/shared';
+import { isHighlighted } from '@/components/charts/bazi-shared';
 import { TarotCard } from './tarot-card';
 /** Coordinate thumbnail shared by selection and the mobile report overview. */
 export function SpreadThumbnail({ spread }: { spread: SpreadKey }) {
@@ -28,12 +29,14 @@ export function SpreadLayout({
   picked = [],
   revealed,
   onReveal,
+  highlight,
 }: {
   spread: SpreadKey;
   cards?: TarotChart['cards'];
   picked?: number[];
   revealed?: number[];
   onReveal?: (order: number) => void;
+  highlight?: string;
 }) {
   const t = useTranslations('tarot');
   return (
@@ -43,7 +46,13 @@ export function SpreadLayout({
       </div>
       <ol className="tarot-positions">
         {TAROT_SPREADS[spread].map((p, i) => (
-          <li key={p.key} style={{ left: `${p.x * 82 + 9}%`, top: `${p.y * 75 + 12}%` }}>
+          <li
+            key={p.key}
+            data-chart-path={`cards.${i}`}
+            tabIndex={-1}
+            className={isHighlighted(highlight, `cards.${i}`) ? 'evidence-highlight' : undefined}
+            style={{ left: `${p.x * 82 + 9}%`, top: `${p.y * 75 + 12}%` }}
+          >
             <div className="tarot-slot" style={{ transform: `rotate(${p.rotation}deg)` }}>
               {cards[i] || picked[i] !== undefined ? (
                 <TarotCard

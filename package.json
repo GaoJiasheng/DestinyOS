@@ -51,7 +51,9 @@
     "test:m5:e2e": "playwright test --config playwright.m5.config.ts",
     "launch:check": "pnpm content:build && tsx scripts/launch-check.ts",
     "content:import": "pnpm content:build && tsx scripts/content-import.ts",
-    "worker:build": "tsx scripts/daily-worker-build.ts"
+    "worker:build": "tsx scripts/daily-worker-build.ts",
+    "polish:content": "pnpm content:build && tsx scripts/polish-content-audit.ts",
+    "test:polish": "NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-0000000000000000 NEXT_PUBLIC_ADSENSE_SLOT_HOME=1000000001 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_TOP=1000000002 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_BOTTOM=1000000003 NEXT_PUBLIC_ADSENSE_SLOT_TODAY=1000000004 NEXT_PUBLIC_ADSENSE_SLOT_LEARN=1000000005 pnpm build && tsx scripts/polish-content-audit.ts && playwright test --config playwright.polish.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

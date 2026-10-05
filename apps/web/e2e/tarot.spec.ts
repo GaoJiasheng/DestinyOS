@@ -109,6 +109,17 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(page.locator('.tarot-face').first()).toBeVisible();
     await expect(page.locator('.tarot-back').first()).toBeHidden();
     await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.evaluate(() => {
+      localStorage.setItem('tianji-reduced-motion', 'true');
+      window.dispatchEvent(new Event('tianji-settings'));
+    });
+    await expect(page.locator('.tarot-face').first()).toBeVisible();
+    await expect(page.locator('.tarot-back').first()).toBeHidden();
+    await expect(page.locator('.tarot-flipper').first()).toHaveCSS('transform', 'none');
+    await page.evaluate(() => {
+      localStorage.removeItem('tianji-reduced-motion');
+      window.dispatchEvent(new Event('tianji-settings'));
+    });
     await page.context().setOffline(true);
     await page.getByRole('button', { name: m['tarot.result'], exact: true }).click();
     await expect(page.locator('.report-layout')).toBeVisible({ timeout: 30_000 });

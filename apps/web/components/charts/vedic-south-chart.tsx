@@ -1,6 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import type { VedicChart } from '@tianji/shared';
+import { closestBodyKey } from './chart-hit-target';
 import { bodyFromEvidence, houseFromEvidence, SIGNS } from './astro-geometry';
 import { SOUTH_CELLS, vedicDivision, type Division } from './vedic-geometry';
 /** Fixed-sign South Indian chart with a diagonal Lagna mark and true D1/D9 positions. */
@@ -79,12 +80,22 @@ export function VedicSouthChart({
                 tabIndex={0}
                 aria-label={`${t(`charts.graha.${b.key}`)} · ${t(`charts.sign.${sign}`)} · ${b.degree.toFixed(1)}°`}
                 aria-pressed={selected === b.key}
+                data-chart-path={`bodies.${chart.bodies.findIndex((body) => body.key === b.key)}`}
                 data-body={b.key}
                 className={selected === b.key ? 'chart-selected' : undefined}
-                onClick={() =>
+                onClick={(e) =>
                   onSelect?.(
                     division === 'D9' ? 'navamsa' : 'lagna_planets',
-                    `bodies.${chart.bodies.findIndex((p) => p.key === b.key)}`,
+                    `bodies.${chart.bodies.findIndex(
+                      (p) =>
+                        p.key ===
+                        closestBodyKey(
+                          e.currentTarget,
+                          { x: e.clientX, y: e.clientY },
+                          chart.bodies.map((body) => body.key),
+                          b.key,
+                        ),
+                    )}`,
                   )
                 }
                 onKeyDown={(e) => {
@@ -98,10 +109,11 @@ export function VedicSouthChart({
                 }}
               >
                 <rect
-                  x={x + 3 + (i % 2) * 48}
-                  y={y + 21 + Math.floor(i / 2) * 15}
-                  width="47"
-                  height="15"
+                  className="chart-hit-target"
+                  x={x + 26 + (i % 2) * 48 - 32}
+                  y={y + 29 + Math.floor(i / 2) * 15 - 32}
+                  width="64"
+                  height="64"
                   fill="transparent"
                 />
                 <text

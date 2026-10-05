@@ -1,12 +1,10 @@
 'use client';
-import { motion, useReducedMotion } from 'motion/react';
 import { useCopy } from '@/i18n/use-copy';
 import { PILLAR_KEYS, isHighlighted, highlightedPillars, type BaziChartProps } from './bazi-shared';
 
 /** Four element-colored pillars rise at 80ms intervals; an unknown hour stays explicitly unknown. */
 export function BaziPillars({ chart, highlight, onSelect }: BaziChartProps) {
   const t = useCopy();
-  const reduced = useReducedMotion();
   return (
     <section className="bazi-component" data-chart-path="pillars" tabIndex={-1}>
       <h3>{t('bazi.chart.pillars')}</h3>
@@ -34,19 +32,13 @@ export function BaziPillars({ chart, highlight, onSelect }: BaziChartProps) {
               (key === 'day' && isHighlighted(highlight, 'dayMaster')) ||
               highlightedPillars(chart, highlight).includes(key);
             return (
-              <motion.div
+              <div
                 key={key}
-                initial={{ opacity: 0, y: reduced ? 0 : 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: reduced ? 0.15 : 0.4,
-                  delay: reduced ? 0 : i * 0.08,
-                  ease: [0.2, 0.8, 0.2, 1],
-                }}
                 className="bazi-pillar"
                 style={
                   {
                     '--pillar-color': pillar ? `var(--wu-${pillar.stemElement})` : 'var(--line-2)',
+                    '--pillar-order': i,
                   } as React.CSSProperties
                 }
               >
@@ -87,7 +79,7 @@ export function BaziPillars({ chart, highlight, onSelect }: BaziChartProps) {
                     <span className="bazi-unknown">{t('common.unknown')}</span>
                   )}
                 </button>
-              </motion.div>
+              </div>
             );
           })}
         </div>

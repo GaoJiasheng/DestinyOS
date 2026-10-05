@@ -1,6 +1,7 @@
 import { defineConfig } from '@playwright/test';
 import base from './playwright.daily-account.config';
 const server = Array.isArray(base.webServer) ? base.webServer[0] : base.webServer;
+if (!server) throw new Error('M4 requires the isolated production web server');
 /** Real product UI/actions with isolated signed test-mode Stripe webhook delivery. */
 export default defineConfig({
   ...base,

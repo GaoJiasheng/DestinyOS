@@ -41,7 +41,12 @@ export function ChartPreview({
   const ziwei = ZiweiChartSchema.safeParse(chart);
   if (ziwei.success)
     return (
-      <div id="chart-root" data-highlight={highlight}>
+      <div
+        id="chart-root"
+        tabIndex={-1}
+        data-highlight={highlight}
+        className={highlight ? 'evidence-highlight' : undefined}
+      >
         <ZiweiGrid
           chart={ziwei.data}
           highlight={highlight}
@@ -66,8 +71,13 @@ export function ChartPreview({
   const tarot = TarotChartSchema.safeParse(chart);
   if (tarot.success)
     return (
-      <div id="chart-root">
-        <SpreadLayout spread={tarot.data.spread} cards={tarot.data.cards} />
+      <div
+        id="chart-root"
+        tabIndex={-1}
+        data-highlight={highlight}
+        className={highlight ? 'evidence-highlight' : undefined}
+      >
+        <SpreadLayout spread={tarot.data.spread} cards={tarot.data.cards} highlight={highlight} />
       </div>
     );
   const astro = AstroChartSchema.safeParse(chart);

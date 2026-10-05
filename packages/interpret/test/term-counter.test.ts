@@ -20,6 +20,69 @@ const glossary: GlossaryEntry[] = [
 ];
 
 describe('report-scoped glossary matcher', () => {
+  it('distinguishes named hexagrams from ordinary English verbs without losing explicit references', () => {
+    const entries: GlossaryEntry[] = ['Approach', 'Progress', 'Waiting', 'Return'].map(
+      (term, i) => ({
+        key: `hexagram.${i + 1}`,
+        system: 'iching',
+        aliases: [],
+        zh: { term: '卦', short: '卦名', long: '卦名解释。' },
+        en: { term, short: 'A hexagram', long: 'A named hexagram.' },
+      }),
+    );
+    const text = 'You can approach this reading, review progress while waiting and return to it.';
+    expect(termMarker(entries, 'en')(text)).toBe(text);
+    expect(createTermCounter(entries, 'en')(text)).toBe(0);
+    expect(termMarker(entries, 'en')('Approach is named; [[term:hexagram.3]] is explicit.')).toBe(
+      '[[term:hexagram.1]] is named; [[term:hexagram.3]] is explicit.',
+    );
+    expect(createTermCounter(entries, 'en')('Approach and [[term:hexagram.3]].')).toBe(2);
+  });
+  it('requires explicit references for homographs and prefers the complete Dun alias', () => {
+    const entries: GlossaryEntry[] = [
+      ...glossary,
+      ...(['branch.yin', 'yin'] as const).map((key) => ({
+        key,
+        system: 'common' as const,
+        aliases: [],
+        zh: { term: key === 'yin' ? '阴' : '寅', short: '术语解释', long: '术语解释。' },
+        en: { term: 'Yin', short: 'A technical term', long: 'A contextual technical term.' },
+      })),
+      {
+        key: 'dun.yin',
+        system: 'qimen',
+        aliases: ['Yin Dun'],
+        zh: { term: '阴遁', short: '奇门排局方向', long: '奇门的排局方向。' },
+        en: { term: 'Yin Escape', short: 'Formation direction', long: 'The formation direction.' },
+      },
+    ];
+    expect(termMarker(entries, 'en')('Yin Dun, Yin, [[term:branch.yin]], [[term:yin]].')).toBe(
+      '[[term:dun.yin]], Yin, [[term:branch.yin]], [[term:yin]].',
+    );
+    expect(
+      createTermCounter(entries, 'en')('Yin Dun, Yin, [[term:branch.yin]], [[term:yin]].'),
+    ).toBe(3);
+  });
+  it('leaves English pronouns intact while preserving explicit references to the You branch', () => {
+    const entries: GlossaryEntry[] = [
+      ...glossary,
+      {
+        key: 'branch.you',
+        system: 'common',
+        aliases: [],
+        zh: { term: '酉', short: '十二地支之一', long: '十二地支之一。' },
+        en: { term: 'You', short: 'An Earthly Branch', long: 'One of twelve Earthly Branches.' },
+      },
+    ];
+    const mark = termMarker(entries, 'en');
+    expect(mark('You can compare Wood with [[term:branch.you]].')).toBe(
+      'You can compare [[term:element.wood]] with [[term:branch.you]].',
+    );
+    const count = createTermCounter(entries, 'en');
+    expect(count('You can choose what works for you.')).toBe(0);
+    expect(count('You can compare Wood with [[term:branch.you]].')).toBe(2);
+    expect(termMarker(entries, 'zh')('酉，自己。')).toBe('[[term:branch.you]]，自己。');
+  });
   it('preserves boundaries, expanded markers, repeated matches and locale isolation', () => {
     for (const locale of ['zh', 'en'] as const) {
       const count = createTermCounter(glossary, locale);

@@ -13,6 +13,8 @@ const config: NextConfig = {
   outputFileTracingIncludes: {
     '/*': [
       './resources/**/*',
+      './node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff',
+      './node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff',
       '../../packages/content/dist/*.json',
       '../../packages/content/test/fixtures/*.json',
       '../../packages/engine/test/fixtures/birth/*.json',

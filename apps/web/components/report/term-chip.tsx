@@ -1,4 +1,5 @@
 'use client';
+import { useId } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -8,16 +9,29 @@ export function TermChip({ termKey }: { termKey: string }) {
   const t = useTranslations();
   const copy = useCopy();
   const path = `glossary.${termKey}`;
+  const titleId = useId();
   return (
     <Popover.Root modal>
       <Popover.Trigger className="term-chip">
         {t.has(`${path}.term`) ? t(`${path}.term`) : copy('report.content', { text: termKey })}
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content className="term-popover" sideOffset={8} collisionPadding={16}>
-          <p className="type-h3">
+        <Popover.Content
+          className="term-popover"
+          aria-labelledby={titleId}
+          sideOffset={8}
+          collisionPadding={16}
+        >
+          <p className="type-h3" id={titleId}>
             {t.has(`${path}.bilingual`)
               ? t(`${path}.bilingual`)
+                  .split(' · ')
+                  .map((name, index) => (
+                    <span key={index} lang={index === 0 ? 'zh' : 'en'}>
+                      {index > 0 ? ' · ' : ''}
+                      {name}
+                    </span>
+                  ))
               : copy('report.content', { text: termKey })}
           </p>
           {t.has(`${path}.pinyin`) ? (

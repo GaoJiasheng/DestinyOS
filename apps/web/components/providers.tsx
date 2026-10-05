@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import { usePathname } from '@/i18n/navigation';
 import { Toaster } from 'sonner';
@@ -11,11 +11,17 @@ const AnonymousImport = dynamic(
 import { getSettingsAction } from '@/app/me/actions';
 import { MotionConfig } from 'motion/react';
 import { ThemeProvider } from './theme-provider';
+const SignedInContext = createContext(false);
+/** Reuse account hydration for the navigation avatar without exposing profile data. */
+export function useSignedIn() {
+  return useContext(SignedInContext);
+}
 /** Global UI providers keep the theme and notification surface consistent. */
 export function Providers({ children }: { children: ReactNode }) {
   const t = useCopy();
   const pathname = usePathname();
   const [reduced, setReduced] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
   useEffect(() => {
     let live = true;
     const update = () => {
@@ -24,14 +30,27 @@ export function Providers({ children }: { children: ReactNode }) {
       document.documentElement.dataset.reducedMotion = String(value);
     };
     update();
+    // DESIGN-GAP: Account hydration must not overwrite preferences edited while its request is in flight.
+    const preferenceKeys = [
+      'tianji-theme',
+      'tianji-reduced-motion',
+      'tianji-sound',
+      'tianji-tz',
+    ] as const;
+    const before = new Map(preferenceKeys.map((key) => [key, localStorage.getItem(key)]));
+    const restore = (key: (typeof preferenceKeys)[number], value: string | null) => {
+      if (localStorage.getItem(key) !== before.get(key)) return;
+      if (value === null) localStorage.removeItem(key);
+      else localStorage.setItem(key, value);
+    };
     void getSettingsAction()
       .then((settings) => {
         if (!live || !settings) return;
-        localStorage.setItem('tianji-theme', settings.theme ?? 'auto');
-        localStorage.setItem('tianji-reduced-motion', String(settings.reducedMotion));
-        localStorage.setItem('tianji-sound', String(settings.soundOn));
-        if (settings.tz) localStorage.setItem('tianji-tz', settings.tz);
-        else localStorage.removeItem('tianji-tz');
+        setSignedIn(true);
+        restore('tianji-theme', settings.theme ?? 'auto');
+        restore('tianji-reduced-motion', String(settings.reducedMotion));
+        restore('tianji-sound', String(settings.soundOn));
+        restore('tianji-tz', settings.tz);
         window.dispatchEvent(new Event('tianji-settings'));
       })
       .catch(() => undefined);
@@ -47,7 +66,9 @@ export function Providers({ children }: { children: ReactNode }) {
   }, [pathname]);
   return (
     <ThemeProvider>
-      <MotionConfig reducedMotion={reduced ? 'always' : 'user'}>{children}</MotionConfig>
+      <SignedInContext.Provider value={signedIn}>
+        <MotionConfig reducedMotion={reduced ? 'always' : 'user'}>{children}</MotionConfig>
+      </SignedInContext.Provider>
       {needsImport ? <AnonymousImport /> : null}
       <Toaster
         theme="dark"
