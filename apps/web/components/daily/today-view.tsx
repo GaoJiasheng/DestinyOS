@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { Temporal } from '@js-temporal/polyfill';
 import { type BirthInput, type Locale } from '@tianji/shared';
@@ -42,6 +43,7 @@ export function TodayView({
   vedicUsed: boolean;
   panchangDefaultOpen?: boolean;
 }) {
+  const requestedDate = useSearchParams().get('date');
   const t = useCopy(),
     intl = useTranslations(),
     locale = useLocale() as Locale;
@@ -73,7 +75,9 @@ export function TodayView({
     setFlipped(false);
     setVote(null);
     void (async () => {
-      const date = Temporal.PlainDate.from(localToday(zone)).add({ days: offset }).toString();
+      const date = Temporal.PlainDate.from(requestedDate ?? localToday(zone))
+        .add({ days: offset })
+        .toString();
       if (signedIn) {
         const result = await getDailyAction({ date, tz: zone, locale });
         if (result.ok) {
@@ -120,7 +124,7 @@ export function TodayView({
       active = false;
       controller.abort();
     };
-  }, [signedIn, zone, offset, locale, retry]);
+  }, [signedIn, zone, offset, locale, retry, requestedDate]);
   useEffect(() => {
     if (signedIn || !value) return;
     // DESIGN-GAP: Record anonymous visit dimensions after the first result paint; telemetry's RSC response must not delay the locally computed content.
@@ -156,7 +160,7 @@ export function TodayView({
     window.dispatchEvent(
       new CustomEvent('tianji:event', { detail: { name: 'daily.date.switch' } }),
     );
-    setOffset(Math.max(-1, Math.min(1, n)));
+    setOffset(requestedDate ? n : Math.max(-1, Math.min(1, n)));
   }
   return (
     <article
@@ -175,14 +179,31 @@ export function TodayView({
     >
       <header data-daily-block="1">
         <h1 className="type-h1">{t('nav.today')}</h1>
+        <Link href="/today/calendar" className="text-link">
+          {t('calendar.title')}
+        </Link>
         <nav className="action-row" aria-label={t('daily.dateNav')}>
-          <Button variant="ghost" disabled={offset === -1} onClick={() => switchDate(offset - 1)}>
+          <Button
+            variant="ghost"
+            disabled={!requestedDate && offset === -1}
+            onClick={() => switchDate(offset - 1)}
+          >
             {t('daily.yesterday')}
           </Button>
-          <Button variant="ghost" onClick={() => switchDate(0)}>
+          <Button
+            variant="ghost"
+            onClick={() => {
+              if (requestedDate) window.location.assign(`/${locale}/today`);
+              else switchDate(0);
+            }}
+          >
             {t('daily.today')}
           </Button>
-          <Button variant="ghost" disabled={offset === 1} onClick={() => switchDate(offset + 1)}>
+          <Button
+            variant="ghost"
+            disabled={!requestedDate && offset === 1}
+            onClick={() => switchDate(offset + 1)}
+          >
             {t('daily.tomorrow')}
           </Button>
         </nav>

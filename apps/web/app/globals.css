@@ -4642,3 +4642,39 @@ html[data-reduced-motion='true'] .tarot-face img.is-reversed {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.calendar-heatmap {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 1rem auto;
+}
+.calendar-heatmap a:focus-visible rect {
+  stroke: var(--color-text, #fff);
+  stroke-width: 3px;
+}
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+.calendar-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.calendar-events {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.calendar-events li {
+  border-bottom: 1px solid #69502a;
+  padding-bottom: 0.75rem;
+}
+.calendar-events p {
+  margin-top: 0.35rem;
+}

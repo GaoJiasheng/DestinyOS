@@ -16,7 +16,8 @@
     "./qimen": "./src/qimen/index.ts",
     "./vedic": "./src/astrology/vedic.ts",
     "./numerology": "./src/numerology/index.ts",
-    "./rectification": "./src/rectification/index.ts"
+    "./rectification": "./src/rectification/index.ts",
+    "./calendar": "./src/daily/calendar.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
