@@ -15,6 +15,7 @@ const destinations: Record<string, MessageKey> = {
   qimen: 'nav.qimen',
   tarot: 'nav.tarot',
   astrology: 'nav.astrology',
+  numerology: 'nav.numerology',
   vedic: 'nav.vedic',
   learn: 'nav.learn',
   me: 'nav.me',
@@ -51,7 +52,7 @@ export default async function Placeholder({
       </section>
     );
   }
-  if (['bazi', 'ziwei', 'astrology', 'vedic'].includes(path))
+  if (['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(path))
     return (
       <section className="status-page">
         <h1 className="type-h1">{t(key)}</h1>

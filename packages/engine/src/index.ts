@@ -12,6 +12,8 @@ import {
   AstrologyChartSchema,
   VedicChartSchema,
   DailyChartSchema,
+  NumerologyChartSchema,
+  NumerologyNameSchema,
   SpreadKeySchema,
   CategorySchema,
   type EngineResult,
@@ -33,6 +35,8 @@ export * from './ziwei';
 export * from './tarot';
 export * from './astrology';
 export * from './daily';
+export * from './numerology';
+import { computeNumerology } from './numerology';
 import { computeDaily, dailyDateAt } from './daily';
 // DESIGN-GAP: Both Ziwei and Qimen define detectPatterns; preserve Ziwei's earlier root API and expose the Qimen variant by a qualified alias.
 export { detectPatterns } from './ziwei';
@@ -48,6 +52,7 @@ const chartSchemas = {
   astrology: AstrologyChartSchema,
   vedic: VedicChartSchema,
   daily: DailyChartSchema,
+  numerology: NumerologyChartSchema,
 };
 const requestSchema = z
   .object({
@@ -66,6 +71,7 @@ const requestSchema = z
       z.instanceof(Temporal.Instant),
     ]),
     question: z.record(z.unknown()).optional(),
+    name: NumerologyNameSchema.optional(),
     seed: z.string().optional(),
     spread: SpreadKeySchema.optional(),
     category: CategorySchema.optional(),
@@ -96,7 +102,10 @@ export function compute(raw: ComputeInput): EngineResult {
   )
     throw new EngineError('E_UNSUPPORTED_SCHOOL');
   const birth = input.system === 'tarot' ? null : (input.birth ?? null);
-  if (['bazi', 'ziwei', 'astrology', 'vedic', 'daily'].includes(input.system) && !birth)
+  if (
+    ['bazi', 'ziwei', 'astrology', 'vedic', 'daily', 'numerology'].includes(input.system) &&
+    !birth
+  )
     throw new EngineError('E_INVALID_INPUT');
   if (input.system === 'ziwei' && birth?.timeUnknown)
     throw new EngineError('E_REQUIRES_BIRTH_TIME');
@@ -291,6 +300,23 @@ export function compute(raw: ComputeInput): EngineResult {
         warnings,
         debug: { jdUT: chart.jdUT, ayanamsa: chart.ayanamsa, yogaConditions: YOGA_CONDITIONS },
       },
+    };
+  }
+  if (input.system === 'numerology' && birth) {
+    chart = computeNumerology({
+      birth,
+      name: input.name,
+      date: Temporal.Instant.from(computedAt)
+        .toZonedDateTimeISO(birth.local.tz)
+        .toPlainDate()
+        .toString(),
+    });
+    schoolUsed = {
+      alphabet: 'pythagorean',
+      masters: '11_22_33',
+      lifePathMethod: 'all_digits',
+      yearBoundary: 'january_1',
+      vowels: 'aeiou',
     };
   }
   if (input.system === 'daily' && birth) {

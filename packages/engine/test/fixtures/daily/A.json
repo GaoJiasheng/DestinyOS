@@ -206,5 +206,8 @@
     "do": ["daily.actions.pause", "daily.actions.focus", "daily.actions.prepare"],
     "dont": ["daily.actions.compare", "daily.actions.argue", "daily.actions.assume"]
   },
-  "oneLiner": "daily.oneliner.careful.pian_yin"
+  "oneLiner": "daily.oneliner.careful.pian_yin",
+  "numerology": {
+    "personalDay": 8
+  }
 }

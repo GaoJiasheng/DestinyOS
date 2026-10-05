@@ -1,2 +1,11 @@
-/** The seven documented route prefixes, shared by server and client navigation. */
-export const systems = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'] as const;
+/** The supported route prefixes, shared by server and client navigation. */
+export const systems = [
+  'bazi',
+  'ziwei',
+  'iching',
+  'qimen',
+  'tarot',
+  'astrology',
+  'vedic',
+  'numerology',
+] as const;

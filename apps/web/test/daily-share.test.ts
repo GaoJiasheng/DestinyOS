@@ -122,7 +122,7 @@ describe('daily and public privacy contracts', () => {
     expect(SettingsSchema.safeParse({ theme: 'east', tz: 'Asia/Singapore' }).success).toBe(true);
     expect(SettingsSchema.safeParse({ plan: 'pro' }).success).toBe(false);
     const content = await learnContent();
-    expect(content.systems).toHaveLength(7);
+    expect(content.systems).toHaveLength(8);
     expect(content.cards).toHaveLength(78);
     expect(content.hexagrams).toHaveLength(64);
     // DESIGN-GAP: The documented glossary count is approximate; added bilingual terms must remain publishable.

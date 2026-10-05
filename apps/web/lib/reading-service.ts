@@ -72,6 +72,7 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
       ? computeDivinationResult(req)
       : compute({
           system: req.system,
+          name: req.name,
           birth,
           now,
           options: req.options,
@@ -234,7 +235,8 @@ export async function persistReading(
 }
 /** Expand the current encrypted profile when a signed-in request omits birth. */
 export async function resolveBirth(req: ReadingRequest, userId?: string) {
-  if (req.birth || !['bazi', 'ziwei', 'astrology', 'vedic'].includes(req.system)) return { req };
+  if (req.birth || !['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(req.system))
+    return { req };
   if (!userId) throw new ApiError('E_PROFILE_REQUIRED', 'Birth input required', 400);
   const profile = await getDb().birthProfile.findFirst({ where: { userId, isCurrent: true } });
   if (!profile) throw new ApiError('E_PROFILE_REQUIRED', 'Profile required', 400);

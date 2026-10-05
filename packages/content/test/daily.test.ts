@@ -175,11 +175,20 @@ describe('daily editorial dimensions and report integration', () => {
     }
   });
 
-  it('publishes at least 600 explained bilingual glossary entries for all seven systems', () => {
+  it('publishes at least 600 explained bilingual glossary entries for all supported systems', () => {
     // DESIGN-GAP: Merged editorial branches add terms beyond the approximate 600-term baseline; require the minimum and keep uniqueness and bilingual explanation checks.
     expect(glossary.length).toBeGreaterThanOrEqual(600);
     expect(new Set(glossary.map((g) => g.key)).size).toBe(glossary.length);
-    for (const system of ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'])
+    for (const system of [
+      'bazi',
+      'ziwei',
+      'iching',
+      'qimen',
+      'tarot',
+      'astrology',
+      'vedic',
+      'numerology',
+    ])
       expect(glossary.some((g) => g.system === system)).toBe(true);
     for (const entry of glossary)
       for (const locale of ['zh', 'en'] as const) {

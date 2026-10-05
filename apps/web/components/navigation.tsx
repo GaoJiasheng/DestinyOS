@@ -87,7 +87,7 @@ export function Navigation() {
     </>
   );
 }
-/** Open the seven-system picker from the hero CTA or the mobile tab. */
+/** Open the system picker from the hero CTA or the mobile tab. */
 export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
   const [open, setOpen] = useState(false);
   const t = useCopy();
@@ -128,7 +128,7 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
               prefetch={false}
               key={system}
               href={
-                ['bazi', 'ziwei', 'astrology', 'vedic'].includes(system)
+                ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
                   ? `/${system}/new`
                   : `/${system}`
               }
@@ -177,7 +177,7 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
                 <span className="muted type-small">{t(`${system}.placeholder`)}</span>
                 <span className="muted type-caption">
                   {t(
-                    ['bazi', 'ziwei', 'astrology', 'vedic'].includes(system)
+                    ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
                       ? 'home.cards.birth'
                       : system === 'qimen'
                         ? 'home.cards.location'

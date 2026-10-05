@@ -6,10 +6,21 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^(bazi|ziwei|iching|qimen|tarot|astrology|vedic|daily|common)\\.[a-z0-9_]+(?:\\.[a-z0-9_]+)*$"
+      "pattern": "^(bazi|ziwei|iching|qimen|tarot|astrology|vedic|numerology|daily|common)\\.[a-z0-9_]+(?:\\.[a-z0-9_]+)*$"
     },
     "system": {
-      "enum": ["bazi", "ziwei", "iching", "qimen", "tarot", "astrology", "vedic", "daily", "common"]
+      "enum": [
+        "bazi",
+        "ziwei",
+        "iching",
+        "qimen",
+        "tarot",
+        "astrology",
+        "vedic",
+        "numerology",
+        "daily",
+        "common"
+      ]
     },
     "section": {
       "type": "string",

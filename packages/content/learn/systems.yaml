@@ -172,3 +172,48 @@
         answer: Start with the conclusion, then review the evidence and suggestions.
           Treat the symbolic language as cultural learning and reflection rather than
           a certain prediction.
+- key: numerology
+  zh:
+    title: 生命灵数
+    history: 生命灵数是西方数字象征传统的一种现代用法。毕达哥拉斯姓名表与大师数保留是本项目采用的计算约定，解读用于娱乐与自我反思。
+    principle:
+      公历生日各位整体相加归一，保留 11、22、33。生日数使用出生日；表达数使用全部英文字母，灵魂数使用 AEIOU，人格数使用辅音（含 Y）。A–I 对应
+      1–9，后续循环。个人年、月、日数归一到 1–9，个人年从一月一日切换。九宫格统计生日非零数字，空格不表示缺陷。
+    questions: 适合探索行动习惯、表达方式与计划节奏。数字不能测量能力、筛选伴侣或预测具体事件。
+    school: 毕达哥拉斯；整体生日相加；大师数 11/22/33；Y 按辅音；个人年以公历一月一日为界。
+    faq:
+      - question: 没有英文姓名可以算吗？
+        answer: 可以。生日、生命灵数与个人周期仍会计算，姓名数字保持空白。不会自动转写中文姓名。
+      - question: 不知道出生时间怎么办？
+        answer: 此体系只使用规范化后的公历日期，不需要时辰、性别或出生地经纬度。
+      - question: 数字组合是合盘评分吗？
+        answer: 本报告比较你自己的生命灵数与表达数，没填姓名时比较生日数。大师数归一到基础数，组合提示只供沟通反思。
+  en:
+    title: Numerology
+    history:
+      Numerology uses numbers as symbols in a Western cultural tradition. This project adopts a
+      modern Pythagorean name table and a master-number convention for entertainment and personal
+      reflection.
+    principle: Add every digit of the Gregorian birthday and reduce, retaining 11, 22, and 33. The
+      birthday number uses the day of the month. Expression uses all English letters, soul uses
+      AEIOU, and personality uses consonants including Y. A–I have values 1–9 and the sequence
+      repeats. Personal year, month, and day reduce to 1–9; the year changes on January first. The
+      grid counts nonzero birthday digits; empty cells do not indicate a deficiency.
+    questions: Explore working habits, communication, and planning rhythms. Numbers do not measure
+      ability, select partners, or predict specific events.
+    school:
+      Pythagorean; whole-date digit sum; master numbers 11/22/33; Y as a consonant; January-first
+      personal years.
+    faq:
+      - question: Can I skip the English name?
+        answer:
+          Yes. Birthday and cycle calculations still work, while name numbers remain empty. Chinese
+          names are not automatically transliterated.
+      - question: Do I need a birth time?
+        answer:
+          Only the normalized Gregorian date is used. Birth time, gender, and geographic coordinates
+          are unnecessary.
+      - question: Is the combination a relationship score?
+        answer:
+          It compares your own life path with expression, or birthday when no name is supplied. Master
+          numbers reduce to their base values. The prompt is for reflection and communication.

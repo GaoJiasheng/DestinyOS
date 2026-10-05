@@ -155,7 +155,7 @@ export function interpret(input: InterpretInput): Report {
   confidence = Math.max(0, Math.min(1, confidence));
   // DESIGN-GAP: Missing birth time caps confidence at 0.65 until each system provides its own uncertainty model.
   // Divination depends on its casting time, so missing birth time does not reduce its confidence.
-  if (!context.profileHasTime && !['iching', 'qimen', 'tarot'].includes(system))
+  if (!context.profileHasTime && !['iching', 'qimen', 'tarot', 'numerology'].includes(system))
     confidence = Math.min(confidence, 0.65);
   const substitute = (text: string, unit: KnowledgeUnit): string => {
     const resolved = new Set<string>();

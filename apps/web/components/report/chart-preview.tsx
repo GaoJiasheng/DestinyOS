@@ -1,5 +1,6 @@
 'use client';
 import {
+  NumerologyChartSchema,
   BaziChartSchema,
   ZiweiChartSchema,
   IchingChartSchema,
@@ -8,6 +9,7 @@ import {
   VedicChartSchema,
   TarotChartSchema,
 } from '@tianji/shared';
+import { NumerologyChart } from '@/components/charts/numerology-chart';
 import { ZiweiGrid, ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
 import { DivinationChart } from '@/components/charts/divination-chart';
 import { SpreadLayout } from '@/components/tarot/spread-layout';
@@ -32,12 +34,15 @@ export function ChartPreview({
 }: {
   chart: unknown;
   highlight?: string;
-  onSelect?: (path: string) => void;
+  onSelect?: (section: string, path?: string) => void;
   system?: string;
   component?: string;
   professional?: boolean;
 }) {
   const t = useCopy();
+  const numerology = NumerologyChartSchema.safeParse(chart);
+  if (numerology.success)
+    return <NumerologyChart chart={numerology.data} highlight={highlight} onSelect={onSelect} />;
   const ziwei = ZiweiChartSchema.safeParse(chart);
   if (ziwei.success)
     return (

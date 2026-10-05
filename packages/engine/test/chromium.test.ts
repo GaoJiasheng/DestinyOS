@@ -14,7 +14,16 @@ import {
 } from '../src';
 import A from './fixtures/birth/A.json';
 import golden from './fixtures/daily/A.json';
-const systems = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'] as const;
+const systems = [
+  'bazi',
+  'ziwei',
+  'iching',
+  'qimen',
+  'tarot',
+  'astrology',
+  'vedic',
+  'numerology',
+] as const;
 const now = '2026-10-04T04:00:00Z',
   seed = hashSeed('fixture-A|2026-10-04');
 // DESIGN-GAP: Cross-V8 astronomical positions/finite-difference speeds use 1e-6 absolute tolerance (far below ±1′); all identifiers and structure remain exact.
@@ -37,7 +46,7 @@ function expectBrowserParity(actual: unknown, expected: unknown, path = 'result'
     for (const key of Object.keys(e)) expectBrowserParity(a[key], e[key], `${path}.${key}`);
   } else expect(actual, path).toEqual(expected);
 }
-it('runs the published @tianji/engine ESM surface for all seven systems and daily in real Chromium offline', async () => {
+it('runs the published @tianji/engine ESM surface for all eight systems and daily in real Chromium offline', async () => {
   // Resolve the actual workspace package exports from a consumer, rather than just evaluating TS in node:vm.
   const bundle = await build({
     stdin: {
@@ -112,7 +121,7 @@ it('runs the published @tianji/engine ESM surface for all seven systems and dail
     const birth = normalizeBirth(A);
     expect(result.birth).toEqual(birth);
     const expected = systems.map((system) => compute({ system, birth, now, seed }));
-    // Browser and Node execute the same deterministic ESM API for all seven systems.
+    // Browser and Node execute the same deterministic ESM API for all eight systems.
     expectBrowserParity(result.results, expected);
     expect(result.resultsRepeat).toEqual(result.results);
     const daily = DailyChartSchema.parse(result.daily);

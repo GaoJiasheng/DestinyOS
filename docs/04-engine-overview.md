@@ -113,6 +113,7 @@ type NormalizedBirth = {
 | 吠陀 | 宫位制 | Whole Sign（等宫整宫，Rashi 为宫） | | 吠陀主流 |
 | 吠陀 | 行星集 | 日月水金火木土 + Rahu/Ketu（平均节点） | 真节点 | |
 | 吠陀 | Dasha | Vimshottari，120 年 | | |
+| 生命灵数 | 生日归一 / 姓名字母表 / 年度边界 | 整体相加，保留 11/22/33；毕达哥拉斯；一月一日 | 暂不开放其他流派 | 详见 systems/numerology.md |
 | 塔罗 | 牌组 | RWS 78 张 | | |
 | 塔罗 | 逆位 | 默认开启，每张 50% | 关闭 | 由 seed 决定 |
 
@@ -128,6 +129,7 @@ UI 规范：报告页"专业视图"标签下显示"流派与参数"面板，列�
 | 奇门 | 不依赖出生时间（用起局时刻）；若用户选择"以出生时刻起局"模式则禁用 | — |
 | 西方占星 | 按当地正午排盘；**不输出宫位、四轴、月亮度数标注"±6°"**；相位只算行星间 | `W_NOON_CHART` |
 | 吠陀 | 同上；Nakshatra 以正午月亮位置给出并提示可能跨越相邻 Nakshatra（若月亮当日跨界则两者都列出）；Dasha 不输出次级时段 | `W_NOON_CHART` |
+| 生命灵数 | 只用规范化公历生日，不需要时辰 | — |
 | 每日运势 | 八字部分用三柱；占星部分用日月；塔罗不受影响 | — |
 
 ## 6. 输出约定
@@ -176,6 +178,7 @@ type EngineResult<C> = {
   },
   tarot: { card: TarotCard; reversed: boolean },
   vedic?: { tithi, nakshatra, yoga, karana, vara },
+  numerology?: { personalDay: number },                            // 1–9；可选兼容历史快照
   scores: { career, wealth, love, health, social, overall },        // 0–100，由规则计算，UI 转星级
 }
 ```
@@ -228,3 +231,7 @@ type EngineResult<C> = {
 | 地名 | 自托管 GeoNames `cities500`（CC BY 4.0，含 timezone 字段），预处理后约 18.5 万条，服务端搜索 | | 页脚署名 GeoNames | |
 
 **许可证红线**：禁止引入 AGPL/GPL 依赖（mingyu-core、stellata、vedic-astrology、swisseph-wasm）。CI 用 `license-checker` 白名单：MIT、ISC、BSD-2/3、Apache-2.0、OFL、CC0、CC-BY-4.0、MPL-2.0（仅限不修改源码的使用）。
+
+## B-10 补充
+
+新增 `numerology` 体系，统一 compute 输入增加 `name?: string`（可选英文姓名），输出与流派规则见 [生命灵数规范](systems/numerology.md)。姓名不进入明文 chart。

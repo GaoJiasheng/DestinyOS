@@ -7,6 +7,6 @@ export function routeTheme(pathname: string, preference: ThemePreference = 'auto
   const first = segments[0];
   const system = first === 'zh' || first === 'en' ? segments[1] : first;
   if (system && ['bazi', 'ziwei', 'iching', 'qimen'].includes(system)) return 'east';
-  if (system && ['tarot', 'astrology'].includes(system)) return 'west';
+  if (system && ['tarot', 'astrology', 'numerology'].includes(system)) return 'west';
   return system === 'vedic' ? 'vedic' : 'neutral';
 }

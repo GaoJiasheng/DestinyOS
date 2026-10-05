@@ -12,6 +12,7 @@ const entries = {
   qimen: 'packages/engine/src/qimen/index.ts',
   tarot: 'packages/engine/src/tarot/index.ts',
   astrology: 'packages/engine/src/astrology/index.ts',
+  numerology: 'packages/engine/src/numerology/index.ts',
   vedic: 'packages/engine/src/astrology/vedic.ts',
   daily: 'packages/engine/src/daily/index.ts',
 };

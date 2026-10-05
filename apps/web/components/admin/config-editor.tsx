@@ -85,5 +85,36 @@ export function ConfigEditor({ initial }: { initial: SiteSettings }) {
       {(
         [
           'ads.enabled',
+          'export.freeEnabled',
           'feature.llmPolish',
           'feature.llmChat',
+          'feature.panchangDefaultOpen',
+          'maintenance',
+        ] as const
+      ).map((key) => (
+        <label key={key}>
+          <input
+            type="checkbox"
+            checked={value[key]}
+            onChange={(e) => change({ ...value, [key]: e.target.checked })}
+          />
+          {t(`admin.config.${key}`)}
+        </label>
+      ))}
+      {(['chat.freeDailyLimit', 'chat.proDailyLimit'] as const).map((key) => (
+        <label key={key}>
+          {t(`admin.config.${key}`)}
+          <input
+            type="number"
+            min={0}
+            max={10000}
+            value={value[key]}
+            onChange={(e) => change({ ...value, [key]: Number(e.target.value) })}
+          />
+        </label>
+      ))}
+      <Button disabled={pending}>{pending ? t('admin.pending') : t('admin.config.save')}</Button>
+      <p role="status">{message}</p>
+    </form>
+  );
+}

@@ -5,7 +5,9 @@ export function adRouteAllowed(pathname: string): boolean {
     path === '/' ||
     path === '/today' ||
     /^\/learn\/.+/.test(path) ||
-    /^\/(bazi|ziwei|iching|qimen|tarot|astrology|vedic)\/r\/(?:local\/)?[^/]+$/.test(path)
+    /^\/(bazi|ziwei|iching|qimen|tarot|astrology|vedic|numerology)\/r\/(?:local\/)?[^/]+$/.test(
+      path,
+    )
   );
 }
 // DESIGN-GAP: AdSense numeric slot IDs are account-created resources; names map to env vars and missing slots render nothing.

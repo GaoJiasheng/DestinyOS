@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { BirthInputSchema } from './birth';
+import { NumerologyNameSchema } from './charts/numerology';
 import { System } from '../enums';
 // DESIGN-GAP: Locale and the private display name accompany BirthInput without changing its documented fields.
 export const ReadingRequestSchema = z
@@ -7,6 +8,7 @@ export const ReadingRequestSchema = z
     system: z.nativeEnum(System).refine((s) => s !== 'daily'),
     birth: BirthInputSchema.optional(),
     locale: z.enum(['zh', 'en']).default('zh'),
+    name: NumerologyNameSchema.optional(),
     displayName: z.string().trim().max(80).optional(),
     options: z
       .object({

@@ -10,6 +10,7 @@ import {
   type PillarKey,
 } from '@tianji/shared';
 import { parseInput, calendarAt, solarTerms } from '../common/divination';
+import { personalNumbers } from '../numerology';
 import { EngineError } from '../common/error';
 import { STEM_ELEMENTS, HIDDEN_STEMS, tenGod } from '../common/ganzhi';
 import { branchRelations, STEM_CLASHES, STEM_COMBINATIONS } from '../common/relations';
@@ -244,6 +245,10 @@ export function computeDaily(raw: DailyInput, rawOptions: DailyOptions = {}): Da
     astro,
     tarot,
     vedic,
+    numerology: {
+      personalDay: personalNumbers(input.birth.local.month, input.birth.local.day, input.date.local)
+        .day,
+    },
     scores: scored.scores,
     findings,
     oneLiner: scored.oneLiner,

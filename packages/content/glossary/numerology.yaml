@@ -1,0 +1,103 @@
+- key: numerology.life_path
+  system: numerology
+  zh:
+    term: 生命灵数
+    short: 公历生日整体相加归一的数字
+    long: 生命灵数用于观察长期行动主题；整体相加后保留 11/22/33，不测量能力或预测具体事件。
+    pinyin: shēng mìng líng shù
+  en:
+    term: Life path
+    short: The reduced sum of all Gregorian birthday digits
+    long: A symbolic lens for recurring themes, computed from the complete birthday and retaining
+      11/22/33. It does not measure ability or predict events.
+    pinyin: shēng mìng líng shù
+  aliases: []
+- key: numerology.birthday
+  system: numerology
+  zh:
+    term: 生日数
+    short: 公历月内出生日与其归一结果
+    long: 保留出生日 1–31 便于核验，同时归一到一位数或 11/22，提供日常行动视角。
+    pinyin: shēng rì shù
+  en:
+    term: Birthday number
+    short: The Gregorian day of the month and its reduced value
+    long:
+      The original day, 1–31, stays visible alongside a single-digit or 11/22 result, offering an
+      everyday reflection lens.
+    pinyin: shēng rì shù
+  aliases: []
+- key: numerology.expression
+  system: numerology
+  zh:
+    term: 表达数
+    short: 英文姓名全部字母的归一总和
+    long: 采用毕达哥拉斯循环字母表，分隔符不计，保留 11/22/33；原姓名不保存在明文命盘里。
+    pinyin: biǎo dá shù
+  en:
+    term: Expression number
+    short: The reduced sum of all letters in the submitted English name
+    long:
+      Uses the repeating Pythagorean letter table, ignores separators, and retains 11/22/33. The raw
+      name is absent from the plaintext chart.
+    pinyin: biǎo dá shù
+  aliases: []
+- key: numerology.soul
+  system: numerology
+  zh:
+    term: 灵魂数
+    short: 英文姓名 AEIOU 的归一总和
+    long: 作为内在偏好的象征观察视角；没有元音时为空，Y 固定按辅音处理，不代表个人存在缺陷。
+    pinyin: líng hún shù
+  en:
+    term: Soul number
+    short: The reduced sum of AEIOU vowels in the submitted name
+    long: A symbolic lens for inner preferences. It remains empty without vowels, and Y counts as a
+      consonant; this does not imply a deficiency.
+    pinyin: líng hún shù
+  aliases: []
+- key: numerology.personality
+  system: numerology
+  zh:
+    term: 人格数
+    short: 英文姓名辅音的归一总和
+    long: 使用 AEIOU 之外的字母（含 Y），提供外在印象的观察视角，不是心理学人格测验。
+    pinyin: rén gé shù
+  en:
+    term: Personality number
+    short: The reduced sum of consonants in the submitted name
+    long:
+      Uses letters other than AEIOU, including Y, as a reflection lens for first impressions rather
+      than a psychological personality test.
+    pinyin: rén gé shù
+  aliases: []
+- key: numerology.personal_year
+  system: numerology
+  zh:
+    term: 个人年
+    short: 出生月日与目标年相加归一的周期数
+    long: 一月一日切换，归一到 1–9；年度环显示当前目标年起的连续九年，不保留大师数。
+    pinyin: gè rén nián
+  en:
+    term: Personal year
+    short: A cycle number from birth month/day and the target year
+    long:
+      Changes on January first and reduces to 1–9. The ring shows nine consecutive years starting
+      with the target year, without retaining masters.
+    pinyin: gè rén nián
+  aliases: []
+- key: numerology.master_number
+  system: numerology
+  zh:
+    term: 大师数
+    short: 归一中保留的 11、22、33
+    long: 只是一种计算与象征约定，不是能力或身份等级。生命灵数与姓名数保留，个人周期归一到 1–9。
+    pinyin: dà shī shù
+  en:
+    term: Master number
+    short: Eleven, twenty-two, or thirty-three retained during reduction
+    long:
+      A calculation and symbolism convention rather than a rank of ability or identity. Natal and
+      name numbers retain it; personal cycles reduce to 1–9.
+    pinyin: dà shī shù
+  aliases: []

@@ -183,3 +183,7 @@
 - 公共页：`/`, `/learn/**`, 体系落地页, `/pricing`, 法律页可索引；hreflang zh/en；sitemap。
 - 用户报告与分享页 `noindex`。
 - 结构化数据：首页 `WebSite` + `Organization`；百科页 `Article`。
+
+## B-10 · 生命灵数
+
+导航与首页第八张卡片 `numerology` → `/[locale]/numerology`；输入 `/numerology/new` 自动带入档案生日，姓名可选；报告复用 `/numerology/r/[id]` 和匿名 `/r/local/[id]`。数字大字入场动效、生日数字九宫格、九年周期环，支持减少动效与移动端。百科 `/learn/numerology`；每日运势新增「今日个人日数 / Today’s personal day number」一行。

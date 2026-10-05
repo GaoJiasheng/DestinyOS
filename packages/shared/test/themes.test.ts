@@ -18,6 +18,7 @@ describe('documented shared contracts', () => {
       'tarot',
       'astrology',
       'vedic',
+      'numerology',
       'daily',
     ]);
     expect(Object.values(Gender)).toEqual(['male', 'female', 'unspecified']);
@@ -28,7 +29,7 @@ describe('documented shared contracts', () => {
   it.each(['bazi', 'ziwei', 'iching', 'qimen'])('selects east for %s', (system) =>
     expect(routeTheme(`/zh/${system}/new`)).toBe('east'),
   );
-  it.each(['tarot', 'astrology'])('selects west for %s', (system) =>
+  it.each(['tarot', 'astrology', 'numerology'])('selects west for %s', (system) =>
     expect(routeTheme(`/en/${system}`)).toBe('west'),
   );
   it('selects vedic and neutral routes and honors a lock', () => {

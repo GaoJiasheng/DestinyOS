@@ -121,6 +121,10 @@ export const DailyChartSchema = z
     // DESIGN-GAP: TarotCard is not defined in 04; use the existing shared RWS CardKey rather than copying deck metadata.
     tarot: z.object({ card: CardKeySchema, reversed: z.boolean() }).strict(),
     vedic: PanchangSchema.optional(),
+    numerology: z
+      .object({ personalDay: z.number().int().min(1).max(9) })
+      .strict()
+      .optional(),
     scores: z
       .object({
         career: score,

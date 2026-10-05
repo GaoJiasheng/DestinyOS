@@ -7,6 +7,7 @@ export const System = {
   tarot: 'tarot',
   astrology: 'astrology',
   vedic: 'vedic',
+  numerology: 'numerology',
   daily: 'daily',
 } as const;
 export type System = (typeof System)[keyof typeof System];
