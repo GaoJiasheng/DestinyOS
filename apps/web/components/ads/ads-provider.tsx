@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import { adRouteAllowed, type AdPolicy } from '@/lib/ads';
 import { getAdPolicyAction } from '@/app/ads/actions';
-import { readAnonymous } from '@/lib/anonymous-storage';
 
 type AdsQueue = Array<Record<string, never>> & {
   requestNonPersonalizedAds?: number;
@@ -37,7 +36,11 @@ export function AdsProvider({ children }: { children: ReactNode }) {
     setReady(false);
     if (!adRouteAllowed(path) || !process.env.NEXT_PUBLIC_ADSENSE_CLIENT) return;
     void (async () => {
-      const policy = await getAdPolicyAction();
+      // DESIGN-GAP: Load encrypted anonymous storage only on eligible ad routes, after hydration; keep its schema validation out of the initial shell bundle.
+      const [policy, { readAnonymous }] = await Promise.all([
+        getAdPolicyAction(),
+        import('@/lib/anonymous-storage'),
+      ]);
       const anonymous = await readAnonymous();
       if (anonymous?.profile) {
         const age = new Date().getUTCFullYear() - anonymous.profile.year;

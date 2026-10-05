@@ -7,7 +7,7 @@ import { promisify } from 'node:util';
 import { encryptField } from '../lib/crypto';
 import { generateReading } from '../lib/reading-service';
 import { json } from '../lib/reading-service';
-import { BirthInputSchema } from '@tianji/shared';
+import { BirthInputSchema, brand } from '@tianji/shared';
 import zh from '../messages/zh.json';
 import en from '../messages/en.json';
 import Redis from 'ioredis';
@@ -220,7 +220,8 @@ for (const locale of ['zh', 'en'] as const) {
       );
       expect(stdout).not.toMatch(/1990|05[-/]15|08:30|Beijing/);
       if (locale === 'en') {
-        expect(stdout).toContain('DestinyOS');
+        // DESIGN-GAP: Cinzel small capitals are correctly read as uppercase by OCR; compare brand letters without casing while keeping the PII and complete advice assertions strict.
+        expect(stdout.toLowerCase()).toContain(brand.nameEn.toLowerCase());
         expect(stdout.replace(/\s+/g, ' ').toLowerCase()).toContain(expectedDont!.toLowerCase());
       }
     }

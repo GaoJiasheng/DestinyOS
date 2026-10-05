@@ -13,7 +13,7 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${locale}/age-restricted`, request.url));
   }
   const nonce = btoa(crypto.randomUUID());
-  const csp = reportOnlyCsp(nonce);
+  const csp = reportOnlyCsp(nonce, process.env.NODE_ENV === 'development');
   request.headers.set('x-nonce', nonce);
   if (/^\/admin(?:\/|$)/.test(request.nextUrl.pathname))
     request.headers.set(

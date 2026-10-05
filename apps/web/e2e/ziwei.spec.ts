@@ -14,7 +14,8 @@ async function chartScreenshot(page: Page, board: Locator, name: string) {
   });
   try {
     await settleFonts(page);
-    await expect(board).toHaveScreenshot(name);
+    // DESIGN-GAP: Collect independent chart baseline differences without skipping later interaction checks; any soft mismatch still fails the test.
+    await expect.soft(board).toHaveScreenshot(name);
   } finally {
     await style.evaluate((element) => element.parentNode?.removeChild(element));
   }
@@ -92,9 +93,9 @@ for (const locale of ['zh', 'en'] as const) {
     );
     await expect(expanded.locator('[data-related="true"]')).toHaveCount(4);
     await settleFonts(page);
-    await expect(dialog.locator('.ziwei-viewport')).toHaveScreenshot(
-      `ziwei-${locale}-fullscreen.png`,
-    );
+    await expect
+      .soft(dialog.locator('.ziwei-viewport'))
+      .toHaveScreenshot(`ziwei-${locale}-fullscreen.png`);
     await dialog.getByRole('slider').fill('200');
     await expect(expanded).toHaveCSS(
       'width',

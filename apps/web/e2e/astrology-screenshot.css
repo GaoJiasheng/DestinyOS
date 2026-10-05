@@ -6,6 +6,7 @@
 
 /* DESIGN-GAP: Component baselines exclude fixed navigation and the development indicator from locator clips. */
 .mobile-tabs,
+.section-nav,
 nextjs-portal {
   visibility: hidden;
 }

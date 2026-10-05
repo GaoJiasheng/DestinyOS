@@ -72,6 +72,9 @@ describe('M4 policy boundaries', () => {
     expect(securityHeaders()).toContainEqual({ key: 'X-Content-Type-Options', value: 'nosniff' });
     expect(reportOnlyCsp('unique')).toContain("'nonce-unique'");
     expect(reportOnlyCsp('unique')).toContain('report-uri /api/v1/csp/report');
+    expect(reportOnlyCsp('unique')).not.toContain("'unsafe-eval'");
+    expect(reportOnlyCsp('unique', true)).toContain("'unsafe-eval'");
+    expect(reportOnlyCsp('unique', false)).not.toContain("'unsafe-eval'");
   });
   it('rejects dangerous catalog key paths before they can pollute prototypes', () => {
     expect(() => toMessages({ '__proto__.m4': 'bad' })).toThrow('Reserved translation key');

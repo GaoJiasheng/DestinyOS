@@ -55,7 +55,8 @@ for (const locale of ['zh', 'en'] as const) {
       );
       if (system === 'astrology') {
         const wheel = page.locator('#chart-root .natal-wheel');
-        await expect(wheel).toHaveScreenshot(`natal-${locale}.png`);
+        // DESIGN-GAP: Independent visual checks collect all mismatches while keeping the test failed, so later chart and interaction checks remain visible.
+        await expect.soft(wheel).toHaveScreenshot(`natal-${locale}.png`);
         const original = await wheel.locator('[data-house="2"] line').getAttribute('x1');
         await page
           .getByLabel(copy['form.birth.houseSystem'], { exact: true })
@@ -70,10 +71,30 @@ for (const locale of ['zh', 'en'] as const) {
         await expect(page.getByText(copy['charts.natal.threeFallback'])).toBeVisible();
         await expect(page.locator('[data-three-shell]')).toHaveCount(0);
         await page.locator('#chart-root details > summary').click();
-        // DESIGN-GAP: Snapshot the actual scroll viewport, rather than table content clipped by its ancestor.
-        await expect(page.locator('#chart-root .planet-table').locator('..')).toHaveScreenshot(
-          `planets-${locale}.png`,
+        const positions = page.locator('#chart-root .planet-table').locator('..');
+        await positions.scrollIntoViewIfNeeded();
+        for (const header of await positions.getByRole('columnheader').all()) {
+          const lines = await header.evaluate((element) => {
+            const range = document.createRange();
+            range.selectNodeContents(element);
+            return new Set(Array.from(range.getClientRects(), (rect) => Math.round(rect.top))).size;
+          });
+          expect(lines, 'Technical column names remain intact').toBe(1);
+        }
+        await positions.evaluate((element) => {
+          element.scrollLeft = element.scrollWidth;
+        });
+        await expect(
+          positions.getByRole('columnheader', { name: copy['charts.column.status'], exact: true }),
+        ).toBeInViewport();
+        await positions.evaluate((element) => {
+          element.scrollLeft = 0;
+        });
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+          true,
         );
+        // DESIGN-GAP: Snapshot the actual scroll viewport, rather than table content clipped by its ancestor.
+        await expect.soft(positions).toHaveScreenshot(`planets-${locale}.png`);
       } else {
         for (const division of ['D1', 'D9'] as const) {
           if (info.project.name === 'mobile')
@@ -84,17 +105,20 @@ for (const locale of ['zh', 'en'] as const) {
             name: copy['charts.vedic.southTitle'].replace('{division}', division),
             exact: true,
           });
-          await expect(svg).toHaveScreenshot(`south-${division}-${locale}.png`);
+          await expect.soft(svg).toHaveScreenshot(`south-${division}-${locale}.png`);
         }
-        await expect(page.locator('.nakshatra-card')).toHaveScreenshot(`nakshatra-${locale}.png`);
+        await expect
+          .soft(page.locator('.nakshatra-card'))
+          .toHaveScreenshot(`nakshatra-${locale}.png`);
         const track = page.locator('#chart-root .dasha-track');
         await track.locator('button').first().click();
         await expect(page.locator('#chart-root .antar-table tbody tr')).toHaveCount(9);
         // DESIGN-GAP: Hide the date-dependent pointer/caption in baselines; their presence is tested separately.
-        await expect(page.locator('#chart-root .dasha-timeline')).toHaveScreenshot(
-          `dasha-${locale}.png`,
-          { stylePath: 'apps/web/e2e/astrology-screenshot.css' },
-        );
+        await expect
+          .soft(page.locator('#chart-root .dasha-timeline'))
+          .toHaveScreenshot(`dasha-${locale}.png`, {
+            stylePath: 'apps/web/e2e/astrology-screenshot.css',
+          });
         await expect(page.locator('#chart-root .dasha-pointer')).toHaveCount(1);
         await page.getByLabel(copy['charts.vedic.layout']).selectOption('north');
         for (const division of ['D1', 'D9'] as const) {
@@ -106,7 +130,7 @@ for (const locale of ['zh', 'en'] as const) {
             name: copy['charts.vedic.northTitle'].replace('{division}', division),
             exact: true,
           });
-          await expect(svg).toHaveScreenshot(`north-${division}-${locale}.png`);
+          await expect.soft(svg).toHaveScreenshot(`north-${division}-${locale}.png`);
         }
         const visibleChart = page.getByRole('group', {
           name: copy['charts.vedic.northTitle'].replace('{division}', 'D9'),
@@ -118,9 +142,9 @@ for (const locale of ['zh', 'en'] as const) {
       await page.getByRole('button', { name: copy['report.proView'], exact: true }).click();
       await expect(page.locator('.professional-view .planet-table')).toBeVisible();
       if (system === 'astrology')
-        await expect(
-          page.locator('.professional-view .aspect-table').locator('..'),
-        ).toHaveScreenshot(`aspects-${locale}.png`);
+        await expect
+          .soft(page.locator('.professional-view .aspect-table').locator('..'))
+          .toHaveScreenshot(`aspects-${locale}.png`);
       else
         await expect(page.locator('.professional-view .antar-table')).toHaveCount(
           await page.locator('#chart-root .dasha-track button').count(),

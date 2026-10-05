@@ -2129,19 +2129,26 @@ meter {
 }
 
 .technical-table-wrap {
+  min-width: 0;
+  max-width: 100%;
   max-height: 600px;
   overflow: auto;
 }
 .technical-table {
   width: 100%;
-  font: 12px/1.6 monospace;
+  font-family: var(--font-data);
+  font-size: var(--size-caption);
+  line-height: var(--leading-body);
+  font-variant-numeric: tabular-nums;
   text-align: left;
 }
 .technical-table th,
 .technical-table td {
-  padding: 8px;
+  padding: var(--space-2);
   border-bottom: 1px solid var(--line-2);
-  overflow-wrap: anywhere;
+  /* DESIGN-GAP: Preserve complete names and numeric values in dense technical tables; narrow containers scroll horizontally instead of splitting words. */
+  overflow-wrap: normal;
+  white-space: nowrap;
   max-width: 240px;
 }
 .technical-table thead {

@@ -88,28 +88,29 @@ pnpm build
 pnpm launch:check --full
 ```
 
-完整上线脚本实际调用 `pnpm test:e2e`（包含本地 dev server 与隔离生产服务器套件）及移动 Lighthouse CI。
-性能命令先验证中英双语、桌面/移动端每日真实内容与离线计算，防止空内容被误记为高分。
+完整上线脚本实际调用 `pnpm test:e2e`（包含本地 dev server 与隔离生产服务器套件及 24 项 polish）及移动 Lighthouse CI。
+性能命令先检查首页/Three.js gzip 预算（180/220KiB），再验证中英双语、桌面/移动端每日真实内容与离线计算，防止空内容被误记为高分。
 首页、today、八字完整报告各 3 次：取最差 Performance ≥85、Accessibility ≥90；产物在 `.lighthouseci/reports/`。
 脚本另检查七体系 Fixture A 双语篇幅/章节/禁词/占位符/语言、无时辰、AAD/用户绑定、1000 行日志和 Sentry PII，以及逐条 PRD/安全门槛。
-结果输出“通过/未通过”，完整 JSON 在 `.launch-check/results.json`；快速模式未运行浏览器项会明确显示未验证。
+结果输出“通过/未通过”，完整 JSON 在 `.launch-check/results.json`；快速模式未运行浏览器项会明确显示未验证；JSON 还记录运行时间、Node 版本、模式与 local/external 分类，14 份 Fixture A 报告留存在 `.launch-check/reports/`。
 `--release` 将任何外部门槛未通过也视为非零退出，不会仅凭本地成功声明可以公开上线。
 语言扫描保留文档要求的古文原文、拼音、品牌/署名/技术缩写；正常界面、报告正文和命盘标签仍须本地化。
 
 ## 本次本地验证结果（2026-10-05）
 
 最终使用 Node.js 22.23.3 / pnpm 9.15.9；安装、lint、typecheck、test、content:validate、i18n:check、build、`launch:check --full` 均退出 0；许可证与安全策略检查通过。
-单元测试 55 文件 / 1201 项，行覆盖率 99.95%、分支 99.07%；完整 `test:e2e` 197 项通过，性能前置真实内容/离线检查另 4 项通过。
-Fixture A 七体系共 14 份双语报告，篇幅、章节、占位符、禁词和语言检查全部通过；详细字数见 `docs/progress/T-64.md`。
+单元测试 57 文件 / 1213 项，行覆盖率 99.95%、分支 99.07%；完整 `test:e2e` 221 项通过，性能前置真实内容/离线检查另 4 项通过。
+32 项本地验收门槛全部通过，另 4 项外部门槛未通过。Fixture A 七体系共 14 份双语报告，篇幅、章节、占位符、禁词和语言检查全部通过；详细字数见 `docs/progress/T-64.md`。
 以下是各页面三次移动 Lighthouse 的最差值，使用完整报告，阈值保持 Performance ≥85、Accessibility ≥90：
 
 | 页面         | Performance | Accessibility |
 | ------------ | ----------: | ------------: |
-| 首页         |          99 |            99 |
+| 首页         |          99 |           100 |
 | today        |          88 |           100 |
 | 八字完整报告 |         100 |           100 |
 
 最终结果为 `.launch-check/results.json`，性能产物为 `.lighthouseci/reports/manifest.json`；这四项外部门槛明确显示未通过：真实 Google 重登、OAuth consent 链接、生产 CSP enforce、Owner 服务/审核/恢复证据。
+本轮修复开发 CSP 告警洪泛、首页加密存储按需加载、英文专业表拆字与流式渲染探针；生产 CSP 保持原策略，像素阈值不变。
 失败 E2E 的截图与 trace 在后续性能预检前复制至 `.launch-check/browser-failure-*`，避免排错证据被覆盖。
 
 ## 仍需发布证据

@@ -51,8 +51,9 @@ for (const locale of ['zh', 'en'] as const) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
-    await expect(page.locator('.home-hero')).toHaveScreenshot(`hero-${locale}.png`);
-    await expect(page.locator('.home-systems')).toHaveScreenshot(`systems-${locale}.png`);
+    // DESIGN-GAP: Collect independent homepage visual differences while preserving failure status and subsequent interaction coverage.
+    await expect.soft(page.locator('.home-hero')).toHaveScreenshot(`hero-${locale}.png`);
+    await expect.soft(page.locator('.home-systems')).toHaveScreenshot(`systems-${locale}.png`);
     await page.waitForFunction(() => navigator.serviceWorker.controller);
     expect(
       await page.evaluate(async () => {

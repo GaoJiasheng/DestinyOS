@@ -21,16 +21,19 @@ import { createLogger } from '../apps/web/lib/logger';
 import { beforeSend } from '../apps/web/lib/sentry';
 import { projectShare } from '../apps/web/lib/share-projection';
 
-type Result = { id: string; passed: boolean; detail: string };
+// DESIGN-GAP: Record local/Owner evidence scope plus runtime, mode and timestamps so quick fixture checks cannot be mistaken for full release acceptance.
+type Result = { id: string; passed: boolean; detail: string; scope: 'local' | 'external' };
 const results: Result[] = [];
+const startedAt = new Date().toISOString();
 async function check(id: string, probe: () => string | Promise<string>) {
   try {
-    results.push({ id, passed: true, detail: await probe() });
+    results.push({ id, passed: true, detail: await probe(), scope: 'local' });
   } catch (error) {
     results.push({
       id,
       passed: false,
       detail: error instanceof Error ? error.message : String(error),
+      scope: 'local',
     });
   }
 }
@@ -60,6 +63,11 @@ await check('I18N/glossary', async () => {
 await check('VISUAL/config', async () => {
   const config = await readFile('playwright.config.ts', 'utf8');
   assert.ok(config.includes('{arg}-{projectName}{ext}'));
+  assert.ok(config.includes("'polish.spec.ts'"), 'Polish must use its isolated service harness');
+  const scripts = z
+    .object({ scripts: z.record(z.string()) })
+    .parse(JSON.parse(await readFile('package.json', 'utf8'))).scripts;
+  assert.ok(scripts['test:e2e']?.includes('pnpm test:polish'), 'Full E2E must run polish checks');
   const snapshots = (await readdir('apps/web/e2e', { recursive: true })).filter((p) =>
     p.endsWith('.png'),
   );
@@ -118,6 +126,12 @@ for (const system of systems)
         knowledge,
         context: { now, profileHasTime: true },
       });
+      // DESIGN-GAP: Retain generated acceptance reports outside tracked source so failed checks remain inspectable without storing user data.
+      await mkdir('.launch-check/reports', { recursive: true });
+      await writeFile(
+        `.launch-check/reports/A-${system}-${locale}.json`,
+        JSON.stringify(report, null, 2) + '\n',
+      );
       const prose = [
         report.headline.persona,
         ...report.headline.keywords,
@@ -329,33 +343,49 @@ for (const [id, detail] of browserGates)
     id,
     passed: browserPassed,
     detail: browserPassed ? detail : `Unverified: ${detail}; run pnpm launch:check --full`,
+    scope: 'local',
   });
 results.push({
   id: 'PRD-8',
   passed: false,
-  detail: `Local auth deletion/re-registration: ${browserPassed ? 'verified by E2E' : 'unverified'}; real Google re-login requires production OAuth credentials`,
+  detail: `Local account deletion/session revocation: ${browserPassed ? 'verified by E2E' : 'unverified'}; real Google re-login as a new user requires production OAuth credentials`,
+  scope: 'external',
 });
 results.push({
   id: 'SEC-9/OAuth',
   passed: false,
   detail: 'Owner must verify production OAuth consent policy links match the deployed legal pages',
+  scope: 'external',
 });
 results.push({
   id: 'SEC-6',
   passed: false,
   detail:
     'CSP remains Report-Only; production AdSense/CMP/Stripe observation and zero violations required before enforce',
+  scope: 'external',
 });
 results.push({
   id: 'OWNER',
   passed: false,
   detail:
     'OAuth consent, real Google re-login, service credentials, AdSense approval, backups, Sentry alerts and production CSP observation require Owner evidence; see LAUNCH.md',
+  scope: 'external',
 });
 await mkdir('.launch-check', { recursive: true });
 await writeFile(
   '.launch-check/results.json',
-  JSON.stringify({ checkedAt: new Date().toISOString(), results }, null, 2) + '\n',
+  JSON.stringify(
+    {
+      startedAt,
+      checkedAt: new Date().toISOString(),
+      nodeVersion: process.version,
+      mode: process.argv.includes('--full') ? 'full' : 'quick',
+      release: process.argv.includes('--release'),
+      results,
+    },
+    null,
+    2,
+  ) + '\n',
 );
 for (const result of results)
   console.log(`${result.passed ? '通过' : '未通过'} ${result.id}: ${result.detail}`);

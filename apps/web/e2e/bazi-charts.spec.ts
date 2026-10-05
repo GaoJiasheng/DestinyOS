@@ -25,6 +25,10 @@ for (const locale of ['zh', 'en'] as const) {
     await page.goto(`/${locale}/bazi/r/local/${reading.id}`);
     const chart = page.locator('#chart-root');
     await expect(chart).toBeVisible();
+    // DESIGN-GAP: Deferred body-glyph selection must finish before comparing self-hosted font baselines.
+    await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true', {
+      timeout: 15_000,
+    });
     await page.evaluate(() => document.fonts.ready);
     for (const key of PILLAR_KEYS) {
       const pillar = baziFixture.pillars[key];
@@ -57,7 +61,8 @@ for (const locale of ['zh', 'en'] as const) {
       ['luck', '[data-chart-path="luck"]'],
       ['relations', '[data-chart-path="relations"]'],
     ]) {
-      await expect(chart.locator(selector!)).toHaveScreenshot(`bazi-${name}-${locale}.png`, {
+      // DESIGN-GAP: Independent chart snapshots use soft assertions so one stale baseline does not hide later visual or interaction failures.
+      await expect.soft(chart.locator(selector!)).toHaveScreenshot(`bazi-${name}-${locale}.png`, {
         animations: 'disabled',
         maxDiffPixelRatio: 0.005,
       });
@@ -72,10 +77,12 @@ for (const locale of ['zh', 'en'] as const) {
         .locator('[data-year]')
         .evaluateAll((nodes) => nodes.map((node) => Number(node.getAttribute('data-year')))),
     ).toEqual(expected.map((year) => year.year));
-    await expect(chart.locator('[data-chart-path="luck"]')).toHaveScreenshot(
-      `bazi-luck-expanded-${locale}.png`,
-      { animations: 'disabled', maxDiffPixelRatio: 0.005 },
-    );
+    await expect
+      .soft(chart.locator('[data-chart-path="luck"]'))
+      .toHaveScreenshot(`bazi-luck-expanded-${locale}.png`, {
+        animations: 'disabled',
+        maxDiffPixelRatio: 0.005,
+      });
     await chart.locator('[data-chart-path="pillars.day"]').click();
     await expect(page.locator('#section-day_master')).toBeFocused();
     await expect(chart.locator('[data-chart-path="pillars.day"]')).toHaveAttribute(
@@ -96,10 +103,12 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(chart.locator(`[data-chart-path="years.${currentYearIndex}"]`)).toBeFocused();
     await page.getByRole('button', { name: messages['report.proView'], exact: true }).click();
     await expect(chart.locator('.bazi-full-table')).toBeVisible();
-    await expect(chart.locator('.bazi-professional')).toHaveScreenshot(
-      `bazi-professional-${locale}.png`,
-      { animations: 'disabled', maxDiffPixelRatio: 0.005 },
-    );
+    await expect
+      .soft(chart.locator('.bazi-professional'))
+      .toHaveScreenshot(`bazi-professional-${locale}.png`, {
+        animations: 'disabled',
+        maxDiffPixelRatio: 0.005,
+      });
     expect(
       await page.locator('[id]').evaluateAll((nodes) => {
         const ids = nodes.map((node) => node.id);

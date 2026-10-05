@@ -70,6 +70,10 @@ for (const locale of ['zh', 'en'] as const) {
     ] as const) {
       const row = await seedReading(user.id, system, locale);
       await page.goto(`/${locale}/${system}/r/${row.id}`);
+      // DESIGN-GAP: Next.js streamed reports briefly include a hidden completed segment; wait for its hydration replacement without accepting permanent duplicate IDs.
+      await expect(page.locator('#main #chart-root')).toBeVisible();
+      await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true');
+      await expect(page.locator('#chart-root')).toHaveCount(1);
       await expect(page.locator('#chart-root')).toBeVisible();
       const result = await audit(page, true);
       await auditLocale(page, locale);
@@ -77,7 +81,13 @@ for (const locale of ['zh', 'en'] as const) {
         body: JSON.stringify(result),
         contentType: 'application/json',
       });
-      await expect(page.locator('#chart-root')).toHaveScreenshot(`m5-${system}-${locale}.png`);
+      // DESIGN-GAP: Collect every system's independent visual mismatch in one run; soft assertions still fail the test and preserve all subsequent accessibility evidence.
+      await expect
+        .soft(page.locator('#chart-root'))
+        .toHaveScreenshot(`m5-${system}-${locale}.png`, {
+          // DESIGN-GAP: Reuse Vedic's date-neutral component stylesheet so the current dasha pointer and calculation date cannot make daily acceptance snapshots stale.
+          ...(system === 'vedic' ? { stylePath: 'apps/web/e2e/astrology-screenshot.css' } : {}),
+        });
       const copy = copies[locale];
       await page.getByRole('button', { name: copy['report.proView'], exact: true }).click();
       await audit(page, true);

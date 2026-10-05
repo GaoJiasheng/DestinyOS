@@ -152,7 +152,10 @@ test('admin: 404, safe users, re-auth, draft→fixture→release→rollback, con
   });
   expect(newest.knowledgeVersion).toBe(release.version);
   await ownerPage.goto(`/en/bazi/r/${old.id}`);
-  await expect(ownerPage.locator('.report-layout')).toBeVisible();
+  // DESIGN-GAP: Assert the visible main report after streamed sections replace the loading segment, then require a unique layout before verifying immutable translation versions.
+  await expect(ownerPage.locator('#main .report-layout')).toBeVisible();
+  await expect(ownerPage.locator('#main .report-layout .report-section')).not.toHaveCount(0);
+  await expect(ownerPage.locator('.report-layout')).toHaveCount(1);
   const translatedOld = await db.reading.findUniqueOrThrow({ where: { id: old.id } });
   expect((translatedOld.reportEn as { knowledgeVersion: string }).knowledgeVersion).toBe(
     old.knowledgeVersion,
