@@ -84,3 +84,7 @@
 - CI：`i18n:check` 比对 zh/en 键完整性与 ICU 语法；缺键失败。
 - 英文文案由英语母语水平审校一次（Owner 或模型）；禁止机翻腔（检查清单：被动语态过多、"the said"、直译成语）。
 - 中文：简体；台湾/香港用户可读，避免大陆网络用语。
+
+## B-10 · 生命灵数文案键
+
+`nav.numerology`：生命灵数 / Numerology；`numerology.*` 包含输入、姓名校验、五个数字名、九宫格与周期说明；`daily.personalDay`：今日个人日数：{number} / Today’s personal day number: {number}。全部 zh/en 同时提供，复用 next-intl。

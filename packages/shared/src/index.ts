@@ -24,3 +24,5 @@ export { PillarSchema as DivinationPillarSchema } from './schemas/charts/divinat
 export * from './schemas/charts/daily';
 
 export * from './schemas/reading-request';
+
+export * from './schemas/charts/numerology';

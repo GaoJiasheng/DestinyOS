@@ -15,7 +15,11 @@ else {
   await mkdir(dist, { recursive: true });
   // DESIGN-GAP: Remove only prior content bundles, preserving TypeScript build outputs.
   for (const file of await readdir(dist))
-    if (/^(bazi|ziwei|iching|qimen|tarot|astrology|vedic|daily|common)\.(zh|en)\.json$/.test(file))
+    if (
+      /^(bazi|ziwei|iching|qimen|tarot|astrology|vedic|numerology|daily|common)\.(zh|en)\.json$/.test(
+        file,
+      )
+    )
       await unlink(join(dist, file));
   for (const system of [...Object.values(System), 'common'] as const)
     for (const locale of ['zh', 'en'] as const) {

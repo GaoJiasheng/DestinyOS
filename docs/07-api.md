@@ -138,3 +138,7 @@ localStorage['tianji.anon'] = {
 ```json
 { "ok": true, "data": { "readingId": "clx...", "chart": { "pillars": { ... } }, "report": { "headline": { "persona": "…", "keywords": ["稳重","执着","慢热"], "scores": { "career": 4, "wealth": 3, "love": 3, "health": 4, "social": 3 }, "confidence": 0.92 }, "sections": [ ... ] }, "meta": { "schoolUsed": { ... }, "warnings": [] } } }
 ```
+
+## B-10 补充
+
+`createReadingAction` / 报告 API 的 `system` 支持 `numerology`，新增 `name?: string`（英文姓名，≤120 字符，可留空，字符限制见体系文档）。省略 birth 时复用当前加密档案；姓名原文仅存于加密 inputSnapshot，公开分享只展示派生生命灵数。

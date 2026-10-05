@@ -8,6 +8,7 @@ import qimen from './plans/qimen.json';
 import tarot from './plans/tarot.json';
 import astrology from './plans/astrology.json';
 import vedic from './plans/vedic.json';
+import numerology from './plans/numerology.json';
 import daily from './plans/daily.json';
 export const systemConfigs: Record<System, SystemConfig> = {
   bazi: {
@@ -21,6 +22,7 @@ export const systemConfigs: Record<System, SystemConfig> = {
   tarot: { sectionPlan: tarot },
   astrology: { sectionPlan: astrology },
   vedic: { sectionPlan: vedic },
+  numerology: { sectionPlan: numerology },
   daily: { sectionPlan: daily },
 };
 export function numeric(chart: unknown, path: string, fallback: number): number {

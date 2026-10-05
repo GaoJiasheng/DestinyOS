@@ -25,7 +25,7 @@ datasource db { provider = "postgresql"; url = env("DATABASE_URL"); directUrl = 
 enum Plan { free pro }
 enum Role { user admin }
 enum Locale { zh en }
-enum System { bazi ziwei iching qimen tarot astrology vedic daily }
+enum System { bazi ziwei iching qimen tarot astrology vedic numerology daily }
 enum Gender { male female unspecified }
 enum ReadingStatus { ok failed }
 enum KuStatus { draft published deprecated }
@@ -254,3 +254,7 @@ model Event {                                 // 匿名产品统计（不存 use
 
 - 所有 schema 变更通过 `prisma migrate dev` 产生迁移文件入库；禁止 `db push` 到生产。
 - 加密密钥轮换：新增 key 到环境变量首位 → 运行脚本 `scripts/rotate-keys.ts` 逐行解密重加密 → 移除旧 key。
+
+## B-10 补充
+
+Prisma `System` 增加 `numerology`；迁移仅扩展 Postgres 枚举，不增加数据表。`Reading.encInput` 加密保存可选英文姓名 `name`，chart 仅保存派生总和与数字；姓名不进入明文 report 或分析事件。

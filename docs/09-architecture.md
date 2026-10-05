@@ -72,12 +72,13 @@ DestinyOS/
 │  │  │  ├─ qimen/
 │  │  │  ├─ tarot/
 │  │  │  ├─ astrology/          # 西方 + 吠陀共用星历与宫位
+│  │  │  ├─ numerology/         # 生命灵数（B-10 提前）
 │  │  │  └─ index.ts
 │  │  └─ test/fixtures/         # 黄金用例 JSON
 │  ├─ interpret/                # @tianji/interpret 解读组合引擎（纯 TS）
 │  ├─ content/                  # @tianji/content 知识库源文件（YAML）+ 编译脚本 + schema
 │  │  ├─ schema/
-│  │  ├─ bazi/ ziwei/ iching/ qimen/ tarot/ astrology/ vedic/ daily/ glossary/
+│  │  ├─ bazi/ ziwei/ iching/ qimen/ tarot/ astrology/ vedic/ numerology/ daily/ glossary/
 │  │  └─ scripts/               # 校验、编译、导入 DB、从 DB 导出
 │  ├─ shared/                   # @tianji/shared 类型、枚举、Zod schema、常量（品牌配置）
 │  └─ config/                   # eslint、tsconfig、tailwind preset

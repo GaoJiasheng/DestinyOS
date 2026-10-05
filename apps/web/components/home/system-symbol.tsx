@@ -64,6 +64,20 @@ export function SystemSymbol({ system }: { system: System }) {
           <circle cx="84" cy="39" r="3" />
         </g>
       ) : null}
+      {system === 'numerology' ? (
+        <g>
+          <circle cx="60" cy="48" r="33" />
+          {Array.from({ length: 9 }, (_, i) => (
+            <circle
+              key={i}
+              cx={60 + 33 * Math.cos((i * Math.PI * 2) / 9)}
+              cy={48 + 33 * Math.sin((i * Math.PI * 2) / 9)}
+              r="3"
+            />
+          ))}
+          <path d="M53 28h14l-14 40" />
+        </g>
+      ) : null}
       {system === 'vedic' ? (
         <g className="symbol-rotate">
           <ellipse cx="60" cy="48" rx="39" ry="24" />

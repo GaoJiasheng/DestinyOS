@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import {
+  NumerologyChartSchema,
   BaziChartSchema,
   AstroChartSchema,
   TarotChartSchema,
@@ -45,6 +46,13 @@ export function publicText(text: string): string {
 /** Whitelist only derived diagram fields. Dates, question text, locations and input metadata cannot enter this projection. */
 function diagram(system: System, chart: unknown): PublicDiagram | undefined {
   switch (system) {
+    case 'numerology': {
+      const c = NumerologyChartSchema.parse(chart);
+      return {
+        kind: 'grid',
+        items: [{ label: 'numerology.lifePath', value: String(c.lifePath.number) }],
+      };
+    }
     case 'bazi': {
       const c = BaziChartSchema.parse(chart);
       return {

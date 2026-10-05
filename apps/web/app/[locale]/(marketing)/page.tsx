@@ -67,7 +67,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <p className="muted">{t(`${system}.placeholder`)}</p>
                 <p className="type-caption system-requirements">
                   {t(
-                    ['bazi', 'ziwei', 'astrology', 'vedic'].includes(system)
+                    ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
                       ? 'home.cards.birth'
                       : 'home.cards.noBirth',
                   )}

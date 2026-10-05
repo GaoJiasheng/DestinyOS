@@ -15,7 +15,7 @@
     "test": "pnpm content:build && vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e && pnpm test:polish",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e && pnpm test:polish && pnpm test:numerology:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
     "content:build": "pnpm --filter @tianji/content content:build",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
@@ -53,7 +53,8 @@
     "content:import": "pnpm content:build && tsx scripts/content-import.ts",
     "worker:build": "tsx scripts/daily-worker-build.ts",
     "polish:content": "pnpm content:build && tsx scripts/polish-content-audit.ts",
-    "test:polish": "NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-0000000000000000 NEXT_PUBLIC_ADSENSE_SLOT_HOME=1000000001 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_TOP=1000000002 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_BOTTOM=1000000003 NEXT_PUBLIC_ADSENSE_SLOT_TODAY=1000000004 NEXT_PUBLIC_ADSENSE_SLOT_LEARN=1000000005 pnpm build && tsx scripts/polish-content-audit.ts && playwright test --config playwright.polish.config.ts"
+    "test:polish": "NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-0000000000000000 NEXT_PUBLIC_ADSENSE_SLOT_HOME=1000000001 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_TOP=1000000002 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_BOTTOM=1000000003 NEXT_PUBLIC_ADSENSE_SLOT_TODAY=1000000004 NEXT_PUBLIC_ADSENSE_SLOT_LEARN=1000000005 pnpm build && tsx scripts/polish-content-audit.ts && playwright test --config playwright.polish.config.ts",
+    "test:numerology:e2e": "playwright test --config playwright.numerology.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

@@ -3,6 +3,7 @@ import { notFound, redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { setRequestLocale } from 'next-intl/server';
 import { System } from '@tianji/shared';
+import { NumerologyForm } from '@/components/forms/numerology-form';
 import { BirthForm } from '@/components/forms/birth-form';
 import { auth } from '@/lib/auth';
 import { getProfileAction } from '@/app/readings/actions';
@@ -20,6 +21,13 @@ export default async function NewReading({
   if (system === 'iching' || system === 'qimen') redirect(`/${locale}/${system}`);
   const session = await auth();
   const profile = session ? await getProfileAction() : null;
+  if (system === 'numerology')
+    return (
+      <NumerologyForm
+        signedIn={!!session}
+        initial={profile?.ok && profile.data ? profile.data : undefined}
+      />
+    );
   return (
     <BirthForm
       system={system as Exclude<System, 'daily'>}

@@ -1,6 +1,6 @@
 # 03 · 视觉与动效规范
 
-> 目标："花哨但不廉价"。全站暗色星空基调；东方体系（八字、紫微、周易、奇门）用「朱砂 × 鎏金 × 墨」局部主题，西方体系（塔罗、占星）用「靛紫 × 月白 × 古金」局部主题，吠陀用西方主题的暖色变体（藏红 × 古金）。所有颜色、字号、间距、动效时长都是 token，前端只能用 token。
+> 目标："花哨但不廉价"。全站暗色星空基调；东方体系（八字、紫微、周易、奇门）用「朱砂 × 鎏金 × 墨」局部主题，西方体系（塔罗、占星、生命灵数）用「靛紫 × 月白 × 古金」局部主题，吠陀用西方主题的暖色变体（藏红 × 古金）。所有颜色、字号、间距、动效时长都是 token，前端只能用 token。
 
 ## 1. 设计 Token（Tailwind 4 `@theme` + CSS 变量）
 
@@ -56,7 +56,7 @@
 `--accent #D9822B`（藏红）、`--accent-2 #C9A961`、纹理为曼陀罗细线（opacity 0.05）。
 
 ### 1.5 主题切换规则
-- 路由决定：`/bazi|ziwei|iching|qimen` → east；`/tarot|astrology` → west；`/vedic` → vedic；`/`、`/today`、`/me`、`/learn` → `neutral`（仅基础色 + 金）。
+- 路由决定：`/bazi|ziwei|iching|qimen` → east；`/tarot|astrology|numerology` → west；`/vedic` → vedic；`/`、`/today`、`/me`、`/learn` → `neutral`（仅基础色 + 金）。
 - 用户可在设置锁定一个主题（`User.theme`），锁定后全站不随路由变。
 - 切换时 `color` / `background` 过渡 400ms。
 

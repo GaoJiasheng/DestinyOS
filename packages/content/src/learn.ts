@@ -14,14 +14,23 @@ export const LearnSystemsSchema = z
   .array(
     z
       .object({
-        key: z.enum(['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic']),
+        key: z.enum([
+          'bazi',
+          'ziwei',
+          'iching',
+          'qimen',
+          'tarot',
+          'astrology',
+          'vedic',
+          'numerology',
+        ]),
         zh: systemText,
         en: systemText,
       })
       .strict(),
   )
-  .length(7)
-  .refine((v) => new Set(v.map((s) => s.key)).size === 7);
+  .length(8)
+  .refine((v) => new Set(v.map((s) => s.key)).size === 8);
 export const LearnCardsSchema = z
   .array(
     z.object({

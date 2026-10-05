@@ -20,7 +20,7 @@
 
 | # | 功能 | 范围 | 挂点 |
 |---|---|---|---|
-| B-10 | 更多体系 | 大六壬、太乙神数、姓名学（五格 + 八字配合）、生命灵数（最易，可提前）、卢恩符文、玛雅历（Tzolk'in）、面相手相（需图像识别，最复杂） | `System` 枚举扩展；每体系一份 systems/*.md |
+| B-10 | 更多体系 | 大六壬、太乙神数、姓名学（五格 + 八字配合）、生命灵数（B-10 最简项已提前实现，见 systems/numerology.md）、卢恩符文、玛雅历（Tzolk'in）、面相手相（需图像识别，最复杂） | `System` 枚举扩展；每体系一份 systems/*.md |
 | B-11 | 奇门扩展 | 飞盘、置润法、年/月/日家奇门、终身局 | `school.layout`/`juMethod` 已预留 |
 | B-12 | 占星扩展 | 推运（二次推运、太阳弧）、返照盘、行运报告（月/年）、Draconic、Harmonics | 星历引擎复用 |
 | B-13 | 吠陀扩展 | Shodashvarga 16 分盘、Ashtakavarga、Shadbala、Yogini Dasha、Sade Sati、Mangal Dosha、KP | 自研工作量大 |

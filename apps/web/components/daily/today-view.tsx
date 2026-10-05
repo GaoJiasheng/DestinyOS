@@ -248,6 +248,11 @@ export function TodayView({
             <section className="report-card" data-daily-block="2">
               <h2>{t('daily.oneLiner.label')}</h2>
               <p className="type-h2">{t('report.content', { text: intl(chart.oneLiner) })}</p>
+              {chart.numerology ? (
+                <p data-personal-day>
+                  {t('daily.personalDay', { number: chart.numerology.personalDay })}
+                </p>
+              ) : null}
             </section>
             <section className="report-card" data-daily-block="3">
               <h2>{t('daily.ratings')}</h2>

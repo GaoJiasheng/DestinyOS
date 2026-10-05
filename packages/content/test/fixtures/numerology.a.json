@@ -1,0 +1,124 @@
+{
+  "lifePath": {
+    "sum": 30,
+    "steps": [30, 3],
+    "number": 3
+  },
+  "birthday": {
+    "day": 15,
+    "number": 6
+  },
+  "nameNumbers": {
+    "expression": {
+      "sum": 35,
+      "steps": [35, 8],
+      "number": 8
+    },
+    "soul": {
+      "sum": 17,
+      "steps": [17, 8],
+      "number": 8
+    },
+    "personality": {
+      "sum": 18,
+      "steps": [18, 9],
+      "number": 9
+    }
+  },
+  "personal": {
+    "year": 3,
+    "month": 4,
+    "day": 9,
+    "targetDate": "2026-10-05"
+  },
+  "cycles": [
+    {
+      "year": 2026,
+      "number": 3,
+      "isCurrent": true
+    },
+    {
+      "year": 2027,
+      "number": 4,
+      "isCurrent": false
+    },
+    {
+      "year": 2028,
+      "number": 5,
+      "isCurrent": false
+    },
+    {
+      "year": 2029,
+      "number": 6,
+      "isCurrent": false
+    },
+    {
+      "year": 2030,
+      "number": 7,
+      "isCurrent": false
+    },
+    {
+      "year": 2031,
+      "number": 8,
+      "isCurrent": false
+    },
+    {
+      "year": 2032,
+      "number": 9,
+      "isCurrent": false
+    },
+    {
+      "year": 2033,
+      "number": 1,
+      "isCurrent": false
+    },
+    {
+      "year": 2034,
+      "number": 2,
+      "isCurrent": false
+    }
+  ],
+  "grid": [
+    {
+      "digit": 1,
+      "count": 2
+    },
+    {
+      "digit": 2,
+      "count": 0
+    },
+    {
+      "digit": 3,
+      "count": 0
+    },
+    {
+      "digit": 4,
+      "count": 0
+    },
+    {
+      "digit": 5,
+      "count": 2
+    },
+    {
+      "digit": 6,
+      "count": 0
+    },
+    {
+      "digit": 7,
+      "count": 0
+    },
+    {
+      "digit": 8,
+      "count": 0
+    },
+    {
+      "digit": 9,
+      "count": 2
+    }
+  ],
+  "compatibility": {
+    "first": 3,
+    "second": 8,
+    "basis": "expression"
+  }
+}

@@ -17,7 +17,7 @@
 
 ```yaml
 - id: bazi.day_master.jia.strong          # 全局唯一，点分层级：system.topic.key[.variant]
-  system: bazi                            # bazi|ziwei|iching|qimen|tarot|astrology|vedic|daily|common
+  system: bazi                            # bazi|ziwei|iching|qimen|tarot|astrology|vedic|numerology|daily|common
   section: day_master                     # 所属章节 key（各体系文档的章节表）
   topic: day_master                       # 主题，用于冲突分组与去重
   when:                                   # 触发条件（见 §3）
@@ -240,3 +240,7 @@ packages/content/scripts/
 ## 12. LLM 润色开关（预留，默认关）
 
 `FEATURE_LLM_POLISH=true` 时，在组文第 5 步后对**每章纯文本**调用模型做润色（prompt：保持事实与结构不变，仅改善衔接与语气，不新增结论），输入**只含组好的文本**，不含用户姓名、生日、地点。一期不实现调用，只保留接口 `polish(sectionText, locale): Promise<string>` 的空实现与开关。
+
+## B-10 · 生命灵数补充
+
+`numerology` 使用同一 KU schema 与组合算法，125 条双语 KU；章节与触发维度详见 [systems/numerology.md](systems/numerology.md)。未知时辰不降低此体系的计算置信度；仍执行 zh≥2500 字 / en≥1800 词及 500 个合法生日覆盖检查。
