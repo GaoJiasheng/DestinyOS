@@ -46,6 +46,20 @@ export default async function SystemLearnPage({
       path={`/learn/${system}`}
       locale={locale}
     >
+      <section className="report-card">
+        <h2>{t('learn.tutorials')}</h2>
+        <ul>
+          {content.articles
+            .filter((article) => article.system === system)
+            .map((article) => (
+              <li key={article.slug}>
+                <Link href={`/learn/${system}/articles/${article.slug}`}>
+                  {t('report.content', { text: article[locale === 'en' ? 'en' : 'zh'].title })}
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </section>
       {(['history', 'principle', 'questions', 'school'] as const).map((k) => (
         <section className="report-card" key={k}>
           <h2>{t(`learn.${k}`)}</h2>
@@ -79,6 +93,9 @@ export default async function SystemLearnPage({
       <Link className="text-link" href={`/${system}`}>
         {t('learn.start')}
       </Link>
+      <p>
+        <Link href="/faq">{t('learn.faq')}</Link>
+      </p>
     </LearnArticle>
   );
 }

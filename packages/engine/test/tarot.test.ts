@@ -313,6 +313,7 @@ const contentCardSchemaKeys = [
   'meaningReversed',
   'imagery',
   'advice',
+  'historySymbolism',
   'byCategory',
 ];
 describe('78 completed cards and eight spread sources', () => {
@@ -331,6 +332,7 @@ describe('78 completed cards and eight spread sources', () => {
       meaningReversed: Bilingual;
       imagery: Bilingual;
       advice: Bilingual;
+      historySymbolism: Bilingual;
       byCategory: Record<string, Record<string, Bilingual>>;
     }[];
     expect(cards).toHaveLength(78);
@@ -349,7 +351,13 @@ describe('78 completed cards and eight spread sources', () => {
           expect(keywords.every((k) => k.length > 0)).toBe(true);
         }
       }
-      for (const field of ['meaningUpright', 'meaningReversed', 'imagery', 'advice'] as const)
+      for (const field of [
+        'meaningUpright',
+        'meaningReversed',
+        'imagery',
+        'historySymbolism',
+        'advice',
+      ] as const)
         for (const locale of ['zh', 'en'] as const)
           expect(card[field][locale].trim().length).toBeGreaterThan(0);
       expect(Object.keys(card.byCategory)).toHaveLength(6);

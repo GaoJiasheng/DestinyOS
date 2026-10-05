@@ -1,0 +1,265 @@
+faq:
+  - question:
+      zh: 这是什么服务？
+      en: What is this service?
+    answer:
+      zh: 这是面向文化学习与自我反思的命理平台，提供多个体系的排盘、说明和公共百科。你可以先阅读入门文章，再决定是否试算。结果仅供娱乐与参考，不构成专业建议。
+      en:
+        This platform offers charts, explanations, and a public encyclopedia for cultural study and
+        reflection. You can read a guide before deciding whether to try a calculation. Readings are
+        for entertainment and reflection, and are not professional advice.
+  - question:
+      zh: 有哪些体系可以学习？
+      en: Which systems can I learn about?
+    answer:
+      zh: 百科覆盖八字、紫微斗数、周易、奇门遁甲、塔罗、西方占星、吠陀占星、生命灵数，并有合盘入门。合盘比较两份盘的互动，保留各体系的独立方法。
+      en:
+        The encyclopedia covers BaZi, Zi Wei Dou Shu, I Ching, Qi Men Dun Jia, tarot, Western astrology,
+        Vedic astrology, numerology, and introductory synastry. Synastry compares two charts while
+        preserving each system's method.
+  - question:
+      zh: 结果准不准？
+      en: How accurate are the results?
+    answer:
+      zh: 需要区分计算与解释。排盘可以按输入、流派与算法核验；象征解释并不是现实事件的测量或概率。你可以检查依据，并保留与自身经验不同的部分。
+      en:
+        Separate calculation from interpretation. Chart placements can be checked against the input,
+        school, and algorithm. Symbolic interpretations are not measurements or probabilities of
+        real events. Review the stated basis and keep room for experiences that do not fit.
+  - question:
+      zh: 运行时会让 AI 编造解读吗？
+      en: Does AI invent a reading at runtime?
+    answer:
+      zh: 默认报告由确定性排盘引擎、版本化双语知识库与规则组文生成，运行时不调用语言模型编造正文。内容可在离线制作阶段使用模型辅助，随后经过校验进入知识库；这与临时生成个人预测不同。
+      en:
+        Default reports combine deterministic chart calculations, a versioned bilingual knowledge base,
+        and composition rules. A language model does not invent the default report at runtime.
+        Models may assist offline editorial production before validation; that is separate from
+        generating a personal prediction during a request.
+  - question:
+      zh: 不用登录能使用吗？
+      en: Can I use it without an account?
+    answer:
+      zh: 公共百科无需登录，匿名试算可在设备端使用。设备上的报告不会自动成为账户历史；需要保存到账户时，再按页面提示登录与导入。清理浏览器数据可能移除本地记录。
+      en:
+        Public guides need no account, and anonymous readings can run on your device. Device records do
+        not automatically become account history. Follow the sign-in and import flow if you want to
+        save them to an account. Clearing browser data may remove local records.
+  - question:
+      zh: 怎样开始读一份报告？
+      en: Where should I start in a report?
+    answer:
+      zh: 先读结论，再看依据与建议，最后查看专业视图与术语。一次只选择一个需要理解的主题，把建议改为可观察的小行动，并用真实反馈复盘。
+      en:
+        Start with the conclusion, then the basis and suggestions, and finally the technical view and
+        terms. Choose one topic at a time, turn a suggestion into a small observable action, and
+        review it with real feedback.
+  - question:
+      zh: 不知道出生时间怎么办？
+      en: What if I do not know my birth time?
+    answer:
+      zh: 如实选择未知时辰。八字保留三柱；紫微需要时辰；占星不补造上升与宫位，部分月亮信息可能暂定。塔罗、普通问事起卦与生命灵数不需要出生时辰。
+      en:
+        Select unknown time honestly. BaZi retains three pillars; Zi Wei requires an hour; astrology
+        does not invent an Ascendant or houses, and some Moon details may be provisional. Tarot,
+        ordinary question casts, and numerology do not need a birth hour.
+  - question:
+      zh: 为什么需要出生地点与时区？
+      en: Why are place and time zone needed?
+    answer:
+      zh: 时区把记录的钟表时间转换为一致时刻，地点参与真太阳时或地平坐标计算。只填写必要信息，并在跨地区、夏令时或日期边界时复核原始记录。
+      en: The time zone converts recorded clock time to a consistent instant. Location is needed for
+        apparent solar time or horizon calculations. Provide only what is needed and review records
+        around travel, daylight saving, and date boundaries.
+  - question:
+      zh: 八字采用什么流派？
+      en: Which BaZi conventions are used?
+    answer:
+      zh: 本项目按节气定月，默认使用真太阳时修正与文档规定的晚子时换日规则；报告标明所用参数。对照其他服务时先对齐子时、时区与太阳时设置。
+      en:
+        BaZi months follow solar terms, with apparent solar time and the documented late Zi-hour day
+        boundary by default. Reports identify the settings. Align Zi-hour, time-zone, and solar-time
+        conventions before comparing another service.
+  - question:
+      zh: 紫微斗数为何与其他网站不同？
+      en: Why might a Zi Wei chart differ elsewhere?
+    answer:
+      zh: 农历换算、闰月处理、时辰与四化表可能不同。本项目在报告中显示流派与计算依据；应先比较参数，再比较星曜与宫位，不用文字是否熟悉来判断排盘。
+      en:
+        Lunar conversion, leap-month handling, birth hour, and transformation tables may differ. The
+        report discloses method and evidence. Compare settings before stars and palaces; familiar
+        wording is not a check of placement accuracy.
+  - question:
+      zh: 梅花易数与六爻有什么不同？
+      en: How do Plum Blossom and Six Lines differ?
+    answer:
+      zh: 梅花支持时间、报数和随机起卦，围绕体用等关系读图；本项目六爻用三枚铜钱六次投掷，并有世应、用神与月日等结构。两者技术概念不混用。
+      en:
+        Plum Blossom supports time, numbers, and random casting and reads relationships such as Self and
+        Subject trigrams. Here Six Lines uses six tosses of three coins and includes Self/Responding
+        lines, indicators, and month/day context. Their technical concepts are kept separate.
+  - question:
+      zh: 奇门遁甲采用哪种方法？
+      en: Which Qi Men method is used?
+    answer:
+      zh: 采用时家转盘奇门、拆补法、中五寄坤二。普通问事局围绕起局时刻，不需要出生档案。你可以在报告参数中核对时间、时区与所用规则。
+      en:
+        The project uses time-based rotating Qi Men, the split-and-supplement method, and center lodging
+        in Kun Two. Ordinary question boards use the casting moment without a birth profile. Check
+        time, time zone, and rules in the report parameters.
+  - question:
+      zh: 塔罗逆位一定更难处理吗？
+      en: Are reversed cards always harder to work with?
+    answer:
+      zh: 逆位是阅读方向，可能提示受阻、内化或调整，不是好坏开关。应结合牌面、问题与位置；本项目可以关闭逆位，学习时保持设置一致即可。
+      en:
+        Reversal is an orientation that can suggest obstruction, inward focus, or adjustment, rather
+        than a simple ranking. Read it with the image, question, and position. You can disable
+        reversals and keep that setting consistent while learning.
+  - question:
+      zh: 西方与吠陀占星采用什么设置？
+      en: What are the Western and Vedic settings?
+    answer:
+      zh: 西方使用回归黄道、默认 Placidus 宫位；吠陀使用 Lahiri 恒星黄道与整宫制。高纬度宫位计算可能回退并显示警示，比较盘时应核对这些设置。
+      en:
+        Western charts use the tropical zodiac and Placidus houses by default. Vedic charts use the
+        Lahiri sidereal zodiac and Whole Sign houses. High-latitude house calculations may fall back
+        with a warning. Check these settings when comparing charts.
+  - question:
+      zh: 生命灵数保留哪些大师数？
+      en: Which master numbers does numerology retain?
+    answer:
+      zh: 生日全部数字整体相加的生命灵数与姓名数字保留 11、22、33；个人年、月、日周期归一到 1–9。姓名使用毕达哥拉斯字母表，元音固定 AEIOU，Y 为辅音。
+      en:
+        Life Path uses the sum of all birth-date digits and retains 11, 22, and 33, as do name numbers.
+        Personal Year, Month, and Day cycles reduce to 1–9. Names use the Pythagorean alphabet,
+        fixed AEIOU vowels, and consonant Y.
+  - question:
+      zh: 合盘分数可以决定关系吗？
+      en: Can a synastry score decide a relationship?
+    answer:
+      zh: 不能。分数表示所用传统表格，五行差异只表示分布差别，两者都不是成功率。合盘适合双方自愿讨论沟通与协作，不替代同意、边界或真实相处经验。
+      en: No. A score describes a selected traditional table, and element difference describes
+        distributions; neither is a success rate. Synastry can support a voluntary conversation
+        about communication and coordination, alongside consent, boundaries, and actual experience.
+  - question:
+      zh: 出生信息怎样保护？
+      en: How is birth information protected?
+    answer:
+      zh: 保存的敏感出生字段使用应用层加密，报告输入快照也按隐私设计处理。出生信息不应进入日志、分析工具或 URL。匿名与账户记录的保存方式不同，详细范围请阅读隐私政策。
+      en:
+        Saved sensitive birth fields use application-layer encryption, and report input snapshots follow
+        the privacy design. Birth details should not enter logs, analytics, or URLs. Anonymous and
+        account records have different storage paths; consult the privacy policy for the full scope.
+  - question:
+      zh: 分享会公开完整出生资料吗？
+      en: Does sharing reveal all birth details?
+    answer:
+      zh: 分享按所选公开级别投影内容，不直接公开完整私密输入。分享前预览内容，只使用你愿意公开且有权分享的部分；不要在链接或说明中自行写入他人的出生资料。
+      en:
+        Sharing projects content according to the chosen reveal level rather than exposing all private
+        inputs. Preview the result and share only what you are willing and authorized to make
+        public. Do not add another person's birth details to a link or caption.
+  - question:
+      zh: 能删除或导出我的数据吗？
+      en: Can I delete or export my data?
+    answer:
+      zh: 账户设置提供数据导出与删除入口；删除单个档案会影响与它关联的报告及分享。设备本地记录需要在对应设备处理。具体保留与删除规则请查看隐私政策与页面说明。
+      en:
+        Account settings provide export and deletion entry points. Deleting a profile affects associated
+        reports and shares. Device-local records must be managed on that device. Read the privacy
+        policy and in-product explanations for retention and deletion details.
+  - question:
+      zh: 广告、会员与联系方式在哪里？
+      en: Where can I find advertising, membership, and contact details?
+    answer:
+      zh: 服务免费使用，广告与会员去广告方案按页面配置展示；隐私选择可在页脚查看。会员权益见定价页。关于页说明团队与联系资料的补充状态，联系页显示已配置渠道；缺失的联系方式会明确标注。
+      en:
+        The service is free to use, with advertising and ad-free membership shown according to site
+        configuration. Privacy choices are available in the footer, and membership details are on
+        the pricing page. About explains the status of team information; Contact shows configured
+        channels and clearly labels missing details.
+about:
+  zh:
+    title: 关于我们
+    description: 把传统符号整理成能阅读、能核验、能讨论的文化学习工具。
+    sections:
+      - heading: 品牌故事
+        paragraphs:
+          - 在不同语言与文化之间生活，你可能听过四柱、星盘或卦象，却很难找到一份既解释术语、又说明计算依据的资料。我们从这个阅读需求出发，把东方与西方的多个体系放在同一座学习入口里：先把图读清楚，再讨论它能提出什么问题。
+          - 我们希望你能从一句白话解释进入，再沿着术语、原文与专业视图深入。品牌关注的是时间、星辰与人的观察方式，也尊重不认同象征解释的读者。你可以学习它的文化语汇，而不需要让它决定生活。
+      - heading: 方法论：排盘—知识库—组文
+        paragraphs:
+          - 排盘：将输入按明确的日历、时区、坐标与流派规则规范化，再由确定性引擎计算结构。缺失时辰的部分保持缺失，规则差异与警示在报告中显示。
+          - 知识库：每个解读单元有双语正文、适用条件、版本与依据。术语先解释再使用，困难主题提供可采取的调整方向。内容在离线制作阶段整理并校验，而不是读者打开页面时临时创作。
+          - 组文：规则引擎选择与盘面条件相符的知识单元，再按章节、证据与去重规则组织文字。默认运行时不调用 AI 编造个人结果；离线编辑可能使用模型辅助，这一制作方式与运行时生成明确区分。
+      - heading: 怎样理解结果
+        paragraphs:
+          - 计算的可复现性与解释的现实适用性是两个问题。你可以核对排盘参数与命中依据，也可以记录不符合经验的解释。结果供娱乐、文化学习与自我反思，不提供医疗、法律或投资结论。
+          - 建议从一个主题开始，把象征转成日常问题，再用实际观察与沟通复盘。一个熟悉的描述不能替你确认他人的意图，一份详细的报告也不能弥补缺失的输入。
+      - heading: 隐私与选择
+        paragraphs:
+          - 我们把出生资料视为敏感信息：保存字段使用应用层加密，私密输入不写入公开 URL；匿名体验与账户保存有不同流程。你可以阅读隐私政策，查看分享预览，使用设置中的导出与删除入口。
+          - 公共百科不要求出生资料。若你只想学习，直接阅读体系介绍、入门长文、牌与卦页面即可。学习节奏与是否试算都由你决定。
+      - heading: 团队与联系方式
+        paragraphs:
+          - 团队介绍占位：维护者、编辑与校审人员的正式介绍待补充。我们不会用未经核实的资历或虚构人物填补这一栏。
+          - 联系方式占位：请查看联系页中已配置的渠道；如尚未配置，页面会说明状态。后续团队与联系资料将由项目维护者补充。你可以通过联系渠道提交术语、翻译、计算规则或隐私问题，附上足够复现的公开信息即可，不需要发送完整出生资料。
+  en:
+    title: About us
+    description:
+      A cultural learning tool that makes symbolic traditions readable, traceable, and open
+      to discussion.
+    sections:
+      - heading: Our story
+        paragraphs:
+          - 'Living between languages and cultures, you may have heard about Four Pillars, birth
+            charts, or hexagrams without finding a guide that explains both the vocabulary and the
+            calculation. We began with that reading need. The platform brings several Eastern and
+            Western systems into one learning entrance: understand the diagram first, then explore
+            the questions it can raise.'
+          - We want a plain-language explanation to open a path toward terminology, original texts,
+            and technical evidence. The brand's interest is in time, the sky, and ways of observing
+            experience. Readers who do not identify with symbolic interpretations are welcome too.
+            You can learn the cultural vocabulary without letting it decide your life.
+      - heading: 'Our method: calculation, knowledge base, composition'
+        paragraphs:
+          - 'Calculation: inputs are normalized under explicit calendar, time-zone, coordinate, and
+            school rules. Deterministic engines produce the chart structure. Missing birth-time data
+            stays missing, and reports disclose method differences and warnings.'
+          - 'Knowledge base: each interpretation unit has bilingual text, applicable conditions, a
+            version, and an explanatory basis. Terms are explained before use, and difficult themes
+            include a practical opening. Material is prepared and validated offline rather than
+            invented when someone opens a page.'
+          - 'Composition: a rule engine selects units whose conditions match the chart, then
+            organizes them using chapter, evidence, and deduplication rules. Default runtime
+            readings do not call AI to invent personal results. Models may assist offline editorial
+            production; that process is distinct from generating a reading during a request.'
+      - heading: Understanding a result
+        paragraphs:
+          - Reproducible calculation and practical interpretation are different questions. You can
+            inspect settings and matched evidence, and you can preserve explanations that do not fit
+            your experience. Readings are for entertainment, cultural study, and reflection. They do
+            not provide medical, legal, or investment conclusions.
+          - Begin with one topic, turn a symbol into an ordinary question, and review it through
+            observation and conversation. Familiar wording cannot establish another person's
+            intentions, and a detailed report cannot replace missing inputs.
+      - heading: Privacy and choice
+        paragraphs:
+          - We treat birth information as sensitive. Saved fields use application-layer encryption,
+            and private inputs do not belong in public URLs. Anonymous use and account saving follow
+            different paths. Read the privacy policy, preview a share, and use the export and
+            deletion entry points in settings.
+          - The public encyclopedia does not ask for birth information. If you want to learn, you
+            can read system introductions, tutorials, and card or hexagram pages directly. The pace
+            of study and the choice to calculate are yours.
+      - heading: Team and contact
+        paragraphs:
+          - 'Team introduction placeholder: formal information about maintainers, editors, and
+            reviewers is still to be supplied. We do not fill this space with unverified credentials
+            or invented people.'
+          - 'Contact placeholder: the Contact page shows configured channels and labels any missing
+            details. Project maintainers will supply further team and contact information. Use the
+            configured channel for terminology, translation, calculation, or privacy questions.
+            Public reproduction details are enough; you do not need to send complete birth
+            information.'

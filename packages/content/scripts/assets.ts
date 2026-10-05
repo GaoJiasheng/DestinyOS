@@ -38,6 +38,7 @@ const cards = array(
         meaningReversed: label,
         imagery: label,
         advice: label,
+        historySymbolism: label,
         byCategory: object(
           Object.fromEntries(
             ['love', 'career', 'wealth', 'decision', 'self', 'general'].map((key) => [
@@ -109,6 +110,7 @@ const hexagrams = array(
         ),
       ),
     ),
+    historySymbolism: label,
   }),
   64,
 );

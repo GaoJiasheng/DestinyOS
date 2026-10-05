@@ -1,3 +1,5 @@
+import { publicRouteMetadata } from '@/lib/public-seo';
+import { structuredJson } from '@/lib/learn';
 import { AdSlot } from '@/components/ads/ad-slot';
 import { brand } from '@tianji/shared/brand';
 import { setRequestLocale } from 'next-intl/server';
@@ -12,12 +14,7 @@ import { SystemSymbol } from '@/components/home/system-symbol';
 export const revalidate = 60;
 /** The homepage canonical uses its selected BCP 47 route. */
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-  return {
-    alternates: {
-      canonical: `/${(await params).locale}`,
-      languages: { zh: '/zh', 'zh-TW': '/zh-TW', en: '/en' },
-    },
-  };
+  return publicRouteMetadata(params, '');
 }
 /** Initial landing page with the brand, documented tagline, and two primary entry points. */
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -26,6 +23,32 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const t = await getCopy();
   return (
     <div className="home-layout">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: structuredJson({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'WebSite',
+                '@id': `https://${brand.domain}/#website`,
+                url: `https://${brand.domain}/${locale}`,
+                name: brand.nameEn,
+                alternateName: brand.nameZh,
+                inLanguage: locale,
+                publisher: { '@id': `https://${brand.domain}/#organization` },
+              },
+              {
+                '@type': 'Organization',
+                '@id': `https://${brand.domain}/#organization`,
+                url: `https://${brand.domain}`,
+                name: brand.nameEn,
+                alternateName: brand.nameZh,
+              },
+            ],
+          }),
+        }}
+      />
       <section className="home-hero">
         <div className="hero-orbit" aria-hidden>
           <span />

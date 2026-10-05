@@ -2,7 +2,13 @@ import { resourceText } from './platform/resources';
 import { toTraditional } from '@tianji/shared/locale';
 import { cache } from 'react';
 import { z } from 'zod';
-import { LearnSystemsSchema, LearnCardsSchema, LearnHexagramsSchema } from '@tianji/content';
+import {
+  LearnSystemsSchema,
+  LearnCardsSchema,
+  LearnHexagramsSchema,
+  LearnArticlesSchema,
+  PublicEditorialSchema,
+} from '@tianji/content';
 const glossaryText = z.object({
   term: z.string(),
   short: z.string(),
@@ -13,6 +19,8 @@ const schema = z.object({
   systems: LearnSystemsSchema,
   cards: LearnCardsSchema,
   hexagrams: LearnHexagramsSchema,
+  articles: LearnArticlesSchema,
+  editorial: PublicEditorialSchema,
   glossary: z.array(
     z.object({ key: z.string(), system: z.string(), zh: glossaryText, en: glossaryText }),
   ),

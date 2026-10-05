@@ -1,3 +1,4 @@
+import { publicRouteMetadata } from '@/lib/public-seo';
 import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
@@ -26,4 +27,9 @@ export default async function IchingPage({ params }: { params: Promise<{ locale:
       </div>
     </section>
   );
+}
+
+/** Public system entry metadata uses the documented method introduction. */
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return publicRouteMetadata(params, '/iching');
 }

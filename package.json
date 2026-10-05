@@ -65,7 +65,8 @@
     "cf:build": "pnpm --filter @tianji/web cf:build",
     "cf:preview": "pnpm --filter @tianji/web cf:preview",
     "cf:deploy": "pnpm --filter @tianji/web cf:deploy",
-    "test:cloudflare:e2e": "playwright test --config playwright.cloudflare.config.ts"
+    "test:cloudflare:e2e": "playwright test --config playwright.cloudflare.config.ts",
+    "test:seo-content:e2e": "playwright test --config playwright.seo-content.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

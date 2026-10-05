@@ -19,6 +19,7 @@ if hashlib.sha256(SOURCE.read_bytes()).hexdigest() != SHA256:
 characters = set((ROOT / 'scripts/resources/common-3500.txt').read_text(encoding='utf-8-sig'))
 characters.update(''.join(json.loads((ROOT / 'apps/web/messages/zh.json').read_text()).values()))
 characters.update((ROOT / 'scripts/resources/common-3500-tw.txt').read_text(encoding='utf-8-sig'))
+characters.update((ROOT / 'scripts/resources/og-public-tw.txt').read_text(encoding='utf-8-sig'))
 for catalog in (ROOT / 'apps/web/messages/zh-TW').glob('*.json'):
     characters.update(''.join(json.loads(catalog.read_text()).values()))
 characters.update(''.join(json.loads((ROOT / 'apps/web/messages/zh-TW.json').read_text()).values()))

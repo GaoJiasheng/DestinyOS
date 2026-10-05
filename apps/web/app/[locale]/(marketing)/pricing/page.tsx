@@ -1,3 +1,4 @@
+import { publicRouteMetadata } from '@/lib/public-seo';
 import { brand } from '@tianji/shared';
 import { getCopy } from '@/i18n/get-copy';
 import { billingEnabled } from '@/lib/stripe';
@@ -40,4 +41,9 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
       ))}
     </section>
   );
+}
+
+/** Public metadata includes the exact canonical path, alternate languages, and social template. */
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return publicRouteMetadata(params, '/pricing');
 }

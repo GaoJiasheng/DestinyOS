@@ -4727,3 +4727,12 @@ html[data-reduced-motion='true'] .tarot-face img.is-reversed {
     position: static;
   }
 }
+
+/* Tutorial headings stay visible below the sticky desktop navigation. */
+.tutorial-section {
+  scroll-margin-top: 6rem;
+}
+[data-tutorial-body] p {
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
