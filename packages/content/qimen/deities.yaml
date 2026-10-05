@@ -1,11 +1,56 @@
+# // DESIGN-GAP: §9 does not specify relevance scoping; bind each symbol to a selected useGods palace via its index, using the existing condition DSL.
 # // DESIGN-GAP: Narrative meanings use mainstream symbolic associations; selection and scoring follow only existing engine fields.
 - id: qimen.deities.zhi_fu
   system: qimen
   section: use_gods
   topic: deities.zhi_fu
   when:
-    path: palaces[*].deity
-    eq: zhi_fu
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: zhi_fu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: zhi_fu
   weight: 25
   polarity: neutral
   tags:
@@ -18,7 +63,7 @@
     title: 确认谁能作出回应
     summary: 你可以围绕值符提示的方式整理下一步。
     body: |-
-      你可以先确认谁能回应这次事项。值符（八神中象征统领与秩序的情境标记）出现在盘中某宫，提醒你关注协调渠道，不代表那个宫里有一位能替你解决一切的人。这里的神与领头的值符星是不同字段，需要分别查看。例如，团队意见很多时，可以先确认哪位负责人能决定下一步，再把问题整理成对方能回答的形式。建议核对负责人和反馈渠道。这个标记本身不加入总分，不能把它当成单独的吉凶票数；若要用在你的问题上，还需确认相关用神是否同宫。你可以把它写成一项观察提示，再用实际情况检验它是否适合当前安排。
+      你可以先确认谁能回应这次事项。值符（八神中象征统领与秩序的情境标记）出现在本次问题所选的用神宫，提醒你关注协调渠道，不代表那个宫里有一位能替你解决一切的人。这里的神与领头的值符星是不同字段，需要分别查看。例如，团队意见很多时，可以先确认哪位负责人能决定下一步，再把问题整理成对方能回答的形式。建议核对负责人和反馈渠道。这个标记本身不加入总分，不能把它当成单独的吉凶票数；若要用在你的问题上，还需确认相关用神是否同宫。你可以把它写成一项观察提示，再用实际情况检验它是否适合当前安排。
     advice:
       - 建议核对负责人和反馈渠道。
     do:
@@ -39,15 +84,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.deities.teng_she
   system: qimen
   section: use_gods
   topic: deities.teng_she
   when:
-    path: palaces[*].deity
-    eq: teng_she
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: teng_she
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: teng_she
   weight: 25
   polarity: mixed
   tags:
@@ -81,15 +170,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.deities.tai_yin
   system: qimen
   section: use_gods
   topic: deities.tai_yin
   when:
-    path: palaces[*].deity
-    eq: tai_yin
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: tai_yin
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: tai_yin
   weight: 25
   polarity: neutral
   tags:
@@ -123,15 +256,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.deities.liu_he
   system: qimen
   section: use_gods
   topic: deities.liu_he
   when:
-    path: palaces[*].deity
-    eq: liu_he
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: liu_he
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: liu_he
   weight: 25
   polarity: neutral
   tags:
@@ -144,7 +321,7 @@
     title: 合作从明确约定开始
     summary: 你可以围绕六合提示的方式整理下一步。
     body: |-
-      你适合先把合作的期待说清楚。六合（象征协调、连接与共同安排的情境标记）出现在盘中，提示可以关注双方怎样形成可执行的约定，但不意味着每个人都已经同意。关系问题也不据此推断谁应该迁就谁。例如，一起安排周末活动时，可以先说各自的时间和偏好，再找共同可行的部分，而不是把和气当成不需要确认。建议确认双方都愿意承担的具体部分。这个标记本身不加入总分，不能把它当成单独的吉凶票数；若要用在你的问题上，还需确认相关用神是否同宫。你可以把它写成一项观察提示，再用实际情况检验它是否适合当前安排。
+      你适合先把合作的期待说清楚。六合（象征协调、连接与共同安排的情境标记）出现在相关用神宫中，提示可以关注双方怎样形成可执行的约定，但不意味着每个人都已经同意。关系问题也不据此推断谁应该迁就谁。例如，一起安排周末活动时，可以先说各自的时间和偏好，再找共同可行的部分，而不是把和气当成不需要确认。建议确认双方都愿意承担的具体部分。这个标记本身不加入总分，不能把它当成单独的吉凶票数；若要用在你的问题上，还需确认相关用神是否同宫。你可以把它写成一项观察提示，再用实际情况检验它是否适合当前安排。
     advice:
       - 建议确认双方都愿意承担的具体部分。
     do:
@@ -165,15 +342,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.deities.bai_hu
   system: qimen
   section: use_gods
   topic: deities.bai_hu
   when:
-    path: palaces[*].deity
-    eq: bai_hu
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: bai_hu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: bai_hu
   weight: 25
   polarity: mixed
   tags:
@@ -207,15 +428,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.deities.xuan_wu
   system: qimen
   section: use_gods
   topic: deities.xuan_wu
   when:
-    path: palaces[*].deity
-    eq: xuan_wu
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: xuan_wu
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: xuan_wu
   weight: 25
   polarity: neutral
   tags:
@@ -228,7 +493,7 @@
     title: 核对流转记录
     summary: 你可以围绕玄武提示的方式整理下一步。
     body: |-
-      你适合先核对信息或物品的流转记录。玄武（象征隐蔽、传递不清与寻找线索的情境标记）在盘中出现，可以作为检查遗漏环节的提示，不能当成指认某个人的依据。例如，找不到共享设备时，可以查最后借用记录、归还地点和群里的交接说明，再询问是否有人临时换了位置。把问题说成寻找事实，有助于让别人提供线索。建议按记录顺序复查，并避免无依据的指责。这个标记本身不加入总分，不能把它当成单独的吉凶票数；若要用在你的问题上，还需确认相关用神是否同宫。你可以把它写成一项观察提示，再用实际情况检验它是否适合当前安排。
+      你适合先核对信息或物品的流转记录。玄武（象征隐蔽、传递不清与寻找线索的情境标记）在相关用神宫中出现，可以作为检查遗漏环节的提示，不能当成指认某个人的依据。例如，找不到共享设备时，可以查最后借用记录、归还地点和群里的交接说明，再询问是否有人临时换了位置。把问题说成寻找事实，有助于让别人提供线索。建议按记录顺序复查，并避免无依据的指责。这个标记本身不加入总分，不能把它当成单独的吉凶票数；若要用在你的问题上，还需确认相关用神是否同宫。你可以把它写成一项观察提示，再用实际情况检验它是否适合当前安排。
     advice:
       - 建议按记录顺序复查，并避免无依据的指责。
     do:
@@ -249,15 +514,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.deities.jiu_di
   system: qimen
   section: use_gods
   topic: deities.jiu_di
   when:
-    path: palaces[*].deity
-    eq: jiu_di
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: jiu_di
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: jiu_di
   weight: 25
   polarity: neutral
   tags:
@@ -291,15 +600,59 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: qimen.deities.jiu_tian
   system: qimen
   section: use_gods
   topic: deities.jiu_tian
   when:
-    path: palaces[*].deity
-    eq: jiu_tian
+    any:
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 1
+          - path: palaces[index=1].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 2
+          - path: palaces[index=2].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 3
+          - path: palaces[index=3].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 4
+          - path: palaces[index=4].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 5
+          - path: palaces[index=5].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 6
+          - path: palaces[index=6].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 7
+          - path: palaces[index=7].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 8
+          - path: palaces[index=8].deity
+            eq: jiu_tian
+      - all:
+          - path: useGods[*].palaceIndex
+            eq: 9
+          - path: palaces[index=9].deity
+            eq: jiu_tian
   weight: 25
   polarity: neutral
   tags:
@@ -333,5 +686,5 @@
   meta:
     author: t23-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published

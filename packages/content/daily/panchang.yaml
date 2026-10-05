@@ -15,7 +15,7 @@
   zh:
     title: 你可以先了解月日的时间口径。
     summary: 你可以先了解月日的时间口径。
-    body: 你可以先了解月日的时间口径。月日（五要素历 五要素日历中的月日标记）描述当天一种历法关系。日月黄经差每十二度分为一段，描述月亮相对太阳的进度。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
+    body: 你可以先了解月日的时间口径。月日（印度传统五要素日历中的月日标记）描述当天一种历法关系。日月黄经差每十二度分为一段，描述月亮相对太阳的进度。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
     advice:
       - 先看定义，再看当地时间。
     do:
@@ -26,15 +26,16 @@
     title: Learn the Tithi calendar measure.
     summary: Learn the Tithi calendar measure.
     body:
-      You can begin by learning what Tithi measures and which time boundary it uses. It is one part of
-      Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It divides the Sun–Moon
-      longitude difference into twelve-degree sectors, describing lunar progress relative to the Sun. Location
-      and time zone matter for sunrise and transitions, and more than one sector may occur during a civil day.
-      For example, choose a quiet reading period from your actual schedule before treating the calendar as
-      optional cultural context. Consider observing one ordinary activity around a listed transition, recording
-      the experience without assuming the symbol caused it. If a birthplace is being used as an approximation
-      of your current location, leave room around the timing as well. You can learn the labels gradually and
-      check a definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular
+      You can begin by learning what Tithi measures and which time boundary it uses. It is one part
+      of Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It divides the
+      Sun–Moon longitude difference into twelve-degree sectors, describing lunar progress relative
+      to the Sun. Location and time zone matter for sunrise and transitions, and more than one
+      sector may occur during a civil day. For example, choose a quiet reading period from your
+      actual schedule before treating the calendar as optional cultural context. Consider observing
+      one ordinary activity around a listed transition, recording the experience without assuming
+      the symbol caused it. If a birthplace is being used as an approximation of your current
+      location, leave room around the timing as well. You can learn the labels gradually and check a
+      definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular
       calendar sector.
     advice:
       - Read the definition before applying the time.
@@ -45,7 +46,7 @@
   meta:
     author: t23-daily-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: daily.panchang.nakshatra
   system: daily
@@ -63,7 +64,7 @@
   zh:
     title: 你可以先了解星宿的时间口径。
     summary: 你可以先了解星宿的时间口径。
-    body: 你可以先了解星宿的时间口径。星宿（五要素历 五要素日历中的星宿标记）描述当天一种历法关系。月亮所在的恒星黄道区段采用二十七等分，与西方十二星座的划分不同。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
+    body: 你可以先了解星宿的时间口径。星宿（印度传统五要素日历中的星宿标记）描述当天一种历法关系。月亮所在的恒星黄道区段采用二十七等分，与西方十二星座的划分不同。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
     advice:
       - 先看定义，再看当地时间。
     do:
@@ -74,15 +75,17 @@
     title: Learn the Nakshatra calendar measure.
     summary: Learn the Nakshatra calendar measure.
     body:
-      You can begin by learning what Nakshatra measures and which time boundary it uses. It is one part
-      of Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It locates the Moon within
-      one of twenty-seven equal sidereal sectors, distinct from the twelve zodiac signs. Location and time
-      zone matter for sunrise and transitions, and more than one sector may occur during a civil day. For example,
-      choose a quiet reading period from your actual schedule before treating the calendar as optional cultural
-      context. Consider observing one ordinary activity around a listed transition, recording the experience
-      without assuming the symbol caused it. If a birthplace is being used as an approximation of your current
-      location, leave room around the timing as well. You can learn the labels gradually and check a definition
-      whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular calendar sector.
+      You can begin by learning what Nakshatra measures and which time boundary it uses. It is one
+      part of Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It
+      locates the Moon within one of twenty-seven equal sidereal sectors, distinct from the twelve
+      zodiac signs. Location and time zone matter for sunrise and transitions, and more than one
+      sector may occur during a civil day. For example, choose a quiet reading period from your
+      actual schedule before treating the calendar as optional cultural context. Consider observing
+      one ordinary activity around a listed transition, recording the experience without assuming
+      the symbol caused it. If a birthplace is being used as an approximation of your current
+      location, leave room around the timing as well. You can learn the labels gradually and check a
+      definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular
+      calendar sector.
     advice:
       - Read the definition before applying the time.
     do:
@@ -92,7 +95,7 @@
   meta:
     author: t23-daily-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: daily.panchang.yoga
   system: daily
@@ -110,7 +113,7 @@
   zh:
     title: 你可以先了解瑜伽的时间口径。
     summary: 你可以先了解瑜伽的时间口径。
-    body: 你可以先了解瑜伽的时间口径。瑜伽（五要素历 五要素日历中的瑜伽标记）描述当天一种历法关系。日月黄经和分成二十七段，作为历法组合标记，并不是身体练习。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
+    body: 你可以先了解瑜伽的时间口径。瑜伽（印度传统五要素日历中的瑜伽标记）描述当天一种历法关系。日月黄经和分成二十七段，作为历法组合标记，并不是身体练习。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
     advice:
       - 先看定义，再看当地时间。
     do:
@@ -121,16 +124,17 @@
     title: Learn the Yoga calendar measure.
     summary: Learn the Yoga calendar measure.
     body:
-      You can begin by learning what Yoga measures and which time boundary it uses. It is one part of Panchang,
-      a five-part Vedic calendar, rather than a personal outcome rating. It groups the sum of solar and lunar
-      longitudes into twenty-seven sectors; this calendar label is distinct from physical exercise. Location
-      and time zone matter for sunrise and transitions, and more than one sector may occur during a civil day.
-      For example, choose a quiet reading period from your actual schedule before treating the calendar as
-      optional cultural context. Consider observing one ordinary activity around a listed transition, recording
-      the experience without assuming the symbol caused it. If a birthplace is being used as an approximation
-      of your current location, leave room around the timing as well. You can learn the labels gradually and
-      check a definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular
-      calendar sector.
+      You can begin by learning what Yoga measures and which time boundary it uses. It is one part
+      of Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It groups the
+      sum of solar and lunar longitudes into twenty-seven sectors; this calendar label is distinct
+      from physical exercise. Location and time zone matter for sunrise and transitions, and more
+      than one sector may occur during a civil day. For example, choose a quiet reading period from
+      your actual schedule before treating the calendar as optional cultural context. Consider
+      observing one ordinary activity around a listed transition, recording the experience without
+      assuming the symbol caused it. If a birthplace is being used as an approximation of your
+      current location, leave room around the timing as well. You can learn the labels gradually and
+      check a definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a
+      particular calendar sector.
     advice:
       - Read the definition before applying the time.
     do:
@@ -140,7 +144,7 @@
   meta:
     author: t23-daily-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: daily.panchang.karana
   system: daily
@@ -158,7 +162,7 @@
   zh:
     title: 你可以先了解半日的时间口径。
     summary: 你可以先了解半日的时间口径。
-    body: 你可以先了解半日的时间口径。半日（五要素历 五要素日历中的半日标记）描述当天一种历法关系。它是半个印度月日的角度段，因此长度随日月运动变化，不等于十二小时。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
+    body: 你可以先了解半日的时间口径。半日（印度传统五要素日历中的半日标记）描述当天一种历法关系。它是半个印度月日的角度段，因此长度随日月运动变化，不等于十二小时。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
     advice:
       - 先看定义，再看当地时间。
     do:
@@ -169,15 +173,16 @@
     title: Learn the Karana calendar measure.
     summary: Learn the Karana calendar measure.
     body:
-      You can begin by learning what Karana measures and which time boundary it uses. It is one part of
-      Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It is half a Tithi sector,
-      so its duration follows the changing Sun–Moon relationship rather than a fixed twelve hours. Location
-      and time zone matter for sunrise and transitions, and more than one sector may occur during a civil day.
-      For example, choose a quiet reading period from your actual schedule before treating the calendar as
-      optional cultural context. Consider observing one ordinary activity around a listed transition, recording
-      the experience without assuming the symbol caused it. If a birthplace is being used as an approximation
-      of your current location, leave room around the timing as well. You can learn the labels gradually and
-      check a definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular
+      You can begin by learning what Karana measures and which time boundary it uses. It is one part
+      of Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It is half a
+      Tithi sector, so its duration follows the changing Sun–Moon relationship rather than a fixed
+      twelve hours. Location and time zone matter for sunrise and transitions, and more than one
+      sector may occur during a civil day. For example, choose a quiet reading period from your
+      actual schedule before treating the calendar as optional cultural context. Consider observing
+      one ordinary activity around a listed transition, recording the experience without assuming
+      the symbol caused it. If a birthplace is being used as an approximation of your current
+      location, leave room around the timing as well. You can learn the labels gradually and check a
+      definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular
       calendar sector.
     advice:
       - Read the definition before applying the time.
@@ -188,7 +193,7 @@
   meta:
     author: t23-daily-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: daily.panchang.vara
   system: daily
@@ -206,7 +211,7 @@
   zh:
     title: 你可以先了解星期的时间口径。
     summary: 你可以先了解星期的时间口径。
-    body: 你可以先了解星期的时间口径。星期（五要素历 五要素日历中的星期标记）描述当天一种历法关系。它按地点日出划分传统星期，日出前后与民用午夜日界可能不同。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
+    body: 你可以先了解星期的时间口径。星期（印度传统五要素日历中的星期标记）描述当天一种历法关系。它按地点日出划分传统星期，日出前后与民用午夜日界可能不同。这些名称帮助你认识传统计算方式，不替你判断重要安排的价值。地点与时区会影响日出或交接时刻，同一天也可能跨过多个区段。比如你想安排阅读，可以先确认现实里安静且有空的时间，再把历法信息作为文化背景。建议只观察一个交接前后的日常片段，记录真实感受，不急着把不同体验归因于符号。若出生地被用作当前位置近似，时刻也应保留相应余地。你可以逐项学习，遇到陌生名称先查看术语卡，不必机械等待某个区段才开始普通任务。
     advice:
       - 先看定义，再看当地时间。
     do:
@@ -217,15 +222,17 @@
     title: Learn the Vara calendar measure.
     summary: Learn the Vara calendar measure.
     body:
-      You can begin by learning what Vara measures and which time boundary it uses. It is one part of Panchang,
-      a five-part Vedic calendar, rather than a personal outcome rating. It identifies a traditional weekday
-      using local sunrise, which can differ from the civil boundary at midnight. Location and time zone matter
-      for sunrise and transitions, and more than one sector may occur during a civil day. For example, choose
-      a quiet reading period from your actual schedule before treating the calendar as optional cultural context.
-      Consider observing one ordinary activity around a listed transition, recording the experience without
-      assuming the symbol caused it. If a birthplace is being used as an approximation of your current location,
-      leave room around the timing as well. You can learn the labels gradually and check a definition whenever
-      a name is unfamiliar. Ordinary tasks do not need to wait for a particular calendar sector.
+      You can begin by learning what Vara measures and which time boundary it uses. It is one part
+      of Panchang, a five-part Vedic calendar, rather than a personal outcome rating. It identifies
+      a traditional weekday using local sunrise, which can differ from the civil boundary at
+      midnight. Location and time zone matter for sunrise and transitions, and more than one sector
+      may occur during a civil day. For example, choose a quiet reading period from your actual
+      schedule before treating the calendar as optional cultural context. Consider observing one
+      ordinary activity around a listed transition, recording the experience without assuming the
+      symbol caused it. If a birthplace is being used as an approximation of your current location,
+      leave room around the timing as well. You can learn the labels gradually and check a
+      definition whenever a name is unfamiliar. Ordinary tasks do not need to wait for a particular
+      calendar sector.
     advice:
       - Read the definition before applying the time.
     do:
@@ -235,5 +242,5 @@
   meta:
     author: t23-daily-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
