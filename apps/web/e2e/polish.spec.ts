@@ -430,7 +430,10 @@ for (const locale of ['en', 'zh'] as const) {
     ).toBeDisabled();
     const row = await seed(user.id, 'bazi', locale);
     await page.goto(`/${locale}/bazi/r/${row.id}`);
-    await expect(page.locator('.login-link')).toHaveAttribute('href', `/${locale}/me`);
+    await expect(
+      page.getByRole('button', { name: copy['profiles.switch'], exact: true }),
+    ).toBeVisible();
+    await expect(page.locator('.login-link')).toHaveCount(0);
     await page.getByRole('button', { name: copy['report.share'], exact: true }).click();
     const dialog = page.getByRole('dialog');
     await dialog

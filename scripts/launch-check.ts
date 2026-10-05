@@ -12,7 +12,7 @@ import {
   VedicChartSchema,
   type System,
 } from '../packages/shared/src';
-import { compute, normalizeBirth } from '../packages/engine/src';
+import { compute, normalizeBirth, ENGINE_VERSION } from '../packages/engine/src';
 import { interpret, systemConfigs, expandTerms } from '../packages/interpret/src';
 import type { KnowledgeBundle } from '../packages/content/src';
 import { banned } from '../packages/content/scripts/validation';
@@ -42,8 +42,30 @@ const birth = BirthInputSchema.parse(
 );
 const normalized = normalizeBirth(birth);
 const now = '2026-10-04T00:00:00Z';
-const systems: System[] = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'];
+const systems: System[] = [
+  'bazi',
+  'ziwei',
+  'iching',
+  'qimen',
+  'tarot',
+  'astrology',
+  'vedic',
+  'numerology',
+];
 await check('I18N/glossary', async () => {
+  for (const locale of ['zh', 'en'] as const) {
+    const catalog = z
+      .record(z.string())
+      .parse(JSON.parse(await readFile(`apps/web/messages/${locale}.json`, 'utf8')));
+    for (const target of ['zh', 'en', 'zh-TW']) {
+      const label = catalog[`nav.locale.${target}`];
+      assert.ok(label, `Missing ${locale} language name for ${target}`);
+      assert.ok(
+        locale === 'en' ? !/\p{Script=Han}/u.test(label) : !/[A-Za-z]{2,}/.test(label),
+        `Untranslated ${locale} language name: ${label}`,
+      );
+    }
+  }
   const entries = new Map<string, KnowledgeBundle['glossary'][number]>();
   for (const system of [...systems, 'daily']) {
     const bundle = JSON.parse(
@@ -58,7 +80,7 @@ await check('I18N/glossary', async () => {
       assert.ok(!/\p{Script=Han}/u.test(entry.en[field]), `Chinese glossary ${entry.key}.${field}`);
     }
   }
-  return `${entries.size} bilingual term/short/long definitions checked`;
+  return `${entries.size} bilingual term/short/long definitions and localized language names checked`;
 });
 await check('VISUAL/config', async () => {
   const config = await readFile('playwright.config.ts', 'utf8');
@@ -68,6 +90,27 @@ await check('VISUAL/config', async () => {
     .object({ scripts: z.record(z.string()) })
     .parse(JSON.parse(await readFile('package.json', 'utf8'))).scripts;
   assert.ok(scripts['test:e2e']?.includes('pnpm test:polish'), 'Full E2E must run polish checks');
+  assert.ok(
+    scripts['test:numerology:e2e']?.startsWith('pnpm build &&'),
+    'Production numerology must rebuild after the chat dev suite',
+  );
+  // DESIGN-GAP: Dedicated service suites must be registered in the full command and excluded from the credential-free dev run; inspect every literal testMatch to catch newly merged suites.
+  for (const file of (await readdir('.')).filter((name) =>
+    /^playwright\..+\.config\.ts$/.test(name),
+  )) {
+    const suite = await readFile(file, 'utf8');
+    const matches = suite.match(/testMatch:\s*(?:\[[\s\S]*?\]|'[^']+')/)?.[0];
+    assert.ok(matches, `Missing explicit testMatch in ${file}`);
+    for (const match of matches.matchAll(/'([^']+\.spec\.ts)'/g))
+      assert.ok(config.includes(`'${match[1]}'`), `${match[1]} must be excluded from dev suite`);
+    assert.ok(
+      Object.entries(scripts).some(
+        ([name, command]) =>
+          command.includes(`--config ${file}`) && scripts['test:e2e']?.includes(`pnpm ${name}`),
+      ),
+      `${file} must run in test:e2e`,
+    );
+  }
   const snapshots = (await readdir('apps/web/e2e', { recursive: true })).filter((p) =>
     p.endsWith('.png'),
   );
@@ -124,7 +167,7 @@ for (const system of systems)
         chart,
         locale,
         knowledge,
-        context: { now, profileHasTime: true },
+        context: { now, profileHasTime: true, engineVersion: ENGINE_VERSION },
       });
       // DESIGN-GAP: Retain generated acceptance reports outside tracked source so failed checks remain inspectable without storing user data.
       await mkdir('.launch-check/reports', { recursive: true });
@@ -192,6 +235,13 @@ for (const system of systems)
             .join(', ')}`,
         );
       assert.ok(report.readability.passed, JSON.stringify(report.readability));
+      const divination = ['iching', 'qimen', 'tarot'].includes(system);
+      assert.ok(
+        locale === 'zh'
+          ? report.readability.zhChars >= (divination ? 1200 : 2500)
+          : report.readability.enWords >= (divination ? 900 : 1800),
+        'Report must meet docs/05 §7 minimum independently of readability.passed',
+      );
       const share = JSON.stringify(projectShare(system, chart, report, 'chart', 0));
       assert.ok(
         !/1990-05-15|08:30|39\.9|116\.4|Beijing/.test(share),
@@ -269,13 +319,18 @@ await check('SEC-3', () => {
 // DESIGN-GAP: Vercel uses apps/web as project root; deployment resources must be present in Next.js file traces, and cron config must live at that app root.
 await check('DEPLOY/config', async () => {
   const worker = z
-    .object({ url: z.string().regex(/^\/workers\/br\/daily-[a-f0-9]{16}\.js$/) })
+    .object({
+      url: z.string().regex(/^\/workers\/br\/daily-[a-f0-9]{16}\.js$/),
+      traditionalUrl: z.string().regex(/^\/workers\/br\/daily-[a-f0-9]{16}\.js$/),
+    })
     .parse(JSON.parse(await readFile('apps/web/lib/daily-worker-asset.json', 'utf8')));
-  const compressed = await readFile(`apps/web/public${worker.url}`);
-  const bytes = brotliDecompressSync(compressed);
-  assert.deepEqual(bytes, await readFile(`apps/web/public${worker.url.replace('/br/', '/')}`));
-  assert.ok(compressed.byteLength < bytes.byteLength);
-  assert.ok(worker.url.includes(createHash('sha256').update(bytes).digest('hex').slice(0, 16)));
+  for (const url of [worker.url, worker.traditionalUrl]) {
+    const compressed = await readFile(`apps/web/public${url}`);
+    const bytes = brotliDecompressSync(compressed);
+    assert.deepEqual(bytes, await readFile(`apps/web/public${url.replace('/br/', '/')}`));
+    assert.ok(compressed.byteLength < bytes.byteLength);
+    assert.ok(url.includes(createHash('sha256').update(bytes).digest('hex').slice(0, 16)));
+  }
   const config = z
     .object({
       crons: z.array(z.object({ path: z.string(), schedule: z.string() })),

@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { createTranslator } from 'next-intl';
 import { brand } from '@tianji/shared/brand';
 import { toMessages } from '../i18n/catalog';
+import { systems } from '../lib/system-links';
 async function main() {
   const root = pathToFileURL(process.cwd() + '/public/');
   const formatting = (await resolveConfig(process.cwd() + '/scripts/pwa-assets.ts')) ?? {};
@@ -35,7 +36,6 @@ async function main() {
     ) as Record<string, string>;
     const translator = createTranslator({ locale, messages: toMessages(catalog) });
     const t = (key: string) => escape(translator(key));
-    const systems = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'];
     await writeFile(
       new URL(`offline/${locale}.html`, root),
       `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#05070f"><title>${escape(brand.nameZh)} · ${escape(brand.nameEn)}</title><link rel="icon" href="/icons/icon-192.png"><link rel="stylesheet" href="/fonts/fonts.css"><link rel="stylesheet" href="/offline/style.css"></head><body><main><section class="hero"><p>${t('home.eyebrow')}</p><h1>${escape(brand.nameZh)}<small>${escape(brand.nameEn)}</small></h1><p>${t('brand.tagline')}</p><aside role="status"><h2>${t('pwa.offline.title')}</h2><p>${t('pwa.offline.body')}</p><a href="/${locale}">${t('pwa.offline.retry')}</a></aside><a href="#systems">${t('home.cta.start')} ↓</a></section><section id="systems"><h2>${t('home.cards.title')}</h2><div class="cards">${systems.map((system) => `<a href="/${locale}/${system}"><h3>${t('nav.' + system)}</h3><p>${t(system + '.placeholder')}</p></a>`).join('')}</div></section><section><h2>${t('home.how.title')}</h2><ol>${['chart', 'knowledge', 'report'].map((step) => `<li><h3>${t('home.how.' + step + '.title')}</h3><p>${t('home.how.' + step + '.body')}</p></li>`).join('')}</ol></section></main><footer><p>${t('report.disclaimer.short')}</p><a href="/${locale !== 'en' ? 'en' : 'zh'}">${t(locale !== 'en' ? 'nav.locale.en' : 'nav.locale.zh')}</a></footer></body></html>`,
@@ -49,6 +49,7 @@ async function main() {
   for (const [file, parser] of [
     ['offline/zh.html', 'html'],
     ['offline/en.html', 'html'],
+    ['offline/zh-TW.html', 'html'],
     ['offline/style.css', 'css'],
   ] as const) {
     const path = new URL(file, root);
@@ -58,6 +59,7 @@ async function main() {
   for (const file of [
     'offline/zh.html',
     'offline/en.html',
+    'offline/zh-TW.html',
     'offline/style.css',
     'fonts/fonts.css',
     'fonts/fonts-body.css',

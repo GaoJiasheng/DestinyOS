@@ -4,7 +4,7 @@
 
 ## 本次部署检查
 
-2026-10-05：实际执行 Vercel CLI 62.2.0 `whoami`，返回 **Logged out**（退出码 1）；`link --help` 可用。
+2026-10-05 初查、2026-10-06 复查：实际执行 Vercel CLI 62.2.0 `whoami`，返回 **Logged out**（退出码 1）；`link --help` 可用。
 因此没有创建项目、没有部署 Preview，Preview URL：**未生成**。Owner 按下面步骤完成账号与生产服务配置。
 本地自动验收与外部发布门槛分别记录，不能把本地替身验证当成真实 Google、Stripe 或 AdSense 审核。
 
@@ -46,9 +46,14 @@
 | 支付选项  | `STRIPE_TAX_ENABLED=false` 直到配置完成；`STRIPE_MONTHLY_CENTS=299`、`STRIPE_YEARLY_CENTS=2499` 是创建产品脚本选项                                                                                                 |
 | 广告      | `NEXT_PUBLIC_ADSENSE_CLIENT`、`NEXT_PUBLIC_ADSENSE_SLOT_HOME`、`NEXT_PUBLIC_ADSENSE_SLOT_REPORT_TOP`、`NEXT_PUBLIC_ADSENSE_SLOT_REPORT_BOTTOM`、`NEXT_PUBLIC_ADSENSE_SLOT_TODAY`、`NEXT_PUBLIC_ADSENSE_SLOT_LEARN` |
 | 公开配置  | `NEXT_PUBLIC_SITE_URL=https://tianji.gavin.pub`（Preview 改实际 URL）、`NEXT_PUBLIC_DEFAULT_LOCALE=zh`                                                                                                             |
-| 功能      | `FEATURE_ADS=true`、`FEATURE_LLM_POLISH=false`；一期运行时不调用 LLM                                                                                                                                               |
+| 功能      | `FEATURE_ADS=true`、`FEATURE_LLM_POLISH=false`；核心报告使用规则引擎；可选 B-05 `FEATURE_LLM_CHAT=false`                                                                                                           |
 | 管理/法律 | `ADMIN_EMAILS`、`PRIVACY_CONTROLLER_NAME`、`PRIVACY_CONTACT_EMAIL`                                                                                                                                                 |
 | 监控/定时 | `SENTRY_DSN`、可选 `NEXT_PUBLIC_SENTRY_DSN`、`CRON_SECRET`                                                                                                                                                         |
+
+附加功能变量（均已列入 `.env.example`）：
+
+- PDF/PNG 导出：生产启用导出时配置 `BLOB_READ_WRITE_TOKEN` 并使用私有 Vercel Blob，确保不同函数实例能下载同一产物；本地未配置时使用临时目录。Preview 保护启用时设置服务端 `VERCEL_AUTOMATION_BYPASS_SECRET`。
+- 可选 AI 追问：`MINIMAX_API_KEY`、`MINIMAX_BASE_URL`、`MINIMAX_MODEL`；端点和模型须与账户匹配。默认关闭 `FEATURE_LLM_CHAT`，开启前复核去 PII 边界与付费用量；核心报告保持离线规则生成。
 
 单独生成 AUTH_SECRET、CRON_SECRET：每次运行 `openssl rand -base64 32`，不要复用字段加密密钥。
 生成 FIELD_ENCRYPTION_KEYS（在自己的安全终端执行，将结果直接存入秘密管理）：
@@ -91,26 +96,26 @@ pnpm launch:check --full
 完整上线脚本实际调用 `pnpm test:e2e`（包含本地 dev server 与隔离生产服务器套件及 24 项 polish）及移动 Lighthouse CI。
 性能命令先检查首页/Three.js gzip 预算（180/220KiB），再验证中英双语、桌面/移动端每日真实内容与离线计算，防止空内容被误记为高分。
 首页、today、八字完整报告各 3 次：取最差 Performance ≥85、Accessibility ≥90；产物在 `.lighthouseci/reports/`。
-脚本另检查七体系 Fixture A 双语篇幅/章节/禁词/占位符/语言、无时辰、AAD/用户绑定、1000 行日志和 Sentry PII，以及逐条 PRD/安全门槛。
-结果输出“通过/未通过”，完整 JSON 在 `.launch-check/results.json`；快速模式未运行浏览器项会明确显示未验证；JSON 还记录运行时间、Node 版本、模式与 local/external 分类，14 份 Fixture A 报告留存在 `.launch-check/reports/`。
+脚本另检查原七体系及生命灵数 Fixture A 双语篇幅/章节/禁词/占位符/语言、无时辰、AAD/用户绑定、1000 行日志和 Sentry PII，以及逐条 PRD/安全门槛。
+结果输出“通过/未通过”，完整 JSON 在 `.launch-check/results.json`；快速模式未运行浏览器项会明确显示未验证；JSON 还记录运行时间、Node 版本、模式与 local/external 分类，16 份 Fixture A 报告留存在 `.launch-check/reports/`。
 `--release` 将任何外部门槛未通过也视为非零退出，不会仅凭本地成功声明可以公开上线。
 语言扫描保留文档要求的古文原文、拼音、品牌/署名/技术缩写；正常界面、报告正文和命盘标签仍须本地化。
 
-## 本次本地验证结果（2026-10-05）
+## 本次本地验证结果（2026-10-05–06）
 
 最终使用 Node.js 22.23.3 / pnpm 9.15.9；安装、lint、typecheck、test、content:validate、i18n:check、build、`launch:check --full` 均退出 0；许可证与安全策略检查通过。
-单元测试 57 文件 / 1213 项，行覆盖率 99.95%、分支 99.07%；完整 `test:e2e` 221 项通过，性能前置真实内容/离线检查另 4 项通过。
-32 项本地验收门槛全部通过，另 4 项外部门槛未通过。Fixture A 七体系共 14 份双语报告，篇幅、章节、占位符、禁词和语言检查全部通过；详细字数见 `docs/progress/T-64.md`。
+单元测试 82 文件 / 3556 项，行覆盖率 99.85%、分支 98.87%；完整 `test:e2e` 264 项通过，性能前置真实内容/离线检查另 4 项通过。
+34 项本地验收门槛全部通过，另 4 项外部门槛未通过。Fixture A 原七体系加生命灵数共 16 份双语报告，篇幅、章节、占位符、禁词和语言检查全部通过；详细字数见 `docs/progress/T-64.md`。
 以下是各页面三次移动 Lighthouse 的最差值，使用完整报告，阈值保持 Performance ≥85、Accessibility ≥90：
 
 | 页面         | Performance | Accessibility |
 | ------------ | ----------: | ------------: |
-| 首页         |          99 |           100 |
-| today        |          88 |           100 |
-| 八字完整报告 |         100 |           100 |
+| 首页         |         100 |           100 |
+| today        |          93 |           100 |
+| 八字完整报告 |          99 |           100 |
 
 最终结果为 `.launch-check/results.json`，性能产物为 `.lighthouseci/reports/manifest.json`；这四项外部门槛明确显示未通过：真实 Google 重登、OAuth consent 链接、生产 CSP enforce、Owner 服务/审核/恢复证据。
-本轮修复开发 CSP 告警洪泛、首页加密存储按需加载、英文专业表拆字与流式渲染探针；生产 CSP 保持原策略，像素阈值不变。
+本轮修复新增隔离套件注册、九入口离线首页、语言导航等待、多档案缓存探针、每日摘要术语标记和生命灵数缺省/术语文案；每日 Worker 按语言拆分繁体字典，三语言压缩产物与纯计算结果一致。首页截图遵循 09 §11 的 0.5% 容差。
 失败 E2E 的截图与 trace 在后续性能预检前复制至 `.launch-check/browser-failure-*`，避免排错证据被覆盖。
 
 ## 仍需发布证据

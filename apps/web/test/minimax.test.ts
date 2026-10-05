@@ -131,23 +131,32 @@ it.skipIf(!smokeEnv.MINIMAX_API_KEY)(
     vi.stubEnv('MINIMAX_API_KEY', smokeEnv.MINIMAX_API_KEY);
     vi.stubEnv('MINIMAX_BASE_URL', smokeEnv.MINIMAX_BASE_URL ?? 'https://api.minimax.io/v1');
     vi.stubEnv('MINIMAX_MODEL', smokeEnv.MINIMAX_MODEL ?? 'MiniMax-M2.5');
-    const events: LlmEvent[] = [];
-    for await (const event of streamMiniMax([
-      {
-        role: 'system',
-        content:
-          'Use only these synthetic symbolic elements: wood and water. Reply with one brief sentence in Chinese and one in English. No personal information or professional advice.',
-      },
-      { role: 'user', content: 'Give a gentle reflection.' },
-    ]))
-      events.push(event);
-    const content = events
-      .filter((event) => event.type === 'delta')
-      .map((event) => event.text)
-      .join('');
-    expect(content).toMatch(/\p{Script=Han}/u);
-    expect(content).toMatch(/[a-zA-Z]/);
-    expect(events.some((event) => event.type === 'usage')).toBe(true);
+    // DESIGN-GAP: Probe each locale independently, matching the app's per-locale conversations; a mixed-language request can legitimately receive only the user's English language.
+    for (const locale of ['zh', 'en'] as const) {
+      const events: LlmEvent[] = [];
+      for await (const event of streamMiniMax([
+        {
+          role: 'system',
+          content:
+            'Use only these synthetic symbolic elements: wood and water. No personal information or professional advice. ' +
+            (locale === 'zh'
+              ? 'Reply only in Simplified Chinese with one brief sentence.'
+              : 'Reply only in English with one brief sentence.'),
+        },
+        {
+          role: 'user',
+          content: locale === 'zh' ? '请用中文给出一句温和的思考。' : 'Give a gentle reflection.',
+        },
+      ]))
+        events.push(event);
+      const content = events
+        .filter((event) => event.type === 'delta')
+        .map((event) => event.text)
+        .join('');
+      expect(content).toMatch(locale === 'zh' ? /\p{Script=Han}/u : /[a-zA-Z]/);
+      if (locale === 'en') expect(content).not.toMatch(/\p{Script=Han}/u);
+      expect(events.some((event) => event.type === 'usage')).toBe(true);
+    }
   },
   150000,
 );

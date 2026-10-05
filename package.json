@@ -56,7 +56,7 @@
     "test:polish": "NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-0000000000000000 NEXT_PUBLIC_ADSENSE_SLOT_HOME=1000000001 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_TOP=1000000002 NEXT_PUBLIC_ADSENSE_SLOT_REPORT_BOTTOM=1000000003 NEXT_PUBLIC_ADSENSE_SLOT_TODAY=1000000004 NEXT_PUBLIC_ADSENSE_SLOT_LEARN=1000000005 pnpm build && tsx scripts/polish-content-audit.ts && playwright test --config playwright.polish.config.ts",
     "test:export:e2e": "playwright test --config playwright.export.config.ts",
     "test:chat:e2e": "playwright test --config playwright.chat.config.ts",
-    "test:numerology:e2e": "playwright test --config playwright.numerology.config.ts",
+    "test:numerology:e2e": "pnpm build && playwright test --config playwright.numerology.config.ts",
     "test:rectification:e2e": "pnpm build && playwright test --config playwright.rectification.config.ts",
     "test:calendar:e2e": "playwright test --config playwright.calendar.config.ts",
     "i18n:traditional": "tsx scripts/i18n-traditional.ts",

@@ -1,21 +1,24 @@
 import type { DailyReport } from './daily-compute';
 import type { DailyWorkerRequest, DailyWorkerResponse } from './daily-worker-types';
 import asset from './daily-worker-asset.json';
+import type { Locale } from '@tianji/shared';
 
 /**
  * One isolated calculation, cancelled and terminated on navigation/date/profile changes.
  * @param request Authenticated profile/date input, or its pending device decryption.
  * @param signal Cancellation when the view's date, profile or route changes.
+ * @param locale Known UI locale selects the smaller zh/en worker before device decryption; omission keeps the full converter for existing callers.
  */
 export function calculateDailyInWorker(
   request: DailyWorkerRequest | Promise<DailyWorkerRequest>,
   signal: AbortSignal,
+  locale: Locale = 'zh-TW',
 ): Promise<DailyReport> {
   if (signal.aborted) {
     void Promise.resolve(request).catch(() => undefined);
     return Promise.reject(new DOMException('Aborted', 'AbortError'));
   }
-  const worker = new Worker(asset.url);
+  const worker = new Worker(locale === 'zh-TW' ? asset.traditionalUrl : asset.url);
   return new Promise((resolve, reject) => {
     let finished = false;
     const finish = () => {

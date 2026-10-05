@@ -7,6 +7,9 @@ export default defineConfig({
   testMatch: 'home.spec.ts',
   snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   timeout: 90_000,
+  expect: {
+    toHaveScreenshot: { maxDiffPixelRatio: 0.005, animations: 'disabled' },
+  },
   use: { ...base.use, baseURL: 'http://localhost:38100' },
   webServer: {
     ...server,

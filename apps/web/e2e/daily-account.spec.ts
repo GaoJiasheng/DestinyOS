@@ -154,7 +154,9 @@ for (const locale of ['zh', 'en'] as const) {
     await page.goto(`/${locale}/today`);
     await expect(page.locator('[data-daily-block="10"] li')).toHaveCount(6);
     const expectedDont = await page.locator('[data-daily-block="10"] li').last().textContent();
-    const keys = await cache.keys(`daily:${user.id}:1:*:${locale}:*`);
+    const keys = await cache.keys(
+      `daily:${user.id}:${reading.profileId}:${reading.profileVersion}:*:${locale}:*`,
+    );
     expect(keys).toHaveLength(1);
     expect(await cache.ttl(keys[0]!)).toBeGreaterThan(0);
     await page.getByRole('button', { name: copy['report.share'], exact: true }).click();

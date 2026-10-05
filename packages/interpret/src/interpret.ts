@@ -199,6 +199,8 @@ export function interpret(input: InterpretInput): Report {
     return replace(text);
   };
   const display = (value: unknown): string => {
+    // DESIGN-GAP: Missing optional chart inputs remain null in replay data but use a bilingual reader-facing label in evidence.
+    if (value === null) return locale === 'zh' ? '未提供' : 'Not provided';
     // DESIGN-GAP: Boolean evidence denotes whether a chart predicate holds, displayed in the report locale rather than as raw code.
     if (typeof value === 'boolean')
       return locale === 'zh' ? (value ? '成立' : '不成立') : value ? 'Present' : 'Absent';

@@ -185,10 +185,14 @@ test('admin: 404, safe users, re-auth, draft→fixture→release→rollback, con
   await page.goto('/admin/config');
   await audit(page);
   await page
-    .getByLabel(copies.zh['admin.config.announcement'].replace('{locale}', '中文'))
+    .getByLabel(
+      copies.zh['admin.config.announcement'].replace('{locale}', copies.zh['me.language.zh']),
+    )
     .fill('M5 公告');
   await page
-    .getByLabel(copies.zh['admin.config.announcement'].replace('{locale}', 'English'))
+    .getByLabel(
+      copies.zh['admin.config.announcement'].replace('{locale}', copies.zh['me.language.en']),
+    )
     .fill('M5 announcement');
   await page.getByRole('button', { name: copies.zh['admin.config.save'], exact: true }).click();
   await expect(page.getByRole('status')).toHaveText(copies.zh['admin.saved']);

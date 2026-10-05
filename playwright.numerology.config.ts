@@ -2,6 +2,7 @@ import { defineConfig } from '@playwright/test';
 import base from './playwright.astrology.config';
 const server = Array.isArray(base.webServer) ? base.webServer[0] : base.webServer;
 /** Run the new bilingual system flow against an isolated production server and database. */
+// DESIGN-GAP: The full chain runs the chat dev server immediately before this production suite; its package command restores the production build before booting Next start.
 export default defineConfig({
   ...base,
   testMatch: 'numerology.spec.ts',

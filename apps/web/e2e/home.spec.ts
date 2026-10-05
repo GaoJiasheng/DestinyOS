@@ -6,6 +6,8 @@ import { normalizeBirth } from '@tianji/engine';
 import { baziReading } from '../test/fixtures/bazi-reading';
 import zh from '../messages/zh.json';
 import en from '../messages/en.json';
+import { System } from '@tianji/shared';
+const homeSystems = Object.values(System).filter((system) => system !== 'daily');
 test('WebGL2 unavailable retains CSS stars without reduced motion', async ({ page, context }) => {
   await context.setGeolocation({ latitude: 1.3521, longitude: 103.8198 });
   await context.grantPermissions(['geolocation']);
@@ -31,7 +33,12 @@ for (const locale of ['zh', 'en'] as const) {
     await page.goto(`/${locale}`);
     await expect(page.getByRole('heading', { name: copy['home.glimpse.sky'] })).toBeVisible();
     await expect(page.locator('.sky-facts')).not.toContainText('daily.');
-    await expect(page.locator('[data-home-system]')).toHaveCount(7);
+    await expect(page.locator('[data-home-system]')).toHaveCount(homeSystems.length);
+    expect(
+      await page
+        .locator('[data-home-system]')
+        .evaluateAll((cards) => cards.map((card) => card.getAttribute('data-home-system')).sort()),
+    ).toEqual([...homeSystems].sort());
     await expect(page.locator('[data-starfield-canvas]')).toHaveCount(0);
     await expect(page.locator('.stars-small')).toBeVisible();
     await page.getByRole('button', { name: copy['home.cta.start'], exact: true }).click();
@@ -48,6 +55,9 @@ for (const locale of ['zh', 'en'] as const) {
     await page.getByRole('button', { name: copy['pwa.install.action'], exact: true }).click();
     await expect(page.locator('.install-prompt')).toHaveCount(0);
     await page.evaluate(() => document.fonts.ready);
+    // DESIGN-GAP: The idle glyph loader can finish after document.fonts.ready; stabilize its actual selection before comparing merged homepage cards.
+    await page.waitForFunction(() => document.documentElement.dataset.fontsSettled === 'true');
+    await page.mouse.move(0, 0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
@@ -71,7 +81,9 @@ for (const locale of ['zh', 'en'] as const) {
     await context.setOffline(true);
     await page.goto(`/${locale}`);
     await expect(page.getByRole('heading', { name: copy['pwa.offline.title'] })).toBeVisible();
-    await expect(page.locator('.cards a')).toHaveCount(7);
+    await expect(page.locator('.cards a')).toHaveCount(homeSystems.length);
+    for (const system of homeSystems)
+      await expect(page.locator(`.cards a[href="/${locale}/${system}"]`)).toBeVisible();
   });
 }
 test('personal preview and report; lazy sky and natal 3D render without errors', async ({

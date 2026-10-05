@@ -101,7 +101,7 @@ export function TodayView({
         );
         return { profile: data?.profile ?? demo, date, tz: zone, seed, locale };
       });
-      const computed = await calculateDailyInWorker(input, controller.signal);
+      const computed = await calculateDailyInWorker(input, controller.signal, locale);
       const data = await device;
       if (active) {
         setValue(computed);
@@ -149,7 +149,11 @@ export function TodayView({
       .slice(0, 1)
       .map((b, i) =>
         b.type === 'paragraph' ? (
-          <p key={i}>{t('report.content', { text: dailyExcerpt(b.text, locale) })}</p>
+          <p key={i}>
+            {t('report.content', {
+              text: dailyExcerpt(b.text, locale, (key) => intl(`glossary.${key}.term`)),
+            })}
+          </p>
         ) : null,
       );
   };

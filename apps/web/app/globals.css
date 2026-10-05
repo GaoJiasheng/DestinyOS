@@ -573,8 +573,8 @@ html:lang(en) {
     grid-template-columns: repeat(5, 1fr);
     align-items: center;
     border-top: 1px solid var(--line-2);
-    background: var(--surface-glass);
-    backdrop-filter: blur(var(--glass-blur));
+    /* DESIGN-GAP: Fixed navigation uses the documented opaque card surface so bright scrolling content cannot lower caption contrast. */
+    background: var(--surface-1);
   }
   .mobile-tabs > a,
   .mobile-tabs > button {

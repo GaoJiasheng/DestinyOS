@@ -2,6 +2,13 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './apps/web/e2e',
   testIgnore: [
+    // DESIGN-GAP: Merged feature suites seed private data and require their dedicated isolated-service configs, just like the original auth/report suites.
+    'export.spec.ts',
+    'chat.spec.ts',
+    'numerology.spec.ts',
+    'rectification.spec.ts',
+    'calendar.spec.ts',
+    'synastry.spec.ts',
     'zhtw.spec.ts',
     'auth.spec.ts',
     'readings.spec.ts',

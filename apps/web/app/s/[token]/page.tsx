@@ -65,6 +65,8 @@ export default async function SharePage({
             key={locale}
             href={`/s/${token}?locale=${locale}`}
             hrefLang={locale}
+            // DESIGN-GAP: Language names follow the active UI copy, while hrefLang identifies the separate destination language.
+            lang={share.locale}
             aria-current={locale === share.locale ? 'page' : undefined}
           >
             {copy(`nav.locale.${locale}`)}

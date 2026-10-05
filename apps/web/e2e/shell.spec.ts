@@ -30,10 +30,15 @@ for (const locale of ['zh', 'en'] as const) {
       .first()
       .selectOption(locale === 'zh' ? 'en' : 'zh');
     await expect(page).toHaveURL(new RegExp(`/${locale === 'zh' ? 'en' : 'zh'}$`));
-    const cookies = await page.context().cookies();
-    expect(cookies.find((cookie) => cookie.name === 'NEXT_LOCALE')?.value).toBe(
-      locale === 'zh' ? 'en' : 'zh',
-    );
+    const next = locale === 'zh' ? 'en' : 'zh';
+    // DESIGN-GAP: A full locale navigation changes the address before the new document and middleware cookie arrive; assert the settled language and persisted preference together.
+    await expect(page.locator('html')).toHaveAttribute('lang', next);
+    await expect
+      .poll(
+        async () =>
+          (await page.context().cookies()).find((cookie) => cookie.name === 'NEXT_LOCALE')?.value,
+      )
+      .toBe(next);
   });
   test(`${locale}: token gallery, theme lock, chip, and accessibility`, async ({
     page,

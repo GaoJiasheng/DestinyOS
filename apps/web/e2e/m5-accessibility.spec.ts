@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 import { audit, auditLocale, login, db, seedReading, copies } from './m5-helpers';
 const publicPaths = [
   '',
@@ -96,3 +97,33 @@ for (const locale of ['zh', 'en'] as const) {
     await db.$disconnect();
   });
 }
+
+for (const locale of ['zh', 'en'] as const)
+  test(`${locale}: fixed mobile navigation retains contrast over bright content`, async ({
+    page,
+  }) => {
+    await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
+    await page.goto(`/${locale}/pricing`);
+    await expect(page.locator('.mobile-tabs')).toBeVisible();
+    await page.evaluate(() => {
+      const content = document.createElement('div');
+      content.setAttribute('aria-hidden', 'true');
+      Object.assign(content.style, {
+        position: 'fixed',
+        bottom: '0',
+        left: '0',
+        right: '0',
+        height: '100px',
+        background: '#d4af6a',
+        zIndex: '29',
+        pointerEvents: 'none',
+      });
+      document.body.append(content);
+    });
+    const result = await new AxeBuilder({ page }).include('.mobile-tabs').analyze();
+    expect(
+      result.violations.filter(
+        (violation) => violation.impact === 'serious' || violation.impact === 'critical',
+      ),
+    ).toEqual([]);
+  });

@@ -57,6 +57,14 @@ it('provides 125 bilingual KUs and readable reports in all chapters across 500 v
       expect(
         report.sections.every((s) => s.lead && s.blocks.some((b) => b.type === 'paragraph')),
       ).toBe(true);
+      const evidence = report.sections.flatMap((section) =>
+        section.blocks.flatMap((block) => (block.type === 'evidence' ? block.items : [])),
+      );
+      expect(evidence.some((item) => item.value === 'null' || item.label === 'null')).toBe(false);
+      if (!chart.nameNumbers)
+        expect(
+          evidence.some((item) => item.value === (locale === 'zh' ? '未提供' : 'Not provided')),
+        ).toBe(true);
       if (chart.nameNumbers)
         expect(report.hits.some((h) => h.unitId === 'numerology.name_missing')).toBe(false);
     }
