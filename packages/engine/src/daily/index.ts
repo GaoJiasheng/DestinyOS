@@ -89,65 +89,17 @@ export function dailyDateAt(instant: string, tz: string): DailyInput['date'] {
 export function computeDaily(raw: DailyInput, rawOptions: DailyOptions = {}): DailyChart {
   const input = parseInput(DailyInputSchema, raw),
     options = parseInput(optionsSchema, rawOptions);
-  let noon: Temporal.ZonedDateTime;
-  try {
-    noon = Temporal.PlainDate.from(input.date.local).toZonedDateTime({
-      timeZone: input.date.tz,
-      plainTime: '12:00',
-    });
-    if (noon.toPlainDate().toString() !== input.date.local)
-      throw new EngineError('E_INVALID_INPUT');
-  } catch {
-    throw new EngineError('E_INVALID_INPUT');
-  }
-  if (noon.year < 1900 || noon.year > 2100) throw new EngineError('E_DATE_OUT_OF_RANGE');
-  const calendar = calendarAt(noon),
-    { day: flowDay, year: flowYear } = calendar.pillars;
-  const natal = input.baziChart,
-    todayElement = STEM_ELEMENTS[flowDay.stem];
-  const favorableHit = natal.useGod.favorable.includes(todayElement),
-    unfavorableHit = natal.useGod.unfavorable.includes(todayElement);
-  const relations: DailyChart['bazi']['branchRelations'] = (
-    ['day', 'year', 'month', 'hour'] as PillarKey[]
-  ).flatMap((pillar) => {
-    const p = natal.pillars[pillar];
-    return p ? branchRelations(flowDay.branch, p.branch).map((type) => ({ pillar, type })) : [];
-  });
-  const secondaryRelations: DailyChart['bazi']['secondaryRelations'] = [];
-  // DESIGN-GAP: Re-select the luck period at the target date instead of trusting cached isCurrent flags; intervals use exact startAge and the natal adjusted clock, not overlapping calendar-year bounds.
-  const luckStart = Temporal.PlainDateTime.from(
-    natal.solarTimeAdjust.adjusted ?? natal.solarTimeAdjust.original,
-  )
-    .add(natal.luck.startAge)
-    .toZonedDateTime(input.birth.local.tz);
-  const period = natal.luck.periods.find(
-    (_, i) =>
-      Temporal.ZonedDateTime.compare(noon, luckStart.add({ years: i * 10 })) >= 0 &&
-      Temporal.ZonedDateTime.compare(noon, luckStart.add({ years: (i + 1) * 10 })) < 0,
-  );
-  for (const [target, pair] of [
-    ['year', flowYear],
-    ['luck', period],
-  ] as const) {
-    if (!pair) continue;
-    for (const type of branchRelations(flowDay.branch, pair.branch))
-      if (type === 'clash' || type === 'combine')
-        secondaryRelations.push({ target, kind: 'branch', type });
-    for (const [type, groups] of [
-      ['clash', STEM_CLASHES],
-      ['combine', STEM_COMBINATIONS],
-    ] as const) {
-      if (
-        groups.some(
-          (group) =>
-            (group as readonly string[]).includes(flowDay.stem) &&
-            (group as readonly string[]).includes(pair.stem) &&
-            flowDay.stem !== pair.stem,
-        )
-      )
-        secondaryRelations.push({ target, kind: 'stem', type });
-    }
-  }
+  const {
+    noon,
+    calendar,
+    flowDay,
+    natal,
+    todayElement,
+    favorableHit,
+    unfavorableHit,
+    relations,
+    secondaryRelations,
+  } = dailyBaziContext(input);
   // DESIGN-GAP: Element balance is percentage of natal raw weights plus the daily stem (1) and hidden-stem weights (1/.5/.3), with no extra natal seasonal bonus.
   const balance = { ...natal.elements.raw };
   balance[todayElement] += 1;
@@ -255,3 +207,78 @@ export function computeDaily(raw: DailyInput, rawOptions: DailyOptions = {}): Da
     doDont: selectDailyActions(input.seed, findings, almanac, options.actionUnits),
   });
 }
+
+/** Shared scoring context for daily reports and the calendar; all dates use explicit IANA zones. */
+export function dailyBaziContext(input: Pick<DailyInput, 'date' | 'birth' | 'baziChart'>) {
+  let noon: Temporal.ZonedDateTime;
+  try {
+    noon = Temporal.PlainDate.from(input.date.local).toZonedDateTime({
+      timeZone: input.date.tz,
+      plainTime: '12:00',
+    });
+    if (noon.toPlainDate().toString() !== input.date.local)
+      throw new EngineError('E_INVALID_INPUT');
+  } catch {
+    throw new EngineError('E_INVALID_INPUT');
+  }
+  if (noon.year < 1900 || noon.year > 2100) throw new EngineError('E_DATE_OUT_OF_RANGE');
+  const calendar = calendarAt(noon),
+    { day: flowDay, year: flowYear } = calendar.pillars;
+  const natal = input.baziChart,
+    todayElement = STEM_ELEMENTS[flowDay.stem];
+  const favorableHit = natal.useGod.favorable.includes(todayElement),
+    unfavorableHit = natal.useGod.unfavorable.includes(todayElement);
+  const relations: DailyChart['bazi']['branchRelations'] = (
+    ['day', 'year', 'month', 'hour'] as PillarKey[]
+  ).flatMap((pillar) => {
+    const p = natal.pillars[pillar];
+    return p ? branchRelations(flowDay.branch, p.branch).map((type) => ({ pillar, type })) : [];
+  });
+  const secondaryRelations: DailyChart['bazi']['secondaryRelations'] = [];
+  // DESIGN-GAP: Re-select the luck period at the target date instead of trusting cached isCurrent flags; intervals use exact startAge and the natal adjusted clock, not overlapping calendar-year bounds.
+  const luckStart = Temporal.PlainDateTime.from(
+    natal.solarTimeAdjust.adjusted ?? natal.solarTimeAdjust.original,
+  )
+    .add(natal.luck.startAge)
+    .toZonedDateTime(input.birth.local.tz);
+  const period = natal.luck.periods.find(
+    (_, i) =>
+      Temporal.ZonedDateTime.compare(noon, luckStart.add({ years: i * 10 })) >= 0 &&
+      Temporal.ZonedDateTime.compare(noon, luckStart.add({ years: (i + 1) * 10 })) < 0,
+  );
+  for (const [target, pair] of [
+    ['year', flowYear],
+    ['luck', period],
+  ] as const) {
+    if (!pair) continue;
+    for (const type of branchRelations(flowDay.branch, pair.branch))
+      if (type === 'clash' || type === 'combine')
+        secondaryRelations.push({ target, kind: 'branch', type });
+    for (const [type, groups] of [
+      ['clash', STEM_CLASHES],
+      ['combine', STEM_COMBINATIONS],
+    ] as const) {
+      if (
+        groups.some(
+          (group) =>
+            (group as readonly string[]).includes(flowDay.stem) &&
+            (group as readonly string[]).includes(pair.stem) &&
+            flowDay.stem !== pair.stem,
+        )
+      )
+        secondaryRelations.push({ target, kind: 'stem', type });
+    }
+  }
+  return {
+    noon,
+    calendar,
+    flowDay,
+    natal,
+    todayElement,
+    favorableHit,
+    unfavorableHit,
+    relations,
+    secondaryRelations,
+  };
+}
+export * from './range';

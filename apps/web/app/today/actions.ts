@@ -6,6 +6,9 @@ import { cookies, headers } from 'next/headers';
 import { auth } from '@/lib/auth';
 import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
+import { dailyRangeDates, type DailyRangeDay } from '@tianji/engine/daily';
+import type { CalendarEvent } from '@tianji/engine/calendar';
+import { dailyRangeForUser, calendarYearForUser } from '@/lib/calendar-service';
 import { dailyForUser } from '@/lib/daily-service';
 import { localToday } from '@/lib/daily-compute';
 import { ApiError } from '@/lib/api-error';
@@ -53,17 +56,10 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
       profile?.tz ??
       'UTC';
     const date = input.date ?? localToday(tz);
-    const today = Temporal.PlainDate.from(localToday(tz)),
-      target = Temporal.PlainDate.from(date);
-    if (
-      Temporal.PlainDate.compare(target, today.add({ days: 1 })) > 0 ||
-      Temporal.PlainDate.compare(target, today.subtract({ days: 1 })) < 0
-    )
-      throw new ApiError(
-        'E_DATE_OUT_OF_RANGE',
-        'Only yesterday, today and tomorrow are available',
-        400,
-      );
+    // DESIGN-GAP: B-06 expands daily browsing to the engine's supported 1900–2100 years.
+    const target = Temporal.PlainDate.from(date);
+    if (target.year < 1900 || target.year > 2100)
+      throw new ApiError('E_DATE_OUT_OF_RANGE', 'Date outside engine range', 400);
     assertRateLimit(await ratelimit('daily', user.id));
     const data = await dailyForUser(user.id, date, tz, input.locale ?? user.locale);
     await recordEvent('daily.viewed', {
@@ -87,5 +83,53 @@ export async function recordAnonymousDailyViewAction(locale: string) {
     await recordEvent('daily.viewed', { system: 'daily', locale: language, plan: 'free' });
   } catch {
     /* Offline anonymous calculation remains fully usable. */
+  }
+}
+
+/** Owner-only inclusive calendar range; rejects reversed or over-31-day requests before computing. */
+export async function getDailyRangeAction(raw: unknown): Promise<ActionResult<DailyRangeDay[]>> {
+  try {
+    const input = z
+      .object({
+        from: z.string(),
+        to: z.string(),
+        tz: IanaTimezoneSchema,
+        locale: z.enum(['zh', 'en']).default('zh'),
+      })
+      .strict()
+      .parse(raw);
+    dailyRangeDates(input.from, input.to, input.tz);
+    const session = await auth();
+    if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
+    assertRateLimit(await ratelimit('daily', session.user.id));
+    return {
+      ok: true,
+      data: await dailyRangeForUser(session.user.id, input.from, input.to, input.tz, input.locale),
+    };
+  } catch (error) {
+    return { ok: false, error: { code: actionError(error) } };
+  }
+}
+// DESIGN-GAP: Annual events need a separate owner-only action because getDailyRangeAction's documented response is scores only.
+/** Fetch engine-computed annual events from the owner+year cache. */
+export async function getCalendarYearAction(raw: unknown): Promise<ActionResult<CalendarEvent[]>> {
+  try {
+    const input = z
+      .object({
+        year: z.number().int().min(1900).max(2100),
+        tz: IanaTimezoneSchema,
+        locale: z.enum(['zh', 'en']).default('zh'),
+      })
+      .strict()
+      .parse(raw);
+    const session = await auth();
+    if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
+    assertRateLimit(await ratelimit('daily', session.user.id));
+    return {
+      ok: true,
+      data: await calendarYearForUser(session.user.id, input.year, input.tz, input.locale),
+    };
+  } catch (error) {
+    return { ok: false, error: { code: actionError(error) } };
   }
 }
