@@ -6,7 +6,7 @@ import type { SiteSettings } from '@/lib/site-config-schema';
 /** Render scoped bilingual announcements; server layout handles maintenance separately. */
 export function SiteNotice({ announcement }: { announcement: SiteSettings['announcement'] }) {
   const t = useCopy(),
-    pathname = usePathname().replace(/^\/(zh|en)/, '') || '/',
+    pathname = usePathname().replace(/^\/(zh-TW|zh|en)(?=\/|$)/, '') || '/',
     locale = useLocale() === 'en' ? 'en' : 'zh';
   const now = Date.now();
   const scoped = announcement.scope.some(

@@ -10,6 +10,15 @@ import { HomeInsights } from '@/components/home/home-insights';
 import { computeHomeInsights } from '@/lib/home-insights';
 import { SystemSymbol } from '@/components/home/system-symbol';
 export const revalidate = 60;
+/** The homepage canonical uses its selected BCP 47 route. */
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return {
+    alternates: {
+      canonical: `/${(await params).locale}`,
+      languages: { zh: '/zh', 'zh-TW': '/zh-TW', en: '/en' },
+    },
+  };
+}
 /** Initial landing page with the brand, documented tagline, and two primary entry points. */
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

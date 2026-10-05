@@ -19,7 +19,7 @@ const tokenSchema = z
   .object({
     userId: z.string(),
     readingId: z.string(),
-    locale: z.enum(['zh', 'en']),
+    locale: z.enum(['zh', 'en', 'zh-TW']),
     theme: z.enum(['dark', 'light']),
     expires: z.number(),
   })

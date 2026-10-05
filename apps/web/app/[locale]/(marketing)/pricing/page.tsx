@@ -22,7 +22,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </section>
         <section className="report-card">
           <h2>
-            {t('pricing.pro.title', { brand: locale === 'zh' ? brand.nameZh : brand.nameEn })}
+            {t('pricing.pro.title', { brand: locale !== 'en' ? brand.nameZh : brand.nameEn })}
           </h2>
           <p>{t('billing.proFeatures')}</p>
           <p>{t('billing.futureFeatures')}</p>

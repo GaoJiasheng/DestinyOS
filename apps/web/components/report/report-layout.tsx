@@ -53,7 +53,7 @@ export function ReportLayout({
 }) {
   const t = useCopy();
   const intl = useTranslations();
-  const locale = useLocale() as 'zh' | 'en';
+  const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
   const router = useRouter();
   const [view, setView] = useState(reading);
   const [professional, setProfessional] = useState(false);
@@ -153,7 +153,8 @@ export function ReportLayout({
               ? {
                   ...r,
                   report: result.data,
-                  [locale === 'zh' ? 'reportZh' : 'reportEn']: result.data,
+                  [locale === 'zh-TW' ? 'reportZhTw' : locale === 'zh' ? 'reportZh' : 'reportEn']:
+                    result.data,
                 }
               : r,
           ),

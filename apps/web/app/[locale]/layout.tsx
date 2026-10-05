@@ -1,3 +1,4 @@
+import { localeText } from '@tianji/shared/locale';
 import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -48,7 +49,13 @@ export async function generateMetadata({
       title: t('brand.nameEn', { name: brand.nameEn }),
     },
     metadataBase: new URL(`https://${brand.domain}`),
-    alternates: { languages: { zh: '/zh', en: '/en' } },
+    alternates: { languages: { zh: '/zh', 'zh-TW': '/zh-TW', en: '/en' } },
+    openGraph: {
+      locale: locale === 'zh-TW' ? 'zh_TW' : locale,
+      alternateLocale: ['zh', 'zh_TW', 'en'].filter(
+        (value) => value !== (locale === 'zh-TW' ? 'zh_TW' : locale),
+      ),
+    },
   };
 }
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#05070f' };
@@ -78,7 +85,12 @@ export default async function LocaleLayout({
               </a>
               <Navigation />
               <main id="main" tabIndex={-1}>
-                <SiteNotice announcement={settings.announcement} />
+                <SiteNotice
+                  announcement={{
+                    ...settings.announcement,
+                    zh: localeText(settings.announcement.zh, locale),
+                  }}
+                />
                 <SiteMaintenance enabled={settings.maintenance}>{children}</SiteMaintenance>
               </main>
               <Footer />

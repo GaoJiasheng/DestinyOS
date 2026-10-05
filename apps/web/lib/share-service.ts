@@ -1,3 +1,4 @@
+import { fromDbLocale } from './db-locale';
 import { randomInt, createHmac, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
@@ -9,7 +10,7 @@ import { publicText } from './share-projection';
 import { ApiError } from './api-error';
 import { ReportSchema } from './reading-schema';
 import { loadKnowledge } from './knowledge';
-import { interpret } from '@tianji/interpret';
+import { localizeReport, interpret } from '@tianji/interpret';
 import { projectShare, DailyCardSchema, type DailyCard } from './share-projection';
 const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 /** Generate an unbiased 22-character base62 bearer token. */
@@ -17,7 +18,7 @@ export function shareToken() {
   return Array.from({ length: 22 }, () => alphabet[randomInt(alphabet.length)]).join('');
 }
 /** Resolve active shares and an explicit safe projection, never owner inputs or a raw report. */
-export async function publicShare(token: string, locale?: 'zh' | 'en') {
+export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW') {
   if (!/^[a-zA-Z0-9]{22}$/.test(token)) throw new ApiError('E_NOT_FOUND', 'Share not found', 404);
   const link = await getDb().shareLink.findUnique({
     where: { token },
@@ -43,8 +44,8 @@ export async function publicShare(token: string, locale?: 'zh' | 'en') {
     (link.expiresAt && link.expiresAt <= new Date())
   )
     throw new ApiError('E_NOT_FOUND', 'Share not found', 404);
-  const lang = locale ?? link.user.locale;
-  let raw: unknown = lang === 'zh' ? link.reading.reportZh : link.reading.reportEn;
+  const lang = locale ?? fromDbLocale(link.user.locale);
+  let raw: unknown = lang !== 'en' ? link.reading.reportZh : link.reading.reportEn;
   if (!raw)
     raw = interpret({
       system: link.reading.system,
@@ -60,7 +61,7 @@ export async function publicShare(token: string, locale?: 'zh' | 'en') {
   const view = projectShare(
     link.reading.system,
     link.reading.chart,
-    ReportSchema.parse(raw),
+    localizeReport(ReportSchema.parse(raw), lang),
     z.enum(['chart', 'quote', 'daily']).parse(link.template),
     link.revealLevel,
   );

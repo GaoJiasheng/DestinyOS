@@ -1,5 +1,6 @@
 'use server';
 
+import { isLocale } from '@/i18n/routing';
 import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -19,7 +20,7 @@ export type LoginState = {
 };
 const loginSchema = z.object({
   email: z.string().trim().toLowerCase().email().max(254),
-  locale: z.enum(['zh', 'en']),
+  locale: z.enum(['zh', 'en', 'zh-TW']),
 });
 
 /** Validate and send an Auth.js magic link with both email and IP sliding-window quotas. */
@@ -53,7 +54,7 @@ export async function loginFormAction(_previous: LoginState, form: FormData): Pr
 
 /** Start Google OAuth and return to the validated locale home. */
 export async function googleLoginAction(locale: string): Promise<void> {
-  const valid = z.enum(['zh', 'en']).parse(locale);
+  const valid = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
   await signIn('google', { redirectTo: `/${valid}` });
 }
 
@@ -65,7 +66,8 @@ export async function confirmLoginAction(
   returnTo?: string,
 ): Promise<void> {
   const parsed = verificationSchema.safeParse({ locale, token, email });
-  if (!parsed.success) redirect(`/${locale === 'en' ? 'en' : 'zh'}/auth/login?error=Verification`);
+  if (!parsed.success)
+    redirect(`/${isLocale(locale) ? locale : 'zh'}/auth/login?error=Verification`);
   const requestHeaders = new Headers(await headers());
   const origin = requestHeaders.get('origin') ?? process.env.NEXT_PUBLIC_SITE_URL;
   if (!origin) throw new Error('Site origin is required');
@@ -92,5 +94,5 @@ export async function confirmLoginAction(
 
 /** Revoke the database session and return to the localized login page. */
 export async function logoutAction(locale: string): Promise<void> {
-  await signOut({ redirectTo: `/${locale === 'en' ? 'en' : 'zh'}/auth/login` });
+  await signOut({ redirectTo: `/${isLocale(locale) ? locale : 'zh'}/auth/login` });
 }

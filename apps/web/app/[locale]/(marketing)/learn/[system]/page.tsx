@@ -14,26 +14,31 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; system: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; system: string }>;
 }) {
   const { locale, system } = await params,
-    s = (await learnContent()).systems.find((s) => s.key === system);
+    s = (await learnContent(locale)).systems.find((s) => s.key === system);
   if (!s) notFound();
-  return learnMetadata(s[locale].title, s[locale].principle, `/learn/${system}`, locale);
+  return learnMetadata(
+    s[locale === 'en' ? 'en' : 'zh'].title,
+    s[locale === 'en' ? 'en' : 'zh'].principle,
+    `/learn/${system}`,
+    locale,
+  );
 }
 /** History, principle, questions, glossary and school FAQ from the content artifact. */
 export default async function SystemLearnPage({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; system: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; system: string }>;
 }) {
   const { locale, system } = await params;
   setRequestLocale(locale);
-  const content = await learnContent(),
+  const content = await learnContent(locale),
     s = content.systems.find((s) => s.key === system);
   if (!s) notFound();
   const t = await getCopy(),
-    data = s[locale];
+    data = s[locale === 'en' ? 'en' : 'zh'];
   return (
     <LearnArticle
       title={data.title}
@@ -56,7 +61,7 @@ export default async function SystemLearnPage({
             .map((g) => (
               <li key={g.key}>
                 <Link href={`/learn/glossary/${g.key}`}>
-                  {t('report.content', { text: g[locale].term })}
+                  {t('report.content', { text: g[locale === 'en' ? 'en' : 'zh'].term })}
                 </Link>
               </li>
             ))}

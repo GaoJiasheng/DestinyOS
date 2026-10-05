@@ -1,6 +1,6 @@
 import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
-import { routing } from './i18n/routing';
+import { routing, isLocale } from './i18n/routing';
 import { reportOnlyCsp } from './lib/security-headers';
 const intl = createMiddleware(routing);
 /** A session age gate blocks returning to input routes; server actions independently enforce the same cookie. */
@@ -9,7 +9,8 @@ export default function middleware(request: NextRequest) {
     request.cookies.get('age_gate')?.value === 'blocked' &&
     /\/(new|me\/birth)\/?$/.test(request.nextUrl.pathname)
   ) {
-    const locale = request.nextUrl.pathname.startsWith('/en') ? 'en' : 'zh';
+    const segment = request.nextUrl.pathname.split('/')[1] ?? '';
+    const locale = isLocale(segment) ? segment : routing.defaultLocale;
     return NextResponse.redirect(new URL(`/${locale}/age-restricted`, request.url));
   }
   const nonce = btoa(crypto.randomUUID());
@@ -22,7 +23,7 @@ export default function middleware(request: NextRequest) {
     );
   if (/^\/s\//.test(request.nextUrl.pathname)) {
     const locale = request.nextUrl.searchParams.get('locale');
-    request.headers.set('x-share-locale', locale === 'zh' || locale === 'en' ? locale : '');
+    request.headers.set('x-share-locale', locale && isLocale(locale) ? locale : '');
   }
   request.headers.set('Content-Security-Policy', csp);
   const excluded =
@@ -31,6 +32,9 @@ export default function middleware(request: NextRequest) {
   const response = excluded
     ? NextResponse.next({ request: { headers: request.headers } })
     : intl(request);
+  // DESIGN-GAP: Background prefetches from an old locale must not overwrite the language selected by a foreground navigation.
+  if (request.headers.has('next-router-prefetch') || request.headers.get('purpose') === 'prefetch')
+    response.headers.delete('set-cookie');
   // DESIGN-GAP: Static marketing pages retain static generation during the Report-Only rollout; enforcement requires auditing their inline scripts first.
   response.headers.set('Content-Security-Policy-Report-Only', csp);
   // Reject off-origin locale redirects even if localePrefix behavior changes in a future next-intl release.

@@ -28,7 +28,7 @@ export function ExportMenu({
   owner: boolean;
 }) {
   const t = useCopy();
-  const locale = useLocale() as 'zh' | 'en';
+  const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [progress, setProgress] = useState<number | null>(null);
   const [url, setUrl] = useState('');

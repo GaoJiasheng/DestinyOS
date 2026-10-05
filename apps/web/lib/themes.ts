@@ -5,7 +5,7 @@ export function routeTheme(pathname: string, preference: ThemePreference = 'auto
   if (preference !== 'auto') return preference;
   const segments = pathname.split('/').filter(Boolean);
   const first = segments[0];
-  const system = first === 'zh' || first === 'en' ? segments[1] : first;
+  const system = first === 'zh' || first === 'zh-TW' || first === 'en' ? segments[1] : first;
   if (system && ['bazi', 'ziwei', 'iching', 'qimen'].includes(system)) return 'east';
   if (system && ['tarot', 'astrology', 'numerology'].includes(system)) return 'west';
   return system === 'vedic' ? 'vedic' : 'neutral';

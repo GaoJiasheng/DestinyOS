@@ -9,7 +9,7 @@ import { ReportLayout } from './report-layout';
 /** Load authenticated device ciphertext; a locale change translates the saved chart instead of recomputing. */
 export function LocalReport({ id, system }: { id: string; system: string }) {
   const t = useCopy();
-  const locale = useLocale() as 'zh' | 'en';
+  const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
   const [reading, setReading] = useState<LocalReading | null>(null);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
@@ -23,7 +23,8 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
           if (active) setError('report.localMissing');
           return;
         }
-        const saved = locale === 'zh' ? found.reportZh : found.reportEn;
+        const saved =
+          locale === 'zh-TW' ? found.reportZhTw : locale === 'zh' ? found.reportZh : found.reportEn;
         let report = saved ?? (found.report.locale === locale ? found.report : null);
         if (!report) {
           const result = await translateAnonymousReportAction(found, locale);
@@ -33,7 +34,13 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
           await updateAnonymous((d) => ({
             ...d,
             readings: d.readings.map((r) =>
-              r.id === id ? { ...r, [locale === 'zh' ? 'reportZh' : 'reportEn']: translated } : r,
+              r.id === id
+                ? {
+                    ...r,
+                    [locale === 'zh-TW' ? 'reportZhTw' : locale === 'zh' ? 'reportZh' : 'reportEn']:
+                      translated,
+                  }
+                : r,
             ),
           }));
         }

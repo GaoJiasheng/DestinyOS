@@ -7,7 +7,7 @@ export function SiteMaintenance({ enabled, children }: { enabled: boolean; child
   const pathname = usePathname();
   const t = useCopy();
   // DESIGN-GAP: Login and email confirmation bypass maintenance so administrators can complete re-authentication.
-  if (!enabled || /^\/(zh|en)\/auth(?:\/|$)/.test(pathname)) return children;
+  if (!enabled || /^\/(zh-TW|zh|en)\/auth(?:\/|$)/.test(pathname)) return children;
   return (
     <section className="settings-page">
       <h1>{t('site.maintenance.title')}</h1>

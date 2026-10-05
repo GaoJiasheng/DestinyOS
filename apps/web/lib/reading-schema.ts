@@ -35,7 +35,7 @@ const block = z.discriminatedUnion('type', [
 const score = z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4), z.literal(5)]);
 export const ReportSchema: z.ZodType<Report> = z.object({
   system: z.nativeEnum(System),
-  locale: z.enum(['zh', 'en']),
+  locale: z.enum(['zh', 'en', 'zh-TW']),
   knowledgeVersion: z.string(),
   engineVersion: z.string(),
   interpretVersion: z.string(),
@@ -105,6 +105,7 @@ export type ActionResult<T> = { ok: true; data: T } | { ok: false; error: { code
 export type LocalReading = ReadingView & {
   request: ReadingRequest;
   reportZh?: Report;
+  reportZhTw?: Report;
   reportEn?: Report;
 };
 

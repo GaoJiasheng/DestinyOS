@@ -23,6 +23,7 @@ const localReading = z.object({
   meta: ReadingMetaSchema,
   request: ReadingRequestSchema,
   reportZh: ReportSchema.optional(),
+  reportZhTw: ReportSchema.optional(),
   reportEn: ReportSchema.optional(),
   birthYear: z.number().optional(),
   displayName: z.string().optional(),

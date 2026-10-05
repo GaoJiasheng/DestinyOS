@@ -15,9 +15,9 @@
     "test": "pnpm content:build && vitest run --coverage",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
-    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e && pnpm test:polish && pnpm test:export:e2e && pnpm test:chat:e2e && pnpm test:numerology:e2e && pnpm test:rectification:e2e && pnpm test:calendar:e2e",
+    "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e && pnpm test:polish && pnpm test:export:e2e && pnpm test:chat:e2e && pnpm test:numerology:e2e && pnpm test:rectification:e2e && pnpm test:calendar:e2e && pnpm test:zhtw:e2e",
     "content:validate": "pnpm --filter @tianji/content validate",
-    "content:build": "pnpm --filter @tianji/content content:build",
+    "content:build": "pnpm --filter @tianji/content content:build && pnpm i18n:traditional",
     "engine:bundle": "tsx scripts/engines/bundle.ts",
     "content:qimen:coverage": "pnpm --filter @tianji/content coverage:qimen",
     "content:tarot:coverage": "pnpm --filter @tianji/content coverage:tarot",
@@ -37,7 +37,7 @@
     "test:tarot:e2e": "pnpm build && playwright test --config playwright.tarot.config.ts",
     "test:astrology:e2e": "playwright test --config playwright.astrology.config.ts",
     "stars:build": "tsx scripts/stars-preprocess.ts",
-    "fonts:build": "python3 scripts/font-subsets.py",
+    "fonts:build": "pnpm i18n:traditional && python3 scripts/font-subsets.py && python3 scripts/font-traditional-subsets.py",
     "pwa:assets": "pnpm --filter @tianji/web exec tsx scripts/pwa-assets.ts",
     "test:home:e2e": "pnpm build && playwright test --config playwright.home.config.ts",
     "perf:ci": "pnpm build && pnpm perf:budgets && playwright test --config playwright.daily-account.config.ts --grep \"anonymous example\" && tsx scripts/perf-run.ts",
@@ -58,7 +58,9 @@
     "test:chat:e2e": "playwright test --config playwright.chat.config.ts",
     "test:numerology:e2e": "playwright test --config playwright.numerology.config.ts",
     "test:rectification:e2e": "pnpm build && playwright test --config playwright.rectification.config.ts",
-    "test:calendar:e2e": "playwright test --config playwright.calendar.config.ts"
+    "test:calendar:e2e": "playwright test --config playwright.calendar.config.ts",
+    "i18n:traditional": "tsx scripts/i18n-traditional.ts",
+    "test:zhtw:e2e": "playwright test --config playwright.zhtw.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

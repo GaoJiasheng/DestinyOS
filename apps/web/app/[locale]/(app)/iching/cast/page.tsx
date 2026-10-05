@@ -16,7 +16,7 @@ export default async function CastPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  if (locale !== 'zh' && locale !== 'en') notFound();
+  if (locale !== 'zh' && locale !== 'en' && locale !== 'zh-TW') notFound();
   const { method = 'time' } = await searchParams;
   // DESIGN-GAP: cast?method uses the three castBy values plus liuyao; meihua defaults to its time method.
   const castMethod = method === 'meihua' ? 'time' : method;

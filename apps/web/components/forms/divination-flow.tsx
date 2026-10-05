@@ -41,7 +41,7 @@ export function DivinationFlow({
 }) {
   const t = useTranslations('divination');
   const copy = useCopy();
-  const locale = useLocale() as 'zh' | 'en';
+  const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
   const router = useRouter();
   const [question, setQuestion] = useState('');
   const [category, setCategory] = useState(system === 'iching' ? 'other' : 'general');

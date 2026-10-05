@@ -1,3 +1,4 @@
+import { localeText } from '@tianji/shared/locale';
 import { readFile } from 'node:fs/promises';
 import { gunzipSync } from 'node:zlib';
 import { z } from 'zod';
@@ -17,7 +18,7 @@ export type City = z.infer<typeof citySchema>;
 let corpus: Promise<Array<City & { search: string[] }>> | undefined;
 const fold = (s: string) => s.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().trim();
 /** Search only the bundled GeoNames corpus; no birth-location queries leave our server. */
-export async function searchCities(query: string, locale: 'zh' | 'en') {
+export async function searchCities(query: string, locale: 'zh' | 'en' | 'zh-TW') {
   corpus ??= readFile(resolve(webDirectory(), 'resources/cities500.json.gz')).then((data) =>
     z
       .array(citySchema)
@@ -46,10 +47,12 @@ export async function searchCities(query: string, locale: 'zh' | 'en') {
     )
     .slice(0, 12)
     .map(({ c }) => ({
-      name:
-        locale === 'zh'
+      name: localeText(
+        locale !== 'en'
           ? (c.aliases.find((a) => /^[\p{Script=Han}]+$/u.test(a)) ?? c.name)
           : c.name,
+        locale,
+      ),
       country: c.country,
       admin: c.admin,
       lat: c.lat,

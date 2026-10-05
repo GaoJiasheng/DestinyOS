@@ -1,5 +1,6 @@
+import { toDbLocale } from './db-locale';
 import { createHash, createHmac } from 'node:crypto';
-import type { Locale, Plan, System } from '@prisma/client';
+import type { Locale, Plan, System } from '@tianji/shared';
 import { getDb } from './db';
 import { getLocalRedis, getUpstashRedis } from './redis';
 import { logger } from './logger';
@@ -37,7 +38,14 @@ export async function recordEvent(
     if (!process.env.DATABASE_URL) return;
     const { userId, ...dimensions } = context;
     const identity = eventIdentity(userId);
-    await getDb().event.create({ data: { name, ...dimensions, ...identity } });
+    await getDb().event.create({
+      data: {
+        name,
+        ...dimensions,
+        locale: dimensions.locale ? toDbLocale(dimensions.locale) : undefined,
+        ...identity,
+      },
+    });
     await incrementEventCounter(name, identity.day);
   } catch {
     logger.warn({ name }, 'Optional event recording failed');

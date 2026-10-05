@@ -14,14 +14,14 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; card: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; card: string }>;
 }) {
   const { locale, card } = await params,
-    c = (await learnContent()).cards.find((c) => c.key === card);
+    c = (await learnContent(locale)).cards.find((c) => c.key === card);
   if (!c) notFound();
   return learnMetadata(
-    c.name[locale],
-    c.keywordsUpright[locale].join(' · '),
+    c.name[locale === 'en' ? 'en' : 'zh'],
+    c.keywordsUpright[locale === 'en' ? 'en' : 'zh'].join(' · '),
     `/learn/tarot/${card}`,
     locale,
   );
@@ -30,11 +30,11 @@ export async function generateMetadata({
 export default async function CardLearnPage({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; card: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; card: string }>;
 }) {
   const { locale, card } = await params;
   setRequestLocale(locale);
-  const content = await learnContent(),
+  const content = await learnContent(locale),
     c = content.cards.find((c) => c.key === card);
   if (!c) notFound();
   const t = await getCopy();
@@ -44,8 +44,8 @@ export default async function CardLearnPage({
     .slice(0, 3);
   return (
     <LearnArticle
-      title={c.name[locale]}
-      description={c.keywordsUpright[locale].join(' · ')}
+      title={c.name[locale === 'en' ? 'en' : 'zh']}
+      description={c.keywordsUpright[locale === 'en' ? 'en' : 'zh'].join(' · ')}
       path={`/learn/tarot/${card}`}
       locale={locale}
     >
@@ -54,15 +54,19 @@ export default async function CardLearnPage({
         width="240"
         height="420"
         src={`/tarot/rws/${c.key}.webp`}
-        alt={t('report.content', { text: c.name[locale] })}
+        alt={t('report.content', { text: c.name[locale === 'en' ? 'en' : 'zh'] })}
       />
       {(['meaningUpright', 'meaningReversed', 'imagery', 'advice'] as const).map((k) => (
         <section className="report-card" key={k}>
           <h2>{t(`learn.${k}`)}</h2>
           {k === 'meaningReversed' ? (
-            <p>{t('report.content', { text: c.keywordsReversed[locale].join(' · ') })}</p>
+            <p>
+              {t('report.content', {
+                text: c.keywordsReversed[locale === 'en' ? 'en' : 'zh'].join(' · '),
+              })}
+            </p>
           ) : null}
-          <p>{t('report.content', { text: c[k][locale] })}</p>
+          <p>{t('report.content', { text: c[k][locale === 'en' ? 'en' : 'zh'] })}</p>
         </section>
       ))}
       <section className="report-card">
@@ -70,7 +74,7 @@ export default async function CardLearnPage({
         {related.map((r) => (
           <p key={r.key}>
             <Link href={`/learn/tarot/${r.key}`}>
-              {t('report.content', { text: r.name[locale] })}
+              {t('report.content', { text: r.name[locale === 'en' ? 'en' : 'zh'] })}
             </Link>
           </p>
         ))}

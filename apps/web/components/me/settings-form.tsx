@@ -151,6 +151,7 @@ export function SettingsForm({
             onChange={(e) => setForm({ ...form, locale: e.target.value as Locale })}
           >
             <option value="zh">{t('me.language.zh')}</option>
+            <option value="zh-TW">{t('nav.locale.zh-TW')}</option>
             <option value="en">{t('me.language.en')}</option>
           </select>
         </label>

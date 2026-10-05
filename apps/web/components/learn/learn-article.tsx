@@ -16,7 +16,7 @@ export async function LearnArticle({
   description: string;
   descriptionLang?: string;
   path: string;
-  locale: 'zh' | 'en';
+  locale: 'zh' | 'en' | 'zh-TW';
   children: React.ReactNode;
 }) {
   const t = await getCopy();

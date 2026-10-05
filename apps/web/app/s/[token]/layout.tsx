@@ -1,3 +1,4 @@
+import { isLocale } from '@/i18n/routing';
 import { headers } from 'next/headers';
 import { Starfield } from '@/components/starfield';
 import { FontGlyphLoader } from '@/components/pwa/font-loader';
@@ -19,12 +20,12 @@ export default async function ShareLayout({
   params: Promise<{ token: string }>;
 }) {
   const requested = (await headers()).get('x-share-locale');
-  let locale: 'zh' | 'en' = requested === 'en' ? 'en' : 'zh';
+  let locale: 'zh' | 'en' | 'zh-TW' = requested && isLocale(requested) ? requested : 'zh';
   let theme = routeTheme('/');
   try {
     const share = await publicShare(
       (await params).token,
-      requested === 'zh' || requested === 'en' ? requested : undefined,
+      requested && isLocale(requested) ? requested : undefined,
     );
     locale = share.locale;
     // DESIGN-GAP: A public snapshot inherits its system theme because /s has no dedicated visual theme.

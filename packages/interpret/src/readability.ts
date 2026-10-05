@@ -20,9 +20,9 @@ export function checkReadability(
   const expanded = expandTerms(text, glossary, report.locale);
   const chars = zhChars(expanded),
     words = enWords(expanded);
-  const size = report.locale === 'zh' ? chars : words;
+  const size = report.locale !== 'en' ? chars : words;
   const divination = ['iching', 'qimen', 'tarot'].includes(report.system);
-  const minimum = report.locale === 'zh' ? (divination ? 1200 : 2500) : divination ? 900 : 1800;
+  const minimum = report.locale !== 'en' ? (divination ? 1200 : 2500) : divination ? 900 : 1800;
   const density = (termCount(text, glossary, report.locale) * 100) / (size || 1);
   // Stable issue keys are translated by next-intl at the presentation boundary.
   const issues: string[] = [];
@@ -30,7 +30,7 @@ export function checkReadability(
   if (density > 6) issues.push('report.readability.termDense');
   if (text.includes('{{')) issues.push('report.readability.unresolvedVariables');
   return {
-    zhChars: report.locale === 'zh' ? chars : 0,
+    zhChars: report.locale !== 'en' ? chars : 0,
     enWords: report.locale === 'en' ? words : 0,
     termDensity: density,
     passed: !issues.length,

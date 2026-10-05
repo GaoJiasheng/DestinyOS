@@ -1,4 +1,5 @@
 'use server';
+import { fromDbLocale } from '@/lib/db-locale';
 import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
@@ -36,7 +37,7 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
           })
           .optional(),
         tz: IanaTimezoneSchema.optional(),
-        locale: z.enum(['zh', 'en']).optional(),
+        locale: z.enum(['zh', 'en', 'zh-TW']).optional(),
       })
       .strict()
       .parse(raw);
@@ -61,11 +62,11 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
     if (target.year < 1900 || target.year > 2100)
       throw new ApiError('E_DATE_OUT_OF_RANGE', 'Date outside engine range', 400);
     assertRateLimit(await ratelimit('daily', user.id));
-    const data = await dailyForUser(user.id, date, tz, input.locale ?? user.locale);
+    const data = await dailyForUser(user.id, date, tz, input.locale ?? fromDbLocale(user.locale));
     await recordEvent('daily.viewed', {
       userId: user.id,
       system: 'daily',
-      locale: input.locale ?? user.locale,
+      locale: input.locale ?? fromDbLocale(user.locale),
       plan: user.plan,
     });
     return { ok: true, data };
@@ -77,7 +78,7 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
 /** Record a local anonymous daily visit using dimensions only; no birth or device identifier leaves the browser. */
 export async function recordAnonymousDailyViewAction(locale: string) {
   try {
-    const language = z.enum(['zh', 'en']).parse(locale);
+    const language = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const ip = requestIp(await headers());
     if (!(await ratelimit('daily', ip)).success) return;
     await recordEvent('daily.viewed', { system: 'daily', locale: language, plan: 'free' });

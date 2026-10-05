@@ -1,3 +1,4 @@
+import { localeText } from '@tianji/shared/locale';
 import { ShareDiagram } from '@/components/share/share-diagram';
 import { ImageResponse } from '@vercel/og';
 import { readFile } from 'node:fs/promises';
@@ -85,8 +86,8 @@ export async function renderCard(
         }}
       >
         <span>
-          {copy(card.locale === 'zh' ? 'brand.nameZh' : 'brand.nameEn', {
-            name: card.locale === 'zh' ? brand.nameZh : brand.nameEn,
+          {copy(card.locale !== 'en' ? 'brand.nameZh' : 'brand.nameEn', {
+            name: card.locale !== 'en' ? localeText(brand.nameZh, card.locale) : brand.nameEn,
           })}
         </span>
         <span>{'date' in card ? card.date : copy(`share.template.${template}`)}</span>

@@ -1,7 +1,9 @@
+import { localeText } from '@tianji/shared/locale';
 import { createTranslator } from 'next-intl';
 import { Resend } from 'resend';
 import { brand } from '@tianji/shared/brand';
 import zh from '../messages/zh.json';
+import tw from '../messages/zh-TW.json';
 import en from '../messages/en.json';
 import { toMessages } from '../i18n/catalog';
 
@@ -14,9 +16,12 @@ function escapeHtml(text: string): string {
 }
 
 /** Render bilingual magic-link email copy with next-intl; URL always lands on the confirmation page. */
-export function magicLinkEmail(locale: 'zh' | 'en', url: string) {
-  const t = createTranslator({ locale, messages: toMessages(locale === 'zh' ? zh : en) });
-  const name = locale === 'zh' ? brand.nameZh : brand.nameEn;
+export function magicLinkEmail(locale: 'zh' | 'en' | 'zh-TW', url: string) {
+  const t = createTranslator({
+    locale,
+    messages: toMessages(locale === 'zh-TW' ? tw : locale !== 'en' ? zh : en),
+  });
+  const name = locale !== 'en' ? localeText(brand.nameZh, locale) : brand.nameEn;
   const subject = t('auth.magic.subject', { brand: name });
   const description = t('auth.magic.description');
   const confirm = t('auth.verify.confirm');
@@ -31,7 +36,7 @@ export function magicLinkEmail(locale: 'zh' | 'en', url: string) {
 /** Send a Resend email; tests can supply a loopback mail sink without contacting external recipients. */
 export async function sendMagicEmail(
   email: string,
-  locale: 'zh' | 'en',
+  locale: 'zh' | 'en' | 'zh-TW',
   url: string,
 ): Promise<void> {
   const from = process.env.EMAIL_FROM;

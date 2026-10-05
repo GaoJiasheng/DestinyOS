@@ -14,7 +14,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ toke
     const { token } = await params;
     const url = new URL(request.url);
     const locale = z
-      .enum(['zh', 'en'])
+      .enum(['zh', 'en', 'zh-TW'])
       .optional()
       .parse(url.searchParams.get('locale') ?? undefined);
     const format = z

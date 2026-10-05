@@ -6,7 +6,10 @@ const zh: unknown = JSON.parse(
 const en: unknown = JSON.parse(
   readFileSync(new URL('../apps/web/messages/en.json', import.meta.url), 'utf8'),
 );
-const errors = checkCatalogs(zh, en);
+const tw: unknown = JSON.parse(
+  readFileSync(new URL('../apps/web/messages/zh-TW.json', import.meta.url), 'utf8'),
+);
+const errors = [...checkCatalogs(zh, en), ...checkCatalogs(zh, tw)];
 for (const name of ['glossary', 'interpretation', 'tarot']) {
   const a: unknown = JSON.parse(
     readFileSync(new URL(`../apps/web/messages/zh/${name}.json`, import.meta.url), 'utf8'),
@@ -14,6 +17,10 @@ for (const name of ['glossary', 'interpretation', 'tarot']) {
   const b: unknown = JSON.parse(
     readFileSync(new URL(`../apps/web/messages/en/${name}.json`, import.meta.url), 'utf8'),
   );
+  const tw: unknown = JSON.parse(
+    readFileSync(new URL(`../apps/web/messages/zh-TW/${name}.json`, import.meta.url), 'utf8'),
+  );
+  errors.push(...checkCatalogs(a, tw).map((error) => `${name} zh-TW: ${error}`));
   errors.push(...checkCatalogs(a, b).map((error) => `${name}: ${error}`));
 }
 if (errors.length) {

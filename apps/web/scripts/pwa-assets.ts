@@ -29,7 +29,7 @@ async function main() {
       /[&<>"']/g,
       (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!,
     );
-  for (const locale of ['zh', 'en'] as const) {
+  for (const locale of ['zh', 'zh-TW', 'en'] as const) {
     const catalog = JSON.parse(
       await readFile(pathToFileURL(process.cwd() + `/messages/${locale}.json`), 'utf8'),
     ) as Record<string, string>;
@@ -38,7 +38,7 @@ async function main() {
     const systems = ['bazi', 'ziwei', 'iching', 'qimen', 'tarot', 'astrology', 'vedic'];
     await writeFile(
       new URL(`offline/${locale}.html`, root),
-      `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#05070f"><title>${escape(brand.nameZh)} · ${escape(brand.nameEn)}</title><link rel="icon" href="/icons/icon-192.png"><link rel="stylesheet" href="/fonts/fonts.css"><link rel="stylesheet" href="/offline/style.css"></head><body><main><section class="hero"><p>${t('home.eyebrow')}</p><h1>${escape(brand.nameZh)}<small>${escape(brand.nameEn)}</small></h1><p>${t('brand.tagline')}</p><aside role="status"><h2>${t('pwa.offline.title')}</h2><p>${t('pwa.offline.body')}</p><a href="/${locale}">${t('pwa.offline.retry')}</a></aside><a href="#systems">${t('home.cta.start')} ↓</a></section><section id="systems"><h2>${t('home.cards.title')}</h2><div class="cards">${systems.map((system) => `<a href="/${locale}/${system}"><h3>${t('nav.' + system)}</h3><p>${t(system + '.placeholder')}</p></a>`).join('')}</div></section><section><h2>${t('home.how.title')}</h2><ol>${['chart', 'knowledge', 'report'].map((step) => `<li><h3>${t('home.how.' + step + '.title')}</h3><p>${t('home.how.' + step + '.body')}</p></li>`).join('')}</ol></section></main><footer><p>${t('report.disclaimer.short')}</p><a href="/${locale === 'zh' ? 'en' : 'zh'}">${t(locale === 'zh' ? 'nav.locale.en' : 'nav.locale.zh')}</a></footer></body></html>`,
+      `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#05070f"><title>${escape(brand.nameZh)} · ${escape(brand.nameEn)}</title><link rel="icon" href="/icons/icon-192.png"><link rel="stylesheet" href="/fonts/fonts.css"><link rel="stylesheet" href="/offline/style.css"></head><body><main><section class="hero"><p>${t('home.eyebrow')}</p><h1>${escape(brand.nameZh)}<small>${escape(brand.nameEn)}</small></h1><p>${t('brand.tagline')}</p><aside role="status"><h2>${t('pwa.offline.title')}</h2><p>${t('pwa.offline.body')}</p><a href="/${locale}">${t('pwa.offline.retry')}</a></aside><a href="#systems">${t('home.cta.start')} ↓</a></section><section id="systems"><h2>${t('home.cards.title')}</h2><div class="cards">${systems.map((system) => `<a href="/${locale}/${system}"><h3>${t('nav.' + system)}</h3><p>${t(system + '.placeholder')}</p></a>`).join('')}</div></section><section><h2>${t('home.how.title')}</h2><ol>${['chart', 'knowledge', 'report'].map((step) => `<li><h3>${t('home.how.' + step + '.title')}</h3><p>${t('home.how.' + step + '.body')}</p></li>`).join('')}</ol></section></main><footer><p>${t('report.disclaimer.short')}</p><a href="/${locale !== 'en' ? 'en' : 'zh'}">${t(locale !== 'en' ? 'nav.locale.en' : 'nav.locale.zh')}</a></footer></body></html>`,
     );
   }
   await writeFile(

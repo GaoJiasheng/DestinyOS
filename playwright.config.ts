@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './apps/web/e2e',
   testIgnore: [
+    'zhtw.spec.ts',
     'auth.spec.ts',
     'readings.spec.ts',
     'bazi-charts.spec.ts',

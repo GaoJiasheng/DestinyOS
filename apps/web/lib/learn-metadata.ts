@@ -5,7 +5,7 @@ export function learnMetadata(
   title: string,
   description: string,
   path: string,
-  locale: 'zh' | 'en',
+  locale: 'zh' | 'en' | 'zh-TW',
 ): Metadata {
   return {
     title,
@@ -13,9 +13,17 @@ export function learnMetadata(
     metadataBase: new URL(`https://${brand.domain}`),
     alternates: {
       canonical: `/${locale}${path}`,
-      languages: { zh: `/zh${path}`, en: `/en${path}` },
+      languages: { zh: `/zh${path}`, 'zh-TW': `/zh-TW${path}`, en: `/en${path}` },
     },
-    openGraph: { type: 'article', title, description, locale },
+    openGraph: {
+      type: 'article',
+      title,
+      description,
+      locale: locale === 'zh-TW' ? 'zh_TW' : locale,
+      alternateLocale: ['zh', 'zh_TW', 'en'].filter(
+        (value) => value !== (locale === 'zh-TW' ? 'zh_TW' : locale),
+      ),
+    },
     robots: { index: true, follow: true },
   };
 }

@@ -31,6 +31,6 @@ export function recentAuthentication(at: Date, now = Date.now()) {
   return age >= 0 && age < 10 * 60 * 1000;
 }
 /** Read the dedicated administrator language preference, defaulting to Chinese. */
-export async function adminLocale(): Promise<'zh' | 'en'> {
+export async function adminLocale(): Promise<'zh' | 'en' | 'zh-TW'> {
   return (await cookies()).get('admin_locale')?.value === 'en' ? 'en' : 'zh';
 }

@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const ExportRequestSchema = z
   .object({
     readingId: z.string().regex(/^[a-zA-Z0-9-]{1,64}$/),
-    locale: z.enum(['zh', 'en']),
+    locale: z.enum(['zh', 'en', 'zh-TW']),
     theme: z.enum(['dark', 'light']).default('dark'),
     format: z.enum(['pdf', 'png', 'cover']),
   })

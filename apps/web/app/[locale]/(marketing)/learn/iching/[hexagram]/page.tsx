@@ -13,14 +13,14 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; hexagram: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; hexagram: string }>;
 }) {
   const { locale, hexagram } = await params,
-    h = (await learnContent()).hexagrams.find((h) => h.key === hexagram);
+    h = (await learnContent(locale)).hexagrams.find((h) => h.key === hexagram);
   if (!h) notFound();
   return learnMetadata(
-    locale === 'zh' ? h.name : h.englishName,
-    h.meaning[locale].slice(0, 160),
+    locale !== 'en' ? h.name : h.englishName,
+    h.meaning[locale === 'en' ? 'en' : 'zh'].slice(0, 160),
     `/learn/iching/${hexagram}`,
     locale,
   );
@@ -29,16 +29,16 @@ export async function generateMetadata({
 export default async function HexagramLearnPage({
   params,
 }: {
-  params: Promise<{ locale: 'zh' | 'en'; hexagram: string }>;
+  params: Promise<{ locale: 'zh' | 'en' | 'zh-TW'; hexagram: string }>;
 }) {
   const { locale, hexagram } = await params;
   setRequestLocale(locale);
-  const h = (await learnContent()).hexagrams.find((h) => h.key === hexagram);
+  const h = (await learnContent(locale)).hexagrams.find((h) => h.key === hexagram);
   if (!h) notFound();
   const t = await getCopy();
   return (
     <LearnArticle
-      title={locale === 'zh' ? h.name : h.englishName}
+      title={locale !== 'en' ? h.name : h.englishName}
       description={h.pinyin}
       descriptionLang="zh-Latn"
       path={`/learn/iching/${hexagram}`}
@@ -58,7 +58,7 @@ export default async function HexagramLearnPage({
       </figure>
       <section className="report-card">
         <h2>{t('learn.meaning')}</h2>
-        <p>{t('report.content', { text: h.meaning[locale] })}</p>
+        <p>{t('report.content', { text: h.meaning[locale === 'en' ? 'en' : 'zh'] })}</p>
         <details>
           <summary>{t('learn.original')}</summary>
           {[h.judgment, h.tuan, h.image].map((text, i) => (
@@ -77,7 +77,7 @@ export default async function HexagramLearnPage({
               <summary>{t('learn.original')}</summary>
               <p lang="zh">{t('report.content', { text: y.original })}</p>
             </details>
-            <p>{t('report.content', { text: y.meaning[locale] })}</p>
+            <p>{t('report.content', { text: y.meaning[locale === 'en' ? 'en' : 'zh'] })}</p>
           </div>
         ))}
       </section>
@@ -86,7 +86,7 @@ export default async function HexagramLearnPage({
         {Object.entries(h.guidance).map(([key, text]) => (
           <details key={key}>
             <summary>{t(`learn.category.${key}` as import('@/i18n/catalog').MessageKey)}</summary>
-            <p>{t('report.content', { text: text[locale] })}</p>
+            <p>{t('report.content', { text: text[locale === 'en' ? 'en' : 'zh'] })}</p>
           </details>
         ))}
       </section>

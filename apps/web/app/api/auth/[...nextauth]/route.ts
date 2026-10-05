@@ -1,3 +1,4 @@
+import { isLocale } from '@/i18n/routing';
 import { requestIp } from '@/lib/request-ip';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
@@ -10,9 +11,8 @@ import { ApiError, errorResponse } from '@/lib/api-error';
 export async function GET(request: NextRequest) {
   if (request.nextUrl.pathname === '/api/auth/callback/resend') {
     const callback = request.nextUrl.searchParams.get('callbackUrl') ?? '/zh';
-    const locale = new URL(callback, request.nextUrl.origin).pathname.startsWith('/en')
-      ? 'en'
-      : 'zh';
+    const segment = new URL(callback, request.nextUrl.origin).pathname.split('/')[1] ?? '';
+    const locale = isLocale(segment) ? segment : 'zh';
     const parsed = verificationSchema.safeParse({
       token: request.nextUrl.searchParams.get('token'),
       email: request.nextUrl.searchParams.get('email'),

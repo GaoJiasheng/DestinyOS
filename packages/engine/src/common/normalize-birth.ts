@@ -27,7 +27,8 @@ export function normalizeBirth(raw: unknown, locale: Locale = 'zh'): NormalizedB
     throw new EngineError('E_INVALID_INPUT', undefined, {
       issues: parsed.error.issues.map(({ code, path }) => ({ code, path })),
     });
-  if (locale !== 'zh' && locale !== 'en') throw new EngineError('E_INVALID_INPUT');
+  if (locale !== 'zh' && locale !== 'en' && locale !== 'zh-TW')
+    throw new EngineError('E_INVALID_INPUT');
   const input = parsed.data;
   let { year, month, day } = input;
   if (input.calendar === 'lunar') {
@@ -46,7 +47,7 @@ export function normalizeBirth(raw: unknown, locale: Locale = 'zh'): NormalizedB
   if (year < 1900 || year > 2100) throw new EngineError('E_DATE_OUT_OF_RANGE');
   // DESIGN-GAP: An incomplete clock is unknown, as §2.1 says a missing hour/minute denotes unknown time.
   const timeUnknown = input.timeUnknown || input.hour === undefined || input.minute === undefined;
-  const tz = input.place?.tz ?? (locale === 'zh' ? 'Asia/Shanghai' : 'UTC');
+  const tz = input.place?.tz ?? (locale !== 'en' ? 'Asia/Shanghai' : 'UTC');
   let time: Temporal.ZonedDateTime;
   try {
     if (/^[+-]/.test(tz)) throw new EngineError('E_INVALID_INPUT');

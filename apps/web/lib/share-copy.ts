@@ -7,9 +7,11 @@ import type { Locale } from '@tianji/shared';
 export async function shareCopy(locale: Locale) {
   const base = await getTranslations({ locale });
   const catalog =
-    locale === 'en'
-      ? (await import('@/messages/en/tarot.json')).default
-      : (await import('@/messages/zh/tarot.json')).default;
+    locale === 'zh-TW'
+      ? (await import('@/messages/zh-TW/tarot.json')).default
+      : locale === 'en'
+        ? (await import('@/messages/en/tarot.json')).default
+        : (await import('@/messages/zh/tarot.json')).default;
   const tarot = createTranslator({ locale, messages: toMessages(catalog) });
   return (key: string, values?: Record<string, string | number>) =>
     key.startsWith('tarot.card.') ? tarot(key, values) : base(runtimeKey(key), values);

@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { toMessages } from '@/i18n/catalog';
 import { useCopy } from '@/i18n/use-copy';
+import { isLocale } from '@/i18n/routing';
+import tw from '@/messages/zh-TW.json';
 import zh from '@/messages/zh.json';
 import en from '@/messages/en.json';
 import { Starfield } from '@/components/starfield';
@@ -22,9 +24,10 @@ export default function GlobalError({
       void import('@sentry/nextjs').then((Sentry) => Sentry.captureException(error));
     }
   }, [error]);
-  const [locale, setLocale] = useState<'zh' | 'en'>('zh');
+  const [locale, setLocale] = useState<'zh' | 'en' | 'zh-TW'>('zh');
   useEffect(() => {
-    if (window.location.pathname.split('/')[1] === 'en') setLocale('en');
+    const requested = window.location.pathname.split('/')[1] ?? '';
+    if (isLocale(requested)) setLocale(requested);
   }, []);
   return (
     <html lang={locale} data-theme="neutral">
@@ -32,7 +35,7 @@ export default function GlobalError({
         <NextIntlClientProvider
           locale={locale}
           timeZone="UTC"
-          messages={toMessages(locale === 'en' ? en : zh)}
+          messages={toMessages(locale === 'zh-TW' ? tw : locale === 'zh' ? zh : en)}
         >
           <Starfield />
           <ErrorContent reset={reset} />

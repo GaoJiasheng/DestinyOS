@@ -15,7 +15,7 @@ import { chatMessages, privateIdentifiers, redactChatText, boundAnswer } from '.
 import { streamMiniMax, type TokenUsage } from './llm/minimax';
 
 export const ChatRequestSchema = z
-  .object({ locale: z.enum(['zh', 'en']), question: z.string().trim().min(1).max(120) })
+  .object({ locale: z.enum(['zh', 'en', 'zh-TW']), question: z.string().trim().min(1).max(120) })
   .strict();
 export type ChatHistoryMessage = {
   id: string;

@@ -1,3 +1,4 @@
+import { isLocale } from '@/i18n/routing';
 import { ShareDiagram } from '@/components/share/share-diagram';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -18,7 +19,7 @@ export async function generateMetadata({
   const { token } = await params,
     { locale } = await searchParams;
   try {
-    const share = await publicShare(token, locale === 'zh' || locale === 'en' ? locale : undefined);
+    const share = await publicShare(token, locale && isLocale(locale) ? locale : undefined);
     return {
       title: share.headline,
       robots: { index: false, follow: false },
@@ -44,7 +45,7 @@ export default async function SharePage({
     { locale } = await searchParams;
   let share;
   try {
-    share = await publicShare(token, locale === 'zh' || locale === 'en' ? locale : undefined);
+    share = await publicShare(token, locale && isLocale(locale) ? locale : undefined);
   } catch {
     notFound();
   }
@@ -59,9 +60,16 @@ export default async function SharePage({
         >
           {copy('share.try')}
         </a>
-        <a href={`/s/${token}?locale=${share.locale === 'zh' ? 'en' : 'zh'}`}>
-          {copy('nav.language')}
-        </a>
+        {(['zh', 'zh-TW', 'en'] as const).map((locale) => (
+          <a
+            key={locale}
+            href={`/s/${token}?locale=${locale}`}
+            hrefLang={locale}
+            aria-current={locale === share.locale ? 'page' : undefined}
+          >
+            {copy(`nav.locale.${locale}`)}
+          </a>
+        ))}
       </nav>
       <h1 className="type-h1">{t(runtimeKey('report.content'), { text: share.headline })}</h1>
       <div className="report-card">

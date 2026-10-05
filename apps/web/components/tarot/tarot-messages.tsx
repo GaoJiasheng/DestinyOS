@@ -12,9 +12,11 @@ export async function TarotMessages({
 }) {
   const locale = await getLocale();
   const catalog =
-    locale === 'en'
-      ? (await import('@/messages/en/tarot.json')).default
-      : (await import('@/messages/zh/tarot.json')).default;
+    locale === 'zh-TW'
+      ? (await import('@/messages/zh-TW/tarot.json')).default
+      : locale === 'en'
+        ? (await import('@/messages/en/tarot.json')).default
+        : (await import('@/messages/zh/tarot.json')).default;
   const scoped = toMessages(
     daily
       ? Object.fromEntries(

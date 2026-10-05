@@ -1,11 +1,11 @@
-import { BaziChartSchema, type Locale } from '@tianji/shared';
+import { BaziChartSchema } from '@tianji/shared';
 import type { LocalReading } from '../../lib/reading-schema';
 import chartFixture from '../../../../packages/content/test/fixtures/bazi.engine-a.json';
 import plan from '../../../../packages/interpret/src/plans/bazi.json';
 
 export const baziFixture = BaziChartSchema.parse(chartFixture);
 /** Deterministic saved report fixture; chart fields come from the existing engine Fixture A. */
-export function baziReading(locale: Locale): LocalReading {
+export function baziReading(locale: 'zh' | 'en'): LocalReading {
   return {
     id: '33333333-3333-4333-8333-333333333333',
     system: 'bazi',

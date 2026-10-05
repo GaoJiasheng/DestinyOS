@@ -1,6 +1,6 @@
 /** Match only the documented fixed ad placements, excluding forms, settings and public shares. */
 export function adRouteAllowed(pathname: string): boolean {
-  const path = pathname.replace(/^\/(zh|en)(?=\/|$)/, '') || '/';
+  const path = pathname.replace(/^\/(zh-TW|zh|en)(?=\/|$)/, '') || '/';
   return (
     path === '/' ||
     path === '/today' ||
