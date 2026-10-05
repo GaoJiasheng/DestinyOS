@@ -124,7 +124,12 @@ function add(
       do: ['Check together'],
       dont: ['Label people'],
     },
-    meta: { author: 'synastry-editorial-v1', reviewed_by: null, version: 1, status: 'published' },
+    meta: {
+      author: 'synastry-editorial-v1',
+      reviewed_by: null,
+      version: id.startsWith('ashtakoot.') ? 2 : 1,
+      status: 'published',
+    },
   });
 }
 const planets = [
@@ -284,16 +289,18 @@ for (const side of ['a', 'b'] as const)
       `主星可以作为理解长期相处期待的象征，需要同时查看对方命宫以及双方三方四正中的四化`,
       `The palace star provides a symbol for ${e} in partnership; read it alongside the other life palace and transformations in both palace triangles`,
     );
-for (const [i, key] of [
-  'varna',
-  'vashya',
-  'tara',
-  'yoni',
-  'graha_maitri',
-  'gana',
-  'bhakoot',
-  'nadi',
-].entries())
+// DESIGN-GAP: Chinese prose uses descriptive category names; canonical Sanskrit field keys remain unchanged for scoring and English output.
+const kootaLabels = {
+  varna: '传统等级',
+  vashya: '支配分类',
+  tara: '星宿距离',
+  yoni: '动物象征',
+  graha_maitri: '行星友谊',
+  gana: '性质分类',
+  bhakoot: '星座关系',
+  nadi: '脉性分类',
+};
+for (const [i, [key, label]] of Object.entries(kootaLabels).entries())
   for (const band of ['zero', 'partial', 'full'] as const) {
     const max = i + 1;
     const when: When =
@@ -311,7 +318,7 @@ for (const [i, key] of [
       `ashtakoot.${key}.${band}`,
       key === 'graha_maitri' ? 'communication' : key === 'yoni' ? 'love' : 'overview',
       when,
-      `${key} 分项${band === 'full' ? '满分' : band === 'zero' ? '为零' : '部分得分'}`,
+      `${label}分项${band === 'full' ? '满分' : band === 'zero' ? '为零' : '部分得分'}`,
       `${key.replaceAll('_', ' ')} has a ${band} score`,
       `这一项属于传统八项计分表，最高 ${max} 分；请把它和其余七项一起看，不能据此判断个人价值、健康或关系结果`,
       `This traditional table component has a maximum of ${max} points; view it with the other seven without making claims about personal worth, health, or relationship outcomes`,

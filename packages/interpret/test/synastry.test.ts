@@ -41,6 +41,20 @@ it('250 bilingual units produce six readable evidence-backed chapters for timed 
       ).toBe(true);
       expect(report.readability.passed, JSON.stringify(report.readability)).toBe(true);
       expect(report.hits.every((h) => h.evidence.length)).toBe(true);
+      const evidenceText = report.sections
+        .flatMap((section) => section.blocks)
+        .flatMap((block) =>
+          block.type === 'evidence' ? block.items.flatMap((item) => [item.label, item.value]) : [],
+        )
+        .join('\n');
+      expect(
+        locale === 'zh' ? /[A-Za-z]{2,}/.test(evidenceText) : /\p{Script=Han}/u.test(evidenceText),
+        `${locale} cross-chart evidence must use localized labels`,
+      ).toBe(false);
+      expect(
+        report.hits.flatMap((hit) => hit.evidence).some((item) => item.value === 'sextile'),
+        'Replay evidence must retain the canonical chart value',
+      ).toBe(true);
       expect(report.headline.confidence).toBe(unknown ? 0.65 : 1);
     }
   }

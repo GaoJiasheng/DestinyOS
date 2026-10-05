@@ -27,6 +27,7 @@ export function SynastryChartView({
   const number = (value: number) => intl('common.number', { value: Math.round(value * 100) / 100 });
   const trait = (value: string) =>
     /^\d+$/.test(value) ? number(Number(value)) : intl(`synastry.trait.${value}`);
+  // DESIGN-GAP: Sanskrit scoring categories use Chinese descriptive labels in zh while preserving canonical keys and English names in en.
   const aspects = (rows: SynastryChart['western']['aspects']) => (
     <div className="technical-data">
       <table>

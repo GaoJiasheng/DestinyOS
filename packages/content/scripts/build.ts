@@ -37,12 +37,17 @@ else {
         (index.byTopic[u.topic] ??= []).push(n);
       });
       // DESIGN-GAP: Locale bundles retain bilingual units to share one typed runtime format.
+      // DESIGN-GAP: Synastry evidence references four component charts, so its bundle includes their canonical bilingual glossary instead of exposing raw enum keys.
+      const glossarySystems =
+        system === 'synastry'
+          ? ['common', 'synastry', 'bazi', 'ziwei', 'astrology', 'vedic']
+          : ['common', system];
       const bundle: CompiledBundle = {
         system,
         locale,
         ...version,
         units,
-        glossary: result.glossary.filter((g) => g.system === system || g.system === 'common'),
+        glossary: result.glossary.filter((g) => glossarySystems.includes(g.system)),
         transitions: result.transitions,
         index,
       };

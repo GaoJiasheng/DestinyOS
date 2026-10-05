@@ -1,6 +1,6 @@
 import { cp, mkdir, readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
-// DESIGN-GAP: Large immutable public data stays in Workers Assets instead of consuming the 10MiB compressed Worker limit.
+// DESIGN-GAP: Large immutable public data stays in Workers Assets instead of consuming the 64MiB uncompressed Worker limit.
 const root = resolve(import.meta.dirname, '..');
 const web = resolve(root, 'apps/web');
 const assets = resolve(web, '.open-next/assets/_data');

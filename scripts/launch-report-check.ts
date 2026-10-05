@@ -2,11 +2,12 @@ import assert from 'node:assert/strict';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import {
   BaziChartSchema,
+  BirthInputSchema,
   type System,
   type BirthInput,
   type NormalizedBirth,
 } from '../packages/shared/src';
-import { compute, ENGINE_VERSION } from '../packages/engine/src';
+import { compute, normalizeBirth, ENGINE_VERSION } from '../packages/engine/src';
 import { interpret, systemConfigs, expandTerms } from '../packages/interpret/src';
 import type { KnowledgeBundle } from '../packages/content/src';
 import { banned } from '../packages/content/scripts/validation';
@@ -27,6 +28,12 @@ export async function checkLaunchReports({
   now: string;
   check: (id: string, probe: () => string | Promise<string>) => Promise<void>;
 }) {
+  // DESIGN-GAP: Newly merged synastry reports pair Fixture A with the documented Fixture B while retaining the same deterministic acceptance clock.
+  const partnerBirth = normalizeBirth(
+    BirthInputSchema.parse(
+      JSON.parse(await readFile('packages/engine/test/fixtures/birth/B.json', 'utf8')),
+    ),
+  );
   // DESIGN-GAP: Divination has no birth dependency; fix the clock, Beijing location, number cast and seed for repeatable Fixture A acceptance.
   for (const system of systems)
     for (const locale of ['zh', 'en'] as const) {
@@ -37,6 +44,7 @@ export async function checkLaunchReports({
         const chart = compute({
           system,
           birth: normalized,
+          ...(system === 'synastry' ? { partnerBirth } : {}),
           now,
           seed: 'fixture-A',
           spread: 'celtic_cross',
@@ -120,7 +128,11 @@ export async function checkLaunchReports({
           report.sections.map((s) => s.key),
           [
             ...systemConfigs[system].sectionPlan.map((s) => s.key),
-            ...(['iching', 'qimen', 'tarot'].includes(system) ? ['summary_actions'] : []),
+            ...(systemConfigs[system].sectionPlan.some(
+              (section) => section.key === 'summary_actions',
+            )
+              ? []
+              : ['summary_actions']),
           ],
         );
         for (const section of report.sections)
@@ -158,6 +170,11 @@ export async function checkLaunchReports({
           !/1990-05-15|08:30|39\.9|116\.4|Beijing/.test(share),
           'Private birth in public projection',
         );
+        if (system === 'synastry')
+          assert.ok(
+            !/1985-11-02|23:40|Shanghai/.test(share),
+            'Partner birth data in level-0 share',
+          );
         return `${report.readability.zhChars} chars / ${report.readability.enWords} words; ${report.sections.length} populated chapters; level 0 private fields absent`;
       });
     }

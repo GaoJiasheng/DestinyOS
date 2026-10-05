@@ -17,7 +17,7 @@ import { termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
 import { localizeReport } from './localize-report';
 import displayLabels from './display-labels.json';
-export const interpretVersion = '1.2.0';
+export const interpretVersion = '1.2.1';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>
   b.hit.weight - a.hit.weight || (a.unit.id < b.unit.id ? -1 : a.unit.id > b.unit.id ? 1 : 0);
@@ -41,6 +41,8 @@ export function interpret(input: InterpretInput): Report {
     ...input.knowledge,
     glossary: input.knowledge.glossary.filter((g) => g.system === system || g.system === 'common'),
   };
+  // DESIGN-GAP: Cross-chart evidence uses the bundled component glossary; prose annotation and density retain the report-system filter.
+  const evidenceGlossary = system === 'synastry' ? input.knowledge.glossary : knowledge.glossary;
   const config = { ...systemConfigs[system], ...input.config };
   const plan = input.sectionPlan ?? config.sectionPlan;
   const keys = new Set(plan.map((s) => s.key));
@@ -205,7 +207,7 @@ export function interpret(input: InterpretInput): Report {
     if (typeof value === 'boolean')
       return locale === 'zh' ? (value ? '成立' : '不成立') : value ? 'Present' : 'Absent';
     if (typeof value === 'string') {
-      const g = knowledge.glossary.find(
+      const g = evidenceGlossary.find(
         (entry) => entry.key === value || entry.key.endsWith(`.${value}`),
       );
       // DESIGN-GAP: Evidence enums lack a complete glossary. Bilingual labels reuse the chart catalogs and editorial names; serialized chart keys stay unchanged.
@@ -282,7 +284,7 @@ export function interpret(input: InterpretInput): Report {
         items: evidence.map((item) => {
           const value = display(item.value);
           const leaf = item.path.split('.').at(-1) ?? item.path;
-          const entry = knowledge.glossary.find((g) => g.key === item.path || g.key === leaf);
+          const entry = evidenceGlossary.find((g) => g.key === item.path || g.key === leaf);
           // DESIGN-GAP: Anchors use URI-encoded paths; chart renderers can link to these exact stable IDs.
           return {
             label: entry?.[locale].term ?? value,

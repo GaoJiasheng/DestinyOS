@@ -3,6 +3,8 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './apps/web/e2e',
   testMatch: 'cloudflare.spec.ts',
+  // DESIGN-GAP: Isolate Wrangler traces so Playwright cleanup preserves archived paid chat evaluations in sibling directories.
+  outputDir: 'test-results/cloudflare-runner',
   workers: 1,
   timeout: 120000,
   expect: { timeout: 30000 },

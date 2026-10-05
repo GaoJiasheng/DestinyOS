@@ -7,7 +7,7 @@
     "build": "tsx ../../scripts/daily-worker-build.ts && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "cf:build": "PLATFORM=cloudflare opennextjs-cloudflare build && tsx ../../scripts/cloudflare-assets.ts",
+    "cf:build": "PLATFORM=cloudflare opennextjs-cloudflare build && tsx ../../scripts/cloudflare-assets.ts && tsx ../../scripts/cloudflare-budget.ts",
     "cf:preview": "opennextjs-cloudflare preview",
     "cf:deploy": "pnpm cf:build && opennextjs-cloudflare deploy"
   },

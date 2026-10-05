@@ -14,7 +14,7 @@ import {
   type System,
 } from '../packages/shared/src';
 import { compute, normalizeBirth } from '../packages/engine/src';
-import type { KnowledgeBundle } from '../packages/content/src';
+import { LearnArticlesSchema, type KnowledgeBundle } from '../packages/content/src';
 import { encryptField, decryptField } from '../apps/web/lib/crypto';
 import { createLogger } from '../apps/web/lib/logger';
 import { beforeSend } from '../apps/web/lib/sentry';
@@ -49,6 +49,7 @@ const systems: System[] = [
   'astrology',
   'vedic',
   'numerology',
+  'synastry',
 ];
 await check('I18N/glossary', async () => {
   for (const locale of ['zh', 'en'] as const) {
@@ -80,6 +81,33 @@ await check('I18N/glossary', async () => {
   }
   return `${entries.size} bilingual term/short/long definitions and localized language names checked`;
 });
+await check('I18N/tutorials', async () => {
+  const { articles } = z
+    .object({ articles: LearnArticlesSchema })
+    .parse(JSON.parse(await readFile('apps/web/resources/learn.json', 'utf8')));
+  for (const article of articles)
+    for (const locale of ['zh', 'en'] as const) {
+      const copy = article[locale];
+      const text = [
+        copy.title,
+        copy.description,
+        ...copy.sections.map((section) => section.heading),
+        ...article.links.map((link) => link.label[locale]),
+        // DESIGN-GAP: English tutorial paragraphs preserve the documented first-mention Chinese/pinyin glosses; navigation metadata and all Chinese prose must be localized.
+        ...(locale === 'zh' ? copy.sections.flatMap((section) => section.paragraphs) : []),
+      ].join('\n');
+      // DESIGN-GAP: docs/12 requires first-mention Chinese/pinyin glosses in English; exempt only canonical terms at the start of that explicit parenthetical form.
+      const localized =
+        locale === 'en'
+          ? text.replace(/\((?:四柱|十神|大运|流年|紫微斗数|大限|卦|动爻|奇门遁甲),/g, '(')
+          : text.replaceAll('DestinyOS', '');
+      assert.ok(
+        locale === 'en' ? !/\p{Script=Han}/u.test(localized) : !/[A-Za-z]{2,}/.test(localized),
+        `Untranslated tutorial ${article.system}/${article.slug}/${locale}`,
+      );
+    }
+  return `${articles.length} bilingual tutorial titles/descriptions/headings/links and Chinese paragraphs checked`;
+});
 await check('VISUAL/config', async () => {
   const config = await readFile('playwright.config.ts', 'utf8');
   assert.ok(config.includes('{arg}-{projectName}{ext}'));
@@ -101,12 +129,17 @@ await check('VISUAL/config', async () => {
     assert.ok(matches, `Missing explicit testMatch in ${file}`);
     for (const match of matches.matchAll(/'([^']+\.spec\.ts)'/g))
       assert.ok(config.includes(`'${match[1]}'`), `${match[1]} must be excluded from dev suite`);
+    // DESIGN-GAP: Cloudflare's real binding suite targets a separately started wrangler runtime; verify its entry point without treating the Node dev server as Workers evidence.
+    const cloudflare = file === 'playwright.cloudflare.config.ts';
     assert.ok(
       Object.entries(scripts).some(
         ([name, command]) =>
-          command.includes(`--config ${file}`) && scripts['test:e2e']?.includes(`pnpm ${name}`),
+          command.includes(`--config ${file}`) &&
+          (cloudflare
+            ? name === 'test:cloudflare:e2e'
+            : scripts['test:e2e']?.includes(`pnpm ${name}`)),
       ),
-      `${file} must run in test:e2e`,
+      `${file} must have ${cloudflare ? 'a dedicated Workers command' : 'an entry in test:e2e'}`,
     );
   }
   const snapshots = (await readdir('apps/web/e2e', { recursive: true })).filter((p) =>
