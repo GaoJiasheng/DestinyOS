@@ -1,5 +1,6 @@
-import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
+import { currentProfile } from '@/lib/profile-service';
+import { auth } from '@/lib/auth';
 import { CalendarView } from '@/components/daily/calendar-view';
 export const dynamic = 'force-dynamic';
 export const metadata = { robots: { index: false, follow: false } };
@@ -9,14 +10,10 @@ export default async function CalendarPage() {
   const user = session?.user.id
     ? await getDb().user.findUnique({ where: { id: session.user.id }, select: { tz: true } })
     : null;
-  const profile = session?.user.id
-    ? await getDb().birthProfile.findFirst({
-        where: { userId: session.user.id, isCurrent: true },
-        select: { timeUnknown: true },
-      })
-    : null;
+  const profile = session?.user.id ? await currentProfile(session.user.id) : null;
   return (
     <CalendarView
+      key={profile ? `${profile.id}:${profile.version}` : 'local'}
       signedIn={Boolean(session?.user.id)}
       tz={user?.tz}
       timeUnknown={profile?.timeUnknown}

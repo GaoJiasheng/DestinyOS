@@ -62,6 +62,7 @@ const roots: Record<System, readonly string[]> = {
   // DESIGN-GAP: Numerology follow-up uses derived numbers only; exclude birthday, digit grid, dated cycles and target date.
   numerology: ['lifePath', 'nameNumbers', 'compatibility'],
   daily: [],
+  synastry: ['bazi', 'western', 'ashtakoot', 'availability'],
 };
 const forbidden =
   /^(?:input|local|birth.*|displayName|email|nameZh|nameEn|place.*|location|lat|lng|latitude|longitude|tz|timezone|jdUT|lunar|castAt|solarTimeAdjust|solarTerms|panchangAtBirth|decadal|ages|question|seed|source|numbers)$/i;

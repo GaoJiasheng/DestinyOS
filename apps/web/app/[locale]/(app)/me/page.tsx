@@ -58,7 +58,7 @@ export default async function MePage() {
         )}
       </section>
       <nav className="report-card settings-fields">
-        {(['birth', 'history', 'settings', 'billing'] as const).map((k) => (
+        {(['profiles', 'birth', 'history', 'settings', 'billing'] as const).map((k) => (
           <Link key={k} href={`/me/${k}`}>
             {t(`me.${k}`)}
           </Link>

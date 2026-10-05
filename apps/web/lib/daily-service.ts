@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { BirthInputSchema, DailyChartSchema, type Locale } from '@tianji/shared';
 import { ENGINE_VERSION } from '@tianji/engine';
-import { getDb } from './db';
+import { currentProfile, ownedProfile } from './profile-service';
 import { loadKnowledge } from './knowledge';
 import { getLocalRedis, getUpstashRedis } from './redis';
 import { ApiError } from './api-error';
@@ -13,12 +13,13 @@ export async function dailyForUser(
   date: string,
   tz: string,
   locale: Locale,
+  profileId?: string,
 ): Promise<DailyReport> {
-  const profile = await getDb().birthProfile.findFirst({ where: { userId, isCurrent: true } });
+  const profile = profileId ? await ownedProfile(userId, profileId) : await currentProfile(userId);
   if (!profile) throw new ApiError('E_PROFILE_REQUIRED', 'Birth profile required', 400);
   const knowledge = await loadKnowledge('daily', locale);
   const key = dailyCacheKey(
-    userId,
+    `${userId}:${profile.id}`,
     profile.version,
     date,
     locale,
@@ -47,7 +48,7 @@ export async function dailyForUser(
     birth,
     date,
     tz,
-    createHash('sha256').update(`${userId}|${date}`).digest('hex'),
+    createHash('sha256').update(`${userId}|${profile.id}|${date}`).digest('hex'),
     locale,
     knowledge,
   );

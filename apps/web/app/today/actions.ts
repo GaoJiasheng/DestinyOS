@@ -4,6 +4,7 @@ import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
 import { cookies, headers } from 'next/headers';
+import { currentProfile } from '@/lib/profile-service';
 import { auth } from '@/lib/auth';
 import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
@@ -44,10 +45,7 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
     const user = await getDb().user.findUniqueOrThrow({ where: { id: session.user.id } });
-    const profile = await getDb().birthProfile.findFirst({
-      where: { userId: user.id, isCurrent: true },
-      select: { tz: true },
-    });
+    const profile = await currentProfile(user.id);
     const tz =
       input.tz ??
       user.tz ??

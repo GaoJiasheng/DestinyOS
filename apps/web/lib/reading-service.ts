@@ -4,7 +4,6 @@ import { z } from 'zod';
 import { compute, normalizeBirth, EngineError, baziWarnings } from '@tianji/engine';
 import { interpret, localizeReport } from '@tianji/interpret';
 import {
-  BirthInputSchema,
   BaziChartSchema,
   AstroChartSchema,
   VedicChartSchema,
@@ -14,6 +13,7 @@ import {
   CategorySchema,
 } from '@tianji/shared';
 import { getDb } from './db';
+import { currentProfile, profileBirth, ownedProfile } from './profile-service';
 import { recordEvent } from './events';
 import { loadKnowledge } from './knowledge';
 import { computeDivinationResult } from './divination';
@@ -41,6 +41,7 @@ export function checkAge(birth: BirthInput, locale: Locale) {
 export async function generateReading(req: ReadingRequest, now: string, userId?: string) {
   const birth = req.birth ? normalizeBirth(req.birth, req.locale) : null;
   if (req.birth) checkAge(req.birth, req.locale);
+  if (req.partnerBirth) checkAge(req.partnerBirth, req.locale);
   // DESIGN-GAP: 07's flat divination fields are adapted to each pure engine's existing input shape.
   const questionRecord = typeof req.question === 'string' ? { text: req.question } : req.question;
   let question = questionRecord;
@@ -74,6 +75,7 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
           system: req.system,
           name: req.name,
           birth,
+          partnerBirth: req.partnerBirth ? normalizeBirth(req.partnerBirth, req.locale) : undefined,
           now,
           options: req.options,
           allowReversed: req.allowReversed,
@@ -139,7 +141,13 @@ export async function readingView(
   const profile = row.profileId
     ? await getDb().birthProfile.findUnique({
         where: { id: row.profileId },
-        select: { isCurrent: true },
+        select: { isCurrent: true, version: true },
+      })
+    : null;
+  const partnerProfile = row.partnerProfileId
+    ? await getDb().birthProfile.findUnique({
+        where: { id: row.partnerProfileId },
+        select: { isCurrent: true, version: true },
       })
     : null;
   const normalized = snapshot.birth ? normalizeBirth(snapshot.birth, locale) : null;
@@ -186,7 +194,11 @@ export async function readingView(
     birthYear: normalized?.local.year,
     displayName: owner ? snapshot.displayName : undefined,
     isPublic: row.isPublic,
-    staleProfile: profile?.isCurrent === false,
+    staleProfile:
+      profile?.isCurrent === false ||
+      (!!profile && row.profileVersion !== profile.version) ||
+      partnerProfile?.isCurrent === false ||
+      (!!partnerProfile && snapshot.partnerProfileVersion !== partnerProfile.version),
   };
 }
 /** Save chart/report plaintext and input via the existing AES-GCM Prisma extension. */
@@ -204,11 +216,25 @@ export async function persistReading(
   );
   let plan: 'free' | 'pro' = 'free';
   const row = await getDb().$transaction(async (tx) => {
+    // DESIGN-GAP: Synchronize persistence with profile deletion, then recheck both owner-scoped references.
+    if (profile?.id || req.partnerProfileId)
+      await tx.$queryRaw`SELECT "id" FROM "User" WHERE "id" = ${userId} FOR UPDATE`;
+    for (const profileId of [profile?.id, req.partnerProfileId]) {
+      if (
+        profileId &&
+        !(await tx.birthProfile.findFirst({
+          where: { id: profileId, userId, isCurrent: true },
+          select: { id: true },
+        }))
+      )
+        throw new ApiError('E_PROFILE_REQUIRED', 'Profile was removed', 400);
+    }
     const saved = await tx.reading.create({
       data: {
         id,
         userId,
         profileId: profile?.id,
+        partnerProfileId: req.partnerProfileId,
         profileVersion: profile?.version,
         system: req.system,
         encInput: JSON.stringify(req),
@@ -243,17 +269,43 @@ export async function persistReading(
 }
 /** Expand the current encrypted profile when a signed-in request omits birth. */
 export async function resolveBirth(req: ReadingRequest, userId?: string) {
-  if (req.birth || !['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(req.system))
+  if (!['bazi', 'ziwei', 'astrology', 'vedic', 'numerology', 'synastry'].includes(req.system))
+    return {
+      req,
+      profile: userId
+        ? req.profileId
+          ? await ownedProfile(userId, req.profileId)
+          : ((await currentProfile(userId)) ?? undefined)
+        : undefined,
+    };
+  if (!userId) {
+    if (!req.birth || (req.system === 'synastry' && !req.partnerBirth))
+      throw new ApiError('E_PROFILE_REQUIRED', 'Birth input required', 400);
     return { req };
-  if (!userId) throw new ApiError('E_PROFILE_REQUIRED', 'Birth input required', 400);
-  const profile = await getDb().birthProfile.findFirst({ where: { userId, isCurrent: true } });
-  if (!profile) throw new ApiError('E_PROFILE_REQUIRED', 'Profile required', 400);
-  const birth = BirthInputSchema.parse({
-    ...JSON.parse(profile.encBirth),
-    place: profile.encPlace ? JSON.parse(profile.encPlace) : undefined,
-    gender: profile.gender,
-  });
-  return { req: { ...req, birth, displayName: profile.encName ?? undefined }, profile };
+  }
+  const profile = req.profileId
+    ? await ownedProfile(userId, req.profileId)
+    : await currentProfile(userId);
+  if (!profile && !req.birth) throw new ApiError('E_PROFILE_REQUIRED', 'Profile required', 400);
+  // Explicit form birth is a trial snapshot; still associate it with the selected profile for history.
+  const birth = req.birth ?? (profile ? profileBirth(profile) : undefined);
+  if (req.system !== 'synastry')
+    return { req: { ...req, birth, profileId: profile?.id }, profile: profile ?? undefined };
+  if (profile?.id && profile.id === req.partnerProfileId)
+    throw new ApiError('E_VALIDATION', 'Two distinct profiles required', 400);
+  const partner = req.partnerProfileId ? await ownedProfile(userId, req.partnerProfileId) : null;
+  const partnerBirth = partner ? profileBirth(partner) : req.partnerBirth;
+  if (!partnerBirth) throw new ApiError('E_PROFILE_REQUIRED', 'Second profile required', 400);
+  return {
+    req: {
+      ...req,
+      birth,
+      partnerBirth,
+      profileId: profile?.id,
+      partnerProfileVersion: partner?.version,
+    },
+    profile: profile ?? undefined,
+  };
 }
 /** Cache only hashes, a timestamp and the persisted ID; no anonymous PII enters Redis. */
 export async function idempotentCreate(

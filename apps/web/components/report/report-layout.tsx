@@ -253,7 +253,7 @@ export function ReportLayout({
           >
             {t('report.proView')}
           </Button>
-          <ShareDialog readingId={view.id} local={local} />
+          <ShareDialog system={view.system} readingId={view.id} local={local} />
           <ExportMenu readingId={view.id} local={local} owner={owner} />
           {owner || local ? (
             <details className="report-more">

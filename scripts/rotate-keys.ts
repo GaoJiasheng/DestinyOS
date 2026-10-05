@@ -20,7 +20,7 @@ export async function rotateKeys(db: PrismaClient): Promise<void> {
         for (const { id } of rows) {
           const row = await tx.birthProfile.findUnique({ where: { id } });
           if (!row) continue;
-          const rotate = (field: 'encBirth' | 'encPlace' | 'encName') =>
+          const rotate = (field: 'encBirth' | 'encPlace' | 'encName' | 'label') =>
             row[field] === null
               ? null
               : encryptField(
@@ -34,6 +34,7 @@ export async function rotateKeys(db: PrismaClient): Promise<void> {
               encBirth: rotate('encBirth') ?? '',
               encPlace: rotate('encPlace'),
               encName: rotate('encName'),
+              label: rotate('label'),
             },
           });
         }

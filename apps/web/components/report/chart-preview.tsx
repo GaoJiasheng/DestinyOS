@@ -1,5 +1,7 @@
 'use client';
+import { SynastryChartView } from '@/components/charts/synastry-chart';
 import {
+  SynastryChartSchema,
   NumerologyChartSchema,
   BaziChartSchema,
   ZiweiChartSchema,
@@ -40,6 +42,8 @@ export function ChartPreview({
   professional?: boolean;
 }) {
   const t = useCopy();
+  const synastry = SynastryChartSchema.safeParse(chart);
+  if (synastry.success) return <SynastryChartView chart={synastry.data} />;
   const numerology = NumerologyChartSchema.safeParse(chart);
   if (numerology.success)
     return <NumerologyChart chart={numerology.data} highlight={highlight} onSelect={onSelect} />;

@@ -1,4 +1,4 @@
-import type { Locale } from '@tianji/shared';
+import { BirthInputSchema, type Locale } from '@tianji/shared';
 import { createReadingAction, getProfileAction } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading } from './reading-schema';
@@ -13,7 +13,32 @@ export async function launchSystem(
   ]);
   const birth = saved?.ok && saved.data ? saved.data : local?.profile;
   if (!birth) return { href: `/${system}/new` };
-  const request = { system, locale, birth, idempotencyKey: crypto.randomUUID() };
+  const request = {
+    system,
+    locale,
+    ...(saved?.ok && saved.data ? { profileId: saved.data.profileId } : {}),
+    birth: BirthInputSchema.parse(
+      Object.fromEntries(
+        Object.entries(birth).filter(([key]) =>
+          [
+            'calendar',
+            'year',
+            'month',
+            'day',
+            'isLeapMonth',
+            'hour',
+            'minute',
+            'timeUnknown',
+            'place',
+            'gender',
+            'timeSource',
+            'rectificationConfidence',
+          ].includes(key),
+        ),
+      ),
+    ),
+    idempotencyKey: crypto.randomUUID(),
+  };
   const began = performance.now();
   const result = await createReadingAction(request);
   await new Promise((resolve) =>

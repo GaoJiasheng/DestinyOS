@@ -1,4 +1,5 @@
 'use client';
+import { SynastryChartView } from '@/components/charts/synastry-chart';
 import { useTranslations } from 'next-intl';
 import {
   BaziChartSchema,
@@ -8,6 +9,7 @@ import {
   TarotChartSchema,
   AstroChartSchema,
   VedicChartSchema,
+  SynastryChartSchema,
   NumerologyChartSchema,
   TAROT_SPREADS,
 } from '@tianji/shared';
@@ -17,6 +19,8 @@ import { VedicSouthChart } from '@/components/charts/vedic-south-chart';
 /** Static vector charts retain the exact saved chart positions and translated domain labels. */
 export function PrintChart({ chart }: { chart: unknown }) {
   const t = useTranslations();
+  const synastry = SynastryChartSchema.safeParse(chart);
+  if (synastry.success) return <SynastryChartView chart={synastry.data} print />;
   const b = BaziChartSchema.safeParse(chart);
   const z = ZiweiChartSchema.safeParse(chart);
   const q = QimenChartSchema.safeParse(chart);

@@ -1,4 +1,6 @@
 'use server';
+import { getCopy } from '@/i18n/get-copy';
+import { currentProfile, profileBirth, saveProfile, removeProfile } from '@/lib/profile-service';
 import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
 import { getLocale } from 'next-intl/server';
@@ -31,7 +33,7 @@ import {
 import { interpret, localizeReport } from '@tianji/interpret';
 import { loadKnowledge } from '@/lib/knowledge';
 import { BirthInputSchema, System } from '@tianji/shared';
-import { normalizeBirth, ENGINE_VERSION } from '@tianji/engine';
+import { ENGINE_VERSION } from '@tianji/engine';
 import { stripPII } from '@/lib/strip-pii';
 const idSchema = z.string().min(1).max(100);
 async function userId() {
@@ -152,10 +154,21 @@ export async function listReadingsAction(raw: unknown = { limit: 20 }) {
             select: { id: true },
           })
         : null;
+    const selected = await currentProfile(owner);
     const rows = await getDb().reading.findMany({
       where: {
         userId: owner,
         system: input.system,
+        // DESIGN-GAP: Legacy divination and anonymous imports without a profile remain visible in owner history.
+        ...(selected
+          ? {
+              OR: [
+                { profileId: selected.id },
+                { partnerProfileId: selected.id },
+                { profileId: null },
+              ],
+            }
+          : { profileId: null }),
         ...(recent ? { id: { in: recent.map((r) => r.id) } } : {}),
         ...(input.search ? { title: { contains: input.search, mode: 'insensitive' } } : {}),
       },
@@ -257,14 +270,13 @@ export async function regenerateReportAction(raw: string, locale: 'zh' | 'en' | 
 export async function getProfileAction() {
   return run(async () => {
     const owner = await userId();
-    const row = await getDb().birthProfile.findFirst({ where: { userId: owner, isCurrent: true } });
+    const row = await currentProfile(owner);
     return row
       ? {
-          ...BirthInputSchema.parse({
-            ...JSON.parse(row.encBirth),
-            place: row.encPlace ? JSON.parse(row.encPlace) : undefined,
-            gender: row.gender,
-          }),
+          ...profileBirth(row),
+          profileId: row.id,
+          label: row.label ?? row.encName ?? '',
+          relation: row.relation,
           version: row.version,
           displayName: row.encName ?? '',
         }
@@ -283,47 +295,27 @@ export async function upsertProfileAction(
     const lang = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const name = z.string().trim().max(80).parse(displayName);
     checkAge(birth, lang);
-    const normalized = normalizeBirth(birth, lang);
     const owner = await userId();
-    const { place, gender, ...input } = birth;
-    const row = await getDb().$transaction(
-      async (tx) => {
-        const last = await tx.birthProfile.findFirst({
-          where: { userId: owner },
-          orderBy: { version: 'desc' },
-        });
-        await tx.birthProfile.updateMany({
-          where: { userId: owner, isCurrent: true },
-          data: { isCurrent: false },
-        });
-        return tx.birthProfile.create({
-          data: {
-            userId: owner,
-            version: (last?.version ?? 0) + 1,
-            encBirth: JSON.stringify(input),
-            encPlace: place ? JSON.stringify(place) : null,
-            encName: name || null,
-            gender,
-            timeUnknown: normalized.timeUnknown,
-            tz: normalized.local.tz,
-            birthYear: normalized.local.year,
-            chartHash: digest(JSON.stringify(normalized)),
-          },
-        });
+    const current = await currentProfile(owner);
+    return saveProfile(
+      owner,
+      birth,
+      {
+        label:
+          name || current?.label || current?.encName || (await getCopy())('profiles.relation.self'),
+        relation: current?.relation ?? 'self',
       },
-      { isolationLevel: 'Serializable' },
+      lang,
+      current?.id,
     );
-    return { profileId: row.id, version: row.version, warnings: normalized.warnings };
   });
 }
 /** Delete all owner profile versions and associated readings. */
 export async function deleteProfileAction() {
   return run(async () => {
     const owner = await userId();
-    await getDb().$transaction(async (tx) => {
-      await tx.reading.deleteMany({ where: { userId: owner, profileId: { not: null } } });
-      await tx.birthProfile.deleteMany({ where: { userId: owner } });
-    });
+    const profile = await currentProfile(owner);
+    if (profile) await removeProfile(owner, profile.id);
     return { deleted: true };
   });
 }

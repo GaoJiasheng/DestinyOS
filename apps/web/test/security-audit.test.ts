@@ -138,7 +138,16 @@ describe('security audit regressions', () => {
     };
     for (let i = 0; i < 1000; i++) logger.info(pii, 'Security sample');
     expect(output.trim().split('\n')).toHaveLength(1000);
-    expect(output).not.toMatch(/1990|39\.9|116\.4|private/);
+    // DESIGN-GAP: Assert redaction on payloads; timestamps and process IDs can coincidentally contain the sample birth year.
+    const payloads = output
+      .trim()
+      .split('\n')
+      .map((line) => {
+        const record: Record<string, unknown> = JSON.parse(line);
+        for (const key of ['time', 'pid', 'hostname']) delete record[key];
+        return record;
+      });
+    expect(JSON.stringify(payloads)).not.toMatch(/1990|39\.9|116\.4|private/);
     const clean = beforeSend({
       type: undefined,
       extra: pii,

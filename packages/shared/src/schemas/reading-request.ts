@@ -7,6 +7,12 @@ export const ReadingRequestSchema = z
   .object({
     system: z.nativeEnum(System).refine((s) => s !== 'daily'),
     birth: BirthInputSchema.optional(),
+    // DESIGN-GAP: Private paired input and owner-scoped IDs support saved profiles and encrypted snapshots.
+    partnerBirth: BirthInputSchema.optional(),
+    profileId: z.string().min(1).max(100).optional(),
+    partnerProfileId: z.string().min(1).max(100).optional(),
+    // DESIGN-GAP: The server records the second profile version in the encrypted snapshot for stale-report detection.
+    partnerProfileVersion: z.number().int().min(1).optional(),
     locale: z.enum(['zh', 'en', 'zh-TW']).default('zh'),
     name: NumerologyNameSchema.optional(),
     displayName: z.string().trim().max(80).optional(),

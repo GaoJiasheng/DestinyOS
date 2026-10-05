@@ -51,7 +51,8 @@ export async function loadContent() {
       units.push(...result.units);
       diagnostics.push(...result.diagnostics);
     }
-  diagnostics.push(...validateRelations(units));
+  // DESIGN-GAP: Large corpora may exceed the JS argument limit; append diagnostics without variadic spread.
+  for (const diagnostic of validateRelations(units)) diagnostics.push(diagnostic);
   for (const file of await files(join(root, 'glossary'), '.yaml')) {
     const result = validateGlossary(file, await readFile(file, 'utf8'));
     glossary.push(...result.entries);

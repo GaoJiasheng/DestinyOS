@@ -10,6 +10,7 @@ import { ThemeSwitch } from './theme-provider';
 import { Dialog } from './ui/dialog';
 import { Button } from './ui/button';
 import { systems } from '@/lib/system-links';
+import { ProfileSwitcher } from './me/profile-switcher';
 import { useSignedIn } from './providers';
 export { systems } from '@/lib/system-links';
 /** Responsive desktop navigation and the five-item mobile tab bar. */
@@ -45,15 +46,13 @@ export function Navigation() {
         <div className="header-tools">
           <LocaleSwitch />
           <ThemeSwitch />
-          <Link
-            prefetch={false}
-            href={signedIn ? '/me' : '/auth/login'}
-            className="login-link"
-            aria-label={t(signedIn ? 'nav.me' : 'nav.login')}
-          >
-            {/* DESIGN-GAP: Use the standard user avatar for authenticated accounts without a profile image. */}
-            {signedIn ? <UserRound size={21} aria-hidden /> : t('nav.login')}
-          </Link>
+          {signedIn ? (
+            <ProfileSwitcher />
+          ) : (
+            <Link prefetch={false} href="/auth/login" className="login-link">
+              {t('nav.login')}
+            </Link>
+          )}
         </div>
       </header>
       <nav className="mobile-tabs" aria-label={t('nav.label')}>
@@ -179,9 +178,11 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
                   {t(
                     ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
                       ? 'home.cards.birth'
-                      : system === 'qimen'
-                        ? 'home.cards.location'
-                        : 'home.cards.noBirth',
+                      : system === 'synastry'
+                        ? 'synastry.requiresTwo'
+                        : system === 'qimen'
+                          ? 'home.cards.location'
+                          : 'home.cards.noBirth',
                   )}{' '}
                   · {t('home.cards.duration')}
                 </span>

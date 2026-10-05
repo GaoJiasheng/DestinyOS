@@ -1,3 +1,4 @@
+import { ownedProfile } from './profile-service';
 import { fromDbLocale } from './db-locale';
 import { randomInt, createHmac, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
@@ -25,6 +26,7 @@ export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW')
     include: {
       reading: {
         select: {
+          profileId: true,
           system: true,
           chart: true,
           reportZh: true,
@@ -62,21 +64,21 @@ export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW')
     link.reading.system,
     link.reading.chart,
     localizeReport(ReportSchema.parse(raw), lang),
-    z.enum(['chart', 'quote', 'daily']).parse(link.template),
+    z.enum(['chart', 'quote', 'daily', 'synastry']).parse(link.template),
     link.revealLevel,
   );
   // DESIGN-GAP: A natal reading's daily template uses the share creation day and current profile version, rather than adding undocumented ShareLink columns.
   if (link.template === 'daily') {
-    const profile = await getDb().birthProfile.findFirst({
-      where: { userId: link.userId, isCurrent: true },
-      select: { tz: true },
-    });
+    const profile = link.reading.profileId
+      ? await ownedProfile(link.userId, link.reading.profileId)
+      : null;
     const tz = link.user.tz ?? profile?.tz ?? 'UTC';
     const { chart, report } = await dailyForUser(
       link.userId,
       localToday(tz, link.createdAt.toISOString()),
       tz,
       lang,
+      link.reading.profileId ?? undefined,
     );
     const t = await getTranslations({ locale: lang });
     view.daily = {

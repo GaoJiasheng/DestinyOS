@@ -9,6 +9,7 @@ import tarot from './plans/tarot.json';
 import astrology from './plans/astrology.json';
 import vedic from './plans/vedic.json';
 import numerology from './plans/numerology.json';
+import synastry from './plans/synastry.json';
 import daily from './plans/daily.json';
 export const systemConfigs: Record<System, SystemConfig> = {
   bazi: {
@@ -24,6 +25,10 @@ export const systemConfigs: Record<System, SystemConfig> = {
   vedic: { sectionPlan: vedic },
   numerology: { sectionPlan: numerology },
   daily: { sectionPlan: daily },
+  synastry: {
+    sectionPlan: synastry,
+    confidence: (chart) => (resolvePath(chart, 'availability.complete')[0] === true ? 1 : 0.65),
+  },
 };
 export function numeric(chart: unknown, path: string, fallback: number): number {
   const value = resolvePath(chart, path)[0];

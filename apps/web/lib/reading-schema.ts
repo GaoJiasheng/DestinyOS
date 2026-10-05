@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { ReadingRequestSchema, System, EngineWarningSchema } from '@tianji/shared';
 import {
+  SynastryChartSchema,
   NumerologyChartSchema,
   BaziChartSchema,
   ZiweiChartSchema,
@@ -112,6 +113,7 @@ export type LocalReading = ReadingView & {
 /** Validate chart snapshots against their system schema before importing or interpreting device data. */
 export function parseReadingChart(system: System, chart: unknown): unknown {
   const schemas = {
+    synastry: SynastryChartSchema,
     numerology: NumerologyChartSchema,
     bazi: BaziChartSchema,
     ziwei: ZiweiChartSchema,

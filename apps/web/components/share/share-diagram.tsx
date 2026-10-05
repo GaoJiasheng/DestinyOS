@@ -35,12 +35,18 @@ export function ShareDiagram({
         <circle cx="160" cy="160" r="100" fill="none" stroke={colors.gold} />
         {diagram.items.map((p, i) => {
           const angle = (((p.longitude ?? 0) - 90) * Math.PI) / 180,
-            x = 160 + 120 * Math.cos(angle),
-            y = 160 + 120 * Math.sin(angle);
+            radius = p.label === 'synastry.b' ? 86 : 120,
+            x = 160 + radius * Math.cos(angle),
+            y = 160 + radius * Math.sin(angle);
           return (
             <g key={i}>
               <line x1="160" y1="160" x2={x} y2={y} stroke={colors.line} />
-              <circle cx={x} cy={y} r="6" fill={colors.gold} />
+              <circle
+                cx={x}
+                cy={y}
+                r="6"
+                fill={p.label === 'synastry.b' ? colors.line : colors.gold}
+              />
               <title>
                 {text(p.label)} · {text(p.value)}
               </title>

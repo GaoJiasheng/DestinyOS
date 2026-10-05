@@ -33,7 +33,16 @@ enum System {
   astrology
   vedic
   numerology
+  synastry
   daily
+}
+
+enum ProfileRelation {
+  self
+  partner
+  family
+  friend
+  other
 }
 
 enum Gender {
@@ -127,8 +136,12 @@ model BirthProfile {
   id          String    @id @default(cuid())
   userId      String
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  version     Int       @default(1) // 每次编辑 +1；旧版本行保留 isCurrent=false
-  isCurrent   Boolean   @default(true)
+  version     Int       @default(1) // 每次编辑 +1；isCurrent=false 仅兼容一期旧版本归档
+  isCurrent   Boolean   @default(true) // Legacy archived rows remain false; multiple live profiles are allowed.
+  // DESIGN-GAP: Legacy labels remain nullable and fall back to encName; new labels are application-encrypted.
+  label       String? // Never a public chart field.
+  isDefault   Boolean   @default(false)
+  relation    ProfileRelation @default(self)
   // ---- 加密列：ciphertext 格式 "v<keyVersion>:<iv b64>:<tag b64>:<data b64>" ----
   encBirth    String // JSON {calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown}
   encPlace    String? // JSON {name, lat, lng, tz}
@@ -141,9 +154,10 @@ model BirthProfile {
   chartHash   String // sha256(规范化出生输入 + 流派参数)，用作排盘缓存键
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  readings    Reading[]
+  readings    Reading[] @relation("ReadingProfile")
+  partnerReadings Reading[] @relation("SynastryPartner")
 
-  @@unique([userId, version])
+  @@index([userId, isDefault])
   @@index([userId, isCurrent])
 }
 
@@ -151,8 +165,10 @@ model Reading {
   id               String        @id @default(cuid())
   userId           String? // 匿名导入前为 null（仅在导入时创建）
   user             User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  partnerProfileId String?
   profileId        String?
-  profile          BirthProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+  partnerProfile   BirthProfile? @relation("SynastryPartner", fields: [partnerProfileId], references: [id], onDelete: Cascade)
+  profile          BirthProfile? @relation("ReadingProfile", fields: [profileId], references: [id], onDelete: SetNull)
   system           System
   status           ReadingStatus @default(ok)
   // 输入快照（加密）：出生输入 + 问题 + 牌阵/起卦参数 + seed
@@ -175,6 +191,7 @@ model Reading {
 
   @@index([userId, createdAt(sort: Desc)])
   @@index([userId, system])
+  @@index([partnerProfileId])
 }
 
 model ShareLink {

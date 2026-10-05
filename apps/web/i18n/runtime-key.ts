@@ -27,6 +27,7 @@ const parentMessages = new Set([
   'me.delete',
   'admin.range',
   'admin.error',
+  'profiles.relation',
 ]);
 /** Resolve the documented parent-message/namespace collisions without bundling a catalog. */
 export function runtimeKey(key: string, catalog?: Record<string, string>): string {

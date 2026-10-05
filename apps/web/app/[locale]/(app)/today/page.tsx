@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/site-config';
+import { currentProfile } from '@/lib/profile-service';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { TarotMessages } from '@/components/tarot/tarot-messages';
@@ -17,10 +18,11 @@ export default async function TodayPage() {
         select: { tz: true, plan: true },
       })
     : null;
+  const profile = session?.user.id ? await currentProfile(session.user.id) : null;
   const vedicUsed = session?.user.id
     ? Boolean(
         await getDb().reading.findFirst({
-          where: { userId: session.user.id, system: 'vedic' },
+          where: { userId: session.user.id, profileId: profile?.id, system: 'vedic' },
           select: { id: true },
         }),
       )
@@ -28,6 +30,7 @@ export default async function TodayPage() {
   return (
     <TarotMessages daily>
       <TodayView
+        key={profile ? `${profile.id}:${profile.version}` : 'local'}
         signedIn={Boolean(session?.user.id)}
         tz={user?.tz}
         plan={user?.plan ?? 'free'}

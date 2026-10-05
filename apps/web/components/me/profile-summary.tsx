@@ -69,7 +69,7 @@ export function ProfileSummary({ profile }: { profile?: BirthInput }) {
         <p>{t('me.noProfile')}</p>
       )}
       {error ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
-      <Link href="/me/birth">{t('me.birth')}</Link>
+      <Link href="/me/profiles">{t('profiles.manage')}</Link>
     </section>
   );
 }

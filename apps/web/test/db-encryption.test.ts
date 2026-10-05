@@ -215,15 +215,15 @@ it('encrypts reading snapshots, strips chart PII and round-trips createMany/upse
     ),
   ).toBe(true);
   const upsert = await encryptedDb.birthProfile.upsert({
-    where: { userId_version: { userId: user.id, version: 4 } },
-    create: { ...base, version: 4 },
+    where: { id: `upsert-${user.id}`, userId: user.id },
+    create: { ...base, id: `upsert-${user.id}`, version: 4 },
     update: { encBirth: '{}' },
     select: { encBirth: true },
   });
   expect(upsert).toEqual({ encBirth: '{}' });
   // High-risk regression: upsert must not transplant owner-bound ciphertext or replace its owner.
   const existing = await raw.birthProfile.findUniqueOrThrow({
-    where: { userId_version: { userId: user.id, version: 4 } },
+    where: { id: `upsert-${user.id}`, userId: user.id },
   });
   await expect(
     encryptedDb.birthProfile.upsert({

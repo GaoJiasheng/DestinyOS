@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import {
+  SynastryChartSchema,
   NumerologyChartSchema,
   BaziChartSchema,
   AstroChartSchema,
@@ -12,7 +13,7 @@ import {
   type Locale,
 } from '@tianji/shared';
 import type { Report } from '@tianji/interpret';
-export const ShareTemplateSchema = z.enum(['chart', 'quote', 'daily']);
+export const ShareTemplateSchema = z.enum(['chart', 'quote', 'daily', 'synastry']);
 export type ShareTemplate = z.infer<typeof ShareTemplateSchema>;
 export type PublicShare = {
   locale: Locale;
@@ -46,6 +47,24 @@ export function publicText(text: string): string {
 /** Whitelist only derived diagram fields. Dates, question text, locations and input metadata cannot enter this projection. */
 function diagram(system: System, chart: unknown): PublicDiagram | undefined {
   switch (system) {
+    case 'synastry': {
+      const c = SynastryChartSchema.parse(chart);
+      return {
+        kind: 'wheel',
+        items: [
+          ...c.a.astrology.bodies.map((p) => ({
+            label: 'synastry.a',
+            value: `charts.planet.${p.key}`,
+            longitude: p.lon,
+          })),
+          ...c.b.astrology.bodies.map((p) => ({
+            label: 'synastry.b',
+            value: `charts.planet.${p.key}`,
+            longitude: p.lon,
+          })),
+        ],
+      };
+    }
     case 'numerology': {
       const c = NumerologyChartSchema.parse(chart);
       return {

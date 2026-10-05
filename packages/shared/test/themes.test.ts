@@ -19,6 +19,7 @@ describe('documented shared contracts', () => {
       'astrology',
       'vedic',
       'numerology',
+      'synastry',
       'daily',
     ]);
     expect(Object.values(Gender)).toEqual(['male', 'female', 'unspecified']);

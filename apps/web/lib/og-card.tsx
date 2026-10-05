@@ -45,7 +45,12 @@ export async function renderCard(
       errorCorrectionLevel: 'M',
     }),
   ]);
-  const colors = { chart: palette.gold, quote: palette.gold, daily: palette.gold };
+  const colors = {
+    chart: palette.gold,
+    quote: palette.gold,
+    daily: palette.gold,
+    synastry: palette.line,
+  };
   const headline = publicText(card.headline).slice(0, 120);
   const scores = 'system' in card ? Object.entries(card.scores) : [];
   return new ImageResponse(
@@ -105,7 +110,7 @@ export async function renderCard(
             display: 'flex',
             flexDirection: 'column',
             gap: 24,
-            width: story || template !== 'chart' ? '100%' : '66%',
+            width: story || !['chart', 'synastry'].includes(template) ? '100%' : '66%',
           }}
         >
           <div
@@ -179,7 +184,7 @@ export async function renderCard(
             </div>
           ) : null}
         </div>
-        {template === 'chart' && 'system' in card ? (
+        {['chart', 'synastry'].includes(template) && 'system' in card ? (
           <div style={{ display: 'flex', width: story ? '100%' : '30%', justifyContent: 'center' }}>
             {card.diagram ? (
               <ShareDiagram diagram={card.diagram} translate={copy} colors={palette} />

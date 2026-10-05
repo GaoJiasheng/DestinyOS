@@ -1,0 +1,5916 @@
+{
+  "a": {
+    "bazi": {
+      "pillars": {
+        "year": {
+          "stem": "geng",
+          "branch": "wu",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "ding",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "ji",
+              "role": "middle",
+              "tenGod": "zheng_yin"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "lu_pang_tu",
+          "lifeStage": "mu_yu",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "xin",
+          "branch": "si",
+          "stemElement": "metal",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "bing",
+              "role": "main",
+              "tenGod": "qi_sha"
+            },
+            {
+              "stem": "wu_stem",
+              "role": "middle",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "geng",
+              "role": "residual",
+              "tenGod": "bi_jian"
+            }
+          ],
+          "tenGod": "jie_cai",
+          "naYin": "bai_la_jin",
+          "lifeStage": "chang_sheng",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "geng",
+          "branch": "chen",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "bai_la_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "geng",
+          "branch": "chen",
+          "stemElement": "metal",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "pian_yin"
+            },
+            {
+              "stem": "yi",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "gui",
+              "role": "residual",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "bai_la_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "geng",
+        "element": "metal",
+        "yinYang": "yang"
+      },
+      "elements": {
+        "raw": {
+          "wood": 1,
+          "fire": 3,
+          "earth": 3,
+          "metal": 4.3,
+          "water": 0.6
+        },
+        "pct": {
+          "wood": 8.40336134,
+          "fire": 25.21008403,
+          "earth": 25.21008403,
+          "metal": 36.13445378,
+          "water": 5.04201681
+        },
+        "contributions": [
+          {
+            "pillar": "year",
+            "source": "stem",
+            "stem": "geng",
+            "element": "metal",
+            "weight": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "stem": "ding",
+            "element": "fire",
+            "weight": 1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "stem": "ji",
+            "element": "earth",
+            "weight": 0.5
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "stem": "xin",
+            "element": "metal",
+            "weight": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "stem": "bing",
+            "element": "fire",
+            "weight": 1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "stem": "wu_stem",
+            "element": "earth",
+            "weight": 0.5
+          },
+          {
+            "pillar": "month",
+            "source": "residual",
+            "stem": "geng",
+            "element": "metal",
+            "weight": 0.3
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "stem": "geng",
+            "element": "metal",
+            "weight": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "stem": "wu_stem",
+            "element": "earth",
+            "weight": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "stem": "yi",
+            "element": "wood",
+            "weight": 0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "stem": "gui",
+            "element": "water",
+            "weight": 0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "stem": "geng",
+            "element": "metal",
+            "weight": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "stem": "wu_stem",
+            "element": "earth",
+            "weight": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "stem": "yi",
+            "element": "wood",
+            "weight": 0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "stem": "gui",
+            "element": "water",
+            "weight": 0.3
+          },
+          {
+            "pillar": "month",
+            "source": "month_bonus",
+            "stem": "bing",
+            "element": "fire",
+            "weight": 1
+          }
+        ]
+      },
+      "strength": {
+        "score": 2.9,
+        "level": "strong",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "fire",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "earth",
+            "score": 0.5
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "fire",
+            "score": -1
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "residual",
+            "element": "water",
+            "score": -0.3
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "metal",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "earth",
+            "score": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "middle",
+            "element": "wood",
+            "score": -0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "residual",
+            "element": "water",
+            "score": -0.3
+          }
+        ],
+        "confidence": 1
+      },
+      "useGod": {
+        "favorable": ["wood", "fire", "water"],
+        "unfavorable": ["earth", "metal"],
+        "group": "drain",
+        "tiaoHou": "water",
+        "rationale": ["bazi.rules.drain", "bazi.rules.tiao_hou_water"]
+      },
+      "pattern": {
+        "name": "qi_sha",
+        "viaStem": false,
+        "notes": ["bazi.rules.no_transformation"]
+      },
+      "relations": {
+        "stems": [],
+        "branches": [
+          {
+            "type": "punish",
+            "pillars": ["day", "hour"],
+            "branches": ["chen", "chen"],
+            "complete": true
+          }
+        ]
+      },
+      "voidBranches": ["shen", "you"],
+      "shenSha": [
+        {
+          "name": "ci_guan",
+          "basedOn": "day_stem",
+          "hitsPillar": ["month"]
+        },
+        {
+          "name": "guo_yin",
+          "basedOn": "day_stem",
+          "hitsPillar": ["day", "hour"]
+        },
+        {
+          "name": "tian_de_gui_ren",
+          "basedOn": "month_branch",
+          "hitsPillar": ["month"]
+        },
+        {
+          "name": "yue_de_gui_ren",
+          "basedOn": "month_branch",
+          "hitsPillar": ["year", "day", "hour"]
+        },
+        {
+          "name": "jiang_xing",
+          "basedOn": "year_branch",
+          "hitsPillar": ["year"]
+        },
+        {
+          "name": "hua_gai",
+          "basedOn": "day_branch",
+          "hitsPillar": ["day", "hour"]
+        },
+        {
+          "name": "gu_chen_gua_su",
+          "basedOn": "year_branch",
+          "hitsPillar": ["day", "hour"]
+        },
+        {
+          "name": "tian_luo_di_wang",
+          "basedOn": "day_branch",
+          "hitsPillar": ["month"]
+        },
+        {
+          "name": "kui_gang",
+          "basedOn": "day_branch",
+          "hitsPillar": ["day"]
+        }
+      ],
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 7,
+          "months": 3,
+          "days": 26
+        },
+        "startDate": "1997-09-10",
+        "periods": [
+          {
+            "index": 1,
+            "stem": "ren",
+            "branch": "wu",
+            "fromYear": 1997,
+            "toYear": 2007,
+            "fromAge": 7.322222222222222,
+            "toAge": 17.322222222222223,
+            "tenGod": "shi_shen",
+            "branchTenGod": "zheng_guan",
+            "isCurrent": false
+          },
+          {
+            "index": 2,
+            "stem": "gui",
+            "branch": "wei",
+            "fromYear": 2007,
+            "toYear": 2017,
+            "fromAge": 17.322222222222223,
+            "toAge": 27.322222222222223,
+            "tenGod": "shang_guan",
+            "branchTenGod": "zheng_yin",
+            "isCurrent": false
+          },
+          {
+            "index": 3,
+            "stem": "jia",
+            "branch": "shen",
+            "fromYear": 2017,
+            "toYear": 2027,
+            "fromAge": 27.322222222222223,
+            "toAge": 37.32222222222222,
+            "tenGod": "pian_cai",
+            "branchTenGod": "bi_jian",
+            "isCurrent": true
+          },
+          {
+            "index": 4,
+            "stem": "yi",
+            "branch": "you",
+            "fromYear": 2027,
+            "toYear": 2037,
+            "fromAge": 37.32222222222222,
+            "toAge": 47.32222222222222,
+            "tenGod": "zheng_cai",
+            "branchTenGod": "jie_cai",
+            "isCurrent": false
+          },
+          {
+            "index": 5,
+            "stem": "bing",
+            "branch": "xu",
+            "fromYear": 2037,
+            "toYear": 2047,
+            "fromAge": 47.32222222222222,
+            "toAge": 57.32222222222222,
+            "tenGod": "qi_sha",
+            "branchTenGod": "pian_yin",
+            "isCurrent": false
+          },
+          {
+            "index": 6,
+            "stem": "ding",
+            "branch": "hai",
+            "fromYear": 2047,
+            "toYear": 2057,
+            "fromAge": 57.32222222222222,
+            "toAge": 67.32222222222222,
+            "tenGod": "zheng_guan",
+            "branchTenGod": "shi_shen",
+            "isCurrent": false
+          },
+          {
+            "index": 7,
+            "stem": "wu_stem",
+            "branch": "zi",
+            "fromYear": 2057,
+            "toYear": 2067,
+            "fromAge": 67.32222222222222,
+            "toAge": 77.32222222222222,
+            "tenGod": "pian_yin",
+            "branchTenGod": "shang_guan",
+            "isCurrent": false
+          },
+          {
+            "index": 8,
+            "stem": "ji",
+            "branch": "chou",
+            "fromYear": 2067,
+            "toYear": 2077,
+            "fromAge": 77.32222222222222,
+            "toAge": 87.32222222222222,
+            "tenGod": "zheng_yin",
+            "branchTenGod": "zheng_yin",
+            "isCurrent": false
+          },
+          {
+            "index": 9,
+            "stem": "geng",
+            "branch": "yin",
+            "fromYear": 2077,
+            "toYear": 2087,
+            "fromAge": 87.32222222222222,
+            "toAge": 97.32222222222222,
+            "tenGod": "bi_jian",
+            "branchTenGod": "pian_cai",
+            "isCurrent": false
+          },
+          {
+            "index": 10,
+            "stem": "xin",
+            "branch": "mao",
+            "fromYear": 2087,
+            "toYear": 2097,
+            "fromAge": 97.32222222222222,
+            "toAge": 107.32222222222222,
+            "tenGod": "jie_cai",
+            "branchTenGod": "zheng_cai",
+            "isCurrent": false
+          }
+        ]
+      },
+      "years": [
+        {
+          "year": 2026,
+          "stem": "bing",
+          "branch": "wu",
+          "tenGod": "qi_sha",
+          "relationsToNatal": [
+            {
+              "type": "punish",
+              "pillars": ["year_transit", "year"],
+              "branches": ["wu", "wu"],
+              "complete": true
+            }
+          ],
+          "relationsToLuck": [],
+          "isCurrent": true
+        }
+      ],
+      "months": [
+        {
+          "index": 1,
+          "stem": "geng",
+          "branch": "yin",
+          "fromDate": "2026-02-04T04:02:08+08:00[Asia/Shanghai]",
+          "toDate": "2026-03-05T21:59:00+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 2,
+          "stem": "xin",
+          "branch": "mao",
+          "fromDate": "2026-03-05T21:59:00+08:00[Asia/Shanghai]",
+          "toDate": "2026-04-05T02:40:00+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 3,
+          "stem": "ren",
+          "branch": "chen",
+          "fromDate": "2026-04-05T02:40:00+08:00[Asia/Shanghai]",
+          "toDate": "2026-05-05T19:48:44+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 4,
+          "stem": "gui",
+          "branch": "si",
+          "fromDate": "2026-05-05T19:48:44+08:00[Asia/Shanghai]",
+          "toDate": "2026-06-05T23:48:21+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 5,
+          "stem": "jia",
+          "branch": "wu",
+          "fromDate": "2026-06-05T23:48:21+08:00[Asia/Shanghai]",
+          "toDate": "2026-07-07T09:56:57+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 6,
+          "stem": "yi",
+          "branch": "wei",
+          "fromDate": "2026-07-07T09:56:57+08:00[Asia/Shanghai]",
+          "toDate": "2026-08-07T19:42:43+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 7,
+          "stem": "bing",
+          "branch": "shen",
+          "fromDate": "2026-08-07T19:42:43+08:00[Asia/Shanghai]",
+          "toDate": "2026-09-07T22:41:16+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 8,
+          "stem": "ding",
+          "branch": "you",
+          "fromDate": "2026-09-07T22:41:16+08:00[Asia/Shanghai]",
+          "toDate": "2026-10-08T14:29:17+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 9,
+          "stem": "wu_stem",
+          "branch": "xu",
+          "fromDate": "2026-10-08T14:29:17+08:00[Asia/Shanghai]",
+          "toDate": "2026-11-07T17:52:05+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 10,
+          "stem": "ji",
+          "branch": "hai",
+          "fromDate": "2026-11-07T17:52:05+08:00[Asia/Shanghai]",
+          "toDate": "2026-12-07T10:52:32+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 11,
+          "stem": "geng",
+          "branch": "zi",
+          "fromDate": "2026-12-07T10:52:32+08:00[Asia/Shanghai]",
+          "toDate": "2027-01-05T22:09:58+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 12,
+          "stem": "xin",
+          "branch": "chou",
+          "fromDate": "2027-01-05T22:09:58+08:00[Asia/Shanghai]",
+          "toDate": "2027-02-04T09:46:18+08:00[Asia/Shanghai]"
+        }
+      ],
+      "solarTerms": {
+        "prevJie": {
+          "name": "li_xia",
+          "at": "1990-05-06T03:35:26+09:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "mang_zhong",
+          "at": "1990-06-06T07:46:18+09:00[Asia/Shanghai]"
+        }
+      },
+      "solarTimeAdjust": {
+        "enabled": true,
+        "offsetMinutes": -70.70856773583483,
+        "original": "1990-05-15T08:30:00",
+        "adjusted": "1990-05-15T07:19:00"
+      },
+      "features": {
+        "bi_jian_heavy": true,
+        "jie_cai_heavy": false,
+        "guan_sha_hun_za": true,
+        "cai_duo_shen_ruo": false,
+        "shi_shang_sheng_cai": true,
+        "shang_guan_jian_guan": true,
+        "sha_yin_xiang_sheng": true,
+        "yin_xing_heavy": true,
+        "cai_xing_heavy": false,
+        "has_root": true,
+        "suspected_cong": false,
+        "san_he_huo_ju": false,
+        "san_he_shui_ju": false,
+        "san_he_mu_ju": false,
+        "san_he_jin_ju": false,
+        "has_clash": false,
+        "has_punishment": true,
+        "has_tao_hua": false,
+        "has_yi_ma": false,
+        "missing_element": false,
+        "tiao_hou_needed": true,
+        "day_branch_void": false,
+        "month_main_exposed": false
+      }
+    },
+    "ziwei": {
+      "basics": {
+        "lunar": {
+          "year": 1990,
+          "month": 4,
+          "isLeap": false,
+          "day": 21,
+          "hourBranch": "chen"
+        },
+        "yearStem": "geng",
+        "yearBranch": "wu",
+        "fiveElementsClass": {
+          "name": "fire_6",
+          "number": 6
+        },
+        "soulMaster": "ju_men",
+        "bodyMaster": "huo_xing",
+        "soulPalaceBranch": "chou",
+        "bodyPalaceBranch": "you",
+        "zodiac": "wu"
+      },
+      "palaces": [
+        {
+          "index": 0,
+          "key": "life",
+          "branch": "chou",
+          "stem": "ji",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_ji",
+              "brightness": "xian"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "tian_kui"
+            }
+          ],
+          "adjectiveStars": ["en_guang"],
+          "changsheng12": "yang",
+          "boshi12": "zou_shu",
+          "jiangqian12": "tian_sha",
+          "suiqian12": "long_de",
+          "decadal": {
+            "fromAge": 6,
+            "toAge": 15,
+            "fromYear": 1995,
+            "toYear": 2004
+          },
+          "ages": [10, 22, 34, 46, 58, 70, 82, 94, 106, 118]
+        },
+        {
+          "index": 1,
+          "key": "siblings",
+          "branch": "zi",
+          "stem": "wu_stem",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "po_jun",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["tian_xing", "tian_ku", "tian_xu"],
+          "changsheng12": "tai",
+          "boshi12": "jiang_jun",
+          "jiangqian12": "zai_sha",
+          "suiqian12": "da_hao",
+          "decadal": {
+            "fromAge": 116,
+            "toAge": 125,
+            "fromYear": 2105,
+            "toYear": 2114
+          },
+          "ages": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]
+        },
+        {
+          "index": 2,
+          "key": "spouse",
+          "branch": "hai",
+          "stem": "ding",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tai_yang",
+              "brightness": "xian",
+              "mutagen": "lu"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["ba_zuo", "tian_wu", "tian_guan", "yue_de"],
+          "changsheng12": "jue",
+          "boshi12": "xiao_hao",
+          "jiangqian12": "jie_sha_annual",
+          "suiqian12": "xiao_hao",
+          "decadal": {
+            "fromAge": 106,
+            "toAge": 115,
+            "fromYear": 2095,
+            "toYear": 2104
+          },
+          "ages": [8, 20, 32, 44, 56, 68, 80, 92, 104, 116]
+        },
+        {
+          "index": 3,
+          "key": "children",
+          "branch": "xu",
+          "stem": "bing",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "wu_qu",
+              "brightness": "miao",
+              "mutagen": "quan"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["jie_shen", "long_chi", "tai_fu", "hua_gai", "xun_kong"],
+          "changsheng12": "mu",
+          "boshi12": "qing_long",
+          "jiangqian12": "hua_gai",
+          "suiqian12": "guan_fu_annual",
+          "decadal": {
+            "fromAge": 96,
+            "toAge": 105,
+            "fromYear": 2085,
+            "toYear": 2094
+          },
+          "ages": [7, 19, 31, 43, 55, 67, 79, 91, 103, 115]
+        },
+        {
+          "index": 4,
+          "key": "wealth",
+          "branch": "you",
+          "stem": "yi",
+          "isBodyPalace": true,
+          "majorStars": [
+            {
+              "key": "tian_tong",
+              "brightness": "ping",
+              "mutagen": "ji"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "qing_yang",
+              "brightness": "xian"
+            }
+          ],
+          "adjectiveStars": ["hong_luan"],
+          "changsheng12": "si",
+          "boshi12": "li_shi",
+          "jiangqian12": "xi_shen_annual",
+          "suiqian12": "guan_suo",
+          "decadal": {
+            "fromAge": 86,
+            "toAge": 95,
+            "fromYear": 2075,
+            "toYear": 2084
+          },
+          "ages": [6, 18, 30, 42, 54, 66, 78, 90, 102, 114]
+        },
+        {
+          "index": 5,
+          "key": "health",
+          "branch": "shen",
+          "stem": "jia",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "qi_sha",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "wen_qu",
+              "brightness": "de"
+            },
+            {
+              "key": "lu_cun"
+            },
+            {
+              "key": "tian_ma"
+            }
+          ],
+          "adjectiveStars": ["gu_chen", "yin_sha", "tian_shi"],
+          "changsheng12": "bing",
+          "boshi12": "bo_shi",
+          "jiangqian12": "sui_yi",
+          "suiqian12": "sang_men",
+          "decadal": {
+            "fromAge": 76,
+            "toAge": 85,
+            "fromYear": 2065,
+            "toYear": 2074
+          },
+          "ages": [5, 17, 29, 41, 53, 65, 77, 89, 101, 113]
+        },
+        {
+          "index": 6,
+          "key": "travel",
+          "branch": "wei",
+          "stem": "gui",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_liang",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "zuo_fu"
+            },
+            {
+              "key": "you_bi"
+            },
+            {
+              "key": "tian_yue"
+            },
+            {
+              "key": "di_kong"
+            },
+            {
+              "key": "ling_xing",
+              "brightness": "li"
+            },
+            {
+              "key": "tuo_luo",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["tian_cai", "tian_kong", "kong_wang"],
+          "changsheng12": "shuai",
+          "boshi12": "guan_fu",
+          "jiangqian12": "pan_an",
+          "suiqian12": "hui_qi",
+          "decadal": {
+            "fromAge": 66,
+            "toAge": 75,
+            "fromYear": 2055,
+            "toYear": 2064
+          },
+          "ages": [4, 16, 28, 40, 52, 64, 76, 88, 100, 112]
+        },
+        {
+          "index": 7,
+          "key": "friends",
+          "branch": "wu",
+          "stem": "ren",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "lian_zhen",
+              "brightness": "ping"
+            },
+            {
+              "key": "tian_xiang",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "wen_chang",
+              "brightness": "xian"
+            }
+          ],
+          "adjectiveStars": ["feng_gao", "tian_fu_aux", "jie_lu", "tian_shang"],
+          "changsheng12": "di_wang",
+          "boshi12": "fu_bing",
+          "jiangqian12": "jiang_xing",
+          "suiqian12": "sui_jian",
+          "decadal": {
+            "fromAge": 56,
+            "toAge": 65,
+            "fromYear": 2045,
+            "toYear": 2054
+          },
+          "ages": [3, 15, 27, 39, 51, 63, 75, 87, 99, 111]
+        },
+        {
+          "index": 8,
+          "key": "career",
+          "branch": "si",
+          "stem": "xin",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "ju_men",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "huo_xing",
+              "brightness": "de"
+            }
+          ],
+          "adjectiveStars": ["po_sui"],
+          "changsheng12": "lin_guan",
+          "boshi12": "da_hao",
+          "jiangqian12": "wang_shen",
+          "suiqian12": "bing_fu",
+          "decadal": {
+            "fromAge": 46,
+            "toAge": 55,
+            "fromYear": 2035,
+            "toYear": 2044
+          },
+          "ages": [2, 14, 26, 38, 50, 62, 74, 86, 98, 110]
+        },
+        {
+          "index": 9,
+          "key": "property",
+          "branch": "chen",
+          "stem": "geng",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tan_lang",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["tian_yao", "feng_ge", "gua_su", "nian_jie"],
+          "changsheng12": "guan_dai",
+          "boshi12": "bing_fu",
+          "jiangqian12": "yue_sha",
+          "suiqian12": "diao_ke",
+          "decadal": {
+            "fromAge": 36,
+            "toAge": 45,
+            "fromYear": 2025,
+            "toYear": 2034
+          },
+          "ages": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]
+        },
+        {
+          "index": 10,
+          "key": "wellbeing",
+          "branch": "mao",
+          "stem": "ji",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tai_yin",
+              "brightness": "xian",
+              "mutagen": "ke"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "di_jie"
+            }
+          ],
+          "adjectiveStars": ["tian_xi", "xian_chi", "san_tai", "tian_gui", "tian_shou", "tian_de"],
+          "changsheng12": "mu_yu",
+          "boshi12": "xi_shen",
+          "jiangqian12": "xian_chi",
+          "suiqian12": "tian_de",
+          "decadal": {
+            "fromAge": 26,
+            "toAge": 35,
+            "fromYear": 2015,
+            "toYear": 2024
+          },
+          "ages": [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+        },
+        {
+          "index": 11,
+          "key": "parents",
+          "branch": "yin",
+          "stem": "wu_stem",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "zi_wei",
+              "brightness": "wang"
+            },
+            {
+              "key": "tian_fu",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["tian_chu", "tian_yue_aux", "fei_lian"],
+          "changsheng12": "chang_sheng",
+          "boshi12": "fei_lian_doctor",
+          "jiangqian12": "zhi_bei",
+          "suiqian12": "bai_hu",
+          "decadal": {
+            "fromAge": 16,
+            "toAge": 25,
+            "fromYear": 2005,
+            "toYear": 2014
+          },
+          "ages": [11, 23, 35, 47, 59, 71, 83, 95, 107, 119]
+        }
+      ],
+      "horoscope": {
+        "decadal": {
+          "palaceIndex": 9,
+          "stem": "geng",
+          "mutagens": {
+            "lu": "tai_yang",
+            "quan": "wu_qu",
+            "ke": "tai_yin",
+            "ji": "tian_tong"
+          },
+          "fromAge": 36,
+          "toAge": 45
+        },
+        "yearly": {
+          "year": 2026,
+          "palaceIndex": 7,
+          "stem": "bing",
+          "branch": "wu",
+          "mutagens": {
+            "lu": "tian_tong",
+            "quan": "tian_ji",
+            "ke": "wen_chang",
+            "ji": "lian_zhen"
+          }
+        }
+      },
+      "patterns": [],
+      "emptyPalaces": []
+    },
+    "astrology": {
+      "noonChart": false,
+      "jdUT": 2448026.4791666665,
+      "obliquity": 23.442166962710036,
+      "houseSystem": "placidus",
+      "bodies": [
+        {
+          "key": "sun",
+          "lon": 53.893589037268555,
+          "lat": -0.000012381116720238754,
+          "sign": "taurus",
+          "degInSign": 23.893589037268555,
+          "retro": false,
+          "speed": 0.9644194416750906,
+          "house": 11,
+          "nearCusp": true,
+          "anaretic": false
+        },
+        {
+          "key": "moon",
+          "lon": 290.757271910568,
+          "lat": -1.688074602627086,
+          "sign": "capricorn",
+          "degInSign": 20.757271910568022,
+          "retro": false,
+          "speed": 12.243232368160761,
+          "house": 7,
+          "nearCusp": true,
+          "anaretic": false
+        },
+        {
+          "key": "mercury",
+          "lon": 38.08496620697332,
+          "lat": -2.4168096450919854,
+          "sign": "taurus",
+          "degInSign": 8.08496620697332,
+          "retro": true,
+          "speed": -0.15941753963772953,
+          "house": 11,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "venus",
+          "lon": 12.224528782997254,
+          "lat": -1.78127030249554,
+          "sign": "aries",
+          "degInSign": 12.224528782997254,
+          "retro": false,
+          "speed": 1.139788207532888,
+          "house": 10,
+          "nearCusp": true,
+          "anaretic": false
+        },
+        {
+          "key": "mars",
+          "lon": 347.94718325173926,
+          "lat": -1.7246009798065671,
+          "sign": "pisces",
+          "degInSign": 17.94718325173926,
+          "retro": false,
+          "speed": 0.7429112472948418,
+          "house": 10,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "jupiter",
+          "lon": 99.44344852063104,
+          "lat": 0.14325523198625584,
+          "sign": "cancer",
+          "degInSign": 9.443448520631037,
+          "retro": false,
+          "speed": 0.18854139847803708,
+          "house": 1,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "saturn",
+          "lon": 295.2579793762716,
+          "lat": 0.15644346135587206,
+          "sign": "capricorn",
+          "degInSign": 25.257979376271578,
+          "retro": true,
+          "speed": -0.01607497311510997,
+          "house": 8,
+          "nearCusp": true,
+          "anaretic": false
+        },
+        {
+          "key": "uranus",
+          "lon": 279.19534305065486,
+          "lat": -0.3162756833640626,
+          "sign": "capricorn",
+          "degInSign": 9.195343050654856,
+          "retro": true,
+          "speed": -0.024236145111444785,
+          "house": 7,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "neptune",
+          "lon": 284.3602523438466,
+          "lat": 0.8731248054952665,
+          "sign": "capricorn",
+          "degInSign": 14.360252343846582,
+          "retro": true,
+          "speed": -0.014487203640101143,
+          "house": 7,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "pluto",
+          "lon": 226.1825455307304,
+          "lat": 15.99265569735524,
+          "sign": "scorpio",
+          "degInSign": 16.18254553073041,
+          "retro": true,
+          "speed": -0.027762569487777,
+          "house": 5,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "north_node",
+          "lon": 310.27318432365007,
+          "lat": 0,
+          "sign": "aquarius",
+          "degInSign": 10.27318432365007,
+          "retro": true,
+          "speed": -0.041048387623732197,
+          "house": 8,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "chiron",
+          "lon": 104.74236946665815,
+          "lat": -6.462195824445547,
+          "sign": "cancer",
+          "degInSign": 14.742369466658147,
+          "retro": false,
+          "speed": 0.07885484617133898,
+          "house": 1,
+          "nearCusp": false,
+          "anaretic": false,
+          "approximate": true
+        },
+        {
+          "key": "lilith",
+          "lon": 231.41728881842792,
+          "lat": 0,
+          "sign": "scorpio",
+          "degInSign": 21.41728881842792,
+          "retro": false,
+          "speed": 0.1120280188729339,
+          "house": 5,
+          "nearCusp": false,
+          "anaretic": false
+        }
+      ],
+      "angles": {
+        "asc": 92.36506887861908,
+        "mc": 339.79515834236025,
+        "dsc": 272.36506887861907,
+        "ic": 159.7951583423603
+      },
+      "houses": [
+        {
+          "index": 1,
+          "cusp": 92.36506887861908,
+          "sign": "cancer",
+          "ruler": "moon"
+        },
+        {
+          "index": 2,
+          "cusp": 112.42185837767296,
+          "sign": "cancer",
+          "ruler": "moon"
+        },
+        {
+          "index": 3,
+          "cusp": 133.7212086755866,
+          "sign": "leo",
+          "ruler": "sun"
+        },
+        {
+          "index": 4,
+          "cusp": 159.7951583423603,
+          "sign": "virgo",
+          "ruler": "mercury"
+        },
+        {
+          "index": 5,
+          "cusp": 194.00477252543612,
+          "sign": "libra",
+          "ruler": "venus"
+        },
+        {
+          "index": 6,
+          "cusp": 234.83988138900793,
+          "sign": "scorpio",
+          "ruler": "pluto"
+        },
+        {
+          "index": 7,
+          "cusp": 272.36506887861907,
+          "sign": "capricorn",
+          "ruler": "saturn"
+        },
+        {
+          "index": 8,
+          "cusp": 292.42185837767295,
+          "sign": "capricorn",
+          "ruler": "saturn"
+        },
+        {
+          "index": 9,
+          "cusp": 313.7212086755866,
+          "sign": "aquarius",
+          "ruler": "uranus"
+        },
+        {
+          "index": 10,
+          "cusp": 339.79515834236025,
+          "sign": "pisces",
+          "ruler": "neptune"
+        },
+        {
+          "index": 11,
+          "cusp": 14.004772525436113,
+          "sign": "aries",
+          "ruler": "mars"
+        },
+        {
+          "index": 12,
+          "cusp": 54.83988138900793,
+          "sign": "taurus",
+          "ruler": "venus"
+        }
+      ],
+      "aspects": [
+        {
+          "a": "jupiter",
+          "b": "uranus",
+          "type": "opposition",
+          "orb": 0.24810546997616711,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "uranus",
+          "type": "sesquiquadrate",
+          "orb": 0.3017540133863008,
+          "applying": true,
+          "major": false
+        },
+        {
+          "a": "neptune",
+          "b": "chiron",
+          "type": "opposition",
+          "orb": 0.3821171228115645,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "jupiter",
+          "type": "semisquare",
+          "orb": 0.5498594833624679,
+          "applying": true,
+          "major": false
+        },
+        {
+          "a": "moon",
+          "b": "lilith",
+          "type": "sextile",
+          "orb": 0.6600169078598981,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "jupiter",
+          "b": "north_node",
+          "type": "quincunx",
+          "orb": 0.829735803019048,
+          "applying": true,
+          "major": false
+        },
+        {
+          "a": "uranus",
+          "b": "north_node",
+          "type": "semisextile",
+          "orb": 1.0778412729952151,
+          "applying": true,
+          "major": false
+        },
+        {
+          "a": "mercury",
+          "b": "uranus",
+          "type": "trine",
+          "orb": 1.1103768436815358,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "mercury",
+          "b": "jupiter",
+          "type": "sextile",
+          "orb": 1.358482313657703,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "saturn",
+          "type": "trine",
+          "orb": 1.3643903390030232,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "pluto",
+          "b": "chiron",
+          "type": "trine",
+          "orb": 1.4401760640722614,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "mars",
+          "b": "pluto",
+          "type": "trine",
+          "orb": 1.764637721008853,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "neptune",
+          "b": "pluto",
+          "type": "sextile",
+          "orb": 1.822293186883826,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "venus",
+          "b": "north_node",
+          "type": "sextile",
+          "orb": 1.9513444593471831,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "venus",
+          "b": "neptune",
+          "type": "square",
+          "orb": 2.1357235608493284,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "mercury",
+          "b": "north_node",
+          "type": "square",
+          "orb": 2.188218116676751,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "lilith",
+          "type": "opposition",
+          "orb": 2.4763002188406062,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "venus",
+          "b": "chiron",
+          "type": "square",
+          "orb": 2.517840683660893,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "venus",
+          "b": "jupiter",
+          "type": "square",
+          "orb": 2.781080262366231,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "mars",
+          "type": "sextile",
+          "orb": 2.810088658828761,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "venus",
+          "b": "uranus",
+          "type": "square",
+          "orb": 3.0291857323423983,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "moon",
+          "type": "trine",
+          "orb": 3.1363171267005328,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "mars",
+          "b": "chiron",
+          "type": "trine",
+          "orb": 3.2048137850811145,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "mars",
+          "b": "lilith",
+          "type": "trine",
+          "orb": 3.470105566688659,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "mars",
+          "b": "neptune",
+          "type": "sextile",
+          "orb": 3.586930907892679,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "saturn",
+          "b": "lilith",
+          "type": "sextile",
+          "orb": 3.840690557843658,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "saturn",
+          "type": "conjunction",
+          "orb": 4.500707465703556,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "pluto",
+          "type": "sextile",
+          "orb": 4.574726379837614,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "jupiter",
+          "b": "neptune",
+          "type": "opposition",
+          "orb": 4.9168038232155595,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "uranus",
+          "b": "neptune",
+          "type": "conjunction",
+          "orb": 5.164909293191727,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "pluto",
+          "b": "lilith",
+          "type": "conjunction",
+          "orb": 5.234743287697512,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "jupiter",
+          "b": "chiron",
+          "type": "conjunction",
+          "orb": 5.298920946027124,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "uranus",
+          "b": "chiron",
+          "type": "opposition",
+          "orb": 5.547026416003291,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "pluto",
+          "b": "north_node",
+          "type": "square",
+          "orb": 5.909361207080337,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "mars",
+          "type": "sextile",
+          "orb": 5.9464057855292936,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "chiron",
+          "type": "opposition",
+          "orb": 6.014902443909875,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "mercury",
+          "b": "neptune",
+          "type": "trine",
+          "orb": 6.275286136873262,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "neptune",
+          "type": "conjunction",
+          "orb": 6.39701956672144,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "chiron",
+          "b": "lilith",
+          "type": "trine",
+          "orb": 6.674919351769745,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "jupiter",
+          "b": "pluto",
+          "type": "trine",
+          "orb": 6.739097010099385,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "pluto",
+          "type": "opposition",
+          "orb": 7.711043506538147,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "venus",
+          "type": "square",
+          "orb": 8.532743127570768,
+          "applying": false,
+          "major": true
+        }
+      ],
+      "stats": {
+        "elements": {
+          "fire": 1,
+          "earth": 6,
+          "air": 0,
+          "water": 3
+        },
+        "modalities": {
+          "cardinal": 6,
+          "fixed": 3,
+          "mutable": 1
+        },
+        "polarity": {
+          "positive": 1,
+          "negative": 9
+        },
+        "hemispheres": {
+          "upper": 8,
+          "lower": 2,
+          "eastern": 5,
+          "western": 5
+        },
+        "quadrants": [1, 1, 4, 4],
+        "stelliums": [
+          {
+            "sign": "capricorn",
+            "bodies": ["moon", "saturn", "uranus", "neptune"]
+          },
+          {
+            "house": 7,
+            "bodies": ["moon", "uranus", "neptune"]
+          }
+        ]
+      },
+      "rulers": {
+        "chartRuler": "moon",
+        "mutualReceptions": []
+      },
+      "moonPhase": {
+        "name": "waning_gibbous",
+        "angle": 236.85805312455213
+      },
+      "patterns": [
+        {
+          "key": "t_square",
+          "bodies": ["jupiter", "uranus", "venus"]
+        },
+        {
+          "key": "t_square",
+          "bodies": ["jupiter", "neptune", "venus"]
+        },
+        {
+          "key": "t_square",
+          "bodies": ["chiron", "uranus", "venus"]
+        },
+        {
+          "key": "t_square",
+          "bodies": ["chiron", "neptune", "venus"]
+        },
+        {
+          "key": "t_square",
+          "bodies": ["chiron", "moon", "venus"]
+        },
+        {
+          "key": "grand_trine",
+          "bodies": ["chiron", "lilith", "mars"]
+        },
+        {
+          "key": "kite",
+          "bodies": ["chiron", "lilith", "mars", "moon"]
+        },
+        {
+          "key": "grand_trine",
+          "bodies": ["chiron", "mars", "pluto"]
+        },
+        {
+          "key": "kite",
+          "bodies": ["chiron", "mars", "neptune", "pluto"]
+        },
+        {
+          "key": "kite",
+          "bodies": ["chiron", "mars", "moon", "pluto"]
+        }
+      ]
+    },
+    "vedic": {
+      "noonChart": false,
+      "ayanamsa": 23.72253030741415,
+      "jdUT": 2448026.4791666665,
+      "lagna": {
+        "sidLon": 68.64253857120494,
+        "sign": "gemini",
+        "nakshatra": "ardra",
+        "pada": 1,
+        "navamsaSign": "sagittarius"
+      },
+      "bodies": [
+        {
+          "key": "surya",
+          "sidLon": 30.171058729854405,
+          "sign": "taurus",
+          "degInSign": 0.17105872985440485,
+          "house": 12,
+          "nakshatra": "krittika",
+          "pada": 2,
+          "retro": false,
+          "combust": false,
+          "dignity": "enemy",
+          "navamsaSign": "capricorn"
+        },
+        {
+          "key": "chandra",
+          "sidLon": 267.03474160315386,
+          "sign": "sagittarius",
+          "degInSign": 27.03474160315386,
+          "house": 7,
+          "nakshatra": "uttara_ashadha",
+          "pada": 1,
+          "retro": false,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "sagittarius"
+        },
+        {
+          "key": "mangala",
+          "sidLon": 324.2246529443251,
+          "sign": "aquarius",
+          "degInSign": 24.2246529443251,
+          "house": 9,
+          "nakshatra": "purva_bhadrapada",
+          "pada": 2,
+          "retro": false,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "taurus"
+        },
+        {
+          "key": "budha",
+          "sidLon": 14.36243589955917,
+          "sign": "aries",
+          "degInSign": 14.36243589955917,
+          "house": 11,
+          "nakshatra": "bharani",
+          "pada": 1,
+          "retro": true,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "leo"
+        },
+        {
+          "key": "guru",
+          "sidLon": 75.72091821321689,
+          "sign": "gemini",
+          "degInSign": 15.72091821321689,
+          "house": 1,
+          "nakshatra": "ardra",
+          "pada": 3,
+          "retro": false,
+          "combust": false,
+          "dignity": "enemy",
+          "navamsaSign": "aquarius"
+        },
+        {
+          "key": "shukra",
+          "sidLon": 348.5019984755831,
+          "sign": "pisces",
+          "degInSign": 18.501998475583093,
+          "house": 10,
+          "nakshatra": "revati",
+          "pada": 1,
+          "retro": false,
+          "combust": false,
+          "dignity": "exalted",
+          "navamsaSign": "sagittarius"
+        },
+        {
+          "key": "shani",
+          "sidLon": 271.5354490688574,
+          "sign": "capricorn",
+          "degInSign": 1.5354490688574174,
+          "house": 8,
+          "nakshatra": "uttara_ashadha",
+          "pada": 2,
+          "retro": true,
+          "combust": false,
+          "dignity": "own",
+          "navamsaSign": "capricorn"
+        },
+        {
+          "key": "rahu",
+          "sidLon": 287.6409293693686,
+          "sign": "capricorn",
+          "degInSign": 17.64092936936862,
+          "house": 8,
+          "nakshatra": "shravana",
+          "pada": 3,
+          "retro": true,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "gemini"
+        },
+        {
+          "key": "ketu",
+          "sidLon": 107.64092936936862,
+          "sign": "cancer",
+          "degInSign": 17.64092936936862,
+          "house": 2,
+          "nakshatra": "ashlesha",
+          "pada": 1,
+          "retro": true,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "sagittarius"
+        }
+      ],
+      "houses": [
+        {
+          "index": 1,
+          "sign": "gemini",
+          "lord": "budha",
+          "occupants": ["guru"]
+        },
+        {
+          "index": 2,
+          "sign": "cancer",
+          "lord": "chandra",
+          "occupants": ["ketu"]
+        },
+        {
+          "index": 3,
+          "sign": "leo",
+          "lord": "surya",
+          "occupants": []
+        },
+        {
+          "index": 4,
+          "sign": "virgo",
+          "lord": "budha",
+          "occupants": []
+        },
+        {
+          "index": 5,
+          "sign": "libra",
+          "lord": "shukra",
+          "occupants": []
+        },
+        {
+          "index": 6,
+          "sign": "scorpio",
+          "lord": "mangala",
+          "occupants": []
+        },
+        {
+          "index": 7,
+          "sign": "sagittarius",
+          "lord": "guru",
+          "occupants": ["chandra"]
+        },
+        {
+          "index": 8,
+          "sign": "capricorn",
+          "lord": "shani",
+          "occupants": ["shani", "rahu"]
+        },
+        {
+          "index": 9,
+          "sign": "aquarius",
+          "lord": "shani",
+          "occupants": ["mangala"]
+        },
+        {
+          "index": 10,
+          "sign": "pisces",
+          "lord": "guru",
+          "occupants": ["shukra"]
+        },
+        {
+          "index": 11,
+          "sign": "aries",
+          "lord": "mangala",
+          "occupants": ["budha"]
+        },
+        {
+          "index": 12,
+          "sign": "taurus",
+          "lord": "shukra",
+          "occupants": ["surya"]
+        }
+      ],
+      "moon": {
+        "nakshatra": "uttara_ashadha",
+        "pada": 1,
+        "lord": "surya",
+        "rashi": "sagittarius"
+      },
+      "dasha": {
+        "sequence": [
+          {
+            "lord": "surya",
+            "from": "1990-05-14T23:30:00.000Z",
+            "to": "1996-03-14T23:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "surya",
+                "from": "1990-05-14T23:30:00.000Z",
+                "to": "1990-07-03T01:21:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "1990-07-03T01:21:17.273Z",
+                "to": "1991-01-01T16:21:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "1991-01-01T16:21:17.273Z",
+                "to": "1991-05-09T12:27:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "1991-05-09T12:27:17.273Z",
+                "to": "1992-04-02T05:51:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "1992-04-02T05:51:17.273Z",
+                "to": "1993-01-19T10:39:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "1993-01-19T10:39:17.273Z",
+                "to": "1994-01-01T10:21:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "1994-01-01T10:21:17.273Z",
+                "to": "1994-11-07T21:27:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "1994-11-07T21:27:17.273Z",
+                "to": "1995-03-15T17:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "1995-03-15T17:33:17.273Z",
+                "to": "1996-03-14T23:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "chandra",
+            "from": "1996-03-14T23:33:17.273Z",
+            "to": "2006-03-15T11:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "chandra",
+                "from": "1996-03-14T23:33:17.273Z",
+                "to": "1997-01-13T08:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "1997-01-13T08:33:17.273Z",
+                "to": "1997-08-14T10:03:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "1997-08-14T10:03:17.273Z",
+                "to": "1999-02-13T07:03:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "1999-02-13T07:03:17.273Z",
+                "to": "2000-06-14T07:03:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2000-06-14T07:03:17.273Z",
+                "to": "2002-01-13T14:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2002-01-13T14:33:17.273Z",
+                "to": "2003-06-15T01:03:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2003-06-15T01:03:17.273Z",
+                "to": "2004-01-14T02:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2004-01-14T02:33:17.273Z",
+                "to": "2005-09-13T20:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2005-09-13T20:33:17.273Z",
+                "to": "2006-03-15T11:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "mangala",
+            "from": "2006-03-15T11:33:17.273Z",
+            "to": "2013-03-15T05:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "mangala",
+                "from": "2006-03-15T11:33:17.273Z",
+                "to": "2006-08-11T15:00:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2006-08-11T15:00:17.273Z",
+                "to": "2007-08-30T03:18:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2007-08-30T03:18:17.273Z",
+                "to": "2008-08-05T00:54:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2008-08-05T00:54:17.273Z",
+                "to": "2009-09-13T20:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2009-09-13T20:33:17.273Z",
+                "to": "2010-09-11T01:30:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2010-09-11T01:30:17.273Z",
+                "to": "2011-02-07T04:57:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2011-02-07T04:57:17.273Z",
+                "to": "2012-04-08T07:57:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2012-04-08T07:57:17.273Z",
+                "to": "2012-08-14T04:03:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2012-08-14T04:03:17.273Z",
+                "to": "2013-03-15T05:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "rahu",
+            "from": "2013-03-15T05:33:17.273Z",
+            "to": "2031-03-15T17:33:17.273Z",
+            "current": true,
+            "antar": [
+              {
+                "lord": "rahu",
+                "from": "2013-03-15T05:33:17.273Z",
+                "to": "2015-11-26T09:45:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2015-11-26T09:45:17.273Z",
+                "to": "2018-04-21T00:09:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2018-04-21T00:09:17.273Z",
+                "to": "2021-02-24T23:15:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2021-02-24T23:15:17.273Z",
+                "to": "2023-09-14T08:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2023-09-14T08:33:17.273Z",
+                "to": "2024-10-01T20:51:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2024-10-01T20:51:17.273Z",
+                "to": "2027-10-02T14:51:17.273Z",
+                "current": true
+              },
+              {
+                "lord": "surya",
+                "from": "2027-10-02T14:51:17.273Z",
+                "to": "2028-08-26T08:15:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2028-08-26T08:15:17.273Z",
+                "to": "2030-02-25T05:15:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2030-02-25T05:15:17.273Z",
+                "to": "2031-03-15T17:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "guru",
+            "from": "2031-03-15T17:33:17.273Z",
+            "to": "2047-03-15T17:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "guru",
+                "from": "2031-03-15T17:33:17.273Z",
+                "to": "2033-05-02T22:21:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2033-05-02T22:21:17.273Z",
+                "to": "2035-11-14T05:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2035-11-14T05:33:17.273Z",
+                "to": "2038-02-19T03:09:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2038-02-19T03:09:17.273Z",
+                "to": "2039-01-26T00:45:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2039-01-26T00:45:17.273Z",
+                "to": "2041-09-26T00:45:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2041-09-26T00:45:17.273Z",
+                "to": "2042-07-15T05:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2042-07-15T05:33:17.273Z",
+                "to": "2043-11-14T05:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2043-11-14T05:33:17.273Z",
+                "to": "2044-10-20T03:09:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2044-10-20T03:09:17.273Z",
+                "to": "2047-03-15T17:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "shani",
+            "from": "2047-03-15T17:33:17.273Z",
+            "to": "2066-03-15T11:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "shani",
+                "from": "2047-03-15T17:33:17.273Z",
+                "to": "2050-03-18T12:36:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2050-03-18T12:36:17.273Z",
+                "to": "2052-11-25T15:45:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2052-11-25T15:45:17.273Z",
+                "to": "2054-01-04T11:24:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2054-01-04T11:24:17.273Z",
+                "to": "2057-03-06T02:24:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2057-03-06T02:24:17.273Z",
+                "to": "2058-02-16T02:06:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2058-02-16T02:06:17.273Z",
+                "to": "2059-09-17T09:36:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2059-09-17T09:36:17.273Z",
+                "to": "2060-10-26T05:15:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2060-10-26T05:15:17.273Z",
+                "to": "2063-09-02T04:21:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2063-09-02T04:21:17.273Z",
+                "to": "2066-03-15T11:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "budha",
+            "from": "2066-03-15T11:33:17.273Z",
+            "to": "2083-03-15T17:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "budha",
+                "from": "2066-03-15T11:33:17.273Z",
+                "to": "2068-08-11T03:00:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2068-08-11T03:00:17.273Z",
+                "to": "2069-08-08T07:57:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2069-08-08T07:57:17.273Z",
+                "to": "2072-06-08T04:57:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2072-06-08T04:57:17.273Z",
+                "to": "2073-04-14T16:03:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2073-04-14T16:03:17.273Z",
+                "to": "2074-09-14T02:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2074-09-14T02:33:17.273Z",
+                "to": "2075-09-11T07:30:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2075-09-11T07:30:17.273Z",
+                "to": "2078-03-30T16:48:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2078-03-30T16:48:17.273Z",
+                "to": "2080-07-05T14:24:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2080-07-05T14:24:17.273Z",
+                "to": "2083-03-15T17:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "ketu",
+            "from": "2083-03-15T17:33:17.273Z",
+            "to": "2090-03-15T11:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "ketu",
+                "from": "2083-03-15T17:33:17.273Z",
+                "to": "2083-08-11T21:00:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2083-08-11T21:00:17.273Z",
+                "to": "2084-10-11T00:00:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2084-10-11T00:00:17.273Z",
+                "to": "2085-02-15T20:06:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2085-02-15T20:06:17.273Z",
+                "to": "2085-09-16T21:36:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2085-09-16T21:36:17.273Z",
+                "to": "2086-02-13T01:03:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2086-02-13T01:03:17.273Z",
+                "to": "2087-03-03T13:21:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2087-03-03T13:21:17.273Z",
+                "to": "2088-02-07T10:57:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2088-02-07T10:57:17.273Z",
+                "to": "2089-03-18T06:36:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2089-03-18T06:36:17.273Z",
+                "to": "2090-03-15T11:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "shukra",
+            "from": "2090-03-15T11:33:17.273Z",
+            "to": "2110-03-16T11:33:17.273Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "shukra",
+                "from": "2090-03-15T11:33:17.273Z",
+                "to": "2093-07-14T23:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2093-07-14T23:33:17.273Z",
+                "to": "2094-07-15T05:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2094-07-15T05:33:17.273Z",
+                "to": "2096-03-14T23:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2096-03-14T23:33:17.273Z",
+                "to": "2097-05-15T02:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2097-05-15T02:33:17.273Z",
+                "to": "2100-05-15T20:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2100-05-15T20:33:17.273Z",
+                "to": "2103-01-14T20:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2103-01-14T20:33:17.273Z",
+                "to": "2106-03-16T11:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2106-03-16T11:33:17.273Z",
+                "to": "2109-01-14T08:33:17.273Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2109-01-14T08:33:17.273Z",
+                "to": "2110-03-16T11:33:17.273Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "surya",
+            "from": "2110-03-16T11:33:17.273Z",
+            "to": "2110-05-15T23:30:00.000Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "surya",
+                "from": "2110-03-16T11:33:17.273Z",
+                "to": "2110-05-15T23:30:00.000Z",
+                "current": false
+              }
+            ]
+          }
+        ]
+      },
+      "yogas": [
+        {
+          "key": "gajakesari",
+          "bodies": ["chandra", "guru"],
+          "houses": [7, 1]
+        },
+        {
+          "key": "malavya",
+          "bodies": ["shukra"],
+          "houses": [10]
+        }
+      ],
+      "panchangAtBirth": {
+        "date": "1990-05-15",
+        "tz": "Asia/Shanghai",
+        "sunrise": "1990-05-14T21:00:04.215Z",
+        "sunset": "1990-05-15T11:21:52.395Z",
+        "tithi": {
+          "index": 20,
+          "key": "panchami",
+          "endsAt": "1990-05-15T06:09:25.757Z"
+        },
+        "nakshatra": {
+          "index": 20,
+          "key": "uttara_ashadha",
+          "endsAt": "1990-05-16T00:40:42.235Z"
+        },
+        "yoga": {
+          "index": 22,
+          "key": "shubha",
+          "endsAt": "1990-05-15T16:35:39.107Z"
+        },
+        "karana": {
+          "index": 39,
+          "key": "taitila",
+          "endsAt": "1990-05-15T06:09:25.757Z"
+        },
+        "vara": {
+          "index": 2,
+          "key": "mangalawara",
+          "endsAt": "1990-05-15T20:59:08.677Z"
+        },
+        "transitions": [
+          {
+            "limb": "tithi",
+            "index": 21,
+            "key": "shashthi",
+            "startsAt": "1990-05-15T06:09:25.757Z",
+            "endsAt": "1990-05-16T07:17:07.797Z"
+          },
+          {
+            "limb": "karana",
+            "index": 40,
+            "key": "garaja",
+            "startsAt": "1990-05-15T06:09:25.757Z",
+            "endsAt": "1990-05-15T18:47:37.038Z"
+          },
+          {
+            "limb": "yoga",
+            "index": 23,
+            "key": "shukla",
+            "startsAt": "1990-05-15T16:35:39.107Z",
+            "endsAt": "1990-05-16T16:18:12.694Z"
+          },
+          {
+            "limb": "karana",
+            "index": 41,
+            "key": "vanija",
+            "startsAt": "1990-05-15T18:47:37.038Z",
+            "endsAt": "1990-05-16T07:17:07.797Z"
+          }
+        ]
+      }
+    }
+  },
+  "b": {
+    "bazi": {
+      "pillars": {
+        "year": {
+          "stem": "yi",
+          "branch": "chou",
+          "stemElement": "wood",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "ji",
+              "role": "main",
+              "tenGod": "shang_guan"
+            },
+            {
+              "stem": "gui",
+              "role": "middle",
+              "tenGod": "zheng_guan"
+            },
+            {
+              "stem": "xin",
+              "role": "residual",
+              "tenGod": "zheng_cai"
+            }
+          ],
+          "tenGod": "zheng_yin",
+          "naYin": "hai_zhong_jin",
+          "lifeStage": "yang",
+          "isVoid": false
+        },
+        "month": {
+          "stem": "bing",
+          "branch": "xu",
+          "stemElement": "fire",
+          "branchElement": "earth",
+          "hiddenStems": [
+            {
+              "stem": "wu_stem",
+              "role": "main",
+              "tenGod": "shi_shen"
+            },
+            {
+              "stem": "xin",
+              "role": "middle",
+              "tenGod": "zheng_cai"
+            },
+            {
+              "stem": "ding",
+              "role": "residual",
+              "tenGod": "jie_cai"
+            }
+          ],
+          "tenGod": "bi_jian",
+          "naYin": "wu_shang_tu",
+          "lifeStage": "mu",
+          "isVoid": false
+        },
+        "day": {
+          "stem": "bing",
+          "branch": "wu",
+          "stemElement": "fire",
+          "branchElement": "fire",
+          "hiddenStems": [
+            {
+              "stem": "ding",
+              "role": "main",
+              "tenGod": "jie_cai"
+            },
+            {
+              "stem": "ji",
+              "role": "middle",
+              "tenGod": "shang_guan"
+            }
+          ],
+          "tenGod": "day_master",
+          "naYin": "tian_he_shui",
+          "lifeStage": "di_wang",
+          "isVoid": false
+        },
+        "hour": {
+          "stem": "wu_stem",
+          "branch": "zi",
+          "stemElement": "earth",
+          "branchElement": "water",
+          "hiddenStems": [
+            {
+              "stem": "gui",
+              "role": "main",
+              "tenGod": "zheng_guan"
+            }
+          ],
+          "tenGod": "shi_shen",
+          "naYin": "pi_li_huo",
+          "lifeStage": "tai",
+          "isVoid": false
+        }
+      },
+      "dayMaster": {
+        "stem": "bing",
+        "element": "fire",
+        "yinYang": "yang"
+      },
+      "elements": {
+        "raw": {
+          "wood": 1,
+          "fire": 3.3,
+          "earth": 4.5,
+          "metal": 0.8,
+          "water": 1.5
+        },
+        "pct": {
+          "wood": 9.00900901,
+          "fire": 29.72972973,
+          "earth": 40.54054054,
+          "metal": 7.20720721,
+          "water": 13.51351351
+        },
+        "contributions": [
+          {
+            "pillar": "year",
+            "source": "stem",
+            "stem": "yi",
+            "element": "wood",
+            "weight": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "stem": "ji",
+            "element": "earth",
+            "weight": 1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "stem": "gui",
+            "element": "water",
+            "weight": 0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "stem": "xin",
+            "element": "metal",
+            "weight": 0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "stem": "bing",
+            "element": "fire",
+            "weight": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "stem": "wu_stem",
+            "element": "earth",
+            "weight": 1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "stem": "xin",
+            "element": "metal",
+            "weight": 0.5
+          },
+          {
+            "pillar": "month",
+            "source": "residual",
+            "stem": "ding",
+            "element": "fire",
+            "weight": 0.3
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "stem": "bing",
+            "element": "fire",
+            "weight": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "stem": "ding",
+            "element": "fire",
+            "weight": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "stem": "ji",
+            "element": "earth",
+            "weight": 0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "stem": "wu_stem",
+            "element": "earth",
+            "weight": 1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "stem": "gui",
+            "element": "water",
+            "weight": 1
+          },
+          {
+            "pillar": "month",
+            "source": "month_bonus",
+            "stem": "wu_stem",
+            "element": "earth",
+            "weight": 1
+          }
+        ]
+      },
+      "strength": {
+        "score": -1.8,
+        "level": "balanced",
+        "details": [
+          {
+            "pillar": "month",
+            "source": "season",
+            "element": "earth",
+            "score": 0
+          },
+          {
+            "pillar": "year",
+            "source": "stem",
+            "element": "wood",
+            "score": 1
+          },
+          {
+            "pillar": "year",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "year",
+            "source": "middle",
+            "element": "water",
+            "score": -0.5
+          },
+          {
+            "pillar": "year",
+            "source": "residual",
+            "element": "metal",
+            "score": -0.3
+          },
+          {
+            "pillar": "month",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "month",
+            "source": "main",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "month",
+            "source": "middle",
+            "element": "metal",
+            "score": -0.5
+          },
+          {
+            "pillar": "day",
+            "source": "stem",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "main",
+            "element": "fire",
+            "score": 1
+          },
+          {
+            "pillar": "day",
+            "source": "middle",
+            "element": "earth",
+            "score": -0.5
+          },
+          {
+            "pillar": "hour",
+            "source": "stem",
+            "element": "earth",
+            "score": -1
+          },
+          {
+            "pillar": "hour",
+            "source": "main",
+            "element": "water",
+            "score": -1
+          }
+        ],
+        "confidence": 0.85
+      },
+      "useGod": {
+        "favorable": ["wood", "fire", "earth", "metal", "water"],
+        "unfavorable": [],
+        "group": "balance",
+        "rationale": ["bazi.rules.balance"]
+      },
+      "pattern": {
+        "name": "shi_shen",
+        "viaStem": true,
+        "notes": ["bazi.rules.no_transformation"]
+      },
+      "relations": {
+        "stems": [],
+        "branches": [
+          {
+            "type": "punish",
+            "pillars": ["year", "month"],
+            "branches": ["chou", "xu"],
+            "complete": true
+          },
+          {
+            "type": "harm",
+            "pillars": ["year", "day"],
+            "branches": ["chou", "wu"],
+            "complete": true
+          },
+          {
+            "type": "combine",
+            "pillars": ["year", "hour"],
+            "branches": ["chou", "zi"],
+            "complete": true
+          },
+          {
+            "type": "tri_combine",
+            "pillars": ["month", "day"],
+            "branches": ["xu", "wu"],
+            "complete": false
+          },
+          {
+            "type": "clash",
+            "pillars": ["day", "hour"],
+            "branches": ["wu", "zi"],
+            "complete": true
+          }
+        ]
+      },
+      "voidBranches": ["yin", "mao"],
+      "shenSha": [
+        {
+          "name": "guo_yin",
+          "basedOn": "day_stem",
+          "hitsPillar": ["year"]
+        },
+        {
+          "name": "yang_ren",
+          "basedOn": "day_stem",
+          "hitsPillar": ["day"]
+        },
+        {
+          "name": "fei_ren",
+          "basedOn": "day_stem",
+          "hitsPillar": ["hour"]
+        },
+        {
+          "name": "tian_de_gui_ren",
+          "basedOn": "month_branch",
+          "hitsPillar": ["month", "day"]
+        },
+        {
+          "name": "yue_de_gui_ren",
+          "basedOn": "month_branch",
+          "hitsPillar": ["month", "day"]
+        },
+        {
+          "name": "hua_gai",
+          "basedOn": "year_branch",
+          "hitsPillar": ["year"]
+        },
+        {
+          "name": "tao_hua",
+          "basedOn": "year_branch",
+          "hitsPillar": ["day"]
+        },
+        {
+          "name": "hua_gai",
+          "basedOn": "day_branch",
+          "hitsPillar": ["month"]
+        },
+        {
+          "name": "jiang_xing",
+          "basedOn": "day_branch",
+          "hitsPillar": ["day"]
+        },
+        {
+          "name": "gu_chen_gua_su",
+          "basedOn": "year_branch",
+          "hitsPillar": ["month"]
+        }
+      ],
+      "luck": {
+        "direction": "forward",
+        "startAge": {
+          "years": 1,
+          "months": 7,
+          "days": 9
+        },
+        "startDate": "1987-06-11",
+        "periods": [
+          {
+            "index": 1,
+            "stem": "ding",
+            "branch": "hai",
+            "fromYear": 1987,
+            "toYear": 1997,
+            "fromAge": 1.6083333333333334,
+            "toAge": 11.608333333333334,
+            "tenGod": "jie_cai",
+            "branchTenGod": "qi_sha",
+            "isCurrent": false
+          },
+          {
+            "index": 2,
+            "stem": "wu_stem",
+            "branch": "zi",
+            "fromYear": 1997,
+            "toYear": 2007,
+            "fromAge": 11.608333333333334,
+            "toAge": 21.608333333333334,
+            "tenGod": "shi_shen",
+            "branchTenGod": "zheng_guan",
+            "isCurrent": false
+          },
+          {
+            "index": 3,
+            "stem": "ji",
+            "branch": "chou",
+            "fromYear": 2007,
+            "toYear": 2017,
+            "fromAge": 21.608333333333334,
+            "toAge": 31.608333333333334,
+            "tenGod": "shang_guan",
+            "branchTenGod": "shang_guan",
+            "isCurrent": false
+          },
+          {
+            "index": 4,
+            "stem": "geng",
+            "branch": "yin",
+            "fromYear": 2017,
+            "toYear": 2027,
+            "fromAge": 31.608333333333334,
+            "toAge": 41.608333333333334,
+            "tenGod": "pian_cai",
+            "branchTenGod": "pian_yin",
+            "isCurrent": true
+          },
+          {
+            "index": 5,
+            "stem": "xin",
+            "branch": "mao",
+            "fromYear": 2027,
+            "toYear": 2037,
+            "fromAge": 41.608333333333334,
+            "toAge": 51.608333333333334,
+            "tenGod": "zheng_cai",
+            "branchTenGod": "zheng_yin",
+            "isCurrent": false
+          },
+          {
+            "index": 6,
+            "stem": "ren",
+            "branch": "chen",
+            "fromYear": 2037,
+            "toYear": 2047,
+            "fromAge": 51.608333333333334,
+            "toAge": 61.608333333333334,
+            "tenGod": "qi_sha",
+            "branchTenGod": "shi_shen",
+            "isCurrent": false
+          },
+          {
+            "index": 7,
+            "stem": "gui",
+            "branch": "si",
+            "fromYear": 2047,
+            "toYear": 2057,
+            "fromAge": 61.608333333333334,
+            "toAge": 71.60833333333333,
+            "tenGod": "zheng_guan",
+            "branchTenGod": "bi_jian",
+            "isCurrent": false
+          },
+          {
+            "index": 8,
+            "stem": "jia",
+            "branch": "wu",
+            "fromYear": 2057,
+            "toYear": 2067,
+            "fromAge": 71.60833333333333,
+            "toAge": 81.60833333333333,
+            "tenGod": "pian_yin",
+            "branchTenGod": "jie_cai",
+            "isCurrent": false
+          },
+          {
+            "index": 9,
+            "stem": "yi",
+            "branch": "wei",
+            "fromYear": 2067,
+            "toYear": 2077,
+            "fromAge": 81.60833333333333,
+            "toAge": 91.60833333333333,
+            "tenGod": "zheng_yin",
+            "branchTenGod": "shang_guan",
+            "isCurrent": false
+          },
+          {
+            "index": 10,
+            "stem": "bing",
+            "branch": "shen",
+            "fromYear": 2077,
+            "toYear": 2087,
+            "fromAge": 91.60833333333333,
+            "toAge": 101.60833333333333,
+            "tenGod": "bi_jian",
+            "branchTenGod": "pian_cai",
+            "isCurrent": false
+          }
+        ]
+      },
+      "years": [
+        {
+          "year": 2026,
+          "stem": "bing",
+          "branch": "wu",
+          "tenGod": "bi_jian",
+          "relationsToNatal": [
+            {
+              "type": "harm",
+              "pillars": ["year_transit", "year"],
+              "branches": ["wu", "chou"],
+              "complete": true
+            },
+            {
+              "type": "tri_combine",
+              "pillars": ["year_transit", "month"],
+              "branches": ["wu", "xu"],
+              "complete": false
+            },
+            {
+              "type": "punish",
+              "pillars": ["year_transit", "day"],
+              "branches": ["wu", "wu"],
+              "complete": true
+            },
+            {
+              "type": "clash",
+              "pillars": ["year_transit", "hour"],
+              "branches": ["wu", "zi"],
+              "complete": true
+            }
+          ],
+          "relationsToLuck": [
+            {
+              "type": "tri_combine",
+              "pillars": ["year_transit", "luck"],
+              "branches": ["wu", "yin"],
+              "complete": false
+            }
+          ],
+          "isCurrent": true
+        }
+      ],
+      "months": [
+        {
+          "index": 1,
+          "stem": "geng",
+          "branch": "yin",
+          "fromDate": "2026-02-04T04:02:08+08:00[Asia/Shanghai]",
+          "toDate": "2026-03-05T21:59:00+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 2,
+          "stem": "xin",
+          "branch": "mao",
+          "fromDate": "2026-03-05T21:59:00+08:00[Asia/Shanghai]",
+          "toDate": "2026-04-05T02:40:00+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 3,
+          "stem": "ren",
+          "branch": "chen",
+          "fromDate": "2026-04-05T02:40:00+08:00[Asia/Shanghai]",
+          "toDate": "2026-05-05T19:48:44+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 4,
+          "stem": "gui",
+          "branch": "si",
+          "fromDate": "2026-05-05T19:48:44+08:00[Asia/Shanghai]",
+          "toDate": "2026-06-05T23:48:21+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 5,
+          "stem": "jia",
+          "branch": "wu",
+          "fromDate": "2026-06-05T23:48:21+08:00[Asia/Shanghai]",
+          "toDate": "2026-07-07T09:56:57+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 6,
+          "stem": "yi",
+          "branch": "wei",
+          "fromDate": "2026-07-07T09:56:57+08:00[Asia/Shanghai]",
+          "toDate": "2026-08-07T19:42:43+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 7,
+          "stem": "bing",
+          "branch": "shen",
+          "fromDate": "2026-08-07T19:42:43+08:00[Asia/Shanghai]",
+          "toDate": "2026-09-07T22:41:16+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 8,
+          "stem": "ding",
+          "branch": "you",
+          "fromDate": "2026-09-07T22:41:16+08:00[Asia/Shanghai]",
+          "toDate": "2026-10-08T14:29:17+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 9,
+          "stem": "wu_stem",
+          "branch": "xu",
+          "fromDate": "2026-10-08T14:29:17+08:00[Asia/Shanghai]",
+          "toDate": "2026-11-07T17:52:05+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 10,
+          "stem": "ji",
+          "branch": "hai",
+          "fromDate": "2026-11-07T17:52:05+08:00[Asia/Shanghai]",
+          "toDate": "2026-12-07T10:52:32+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 11,
+          "stem": "geng",
+          "branch": "zi",
+          "fromDate": "2026-12-07T10:52:32+08:00[Asia/Shanghai]",
+          "toDate": "2027-01-05T22:09:58+08:00[Asia/Shanghai]"
+        },
+        {
+          "index": 12,
+          "stem": "xin",
+          "branch": "chou",
+          "fromDate": "2027-01-05T22:09:58+08:00[Asia/Shanghai]",
+          "toDate": "2027-02-04T09:46:18+08:00[Asia/Shanghai]"
+        }
+      ],
+      "solarTerms": {
+        "prevJie": {
+          "name": "han_lu",
+          "at": "1985-10-08T16:24:33+08:00[Asia/Shanghai]"
+        },
+        "nextJie": {
+          "name": "li_dong",
+          "at": "1985-11-07T19:29:29+08:00[Asia/Shanghai]"
+        }
+      },
+      "solarTimeAdjust": {
+        "enabled": true,
+        "offsetMinutes": 2.055873114141111,
+        "original": "1985-11-02T23:40:00",
+        "adjusted": "1985-11-02T23:42:00"
+      },
+      "features": {
+        "bi_jian_heavy": false,
+        "jie_cai_heavy": false,
+        "guan_sha_hun_za": false,
+        "cai_duo_shen_ruo": false,
+        "shi_shang_sheng_cai": true,
+        "shang_guan_jian_guan": true,
+        "sha_yin_xiang_sheng": false,
+        "yin_xing_heavy": false,
+        "cai_xing_heavy": false,
+        "has_root": true,
+        "suspected_cong": false,
+        "san_he_huo_ju": false,
+        "san_he_shui_ju": false,
+        "san_he_mu_ju": false,
+        "san_he_jin_ju": false,
+        "has_clash": true,
+        "has_punishment": true,
+        "has_tao_hua": true,
+        "has_yi_ma": false,
+        "missing_element": false,
+        "tiao_hou_needed": false,
+        "day_branch_void": false,
+        "month_main_exposed": true
+      }
+    },
+    "ziwei": {
+      "basics": {
+        "lunar": {
+          "year": 1985,
+          "month": 9,
+          "isLeap": false,
+          "day": 21,
+          "hourBranch": "zi"
+        },
+        "yearStem": "yi",
+        "yearBranch": "chou",
+        "fiveElementsClass": {
+          "name": "earth_5",
+          "number": 5
+        },
+        "soulMaster": "lu_cun",
+        "bodyMaster": "tian_xiang",
+        "soulPalaceBranch": "xu",
+        "bodyPalaceBranch": "xu",
+        "zodiac": "chou"
+      },
+      "palaces": [
+        {
+          "index": 0,
+          "key": "life",
+          "branch": "xu",
+          "stem": "bing",
+          "isBodyPalace": true,
+          "majorStars": [
+            {
+              "key": "zi_wei",
+              "brightness": "de",
+              "mutagen": "ke"
+            },
+            {
+              "key": "tian_xiang",
+              "brightness": "de"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "wen_chang",
+              "brightness": "xian"
+            },
+            {
+              "key": "ling_xing",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["tian_de", "gua_su", "yin_sha"],
+          "changsheng12": "guan_dai",
+          "boshi12": "xi_shen",
+          "jiangqian12": "pan_an",
+          "suiqian12": "tian_de",
+          "decadal": {
+            "fromAge": 5,
+            "toAge": 14,
+            "fromYear": 1989,
+            "toYear": 1998
+          },
+          "ages": [10, 22, 34, 46, 58, 70, 82, 94, 106, 118]
+        },
+        {
+          "index": 1,
+          "key": "siblings",
+          "branch": "you",
+          "stem": "yi",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_ji",
+              "brightness": "wang",
+              "mutagen": "lu"
+            },
+            {
+              "key": "ju_men",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["tian_yao", "feng_ge", "fei_lian", "nian_jie"],
+          "changsheng12": "mu_yu",
+          "boshi12": "fei_lian_doctor",
+          "jiangqian12": "jiang_xing",
+          "suiqian12": "bai_hu",
+          "decadal": {
+            "fromAge": 115,
+            "toAge": 124,
+            "fromYear": 2099,
+            "toYear": 2108
+          },
+          "ages": [11, 23, 35, 47, 59, 71, 83, 95, 107, 119]
+        },
+        {
+          "index": 2,
+          "key": "spouse",
+          "branch": "shen",
+          "stem": "jia",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tan_lang",
+              "brightness": "ping"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "tian_yue"
+            }
+          ],
+          "adjectiveStars": ["tian_xi", "san_tai", "tian_fu_aux"],
+          "changsheng12": "chang_sheng",
+          "boshi12": "zou_shu",
+          "jiangqian12": "wang_shen",
+          "suiqian12": "long_de",
+          "decadal": {
+            "fromAge": 105,
+            "toAge": 114,
+            "fromYear": 2089,
+            "toYear": 2098
+          },
+          "ages": [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+        },
+        {
+          "index": 3,
+          "key": "children",
+          "branch": "wei",
+          "stem": "gui",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tai_yang",
+              "brightness": "de"
+            },
+            {
+              "key": "tai_yin",
+              "brightness": "bu",
+              "mutagen": "ji"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["kong_wang", "tian_xu"],
+          "changsheng12": "yang",
+          "boshi12": "jiang_jun",
+          "jiangqian12": "yue_sha",
+          "suiqian12": "da_hao",
+          "decadal": {
+            "fromAge": 95,
+            "toAge": 104,
+            "fromYear": 2079,
+            "toYear": 2088
+          },
+          "ages": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]
+        },
+        {
+          "index": 4,
+          "key": "wealth",
+          "branch": "wu",
+          "stem": "ren",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "wu_qu",
+              "brightness": "wang"
+            },
+            {
+              "key": "tian_fu",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["xian_chi", "ba_zuo", "tai_fu", "tian_chu", "yue_de", "jie_lu"],
+          "changsheng12": "tai",
+          "boshi12": "xiao_hao",
+          "jiangqian12": "xian_chi",
+          "suiqian12": "xiao_hao",
+          "decadal": {
+            "fromAge": 85,
+            "toAge": 94,
+            "fromYear": 2069,
+            "toYear": 2078
+          },
+          "ages": [2, 14, 26, 38, 50, 62, 74, 86, 98, 110]
+        },
+        {
+          "index": 5,
+          "key": "health",
+          "branch": "si",
+          "stem": "xin",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_tong",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [],
+          "adjectiveStars": ["en_guang", "long_chi", "tian_wu", "tian_xing", "tian_ku", "tian_shi"],
+          "changsheng12": "jue",
+          "boshi12": "qing_long",
+          "jiangqian12": "zhi_bei",
+          "suiqian12": "guan_fu_annual",
+          "decadal": {
+            "fromAge": 75,
+            "toAge": 84,
+            "fromYear": 2059,
+            "toYear": 2068
+          },
+          "ages": [3, 15, 27, 39, 51, 63, 75, 87, 99, 111]
+        },
+        {
+          "index": 6,
+          "key": "travel",
+          "branch": "chen",
+          "stem": "geng",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "po_jun",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "wen_qu",
+              "brightness": "de"
+            },
+            {
+              "key": "qing_yang",
+              "brightness": "miao"
+            }
+          ],
+          "adjectiveStars": ["jie_shen", "tian_guan"],
+          "changsheng12": "mu",
+          "boshi12": "li_shi",
+          "jiangqian12": "tian_sha",
+          "suiqian12": "guan_suo",
+          "decadal": {
+            "fromAge": 65,
+            "toAge": 74,
+            "fromYear": 2049,
+            "toYear": 2058
+          },
+          "ages": [4, 16, 28, 40, 52, 64, 76, 88, 100, 112]
+        },
+        {
+          "index": 7,
+          "key": "friends",
+          "branch": "mao",
+          "stem": "ji",
+          "isBodyPalace": false,
+          "majorStars": [],
+          "minorStars": [
+            {
+              "key": "lu_cun"
+            },
+            {
+              "key": "huo_xing",
+              "brightness": "li"
+            }
+          ],
+          "adjectiveStars": ["tian_shang"],
+          "changsheng12": "si",
+          "boshi12": "bo_shi",
+          "jiangqian12": "zai_sha",
+          "suiqian12": "sang_men",
+          "decadal": {
+            "fromAge": 55,
+            "toAge": 64,
+            "fromYear": 2039,
+            "toYear": 2048
+          },
+          "ages": [5, 17, 29, 41, 53, 65, 77, 89, 101, 113]
+        },
+        {
+          "index": 8,
+          "key": "career",
+          "branch": "yin",
+          "stem": "wu_stem",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "lian_zhen",
+              "brightness": "miao"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "you_bi"
+            },
+            {
+              "key": "tuo_luo",
+              "brightness": "xian"
+            }
+          ],
+          "adjectiveStars": ["hong_luan", "feng_gao", "tian_yue_aux", "tian_kong", "gu_chen"],
+          "changsheng12": "bing",
+          "boshi12": "guan_fu",
+          "jiangqian12": "jie_sha_annual",
+          "suiqian12": "hui_qi",
+          "decadal": {
+            "fromAge": 45,
+            "toAge": 54,
+            "fromYear": 2029,
+            "toYear": 2038
+          },
+          "ages": [6, 18, 30, 42, 54, 66, 78, 90, 102, 114]
+        },
+        {
+          "index": 9,
+          "key": "property",
+          "branch": "chou",
+          "stem": "ji",
+          "isBodyPalace": false,
+          "majorStars": [],
+          "minorStars": [],
+          "adjectiveStars": ["hua_gai", "po_sui"],
+          "changsheng12": "shuai",
+          "boshi12": "fu_bing",
+          "jiangqian12": "hua_gai",
+          "suiqian12": "sui_jian",
+          "decadal": {
+            "fromAge": 35,
+            "toAge": 44,
+            "fromYear": 2019,
+            "toYear": 2028
+          },
+          "ages": [7, 19, 31, 43, 55, 67, 79, 91, 103, 115]
+        },
+        {
+          "index": 10,
+          "key": "wellbeing",
+          "branch": "zi",
+          "stem": "wu_stem",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "qi_sha",
+              "brightness": "wang"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "zuo_fu"
+            },
+            {
+              "key": "tian_kui"
+            }
+          ],
+          "adjectiveStars": [],
+          "changsheng12": "di_wang",
+          "boshi12": "da_hao",
+          "jiangqian12": "xi_shen_annual",
+          "suiqian12": "bing_fu",
+          "decadal": {
+            "fromAge": 25,
+            "toAge": 34,
+            "fromYear": 2009,
+            "toYear": 2018
+          },
+          "ages": [8, 20, 32, 44, 56, 68, 80, 92, 104, 116]
+        },
+        {
+          "index": 11,
+          "key": "parents",
+          "branch": "hai",
+          "stem": "ding",
+          "isBodyPalace": false,
+          "majorStars": [
+            {
+              "key": "tian_liang",
+              "brightness": "xian",
+              "mutagen": "quan"
+            }
+          ],
+          "minorStars": [
+            {
+              "key": "tian_ma"
+            },
+            {
+              "key": "di_kong"
+            },
+            {
+              "key": "di_jie"
+            }
+          ],
+          "adjectiveStars": ["tian_gui", "tian_cai", "tian_shou", "xun_kong"],
+          "changsheng12": "lin_guan",
+          "boshi12": "bing_fu",
+          "jiangqian12": "sui_yi",
+          "suiqian12": "diao_ke",
+          "decadal": {
+            "fromAge": 15,
+            "toAge": 24,
+            "fromYear": 1999,
+            "toYear": 2008
+          },
+          "ages": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]
+        }
+      ],
+      "horoscope": {
+        "decadal": {
+          "palaceIndex": 9,
+          "stem": "ji",
+          "mutagens": {
+            "lu": "wu_qu",
+            "quan": "tan_lang",
+            "ke": "tian_liang",
+            "ji": "wen_qu"
+          },
+          "fromAge": 35,
+          "toAge": 44
+        },
+        "yearly": {
+          "year": 2026,
+          "palaceIndex": 4,
+          "stem": "bing",
+          "branch": "wu",
+          "mutagens": {
+            "lu": "tian_tong",
+            "quan": "tian_ji",
+            "ke": "wen_chang",
+            "ji": "lian_zhen"
+          }
+        }
+      },
+      "patterns": [
+        {
+          "key": "zi_fu_chao_yuan",
+          "palaces": ["life", "wealth"],
+          "stars": ["zi_wei", "tian_fu"],
+          "strength": 0.925
+        },
+        {
+          "key": "fu_xiang_chao_yuan",
+          "palaces": ["life", "wealth"],
+          "stars": ["tian_fu", "tian_xiang"],
+          "strength": 0.925
+        }
+      ],
+      "emptyPalaces": ["friends", "property"]
+    },
+    "astrology": {
+      "noonChart": false,
+      "jdUT": 2446372.152777778,
+      "obliquity": 23.443097658901564,
+      "houseSystem": "placidus",
+      "bodies": [
+        {
+          "key": "sun",
+          "lon": 220.16187105042604,
+          "lat": -0.00003951219984094871,
+          "sign": "scorpio",
+          "degInSign": 10.161871050426043,
+          "retro": false,
+          "speed": 1.0011141223628783,
+          "house": 4,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "moon",
+          "lon": 93.59604827981389,
+          "lat": 4.312378975530607,
+          "sign": "cancer",
+          "degInSign": 3.5960482798138855,
+          "retro": false,
+          "speed": 12.091004912264225,
+          "house": 11,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "mercury",
+          "lon": 242.44427503222397,
+          "lat": -2.5999596019149194,
+          "sign": "sagittarius",
+          "degInSign": 2.4442750322239704,
+          "retro": false,
+          "speed": 1.2241473761577026,
+          "house": 4,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "venus",
+          "lon": 201.27782698992243,
+          "lat": 1.5276689424192151,
+          "sign": "libra",
+          "degInSign": 21.27782698992243,
+          "retro": false,
+          "speed": 1.2483955629619459,
+          "house": 3,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "mars",
+          "lon": 183.77085202748785,
+          "lat": 1.1977589107883062,
+          "sign": "libra",
+          "degInSign": 3.770852027487848,
+          "retro": false,
+          "speed": 0.62637530046743,
+          "house": 3,
+          "nearCusp": true,
+          "anaretic": false
+        },
+        {
+          "key": "jupiter",
+          "lon": 308.5999155997769,
+          "lat": -0.8450924403906934,
+          "sign": "aquarius",
+          "degInSign": 8.59991559977692,
+          "retro": false,
+          "speed": 0.09512240850995113,
+          "house": 6,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "saturn",
+          "lon": 238.3079207202791,
+          "lat": 1.8304282171454926,
+          "sign": "scorpio",
+          "degInSign": 28.3079207202791,
+          "retro": false,
+          "speed": 0.1151113016931049,
+          "house": 4,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "uranus",
+          "lon": 256.00728828600495,
+          "lat": -0.04816264078871739,
+          "sign": "sagittarius",
+          "degInSign": 16.00728828600495,
+          "retro": false,
+          "speed": 0.05225325517699275,
+          "house": 5,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "neptune",
+          "lon": 271.5464916153695,
+          "lat": 1.0841439328936973,
+          "sign": "capricorn",
+          "degInSign": 1.5464916153695185,
+          "retro": false,
+          "speed": 0.02624625810199177,
+          "house": 5,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "pluto",
+          "lon": 214.9035590395138,
+          "lat": 16.08947247874279,
+          "sign": "scorpio",
+          "degInSign": 4.9035590395137945,
+          "retro": false,
+          "speed": 0.04038933460321914,
+          "house": 3,
+          "nearCusp": true,
+          "anaretic": false
+        },
+        {
+          "key": "north_node",
+          "lon": 39.17920006005884,
+          "lat": 0,
+          "sign": "taurus",
+          "degInSign": 9.17920006005884,
+          "retro": true,
+          "speed": -0.0030862703113143652,
+          "house": 10,
+          "nearCusp": false,
+          "anaretic": false
+        },
+        {
+          "key": "chiron",
+          "lon": 74.77895123625483,
+          "lat": -5.072738530975169,
+          "sign": "gemini",
+          "degInSign": 14.778951236254827,
+          "retro": true,
+          "speed": -0.04421141407533469,
+          "house": 11,
+          "nearCusp": false,
+          "anaretic": false,
+          "approximate": true
+        },
+        {
+          "key": "lilith",
+          "lon": 47.047441703193314,
+          "lat": 0,
+          "sign": "taurus",
+          "degInSign": 17.047441703193314,
+          "retro": false,
+          "speed": 0.11076762328627865,
+          "house": 10,
+          "nearCusp": false,
+          "anaretic": false
+        }
+      ],
+      "angles": {
+        "asc": 134.98261401289568,
+        "mc": 35.554701221609164,
+        "dsc": 314.9826140128957,
+        "ic": 215.55470122160915
+      },
+      "houses": [
+        {
+          "index": 1,
+          "cusp": 134.98261401289568,
+          "sign": "leo",
+          "ruler": "sun"
+        },
+        {
+          "index": 2,
+          "cusp": 156.62953691455218,
+          "sign": "virgo",
+          "ruler": "mercury"
+        },
+        {
+          "index": 3,
+          "cusp": 183.16428698350992,
+          "sign": "libra",
+          "ruler": "venus"
+        },
+        {
+          "index": 4,
+          "cusp": 215.55470122160915,
+          "sign": "scorpio",
+          "ruler": "pluto"
+        },
+        {
+          "index": 5,
+          "cusp": 251.4311231014908,
+          "sign": "sagittarius",
+          "ruler": "jupiter"
+        },
+        {
+          "index": 6,
+          "cusp": 285.4775838405855,
+          "sign": "capricorn",
+          "ruler": "saturn"
+        },
+        {
+          "index": 7,
+          "cusp": 314.9826140128957,
+          "sign": "aquarius",
+          "ruler": "uranus"
+        },
+        {
+          "index": 8,
+          "cusp": 336.6295369145522,
+          "sign": "pisces",
+          "ruler": "neptune"
+        },
+        {
+          "index": 9,
+          "cusp": 3.1642869835098963,
+          "sign": "aries",
+          "ruler": "mars"
+        },
+        {
+          "index": 10,
+          "cusp": 35.554701221609164,
+          "sign": "taurus",
+          "ruler": "venus"
+        },
+        {
+          "index": 11,
+          "cusp": 71.43112310149081,
+          "sign": "gemini",
+          "ruler": "mercury"
+        },
+        {
+          "index": 12,
+          "cusp": 105.47758384058552,
+          "sign": "cancer",
+          "ruler": "moon"
+        }
+      ],
+      "aspects": [
+        {
+          "a": "moon",
+          "b": "mars",
+          "type": "square",
+          "orb": 0.17480374767399098,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "neptune",
+          "b": "lilith",
+          "type": "sesquiquadrate",
+          "orb": 0.50095008782381,
+          "applying": false,
+          "major": false
+        },
+        {
+          "a": "jupiter",
+          "b": "north_node",
+          "type": "square",
+          "orb": 0.57928446028194,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "mercury",
+          "b": "neptune",
+          "type": "semisextile",
+          "orb": 0.8977834168544518,
+          "applying": false,
+          "major": false
+        },
+        {
+          "a": "sun",
+          "b": "north_node",
+          "type": "opposition",
+          "orb": 0.9826709903671826,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "uranus",
+          "b": "lilith",
+          "type": "quincunx",
+          "orb": 1.0401534171883782,
+          "applying": false,
+          "major": false
+        },
+        {
+          "a": "mars",
+          "b": "pluto",
+          "type": "semisextile",
+          "orb": 1.1327070120259464,
+          "applying": true,
+          "major": false
+        },
+        {
+          "a": "moon",
+          "b": "mercury",
+          "type": "quincunx",
+          "orb": 1.1517732475899152,
+          "applying": false,
+          "major": false
+        },
+        {
+          "a": "uranus",
+          "b": "chiron",
+          "type": "opposition",
+          "orb": 1.2283370497501096,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "pluto",
+          "type": "trine",
+          "orb": 1.3075107596998805,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "mercury",
+          "b": "mars",
+          "type": "sextile",
+          "orb": 1.3265769952638777,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "lilith",
+          "type": "semisquare",
+          "orb": 1.548606576620557,
+          "applying": false,
+          "major": false
+        },
+        {
+          "a": "sun",
+          "b": "jupiter",
+          "type": "square",
+          "orb": 1.5619554506491227,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "mars",
+          "b": "lilith",
+          "type": "sesquiquadrate",
+          "orb": 1.723410324294548,
+          "applying": false,
+          "major": false
+        },
+        {
+          "a": "moon",
+          "b": "neptune",
+          "type": "opposition",
+          "orb": 2.049556664444367,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "mars",
+          "b": "neptune",
+          "type": "square",
+          "orb": 2.224360412118358,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "neptune",
+          "b": "pluto",
+          "type": "sextile",
+          "orb": 3.357067424144276,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "jupiter",
+          "b": "pluto",
+          "type": "square",
+          "orb": 3.6963565602631263,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "mercury",
+          "b": "saturn",
+          "type": "conjunction",
+          "orb": 4.136354311944871,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "pluto",
+          "b": "north_node",
+          "type": "opposition",
+          "orb": 4.275641020545038,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "mars",
+          "b": "jupiter",
+          "type": "trine",
+          "orb": 4.829063572289101,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "pluto",
+          "type": "conjunction",
+          "orb": 5.258312010912249,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "moon",
+          "b": "north_node",
+          "type": "sextile",
+          "orb": 5.583151780244947,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "jupiter",
+          "b": "chiron",
+          "type": "trine",
+          "orb": 6.17903563647792,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "venus",
+          "b": "chiron",
+          "type": "trine",
+          "orb": 6.498875753667605,
+          "applying": false,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "moon",
+          "type": "trine",
+          "orb": 6.565822770612158,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "sun",
+          "b": "lilith",
+          "type": "opposition",
+          "orb": 6.885570652767285,
+          "applying": true,
+          "major": true
+        },
+        {
+          "a": "north_node",
+          "b": "lilith",
+          "type": "conjunction",
+          "orb": 7.868241643134468,
+          "applying": false,
+          "major": true
+        }
+      ],
+      "stats": {
+        "elements": {
+          "fire": 2,
+          "earth": 1,
+          "air": 3,
+          "water": 4
+        },
+        "modalities": {
+          "cardinal": 4,
+          "fixed": 4,
+          "mutable": 2
+        },
+        "polarity": {
+          "positive": 5,
+          "negative": 5
+        },
+        "hemispheres": {
+          "upper": 1,
+          "lower": 9,
+          "eastern": 4,
+          "western": 6
+        },
+        "quadrants": [3, 6, 0, 1],
+        "stelliums": [
+          {
+            "sign": "scorpio",
+            "bodies": ["sun", "saturn", "pluto"]
+          },
+          {
+            "house": 3,
+            "bodies": ["venus", "mars", "pluto"]
+          },
+          {
+            "house": 4,
+            "bodies": ["sun", "mercury", "saturn"]
+          }
+        ]
+      },
+      "rulers": {
+        "chartRuler": "sun",
+        "mutualReceptions": [["jupiter", "uranus"]]
+      },
+      "moonPhase": {
+        "name": "waning_gibbous",
+        "angle": 233.42844152893082
+      },
+      "patterns": [
+        {
+          "key": "t_square",
+          "bodies": ["mars", "moon", "neptune"]
+        },
+        {
+          "key": "t_square",
+          "bodies": ["jupiter", "north_node", "sun"]
+        },
+        {
+          "key": "t_square",
+          "bodies": ["jupiter", "north_node", "pluto"]
+        }
+      ]
+    },
+    "vedic": {
+      "noonChart": false,
+      "ayanamsa": 23.659264391920093,
+      "jdUT": 2446372.152777778,
+      "lagna": {
+        "sidLon": 111.32334962097559,
+        "sign": "cancer",
+        "nakshatra": "ashlesha",
+        "pada": 2,
+        "navamsaSign": "capricorn"
+      },
+      "bodies": [
+        {
+          "key": "surya",
+          "sidLon": 196.50260665850595,
+          "sign": "libra",
+          "degInSign": 16.502606658505954,
+          "house": 4,
+          "nakshatra": "swati",
+          "pada": 3,
+          "retro": false,
+          "combust": false,
+          "dignity": "debilitated",
+          "navamsaSign": "aquarius"
+        },
+        {
+          "key": "chandra",
+          "sidLon": 69.9367838878938,
+          "sign": "gemini",
+          "degInSign": 9.936783887893796,
+          "house": 12,
+          "nakshatra": "ardra",
+          "pada": 1,
+          "retro": false,
+          "combust": false,
+          "dignity": "friend",
+          "navamsaSign": "sagittarius"
+        },
+        {
+          "key": "mangala",
+          "sidLon": 160.11158763556776,
+          "sign": "virgo",
+          "degInSign": 10.111587635567759,
+          "house": 3,
+          "nakshatra": "hasta",
+          "pada": 1,
+          "retro": false,
+          "combust": false,
+          "dignity": "enemy",
+          "navamsaSign": "aries"
+        },
+        {
+          "key": "budha",
+          "sidLon": 218.78501064030388,
+          "sign": "scorpio",
+          "degInSign": 8.78501064030388,
+          "house": 5,
+          "nakshatra": "anuradha",
+          "pada": 2,
+          "retro": false,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "virgo"
+        },
+        {
+          "key": "guru",
+          "sidLon": 284.94065120785683,
+          "sign": "capricorn",
+          "degInSign": 14.940651207856831,
+          "house": 7,
+          "nakshatra": "shravana",
+          "pada": 2,
+          "retro": false,
+          "combust": false,
+          "dignity": "debilitated",
+          "navamsaSign": "taurus"
+        },
+        {
+          "key": "shukra",
+          "sidLon": 177.61856259800234,
+          "sign": "virgo",
+          "degInSign": 27.61856259800234,
+          "house": 3,
+          "nakshatra": "chitra",
+          "pada": 2,
+          "retro": false,
+          "combust": false,
+          "dignity": "debilitated",
+          "navamsaSign": "virgo"
+        },
+        {
+          "key": "shani",
+          "sidLon": 214.648656328359,
+          "sign": "scorpio",
+          "degInSign": 4.64865632835901,
+          "house": 5,
+          "nakshatra": "anuradha",
+          "pada": 1,
+          "retro": false,
+          "combust": false,
+          "dignity": "enemy",
+          "navamsaSign": "leo"
+        },
+        {
+          "key": "rahu",
+          "sidLon": 15.307030930981679,
+          "sign": "aries",
+          "degInSign": 15.307030930981679,
+          "house": 10,
+          "nakshatra": "bharani",
+          "pada": 1,
+          "retro": true,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "leo"
+        },
+        {
+          "key": "ketu",
+          "sidLon": 195.30703093098168,
+          "sign": "libra",
+          "degInSign": 15.307030930981682,
+          "house": 4,
+          "nakshatra": "swati",
+          "pada": 3,
+          "retro": true,
+          "combust": false,
+          "dignity": "neutral",
+          "navamsaSign": "aquarius"
+        }
+      ],
+      "houses": [
+        {
+          "index": 1,
+          "sign": "cancer",
+          "lord": "chandra",
+          "occupants": []
+        },
+        {
+          "index": 2,
+          "sign": "leo",
+          "lord": "surya",
+          "occupants": []
+        },
+        {
+          "index": 3,
+          "sign": "virgo",
+          "lord": "budha",
+          "occupants": ["mangala", "shukra"]
+        },
+        {
+          "index": 4,
+          "sign": "libra",
+          "lord": "shukra",
+          "occupants": ["surya", "ketu"]
+        },
+        {
+          "index": 5,
+          "sign": "scorpio",
+          "lord": "mangala",
+          "occupants": ["budha", "shani"]
+        },
+        {
+          "index": 6,
+          "sign": "sagittarius",
+          "lord": "guru",
+          "occupants": []
+        },
+        {
+          "index": 7,
+          "sign": "capricorn",
+          "lord": "shani",
+          "occupants": ["guru"]
+        },
+        {
+          "index": 8,
+          "sign": "aquarius",
+          "lord": "shani",
+          "occupants": []
+        },
+        {
+          "index": 9,
+          "sign": "pisces",
+          "lord": "guru",
+          "occupants": []
+        },
+        {
+          "index": 10,
+          "sign": "aries",
+          "lord": "mangala",
+          "occupants": ["rahu"]
+        },
+        {
+          "index": 11,
+          "sign": "taurus",
+          "lord": "shukra",
+          "occupants": []
+        },
+        {
+          "index": 12,
+          "sign": "gemini",
+          "lord": "budha",
+          "occupants": ["chandra"]
+        }
+      ],
+      "moon": {
+        "nakshatra": "ardra",
+        "pada": 1,
+        "lord": "rahu",
+        "rashi": "gemini"
+      },
+      "dasha": {
+        "sequence": [
+          {
+            "lord": "rahu",
+            "from": "1985-11-02T15:40:00.000Z",
+            "to": "1999-06-04T16:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "guru",
+                "from": "1985-11-02T15:40:00.000Z",
+                "to": "1986-07-10T23:22:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "1986-07-10T23:22:20.852Z",
+                "to": "1989-05-16T22:28:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "1989-05-16T22:28:20.852Z",
+                "to": "1991-12-04T07:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "1991-12-04T07:46:20.852Z",
+                "to": "1992-12-21T20:04:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "1992-12-21T20:04:20.852Z",
+                "to": "1995-12-22T14:04:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "1995-12-22T14:04:20.852Z",
+                "to": "1996-11-15T07:28:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "1996-11-15T07:28:20.852Z",
+                "to": "1998-05-17T04:28:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "1998-05-17T04:28:20.852Z",
+                "to": "1999-06-04T16:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "guru",
+            "from": "1999-06-04T16:46:20.852Z",
+            "to": "2015-06-04T16:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "guru",
+                "from": "1999-06-04T16:46:20.852Z",
+                "to": "2001-07-22T21:34:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2001-07-22T21:34:20.852Z",
+                "to": "2004-02-03T04:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2004-02-03T04:46:20.852Z",
+                "to": "2006-05-11T02:22:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2006-05-11T02:22:20.852Z",
+                "to": "2007-04-16T23:58:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2007-04-16T23:58:20.852Z",
+                "to": "2009-12-15T23:58:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2009-12-15T23:58:20.852Z",
+                "to": "2010-10-04T04:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2010-10-04T04:46:20.852Z",
+                "to": "2012-02-03T04:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2012-02-03T04:46:20.852Z",
+                "to": "2013-01-09T02:22:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2013-01-09T02:22:20.852Z",
+                "to": "2015-06-04T16:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "shani",
+            "from": "2015-06-04T16:46:20.852Z",
+            "to": "2034-06-04T10:46:20.852Z",
+            "current": true,
+            "antar": [
+              {
+                "lord": "shani",
+                "from": "2015-06-04T16:46:20.852Z",
+                "to": "2018-06-07T11:49:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2018-06-07T11:49:20.852Z",
+                "to": "2021-02-14T14:58:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2021-02-14T14:58:20.852Z",
+                "to": "2022-03-26T10:37:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2022-03-26T10:37:20.852Z",
+                "to": "2025-05-26T01:37:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2025-05-26T01:37:20.852Z",
+                "to": "2026-05-08T01:19:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2026-05-08T01:19:20.852Z",
+                "to": "2027-12-07T08:49:20.852Z",
+                "current": true
+              },
+              {
+                "lord": "mangala",
+                "from": "2027-12-07T08:49:20.852Z",
+                "to": "2029-01-15T04:28:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2029-01-15T04:28:20.852Z",
+                "to": "2031-11-22T03:34:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2031-11-22T03:34:20.852Z",
+                "to": "2034-06-04T10:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "budha",
+            "from": "2034-06-04T10:46:20.852Z",
+            "to": "2051-06-04T16:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "budha",
+                "from": "2034-06-04T10:46:20.852Z",
+                "to": "2036-10-31T02:13:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2036-10-31T02:13:20.852Z",
+                "to": "2037-10-28T07:10:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2037-10-28T07:10:20.852Z",
+                "to": "2040-08-28T04:10:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2040-08-28T04:10:20.852Z",
+                "to": "2041-07-04T15:16:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2041-07-04T15:16:20.852Z",
+                "to": "2042-12-04T01:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2042-12-04T01:46:20.852Z",
+                "to": "2043-12-01T06:43:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2043-12-01T06:43:20.852Z",
+                "to": "2046-06-19T16:01:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2046-06-19T16:01:20.852Z",
+                "to": "2048-09-24T13:37:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2048-09-24T13:37:20.852Z",
+                "to": "2051-06-04T16:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "ketu",
+            "from": "2051-06-04T16:46:20.852Z",
+            "to": "2058-06-04T10:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "ketu",
+                "from": "2051-06-04T16:46:20.852Z",
+                "to": "2051-10-31T20:13:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2051-10-31T20:13:20.852Z",
+                "to": "2052-12-30T23:13:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2052-12-30T23:13:20.852Z",
+                "to": "2053-05-07T19:19:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2053-05-07T19:19:20.852Z",
+                "to": "2053-12-06T20:49:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2053-12-06T20:49:20.852Z",
+                "to": "2054-05-05T00:16:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2054-05-05T00:16:20.852Z",
+                "to": "2055-05-23T12:34:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2055-05-23T12:34:20.852Z",
+                "to": "2056-04-28T10:10:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2056-04-28T10:10:20.852Z",
+                "to": "2057-06-07T05:49:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2057-06-07T05:49:20.852Z",
+                "to": "2058-06-04T10:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "shukra",
+            "from": "2058-06-04T10:46:20.852Z",
+            "to": "2078-06-04T10:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "shukra",
+                "from": "2058-06-04T10:46:20.852Z",
+                "to": "2061-10-03T22:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2061-10-03T22:46:20.852Z",
+                "to": "2062-10-04T04:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2062-10-04T04:46:20.852Z",
+                "to": "2064-06-03T22:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2064-06-03T22:46:20.852Z",
+                "to": "2065-08-04T01:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2065-08-04T01:46:20.852Z",
+                "to": "2068-08-03T19:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2068-08-03T19:46:20.852Z",
+                "to": "2071-04-04T19:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2071-04-04T19:46:20.852Z",
+                "to": "2074-06-04T10:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2074-06-04T10:46:20.852Z",
+                "to": "2077-04-04T07:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2077-04-04T07:46:20.852Z",
+                "to": "2078-06-04T10:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "surya",
+            "from": "2078-06-04T10:46:20.852Z",
+            "to": "2084-06-03T22:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "surya",
+                "from": "2078-06-04T10:46:20.852Z",
+                "to": "2078-09-22T00:34:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2078-09-22T00:34:20.852Z",
+                "to": "2079-03-23T15:34:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2079-03-23T15:34:20.852Z",
+                "to": "2079-07-29T11:40:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2079-07-29T11:40:20.852Z",
+                "to": "2080-06-22T05:04:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2080-06-22T05:04:20.852Z",
+                "to": "2081-04-10T09:52:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2081-04-10T09:52:20.852Z",
+                "to": "2082-03-23T09:34:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2082-03-23T09:34:20.852Z",
+                "to": "2083-01-27T20:40:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2083-01-27T20:40:20.852Z",
+                "to": "2083-06-04T16:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2083-06-04T16:46:20.852Z",
+                "to": "2084-06-03T22:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "chandra",
+            "from": "2084-06-03T22:46:20.852Z",
+            "to": "2094-06-04T10:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "chandra",
+                "from": "2084-06-03T22:46:20.852Z",
+                "to": "2085-04-04T07:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "mangala",
+                "from": "2085-04-04T07:46:20.852Z",
+                "to": "2085-11-03T09:16:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2085-11-03T09:16:20.852Z",
+                "to": "2087-05-05T06:16:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2087-05-05T06:16:20.852Z",
+                "to": "2088-09-03T06:16:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2088-09-03T06:16:20.852Z",
+                "to": "2090-04-04T13:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2090-04-04T13:46:20.852Z",
+                "to": "2091-09-04T00:16:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2091-09-04T00:16:20.852Z",
+                "to": "2092-04-04T01:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2092-04-04T01:46:20.852Z",
+                "to": "2093-12-03T19:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2093-12-03T19:46:20.852Z",
+                "to": "2094-06-04T10:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "mangala",
+            "from": "2094-06-04T10:46:20.852Z",
+            "to": "2101-06-05T04:46:20.852Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "mangala",
+                "from": "2094-06-04T10:46:20.852Z",
+                "to": "2094-10-31T14:13:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "rahu",
+                "from": "2094-10-31T14:13:20.852Z",
+                "to": "2095-11-19T02:31:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2095-11-19T02:31:20.852Z",
+                "to": "2096-10-25T00:07:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shani",
+                "from": "2096-10-25T00:07:20.852Z",
+                "to": "2097-12-03T19:46:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "budha",
+                "from": "2097-12-03T19:46:20.852Z",
+                "to": "2098-12-01T00:43:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "ketu",
+                "from": "2098-12-01T00:43:20.852Z",
+                "to": "2099-04-29T04:10:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "shukra",
+                "from": "2099-04-29T04:10:20.852Z",
+                "to": "2100-06-29T07:10:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "surya",
+                "from": "2100-06-29T07:10:20.852Z",
+                "to": "2100-11-04T03:16:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "chandra",
+                "from": "2100-11-04T03:16:20.852Z",
+                "to": "2101-06-05T04:46:20.852Z",
+                "current": false
+              }
+            ]
+          },
+          {
+            "lord": "rahu",
+            "from": "2101-06-05T04:46:20.852Z",
+            "to": "2105-11-03T15:40:00.000Z",
+            "current": false,
+            "antar": [
+              {
+                "lord": "rahu",
+                "from": "2101-06-05T04:46:20.852Z",
+                "to": "2104-02-16T08:58:20.852Z",
+                "current": false
+              },
+              {
+                "lord": "guru",
+                "from": "2104-02-16T08:58:20.852Z",
+                "to": "2105-11-03T15:40:00.000Z",
+                "current": false
+              }
+            ]
+          }
+        ]
+      },
+      "yogas": [
+        {
+          "key": "kemadruma",
+          "bodies": ["chandra"],
+          "houses": [12]
+        },
+        {
+          "key": "raja_yoga",
+          "bodies": ["shukra", "mangala"],
+          "houses": [3]
+        },
+        {
+          "key": "dhana_yoga",
+          "bodies": ["shukra", "mangala"],
+          "houses": [3]
+        }
+      ],
+      "panchangAtBirth": {
+        "date": "1985-11-02",
+        "tz": "Asia/Shanghai",
+        "sunrise": "1985-11-01T22:43:52.942Z",
+        "sunset": "1985-11-02T09:11:35.403Z",
+        "tithi": {
+          "index": 20,
+          "key": "panchami",
+          "endsAt": "1985-11-03T05:48:15.989Z"
+        },
+        "nakshatra": {
+          "index": 5,
+          "key": "ardra",
+          "endsAt": "1985-11-03T11:30:31.344Z"
+        },
+        "yoga": {
+          "index": 19,
+          "key": "shiva",
+          "endsAt": "1985-11-02T16:04:59.714Z"
+        },
+        "karana": {
+          "index": 38,
+          "key": "kaulava",
+          "endsAt": "1985-11-02T16:53:26.438Z"
+        },
+        "vara": {
+          "index": 6,
+          "key": "shaniwara",
+          "endsAt": "1985-11-02T22:45:01.013Z"
+        },
+        "transitions": [
+          {
+            "limb": "yoga",
+            "index": 20,
+            "key": "siddha",
+            "startsAt": "1985-11-02T16:04:59.714Z",
+            "endsAt": "1985-11-03T16:19:52.595Z"
+          },
+          {
+            "limb": "karana",
+            "index": 39,
+            "key": "taitila",
+            "startsAt": "1985-11-02T16:53:26.438Z",
+            "endsAt": "1985-11-03T05:48:15.989Z"
+          }
+        ]
+      }
+    }
+  },
+  "bazi": {
+    "dayStemRelations": [],
+    "dayBranchRelations": [],
+    "yearRelations": ["harm"],
+    "elementComplementarity": 28.927246574999998,
+    "favorableSupport": [52.25225225, 99.99999998999999],
+    "complementaryElements": ["metal", "water"],
+    "tenGodInteractions": [
+      {
+        "observer": "a",
+        "pillar": "year",
+        "stemGod": "zheng_cai",
+        "hiddenGods": ["zheng_yin", "shang_guan", "jie_cai"]
+      },
+      {
+        "observer": "a",
+        "pillar": "month",
+        "stemGod": "qi_sha",
+        "hiddenGods": ["pian_yin", "jie_cai", "zheng_guan"]
+      },
+      {
+        "observer": "a",
+        "pillar": "day",
+        "stemGod": "qi_sha",
+        "hiddenGods": ["zheng_guan", "zheng_yin"]
+      },
+      {
+        "observer": "a",
+        "pillar": "hour",
+        "stemGod": "pian_yin",
+        "hiddenGods": ["shang_guan"]
+      },
+      {
+        "observer": "b",
+        "pillar": "year",
+        "stemGod": "pian_cai",
+        "hiddenGods": ["jie_cai", "shang_guan"]
+      },
+      {
+        "observer": "b",
+        "pillar": "month",
+        "stemGod": "zheng_cai",
+        "hiddenGods": ["bi_jian", "shi_shen", "pian_cai"]
+      },
+      {
+        "observer": "b",
+        "pillar": "day",
+        "stemGod": "pian_cai",
+        "hiddenGods": ["shi_shen", "zheng_yin", "zheng_guan"]
+      },
+      {
+        "observer": "b",
+        "pillar": "hour",
+        "stemGod": "pian_cai",
+        "hiddenGods": ["shi_shen", "zheng_yin", "zheng_guan"]
+      }
+    ],
+    "spouseStars": [
+      {
+        "observer": "a",
+        "expected": ["zheng_cai", "pian_cai"],
+        "matches": ["year"]
+      },
+      {
+        "observer": "b",
+        "expected": ["zheng_guan", "qi_sha"],
+        "matches": ["day", "hour"]
+      }
+    ]
+  },
+  "ziwei": {
+    "comparisons": [
+      {
+        "palace": "life",
+        "a": ["tian_ji"],
+        "b": ["zi_wei", "tian_xiang"]
+      },
+      {
+        "palace": "spouse",
+        "a": ["tai_yang"],
+        "b": ["tan_lang"]
+      }
+    ],
+    "transformations": [
+      {
+        "from": "a",
+        "mutagen": "lu",
+        "star": "tai_yang",
+        "target": "children",
+        "inLifeTriangle": false,
+        "inSpouseTriangle": false
+      },
+      {
+        "from": "a",
+        "mutagen": "quan",
+        "star": "wu_qu",
+        "target": "wealth",
+        "inLifeTriangle": true,
+        "inSpouseTriangle": false
+      },
+      {
+        "from": "a",
+        "mutagen": "ji",
+        "star": "tian_tong",
+        "target": "health",
+        "inLifeTriangle": false,
+        "inSpouseTriangle": false
+      },
+      {
+        "from": "a",
+        "mutagen": "ke",
+        "star": "tai_yin",
+        "target": "children",
+        "inLifeTriangle": false,
+        "inSpouseTriangle": false
+      },
+      {
+        "from": "b",
+        "mutagen": "ke",
+        "star": "zi_wei",
+        "target": "parents",
+        "inLifeTriangle": false,
+        "inSpouseTriangle": false
+      },
+      {
+        "from": "b",
+        "mutagen": "lu",
+        "star": "tian_ji",
+        "target": "life",
+        "inLifeTriangle": true,
+        "inSpouseTriangle": false
+      },
+      {
+        "from": "b",
+        "mutagen": "ji",
+        "star": "tai_yin",
+        "target": "wellbeing",
+        "inLifeTriangle": false,
+        "inSpouseTriangle": true
+      },
+      {
+        "from": "b",
+        "mutagen": "quan",
+        "star": "tian_liang",
+        "target": "travel",
+        "inLifeTriangle": true,
+        "inSpouseTriangle": true
+      }
+    ]
+  },
+  "western": {
+    "aspects": [
+      {
+        "a": "uranus",
+        "b": "north_node",
+        "type": "trine",
+        "orb": 0.01614299059602331,
+        "separation": 119.98385700940398
+      },
+      {
+        "a": "north_node",
+        "b": "sun",
+        "type": "square",
+        "orb": 0.1113132732240274,
+        "separation": 90.11131327322403
+      },
+      {
+        "a": "jupiter",
+        "b": "north_node",
+        "type": "sextile",
+        "orb": 0.26424846057219753,
+        "separation": 60.2642484605722
+      },
+      {
+        "a": "mercury",
+        "b": "jupiter",
+        "type": "square",
+        "orb": 0.5149493928036009,
+        "separation": 89.4850506071964
+      },
+      {
+        "a": "moon",
+        "b": "venus",
+        "type": "square",
+        "orb": 0.5205550793544091,
+        "separation": 89.47944492064559
+      },
+      {
+        "a": "jupiter",
+        "b": "sun",
+        "type": "trine",
+        "orb": 0.7184225297950064,
+        "separation": 120.718422529795
+      },
+      {
+        "a": "pluto",
+        "b": "lilith",
+        "type": "opposition",
+        "orb": 0.8648961724629203,
+        "separation": 179.13510382753708
+      },
+      {
+        "a": "mars",
+        "b": "lilith",
+        "type": "sextile",
+        "orb": 0.8997415485459328,
+        "separation": 59.10025845145407
+      },
+      {
+        "a": "uranus",
+        "b": "sun",
+        "type": "sextile",
+        "orb": 0.9665279997711878,
+        "separation": 59.03347200022881
+      },
+      {
+        "a": "north_node",
+        "b": "north_node",
+        "type": "square",
+        "orb": 1.09398426359121,
+        "separation": 88.90601573640879
+      },
+      {
+        "a": "mercury",
+        "b": "north_node",
+        "type": "conjunction",
+        "orb": 1.0942338530855196,
+        "separation": 1.0942338530855196
+      },
+      {
+        "a": "north_node",
+        "b": "jupiter",
+        "type": "conjunction",
+        "orb": 1.67326872387315,
+        "separation": 1.67326872387315
+      },
+      {
+        "a": "mars",
+        "b": "uranus",
+        "type": "square",
+        "orb": 1.939894965734311,
+        "separation": 91.93989496573431
+      },
+      {
+        "a": "mercury",
+        "b": "sun",
+        "type": "opposition",
+        "orb": 2.0769048434527235,
+        "separation": 177.92309515654728
+      },
+      {
+        "a": "chiron",
+        "b": "lilith",
+        "type": "sextile",
+        "orb": 2.3050722365351675,
+        "separation": 57.69492776346483
+      },
+      {
+        "a": "venus",
+        "b": "chiron",
+        "type": "sextile",
+        "orb": 2.5544224532575726,
+        "separation": 62.55442245325757
+      },
+      {
+        "a": "neptune",
+        "b": "lilith",
+        "type": "trine",
+        "orb": 2.687189359346746,
+        "separation": 122.68718935934675
+      },
+      {
+        "a": "saturn",
+        "b": "saturn",
+        "type": "sextile",
+        "orb": 3.0499413440075216,
+        "separation": 56.95005865599248
+      },
+      {
+        "a": "mars",
+        "b": "chiron",
+        "type": "square",
+        "orb": 3.1682320154844206,
+        "separation": 86.83176798451558
+      },
+      {
+        "a": "mercury",
+        "b": "pluto",
+        "type": "opposition",
+        "orb": 3.1814071674595255,
+        "separation": 176.81859283254047
+      },
+      {
+        "a": "venus",
+        "b": "jupiter",
+        "type": "sextile",
+        "orb": 3.624613183220333,
+        "separation": 63.62461318322033
+      },
+      {
+        "a": "moon",
+        "b": "lilith",
+        "type": "trine",
+        "orb": 3.7098302073746936,
+        "separation": 116.2901697926253
+      },
+      {
+        "a": "venus",
+        "b": "uranus",
+        "type": "trine",
+        "orb": 3.7827595030076964,
+        "separation": 116.2172404969923
+      },
+      {
+        "a": "saturn",
+        "b": "venus",
+        "type": "square",
+        "orb": 3.980152386349147,
+        "separation": 93.98015238634915
+      },
+      {
+        "a": "neptune",
+        "b": "sun",
+        "type": "sextile",
+        "orb": 4.198381293420539,
+        "separation": 64.19838129342054
+      },
+      {
+        "a": "uranus",
+        "b": "pluto",
+        "type": "sextile",
+        "orb": 4.291784011141061,
+        "separation": 64.29178401114106
+      },
+      {
+        "a": "lilith",
+        "b": "lilith",
+        "type": "opposition",
+        "orb": 4.36984711523462,
+        "separation": 175.63015288476538
+      },
+      {
+        "a": "sun",
+        "b": "saturn",
+        "type": "opposition",
+        "orb": 4.414331683010545,
+        "separation": 175.58566831698946
+      },
+      {
+        "a": "mercury",
+        "b": "moon",
+        "type": "sextile",
+        "orb": 4.488917927159434,
+        "separation": 55.511082072840566
+      },
+      {
+        "a": "north_node",
+        "b": "chiron",
+        "type": "trine",
+        "orb": 4.50576691260477,
+        "separation": 124.50576691260477
+      },
+      {
+        "a": "jupiter",
+        "b": "pluto",
+        "type": "trine",
+        "orb": 4.5398894811172426,
+        "separation": 115.46011051888276
+      },
+      {
+        "a": "chiron",
+        "b": "sun",
+        "type": "trine",
+        "orb": 4.580498416232103,
+        "separation": 115.4195015837679
+      },
+      {
+        "a": "neptune",
+        "b": "north_node",
+        "type": "trine",
+        "orb": 5.18105228378775,
+        "separation": 114.81894771621225
+      },
+      {
+        "a": "north_node",
+        "b": "pluto",
+        "type": "square",
+        "orb": 5.369625284136276,
+        "separation": 95.36962528413628
+      },
+      {
+        "a": "uranus",
+        "b": "mars",
+        "type": "square",
+        "orb": 5.424491023167008,
+        "separation": 95.42449102316701
+      },
+      {
+        "a": "uranus",
+        "b": "moon",
+        "type": "opposition",
+        "orb": 5.59929477084097,
+        "separation": 174.40070522915903
+      },
+      {
+        "a": "jupiter",
+        "b": "mars",
+        "type": "square",
+        "orb": 5.672596493143189,
+        "separation": 84.32740350685681
+      },
+      {
+        "a": "jupiter",
+        "b": "moon",
+        "type": "conjunction",
+        "orb": 5.8474002408171515,
+        "separation": 5.8474002408171515
+      },
+      {
+        "a": "pluto",
+        "b": "sun",
+        "type": "conjunction",
+        "orb": 6.020674480304365,
+        "separation": 6.020674480304365
+      },
+      {
+        "a": "north_node",
+        "b": "mars",
+        "type": "trine",
+        "orb": 6.502332296162223,
+        "separation": 126.50233229616222
+      },
+      {
+        "a": "chiron",
+        "b": "venus",
+        "type": "square",
+        "orb": 6.535457523264284,
+        "separation": 96.53545752326428
+      },
+      {
+        "a": "mercury",
+        "b": "neptune",
+        "type": "trine",
+        "orb": 6.538474591603801,
+        "separation": 126.5384745916038
+      },
+      {
+        "a": "north_node",
+        "b": "lilith",
+        "type": "square",
+        "orb": 6.774257379543258,
+        "separation": 96.77425737954326
+      },
+      {
+        "a": "sun",
+        "b": "lilith",
+        "type": "conjunction",
+        "orb": 6.846147334075241,
+        "separation": 6.846147334075241
+      },
+      {
+        "a": "lilith",
+        "b": "saturn",
+        "type": "conjunction",
+        "orb": 6.8906319018511795,
+        "separation": 6.8906319018511795
+      },
+      {
+        "a": "neptune",
+        "b": "venus",
+        "type": "square",
+        "orb": 6.917574646075849,
+        "separation": 83.08242535392415
+      },
+      {
+        "a": "pluto",
+        "b": "north_node",
+        "type": "opposition",
+        "orb": 7.003345470671576,
+        "separation": 172.99665452932842
+      },
+      {
+        "a": "uranus",
+        "b": "neptune",
+        "type": "conjunction",
+        "orb": 7.648851435285337,
+        "separation": 7.648851435285337
+      },
+      {
+        "a": "mars",
+        "b": "sun",
+        "type": "trine",
+        "orb": 7.785312201313218,
+        "separation": 127.78531220131322
+      },
+      {
+        "a": "jupiter",
+        "b": "neptune",
+        "type": "opposition",
+        "orb": 7.896956905261504,
+        "separation": 172.1030430947385
+      },
+      {
+        "a": "sun",
+        "b": "mercury",
+        "type": "opposition",
+        "orb": 8.550685994955415,
+        "separation": 171.44931400504458
+      },
+      {
+        "a": "venus",
+        "b": "moon",
+        "type": "square",
+        "orb": 8.628480503183368,
+        "separation": 81.37151949681663
+      }
+    ],
+    "intimateAspects": [
+      {
+        "a": "moon",
+        "b": "venus",
+        "type": "square",
+        "orb": 0.5205550793544091,
+        "separation": 89.47944492064559
+      },
+      {
+        "a": "mars",
+        "b": "sun",
+        "type": "trine",
+        "orb": 7.785312201313218,
+        "separation": 127.78531220131322
+      },
+      {
+        "a": "venus",
+        "b": "moon",
+        "type": "square",
+        "orb": 8.628480503183368,
+        "separation": 81.37151949681663
+      }
+    ],
+    "overlays": [
+      {
+        "from": "a",
+        "planet": "sun",
+        "house": 10
+      },
+      {
+        "from": "a",
+        "planet": "moon",
+        "house": 6
+      },
+      {
+        "from": "a",
+        "planet": "mercury",
+        "house": 10
+      },
+      {
+        "from": "a",
+        "planet": "venus",
+        "house": 9
+      },
+      {
+        "from": "a",
+        "planet": "mars",
+        "house": 8
+      },
+      {
+        "from": "a",
+        "planet": "jupiter",
+        "house": 11
+      },
+      {
+        "from": "a",
+        "planet": "saturn",
+        "house": 6
+      },
+      {
+        "from": "a",
+        "planet": "uranus",
+        "house": 5
+      },
+      {
+        "from": "a",
+        "planet": "neptune",
+        "house": 5
+      },
+      {
+        "from": "a",
+        "planet": "pluto",
+        "house": 4
+      },
+      {
+        "from": "a",
+        "planet": "north_node",
+        "house": 6
+      },
+      {
+        "from": "a",
+        "planet": "chiron",
+        "house": 11
+      },
+      {
+        "from": "a",
+        "planet": "lilith",
+        "house": 4
+      },
+      {
+        "from": "b",
+        "planet": "sun",
+        "house": 5
+      },
+      {
+        "from": "b",
+        "planet": "moon",
+        "house": 1
+      },
+      {
+        "from": "b",
+        "planet": "mercury",
+        "house": 6
+      },
+      {
+        "from": "b",
+        "planet": "venus",
+        "house": 5
+      },
+      {
+        "from": "b",
+        "planet": "mars",
+        "house": 4
+      },
+      {
+        "from": "b",
+        "planet": "jupiter",
+        "house": 8
+      },
+      {
+        "from": "b",
+        "planet": "saturn",
+        "house": 6
+      },
+      {
+        "from": "b",
+        "planet": "uranus",
+        "house": 6
+      },
+      {
+        "from": "b",
+        "planet": "neptune",
+        "house": 6
+      },
+      {
+        "from": "b",
+        "planet": "pluto",
+        "house": 5
+      },
+      {
+        "from": "b",
+        "planet": "north_node",
+        "house": 11
+      },
+      {
+        "from": "b",
+        "planet": "chiron",
+        "house": 12
+      },
+      {
+        "from": "b",
+        "planet": "lilith",
+        "house": 11
+      }
+    ]
+  },
+  "ashtakoot": {
+    "total": 26,
+    "max": 36,
+    "kootas": [
+      {
+        "key": "varna",
+        "score": 1,
+        "max": 1,
+        "a": "kshatriya",
+        "b": "shudra"
+      },
+      {
+        "key": "vashya",
+        "score": 1,
+        "max": 2,
+        "a": "quadruped",
+        "b": "human"
+      },
+      {
+        "key": "tara",
+        "score": 1.5,
+        "max": 3,
+        "a": "13",
+        "b": "16"
+      },
+      {
+        "key": "yoni",
+        "score": 1,
+        "max": 4,
+        "a": "mongoose",
+        "b": "dog"
+      },
+      {
+        "key": "graha_maitri",
+        "score": 0.5,
+        "max": 5,
+        "a": "guru",
+        "b": "budha"
+      },
+      {
+        "key": "gana",
+        "score": 6,
+        "max": 6,
+        "a": "manushya",
+        "b": "manushya"
+      },
+      {
+        "key": "bhakoot",
+        "score": 7,
+        "max": 7,
+        "a": "7",
+        "b": "7"
+      },
+      {
+        "key": "nadi",
+        "score": 8,
+        "max": 8,
+        "a": "antya",
+        "b": "adi"
+      }
+    ],
+    "provisional": false,
+    "moonLongitudes": [267.03474160315386, 69.9367838878938],
+    "taraCounts": [13, 16],
+    "signDistances": [7, 7]
+  },
+  "availability": {
+    "ziwei": true,
+    "housesA": true,
+    "housesB": true,
+    "complete": true
+  }
+}

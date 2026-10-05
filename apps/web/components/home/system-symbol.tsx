@@ -10,6 +10,13 @@ export function SystemSymbol({ system }: { system: System }) {
       stroke="currentColor"
       strokeWidth="1.5"
     >
+      {system === 'synastry' ? (
+        <g>
+          <circle cx="45" cy="48" r="28" />
+          <circle cx="75" cy="48" r="28" />
+          <path d="M45 20v56M75 20v56" />
+        </g>
+      ) : null}
       {system === 'bazi'
         ? [30, 50, 70, 90].map((x, i) => (
             <g key={x} style={{ animationDelay: `${i * 80}ms` }}>

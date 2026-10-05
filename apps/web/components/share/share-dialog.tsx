@@ -16,15 +16,19 @@ export function ShareDialog({
   readingId,
   daily,
   local = false,
+  system,
 }: {
   readingId?: string;
   daily?: DailyCard;
   local?: boolean;
+  system?: string;
 }) {
   const t = useCopy(),
     locale = useLocale();
   const [open, setOpen] = useState(false),
-    [template, setTemplate] = useState<ShareTemplate>(daily ? 'daily' : 'chart'),
+    [template, setTemplate] = useState<ShareTemplate>(
+      daily ? 'daily' : system === 'synastry' ? 'synastry' : 'chart',
+    ),
     [level, setLevel] = useState(0),
     [expiresIn, setExpiresIn] = useState<7 | 30 | undefined>(undefined),
     [busy, setBusy] = useState(false),
@@ -119,7 +123,14 @@ export function ShareDialog({
                       setUrl('');
                     }}
                   >
-                    {(['chart', 'quote', 'daily'] as const).map((k) => (
+                    {(
+                      [
+                        'chart',
+                        'quote',
+                        'daily',
+                        ...(system === 'synastry' ? ['synastry' as const] : []),
+                      ] as const
+                    ).map((k) => (
                       <option key={k} value={k}>
                         {t(`share.template.${k}`)}
                       </option>

@@ -78,7 +78,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {t(
                     ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
                       ? 'home.cards.birth'
-                      : 'home.cards.noBirth',
+                      : system === 'synastry'
+                        ? 'synastry.requiresTwo'
+                        : 'home.cards.noBirth',
                   )}
                 </p>
               </div>

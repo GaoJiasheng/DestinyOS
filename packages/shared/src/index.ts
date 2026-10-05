@@ -28,3 +28,5 @@ export * from './schemas/reading-request';
 export * from './schemas/charts/numerology';
 
 export * from './schemas/rectification';
+
+export * from './schemas/charts/synastry';

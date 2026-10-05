@@ -24,12 +24,14 @@ export function BirthForm({
   profileMode = false,
   signedIn = false,
   onComplete,
+  completionKey,
 }: {
   system?: Exclude<System, 'daily'>;
   initial?: BirthInput & { displayName?: string };
   profileMode?: boolean;
   signedIn?: boolean;
-  onComplete?: (birth: BirthInput, displayName: string) => void;
+  completionKey?: MessageKey;
+  onComplete?: (birth: BirthInput, displayName: string) => void | Promise<void>;
 }) {
   const t = useCopy();
   const locale = useLocale() as Locale;
@@ -155,7 +157,14 @@ export function BirthForm({
     }
     if (!(await validate())) return;
     if (onComplete) {
-      onComplete(BirthInputSchema.parse(birth), name);
+      setBusy(true);
+      try {
+        await onComplete(BirthInputSchema.parse(birth), name);
+      } catch {
+        setError('report.error.E_INTERNAL');
+      } finally {
+        setBusy(false);
+      }
       return;
     }
     setBusy(true);
@@ -599,7 +608,7 @@ export function BirthForm({
                   : busy
                     ? 'form.birth.saving'
                     : onComplete
-                      ? 'rectification.start'
+                      ? (completionKey ?? 'rectification.start')
                       : profileMode
                         ? 'form.birth.save'
                         : 'form.birth.submit',

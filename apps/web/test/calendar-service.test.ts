@@ -39,6 +39,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   vi.stubEnv('UPSTASH_REDIS_REST_URL', '');
   mocks.profile.mockResolvedValue({
+    id: 'profile-one',
     version: 1,
     encBirth: JSON.stringify(input),
     encPlace: JSON.stringify(place),
@@ -55,12 +56,15 @@ it('monthly service reads only the owner and computes within 400ms', async () =>
   const days = await dailyRangeForUser('owner', '2026-10-01', '2026-10-31', 'Asia/Shanghai', 'zh');
   expect(days).toHaveLength(31);
   expect(performance.now() - start).toBeLessThanOrEqual(400);
-  expect(mocks.profile).toHaveBeenCalledWith({ where: { userId: 'owner', isCurrent: true } });
+  expect(mocks.profile).toHaveBeenCalledWith({
+    where: { userId: 'owner', isCurrent: true },
+    orderBy: [{ isDefault: 'desc' }, { createdAt: 'asc' }],
+  });
 });
 it('annual cache isolates owner, version, year, zone and locale, and tolerates malformed cache', async () => {
   const a = await calendarYearForUser('owner', 2026, 'Asia/Shanghai', 'zh');
   const key = mocks.set.mock.calls[0]![0] as string;
-  expect(key).toMatch(/^calendar:owner:1:2026:Asia%2FShanghai:zh:/);
+  expect(key).toMatch(/^calendar:owner:profile-one:1:2026:Asia%2FShanghai:zh:/);
   expect(mocks.set.mock.calls[0]!.slice(2)).toEqual(['EX', 86400]);
   mocks.get.mockResolvedValue(JSON.stringify(a));
   expect(await calendarYearForUser('owner', 2026, 'Asia/Shanghai', 'zh')).toEqual(a);
@@ -69,15 +73,16 @@ it('annual cache isolates owner, version, year, zone and locale, and tolerates m
     mocks.get.mockResolvedValue(cached);
     await calendarYearForUser('other', 2027, 'UTC', 'en');
   }
-  expect(mocks.get.mock.calls.at(-1)?.[0]).toMatch(/^calendar:other:1:2027:UTC:en:/);
+  expect(mocks.get.mock.calls.at(-1)?.[0]).toMatch(/^calendar:other:profile-one:1:2027:UTC:en:/);
   mocks.profile.mockResolvedValue({
+    id: 'profile-one',
     version: 2,
     encBirth: JSON.stringify(input),
     encPlace: JSON.stringify(place),
     gender,
   });
   await calendarYearForUser('owner', 2026, 'UTC', 'en');
-  expect(mocks.set.mock.calls.at(-1)?.[0]).toMatch(/^calendar:owner:2:2026:UTC:en:/);
+  expect(mocks.set.mock.calls.at(-1)?.[0]).toMatch(/^calendar:owner:profile-one:2:2026:UTC:en:/);
 });
 it('supports Upstash structured cache and rejects absent profiles', async () => {
   vi.stubEnv('UPSTASH_REDIS_REST_URL', 'https://cache.example');
@@ -157,7 +162,9 @@ it('zh-TW calendar actions compute scores and retain a separate annual cache', a
   );
   const annual = await getCalendarYearAction({ year: 2026, tz: 'Asia/Shanghai', locale: 'zh-TW' });
   expect(annual).toMatchObject({ ok: true });
-  expect(mocks.set.mock.calls.at(-1)?.[0]).toMatch(/^calendar:owner:1:2026:Asia%2FShanghai:zh-TW:/);
+  expect(mocks.set.mock.calls.at(-1)?.[0]).toMatch(
+    /^calendar:owner:profile-one:1:2026:Asia%2FShanghai:zh-TW:/,
+  );
   mocks.daily.mockResolvedValue({ chart: { date: { local: '2026-10-01' } } });
   expect(
     await getDailyAction({ date: '2026-10-01', tz: 'Asia/Shanghai', locale: 'zh-TW' }),

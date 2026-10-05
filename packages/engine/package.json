@@ -1,6 +1,6 @@
 {
   "name": "@tianji/engine",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "exports": {
@@ -17,7 +17,8 @@
     "./vedic": "./src/astrology/vedic.ts",
     "./numerology": "./src/numerology/index.ts",
     "./rectification": "./src/rectification/index.ts",
-    "./calendar": "./src/daily/calendar.ts"
+    "./calendar": "./src/daily/calendar.ts",
+    "./synastry": "./src/synastry/index.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

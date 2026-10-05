@@ -61,12 +61,12 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const) {
     await page.reload();
     await expect(page.locator('[data-calendar-day]')).toHaveCount(31);
     await expect(page.locator('[data-calendar-event="solar_term"]')).toHaveCount(24);
-    const keys = await redis.keys(`calendar:${user.id}:1:*`);
+    const keys = await redis.keys(`calendar:${user.id}:*:1:*`);
     expect(keys).toHaveLength(1);
     expect(await redis.ttl(keys[0]!)).toBeGreaterThan(0);
     await page.getByRole('button', { name: copy['calendar.next'], exact: true }).click();
     await expect(page.locator('[data-calendar-day]')).toHaveCount(30);
-    expect(await redis.keys(`calendar:${user.id}:1:*`)).toHaveLength(1);
+    expect(await redis.keys(`calendar:${user.id}:*:1:*`)).toHaveLength(1);
     await page.getByRole('button', { name: copy['calendar.next'], exact: true }).click();
     await expect(page.locator('[data-calendar-day]').first()).toHaveAttribute(
       'data-calendar-day',
@@ -78,7 +78,7 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const) {
       /-01-01$/,
     );
     await expect(page.locator('[data-calendar-event="solar_term"]')).toHaveCount(24);
-    expect(await redis.keys(`calendar:${user.id}:1:*`)).toHaveLength(2);
+    expect(await redis.keys(`calendar:${user.id}:*:1:*`)).toHaveLength(2);
     const selected = page.locator('[data-calendar-day]').first();
     const date = await selected.getAttribute('data-calendar-day');
     const label = await selected.getAttribute('aria-label');

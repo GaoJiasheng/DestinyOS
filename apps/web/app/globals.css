@@ -771,6 +771,7 @@ html:lang(en) {
     border: 1px solid var(--line-2);
     border-radius: var(--r-lg);
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-5);
     animation: fade-in var(--duration-enter-min) var(--ease-out);
   }
@@ -4677,4 +4678,52 @@ html[data-reduced-motion='true'] .tarot-face img.is-reversed {
 }
 .calendar-events p {
   margin-top: 0.35rem;
+}
+
+/* DESIGN-GAP: Pair tables stack at mobile widths; SVGs retain a shared viewBox for readable overlays. */
+.synastry-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.synastry-pair > * {
+  min-width: 0;
+}
+.synastry-chart > svg {
+  display: block;
+  width: min(100%, 32rem);
+  height: auto;
+  margin: 1rem auto;
+}
+.synastry-chart table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.synastry-chart th,
+.synastry-chart td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--line-2);
+  text-align: start;
+}
+.synastry-chart details {
+  margin-block: 1rem;
+}
+.synastry-chart details ul {
+  padding-inline-start: 1.5rem;
+}
+@media (max-width: 640px) {
+  .synastry-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* DESIGN-GAP: Paired desktop wheels need a full chart row rather than the single-chart sidebar. */
+@media (min-width: 1024px) {
+  .report-layout[data-system='synastry'] .report-columns {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'headline' 'chart' 'body';
+  }
+  .report-layout[data-system='synastry'] .report-chart {
+    position: static;
+  }
 }

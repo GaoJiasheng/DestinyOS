@@ -4,7 +4,7 @@ import { stripPII } from './strip-pii';
 
 type RecordValue = Record<string, unknown>;
 const encrypted: Record<string, readonly string[]> = {
-  BirthProfile: ['encBirth', 'encPlace', 'encName'],
+  BirthProfile: ['encBirth', 'encPlace', 'encName', 'label'],
   Reading: ['encInput'],
 };
 const models = new Map(Prisma.dmmf.datamodel.models.map((model) => [model.name, model]));
@@ -107,6 +107,9 @@ export function fieldEncryptionExtension() {
             }
           }
           checkFilters(input);
+          // DESIGN-GAP: Profile labels use AES-GCM and cannot be queried as plaintext.
+          if (model === 'BirthProfile' && JSON.stringify(input.where ?? {}).includes('"label"'))
+            throw new Error('Encrypted labels cannot be used in where');
           if ((operation === 'aggregate' || operation === 'groupBy') && containsEncrypted(input))
             throw new Error('Encrypted aggregates are unsupported');
           const fields = encrypted[model] ?? [];

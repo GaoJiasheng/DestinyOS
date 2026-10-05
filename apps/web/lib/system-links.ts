@@ -8,4 +8,5 @@ export const systems = [
   'astrology',
   'vedic',
   'numerology',
+  'synastry',
 ] as const;

@@ -31,7 +31,14 @@ function subKey(master: Buffer, userId: string): Buffer {
 /** Encrypt UTF-8 plaintext with table.column AAD and a per-user HKDF key; first configured version writes. */
 export function encryptField(plain: string, aad: string, userId: string, config?: string): string {
   const key = keys(config)[0];
-  if (!key || !(/^[A-Za-z]+\.enc[A-Za-z]+$/.test(aad) || aad === 'ChatMessage.content'))
+  if (
+    !key ||
+    !(
+      /^[A-Za-z]+\.enc[A-Za-z]+$/.test(aad) ||
+      aad === 'ChatMessage.content' ||
+      aad === 'BirthProfile.label'
+    )
+  )
     throw new Error('Invalid encryption context');
   const iv = randomBytes(12);
   const cipher = createCipheriv('aes-256-gcm', subKey(key.master, userId), iv);

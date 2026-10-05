@@ -12,6 +12,7 @@ import {
   AstrologyChartSchema,
   VedicChartSchema,
   DailyChartSchema,
+  SynastryChartSchema,
   NumerologyChartSchema,
   NumerologyNameSchema,
   SpreadKeySchema,
@@ -22,6 +23,8 @@ import {
 import { EngineError } from './common/error';
 import { computeZiwei, ZIWEI_SCHOOL_DEFAULTS, type ZiweiSchool } from './ziwei';
 import { computeTarot } from './tarot';
+import { computeSynastry, ASHTAKOOT_SCHOOL } from './synastry';
+export * from './synastry';
 import { ENGINE_VERSION } from './version';
 import { computeIching, IchingInputSchema } from './iching';
 import { computeQimen, QimenInputSchema } from './qimen';
@@ -53,11 +56,13 @@ const chartSchemas = {
   vedic: VedicChartSchema,
   daily: DailyChartSchema,
   numerology: NumerologyChartSchema,
+  synastry: SynastryChartSchema,
 };
 const requestSchema = z
   .object({
     system: z.nativeEnum(System),
     birth: NormalizedBirthSchema.nullable().optional(),
+    partnerBirth: NormalizedBirthSchema.optional(),
     options: z
       .object({
         school: z.record(z.union([z.string(), z.number().finite(), z.boolean()])).optional(),
@@ -103,12 +108,42 @@ export function compute(raw: ComputeInput): EngineResult {
     throw new EngineError('E_UNSUPPORTED_SCHOOL');
   const birth = input.system === 'tarot' ? null : (input.birth ?? null);
   if (
-    ['bazi', 'ziwei', 'astrology', 'vedic', 'daily', 'numerology'].includes(input.system) &&
+    ['bazi', 'ziwei', 'astrology', 'vedic', 'daily', 'numerology', 'synastry'].includes(
+      input.system,
+    ) &&
     !birth
   )
     throw new EngineError('E_INVALID_INPUT');
   if (input.system === 'ziwei' && birth?.timeUnknown)
     throw new EngineError('E_REQUIRES_BIRTH_TIME');
+  if (input.system === 'synastry' && birth) {
+    if (!input.partnerBirth) throw new EngineError('E_INVALID_INPUT');
+    const partner = input.partnerBirth;
+    return EngineResultSchema.parse({
+      system: 'synastry',
+      engineVersion: ENGINE_VERSION,
+      computedAt,
+      input: birth,
+      chart: computeSynastry(birth, partner, computedAt),
+      meta: {
+        schoolUsed: {
+          ashtakoot: ASHTAKOOT_SCHOOL,
+          roles: 'a_groom_b_bride',
+          houseSystem: 'placidus',
+          ayanamsa: 'lahiri',
+          ziwei: 'quanshu',
+          complementarity: 'total_variation_v1',
+        },
+        warnings: [
+          ...birth.warnings,
+          ...partner.warnings,
+          ...(birth.timeUnknown || partner.timeUnknown
+            ? [{ code: 'W_NOON_CHART', messageKey: 'engine.warnings.W_NOON_CHART' }]
+            : []),
+        ],
+      },
+    });
+  }
   if (input.system === 'bazi' && birth) {
     if (!BaziSchoolSchema.safeParse(input.options?.school ?? {}).success)
       throw new EngineError('E_UNSUPPORTED_SCHOOL');

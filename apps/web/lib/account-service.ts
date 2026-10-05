@@ -42,6 +42,10 @@ export async function exportAccount(userId: string) {
   return {
     user: { ...user, locale: fromDbLocale(user.locale) },
     profiles: profiles.map((p) => ({
+      id: p.id,
+      label: p.label,
+      isDefault: p.isDefault,
+      relation: p.relation,
       version: p.version,
       isCurrent: p.isCurrent,
       birth: BirthInputSchema.parse({
@@ -53,6 +57,8 @@ export async function exportAccount(userId: string) {
     })),
     readings: readings.map((r) => ({
       id: r.id,
+      profileId: r.profileId,
+      partnerProfileId: r.partnerProfileId,
       system: r.system,
       createdAt: r.createdAt,
       title: r.title,

@@ -18,18 +18,29 @@ export default async function NewReading({
   setRequestLocale(locale);
   if (!Object.values(System).includes(system as System) || system === 'daily') notFound();
   if ((await cookies()).get('age_gate')?.value === 'blocked') redirect(`/${locale}/age-restricted`);
+  if (system === 'synastry') redirect(`/${locale}/synastry`);
   if (system === 'iching' || system === 'qimen') redirect(`/${locale}/${system}`);
   const session = await auth();
   const profile = session ? await getProfileAction() : null;
   if (system === 'numerology')
     return (
       <NumerologyForm
+        key={
+          profile?.ok && profile.data
+            ? `${profile.data.profileId}:${profile.data.version}`
+            : 'anonymous'
+        }
         signedIn={!!session}
         initial={profile?.ok && profile.data ? profile.data : undefined}
       />
     );
   return (
     <BirthForm
+      key={
+        profile?.ok && profile.data
+          ? `${profile.data.profileId}:${profile.data.version}`
+          : 'anonymous'
+      }
       system={system as Exclude<System, 'daily'>}
       signedIn={!!session}
       initial={profile?.ok && profile.data ? profile.data : undefined}

@@ -12,6 +12,11 @@ export default async function BirthPage({ params }: { params: Promise<{ locale: 
   const current = session ? await getProfileAction() : null;
   return (
     <BirthForm
+      key={
+        current?.ok && current.data
+          ? `${current.data.profileId}:${current.data.version}`
+          : 'anonymous'
+      }
       profileMode
       signedIn={!!session}
       initial={current?.ok && current.data ? current.data : undefined}

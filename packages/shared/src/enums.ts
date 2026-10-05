@@ -8,6 +8,7 @@ export const System = {
   astrology: 'astrology',
   vedic: 'vedic',
   numerology: 'numerology',
+  synastry: 'synastry',
   daily: 'daily',
 } as const;
 export type System = (typeof System)[keyof typeof System];
