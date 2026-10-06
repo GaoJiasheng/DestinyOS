@@ -3,7 +3,6 @@ import { toDbLocale, fromDbLocale } from './db-locale';
 import NextAuth from 'next-auth';
 import { cookies } from 'next/headers';
 import Google from 'next-auth/providers/google';
-import Resend from 'next-auth/providers/resend';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import type { Adapter } from 'next-auth/adapters';
 import { getDb } from './db';
@@ -52,9 +51,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
         checks: ['pkce', 'state', 'nonce'],
         authorization: { params: { scope: 'openid email profile' } },
       }),
-      Resend({
-        apiKey: process.env.RESEND_API_KEY,
-        from: process.env.EMAIL_FROM,
+      {
+        // DESIGN-GAP: Keep the existing Auth.js provider ID and callback routes for compatibility; delivery uses Cloudflare, without the Resend provider.
+        id: 'resend',
+        name: 'Email',
+        type: 'email',
         maxAge: 15 * 60,
         async sendVerificationRequest({ identifier, url }) {
           const original = new URL(url);
@@ -68,7 +69,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
             confirmation.searchParams.set('returnTo', '/admin');
           await sendMagicEmail(identifier, locale, confirmation.toString());
         },
-      }),
+      },
     ],
     pages: { signIn: '/auth/login', verifyRequest: '/auth/login?sent=1', error: '/auth/login' },
     callbacks: {

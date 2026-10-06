@@ -1,7 +1,14 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import type { BrowserWorker } from '@cloudflare/puppeteer';
-import type { R2Bucket, Fetcher, D1Database, KVNamespace } from '@cloudflare/workers-types';
+import type {
+  R2Bucket,
+  Fetcher,
+  D1Database,
+  KVNamespace,
+  SendEmail,
+} from '@cloudflare/workers-types';
 export interface PlatformBindings {
+  EMAIL: SendEmail;
   DB: D1Database;
   CACHE: KVNamespace;
   RATE_LIMITER: { limit(input: { key: string }): Promise<{ success: boolean }> };

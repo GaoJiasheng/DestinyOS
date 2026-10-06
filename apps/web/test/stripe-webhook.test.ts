@@ -10,11 +10,7 @@ vi.mock('../lib/stripe', async (original) => ({
     webhooks: new Stripe('sk_test').webhooks,
   }),
 }));
-vi.mock('resend', () => ({
-  Resend: class {
-    emails = { send: mock.mail };
-  },
-}));
+vi.mock('../lib/platform/email', () => ({ sendEmail: mock.mail }));
 import { handleStripeEvent } from '../lib/stripe-webhook';
 import { POST } from '../app/api/v1/stripe/webhook/route';
 const fixture = isolatedSqlite();
@@ -44,8 +40,7 @@ beforeEach(async () => {
   vi.stubEnv('AUTH_SECRET', 'isolated-unit-event-secret');
   vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');
   vi.stubEnv('STRIPE_WEBHOOK_SECRET', 'whsec_test');
-  vi.stubEnv('RESEND_API_KEY', 're_test');
-  vi.stubEnv('EMAIL_FROM', 'test@example.test');
+  mock.mail.mockResolvedValue(undefined);
   await db.ephemeralState.deleteMany();
   await db.user.deleteMany();
   await db.event.deleteMany();
@@ -168,16 +163,47 @@ describe('signed Stripe webhooks on SQLite', () => {
     expect(mock.retrieve).toHaveBeenCalledTimes(1);
     expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('free');
   });
-  it('sends a localized idempotent failed-payment reminder', async () => {
+  it.each([
+    ['en', 'Subscription payment failed'],
+    ['zh', '订阅付款未成功'],
+  ] as const)(
+    'sends a localized, deduplicated %s failed-payment reminder',
+    async (locale, subject) => {
+      await db.user.update({ where: { id: 'owner' }, data: { locale } });
+      await handleStripeEvent(checkout());
+      await handleStripeEvent(
+        event('invoice.payment_failed', { customer: 'cus_test' }, 'evt_failed'),
+      );
+      expect(mock.mail).toHaveBeenCalledWith(
+        expect.objectContaining({ subject, to: 'user@example.test', text: expect.any(String) }),
+      );
+      expect(
+        await handleStripeEvent(
+          event('invoice.payment_failed', { customer: 'cus_test' }, 'evt_failed'),
+        ),
+      ).toBe('duplicate');
+      expect(mock.mail).toHaveBeenCalledOnce();
+      expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('pro');
+    },
+  );
+  it('retries failed reminders without changing entitlement and ignores deleted recipients', async () => {
     await handleStripeEvent(checkout());
-    mock.mail.mockResolvedValue({ error: null });
-    await handleStripeEvent(
-      event('invoice.payment_failed', { customer: 'cus_test' }, 'evt_failed'),
-    );
-    expect(mock.mail).toHaveBeenCalledWith(
-      expect.objectContaining({ subject: 'Subscription payment failed' }),
-      { idempotencyKey: 'evt_failed' },
-    );
+    const failed = event('invoice.payment_failed', { customer: 'cus_test' }, 'evt_mail_retry');
+    mock.mail.mockRejectedValueOnce(new Error('E_DAILY_LIMIT_EXCEEDED'));
+    await expect(handleStripeEvent(failed)).rejects.toMatchObject({
+      code: 'E_PAYMENT',
+      status: 502,
+    });
+    expect(
+      await db.ephemeralState.findUnique({ where: { key: 'stripe:event:evt_mail_retry' } }),
+    ).toBeNull();
     expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('pro');
+    expect(await handleStripeEvent(failed)).toBe('processed');
+    expect(mock.mail).toHaveBeenCalledTimes(2);
+    await db.user.update({ where: { id: 'owner' }, data: { deletedAt: new Date() } });
+    await handleStripeEvent(
+      event('invoice.payment_failed', { customer: 'cus_test' }, 'evt_deleted_mail'),
+    );
+    expect(mock.mail).toHaveBeenCalledTimes(2);
   });
 });

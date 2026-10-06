@@ -1,6 +1,6 @@
 import { fromDbLocale } from './db-locale';
 import { createHash, randomBytes } from 'node:crypto';
-import { Resend } from 'resend';
+import { sendEmail } from './platform/email';
 import { createTranslator } from 'next-intl';
 import { getDb } from './db';
 import { reserveExport } from './account-service';
@@ -30,14 +30,12 @@ export async function emailUserExport(adminId: string, userId: string) {
     messages: toMessages(user.locale === 'zh-TW' ? tw : user.locale === 'zh' ? zh : en),
   });
   const url = `${process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`}/api/v1/admin/export/${token}`;
-  const result = await new Resend(process.env.RESEND_API_KEY).emails.send({
-    from: process.env.EMAIL_FROM ?? '',
+  await sendEmail({
     to: user.email,
     subject: t('admin.export.subject'),
     text: t('admin.export.body', { url }),
     html: `<p>${t('admin.export.description')}</p><a href="${url}">${t('admin.export.download')}</a>`,
   });
-  if (result.error) throw new Error('Export email failed');
 }
 /** Consume the token only when the authenticated owner matches; admins cannot download another owner's data. */
 export async function consumeExport(token: string, userId: string) {

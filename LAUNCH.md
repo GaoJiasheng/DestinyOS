@@ -12,6 +12,7 @@
 | NEXT_INC_CACHE_R2_BUCKET | destinyos-next-cache                                |
 | RATE_LIMITER             | namespace_id=1001，200/60s 突发；小时维度由 D1 实现 |
 | BROWSER                  | Browser Rendering（生产 PDF/PNG 导出）              |
+| EMAIL                    | Email Service send_email（send.gavin.pub 发信域名） |
 
 Account ID：9aea83b326d8175abdd136c1177637a5。配置见 apps/web/wrangler.toml。
 
@@ -40,8 +41,10 @@ pnpm test:cloudflare:e2e
 
 ## 发布前由 Owner 配置
 
-Auth.js、Google OAuth、Resend、FIELD_ENCRYPTION_KEYS、Stripe、CRON_SECRET 等真实密钥通过 Workers Secrets 配置。
-NEXT_PUBLIC_* 为构建期公开配置；EMAIL_FROM、ADMIN_EMAILS、Stripe price IDs、法律控制者与联系方式使用实际值。
+Auth.js、Google OAuth、FIELD_ENCRYPTION_KEYS、Stripe、CRON_SECRET 等真实密钥通过 Workers Secrets 配置。
+NEXT_PUBLIC_* 为构建期公开配置；EMAIL_FROM、EMAIL_FROM_NAME、ADMIN_EMAILS、Stripe price IDs、法律控制者与联系方式使用实际值。
+邮件使用 EMAIL binding，无邮件 API key；默认发信地址 noreply@send.gavin.pub，显示名「天机 DestinyOS」。
+Owner 先在 Cloudflare Email Service > Email Sending 为 send.gavin.pub 启用发信并验证 DNS，步骤、限制与定价见 MORNING.md。
 
 D1 使用 `pnpm db:remote` 应用已经本地验证的 SQL；禁止生产 db push。
 Worker 发布与生产 secrets 写入需要单独授权，本次任务不执行。域名为 tianji.gavin.pub。

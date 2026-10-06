@@ -36,8 +36,13 @@ for (const locale of ['zh', 'en'] as const) {
     if (!Array.isArray(mails)) throw new Error('Missing test outbox');
     const mail = mails.find(
       (entry: unknown) => entry && typeof entry === 'object' && 'to' in entry && entry.to === email,
-    ) as { text: string; html: string } | undefined;
+    ) as
+      | { text: string; html: string; subject: string; from: { email: string; name: string } }
+      | undefined;
     if (!mail) throw new Error('No email delivered');
+    expect(mail.from).toEqual({ email: 'noreply@send.gavin.pub', name: '天机 DestinyOS' });
+    expect(mail.subject).toBe(locale === 'zh' ? '登录 天机' : 'Sign in to DestinyOS');
+    expect(mail.html).toContain(`lang="${locale}"`);
     const link = mail.text.match(/http:\/\/[^\s]+/)?.[0];
     if (!link) throw new Error('No magic link');
     expect(link).toContain(`/${locale}/auth/verify`);

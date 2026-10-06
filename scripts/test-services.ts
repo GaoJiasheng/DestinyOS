@@ -55,20 +55,21 @@ if (process.argv.includes('--web')) {
   const production =
     process.argv.includes('--production') || process.env.TEST_WEB_MODE === 'production';
   const webCommand = production ? 'start' : 'dev';
-  // DESIGN-GAP: Combined polish needs production mail/Stripe interception alongside the isolated chat protocol; compose all preloads only in the test process.
+  // DESIGN-GAP: Production Node E2E explicitly opts into the local mail mock; Stripe/chat preloads remain confined to the test process.
   child = spawn('pnpm', ['--filter', '@tianji/web', webCommand, '--port', String(testPorts.web)], {
     stdio: 'inherit',
     env:
       process.env.TEST_CHAT_MOCK === '1'
         ? {
             ...process.env,
-            NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import=${new URL('./test-chat-preload.mjs', import.meta.url).href}${production ? ` --import=${new URL('./test-mail-interceptor.ts', import.meta.url).href}${process.env.TEST_STRIPE_MOCK === '1' ? ` --import=${new URL('./test-stripe-interceptor.ts', import.meta.url).href}` : ''}` : ''}`,
+            ...(production ? { TEST_WEB_MODE: 'production' } : {}),
+            NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import=${new URL('./test-chat-preload.mjs', import.meta.url).href}${production && process.env.TEST_STRIPE_MOCK === '1' ? ` --import=${new URL('./test-stripe-interceptor.ts', import.meta.url).href}` : ''}`,
           }
         : production
           ? {
               ...process.env,
               TEST_WEB_MODE: 'production',
-              NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import tsx --import ${new URL('./test-mail-interceptor.ts', import.meta.url).href}${process.env.TEST_STRIPE_MOCK === '1' ? ` --import ${new URL('./test-stripe-interceptor.ts', import.meta.url).href}` : ''}`,
+              NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''}${process.env.TEST_STRIPE_MOCK === '1' ? ` --import tsx --import ${new URL('./test-stripe-interceptor.ts', import.meta.url).href}` : ''}`,
             }
           : process.env,
   });

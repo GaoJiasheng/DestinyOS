@@ -13,7 +13,6 @@ const variables = {
   STRIPE_WEBHOOK_SECRET: 'whsec_isolated',
   CRON_SECRET: 'isolated-cron',
   FEATURE_ADS: 'false',
-  RESEND_API_KEY: 're_isolated',
 };
 const child = spawn(
   'pnpm',

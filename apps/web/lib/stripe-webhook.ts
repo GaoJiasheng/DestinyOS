@@ -2,7 +2,7 @@ import { fromDbLocale } from './db-locale';
 import { randomUUID } from 'node:crypto';
 import type Stripe from 'stripe';
 import { createTranslator } from 'next-intl';
-import { Resend } from 'resend';
+import { sendEmail } from './platform/email';
 import { getDb } from './db';
 import { eventIdentity, incrementEventCounter } from './events';
 import { getStripe, subscriptionPlan } from './stripe';
@@ -123,23 +123,21 @@ async function processEvent(event: Stripe.Event) {
         include: { user: true },
       });
       if (!subscription?.user.email || subscription.user.deletedAt) break;
-      // DESIGN-GAP: Missing optional mail credentials skip reminders; billing entitlement remains unchanged.
-      if (!process.env.RESEND_API_KEY || !process.env.EMAIL_FROM) break;
       const locale = fromDbLocale(subscription.user.locale);
       const t = createTranslator({
         locale,
         messages: toMessages(locale === 'zh-TW' ? tw : locale !== 'en' ? zh : en),
       });
-      const sent = await new Resend(process.env.RESEND_API_KEY).emails.send(
-        {
-          from: process.env.EMAIL_FROM,
+      try {
+        // DESIGN-GAP: Email Service has no send idempotency key; D1 webhook event locks/deduplication remain authoritative, with possible repeat delivery after a post-send crash.
+        await sendEmail({
           to: subscription.user.email,
           subject: t('billing.paymentFailed.subject'),
           text: t('billing.paymentFailed.body'),
-        },
-        { idempotencyKey: event.id },
-      );
-      if (sent.error) throw new ApiError('E_PAYMENT', 'Payment reminder failed', 502);
+        });
+      } catch {
+        throw new ApiError('E_PAYMENT', 'Payment reminder failed', 502);
+      }
       break;
     }
   }
