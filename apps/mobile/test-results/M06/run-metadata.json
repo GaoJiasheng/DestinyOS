@@ -1,0 +1,237 @@
+{
+  "task": "M06",
+  "verifiedAt": "2026-10-06T20:31:12.237071+00:00",
+  "device": {
+    "platform": "ios",
+    "name": "iPhone 17e",
+    "os": "26.4",
+    "simulatorId": "E35A99F1-F6C1-4BF8-8EED-018CDDB93917",
+    "xcode": "26.4.1"
+  },
+  "runtime": {
+    "expo": "57.0.27",
+    "reactNative": "0.86.3",
+    "bundleId": "pub.gavin.tianji",
+    "newArchitecture": true
+  },
+  "fixture": {
+    "births": [
+      "A",
+      "B"
+    ],
+    "clock": "2026-10-04T04:00:00.000Z",
+    "seed": "fixture-A",
+    "route": "/dev/reports"
+  },
+  "coverage": {
+    "systems": [
+      "bazi",
+      "ziwei",
+      "iching",
+      "qimen",
+      "tarot",
+      "astrology",
+      "vedic",
+      "numerology",
+      "synastry"
+    ],
+    "vedicLayouts": [
+      "south-D1",
+      "north-D1",
+      "north-D9"
+    ],
+    "locales": [
+      "zh",
+      "en"
+    ],
+    "interactions": [
+      "chart-details",
+      "glossary",
+      "paragraph-copy",
+      "evidence-highlight",
+      "zoom-reset",
+      "feedback-save",
+      "professional-view",
+      "three-dimensional-fallback"
+    ]
+  },
+  "checks": {
+    "pnpm install": {
+      "exitCode": 0
+    },
+    "pnpm lint": {
+      "exitCode": 0
+    },
+    "pnpm typecheck": {
+      "exitCode": 0
+    },
+    "pnpm test": {
+      "exitCode": 0,
+      "webShared": {
+        "suitesPassed": 128,
+        "suitesSkipped": 1,
+        "testsPassed": 3697,
+        "testsSkipped": 2
+      },
+      "mobile": {
+        "suitesPassed": 15,
+        "testsPassed": 98
+      }
+    },
+    "pnpm build": {
+      "exitCode": 0,
+      "tasksPassed": 9,
+      "mobileExports": [
+        "ios",
+        "android"
+      ]
+    },
+    "pnpm licenses:check": {
+      "exitCode": 0,
+      "packages": 1710
+    },
+    "expo prebuild --platform android --no-install": {
+      "exitCode": 0,
+      "applicationId": "pub.gavin.tianji",
+      "newArchEnabled": true
+    },
+    "iosNativeSourceBuild": {
+      "exitCode": 0
+    },
+    "maestro": {
+      "flows": [
+        "M06",
+        "M06-vedic",
+        "M06-numerology",
+        "M06-interactions"
+      ],
+      "exitCode": 0
+    }
+  },
+  "pending": [
+    "Android native build and emulator acceptance after Owner provides Java",
+    "Physical-device 3D GL rendering and performance; iOS simulator Skia fallback verified"
+  ],
+  "screenshots": [
+    {
+      "file": "chart-astrology-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "ccfd270c9cb6e61bd2045e0de058287b7ea9002056e0b0249fa99397a2a031e1"
+    },
+    {
+      "file": "chart-bazi-en.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "4b8ddedaac103c270bf1e95484ef141a7fab257cf9506f60ca13893f6c21552e"
+    },
+    {
+      "file": "chart-bazi-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "4f5f03a58509af1ed8e9bd5d2a5c66df05fdd420a73749ac70c76759eff5d91a"
+    },
+    {
+      "file": "chart-iching-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "4eb7328034a2fd5c6e73c52da46d636df54e4f7c83c84acc8c14a1a443fbdf62"
+    },
+    {
+      "file": "chart-numerology-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "d2ff48ae73f68fa936cefb3e13d500291e049355735d39942e9a8174ce405888"
+    },
+    {
+      "file": "chart-qimen-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "22d7d5d7574d869b4316139dd8c36d35a940ac07f1e7aa97476dd5e36e054209"
+    },
+    {
+      "file": "chart-synastry-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "546be89e88ad64b0c9394432e8e191a858171f671f66bc52d17aa6fbe77a68d1"
+    },
+    {
+      "file": "chart-tarot-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "cafe4d7a5ff9dd38445d9dc32c22f830bf47b4606b115d4227afd9d3305af163"
+    },
+    {
+      "file": "chart-vedic-D9-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "74b0452946988ea0e313b4adc0e30280fbd42a37b4ac90b819fcedff419e8c7d"
+    },
+    {
+      "file": "chart-vedic-north-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "65c9a6d604c20786225c7e0368dd90f66968862557afac1844974398cae18d36"
+    },
+    {
+      "file": "chart-vedic-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "d3cdafb2569ff2c127775275c62500b0ea061fbb5c54ceeae7596ff1ac60d739"
+    },
+    {
+      "file": "chart-ziwei-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "729e85f224ec199eff09b0912eaef0dbe0c3d921e507a293f11fc94a9bbf4a7a"
+    },
+    {
+      "file": "detail-bazi-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "796f10fc01a68f9c1bcc455da618c14fd9af03f3960895c6d944294f47e76842"
+    },
+    {
+      "file": "headline-bazi-en.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "1683579e4df68fa8635e0667dcfa35f8a64eed15aef32d64898dfc3dff39d075"
+    },
+    {
+      "file": "headline-bazi-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "6080be4dc164c0284767edb6a2b4b1c84f038b33cbe2bc4742973d0fbd2c091b"
+    },
+    {
+      "file": "interaction-evidence-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "b10a33b36c88f9178957df9829558481e218518331ccbe57658e9f4ba3f17e8c"
+    },
+    {
+      "file": "interaction-feedback-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "392626ce93dd87343f605f147e4eca3a251e90d7b1bba871e981e3ecddd440fb"
+    },
+    {
+      "file": "interaction-professional-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "6e534cdc164b1812d8d27c3bbb2fd9581bc629bd604cc66ebfebf9c1d200b994"
+    },
+    {
+      "file": "interaction-term-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "d59a919fcfabb16188a0659f342430bb0c98516b57cdf5bf67e7c8dc35cc4a7e"
+    },
+    {
+      "file": "interaction-three-fallback-zh.png",
+      "width": 1170,
+      "height": 2532,
+      "sha256": "f3a1af41359ae5b31661a74769aeb8cbb99d4b67ca5b0bd0006ba8c4118eb3cd"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-bazi
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-zh
+- scrollUntilVisible:
+    element:
+      id: fixture-numerology
+    centerElement: true
+- tapOn:
+    id: fixture-numerology
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 45%
+    duration: 1200
+- takeScreenshot: chart-numerology-zh

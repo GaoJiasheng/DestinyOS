@@ -2380,5 +2380,14 @@
   "form.birth.hour": "Hour",
   "mobile.reading.synastry": "Synastry",
   "mobile.profile.saved": "Profile saved in this device’s encrypted database.",
-  "mobile.storage.error": "Local data could not be read or saved. Please try again."
+  "mobile.storage.error": "Local data could not be read or saved. Please try again.",
+  "mobile.report.line": "Line {number}",
+  "mobile.report.gesture": "Pinch and pan with two fingers; tap for details.",
+  "mobile.report.northUp": "North up",
+  "mobile.report.highlight": "Highlighted: {value}",
+  "mobile.report.chartData": "Explore chart data and details",
+  "mobile.report.copyHint": "Long press to copy the paragraph",
+  "mobile.report.copied": "Paragraph copied",
+  "mobile.report.threeFallback": "This device or motion setting uses the Skia 2D chart.",
+  "mobile.report.timeCast": "Cast a Meihua hexagram using the current time"
 }

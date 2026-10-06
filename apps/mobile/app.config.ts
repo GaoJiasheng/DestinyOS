@@ -29,6 +29,9 @@ const config: ExpoConfig = {
   },
   android: { package: 'pub.gavin.tianji', predictiveBackGestureEnabled: true },
   plugins: [
+    // DESIGN-GAP: SDK57's cached RNCore Release binary omits RCTPackagerConnection during
+    // a subsequent Debug link. Source builds keep development/production symbols consistent.
+    ['expo-build-properties', { ios: { buildReactNativeFromSource: true } }],
     'expo-router',
     'expo-asset',
     'expo-notifications',

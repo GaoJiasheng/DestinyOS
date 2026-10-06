@@ -2380,5 +2380,14 @@
   "form.birth.hour": "小时",
   "mobile.reading.synastry": "合盘",
   "mobile.profile.saved": "档案已保存，仅存于本设备加密数据库。",
-  "mobile.storage.error": "本地数据暂时无法读取或保存，请重试。"
+  "mobile.storage.error": "本地数据暂时无法读取或保存，请重试。",
+  "mobile.report.line": "第 {number} 爻",
+  "mobile.report.gesture": "双指缩放和移动，点击查看详情。",
+  "mobile.report.northUp": "北方朝上",
+  "mobile.report.highlight": "已高亮：{value}",
+  "mobile.report.chartData": "查看命盘数据与详情",
+  "mobile.report.copyHint": "长按复制段落",
+  "mobile.report.copied": "段落已复制",
+  "mobile.report.threeFallback": "此设备或减少动态效果设置使用 Skia 二维命盘。",
+  "mobile.report.timeCast": "以此刻时间起梅花卦"
 }

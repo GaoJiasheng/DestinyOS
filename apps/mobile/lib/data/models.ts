@@ -8,6 +8,7 @@ import {
   ReadingStatus,
   Locale,
   IanaTimezoneSchema,
+  EngineMetaSchema,
 } from '@tianji/shared';
 
 const id = z.string().min(1).max(100);
@@ -70,6 +71,9 @@ export const ReadingSchema = z
     reportZh: jsonObject.nullable(),
     reportEn: jsonObject.nullable(),
     schoolUsed: jsonObject,
+    // DESIGN-GAP: Preserve the shared engine envelope so native replay retains every warning
+    // and intermediate calculation, including old-profile reports and house-system fallback.
+    meta: EngineMetaSchema.optional(),
     engineVersion: z.string().min(1),
     interpretVersion: z.string().min(1),
     knowledgeVersion: z.string().min(1),

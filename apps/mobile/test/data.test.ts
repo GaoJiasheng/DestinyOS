@@ -183,7 +183,7 @@ test('upgrades from v1, repeat migration, future-schema rejection, and rollback'
   await migrate(old);
   await migrate(old);
   expect(await old.read((sql) => sql.getFirstAsync('PRAGMA user_version'))).toEqual({
-    user_version: 2,
+    user_version: migrations.length,
   });
   await expect(
     old.write(async (sql) => {

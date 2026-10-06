@@ -35,6 +35,17 @@ export const migrations: readonly string[] = [
     knowledgeVersion TEXT NOT NULL,
     data TEXT NOT NULL
   );`,
+  // DESIGN-GAP: Offline section feedback has no mobile API in the plan. Keep an encrypted,
+  // device-only vote keyed by reading/section; M09 may later supply an explicit sync contract.
+  `CREATE TABLE ReportFeedback (
+    readingId TEXT NOT NULL REFERENCES Reading(id) ON DELETE CASCADE,
+    section TEXT NOT NULL,
+    helpful INTEGER NOT NULL CHECK (helpful IN (0,1)),
+    updatedAt TEXT NOT NULL,
+    PRIMARY KEY (readingId, section)
+  );
+  CREATE TRIGGER reading_feedback_delete AFTER UPDATE OF deletedAt ON Reading
+  WHEN NEW.deletedAt IS NOT NULL BEGIN DELETE FROM ReportFeedback WHERE readingId=NEW.id; END;`,
 ];
 /** Upgrade atomically; never silently downgrade an unknown future schema. */
 export async function migrate(database: LocalDatabase): Promise<void> {
@@ -50,6 +61,7 @@ export async function migrate(database: LocalDatabase): Promise<void> {
 }
 /** Remove personal content immediately, including archived profile versions; retain public knowledge. */
 export async function erasePersonalData(sql: SqlConnection): Promise<void> {
+  await sql.execAsync('DELETE FROM ReportFeedback');
   await sql.execAsync('DELETE FROM BirthProfileVersion');
   for (const table of entities) await sql.execAsync(`DELETE FROM "${table}"`);
 }

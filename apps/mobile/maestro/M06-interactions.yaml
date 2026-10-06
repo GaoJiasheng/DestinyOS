@@ -1,0 +1,128 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-bazi
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-zh
+- tapOn:
+    id: fixture-bazi
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: nav-overview
+    centerElement: false
+- tapOn:
+    id: nav-overview
+- scrollUntilVisible:
+    element:
+      text: '日主'
+    centerElement: false
+- tapOn:
+    text: '日主'
+- assertVisible:
+    id: term-detail
+- takeScreenshot: interaction-term-zh
+- tapOn:
+    id: report-sheet-close
+- scrollUntilVisible:
+    element:
+      id: paragraph-overview-0
+    direction: UP
+    centerElement: false
+- longPressOn:
+    id: paragraph-overview-0
+- assertVisible:
+    id: paragraph-copied
+- scrollUntilVisible:
+    element:
+      id: evidence-overview-0
+    centerElement: false
+    speed: 70
+    timeout: 60000
+- tapOn:
+    id: evidence-overview-0
+- scrollUntilVisible:
+    element:
+      id: chart-highlight
+    centerElement: false
+- takeScreenshot: interaction-evidence-zh
+- scrollUntilVisible:
+    element:
+      id: chart-zoom
+    direction: UP
+    centerElement: false
+- tapOn:
+    id: chart-zoom
+- tapOn:
+    id: chart-reset
+- scrollUntilVisible:
+    element:
+      id: nav-overview
+    centerElement: false
+- tapOn:
+    id: nav-overview
+- scrollUntilVisible:
+    element:
+      id: feedback-yes-overview
+    centerElement: false
+    speed: 70
+    timeout: 60000
+- tapOn:
+    id: feedback-yes-overview
+- assertVisible: '感谢你的反馈'
+- takeScreenshot: interaction-feedback-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    speed: 70
+    timeout: 90000
+- tapOn:
+    id: report-pro
+- scrollUntilVisible:
+    element:
+      id: report-full-data
+    centerElement: false
+    visibilityPercentage: 40
+    speed: 30
+    timeout: 120000
+- takeScreenshot: interaction-professional-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    speed: 90
+    timeout: 120000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-astrology
+    centerElement: false
+- tapOn:
+    id: fixture-astrology
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-three
+    centerElement: false
+- tapOn:
+    id: chart-three
+- extendedWaitUntil:
+    visible:
+      id: chart-three-fallback
+    timeout: 30000
+- takeScreenshot: interaction-three-fallback-zh

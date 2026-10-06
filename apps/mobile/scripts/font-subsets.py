@@ -16,19 +16,24 @@ brand = json.loads(subprocess.check_output([
     'pnpm', 'exec', 'tsx', '-e',
     "import { brand } from './packages/shared/src/brand.ts'; process.stdout.write(JSON.stringify(brand));",
 ], cwd=ROOT, text=True))
-chars = set(''.join(brand[key] for key in ['nameZh', 'nameZhTW', 'nameEn']) +
+chars = set('☉—…°·×' + ''.join(brand[key] for key in ['nameZh', 'nameZhTW', 'nameEn']) +
             ''.join(chr(i) for i in range(32, 127)))
 for locale in ['zh', 'zh-TW', 'en']:
     messages = json.loads((ROOT / f'apps/web/messages/{locale}.json').read_text())
     for key, value in messages.items():
         if key in keys or key.startswith(('nav.', 'mobile.effects.', 'charts.planet.')):
             chars.update(value)
+# DESIGN-GAP: Report prose and Skia labels need the complete bundled CJK vocabulary,
+# not only the navigation subset. Editorial content still comes from packages/content.
+for source in [*ROOT.glob('packages/content/dist/*.json'), *ROOT.glob('apps/web/messages/*.json')]:
+    chars.update(char for char in source.read_text() if '\u4e00' <= char <= '\u9fff')
 # DESIGN-GAP: Native requires TTF/OTF rather than Web's WOFF2; the native subset covers the shell and effect labels in all three locales.
 # Match the pinned Web source hashes; fetch only when the shared local cache is absent.
 cache = Path('/tmp/destiny-font-sources')
 cache.mkdir(parents=True, exist_ok=True)
 for family, url, expected in [
     ('wenkai', 'https://raw.githubusercontent.com/lxgw/LxgwWenKai/main/fonts/TTF/LXGWWenKai-Regular.ttf', '39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009'),
+    ('symbols', 'https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssymbols/NotoSansSymbols%5Bwght%5D.ttf', 'f7e7e04b4a24b6c78893d50cbfd2b2f6cae49617ab047bfef668d252adb128f7'),
     ('noto', 'https://raw.githubusercontent.com/google/fonts/main/ofl/notoserifsc/NotoSerifSC%5Bwght%5D.ttf', '050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9'),
 ]:
     target = cache / f'{family}.ttf'
@@ -37,7 +42,10 @@ for family, url, expected in [
             target.write_bytes(response.read())
     if hashlib.sha256(target.read_bytes()).hexdigest() != expected:
         raise ValueError(f'{family} source changed; review against Web before rebuilding')
+# DESIGN-GAP: Skia lacks platform fallback for shared astrology glyphs; embed an OFL symbol subset.
+symbols = set('☽☿♀♂♃♄♅♆♇☊⚷⚸♈♉♊♋♌♍♎♏♐♑♒♓')
 sources = {
+    'symbols': cache / 'symbols.ttf',
     'wenkai': Path('/tmp/destiny-font-sources/wenkai.ttf'),
     'noto': Path('/tmp/destiny-font-sources/noto.ttf'),
     'cinzel': ROOT / 'apps/web/node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff2',
@@ -55,7 +63,7 @@ for family, source in sources.items():
     options.hinting = False
     options.name_IDs = [0, 1, 2, 3, 4, 5, 6, 13, 14]
     worker = subset.Subsetter(options=options)
-    worker.populate(unicodes=[ord(char) for char in chars])
+    worker.populate(unicodes=[ord(char) for char in (symbols if family == 'symbols' else chars)])
     worker.subset(font)
     font.flavor = None
     for record in font['name'].names:
@@ -65,8 +73,8 @@ for family, source in sources.items():
     font.save(target)
     manifest[family] = {'sourceSha256': hashlib.sha256(source.read_bytes()).hexdigest(),
                         'bytes': target.stat().st_size, 'license': 'OFL-1.1'}
-    if family in ['wenkai', 'noto']:
-        missing = chars - set(chr(code) for code in font.getBestCmap())
+    if family in ['wenkai', 'noto', 'symbols']:
+        missing = (symbols if family == 'symbols' else chars) - set(chr(code) for code in font.getBestCmap())
         if missing:
             raise ValueError(f'{family} missing glyphs: {missing}')
 (OUT / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

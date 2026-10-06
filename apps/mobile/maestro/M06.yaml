@@ -1,0 +1,378 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-bazi
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-zh
+- tapOn:
+    id: fixture-bazi
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: headline-bazi-zh
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-bazi-zh
+- scrollUntilVisible:
+    element:
+      id: chart-data
+    centerElement: true
+- tapOn:
+    id: chart-data
+- scrollUntilVisible:
+    element:
+      id: chart-node-0
+    centerElement: true
+- tapOn:
+    id: chart-node-0
+- assertVisible:
+    id: chart-detail
+- takeScreenshot: detail-bazi-zh
+- tapOn:
+    id: report-sheet-close
+- scrollUntilVisible:
+    element:
+      id: chart-data
+    direction: UP
+    centerElement: false
+- tapOn:
+    id: chart-data
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-ziwei
+    centerElement: true
+- tapOn:
+    id: fixture-ziwei
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-ziwei-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-iching
+    centerElement: true
+- tapOn:
+    id: fixture-iching
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-iching-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-qimen
+    centerElement: true
+- tapOn:
+    id: fixture-qimen
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-qimen-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-tarot
+    centerElement: true
+- tapOn:
+    id: fixture-tarot
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-tarot-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-astrology
+    centerElement: true
+- tapOn:
+    id: fixture-astrology
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-astrology-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-vedic
+    centerElement: true
+- tapOn:
+    id: fixture-vedic
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- takeScreenshot: chart-vedic-zh
+- scrollUntilVisible:
+    element:
+      id: vedic-north
+    direction: UP
+    centerElement: true
+- tapOn:
+    id: vedic-north
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- takeScreenshot: chart-vedic-north-zh
+- scrollUntilVisible:
+    element:
+      id: vedic-D9
+    direction: UP
+    centerElement: true
+- tapOn:
+    id: vedic-D9
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- takeScreenshot: chart-vedic-D9-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-numerology
+    centerElement: true
+- tapOn:
+    id: fixture-numerology
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 45%
+    duration: 1200
+- takeScreenshot: chart-numerology-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-synastry
+    centerElement: true
+- tapOn:
+    id: fixture-synastry
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-synastry-zh
+- scrollUntilVisible:
+    element:
+      id: report-back
+    direction: UP
+    centerElement: false
+    timeout: 90000
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-locale-en
+    direction: UP
+    centerElement: true
+- tapOn:
+    id: fixture-locale-en
+- tapOn:
+    id: fixture-bazi
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: headline-bazi-en
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 95%, 70%
+    end: 95%, 50%
+    duration: 1200
+- takeScreenshot: chart-bazi-en

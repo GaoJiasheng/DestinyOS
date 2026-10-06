@@ -1,0 +1,65 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-bazi
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-zh
+- scrollUntilVisible:
+    element:
+      id: fixture-vedic
+    centerElement: true
+- tapOn:
+    id: fixture-vedic
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- takeScreenshot: chart-vedic-zh
+- scrollUntilVisible:
+    element:
+      id: vedic-north
+    direction: UP
+    centerElement: true
+- tapOn:
+    id: vedic-north
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- takeScreenshot: chart-vedic-north-zh
+- scrollUntilVisible:
+    element:
+      id: vedic-D9
+    direction: UP
+    centerElement: true
+- tapOn:
+    id: vedic-D9
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    centerElement: true
+- scrollUntilVisible:
+    element:
+      id: chart-midpoint
+    direction: UP
+    centerElement: true
+- takeScreenshot: chart-vedic-D9-zh

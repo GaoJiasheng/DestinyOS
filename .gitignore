@@ -60,3 +60,8 @@ apps/mobile/test-results/M04/*
 apps/mobile/test-results/M05/*
 !apps/mobile/test-results/M05/*.png
 !apps/mobile/test-results/M05/*.json
+
+!apps/mobile/test-results/M06/
+apps/mobile/test-results/M06/*
+!apps/mobile/test-results/M06/*.png
+!apps/mobile/test-results/M06/*.json
