@@ -42,7 +42,7 @@ enabled = true
 
 [vars]
 PLATFORM = "cloudflare"
-EMAIL_FROM = "noreply@send.gavin.pub"
+EMAIL_FROM = "noreply@mail.gavin.pub"
 EMAIL_FROM_NAME = "天机 DestinyOS"
 AUTH_TRUST_HOST = "true"
 AUTH_URL = "https://tianji.gavin.pub"
@@ -51,7 +51,7 @@ FEATURE_ADS = "true"
 FEATURE_WEB_PAYMENTS = "false"
 CF_ANALYTICS_ACCOUNT_ID = "9aea83b326d8175abdd136c1177637a5"
 CF_BILLING_CYCLE_DAY = "1"
-FEATURE_LLM_CHAT = "false"
+FEATURE_LLM_CHAT = "true"
 FEATURE_LLM_POLISH = "false"
 MINIMAX_BASE_URL = "https://api.minimaxi.com/v1"
 MINIMAX_MODEL = "MiniMax-M2.5"
@@ -70,9 +70,9 @@ MINIMAX_MODEL = "MiniMax-M2.5"
 # Deployment-only credentials: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN.
 # D1, KV and R2 bindings require no runtime connection secrets.
 # Bind the custom domain after preview verification:
-# [[routes]]
-# pattern = "tianji.gavin.pub"
-# custom_domain = true
+[[routes]]
+pattern = "tianji.gavin.pub"
+custom_domain = true
 
 [[d1_databases]]
 binding = "DB"

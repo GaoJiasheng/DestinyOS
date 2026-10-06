@@ -10,7 +10,7 @@ import { magicLinkEmail, sendMagicEmail } from '../lib/auth-email';
 
 const mock = vi.hoisted(() => ({ bindings: vi.fn() }));
 vi.mock('../lib/platform/cloudflare', () => ({ cloudflareBindings: mock.bindings }));
-const from = { email: 'noreply@send.gavin.pub', name: '天机 DestinyOS' };
+const from = { email: 'noreply@mail.gavin.pub', name: '天机 DestinyOS' };
 const message = {
   to: 'recipient@example.test',
   subject: 'Test',

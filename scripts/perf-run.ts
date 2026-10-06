@@ -14,7 +14,7 @@ const child = spawn('pnpm', ['exec', 'lhci', 'autorun', '--config=lighthouserc.c
     TEST_WEB_MODE: 'production',
     // DESIGN-GAP: Production-mode Node tests use the guarded loopback mail mock with isolated credentials.
     TEST_MAIL_URL: 'http://127.0.0.1:60081/mail',
-    EMAIL_FROM: 'noreply@send.gavin.pub',
+    EMAIL_FROM: 'noreply@mail.gavin.pub',
     EMAIL_FROM_NAME: '天机 DestinyOS',
     LOCAL_DATABASE_URL: testDatabaseUrl(57432),
     AUTH_SECRET: 'isolated-lighthouse-secret',
