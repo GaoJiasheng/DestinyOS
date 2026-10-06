@@ -1,5 +1,5 @@
 import { View, Text, Pressable } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useCopy } from '../lib/copy';
 import { usePreferences } from '../lib/preferences';
 import {
   nativeTypography as type,
@@ -11,7 +11,7 @@ import { useTheme } from '../lib/theme';
 import { locales } from '../lib/i18n';
 /** Accessible controls for the three documented palettes and shared catalog locales. */
 export function Preferences() {
-  const { t } = useTranslation();
+  const t = useCopy();
   const { colors, body } = useTheme();
   const { theme, locale, setTheme, setLocale } = usePreferences();
   // DESIGN-GAP: Native settings use wrapped radio buttons; selected borders preview the active accent.

@@ -5,6 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { I18nextProvider } from 'react-i18next';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ProfilesProvider } from '../lib/profiles';
+import { SessionGate } from '../components/session-gate';
 import { fonts } from '../lib/fonts';
 import { i18n } from '../lib/i18n';
 import { getOfflineKnowledge } from '../lib/knowledge';
@@ -25,7 +27,12 @@ export default function RootLayout() {
     <I18nextProvider i18n={i18n}>
       <SafeAreaProvider>
         <StatusBar style="light" />
-        <Stack screenOptions={{ headerShown: false }} />
+        <ProfilesProvider>
+          <Stack
+            screenOptions={{ headerShown: false }}
+            screenLayout={({ children }) => <SessionGate>{children}</SessionGate>}
+          />
+        </ProfilesProvider>
       </SafeAreaProvider>
     </I18nextProvider>
   );

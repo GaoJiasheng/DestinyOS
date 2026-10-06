@@ -1,0 +1,212 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: deny
+- runFlow:
+    when:
+      true: ${M05_DEV === '1'}
+    commands:
+      - openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+      - tapOn:
+          text: '打开|Open'
+          optional: true
+      - tapOn:
+          text: 'Continue'
+          optional: true
+      - runFlow:
+          when:
+            visible: 'Go home'
+          commands:
+            - tapOn: '关闭|Close'
+- extendedWaitUntil:
+    visible:
+      id: onboarding-0
+    timeout: 90000
+- takeScreenshot: onboarding-stars-zh
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- assertVisible:
+    id: onboarding-1
+- takeScreenshot: onboarding-intro-zh
+- tapOn:
+    id: onboarding-next
+- assertVisible:
+    id: onboarding-2
+- takeScreenshot: onboarding-disclaimer-zh
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- takeScreenshot: notifications-request-zh
+- tapOn:
+    id: notifications-request
+- takeScreenshot: notifications-system-zh
+- tapOn:
+    text: '不允许|Don.t Allow'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: notifications-denied
+    timeout: 20000
+- runFlow:
+    when:
+      visible:
+        id: notifications-denied
+    commands:
+      - takeScreenshot: notifications-denied-zh
+      - tapOn:
+          id: onboarding-next
+- assertVisible:
+    id: onboarding-fill
+- takeScreenshot: optional-profile-zh
+- tapOn:
+    id: onboarding-fill
+- assertVisible: '日期与时间'
+- tapOn:
+    id: birth-year
+- inputText: '1990'
+- hideKeyboard
+- takeScreenshot: birth-date-zh
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: time-unknown
+- tapOn:
+    id: time-unknown
+- assertVisible:
+    id: unknown-help
+- takeScreenshot: birth-unknown-zh
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- takeScreenshot: birth-disabled-clock-zh
+- tapOn:
+    id: birth-submit
+- assertVisible: '地点与性别'
+- tapOn:
+    id: birth-city
+- inputText: 'Beijing'
+- hideKeyboard
+- extendedWaitUntil:
+    visible:
+      id: city-result-0
+    timeout: 30000
+- takeScreenshot: offline-city-zh
+- tapOn:
+    id: city-result-0
+- assertVisible:
+    id: selected-city
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-name
+- tapOn:
+    id: birth-name
+- inputText: 'Alice'
+- hideKeyboard
+- tapOn:
+    id: advanced-open
+- takeScreenshot: birth-advanced-zh
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- extendedWaitUntil:
+    visible:
+      id: profile-saved
+    timeout: 20000
+- assertVisible: 'Alice'
+- takeScreenshot: profiles-first-zh
+- tapOn:
+    id: profile-add
+- tapOn:
+    id: calendar-lunar
+- tapOn:
+    id: birth-year
+- inputText: '1993'
+- hideKeyboard
+- takeScreenshot: lunar-leap-zh
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-name
+- tapOn:
+    id: birth-name
+- inputText: 'Bob'
+- hideKeyboard
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- assertVisible: 'Bob'
+- assertVisible: 'Alice'
+- takeScreenshot: multi-profiles-zh
+- tapOn: 'Alice'
+- takeScreenshot: profile-switched-zh
+- tapOn:
+    id: tab-ask
+- assertVisible:
+    id: ask-sheet
+- takeScreenshot: ask-sheet-zh
+- tapOn:
+    id: ask-close
+- tapOn:
+    id: tab-reading
+- takeScreenshot: navigation-reading-zh
+- tapOn:
+    id: tab-learn
+- takeScreenshot: navigation-learn-zh
+- tapOn:
+    id: tab-today
+- takeScreenshot: navigation-today-zh
+- tapOn:
+    id: tab-me
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: locale-en
+- tapOn:
+    id: locale-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: profile-add
+    direction: UP
+- assertVisible: 'Manage profiles'
+- takeScreenshot: multi-profiles-en
+- tapOn:
+    id: tab-ask
+- takeScreenshot: ask-sheet-en
+- tapOn:
+    id: ask-close
+- launchApp
+- openLink: 'tianji://me'
+- tapOn:
+    text: '打开|Open'
+    optional: true
+- extendedWaitUntil:
+    visible: 'Alice'
+    timeout: 30000
+- assertVisible: 'Bob'
+- assertNotVisible:
+    id: onboarding-0
+- takeScreenshot: profiles-after-restart-en

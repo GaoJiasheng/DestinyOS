@@ -1,0 +1,120 @@
+{
+  "task": "app_M05",
+  "capturedAt": "2026-10-06T19:30:43.994458+00:00",
+  "device": {
+    "name": "iPhone 17e",
+    "platform": "iOS",
+    "version": "26.4",
+    "udid": "E35A99F1-F6C1-4BF8-8EED-018CDDB93917",
+    "configuration": "Release"
+  },
+  "app": {
+    "bundleId": "pub.gavin.tianji",
+    "appGroup": "group.pub.gavin.tianji",
+    "expoSdk": 57,
+    "metroRunningDuringAcceptance": false
+  },
+  "checks": [
+    {
+      "command": "pnpm install",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm lint",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm test",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm licenses:check",
+      "exitCode": 0
+    }
+  ],
+  "vitest": {
+    "filesPassed": 128,
+    "filesSkipped": 1,
+    "testsPassed": 3697,
+    "testsSkipped": 2
+  },
+  "jest": {
+    "suitesPassed": 11,
+    "testsPassed": 74
+  },
+  "maestro": {
+    "M05": "passed",
+    "M05-en": "passed",
+    "M05-age": "passed"
+  },
+  "cityDatabase": {
+    "records": 77966,
+    "compressedBytes": 3029430,
+    "minimumPopulation": 4000,
+    "source": "GeoNames cities500",
+    "license": "CC BY 4.0",
+    "sha256": "832803523fc2a37a3848ba1cc61585b1d5ccfcd6ae0b2cbdf7d1fa540643cc05"
+  },
+  "android": {
+    "prebuild": "passed",
+    "namespace": "pub.gavin.tianji",
+    "notificationPermission": "POST_NOTIFICATIONS declared by expo-notifications library manifest",
+    "nativeBuild": "pending Owner Java setup",
+    "simulatorAcceptance": "pending Owner Java setup",
+    "javaInstalledByThisTask": false
+  },
+  "screenshots": [
+    "age-restricted-after-restart-en.png",
+    "age-restricted-en.png",
+    "ask-sheet-en.png",
+    "ask-sheet-zh.png",
+    "birth-advanced-en.png",
+    "birth-advanced-zh.png",
+    "birth-date-en.png",
+    "birth-date-zh.png",
+    "birth-disabled-clock-zh.png",
+    "birth-dst-en.png",
+    "birth-manual-en.png",
+    "birth-precise-en.png",
+    "birth-unknown-zh.png",
+    "lunar-leap-zh.png",
+    "multi-profiles-en.png",
+    "multi-profiles-zh.png",
+    "navigation-empty-en.png",
+    "navigation-learn-zh.png",
+    "navigation-reading-zh.png",
+    "navigation-today-zh.png",
+    "notifications-denied-zh.png",
+    "notifications-request-en.png",
+    "notifications-request-zh.png",
+    "notifications-system-en.png",
+    "notifications-system-zh.png",
+    "offline-city-zh.png",
+    "onboarding-disclaimer-en.png",
+    "onboarding-disclaimer-zh.png",
+    "onboarding-intro-en.png",
+    "onboarding-intro-zh.png",
+    "onboarding-stars-en.png",
+    "onboarding-stars-zh.png",
+    "optional-profile-en.png",
+    "optional-profile-zh.png",
+    "profile-switched-zh.png",
+    "profiles-after-restart-en.png",
+    "profiles-en.png",
+    "profiles-first-zh.png"
+  ],
+  "acceptanceOrder": [
+    "M05-en",
+    "M05-age",
+    "M05"
+  ],
+  "nativeDatePicker": "onValueChange/onDismiss separate explicit date selection from cancellation; RNTL regression passed"
+}

@@ -20,12 +20,19 @@ const config: ExpoConfig = {
     infoPlist: {
       CFBundleLocalizations: ['zh-Hans', 'zh-Hant', 'en'],
       ITSAppUsesNonExemptEncryption: false,
+      // DESIGN-GAP: Hide Expo's development-only overlay during native E2E and screenshots;
+      // developers can still open the menu with keyboard/gesture controls.
+      EXDevMenuShowFloatingActionButton: false,
+      EXDevMenuShowsAtLaunch: false,
+      EXDevMenuIsOnboardingFinished: true,
     },
   },
   android: { package: 'pub.gavin.tianji', predictiveBackGestureEnabled: true },
   plugins: [
     'expo-router',
     'expo-asset',
+    'expo-notifications',
+    '@react-native-community/datetimepicker',
     ['expo-sqlite', { useSQLCipher: true }],
     ['expo-secure-store', { configureAndroidBackup: true }],
     [

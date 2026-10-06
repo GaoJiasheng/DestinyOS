@@ -1,0 +1,32 @@
+import type { ReactNode } from 'react';
+import { Redirect, useSegments } from 'expo-router';
+import { useProfiles } from '../lib/profiles';
+import { useCopy } from '../lib/copy';
+import { Page, CopyText, Action } from './native-ui';
+/** Protect deep links until onboarding/age checks finish; cipher errors expose a retry, never plaintext. */
+export function SessionGate({ children }: { children: ReactNode }) {
+  const state = useProfiles();
+  const segments = useSegments();
+  const t = useCopy();
+  // DESIGN-GAP: Existing diagnostic routes remain directly reachable in development builds.
+  if (__DEV__ && segments[0] === 'dev') return children;
+  if (state.loading)
+    return (
+      <Page title="mobile.profiles.loading">
+        <CopyText>{t('mobile.profiles.loading')}</CopyText>
+      </Page>
+    );
+  if (state.error)
+    return (
+      <Page title="form.birth.title">
+        {/* DESIGN-GAP: Native storage recovery uses device-neutral copy; the Web error mentions browser settings. */}
+        <CopyText>{t('mobile.storage.error')}</CopyText>
+        <Action label={t('mobile.profiles.retry')} onPress={() => void state.reload()} />
+      </Page>
+    );
+  if (state.settings.ageBlocked && segments[0] !== 'age-restricted')
+    return <Redirect href="/age-restricted" />;
+  if (!state.settings.ageBlocked && state.settings.onboardingVersion < 1 && segments.length > 0)
+    return <Redirect href="/" />;
+  return children;
+}

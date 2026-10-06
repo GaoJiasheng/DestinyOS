@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
+import { useCopy } from '../lib/copy';
 import {
   nativeTypography as type,
   mobileGeometry as geometry,
@@ -12,7 +12,7 @@ import type { MessageKey } from '../lib/i18n';
 import type { ReactNode } from 'react';
 /** Empty route scaffold with a translated title and entertainment disclaimer. */
 export function EmptyScreen({ title, children }: { title: MessageKey; children?: ReactNode }) {
-  const { t } = useTranslation();
+  const t = useCopy();
   const { colors, heading, body } = useTheme();
   return (
     <SafeAreaView

@@ -1,3 +1,8 @@
+// DESIGN-GAP: Hermes lacks Intl.PluralRules on the tested iOS runtime; install a
+// locale-scoped MIT polyfill before either ICU translator initializes.
+import '@formatjs/intl-pluralrules/polyfill.js';
+import '@formatjs/intl-pluralrules/locale-data/en.js';
+import '@formatjs/intl-pluralrules/locale-data/zh.js';
 import { createInstance } from 'i18next';
 import ICU from 'i18next-icu';
 import { initReactI18next } from 'react-i18next';
@@ -14,7 +19,7 @@ export const resources = {
   en: { translation: en },
 };
 export const i18n = createInstance();
-// App plan §2.2 overrides next-intl for native; catalogs and ICU messages are shared verbatim.
+// Retain i18next for existing diagnostic surfaces; M05 screens use next-intl over the same catalogs.
 void i18n
   .use(ICU)
   .use(initReactI18next)

@@ -1,0 +1,121 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: unset
+- extendedWaitUntil:
+    visible:
+      id: onboarding-0
+    timeout: 30000
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: locale-en
+- tapOn:
+    id: locale-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      text: 'Begin with your sky'
+    direction: UP
+- takeScreenshot: onboarding-stars-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- takeScreenshot: onboarding-intro-en
+- tapOn:
+    id: onboarding-next
+- takeScreenshot: onboarding-disclaimer-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- takeScreenshot: notifications-request-en
+- tapOn:
+    id: notifications-request
+- takeScreenshot: notifications-system-en
+- tapOn:
+    text: '^(允许|Allow)$'
+- extendedWaitUntil:
+    visible:
+      id: onboarding-skip
+    timeout: 20000
+- takeScreenshot: optional-profile-en
+- tapOn:
+    id: onboarding-skip
+- assertVisible:
+    id: today-birth
+- takeScreenshot: navigation-empty-en
+- tapOn:
+    id: today-birth
+- tapOn:
+    id: birth-year
+- inputText: '1988'
+- hideKeyboard
+- takeScreenshot: birth-date-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: time-precise
+- tapOn:
+    id: time-precise
+- takeScreenshot: birth-precise-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- assertVisible: 'Place and gender'
+- tapOn:
+    id: manual-open
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: manual-lat
+- tapOn:
+    id: manual-lat
+- inputText: '-33.87'
+- hideKeyboard
+- tapOn:
+    id: manual-lng
+- inputText: '151.21'
+- hideKeyboard
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: manual-tz
+- tapOn:
+    id: manual-tz
+- eraseText: 100
+- inputText: 'Australia/Sydney'
+- hideKeyboard
+- takeScreenshot: birth-manual-en
+# DESIGN-GAP: January in Sydney is a deterministic southern-hemisphere DST fixture.
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: dst-note
+- takeScreenshot: birth-dst-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: advanced-open
+- tapOn:
+    id: advanced-open
+- takeScreenshot: birth-advanced-en
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- assertVisible:
+    id: profile-saved
+- takeScreenshot: profiles-en

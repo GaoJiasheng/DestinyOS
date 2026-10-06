@@ -14,9 +14,12 @@
     "test:e2e": "bash scripts/maestro.sh"
   },
   "dependencies": {
+    "@formatjs/intl-pluralrules": "^6.3.15",
     "@noble/curves": "^1.9.7",
     "@noble/hashes": "^1.8.0",
     "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-community/datetimepicker": "9.1.0",
+    "@react-native-picker/picker": "2.11.4",
     "@react-three/fiber": "^9.6.0",
     "@shopify/react-native-skia": "2.6.2",
     "@tianji/content": "workspace:*",
@@ -37,6 +40,7 @@
     "expo-gl": "~57.0.2",
     "expo-haptics": "~57.0.3",
     "expo-linking": "~57.0.12",
+    "expo-notifications": "~57.0.22",
     "expo-router": "~57.0.25",
     "expo-secure-store": "~57.0.4",
     "expo-sensors": "~57.0.3",
@@ -47,6 +51,7 @@
     "fflate": "^0.8.2",
     "i18next": "^25.6.0",
     "i18next-icu": "^2.4.0",
+    "lunar-typescript": "1.8.6",
     "next-intl": "^4.8.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",

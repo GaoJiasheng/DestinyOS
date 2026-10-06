@@ -29,6 +29,21 @@ export const ProfileSchema = z
   .object({
     name: z.string().trim().max(80),
     birth: BirthInputSchema,
+    // DESIGN-GAP: Store per-profile school defaults alongside the encrypted birth payload;
+    // the App plan does not specify their persistence fields. Defaults match docs/04.
+    options: z
+      .object({
+        school: z
+          .object({
+            useApparentSolarTime: z.boolean().default(true),
+            ziHour: z.enum(['zi_unified', 'zi_split']).default('zi_unified'),
+            houseSystem: z.enum(['placidus', 'whole_sign', 'equal']).default('placidus'),
+            leapMonth: z.enum(['split_by_15', 'as_prev', 'as_next']).default('split_by_15'),
+          })
+          .strict(),
+      })
+      .strict()
+      .optional(),
     version: z.number().int().positive(),
     isCurrent: z.literal(true),
   })
@@ -89,6 +104,10 @@ export const SettingsSchema = z
     widgetTheme: z.enum(['auto', 'east', 'west', 'vedic']).default('auto'),
     hapticsOn: z.boolean().default(true),
     activeProfileId: id.nullable().default(null),
+    // DESIGN-GAP: Version the onboarding acknowledgement in encrypted local settings.
+    onboardingVersion: z.number().int().nonnegative().default(0),
+    // DESIGN-GAP: Persist the native COPPA gate across restarts; there is no Web session cookie.
+    ageBlocked: z.boolean().default(false),
   })
   .strict();
 export const schemas = {

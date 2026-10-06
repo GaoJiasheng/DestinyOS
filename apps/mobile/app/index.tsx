@@ -1,1 +1,1 @@
-export { BrandScreen as default } from '../components/brand-screen';
+export { Onboarding as default } from '../components/onboarding';

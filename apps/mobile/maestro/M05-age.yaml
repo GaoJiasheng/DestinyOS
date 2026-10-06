@@ -1,0 +1,29 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://me/birth'
+- tapOn:
+    text: '打开|Open'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: birth-year
+    timeout: 30000
+- tapOn:
+    id: birth-year
+- inputText: '2020'
+- hideKeyboard
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- assertVisible: 'This service is intended for users aged 18 and over'
+- takeScreenshot: age-restricted-en
+- launchApp
+- openLink: 'tianji://me/birth'
+- assertVisible: 'This service is intended for users aged 18 and over'
+- assertNotVisible:
+    id: birth-year
+- takeScreenshot: age-restricted-after-restart-en
