@@ -21,3 +21,7 @@ apps/web/public/workers
 .wrangler/
 .dev.vars*
 apps/web/public/_data/
+
+apps/mobile/.expo
+apps/mobile/ios
+apps/mobile/android

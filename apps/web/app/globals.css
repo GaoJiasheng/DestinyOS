@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '@tianji/ui-core/tokens.css';
 /* DESIGN-GAP: Unnamed four-transformations, western element/aspect and layout values get semantic CSS tokens. */
 /* DESIGN-GAP: Vedic glow uses the documented saffron hue at the same 35% alpha as the other themes. */
 @theme inline {
@@ -75,119 +76,8 @@
   --font-numeric: var(--font-data);
   --shadow-gold: var(--glow-gold);
   --shadow-accent: var(--glow-accent);
-  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 :root {
-  --bg-0: #05070f;
-  --bg-1: #0a0e1c;
-  --surface-1: #111628;
-  --surface-2: #181f36;
-  --surface-glass: rgba(24, 31, 54, 0.55);
-  --line-1: rgba(255, 255, 255, 0.08);
-  --line-2: rgba(255, 255, 255, 0.16);
-  --text-1: #f3f1ea;
-  --text-2: #b8b5ac;
-  --text-3: #7d7b74;
-  --gold: #d4af6a;
-  --gold-soft: #e8d3a3;
-  --success: #5fb88a;
-  --warning: #e0a94b;
-  --danger: #d9534f;
-  --info: #6c9be0;
-  --accent: var(--gold);
-  --accent-2: var(--gold-soft);
-  --accent-glow: rgba(212, 175, 106, 0.25);
-  --ink: #1b1d2a;
-  --wu-wood: #3fa66b;
-  --wu-fire: #d9483b;
-  --wu-earth: #c8963e;
-  --wu-metal: #d8d4c8;
-  --wu-water: #3c7dd9;
-  --hua-lu: #5fb88a;
-  --hua-quan: #9b6bd9;
-  --hua-ke: #6c9be0;
-  --hua-ji: #d9534f;
-  --element-fire: #e06a4f;
-  --element-earth: #8fa66b;
-  --element-air: #e8d86a;
-  --element-water: #5a8fd9;
-  --aspect-conjunction: #c9a961;
-  --aspect-trine: #5a8fd9;
-  --aspect-sextile: #5a8fd9;
-  --aspect-square: #e06a4f;
-  --aspect-opposition: #e06a4f;
-  --aspect-minor: var(--line-2);
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-7: 32px;
-  --space-8: 40px;
-  --space-9: 48px;
-  --space-10: 64px;
-  --space-11: 80px;
-  --space-12: 96px;
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 20px;
-  --r-pill: 999px;
-  --r-seal: 2px;
-  --size-display: 40px;
-  --size-h1: 28px;
-  --size-h2: 22px;
-  --size-h3: 18px;
-  --size-body: 16px;
-  --size-small: 13px;
-  --size-caption: 12px;
-  --size-ganzhi: 48px;
-  --leading-body: 1.75;
-  --tracking-west: 0.04em;
-  --duration-micro-min: 120ms;
-  --duration-micro-max: 200ms;
-  --duration-enter-min: 300ms;
-  --duration-enter-max: 500ms;
-  --duration-ritual-min: 600ms;
-  --duration-ritual-max: 1200ms;
-  --duration-loader-min: 1200ms;
-  --duration-theme: 400ms;
-  --duration-reduced: 150ms;
-  --duration-breathe: 3s;
-  --duration-stars-small: 120s;
-  --duration-stars-large: 180s;
-  --stagger-min: 40ms;
-  --stagger-max: 80ms;
-  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --glow-gold: 0 0 24px rgba(212, 175, 106, 0.25);
-  --glow-accent: 0 0 32px var(--accent-glow);
-  --hover-lift: -2px;
-  --page-enter-y: 12px;
-  --glass-blur: 16px;
-  --texture-east-opacity: 0.06;
-  --texture-west-opacity: 0.05;
-  --texture-vedic-opacity: 0.05;
-  --button-height: 48px;
-  --card-padding: 20px;
-  --accent-brightness: 1.06;
-  --font-body-zh: 'Noto Serif SC', serif;
-  --font-body-en: 'Inter', sans-serif;
-  --font-east-zh: 'LXGW WenKai', 'Noto Serif SC', serif;
-  --font-east-en: 'Cormorant Garamond', serif;
-  --font-west-zh: 'Noto Serif SC', serif;
-  --font-west-en: 'Cinzel', serif;
-  --font-data: 'Inter', sans-serif;
-  --sky-nebula: #0d1330;
-  --sky-purple: rgba(107, 91, 210, 0.1);
-  --overlay: rgba(5, 7, 15, 0.88);
-  --on-accent: #ffffff;
-  --layout-max: 1200px;
-  --tracking-eyebrow: 0.16em;
-  --tracking-brand: 0.3em;
-  --header-height: 80px;
-  --tab-height: 72px;
   --font-body-current: var(--font-body-zh);
   --font-heading-current: var(--font-east-zh);
   color-scheme: dark;
@@ -197,25 +87,7 @@ html:lang(en) {
   --font-body-current: var(--font-body-en);
   --font-heading-current: var(--font-east-en);
 }
-[data-theme='neutral'] {
-  --accent: var(--gold);
-  --accent-2: var(--gold-soft);
-  --accent-glow: rgba(212, 175, 106, 0.25);
-}
 [data-theme='east'] {
-  --accent: #c8412b;
-  --accent-2: #d4af6a;
-  --accent-glow: rgba(200, 65, 43, 0.35);
-  --ink: #1b1d2a;
-  --wu-wood: #3fa66b;
-  --wu-fire: #d9483b;
-  --wu-earth: #c8963e;
-  --wu-metal: #d8d4c8;
-  --wu-water: #3c7dd9;
-  --hua-lu: #5fb88a;
-  --hua-quan: #9b6bd9;
-  --hua-ke: #6c9be0;
-  --hua-ji: #d9534f;
   --font-heading-current: var(--font-east-zh);
 }
 [data-theme='east']:lang(en) {
@@ -223,28 +95,11 @@ html:lang(en) {
 }
 [data-theme='west'],
 [data-theme='vedic'] {
-  --accent: #6b5bd2;
-  --accent-2: #c9a961;
-  --accent-glow: rgba(107, 91, 210, 0.35);
-  --element-fire: #e06a4f;
-  --element-earth: #8fa66b;
-  --element-air: #e8d86a;
-  --element-water: #5a8fd9;
-  --aspect-conjunction: #c9a961;
-  --aspect-trine: #5a8fd9;
-  --aspect-sextile: #5a8fd9;
-  --aspect-square: #e06a4f;
-  --aspect-opposition: #e06a4f;
-  --aspect-minor: var(--line-2);
   --font-heading-current: var(--font-west-zh);
 }
 [data-theme='west']:lang(en),
 [data-theme='vedic']:lang(en) {
   --font-heading-current: var(--font-west-en);
-}
-[data-theme='vedic'] {
-  --accent: #d9822b;
-  --accent-glow: rgba(217, 130, 43, 0.35);
 }
 @layer base {
   * {
@@ -985,18 +840,6 @@ html:lang(en) {
   }
 }
 @media (min-width: 768px) {
-  :root {
-    --size-display: 64px;
-    --size-h1: 40px;
-    --size-h2: 28px;
-    --size-h3: 22px;
-    --size-body: 17px;
-    --size-small: 14px;
-    --size-caption: 12px;
-    --size-ganzhi: 64px;
-    --button-height: 44px;
-    --card-padding: 24px;
-  }
   .home-hero {
     padding-inline: var(--space-8);
   }

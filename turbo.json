@@ -22,6 +22,11 @@
     "typecheck": {
       "dependsOn": ["^typecheck"],
       "outputs": []
+    },
+    "@tianji/mobile#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"],
+      "inputs": ["$TURBO_DEFAULT$", "../web/messages/**"]
     }
   },
   "globalPassThroughEnv": [
@@ -41,5 +46,5 @@
     "PLATFORM",
     "REVENUECAT_*"
   ],
-  "globalDependencies": ["prisma/schema.prisma", "apps/web/migrations/**"]
+  "globalDependencies": ["prisma/schema.prisma", "apps/web/migrations/**", "apps/web/messages/**"]
 }

@@ -13,6 +13,7 @@ const allowed = new Set([
   'Apache-2.0',
   // DESIGN-GAP: Cloudflare SDKs offer either of these already-permitted licenses.
   'MIT OR Apache-2.0',
+  '(MIT OR Apache-2.0)',
   // DESIGN-GAP: SQLite's native build tools offer these permissive alternatives; use MIT or BSD-2-Clause.
   '(MIT OR WTFPL)',
   '(BSD-2-Clause OR MIT OR Apache-2.0)',
@@ -36,6 +37,8 @@ export async function checkLicenses(): Promise<number> {
   const workspace = [
     '.',
     'apps/web',
+    'apps/mobile',
+    'packages/ui-core',
     'packages/shared',
     'packages/config',
     'packages/engine',
@@ -55,6 +58,13 @@ export async function checkLicenses(): Promise<number> {
   for (const [name, data] of Object.entries(modules)) {
     const licenses = Array.isArray(data.licenses) ? data.licenses : [data.licenses ?? 'UNKNOWN'];
     if (licenses.every((license) => allowed.has(license))) continue;
+    // DESIGN-GAP: Expo CLI's node-forge 1.4.0 is dual-licensed; explicitly choose its reviewed BSD-3-Clause alternative.
+    if (
+      name === 'node-forge@1.4.0' &&
+      licenses.length === 1 &&
+      licenses[0] === '(BSD-3-Clause OR GPL-2.0)'
+    )
+      continue;
     if (
       (name === 'sentry@0.45.0' && licenses[0] === 'Apache*') ||
       (name === 'webgl-constants@1.1.1' && licenses[0] === 'MIT*')

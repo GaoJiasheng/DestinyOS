@@ -1,0 +1,48 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    clearState: true
+- assertVisible: 'DestinyOS'
+- takeScreenshot: brand-zh
+- tapOn:
+    id: brand-start
+- assertVisible: '即将与你相遇'
+- takeScreenshot: tab-today
+- tapOn:
+    id: tab-reading
+- assertVisible: '推算'
+- takeScreenshot: tab-reading
+- tapOn:
+    id: tab-ask
+- assertVisible: '问'
+- takeScreenshot: tab-ask
+- tapOn:
+    id: tab-learn
+- assertVisible: '学习'
+- takeScreenshot: tab-learn
+- tapOn:
+    id: tab-me
+- takeScreenshot: tab-me
+- tapOn:
+    id: theme-east
+- takeScreenshot: theme-east
+- tapOn:
+    id: theme-west
+- takeScreenshot: theme-west
+- tapOn:
+    id: theme-vedic
+- takeScreenshot: theme-vedic
+- tapOn:
+    id: locale-zh-TW
+- assertVisible: '即將與你相遇'
+- takeScreenshot: locale-zh-TW
+- tapOn:
+    id: locale-en
+- assertVisible: 'More to explore soon'
+- takeScreenshot: locale-en
+- openLink: 'tianji:///'
+- tapOn:
+    text: '打开|Open'
+    optional: true
+- assertVisible: 'Read your sky. Know your path.'
+- takeScreenshot: brand-en

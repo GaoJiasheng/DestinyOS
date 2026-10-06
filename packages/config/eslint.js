@@ -10,6 +10,9 @@ export default tseslint.config(
       '**/.wrangler/**',
       '**/dist/**',
       '**/.turbo/**',
+      'apps/mobile/.expo/**',
+      'apps/mobile/ios/**',
+      'apps/mobile/android/**',
       'docs/**',
       '.codex-runs/**',
       'test-results/**',
@@ -32,6 +35,12 @@ export default tseslint.config(
   },
   { files: ['apps/web/lib/platform/logger.ts'], rules: { 'no-restricted-syntax': 'off' } },
   js.configs.recommended,
+  {
+    files: ['apps/mobile/**/*.cjs'],
+    languageOptions: {
+      globals: { require: 'readonly', module: 'readonly', __dirname: 'readonly' },
+    },
+  },
   ...tseslint.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
@@ -44,6 +53,8 @@ export default tseslint.config(
       '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': true, 'ts-nocheck': true }],
     },
   },
+  // DESIGN-GAP: Metro/Jest load their configuration through CommonJS; permit require only in these config files.
+  { files: ['apps/mobile/*.cjs'], rules: { '@typescript-eslint/no-require-imports': 'off' } },
 );
 
 // DESIGN-GAP: This single console sink serializes already-redacted Workers telemetry.

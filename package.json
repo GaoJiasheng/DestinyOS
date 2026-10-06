@@ -12,7 +12,7 @@
     "build": "pnpm content:build && pnpm worker:build && turbo run build",
     "lint": "pnpm content:validate && eslint . --max-warnings 0 && prettier --check .",
     "typecheck": "turbo run typecheck && tsc -p scripts/tsconfig.json --noEmit",
-    "test": "pnpm content:build && vitest run --coverage",
+    "test": "pnpm content:build && vitest run --coverage && pnpm --filter @tianji/mobile test",
     "i18n:check": "tsx scripts/i18n-check.ts",
     "format": "prettier --write .",
     "test:e2e": "playwright test && pnpm test:auth:e2e && pnpm test:readings:e2e && pnpm test:bazi:e2e && pnpm test:ziwei:e2e && pnpm test:divination:e2e && pnpm test:tarot:e2e && pnpm test:astrology:e2e && pnpm test:home:e2e && pnpm test:daily-account:e2e && pnpm test:m4:e2e && pnpm test:m5:e2e && pnpm test:polish && pnpm test:export:e2e && pnpm test:chat:e2e && pnpm test:numerology:e2e && pnpm test:rectification:e2e && pnpm test:calendar:e2e && pnpm test:zhtw:e2e && pnpm test:synastry:e2e && pnpm test:seo-content:e2e && pnpm test:journal:e2e",
@@ -72,7 +72,8 @@
     "test:journal:e2e": "playwright test --config playwright.journal.config.ts",
     "fonts:check": "pnpm i18n:traditional && python3 scripts/font-coverage.py",
     "db:remote": "pnpm --filter @tianji/web exec wrangler d1 migrations apply destinyos --remote",
-    "cf:smoke": "tsx scripts/cloudflare-smoke.ts"
+    "cf:smoke": "tsx scripts/cloudflare-smoke.ts",
+    "mobile:fonts": "python3 apps/mobile/scripts/font-subsets.py"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
@@ -121,7 +122,14 @@
       "@auth/core": "^0.41.3",
       "deepmerge-ts": "^8.0.0",
       "sharp": "^0.35.4",
-      "basic-ftp": "^6.2.1"
+      "basic-ftp": "^6.2.1",
+      "react-native-worklets": "0.10.1",
+      "@react-native/metro-config": "0.86.3",
+      "react-native": "0.86.3",
+      "@types/react": "~19.2.4",
+      "@types/react-dom": "~19.2.0",
+      "react-native-reanimated": "4.5.1",
+      "react-native-gesture-handler": "~2.32.0"
     },
     "patchedDependencies": {
       "extract-zip@2.0.1": "patches/extract-zip@2.0.1.patch"
