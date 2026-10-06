@@ -1,4 +1,5 @@
 'use client';
+import { ziweiPalaceCenter } from '@tianji/ui-core';
 import { useRef, useState, type CSSProperties, type PointerEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import type { Mutagen, StarKey, ZiweiChart } from '@tianji/shared';
@@ -203,15 +204,15 @@ export function ZiweiGrid({
           points={connected
             .slice(0, 3)
             .map((p) => {
-              const [x, y] = ZIWEI_POSITIONS[p.branch];
-              return `${x * 100 + 50},${y * 100 + 50}`;
+              const { x, y } = ziweiPalaceCenter(p.branch);
+              return `${x},${y}`;
             })
             .join(' ')}
         />
         {(() => {
-          const [x, y] = ZIWEI_POSITIONS[selected.branch];
-          const [ox, oy] = ZIWEI_POSITIONS[connected[3]!.branch];
-          return <line x1={x * 100 + 50} y1={y * 100 + 50} x2={ox * 100 + 50} y2={oy * 100 + 50} />;
+          const { x, y } = ziweiPalaceCenter(selected.branch);
+          const opposite = ziweiPalaceCenter(connected[3]!.branch);
+          return <line x1={x} y1={y} x2={opposite.x} y2={opposite.y} />;
         })()}
       </svg>
     </div>

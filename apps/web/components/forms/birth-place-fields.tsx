@@ -1,4 +1,6 @@
 'use client';
+import { ApiClientError } from '@tianji/api-client';
+import { apiClient } from '@/lib/api-client';
 import type { BirthInput, NormalizedBirth } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
@@ -71,22 +73,19 @@ export function BirthPlaceFields({
           type="button"
           variant="secondary"
           onClick={() => {
-            void fetch(`/api/v1/geo/tz?lat=${birth.place?.lat ?? ''}&lng=${birth.place?.lng ?? ''}`)
-              .then((r) => r.json())
-              .then((raw: unknown) => {
-                if (
-                  raw &&
-                  typeof raw === 'object' &&
-                  'data' in raw &&
-                  raw.data &&
-                  typeof raw.data === 'object' &&
-                  'tz' in raw.data &&
-                  typeof raw.data.tz === 'string'
-                )
-                  setPlace({ tz: raw.data.tz });
-                else setError('engine.errors.E_INVALID_INPUT');
+            void apiClient
+              .lookupTimezone({
+                lat: String(birth.place?.lat ?? ''),
+                lng: String(birth.place?.lng ?? ''),
               })
-              .catch(() => setError('report.error.E_INTERNAL'));
+              .then((data) => setPlace({ tz: data.tz }))
+              .catch((error: unknown) =>
+                setError(
+                  error instanceof ApiClientError && error.kind !== 'decode'
+                    ? 'engine.errors.E_INVALID_INPUT'
+                    : 'report.error.E_INTERNAL',
+                ),
+              );
           }}
         >
           {t('form.birth.resolveTz')}

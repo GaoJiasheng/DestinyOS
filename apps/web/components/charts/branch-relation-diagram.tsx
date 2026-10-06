@@ -1,8 +1,7 @@
 'use client';
+import { BRANCH_RELATION_POINTS as POINTS } from '@tianji/ui-core';
 import { useCopy } from '@/i18n/use-copy';
 import { PILLAR_KEYS, isHighlighted, type BaziChartProps } from './bazi-shared';
-
-const POINTS = { year: [150, 40], month: [260, 150], day: [150, 260], hour: [40, 150] } as const;
 
 /** Draw natal branch relations on a diamond, retaining three-way and repeated-branch pillar identities. */
 export function BranchRelationDiagram({ chart, highlight, onSelect }: BaziChartProps) {

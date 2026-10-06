@@ -1,4 +1,5 @@
 'use client';
+import { qimenPalaceOrder } from '@tianji/ui-core';
 import { useState } from 'react';
 import type { QimenChart } from '@tianji/shared';
 import { useTranslations } from 'next-intl';
@@ -17,7 +18,7 @@ export function QimenGrid({
   const t = useTranslations('divination');
   const b = useTranslations('bazi');
   const [northUp, setNorthUp] = useState(false);
-  const order = northUp ? [6, 1, 8, 7, 5, 3, 2, 9, 4] : [4, 9, 2, 3, 5, 7, 8, 1, 6];
+  const order = qimenPalaceOrder(northUp);
   return (
     <div data-testid="qimen-chart">
       <Button variant="secondary" aria-pressed={northUp} onClick={() => setNorthUp((v) => !v)}>

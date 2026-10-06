@@ -1,4 +1,5 @@
 'use client';
+import { radarPoint } from '@tianji/ui-core';
 import { useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { brand } from '@tianji/shared/brand';
@@ -79,8 +80,7 @@ export function PrintReport({
         : v.success
           ? t(`charts.sign.${v.data.moon.rashi}`)
           : '';
-  const point = (i: number, radius: number) =>
-    `${180 + Math.sin((i * Math.PI * 2) / 5) * radius},${175 - Math.cos((i * Math.PI * 2) / 5) * radius}`;
+  const point = (i: number, radius: number) => radarPoint(i, radius, [180, 175]).join(',');
   // DESIGN-GAP: Saved reports can contain fewer than three keywords; complete the cover using existing highest-scored dimension labels, without inventing traits.
   const keywords = [
     ...new Set([

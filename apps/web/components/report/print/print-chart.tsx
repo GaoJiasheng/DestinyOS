@@ -13,7 +13,7 @@ import {
   NumerologyChartSchema,
   TAROT_SPREADS,
 } from '@tianji/shared';
-import { ZIWEI_POSITIONS } from '@/components/charts/ziwei-geometry';
+import { ZIWEI_POSITIONS, qimenPalaceOrder } from '@tianji/ui-core';
 import { NatalWheel } from '@/components/charts/natal-wheel';
 import { VedicSouthChart } from '@/components/charts/vedic-south-chart';
 /** Static vector charts retain the exact saved chart positions and translated domain labels. */
@@ -241,7 +241,7 @@ export function PrintChart({ chart }: { chart: unknown }) {
           })
         : null}
       {q.success
-        ? [4, 9, 2, 3, 5, 7, 8, 1, 6].map((index, i) => {
+        ? qimenPalaceOrder(false).map((index, i) => {
             const p = q.data.palaces.find((p) => p.index === index)!;
             const x = (i % 3) * 226,
               y = Math.floor(i / 3) * 226;

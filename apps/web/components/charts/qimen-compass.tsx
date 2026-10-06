@@ -1,4 +1,5 @@
 'use client';
+import { compassSector } from '@tianji/ui-core';
 import type { Direction } from '@tianji/shared';
 import { useTranslations } from 'next-intl';
 const directions: Direction[] = [
@@ -25,21 +26,15 @@ export function QimenCompass({
       <figcaption>{t('compass')}</figcaption>
       <svg viewBox="0 0 300 300" role="img" aria-label={t('compass')}>
         {directions.map((d, i) => {
-          const angle = ((i * 45 + (northUp ? 0 : 180)) * Math.PI) / 180;
-          const start = angle - Math.PI / 8;
-          const end = angle + Math.PI / 8;
+          const sector = compassSector(i, northUp);
           const good = favorableDirections.includes(d);
           return (
             <g key={d}>
               <path
-                d={`M150 150 L${150 + 110 * Math.sin(start)} ${150 - 110 * Math.cos(start)} A110 110 0 0 1 ${150 + 110 * Math.sin(end)} ${150 - 110 * Math.cos(end)} Z`}
+                d={`M150 150 L${sector.start.x} ${sector.start.y} A110 110 0 0 1 ${sector.end.x} ${sector.end.y} Z`}
                 className={good ? 'favorable-sector' : 'compass-sector'}
               />
-              <text
-                x={150 + 130 * Math.sin(angle)}
-                y={154 - 130 * Math.cos(angle)}
-                textAnchor="middle"
-              >
+              <text x={sector.label.x} y={sector.label.y} textAnchor="middle">
                 {t(`directions.${d}`)}
                 {good ? ' ✓' : ''}
               </text>

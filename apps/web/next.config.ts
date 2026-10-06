@@ -4,7 +4,14 @@ import { resolve } from 'node:path';
 import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
-  transpilePackages: ['@tianji/shared', '@tianji/engine', '@tianji/interpret', '@tianji/content'],
+  transpilePackages: [
+    '@tianji/shared',
+    '@tianji/engine',
+    '@tianji/interpret',
+    '@tianji/content',
+    '@tianji/ui-core',
+    '@tianji/api-client',
+  ],
   serverExternalPackages: [
     // DESIGN-GAP: Let OpenNext bundle shared libraries once instead of duplicating them in Next's RSC and SSR chunks; browser bundles keep their normal imports.
     'lunar-typescript',

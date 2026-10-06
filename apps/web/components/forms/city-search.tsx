@@ -2,17 +2,8 @@
 import { useEffect, useId, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
-import type { BirthInput } from '@tianji/shared';
-import { z } from 'zod';
-const city = z.object({
-  name: z.string(),
-  country: z.string(),
-  admin: z.string(),
-  lat: z.number(),
-  lng: z.number(),
-  tz: z.string(),
-});
-type City = z.infer<typeof city>;
+import type { BirthInput, City } from '@tianji/shared';
+import { apiClient } from '@/lib/api-client';
 /** Accessible city autocomplete; aborted requests cannot replace a newer query's matches. */
 export function CitySearch({
   place,
@@ -37,15 +28,15 @@ export function CitySearch({
     const abort = new AbortController();
     const timer = setTimeout(() => {
       setState('loading');
-      void fetch(`/api/v1/geo/search?${new URLSearchParams({ q: query, locale })}`, {
-        signal: abort.signal,
-      })
-        .then((res) => res.json())
-        .then((raw: unknown) => {
-          const data = z.object({ ok: z.literal(true), data: z.array(city) }).parse(raw);
-          setResults(data.data);
+      void apiClient
+        .searchCities(
+          { q: query, locale: locale as 'zh' | 'en' | 'zh-TW' },
+          { signal: abort.signal },
+        )
+        .then((data) => {
+          setResults(data);
           setActive(0);
-          setState(data.data.length ? 'ready' : 'empty');
+          setState(data.length ? 'ready' : 'empty');
         })
         .catch(() => {
           if (!abort.signal.aborted) setState('error');

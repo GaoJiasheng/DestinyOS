@@ -1,10 +1,7 @@
-import { z } from 'zod';
+import { GeoTimezoneRequestSchema } from '@tianji/shared';
 import { lookupTimezone } from '@/lib/platform/timezone';
 import { ApiError, errorResponse } from '@/lib/api-error';
-const schema = z.object({
-  lat: z.string().trim().min(1).pipe(z.coerce.number().finite().min(-90).max(90)),
-  lng: z.string().trim().min(1).pipe(z.coerce.number().finite().min(-180).max(180)),
-});
+const schema = GeoTimezoneRequestSchema;
 /** Resolve WGS84 degrees to an IANA timezone using local geo-tz boundary data. */
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;

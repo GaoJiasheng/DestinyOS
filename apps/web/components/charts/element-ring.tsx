@@ -1,12 +1,12 @@
 'use client';
+import { elementRingSegments } from '@tianji/ui-core';
 import { useCopy } from '@/i18n/use-copy';
 import { ELEMENTS, isHighlighted, type BaziChartProps } from './bazi-shared';
 
 /** Five SVG arcs use the snapshot percentages, with textual percentages for non-color readers. */
 export function ElementRing({ chart, highlight, onSelect }: BaziChartProps) {
   const t = useCopy();
-  let offset = 0;
-  const total = ELEMENTS.reduce((sum, element) => sum + chart.elements.pct[element], 0);
+  const segments = elementRingSegments(chart.elements.pct);
   return (
     <section className="bazi-component" data-chart-path="elements" tabIndex={-1}>
       <h3>{t('bazi.chart.elements')}</h3>
@@ -17,12 +17,7 @@ export function ElementRing({ chart, highlight, onSelect }: BaziChartProps) {
         aria-label={t('bazi.chart.elements')}
       >
         <circle cx={120} cy={120} r={88} fill="none" stroke="var(--line-2)" strokeWidth={18} />
-        {ELEMENTS.map((element) => {
-          const pct = chart.elements.pct[element];
-          // DESIGN-GAP: Normalize rounded engine percentages only for arc geometry; labels preserve the snapshot values.
-          const length = total > 0 ? (pct / total) * 100 : 0;
-          const start = offset;
-          offset += length;
+        {segments.map(({ element, pct, length, start }) => {
           return (
             <circle
               key={element}

@@ -1,17 +1,15 @@
 'use client';
+import { radarPoint, SCORE_DIMENSIONS } from '@tianji/ui-core';
 import { motion, useReducedMotion } from 'motion/react';
 import type { Report } from '@tianji/interpret';
 import { useCopy } from '@/i18n/use-copy';
 import { ReportText } from './report-text';
-const dims = ['career', 'wealth', 'love', 'health', 'social'] as const;
+const dims = SCORE_DIMENSIONS;
 /** Animated SVG radar includes a text table so dimension scores never rely on color or geometry. */
 export function ScoreRadar({ scores }: { scores: Report['headline']['scores'] }) {
   const t = useCopy();
   const reduced = useReducedMotion();
-  const point = (i: number, r: number) => [
-    150 + Math.sin((i * 2 * Math.PI) / 5) * r,
-    145 - Math.cos((i * 2 * Math.PI) / 5) * r,
-  ];
+  const point = radarPoint;
   return (
     <div className="score-radar">
       <svg viewBox="0 0 300 300" role="img" aria-label={t('report.radar')}>

@@ -39,6 +39,7 @@ export async function checkLicenses(): Promise<number> {
     'apps/web',
     'apps/mobile',
     'packages/ui-core',
+    'packages/api-client',
     'packages/shared',
     'packages/config',
     'packages/engine',

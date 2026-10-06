@@ -32,3 +32,4 @@ export * from './schemas/rectification';
 export * from './schemas/charts/synastry';
 
 export * from './schemas/journal';
+export * from './schemas/api';

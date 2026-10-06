@@ -1,8 +1,8 @@
-import { Element, type BaziChart, type PillarKey } from '@tianji/shared';
+import type { BaziChart } from '@tianji/shared';
+import { PILLAR_KEYS } from '@tianji/ui-core';
+export { PILLAR_KEYS, ELEMENTS } from '@tianji/ui-core';
 import { parsePath } from '@tianji/content';
 
-export const PILLAR_KEYS: readonly PillarKey[] = ['year', 'month', 'day', 'hour'];
-export const ELEMENTS = Object.values(Element);
 export type BaziChartProps = {
   chart: BaziChart;
   highlight?: string;
