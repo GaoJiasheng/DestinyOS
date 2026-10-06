@@ -30,6 +30,18 @@ jobs:
       - run: pnpm i18n:check
       - run: pnpm build
       - run: pnpm perf:budgets
+      # DESIGN-GAP: Production latency is checked independently of Lighthouse; Owner can skip until the reviewed Worker is deployed.
+      - run: pnpm perf:ttfb
+        env:
+          PERF_TTFB_SKIP: ${{ vars.PERF_TTFB_SKIP }}
+          PERF_TTFB_URL: ${{ vars.PERF_TTFB_URL }}
+          PERF_TTFB_COOKIE: ${{ secrets.PERF_TTFB_COOKIE }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-ttfb
+          path: .test-data/perf-ttfb.json
+          if-no-files-found: ignore
       - run: pnpm perf:ci
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v4

@@ -1,19 +1,21 @@
 import { resourceText } from './platform/resources';
 import type { KnowledgeBundle } from '@tianji/content';
 import type { System, Locale } from '@tianji/shared';
-import { getDb } from './db';
-import { loadSnapshot } from './db-snapshot';
-import { cacheRead, cacheWrite } from './cache';
 const bundled = new Map<string, Promise<KnowledgeBundle>>();
+// DESIGN-GAP: Immutable versioned snapshots have an isolate-local, bounded cache; the release pointer is still checked on every request.
+const published = new Map<string, KnowledgeBundle>();
 /** Read the validated build-time fallback without resolving a database release. */
 export async function bundledKnowledge(system: System, locale: Locale): Promise<KnowledgeBundle> {
   const key = `${system}.${locale === 'en' ? 'en' : 'zh'}`;
   let bundle = bundled.get(key);
   if (!bundle) {
     // DESIGN-GAP: Build validates the complete corpus; trusted compiled artifacts are typed at this filesystem boundary.
-    bundle = resourceText(`../../packages/content/dist/${key}.json`).then(
-      (text) => JSON.parse(text) as KnowledgeBundle,
-    );
+    bundle = resourceText(`../../packages/content/dist/${key}.json`)
+      .then((text) => JSON.parse(text) as KnowledgeBundle)
+      .catch((error: unknown) => {
+        bundled.delete(key);
+        throw error;
+      });
     bundled.set(key, bundle);
   }
   return bundle;
@@ -28,6 +30,11 @@ export async function loadKnowledge(
   if (process.env.NEXT_PHASE === 'phase-production-build' || version === fallback.knowledgeVersion)
     return fallback;
   try {
+    // DESIGN-GAP: Published snapshots need ORM only after the immutable fallback/version fast path.
+    const [{ getDb }, { cacheRead, cacheWrite }] = await Promise.all([
+      import('./db'),
+      import('./cache'),
+    ]);
     const release = version
       ? await getDb().knowledgeRelease.findUnique({ where: { version }, select: { version: true } })
       : await getDb().knowledgeRelease.findFirst({
@@ -36,9 +43,16 @@ export async function loadKnowledge(
         });
     if (!release) return fallback;
     const key = `knowledge:${release.version}:${system}:${locale}`;
+    const inMemory = published.get(key);
+    if (inMemory) return inMemory;
+    const remember = (bundle: KnowledgeBundle) => {
+      if (published.size >= 24) published.delete(published.keys().next().value!);
+      published.set(key, bundle);
+      return bundle;
+    };
     try {
       const cached = await cacheRead<KnowledgeBundle>(key);
-      if (cached) return cached;
+      if (cached) return remember(cached);
     } catch {
       /* Use DB snapshot. */
     }
@@ -48,9 +62,13 @@ export async function loadKnowledge(
       select: { bundles: true },
     });
     if (!stored?.bundles) return fallback;
-    const snapshots = (await loadSnapshot(release.version, stored.bundles)) as Partial<
-      Record<System, KnowledgeBundle>
-    >;
+    const { loadSnapshot } = await import('./db-snapshot');
+    const snapshots = (await loadSnapshot(
+      release.version,
+      stored.bundles,
+      undefined,
+      system,
+    )) as Partial<Record<System, KnowledgeBundle>>;
     const snapshot = snapshots[system];
     if (!snapshot) return fallback;
     const bundle = { ...snapshot, knowledgeVersion: release.version };
@@ -59,7 +77,7 @@ export async function loadKnowledge(
     } catch {
       /* Cache outages do not change the release. */
     }
-    return bundle;
+    return remember(bundle);
   } catch {
     return fallback;
   }

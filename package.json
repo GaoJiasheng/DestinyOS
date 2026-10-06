@@ -74,7 +74,8 @@
     "db:remote": "pnpm --filter @tianji/web exec wrangler d1 migrations apply destinyos --remote",
     "cf:smoke": "tsx scripts/cloudflare-smoke.ts",
     "mobile:fonts": "python3 apps/mobile/scripts/font-subsets.py",
-    "test:web-nopay:e2e": "playwright test --config playwright.web-nopay.config.ts"
+    "test:web-nopay:e2e": "playwright test --config playwright.web-nopay.config.ts",
+    "perf:ttfb": "tsx scripts/perf-ttfb.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

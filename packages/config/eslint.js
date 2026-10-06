@@ -33,7 +33,7 @@ export default tseslint.config(
       ],
     },
   },
-  { files: ['apps/web/lib/platform/logger.ts'], rules: { 'no-restricted-syntax': 'off' } },
+  { files: ['apps/web/lib/platform/logger-sink.ts'], rules: { 'no-restricted-syntax': 'off' } },
   js.configs.recommended,
   {
     files: ['apps/mobile/**/*.cjs'],

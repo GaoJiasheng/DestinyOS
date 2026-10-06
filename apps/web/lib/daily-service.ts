@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { BirthInputSchema, DailyChartSchema, type Locale } from '@tianji/shared';
-import { ENGINE_VERSION } from '@tianji/engine';
+import { ENGINE_VERSION } from '@tianji/engine/version';
 import { currentProfile, ownedProfile } from './profile-service';
 import { loadKnowledge } from './knowledge';
 import { cacheRead, cacheWrite } from './cache';

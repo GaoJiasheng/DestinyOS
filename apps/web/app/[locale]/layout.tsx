@@ -1,4 +1,3 @@
-import { localeText } from '@tianji/shared/locale';
 import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -6,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { brand } from '@tianji/shared/brand';
 import { routing, isLocale } from '@/i18n/routing';
 import { getCopy } from '@/i18n/get-copy';
+import { shellMessages } from '@/i18n/client-messages';
 import { Providers } from '@/components/providers';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
@@ -13,9 +13,7 @@ import { Starfield } from '@/components/three/starfield';
 import { FontLoader } from '@/components/pwa/font-loader';
 import { InstallPrompt } from '@/components/pwa/install-prompt';
 import { Disclaimer } from '@/components/disclaimer';
-import { siteConfig } from '@/lib/site-config';
-import { SiteNotice } from '@/components/site-notice';
-import { SiteMaintenance } from '@/components/site-maintenance';
+import { SiteSettings } from '@/components/site-settings';
 import { AdsProvider } from '@/components/ads/ads-provider';
 import './fonts.css';
 import '@fontsource/cinzel/600.css';
@@ -70,13 +68,12 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
-  const settings = await siteConfig();
   const messages = await getMessages();
   const t = await getCopy();
   return (
     <html lang={locale} data-theme="neutral" suppressHydrationWarning>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={shellMessages(messages)}>
           <Providers>
             <AdsProvider>
               <Starfield />
@@ -85,13 +82,7 @@ export default async function LocaleLayout({
               </a>
               <Navigation />
               <main id="main" tabIndex={-1}>
-                <SiteNotice
-                  announcement={{
-                    ...settings.announcement,
-                    zh: localeText(settings.announcement.zh, locale),
-                  }}
-                />
-                <SiteMaintenance enabled={settings.maintenance}>{children}</SiteMaintenance>
+                <SiteSettings>{children}</SiteSettings>
               </main>
               <Footer />
               <Disclaimer />

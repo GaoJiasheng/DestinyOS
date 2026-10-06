@@ -9,9 +9,8 @@ import { Button } from '@/components/ui/button';
 import { ReadingLauncher } from '@/components/navigation';
 import { systems } from '@/lib/system-links';
 import { HomeInsights } from '@/components/home/home-insights';
-import { computeHomeInsights } from '@/lib/home-insights';
 import { SystemSymbol } from '@/components/home/system-symbol';
-export const revalidate = 60;
+export const revalidate = 3600;
 /** The homepage canonical uses its selected BCP 47 route. */
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   return publicRouteMetadata(params, '');
@@ -79,9 +78,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <span className="hero-line" />
         </div>
       </section>
-      <HomeInsights
-        initialSky={computeHomeInsights(undefined, new Date().toISOString(), 'UTC').sky}
-      />
+      <HomeInsights />
       <section id="systems" className="home-section" aria-labelledby="systems-heading">
         <p className="eyebrow">{t('home.cards.eyebrow')}</p>
         <h2 id="systems-heading">{t('home.cards.title')}</h2>

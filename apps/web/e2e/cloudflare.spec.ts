@@ -226,3 +226,49 @@ test('cost circuit blocks pages and expensive APIs; Cron stays reachable and man
   }
   expect((await request.get('/en/pricing')).status()).toBe(200);
 });
+
+// DESIGN-GAP: Exercise real workerd Cache API and client navigation, rather than accepting fast SSR as an edge hit.
+test('public HTML cache, lightweight health, RSC isolation and deferred qimen remain functional', async ({
+  page,
+  request,
+}) => {
+  await request.post('/_smoke/circuit', { data: { state: 'closed' } });
+  for (const path of [
+    '/zh',
+    '/en',
+    '/zh/tarot',
+    '/zh/qimen',
+    '/zh/bazi',
+    '/zh/learn',
+    '/zh/privacy',
+  ]) {
+    const first = await request.get(path);
+    expect(first.status()).toBe(200);
+    await first.body();
+    await expect
+      .poll(async () => (await request.get(path)).headers()['x-destiny-cache'])
+      .toBe('HIT');
+    const hit = await request.get(path);
+    expect(hit.headers()['cache-control']).toContain('s-maxage=3600');
+    expect(hit.headers()['set-cookie'] ?? '').not.toContain('session-token');
+    expect(hit.headers()['server-timing']).not.toContain('open-next-init');
+    if (path === '/zh' || path === '/en')
+      expect((await hit.body()).length).toBeLessThanOrEqual(120000);
+  }
+  const rsc = await request.get('/zh/tarot?_rsc=perf', { headers: { RSC: '1' } });
+  expect(rsc.headers()['content-type']).toContain('text/x-component');
+  expect(rsc.headers()['x-destiny-cache']).toBeUndefined();
+  expect((await request.get('/zh?perf=1')).headers()['x-destiny-cache']).toBeUndefined();
+  const health = await request.get('/api/v1/health');
+  expect(await health.json()).toMatchObject({ ok: true, db: true, redis: true });
+  await expect
+    .poll(async () => (await request.get('/api/v1/health')).headers()['x-destiny-health'])
+    .toBe('HIT');
+  await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
+  await page.goto('/zh');
+  await page.locator('[data-home-system="tarot"]').click();
+  await expect(page).toHaveURL(/\/zh\/tarot$/);
+  await expect(page.getByLabel(zh['tarot.question'], { exact: true })).toBeVisible();
+  await page.goto('/zh/qimen');
+  await expect(page.locator('textarea')).toBeVisible();
+});

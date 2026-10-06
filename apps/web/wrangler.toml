@@ -37,11 +37,16 @@ name = "EMAIL"
 [triggers]
 crons = ["0 3 * * *", "0 * * * *"]
 
+[version_metadata]
+binding = "CF_VERSION_METADATA"
+
 [observability]
 enabled = true
 
 [vars]
 PLATFORM = "cloudflare"
+# DESIGN-GAP: Safe request phase timings for production tail/Observability after Owner deploys.
+PERF_OBSERVABILITY = "true"
 EMAIL_FROM = "noreply@mail.gavin.pub"
 EMAIL_FROM_NAME = "天机 DestinyOS"
 AUTH_TRUST_HOST = "true"

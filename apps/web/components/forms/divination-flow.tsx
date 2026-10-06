@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { interpret } from '@tianji/interpret';
-import { ENGINE_VERSION } from '@tianji/engine';
+import { ENGINE_VERSION } from '@tianji/engine/version';
 import { Solar } from 'lunar-typescript';
 import { type IchingChart, type QimenChart } from '@tianji/shared';
 import type { KnowledgeBundle } from '@tianji/content';

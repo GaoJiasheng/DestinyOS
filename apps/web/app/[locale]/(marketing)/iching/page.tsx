@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+export const revalidate = 3600;
 /** Four documented methods lead to the shared question and casting ritual. */
 export default async function IchingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -3,7 +3,7 @@ import { TarotMessages } from '@/components/tarot/tarot-messages';
 import { TarotRitual } from '@/components/tarot/tarot-ritual';
 import { loadKnowledge } from '@/lib/knowledge';
 import { auth } from '@/lib/auth';
-import { ENGINE_VERSION } from '@tianji/engine';
+import { ENGINE_VERSION } from '@tianji/engine/version';
 export const dynamic = 'force-dynamic';
 export const metadata = { robots: { index: false, follow: false } };
 /** Preload the bilingual knowledge bundle so the entire anonymous ritual works without later network requests. */
