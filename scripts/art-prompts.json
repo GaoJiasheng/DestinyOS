@@ -1,0 +1,433 @@
+{
+  "base": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights.",
+  "variants": [
+    " Candidate A: balanced close detail, restrained glow, museum copperplate fidelity.",
+    " Candidate B: slightly more airy watercolor edges and softer top light, still densely hand-engraved artisan texture."
+  ],
+  "assets": [
+    {
+      "id": "systems/bazi",
+      "subject": "Four ancient bronze destiny tablets standing among ink-wash clouds, carved bamboo texture and restrained cinnabar seal-shaped pigment without lettering.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Four ancient bronze destiny tablets standing among ink-wash clouds, carved bamboo texture and restrained cinnabar seal-shaped pigment without lettering. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/bazi-banner",
+      "subject": "Four ancient bronze destiny tablets standing among ink-wash clouds, carved bamboo texture and restrained cinnabar seal-shaped pigment without lettering. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Four ancient bronze destiny tablets standing among ink-wash clouds, carved bamboo texture and restrained cinnabar seal-shaped pigment without lettering. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/ziwei",
+      "subject": "Imperial Chinese celestial map painted on aged indigo silk, golden star officers represented by tiny antique star jewels around a luminous pole star, misty cloud relief.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Imperial Chinese celestial map painted on aged indigo silk, golden star officers represented by tiny antique star jewels around a luminous pole star, misty cloud relief. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/ziwei-banner",
+      "subject": "Imperial Chinese celestial map painted on aged indigo silk, golden star officers represented by tiny antique star jewels around a luminous pole star, misty cloud relief. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Imperial Chinese celestial map painted on aged indigo silk, golden star officers represented by tiny antique star jewels around a luminous pole star, misty cloud relief. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/iching",
+      "subject": "Ancient tortoise shell, three square-hole bronze coins, carved trigram relief fragments and an unfurled aged rice-paper scroll, ink mist with cinnabar dust.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Ancient tortoise shell, three square-hole bronze coins, carved trigram relief fragments and an unfurled aged rice-paper scroll, ink mist with cinnabar dust. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/iching-banner",
+      "subject": "Ancient tortoise shell, three square-hole bronze coins, carved trigram relief fragments and an unfurled aged rice-paper scroll, ink mist with cinnabar dust. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Ancient tortoise shell, three square-hole bronze coins, carved trigram relief fragments and an unfurled aged rice-paper scroll, ink mist with cinnabar dust. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/qimen",
+      "subject": "Elaborate antique bronze luopan compass with nine inset chambers and cloud relief, floating dark ink-wash mist and a cinnabar tassel; no inscriptions.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Elaborate antique bronze luopan compass with nine inset chambers and cloud relief, floating dark ink-wash mist and a cinnabar tassel; no inscriptions. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/qimen-banner",
+      "subject": "Elaborate antique bronze luopan compass with nine inset chambers and cloud relief, floating dark ink-wash mist and a cinnabar tassel; no inscriptions. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Elaborate antique bronze luopan compass with nine inset chambers and cloud relief, floating dark ink-wash mist and a cinnabar tassel; no inscriptions. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/tarot",
+      "subject": "Three richly engraved antique tarot backs fanning over midnight velvet, one luminous moon medallion, Gothic tracery as hand-carved brass ornament.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Three richly engraved antique tarot backs fanning over midnight velvet, one luminous moon medallion, Gothic tracery as hand-carved brass ornament. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/tarot-banner",
+      "subject": "Three richly engraved antique tarot backs fanning over midnight velvet, one luminous moon medallion, Gothic tracery as hand-carved brass ornament. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Three richly engraved antique tarot backs fanning over midnight velvet, one luminous moon medallion, Gothic tracery as hand-carved brass ornament. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/astrology",
+      "subject": "Museum-quality brass astrolabe with sculpted zodiac animal relief around its rim, tiny planets, oil-painted indigo nebula, fine alchemical decorative strokes without writing.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Museum-quality brass astrolabe with sculpted zodiac animal relief around its rim, tiny planets, oil-painted indigo nebula, fine alchemical decorative strokes without writing. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/astrology-banner",
+      "subject": "Museum-quality brass astrolabe with sculpted zodiac animal relief around its rim, tiny planets, oil-painted indigo nebula, fine alchemical decorative strokes without writing. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Museum-quality brass astrolabe with sculpted zodiac animal relief around its rim, tiny planets, oil-painted indigo nebula, fine alchemical decorative strokes without writing. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/vedic",
+      "subject": "Antique gold lotus mandala, nine individual jewel cabochons, hand-carved petals and saffron orange pigment aura, soft painted cosmic mist.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Antique gold lotus mandala, nine individual jewel cabochons, hand-carved petals and saffron orange pigment aura, soft painted cosmic mist. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/vedic-banner",
+      "subject": "Antique gold lotus mandala, nine individual jewel cabochons, hand-carved petals and saffron orange pigment aura, soft painted cosmic mist. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Antique gold lotus mandala, nine individual jewel cabochons, hand-carved petals and saffron orange pigment aura, soft painted cosmic mist. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/numerology",
+      "subject": "Ancient brass divination abacus with nine jewel beads, sculptural winding golden threads and tiny stars, worn alchemical parchment without writing or digits.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Ancient brass divination abacus with nine jewel beads, sculptural winding golden threads and tiny stars, worn alchemical parchment without writing or digits. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/numerology-banner",
+      "subject": "Ancient brass divination abacus with nine jewel beads, sculptural winding golden threads and tiny stars, worn alchemical parchment without writing or digits. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Ancient brass divination abacus with nine jewel beads, sculptural winding golden threads and tiny stars, worn alchemical parchment without writing or digits. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "systems/synastry",
+      "subject": "Two ornate brass celestial spheres interlocked by flowing hand-engraved gold ribbons, paired sun and moon medallions, velvety indigo cloud and warm starlight.",
+      "width": 1536,
+      "height": 1536,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Two ornate brass celestial spheres interlocked by flowing hand-engraved gold ribbons, paired sun and moon medallions, velvety indigo cloud and warm starlight. Canvas: 1536x1536. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "systems/synastry-banner",
+      "subject": "Two ornate brass celestial spheres interlocked by flowing hand-engraved gold ribbons, paired sun and moon medallions, velvety indigo cloud and warm starlight. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading.",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Two ornate brass celestial spheres interlocked by flowing hand-engraved gold ribbons, paired sun and moon medallions, velvety indigo cloud and warm starlight. Wide editorial composition; subject centered in right third, left 55% quiet navy negative space for live bilingual heading. Canvas: 1920x1080. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/single",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly ONE upright face-down tarot card centered, navy velvet fabric, understated crescent highlight. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly ONE upright face-down tarot card centered, navy velvet fabric, understated crescent highlight. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/yes-no",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly ONE upright face-down tarot card centered, antique moon-and-sun medallions resting on opposite sides, purple velvet. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly ONE upright face-down tarot card centered, antique moon-and-sun medallions resting on opposite sides, purple velvet. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/three-ppf",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly THREE upright face-down tarot cards equally spaced in a horizontal row at mid-height, velvet and softly painted cloud. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly THREE upright face-down tarot cards equally spaced in a horizontal row at mid-height, velvet and softly painted cloud. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/three-sao",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly THREE upright face-down tarot cards equally spaced in a horizontal row at mid-height, slightly warmer bronze rim lighting, midnight velvet. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly THREE upright face-down tarot cards equally spaced in a horizontal row at mid-height, slightly warmer bronze rim lighting, midnight velvet. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/relationship",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly FIVE upright face-down tarot cards: one upper center, one middle left, one middle right, one center, one lower center; widely spaced cross arrangement. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly FIVE upright face-down tarot cards: one upper center, one middle left, one middle right, one center, one lower center; widely spaced cross arrangement. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/decision",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly FIVE upright face-down tarot cards: one center, two in left column at upper and lower positions, two in right column at upper and lower positions. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly FIVE upright face-down tarot cards: one center, two in left column at upper and lower positions, two in right column at upper and lower positions. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/celtic-cross",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly TEN face-down tarot cards: left group six cards, one upright at center-left crossed by ONE horizontal card, one above, one below, one to left, one to right; separate column of FOUR upright cards on right. Clear traditional Celtic Cross arrangement. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly TEN face-down tarot cards: left group six cards, one upright at center-left crossed by ONE horizontal card, one above, one below, one to left, one to right; separate column of FOUR upright cards on right. Clear traditional Celtic Cross arrangement. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "spreads/year-ahead",
+      "subject": "Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly THIRTEEN upright face-down tarot cards: twelve spaced around a circular clock arrangement plus one central upright card. Entire ring must fit inside the frame, all twelve cards distinct and countable. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Top-down painted tableau, embossed gold-foil card backs with delicate engraved moon motifs placed on tactile midnight velvet and subtle nebula dust. Exactly THIRTEEN upright face-down tarot cards: twelve spaced around a circular clock arrangement plus one central upright card. Entire ring must fit inside the frame, all twelve cards distinct and countable. No extra cards, no labels, no digits; clear physical card silhouettes and no warped edges. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "tarot/card-back",
+      "subject": "Single flat rectangular tarot card back, edge-to-edge vertical design, deep purple night sky and distressed gold foil eight-point star, moon-phase ring, intricate hand-engraved botanical frame, symmetric clean silhouette. No rounded canvas corners.",
+      "width": 1200,
+      "height": 2100,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Single flat rectangular tarot card back, edge-to-edge vertical design, deep purple night sky and distressed gold foil eight-point star, moon-phase ring, intricate hand-engraved botanical frame, symmetric clean silhouette. No rounded canvas corners. Canvas: 1200x2100. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "hero/galaxy",
+      "subject": "Panoramic low-saturation Milky Way nebula painted in ink and oil glazes, fine gold star dust, large quiet dark central area for heading text, very subtle illumination, no objects or ornamental circles.",
+      "width": 3840,
+      "height": 2160,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Panoramic low-saturation Milky Way nebula painted in ink and oil glazes, fine gold star dust, large quiet dark central area for heading text, very subtle illumination, no objects or ornamental circles. Canvas: 3840x2160. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "hero/ink-clouds",
+      "subject": "Airy traditional Chinese ink-wash cloud curls with faint gold dust at edges, translucent rice-paper fibers, mostly empty center, delicate low-opacity overlay.",
+      "width": 2048,
+      "height": 2048,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Airy traditional Chinese ink-wash cloud curls with faint gold dust at edges, translucent rice-paper fibers, mostly empty center, delicate low-opacity overlay. Canvas: 2048x2048. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "states/no-profile",
+      "subject": "An empty antique bronze portrait locket beside a folded silk ribbon and small guiding star, inviting calm.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: An empty antique bronze portrait locket beside a folded silk ribbon and small guiding star, inviting calm. Canvas: 1024x1024. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "states/no-report",
+      "subject": "An unfilled antique manuscript book with blank parchment pages, brass bookmark and quiet dust of stars, waiting to be opened.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: An unfilled antique manuscript book with blank parchment pages, brass bookmark and quiet dust of stars, waiting to be opened. Canvas: 1024x1024. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "states/offline",
+      "subject": "A tiny antique observatory lantern with its flame softly sheltered by blue ink clouds, solitary constellation fading into mist.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: A tiny antique observatory lantern with its flame softly sheltered by blue ink clouds, solitary constellation fading into mist. Canvas: 1024x1024. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "states/error",
+      "subject": "Dense painterly ink clouds gently hiding a crescent moon and distant gold stars, the celestial secret temporarily veiled, reassuring not ominous.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Dense painterly ink clouds gently hiding a crescent moon and distant gold stars, the celestial secret temporarily veiled, reassuring not ominous. Canvas: 1024x1024. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "states/login",
+      "subject": "An ornate antique brass key beside an open celestial gate made of hand-carved bronze and soft starlight, welcoming, no person.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: An ornate antique brass key beside an open celestial gate made of hand-carved bronze and soft starlight, welcoming, no person. Canvas: 1024x1024. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "states/disclaimer",
+      "subject": "An antique brass astrolabe resting beside an unfurled blank manuscript scroll, delicate guiding star, scholarly and reflective.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: An antique brass astrolabe resting beside an unfurled blank manuscript scroll, delicate guiding star, scholarly and reflective. Canvas: 1024x1024. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "share/chart-portrait",
+      "subject": "Antique star-chart fragments and subtle gilded bronze celestial instruments along outer edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. portrait poster background.",
+      "width": 1080,
+      "height": 1920,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Antique star-chart fragments and subtle gilded bronze celestial instruments along outer edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. portrait poster background. Canvas: 1080x1920. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "share/chart-landscape",
+      "subject": "Antique star-chart fragments and subtle gilded bronze celestial instruments along outer edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. landscape poster background.",
+      "width": 1200,
+      "height": 630,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Antique star-chart fragments and subtle gilded bronze celestial instruments along outer edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. landscape poster background. Canvas: 1200x630. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "share/quote-portrait",
+      "subject": "Hand-painted indigo velvet folds with gold-leaf botanical and crescent embellishment confined to the corners. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. portrait poster background.",
+      "width": 1080,
+      "height": 1920,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Hand-painted indigo velvet folds with gold-leaf botanical and crescent embellishment confined to the corners. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. portrait poster background. Canvas: 1080x1920. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "share/quote-landscape",
+      "subject": "Hand-painted indigo velvet folds with gold-leaf botanical and crescent embellishment confined to the corners. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. landscape poster background.",
+      "width": 1200,
+      "height": 630,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Hand-painted indigo velvet folds with gold-leaf botanical and crescent embellishment confined to the corners. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. landscape poster background. Canvas: 1200x630. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "share/daily-portrait",
+      "subject": "Low-saturation sunrise starlight, tiny antique sun and moon relief and fine gold dust confined to top and bottom edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. portrait poster background.",
+      "width": 1080,
+      "height": 1920,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Low-saturation sunrise starlight, tiny antique sun and moon relief and fine gold dust confined to top and bottom edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. portrait poster background. Canvas: 1080x1920. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "share/daily-landscape",
+      "subject": "Low-saturation sunrise starlight, tiny antique sun and moon relief and fine gold dust confined to top and bottom edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. landscape poster background.",
+      "width": 1200,
+      "height": 630,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Low-saturation sunrise starlight, tiny antique sun and moon relief and fine gold dust confined to top and bottom edges. Empty text-safe interior: keep central 80% width and 75% height extremely dark and flat in tone, NO central object; decorations only outer edges. A subtle engraved outer frame. No text, no chart, no labels. landscape poster background. Canvas: 1200x630. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "brand/app-icon",
+      "subject": "An original antique gilded celestial mechanism: richly engraved bronze armillary sphere cradling a luminous north star and delicate moon, strong single silhouette centered within middle 65% for maskable safe area, opaque ink-navy square, no rounded corners, no text.",
+      "width": 1024,
+      "height": 1024,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: An original antique gilded celestial mechanism: richly engraved bronze armillary sphere cradling a luminous north star and delicate moon, strong single silhouette centered within middle 65% for maskable safe area, opaque ink-navy square, no rounded corners, no text. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "brand/og-default",
+      "subject": "Quiet midnight ink nebula with a small magnificent gilded celestial armillary sphere at the far right, delicate gold dust in outer edges, left 70% completely dark text-safe space, no words.",
+      "width": 1200,
+      "height": 630,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Quiet midnight ink nebula with a small magnificent gilded celestial armillary sphere at the far right, delicate gold dust in outer edges, left 70% completely dark text-safe space, no words. Canvas: 1200x630. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "brand/apple-launch",
+      "subject": "Centered tiny gilded celestial armillary sphere cradling luminous north star in an expansive quiet ink-navy painted sky, soft subdued nebula far from center, restrained, no words.",
+      "width": 2732,
+      "height": 2732,
+      "alpha": false,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Centered tiny gilded celestial armillary sphere cradling luminous north star in an expansive quiet ink-navy painted sky, soft subdued nebula far from center, restrained, no words. Canvas: 2732x2732. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space."
+    },
+    {
+      "id": "daily/lucky-color",
+      "subject": "A small carved antique brass painter's dish containing jewel-colored mineral pigments, fine gilded rim.",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: A small carved antique brass painter's dish containing jewel-colored mineral pigments, fine gilded rim. Canvas: 512x512. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "daily/lucky-number",
+      "subject": "Nine tiny antique golden abacus beads on a richly carved miniature brass rod, no written digits.",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Nine tiny antique golden abacus beads on a richly carved miniature brass rod, no written digits. Canvas: 512x512. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "daily/direction",
+      "subject": "A miniature ornate antique bronze compass with an elegant sculptural pointing needle and engraved cloud rim, no letters.",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: A miniature ornate antique bronze compass with an elegant sculptural pointing needle and engraved cloud rim, no letters. Canvas: 512x512. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "daily/hour",
+      "subject": "A tiny antique brass hourglass with luminous gold sand and finely engraved frame, no numerals.",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: A tiny antique brass hourglass with luminous gold sand and finely engraved frame, no numerals. Canvas: 512x512. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "daily/benefactor",
+      "subject": "Two delicately painted hands supporting a small guiding golden star, anatomically correct five fingers on each hand, antique engraved cuff ornaments.",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Two delicately painted hands supporting a small guiding golden star, anatomically correct five fingers on each hand, antique engraved cuff ornaments. Canvas: 512x512. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "daily/do-dont",
+      "subject": "A miniature antique balance with one golden feather and one dark stone, hand-engraved brass, thoughtful and serene.",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: A miniature antique balance with one golden feather and one dark stone, hand-engraved brass, thoughtful and serene. Canvas: 512x512. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "charts/qimen",
+      "subject": "Square antique bronze plate with a richly engraved outer cloud border, no lines or grids across interior. Functional chart underlay, the middle 75% must be GENUINELY TRANSPARENT and empty; perimeter softly fading inward; entirely transparent outside rim. No simulated checkerboard.",
+      "width": 2048,
+      "height": 2048,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Square antique bronze plate with a richly engraved outer cloud border, no lines or grids across interior. Functional chart underlay, the middle 75% must be GENUINELY TRANSPARENT and empty; perimeter softly fading inward; entirely transparent outside rim. No simulated checkerboard. Canvas: 2048x2048. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "charts/ziwei",
+      "subject": "Square aged rice-paper mat with ink-wash cloud fibers and faint gold flecks at perimeter, no grid or labels. Functional chart underlay, the middle 75% must be GENUINELY TRANSPARENT and empty; perimeter softly fading inward; entirely transparent outside rim. No simulated checkerboard.",
+      "width": 2048,
+      "height": 2048,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Square aged rice-paper mat with ink-wash cloud fibers and faint gold flecks at perimeter, no grid or labels. Functional chart underlay, the middle 75% must be GENUINELY TRANSPARENT and empty; perimeter softly fading inward; entirely transparent outside rim. No simulated checkerboard. Canvas: 2048x2048. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    },
+    {
+      "id": "charts/astrology",
+      "subject": "Circular antique brass astrolabe rim with worn zodiac animal relief at outer edge only, no labels, no lines across center. Functional chart underlay, the middle 75% must be GENUINELY TRANSPARENT and empty; perimeter softly fading inward; entirely transparent outside rim. No simulated checkerboard.",
+      "width": 2048,
+      "height": 2048,
+      "alpha": true,
+      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: Circular antique brass astrolabe rim with worn zodiac animal relief at outer edge only, no labels, no lines across center. Functional chart underlay, the middle 75% must be GENUINELY TRANSPARENT and empty; perimeter softly fading inward; entirely transparent outside rim. No simulated checkerboard. Canvas: 2048x2048. Genuinely transparent background with preserved translucent painterly edges; centered subject occupies at most 75% of canvas."
+    }
+  ]
+}

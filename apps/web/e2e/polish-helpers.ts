@@ -25,6 +25,19 @@ export async function capture(page: Page, info: TestInfo, name: string, locale: 
   await mkdir(directory, { recursive: true });
   const dialogOpen = name.endsWith('-dialog');
   if (dialogOpen) await expect(page.getByRole('dialog')).toBeVisible();
+  // DESIGN-GAP: Full-page evidence must visit lazy artwork before capture; this does not change production loading behavior.
+  if (!dialogOpen && !name.startsWith('term-')) {
+    for (const artwork of await page.locator('[data-art]').all()) {
+      if (await artwork.isVisible()) await artwork.scrollIntoViewIfNeeded();
+    }
+    await page.evaluate(async () => {
+      await Promise.all(
+        Array.from(document.querySelectorAll<HTMLImageElement>('[data-art] img'))
+          .filter((image) => image.currentSrc)
+          .map((image) => image.decode().catch(() => undefined)),
+      );
+    });
+  }
   // Reset page captures after auto-scrolled ritual controls; anchored overlays retain their viewport.
   if (!dialogOpen && !name.startsWith('term-'))
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));

@@ -1,4 +1,5 @@
 'use client';
+import { StateArt } from '@/components/art/state-art';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
@@ -66,7 +67,10 @@ export function ProfileSummary({ profile }: { profile?: BirthInput }) {
           ))}
         </dl>
       ) : (
-        <p>{t('me.noProfile')}</p>
+        <>
+          <StateArt state="no-profile" />
+          <p>{t('me.noProfile')}</p>
+        </>
       )}
       {error ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
       <Link href="/me/profiles">{t('profiles.manage')}</Link>

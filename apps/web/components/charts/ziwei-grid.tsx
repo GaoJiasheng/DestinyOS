@@ -165,6 +165,7 @@ export function ZiweiGrid({
       data-testid="ziwei-board"
       aria-label={t('title')}
     >
+      <ChartArt system="ziwei" />
       {chart.palaces.map((p) => (
         <ZiweiPalace
           key={p.index}
@@ -331,3 +332,4 @@ export function ZiweiGrid({
     </div>
   );
 }
+import { ChartArt } from '@/components/art/chart-art';

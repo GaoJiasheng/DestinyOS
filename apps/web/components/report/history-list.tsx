@@ -1,4 +1,5 @@
 'use client';
+import { StateArt } from '@/components/art/state-art';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { System } from '@tianji/shared';
@@ -90,9 +91,12 @@ export function HistoryList({ initial }: { initial: Page }) {
         <Button disabled={busy}>{t('me.history.search')}</Button>
       </form>
       {!data.items.length ? (
-        <p>
-          {t('report.history.empty')} <Link href="/bazi/new">{t('form.birth.submit')}</Link>
-        </p>
+        <div>
+          <StateArt state="no-report" />
+          <p>
+            {t('report.history.empty')} <Link href="/bazi/new">{t('form.birth.submit')}</Link>
+          </p>
+        </div>
       ) : (
         <ul className="history-list">
           {data.items.map((r) => (

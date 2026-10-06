@@ -1,5 +1,7 @@
 'use client';
+import { DailyArt } from '@/components/art/daily-art';
 import { DailyPanchang } from './daily-panchang';
+import { DailyLuckyRow } from './daily-lucky-row';
 import { useRef } from 'react';
 import { dailyStars } from '@tianji/engine/daily';
 import { useDailyReport } from './use-daily-report';
@@ -231,26 +233,7 @@ export function TodayView({
             </section>
             <section className="report-card" data-daily-block="4">
               <h2>{t('daily.lucky')}</h2>
-              <div className="daily-grid">
-                <p>
-                  <span className="color-dot" style={{ background: chart.bazi.luckyColorHex }} />
-                  {t('daily.lucky.color')} · {intl(chart.bazi.luckyColor[0]!)}
-                </p>
-                <p>
-                  {t('daily.lucky.number')} · {chart.bazi.luckyNumbers.join(' / ')}
-                </p>
-                <p>
-                  {t('daily.lucky.direction')} · {intl(chart.bazi.luckyDirection)}
-                </p>
-                <p>
-                  {t('daily.lucky.hours')} ·{' '}
-                  {chart.bazi.goodHours.map((h) => `${h.from}–${h.to}`).join(' / ')}
-                </p>
-                <p>
-                  {t('daily.lucky.zodiac')} ·{' '}
-                  {chart.bazi.nobleZodiac.map((b) => intl(`daily.zodiac.${b}`)).join(' / ')}
-                </p>
-              </div>
+              <DailyLuckyRow bazi={chart.bazi} />
             </section>
             <section className="report-card" data-daily-block="5">
               <h2>{t('daily.almanac')}</h2>
@@ -327,7 +310,10 @@ export function TodayView({
               {content('panchang')}
             </DailyPanchang>
             <section className="report-card" data-daily-block="10">
-              <h2>{t('daily.doDont')}</h2>
+              <h2>
+                <DailyArt kind="do-dont" alt={t('daily.doDont')} />
+                {t('daily.doDont')}
+              </h2>
               <div className="daily-grid">
                 {(['do', 'dont'] as const).map((k) => (
                   <div key={k}>

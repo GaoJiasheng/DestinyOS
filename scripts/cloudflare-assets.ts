@@ -8,6 +8,9 @@ const assets = resolve(web, '.open-next/assets/_data');
 await mkdir(assets, { recursive: true });
 for (const [source, target] of [
   ['resources', 'resources'],
+  ['public/art/share', 'public/art/share'],
+  ['public/art/systems', 'public/art/systems'],
+  ['public/art/brand/og-default.png', 'public/art/brand/og-default.png'],
   ['lib/llm/prompts', 'lib/llm/prompts'],
   [
     'node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff',

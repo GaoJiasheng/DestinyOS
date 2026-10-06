@@ -4,6 +4,7 @@ import type { QimenChart } from '@tianji/shared';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { QimenCompass } from './qimen-compass';
+import { ChartArt } from '@/components/art/chart-art';
 /** Traditional south-up Lo Shu chart with four lighting layers and category-specific use-god labels. */
 export function QimenGrid({
   chart,
@@ -24,6 +25,7 @@ export function QimenGrid({
         {t(northUp ? 'northUp' : 'southUp')}
       </Button>
       <div className={`qimen-grid ${animate ? 'qimen-enter' : ''}`}>
+        <ChartArt system="qimen" />
         {order.map((index, i) => {
           const p = chart.palaces.find((p) => p.index === index)!;
           const gods = chart.useGods.filter((g) => g.palaceIndex === index);

@@ -1,3 +1,5 @@
+import { ArtImage } from '@/components/art/art-image';
+import { artAssets } from '@tianji/ui-core/art';
 import { publicRouteMetadata } from '@/lib/public-seo';
 import { structuredJson } from '@/lib/learn';
 import { AdSlot } from '@/components/ads/ad-slot';
@@ -49,12 +51,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         }}
       />
       <section className="home-hero">
-        <div className="hero-orbit" aria-hidden>
-          <span />
-          <span />
-          <span />
-          <i />
-        </div>
+        <ArtImage
+          asset="hero/galaxy"
+          {...artAssets['hero/galaxy']}
+          alt={t('art.hero.galaxy')}
+          className="hero-art"
+          sizes="(max-width: 768px) 960px, 1920px"
+          priority
+        />
+        <ArtImage
+          asset="hero/ink-clouds"
+          {...artAssets['hero/ink-clouds']}
+          alt={t('art.hero.ink-clouds')}
+          className="hero-ink-art"
+          sizes="512px"
+          // DESIGN-GAP: A 6–12% opacity cloud overlay uses the 512px derivative even on high-DPR screens; the full 2048px texture remains available to native renderers.
+          maxWidth={512}
+        />
         <div className="hero-copy">
           <p className="eyebrow">{t('home.eyebrow')}</p>
           <h1 className="hero-brand">

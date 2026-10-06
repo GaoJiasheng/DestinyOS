@@ -1,3 +1,4 @@
+import { SystemArt } from '@/components/art/system-art';
 import { publicRouteMetadata } from '@/lib/public-seo';
 import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
@@ -11,6 +12,7 @@ export default async function IchingPage({ params }: { params: Promise<{ locale:
   const t = await getCopy();
   return (
     <section className="birth-shell">
+      <SystemArt system="iching" banner priority />
       <p className="eyebrow">{t('nav.iching')}</p>
       <h1 className="type-h1">{t('divination.chooseMethod')}</h1>
       <div className="method-cards">

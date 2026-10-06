@@ -6,6 +6,8 @@
   "exports": {
     ".": "./tokens/index.ts",
     "./tokens": "./tokens/index.ts",
+    "./art": "./tokens/art.ts",
+    "./art-path": "./tokens/art-path.ts",
     "./tokens.css": "./tokens/tokens.css"
   },
   "scripts": {

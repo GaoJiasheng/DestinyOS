@@ -1,3 +1,4 @@
+import { SystemArt } from '@/components/art/system-art';
 import { setRequestLocale } from 'next-intl/server';
 import { DeferredQimen } from '@/components/forms/deferred-qimen';
 import { publicRouteMetadata } from '@/lib/public-seo';
@@ -6,7 +7,12 @@ export const revalidate = 3600;
 export default async function QimenPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <DeferredQimen />;
+  return (
+    <>
+      <SystemArt system="qimen" banner priority />
+      <DeferredQimen />
+    </>
+  );
 }
 /** Preserve canonical language alternates for the documented system route. */
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {

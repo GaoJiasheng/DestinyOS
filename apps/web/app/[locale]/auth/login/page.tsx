@@ -1,3 +1,4 @@
+import { StateArt } from '@/components/art/state-art';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { isLocale } from '@/i18n/routing';
@@ -26,6 +27,7 @@ export default async function LoginPage({
   const session = await auth();
   return (
     <section className="auth-panel">
+      <StateArt state="login" priority />
       <h1>{t('auth.login.title')}</h1>
       {session?.user ? (
         <>

@@ -1,3 +1,5 @@
+import { isArtSystem } from '@tianji/ui-core/art';
+import { SystemArt } from '@/components/art/system-art';
 import { publicRouteMetadata } from '@/lib/public-seo';
 import { notFound } from 'next/navigation';
 import { auth } from '@/lib/auth';
@@ -56,6 +58,7 @@ export default async function Placeholder({
   if (['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(path))
     return (
       <section className="status-page">
+        {isArtSystem(path) ? <SystemArt system={path} banner priority /> : null}
         <h1 className="type-h1">{t(key)}</h1>
         <Button asChild>
           <Link href={`/${path}/new`}>{t('form.birth.submit')}</Link>

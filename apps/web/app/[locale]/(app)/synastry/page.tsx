@@ -1,3 +1,4 @@
+import { SystemArt } from '@/components/art/system-art';
 import { auth } from '@/lib/auth';
 import { listProfilesAction } from '@/app/profiles/actions';
 import { SynastryForm } from '@/components/forms/synastry-form';
@@ -11,11 +12,14 @@ export default async function SynastryPage() {
   if (result && !result.ok)
     return <p role="alert">{(await getCopy())('report.error.E_INTERNAL')}</p>;
   return (
-    <SynastryForm
-      key={result?.ok ? (result.data.selectedId ?? 'empty') : 'anonymous'}
-      signedIn={!!session?.user.id}
-      profiles={result?.ok ? result.data.items : undefined}
-      selectedId={result?.ok ? result.data.selectedId : undefined}
-    />
+    <>
+      <SystemArt system="synastry" banner priority />
+      <SynastryForm
+        key={result?.ok ? (result.data.selectedId ?? 'empty') : 'anonymous'}
+        signedIn={!!session?.user.id}
+        profiles={result?.ok ? result.data.items : undefined}
+        selectedId={result?.ok ? result.data.selectedId : undefined}
+      />
+    </>
   );
 }

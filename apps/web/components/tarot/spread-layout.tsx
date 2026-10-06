@@ -1,25 +1,30 @@
 'use client';
+const spreadAssets = {
+  single: 'single',
+  yes_no: 'yes-no',
+  three_ppf: 'three-ppf',
+  three_sao: 'three-sao',
+  relationship: 'relationship',
+  decision: 'decision',
+  celtic_cross: 'celtic-cross',
+  year_ahead: 'year-ahead',
+} as const;
+import { ArtImage } from '@/components/art/art-image';
 import { useTranslations } from 'next-intl';
 import { TAROT_SPREADS, type SpreadKey, type TarotChart } from '@tianji/shared';
 import { isHighlighted } from '@/components/charts/bazi-shared';
 import { TarotCard } from './tarot-card';
 /** Coordinate thumbnail shared by selection and the mobile report overview. */
+// DESIGN-GAP: Painted tabletop angles describe the spread topology and card count; interactive card rotations remain defined by TAROT_SPREADS.
 export function SpreadThumbnail({ spread }: { spread: SpreadKey }) {
   const t = useTranslations('tarot');
   return (
-    <svg className="tarot-thumbnail" viewBox="0 0 100 100" role="img" aria-label={t('layout')}>
-      {TAROT_SPREADS[spread].map((p) => (
-        <rect
-          key={p.key}
-          x={p.x * 80 + 4}
-          y={p.y * 80}
-          width="12"
-          height="21"
-          rx="1"
-          transform={`rotate(${p.rotation} ${p.x * 80 + 10} ${p.y * 80 + 10.5})`}
-        />
-      ))}
-    </svg>
+    <ArtImage
+      asset={`spreads/${spreadAssets[spread]}`}
+      alt={`${t(`spread.${spread}.name`)} · ${t('layout')}`}
+      className="tarot-thumbnail"
+      sizes="(min-width: 1024px) 240px, 160px"
+    />
   );
 }
 /** Desktop coordinates and mobile stacked positions; shared layout IDs move selected backs into slots. */

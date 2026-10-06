@@ -1,6 +1,6 @@
 /* global self, caches, URL, fetch */
 /* DESIGN-GAP: Explicit public-shell allowlist instead of caching authenticated Next HTML/RSC or API responses. */
-const CACHE = 'tianji-public-shell-ed23bcc14563';
+const CACHE = 'tianji-public-shell-8dc75e37c814';
 const SHELL = [
   '/offline/zh.html',
   '/offline/en.html',
@@ -11,9 +11,8 @@ const SHELL = [
   '/fonts/fonts-body.css',
   '/fonts/noto-ui.woff2',
   '/fonts/wenkai-ui.woff2',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/icons/maskable-512.png',
+  '/art/brand/favicon.png',
+  '/art/states/offline-small.webp',
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)));
@@ -55,7 +54,16 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
-  if (SHELL.includes(url.pathname) || /^\/fonts\/[a-z0-9-]+\.woff2$/.test(url.pathname)) {
+  // DESIGN-GAP: Large install icons and paintings cache only when requested, keeping duplicate PNG icons and fallback images out of the initial transfer budget.
+  const art =
+    /^\/art\/(?:brand|states|systems|hero|spreads|tarot|daily|share|charts)\/[a-z0-9-]+\.(?:webp|png|ico)$/.test(
+      url.pathname,
+    );
+  if (
+    SHELL.includes(url.pathname) ||
+    art ||
+    /^\/(?:fonts\/[a-z0-9-]+\.woff2|icons\/[a-z0-9-]+\.png)$/.test(url.pathname)
+  ) {
     event.respondWith(
       caches.open(CACHE).then(async (cache) => {
         const cached = await cache.match(request);
