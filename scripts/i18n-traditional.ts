@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
 import { toTraditional } from '../packages/shared/src/locale';
 /** Generate Taiwan catalogs from zh values only; dotted keys and ICU parameters never change. */
 for (const file of ['.json', '/glossary.json', '/interpretation.json', '/tarot.json']) {
@@ -41,4 +42,15 @@ await writeFile(
     .filter((char) => /[\u3000-\u9fff]/u.test(char))
     .sort()
     .join('') + '\n',
+);
+
+// DESIGN-GAP: Version public glossary caches by their exact compiled bytes, including traditional conversion changes.
+const glossaryVersions: Record<string, string> = {};
+for (const locale of ['zh', 'en', 'zh-TW'])
+  glossaryVersions[locale] = createHash('sha256')
+    .update(await readFile(resolve(`apps/web/messages/${locale}/glossary.json`)))
+    .digest('hex');
+await writeFile(
+  resolve('apps/web/i18n/glossary-versions.json'),
+  JSON.stringify(glossaryVersions, null, 2) + '\n',
 );

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import zh from '../messages/zh.json' with { type: 'json' };
 import en from '../messages/en.json' with { type: 'json' };
+import glossaryVersions from '../i18n/glossary-versions.json' with { type: 'json' };
 for (const locale of ['zh', 'en'] as const) {
   const copy = locale === 'zh' ? zh : en;
   test(`${locale}: Workers homepage → anonymous bazi report → daily fortune`, async ({
@@ -131,4 +132,36 @@ test('mock login → birth form → encrypted D1 reading, KV daily hit, 429 and 
   for (let i = 0; i < 32; i++)
     status = (await request.get(`/api/v1/og/share/${'A'.repeat(22)}`)).status();
   expect(status).toBe(429);
+});
+
+// DESIGN-GAP: Exercise the retained OG WASM/font pipeline and Workers timezone data after removing their Node adapters.
+test('slim Worker retains asset-backed timezone lookups and bilingual OG rendering', async ({
+  request,
+}) => {
+  for (const [lat, lng, tz] of [
+    [39.9, 116.4, 'Asia/Shanghai'],
+    [1.3521, 103.8198, 'Asia/Singapore'],
+    [40.7128, -74.006, 'America/New_York'],
+  ] as const) {
+    const response = await request.get(`/api/v1/geo/tz?lat=${lat}&lng=${lng}`);
+    expect(response.status()).toBe(200);
+    expect(await response.json()).toEqual({ ok: true, data: { tz } });
+  }
+  for (const locale of ['zh', 'en', 'zh-TW'] as const) {
+    const image = await request.get(`/api/og/public?locale=${locale}&path=/learn`);
+    expect(image.status()).toBe(200);
+    expect(image.headers()['content-type']).toContain('image/png');
+    const bytes = await image.body();
+    expect([...bytes.subarray(0, 8)]).toEqual([137, 80, 78, 71, 13, 10, 26, 10]);
+    expect(bytes.readUInt32BE(16)).toBe(1200);
+    expect(bytes.readUInt32BE(20)).toBe(630);
+  }
+  const keys: unknown = await (await request.get('/_smoke/glossary-cache')).json();
+  expect(keys).toEqual(
+    expect.arrayContaining(
+      (['zh', 'en', 'zh-TW'] as const).map(
+        (locale) => `glossary:${glossaryVersions[locale]}:${locale}`,
+      ),
+    ),
+  );
 });

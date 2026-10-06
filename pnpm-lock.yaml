@@ -184,6 +184,9 @@ importers:
       '@sentry/nextjs':
         specifier: ^11.4.0
         version: 11.4.0(next@15.5.27(@opentelemetry/api@1.9.1)(@playwright/test@1.63.0)(@types/node@22.20.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+      '@sentry/vercel-edge':
+        specifier: 11.4.0
+        version: 11.4.0
       '@sparticuz/chromium':
         specifier: 153.0.0
         version: 153.0.0
@@ -250,6 +253,9 @@ importers:
       next-intl:
         specifier: ^3.26.5
         version: 3.26.5(next@15.5.27(@opentelemetry/api@1.9.1)(@playwright/test@1.63.0)(@types/node@22.20.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+      opencc-js:
+        specifier: 1.4.2
+        version: 1.4.2
       pbf:
         specifier: ^4.0.2
         version: 4.0.2

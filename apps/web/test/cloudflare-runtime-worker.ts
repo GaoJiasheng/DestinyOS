@@ -42,6 +42,11 @@ export default {
       ]);
       return Response.json({ userId: id, token });
     }
+    // DESIGN-GAP: Inspect only public glossary cache keys in the local smoke entry to verify Assets-to-KV loading.
+    if (path === '/_smoke/glossary-cache')
+      return Response.json(
+        (await env.CACHE.list({ prefix: 'glossary:' })).keys.map((key) => key.name),
+      );
     if (path === '/_smoke/state') {
       const userId = new URL(request.url).searchParams.get('userId');
       if (!userId) return new Response(null, { status: 400 });

@@ -25,6 +25,13 @@ for (const [source, target] of [
   await cp(resolve(web, source), destination, { recursive: true });
 }
 
+// DESIGN-GAP: Glossary messages are read through Assets rather than duplicated in RSC and SSR bundles.
+for (const locale of ['zh', 'en', 'zh-TW']) {
+  const path = `messages/${locale}/glossary.json`;
+  await mkdir(resolve(assets, `messages/${locale}`), { recursive: true });
+  await cp(resolve(web, path), resolve(assets, path));
+}
+
 await mkdir(resolve(assets, 'geo'), { recursive: true });
 const geo = resolve(web, 'node_modules/geo-tz/data');
 await cp(resolve(geo, 'timezones-1970.geojson.index.json'), resolve(assets, 'geo/index.json'));

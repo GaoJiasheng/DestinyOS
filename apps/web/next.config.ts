@@ -5,6 +5,13 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
   transpilePackages: ['@tianji/shared', '@tianji/engine', '@tianji/interpret', '@tianji/content'],
   serverExternalPackages: [
+    // DESIGN-GAP: Let OpenNext bundle shared libraries once instead of duplicating them in Next's RSC and SSR chunks; browser bundles keep their normal imports.
+    'lunar-typescript',
+    'astronomy-engine',
+    '@js-temporal/polyfill',
+    'opencc-js',
+    'zod',
+    '@sentry/nextjs',
     'geo-tz',
     'playwright-core',
     '@sparticuz/chromium',
@@ -24,6 +31,9 @@ const config: NextConfig = {
     '/api/export': ['./node_modules/@sparticuz/chromium/bin/**/*'],
     '/*': [
       './resources/**/*',
+      './messages/*/glossary.json',
+      // DESIGN-GAP: Next traces Node export conditions; OpenNext selects Sentry's workerd edge entry, so explicitly trace its SDK dependency.
+      './node_modules/@sentry/vercel-edge/**/*',
       './lib/llm/prompts/*.md',
       './node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff',
       './node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff',
@@ -34,7 +44,20 @@ const config: NextConfig = {
     ],
   },
   // DESIGN-GAP: Exclude Node-only binaries from Workers bundles while preserving the Vercel build.
-  webpack(config) {
+  webpack(config, { isServer, nextRuntime }) {
+    // DESIGN-GAP: Platform aliases differ; partition Webpack's filesystem caches so a Node build never reuses disabled Worker adapters.
+    if (config.cache && typeof config.cache === 'object')
+      config.cache.name = `${config.cache.name ?? 'next'}-${process.env.PLATFORM === 'cloudflare' ? 'cloudflare' : 'node'}`;
+    // DESIGN-GAP: Next only externalizes RSC by default; these non-React libraries are safe to share with SSR too, so OpenNext can deduplicate their full datasets.
+    if (isServer && nextRuntime === 'nodejs')
+      config.externals.unshift({
+        'lunar-typescript': 'commonjs lunar-typescript',
+        'astronomy-engine': 'commonjs astronomy-engine',
+        '@js-temporal/polyfill': 'commonjs @js-temporal/polyfill',
+        zod: 'commonjs zod',
+        'opencc-js/cn2t': 'commonjs opencc-js/cn2t',
+        '@sentry/nextjs': 'commonjs @sentry/nextjs',
+      });
     if (process.env.PLATFORM === 'cloudflare') {
       for (const module of [
         'browser-node',
@@ -44,12 +67,11 @@ const config: NextConfig = {
         'timezone-node',
         'db-local',
       ]) {
-        config.resolve.alias[
-          resolve(
-            __dirname,
-            module === 'db-local' ? 'lib/db-local.ts' : `lib/platform/${module}.ts`,
-          )
-        ] = resolve(__dirname, 'lib/platform/node-unavailable.ts');
+        // DESIGN-GAP: Webpack aliases match import requests before resolving files; the previous absolute-path aliases left Node adapters in the Worker.
+        config.resolve.alias[`./${module}$`] = resolve(
+          __dirname,
+          'lib/platform/node-unavailable.ts',
+        );
       }
     }
     return config;
