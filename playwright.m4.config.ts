@@ -22,6 +22,7 @@ export default defineConfig({
       AUTH_URL: 'http://localhost:3220',
       NEXT_PUBLIC_SITE_URL: 'http://localhost:3220',
       TEST_MAIL_URL: 'http://127.0.0.1:60191/mail',
+      FEATURE_WEB_PAYMENTS: 'true',
       STRIPE_SECRET_KEY: 'sk_test_m4',
       STRIPE_WEBHOOK_SECRET: 'whsec_m4',
       STRIPE_PRICE_MONTHLY: 'price_monthly_test',

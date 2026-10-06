@@ -4,12 +4,19 @@ export const maintenancePath = '/api/v1/cron/daily-maintenance';
 export async function scheduledMaintenance(
   env: { CRON_SECRET?: string; NEXT_PUBLIC_SITE_URL?: string },
   dispatch: (request: Request) => Promise<Response>,
+  cron = '0 3 * * *',
 ): Promise<void> {
   if (!env.CRON_SECRET) throw new Error('Cron secret missing');
   const response = await dispatch(
-    new Request(new URL(maintenancePath, env.NEXT_PUBLIC_SITE_URL ?? 'https://tianji.gavin.pub'), {
-      headers: { authorization: `Bearer ${env.CRON_SECRET}` },
-    }),
+    new Request(
+      new URL(
+        cron === '0 * * * *' ? '/api/v1/cron/cost-circuit' : maintenancePath,
+        env.NEXT_PUBLIC_SITE_URL ?? 'https://tianji.gavin.pub',
+      ),
+      {
+        headers: { authorization: `Bearer ${env.CRON_SECRET}` },
+      },
+    ),
   );
   await response.arrayBuffer();
   if (!response.ok) throw new Error('Daily maintenance failed');

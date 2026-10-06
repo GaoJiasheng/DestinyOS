@@ -34,7 +34,7 @@ Wrangler 已声明 [[send_email]] name="EMAIL"；EMAIL_FROM=noreply@send.gavin.p
 
 官方资料：[Workers API](https://developers.cloudflare.com/email-service/api-reference/send/workers/)、[域名与 DNS](https://developers.cloudflare.com/email-service/configuration/domains/)、[子域名](https://developers.cloudflare.com/email-service/configuration/subdomains/)、[限制](https://developers.cloudflare.com/email-service/platform/limits/)、[定价](https://developers.cloudflare.com/email-service/platform/pricing/)。
 
-## WEB-PRICING：月付 + 永久买断
+## WEB-PRICING：保留的月付 + 永久买断（当前关闭）
 
 - Owner 定价：USD 2.99/月订阅 + USD 6.99 永久买断；取消年付。
 - 配置 STRIPE_PRICE_MONTHLY 与 STRIPE_PRICE_LIFETIME；在正确 test/live 账户运行 `pnpm stripe:products` 并复制输出 ID。脚本归档旧年付价格；已有订阅保留，Portal 需移除年付切换。
@@ -44,3 +44,14 @@ Wrangler 已声明 [[send_email]] name="EMAIL"；EMAIL_FROM=noreply@send.gavin.p
 - RevenueCat webhook URL：/api/v1/mobile/webhooks/revenuecat；启用 integration HMAC signing，将签名 secret 写入 REVENUECAT_WEBHOOK_SECRET。测试、生产 webhook 环境须分别配置。客户端将来以 User.id 作为 app_user_id。
 - 买断用户无到期/续费；已有月付在买断后须自行在 Portal 取消旧续费。订阅取消/到期不会降级永久权益。
 - 本次不调用真实支付、RevenueCat 账户或生产部署；验收与 DESIGN-GAP 见 docs/progress/WEB-PRICING.md。
+
+## WEB-NOPAY：App 开通与费用保护
+
+- 默认 `FEATURE_WEB_PAYMENTS=false`，网站暂不收款，无需 Stripe secrets/price IDs；上面的 Stripe 操作仅供未来开启。设置构建公开变量 `NEXT_PUBLIC_APP_STORE_URL`、`NEXT_PUBLIC_PLAY_STORE_URL`；空值显示即将上架。
+- 配置 RevenueCat 两个 App 产品映射 `pro`；App 使用网站 `User.id` 登录 SDK。Worker secrets 配置 `REVENUECAT_SECRET_KEY`、`REVENUECAT_WEBHOOK_SECRET`，Dashboard 开启 HMAC signing；Webhook 地址 `/api/v1/mobile/webhooks/revenuecat`。网页登录后可刷新会员，未配置 REST key 跳过。
+- 费用检查：Owner 将有 Account Analytics Read 权限的 `CLOUDFLARE_API_TOKEN` 同值存为 Worker secret：`cd apps/web && pnpm exec wrangler secret put CF_ANALYTICS_TOKEN`（通过提示输入，不写入文件）。配置 `ADMIN_EMAILS`、`CF_ANALYTICS_ACCOUNT_ID`、实际账单周年日 `CF_BILLING_CYCLE_DAY`；验证 Email Service 真正可发告警。
+- Cron 每小时查询账户本计费月 Workers 用量；任一超过 90% 熔断，均低于 80% 或新周期恢复；每日清理并存。`/admin/config` 的费用熔断模式可手动开/关及切回自动。KV 的 circuit/state/mode 为持久状态，切勿给 circuit 设置过期时间。
+- CPU 限额 5000ms：本地实际图片 Route Handler 最慢分享 story P99 742.541ms，三倍 2227.623ms，取 Owner 指定的 5000ms 下限；样本范围见 docs/11 §4，发布后按生产 CPU P99 复核 `max(5000, ceil(P99×3))`。Analytics/KV 有延迟且维护请求仍可能计费，此保护不是 Cloudflare 硬性消费封顶。
+- WAF **本任务未执行**。Owner 在根目录运行 `pnpm exec tsx scripts/cf-waf-ratelimit.ts --dry-run` 审阅规则（无 token、无 API 调用），再在已设置 `CLOUDFLARE_API_TOKEN` 的终端运行 `pnpm exec tsx scripts/cf-waf-ratelimit.ts`。令牌需 gavin.pub 的 Zone Read 与 Zone WAF Edit 权限；禁止写入仓库或命令行明文。
+- 脚本定位 gavin.pub、按 ref 幂等追加/更新自己的规则，保留其他规则；阻断 tianji.gavin.pub IP 60/10s，持续 60s，排除静态路径；按 Cloudflare 边缘位置计数。若套餐不支持 60 秒 mitigation，Owner 升级/调整套餐后重跑，不静默放宽。
+- 未部署、未写远端 secrets、未调用真实商店或支付；验证结果与 DESIGN-GAP 见 docs/progress/WEB-NOPAY.md。

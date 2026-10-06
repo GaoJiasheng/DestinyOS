@@ -48,7 +48,7 @@ for (const locale of ['zh', 'en'] as const) {
           data: '{ "test": true }',
         })
       ).status(),
-    ).toBe(400);
+    ).toBe(404);
     expect((await request.get('/api/v1/cron/daily-maintenance')).status()).toBe(401);
   });
 }
@@ -164,4 +164,65 @@ test('slim Worker retains asset-backed timezone lookups and bilingual OG renderi
       ),
     ),
   );
+});
+
+// Real KV and workerd gate, with no production configuration or Analytics traffic.
+test('cost circuit blocks pages and expensive APIs; Cron stays reachable and manual restore works', async ({
+  request,
+  page,
+}) => {
+  const admin = (await (await request.post('/_smoke/login?admin=1')).json()) as { token: string };
+  await page.context().addCookies([
+    {
+      name: '__Secure-authjs.session-token',
+      value: admin.token,
+      domain: 'localhost',
+      path: '/',
+      secure: true,
+      httpOnly: true,
+      sameSite: 'Lax',
+    },
+  ]);
+  await request.post('/_smoke/circuit', { data: { state: 'open' } });
+  try {
+    for (const path of [
+      '/zh/pricing',
+      '/zh-TW/me/billing',
+      '/en/today',
+      '/api/export',
+      '/api/v1/readings/test/chat',
+      '/api/v1/og/daily',
+      '/api/v1/og/share/test',
+    ]) {
+      const response = await request.get(path);
+      expect(response.status()).toBe(503);
+      expect(response.headers()['cache-control']).toBe('no-store');
+      expect(await response.text()).not.toContain('<script');
+    }
+    const cron = await request.get('/api/v1/cron/cost-circuit', {
+      headers: { Authorization: 'Bearer isolated-cron' },
+    });
+    expect(cron.status()).toBe(200);
+    expect(await cron.json()).toMatchObject({ data: { result: 'skipped' } });
+    await page.goto('/admin/config');
+    await expect(
+      page.getByRole('combobox', { name: zh['admin.config.circuit.mode'], exact: true }),
+    ).toBeVisible();
+    await page
+      .getByRole('combobox', { name: zh['admin.config.circuit.mode'], exact: true })
+      .selectOption('closed');
+    await page.getByRole('button', { name: zh['admin.config.save'], exact: true }).click();
+    await expect(page.getByRole('status')).toHaveText(zh['admin.saved']);
+    expect((await request.get('/en/pricing')).status()).toBe(200);
+    await page
+      .getByRole('combobox', { name: zh['admin.config.circuit.mode'], exact: true })
+      .selectOption('auto');
+    await page.getByRole('button', { name: zh['admin.config.save'], exact: true }).click();
+    await expect(page.getByRole('status')).toHaveText(zh['admin.saved']);
+    expect((await request.get('/en/pricing')).status()).toBe(503);
+    expect((await request.post('/api/v1/stripe/webhook', { data: {} })).status()).toBe(404);
+  } finally {
+    await request.post('/_smoke/circuit', { data: { state: 'closed' } });
+  }
+  expect((await request.get('/en/pricing')).status()).toBe(200);
 });

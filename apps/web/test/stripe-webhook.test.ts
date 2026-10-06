@@ -43,6 +43,7 @@ const checkout = () =>
   });
 beforeEach(async () => {
   vi.clearAllMocks();
+  vi.stubEnv('FEATURE_WEB_PAYMENTS', 'true');
   vi.stubEnv('AUTH_SECRET', 'isolated-unit-event-secret');
   vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');
   vi.stubEnv('STRIPE_WEBHOOK_SECRET', 'whsec_test');

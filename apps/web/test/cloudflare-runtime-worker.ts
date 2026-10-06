@@ -1,4 +1,5 @@
 import worker from '../worker';
+import { z } from 'zod';
 import type {
   D1Database,
   KVNamespace,
@@ -22,14 +23,34 @@ export default {
     ctx: { waitUntil(p: Promise<unknown>): void },
   ) {
     const path = new URL(request.url).pathname;
+    // DESIGN-GAP: Local-only KV control verifies maintenance before OpenNext; never imported by the production entry.
+    if (path === '/_smoke/circuit' && request.method === 'POST') {
+      const input = z.object({ state: z.enum(['open', 'closed']) }).parse(await request.json());
+      await env.CACHE.put('circuit:mode', 'auto');
+      await env.CACHE.put('circuit', input.state);
+      return Response.json({ state: input.state });
+    }
     if (path === '/_smoke/login' && request.method === 'POST') {
-      const id = crypto.randomUUID(),
+      const admin = new URL(request.url).searchParams.get('admin') === '1';
+      const existing = admin
+        ? await env.DB.prepare('SELECT id FROM User WHERE email=?')
+            .bind('smoke-admin@example.test')
+            .first<{ id: string }>()
+        : null;
+      const id = existing?.id ?? crypto.randomUUID(),
         token = crypto.randomUUID();
       const now = new Date().toISOString().replace('Z', '+00:00');
       await env.DB.batch([
         env.DB.prepare(
-          'INSERT INTO "User" (id,email,plan,"createdAt","updatedAt") VALUES (?,?,?,?,?)',
-        ).bind(id, `smoke-${id}@example.test`, 'pro', now, now),
+          'INSERT INTO "User" (id,email,plan,role,"createdAt","updatedAt") VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING',
+        ).bind(
+          id,
+          admin ? 'smoke-admin@example.test' : `smoke-${id}@example.test`,
+          'pro',
+          admin ? 'admin' : 'user',
+          now,
+          now,
+        ),
         env.DB.prepare(
           'INSERT INTO "Session" (id,"sessionToken","userId",expires,"authenticatedAt") VALUES (?,?,?,?,?)',
         ).bind(

@@ -160,3 +160,15 @@ it('skips receipt imports and logs only a configuration reason when the RevenueC
     'Stripe purchase sync skipped',
   );
 });
+
+it('revokes a refunded RevenueCat non-consumable instead of keeping a sticky lifetime flag', async () => {
+  const fetcher = vi.spyOn(globalThis, 'fetch').mockResolvedValue(customer(null));
+  await POST(notification('rc_lifetime_granted'));
+  expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).lifetime).toBe(true);
+  fetcher.mockResolvedValue(customer(undefined));
+  await POST(notification('rc_lifetime_refunded', 'EXPIRATION'));
+  expect(await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).toMatchObject({
+    lifetime: false,
+    plan: 'free',
+  });
+});

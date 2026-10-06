@@ -1,11 +1,13 @@
 import type Stripe from 'stripe';
 import { ApiError, errorResponse } from '@/lib/api-error';
-import { getStripe } from '@/lib/stripe';
-import { handleStripeEvent } from '@/lib/stripe-webhook';
+import { webPaymentsEnabled } from '@/lib/web-payments';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 /** Verify the unmodified Stripe payload before any D1 access. */
 export async function POST(request: Request) {
+  if (!webPaymentsEnabled()) return new Response(null, { status: 404 });
+  const { getStripe } = await import('@/lib/stripe');
+  const { handleStripeEvent } = await import('@/lib/stripe-webhook');
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!secret || !process.env.STRIPE_SECRET_KEY)
     return errorResponse(new ApiError('E_PAYMENT', 'Billing unavailable', 503));

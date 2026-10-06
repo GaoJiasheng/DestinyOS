@@ -1,3 +1,4 @@
+import { webPaymentsEnabled } from './web-payments';
 import { fromDbLocale } from './db-locale';
 import { timingSafeEqual } from 'node:crypto';
 import { BirthInputSchema } from '@tianji/shared';
@@ -105,7 +106,12 @@ export async function softDeleteAccount(
 ) {
   const db = getDb();
   const subscription = await db.subscription.findUnique({ where: { userId } });
-  if (subscription?.stripeSubscriptionId && subscription.status !== 'canceled') {
+  // DESIGN-GAP: With web payments off, account deletion performs no Stripe calls; Owner manages any legacy renewal in Stripe directly.
+  if (
+    webPaymentsEnabled() &&
+    subscription?.stripeSubscriptionId &&
+    subscription.status !== 'canceled'
+  ) {
     if (!process.env.STRIPE_SECRET_KEY)
       throw new ApiError('E_PAYMENT', 'Stripe credentials required', 502);
     const response = await fetch(

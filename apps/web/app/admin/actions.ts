@@ -15,15 +15,7 @@ import {
   moderateFeedback,
   stats,
 } from '@/lib/admin-service';
-import {
-  listKu,
-  getKu,
-  validateKu,
-  previewKu,
-  saveKuDraft,
-  publishRelease,
-  refreshRelease,
-} from '@/lib/admin-knowledge';
+// DESIGN-GAP: Defer knowledge validation to its actions; workerd rejects AJV code generation while loading unrelated config recovery pages.
 import { fixtures } from '@/lib/admin-fixtures';
 import { siteConfig } from '@/lib/site-config';
 import { softDeleteAccount } from '@/lib/account-service';
@@ -73,20 +65,22 @@ export async function emailUserExportAction(
 }
 /** admin.listKu API. */
 export async function listKuAction() {
-  return run(() => listKu());
+  return run(async () => (await import('@/lib/admin-knowledge')).listKu());
 }
 /** admin.getKu API. */
 export async function getKuAction(unitId: string) {
-  return run(() => getKu(id.parse(unitId)));
+  return run(async () => (await import('@/lib/admin-knowledge')).getKu(id.parse(unitId)));
 }
 /** Reuse CI validation on every editor change. */
 export async function validateKuAction(yaml: string) {
-  return run(() => validateKu(z.string().max(100000).parse(yaml)));
+  return run(async () =>
+    (await import('@/lib/admin-knowledge')).validateKu(z.string().max(100000).parse(yaml)),
+  );
 }
 /** Append the next immutable draft revision under optimistic concurrency. */
 export async function saveKuDraftAction(yaml: string, unitId: string, baseVersion: number) {
-  return run((admin) =>
-    saveKuDraft(
+  return run(async (admin) =>
+    (await import('@/lib/admin-knowledge')).saveKuDraft(
       admin,
       z.string().max(100000).parse(yaml),
       id.parse(unitId),
@@ -96,11 +90,17 @@ export async function saveKuDraftAction(yaml: string, unitId: string, baseVersio
 }
 /** admin.previewKu API, with A–G selection. */
 export async function previewKuAction(yaml: string, fixture: string) {
-  return run(() => previewKu(z.string().max(100000).parse(yaml), z.enum(fixtures).parse(fixture)));
+  return run(async () =>
+    (await import('@/lib/admin-knowledge')).previewKu(
+      z.string().max(100000).parse(yaml),
+      z.enum(fixtures).parse(fixture),
+    ),
+  );
 }
 /** Preflight/publish/rollback use the same candidate validation; no client assertion can bypass it. */
 export async function publishReleaseAction(raw: unknown) {
   return run(async (admin) => {
+    const { publishRelease, refreshRelease } = await import('@/lib/admin-knowledge');
     const input = z
       .object({
         notes: z.string().trim().max(2000),

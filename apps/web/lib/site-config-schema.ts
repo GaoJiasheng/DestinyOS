@@ -21,6 +21,8 @@ export const SiteConfigSchema = z
     'chat.proDailyLimit': z.number().int().min(0).max(10000).default(30),
     'feature.panchangDefaultOpen': z.boolean(),
     maintenance: z.boolean(),
+    // DESIGN-GAP: Three-state override allows manual restoration without disabling hourly monitoring.
+    'circuit.mode': z.enum(['auto', 'open', 'closed']).default('auto'),
   })
   .strict();
 export type SiteSettings = z.infer<typeof SiteConfigSchema>;

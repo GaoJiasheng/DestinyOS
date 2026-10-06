@@ -1,9 +1,10 @@
+import { setCircuitMode } from './circuit';
 import { atomicBatch, audit, guard, updateRows, insertRow } from './db-batch';
 import { z } from 'zod';
 import { getDb } from './db';
 import { SiteConfigSchema } from './site-config';
 import { cacheDelete, cacheRead, cacheWrite } from './cache';
-import { getStripe } from './stripe';
+import { webPaymentsEnabled } from './web-payments';
 import { liveEventCount } from './events';
 /** Bounded email/ID search with an explicit safe projection that never selects encrypted columns. */
 export async function listUsers(search = '', page = 1) {
@@ -85,6 +86,7 @@ export async function setConfig(adminId: string, raw: unknown) {
       after: config,
     }),
   ]);
+  await setCircuitMode(config['circuit.mode']);
   try {
     await cacheDelete('site-config');
   } catch {
@@ -114,7 +116,9 @@ const StripeStatsSchema = z.object({
 });
 /** Cache active/trialing Stripe subscription counts and monthly recurring revenue by currency for one hour. */
 export async function stripeStats() {
+  if (!webPaymentsEnabled()) return { available: false, subscribers: 0, mrr: {} };
   try {
+    const { getStripe } = await import('./stripe');
     const cached = StripeStatsSchema.safeParse(await cacheRead<unknown>('admin:stripe-stats'));
     if (cached.success) return cached.data;
     let subscribers = 0;

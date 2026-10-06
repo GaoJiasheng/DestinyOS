@@ -16,6 +16,7 @@ export async function siteConfig(): Promise<SiteSettings> {
     'chat.proDailyLimit': 30,
     'feature.panchangDefaultOpen': false,
     maintenance: false,
+    'circuit.mode': 'auto',
   };
   if (process.env.NEXT_PHASE === 'phase-production-build') return defaults;
   try {

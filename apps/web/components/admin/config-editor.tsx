@@ -113,6 +113,26 @@ export function ConfigEditor({ initial }: { initial: SiteSettings }) {
           />
         </label>
       ))}
+      <label htmlFor="circuit-mode">
+        {t('admin.config.circuit.mode')}
+        <select
+          id="circuit-mode"
+          aria-label={t('admin.config.circuit.mode')}
+          value={value['circuit.mode']}
+          onChange={(e) =>
+            change({
+              ...value,
+              'circuit.mode': SiteConfigSchema.shape['circuit.mode'].parse(e.target.value),
+            })
+          }
+        >
+          {(['auto', 'open', 'closed'] as const).map((mode) => (
+            <option key={mode} value={mode}>
+              {t(`admin.config.circuit.${mode}`)}
+            </option>
+          ))}
+        </select>
+      </label>
       <Button disabled={pending}>{pending ? t('admin.pending') : t('admin.config.save')}</Button>
       <p role="status">{message}</p>
     </form>

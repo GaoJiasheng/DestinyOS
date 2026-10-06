@@ -9,6 +9,7 @@ const database = isolatedSqlite(),
 state.db = db;
 beforeEach(async () => {
   vi.clearAllMocks();
+  vi.stubEnv('FEATURE_WEB_PAYMENTS', 'true');
   vi.stubEnv('PLATFORM', 'vercel');
   vi.stubEnv('CRON_SECRET', 'test-secret');
   vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);

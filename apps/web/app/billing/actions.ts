@@ -4,7 +4,7 @@ import { getLocale } from 'next-intl/server';
 import { brand } from '@tianji/shared';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
-import { billingEnabled, getStripe } from '@/lib/stripe';
+import { billingEnabled, webPaymentsEnabled } from '@/lib/web-payments';
 import { ApiError } from '@/lib/api-error';
 
 async function billingUser() {
@@ -26,6 +26,7 @@ function failure(error: unknown) {
 /** Create a hosted monthly subscription or lifetime payment checkout for the authenticated owner and an allowlisted price. */
 export async function createCheckoutSessionAction(raw: unknown) {
   try {
+    if (!webPaymentsEnabled()) throw new ApiError('E_NOT_FOUND', 'Not found', 404);
     const { price } = z
       .object({ price: z.enum(['monthly', 'lifetime']) })
       .strict()
@@ -44,6 +45,7 @@ export async function createCheckoutSessionAction(raw: unknown) {
     const base = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`;
     // DESIGN-GAP: A per-user, ten-minute Stripe idempotency key prevents double clicks creating duplicate checkouts.
     // DESIGN-GAP: Buying lifetime preserves an existing subscription; the UI tells its owner to cancel renewal in Portal.
+    const { getStripe } = await import('@/lib/stripe');
     const checkout = await getStripe().checkout.sessions.create(
       {
         mode: price === 'lifetime' ? 'payment' : 'subscription',
@@ -87,6 +89,8 @@ export async function createCheckoutSessionAction(raw: unknown) {
 /** Open Stripe Customer Portal for the owner's stored customer only. */
 export async function createPortalSessionAction() {
   try {
+    if (!webPaymentsEnabled()) throw new ApiError('E_NOT_FOUND', 'Not found', 404);
+    const { getStripe } = await import('@/lib/stripe');
     const user = await billingUser();
     if (!user.subscription) throw new ApiError('E_PAYMENT', 'No subscription', 404);
     const locale = await getLocale();

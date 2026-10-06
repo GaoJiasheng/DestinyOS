@@ -2,10 +2,7 @@ import { createHmac, timingSafeEqual, randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { ApiError, errorResponse } from '@/lib/api-error';
 import { stateRead, stateReserve, stateRelease } from '@/lib/state';
-import { mutateBillingOwner } from '@/lib/billing-owner';
-import { revenuecatEntitlement } from '@/lib/revenuecat';
-import { updateRows } from '@/lib/db-batch';
-import { subscriptionPlan } from '@/lib/stripe';
+import { refreshRevenuecat } from '@/lib/revenuecat';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -49,25 +46,8 @@ export async function POST(request: Request) {
       if (await stateRead(key)) return Response.json({ ok: true, data: { result: 'duplicate' } });
       // DESIGN-GAP: TEST only checks transport; unsupported transfer/alias identities require a later mobile account workflow.
       if (payload.event.type !== 'TEST') {
-        await mutateBillingOwner(payload.event.app_user_id, async (user) => {
-          const pro = await revenuecatEntitlement(user.id);
-          const lifetime = user.lifetime || pro.lifetime;
-          const stripeActive =
-            user.subscription?.stripeSubscriptionId &&
-            subscriptionPlan(user.subscription.status) === 'pro';
-          return [
-            updateRows(
-              'User',
-              {
-                lifetime,
-                revenuecatProUntil: pro.until,
-                plan: lifetime || pro.active || stripeActive ? 'pro' : 'free',
-              },
-              'id=?',
-              user.id,
-            ),
-          ];
-        });
+        if (!(await refreshRevenuecat(payload.event.app_user_id)))
+          throw new ApiError('E_PAYMENT', 'RevenueCat unavailable', 503);
       }
       await stateReserve(key, 'done', 86400);
       return Response.json({ ok: true, data: { result: 'processed' } });

@@ -12,7 +12,9 @@
         "FEATURE_ADS",
         "PRIVACY_CONTROLLER_NAME",
         "PRIVACY_CONTACT_EMAIL",
-        "PLATFORM"
+        "PLATFORM",
+        "NEXT_PUBLIC_APP_STORE_URL",
+        "NEXT_PUBLIC_PLAY_STORE_URL"
       ]
     },
     "dev": {
@@ -44,7 +46,11 @@
     "FEATURE_LLM_CHAT",
     "LOCAL_DATABASE_URL",
     "PLATFORM",
-    "REVENUECAT_*"
+    "REVENUECAT_*",
+    "FEATURE_WEB_PAYMENTS",
+    "CF_ANALYTICS_TOKEN",
+    "CF_ANALYTICS_ACCOUNT_ID",
+    "CF_BILLING_CYCLE_DAY"
   ],
   "globalDependencies": ["prisma/schema.prisma", "apps/web/migrations/**", "apps/web/messages/**"]
 }

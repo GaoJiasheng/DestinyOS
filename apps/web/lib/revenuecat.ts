@@ -71,3 +71,32 @@ export async function revenuecatEntitlement(userId: string) {
     active: lifetime || Boolean(expiry && expiry.getTime() > Date.now()),
   };
 }
+
+/** Reconcile the same User.id used by the App SDK, including expired and refunded lifetime entitlements. */
+export async function refreshRevenuecat(userId: string): Promise<boolean> {
+  if (!process.env.REVENUECAT_SECRET_KEY) return false;
+  const { mutateBillingOwner } = await import('./billing-owner');
+  const { updateRows } = await import('./db-batch');
+  const { subscriptionPlan } = await import('./web-payments');
+  await mutateBillingOwner(userId, async (user) => {
+    const pro = await revenuecatEntitlement(user.id);
+    // DESIGN-GAP: Only Stripe's persisted lifetime flag is retained when RevenueCat revokes a non-consumable purchase.
+    const lifetime = Boolean(user.subscription?.lifetime) || pro.lifetime;
+    const stripeActive =
+      user.subscription?.stripeSubscriptionId &&
+      subscriptionPlan(user.subscription.status) === 'pro';
+    return [
+      updateRows(
+        'User',
+        {
+          lifetime,
+          revenuecatProUntil: pro.until,
+          plan: lifetime || pro.active || stripeActive ? 'pro' : 'free',
+        },
+        'id=?',
+        user.id,
+      ),
+    ];
+  });
+  return true;
+}

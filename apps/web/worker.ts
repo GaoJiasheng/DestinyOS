@@ -1,27 +1,25 @@
 import handler from './.open-next/worker.js';
-import { withDatabaseScope } from './lib/platform/database-scope';
+import {
+  workerFetch,
+  type WorkerEnvironment,
+  type WorkerContext,
+} from './lib/platform/worker-runtime';
 import { scheduledMaintenance } from './lib/platform/scheduled';
-interface WorkerEnvironment {
-  CRON_SECRET?: string;
-  NEXT_PUBLIC_SITE_URL?: string;
-}
-interface WorkerContext {
-  waitUntil(promise: Promise<unknown>): void;
-}
-/** Reuse OpenNext fetch while owning request-scoped database cleanup through streaming completion. */
+/** Reuse OpenNext through the cost gate and request-scoped database cleanup. */
 function fetchRequest(
   request: Request,
   env: WorkerEnvironment,
   ctx: WorkerContext,
 ): Promise<Response> {
-  return withDatabaseScope(
-    () => handler.fetch(request, env, ctx),
-    (promise) => ctx.waitUntil(promise),
-  );
+  return workerFetch(request, env, ctx, (incoming) => handler.fetch(incoming, env, ctx));
 }
 export default {
   fetch: fetchRequest,
-  async scheduled(_event: unknown, env: WorkerEnvironment, ctx: WorkerContext): Promise<void> {
-    await scheduledMaintenance(env, (request) => fetchRequest(request, env, ctx));
+  async scheduled(
+    event: { cron: string },
+    env: WorkerEnvironment,
+    ctx: WorkerContext,
+  ): Promise<void> {
+    await scheduledMaintenance(env, (request) => fetchRequest(request, env, ctx), event.cron);
   },
 };

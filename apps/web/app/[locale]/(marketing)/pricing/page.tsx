@@ -1,8 +1,8 @@
 import { publicRouteMetadata } from '@/lib/public-seo';
 import { brand } from '@tianji/shared';
 import { getCopy } from '@/i18n/get-copy';
-import { billingEnabled } from '@/lib/stripe';
-import { PricingControls } from '@/components/billing/billing-controls';
+import { billingEnabled, webPaymentsEnabled } from '@/lib/web-payments';
+import { AppMembership } from '@/components/billing/app-membership';
 import { Link } from '@/i18n/navigation';
 import { setRequestLocale } from 'next-intl/server';
 export const dynamic = 'force-dynamic';
@@ -11,6 +11,10 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getCopy();
+  const payments = webPaymentsEnabled();
+  const PricingControls = payments
+    ? (await import('@/components/billing/billing-controls')).PricingControls
+    : null;
   return (
     <section className="settings-page">
       <h1 className="type-h1">{t('billing.title')}</h1>
@@ -25,20 +29,30 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
           <h2>
             {t('pricing.pro.title', { brand: locale !== 'en' ? brand.nameZh : brand.nameEn })}
           </h2>
-          <p>{t('billing.proFeatures')}</p>
-          <p>{t('billing.futureFeatures')}</p>
-          <PricingControls enabled={billingEnabled()} />
+          {PricingControls ? (
+            <>
+              <p>{t('billing.proFeatures')}</p>
+              <p>{t('billing.futureFeatures')}</p>
+              <PricingControls enabled={billingEnabled()} />
+            </>
+          ) : (
+            <AppMembership />
+          )}
         </section>
       </div>
-      <p>{t('billing.renewal')}</p>
+      {payments ? <p>{t('billing.renewal')}</p> : null}
       <Link href="/terms">{t('legal.terms')}</Link>
-      <h2>{t('billing.faq')}</h2>
-      {(['features', 'cancel', 'refund', 'payments'] as const).map((key) => (
-        <details key={key}>
-          <summary>{t(`billing.faq.${key}.question`)}</summary>
-          <p>{t(`billing.faq.${key}.answer`)}</p>
-        </details>
-      ))}
+      {payments ? (
+        <>
+          <h2>{t('billing.faq')}</h2>
+          {(['features', 'cancel', 'refund', 'payments'] as const).map((key) => (
+            <details key={key}>
+              <summary>{t(`billing.faq.${key}.question`)}</summary>
+              <p>{t(`billing.faq.${key}.answer`)}</p>
+            </details>
+          ))}
+        </>
+      ) : null}
     </section>
   );
 }

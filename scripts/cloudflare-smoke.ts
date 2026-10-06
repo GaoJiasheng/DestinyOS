@@ -13,6 +13,9 @@ const variables = {
   STRIPE_WEBHOOK_SECRET: 'whsec_isolated',
   CRON_SECRET: 'isolated-cron',
   FEATURE_ADS: 'false',
+  FEATURE_WEB_PAYMENTS: 'false',
+  CF_ANALYTICS_TOKEN: '',
+  ADMIN_EMAILS: 'smoke-admin@example.test',
 };
 const child = spawn(
   'pnpm',
