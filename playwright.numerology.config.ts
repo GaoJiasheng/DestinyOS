@@ -1,3 +1,4 @@
+import { testDatabaseUrl } from './scripts/sqlite-test';
 import { defineConfig } from '@playwright/test';
 import base from './playwright.astrology.config';
 const server = Array.isArray(base.webServer) ? base.webServer[0] : base.webServer;
@@ -13,15 +14,11 @@ export default defineConfig({
     url: 'http://localhost:39100/zh/auth/login',
     env: {
       ...server?.env,
-      TEST_POSTGRES_PORT: '59432',
+      TEST_DATABASE_ID: '59432',
       TEST_SHADOW_PORT: '59433',
-      TEST_REDIS_PORT: '59379',
       TEST_MAIL_PORT: '59082',
       TEST_WEB_PORT: '39100',
-      DATABASE_URL:
-        'postgresql://postgres:postgres@127.0.0.1:59432/postgres?connection_limit=1&statement_cache_size=0',
-      DIRECT_DATABASE_URL: 'postgresql://postgres:postgres@127.0.0.1:59432/postgres',
-      REDIS_URL: 'redis://127.0.0.1:59379',
+      LOCAL_DATABASE_URL: testDatabaseUrl(59432),
       AUTH_URL: 'http://localhost:39100',
       TEST_MAIL_URL: 'http://127.0.0.1:59082/mail',
     },

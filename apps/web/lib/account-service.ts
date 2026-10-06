@@ -4,7 +4,8 @@ import { BirthInputSchema } from '@tianji/shared';
 import { getDb } from './db';
 import { decryptField } from './crypto';
 import { ApiError } from './api-error';
-import { getLocalRedis, getUpstashRedis } from './redis';
+import { stateReserve } from './state';
+import { atomicBatch, updateRows, statement, audit } from './db-batch';
 export { SettingsSchema } from './account-service-schema';
 /** Export only owner data; credential tables and encrypted envelopes are excluded. */
 export async function exportAccount(userId: string) {
@@ -87,12 +88,10 @@ export async function exportAccount(userId: string) {
     subscription,
   };
 }
-/** Enforce the documented export quota with one atomic Redis reservation. */
+/** Enforce the documented export quota with one atomic D1 reservation. */
 export async function reserveExport(userId: string) {
   const key = `export:${userId}`;
-  const result = process.env.UPSTASH_REDIS_REST_URL
-    ? await getUpstashRedis().set(key, '1', { nx: true, ex: 600 })
-    : await getLocalRedis().set(key, '1', 'EX', 600, 'NX');
+  const result = await stateReserve(key, '1', 600);
   if (!result)
     throw new ApiError('E_RATE_LIMITED', 'Export allowed once per ten minutes', 429, {
       retryAfter: 600,
@@ -120,52 +119,54 @@ export async function softDeleteAccount(
     if (!response.ok) throw new ApiError('E_PAYMENT', 'Subscription cancellation failed', 502);
   }
   // DESIGN-GAP: Feedback deletion is an optional second action argument; default retention follows 06 §4.
-  await db.$transaction(async (tx) => {
-    await tx.user.update({ where: { id: userId }, data: { deletedAt: new Date(), plan: 'free' } });
-    await tx.session.deleteMany({ where: { userId } });
-    await tx.journalEntry.deleteMany({ where: { userId } });
-    await tx.shareLink.updateMany({
-      where: { userId, revokedAt: null },
-      data: { revokedAt: new Date() },
-    });
-    await tx.reading.updateMany({ where: { userId }, data: { isPublic: false } });
-    if (deleteFeedback) await tx.feedback.deleteMany({ where: { userId } });
-    else
-      await tx.feedback.updateMany({ where: { userId }, data: { userId: null, readingId: null } });
-    await tx.adminAuditLog.create({
-      data: {
-        adminId: actor,
-        action: 'user.soft_delete',
-        ...(actor === 'system:account' ? {} : { target: userId }),
-        diff: { deleteFeedback },
-      },
-    });
-    if (subscription)
-      await tx.subscription.update({
-        where: { userId },
-        data: { status: 'canceled', cancelAtPeriodEnd: false },
-      });
-  });
+  const now = new Date();
+  await atomicBatch([
+    updateRows('User', { deletedAt: now, plan: 'free' }, 'id=?', userId),
+    statement('DELETE FROM "Session" WHERE "userId"=?', userId),
+    statement('DELETE FROM "JournalEntry" WHERE "userId"=?', userId),
+    updateRows('ShareLink', { revokedAt: now }, '"userId"=? AND "revokedAt" IS NULL', userId),
+    updateRows('Reading', { isPublic: false }, '"userId"=?', userId),
+    deleteFeedback
+      ? statement('DELETE FROM "Feedback" WHERE "userId"=?', userId)
+      : updateRows('Feedback', { userId: null, readingId: null }, '"userId"=?', userId),
+    audit(actor, 'user.soft_delete', actor === 'system:account' ? undefined : userId, {
+      deleteFeedback,
+    }),
+    ...(subscription
+      ? [
+          updateRows(
+            'Subscription',
+            { status: 'canceled', cancelAtPeriodEnd: false },
+            '"userId"=?',
+            userId,
+          ),
+        ]
+      : []),
+  ]);
 }
 /** Delete due accounts after seven days; cascades remove their profile, readings and shares. */
 export async function hardDeleteAccounts(now = new Date()) {
   const db = getDb(),
     before = new Date(now.getTime() - 7 * 86400000);
-  return db.$transaction(async (tx) => {
-    const due = await tx.user.findMany({
-      where: { deletedAt: { lte: before } },
-      select: { id: true, email: true },
-    });
-    for (const user of due) {
-      if (user.email) await tx.verificationToken.deleteMany({ where: { identifier: user.email } });
-      await tx.user.delete({ where: { id: user.id } });
-      // DESIGN-GAP: Scheduled deletion uses the existing audit table with a system actor and no personal target.
-      await tx.adminAuditLog.create({
-        data: { adminId: 'system:cron', action: 'user.hard_delete' },
-      });
-    }
-    return due.length;
+  const due = await db.user.findMany({
+    where: { deletedAt: { lte: before } },
+    select: { id: true },
   });
+  for (const user of due)
+    await atomicBatch([
+      statement(
+        'DELETE FROM "VerificationToken" WHERE identifier IN (SELECT email FROM "User" WHERE id=? AND "deletedAt" <= ?)',
+        user.id,
+        before.toISOString().replace('Z', '+00:00'),
+      ),
+      statement(
+        'DELETE FROM "User" WHERE id=? AND "deletedAt" <= ?',
+        user.id,
+        before.toISOString().replace('Z', '+00:00'),
+      ),
+      audit('system:cron', 'user.hard_delete'),
+    ]);
+  return due.length;
 }
 /** Constant-time cron bearer comparison, rejecting absent configuration. */
 export function cronAuthorized(header: string | null) {

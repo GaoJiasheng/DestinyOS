@@ -16,10 +16,7 @@ vi.mock('../lib/db', () => ({
     user: { findUniqueOrThrow: mocks.user },
   }),
 }));
-vi.mock('../lib/redis', () => ({
-  getLocalRedis: () => ({ get: mocks.get, set: mocks.set }),
-  getUpstashRedis: () => ({ get: mocks.get, set: mocks.set }),
-}));
+vi.mock('../lib/cache', () => ({ cacheRead: mocks.get, cacheWrite: mocks.set }));
 vi.mock('../lib/auth', () => ({ auth: mocks.auth }));
 vi.mock('../lib/ratelimit', async (original) => ({
   ...(await original<typeof import('../lib/ratelimit')>()),
@@ -37,7 +34,7 @@ const birth = BirthInputSchema.parse(A),
   { place, gender, ...input } = birth;
 beforeEach(() => {
   vi.clearAllMocks();
-  vi.stubEnv('UPSTASH_REDIS_REST_URL', '');
+
   mocks.profile.mockResolvedValue({
     id: 'profile-one',
     version: 1,
@@ -65,7 +62,7 @@ it('annual cache isolates owner, version, year, zone and locale, and tolerates m
   const a = await calendarYearForUser('owner', 2026, 'Asia/Shanghai', 'zh');
   const key = mocks.set.mock.calls[0]![0] as string;
   expect(key).toMatch(/^calendar:owner:profile-one:1:2026:Asia%2FShanghai:zh:/);
-  expect(mocks.set.mock.calls[0]!.slice(2)).toEqual(['EX', 86400]);
+  expect(mocks.set.mock.calls[0]!.slice(2)).toEqual([86400]);
   mocks.get.mockResolvedValue(JSON.stringify(a));
   expect(await calendarYearForUser('owner', 2026, 'Asia/Shanghai', 'zh')).toEqual(a);
   expect(mocks.set).toHaveBeenCalledTimes(1);
@@ -84,10 +81,9 @@ it('annual cache isolates owner, version, year, zone and locale, and tolerates m
   await calendarYearForUser('owner', 2026, 'UTC', 'en');
   expect(mocks.set.mock.calls.at(-1)?.[0]).toMatch(/^calendar:owner:profile-one:2:2026:UTC:en:/);
 });
-it('supports Upstash structured cache and rejects absent profiles', async () => {
-  vi.stubEnv('UPSTASH_REDIS_REST_URL', 'https://cache.example');
+it('supports KV structured cache and rejects absent profiles', async () => {
   const events = await calendarYearForUser('owner', 2026, 'UTC', 'en');
-  expect(mocks.set.mock.calls.at(-1)?.[2]).toEqual({ ex: 86400 });
+  expect(mocks.set.mock.calls.at(-1)?.[2]).toEqual(86400);
   mocks.get.mockResolvedValue(events);
   expect(await calendarYearForUser('owner', 2026, 'UTC', 'en')).toEqual(events);
   mocks.profile.mockResolvedValue(null);

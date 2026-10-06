@@ -1,7 +1,7 @@
 import { BaziChartSchema } from '@tianji/shared';
 import type { LocalReading } from '../../lib/reading-schema';
-import chartFixture from '../../../../packages/content/test/fixtures/bazi.engine-a.json';
-import plan from '../../../../packages/interpret/src/plans/bazi.json';
+import chartFixture from '../../../../packages/content/test/fixtures/bazi.engine-a.json' with { type: 'json' };
+import plan from '../../../../packages/interpret/src/plans/bazi.json' with { type: 'json' };
 
 export const baziFixture = BaziChartSchema.parse(chartFixture);
 /** Deterministic saved report fixture; chart fields come from the existing engine Fixture A. */

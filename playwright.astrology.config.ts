@@ -1,3 +1,4 @@
+import { testDatabaseUrl } from './scripts/sqlite-test';
 import base from './playwright.readings.config';
 import { defineConfig } from '@playwright/test';
 const server = Array.isArray(base.webServer) ? base.webServer[0] : base.webServer;
@@ -26,16 +27,12 @@ export default defineConfig({
     reuseExistingServer: false,
     env: {
       ...server?.env,
-      TEST_POSTGRES_PORT: '57432',
+      TEST_DATABASE_ID: '57432',
       TEST_SHADOW_PORT: '57433',
-      TEST_REDIS_PORT: '57379',
       TEST_MAIL_PORT: '59081',
       TEST_WEB_PORT: '37100',
       TEST_WEB_MODE: 'production',
-      DATABASE_URL:
-        'postgresql://postgres:postgres@127.0.0.1:57432/postgres?connection_limit=1&statement_cache_size=0',
-      DIRECT_DATABASE_URL: 'postgresql://postgres:postgres@127.0.0.1:57432/postgres',
-      REDIS_URL: 'redis://127.0.0.1:57379',
+      LOCAL_DATABASE_URL: testDatabaseUrl(57432),
       AUTH_URL: 'http://localhost:37100',
       TEST_MAIL_URL: 'http://127.0.0.1:59081/mail',
     },

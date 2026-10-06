@@ -1,92 +1,150 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-const mocked = vi.hoisted(() => ({
-  subscription: vi.fn(),
-  userUpdate: vi.fn(),
-  sessions: vi.fn(),
-  journals: vi.fn(),
-  shares: vi.fn(),
-  readings: vi.fn(),
-  feedbackDelete: vi.fn(),
-  feedbackUpdate: vi.fn(),
-  subUpdate: vi.fn(),
-  due: vi.fn(),
-  userDelete: vi.fn(),
-  audit: vi.fn(),
-}));
-vi.mock('../lib/db', () => {
-  const db = {
-    subscription: { findUnique: mocked.subscription, update: mocked.subUpdate },
-    user: { update: mocked.userUpdate, findMany: mocked.due, delete: mocked.userDelete },
-    session: { deleteMany: mocked.sessions },
-    journalEntry: { deleteMany: mocked.journals },
-    shareLink: { updateMany: mocked.shares },
-    reading: { updateMany: mocked.readings },
-    feedback: { deleteMany: mocked.feedbackDelete, updateMany: mocked.feedbackUpdate },
-    adminAuditLog: { create: mocked.audit },
-  };
-  return {
-    getDb: () => ({
-      ...db,
-      $transaction: async (work: (tx: typeof db) => Promise<unknown>) => work(db),
-    }),
-  };
-});
+import { beforeEach, afterAll, afterEach, describe, expect, it, vi } from 'vitest';
+import { isolatedSqlite } from '../../../scripts/sqlite-test';
+import { encryptField } from '../lib/crypto';
+const state = vi.hoisted(() => ({ db: null as unknown }));
+vi.mock('../lib/db', () => ({ getDb: () => state.db }));
 import { cronAuthorized, hardDeleteAccounts, softDeleteAccount } from '../lib/account-service';
-beforeEach(() => {
+const database = isolatedSqlite(),
+  db = database.client;
+state.db = db;
+beforeEach(async () => {
   vi.clearAllMocks();
-  mocked.subscription.mockResolvedValue(null);
+  vi.stubEnv('PLATFORM', 'vercel');
   vi.stubEnv('CRON_SECRET', 'test-secret');
+  vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);
+  await db.feedback.deleteMany();
+  await db.user.deleteMany();
+  await db.adminAuditLog.deleteMany();
+  await db.user.create({ data: { id: 'owner', email: 'owner@example.test' } });
 });
-describe('account lifecycle', () => {
-  it('revokes sessions/shares and anonymizes feedback in the deletion transaction', async () => {
+afterEach(() => vi.unstubAllGlobals());
+afterAll(async () => {
+  await db.$disconnect();
+  await database.close();
+  vi.unstubAllEnvs();
+});
+async function privateRecords() {
+  const profile = await db.birthProfile.create({
+    data: {
+      userId: 'owner',
+      encBirth: 'v1:fixture',
+      gender: 'male',
+      timeUnknown: false,
+      tz: 'Asia/Shanghai',
+      birthYear: 1990,
+      chartHash: 'fixture',
+    },
+  });
+  const reading = await db.reading.create({
+    data: {
+      userId: 'owner',
+      profileId: profile.id,
+      system: 'bazi',
+      encInput: 'v1:fixture',
+      chart: {},
+      schoolUsed: {},
+      engineVersion: '1',
+      interpretVersion: '1',
+      knowledgeVersion: '1',
+      isPublic: true,
+    },
+  });
+  await db.session.create({
+    data: { userId: 'owner', sessionToken: 'owner-session', expires: new Date(Date.now() + 60000) },
+  });
+  await db.journalEntry.create({
+    data: {
+      userId: 'owner',
+      profileId: profile.id,
+      date: new Date('2026-10-06T00:00:00Z'),
+      mood: 3,
+      text: encryptField('Private note', 'JournalEntry.text', 'owner'),
+      prediction: {},
+    },
+  });
+  await db.shareLink.create({
+    data: { userId: 'owner', readingId: reading.id, token: 'A'.repeat(22), template: 'default' },
+  });
+  await db.feedback.create({
+    data: {
+      userId: 'owner',
+      readingId: reading.id,
+      vote: 1,
+      text: 'Retain anonymous feedback',
+    },
+  });
+  return reading;
+}
+describe('account lifecycle on the D1 SQLite schema', () => {
+  it('atomically revokes sessions/shares, deletes journals and anonymizes feedback', async () => {
+    const reading = await privateRecords();
     await softDeleteAccount('owner');
-    expect(mocked.sessions).toHaveBeenCalledWith({ where: { userId: 'owner' } });
-    expect(mocked.journals).toHaveBeenCalledWith({ where: { userId: 'owner' } });
-    expect(mocked.shares).toHaveBeenCalledWith(
-      expect.objectContaining({ where: { userId: 'owner', revokedAt: null } }),
+    expect(await db.session.count()).toBe(0);
+    expect(await db.journalEntry.count()).toBe(0);
+    expect((await db.shareLink.findFirstOrThrow()).revokedAt).toBeInstanceOf(Date);
+    expect((await db.reading.findUniqueOrThrow({ where: { id: reading.id } })).isPublic).toBe(
+      false,
     );
-    expect(mocked.feedbackUpdate).toHaveBeenCalledWith({
-      where: { userId: 'owner' },
-      data: { userId: null, readingId: null },
+    expect(await db.feedback.findFirstOrThrow()).toMatchObject({
+      userId: null,
+      readingId: null,
+      text: 'Retain anonymous feedback',
     });
-    expect(mocked.feedbackDelete).not.toHaveBeenCalled();
+    expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).deletedAt).toBeInstanceOf(
+      Date,
+    );
+    expect(await db.adminAuditLog.count()).toBe(1);
   });
   it('supports explicit removal of the owner feedback', async () => {
+    await privateRecords();
     await softDeleteAccount('owner', true);
-    expect(mocked.feedbackDelete).toHaveBeenCalledWith({ where: { userId: 'owner' } });
-    expect(mocked.feedbackUpdate).not.toHaveBeenCalled();
+    expect(await db.feedback.count()).toBe(0);
   });
-  it('does not lock out the owner when Stripe cancellation fails; cancels immediately on success', async () => {
+  it('preserves access if Stripe cancellation fails and cancels immediately on success', async () => {
     vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');
-    mocked.subscription.mockResolvedValue({ stripeSubscriptionId: 'sub_test', status: 'active' });
+    await db.subscription.create({
+      data: {
+        userId: 'owner',
+        stripeSubscriptionId: 'sub_test',
+        stripeCustomerId: 'cus_test',
+        status: 'active',
+      },
+    });
     const fetch = vi.fn().mockResolvedValue(new Response('', { status: 500 }));
     vi.stubGlobal('fetch', fetch);
     await expect(softDeleteAccount('owner')).rejects.toMatchObject({ code: 'E_PAYMENT' });
-    expect(mocked.userUpdate).not.toHaveBeenCalled();
+    expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).deletedAt).toBeNull();
+    expect(await db.adminAuditLog.count()).toBe(0);
     fetch.mockResolvedValue(new Response('{}', { status: 200 }));
     await softDeleteAccount('owner');
     expect(fetch).toHaveBeenLastCalledWith(
       'https://api.stripe.com/v1/subscriptions/sub_test',
       expect.objectContaining({ method: 'DELETE' }),
     );
-    expect(mocked.subUpdate).toHaveBeenCalledWith({
-      where: { userId: 'owner' },
-      data: { status: 'canceled', cancelAtPeriodEnd: false },
+    expect(await db.subscription.findUniqueOrThrow({ where: { userId: 'owner' } })).toMatchObject({
+      status: 'canceled',
+      cancelAtPeriodEnd: false,
     });
-    vi.unstubAllGlobals();
   });
-  it('authenticates cron and limits deletion to the seven-day cutoff with anonymous audit entries', async () => {
+  it('authenticates cron, enforces the seven-day cutoff and deletes tokens with anonymous audit', async () => {
     expect(cronAuthorized(null)).toBe(false);
     expect(cronAuthorized('Bearer wrong')).toBe(false);
     expect(cronAuthorized('Bearer test-secret')).toBe(true);
-    mocked.due.mockResolvedValue([{ id: 'due' }]);
-    expect(await hardDeleteAccounts(new Date('2026-10-05T03:00:00Z'))).toBe(1);
-    expect(mocked.due).toHaveBeenCalledWith({
-      where: { deletedAt: { lte: new Date('2026-09-28T03:00:00Z') } },
-      select: { id: true, email: true },
+    await db.user.create({
+      data: { id: 'due', email: 'due@example.test', deletedAt: new Date('2026-09-28T03:00:00Z') },
     });
-    expect(mocked.audit).toHaveBeenCalledWith({
-      data: { adminId: 'system:cron', action: 'user.hard_delete' },
+    await db.user.create({ data: { id: 'not-due', deletedAt: new Date('2026-09-28T03:00:01Z') } });
+    await db.verificationToken.create({
+      data: { identifier: 'due@example.test', token: 'due-token', expires: new Date('2026-10-06') },
+    });
+    expect(await hardDeleteAccounts(new Date('2026-10-05T03:00:00Z'))).toBe(1);
+    expect(await db.user.findUnique({ where: { id: 'due' } })).toBeNull();
+    expect(await db.user.findUnique({ where: { id: 'not-due' } })).not.toBeNull();
+    expect(await db.verificationToken.count()).toBe(0);
+    expect(await db.adminAuditLog.findFirstOrThrow()).toMatchObject({
+      adminId: 'system:cron',
+      action: 'user.hard_delete',
+      target: null,
     });
   });
 });

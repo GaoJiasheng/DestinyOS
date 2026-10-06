@@ -1,12 +1,9 @@
+import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
-const db = new PrismaClient({
-  datasourceUrl:
-    'postgresql://postgres:postgres@127.0.0.1:57542/postgres?connection_limit=1&statement_cache_size=0',
-});
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
+const db = sqliteClient(testDatabaseUrl(57542));
 test.afterAll(async () => db.$disconnect());
 for (const locale of ['zh', 'en'] as const) {
   const copy = locale === 'zh' ? zh : en;

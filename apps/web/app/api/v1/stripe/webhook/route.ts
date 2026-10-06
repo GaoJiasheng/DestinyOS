@@ -4,7 +4,7 @@ import { getStripe } from '@/lib/stripe';
 import { handleStripeEvent } from '@/lib/stripe-webhook';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-/** Verify the unmodified Stripe payload before any Redis or database access. */
+/** Verify the unmodified Stripe payload before any D1 access. */
 export async function POST(request: Request) {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!secret || !process.env.STRIPE_SECRET_KEY)

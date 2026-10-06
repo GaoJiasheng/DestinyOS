@@ -1,6 +1,6 @@
 import base from './playwright.auth.config';
 import { defineConfig } from '@playwright/test';
-// DESIGN-GAP: Reuse the isolated PostgreSQL/Redis/mail harness; production Auth.js remains unchanged.
+// DESIGN-GAP: Reuse the isolated SQLite/KV/mail harness; production Auth.js remains unchanged.
 export default defineConfig({
   ...base,
   testMatch: 'readings.spec.ts',

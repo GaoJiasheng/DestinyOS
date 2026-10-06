@@ -1,104 +1,23 @@
-import { PGlite } from '@electric-sql/pglite';
-import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
-import RedisMock from 'ioredis-mock';
-import { createServer as createTcpServer } from 'node:net';
 import { createServer as createHttpServer } from 'node:http';
 import { spawn } from 'node:child_process';
+import { rmSync } from 'node:fs';
 import { startStripeMock } from './test-stripe-server';
-
-// DESIGN-GAP: PGlite and ioredis-mock are isolated test substitutes, exposed through PostgreSQL/RESP
-// so E2E exercises the real Prisma client and local Redis limiter without application mock branches.
-// DESIGN-GAP: Explicit service ports override the shared offset so all merged E2E suites retain their isolated endpoints.
+import { migrateSqlite } from './sqlite-migrate';
+import { testDatabaseUrl } from './sqlite-test';
+import { TestCache } from './test-cache';
+// DESIGN-GAP: File-backed SQLite uses the actual D1 migrations and is shared by browser test processes; no Postgres or Redis daemon is needed.
 const portOffset = Number(process.env.TEST_SERVICE_PORT_OFFSET ?? 0);
-if (!Number.isInteger(portOffset) || portOffset < 0 || portOffset > 5000)
-  throw new Error('Invalid test service port offset');
 const testPorts = {
-  postgres: Number(process.env.TEST_POSTGRES_PORT ?? 55432 + portOffset),
-  shadow: Number(process.env.TEST_SHADOW_PORT ?? 55433 + portOffset),
-  redis: Number(process.env.TEST_REDIS_PORT ?? 56379 + portOffset),
   mail: Number(process.env.TEST_MAIL_PORT ?? 58081 + portOffset),
   web: Number(process.env.TEST_WEB_PORT ?? 3100 + portOffset),
 };
-const pg = new PGlite();
-const shadow = new PGlite();
-// DESIGN-GAP: PGlite multiplexes sessions; clear session-local prepared statements on startup.
-// Prisma migration engines reuse names across connections, unlike PGlite's single backend.
-for (const database of [pg, shadow]) {
-  const execute = database.execProtocolRawStream.bind(database);
-  database.execProtocolRawStream = async (message, options) => {
-    const buffer = Buffer.from(message);
-    if (buffer.length >= 8 && buffer[0] === 0 && buffer.readUInt32BE(4) === 196608) {
-      const text = Buffer.from('DEALLOCATE ALL\0');
-      const reset = Buffer.alloc(5 + text.length);
-      reset[0] = 81;
-      reset.writeUInt32BE(4 + text.length, 1);
-      text.copy(reset, 5);
-      await execute(reset, { onRawData: () => undefined });
-    }
-    return execute(message, options);
-  };
-}
-await pg.waitReady;
-await shadow.waitReady;
-const postgres = new PGLiteSocketServer({ db: pg, port: testPorts.postgres, maxConnections: 20 });
-const shadowServer = new PGLiteSocketServer({
-  db: shadow,
-  port: testPorts.shadow,
-  maxConnections: 10,
-});
-await postgres.start();
-await shadowServer.start();
-const redis = new RedisMock();
-
-function encode(value: unknown): string {
-  if (value === null || value === undefined) return '$-1\r\n';
-  if (Array.isArray(value)) return `*${value.length}\r\n${value.map(encode).join('')}`;
-  if (typeof value === 'number') return `:${value}\r\n`;
-  const text = String(value);
-  return `$${Buffer.byteLength(text)}\r\n${text}\r\n`;
-}
-
-const cache = createTcpServer((socket) => {
-  let input = Buffer.alloc(0);
-  let queue = Promise.resolve();
-  socket.on('data', (chunk) => {
-    input = Buffer.concat([input, chunk]);
-    while (input.length) {
-      const firstLine = input.indexOf('\r\n');
-      if (firstLine < 0) break;
-      const count = Number(input.subarray(1, firstLine).toString());
-      let offset = firstLine + 2;
-      const args: string[] = [];
-      for (let i = 0; i < count; i++) {
-        const end = input.indexOf('\r\n', offset);
-        if (end < 0) break;
-        const length = Number(input.subarray(offset + 1, end).toString());
-        if (input.length < end + 2 + length + 2) break;
-        args.push(input.subarray(end + 2, end + 2 + length).toString());
-        offset = end + 2 + length + 2;
-      }
-      if (args.length !== count) break;
-      input = input.subarray(offset);
-      queue = queue.then(async () => {
-        const [command, ...rest] = args;
-        try {
-          const name = command?.toLowerCase() ?? '';
-          const method: unknown = (redis as unknown as Record<string, unknown>)[name];
-          if (name !== 'client' && typeof method !== 'function')
-            throw new Error(`Unsupported mock command: ${name}`);
-          const execute = method as (...args: string[]) => Promise<unknown>;
-          const result = name === 'client' ? 'OK' : await execute.apply(redis, rest);
-          socket.write(encode(result));
-        } catch (error) {
-          socket.write(
-            `-ERR ${error instanceof Error ? error.message.replace(/[\r\n]/g, ' ') : 'mock failure'}\r\n`,
-          );
-        }
-      });
-    }
-  });
-});
-await new Promise<void>((resolve) => cache.listen(testPorts.redis, '127.0.0.1', resolve));
+const url =
+  process.env.LOCAL_DATABASE_URL ??
+  testDatabaseUrl(Number(process.env.TEST_DATABASE_ID ?? 55432 + portOffset));
+process.env.LOCAL_DATABASE_URL = url;
+for (const suffix of ['', '-wal', '-shm']) rmSync(url.slice(5) + suffix, { force: true });
+migrateSqlite(url);
+const cache = new TestCache(url);
 const outbox: unknown[] = [];
 const mail = createHttpServer((request, response) => {
   if (request.method === 'POST' && request.url === '/mail') {
@@ -115,15 +34,14 @@ const mail = createHttpServer((request, response) => {
     response.end(JSON.stringify(outbox));
   } else if (request.url === '/reset' && request.method === 'POST') {
     outbox.length = 0;
-    void redis.flushall().then(() => response.end('OK'));
+    void cache.flushall().then(() => response.end('OK'));
   } else {
     response.writeHead(404);
     response.end();
   }
 });
 await new Promise<void>((resolve) => mail.listen(testPorts.mail, '127.0.0.1', resolve));
-console.log('Test PostgreSQL, shadow database, Redis and mail sink are ready.');
-
+console.log('Test SQLite, KV substitute and mail sink are ready.');
 const stripeMock =
   process.env.TEST_STRIPE_MOCK === '1'
     ? await startStripeMock(
@@ -133,9 +51,6 @@ const stripeMock =
     : undefined;
 let child: ReturnType<typeof spawn> | undefined;
 if (process.argv.includes('--web')) {
-  const migrate = spawn('pnpm', ['db:deploy'], { stdio: 'inherit', env: process.env });
-  const code = await new Promise<number | null>((resolve) => migrate.on('exit', resolve));
-  if (code !== 0) throw new Error('Test database migration failed');
   // DESIGN-GAP: Production E2E reuses the same service harness with a prebuilt Next.js server.
   const production =
     process.argv.includes('--production') || process.env.TEST_WEB_MODE === 'production';
@@ -158,18 +73,12 @@ if (process.argv.includes('--web')) {
           : process.env,
   });
 }
+
 async function stop() {
   child?.kill('SIGTERM');
   stripeMock?.close();
-  cache.close();
   mail.close();
-  redis.disconnect();
-  await postgres.stop();
-  await shadowServer.stop();
-  // DESIGN-GAP: The adapter schedules close handlers after stop; drain them before WASM teardown.
-  await new Promise<void>((resolve) => setImmediate(resolve));
-  await pg.close();
-  await shadow.close();
+  await cache.quit();
   process.exit(0);
 }
 process.on('SIGTERM', () => {

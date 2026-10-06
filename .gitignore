@@ -29,3 +29,7 @@ apps/web/public/workers/
 .wrangler/
 .dev.vars*
 apps/web/public/_data/
+
+.test-data/
+prisma/*.db
+prisma/*.db-*

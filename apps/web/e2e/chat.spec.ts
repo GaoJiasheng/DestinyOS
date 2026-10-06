@@ -1,18 +1,16 @@
+import { sqliteClient, testDatabaseUrl } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
 import { generateReading, json } from '../lib/reading-service';
 import { encryptField, decryptField } from '../lib/crypto';
 import { ReadingRequestSchema } from '../lib/reading-schema';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 // DESIGN-GAP: Match the chat harness port offset when other worktrees are running E2E services.
 const portOffset = Number(process.env.TEST_SERVICE_PORT_OFFSET ?? 0);
 const baseURL = `http://localhost:${3100 + portOffset}`;
 const key = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
-const db = new PrismaClient({
-  datasourceUrl: `postgresql://postgres:postgres@127.0.0.1:${55432 + portOffset}/postgres?connection_limit=1&statement_cache_size=0`,
-});
+const db = sqliteClient(testDatabaseUrl(55432 + portOffset));
 const birth = {
   calendar: 'gregorian',
   year: 1990,

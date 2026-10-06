@@ -6,7 +6,8 @@ import { ApiError } from './api-error';
 import { siteConfig } from './site-config';
 import { decryptField, encryptField } from './crypto';
 import { assertRateLimit, ratelimit } from './ratelimit';
-import { getLocalRedis, getUpstashRedis } from './redis';
+import { stateReserve, stateRelease } from './state';
+import { atomicBatch, guard, insertRow } from './db-batch';
 import { digest, readingView } from './reading-service';
 import { searchCities } from './geo';
 import { parseReadingChart } from './reading-schema';
@@ -82,29 +83,23 @@ export async function deleteChat(id: string) {
 async function lockReading(id: string) {
   const key = `chat:lock:${digest(id)}`,
     token = randomUUID();
-  const locked = process.env.UPSTASH_REDIS_REST_URL
-    ? await getUpstashRedis().set(key, token, { nx: true, ex: 180 })
-    : await getLocalRedis().set(key, token, 'EX', 180, 'NX');
+  const locked = await stateReserve(key, token, 180);
   if (!locked)
     throw new ApiError('E_RATE_LIMITED', 'Chat already in progress', 429, { retryAfter: 120 });
   return async () => {
-    const script =
-      "if redis.call('GET', KEYS[1]) == ARGV[1] then return redis.call('DEL', KEYS[1]) end return 0";
-    if (process.env.UPSTASH_REDIS_REST_URL) await getUpstashRedis().eval(script, [key], [token]);
-    else await getLocalRedis().eval(script, 1, key, token);
+    await stateRelease(key, token);
   };
 }
 /** Atomically reserve a daily question; transaction rollback prevents concurrent overspending. */
 export async function reserveChatQuota(userId: string, limit: number, day = chatDay()) {
-  await getDb().$transaction(async (tx) => {
-    const quota = await tx.chatQuota.upsert({
-      where: { userId_day: { userId, day } },
-      create: { userId, day, count: 1 },
-      update: { count: { increment: 1 } },
-    });
-    if (quota.count > limit)
-      throw new ApiError('E_QUOTA_EXCEEDED', 'Daily chat quota exceeded', 429);
-  });
+  const rows = await getDb().$queryRawUnsafe<{ count: number }[]>(
+    `INSERT INTO "ChatQuota" ("userId",day,count) SELECT ?,?,1 WHERE ? > 0 ON CONFLICT("userId",day) DO UPDATE SET count=count+1 WHERE count < ? RETURNING count`,
+    userId,
+    day.toISOString().replace('Z', '+00:00'),
+    limit,
+    limit,
+  );
+  if (!rows.length) throw new ApiError('E_QUOTA_EXCEEDED', 'Daily chat quota exceeded', 429);
 }
 /** Prepare private context and reserve limits before opening a stream; failed/cancelled generations refund daily quota. */
 export async function prepareChat(id: string, raw: unknown, signal: AbortSignal) {
@@ -176,31 +171,27 @@ export async function prepareChat(id: string, raw: unknown, signal: AbortSignal)
         }
         if (signal.aborted) throw new Error('Cancelled chat');
         // DESIGN-GAP: Store both turns atomically on success; prompt token count includes chart/report/history, completion count includes reasoning.
-        await db.$transaction(async (tx) => {
-          const stillOwned = await tx.reading.findFirst({
-            where: { id, userId: user.id, user: { deletedAt: null } },
-            select: { id: true },
-          });
-          if (!stillOwned) throw new Error('Reading unavailable');
-          await tx.chatMessage.createMany({
-            data: [
-              {
-                readingId: id,
-                role: 'user',
-                content: encryptField(req.question, 'ChatMessage.content', user.id),
-                tokens: usage.promptTokens,
-                createdAt: new Date(),
-              },
-              {
-                readingId: id,
-                role: 'assistant',
-                content: encryptField(content, 'ChatMessage.content', user.id),
-                tokens: usage.completionTokens,
-                createdAt: new Date(Date.now() + 1),
-              },
-            ],
-          });
-        });
+        await atomicBatch([
+          ...guard(
+            'EXISTS (SELECT 1 FROM "Reading" r JOIN "User" u ON r."userId"=u.id WHERE r.id=? AND u.id=? AND u."deletedAt" IS NULL)',
+            id,
+            user.id,
+          ),
+          insertRow('ChatMessage', {
+            readingId: id,
+            role: 'user',
+            content: encryptField(req.question, 'ChatMessage.content', user.id),
+            tokens: usage.promptTokens,
+            createdAt: new Date(),
+          }),
+          insertRow('ChatMessage', {
+            readingId: id,
+            role: 'assistant',
+            content: encryptField(content, 'ChatMessage.content', user.id),
+            tokens: usage.completionTokens,
+            createdAt: new Date(Date.now() + 1),
+          }),
+        ]);
         finished = true;
         await recordEvent('chat.completed', {
           userId: user.id,

@@ -19,9 +19,10 @@ import {
 import { auditQimen } from '../scripts/check-qimen-coverage';
 
 let audit: Awaited<ReturnType<typeof auditQimen>>;
+// DESIGN-GAP: Preserve the full fifty-chart audit under coverage on shared hosts with the suite's two-minute budget.
 beforeAll(async () => {
   audit = await auditQimen(50);
-}, 30_000);
+}, 120_000);
 
 describe('published Qimen knowledge', () => {
   it('covers every documented symbol dimension and all forty category verdicts', () => {

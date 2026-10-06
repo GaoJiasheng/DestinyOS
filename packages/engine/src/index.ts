@@ -212,7 +212,10 @@ export function compute(raw: ComputeInput): EngineResult {
   const now =
     input.now instanceof Temporal.ZonedDateTime
       ? input.now
-      : Temporal.Instant.from(computedAt).toZonedDateTimeISO('UTC');
+      : // DESIGN-GAP: Preserve an ISO zoned clock's civil timezone when callers serialize Temporal across ESM/CJS boundaries.
+        typeof input.now === 'string' && /\[[^\]]+\]$/.test(input.now)
+        ? Temporal.ZonedDateTime.from(input.now)
+        : Temporal.Instant.from(computedAt).toZonedDateTimeISO('UTC');
   if (input.system === 'iching') {
     if (Object.keys(input.options?.school ?? {}).length)
       throw new EngineError('E_UNSUPPORTED_SCHOOL');

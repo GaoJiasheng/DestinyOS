@@ -15,9 +15,9 @@
 | 状态 | React Server Components 为主；客户端用 Zustand（仅 UI 状态） | | 不引入 Redux |
 | 数据获取 | Server Actions + Route Handlers；客户端用 TanStack Query | | |
 | 校验 | Zod | 3.x | 所有输入边界 |
-| ORM | Prisma | 6.x | Postgres |
-| 数据库 | PostgreSQL 16 | | 托管：Neon（Serverless，Vercel 集成）；备选 Supabase |
-| 缓存 | Upstash Redis | | 每日运势缓存、限流、魔法链接 token |
+| ORM | Prisma + @prisma/adapter-d1 | 6.19.3 | 无 Rust 引擎，D1 Workers adapter |
+| 数据库 | Cloudflare D1（SQLite） | | DB binding；本地 SQLite 同 schema |
+| 缓存 | Cloudflare KV + Rate Limiting binding | | CACHE 保存可最终一致缓存；token、限额、幂等走 D1 |
 | 认证 | Auth.js (next-auth v5) | | Google Provider + Email（Resend） |
 | 邮件 | Resend | | 魔法链接、账户事件 |
 | 支付 | Stripe | | Checkout + Customer Portal + Webhook |
@@ -26,14 +26,14 @@
 | 国际化 | next-intl | 3.x | 路由前缀 `/zh` `/en` |
 | 测试 | Vitest（单元）、Playwright（E2E） | | 引擎覆盖率 ≥ 90% |
 | Lint | ESLint 9（flat）+ Prettier + typescript-eslint | | |
-| 部署 | Vercel（Production + Preview） | | 定时任务用 Vercel Cron |
-| 监控 | Sentry（脱敏规则见 08）+ Vercel Analytics | | |
+| 部署 | Cloudflare Workers + OpenNext | | 主部署平台；scheduled 每日清理，R2 导出与 Next 缓存 |
+| 监控 | Sentry（脱敏规则见 08）+ Workers Observability | | |
 | 日志 | pino，JSON | | 禁止记录请求体 |
 
 ### 1.1 选型说明
 
 - **为什么不用 LLM 运行时**：决策 D5。所有解读由 `@tianji/interpret` 纯函数生成。
-- **为什么 Neon**：按用量计费、免费层够用、与 Vercel 一键集成、支持分支数据库用于 Preview。
+- **为什么 Cloudflare 原生服务**：Owner 决定 D1、KV、R2 与 Workers 作为主路径，不再依赖外部数据库/缓存账号。
 - **为什么 Three.js 懒加载**：three + fiber 约 150–200KB gzip，必须在首屏可交互后用 `next/dynamic` + `requestIdleCallback` 载入，详见 03 的性能预算。
 - **为什么自绘 SVG 命盘**：命盘排版是领域特定的，图表库帮不上忙；SVG 可服务端渲染、可用于分享图、可打印。
 
@@ -151,9 +151,9 @@ const report = interpret({
 
 - YAML 源文件 + JSON Schema 校验（`pnpm content:validate`）。
 - `pnpm content:build` → 编译成 `dist/<system>.<locale>.json`（含索引），供 interpret 加载。
-- `pnpm content:import` → 导入 Postgres `knowledge_units` 表（供后台编辑）。
+- `pnpm content:import` → 导入本地 SQLite `knowledge_units` 表（供后台编辑）。
 - `pnpm content:export` → 从 DB 导出回 YAML（后台编辑后回流 git）。
-- 运行时：web 层优先读 DB 中 `status = published` 的最新版本并缓存到 Redis（key 含版本号）；DB 不可用时回退到打包进应用的 `dist/*.json`。
+- 运行时：web 层优先读 DB 中 `status = published` 的最新版本并缓存到 KV（key 含版本号）；DB 不可用时回退到打包进应用的 `dist/*.json`。
 
 ### 3.5 web 层数据流（报告生成）
 
@@ -178,18 +178,18 @@ GET /[locale]/today  (RSC)
  1. 取用户档案与时区（用户当前时区由浏览器上报存在 cookie `tz`，缺省用出生地时区）
  2. localDate = today in tz
  3. cacheKey = daily:{userId}:{profileVersion}:{localDate}:{locale}:{knowledgeVersion}
- 4. Redis hit → 渲染；miss → engine.computeDaily() → interpret('daily') → 写缓存（TTL 到当地次日 02:00）
+ 4. KV hit → 渲染；miss → engine.computeDaily() → interpret('daily') → 写缓存（TTL 到当地次日 02:00）
 ```
 
 匿名用户：在客户端用 `@tianji/engine` 与打包的知识库直接算（不落库）。
 
-## 4. 环境变量
+## 4. 环境变量与绑定
 
 | 变量 | 用途 | 必需 |
 |---|---|---|
-| `DATABASE_URL` | Postgres | ✓ |
-| `DIRECT_DATABASE_URL` | Prisma migrate 直连 | ✓ |
-| `REDIS_URL` / `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` | Redis | ✓ |
+| `DB` | D1 binding（不是 secret） | ✓ |
+| `CACHE` / `RATE_LIMITER` | KV 与 Workers Rate Limiting binding | ✓ |
+| `LOCAL_DATABASE_URL` | 本地 Node SQLite file URL，Workers 不读取 | 本地 |
 | `AUTH_SECRET` | Auth.js | ✓ |
 | `AUTH_GOOGLE_ID` / `AUTH_GOOGLE_SECRET` | Google OAuth | ✓ |
 | `RESEND_API_KEY` / `EMAIL_FROM` | 邮件 | ✓ |
@@ -202,7 +202,7 @@ GET /[locale]/today  (RSC)
 | `FEATURE_ADS` | `true` | |
 | `ADMIN_EMAILS` | 逗号分隔，拥有 admin 角色的邮箱 | ✓ |
 | `SENTRY_DSN` | 监控 | |
-| `CRON_SECRET` | Vercel Cron 鉴权 | ✓ |
+| `CRON_SECRET` | HTTP Cron 路由鉴权；Workers scheduled 复用任务 | ✓ |
 
 `.env.example` 必须列出全部变量并带注释。任何密钥不得进入 `NEXT_PUBLIC_*`。
 
@@ -232,9 +232,9 @@ GET /[locale]/today  (RSC)
 ## 7. CI/CD
 
 - GitHub Actions：`lint → typecheck → unit → content:validate → build → e2e(预览环境)`。
-- Vercel Preview 每个 PR 自动部署；Neon 分支数据库每 PR 一个。
-- 生产部署 = 合并到 `main`。数据库迁移在 build 前执行 `prisma migrate deploy`。
-- Vercel Cron：`0 3 * * *` 清理过期匿名数据、硬删除到期账户、预热当天热门缓存。
+- Cloudflare 为主部署路径；CI 构建 OpenNext 与体积检查，不自动发布或写 secrets。
+- D1 migration SQL 由 Prisma migrate diff 生成；先本地验证再 `wrangler d1 migrations apply destinyos --remote`。发布 Worker 需独立授权。
+- Workers scheduled：`0 3 * * *` 清理过期匿名数据、硬删除到期账户、预热当天热门缓存。
 
 ## 8. 性能与体积预算
 
@@ -250,18 +250,28 @@ GET /[locale]/today  (RSC)
 ## 9. 可观测性
 
 - Sentry：捕获异常；`beforeSend` 脱敏（见 08）。
-- 自定义指标（写 Postgres `events` 表，日聚合）：报告生成数/体系、每日运势访问、分享生成、订阅转化、失败率。不记录 userId 以外的个人信息。
-- 健康检查 `GET /api/health`：DB、Redis、知识库版本。
+- 自定义指标（写 D1 `events` 表，日聚合）：报告生成数/体系、每日运势访问、分享生成、订阅转化、失败率。不记录 userId 以外的个人信息。
+- 健康检查 `GET /api/v1/health`：D1、KV、知识库版本（保留既有响应键 redis）。
 
 ## 10. 本地开发
 
 ```bash
-pnpm i
+pnpm install
 cp .env.example .env.local   # 填写
-docker compose up -d          # postgres + redis（本地）
-pnpm db:migrate
+pnpm db:deploy               # Node 本地 SQLite
+pnpm db:migrate              # Wrangler 本地 D1
 pnpm content:build && pnpm content:import
 pnpm dev                      # http://localhost:3000
 ```
 
-`docker-compose.yml` 提供 postgres:16 与 redis:7。无网络也应能运行排盘与解读（知识库走打包的 dist）。
+无需 PostgreSQL/Redis Docker 服务。无网络也应能运行排盘与解读（知识库走打包的 dist）。
+
+## CF-NATIVE 平台补充
+
+- 本章节按 Owner 决定覆盖 00 的历史 D16；目录结构保留，D1 迁移放 `apps/web/migrations/`，Prisma schema 保留根目录。
+- `apps/web/wrangler.toml`：DB=destinyos、CACHE=destinyos-cache、RATE_LIMITER、EXPORT_BUCKET=destinyos-exports、NEXT_INC_CACHE_R2_BUCKET=destinyos-next-cache、BROWSER、ASSETS。
+- Worker 请求内创建 D1 Prisma client；Node 本地开发与浏览器测试使用 SQLite 等价实现。Vitest 增加 Miniflare 真实 D1/KV/adapter 与 Auth.js 单次 token 测试。
+- 原生 Rate Limiting binding 仅支持短周期；07 的分路线、IP/邮箱/用户小时滑动限额由 D1 原子 INSERT SELECT 实现，不放宽限额。
+- 强一致操作用原子 SQL/DB.batch；敏感列在写入批次前调用现有加密函数。详情见 06 的原生迁移章节。
+- `pnpm cf:build` 生成 OpenNext Worker 并在本地打包计算 JS/WASM gzip 总体积；必须 ≤10MiB，不调用 wrangler deploy。
+- Vercel renderer/storage 兼容代码保留为本地开发路径；其托管部署不再是验收要求。

@@ -1,3 +1,4 @@
+import { recordShareView } from './share-counts';
 import { ownedProfile } from './profile-service';
 import { fromDbLocale } from './db-locale';
 import { randomInt, createHmac, timingSafeEqual } from 'node:crypto';
@@ -101,6 +102,7 @@ export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW')
       dont: report.doDont?.dont ?? [],
     };
   }
+  await recordShareView(token);
   return view;
 }
 function signingKey() {

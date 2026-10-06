@@ -1,5 +1,7 @@
+import { testDatabaseUrl } from './scripts/sqlite-test';
 import { defineConfig, devices } from '@playwright/test';
 import root from './playwright.config';
+// DESIGN-GAP: e2e/package.json makes browser tests ESM so shared SQLite helpers follow the root module convention without changing the app runtime.
 
 export default defineConfig({
   // DESIGN-GAP: Auth/readings-derived suites share the root cross-platform baseline convention as well.
@@ -8,7 +10,9 @@ export default defineConfig({
   testDir: './apps/web/e2e',
   testMatch: 'auth.spec.ts',
   workers: 1,
-  timeout: 60_000,
+  // DESIGN-GAP: Cold Auth.js route compilation shares the browser test budget; database/token assertions are unchanged.
+  timeout: 120_000,
+  expect: { timeout: 30_000 },
   use: { baseURL: 'http://localhost:3100', trace: 'retain-on-failure' },
   projects: [
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
@@ -27,12 +31,8 @@ export default defineConfig({
     timeout: 120_000,
     reuseExistingServer: false,
     env: {
-      DATABASE_URL:
-        'postgresql://postgres:postgres@127.0.0.1:55432/postgres?connection_limit=1&statement_cache_size=0',
-      DIRECT_DATABASE_URL: 'postgresql://postgres:postgres@127.0.0.1:55432/postgres',
-      REDIS_URL: 'redis://127.0.0.1:56379',
-      UPSTASH_REDIS_REST_URL: '',
-      UPSTASH_REDIS_REST_TOKEN: '',
+      LOCAL_DATABASE_URL: testDatabaseUrl(55432),
+
       AUTH_SECRET: 'isolated-e2e-secret-never-use-in-production',
       AUTH_URL: 'http://localhost:3100',
       AUTH_TRUST_HOST: 'true',

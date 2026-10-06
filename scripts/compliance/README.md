@@ -28,7 +28,7 @@ Requirements are defined only by repository docs/; this is an operator runbook.
 - Configure `CRON_SECRET`. Vercel invokes the authenticated GET route daily at
   03:00 UTC; documented POST is supported too. Account deletion cancels Stripe
   immediately and invalidates sessions/shares, hard deletion follows after 7 days.
-- `pnpm test:m4:e2e` uses signed webhook fixtures, isolated PostgreSQL/Redis and a
+- `pnpm test:m4:e2e` uses signed webhook fixtures, isolated SQLite/KV and a
   process-only Stripe mock. The application contains no test payment bypass.
   Live Stripe/AdSense account settings and EEA VPN verification require configured
   accounts; automated tests do not certify dashboard setup or legal identity.

@@ -1,14 +1,11 @@
+import { isolatedSqlite } from '../../../scripts/sqlite-test';
 import { beforeAll, afterAll, expect, it, vi } from 'vitest';
-import { readFile, readdir } from 'node:fs/promises';
-import { PGlite } from '@electric-sql/pglite';
-import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
 import { PrismaClient } from '@prisma/client';
 import { fieldEncryptionExtension } from '../lib/db-encryption';
 import { encryptField, decryptField } from '../lib/crypto';
 import { rotateKeys } from '../../../scripts/rotate-keys';
 
-const pg = new PGlite();
-const server = new PGLiteSocketServer({ db: pg, port: 0, maxConnections: 1 });
+const pg = isolatedSqlite();
 let raw: PrismaClient;
 // Keep the concrete extended client type inferred by its extension.
 function extend(client: PrismaClient) {
@@ -18,22 +15,11 @@ let encryptedDb: ReturnType<typeof extend>;
 
 beforeAll(async () => {
   vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);
-  const migrations = await readdir('prisma/migrations', { withFileTypes: true });
-  for (const migration of migrations
-    .filter((entry) => entry.isDirectory())
-    .sort((a, b) => a.name.localeCompare(b.name)))
-    await pg.exec(await readFile(`prisma/migrations/${migration.name}/migration.sql`, 'utf8'));
-  await server.start();
-  raw = new PrismaClient({
-    datasourceUrl: `postgresql://test:test@${server.getServerConn()}/postgres?connection_limit=1&statement_cache_size=0`,
-  });
+  raw = pg.client;
   encryptedDb = extend(raw);
 }, 30_000);
 afterAll(async () => {
   await raw?.$disconnect();
-  await server.stop();
-  // DESIGN-GAP: Drain the adapter's deferred close handlers before destroying its database.
-  await new Promise<void>((resolve) => setImmediate(resolve));
   await pg.close();
   vi.unstubAllEnvs();
 });
@@ -47,6 +33,7 @@ it('rotates real raw database ciphertext in 500-row batches and rolls back a tam
       id: `rotation-${String(index).padStart(4, '0')}`,
       userId: user.id,
       version: index + 1,
+      isCurrent: false,
       encBirth: encryptField('private birth', 'BirthProfile.encBirth', user.id, old),
       encPlace: encryptField('private city', 'BirthProfile.encPlace', user.id, old),
       encName: null,
@@ -202,6 +189,7 @@ it('encrypts reading snapshots, strips chart PII and round-trips createMany/upse
     tz: 'UTC',
     birthYear: 1990,
     chartHash: 'many',
+    isCurrent: false,
   };
   await encryptedDb.birthProfile.createMany({
     data: [

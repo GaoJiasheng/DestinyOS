@@ -55,7 +55,7 @@ export async function getSettingsAction() {
 
 /** Store an explicit first-use acknowledgement as an account preference when authenticated. */
 export async function acknowledgeDisclaimerAction() {
-  if (!process.env.DATABASE_URL || !process.env.AUTH_SECRET) return;
+  if (!process.env.AUTH_SECRET) return;
   const session = await auth();
   if (session?.user.id)
     await getDb().user.updateMany({
@@ -65,7 +65,7 @@ export async function acknowledgeDisclaimerAction() {
 }
 /** Restore the acknowledgement across devices without exposing profile information. */
 export async function getDisclaimerAcknowledgementAction() {
-  if (!process.env.DATABASE_URL || !process.env.AUTH_SECRET) return false;
+  if (!process.env.AUTH_SECRET) return false;
   const session = await auth();
   if (!session?.user.id) return false;
   const user = await getDb().user.findUnique({

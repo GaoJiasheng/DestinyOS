@@ -1,8 +1,9 @@
 name = "destinyos"
 main = "worker.ts"
+account_id = "9aea83b326d8175abdd136c1177637a5"
 # DESIGN-GAP: Minify the deployed bundle to reduce transfer size while preserving runtime behavior.
 minify = true
-# DESIGN-GAP: Latest supported UTC date in the installed workerd; 2026-10-06 is still future at build time.
+# DESIGN-GAP: Pin the latest compatibility date supported by the installed workerd.
 compatibility_date = "2026-10-05"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
@@ -48,13 +49,29 @@ MINIMAX_MODEL = "MiniMax-M2.5"
 # Build-time public vars: NEXT_PUBLIC_DEFAULT_LOCALE, NEXT_PUBLIC_ADSENSE_CLIENT,
 # NEXT_PUBLIC_ADSENSE_SLOT_{HOME,REPORT_TOP,REPORT_BOTTOM,TODAY,LEARN}, NEXT_PUBLIC_SENTRY_DSN.
 # Secrets: wrangler secret put <NAME> (never place values here):
-# DATABASE_URL, DIRECT_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN,
 # AUTH_SECRET, AUTH_GOOGLE_ID, AUTH_GOOGLE_SECRET, RESEND_API_KEY,
 # FIELD_ENCRYPTION_KEYS, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, CRON_SECRET,
 # MINIMAX_API_KEY (only when chat is enabled).
 # Deployment-only credentials: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN.
-# No BLOB_READ_WRITE_TOKEN or REDIS_URL on Workers; R2/Upstash REST replace them.
+# D1, KV and R2 bindings require no runtime connection secrets.
 # Bind the custom domain after preview verification:
 # [[routes]]
 # pattern = "tianji.gavin.pub"
 # custom_domain = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "destinyos"
+database_id = "7d4b2c61-d7dd-412f-a84e-89eb184378cc"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "0db59c62dc5e4e85a9e1ae5eed33693f"
+
+# DESIGN-GAP: Native binding handles a 60-second burst guard; documented hourly dimensions use atomic D1 counters.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 200, period = 60 }

@@ -1,8 +1,6 @@
+import { isolatedSqlite } from '../../../scripts/sqlite-test';
 import { beforeAll, afterAll, beforeEach, expect, it, vi } from 'vitest';
-import { PGlite } from '@electric-sql/pglite';
-import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
 import { PrismaClient } from '@prisma/client';
-import { readdir, readFile } from 'node:fs/promises';
 import { fieldEncryptionExtension } from '../lib/db-encryption';
 import { BirthInputSchema } from '@tianji/shared';
 import A from '../../../packages/engine/test/fixtures/birth/A.json';
@@ -23,20 +21,12 @@ import {
   removeProfile,
   profileBirth,
 } from '../lib/profile-service';
-const pg = new PGlite(),
-  server = new PGLiteSocketServer({ db: pg, port: 0, maxConnections: 1 });
+const pg = isolatedSqlite();
 let raw: PrismaClient;
 let userId: string;
 beforeAll(async () => {
   vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);
-  for (const file of (await readdir('prisma/migrations', { withFileTypes: true }))
-    .filter((f) => f.isDirectory())
-    .sort((a, b) => a.name.localeCompare(b.name)))
-    await pg.exec(await readFile(`prisma/migrations/${file.name}/migration.sql`, 'utf8'));
-  await server.start();
-  raw = new PrismaClient({
-    datasourceUrl: `postgresql://test:test@${server.getServerConn()}/postgres?connection_limit=1&statement_cache_size=0`,
-  });
+  raw = pg.client;
   state.db = raw.$extends(fieldEncryptionExtension());
 });
 beforeEach(async () => {
@@ -45,8 +35,6 @@ beforeEach(async () => {
 });
 afterAll(async () => {
   await raw?.$disconnect();
-  await server.stop();
-  await new Promise<void>((r) => setImmediate(r));
   await pg.close();
   vi.unstubAllEnvs();
 });

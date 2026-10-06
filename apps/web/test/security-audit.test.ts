@@ -5,13 +5,15 @@ import { createLogger } from '../lib/logger';
 import { beforeSend } from '../lib/sentry';
 
 const mock = vi.hoisted(() => ({ limit: vi.fn(), auth: vi.fn(), render: vi.fn(), share: vi.fn() }));
-vi.mock('@upstash/ratelimit', () => ({
-  Ratelimit: class {
-    static slidingWindow = vi.fn();
-    limit = mock.limit;
-  },
+vi.mock('../lib/db', () => ({
+  getDb: () => ({
+    $queryRawUnsafe: async (sql: string) =>
+      sql.startsWith('INSERT') ? [{ id: 'accepted' }] : [{ count: 1, reset: Date.now() + 3600000 }],
+  }),
 }));
-vi.mock('../lib/redis', () => ({ getUpstashRedis: vi.fn() }));
+vi.mock('../lib/platform/cloudflare', () => ({
+  cloudflareBindings: async () => ({ RATE_LIMITER: { limit: mock.limit } }),
+}));
 vi.mock('../lib/auth', () => ({ auth: mock.auth }));
 vi.mock('../lib/og-card', () => ({ renderCard: mock.render }));
 vi.mock('../lib/share-service', async (original) => ({
@@ -25,7 +27,7 @@ import { GET as shareImage } from '../app/api/v1/og/share/[token]/route';
 
 beforeEach(() => {
   vi.clearAllMocks();
-  vi.stubEnv('UPSTASH_REDIS_REST_URL', 'https://redis.example.test');
+  vi.stubEnv('PLATFORM', 'cloudflare');
   vi.stubEnv('AUTH_SECRET', 'isolated-audit-secret');
   mock.auth.mockResolvedValue(null);
   mock.limit.mockResolvedValue({ success: true, reset: Date.now() + 3600000 });
@@ -35,8 +37,8 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllEnvs());
 
 describe('security audit regressions', () => {
-  it('fails closed when Upstash returns its default success-on-timeout response', async () => {
-    mock.limit.mockResolvedValue({ success: true, reason: 'timeout', reset: 0 });
+  it('fails closed when the Cloudflare binding is unavailable', async () => {
+    mock.limit.mockRejectedValue(new ApiError('E_INTERNAL', 'Rate limiter unavailable', 503));
     await expect(ratelimit('magic.email', 'owner@example.test')).rejects.toMatchObject({
       status: 503,
     });

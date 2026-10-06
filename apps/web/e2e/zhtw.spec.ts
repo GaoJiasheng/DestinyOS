@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import zh from '../messages/zh.json';
-import tw from '../messages/zh-TW.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import tw from '../messages/zh-TW.json' with { type: 'json' };
 import { simplifiedResidue } from '../../../packages/shared/test/traditional-check';
 
 test('zh-TW: route, three-language switch, SEO, glossary and report contain no simplified residue', async ({

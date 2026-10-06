@@ -55,7 +55,7 @@ export async function listReadingHistory(raw: unknown = { limit: 20 }) {
             }
           : { profileId: null }),
         ...(recent ? { id: { in: recent.map((r) => r.id) } } : {}),
-        ...(input.search ? { title: { contains: input.search, mode: 'insensitive' } } : {}),
+        ...(input.search ? { title: { contains: input.search } } : {}),
       },
       orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
       cursor: input.cursor ? { id: input.cursor } : undefined,

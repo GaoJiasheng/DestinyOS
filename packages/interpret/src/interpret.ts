@@ -16,7 +16,7 @@ import { numeric, systemConfigs } from './config';
 import { termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
 import { localizeReport } from './localize-report';
-import displayLabels from './display-labels.json';
+import displayLabels from './display-labels.json' with { type: 'json' };
 export const interpretVersion = '1.2.1';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>

@@ -36,10 +36,7 @@ export async function POST(request: Request) {
       }
     }
     // DESIGN-GAP: Reuse the feedback quota for anonymous CSP counts; missing telemetry infrastructure drops counts without breaking pages.
-    if (
-      process.env.DATABASE_URL &&
-      (await ratelimit('feedback', requestIp(request.headers))).success
-    )
+    if ((await ratelimit('feedback', requestIp(request.headers))).success)
       await getDb().event.create({
         data: {
           day: new Date(new Date().toISOString().slice(0, 10)),

@@ -11,6 +11,7 @@ import {
   type Locale,
   SpreadKeySchema,
   CategorySchema,
+  System,
 } from '@tianji/shared';
 import { getDb } from './db';
 import { currentProfile, profileBirth, ownedProfile } from './profile-service';
@@ -27,7 +28,8 @@ import {
   type ReadingRequest,
   type ReadingView,
 } from './reading-schema';
-import { getLocalRedis, getUpstashRedis } from './redis';
+import { stateRead, stateWrite, stateReserve, stateRelease } from './state';
+import { atomicBatch, guard, insertRow, statement } from './db-batch';
 /** SHA-256 identifiers keep private request/owner values out of cache keys. */
 const digest = (value: string) => createHash('sha256').update(value).digest('hex');
 /** Serialize validated domain data into Prisma-compatible JSON values. */
@@ -116,15 +118,16 @@ export async function readingView(
   locale: Locale,
   owner: boolean,
 ): Promise<ReadingView> {
+  const system = z.nativeEnum(System).parse(row.system);
   let report: unknown = locale !== 'en' ? row.reportZh : row.reportEn;
   const snapshot = ReadingRequestSchema.parse(JSON.parse(row.encInput));
   if (!report) {
     report = json(
       interpret({
-        system: row.system,
+        system,
         chart: row.chart,
         locale: locale === 'en' ? 'en' : 'zh',
-        knowledge: await loadKnowledge(row.system, locale, row.knowledgeVersion),
+        knowledge: await loadKnowledge(system, locale, row.knowledgeVersion),
         context: {
           now: row.createdAt.toISOString(),
           profileHasTime: !snapshot.birth?.timeUnknown,
@@ -174,7 +177,7 @@ export async function readingView(
   ];
   return {
     id: row.id,
-    system: row.system,
+    system,
     createdAt: row.createdAt.toISOString(),
     title: row.title,
     chart: row.chart,
@@ -214,56 +217,61 @@ export async function persistReading(
     now,
     userId,
   );
-  let plan: 'free' | 'pro' = 'free';
-  const row = await getDb().$transaction(async (tx) => {
-    // DESIGN-GAP: Synchronize persistence with profile deletion, then recheck both owner-scoped references.
-    if (profile?.id || req.partnerProfileId)
-      await tx.$queryRaw`SELECT "id" FROM "User" WHERE "id" = ${userId} FOR UPDATE`;
-    for (const profileId of [profile?.id, req.partnerProfileId]) {
-      if (
-        profileId &&
-        !(await tx.birthProfile.findFirst({
-          where: { id: profileId, userId, isCurrent: true },
-          select: { id: true },
-        }))
-      )
-        throw new ApiError('E_PROFILE_REQUIRED', 'Profile was removed', 400);
-    }
-    const saved = await tx.reading.create({
-      data: {
-        id,
+  const tx = getDb();
+  const user = await tx.user.findUniqueOrThrow({ where: { id: userId }, select: { plan: true } });
+  const plan = user.plan;
+  const statements = [
+    ...guard('EXISTS (SELECT 1 FROM "User" WHERE id=? AND "deletedAt" IS NULL)', userId),
+  ];
+  for (const profileId of [profile?.id, req.partnerProfileId]) {
+    if (!profileId) continue;
+    if (
+      !(await tx.birthProfile.findFirst({
+        where: { id: profileId, userId, isCurrent: true },
+        select: { id: true },
+      }))
+    )
+      throw new ApiError('E_PROFILE_REQUIRED', 'Profile was removed', 400);
+    statements.push(
+      ...guard(
+        'EXISTS (SELECT 1 FROM "BirthProfile" WHERE id=? AND "userId"=? AND "isCurrent"=1)',
+        profileId,
         userId,
-        profileId: profile?.id,
-        partnerProfileId: req.partnerProfileId,
-        profileVersion: profile?.version,
-        system: req.system,
-        encInput: JSON.stringify(req),
-        chart: json(generated.chart),
-        schoolUsed: json(generated.meta.schoolUsed),
-        engineVersion: generated.report.engineVersion,
-        interpretVersion: generated.report.interpretVersion,
-        knowledgeVersion: generated.report.knowledgeVersion,
-        ...(req.locale !== 'en'
-          ? { reportZh: json(generated.report) }
-          : { reportEn: json(generated.report) }),
-      },
-    });
-    const user = await tx.user.findUniqueOrThrow({ where: { id: userId }, select: { plan: true } });
-    plan = user.plan;
-    if (user.plan === 'free') {
-      const rows = await tx.reading.findMany({
-        where: { userId },
-        orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
-        select: { id: true, isPublic: true },
-      });
-      const excess = rows
-        .slice(50)
-        .filter((r) => !r.isPublic)
-        .map((r) => r.id);
-      if (excess.length) await tx.reading.deleteMany({ where: { userId, id: { in: excess } } });
-    }
-    return saved;
-  });
+      ),
+    );
+  }
+  const row = { id: id ?? randomUUID() };
+  statements.push(
+    insertRow('Reading', {
+      id: row.id,
+      userId,
+      profileId: profile?.id,
+      partnerProfileId: req.partnerProfileId,
+      profileVersion: profile?.version,
+      system: req.system,
+      encInput: JSON.stringify(req),
+      chart: json(generated.chart),
+      schoolUsed: json(generated.meta.schoolUsed),
+      engineVersion: generated.report.engineVersion,
+      interpretVersion: generated.report.interpretVersion,
+      knowledgeVersion: generated.report.knowledgeVersion,
+      ...(req.locale !== 'en'
+        ? { reportZh: json(generated.report) }
+        : { reportEn: json(generated.report) }),
+    }),
+  );
+  // DESIGN-GAP: Retention is decided inside the same D1 batch from current plan and ordered history.
+  statements.push(
+    statement(
+      `DELETE FROM "Reading" WHERE "userId"=? AND "isPublic"=0 AND id IN
+    (SELECT id FROM "Reading" WHERE "userId"=? ORDER BY "createdAt" DESC,id DESC LIMIT -1 OFFSET 50)
+    AND EXISTS (SELECT 1 FROM "User" WHERE id=? AND plan='free')`,
+      userId,
+      userId,
+      userId,
+    ),
+  );
+  await atomicBatch(statements);
   await recordEvent('reading.created', { userId, system: req.system, locale: req.locale, plan });
   return { readingId: row.id, ...generated, report: localizeReport(generated.report, req.locale) };
 }
@@ -307,7 +315,7 @@ export async function resolveBirth(req: ReadingRequest, userId?: string) {
     profile: profile ?? undefined,
   };
 }
-/** Cache only hashes, a timestamp and the persisted ID; no anonymous PII enters Redis. */
+/** Cache only hashes, a timestamp and the persisted ID; no anonymous PII enters D1 idempotency state. */
 export async function idempotentCreate(
   req: ReadingRequest,
   identity: string,
@@ -316,14 +324,11 @@ export async function idempotentCreate(
 ) {
   const key = `reading:idempotency:${digest(identity + ':' + req.idempotencyKey)}`;
   const fingerprint = digest(JSON.stringify(req));
-  const redis = process.env.UPSTASH_REDIS_REST_URL ? getUpstashRedis() : getLocalRedis();
   const token = randomUUID();
-  const locked = process.env.UPSTASH_REDIS_REST_URL
-    ? await getUpstashRedis().set(key + ':lock', token, { nx: true, ex: 30 })
-    : await getLocalRedis().set(key + ':lock', token, 'EX', 30, 'NX');
+  const locked = await stateReserve(key + ':lock', token, 30);
   if (!locked) throw new ApiError('E_CONFLICT', 'Request is already in progress', 409);
   try {
-    const raw = await redis.get(key);
+    const raw = await stateRead(key);
     const prior = raw
       ? z
           .object({ fingerprint: z.string(), now: z.string(), readingId: z.string().optional() })
@@ -364,15 +369,10 @@ export async function idempotentCreate(
       now,
       ...('readingId' in result ? { readingId: result.readingId } : {}),
     };
-    if (process.env.UPSTASH_REDIS_REST_URL) await getUpstashRedis().set(key, record, { ex: 600 });
-    else await getLocalRedis().set(key, JSON.stringify(record), 'EX', 600);
+    await stateWrite(key, JSON.stringify(record), 600);
     return result;
   } finally {
-    const script =
-      "if redis.call('GET', KEYS[1]) == ARGV[1] then return redis.call('DEL', KEYS[1]) end return 0";
-    if (process.env.UPSTASH_REDIS_REST_URL)
-      await getUpstashRedis().eval(script, [key + ':lock'], [token]);
-    else await getLocalRedis().eval(script, 1, key + ':lock', token);
+    await stateRelease(key + ':lock', token);
   }
 }
 export { actionError } from './api-error';

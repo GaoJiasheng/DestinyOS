@@ -1,10 +1,7 @@
+import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
 import { mkdir } from 'node:fs/promises';
-const db = new PrismaClient({
-  datasourceUrl:
-    'postgresql://postgres:postgres@127.0.0.1:55432/postgres?connection_limit=1&statement_cache_size=0',
-});
+const db = sqliteClient(testDatabaseUrl(55432));
 test.afterAll(() => db.$disconnect());
 for (const locale of ['zh', 'en'] as const) {
   test(`${locale}: anonymous Fixture A → report → mock mail login → import → history`, async ({

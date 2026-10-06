@@ -22,3 +22,8 @@ export function optimizePng(): never {
 export function nodeTimezone(): never {
   throw new Error('Node timezone unavailable in Workers');
 }
+
+/** SQLite native adapter is only available in local Node development. */
+export function localAdapter(): never {
+  throw new Error('D1 binding required');
+}

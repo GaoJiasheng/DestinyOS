@@ -1,22 +1,24 @@
 import { PrismaClient } from '@prisma/client';
-import { PrismaNeon } from '@prisma/adapter-neon';
+import { PrismaD1 } from '@prisma/adapter-d1';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
+import type { D1Database } from '@cloudflare/workers-types';
 import { databaseScope } from './platform/database-scope';
 import { platform } from './platform/environment';
 import { fieldEncryptionExtension } from './db-encryption';
-
+import { databaseEnumsExtension } from './db-enums';
+import { localAdapter } from './db-local';
 const globalDb = globalThis as typeof globalThis & { tianjiDb?: ReturnType<typeof createDb> };
-function createDb() {
-  // DESIGN-GAP: Workers use the Neon WebSocket adapter for interactive transactions; Node retains its native PostgreSQL driver.
-  const raw =
-    platform() === 'cloudflare'
-      ? new PrismaClient({
-          adapter: new PrismaNeon({ connectionString: process.env.DATABASE_URL }),
-        })
-      : new PrismaClient();
-  return raw.$extends(fieldEncryptionExtension());
+/** Return the primary D1 binding synchronously inside a Workers request. */
+export function d1Binding(): D1Database {
+  return (getCloudflareContext().env as unknown as { DB: D1Database }).DB;
 }
-
-/** Lazily create the shared encrypted Prisma client, retaining connections through development reloads. */
+function createDb() {
+  const raw = new PrismaClient({
+    adapter: platform() === 'cloudflare' ? new PrismaD1(d1Binding()) : localAdapter(),
+  });
+  return raw.$extends(fieldEncryptionExtension()).$extends(databaseEnumsExtension());
+}
+/** Lazily resolve a request-scoped D1 client or a development SQLite client. */
 export function getDb() {
   if (platform() === 'cloudflare') {
     const scope = databaseScope();
@@ -27,6 +29,5 @@ export function getDb() {
     scope.clients.set('prisma', client);
     return client;
   }
-  globalDb.tianjiDb ??= createDb();
-  return globalDb.tianjiDb;
+  return (globalDb.tianjiDb ??= createDb());
 }

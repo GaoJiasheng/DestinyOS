@@ -5,7 +5,7 @@ import { ApiError, errorResponse } from '@/lib/api-error';
 import { auth } from '@/lib/auth';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
 import { requestIp } from '@/lib/request-ip';
-// DESIGN-GAP: The encrypted Prisma adapter requires Node; @vercel/og runs in the supported Node route runtime.
+// DESIGN-GAP: OpenNext supplies the Next.js Node route runtime through Workers nodejs_compat for encryption and the card renderer.
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 /** Resolve active shares on every image request so revocation takes effect immediately. */

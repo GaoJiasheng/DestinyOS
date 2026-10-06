@@ -1,11 +1,8 @@
+import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect, type Page } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
-const db = new PrismaClient({
-  datasourceUrl:
-    'postgresql://postgres:postgres@127.0.0.1:57432/postgres?connection_limit=1&statement_cache_size=0',
-});
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
+const db = sqliteClient(testDatabaseUrl(57432));
 test.afterAll(() => db.$disconnect());
 async function create(
   page: Page,

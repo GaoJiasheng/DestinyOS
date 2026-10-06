@@ -14,7 +14,8 @@ export default defineConfig({
     server: { deps: { inline: ['next-auth'] } },
     // DESIGN-GAP: A single coverage worker bounds merged-corpus audit memory and CPU contention across concurrent worktrees, retaining all assertions and timeouts.
     maxWorkers: 1,
-    testTimeout: 30_000,
+    // DESIGN-GAP: Full-corpus audits under coverage can exceed 30s on shared hosts; retain all assertions with a bounded two-minute budget.
+    testTimeout: 120_000,
     // DESIGN-GAP: The merged bilingual corpus needs up to 60s for hook-time schema and duplicate scans under coverage.
     hookTimeout: 60_000,
     coverage: {

@@ -1,7 +1,5 @@
+import { isolatedSqlite } from '../../../scripts/sqlite-test';
 import { beforeAll, afterAll, expect, it, vi } from 'vitest';
-import { readFile, readdir } from 'node:fs/promises';
-import { PGlite } from '@electric-sql/pglite';
-import { PGLiteSocketServer } from '@electric-sql/pglite-socket';
 import { PrismaClient } from '@prisma/client';
 import { BirthInputSchema } from '@tianji/shared';
 import { Temporal } from '@js-temporal/polyfill';
@@ -26,8 +24,7 @@ import {
   getJournalMonthAction,
   saveJournalEntryAction,
 } from '../app/me/journal/actions';
-const pg = new PGlite(),
-  server = new PGLiteSocketServer({ db: pg, port: 0, maxConnections: 1 });
+const pg = isolatedSqlite();
 let raw: PrismaClient;
 function extend(client: PrismaClient) {
   return client.$extends(fieldEncryptionExtension());
@@ -42,14 +39,7 @@ const today = Temporal.Now.instant()
   .toString();
 beforeAll(async () => {
   vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);
-  for (const entry of (await readdir('prisma/migrations', { withFileTypes: true }))
-    .filter((e) => e.isDirectory())
-    .sort((a, b) => a.name.localeCompare(b.name)))
-    await pg.exec(await readFile(`prisma/migrations/${entry.name}/migration.sql`, 'utf8'));
-  await server.start();
-  raw = new PrismaClient({
-    datasourceUrl: `postgresql://test:test@${server.getServerConn()}/postgres?connection_limit=1&statement_cache_size=0`,
-  });
+  raw = pg.client;
   db = extend(raw);
   state.db = db;
   owner = (await db.user.create({ data: { email: 'journal-owner@example.test' } })).id;
@@ -69,8 +59,6 @@ beforeAll(async () => {
 }, 30000);
 afterAll(async () => {
   await raw?.$disconnect();
-  await server.stop();
-  await new Promise<void>((resolve) => setImmediate(resolve));
   await pg.close();
   vi.unstubAllEnvs();
 });
@@ -189,11 +177,13 @@ it('rejects cross-owner database links, unencrypted writes, invalid moods and un
     );
   await expect(
     insert(other, 3, encryptField('private', 'JournalEntry.text', other)),
-  ).rejects.toMatchObject({ code: '23503' });
-  await expect(insert(owner, 3, 'plaintext')).rejects.toMatchObject({ code: '23514' });
+  ).rejects.toMatchObject({ code: 'SQLITE_CONSTRAINT_FOREIGNKEY' });
+  await expect(insert(owner, 3, 'plaintext')).rejects.toMatchObject({
+    code: 'SQLITE_CONSTRAINT_TRIGGER',
+  });
   await expect(
     insert(owner, 0, encryptField('private', 'JournalEntry.text', owner)),
-  ).rejects.toMatchObject({ code: '23514' });
+  ).rejects.toMatchObject({ code: 'SQLITE_CONSTRAINT_TRIGGER' });
   await expect(
     db.user.update({
       where: { id: owner },

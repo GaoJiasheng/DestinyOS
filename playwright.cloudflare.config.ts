@@ -1,5 +1,5 @@
 import { defineConfig } from '@playwright/test';
-// DESIGN-GAP: Wrangler must already be running; cloud service credentials are isolated in .dev.vars.
+// DESIGN-GAP: The local cf:smoke Wrangler entry must already be running; its mock credentials are isolated from production.
 export default defineConfig({
   testDir: './apps/web/e2e',
   testMatch: 'cloudflare.spec.ts',

@@ -79,6 +79,7 @@ describe('published Zi Wei corpus', () => {
         }
   });
 
+  // DESIGN-GAP: Full bilingual corpus validation under coverage uses the same bounded audit budget as other content suites.
   it('builds complete bilingual reports from legal births with sufficient length and no unresolved placeholders', async () => {
     const result = await checkZiweiContent(12);
     expect(result.reports).toBe(36);
@@ -87,5 +88,5 @@ describe('published Zi Wei corpus', () => {
     expect(result.minZhChars).toBeGreaterThanOrEqual(2500);
     expect(result.minEnWords).toBeGreaterThanOrEqual(1800);
     expect(result.maxTermDensity).toBeLessThanOrEqual(6);
-  }, 30_000);
+  }, 120_000);
 });

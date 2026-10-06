@@ -1,5 +1,5 @@
+import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect, type Page, type APIRequestContext } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
@@ -8,14 +8,11 @@ import { encryptField } from '../lib/crypto';
 import { generateReading } from '../lib/reading-service';
 import { json } from '../lib/reading-service';
 import { BirthInputSchema, brand } from '@tianji/shared';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
-import Redis from 'ioredis';
-const db = new PrismaClient({
-    datasourceUrl:
-      'postgresql://postgres:postgres@127.0.0.1:57532/postgres?connection_limit=1&statement_cache_size=0',
-  }),
-  cache = new Redis('redis://127.0.0.1:58479', { lazyConnect: true });
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
+import { TestCache } from '../../../scripts/test-cache';
+const db = sqliteClient(testDatabaseUrl(57532)),
+  cache = new TestCache(testDatabaseUrl(57532));
 process.env.FIELD_ENCRYPTION_KEYS = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
 const birth = BirthInputSchema.parse({
   calendar: 'gregorian',

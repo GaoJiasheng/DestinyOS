@@ -1,35 +1,11 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import RedisMock from 'ioredis-mock';
-import type { Reading } from '@prisma/client';
-const mocked = vi.hoisted(() => ({
-  rows: new Map<string, Reading>(),
-  create: vi.fn(),
-  find: vi.fn(),
-  history: vi.fn(),
-  deleteMany: vi.fn(),
-  plan: vi.fn(),
-}));
-vi.mock('../lib/db', () => {
-  const db = {
-    reading: {
-      create: mocked.create,
-      findFirst: mocked.find,
-      update: vi.fn(),
-      findMany: mocked.history,
-      deleteMany: mocked.deleteMany,
-    },
-    birthProfile: { findUnique: vi.fn() },
-    user: { findUniqueOrThrow: mocked.plan },
-  };
-  return {
-    getDb: () => ({
-      ...db,
-      $transaction: async (work: (tx: typeof db) => Promise<unknown>) => work(db),
-    }),
-  };
-});
-const redis = new RedisMock();
-vi.mock('../lib/redis', () => ({ getLocalRedis: () => redis, getUpstashRedis: () => redis }));
+import { describe, it, expect, vi, beforeEach, afterAll } from 'vitest';
+const state = vi.hoisted(() => ({ db: null as unknown }));
+vi.mock('../lib/db', () => ({ getDb: () => state.db }));
+import { isolatedSqlite } from '../../../scripts/sqlite-test';
+import { fieldEncryptionExtension } from '../lib/db-encryption';
+const fixture = isolatedSqlite();
+const db = fixture.client.$extends(fieldEncryptionExtension());
+state.db = db;
 import { computeTarot } from '@tianji/engine/tarot';
 import {
   generateReading,
@@ -37,6 +13,7 @@ import {
   digest,
   persistReading,
   readingView,
+  json,
 } from '../lib/reading-service';
 import { computeDivination } from '../lib/divination';
 import { parseReadingChart } from '../lib/reading-schema';
@@ -59,31 +36,17 @@ const request = (): ReadingRequest => ({
   idempotencyKey: crypto.randomUUID(),
 });
 beforeEach(async () => {
-  vi.stubEnv('DATABASE_URL', '');
-  vi.stubEnv('UPSTASH_REDIS_REST_URL', '');
-  await redis.flushall();
-  mocked.rows.clear();
-  mocked.create.mockReset();
-  mocked.find.mockReset();
-  mocked.history.mockReset().mockResolvedValue([]);
-  mocked.deleteMany.mockReset();
-  mocked.plan.mockReset().mockResolvedValue({ plan: 'free' });
-  mocked.create.mockImplementation(async ({ data }: { data: Record<string, unknown> }) => {
-    const row = {
-      ...data,
-      createdAt: new Date(),
-      title: null,
-      isPublic: false,
-      profileId: null,
-      status: 'ok',
-    } as unknown as Reading;
-    mocked.rows.set(row.id, row);
-    return row;
-  });
-  mocked.find.mockImplementation(async ({ where }: { where: { id: string; userId?: string } }) => {
-    const row = mocked.rows.get(where.id);
-    return row && row.userId === where.userId ? row : null;
-  });
+  vi.stubEnv('AUTH_SECRET', 'isolated-reading-secret');
+  vi.stubEnv('FIELD_ENCRYPTION_KEYS', `v1:${Buffer.alloc(32, 1).toString('base64')}`);
+  await fixture.client.ephemeralState.deleteMany();
+  await fixture.client.user.deleteMany();
+  for (const id of ['owner', 'user-a', 'user-b'])
+    await fixture.client.user.create({ data: { id } });
+});
+afterAll(async () => {
+  await fixture.client.$disconnect();
+  await fixture.close();
+  vi.unstubAllEnvs();
 });
 describe('reading pipeline and idempotency', () => {
   it('persists tarot choices and reversal controls with the same seeded chart as the client', async () => {
@@ -223,7 +186,7 @@ describe('reading pipeline and idempotency', () => {
           '2026-10-04T00:00:00Z',
         ),
       ).rejects.toMatchObject({ code: 'E_REQUIRES_BIRTH_TIME' });
-      expect(mocked.create).not.toHaveBeenCalled();
+      expect(await db.reading.count()).toBe(0);
     },
   );
   it('repeats anonymous requests deterministically and caches no birth input or report text', async () => {
@@ -231,12 +194,18 @@ describe('reading pipeline and idempotency', () => {
     const a = await idempotentCreate(req, 'test-ip');
     const b = await idempotentCreate(req, 'test-ip');
     expect(a).toEqual(b);
-    const keys = await redis.keys('reading:idempotency:*');
+    const keys = (
+      await fixture.client.ephemeralState.findMany({
+        where: { key: { startsWith: 'reading:idempotency:' } },
+      })
+    ).map((r) => r.key);
     expect(keys).toHaveLength(1);
-    const value = await redis.get(keys[0]!);
+    const value = (
+      await fixture.client.ephemeralState.findUniqueOrThrow({ where: { key: keys[0]! } })
+    ).value;
     expect(value).not.toContain('Beijing');
     expect(value).not.toContain('1990');
-    expect(mocked.create).not.toHaveBeenCalled();
+    expect(await db.reading.count()).toBe(0);
     await expect(
       idempotentCreate({ ...req, birth: { ...birth, day: 16 } }, 'test-ip'),
     ).rejects.toMatchObject({ code: 'E_VALIDATION' });
@@ -246,41 +215,57 @@ describe('reading pipeline and idempotency', () => {
     const a = await idempotentCreate(req, 'user-a', 'user-a');
     const b = await idempotentCreate(req, 'user-a', 'user-a');
     expect('readingId' in a && a.readingId).toBe('readingId' in b && b.readingId);
-    expect(mocked.create).toHaveBeenCalledTimes(1);
+    expect(await db.reading.count()).toBe(1);
     const other = await idempotentCreate(req, 'user-b', 'user-b');
     expect('readingId' in other && other.readingId).not.toBe('readingId' in a && a.readingId);
-    expect(mocked.create).toHaveBeenCalledTimes(2);
+    expect(await db.reading.count()).toBe(2);
   });
   it('blocks concurrent duplicate work and underage input before persistence', async () => {
     const req = request();
     const key = `reading:idempotency:${digest('test-ip:' + req.idempotencyKey)}:lock`;
-    await redis.set(key, 'busy', 'EX', 30);
+    await fixture.client.ephemeralState.create({
+      data: { key, value: 'busy', expiresAt: Date.now() + 30000 },
+    });
     await expect(idempotentCreate(req, 'test-ip')).rejects.toMatchObject({ code: 'E_CONFLICT' });
     await expect(
       generateReading({ ...req, birth: { ...birth, year: 2020 } }, '2026-10-04T00:00:00Z', 'owner'),
     ).rejects.toMatchObject({ code: 'E_AGE_RESTRICTED' });
-    expect(mocked.create).not.toHaveBeenCalled();
+    expect(await db.reading.count()).toBe(0);
   });
 });
 
 describe('free history retention', () => {
-  it('retains the newest fifty and protects older public reports while pruning private excess', async () => {
-    mocked.history.mockResolvedValue(
-      Array.from({ length: 53 }, (_, index) => ({
+  async function history() {
+    const generated = await generateReading(request(), '2026-10-04T00:00:00Z');
+    await db.reading.createMany({
+      data: Array.from({ length: 53 }, (_, index) => ({
         id: `history-${index}`,
+        userId: 'owner',
+        system: 'bazi',
+        encInput: JSON.stringify(request()),
+        chart: json(generated.chart),
+        reportZh: json(generated.report),
+        schoolUsed: {},
+        engineVersion: '1',
+        interpretVersion: '1',
+        knowledgeVersion: '1',
         isPublic: index === 51,
+        createdAt: new Date(Date.now() - (index + 1) * 1000),
       })),
-    );
-    await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
-    expect(mocked.deleteMany).toHaveBeenCalledWith({
-      where: { userId: 'owner', id: { in: ['history-50', 'history-52'] } },
     });
+  }
+  it('retains newest fifty and protects older public reports while pruning private excess', async () => {
+    await history();
+    await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
+    expect(await db.reading.count()).toBe(51);
+    expect(await db.reading.findUnique({ where: { id: 'history-51' } })).not.toBeNull();
+    expect(await db.reading.findUnique({ where: { id: 'history-52' } })).toBeNull();
   });
   it('keeps unlimited subscriber history', async () => {
-    mocked.plan.mockResolvedValue({ plan: 'pro' });
+    await db.user.update({ where: { id: 'owner' }, data: { plan: 'pro' } });
+    await history();
     await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
-    expect(mocked.history).not.toHaveBeenCalled();
-    expect(mocked.deleteMany).not.toHaveBeenCalled();
+    expect(await db.reading.count()).toBe(54);
   });
 });
 
@@ -288,8 +273,8 @@ it('stores the canonical zh snapshot for zh-TW and reads either locale without c
   const req = { ...request(), locale: 'zh-TW' as const };
   const result = await persistReading('owner', req, '2026-10-05T00:00:00Z', 'tw-report');
   expect(result.report.locale).toBe('zh-TW');
-  const row = mocked.rows.get('tw-report')!;
-  expect(row.reportEn).toBeUndefined();
+  const row = await db.reading.findUniqueOrThrow({ where: { id: 'tw-report' } });
+  expect(row.reportEn).toBeNull();
   expect(row.reportZh).toMatchObject({ locale: 'zh' });
   const zh = await readingView(row, 'zh', true);
   const tw = await readingView(row, 'zh-TW', true);

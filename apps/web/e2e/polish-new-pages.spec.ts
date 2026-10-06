@@ -5,10 +5,10 @@ import { BirthInputSchema, type Locale } from '@tianji/shared';
 import { audit, db, birth } from './m5-helpers';
 import { encryptField } from '../lib/crypto';
 import { generateReading, json } from '../lib/reading-service';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
-import tw from '../messages/zh-TW.json';
-import B from '../../../packages/engine/test/fixtures/birth/B.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
+import tw from '../messages/zh-TW.json' with { type: 'json' };
+import B from '../../../packages/engine/test/fixtures/birth/B.json' with { type: 'json' };
 
 const copies = { zh, en, 'zh-TW': tw };
 const instant = '2026-10-05T04:00:00Z';
@@ -70,7 +70,7 @@ async function owner(page: Page, locale: Locale) {
     data: {
       id,
       email: `polish-${randomUUID()}@example.test`,
-      locale: locale === 'zh-TW' ? 'zh_TW' : locale,
+      locale,
       disclaimerAcceptedAt: new Date(instant),
     },
   });

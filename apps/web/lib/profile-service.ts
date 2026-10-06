@@ -5,6 +5,8 @@ import { normalizeBirth } from '@tianji/engine/common';
 import { createHash } from 'node:crypto';
 import type { BirthProfile } from '@prisma/client';
 import { getDb } from './db';
+import { randomUUID } from 'node:crypto';
+import { atomicBatch, guard, insertRow, updateRows, statement } from './db-batch';
 import { ApiError } from './api-error';
 import { isUnderThirteen } from './birth-form';
 export const PROFILE_COOKIE = 'tianji_profile';
@@ -47,15 +49,8 @@ export async function currentProfile(userId: string) {
     orderBy: [{ isDefault: 'desc' }, { createdAt: 'asc' }],
   });
 }
-/** Serialize quota and default changes on the user row, including concurrent browser requests. */
-async function lockOwner(
-  tx: Omit<
-    ReturnType<typeof getDb>,
-    '$connect' | '$disconnect' | '$on' | '$transaction' | '$use' | '$extends'
-  >,
-  userId: string,
-) {
-  await tx.$queryRaw`SELECT "id" FROM "User" WHERE "id" = ${userId} AND "deletedAt" IS NULL FOR UPDATE`;
+/** Read owner access before computation; batch preconditions recheck access at commit. */
+async function lockOwner(tx: ReturnType<typeof getDb>, userId: string) {
   const user = await tx.user.findUnique({
     where: { id: userId },
     select: { plan: true, deletedAt: true },
@@ -76,7 +71,8 @@ export async function saveProfile(
   if (isUnderThirteen(birth, locale)) throw new ApiError('E_AGE_RESTRICTED', 'Age restricted', 403);
   const normalized = normalizeBirth(birth, locale);
   const { place, gender, ...input } = birth;
-  const row = await getDb().$transaction(async (tx) => {
+  const tx = getDb();
+  const row = await (async () => {
     const user = await lockOwner(tx, userId);
     const existing = id
       ? await tx.birthProfile.findFirst({ where: { id, userId, isCurrent: true } })
@@ -97,46 +93,78 @@ export async function saveProfile(
       birthYear: normalized.local.year,
       chartHash: createHash('sha256').update(JSON.stringify(normalized)).digest('hex'),
     };
-    return existing
-      ? tx.birthProfile.update({
-          where: { id: existing.id, userId },
-          data: { ...data, version: { increment: 1 } },
-        })
-      : tx.birthProfile.create({ data: { ...data, userId, isDefault: count === 0 } });
-  });
+    const rowId = existing?.id ?? randomUUID();
+    const statements = [
+      ...guard('EXISTS (SELECT 1 FROM "User" WHERE id=? AND "deletedAt" IS NULL)', userId),
+    ];
+    if (existing)
+      statements.push(
+        ...guard(
+          'EXISTS (SELECT 1 FROM "BirthProfile" WHERE id=? AND "userId"=? AND version=?)',
+          rowId,
+          userId,
+          existing.version,
+        ),
+        updateRows(
+          'BirthProfile',
+          { ...data, userId, version: existing.version + 1 },
+          'id=? AND "userId"=?',
+          rowId,
+          userId,
+        ),
+      );
+    else {
+      statements.push(insertRow('BirthProfile', { ...data, id: rowId, userId, isDefault: false }));
+      statements.push(
+        statement(
+          'UPDATE "BirthProfile" SET "isDefault"=1 WHERE id=? AND NOT EXISTS (SELECT 1 FROM "BirthProfile" WHERE "userId"=? AND "isDefault"=1)',
+          rowId,
+          userId,
+        ),
+      );
+    }
+    try {
+      await atomicBatch(statements);
+    } catch (error) {
+      if (String(error).includes('profile_limit'))
+        throw new ApiError('E_PROFILE_LIMIT', 'Profile limit reached', 403);
+      throw error;
+    }
+    return tx.birthProfile.findUniqueOrThrow({ where: { id: rowId } });
+  })();
   return { profileId: row.id, version: row.version, warnings: normalized.warnings };
 }
 /** Set one owner default without changing the current browser selection. */
 export async function setDefaultProfile(userId: string, id: string) {
-  await getDb().$transaction(async (tx) => {
-    await lockOwner(tx, userId);
-    const row = await tx.birthProfile.findFirst({ where: { id, userId, isCurrent: true } });
-    if (!row) throw new ApiError('E_FORBIDDEN', 'Profile access denied', 403);
-    await tx.birthProfile.updateMany({
-      where: { userId, isDefault: true },
-      data: { isDefault: false },
-    });
-    await tx.birthProfile.update({ where: { id, userId }, data: { isDefault: true } });
-  });
+  await lockOwner(getDb(), userId);
+  await ownedProfile(userId, id);
+  await atomicBatch([
+    ...guard(
+      'EXISTS (SELECT 1 FROM "BirthProfile" p JOIN "User" u ON p."userId"=u.id WHERE p.id=? AND u.id=? AND p."isCurrent"=1 AND u."deletedAt" IS NULL)',
+      id,
+      userId,
+    ),
+    statement('UPDATE "BirthProfile" SET "isDefault"=0 WHERE "userId"=? AND "isDefault"=1', userId),
+    statement('UPDATE "BirthProfile" SET "isDefault"=1 WHERE id=? AND "userId"=?', id, userId),
+  ]);
 }
-/** Delete only the selected profile and both sides' associated private readings; cascade invalidates shares. */
+/** Delete a selected profile and associated private readings atomically; choose a surviving default. */
 export async function removeProfile(userId: string, id: string) {
-  await getDb().$transaction(async (tx) => {
-    await lockOwner(tx, userId);
-    const row = await tx.birthProfile.findFirst({ where: { id, userId, isCurrent: true } });
-    if (!row) throw new ApiError('E_FORBIDDEN', 'Profile access denied', 403);
-    // DESIGN-GAP: A second profile reference is persisted for paired history and deletion without decrypting every reading.
-    await tx.reading.deleteMany({
-      where: { userId, OR: [{ profileId: id }, { partnerProfileId: id }] },
-    });
-    await tx.birthProfile.delete({ where: { id, userId } });
-    if (row.isDefault) {
-      const next = await tx.birthProfile.findFirst({
-        where: { userId, isCurrent: true },
-        orderBy: { createdAt: 'asc' },
-      });
-      if (next)
-        await tx.birthProfile.update({ where: { id: next.id, userId }, data: { isDefault: true } });
-    }
-  });
+  await lockOwner(getDb(), userId);
+  await ownedProfile(userId, id);
+  await atomicBatch([
+    ...guard('EXISTS (SELECT 1 FROM "BirthProfile" WHERE id=? AND "userId"=?)', id, userId),
+    statement(
+      'DELETE FROM "Reading" WHERE "userId"=? AND ("profileId"=? OR "partnerProfileId"=?)',
+      userId,
+      id,
+      id,
+    ),
+    statement('DELETE FROM "BirthProfile" WHERE id=? AND "userId"=?', id, userId),
+    statement(
+      'UPDATE "BirthProfile" SET "isDefault"=1 WHERE id=(SELECT id FROM "BirthProfile" WHERE "userId"=? AND "isCurrent"=1 ORDER BY "createdAt",id LIMIT 1) AND NOT EXISTS (SELECT 1 FROM "BirthProfile" WHERE "userId"=? AND "isDefault"=1)',
+      userId,
+      userId,
+    ),
+  ]);
 }

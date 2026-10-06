@@ -6,7 +6,7 @@ import { encryptAnonymous } from '../apps/web/lib/anonymous-storage';
 import { computeSynastry } from '../packages/engine/src/synastry';
 import { normalizeBirth } from '../packages/engine/src/common';
 import { BirthInputSchema } from '../packages/shared/src';
-import B from '../packages/engine/test/fixtures/birth/B.json';
+import B from '../packages/engine/test/fixtures/birth/B.json' with { type: 'json' };
 /** Generate a full anonymous report from the production knowledge bundle for performance/E2E measurements. */
 export async function perfSnapshot() {
   const reading = baziReading('zh');

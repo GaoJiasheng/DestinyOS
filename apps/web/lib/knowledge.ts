@@ -2,6 +2,7 @@ import { resourceText } from './platform/resources';
 import type { KnowledgeBundle } from '@tianji/content';
 import type { System, Locale } from '@tianji/shared';
 import { getDb } from './db';
+import { loadSnapshot } from './db-snapshot';
 import { cacheRead, cacheWrite } from './cache';
 const bundled = new Map<string, Promise<KnowledgeBundle>>();
 /** Read the validated build-time fallback without resolving a database release. */
@@ -24,7 +25,8 @@ export async function loadKnowledge(
   version?: string,
 ): Promise<KnowledgeBundle> {
   const fallback = await bundledKnowledge(system, locale);
-  if (!process.env.DATABASE_URL || version === fallback.knowledgeVersion) return fallback;
+  if (process.env.NEXT_PHASE === 'phase-production-build' || version === fallback.knowledgeVersion)
+    return fallback;
   try {
     const release = version
       ? await getDb().knowledgeRelease.findUnique({ where: { version }, select: { version: true } })
@@ -46,7 +48,9 @@ export async function loadKnowledge(
       select: { bundles: true },
     });
     if (!stored?.bundles) return fallback;
-    const snapshots = stored.bundles as unknown as Partial<Record<System, KnowledgeBundle>>;
+    const snapshots = (await loadSnapshot(release.version, stored.bundles)) as Partial<
+      Record<System, KnowledgeBundle>
+    >;
     const snapshot = snapshots[system];
     if (!snapshot) return fallback;
     const bundle = { ...snapshot, knowledgeVersion: release.version };

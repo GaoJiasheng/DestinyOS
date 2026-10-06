@@ -1,3 +1,5 @@
+import { testDatabaseUrl } from '../../../scripts/sqlite-test';
+import { TestCache } from '../../../scripts/test-cache';
 import { test, expect } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -68,9 +70,7 @@ async function seedExportReading(
   });
 }
 
-process.env.REDIS_URL = 'redis://127.0.0.1:58499';
-process.env.UPSTASH_REDIS_REST_URL = '';
-process.env.UPSTASH_REDIS_REST_TOKEN = '';
+process.env.LOCAL_DATABASE_URL = testDatabaseUrl(57552);
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
@@ -124,8 +124,8 @@ for (const locale of ['zh', 'en'] as const)
       expect(visible).not.toContain('08:30');
       const artifact: Record<string, { size: number; pages: number }> = {};
       for (const format of ['pdf', 'png'] as const) {
-        // Reset test quota only: the API must still reserve a real Redis slot for each generated artifact.
-        const redis = (await import('../lib/redis')).getLocalRedis();
+        // Reset test quota only: the API must still reserve a real D1 slot for each generated artifact.
+        const redis = new TestCache(testDatabaseUrl(57552));
         const { rateLimitKey } = await import('../lib/ratelimit');
         await redis.del(rateLimitKey('export', user.id));
         const input = { readingId: reading.id, locale, theme: 'dark', format };
@@ -223,7 +223,7 @@ test('owner, membership, cache and quota enforcement', async ({ page, request })
     create: { key: 'export.freeEnabled', value: false, updatedBy: user.id },
     update: { value: false },
   });
-  const redis = (await import('../lib/redis')).getLocalRedis();
+  const redis = new TestCache(testDatabaseUrl(57552));
   await redis.del('site-config');
   expect((await page.request.post('/api/export', { data: input })).status()).toBe(403);
   await db.user.update({ where: { id: user.id }, data: { plan: 'pro' } });

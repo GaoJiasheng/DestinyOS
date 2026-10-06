@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
-import zhCopy from '../messages/zh.json';
-import enCopy from '../messages/en.json';
-import twCopy from '../messages/zh-TW.json';
+import zhCopy from '../messages/zh.json' with { type: 'json' };
+import enCopy from '../messages/en.json' with { type: 'json' };
+import twCopy from '../messages/zh-TW.json' with { type: 'json' };
 for (const locale of ['zh', 'en', 'zh-TW'] as const) {
   test(`${locale}: unknown birth time → questionnaire → trial report → revise birth time`, async ({
     page,

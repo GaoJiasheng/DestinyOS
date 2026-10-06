@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 for (const locale of ['zh', 'en'] as const) {
   const copy = locale === 'zh' ? zh : en;
   test(`${locale}: Workers homepage → anonymous bazi report → daily fortune`, async ({
@@ -51,3 +51,84 @@ for (const locale of ['zh', 'en'] as const) {
     expect((await request.get('/api/v1/cron/daily-maintenance')).status()).toBe(401);
   });
 }
+
+// The local-only test entry returns a mock session; the UI and persistence use the actual deployed application modules.
+test('mock login → birth form → encrypted D1 reading, KV daily hit, 429 and exports', async ({
+  page,
+  request,
+}) => {
+  const session = (await (await request.post('/_smoke/login')).json()) as {
+    userId: string;
+    token: string;
+  };
+  await page.context().addCookies([
+    {
+      name: '__Secure-authjs.session-token',
+      value: session.token,
+      domain: 'localhost',
+      path: '/',
+      httpOnly: true,
+      secure: true,
+      sameSite: 'Lax',
+    },
+  ]);
+  await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
+  // The documented profile editor explicitly saves the birth used by daily fortunes.
+  await page.goto('/zh/me/birth');
+  await page.getByLabel(zh['form.birth.year'], { exact: true }).fill('1990');
+  await page.getByLabel(zh['form.birth.month'], { exact: true }).fill('5');
+  await page.getByLabel(zh['form.birth.day'], { exact: true }).fill('15');
+  await page.getByLabel(zh['form.birth.precise'], { exact: true }).check();
+  await page.getByLabel(zh['form.birth.time'], { exact: true }).fill('08:30');
+  await page.getByRole('button', { name: zh['form.birth.next'], exact: true }).click();
+  await page.getByLabel(zh['form.birth.city'], { exact: true }).fill('Beijing');
+  await page.getByRole('option').filter({ hasText: 'Asia/Shanghai' }).first().click();
+  await page.getByLabel(zh['form.birth.gender'], { exact: true }).selectOption('male');
+  await page.getByRole('button', { name: zh['form.birth.save'], exact: true }).click();
+  await expect(page).toHaveURL(/\/zh\/me$/);
+  await page.goto('/zh/bazi/new');
+  await page.getByLabel(zh['form.birth.year'], { exact: true }).fill('1990');
+  await page.getByLabel(zh['form.birth.month'], { exact: true }).fill('5');
+  await page.getByLabel(zh['form.birth.day'], { exact: true }).fill('15');
+  await page.getByLabel(zh['form.birth.precise'], { exact: true }).check();
+  await page.getByLabel(zh['form.birth.time'], { exact: true }).fill('08:30');
+  await page.getByRole('button', { name: zh['form.birth.next'], exact: true }).click();
+  await page.getByLabel(zh['form.birth.city'], { exact: true }).fill('Beijing');
+  await page.getByRole('option').filter({ hasText: 'Asia/Shanghai' }).first().click();
+  await page.getByLabel(zh['form.birth.gender'], { exact: true }).selectOption('male');
+  await page.getByRole('button', { name: '排盘', exact: true }).click();
+  await expect(page).toHaveURL(/\/zh\/bazi\/r\/(?!local\/)[^/]+$/, { timeout: 90000 });
+  const stateUrl = `/_smoke/state?userId=${encodeURIComponent(session.userId)}`;
+  const state = (await (await request.get(stateUrl)).json()) as {
+    readings: { encInput: string }[];
+    profiles: { encBirth: string }[];
+    cache: { name: string; expiration?: number }[];
+    cacheWrites: Record<string, number>;
+  };
+  expect(state.readings.length).toBeGreaterThan(0);
+  expect(state.profiles.length).toBeGreaterThan(0);
+  expect(state.readings.every((r) => r.encInput.startsWith('v1:'))).toBe(true);
+  expect(state.profiles.every((p) => p.encBirth.startsWith('v1:'))).toBe(true);
+  await page.goto('/zh/today');
+  await expect(page.locator('[data-daily-block]')).toHaveCount(13);
+  const first = (await (await request.get(stateUrl)).json()) as typeof state;
+  expect(first.cache.length).toBeGreaterThan(0);
+  expect(Object.values(first.cacheWrites).reduce((sum, writes) => sum + writes, 0)).toBeGreaterThan(
+    0,
+  );
+  await page.reload();
+  await expect(page.locator('[data-daily-block]')).toHaveCount(13);
+  const second = (await (await request.get(stateUrl)).json()) as typeof state;
+  expect(second.cache).toEqual(first.cache);
+  expect(second.cacheWrites).toEqual(first.cacheWrites);
+  const exported = await page.request.get('/api/v1/me/export');
+  expect(exported.status()).toBe(200);
+  expect((await exported.json()).data.readings.length).toBeGreaterThan(0);
+  const pdf = await request.get('/_smoke/export');
+  expect(pdf.headers()['x-renderer']).toBe('local-mock');
+  expect((await pdf.body()).toString()).toContain('%PDF');
+  let status = 0;
+  for (let i = 0; i < 32; i++)
+    status = (await request.get(`/api/v1/og/share/${'A'.repeat(22)}`)).status();
+  expect(status).toBe(429);
+});

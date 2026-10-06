@@ -1,66 +1,11 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
+  provider   = "prisma-client-js"
+  engineType = "client"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_DATABASE_URL")
-}
-
-enum Plan {
-  free
-  pro
-}
-
-enum Role {
-  user
-  admin
-}
-
-enum Locale {
-  zh
-  en
-  zh_TW @map("zh-TW")
-}
-
-enum System {
-  bazi
-  ziwei
-  iching
-  qimen
-  tarot
-  astrology
-  vedic
-  numerology
-  synastry
-  daily
-}
-
-enum ProfileRelation {
-  self
-  partner
-  family
-  friend
-  other
-}
-
-enum Gender {
-  male
-  female
-  unspecified
-}
-
-enum ReadingStatus {
-  ok
-  failed
-}
-
-enum KuStatus {
-  draft
-  published
-  deprecated
+  provider = "sqlite"
+  url      = "file:./local.db"
 }
 
 model User {
@@ -69,9 +14,9 @@ model User {
   emailVerified        DateTime?
   name                 String? // 显示名（来自 OAuth 或用户设置），非敏感
   image                String?
-  role                 Role           @default(user)
-  plan                 Plan           @default(free)
-  locale               Locale         @default(zh)
+  role                 String         @default("user")
+  plan                 String         @default("free")
+  locale               String         @default("zh")
   tz                   String? // 最近一次浏览器上报时区
   theme                String? // 'auto'|'east'|'west'
   soundOn              Boolean        @default(false)
@@ -104,12 +49,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -135,29 +80,29 @@ model VerificationToken {
 }
 
 model BirthProfile {
-  id              String          @id @default(cuid())
+  id              String         @id @default(cuid())
   userId          String
-  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  version         Int             @default(1) // 每次编辑 +1；isCurrent=false 仅兼容一期旧版本归档
-  isCurrent       Boolean         @default(true) // Legacy archived rows remain false; multiple live profiles are allowed.
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  version         Int            @default(1) // 每次编辑 +1；isCurrent=false 仅兼容一期旧版本归档
+  isCurrent       Boolean        @default(true) // Legacy archived rows remain false; multiple live profiles are allowed.
   // DESIGN-GAP: Legacy labels remain nullable and fall back to encName; new labels are application-encrypted.
   label           String? // Never a public chart field.
-  isDefault       Boolean         @default(false)
-  relation        ProfileRelation @default(self)
+  isDefault       Boolean        @default(false)
+  relation        String         @default("self")
   // ---- 加密列：ciphertext 格式 "v<keyVersion>:<iv b64>:<tag b64>:<data b64>" ----
   encBirth        String // JSON {calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown}
   encPlace        String? // JSON {name, lat, lng, tz}
   encName         String? // 用户给该档案起的名字（一期只有"我"）
   // ---- 明文派生字段（低敏感，用于查询/统计/缓存键，不足以反推生日）----
-  gender          Gender
+  gender          String
   timeUnknown     Boolean
   tz              String // 出生地时区（IANA），用于每日运势默认时区
   birthYear       Int // 年龄门槛检查（<13 阻断）与粗粒度统计；不存月日
   chartHash       String // sha256(规范化出生输入 + 流派参数)，用作排盘缓存键
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-  readings        Reading[]       @relation("ReadingProfile")
-  partnerReadings Reading[]       @relation("SynastryPartner")
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  readings        Reading[]      @relation("ReadingProfile")
+  partnerReadings Reading[]      @relation("SynastryPartner")
   journalEntries  JournalEntry[]
 
   @@unique([id, userId])
@@ -173,8 +118,8 @@ model Reading {
   profileId        String?
   partnerProfile   BirthProfile? @relation("SynastryPartner", fields: [partnerProfileId], references: [id], onDelete: Cascade)
   profile          BirthProfile? @relation("ReadingProfile", fields: [profileId], references: [id], onDelete: SetNull)
-  system           System
-  status           ReadingStatus @default(ok)
+  system           String
+  status           String        @default("ok")
   // 输入快照（加密）：出生输入 + 问题 + 牌阵/起卦参数 + seed
   encInput         String
   // 明文：去 PII 的排盘与报告
@@ -231,10 +176,10 @@ model KnowledgeUnit {
   id          String    @id @default(cuid())
   unitId      String // 如 bazi.day_master.jia.strong
   version     Int
-  system      System
+  system      String
   section     String
   topic       String
-  status      KuStatus  @default(draft)
+  status      String    @default("draft")
   yaml        String // 原始 YAML 文本（单条）
   compiled    Json // 解析后的对象
   weight      Int
@@ -249,13 +194,14 @@ model KnowledgeUnit {
 }
 
 model KnowledgeRelease {
-  id        String   @id @default(cuid())
-  version   String   @unique // knowledgeVersion
+  id        String                 @id @default(cuid())
+  version   String                 @unique // knowledgeVersion
   notes     String?
   createdBy String
-  createdAt DateTime @default(now())
+  createdAt DateTime               @default(now())
   // DESIGN-GAP: Immutable bundle snapshots support rollback and delayed report translation.
   bundles   Json?
+  chunks    KnowledgeBundleChunk[]
 }
 
 model Feedback {
@@ -292,12 +238,12 @@ model AdminAuditLog {
 }
 
 model Event {
-  id       BigInt   @id @default(autoincrement())
-  day      DateTime @db.Date
+  id       Int      @id @default(autoincrement())
+  day      DateTime
   name     String // 'reading.created', 'daily.viewed', 'share.created', 'sub.started'
-  system   System?
-  locale   Locale?
-  plan     Plan?
+  system   String?
+  locale   String?
+  plan     String?
   userHash String? // sha256(userId + daySalt)，仅用于日 DAU 去重
   props    Json?
 
@@ -307,11 +253,11 @@ model Event {
 // DESIGN-GAP: A deterministic grouping ID preserves nullable dimensions without PostgreSQL NULL uniqueness ambiguity.
 model EventDaily {
   id      String   @id
-  day     DateTime @db.Date
+  day     DateTime
   name    String
-  system  System?
-  locale  Locale?
-  plan    Plan?
+  system  String?
+  locale  String?
+  plan    String?
   count   Int
   uniques Int
 
@@ -335,7 +281,7 @@ model ChatMessage {
 model ChatQuota {
   userId String
   user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  day    DateTime @db.Date
+  day    DateTime
   count  Int      @default(0)
 
   @@id([userId, day])
@@ -348,7 +294,7 @@ model JournalEntry {
   user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   profileId  String
   profile    BirthProfile @relation(fields: [profileId, userId], references: [id, userId], onDelete: Cascade)
-  date       DateTime     @db.Date
+  date       DateTime
   mood       Int
   text       String // AES-256-GCM, JournalEntry.text AAD, per-user key
   prediction Json
@@ -356,4 +302,48 @@ model JournalEntry {
 
   @@unique([profileId, date])
   @@index([userId, profileId, date(sort: Desc)])
+}
+
+// DESIGN-GAP: Strongly consistent expiring reservations, tokens and counters replace Redis state.
+model EphemeralState {
+  key       String @id
+  value     String
+  expiresAt Float
+
+  @@index([expiresAt])
+}
+
+model RateLimitCounter {
+  key       String @id
+  count     Int
+  expiresAt Float
+
+  @@index([expiresAt])
+}
+
+// DESIGN-GAP: CHECK(ok = 1) in D1 SQL lets a batch reject stale read preconditions atomically.
+model BatchGuard {
+  id String @id
+  ok Int
+}
+
+// DESIGN-GAP: One row per accepted request preserves the documented rolling one-hour quotas in D1.
+model RateLimitHit {
+  id        String @id
+  key       String
+  expiresAt Float
+
+  @@index([key, expiresAt])
+  @@index([expiresAt])
+}
+
+// DESIGN-GAP: D1's 2MiB row limit requires immutable knowledge snapshots in bounded chunks; publication batches include all chunks.
+model KnowledgeBundleChunk {
+  releaseVersion String
+  release        KnowledgeRelease @relation(fields: [releaseVersion], references: [version], onDelete: Cascade)
+  system         String
+  ordinal        Int
+  data           String
+
+  @@id([releaseVersion, system, ordinal])
 }

@@ -18,7 +18,8 @@ export function computeDivinationResult(req: ReadingRequest) {
   if (typeof clock !== 'string') throw new EngineError('E_INVALID_INPUT');
   return compute({
     system: req.system,
-    now: Temporal.ZonedDateTime.from(clock),
+    // DESIGN-GAP: Serialize the zoned clock across ESM/CJS package boundaries, where Temporal constructors may differ.
+    now: Temporal.ZonedDateTime.from(clock).toString(),
     question: {
       ...rest,
       ...(req.system === 'qimen' ? { at } : {}),

@@ -1,4 +1,4 @@
-# 06 · 数据模型（Prisma / PostgreSQL）
+# 06 · 数据模型（Prisma / Cloudflare D1（SQLite））
 
 > 原则：出生信息与问题文本为**加密列**（应用层 AES-256-GCM，见 08）；排盘结果与报告为明文 JSON（不含可识别信息：chart 中不存姓名、具体生日，仅存派生要素；为保险，chart JSON 入库前经 `stripPII()` 删除 `input`/`local` 字段，保留 `solarTimeAdjust.offsetMinutes` 等数值）。
 
@@ -11,7 +11,7 @@ User 1─1 Subscription
 User 1─n ShareLink ─1 Reading
 User 1─n Feedback
 KnowledgeUnit (版本化) 独立
-DailyCache 独立（Redis 为主，DB 仅审计可选）
+DailyCache 独立（KV 缓存；D1 为强一致状态）
 AdminAuditLog
 Event（匿名统计）
 ```
@@ -19,16 +19,9 @@ Event（匿名统计）
 ## 2. schema.prisma
 
 ```prisma
-generator client { provider = "prisma-client-js" }
-datasource db { provider = "postgresql"; url = env("DATABASE_URL"); directUrl = env("DIRECT_DATABASE_URL") }
+generator client { provider = "prisma-client-js"; engineType = "client" }
+datasource db { provider = "sqlite"; url = "file:./local.db" }
 
-enum Plan { free pro }
-enum Role { user admin }
-enum Locale { zh en }
-enum System { bazi ziwei iching qimen tarot astrology vedic numerology daily }
-enum Gender { male female unspecified }
-enum ReadingStatus { ok failed }
-enum KuStatus { draft published deprecated }
 
 model User {
   id            String   @id @default(cuid())
@@ -36,9 +29,9 @@ model User {
   emailVerified DateTime?
   name          String?           // 显示名（来自 OAuth 或用户设置），非敏感
   image         String?
-  role          Role     @default(user)
-  plan          Plan     @default(free)
-  locale        Locale   @default(zh)
+  role          String     @default("user")
+  plan          String     @default("free")
+  locale        String   @default("zh")
   tz            String?           // 最近一次浏览器上报时区
   theme         String?           // 'auto'|'east'|'west'
   soundOn       Boolean  @default(false)
@@ -73,7 +66,7 @@ model BirthProfile {
   encPlace     String?                    // JSON {name, lat, lng, tz}
   encName      String?                    // 用户给该档案起的名字（一期只有"我"）
   // ---- 明文派生字段（低敏感，用于查询/统计/缓存键，不足以反推生日）----
-  gender       Gender
+  gender       String
   timeUnknown  Boolean
   tz           String                     // 出生地时区（IANA），用于每日运势默认时区
   birthYear    Int                        // 年龄门槛检查（<13 阻断）与粗粒度统计；不存月日
@@ -91,8 +84,8 @@ model Reading {
   user              User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
   profileId         String?
   profile           BirthProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
-  system            System
-  status            ReadingStatus @default(ok)
+  system            String
+  status            String @default("ok")
   // 输入快照（加密）：出生输入 + 问题 + 牌阵/起卦参数 + seed
   encInput          String
   // 明文：去 PII 的排盘与报告
@@ -146,10 +139,10 @@ model KnowledgeUnit {
   id         String   @id @default(cuid())
   unitId     String                         // 如 bazi.day_master.jia.strong
   version    Int
-  system     System
+  system     String
   section    String
   topic      String
-  status     KuStatus @default(draft)
+  status     String @default("draft")
   yaml       String                         // 原始 YAML 文本（单条）
   compiled   Json                           // 解析后的对象
   weight     Int
@@ -201,12 +194,12 @@ model AdminAuditLog {
 }
 
 model Event {                                 // 匿名产品统计（不存 userId 明文，存 hash 日盐）
-  id        BigInt   @id @default(autoincrement())
-  day       DateTime @db.Date
+  id        Int   @id @default(autoincrement())
+  day       DateTime
   name      String                           // 'reading.created', 'daily.viewed', 'share.created', 'sub.started'
-  system    System?
-  locale    Locale?
-  plan      Plan?
+  system    String?
+  locale    String?
+  plan      String?
   userHash  String?                          // sha256(userId + daySalt)，仅用于日 DAU 去重
   props     Json?
   @@index([day, name])
@@ -231,30 +224,42 @@ model Event {                                 // 匿名产品统计（不存 use
 | Event | 永久（已匿名） |
 | Session | Auth.js 默认 30 天 |
 | Stripe 对象 | 由 Stripe 保存；本地仅存 id 与状态 |
-| 日志 | 30 天（Vercel/Sentry 设置） |
+| 日志 | 30 天（Cloudflare/Sentry 设置） |
 
 ## 5. 索引与性能
 
 - `Reading` 按 `(userId, createdAt desc)` 分页；免费用户仅保留最近 50 条（写入时若超过则删除最旧的非公开报告；会员无限）。
-- `KnowledgeUnit.compiled` 加载：按 `(system, status=published)` 一次取最新版本（用窗口函数或在 `KnowledgeRelease` 发布时写一张物化表 `knowledge_bundle(system, locale, version, json)`，运行时只读这张表并缓存到 Redis）。
-- `chart` JSON 平均 20–60KB（紫微最大），`report` 30–80KB；Reading 单行 ≤ 300KB，Postgres TOAST 处理，无需拆表。
+- `KnowledgeUnit.compiled` 加载：按 `(system, status=published)` 一次取最新版本（用窗口函数或在 `KnowledgeRelease` 发布时写一张物化表 `knowledge_bundle(system, locale, version, json)`，运行时只读这张表并缓存到 KV）。
+- `chart` JSON 平均 20–60KB（紫微最大），`report` 30–80KB；Reading 单行 ≤ 300KB，D1 单行预算 2MiB；报告不超过此限制。
 
-## 6. Redis 键
+## 6. Cloudflare 原生状态与缓存
 
 | key | 值 | TTL |
 |---|---|---|
-| `daily:{userId}:{profileVersion}:{date}:{locale}:{kv}:{ev}` | DailyReport JSON | 至当地次日 02:00 |
+| `daily:{userId}:{profileId}:{profileVersion}:{date}:{locale}:{kv}:{ev}` | DailyReport JSON | 至当地次日 02:00 |
 | `chart:{system}:{chartHash}:{ev}` | Chart JSON（本命类复用） | 30 天 |
-| `kb:{system}:{locale}:{kv}` | 知识库 bundle | 无（发布时写新 key） |
-| `rl:{route}:{ip or userId}` | 限流计数 | 1 分钟 |
-| `magic:{token}` | 邮箱登录 token → email | 15 分钟 |
-| `share:views:{token}` | 计数，定期回写 DB | — |
+| `knowledge:{kv}:{system}:{locale}` | 知识库 bundle | 1 小时（immutable release 保留在 D1） |
+| `rl:{route}:{identity hash}` | RateLimitHit D1 原子滑动日志；binding 负责 60 秒突发 | 1 小时 |
+| Auth.js VerificationToken | D1 单次原子消费，按 expires 验证 | 15 分钟 |
+| `share:views:{token}:{date}` | KV 近似计数，定期汇总回 D1 | 72 小时 |
 
 ## 7. 迁移策略
 
-- 所有 schema 变更通过 `prisma migrate dev` 产生迁移文件入库；禁止 `db push` 到生产。
+- 所有 schema 变更由 `prisma migrate diff` 生成 SQLite SQL，放在 `apps/web/migrations/`；分别用 `wrangler d1 migrations apply destinyos --local` 与 `--remote` 应用。禁止 `db push` 到生产；原 `prisma/migrations/` 为 PostgreSQL 历史，不再执行。
 - 加密密钥轮换：新增 key 到环境变量首位 → 运行脚本 `scripts/rotate-keys.ts` 逐行解密重加密 → 移除旧 key。
 
 ## B-10 补充
 
-Prisma `System` 增加 `numerology`；迁移仅扩展 Postgres 枚举，不增加数据表。`Reading.encInput` 加密保存可选英文姓名 `name`，chart 仅保存派生总和与数字；姓名不进入明文 report 或分析事件。
+Prisma `System` 增加 `numerology`；现为 TEXT 值，由共享 TS/Zod 联合类型与数据库触发器校验，不更名。`Reading.encInput` 加密保存可选英文姓名 `name`，chart 仅保存派生总和与数字；姓名不进入明文 report 或分析事件。
+
+## Cloudflare 原生迁移（CF-NATIVE，Owner 决定覆盖旧平台选型）
+
+- 生产 ORM：Prisma 6.19.3 `engineType="client"` + `@prisma/adapter-d1`，绑定 `DB`；本地 Node 使用 `@prisma/adapter-better-sqlite3`。
+- SQLite 枚举列均为 String，值保持不变（含 `zh-TW`、`synastry`）；共享 TS/Zod 联合类型校验读写，关键列另有 SQL 约束。Json 保留 Prisma Json，SQLite 存 JSON 文本；关系数组仍是关系，无标量数组。
+- Event.id 改 Int 自增；DateTime 统一 UTC ISO 8601（adapter 格式 `+00:00`），原 `@db.Date` 以 UTC 午夜日期代替；保留 DESC 索引、布尔默认值与级联关系。
+- D1 adapter 的交互事务不具备 ACID 保证，生产业务禁止依赖它；多表更新走 `DB.batch()`，原子预条件由 BatchGuard CHECK 保护，失效则整批回滚。本地执行同组 SQL 的 SQLite 事务。
+- EphemeralState(key,value,expiresAt) 保存锁、报告幂等、导出 token 和一次性预约；RateLimitHit(id,key,expiresAt) 保存小时滑动日志；ChatQuota 使用条件 UPSERT 防超额。
+- VerificationToken 留在 Auth.js 标准 D1 表；到期 token、临时状态、限流日志和旧 ChatQuota 由每日 scheduled 清理。
+- CACHE KV 保存每日运势、知识库 bundle、配置和分享近似访问计数；不用于锁、token 或配额。
+- KnowledgeRelease.bundles 保存分块清单；KnowledgeBundleChunk(releaseVersion,system,ordinal,data) 保存每体系 gzip/base64 的 512KiB 分块，在同一发布批次内提交；读取还原原 JSON。避免 D1 单行 2MiB 上限。
+- AES-256-GCM、AAD、密钥版本、每用户密钥派生与 stripPII 逻辑不变；原子 SQL 写入调用相同加密函数。

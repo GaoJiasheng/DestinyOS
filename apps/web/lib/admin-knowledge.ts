@@ -1,5 +1,4 @@
 import { stringify } from 'yaml';
-import { Prisma } from '@prisma/client';
 import { System, type Locale } from '@tianji/shared';
 import { interpret, systemConfigs } from '@tianji/interpret';
 import type { KnowledgeBundle, KnowledgeUnit } from '@tianji/content';
@@ -11,11 +10,12 @@ import {
   type LocatedUnit,
 } from '@tianji/content/validation';
 import { getDb } from './db';
+import { atomicBatch, guard, insertRow, updateRows, audit, type SqlStatement } from './db-batch';
+import { snapshotParts, loadSnapshot } from './db-snapshot';
 import { bundledKnowledge, loadKnowledge } from './knowledge';
 import { fixtures, fixtureChart, fixtureNow, validationFixtures } from './admin-fixtures';
 import { ApiError } from './api-error';
 import { cacheWrite } from './cache';
-const json = (value: unknown) => JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
 const located = (unit: KnowledgeUnit): LocatedUnit => ({
   unit,
   file: unit.id,
@@ -93,8 +93,8 @@ export async function saveKuDraft(
     throw new ApiError('E_VALIDATION', 'Invalid KU', 400);
   const current = await getKu(unitId);
   const unit = checked.unit;
-  return getDb().$transaction(async (tx) => {
-    await tx.$executeRaw`SELECT pg_advisory_xact_lock(6060)`;
+  const tx = getDb();
+  return (async () => {
     const latest = await tx.knowledgeUnit.findFirst({
       where: { unitId },
       orderBy: { version: 'desc' },
@@ -109,35 +109,39 @@ export async function saveKuDraft(
       author: adminId,
       reviewed_by: null,
     };
-    await tx.knowledgeUnit.updateMany({
-      where: { unitId, status: 'draft' },
-      data: { status: 'deprecated' },
-    });
-    const row = await tx.knowledgeUnit.create({
-      data: {
+    const checks = guard(
+      'COALESCE((SELECT max(version) FROM "KnowledgeUnit" WHERE "unitId"=?),?)=?',
+      unitId,
+      current.version,
+      version,
+    );
+    const yaml = stringify([unit]);
+    await atomicBatch([
+      ...checks,
+      updateRows(
+        'KnowledgeUnit',
+        { status: 'deprecated' },
+        '"unitId"=? AND status=?',
+        unitId,
+        'draft',
+      ),
+      insertRow('KnowledgeUnit', {
         unitId,
         version: version + 1,
-        system: System[unit.system as System],
+        system: unit.system,
         section: unit.section,
         topic: unit.topic,
         status: 'draft',
-        yaml: stringify([unit]),
-        compiled: json(unit),
+        yaml,
+        compiled: unit,
         weight: unit.weight,
         polarity: unit.polarity,
         author: adminId,
-      },
-    });
-    await tx.adminAuditLog.create({
-      data: {
-        adminId,
-        action: 'ku.draft',
-        target: unitId,
-        diff: { from: version, to: row.version },
-      },
-    });
-    return { version: row.version, yaml: row.yaml };
-  });
+      }),
+      audit(adminId, 'ku.draft', unitId, { from: version, to: version + 1 }),
+    ]);
+    return { version: version + 1, yaml };
+  })();
 }
 /** Render both report locales against a selected fixture, highlighting whether the edited unit was actually selected. */
 export async function previewKu(yaml: string, fixture: (typeof fixtures)[number]) {
@@ -219,86 +223,116 @@ export async function publishRelease(
   dryRun = false,
 ) {
   const fallback = await fallbackBundles();
-  return getDb().$transaction(
-    async (tx) => {
-      await tx.$executeRaw`SELECT pg_advisory_xact_lock(6060)`;
-      const latest = await tx.knowledgeRelease.findFirst({
-        orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+  const tx = getDb();
+  return (async () => {
+    const operations: SqlStatement[] = [];
+
+    const latest = await tx.knowledgeRelease.findFirst({
+      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+    });
+    const baseline = latest?.bundles
+      ? ((await loadSnapshot(latest.version, latest.bundles)) as Bundles)
+      : fallback;
+    let candidate = structuredClone(baseline);
+    if (rollback) {
+      const source = await tx.knowledgeRelease.findUnique({ where: { version: rollback } });
+      if (!source?.bundles) throw new ApiError('E_NOT_FOUND', 'Release not found', 404);
+      candidate = structuredClone((await loadSnapshot(source.version, source.bundles)) as Bundles);
+    } else {
+      if (!draftIds.length) throw new ApiError('E_VALIDATION', 'Select drafts', 400);
+      const drafts = await tx.knowledgeUnit.findMany({
+        where: { id: { in: draftIds }, status: 'draft' },
       });
-      const baseline = latest?.bundles ? (latest.bundles as unknown as Bundles) : fallback;
-      let candidate = structuredClone(baseline);
-      if (rollback) {
-        const source = await tx.knowledgeRelease.findUnique({ where: { version: rollback } });
-        if (!source?.bundles) throw new ApiError('E_NOT_FOUND', 'Release not found', 404);
-        candidate = structuredClone(source.bundles as unknown as Bundles);
-      } else {
-        if (!draftIds.length) throw new ApiError('E_VALIDATION', 'Select drafts', 400);
-        const drafts = await tx.knowledgeUnit.findMany({
-          where: { id: { in: draftIds }, status: 'draft' },
+      if (drafts.length !== draftIds.length)
+        throw new ApiError('E_VALIDATION', 'Draft selection changed', 409);
+      for (const row of drafts) {
+        const newest = await tx.knowledgeUnit.findFirst({
+          where: { unitId: row.unitId },
+          orderBy: { version: 'desc' },
         });
-        if (drafts.length !== draftIds.length)
-          throw new ApiError('E_VALIDATION', 'Draft selection changed', 409);
-        for (const row of drafts) {
-          const newest = await tx.knowledgeUnit.findFirst({
-            where: { unitId: row.unitId },
-            orderBy: { version: 'desc' },
-          });
-          if (newest?.id !== row.id)
-            throw new ApiError('E_VALIDATION', 'Stale draft selection', 409);
-          const unit = row.compiled as unknown as KnowledgeUnit;
-          const published = {
-            ...unit,
-            meta: { ...unit.meta, status: 'published' as const, reviewed_by: adminId },
-          };
-          candidate[row.system].units = [
-            ...candidate[row.system].units.filter((u) => u.id !== unit.id),
-            published,
-          ];
-        }
+        if (newest?.id !== row.id) throw new ApiError('E_VALIDATION', 'Stale draft selection', 409);
+        const unit = row.compiled as unknown as KnowledgeUnit;
+        const published = {
+          ...unit,
+          meta: { ...unit.meta, status: 'published' as const, reviewed_by: adminId },
+        };
+        candidate[row.system].units = [
+          ...candidate[row.system].units.filter((u) => u.id !== unit.id),
+          published,
+        ];
       }
-      const check = await checkBundles(candidate, baseline);
-      if (dryRun || check.errors.length) return { ...check, version: null };
-      const base = latest?.version ?? fallback.bazi.knowledgeVersion;
-      // DESIGN-GAP: Archive the shipped baseline on the first publication so the first edit can also be rolled back.
-      if (!latest)
-        await tx.knowledgeRelease.create({
-          data: { version: base, createdBy: adminId, bundles: json(fallback) },
-        });
-      const parts = /^\d+\.\d+\.\d+$/.test(base) ? base.split('.').map(Number) : [1, 0, 0];
-      const version = `${parts[0]}.${parts[1]}.${parts[2]! + 1}`;
-      for (const system of Object.values(System)) candidate[system].knowledgeVersion = version;
-      await tx.knowledgeRelease.create({
-        data: { version, notes, createdBy: adminId, bundles: json(candidate) },
-      });
-      if (!rollback)
-        for (const id of draftIds) {
-          const row = await tx.knowledgeUnit.findUniqueOrThrow({ where: { id } });
-          const unit = row.compiled as unknown as KnowledgeUnit;
-          unit.meta = { ...unit.meta, status: 'published', reviewed_by: adminId };
-          await tx.knowledgeUnit.update({
-            where: { id },
-            data: {
+    }
+    const check = await checkBundles(candidate, baseline);
+    if (dryRun || check.errors.length) return { ...check, version: null };
+    operations.push(
+      ...guard(
+        `COALESCE((SELECT id FROM "KnowledgeRelease" ORDER BY "createdAt" DESC,id DESC LIMIT 1),'')=?`,
+        latest?.id ?? '',
+      ),
+    );
+    const base = latest?.version ?? fallback.bazi.knowledgeVersion;
+    // DESIGN-GAP: Archive the shipped baseline on the first publication so the first edit can also be rolled back.
+    if (!latest)
+      operations.push(
+        insertRow('KnowledgeRelease', {
+          version: base,
+          createdBy: adminId,
+          bundles: snapshotParts(fallback).manifest,
+        }),
+      );
+    if (!latest)
+      for (const chunk of snapshotParts(fallback).chunks)
+        operations.push(insertRow('KnowledgeBundleChunk', { releaseVersion: base, ...chunk }));
+    const parts = /^\d+\.\d+\.\d+$/.test(base) ? base.split('.').map(Number) : [1, 0, 0];
+    const version = `${parts[0]}.${parts[1]}.${parts[2]! + 1}`;
+    for (const system of Object.values(System)) candidate[system].knowledgeVersion = version;
+    operations.push(
+      insertRow('KnowledgeRelease', {
+        version,
+        notes,
+        createdBy: adminId,
+        bundles: snapshotParts(candidate).manifest,
+      }),
+    );
+    for (const chunk of snapshotParts(candidate).chunks)
+      operations.push(insertRow('KnowledgeBundleChunk', { releaseVersion: version, ...chunk }));
+    if (!rollback)
+      for (const id of draftIds) {
+        const row = await tx.knowledgeUnit.findUniqueOrThrow({ where: { id } });
+        const unit = row.compiled as unknown as KnowledgeUnit;
+        unit.meta = { ...unit.meta, status: 'published', reviewed_by: adminId };
+        operations.push(
+          ...guard(
+            'EXISTS (SELECT 1 FROM "KnowledgeUnit" WHERE id=? AND status=? AND version=(SELECT max(version) FROM "KnowledgeUnit" WHERE "unitId"=?))',
+            id,
+            'draft',
+            row.unitId,
+          ),
+          updateRows(
+            'KnowledgeUnit',
+            {
               status: 'published',
               publishedAt: new Date(),
               reviewedBy: adminId,
-              compiled: json(unit),
+              compiled: unit,
               yaml: stringify([unit]),
             },
-          });
-        }
-      await tx.adminAuditLog.create({
-        data: {
-          adminId,
-          action: rollback ? 'ku.rollback' : 'ku.publish',
-          target: version,
-          diff: { draftIds, rollback: rollback ?? null, initialVersion: latest ? null : base },
-        },
-      });
-      // Refresh after commit is performed by the action; version keys prevent stale cached reports.
-      return { ...check, version };
-    },
-    { timeout: 60000, maxWait: 10000 },
-  );
+            'id=?',
+            id,
+          ),
+        );
+      }
+    operations.push(
+      audit(adminId, rollback ? 'ku.rollback' : 'ku.publish', version, {
+        draftIds,
+        rollback: rollback ?? null,
+        initialVersion: latest ? null : base,
+      }),
+    );
+    await atomicBatch(operations);
+    // Refresh after commit is performed by the action; version keys prevent stale cached reports.
+    return { ...check, version };
+  })();
 }
 /** Populate the new immutable version keys; cache outages fall back to the committed database snapshot. */
 export async function refreshRelease(version: string) {

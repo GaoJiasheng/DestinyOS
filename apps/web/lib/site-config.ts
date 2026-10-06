@@ -17,7 +17,7 @@ export async function siteConfig(): Promise<SiteSettings> {
     'feature.panchangDefaultOpen': false,
     maintenance: false,
   };
-  if (!process.env.DATABASE_URL) return defaults;
+  if (process.env.NEXT_PHASE === 'phase-production-build') return defaults;
   try {
     const cached = await cacheRead<unknown>('site-config');
     const valid = SiteConfigSchema.safeParse(cached);

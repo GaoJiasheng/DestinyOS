@@ -5,10 +5,9 @@ import { hashSeed } from '../common/random';
 import { EngineError } from '../common/error';
 import { tenGod } from '../common/ganzhi';
 import { computeBazi } from '../bazi';
-import { computeAstrology } from '../astrology/western';
 import { drawDaily } from '../tarot';
 import { dailyBaziContext } from './index';
-import { dailyAstro } from './transits';
+import { dailyScoreAstro, dailyScoreNatal } from './transits';
 import { scoreDaily } from './scoring';
 export type DailyRangeDay = { date: string; overall: number; scores: DailyChart['scores'] };
 /** Validate an inclusive civil-date range (1900–2100), at most 31 days. */
@@ -41,7 +40,7 @@ export function computeDailyRange(
     .toInstant()
     .toString();
   const baziChart = computeBazi(birth, { now, yearsAround: 0 }),
-    astroChart = computeAstrology(birth);
+    astroChart = dailyScoreNatal(birth);
   return dates.map((date) => {
     const context = dailyBaziContext({ birth, baziChart, date: { local: date, tz } });
     const drawn = drawDaily(hashSeed(`${identity}|${date}`));
@@ -52,7 +51,7 @@ export function computeDailyRange(
       unfavorableHit: context.unfavorableHit,
       dayRelations: context.relations,
       secondaryRelations: context.secondaryRelations,
-      astro: dailyAstro(date, tz, astroChart, birth.timeUnknown),
+      astro: dailyScoreAstro(date, astroChart, birth.timeUnknown),
       tarot: { card: drawn.cardKey, reversed: drawn.reversed },
     });
     return { date, overall: scores.overall, scores };

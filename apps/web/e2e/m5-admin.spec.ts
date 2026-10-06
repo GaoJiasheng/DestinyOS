@@ -1,11 +1,12 @@
+import { testDatabaseUrl } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
 import { parse, stringify } from 'yaml';
 import { audit, login, mailLink, db, copies, seedReading, fillBirth, birth } from './m5-helpers';
 import type { KnowledgeUnit } from '@tianji/content';
-import Redis from 'ioredis';
+import { TestCache } from '../../../scripts/test-cache';
 import { encryptField } from '../lib/crypto';
-const cache = new Redis('redis://127.0.0.1:58499', { lazyConnect: true });
+const cache = new TestCache(testDatabaseUrl(57552));
 test.afterAll(async () => {
   await db.$disconnect();
   cache.disconnect();

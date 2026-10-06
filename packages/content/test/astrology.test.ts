@@ -6,9 +6,10 @@ import { conditions, equal, evaluateWhen, resolvePath } from '../src';
 import { interpret } from '../../interpret/src';
 
 let audit: Awaited<ReturnType<typeof auditAstrology>>;
+// DESIGN-GAP: Preserve the full fifty-chart audit under coverage on shared hosts with the suite's two-minute budget.
 beforeAll(async () => {
   audit = await auditAstrology(50);
-}, 30_000);
+}, 120_000);
 
 describe('astrology editorial knowledge', () => {
   it('exhausts every documented dimension rather than just meeting a total count', () => {

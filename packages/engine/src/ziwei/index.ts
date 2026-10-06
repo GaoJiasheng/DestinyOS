@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { Solar } from 'lunar-typescript';
 import { astro } from 'iztro';
-import i18n from 'iztro/lib/i18n';
+import i18nImport from 'iztro/lib/i18n/index.js';
 import { z } from 'zod';
 import {
   Palace,
@@ -16,6 +16,9 @@ import {
 import { EngineError } from '../common/error';
 import { mapStar, mapBrightness, mapBranch, mapStem } from './mapping';
 import { detectPatterns } from './patterns';
+// DESIGN-GAP: Native Node ESM needs the concrete CJS entry and its default wrapper; bundlers expose the instance directly.
+const i18nModule = i18nImport as typeof i18nImport | { default: typeof i18nImport };
+const i18n = 'default' in i18nModule ? i18nModule.default : i18nModule;
 export { ZiweiChartSchema } from '@tianji/shared';
 export type { ZiweiChart } from '@tianji/shared';
 export * from './patterns';

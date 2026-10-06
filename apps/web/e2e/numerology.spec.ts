@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { Temporal } from '@js-temporal/polyfill';
 import { personalNumbers } from '@tianji/engine/numerology';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 for (const locale of ['zh', 'en'] as const) {
   test(`${locale}: numerology input, report, profile reuse, daily and encyclopedia`, async ({
     page,

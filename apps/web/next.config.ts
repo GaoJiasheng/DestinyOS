@@ -11,6 +11,8 @@ const config: NextConfig = {
     'sharp',
     '@prisma/client',
     '.prisma/client',
+    '@prisma/adapter-better-sqlite3',
+    'better-sqlite3',
     '@cloudflare/puppeteer',
   ],
   // DESIGN-GAP: Bounded imports of up to 50 chart snapshots need more than Next.js's default 1MB action body.
@@ -40,11 +42,14 @@ const config: NextConfig = {
         'logger-node',
         'png-node',
         'timezone-node',
+        'db-local',
       ]) {
-        config.resolve.alias[resolve(__dirname, `lib/platform/${module}.ts`)] = resolve(
-          __dirname,
-          'lib/platform/node-unavailable.ts',
-        );
+        config.resolve.alias[
+          resolve(
+            __dirname,
+            module === 'db-local' ? 'lib/db-local.ts' : `lib/platform/${module}.ts`,
+          )
+        ] = resolve(__dirname, 'lib/platform/node-unavailable.ts');
       }
     }
     return config;

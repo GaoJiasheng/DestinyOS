@@ -13,6 +13,9 @@ const allowed = new Set([
   'Apache-2.0',
   // DESIGN-GAP: Cloudflare SDKs offer either of these already-permitted licenses.
   'MIT OR Apache-2.0',
+  // DESIGN-GAP: SQLite's native build tools offer these permissive alternatives; use MIT or BSD-2-Clause.
+  '(MIT OR WTFPL)',
+  '(BSD-2-Clause OR MIT OR Apache-2.0)',
   // B-09: opencc-js code is MIT; its bundled OpenCC dictionaries are Apache-2.0 (reviewed THIRD_PARTY_LICENSES.md).
   'MIT AND Apache-2.0',
   'BSD-2-Clause',

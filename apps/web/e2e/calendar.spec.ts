@@ -1,20 +1,17 @@
+import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
-import Redis from 'ioredis';
+import { TestCache } from '../../../scripts/test-cache';
 import { randomUUID } from 'node:crypto';
 import { encryptField } from '../lib/crypto';
 import { encryptAnonymous } from '../lib/anonymous-storage';
 import { BirthInputSchema } from '@tianji/shared';
-import A from '../../../packages/engine/test/fixtures/birth/A.json';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
-import tw from '../messages/zh-TW.json';
+import A from '../../../packages/engine/test/fixtures/birth/A.json' with { type: 'json' };
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
+import tw from '../messages/zh-TW.json' with { type: 'json' };
 const birth = BirthInputSchema.parse(A);
-const db = new PrismaClient({
-  datasourceUrl:
-    'postgresql://postgres:postgres@127.0.0.1:57532/postgres?connection_limit=1&statement_cache_size=0',
-});
-const redis = new Redis('redis://127.0.0.1:58479', { lazyConnect: true });
+const db = sqliteClient(testDatabaseUrl(57532));
+const redis = new TestCache(testDatabaseUrl(57532));
 process.env.FIELD_ENCRYPTION_KEYS = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
 test.afterAll(async () => {
   await db.$disconnect();

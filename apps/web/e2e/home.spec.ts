@@ -4,8 +4,8 @@ import { encryptAnonymous } from '../lib/anonymous-storage';
 import { computeAstrology } from '@tianji/engine/astrology';
 import { normalizeBirth } from '@tianji/engine';
 import { baziReading } from '../test/fixtures/bazi-reading';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 import { System } from '@tianji/shared';
 const homeSystems = Object.values(System).filter((system) => system !== 'daily');
 test('WebGL2 unavailable retains CSS stars without reduced motion', async ({ page, context }) => {

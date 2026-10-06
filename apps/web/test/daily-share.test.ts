@@ -20,7 +20,7 @@ const birth: BirthInput = {
   place: { name: 'Beijing', lat: 39.9, lng: 116.4, tz: 'Asia/Shanghai' },
 };
 beforeEach(() => {
-  vi.stubEnv('DATABASE_URL', '');
+  vi.stubEnv('NEXT_PHASE', 'phase-production-build');
   vi.stubEnv('AUTH_SECRET', 'unit-test-secret');
 });
 describe('daily and public privacy contracts', () => {

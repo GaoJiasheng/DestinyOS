@@ -1,7 +1,8 @@
+import { testDatabaseUrl } from './scripts/sqlite-test';
 import { defineConfig } from '@playwright/test';
 import base from './playwright.auth.config';
 const server = Array.isArray(base.webServer) ? base.webServer[0] : base.webServer;
-/** Real production UI and actions against isolated PostgreSQL, Redis and mail endpoints. */
+/** Real production UI and actions against isolated SQLite, KV substitute and mail endpoints. */
 export default defineConfig({
   ...base,
   testMatch: 'daily-account.spec.ts',
@@ -15,16 +16,12 @@ export default defineConfig({
     env: {
       ...server?.env,
       TEST_SERVICE_PORT_OFFSET: '2100',
-      TEST_POSTGRES_PORT: '57532',
+      TEST_DATABASE_ID: '57532',
       TEST_SHADOW_PORT: '57533',
-      TEST_REDIS_PORT: '58479',
       TEST_MAIL_PORT: '60181',
       TEST_WEB_PORT: '3210',
       TEST_WEB_MODE: 'production',
-      DATABASE_URL:
-        'postgresql://postgres:postgres@127.0.0.1:57532/postgres?connection_limit=1&statement_cache_size=0',
-      DIRECT_DATABASE_URL: 'postgresql://postgres:postgres@127.0.0.1:57532/postgres',
-      REDIS_URL: 'redis://127.0.0.1:58479',
+      LOCAL_DATABASE_URL: testDatabaseUrl(57532),
       AUTH_URL: 'http://localhost:3210',
       TEST_MAIL_URL: 'http://127.0.0.1:60181/mail',
       CRON_SECRET: 'isolated-cron-secret',

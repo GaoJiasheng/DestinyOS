@@ -1,32 +1,8 @@
-import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest';
+import { beforeEach, afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import Stripe from 'stripe';
-import RedisMock from 'ioredis-mock';
-const mock = vi.hoisted(() => ({
-  retrieve: vi.fn(),
-  subscription: vi.fn(),
-  upsert: vi.fn(),
-  user: vi.fn(),
-  userUpdate: vi.fn(),
-  query: vi.fn(),
-  mail: vi.fn(),
-  event: vi.fn(),
-}));
-const redis = new RedisMock();
-vi.mock('../lib/redis', () => ({ getLocalRedis: () => redis }));
-vi.mock('../lib/db', () => {
-  const tx = {
-    $queryRaw: mock.query,
-    user: { findUnique: mock.user, update: mock.userUpdate },
-    subscription: { upsert: mock.upsert },
-    event: { create: mock.event },
-  };
-  return {
-    getDb: () => ({
-      subscription: { findFirst: mock.subscription, findUnique: mock.subscription },
-      $transaction: (work: (value: typeof tx) => Promise<unknown>) => work(tx),
-    }),
-  };
-});
+import { isolatedSqlite } from '../../../scripts/sqlite-test';
+const mock = vi.hoisted(() => ({ retrieve: vi.fn(), mail: vi.fn(), db: null as unknown }));
+vi.mock('../lib/db', () => ({ getDb: () => mock.db }));
 vi.mock('../lib/stripe', async (original) => ({
   ...(await original<typeof import('../lib/stripe')>()),
   getStripe: () => ({
@@ -41,6 +17,9 @@ vi.mock('resend', () => ({
 }));
 import { handleStripeEvent } from '../lib/stripe-webhook';
 import { POST } from '../app/api/v1/stripe/webhook/route';
+const fixture = isolatedSqlite();
+const db = fixture.client;
+mock.db = db;
 function event(type: string, object: object, id = 'evt_test'): Stripe.Event {
   return JSON.parse(
     JSON.stringify({
@@ -54,15 +33,23 @@ function event(type: string, object: object, id = 'evt_test'): Stripe.Event {
     }),
   ) as Stripe.Event;
 }
+const checkout = () =>
+  event('checkout.session.completed', {
+    subscription: 'sub_test',
+    customer: 'cus_test',
+    client_reference_id: 'owner',
+  });
 beforeEach(async () => {
   vi.clearAllMocks();
-  await redis.flushall();
   vi.stubEnv('AUTH_SECRET', 'isolated-unit-event-secret');
   vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');
   vi.stubEnv('STRIPE_WEBHOOK_SECRET', 'whsec_test');
-  vi.stubEnv('UPSTASH_REDIS_REST_URL', '');
-  mock.subscription.mockResolvedValue({ userId: 'owner' });
-  mock.user.mockResolvedValue({ deletedAt: null, plan: 'free', locale: 'zh' });
+  vi.stubEnv('RESEND_API_KEY', 're_test');
+  vi.stubEnv('EMAIL_FROM', 'test@example.test');
+  await db.ephemeralState.deleteMany();
+  await db.user.deleteMany();
+  await db.event.deleteMany();
+  await db.user.create({ data: { id: 'owner', email: 'user@example.test', locale: 'en' } });
   mock.retrieve.mockResolvedValue({
     id: 'sub_test',
     customer: 'cus_test',
@@ -72,15 +59,13 @@ beforeEach(async () => {
   });
 });
 afterEach(() => vi.unstubAllEnvs());
-describe('signed Stripe webhooks', () => {
-  it('verifies the raw signature and rejects invalid or missing credentials without IO', async () => {
-    const body = JSON.stringify(
-      event('checkout.session.completed', {
-        subscription: 'sub_test',
-        customer: 'cus_test',
-        client_reference_id: 'owner',
-      }),
-    );
+afterAll(async () => {
+  await db.$disconnect();
+  await fixture.close();
+});
+describe('signed Stripe webhooks on SQLite', () => {
+  it('verifies raw signatures and refuses invalid/missing credentials before mutation', async () => {
+    const body = JSON.stringify(checkout());
     const signature = new Stripe('sk_test').webhooks.generateTestHeaderString({
       payload: body,
       secret: 'whsec_test',
@@ -96,7 +81,7 @@ describe('signed Stripe webhooks', () => {
         )
       ).status,
     ).toBe(400);
-    expect(mock.upsert).not.toHaveBeenCalled();
+    expect(await db.subscription.count()).toBe(0);
     expect(
       (
         await POST(
@@ -108,79 +93,71 @@ describe('signed Stripe webhooks', () => {
         )
       ).status,
     ).toBe(200);
-    expect(mock.userUpdate).toHaveBeenCalledWith({ where: { id: 'owner' }, data: { plan: 'pro' } });
+    expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('pro');
     vi.stubEnv('STRIPE_SECRET_KEY', '');
     expect((await POST(new Request('https://example.test', { method: 'POST', body }))).status).toBe(
       503,
     );
   });
-  it('deduplicates for 24h and permits failed work to retry', async () => {
-    const checkout = event('checkout.session.completed', {
-      subscription: 'sub_test',
-      customer: 'cus_test',
-      client_reference_id: 'owner',
-    });
+  it('deduplicates for 24 hours, releases failed reservations and permits retries', async () => {
     mock.retrieve.mockRejectedValueOnce(new Error('temporary'));
-    await expect(handleStripeEvent(checkout)).rejects.toThrow('temporary');
-    expect(await redis.get('stripe:event:evt_test')).toBeNull();
-    expect(await handleStripeEvent(checkout)).toBe('processed');
-    expect(await handleStripeEvent(checkout)).toBe('duplicate');
-    expect(await redis.ttl('stripe:event:evt_test')).toBeGreaterThan(86390);
-    expect(mock.upsert).toHaveBeenCalledTimes(1);
+    await expect(handleStripeEvent(checkout())).rejects.toThrow('temporary');
+    expect(
+      await db.ephemeralState.findUnique({ where: { key: 'stripe:event:evt_test' } }),
+    ).toBeNull();
+    expect(await handleStripeEvent(checkout())).toBe('processed');
+    expect(await handleStripeEvent(checkout())).toBe('duplicate');
+    expect(
+      (await db.ephemeralState.findUniqueOrThrow({ where: { key: 'stripe:event:evt_test' } }))
+        .expiresAt,
+    ).toBeGreaterThan(Date.now() + 86390000);
+    expect(await db.subscription.count()).toBe(1);
+    expect(await db.event.count({ where: { name: 'sub.started' } })).toBe(1);
   });
-  it('returns retryable failure for concurrent delivery and reads latest subscription state', async () => {
-    await redis.set('stripe:event:evt_busy:lock', 'busy', 'EX', 60);
+  it('returns a retryable error for concurrent delivery and retrieves current subscription status', async () => {
+    await db.ephemeralState.create({
+      data: { key: 'stripe:event:evt_busy:lock', value: 'busy', expiresAt: Date.now() + 60000 },
+    });
     await expect(
       handleStripeEvent(
         event(
           'customer.subscription.updated',
-          { id: 'sub_test', customer: 'cus_test', metadata: {} },
+          { id: 'sub_test', customer: 'cus_test', metadata: { userId: 'owner' } },
           'evt_busy',
         ),
       ),
     ).rejects.toMatchObject({ status: 503 });
+    await handleStripeEvent(checkout());
     mock.retrieve.mockResolvedValueOnce({
       id: 'sub_test',
       customer: 'cus_test',
       status: 'canceled',
-      items: { data: [] },
       cancel_at_period_end: false,
+      items: { data: [] },
     });
     await handleStripeEvent(
-      event('customer.subscription.updated', {
-        id: 'sub_test',
-        customer: 'cus_test',
-        metadata: {},
-        status: 'active',
-      }),
+      event(
+        'customer.subscription.updated',
+        { id: 'sub_test', customer: 'cus_test', metadata: {} },
+        'evt_end',
+      ),
     );
-    expect(mock.userUpdate).toHaveBeenCalledWith({
-      where: { id: 'owner' },
-      data: { plan: 'free' },
-    });
+    expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('free');
+    expect(await db.event.count({ where: { name: 'sub.ended' } })).toBe(1);
   });
-  it('keeps access after scheduled cancellation; removes access when deleted; never resurrects deleted users', async () => {
+  it('keeps scheduled cancellation active and never resurrects a deleted account', async () => {
     mock.retrieve.mockResolvedValueOnce({
       id: 'sub_test',
       customer: 'cus_test',
       status: 'active',
       cancel_at_period_end: true,
-      items: { data: [{ current_period_end: 1800000000, price: { id: 'price_test' } }] },
+      items: { data: [] },
     });
-    await handleStripeEvent(
-      event('customer.subscription.updated', {
-        id: 'sub_test',
-        customer: 'cus_test',
-        metadata: {},
-      }),
-    );
-    expect(mock.upsert).toHaveBeenCalledWith(
-      expect.objectContaining({ update: expect.objectContaining({ cancelAtPeriodEnd: true }) }),
-    );
-    expect(mock.userUpdate).toHaveBeenCalledWith(
-      expect.objectContaining({ data: { plan: 'pro' } }),
-    );
-    mock.user.mockResolvedValueOnce({ deletedAt: new Date() });
+    await handleStripeEvent(checkout());
+    expect(
+      (await db.subscription.findUniqueOrThrow({ where: { userId: 'owner' } })).cancelAtPeriodEnd,
+    ).toBe(true);
+    await db.user.update({ where: { id: 'owner' }, data: { deletedAt: new Date(), plan: 'free' } });
     await handleStripeEvent(
       event(
         'customer.subscription.deleted',
@@ -189,19 +166,18 @@ describe('signed Stripe webhooks', () => {
       ),
     );
     expect(mock.retrieve).toHaveBeenCalledTimes(1);
+    expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('free');
   });
-  it('sends a localized idempotent failed-payment reminder without changing plan', async () => {
-    vi.stubEnv('RESEND_API_KEY', 're_test');
-    vi.stubEnv('EMAIL_FROM', 'test@example.test');
-    mock.subscription.mockResolvedValue({
-      user: { email: 'user@example.test', locale: 'en', deletedAt: null },
-    });
+  it('sends a localized idempotent failed-payment reminder', async () => {
+    await handleStripeEvent(checkout());
     mock.mail.mockResolvedValue({ error: null });
-    await handleStripeEvent(event('invoice.payment_failed', { customer: 'cus_test' }));
+    await handleStripeEvent(
+      event('invoice.payment_failed', { customer: 'cus_test' }, 'evt_failed'),
+    );
     expect(mock.mail).toHaveBeenCalledWith(
       expect.objectContaining({ subject: 'Subscription payment failed' }),
-      { idempotencyKey: 'evt_test' },
+      { idempotencyKey: 'evt_failed' },
     );
-    expect(mock.userUpdate).not.toHaveBeenCalled();
+    expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('pro');
   });
 });

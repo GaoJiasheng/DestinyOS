@@ -10,6 +10,7 @@ import { computeDailyRange } from '@tianji/engine/daily';
 import { ENGINE_VERSION } from '@tianji/engine/version';
 import type { JournalEntry } from '@prisma/client';
 import { getDb } from './db';
+import { atomicBatch, guard, insertRow, updateRows } from './db-batch';
 import { ownedProfile, profileBirth } from './profile-service';
 import { ApiError } from './api-error';
 import { localToday } from './daily-date';
@@ -45,9 +46,10 @@ export async function saveJournalEntry(userId: string, raw: unknown, locale: Loc
   if (input.date > localToday(input.tz))
     throw new ApiError('E_DATE_OUT_OF_RANGE', 'Future journal date', 400);
   const db = getDb();
-  return db.$transaction(async (tx) => {
+  const tx = db;
+  return (async () => {
     // DESIGN-GAP: Serialize writes with profile edits and account deletion; no entry can survive a concurrent soft delete.
-    await tx.$queryRaw`SELECT "id" FROM "User" WHERE "id" = ${userId} AND "deletedAt" IS NULL FOR UPDATE`;
+
     const user = await tx.user.findUnique({ where: { id: userId }, select: { deletedAt: true } });
     if (!user || user.deletedAt) throw new ApiError('E_UNAUTHORIZED', 'Account unavailable', 401);
     const profile = await tx.birthProfile.findFirst({
@@ -58,13 +60,25 @@ export async function saveJournalEntry(userId: string, raw: unknown, locale: Loc
     const existing = await tx.journalEntry.findUnique({
       where: { profileId_date: { profileId: profile.id, date } },
     });
-    if (existing)
-      return view(
-        await tx.journalEntry.update({
-          where: { id: existing.id, userId },
-          data: { mood: input.mood, text: input.text },
-        }),
-      );
+    const checks = guard(
+      'EXISTS (SELECT 1 FROM "User" u JOIN "BirthProfile" p ON p."userId"=u.id WHERE u.id=? AND u."deletedAt" IS NULL AND p.id=? AND p.version=? AND p."isCurrent"=1)',
+      userId,
+      profile.id,
+      profile.version,
+    );
+    if (existing) {
+      await atomicBatch([
+        ...checks,
+        updateRows(
+          'JournalEntry',
+          { userId, mood: input.mood, text: input.text },
+          'id=? AND "userId"=?',
+          existing.id,
+          userId,
+        ),
+      ]);
+      return view(await tx.journalEntry.findUniqueOrThrow({ where: { id: existing.id } }));
+    }
     const forecast = computeDailyRange(
       profileBirth(profile),
       input.date,
@@ -80,19 +94,20 @@ export async function saveJournalEntry(userId: string, raw: unknown, locale: Loc
       profileVersion: profile.version,
       engineVersion: ENGINE_VERSION,
     });
+    await atomicBatch([
+      ...checks,
+      insertRow(
+        'JournalEntry',
+        { userId, profileId: profile.id, date, mood: input.mood, text: input.text, prediction },
+        'ON CONFLICT("profileId",date) DO UPDATE SET mood=excluded.mood,text=excluded.text',
+      ),
+    ]);
     return view(
-      await tx.journalEntry.create({
-        data: {
-          userId,
-          profileId: profile.id,
-          date,
-          mood: input.mood,
-          text: input.text,
-          prediction,
-        },
+      await tx.journalEntry.findUniqueOrThrow({
+        where: { profileId_date: { profileId: profile.id, date } },
       }),
     );
-  });
+  })();
 }
 /** Bounded month list with full profile statistics; unrecorded cells use current calendar scores. */
 export async function journalMonthForUser(

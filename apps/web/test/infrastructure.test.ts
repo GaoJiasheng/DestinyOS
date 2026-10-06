@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import RedisMock from 'ioredis-mock';
 import { createLogger } from '../lib/logger';
 import { beforeSend } from '../lib/sentry';
 import { assertRateLimit, localRatelimit, RATE_LIMITS, rateLimitKey } from '../lib/ratelimit';
@@ -73,7 +72,7 @@ describe('sliding-window quotas', () => {
   it.each(Object.entries(RATE_LIMITS))(
     'enforces %s at its documented limit and expires the window',
     async (route, limit) => {
-      const redis = new RedisMock();
+      const redis = new Map<string, number[]>();
       const key = route as keyof typeof RATE_LIMITS;
       const now = Date.now();
       try {
@@ -101,7 +100,7 @@ describe('sliding-window quotas', () => {
         expect((await localRatelimit(redis, key, 'identity', now + 3_600_000)).success).toBe(true);
         expect((await localRatelimit(redis, key, 'other', now)).success).toBe(true);
       } finally {
-        redis.disconnect();
+        redis.clear();
       }
     },
   );

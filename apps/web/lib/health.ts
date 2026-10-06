@@ -1,3 +1,4 @@
+// DESIGN-GAP: The documented health API retains its redis boolean key; it now reports KV readiness.
 /** Probe independent dependencies, returning only availability and public version identifiers. */
 export async function checkHealth(
   probes: { db: () => Promise<unknown>; redis: () => Promise<boolean> },

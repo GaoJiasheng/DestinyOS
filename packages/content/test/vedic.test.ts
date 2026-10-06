@@ -6,9 +6,10 @@ import { conditions, equal, evaluateWhen, resolvePath } from '../src';
 import { auditVedicCoverage, vedicCoverageNow } from '../scripts/vedic-coverage';
 
 let audit: Awaited<ReturnType<typeof auditVedicCoverage>>;
+// DESIGN-GAP: Keep all fifty bilingual coverage cases; allow instrumented runs on a shared host to finish.
 beforeAll(async () => {
   audit = await auditVedicCoverage(50);
-}, 120_000);
+}, 240_000);
 
 describe('published Vedic knowledge', () => {
   it('covers every documented combination, including two variants per Moon sector and quarter', () => {

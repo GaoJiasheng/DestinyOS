@@ -1,3 +1,4 @@
+import { testDatabaseUrl } from './scripts/sqlite-test';
 import base from './playwright.readings.config';
 import { defineConfig } from '@playwright/test';
 // DESIGN-GAP: Dedicated ports keep T-35's real-action E2E harness independent of other worktrees.
@@ -12,15 +13,11 @@ export default defineConfig({
     reuseExistingServer: false,
     env: {
       ...(base.webServer && !Array.isArray(base.webServer) ? base.webServer.env : {}),
-      DATABASE_URL:
-        'postgresql://postgres:postgres@127.0.0.1:55442/postgres?connection_limit=1&statement_cache_size=0',
-      DIRECT_DATABASE_URL: 'postgresql://postgres:postgres@127.0.0.1:55442/postgres',
-      REDIS_URL: 'redis://127.0.0.1:56389',
+      LOCAL_DATABASE_URL: testDatabaseUrl(55442),
       AUTH_URL: 'http://localhost:3135',
       TEST_MAIL_URL: 'http://127.0.0.1:58091/mail',
-      TEST_POSTGRES_PORT: '55442',
+      TEST_DATABASE_ID: '55442',
       TEST_SHADOW_PORT: '55443',
-      TEST_REDIS_PORT: '56389',
       TEST_MAIL_PORT: '58091',
       TEST_WEB_PORT: '3135',
     },

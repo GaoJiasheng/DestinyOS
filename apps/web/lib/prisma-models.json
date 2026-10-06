@@ -2,83 +2,1820 @@
   {
     "name": "User",
     "fields": [
-      { "name": "chatQuotas", "kind": "object", "type": "ChatQuota" },
-      { "name": "accounts", "kind": "object", "type": "Account" },
-      { "name": "sessions", "kind": "object", "type": "Session" },
-      { "name": "profiles", "kind": "object", "type": "BirthProfile" },
-      { "name": "readings", "kind": "object", "type": "Reading" },
-      { "name": "subscription", "kind": "object", "type": "Subscription" },
-      { "name": "shareLinks", "kind": "object", "type": "ShareLink" },
-      { "name": "feedbacks", "kind": "object", "type": "Feedback" },
-      { "name": "journalEntries", "kind": "object", "type": "JournalEntry" }
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "email",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "emailVerified",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "name",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "image",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "role",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": "user"
+      },
+      {
+        "name": "plan",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": "free"
+      },
+      {
+        "name": "locale",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": "zh"
+      },
+      {
+        "name": "tz",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "theme",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "soundOn",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": false
+      },
+      {
+        "name": "reducedMotion",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": false
+      },
+      {
+        "name": "disclaimerAcceptedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "anonId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "lastActiveAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "deletedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "chatQuotas",
+        "kind": "object",
+        "type": "ChatQuota",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "accounts",
+        "kind": "object",
+        "type": "Account",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "sessions",
+        "kind": "object",
+        "type": "Session",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "profiles",
+        "kind": "object",
+        "type": "BirthProfile",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "readings",
+        "kind": "object",
+        "type": "Reading",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "subscription",
+        "kind": "object",
+        "type": "Subscription",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "shareLinks",
+        "kind": "object",
+        "type": "ShareLink",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "feedbacks",
+        "kind": "object",
+        "type": "Feedback",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "journalEntries",
+        "kind": "object",
+        "type": "JournalEntry",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
     ]
   },
   {
     "name": "Account",
-    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "type",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "provider",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "providerAccountId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "refresh_token",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "access_token",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "expires_at",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "token_type",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "scope",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "id_token",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "session_state",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
   },
   {
     "name": "Session",
-    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "sessionToken",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "expires",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "authenticatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
   },
-  { "name": "VerificationToken", "fields": [] },
+  {
+    "name": "VerificationToken",
+    "fields": [
+      {
+        "name": "identifier",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "expires",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
   {
     "name": "BirthProfile",
     "fields": [
-      { "name": "user", "kind": "object", "type": "User" },
-      { "name": "readings", "kind": "object", "type": "Reading" },
-      { "name": "partnerReadings", "kind": "object", "type": "Reading" },
-      { "name": "journalEntries", "kind": "object", "type": "JournalEntry" }
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "version",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": 1
+      },
+      {
+        "name": "isCurrent",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": true
+      },
+      {
+        "name": "label",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "isDefault",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": false
+      },
+      {
+        "name": "relation",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": "self"
+      },
+      {
+        "name": "encBirth",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "encPlace",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "encName",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "gender",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "timeUnknown",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "tz",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "birthYear",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "chartHash",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "readings",
+        "kind": "object",
+        "type": "Reading",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "partnerReadings",
+        "kind": "object",
+        "type": "Reading",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "journalEntries",
+        "kind": "object",
+        "type": "JournalEntry",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
     ]
   },
   {
     "name": "Reading",
     "fields": [
-      { "name": "user", "kind": "object", "type": "User" },
-      { "name": "partnerProfile", "kind": "object", "type": "BirthProfile" },
-      { "name": "profile", "kind": "object", "type": "BirthProfile" },
-      { "name": "chatMessages", "kind": "object", "type": "ChatMessage" },
-      { "name": "shareLinks", "kind": "object", "type": "ShareLink" },
-      { "name": "feedbacks", "kind": "object", "type": "Feedback" }
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "partnerProfileId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "profileId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "partnerProfile",
+        "kind": "object",
+        "type": "BirthProfile",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "profile",
+        "kind": "object",
+        "type": "BirthProfile",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "system",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "status",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": "ok"
+      },
+      {
+        "name": "encInput",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "chart",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "reportZh",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "reportEn",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "schoolUsed",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "engineVersion",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "interpretVersion",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "knowledgeVersion",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "profileVersion",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "title",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "isPublic",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": false
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "chatMessages",
+        "kind": "object",
+        "type": "ChatMessage",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "shareLinks",
+        "kind": "object",
+        "type": "ShareLink",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "feedbacks",
+        "kind": "object",
+        "type": "Feedback",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
     ]
   },
   {
     "name": "ShareLink",
     "fields": [
-      { "name": "reading", "kind": "object", "type": "Reading" },
-      { "name": "user", "kind": "object", "type": "User" }
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "token",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "readingId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "reading",
+        "kind": "object",
+        "type": "Reading",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "template",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "revealLevel",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": 0
+      },
+      {
+        "name": "views",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": 0
+      },
+      {
+        "name": "expiresAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "revokedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
     ]
   },
   {
     "name": "Subscription",
-    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "stripeCustomerId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "stripeSubscriptionId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "stripePriceId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "status",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "currentPeriodEnd",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "cancelAtPeriodEnd",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": false
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
   },
-  { "name": "KnowledgeUnit", "fields": [] },
-  { "name": "KnowledgeRelease", "fields": [] },
+  {
+    "name": "KnowledgeUnit",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "unitId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "version",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "system",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "section",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "topic",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "status",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": "draft"
+      },
+      {
+        "name": "yaml",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "compiled",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "weight",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "polarity",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "author",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "reviewedBy",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "publishedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "KnowledgeRelease",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "version",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "notes",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdBy",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "bundles",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "chunks",
+        "kind": "object",
+        "type": "KnowledgeBundleChunk",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
   {
     "name": "Feedback",
     "fields": [
-      { "name": "user", "kind": "object", "type": "User" },
-      { "name": "reading", "kind": "object", "type": "Reading" }
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "readingId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "reading",
+        "kind": "object",
+        "type": "Reading",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "unitId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "sectionKey",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "vote",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "text",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "processedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
     ]
   },
-  { "name": "SiteConfig", "fields": [] },
-  { "name": "AdminAuditLog", "fields": [] },
-  { "name": "Event", "fields": [] },
-  { "name": "EventDaily", "fields": [] },
+  {
+    "name": "SiteConfig",
+    "fields": [
+      {
+        "name": "key",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "value",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "updatedBy",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "AdminAuditLog",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "adminId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "action",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "target",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "diff",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "Event",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "day",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "name",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "system",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "locale",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "plan",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "userHash",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "props",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "EventDaily",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "day",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "name",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "system",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "locale",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "plan",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "count",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "uniques",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
   {
     "name": "ChatMessage",
-    "fields": [{ "name": "reading", "kind": "object", "type": "Reading" }]
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "readingId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "reading",
+        "kind": "object",
+        "type": "Reading",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "role",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "content",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "tokens",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      }
+    ]
   },
   {
     "name": "ChatQuota",
-    "fields": [{ "name": "user", "kind": "object", "type": "User" }]
+    "fields": [
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "day",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "count",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": 0
+      }
+    ]
   },
   {
     "name": "JournalEntry",
     "fields": [
-      { "name": "user", "kind": "object", "type": "User" },
-      { "name": "profile", "kind": "object", "type": "BirthProfile" }
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "profileId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "profile",
+        "kind": "object",
+        "type": "BirthProfile",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "date",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "mood",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "text",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "prediction",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "EphemeralState",
+    "fields": [
+      {
+        "name": "key",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "value",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "expiresAt",
+        "kind": "scalar",
+        "type": "Float",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "RateLimitCounter",
+    "fields": [
+      {
+        "name": "key",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "count",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "expiresAt",
+        "kind": "scalar",
+        "type": "Float",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "BatchGuard",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "ok",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "RateLimitHit",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "key",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "expiresAt",
+        "kind": "scalar",
+        "type": "Float",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "KnowledgeBundleChunk",
+    "fields": [
+      {
+        "name": "releaseVersion",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "release",
+        "kind": "object",
+        "type": "KnowledgeRelease",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "system",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "ordinal",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "data",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      }
     ]
   }
 ]

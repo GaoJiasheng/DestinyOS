@@ -3,8 +3,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { encryptAnonymous } from '../lib/anonymous-storage';
 import { baziFixture, baziReading } from '../test/fixtures/bazi-reading';
 import { PILLAR_KEYS } from '../components/charts/bazi-shared';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 
 for (const locale of ['zh', 'en'] as const) {
   const messages = locale === 'zh' ? zh : en;

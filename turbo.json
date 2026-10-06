@@ -25,10 +25,6 @@
     }
   },
   "globalPassThroughEnv": [
-    "DATABASE_URL",
-    "DIRECT_DATABASE_URL",
-    "REDIS_URL",
-    "UPSTASH_REDIS_REST_*",
     "AUTH_*",
     "ADMIN_EMAILS",
     "EMAIL_FROM",
@@ -39,7 +35,9 @@
     "STRIPE_*",
     "CRON_SECRET",
     "MINIMAX_*",
-    "FEATURE_LLM_CHAT"
+    "FEATURE_LLM_CHAT",
+    "LOCAL_DATABASE_URL",
+    "PLATFORM"
   ],
-  "globalDependencies": ["prisma/schema.prisma", "prisma/migrations/**"]
+  "globalDependencies": ["prisma/schema.prisma", "apps/web/migrations/**"]
 }

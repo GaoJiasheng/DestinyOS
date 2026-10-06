@@ -1,5 +1,5 @@
+import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect, type Locator, type Page } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
 async function settleFonts(page: Page) {
   await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true', {
     timeout: 15_000,
@@ -20,10 +20,7 @@ async function chartScreenshot(page: Page, board: Locator, name: string) {
     await style.evaluate((element) => element.parentNode?.removeChild(element));
   }
 }
-const db = new PrismaClient({
-  datasourceUrl:
-    'postgresql://postgres:postgres@127.0.0.1:55466/postgres?connection_limit=1&statement_cache_size=0',
-});
+const db = sqliteClient(testDatabaseUrl(55466));
 test.afterAll(() => db.$disconnect());
 for (const locale of ['zh', 'en'] as const) {
   test(`${locale}: Fixture A → Zi Wei report → palace/annual/zoom → saved report`, async ({

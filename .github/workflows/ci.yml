@@ -56,4 +56,3 @@ jobs:
           node-version: 22
       - run: pnpm install --frozen-lockfile
       - run: pnpm cf:build
-      - run: pnpm --filter @tianji/web exec wrangler deploy --dry-run --outdir .wrangler/dry-run

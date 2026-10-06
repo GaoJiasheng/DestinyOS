@@ -4,7 +4,7 @@ export default defineConfig({
   // DESIGN-GAP: Preserve paid evaluation evidence in sibling test-results directories when Playwright cleans output.
   outputDir: 'test-results/playwright',
   testIgnore: [
-    // DESIGN-GAP: Workers binding checks require wrangler on port 8787 and run separately via test:cloudflare:e2e after cf:build/cf:preview.
+    // DESIGN-GAP: Workers binding checks require wrangler on port 8787 and run separately via test:cloudflare:e2e after cf:build/cf:smoke.
     'cloudflare.spec.ts',
     // DESIGN-GAP: Merged feature suites seed private data and require their dedicated isolated-service configs, just like the original auth/report suites.
     'seo-content.spec.ts',

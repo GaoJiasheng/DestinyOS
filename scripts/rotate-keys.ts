@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { localAdapter } from '../apps/web/lib/db-local';
 import { pathToFileURL } from 'node:url';
 import { decryptField, encryptField } from '../apps/web/lib/crypto';
 
@@ -104,7 +105,7 @@ export async function rotateKeys(db: PrismaClient): Promise<void> {
 
 // DESIGN-GAP: Export the real rotation operation for database regression tests; only direct CLI execution runs it.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const db = new PrismaClient();
+  const db = new PrismaClient({ adapter: localAdapter() });
   try {
     await rotateKeys(db);
   } finally {

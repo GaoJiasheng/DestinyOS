@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 import type { Page } from '@playwright/test';
 async function measureFrames(page: Page): Promise<number> {
   return page.evaluate(

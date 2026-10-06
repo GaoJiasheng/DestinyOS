@@ -1,3 +1,4 @@
+import { flushShareViews } from './share-counts';
 import { getDb } from './db';
 import { scrubText } from './privacy';
 /** Scrub anonymous retained feedback in bounded batches; identifiers of the former owner are never audited. */
@@ -37,13 +38,13 @@ export async function scrubFeedback() {
     });
   return count;
 }
-/** Revoke expired shares; view counts are already written directly to Postgres. */
+/** Revoke expired shares and flush immutable KV view buckets. */
 export async function maintainShares(now = new Date()) {
   const db = getDb();
   const expired = await db.shareLink.updateMany({
     where: { expiresAt: { lte: now }, revokedAt: null },
     data: { revokedAt: now },
   });
-  // DESIGN-GAP: Share views already write directly to Postgres in share-service; there are no pending Redis counters to flush.
+  await flushShareViews(now);
   return expired.count;
 }

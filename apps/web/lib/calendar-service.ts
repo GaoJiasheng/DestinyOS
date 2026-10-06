@@ -8,7 +8,7 @@ import {
 } from '@tianji/engine/calendar';
 import { ENGINE_VERSION } from '@tianji/engine/version';
 import { currentProfile } from './profile-service';
-import { getLocalRedis, getUpstashRedis } from './redis';
+import { cacheRead, cacheWrite } from './cache';
 import { ApiError } from './api-error';
 /** Owner profile is decrypted only inside the service; client inputs never select a user. */
 async function ownerProfile(userId: string) {
@@ -43,10 +43,7 @@ export async function calendarYearForUser(
 ): Promise<CalendarEvent[]> {
   const { profile, birth } = await ownerProfile(userId);
   const key = `calendar:${userId}:${profile.id}:${profile.version}:${year}:${encodeURIComponent(tz)}:${locale}:${ENGINE_VERSION}`;
-  const remote = Boolean(process.env.UPSTASH_REDIS_REST_URL);
-  const cached = remote
-    ? await getUpstashRedis().get<unknown>(key)
-    : await getLocalRedis().get(key);
+  const cached = await cacheRead<unknown>(key);
   if (cached) {
     try {
       const parsed = z
@@ -58,7 +55,6 @@ export async function calendarYearForUser(
     }
   }
   const events = computeCalendarYear(birth, year, tz, locale);
-  if (remote) await getUpstashRedis().set(key, events, { ex: 86400 });
-  else await getLocalRedis().set(key, JSON.stringify(events), 'EX', 86400);
+  await cacheWrite(key, events, 86400);
   return events;
 }

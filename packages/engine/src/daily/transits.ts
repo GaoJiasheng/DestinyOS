@@ -1,15 +1,37 @@
 import { Temporal } from '@js-temporal/polyfill';
 import * as Astronomy from 'astronomy-engine';
-import type { AstroChart, DailyChart, DailyTransit } from '@tianji/shared';
+import type { AstroChart, DailyChart, DailyTransit, NormalizedBirth } from '@tianji/shared';
+import { computeAngles } from '../astrology/houses';
+import { EngineError } from '../common/error';
 import { computePositions, astroTime, moonPhase, type Position } from '../astrology/ephemeris';
 import { signAt, signed, wrap } from '../astrology/math';
 const FAST = ['sun', 'moon', 'mercury', 'venus', 'mars'] as const;
 const SLOW = ['jupiter', 'saturn'] as const;
 const ANGLES = { conjunction: 0, opposition: 180, square: 90, trine: 120, sextile: 60 } as const;
+type DailyNatal = Pick<AstroChart, 'noonChart' | 'angles'> & {
+  bodies: Pick<AstroChart['bodies'][number], 'key' | 'lon'>[];
+};
+// DESIGN-GAP: A score-only monthly batch needs five natal targets and ASC/MC, not houses, aspect patterns or outer natal planets; reuse the identical ephemeris and angle functions.
+/** Compute the natal longitudes and angles used by monthly transit scores. */
+export function dailyScoreNatal(birth: NormalizedBirth): DailyNatal {
+  if (birth.jd === null) throw new EngineError('E_EPHEMERIS');
+  const { lat, lng } = birth.place;
+  const angles =
+    !birth.timeUnknown && lat !== null && lng !== null ? computeAngles(birth.jd, lat, lng) : null;
+  const keys = birth.timeUnknown ? (['sun', 'moon'] as const) : FAST;
+  const positions = computePositions(birth.jd, [...keys]);
+  return {
+    noonChart: birth.timeUnknown,
+    angles: angles
+      ? { asc: angles.asc, mc: angles.mc, dsc: wrap(angles.asc + 180), ic: wrap(angles.mc + 180) }
+      : null,
+    bodies: keys.map((key) => ({ key, lon: positions[key].lon })),
+  };
+}
 /** Daily-specific orb limits (no natal luminary bonus), deterministic tightest-first ordering. */
 export function findDailyTransits(
   positions: Record<(typeof FAST)[number] | (typeof SLOW)[number], Position>,
-  natal: AstroChart | null,
+  natal: DailyNatal | null,
   timeUnknown = false,
 ): DailyTransit[] {
   if (!natal) return [];
@@ -57,6 +79,31 @@ export function findDailyTransits(
     )
     .slice(0, 3);
 }
+/** UTC-noon ephemeris shared by full reports and monthly scoring. */
+function noonPositions(localDate: string) {
+  const noonUT = Temporal.PlainDate.from(localDate).toZonedDateTime({
+    timeZone: 'UTC',
+    plainTime: '12:00',
+  });
+  const jd = noonUT.epochMilliseconds / 86400000 + 2440587.5;
+  const positions = computePositions(jd, [...FAST, ...SLOW]);
+  return { jd, positions };
+}
+// DESIGN-GAP: Monthly scores need only ranked transits and retrogrades; skip report-only moon ingress/lunation searches while retaining the same UTC-noon positions and scoring rules.
+/** Compute score inputs for an ISO civil date using UTC-noon tropical positions. */
+export function dailyScoreAstro(
+  localDate: string,
+  natal: DailyNatal | null,
+  timeUnknown: boolean,
+): Pick<DailyChart['astro'], 'transits' | 'retrogrades'> {
+  const { positions } = noonPositions(localDate);
+  return {
+    transits: findDailyTransits(positions, natal, timeUnknown),
+    retrogrades: (['mercury', 'venus', 'mars'] as const).filter(
+      (body) => positions[body].speed < 0,
+    ),
+  };
+}
 /** Compute daily tropical positions, Moon transitions and ranked natal transits.
  * @param localDate Target ISO civil date (YYYY-MM-DD).
  * @param tz IANA timezone for the local day boundaries.
@@ -68,12 +115,7 @@ export function dailyAstro(
   natal: AstroChart | null,
   timeUnknown: boolean,
 ): DailyChart['astro'] {
-  const noonUT = Temporal.PlainDate.from(localDate).toZonedDateTime({
-    timeZone: 'UTC',
-    plainTime: '12:00',
-  });
-  const jd = noonUT.epochMilliseconds / 86400000 + 2440587.5;
-  const positions = computePositions(jd, [...FAST, ...SLOW]);
+  const { jd, positions } = noonPositions(localDate);
   const day = Temporal.PlainDate.from(localDate).toZonedDateTime({
     timeZone: tz,
     plainTime: '00:00',

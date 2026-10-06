@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+import { atomicBatch, audit, guard, updateRows, insertRow } from './db-batch';
 import { z } from 'zod';
 import { getDb } from './db';
 import { SiteConfigSchema } from './site-config';
@@ -8,9 +8,7 @@ import { liveEventCount } from './events';
 /** Bounded email/ID search with an explicit safe projection that never selects encrypted columns. */
 export async function listUsers(search = '', page = 1) {
   return getDb().user.findMany({
-    where: search
-      ? { OR: [{ email: { contains: search, mode: 'insensitive' } }, { id: { contains: search } }] }
-      : {},
+    where: search ? { OR: [{ email: { contains: search } }, { id: { contains: search } }] } : {},
     select: {
       id: true,
       email: true,
@@ -55,64 +53,59 @@ export async function getUser(id: string) {
 }
 /** Change a manual entitlement and audit its old/new plan atomically. */
 export async function setPlan(adminId: string, id: string, plan: 'free' | 'pro') {
-  return getDb().$transaction(async (tx) => {
-    const user = await tx.user.findUniqueOrThrow({
-      where: { id },
-      select: { plan: true, deletedAt: true },
-    });
-    if (user.deletedAt) throw new Error('Deleted user');
-    await tx.user.update({ where: { id }, data: { plan } });
-    await tx.adminAuditLog.create({
-      data: { adminId, action: 'user.plan', target: id, diff: { from: user.plan, to: plan } },
-    });
+  const user = await getDb().user.findUniqueOrThrow({
+    where: { id },
+    select: { plan: true, deletedAt: true },
   });
+  if (user.deletedAt) throw new Error('Deleted user');
+  await atomicBatch([
+    ...guard(
+      'EXISTS (SELECT 1 FROM "User" WHERE id=? AND "deletedAt" IS NULL AND plan=?)',
+      id,
+      user.plan,
+    ),
+    updateRows('User', { plan }, 'id=?', id),
+    audit(adminId, 'user.plan', id, { from: user.plan, to: plan }),
+  ]);
 }
-/** Update all supported settings and audit their previous values in the same transaction, then invalidate Redis. */
+/** Update configuration and audit it atomically, then invalidate KV. */
 export async function setConfig(adminId: string, raw: unknown) {
   const config = SiteConfigSchema.parse(raw);
-  await getDb().$transaction(async (tx) => {
-    const previous = await tx.siteConfig.findMany();
-    for (const [key, value] of Object.entries(config)) {
-      const data = {
-        value: JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue,
-        updatedBy: adminId,
-      };
-      await tx.siteConfig.upsert({ where: { key }, create: { key, ...data }, update: data });
-    }
-    await tx.adminAuditLog.create({
-      data: {
-        adminId,
-        action: 'config.update',
-        target: 'SiteConfig',
-        diff: { before: Object.fromEntries(previous.map((r) => [r.key, r.value])), after: config },
-      },
-    });
-  });
+  const previous = await getDb().siteConfig.findMany();
+  await atomicBatch([
+    ...Object.entries(config).map(([key, value]) =>
+      insertRow(
+        'SiteConfig',
+        { key, value, updatedBy: adminId },
+        'ON CONFLICT(key) DO UPDATE SET value=excluded.value,"updatedBy"=excluded."updatedBy","updatedAt"=excluded."updatedAt"',
+      ),
+    ),
+    audit(adminId, 'config.update', 'SiteConfig', {
+      before: Object.fromEntries(previous.map((r) => [r.key, r.value])),
+      after: config,
+    }),
+  ]);
   try {
     await cacheDelete('site-config');
   } catch {
-    /* Existing cache expires after at most 60s. */
+    /* Bounded TTL remains. */
   }
 }
-/** Delete potentially sensitive feedback text or mark handled, without copying it into audit logs. */
+/** Moderate feedback and record a birth-free audit in one D1 batch. */
 export async function moderateFeedback(
   adminId: string,
   id: string,
   operation: 'delete' | 'process',
 ) {
-  await getDb().$transaction(async (tx) => {
-    await tx.feedback.update({
-      where: { id },
-      data: operation === 'delete' ? { text: null } : { processedAt: new Date() },
-    });
-    await tx.adminAuditLog.create({
-      data: {
-        adminId,
-        action: operation === 'delete' ? 'feedback.delete_text' : 'feedback.process',
-        target: id,
-      },
-    });
-  });
+  await atomicBatch([
+    updateRows(
+      'Feedback',
+      operation === 'delete' ? { text: null } : { processedAt: new Date() },
+      'id=?',
+      id,
+    ),
+    audit(adminId, operation === 'delete' ? 'feedback.delete_text' : 'feedback.process', id),
+  ]);
 }
 const StripeStatsSchema = z.object({
   available: z.boolean(),
@@ -159,7 +152,7 @@ export async function stripeStats() {
     return { available: false, subscribers: 0, mrr: {} };
   }
 }
-/** Read completed-day aggregates and today's Redis counters; today's unique activity is counted in Postgres. */
+/** Read completed-day aggregates and today's authoritative D1 event rows. */
 export async function stats(range: 1 | 7 | 30) {
   const today = new Date(new Date().toISOString().slice(0, 10));
   const from = new Date(today.getTime() - (range - 1) * 86400000);

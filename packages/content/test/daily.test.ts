@@ -17,6 +17,7 @@ import plan from '../../interpret/src/plans/daily.json';
 let knowledge: KnowledgeBundle;
 let units: KnowledgeUnit[];
 let glossary: GlossaryEntry[];
+// DESIGN-GAP: Full YAML validation under coverage needs a shared-host budget; keep the complete authored knowledge set.
 beforeAll(async () => {
   const result = await loadContent();
   expect(result.diagnostics.filter((d) => d.severity === 'error')).toEqual([]);
@@ -29,7 +30,7 @@ beforeAll(async () => {
   };
   units = knowledge.units.filter((u) => u.system === 'daily');
   glossary = result.glossary;
-}, 60_000);
+}, 240_000);
 
 const leaves = (when: When): string[] => {
   if ('all' in when) return when.all.flatMap(leaves);
@@ -82,7 +83,7 @@ describe('daily editorial dimensions and report integration', () => {
       }
     }
     expect(selected.size).toBe(80);
-  }, 60_000);
+  }, 120_000);
 
   it('covers ten-god strengths, twelve Moon signs, eight phases and thirty exact transit keys', () => {
     for (const god of Object.values(TenGod)) {

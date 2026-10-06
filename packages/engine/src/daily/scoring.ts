@@ -9,7 +9,7 @@ export interface DailyScoreContext {
   unfavorableHit: boolean;
   dayRelations: DailyChart['bazi']['branchRelations'];
   secondaryRelations: DailyChart['bazi']['secondaryRelations'];
-  astro: DailyChart['astro'];
+  astro: Pick<DailyChart['astro'], 'transits' | 'retrogrades'>;
   tarot: DailyChart['tarot'];
 }
 export interface DailyScoreRule {

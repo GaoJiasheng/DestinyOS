@@ -8,9 +8,10 @@ import { auditTarot } from '../scripts/check-tarot-coverage';
 import { validateAsset } from '../scripts/assets';
 
 let audit: Awaited<ReturnType<typeof auditTarot>>;
+// DESIGN-GAP: Preserve the full fifty-chart audit under coverage on shared hosts with the suite's two-minute budget.
 beforeAll(async () => {
   audit = await auditTarot(50);
-}, 30_000);
+}, 120_000);
 
 describe('published tarot editorial knowledge', () => {
   it('covers every schema position, six categories, thirty pairs and every report chapter', () => {

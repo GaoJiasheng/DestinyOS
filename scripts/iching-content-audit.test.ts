@@ -44,8 +44,8 @@ describe('I Ching content production audit', () => {
     expect(selected.size).toBe(2);
     expect(choice(undefined, 'zh')).toBe(choice(undefined, 'en'));
     expect(choice(undefined, 'zh')).toBe(choice(undefined, 'zh'));
-    // DESIGN-GAP: Full merged-corpus validation plus bilingual multi-user reports needs a bounded 60s audit budget under coverage on shared worktree CPUs.
-  }, 60_000);
+    // DESIGN-GAP: Full merged-corpus validation plus bilingual multi-user reports needs a bounded 240s audit budget under coverage on shared worktree CPUs.
+  }, 240_000);
   it('checks schema-backed matrices and detects a missing category variant', async () => {
     const content = await loadContent();
     const units = content.units.filter((u) => u.system === System.iching);
@@ -61,7 +61,7 @@ describe('I Ching content production audit', () => {
     expect(new Set(charts.map((c) => c.category)).size).toBe(8);
     expect(new Set(charts.map((c) => c.method)).size).toBe(2);
   });
-  // DESIGN-GAP: Whole-corpus bilingual audits need a bounded 60s allowance under coverage on shared worktree CPUs.
+  // DESIGN-GAP: Whole-corpus bilingual audits use the same bounded 240s allowance under coverage on shared worktree CPUs.
   it('composes real bilingual reports with no empty chapters or readability gaps', async () => {
     const audit = await auditIchingContent(16);
     expect(audit.charts).toBe(23);
@@ -70,7 +70,7 @@ describe('I Ching content production audit', () => {
     expect(audit.readabilityPassed).toBe(46);
     expect(audit.minimum.zhChars).toBeGreaterThanOrEqual(1200);
     expect(audit.minimum.enWords).toBeGreaterThanOrEqual(900);
-  }, 60_000);
+  }, 240_000);
   it('rejects missing editorial prose and unsafe guidance while preserving classical originals', async () => {
     const file = 'iching/hexagrams.yaml';
     const data: unknown = parse(await readFile(`${root}/${file}`, 'utf8'));

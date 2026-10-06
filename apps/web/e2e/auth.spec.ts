@@ -1,10 +1,12 @@
+import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { expect, test } from '@playwright/test';
-import { PrismaClient } from '@prisma/client';
-import contentRelease from '../../../packages/content/version.json';
+import contentRelease from '../../../packages/content/version.json' with { type: 'json' };
 
-const db = new PrismaClient({
-  datasourceUrl:
-    'postgresql://postgres:postgres@127.0.0.1:55432/postgres?connection_limit=1&statement_cache_size=0',
+const db = sqliteClient(testDatabaseUrl(55432));
+// DESIGN-GAP: Compile the cold health route outside the multi-step login case; all health assertions still run in that case.
+test.beforeAll(async ({ request }) => {
+  test.setTimeout(120_000);
+  expect((await request.get('/api/v1/health')).status()).toBe(200);
 });
 test.afterAll(async () => {
   await db.$disconnect();
@@ -53,6 +55,8 @@ for (const locale of ['zh', 'en'] as const) {
     expect(directScan.status()).toBe(307);
     expect(await db.verificationToken.count({ where: { identifier: email } })).toBe(1);
     await page.goto(link);
+    // DESIGN-GAP: Wait for the application hydration marker before exercising a bound Server Action after cold dev compilation.
+    await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true');
     await page
       .getByRole('button', { name: locale === 'zh' ? '确认登录' : 'Confirm sign-in' })
       .click();
@@ -71,6 +75,7 @@ for (const locale of ['zh', 'en'] as const) {
       await replayDialog
         .getByRole('button', { name: locale === 'zh' ? '我知道了' : 'I understand' })
         .click();
+    await expect(replay.locator('html')).toHaveAttribute('data-fonts-settled', 'true');
     await replay
       .getByRole('button', { name: locale === 'zh' ? '确认登录' : 'Confirm sign-in' })
       .click();
@@ -127,6 +132,7 @@ test('native email send returns 429 with retryAfter; admin allowlist and expired
   await page.goto(link);
   if (await page.getByRole('dialog').isVisible())
     await page.getByRole('dialog').getByRole('button', { name: 'I understand' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true');
   await page.getByRole('button', { name: 'Confirm sign-in' }).click();
   await expect(page).toHaveURL(/\/en$/);
   expect(await (await page.request.get('/api/auth/session')).json()).toMatchObject({
@@ -140,6 +146,7 @@ test('native email send returns 429 with retryAfter; admin allowlist and expired
   const expired = (mails[0] as { text: string }).text.match(/http:\/\/[^\s]+/)?.[0];
   if (!expired) throw new Error('Missing expired link');
   await page.goto(expired);
+  await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true');
   await page.getByRole('button', { name: 'Confirm sign-in' }).click();
   await expect(page).toHaveURL(/auth\/login.*error=/);
   expect(await (await page.request.get('/api/auth/session')).json()).toBeNull();

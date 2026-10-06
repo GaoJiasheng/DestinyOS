@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 import base from './playwright.m5.config';
 const server = Array.isArray(base.webServer) ? base.webServer[0] : base.webServer;
 if (!server) throw new Error('Polish requires the isolated production web server');
-/** Reproducible launch polish on the full production app and isolated PostgreSQL/Redis/mail services. */
+/** Reproducible launch polish on the full production app and isolated SQLite/KV/mail services. */
 export default defineConfig({
   ...base,
   testMatch: ['polish.spec.ts', 'polish-new-pages.spec.ts', 'tarot.spec.ts'],

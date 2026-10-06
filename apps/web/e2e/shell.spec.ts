@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { brand } from '../../../packages/shared/src/brand';
-import zh from '../messages/zh.json';
-import en from '../messages/en.json';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 for (const locale of ['zh', 'en'] as const) {
   const messages = locale === 'zh' ? zh : en;
   test(`${locale}: first-visit acknowledgement, translated hero, locale switch, and screenshots`, async ({
@@ -103,6 +103,8 @@ test('initial language negotiation honors Accept-Language and defaults to zh', a
   expect(remembered.headers()['location']).toMatch(/\/zh$/);
 });
 test('route themes and reduced-motion starfield follow documented behavior', async ({ page }) => {
+  // DESIGN-GAP: Five cold dev routes share one test; allow two minutes for compilation while keeping every theme and motion assertion.
+  test.setTimeout(120_000);
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
   for (const [path, theme] of [
     ['bazi', 'east'],

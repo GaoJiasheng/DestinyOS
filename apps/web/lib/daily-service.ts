@@ -3,7 +3,7 @@ import { BirthInputSchema, DailyChartSchema, type Locale } from '@tianji/shared'
 import { ENGINE_VERSION } from '@tianji/engine';
 import { currentProfile, ownedProfile } from './profile-service';
 import { loadKnowledge } from './knowledge';
-import { getLocalRedis, getUpstashRedis } from './redis';
+import { cacheRead, cacheWrite } from './cache';
 import { ApiError } from './api-error';
 import { ReportSchema } from './reading-schema';
 import { calculateDaily, dailyCacheKey, dailyTTL, type DailyReport } from './daily-compute';
@@ -26,10 +26,7 @@ export async function dailyForUser(
     knowledge.knowledgeVersion,
     ENGINE_VERSION,
   );
-  const remote = Boolean(process.env.UPSTASH_REDIS_REST_URL);
-  const cached = remote
-    ? await getUpstashRedis().get<DailyReport>(key)
-    : await getLocalRedis().get(key);
+  const cached = await cacheRead<DailyReport>(key);
   if (cached) {
     const value: unknown = typeof cached === 'string' ? JSON.parse(cached) : cached;
     if (value && typeof value === 'object' && 'chart' in value && 'report' in value) {
@@ -53,7 +50,6 @@ export async function dailyForUser(
     knowledge,
   );
   const ttl = dailyTTL(date, tz);
-  if (remote) await getUpstashRedis().set(key, value, { ex: ttl });
-  else await getLocalRedis().set(key, JSON.stringify(value), 'EX', ttl);
+  await cacheWrite(key, value, ttl);
   return value;
 }

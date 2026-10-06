@@ -1,3 +1,4 @@
+import { testDatabaseUrl } from './sqlite-test';
 import { spawn } from 'node:child_process';
 import { writeFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
@@ -15,10 +16,7 @@ const child = spawn('pnpm', ['exec', 'lhci', 'autorun', '--config=lighthouserc.c
     TEST_MAIL_URL: 'http://127.0.0.1:60081/mail',
     RESEND_API_KEY: 're_test',
     EMAIL_FROM: 'Tianji <noreply@example.com>',
-    DATABASE_URL:
-      'postgresql://postgres:postgres@127.0.0.1:57432/postgres?connection_limit=1&statement_cache_size=0',
-    DIRECT_DATABASE_URL: 'postgresql://postgres:postgres@127.0.0.1:57432/postgres',
-    REDIS_URL: 'redis://127.0.0.1:58379',
+    LOCAL_DATABASE_URL: testDatabaseUrl(57432),
     AUTH_SECRET: 'isolated-lighthouse-secret',
     AUTH_URL: 'http://localhost:38100',
     AUTH_TRUST_HOST: 'true',

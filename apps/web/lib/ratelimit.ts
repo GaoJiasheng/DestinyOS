@@ -1,9 +1,8 @@
 import { createHash, randomUUID } from 'node:crypto';
-import { Ratelimit } from '@upstash/ratelimit';
-import type IORedis from 'ioredis';
-import { getLocalRedis, getUpstashRedis } from './redis';
+import { getDb } from './db';
+import { cloudflareBindings } from './platform/cloudflare';
+import { platform } from './platform/environment';
 import { ApiError } from './api-error';
-
 export const RATE_LIMITS = {
   'reading.anon': 20,
   'reading.free': 60,
@@ -19,74 +18,64 @@ export const RATE_LIMITS = {
 } as const;
 export type RateLimitRoute = keyof typeof RATE_LIMITS;
 export type RateLimitResult = { success: boolean; limit: number; remaining: number; reset: number };
-const limiters = new Map<RateLimitRoute, Ratelimit>();
-const windowMs = 3_600_000;
-// DESIGN-GAP: Local compose Redis uses an atomic sliding log; production uses Upstash's sliding window.
-const slidingLog = `
-local key, now, window, cap, member = KEYS[1], tonumber(ARGV[1]), tonumber(ARGV[2]), tonumber(ARGV[3]), ARGV[4]
-redis.call('ZREMRANGEBYSCORE', key, '-inf', now - window)
-local count = redis.call('ZCARD', key)
-local oldest = redis.call('ZRANGE', key, 0, 0, 'WITHSCORES')
-local reset = now + window
-if #oldest > 0 then reset = tonumber(oldest[2]) + window end
-if count >= cap then return {0, 0, reset} end
-redis.call('ZADD', key, now, member)
-redis.call('PEXPIRE', key, window)
-return {1, cap - count - 1, reset}
-`;
 
-/** Redis cache keys contain a digest of the identity, never plaintext emails or IPs. */
-export function rateLimitKey(route: RateLimitRoute, identity: string): string {
+const windowMs = 3_600_000;
+/** Hash identities so limit keys never disclose emails or IP addresses. */
+export function rateLimitKey(route: RateLimitRoute, identity: string) {
   return `rl:${route}:${createHash('sha256').update(identity.trim().toLowerCase()).digest('hex')}`;
 }
-
-/** Atomically check a one-hour local Redis sliding log; accepts an injected Redis test substitute. */
+/** Atomic in-memory sliding log for isolated tests, using a supplied storage map. */
 export async function localRatelimit(
-  redis: Pick<IORedis, 'eval'>,
+  storage: Map<string, number[]>,
   route: RateLimitRoute,
   identity: string,
   now = Date.now(),
 ): Promise<RateLimitResult> {
-  const result = await redis.eval(
-    slidingLog,
-    1,
-    rateLimitKey(route, identity),
-    now,
-    windowMs,
-    RATE_LIMITS[route],
-    randomUUID(),
-  );
-  if (!Array.isArray(result) || result.length !== 3) throw new Error('Invalid rate limit response');
+  const key = rateLimitKey(route, identity),
+    limit = RATE_LIMITS[route];
+  const hits = (storage.get(key) ?? []).filter((t) => t > now - windowMs);
+  const success = hits.length < limit;
+  if (success) hits.push(now);
+  storage.set(key, hits);
   return {
-    success: Number(result[0]) === 1,
-    limit: RATE_LIMITS[route],
-    remaining: Number(result[1]),
-    reset: Number(result[2]),
+    success,
+    limit,
+    remaining: Math.max(0, limit - hits.length),
+    reset: (hits[0] ?? now) + windowMs,
   };
 }
-
-/** Check the documented per-route quota, using Upstash in production or compose Redis locally. */
+/** Workers burst binding plus a D1 atomic insert enforce all independent rolling hourly dimensions. */
 export async function ratelimit(route: RateLimitRoute, identity: string): Promise<RateLimitResult> {
-  if (!process.env.UPSTASH_REDIS_REST_URL) return localRatelimit(getLocalRedis(), route, identity);
-  let limiter = limiters.get(route);
-  if (!limiter) {
-    limiter = new Ratelimit({
-      redis: getUpstashRedis(),
-      limiter: Ratelimit.slidingWindow(RATE_LIMITS[route], '1 h'),
-      prefix: `rl:${route}`,
-      analytics: false,
-    });
-    limiters.set(route, limiter);
-  }
-  const result = await limiter.limit(
-    createHash('sha256').update(identity.trim().toLowerCase()).digest('hex'),
+  const now = Date.now(),
+    key = rateLimitKey(route, identity),
+    limit = RATE_LIMITS[route];
+  if (
+    platform() === 'cloudflare' &&
+    !(await (await cloudflareBindings()).RATE_LIMITER.limit({ key })).success
+  )
+    return { success: false, limit, remaining: 0, reset: now + 60000 };
+  const db = getDb();
+  const accepted = await db.$queryRawUnsafe<{ id: string }[]>(
+    `INSERT INTO "RateLimitHit" (id,key,"expiresAt") SELECT ?,?,? WHERE (SELECT count(*) FROM "RateLimitHit" WHERE key=? AND "expiresAt">?) < ? RETURNING id`,
+    randomUUID(),
+    key,
+    now + windowMs,
+    key,
+    now,
+    limit,
   );
-  // DESIGN-GAP: Upstash reports success on timeout by default; infrastructure failures must fail closed.
-  if (result.reason === 'timeout')
-    throw new ApiError('E_INTERNAL', 'Rate limit service unavailable', 503);
-  return result;
+  const rows = await db.$queryRawUnsafe<{ count: number; reset: number | null }[]>(
+    `SELECT count(*) AS count, min("expiresAt") AS reset FROM "RateLimitHit" WHERE key=? AND "expiresAt">?`,
+    key,
+    now,
+  );
+  return {
+    success: accepted.length === 1,
+    limit,
+    remaining: Math.max(0, limit - Number(rows[0]?.count ?? 0)),
+    reset: Number(rows[0]?.reset ?? now + windowMs),
+  };
 }
-
 /** Throw the standard 429 error with retryAfter in seconds when a quota is exhausted. */
 export function assertRateLimit(result: RateLimitResult, now = Date.now()): void {
   if (!result.success)

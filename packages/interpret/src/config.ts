@@ -1,16 +1,17 @@
+// DESIGN-GAP: Explicit JSON import attributes let linked workspace modules run in native Node ESM as well as browser bundles.
 import type { System } from '@tianji/shared';
 import { resolvePath } from '@tianji/content';
 import type { SystemConfig } from './types';
-import bazi from './plans/bazi.json';
-import ziwei from './plans/ziwei.json';
-import iching from './plans/iching.json';
-import qimen from './plans/qimen.json';
-import tarot from './plans/tarot.json';
-import astrology from './plans/astrology.json';
-import vedic from './plans/vedic.json';
-import numerology from './plans/numerology.json';
-import synastry from './plans/synastry.json';
-import daily from './plans/daily.json';
+import bazi from './plans/bazi.json' with { type: 'json' };
+import ziwei from './plans/ziwei.json' with { type: 'json' };
+import iching from './plans/iching.json' with { type: 'json' };
+import qimen from './plans/qimen.json' with { type: 'json' };
+import tarot from './plans/tarot.json' with { type: 'json' };
+import astrology from './plans/astrology.json' with { type: 'json' };
+import vedic from './plans/vedic.json' with { type: 'json' };
+import numerology from './plans/numerology.json' with { type: 'json' };
+import synastry from './plans/synastry.json' with { type: 'json' };
+import daily from './plans/daily.json' with { type: 'json' };
 export const systemConfigs: Record<System, SystemConfig> = {
   bazi: {
     sectionPlan: bazi,
