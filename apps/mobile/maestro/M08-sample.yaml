@@ -1,0 +1,73 @@
+appId: pub.gavin.tianji
+# Run on a dedicated empty simulator; never clear an owner's device data.
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/daily'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: daily-fixture-en
+    timeout: 90000
+- tapOn:
+    id: daily-fixture-en
+- tapOn:
+    id: daily-fixture-empty
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 90000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-empty-sky-en
+- scrollUntilVisible:
+    element:
+      text: 'Example fortune · fictional profile'
+    centerElement: true
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-empty-blur-en
+- assertVisible: '.*Example fortune.*'
+- openLink: 'tianji://today/calendar'
+- assertVisible: '.*birth profile.*'
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: calendar-empty-en
+- openLink: 'tianji://me/journal'
+- extendedWaitUntil:
+    visible: 'Journal and self-tracking'
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: journal-empty-en
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/daily'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- tapOn:
+    id: daily-fixture-zh-TW
+- tapOn:
+    id: daily-fixture-prepare
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-sky-zh-TW
+- openLink: 'tianji://today/calendar'
+- extendedWaitUntil:
+    visible:
+      id: calendar-grid
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: calendar-zh-TW

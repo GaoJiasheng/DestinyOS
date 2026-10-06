@@ -1,0 +1,38 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/daily'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: daily-fixture-en
+    timeout: 90000
+- tapOn:
+    id: daily-fixture-en
+- openLink: 'tianji://learn/bazi'
+- extendedWaitUntil:
+    visible: 'BaZi'
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-encyclopedia-en
+- openLink: 'tianji://dev/daily'
+- extendedWaitUntil:
+    visible:
+      id: daily-fixture-zh
+    timeout: 30000
+- tapOn:
+    id: daily-fixture-zh
+- openLink: 'tianji://learn/bazi'
+- extendedWaitUntil:
+    visible: '八字'
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-encyclopedia-zh

@@ -32,11 +32,19 @@ export function Starfield({
   clock,
   active,
   labels,
+  now,
+  place,
+  parallax = true,
+  diagnostics = true,
 }: {
   size: number;
   clock: SharedValue<number>;
   active: boolean;
   labels: Record<string, string>;
+  now?: Date;
+  place?: { lat: number; lng: number };
+  parallax?: boolean;
+  diagnostics?: boolean;
 }) {
   const [stars, setStars] = useState<CatalogStar[]>([]);
   const tilt = useSharedValue({ x: 0, y: 0 });
@@ -44,10 +52,10 @@ export function Starfield({
   const font = useFont(locale === 'en' ? interFont : notoFont, 12);
   // DESIGN-GAP: The developer fixture uses Beijing without requesting sensitive location permission.
   const sky = useMemo(() => {
-    const now = new Date('2026-10-04T04:00:00Z'),
-      place = { lat: 39.9, lng: 116.4 };
-    return { zenith: zenithAt(now, place), planets: planetsAt(now, place) };
-  }, []);
+    const instant = now ?? new Date('2026-10-04T04:00:00Z');
+    const location = place ?? { lat: 39.9, lng: 116.4 };
+    return { zenith: zenithAt(instant, location), planets: planetsAt(instant, location) };
+  }, [now, place]);
   useEffect(() => {
     let alive = true;
     void (async () => {
@@ -55,19 +63,23 @@ export function Starfield({
       await asset.downloadAsync();
       const bytes = await new File(asset.localUri ?? asset.uri).bytes();
       const catalog = decodeStars(bytes.buffer as ArrayBuffer);
-      new File(Paths.document, 'M02-catalog.json').write(
-        JSON.stringify({ records: catalog.length, bytes: bytes.byteLength }),
-      );
+      if (diagnostics)
+        new File(Paths.document, 'M02-catalog.json').write(
+          JSON.stringify({ records: catalog.length, bytes: bytes.byteLength }),
+        );
       if (alive) setStars(catalog);
     })().catch((error) => {
-      new File(Paths.document, 'M02-catalog.json').write(JSON.stringify({ error: String(error) }));
+      if (diagnostics)
+        new File(Paths.document, 'M02-catalog.json').write(
+          JSON.stringify({ error: String(error) }),
+        );
     });
     return () => {
       alive = false;
     };
-  }, []);
+  }, [diagnostics]);
   useEffect(() => {
-    if (!active) return;
+    if (!active || !parallax) return;
     let subscription: ReturnType<typeof Gyroscope.addListener> | undefined;
     let alive = true;
     void Gyroscope.isAvailableAsync().then((available) => {
@@ -85,7 +97,7 @@ export function Starfield({
       subscription?.remove();
       tilt.value = { x: 0, y: 0 };
     };
-  }, [active, tilt]);
+  }, [active, parallax, tilt]);
   const project = useMemo(() => {
     const forward = sky.zenith,
       right: [number, number, number] = [-forward[2], 0, forward[0]],

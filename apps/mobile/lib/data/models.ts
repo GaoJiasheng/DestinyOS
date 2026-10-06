@@ -100,6 +100,8 @@ export const SettingsSchema = z
     reducedMotion: z.boolean().default(false),
     tz: IanaTimezoneSchema.nullable().default(null),
     dailyPushEnabled: z.boolean().default(true),
+    // DESIGN-GAP: Persist the once-dismissed OS notification hint in encrypted native settings.
+    dailyNotificationHintDismissed: z.boolean().default(false),
     dailyPushTime: z
       .string()
       .regex(/^([01]\d|2[0-3]):[0-5]\d$/)

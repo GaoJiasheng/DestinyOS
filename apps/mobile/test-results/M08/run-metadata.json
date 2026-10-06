@@ -1,0 +1,447 @@
+{
+  "task": "M08",
+  "baseCommit": "7b4a100749c02396297097a65cdbcbf74bfda7ab",
+  "platform": {
+    "iosRuntime": "26.4",
+    "device": "iPhone 17e",
+    "bundleId": "pub.gavin.tianji",
+    "appGroup": "group.pub.gavin.tianji",
+    "expo": "57.0.27",
+    "reactNative": "0.86.3",
+    "newArchitecture": true
+  },
+  "fixtures": {
+    "profile": "synthetic Fixture A",
+    "date": "2026-10-04",
+    "timezone": "Asia/Shanghai",
+    "locales": [
+      "zh",
+      "en",
+      "zh-TW"
+    ],
+    "sky": "Current instant at disclosed UTC 0°; real BSC5 catalog, no GPS request"
+  },
+  "maestro": [
+    {
+      "flow": "apps/mobile/maestro/M08.yaml",
+      "result": "passed",
+      "metroPort": 8082
+    },
+    {
+      "flow": "apps/mobile/maestro/M08-sample.yaml",
+      "result": "passed",
+      "metroPort": 8082
+    },
+    {
+      "flow": "apps/mobile/maestro/M08-share.yaml",
+      "result": "passed",
+      "metroPort": 8082
+    },
+    {
+      "flow": "apps/mobile/maestro/M08-learn.yaml",
+      "result": "passed",
+      "metroPort": 8082
+    }
+  ],
+  "captureNotes": [
+    "Metro used a temporary repository snapshot to isolate Web compiler rebuilds; UI/lib/app/assets/messages match repository source byte-for-byte.",
+    "Every screenshot waits for the target screen and for the navigation animation to settle.",
+    "Raw Maestro logs and failed intermediate runs are ignored; these PNGs are actual final captures.",
+    "Public 1080×1920 share PNGs were captured from the app cache and scanned with macOS Vision."
+  ],
+  "share": {
+    "nativeSheet": "passed, no message sent",
+    "cacheAfterClose": 0,
+    "decodedQR": {
+      "zh": "https://tianji.gavin.pub/zh/today",
+      "en": "https://tianji.gavin.pub/en/today"
+    }
+  },
+  "verification": {
+    "pnpm install": "passed",
+    "pnpm lint": "passed",
+    "pnpm typecheck": "passed",
+    "pnpm test": {
+      "vitestPassed": 3697,
+      "vitestSkipped": 2,
+      "jestSuites": 23,
+      "jestPassed": 130
+    },
+    "pnpm build": {
+      "result": "passed",
+      "tasks": 9,
+      "exitCode": 0
+    },
+    "pnpm test:e2e": {
+      "result": "passed",
+      "groups": {
+        "shell": 12,
+        "auth": 6,
+        "readings": 8,
+        "bazi": 4,
+        "ziwei": 8,
+        "divination": 20,
+        "tarot": 4,
+        "astrology": 16,
+        "home": 8,
+        "daily-account": 8,
+        "m4": 6,
+        "m5": 101,
+        "polish": 36,
+        "export": 5,
+        "chat": 12,
+        "numerology": 4,
+        "rectification": 6,
+        "calendar": 12,
+        "zhtw": 2,
+        "synastry": 4,
+        "seo-content": 10,
+        "journal": 4,
+        "web-nopay": 6
+      },
+      "totalPassed": 302,
+      "exitCode": 0
+    },
+    "pnpm i18n:check": "passed",
+    "pnpm licenses:check": "passed",
+    "expo prebuild --platform android --no-install": "passed",
+    "iOS simulator native build": "passed, zero errors"
+  },
+  "deferred": [
+    "Android native build and emulator screenshots, TalkBack and low-API blur fallback: deferred by Owner instruction; no new Java installation.",
+    "M13 real AdMob/entitlements/consent integration; documented P1 week/month aggregation; M11 Panchang override and location settings."
+  ],
+  "screenshots": [
+    {
+      "file": "calendar-empty-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "7b2e4e3241ba7b061a0d7513bd743ab2e3b990ad1bec22144cfd81e561a665e3"
+    },
+    {
+      "file": "calendar-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "c8a623a6ef9371716eabb84ceeb6fe7887879788e74404531d1483feb87d0d77"
+    },
+    {
+      "file": "calendar-zh-TW.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "747b5863e9c5be314f766552aa12a00073dcd23b6e125ad2530c54e90114c703"
+    },
+    {
+      "file": "calendar-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "2a5739155a20700034a791623742706eabda5d65324dccb98e21f79b1c687e35"
+    },
+    {
+      "file": "journal-empty-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "cb0d1f746e7f438c357a1fc3f49f03d775e28c6827101cfc00de1a01fe91c48b"
+    },
+    {
+      "file": "journal-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "78a7f4ff181eaa51098a35f63a9c72fad9132923291cea880c71bd5018e88e34"
+    },
+    {
+      "file": "journal-list-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "d8f5d230a71075b94b1afcbd095b6a978a582458b44b9d0f3f582a0b7147974f"
+    },
+    {
+      "file": "journal-month-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "1d1d4f38ee1f45dd4505cf6743dd37ba20fc856007a5041a3181e37765e96ac4"
+    },
+    {
+      "file": "journal-stats-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "d0ad525079c4964aab584d421288b395cff99a731ebead1f3fb042cfd950874d"
+    },
+    {
+      "file": "learn-card-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "f6124bc09b8adca87984f3f93145b82d10ada3f7780341daf9aaa3400a989cf2"
+    },
+    {
+      "file": "learn-card-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "87248296d63824f22f1d7ae741077b03de2c8361ad26627a83ca8a6096d464cf"
+    },
+    {
+      "file": "learn-encyclopedia-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "b9c2421ab45d09c1cd40fcb0ed8a31329644c5ca6a4e190d3d72ca83cd4d40e5"
+    },
+    {
+      "file": "learn-encyclopedia-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "750d21c8db3251b7bfa5e2767350dcb8c01f068831704f497c98cc0c701f3dd5"
+    },
+    {
+      "file": "learn-hexagram-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "e1ddf90a2d2147a2ed88e5f13daa3c8a30df824dc4bd55b791fa25ae011dbfb6"
+    },
+    {
+      "file": "learn-hexagram-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "bc9d1c502a86eda8b13e4b7bb1718d4d61b8af9580ef47a4bd0e859a2d68aaa3"
+    },
+    {
+      "file": "learn-hexagrams-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "77bec6b5e7f341f3e1b2c9ba6ff5ad6f8322649c4e7cbd0f57c6c25aa0f44fbe"
+    },
+    {
+      "file": "learn-original-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "c9acd5d92857db9d462f545b9020860a62dae4ab17f1b2f1ac26a78179dd8f8c"
+    },
+    {
+      "file": "learn-systems-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "84cf4097cf54175d1dc337e11a2d49e58ad09fef063974047fe90343d201f7c0"
+    },
+    {
+      "file": "learn-tutorial-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "9c07165c9250c034c0e85431af57bd8b9fcdcbf87d93558d76c8cd2f67509402"
+    },
+    {
+      "file": "learn-tutorial-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "d74684f9746cbcc6d142d7010fc235ec712eaad8f7020b4e0245153c6250df2f"
+    },
+    {
+      "file": "share-card-en.png",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "sha256": "7c043cf3e8320f948b8083281788a0070f42815ea73cf4cfe3d1b7c081f56090"
+    },
+    {
+      "file": "share-card-zh.png",
+      "pixels": [
+        1080,
+        1920
+      ],
+      "sha256": "f639e90f7f8c6738f55b1e9d6e9cbf1a6d391ddf29fe602a9a7c81ac44e2408e"
+    },
+    {
+      "file": "today-astro-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "18d6e6dacd322cdabf7b665374ee654dc02a58ea6f81b782060df37e1fcce893"
+    },
+    {
+      "file": "today-empty-blur-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "851861c543e1606a8ed00141c6baa14556d72b2f81ebb29321caa766da46d155"
+    },
+    {
+      "file": "today-empty-sky-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "7209290e8b6ccfc7221f6d13bba9cd228512af52d64e6a619943368a5aae9b55"
+    },
+    {
+      "file": "today-feedback-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "6d4a7a0d74bfcca0efd14b3811a303f1a9a16af965747355a7fd0e6e511613cf"
+    },
+    {
+      "file": "today-journal-saved-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "c32b50d20ae29d6f65b263101503b35692010000e10b9620f16d962d3e04a237"
+    },
+    {
+      "file": "today-lucky-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "cac921803445c15d765152066ca640eb320ecbbcb93d4734ef311f4fe2c0ea47"
+    },
+    {
+      "file": "today-oneliner-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "c024d475a54c665d3b78b1ea9b5719d3d186bac917211a16af78381ee102d9f6"
+    },
+    {
+      "file": "today-panchang-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "6530cc4ad7122b3b2c0ed43bca4f3765ac432b9f40011b3be7977bf8536c1d3f"
+    },
+    {
+      "file": "today-ratings-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "ca7438fc27d62d3ce13c3d0c922b3c9482ae6f99857d4fd308cd185ea79bb112"
+    },
+    {
+      "file": "today-share-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "aeded859ac2b938720714335ad131ab7402b4c9a5353b0970017d031fb8b64fe"
+    },
+    {
+      "file": "today-share-system-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "15f952d91a6bcf364aa2219e7cb98c22414522b3e6534ef37bca6ab3322612df"
+    },
+    {
+      "file": "today-share-system.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "9b25e46d780c319bb3b5977c407241e82df3d5ba69f5b0b257bb805bfb6ba9e2"
+    },
+    {
+      "file": "today-share-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "fef4485440f98c4088d9a94072ce51dd487cf669485fcee3c9746022ba6eb886"
+    },
+    {
+      "file": "today-sky-en.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "107bd7254cfd7d37d189347dba29a206ac118f4b0c352ce7f0e8226fba8b8ac4"
+    },
+    {
+      "file": "today-sky-zh-TW.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "18e85ba0cf20e9fed2980e5e999ecaf79a6681eb93e6933557bd959ec6db10d8"
+    },
+    {
+      "file": "today-sky-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "9f15a2d041887732830dde8e307428376b9e3b9f5efd05f32f1f81081f2cd39c"
+    },
+    {
+      "file": "today-tarot-zh.png",
+      "pixels": [
+        1170,
+        2532
+      ],
+      "sha256": "5a8c67ba6d8af13c37e535f34218edf3581492950b2923ec9ecce19f2a8565c2"
+    }
+  ],
+  "sourceSha256": {
+    "apps/mobile/components/daily/calendar-screen.tsx": "4f55c1188f7e951e3843ff168ca29c3e099182137ab900ffcf3afaa542fadc22",
+    "apps/mobile/components/daily/daily-insights.tsx": "961c99d64b0245ae14fa7b30c320359c173a1fbaca5c2fa5dfbc9b7d9cb1c77c",
+    "apps/mobile/components/daily/daily-share.tsx": "a3543a44b5d04c5fa4ed07c617fdc2ab9a7caa8afb67730292ea55fa33381770",
+    "apps/mobile/components/daily/journal-editor.tsx": "230f5ebc160c5a1a5d1caab6b4123117a905c6e4f34040d07bc3d3eba0cd4e3f",
+    "apps/mobile/components/daily/journal-screen.tsx": "5e98d21968b8985a658dec38d30b788537a5600eb870f047dac846513d170ae5",
+    "apps/mobile/components/daily/notification-hint.tsx": "7b9f6ce129836c771e339fd7fdb37b60130549f38b4fd8df6871d90fc3e02cc7",
+    "apps/mobile/components/daily/sky-hero.tsx": "0000ee90b35a20aae401bb6081b9770a0bc2624078d23a5a98a71512e9770638",
+    "apps/mobile/components/daily/stars.tsx": "033710bb3b277774c9154773e872a3941a66d4ce8a732b87c692361ecdc3becc",
+    "apps/mobile/components/daily/today-screen.tsx": "f8a3554e2e324754852738d1c2d03f81525ad29f3404c2f9a342f999e23d06e2",
+    "apps/mobile/components/learn/learn-screen.tsx": "1a26da31d92a4a292dafb8fa89a8b4febee9b1df9b5c9de5204b944a249a72e3",
+    "apps/mobile/lib/daily/service.ts": "36a2430f2f41057b63b668ce0eba757add8943dcf2bc01fd86ef89a921dd41e6",
+    "apps/mobile/lib/daily/share-lines.ts": "221d6a042c16143a111df1468cde361c0ea1f2c77b3a00d46fab013ffbfbb230",
+    "apps/mobile/lib/daily/use-daily.ts": "d003da415168e477731f8e7d296ba186fc49be7ef916e58be1ce192072065a38",
+    "apps/mobile/maestro/M08-learn.yaml": "49488d4f5665a5b4d3d48eb643ea9397603b0ede2d603dca05f26099027bbcd2",
+    "apps/mobile/maestro/M08-sample.yaml": "d6f44e5083c42f7cfbd87aa7734824df622822a5f0edac8c46d41a1ecb6bdcfd",
+    "apps/mobile/maestro/M08-share.yaml": "5de86285c02a4853ba78fedf63cf96ada66a1fb9bc7f3f3f058e47deaecde653",
+    "apps/mobile/maestro/M08.yaml": "011d850c80c1fbda6361e2b07d0b2a84ee43cd82c9c48d4c330ec89dfb37eb1e"
+  }
+}

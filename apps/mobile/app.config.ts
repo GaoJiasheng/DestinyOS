@@ -42,6 +42,7 @@ const config: ExpoConfig = {
       },
     ],
     'expo-router',
+    'expo-sharing',
     'expo-asset',
     'expo-notifications',
     '@react-native-community/datetimepicker',

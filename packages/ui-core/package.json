@@ -12,7 +12,9 @@
     "./astro-geometry": "./src/astro-geometry.ts",
     "./vedic-geometry": "./src/vedic-geometry.ts",
     "./ziwei-geometry": "./src/ziwei-geometry.ts",
-    "./chart-geometry": "./src/chart-geometry.ts"
+    "./chart-geometry": "./src/chart-geometry.ts",
+    "./journal-stats": "./src/journal-stats.ts",
+    "./daily-excerpt": "./src/daily-excerpt.ts"
   },
   "scripts": {
     "build": "tsx scripts/build.ts && tsc -p tsconfig.json",
@@ -20,6 +22,7 @@
   },
   "dependencies": {
     "astronomy-engine": "2.1.19",
-    "@tianji/shared": "workspace:*"
+    "@tianji/shared": "workspace:*",
+    "@js-temporal/polyfill": "0.5.1"
   }
 }

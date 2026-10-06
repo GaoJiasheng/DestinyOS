@@ -1,0 +1,287 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/daily'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: daily-fixture-zh
+    timeout: 90000
+- tapOn:
+    id: daily-fixture-zh
+- tapOn:
+    id: daily-fixture-prepare
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 90000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-sky-zh
+- scrollUntilVisible:
+    element:
+      id: daily-block-2
+    centerElement: true
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-oneliner-zh
+- longPressOn:
+    id: daily-card-longpress
+- extendedWaitUntil:
+    visible:
+      id: daily-share-native
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-share-zh
+- tapOn: '关闭'
+- scrollUntilVisible:
+    element:
+      id: daily-block-4
+    centerElement: true
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-lucky-zh
+- scrollUntilVisible:
+    element:
+      id: daily-block-7
+    centerElement: true
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-astro-zh
+- scrollUntilVisible:
+    element:
+      id: tarot-flip-0
+    centerElement: true
+- tapOn:
+    id: tarot-flip-0
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-tarot-zh
+- scrollUntilVisible:
+    element:
+      id: daily-panchang
+    centerElement: true
+- tapOn:
+    id: daily-panchang
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-panchang-zh
+- scrollUntilVisible:
+    element:
+      id: daily-vote-yes
+    centerElement: true
+- tapOn:
+    id: daily-vote-yes
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-feedback-zh
+- scrollUntilVisible:
+    element:
+      id: journal-text
+    centerElement: true
+- tapOn:
+    id: journal-text
+- inputText: 'A calm day.'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: journal-save
+    centerElement: true
+- tapOn:
+    id: journal-save
+- assertVisible:
+    id: journal-saved
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-journal-saved-zh
+- openLink: 'tianji://me/journal'
+- extendedWaitUntil:
+    visible:
+      id: journal-stats
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: journal-stats-zh
+- scrollUntilVisible:
+    element:
+      id: journal-grid
+    centerElement: true
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: journal-month-zh
+- tapOn:
+    id: journal-mode-list
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: journal-list-zh
+- openLink: 'tianji://today/calendar'
+- extendedWaitUntil:
+    visible:
+      id: calendar-grid
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: calendar-zh
+- tapOn:
+    id: calendar-day-2026-10-04
+- scrollUntilVisible:
+    element:
+      id: daily-date
+    centerElement: true
+- assertVisible: '2026年10月4日.*星期日'
+- openLink: 'tianji://learn'
+- extendedWaitUntil:
+    visible:
+      id: learn-search
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-systems-zh
+- scrollUntilVisible:
+    element:
+      id: learn-category-hexagrams
+    centerElement: true
+    direction: UP
+- tapOn:
+    id: learn-category-hexagrams
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-hexagrams-zh
+- scrollUntilVisible:
+    element:
+      id: learn-item-0
+    centerElement: true
+- tapOn:
+    id: learn-item-0
+- assertVisible:
+    id: learn-hexagram
+- extendedWaitUntil:
+    visible:
+      id: learn-hexagram
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-hexagram-zh
+- scrollUntilVisible:
+    element:
+      id: learn-original
+    centerElement: true
+- tapOn:
+    id: learn-original
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-original-zh
+- openLink: 'tianji://learn'
+- scrollUntilVisible:
+    element:
+      id: learn-category-cards
+    centerElement: true
+    direction: UP
+- tapOn:
+    id: learn-category-cards
+- scrollUntilVisible:
+    element:
+      id: learn-item-0
+    centerElement: true
+- tapOn:
+    id: learn-item-0
+- extendedWaitUntil:
+    visible:
+      id: learn-card-title
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-card-zh
+- openLink: 'tianji://learn'
+- scrollUntilVisible:
+    element:
+      id: learn-category-tutorials
+    centerElement: true
+    direction: UP
+- tapOn:
+    id: learn-category-tutorials
+- scrollUntilVisible:
+    element:
+      id: learn-item-0
+    centerElement: true
+- tapOn:
+    id: learn-item-0
+- extendedWaitUntil:
+    visible:
+      id: learn-article-title
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-tutorial-zh
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/daily'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- tapOn:
+    id: daily-fixture-en
+- tapOn:
+    id: daily-fixture-prepare
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-sky-en
+- scrollUntilVisible:
+    element:
+      id: daily-block-3
+    centerElement: true
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-ratings-en
+- openLink: 'tianji://today/calendar'
+- extendedWaitUntil:
+    visible:
+      id: calendar-grid
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: calendar-en
+- openLink: 'tianji://me/journal'
+- extendedWaitUntil:
+    visible:
+      id: journal-stats
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: journal-en
+- openLink: 'tianji://learn/tarot/major_00_fool'
+- extendedWaitUntil:
+    visible:
+      id: learn-card-title
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-card-en
+- openLink: 'tianji://learn/iching/hexagram_01'
+- extendedWaitUntil:
+    visible:
+      id: learn-hexagram
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-hexagram-en
+- openLink: 'tianji://learn/bazi/articles/four-pillars'
+- extendedWaitUntil:
+    visible:
+      id: learn-article-title
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: learn-tutorial-en

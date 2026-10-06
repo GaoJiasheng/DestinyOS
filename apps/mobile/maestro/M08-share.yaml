@@ -1,0 +1,56 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/daily'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: daily-fixture-en
+    timeout: 90000
+- tapOn:
+    id: daily-fixture-en
+- tapOn:
+    id: daily-fixture-prepare
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 90000
+- scrollUntilVisible:
+    element:
+      id: daily-card-longpress
+    centerElement: true
+- longPressOn:
+    id: daily-card-longpress
+- extendedWaitUntil:
+    visible:
+      id: daily-share-native
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-share-en
+- scrollUntilVisible:
+    element:
+      id: daily-share-native
+    centerElement: true
+- tapOn:
+    id: daily-share-native
+- assertVisible: '^(拷贝|Copy)$'
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-share-system
+- tapOn:
+    point: 50%,30%
+- scrollUntilVisible:
+    element:
+      id: report-sheet-close
+    centerElement: true
+- tapOn:
+    id: report-sheet-close
+- assertNotVisible:
+    id: daily-share-preview
