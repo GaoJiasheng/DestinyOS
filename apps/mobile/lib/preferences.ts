@@ -1,8 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { i18n, type MobileLocale } from './i18n';
 import type { Theme } from '@tianji/ui-core/tokens';
+import { encryptedPreferencesStorage } from './data/preferences-storage';
 export type ThemePreference = 'auto' | Exclude<Theme, 'neutral'>;
 interface Preferences {
   theme: ThemePreference;
@@ -10,7 +10,6 @@ interface Preferences {
   setTheme: (theme: ThemePreference) => void;
   setLocale: (locale: MobileLocale) => void;
 }
-// DESIGN-GAP: Only non-sensitive theme/language preferences use AsyncStorage; M04 owns encrypted data.
 export const usePreferences = create<Preferences>()(
   persist(
     (set) => ({
@@ -24,7 +23,7 @@ export const usePreferences = create<Preferences>()(
     }),
     {
       name: 'tianji-ui-preferences',
-      storage: createJSONStorage(() => AsyncStorage),
+      storage: createJSONStorage(() => encryptedPreferencesStorage),
       onRehydrateStorage: () => (state) => {
         if (state) void i18n.changeLanguage(state.locale);
       },

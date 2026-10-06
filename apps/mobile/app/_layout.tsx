@@ -7,6 +7,7 @@ import { I18nextProvider } from 'react-i18next';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { fonts } from '../lib/fonts';
 import { i18n } from '../lib/i18n';
+import { getOfflineKnowledge } from '../lib/knowledge';
 void SplashScreen.preventAutoHideAsync();
 /** Load embedded subsets before exposing native routes; all copy comes from the Web catalogs. */
 export default function RootLayout() {
@@ -14,6 +15,11 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded || error) void SplashScreen.hideAsync();
   }, [loaded, error]);
+  useEffect(() => {
+    // DESIGN-GAP: Warm the offline content/data layer after mounting. M05 owns the localized
+    // storage recovery screen; a key/cipher failure never falls back to plaintext storage.
+    void getOfflineKnowledge('bazi').catch(() => undefined);
+  }, []);
   if (!loaded && !error) return null;
   return (
     <I18nextProvider i18n={i18n}>

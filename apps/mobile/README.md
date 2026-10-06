@@ -21,7 +21,8 @@ The App imports Web's compiled flat `messages/{zh,zh-TW,en}.json` catalogs direc
 Run `pnpm content:build` after changing source copy. `i18next-icu` preserves Web ICU
 formatting. The M01 shell uses i18next; M02 diagnostics use next-intl's native-compatible
 ICU translator, with the same bilingual catalogs as Web.
-Only theme and language preferences use AsyncStorage; private storage belongs to M04.
+All local profiles, reports, journal entries and settings now use SQLCipher. AsyncStorage is
+read only to migrate M01 theme/language preferences once; it never receives private data.
 
 `packages/ui-core/tokens` is the canonical DOM-free design token source. Its build
 regenerates the stylesheet imported by Web. Fonts use the same OFL sources, renamed
@@ -50,3 +51,27 @@ Frame measurements distinguish UI display-link cadence from r3f render callbacks
 video frame rate is not used as an application performance metric. Use physical phones for GPU
 completion/thermal/power and sensor acceptance. Android prebuild does not require Java; native
 Android build and device acceptance remain deferred until the Owner installs Java.
+
+M04 data API: `getLocalStore()` opens the anonymous scope; `getLocalStore(userId)` isolates
+an account. Use `profiles/readings/journal/settings` for CRUD, `saveJournal` for same-day edits,
+and `updateSettings` for atomic patches. `changes(since)` includes redacted tombstones;
+`applyRemote` accepts owned server records, resolving equal timestamps in the server's favor.
+Login confirmation/import and network sync are M10/M09; anonymous records are never uploaded
+by this layer. Profile versions survive edits and are removed with their dependent data on delete.
+`eraseDeviceData` deletes all personal scopes, leaving only public knowledge.
+
+`getOfflineKnowledge(system)` serves compiled `packages/content` units in both languages.
+`createKnowledgeUpdater(trustedKeys)` enables the M09 public update client. Production public
+keys must be provisioned in the build; downloaded keys are never trusted. The signed envelope is
+`{keyId, payload, signature}`: `payload` is the exact JSON manifest string and `signature` is
+lowercase Ed25519 hex over UTF-8 `tianji-knowledge-v1\n` followed by the payload. The manifest
+contains `knowledgeVersion`, `baseKnowledgeVersion`, `sha256`, `compressedSize`, `decodedSize`.
+The bundle is gzip JSON `{knowledgeVersion, baseKnowledgeVersion, upsert, remove, glossary?,
+transitions?}`. Sizes, checksum, signature, semver, bilingual KU schema and base version are
+validated before a transactional compare-and-swap; failures retain the prior offline release.
+
+After native prebuild/rebuild (SQLCipher is unavailable in Expo Go), run
+`bash apps/mobile/scripts/m04-simulator.sh <simulator-uuid>` with Metro running. The developer
+route `tianji:///dev/storage` tests an isolated database, checks ciphertext bytes and wrong-key
+rejection, closes/reopens the database, and deletes all ephemeral database/key material. Evidence
+is stored under `test-results/M04`; this route redirects away in production builds.

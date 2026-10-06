@@ -26,6 +26,8 @@ const config: ExpoConfig = {
   plugins: [
     'expo-router',
     'expo-asset',
+    ['expo-sqlite', { useSQLCipher: true }],
+    ['expo-secure-store', { configureAndroidBackup: true }],
     [
       'expo-font',
       {

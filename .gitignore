@@ -38,6 +38,7 @@ prisma/*.db-*
 apps/mobile/.expo/
 apps/mobile/ios/
 apps/mobile/android/
+apps/mobile/expo-env.d.ts
 !apps/mobile/test-results/
 apps/mobile/test-results/*
 !apps/mobile/test-results/M01/
@@ -49,3 +50,8 @@ apps/mobile/test-results/M02/*
 !apps/mobile/test-results/M02/*.png
 !apps/mobile/test-results/M02/*.json
 !apps/mobile/test-results/M02/*.mp4
+
+!apps/mobile/test-results/M04/
+apps/mobile/test-results/M04/*
+!apps/mobile/test-results/M04/*.png
+!apps/mobile/test-results/M04/*.json

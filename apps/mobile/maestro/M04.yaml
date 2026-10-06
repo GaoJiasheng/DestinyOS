@@ -1,0 +1,24 @@
+appId: pub.gavin.tianji
+---
+- openLink: 'tianji:///dev/storage'
+- tapOn:
+    text: 'Continue'
+    optional: true
+- tapOn:
+    id: xmark
+    optional: true
+- tapOn:
+    text: '打开|Open'
+    optional: true
+- openLink: 'tianji:///dev/storage'
+- extendedWaitUntil:
+    visible:
+      id: storage-check
+    timeout: 30000
+- tapOn:
+    id: storage-check
+- extendedWaitUntil:
+    visible:
+      id: storage-passed
+    timeout: 30000
+- takeScreenshot: storage-passed
