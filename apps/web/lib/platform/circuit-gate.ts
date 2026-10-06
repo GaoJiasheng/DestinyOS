@@ -20,6 +20,8 @@ export function circuitBypass(path: string): boolean {
     /^\/admin(?:\/|$)/.test(path) ||
     /^\/(?:zh|zh-TW|en)\/auth(?:\/|$)/.test(path) ||
     /^\/api\/auth(?:\/|$)/.test(path) ||
+    /^\/api\/v1\/mobile\/auth(?:\/|$)/.test(path) ||
+    /^\/auth\/verify\/?$/.test(path) ||
     /^\/api\/v1\/(?:health\/?|cron\/(?:daily-maintenance|cost-circuit)\/?|mobile\/webhooks\/revenuecat\/?)$/.test(
       path,
     )

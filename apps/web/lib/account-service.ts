@@ -129,6 +129,7 @@ export async function softDeleteAccount(
   await atomicBatch([
     updateRows('User', { deletedAt: now, plan: 'free' }, 'id=?', userId),
     statement('DELETE FROM "Session" WHERE "userId"=?', userId),
+    statement('DELETE FROM "MobileSession" WHERE "userId"=?', userId),
     statement('DELETE FROM "JournalEntry" WHERE "userId"=?', userId),
     updateRows('ShareLink', { revokedAt: now }, '"userId"=? AND "revokedAt" IS NULL', userId),
     updateRows('Reading', { isPublic: false }, '"userId"=?', userId),

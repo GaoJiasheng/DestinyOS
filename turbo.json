@@ -3,7 +3,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "public/.well-known/assetlinks.json"],
       "env": [
         "NEXT_PUBLIC_SITE_URL",
         "NEXT_PUBLIC_DEFAULT_LOCALE",
@@ -14,7 +14,8 @@
         "PRIVACY_CONTACT_EMAIL",
         "PLATFORM",
         "NEXT_PUBLIC_APP_STORE_URL",
-        "NEXT_PUBLIC_PLAY_STORE_URL"
+        "NEXT_PUBLIC_PLAY_STORE_URL",
+        "MOBILE_ANDROID_CERT_SHA256"
       ]
     },
     "dev": {

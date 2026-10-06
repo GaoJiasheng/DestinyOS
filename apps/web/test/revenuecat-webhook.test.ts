@@ -172,3 +172,38 @@ it('revokes a refunded RevenueCat non-consumable instead of keeping a sticky lif
     plan: 'free',
   });
 });
+
+it('supports dashboard Authorization and reconciles transfer sources and destinations by User.id', async () => {
+  vi.stubEnv('REVENUECAT_WEBHOOK_SECRET', '');
+  vi.stubEnv('REVENUECAT_WEBHOOK_AUTHORIZATION', 'Bearer dashboard-test');
+  await db.user.create({ data: { id: 'recipient' } });
+  await db.user.update({ where: { id: 'owner' }, data: { plan: 'pro', lifetime: true } });
+  const fetcher = vi
+    .spyOn(globalThis, 'fetch')
+    .mockImplementation(async (input) =>
+      customer(String(input).endsWith('/recipient') ? null : undefined),
+    );
+  const transfer = (authorization: string) =>
+    new Request('https://example.test/api/v1/mobile/webhooks/revenuecat', {
+      method: 'POST',
+      headers: { Authorization: authorization },
+      body: JSON.stringify({
+        event: {
+          id: 'transfer',
+          type: 'TRANSFER',
+          transferred_from: ['owner', '$RCAnonymousID:old'],
+          transferred_to: ['recipient'],
+        },
+      }),
+    });
+  expect((await POST(transfer('Bearer wrong'))).status).toBe(401);
+  expect(fetcher).not.toHaveBeenCalled();
+  expect((await POST(transfer('Bearer dashboard-test'))).status).toBe(200);
+  expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('free');
+  expect((await db.user.findUniqueOrThrow({ where: { id: 'recipient' } })).plan).toBe('pro');
+  expect(fetcher).toHaveBeenCalledTimes(2);
+  expect(await (await POST(transfer('Bearer dashboard-test'))).json()).toMatchObject({
+    data: { result: 'duplicate' },
+  });
+  expect(fetcher).toHaveBeenCalledTimes(2);
+});

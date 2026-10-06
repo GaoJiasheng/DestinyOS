@@ -29,7 +29,7 @@ import {
   type ReadingView,
 } from './reading-schema';
 import { stateRead, stateWrite, stateReserve, stateRelease } from './state';
-import { atomicBatch, guard, insertRow, statement } from './db-batch';
+import { atomicBatch, guard, insertRow, statement, type SqlStatement } from './db-batch';
 /** SHA-256 identifiers keep private request/owner values out of cache keys. */
 const digest = (value: string) => createHash('sha256').update(value).digest('hex');
 /** Serialize validated domain data into Prisma-compatible JSON values. */
@@ -211,6 +211,9 @@ export async function persistReading(
   now: string,
   id?: string,
   profile?: { id: string; version: number },
+  syncChecks: SqlStatement[] = [],
+  title?: string | null,
+  syncAfter: SqlStatement[] = [],
 ) {
   const generated = await generateReading(
     { ...req, locale: req.locale === 'en' ? 'en' : 'zh' },
@@ -221,6 +224,7 @@ export async function persistReading(
   const user = await tx.user.findUniqueOrThrow({ where: { id: userId }, select: { plan: true } });
   const plan = user.plan;
   const statements = [
+    ...syncChecks,
     ...guard('EXISTS (SELECT 1 FROM "User" WHERE id=? AND "deletedAt" IS NULL)', userId),
   ];
   for (const profileId of [profile?.id, req.partnerProfileId]) {
@@ -244,6 +248,9 @@ export async function persistReading(
   statements.push(
     insertRow('Reading', {
       id: row.id,
+      // DESIGN-GAP: Offline mobile imports retain their original generation time so synchronized history and engine time remain consistent.
+      createdAt: syncChecks.length ? new Date(now) : undefined,
+      title,
       userId,
       profileId: profile?.id,
       partnerProfileId: req.partnerProfileId,
@@ -271,7 +278,7 @@ export async function persistReading(
       userId,
     ),
   );
-  await atomicBatch(statements);
+  await atomicBatch([...statements, ...syncAfter]);
   await recordEvent('reading.created', { userId, system: req.system, locale: req.locale, plan });
   return { readingId: row.id, ...generated, report: localizeReport(generated.report, req.locale) };
 }

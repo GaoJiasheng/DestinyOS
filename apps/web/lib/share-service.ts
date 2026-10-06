@@ -1,5 +1,10 @@
 import { recordShareView } from './share-counts';
 import { ownedProfile } from './profile-service';
+import { atomicBatch, guard, insertRow, updateRows } from './db-batch';
+import { assertRateLimit, ratelimit } from './ratelimit';
+import { recordEvent } from './events';
+import { brand } from '@tianji/shared';
+import { ShareTemplateSchema } from './share-projection';
 import { fromDbLocale } from './db-locale';
 import { randomInt, createHmac, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
@@ -7,7 +12,7 @@ import { Temporal } from '@js-temporal/polyfill';
 import { getDb } from './db';
 import { dailyForUser } from './daily-service';
 import { localToday } from './daily-compute';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, getLocale } from 'next-intl/server';
 import { publicText } from './share-projection';
 import { ApiError } from './api-error';
 import { ReportSchema } from './reading-schema';
@@ -142,4 +147,61 @@ export function verifyDailyCard(payload: string, signature: string, now = Date.n
     throw new ApiError('E_FORBIDDEN', 'Expired signature', 403);
   Temporal.PlainDate.from(value.data.date);
   return value.data;
+}
+
+/** Create an owner-only share with the same Web projection, limits and privacy defaults. */
+export async function createShareForUser(
+  userId: string,
+  raw: unknown,
+  locale?: 'zh' | 'en' | 'zh-TW',
+) {
+  const input = z
+    .object({
+      readingId: z.string().min(1).max(100),
+      template: ShareTemplateSchema,
+      revealLevel: z.number().int().min(0).max(2).default(0),
+      expiresIn: z.union([z.literal(7), z.literal(30)]).optional(),
+    })
+    .strict()
+    .parse(raw);
+  assertRateLimit(await ratelimit('share', userId));
+  const reading = await getDb().reading.findFirst({
+    where: { id: input.readingId, userId: userId },
+  });
+  if (!reading) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+  const user = await getDb().user.findFirst({ where: { id: userId, deletedAt: null } });
+  if (!user) throw new ApiError('E_UNAUTHORIZED', 'Account unavailable', 401);
+  if (
+    input.template === 'daily' &&
+    !(await getDb().birthProfile.findFirst({
+      where: { userId: userId, isCurrent: true },
+      select: { id: true },
+    }))
+  )
+    throw new ApiError('E_PROFILE_REQUIRED', 'Birth profile required for a daily card', 400);
+  const token = shareToken();
+  await atomicBatch([
+    ...guard(
+      'EXISTS (SELECT 1 FROM "Reading" r JOIN "User" u ON u.id=r."userId" WHERE r.id=? AND u.id=? AND u."deletedAt" IS NULL)',
+      reading.id,
+      userId,
+    ),
+    insertRow('ShareLink', {
+      token,
+      readingId: reading.id,
+      userId,
+      template: input.template,
+      revealLevel: input.revealLevel,
+      expiresAt: input.expiresIn ? new Date(Date.now() + input.expiresIn * 86400000) : null,
+    }),
+    updateRows('Reading', { isPublic: true }, 'id=? AND "userId"=?', reading.id, userId),
+  ]);
+  await recordEvent('share.created', {
+    userId: userId,
+    system: reading.system,
+    locale: locale ?? ((await getLocale()) === 'en' ? 'en' : 'zh'),
+    plan: user.plan,
+  });
+  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`;
+  return { token, url: `${origin}/s/${token}` };
 }

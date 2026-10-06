@@ -13,12 +13,15 @@ export async function getOfflineKnowledge(system: System) {
     units: bundle.units.filter((unit) => unit.system === system || unit.system === 'common'),
   };
 }
-/** Create the optional public update client with build-provisioned trust anchors (M09). */
-export async function createKnowledgeUpdater(trustedKeys: Readonly<Record<string, Uint8Array>>) {
+/** Create the optional authenticated update client with build-provisioned trust anchors (M09). */
+export async function createKnowledgeUpdater(
+  trustedKeys: Readonly<Record<string, Uint8Array>>,
+  accessToken?: () => Promise<string | undefined>,
+) {
   const store = await getLocalStore();
   return new KnowledgeUpdater(
     new KnowledgeCache(store.database, bundledKnowledge()),
-    createKnowledgeTransport(),
+    createKnowledgeTransport(fetch, accessToken),
     trustedKeys,
   );
 }

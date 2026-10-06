@@ -9,6 +9,7 @@ import {
   Locale,
   IanaTimezoneSchema,
   EngineMetaSchema,
+  MobilePreferencesSchema,
 } from '@tianji/shared';
 
 const id = z.string().min(1).max(100);
@@ -95,26 +96,18 @@ export const JournalSchema = JournalInputSchema.extend({
 export const SettingsSchema = z
   .object({
     locale: z.nativeEnum(Locale).default('zh'),
-    theme: z.enum(['auto', 'east', 'west', 'vedic']).default('auto'),
     soundOn: z.boolean().default(false),
     reducedMotion: z.boolean().default(false),
     tz: IanaTimezoneSchema.nullable().default(null),
-    dailyPushEnabled: z.boolean().default(true),
     // DESIGN-GAP: Persist the once-dismissed OS notification hint in encrypted native settings.
     dailyNotificationHintDismissed: z.boolean().default(false),
-    dailyPushTime: z
-      .string()
-      .regex(/^([01]\d|2[0-3]):[0-5]\d$/)
-      .default('08:00'),
-    specialDayReminders: z.boolean().default(true),
-    widgetTheme: z.enum(['auto', 'east', 'west', 'vedic']).default('auto'),
-    hapticsOn: z.boolean().default(true),
     activeProfileId: id.nullable().default(null),
     // DESIGN-GAP: Version the onboarding acknowledgement in encrypted local settings.
     onboardingVersion: z.number().int().nonnegative().default(0),
     // DESIGN-GAP: Persist the native COPPA gate across restarts; there is no Web session cookie.
     ageBlocked: z.boolean().default(false),
   })
+  .extend(MobilePreferencesSchema.shape)
   .strict();
 export const schemas = {
   BirthProfile: ProfileSchema,

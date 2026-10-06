@@ -98,6 +98,13 @@ const config: NextConfig = {
   poweredByHeader: false,
   async headers() {
     return [
+      {
+        source: '/.well-known/:path*',
+        headers: [
+          { key: 'Content-Type', value: 'application/json' },
+          { key: 'Cache-Control', value: 'public, max-age=3600' },
+        ],
+      },
       { source: '/:path*', headers: securityHeaders() },
       // DESIGN-GAP: Daily worker filenames contain their content hash, so immutable caching avoids revalidating the preload and every date-switch worker.
       {

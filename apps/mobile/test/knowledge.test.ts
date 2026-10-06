@@ -176,24 +176,63 @@ test('current manifest avoids bundle download', async () => {
   expect(await f.updater.update()).toBe('current');
   expect(f.transport.bundle).not.toHaveBeenCalled();
 });
-test('transport uses documented HTTPS mobile routes and sends only knowledgeVersion', async () => {
+test('transport unwraps the shared manifest and authenticates HTTPS delta routes', async () => {
   const responses = [
-    { ok: true, text: async () => '{}' },
+    {
+      ok: true,
+      text: async () =>
+        JSON.stringify({
+          ok: true,
+          data: { payload: '{}', signature: '00'.repeat(64), keyId: 'test' },
+        }),
+    },
     {
       ok: true,
       headers: { get: () => '2' },
       arrayBuffer: async () => new Uint8Array([1, 2]).buffer,
     },
   ];
-  const fetcher = jest.fn(async (input: RequestInfo | URL) => {
+  const fetcher = jest.fn(async (input: RequestInfo | URL, options?: RequestInit) => {
+    void options;
     void input;
     return responses.shift() as unknown as Response;
   });
-  const transport = createKnowledgeTransport(fetcher);
+  const transport = createKnowledgeTransport(fetcher, async () => 'access-token');
   await transport.manifest('1.2.3');
   await transport.bundle('1.2.4', 2);
+  expect(
+    fetcher.mock.calls.every((call) => call[1]?.headers && 'Authorization' in call[1].headers),
+  ).toBe(true);
   expect(fetcher.mock.calls.map((call) => call[0])).toEqual([
     'https://tianji.gavin.pub/api/v1/mobile/knowledge/manifest?knowledgeVersion=1.2.3',
-    'https://tianji.gavin.pub/api/v1/mobile/knowledge/bundle/1.2.4',
+    'https://tianji.gavin.pub/api/v1/mobile/knowledge/bundle/1.2.4?since=1.2.3',
   ]);
+});
+
+test('signed full fallback replaces old units and preserves complete bilingual knowledge', async () => {
+  const f = updateFixture();
+  const full = {
+    knowledgeVersion: '99.0.0',
+    baseKnowledgeVersion: '0.0.0',
+    upsert: [f.previous.units[0]!],
+    remove: [],
+    glossary: f.previous.glossary,
+    transitions: f.previous.transitions,
+  };
+  const decoded = strToU8(JSON.stringify(full)),
+    bytes = gzipSync(decoded);
+  f.transport.manifest.mockImplementation(async () =>
+    f.signed(
+      JSON.stringify({
+        ...f.manifest,
+        baseKnowledgeVersion: '0.0.0',
+        compressedSize: bytes.length,
+        decodedSize: decoded.length,
+        sha256: bytesToHex(sha256(bytes)),
+      }),
+    ),
+  );
+  f.transport.bundle.mockImplementation(async () => bytes);
+  expect(await f.updater.update()).toBe('updated');
+  expect((await f.cache.load()).units).toEqual(full.upsert);
 });

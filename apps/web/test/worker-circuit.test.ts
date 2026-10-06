@@ -81,3 +81,27 @@ it('dispatches daily and hourly jobs independently even during maintenance', asy
     dispatch.mock.calls.map((call) => new URL((call[0] as unknown as Request).url).pathname),
   ).toEqual(['/api/v1/cron/cost-circuit', '/api/v1/cron/daily-maintenance']);
 });
+
+it('keeps mobile login and universal confirmation reachable while returning JSON for paused mobile data APIs', async () => {
+  const cache = { get: async () => 'open' } as unknown as KVNamespace;
+  const env = { CACHE: cache };
+  const context = {
+    waitUntil: (promise: Promise<unknown>) => {
+      void promise;
+    },
+  };
+  const blocked = await workerFetch(
+    new Request('https://example.test/api/v1/mobile/sync/profiles'),
+    env,
+    context,
+    dispatch,
+  );
+  expect(blocked.status).toBe(503);
+  expect(blocked.headers.get('Content-Type')).toContain('application/json');
+  expect(await blocked.json()).toMatchObject({ ok: false, error: { code: 'E_INTERNAL' } });
+  for (const path of ['/api/v1/mobile/auth/refresh', '/auth/verify'])
+    expect(
+      (await workerFetch(new Request(`https://example.test${path}`), env, context, dispatch))
+        .status,
+    ).toBe(200);
+});

@@ -9,33 +9,36 @@ datasource db {
 }
 
 model User {
-  id                   String         @id @default(cuid())
-  email                String?        @unique
+  id                   String             @id @default(cuid())
+  email                String?            @unique
   emailVerified        DateTime?
   name                 String? // 显示名（来自 OAuth 或用户设置），非敏感
   image                String?
-  role                 String         @default("user")
-  plan                 String         @default("free")
+  role                 String             @default("user")
+  plan                 String             @default("free")
   // DESIGN-GAP: Adapt the Prisma-generated table rebuild to additive D1 ALTERs so existing accounts and triggers survive.
-  lifetime             Boolean        @default(false)
+  lifetime             Boolean            @default(false)
   // DESIGN-GAP: Keep the mobile entitlement expiry separately so Stripe cancellation cannot remove active mobile access.
   revenuecatProUntil   DateTime?
-  locale               String         @default("zh")
+  locale               String             @default("zh")
   tz                   String? // 最近一次浏览器上报时区
   theme                String? // 'auto'|'east'|'west'
-  soundOn              Boolean        @default(false)
-  reducedMotion        Boolean        @default(false)
+  mobileSettings       Json? // DESIGN-GAP: Native cross-device preferences; Web theme semantics stay unchanged.
+  soundOn              Boolean            @default(false)
+  reducedMotion        Boolean            @default(false)
   // DESIGN-GAP: Persist first-use acknowledgement in user settings; the documented schema omitted its timestamp.
   disclaimerAcceptedAt DateTime?
-  anonId               String?        @unique // 导入匿名数据时记录来源，去重
-  createdAt            DateTime       @default(now())
-  updatedAt            DateTime       @updatedAt
+  anonId               String?            @unique // 导入匿名数据时记录来源，去重
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
   // DESIGN-GAP: Explicit activity timestamp avoids treating preference edits as sign-ins.
   lastActiveAt         DateTime?
   deletedAt            DateTime? // 软删除；7 天后 cron 硬删除
   chatQuotas           ChatQuota[]
   accounts             Account[]
   sessions             Session[]
+  mobileSessions       MobileSession[]
+  mobileSyncChanges    MobileSyncChange[]
   profiles             BirthProfile[]
   readings             Reading[]
   subscription         Subscription?
@@ -138,6 +141,8 @@ model Reading {
   title            String? // 用户可改的标题（如"关于换工作的占卜"），加密不必要但不含 PII 要求：前端提示勿填个人信息
   isPublic         Boolean       @default(false)
   createdAt        DateTime      @default(now())
+  // DESIGN-GAP: Mutable titles and lazy translations need an edit timestamp for cross-device synchronization.
+  updatedAt        DateTime      @default(now()) @updatedAt
   chatMessages     ChatMessage[]
   shareLinks       ShareLink[]
   feedbacks        Feedback[]
@@ -306,6 +311,9 @@ model JournalEntry {
   prediction Json
   createdAt  DateTime     @default(now())
 
+  // DESIGN-GAP: Journal edits previously exposed only their creation time.
+  updatedAt DateTime @default(now()) @updatedAt
+
   @@unique([profileId, date])
   @@index([userId, profileId, date(sort: Desc)])
 }
@@ -352,4 +360,35 @@ model KnowledgeBundleChunk {
   data           String
 
   @@id([releaseVersion, system, ordinal])
+}
+
+// DESIGN-GAP: Opaque random credentials are stored as SHA-256 hashes; a rotation counter prevents concurrent refresh reuse.
+model MobileSession {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessTokenHash  String   @unique
+  refreshTokenHash String   @unique
+  accessExpiresAt  DateTime
+  refreshExpiresAt DateTime
+  deviceName       String
+  platform         String
+  createdAt        DateTime @default(now())
+  lastUsedAt       DateTime @default(now())
+  rotation         Int      @default(0)
+
+  @@index([userId])
+}
+
+// DESIGN-GAP: A database-triggered monotonic change log covers Web writes, cascades and equal timestamps without storing private payloads.
+model MobileSyncChange {
+  sequence  Int      @id @default(autoincrement())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resource  String
+  recordId  String
+  deleted   Boolean
+  updatedAt DateTime @default(now())
+
+  @@index([userId, resource, sequence])
 }

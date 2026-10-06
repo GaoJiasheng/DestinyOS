@@ -99,6 +99,14 @@
         "default": null
       },
       {
+        "name": "mobileSettings",
+        "kind": "scalar",
+        "type": "Json",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
         "name": "soundOn",
         "kind": "scalar",
         "type": "Boolean",
@@ -182,6 +190,22 @@
         "name": "sessions",
         "kind": "object",
         "type": "Session",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "mobileSessions",
+        "kind": "object",
+        "type": "MobileSession",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "mobileSyncChanges",
+        "kind": "object",
+        "type": "MobileSyncChange",
         "isId": false,
         "hasDefaultValue": false,
         "default": null
@@ -765,6 +789,14 @@
       },
       {
         "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "updatedAt",
         "kind": "scalar",
         "type": "DateTime",
         "isId": false,
@@ -1694,6 +1726,14 @@
         "isId": false,
         "hasDefaultValue": true,
         "default": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
       }
     ]
   },
@@ -1846,6 +1886,168 @@
         "type": "String",
         "isId": false,
         "hasDefaultValue": false,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "MobileSession",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "accessTokenHash",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "refreshTokenHash",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "accessExpiresAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "refreshExpiresAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "deviceName",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "platform",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "lastUsedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "rotation",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "MobileSyncChange",
+    "fields": [
+      {
+        "name": "sequence",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "resource",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "recordId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "deleted",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
         "default": null
       }
     ]

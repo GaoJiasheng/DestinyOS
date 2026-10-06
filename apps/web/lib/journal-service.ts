@@ -10,7 +10,7 @@ import { computeDailyRange } from '@tianji/engine/daily';
 import { ENGINE_VERSION } from '@tianji/engine/version';
 import type { JournalEntry } from '@prisma/client';
 import { getDb } from './db';
-import { atomicBatch, guard, insertRow, updateRows } from './db-batch';
+import { atomicBatch, guard, insertRow, updateRows, type SqlStatement } from './db-batch';
 import { ownedProfile, profileBirth } from './profile-service';
 import { ApiError } from './api-error';
 import { localToday } from './daily-date';
@@ -40,7 +40,12 @@ export async function journalEntryForUser(userId: string, raw: unknown) {
   return row ? view(row) : null;
 }
 /** Save or revise one civil day's mood and encrypted sentence; retain the first prediction snapshot. */
-export async function saveJournalEntry(userId: string, raw: unknown, locale: Locale) {
+export async function saveJournalEntry(
+  userId: string,
+  raw: unknown,
+  locale: Locale,
+  sync?: { createId: string; checks: SqlStatement[]; after?: SqlStatement[] },
+) {
   const input = JournalInputSchema.parse(raw);
   // DESIGN-GAP: Allow past-day reflection but reject future moods in the selected IANA zone.
   if (input.date > localToday(input.tz))
@@ -60,12 +65,15 @@ export async function saveJournalEntry(userId: string, raw: unknown, locale: Loc
     const existing = await tx.journalEntry.findUnique({
       where: { profileId_date: { profileId: profile.id, date } },
     });
-    const checks = guard(
-      'EXISTS (SELECT 1 FROM "User" u JOIN "BirthProfile" p ON p."userId"=u.id WHERE u.id=? AND u."deletedAt" IS NULL AND p.id=? AND p.version=? AND p."isCurrent"=1)',
-      userId,
-      profile.id,
-      profile.version,
-    );
+    const checks = [
+      ...(sync?.checks ?? []),
+      ...guard(
+        'EXISTS (SELECT 1 FROM "User" u JOIN "BirthProfile" p ON p."userId"=u.id WHERE u.id=? AND u."deletedAt" IS NULL AND p.id=? AND p.version=? AND p."isCurrent"=1)',
+        userId,
+        profile.id,
+        profile.version,
+      ),
+    ];
     if (existing) {
       await atomicBatch([
         ...checks,
@@ -76,6 +84,7 @@ export async function saveJournalEntry(userId: string, raw: unknown, locale: Loc
           existing.id,
           userId,
         ),
+        ...(sync?.after ?? []),
       ]);
       return view(await tx.journalEntry.findUniqueOrThrow({ where: { id: existing.id } }));
     }
@@ -98,9 +107,18 @@ export async function saveJournalEntry(userId: string, raw: unknown, locale: Loc
       ...checks,
       insertRow(
         'JournalEntry',
-        { userId, profileId: profile.id, date, mood: input.mood, text: input.text, prediction },
+        {
+          id: sync?.createId,
+          userId,
+          profileId: profile.id,
+          date,
+          mood: input.mood,
+          text: input.text,
+          prediction,
+        },
         'ON CONFLICT("profileId",date) DO UPDATE SET mood=excluded.mood,text=excluded.text',
       ),
+      ...(sync?.after ?? []),
     ]);
     return view(
       await tx.journalEntry.findUniqueOrThrow({

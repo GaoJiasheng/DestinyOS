@@ -1,61 +1,52 @@
-import { z } from 'zod';
+import {
+  MobileKnowledgeEnvelopeSchema as EnvelopeSchema,
+  MobileKnowledgeManifestSchema as ManifestSchema,
+} from '@tianji/content/mobile-wire';
+import { apiSuccessSchema } from '@tianji/shared';
 import { ed25519 } from '@noble/curves/ed25519';
 import { sha256 } from '@noble/hashes/sha256';
 import { bytesToHex, hexToBytes } from '@noble/hashes/utils';
 import { Gunzip, strFromU8, strToU8 } from 'fflate';
 import { brand } from '@tianji/shared/brand';
-import {
-  DeltaSchema,
-  KnowledgeSchema,
-  KnowledgeVersionSchema,
-  compareKnowledgeVersion,
-} from './schema';
+import { DeltaSchema, KnowledgeSchema, compareKnowledgeVersion } from './schema';
 import type { KnowledgeCache } from './cache';
 
-const maxCompressed = 8 * 1024 * 1024,
-  maxDecoded = 32 * 1024 * 1024;
-const EnvelopeSchema = z
-  .object({
-    payload: z.string().max(16_384),
-    signature: z.string().regex(/^[a-f0-9]{128}$/),
-    keyId: z.string().min(1).max(100),
-  })
-  .strict();
-const ManifestSchema = z
-  .object({
-    knowledgeVersion: KnowledgeVersionSchema,
-    baseKnowledgeVersion: KnowledgeVersionSchema,
-    sha256: z.string().regex(/^[a-f0-9]{64}$/),
-    compressedSize: z.number().int().positive().max(maxCompressed),
-    decodedSize: z.number().int().positive().max(maxDecoded),
-  })
-  .strict();
+const maxDecoded = 32 * 1024 * 1024;
 export interface KnowledgeTransport {
   manifest(knowledgeVersion: string): Promise<unknown>;
   bundle(knowledgeVersion: string, expectedBytes: number): Promise<Uint8Array>;
 }
 export type KnowledgeUpdateResult = 'current' | 'updated' | 'unavailable';
-/** M09 public transport sends only knowledgeVersion, with no birth/profile/account/token fields. */
-export function createKnowledgeTransport(fetcher: typeof fetch = fetch): KnowledgeTransport {
+/** M09 transport sends only the installed knowledge version plus an optional SecureStore Bearer credential. */
+export function createKnowledgeTransport(
+  fetcher: typeof fetch = fetch,
+  accessToken?: () => Promise<string | undefined>,
+): KnowledgeTransport {
   const base = `https://${brand.domain}/api/v1/mobile/knowledge`;
+  let baseVersion: string | undefined;
   async function response(path: string) {
-    // DESIGN-GAP: Public update requests use a 15-second timeout and never follow redirects.
+    const token = await accessToken?.();
+    // DESIGN-GAP: Knowledge update requests use a 15-second timeout and never follow redirects.
     const result = await fetcher(`${base}/${path}`, {
       signal: AbortSignal.timeout(15_000),
       redirect: 'error',
+      ...(token ? { headers: { Authorization: `Bearer ${token}` } } : {}),
     });
     if (!result.ok) throw new Error('E_KNOWLEDGE_NETWORK');
     return result;
   }
   return {
     async manifest(version) {
+      baseVersion = version;
       const result = await response(`manifest?knowledgeVersion=${encodeURIComponent(version)}`);
       const text = await result.text();
       if (text.length > 20_000) throw new Error('E_KNOWLEDGE_SIZE');
-      return JSON.parse(text) as unknown;
+      return apiSuccessSchema(EnvelopeSchema).parse(JSON.parse(text)).data;
     },
     async bundle(version, expectedBytes) {
-      const result = await response(`bundle/${encodeURIComponent(version)}`);
+      const result = await response(
+        `bundle/${encodeURIComponent(version)}${baseVersion ? `?since=${encodeURIComponent(baseVersion)}` : ''}`,
+      );
       const length = result.headers.get('content-length');
       if (length !== null && Number(length) !== expectedBytes) throw new Error('E_KNOWLEDGE_SIZE');
       const bytes = new Uint8Array(await result.arrayBuffer());
@@ -74,7 +65,7 @@ export class KnowledgeUpdater {
     // M09 must provision the production public key; an empty map deliberately fails closed.
     private readonly trustedKeys: Readonly<Record<string, Uint8Array>>,
   ) {}
-  /** Call on connectivity restoration or foreground; anonymous operation needs no login. */
+  /** Call on connectivity restoration or foreground; unavailable authentication leaves the bundled offline release usable. */
   update(): Promise<KnowledgeUpdateResult> {
     this.pending ??= this.perform()
       .catch(() => 'unavailable' as const)
@@ -102,7 +93,8 @@ export class KnowledgeUpdater {
     if (compareKnowledgeVersion(manifest.knowledgeVersion, current.knowledgeVersion) === 0)
       return 'current';
     if (
-      manifest.baseKnowledgeVersion !== current.knowledgeVersion ||
+      (manifest.baseKnowledgeVersion !== '0.0.0' &&
+        manifest.baseKnowledgeVersion !== current.knowledgeVersion) ||
       compareKnowledgeVersion(manifest.knowledgeVersion, current.knowledgeVersion) < 0
     )
       throw new Error('E_KNOWLEDGE_VERSION');
@@ -127,7 +119,9 @@ export class KnowledgeUpdater {
       delta.upsert.some((unit) => delta.remove.includes(unit.id))
     )
       throw new Error('E_KNOWLEDGE_DUPLICATE');
-    const units = new Map(current.units.map((unit) => [unit.id, unit]));
+    const full = manifest.baseKnowledgeVersion === '0.0.0';
+    if (full && (!delta.glossary || !delta.transitions)) throw new Error('E_KNOWLEDGE_VERSION');
+    const units = new Map((full ? [] : current.units).map((unit) => [unit.id, unit]));
     for (const id of delta.remove) units.delete(id);
     for (const unit of delta.upsert) units.set(unit.id, unit);
     const next = KnowledgeSchema.parse({

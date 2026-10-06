@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tsx ../../scripts/daily-worker-build.ts && next dev",
-    "build": "tsx ../../scripts/daily-worker-build.ts && next build",
+    "build": "tsx scripts/mobile-assetlinks.ts && tsx ../../scripts/daily-worker-build.ts && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "cf:build": "PLATFORM=cloudflare opennextjs-cloudflare build && tsx ../../scripts/cloudflare-assets.ts && tsx ../../scripts/cloudflare-budget.ts",
@@ -67,7 +67,8 @@
     "@prisma/adapter-d1": "6.19.3",
     "@prisma/adapter-better-sqlite3": "6.19.3",
     "@tianji/ui-core": "workspace:*",
-    "@tianji/api-client": "workspace:*"
+    "@tianji/api-client": "workspace:*",
+    "jose": "^6.1.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20261005.1",

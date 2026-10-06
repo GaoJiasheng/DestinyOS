@@ -6,7 +6,14 @@ import { createHash } from 'node:crypto';
 import type { BirthProfile } from '@prisma/client';
 import { getDb } from './db';
 import { randomUUID } from 'node:crypto';
-import { atomicBatch, guard, insertRow, updateRows, statement } from './db-batch';
+import {
+  atomicBatch,
+  guard,
+  insertRow,
+  updateRows,
+  statement,
+  type SqlStatement,
+} from './db-batch';
 import { ApiError } from './api-error';
 import { isUnderThirteen } from './birth-form';
 export const PROFILE_COOKIE = 'tianji_profile';
@@ -65,6 +72,7 @@ export async function saveProfile(
   metadata: unknown,
   locale: Locale,
   id?: string,
+  sync?: { createId?: string; checks: SqlStatement[]; after?: SqlStatement[] },
 ) {
   const birth = BirthInputSchema.parse(raw),
     info = ProfileMetadataSchema.parse(metadata);
@@ -93,8 +101,9 @@ export async function saveProfile(
       birthYear: normalized.local.year,
       chartHash: createHash('sha256').update(JSON.stringify(normalized)).digest('hex'),
     };
-    const rowId = existing?.id ?? randomUUID();
+    const rowId = existing?.id ?? sync?.createId ?? randomUUID();
     const statements = [
+      ...(sync?.checks ?? []),
       ...guard('EXISTS (SELECT 1 FROM "User" WHERE id=? AND "deletedAt" IS NULL)', userId),
     ];
     if (existing)
@@ -124,7 +133,7 @@ export async function saveProfile(
       );
     }
     try {
-      await atomicBatch(statements);
+      await atomicBatch([...statements, ...(sync?.after ?? [])]);
     } catch (error) {
       if (String(error).includes('profile_limit'))
         throw new ApiError('E_PROFILE_LIMIT', 'Profile limit reached', 403);
@@ -149,10 +158,16 @@ export async function setDefaultProfile(userId: string, id: string) {
   ]);
 }
 /** Delete a selected profile and associated private readings atomically; choose a surviving default. */
-export async function removeProfile(userId: string, id: string) {
+export async function removeProfile(
+  userId: string,
+  id: string,
+  checks: SqlStatement[] = [],
+  after: SqlStatement[] = [],
+) {
   await lockOwner(getDb(), userId);
   await ownedProfile(userId, id);
   await atomicBatch([
+    ...checks,
     ...guard('EXISTS (SELECT 1 FROM "BirthProfile" WHERE id=? AND "userId"=?)', id, userId),
     statement(
       'DELETE FROM "Reading" WHERE "userId"=? AND ("profileId"=? OR "partnerProfileId"=?)',
@@ -166,5 +181,6 @@ export async function removeProfile(userId: string, id: string) {
       userId,
       userId,
     ),
+    ...after,
   ]);
 }

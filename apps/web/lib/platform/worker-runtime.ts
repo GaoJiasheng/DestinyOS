@@ -20,7 +20,22 @@ export async function workerFetch(
   const path = new URL(request.url).pathname;
   if (/^\/api\/v1\/stripe(?:\/|$)/.test(path) && env.FEATURE_WEB_PAYMENTS !== 'true')
     return new Response(null, { status: 404 });
-  if (!circuitBypass(path) && (await circuitOpen(env.CACHE))) return maintenanceResponse(request);
+  if (!circuitBypass(path) && (await circuitOpen(env.CACHE))) {
+    // DESIGN-GAP: Native clients consume the API envelope during maintenance; Web pages keep their localized maintenance screen.
+    if (path.startsWith('/api/v1/mobile/'))
+      return Response.json(
+        {
+          ok: false,
+          error: {
+            code: 'E_INTERNAL',
+            message: 'Service temporarily unavailable',
+            details: { retryAfter: 3600 },
+          },
+        },
+        { status: 503, headers: { 'Retry-After': '3600', 'Cache-Control': 'no-store' } },
+      );
+    return maintenanceResponse(request);
+  }
   return withDatabaseScope(
     () => dispatch(request),
     (promise) => ctx.waitUntil(promise),

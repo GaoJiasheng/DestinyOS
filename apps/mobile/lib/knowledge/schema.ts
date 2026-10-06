@@ -1,3 +1,5 @@
+import { KnowledgeVersionSchema } from '@tianji/content/mobile-wire';
+export { KnowledgeVersionSchema, compareKnowledgeVersion } from '@tianji/content/mobile-wire';
 import Ajv from 'ajv';
 import { z } from 'zod';
 import type { KnowledgeUnit } from '@tianji/content';
@@ -7,9 +9,6 @@ const validateUnit = new Ajv({ strict: false }).compile<KnowledgeUnit>(unitSchem
 const UnitSchema = z.custom<KnowledgeUnit>(
   (value) => validateUnit(value) && value.meta.status === 'published',
 );
-export const KnowledgeVersionSchema = z
-  .string()
-  .regex(/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/);
 const text = z.string().min(1);
 const system = z.union([z.nativeEnum(System), z.literal('common')]);
 const GlossaryTextSchema = z
@@ -67,12 +66,3 @@ export const DeltaSchema = z
     transitions: TransitionsSchema.optional(),
   })
   .strict();
-/** Numeric semver ordering prevents lexical mistakes and rollback to a stale release. */
-export function compareKnowledgeVersion(left: string, right: string): number {
-  KnowledgeVersionSchema.parse(left);
-  KnowledgeVersionSchema.parse(right);
-  const a = left.split('.').map(Number),
-    b = right.split('.').map(Number);
-  for (let index = 0; index < 3; index++) if (a[index] !== b[index]) return a[index]! - b[index]!;
-  return 0;
-}

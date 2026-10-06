@@ -30,12 +30,13 @@ export function chatDay(now = new Date()): Date {
   return new Date(now.toISOString().slice(0, 10));
 }
 /** Verify live account and reading ownership before reading/decrypting any private dialogue. */
-export async function chatOwner(rawId: string) {
+export async function chatOwner(rawId: string, mobileUserId?: string) {
   const id = z.string().min(1).max(100).parse(rawId);
-  const session = await auth();
-  if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
+  const session = mobileUserId ? null : await auth();
+  const userId = mobileUserId ?? session?.user.id;
+  if (!userId) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
   const db = getDb();
-  const user = await db.user.findFirst({ where: { id: session.user.id, deletedAt: null } });
+  const user = await db.user.findFirst({ where: { id: userId, deletedAt: null } });
   if (!user) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
   const reading = await db.reading.findFirst({ where: { id, userId: user.id } });
   if (!reading) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
@@ -102,9 +103,14 @@ export async function reserveChatQuota(userId: string, limit: number, day = chat
   if (!rows.length) throw new ApiError('E_QUOTA_EXCEEDED', 'Daily chat quota exceeded', 429);
 }
 /** Prepare private context and reserve limits before opening a stream; failed/cancelled generations refund daily quota. */
-export async function prepareChat(id: string, raw: unknown, signal: AbortSignal) {
+export async function prepareChat(
+  id: string,
+  raw: unknown,
+  signal: AbortSignal,
+  mobileUserId?: string,
+) {
   const req = ChatRequestSchema.parse(raw);
-  const { db, user, reading } = await chatOwner(id);
+  const { db, user, reading } = await chatOwner(id, mobileUserId);
   assertRateLimit(await ratelimit('chat', user.id));
   const settings = await siteConfig();
   if (!settings['feature.llmChat'] || !process.env.MINIMAX_API_KEY)
