@@ -1,4 +1,3 @@
-import handler from './.open-next/worker.js';
 import {
   workerFetch,
   type WorkerEnvironment,
@@ -11,7 +10,23 @@ function fetchRequest(
   env: WorkerEnvironment,
   ctx: WorkerContext,
 ): Promise<Response> {
-  return workerFetch(request, env, ctx, (incoming) => handler.fetch(incoming, env, ctx));
+  // DESIGN-GAP: Cache hits and health never initialize OpenNext's full application bundle.
+  return workerFetch(request, env, ctx, async (incoming) => {
+    const started = performance.now();
+    const { default: handler } = await import('./.open-next/worker.js');
+    const initialized = performance.now();
+    const response = await handler.fetch(incoming, env, ctx);
+    const headers = new Headers(response.headers);
+    headers.append(
+      'Server-Timing',
+      `open-next-init;dur=${(initialized - started).toFixed(2)}, open-next;dur=${(performance.now() - initialized).toFixed(2)}`,
+    );
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  });
 }
 export default {
   fetch: fetchRequest,

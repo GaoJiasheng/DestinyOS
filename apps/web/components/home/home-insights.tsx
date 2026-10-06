@@ -8,11 +8,7 @@ import { HomeSky } from './home-sky';
 import { systems } from '@/lib/system-links';
 import type { DailyChart } from '@tianji/shared';
 /** Resolve saved/local profiles after hydration without embedding private information in cached HTML. */
-export function HomeInsights({
-  initialSky,
-}: {
-  initialSky: { phase: string; stem: string; branch: string; term: string };
-}) {
+export function HomeInsights() {
   const t = useCopy();
   const [motion, setMotion] = useState<boolean | null>(null);
   const [allowLocation, setAllowLocation] = useState(false);
@@ -22,7 +18,7 @@ export function HomeInsights({
     stem: string;
     branch: string;
     term: string;
-  } | null>(initialSky);
+  } | null>(null);
   const [error, setError] = useState(false);
   const [revision, setRevision] = useState(0);
   useEffect(() => {
@@ -56,7 +52,6 @@ export function HomeInsights({
       setAllowLocation(!!(saved?.ok && saved.data));
       document.documentElement.dataset.reducedMotion = String(reduced);
       const birth = saved?.ok && saved.data ? saved.data : local?.profile;
-      if (!birth && revision === 0) return;
       if (revision === 0) {
         await new Promise<void>((resolve) => window.setTimeout(resolve, 3000));
         if (!live) return;

@@ -38,7 +38,7 @@ import {
 import { interpret, localizeReport } from '@tianji/interpret';
 import { loadKnowledge } from '@/lib/knowledge';
 import { BirthInputSchema, System } from '@tianji/shared';
-import { ENGINE_VERSION } from '@tianji/engine';
+import { ENGINE_VERSION } from '@tianji/engine/version';
 import { stripPII } from '@/lib/strip-pii';
 /** Validate, normalize, compute and interpret; authenticated results are persisted, anonymous results are returned only. */
 export async function createReadingAction(raw: unknown) {
