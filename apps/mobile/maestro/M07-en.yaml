@@ -1,0 +1,94 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-locale-en
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-en
+- openLink: 'tianji://tarot/reading?spread=three_ppf'
+- scrollUntilVisible:
+    element:
+      id: tarot-begin
+- takeScreenshot: tarot-settings-en
+- tapOn:
+    id: tarot-begin
+- scrollUntilVisible:
+    element:
+      id: ritual-exit
+- tapOn:
+    id: ritual-exit
+- assertVisible: 'Leave this reading?'
+- takeScreenshot: tarot-exit-confirm-en
+- tapOn: 'Keep casting'
+- scrollUntilVisible:
+    element:
+      id: tarot-auto
+    direction: UP
+- scrollUntilVisible:
+    element:
+      id: tarot-auto
+- tapOn:
+    id: tarot-auto
+- scrollUntilVisible:
+    element:
+      id: tarot-reveal-all
+    direction: UP
+- tapOn:
+    id: tarot-reveal-all
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- takeScreenshot: tarot-revealed-en
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: tarot-report-en
+- openLink: 'tianji://iching?method=liuyao'
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- scrollUntilVisible:
+    element:
+      id: iching-shake-all
+- tapOn:
+    id: iching-shake-all
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- takeScreenshot: liuyao-en
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- openLink: 'tianji://qimen'
+- scrollUntilVisible:
+    element:
+      id: qimen-cast
+- tapOn:
+    id: qimen-cast
+- scrollUntilVisible:
+    element:
+      id: ritual-nine-palaces
+    direction: UP
+    centerElement: true
+- takeScreenshot: qimen-en
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000

@@ -1,0 +1,184 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-locale-zh
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-zh
+- openLink: 'tianji://today'
+- tapOn:
+    id: tab-ask
+- assertVisible:
+    id: ask-liuyao
+- takeScreenshot: ask-liuyao-zh
+- tapOn:
+    id: ask-liuyao
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- assertVisible: '摇动手机或点击「摇卦」，每次生成一爻。'
+- takeScreenshot: liuyao-ready-zh
+- scrollUntilVisible:
+    element:
+      id: iching-shake
+- tapOn:
+    id: iching-shake
+- assertVisible: '已摇 1 / 6 爻（自下而上）'
+- takeScreenshot: liuyao-one-line-zh
+- scrollUntilVisible:
+    element:
+      id: iching-shake-all
+- tapOn:
+    id: iching-shake-all
+- extendedWaitUntil:
+    visible: '已摇 6 / 6 爻（自下而上）'
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      id: ritual-hexagram
+    centerElement: true
+- takeScreenshot: liuyao-six-lines-zh
+- runFlow:
+    when:
+      visible:
+        id: ritual-change
+    commands:
+      - tapOn:
+          id: ritual-change
+      - takeScreenshot: liuyao-changing-zh
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: liuyao-report-zh
+- openLink: 'tianji://iching'
+- scrollUntilVisible:
+    element:
+      id: iching-method-time
+    direction: UP
+- tapOn:
+    id: iching-method-time
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- takeScreenshot: meihua-time-zh
+- tapOn:
+    id: iching-cast
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- openLink: 'tianji://iching'
+- scrollUntilVisible:
+    element:
+      id: iching-method-numbers
+    direction: UP
+- tapOn:
+    id: iching-method-numbers
+- scrollUntilVisible:
+    element:
+      id: iching-number-0
+- tapOn:
+    id: iching-number-0
+- inputText: '0'
+- tapOn:
+    id: iching-number-1
+- inputText: '5'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- assertVisible:
+    id: ritual-invalid
+- takeScreenshot: meihua-invalid-numbers-zh
+- scrollUntilVisible:
+    element:
+      id: iching-number-0
+    direction: UP
+- tapOn:
+    id: iching-number-0
+- eraseText
+- inputText: '3'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- tapOn:
+    id: iching-cast
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- takeScreenshot: meihua-numbers-zh
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- openLink: 'tianji://iching?method=random'
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- tapOn:
+    id: iching-cast
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- takeScreenshot: meihua-random-zh
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- openLink: 'tianji://qimen'
+- extendedWaitUntil:
+    visible:
+      id: qimen-clock
+    timeout: 30000
+- takeScreenshot: qimen-setup-zh
+- scrollUntilVisible:
+    element:
+      id: qimen-cast
+- tapOn:
+    id: qimen-cast
+- scrollUntilVisible:
+    element:
+      id: ritual-nine-palaces
+    direction: UP
+    centerElement: true
+- takeScreenshot: qimen-lighting-zh
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: qimen-report-zh

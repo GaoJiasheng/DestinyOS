@@ -21,6 +21,7 @@ import { getLocalStore } from '../data/store';
 import type { LocalReading, LocalRecord, Profile } from '../data/models';
 import { getOfflineKnowledge } from '../knowledge';
 import type { MobileLocale } from '../i18n';
+import type { RitualInput } from '../rituals/model';
 
 export const reportSystems = [
   'bazi',
@@ -78,8 +79,9 @@ export async function createNativeReading(
   partner?: LocalRecord<Profile>,
   now = new Date().toISOString(),
   seed?: string,
+  ritual?: RitualInput,
+  id = Crypto.randomUUID(),
 ) {
-  const id = Crypto.randomUUID();
   const birth = profile?.data?.birth;
   const request = ReadingRequestSchema.parse({
     system,
@@ -90,7 +92,7 @@ export async function createNativeReading(
     partnerProfileVersion: partner?.data?.version,
     displayName: profile?.data?.name,
     options: optionsFor(system, profile?.data ?? undefined),
-    // DESIGN-GAP: M06's quick report uses documented engine defaults; M07 supplies ritual inputs.
+    ...ritual,
     seed: seed ?? id,
     idempotencyKey: id,
   });
@@ -101,6 +103,7 @@ export async function createNativeReading(
     birth: birth ? normalizeBirth(birth) : null,
     partnerBirth: partner?.data ? normalizeBirth(partner.data.birth) : undefined,
     options: request.options,
+    ...ritual,
   };
   const result = compute(input);
   const knowledge = await getOfflineKnowledge(system);

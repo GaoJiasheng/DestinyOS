@@ -1,0 +1,102 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-locale-zh
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-zh
+- openLink: 'tianji://tarot/reading'
+- extendedWaitUntil:
+    visible:
+      id: tarot-spread
+    timeout: 30000
+- takeScreenshot: tarot-setup-zh
+- scrollUntilVisible:
+    element:
+      id: tarot-begin
+- tapOn:
+    id: tarot-begin
+- scrollUntilVisible:
+    element:
+      id: tarot-shuffle-stage
+    direction: UP
+    centerElement: true
+- takeScreenshot: tarot-shuffle-zh
+- swipe:
+    start: 25%, 45%
+    end: 75%, 45%
+    duration: 600
+- scrollUntilVisible:
+    element:
+      id: tarot-shuffle
+- tapOn:
+    id: tarot-shuffle
+- tapOn:
+    id: tarot-next
+- scrollUntilVisible:
+    element:
+      id: tarot-cut-stage
+    direction: UP
+    centerElement: true
+- swipe:
+    start: 30%, 40%
+    end: 75%, 40%
+    duration: 600
+- runFlow:
+    when:
+      visible:
+        id: tarot-split
+    commands:
+      - tapOn:
+          id: tarot-split
+- takeScreenshot: tarot-cut-zh
+- tapOn:
+    id: tarot-pile-2
+- tapOn:
+    id: tarot-pile-0
+- tapOn:
+    id: tarot-pile-1
+- scrollUntilVisible:
+    element:
+      id: tarot-cut-next
+- tapOn:
+    id: tarot-cut-next
+- scrollUntilVisible:
+    element:
+      id: tarot-fan
+    direction: UP
+    centerElement: true
+- takeScreenshot: tarot-fan-zh
+- swipe:
+    start: 75%, 45%
+    end: 25%, 45%
+    duration: 600
+- scrollUntilVisible:
+    element:
+      id: tarot-fan-next
+- tapOn:
+    id: tarot-fan-next
+- tapOn:
+    id: tarot-pick-36
+- scrollUntilVisible:
+    element:
+      id: tarot-flip-0
+    centerElement: true
+- takeScreenshot: tarot-selected-zh
+- tapOn:
+    id: tarot-flip-0
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- takeScreenshot: tarot-revealed-zh
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: tarot-report-zh

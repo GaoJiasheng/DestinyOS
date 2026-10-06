@@ -1,0 +1,165 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji://dev/reports'
+- extendedWaitUntil:
+    visible:
+      id: fixture-locale-en
+    timeout: 90000
+- tapOn:
+    id: fixture-locale-en
+- openLink: 'tianji://iching?method=liuyao'
+- scrollUntilVisible:
+    element:
+      id: ritual-sound
+- runFlow:
+    when:
+      visible:
+        id: ritual-sound
+        checked: true
+    commands:
+      - tapOn:
+          id: ritual-sound
+- assertVisible:
+    id: ritual-sound
+    checked: false
+- tapOn:
+    id: ritual-sound
+- assertVisible:
+    id: ritual-sound
+    checked: true
+- scrollUntilVisible:
+    element:
+      id: ritual-haptics
+- runFlow:
+    when:
+      visible:
+        id: ritual-haptics
+        checked: false
+    commands:
+      - tapOn:
+          id: ritual-haptics
+- assertVisible:
+    id: ritual-haptics
+    checked: true
+- tapOn:
+    id: ritual-haptics
+- assertVisible:
+    id: ritual-haptics
+    checked: false
+- scrollUntilVisible:
+    element:
+      id: ritual-motion
+- runFlow:
+    when:
+      visible:
+        id: ritual-motion
+        checked: true
+    commands:
+      - tapOn:
+          id: ritual-motion
+- assertVisible:
+    id: ritual-motion
+    checked: false
+- tapOn:
+    id: ritual-motion
+- assertVisible:
+    id: ritual-motion
+    checked: true
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- waitForAnimationToEnd
+- takeScreenshot: feedback-enabled-reduced-en
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- scrollUntilVisible:
+    element:
+      id: iching-shake-all
+- tapOn:
+    id: iching-shake-all
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- takeScreenshot: liuyao-reduced-motion-en
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- stopApp
+- launchApp
+- openLink: 'tianji://tarot/reading'
+- scrollUntilVisible:
+    element:
+      id: ritual-sound
+- assertVisible:
+    id: ritual-sound
+    checked: true
+- scrollUntilVisible:
+    element:
+      id: ritual-haptics
+- assertVisible:
+    id: ritual-haptics
+    checked: false
+- scrollUntilVisible:
+    element:
+      id: ritual-motion
+- assertVisible:
+    id: ritual-motion
+    checked: true
+- scrollUntilVisible:
+    element:
+      id: tarot-begin
+- waitForAnimationToEnd
+- takeScreenshot: feedback-persisted-en
+- scrollUntilVisible:
+    element:
+      id: ritual-sound
+- tapOn:
+    id: ritual-sound
+- assertVisible:
+    id: ritual-sound
+    checked: false
+- scrollUntilVisible:
+    element:
+      id: ritual-haptics
+- tapOn:
+    id: ritual-haptics
+- assertVisible:
+    id: ritual-haptics
+    checked: true
+- scrollUntilVisible:
+    element:
+      id: ritual-motion
+- tapOn:
+    id: ritual-motion
+- assertVisible:
+    id: ritual-motion
+    checked: false
+- openLink: 'tianji://iching?method=liuyao'
+- scrollUntilVisible:
+    element:
+      id: iching-begin
+- tapOn:
+    id: iching-begin
+- scrollUntilVisible:
+    element:
+      id: iching-shake-all
+- tapOn:
+    id: iching-shake-all
+- scrollUntilVisible:
+    element:
+      id: ritual-result
+- takeScreenshot: liuyao-animation-final-en
+- tapOn:
+    id: ritual-result
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000

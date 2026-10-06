@@ -52,7 +52,9 @@ export default function ReadingScreen() {
                   ? router.push('/tarot/reading')
                   : system === 'iching'
                     ? router.push('/iching')
-                    : void create(system)
+                    : system === 'qimen'
+                      ? router.push('/qimen')
+                      : void create(system)
               }
             />
           </View>

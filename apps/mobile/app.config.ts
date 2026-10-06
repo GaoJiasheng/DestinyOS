@@ -32,6 +32,15 @@ const config: ExpoConfig = {
     // DESIGN-GAP: SDK57's cached RNCore Release binary omits RCTPackagerConnection during
     // a subsequent Debug link. Source builds keep development/production symbols consistent.
     ['expo-build-properties', { ios: { buildReactNativeFromSource: true } }],
+    [
+      'expo-audio',
+      {
+        microphonePermission: false,
+        recordAudioAndroid: false,
+        enableBackgroundPlayback: false,
+        enableBackgroundRecording: false,
+      },
+    ],
     'expo-router',
     'expo-asset',
     'expo-notifications',

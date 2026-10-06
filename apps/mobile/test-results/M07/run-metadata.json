@@ -1,0 +1,125 @@
+{
+  "task": "M07",
+  "verifiedAt": "2026-10-06T20:58:58.504923+00:00",
+  "device": {
+    "platform": "ios",
+    "name": "iPhone 17e",
+    "os": "26.4",
+    "simulatorId": "E35A99F1-F6C1-4BF8-8EED-018CDDB93917",
+    "xcode": "26.4.1"
+  },
+  "runtime": {
+    "expo": "57.0.27",
+    "reactNative": "0.86.3",
+    "bundleId": "pub.gavin.tianji",
+    "newArchitecture": true
+  },
+  "flows": [
+    "M07-tarot",
+    "M07-casting",
+    "M07-en",
+    "M07-feedback"
+  ],
+  "screenshots": [
+    "ask-liuyao-zh.png",
+    "feedback-enabled-reduced-en.png",
+    "feedback-persisted-en.png",
+    "liuyao-animation-final-en.png",
+    "liuyao-changing-zh.png",
+    "liuyao-en.png",
+    "liuyao-one-line-zh.png",
+    "liuyao-ready-zh.png",
+    "liuyao-reduced-motion-en.png",
+    "liuyao-report-zh.png",
+    "liuyao-six-lines-zh.png",
+    "meihua-invalid-numbers-zh.png",
+    "meihua-numbers-zh.png",
+    "meihua-random-zh.png",
+    "meihua-time-zh.png",
+    "qimen-en.png",
+    "qimen-lighting-zh.png",
+    "qimen-report-zh.png",
+    "qimen-setup-zh.png",
+    "tarot-cut-zh.png",
+    "tarot-exit-confirm-en.png",
+    "tarot-fan-zh.png",
+    "tarot-report-en.png",
+    "tarot-report-zh.png",
+    "tarot-revealed-en.png",
+    "tarot-revealed-zh.png",
+    "tarot-selected-zh.png",
+    "tarot-settings-en.png",
+    "tarot-setup-zh.png",
+    "tarot-shuffle-zh.png"
+  ],
+  "frames": {
+    "tarot": {
+      "fps": 60.00000003178914,
+      "p95Ms": 16.666666984558105,
+      "frames": 54,
+      "durationMs": 899.9999995231628,
+      "source": "ui-display",
+      "targetFps": 60,
+      "meetsDisplayCadence": true,
+      "observedAt": "2026-10-06T20:48:33.769565+00:00"
+    },
+    "iching": {
+      "fps": 60,
+      "p95Ms": 16.666666984558105,
+      "frames": 153,
+      "durationMs": 2550,
+      "source": "ui-display",
+      "targetFps": 60,
+      "meetsDisplayCadence": true,
+      "observedAt": "2026-10-06T20:58:33.219885+00:00"
+    },
+    "qimen": {
+      "fps": 60.00000001611844,
+      "p95Ms": 16.666666984558105,
+      "frames": 71,
+      "durationMs": 1183.333333015442,
+      "source": "ui-display",
+      "targetFps": 60,
+      "meetsDisplayCadence": true,
+      "observedAt": "2026-10-06T20:47:33.413478+00:00"
+    }
+  },
+  "measurementLimit": "Finite developer UI display-link windows; not GPU-completion or physical-device measurements.",
+  "sourceSha256": {
+    "apps/mobile/components/rituals/card-back.tsx": "384667e245d68a48aa7e6060f5031f1efaea8426941e52107e9fc040f322010a",
+    "apps/mobile/components/rituals/cast-stage.tsx": "7710f93f11de4a90e415d457eca0101395a35cd5ffb7a64ac1c83c3e677573b0",
+    "apps/mobile/components/rituals/controls.tsx": "6a90cfa432f31c4bca347ea28576a703352696bc1cb1e1f2bbb48eff431ea6c6",
+    "apps/mobile/components/rituals/iching-ritual.tsx": "49bb5f73459c4bd9bd173db2529b0a6d9eb2db035ab712381a564a79adead90b",
+    "apps/mobile/components/rituals/qimen-ritual.tsx": "bde605872331734d7d4e184bfdb0fe7f06d8decffb53d777d445b04957e708a2",
+    "apps/mobile/components/rituals/tarot-card.tsx": "7cace783cb0d27fece45fefacbda55b37bf88e1cdcaff233ba5475c7805635ed",
+    "apps/mobile/components/rituals/tarot-ritual.tsx": "3cefaf977dd5cb96e3d942abf891ab6d783d741b66ea114a8f673b7b230a4fb7",
+    "apps/mobile/components/rituals/tarot-stage.tsx": "dd381dc31c0a175a87b79da645498b49be9ff0e01d0e761d9c66e65aecc1c21e",
+    "apps/mobile/lib/rituals/feedback.ts": "08bf76dba28034940b45e76c162374c90e1ceea9ff9a4833cfcbbfcbf31b3e71",
+    "apps/mobile/lib/rituals/frames.ts": "c227f56c0aef22c01b4c0f4f37e0ed9f02d095472771af0a4f0c924e5d7d8209",
+    "apps/mobile/lib/rituals/model.ts": "341b4d24bdf5856e2bc64d894c33b4b4bec757d15892c68974423237eb051ef4",
+    "apps/mobile/lib/rituals/session.ts": "b14209692033fe0291214e0acb52b4404e7194bdee6e7167e6b71a45f3853d87",
+    "apps/mobile/lib/rituals/shake.ts": "27d4a5c31d8b7946913314c51d40a69434acbc606dc55a2d16b553618c47e10f",
+    "apps/mobile/maestro/M07-casting.yaml": "95ff5058544bb2e0e73ec749ba539e4949c37d9e84c597896e164721e77e1c91",
+    "apps/mobile/maestro/M07-en.yaml": "47e43c10b4205afce8ba2960e0d62352f174764b8beba5fc457e16603a54c3ea",
+    "apps/mobile/maestro/M07-tarot.yaml": "a901b3eb2d2d6ec7a982ba001de7d109747cdd39a99028a1800528b4996b2715",
+    "apps/mobile/maestro/M07-feedback.yaml": "316499a01caba0ef64d678cf7ba05a0671ac00883285abe5cdb6a847bb88cf2c"
+  },
+  "android": {
+    "prebuild": "passed",
+    "nativeBuild": "deferred by Owner",
+    "emulatorAcceptance": "deferred by Owner"
+  },
+  "physicalDevicePending": [
+    "accelerometer threshold feel",
+    "haptic feel",
+    "silent switch audibility",
+    "GPU profiling"
+  ],
+  "feedbackPersistenceAssertions": {
+    "soundOn": true,
+    "hapticsOn": false,
+    "reducedMotion": true,
+    "afterAppRestart": true,
+    "defaultsRestoredAfterFlow": true
+  }
+}
