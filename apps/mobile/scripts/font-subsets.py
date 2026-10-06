@@ -21,9 +21,9 @@ chars = set(''.join(brand[key] for key in ['nameZh', 'nameZhTW', 'nameEn']) +
 for locale in ['zh', 'zh-TW', 'en']:
     messages = json.loads((ROOT / f'apps/web/messages/{locale}.json').read_text())
     for key, value in messages.items():
-        if key in keys or key.startswith('nav.'):
+        if key in keys or key.startswith(('nav.', 'mobile.effects.', 'charts.planet.')):
             chars.update(value)
-# DESIGN-GAP: Native requires TTF/OTF rather than Web's WOFF2; the M01 subset covers the shell's three locales.
+# DESIGN-GAP: Native requires TTF/OTF rather than Web's WOFF2; the native subset covers the shell and effect labels in all three locales.
 # Match the pinned Web source hashes; fetch only when the shared local cache is absent.
 cache = Path('/tmp/destiny-font-sources')
 cache.mkdir(parents=True, exist_ok=True)

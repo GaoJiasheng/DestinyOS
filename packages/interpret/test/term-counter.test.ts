@@ -105,3 +105,20 @@ describe('report-scoped glossary matcher', () => {
     expect(createTermCounter(glossary, 'zh')('树木，木。日元，日主。')).toBe(3);
   });
 });
+
+it('preserves Unicode boundaries and longest phrases with factored English alternatives', () => {
+  const entries: GlossaryEntry[] = [
+    ...glossary,
+    {
+      ...glossary[0]!,
+      key: 'wood_phrase',
+      aliases: [],
+      en: { term: 'Wood Element', short: 'Phrase', long: 'Phrase.' },
+    },
+  ];
+  const text = '汉Wood éWood 𝟘Wood Wood𝟘 𝄞Wood WOOD Wood Element.';
+  expect(createTermCounter(entries, 'en')(text)).toBe(3);
+  expect(termMarker(entries, 'en')(text)).toBe(
+    '汉Wood éWood 𝟘Wood Wood𝟘 𝄞[[term:element.wood]] WOOD [[term:wood_phrase]].',
+  );
+});

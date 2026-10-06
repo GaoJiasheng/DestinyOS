@@ -5,7 +5,7 @@ import { Html } from '@react-three/drei/web/Html';
 import { OrbitControls } from '@react-three/drei/core/OrbitControls';
 import { useTranslations } from 'next-intl';
 import type { AstroChart } from '@tianji/shared';
-import { equatorialPoint } from '@/lib/star-catalog';
+import { equatorialPoint, celestialScene } from '@tianji/ui-core/celestial';
 import { SceneBoundary, SceneRuntime } from './scene-runtime';
 import { bodyFromEvidence, SIGN_GLYPHS } from '../charts/astro-geometry';
 /** Draggable celestial sphere using the report's actual ecliptic planet coordinates. */
@@ -38,12 +38,12 @@ export default function NatalWheel3D({
           <SceneRuntime host={host} onFailure={onFailure} animate={false} />
           <OrbitControls enablePan={false} enableDamping minDistance={3.5} maxDistance={8} />
           <mesh>
-            <sphereGeometry args={[1.55, 24, 12]} />
+            <sphereGeometry args={celestialScene.sphere} />
             <meshBasicMaterial color="#b8b5ac" wireframe transparent opacity={0.16} />
           </mesh>
           <group rotation={[(-chart.obliquity * Math.PI) / 180, 0, 0]}>
             <mesh rotation={[Math.PI / 2, 0, 0]}>
-              <torusGeometry args={[1.6, 0.03, 4, 96]} />
+              <torusGeometry args={celestialScene.ecliptic} />
               <meshBasicMaterial color="#d4af6a" />
             </mesh>
             {Array.from({ length: 12 }, (_, i) => (
@@ -64,7 +64,7 @@ export default function NatalWheel3D({
             {chart.bodies.map((body, i) => (
               <group
                 key={body.key}
-                position={equatorialPoint(body.lon, body.lat, 1.4 + (i % 3) * 0.08)}
+                position={equatorialPoint(body.lon, body.lat, celestialScene.planetRadius(i))}
               >
                 <mesh>
                   <sphereGeometry args={[active === body.key ? 0.09 : 0.055, 12, 8]} />

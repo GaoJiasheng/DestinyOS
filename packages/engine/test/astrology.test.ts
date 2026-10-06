@@ -12,6 +12,7 @@ import {
   sunriseSunset,
   trueNorthNode,
 } from '../src';
+import { computeLongitudes } from '../src/astrology/ephemeris';
 import { birth, close, jd } from './astrology-fixtures';
 import goldenA from './fixtures/astrology/A.json';
 
@@ -28,6 +29,7 @@ describe('apparent geocentric ephemeris and independently calculated Fixture A',
         ecliptic = Astronomy.Ecliptic(vector);
       close(ecliptic.elon, expected, 0.1);
       close(computePositions(birth.jd!, [key])[key].lon, ecliptic.elon, 0.000001);
+      close(computeLongitudes(birth.jd!, [key])[key], ecliptic.elon, 0.000001);
     },
   );
   it.each(Object.values(Planet))(
@@ -99,6 +101,9 @@ describe('apparent geocentric ephemeris and independently calculated Fixture A',
     });
   });
   it('maps ephemeris failures to the documented error', () => {
+    expect(() => computeLongitudes(NaN, ['moon'])).toThrow(
+      expect.objectContaining({ code: 'E_EPHEMERIS' }),
+    );
     expect(() => astroTime(NaN)).toThrow(expect.objectContaining({ code: 'E_EPHEMERIS' }));
     expect(() => computePositions(NaN, ['sun'])).toThrow(
       expect.objectContaining({ code: 'E_EPHEMERIS' }),

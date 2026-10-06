@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-10-07T00:43:02.144314+08:00",
+  "device": "iPhone 17e Simulator",
+  "runtime": "iOS 26.4",
+  "udid": "E35A99F1-F6C1-4BF8-8EED-018CDDB93917",
+  "hostCpu": "Apple M5 Max",
+  "xcode": "Xcode 26.4.1\nBuild version 17E202",
+  "expo": "57.0.27",
+  "reactNative": "0.86.3",
+  "configuration": "Release",
+  "hermes": true,
+  "warmupMs": 2000,
+  "sampleMs": 10000,
+  "fpsFloatTolerance": 1e-06,
+  "frameScope": "UI display-link scheduling; a full 2s warmup and 10s sample restarts after fallback. Native r3f callbacks require verified GL output. GPU completion is not measured.",
+  "recording": "simctl H.264 capture, resized to 720px width with ffmpeg/libx264 CRF26 for delivery; encoded frame rate is not an app FPS measurement.",
+  "rawRecordingSha256": "713a8f1b0c03cd731a91c8617e95e87d0865888ad76a920f5520103cf4daa129",
+  "recordingSha256": "101235ff43dc5cf016118ff590b70059100184fa49c3e30cee914838c5894da3",
+  "gl": {
+    "visible": 387,
+    "renderError": 0,
+    "probeError": 0,
+    "simulatorFallback": true,
+    "isDevice": false,
+    "width": 1074,
+    "height": 1073,
+    "calls": 15
+  },
+  "recordingDurationSeconds": 124.631834
+}

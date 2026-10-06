@@ -100,6 +100,8 @@ const TERM_NAMES = [
 /** Astronomical solar terms, library CST converted to instants, independent of caller timezone. */
 export function solarTerms(year: number) {
   const terms: { name: SolarTerm; time: Temporal.ZonedDateTime }[] = [];
+  // DESIGN-GAP: Deduplicate exact term instants once per call; repeated Temporal epoch getters made the equivalent linear scan quadratic on Hermes.
+  const seen = new Set<bigint>();
   for (const y of [year - 1, year, year + 1]) {
     const table = Solar.fromYmd(y, 6, 1).getLunar().getJieQiTable();
     for (const [i, name] of TERM_NAMES.entries()) {
@@ -114,8 +116,11 @@ export function solarTerms(year: number) {
           second: solar.getSecond(),
           timeZone: '+08:00',
         }).withTimeZone('Asia/Shanghai');
-        if (!terms.some((t) => t.time.epochNanoseconds === time.epochNanoseconds))
+        const instant = time.epochNanoseconds;
+        if (!seen.has(instant)) {
+          seen.add(instant);
           terms.push({ name: Object.values(SolarTerm)[i]!, time });
+        }
       }
     }
   }

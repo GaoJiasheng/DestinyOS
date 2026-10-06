@@ -1,0 +1,83 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    clearState: true
+- openLink: 'tianji:///dev/effects'
+- tapOn:
+    text: '打开|Open'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: scene-starfield
+    timeout: 30000
+- assertVisible:
+    id: scene-starfield
+- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/starfield')}
+- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
+- assertVisible: '.*fps.*'
+- takeScreenshot: starfield
+- tapOn:
+    id: engine-check
+- extendedWaitUntil:
+    visible:
+      id: engine-passed
+    timeout: 120000
+- takeScreenshot: engine-hermes
+- waitForAnimationToEnd:
+    timeout: 1000
+- scrollUntilVisible:
+    element:
+      id: effect-sphere
+    direction: UP
+    timeout: 10000
+- tapOn:
+    id: effect-sphere
+- assertVisible:
+    id: scene-sphere
+- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/sphere')}
+- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
+- assertVisible: '.*fps.*'
+- takeScreenshot: sphere
+- tapOn:
+    id: force-fallback
+- assertVisible:
+    id: sphere-fallback
+- takeScreenshot: sphere-fallback
+- tapOn:
+    id: effect-particles
+- assertVisible:
+    id: scene-particles
+- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/particles')}
+- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
+- assertVisible: '.*fps.*'
+- takeScreenshot: particles
+- tapOn:
+    id: particles-ink
+- takeScreenshot: particles-ink
+- tapOn:
+    id: particles-stardust
+- takeScreenshot: particles-stardust
+- tapOn:
+    id: effect-tarot
+- assertVisible:
+    id: scene-tarot
+- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/tarot')}
+- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
+- assertVisible: '.*fps.*'
+- takeScreenshot: tarot
+- tapOn:
+    id: effect-coins
+- assertVisible:
+    id: scene-coins
+- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/coins')}
+- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
+- assertVisible: '.*fps.*'
+- takeScreenshot: coins
+- tapOn:
+    id: effect-wheel
+- assertVisible:
+    id: scene-wheel
+- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/wheel')}
+- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
+- assertVisible: '.*fps.*'
+- takeScreenshot: wheel

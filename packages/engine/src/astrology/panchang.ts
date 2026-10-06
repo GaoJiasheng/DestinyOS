@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { Nakshatra, PanchangSchema, type Panchang } from '@tianji/shared';
 import { EngineError } from '../common/error';
-import { computePositions, sunriseSunset } from './ephemeris';
+import { computeLongitudes, sunriseSunset } from './ephemeris';
 import { ayanamsaLahiri } from './vedic-rules';
 import { jdToISO } from './dasha';
 import { wrap, signed } from './math';
@@ -94,15 +94,22 @@ export function computePanchang(
   // DESIGN-GAP: Polar no-sunrise Panchang uses local midnight as its day boundary and exposes sunrise=null.
   const start = atJD ?? solar.sunrise ?? dayJD,
     end = nextSolar.sunrise ?? nextDay.epochMilliseconds / 86400000 + 2440587.5;
+  // DESIGN-GAP: Share identical bisection samples across the four limbs within this call only; no persistent chart/result cache.
+  const samples = new Map<number, Record<Limb, number>>();
   const angles = (jd: number): Record<Limb, number> => {
-    const p = computePositions(jd, ['sun', 'moon']),
+    const prior = samples.get(jd);
+    if (prior) return prior;
+    // DESIGN-GAP: Panchang bisection uses only angles; avoid the two velocity samples per body, preserving the same position evaluation.
+    const p = computeLongitudes(jd, ['sun', 'moon']),
       a = ayanamsaLahiri(jd);
-    return {
-      tithi: wrap(p.moon.lon - p.sun.lon),
-      karana: wrap(p.moon.lon - p.sun.lon),
-      nakshatra: wrap(p.moon.lon - a),
-      yoga: wrap(p.sun.lon + p.moon.lon - 2 * a),
+    const result = {
+      tithi: wrap(p.moon - p.sun),
+      karana: wrap(p.moon - p.sun),
+      nakshatra: wrap(p.moon - a),
+      yoga: wrap(p.sun + p.moon - 2 * a),
     };
+    samples.set(jd, result);
+    return result;
   };
   const key = (limb: Limb, index: number): string =>
     limb === 'nakshatra'

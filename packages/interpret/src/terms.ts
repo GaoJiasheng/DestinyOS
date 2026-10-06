@@ -34,7 +34,7 @@ export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
   const pattern = [...unique.keys()]
     .map((term) =>
       locale === 'en'
-        ? `(?<![\\p{L}\\p{N}_])${escape(term)}(?![\\p{L}\\p{N}_])`
+        ? escape(term)
         : [...term].length === 1
           ? `(?<![\\p{Script=Han}])${escape(term)}(?![\\p{Script=Han}])`
           : escape(term),
@@ -48,7 +48,10 @@ export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
   );
   const isTechnicalMatch = (matched: string, key: string) =>
     !exactNames.has(key) || exactNames.get(key)!.has(matched);
-  return { regex: pattern ? new RegExp(pattern, 'giu') : null, unique, isTechnicalMatch };
+  // DESIGN-GAP: Factor the identical English Unicode boundaries outside the alternatives; Hermes otherwise repeats expensive lookbehind for every glossary term at every character.
+  const bounded =
+    locale === 'en' ? `(?<![\\p{L}\\p{N}_])(?:${pattern})(?![\\p{L}\\p{N}_])` : pattern;
+  return { regex: pattern ? new RegExp(bounded, 'giu') : null, unique, isTechnicalMatch };
 }
 /** Create a report-scoped annotator marking only the first unambiguous term occurrence.
  * @param glossary Fixed glossary entries for one report.

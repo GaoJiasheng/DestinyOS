@@ -43,3 +43,9 @@ apps/mobile/test-results/*
 !apps/mobile/test-results/M01/
 apps/mobile/test-results/M01/*
 !apps/mobile/test-results/M01/*.png
+
+!apps/mobile/test-results/M02/
+apps/mobile/test-results/M02/*
+!apps/mobile/test-results/M02/*.png
+!apps/mobile/test-results/M02/*.json
+!apps/mobile/test-results/M02/*.mp4

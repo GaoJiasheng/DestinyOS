@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
@@ -45,9 +46,20 @@ const config: NextConfig = {
   },
   // DESIGN-GAP: Exclude Node-only binaries from Workers bundles while preserving the Vercel build.
   webpack(config, { isServer, nextRuntime }) {
+    // DESIGN-GAP: Public values are compiled into client code; isolate filesystem caches when E2E switches between configured ads and an unconfigured build.
+    const publicConfig = createHash('sha256')
+      .update(
+        JSON.stringify(
+          Object.entries(process.env)
+            .filter(([key]) => key.startsWith('NEXT_PUBLIC_'))
+            .sort(([a], [b]) => a.localeCompare(b)),
+        ),
+      )
+      .digest('hex')
+      .slice(0, 16);
     // DESIGN-GAP: Platform aliases differ; partition Webpack's filesystem caches so a Node build never reuses disabled Worker adapters.
     if (config.cache && typeof config.cache === 'object')
-      config.cache.name = `${config.cache.name ?? 'next'}-${process.env.PLATFORM === 'cloudflare' ? 'cloudflare' : 'node'}`;
+      config.cache.name = `${config.cache.name ?? 'next'}-${process.env.PLATFORM === 'cloudflare' ? 'cloudflare' : 'node'}-${publicConfig}`;
     // DESIGN-GAP: Next only externalizes RSC by default; these non-React libraries are safe to share with SSR too, so OpenNext can deduplicate their full datasets.
     if (isServer && nextRuntime === 'nodejs')
       config.externals.unshift({

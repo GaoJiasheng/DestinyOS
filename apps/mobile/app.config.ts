@@ -25,6 +25,7 @@ const config: ExpoConfig = {
   android: { package: 'pub.gavin.tianji', predictiveBackGestureEnabled: true },
   plugins: [
     'expo-router',
+    'expo-asset',
     [
       'expo-font',
       {

@@ -1,0 +1,42 @@
+appId: pub.gavin.tianji
+---
+- openLink: 'tianji:///me'
+- tapOn:
+    text: '打开|Open'
+    optional: true
+- tapOn:
+    id: locale-en
+- openLink: 'tianji:///dev/effects'
+- assertVisible: 'Effects laboratory'
+- assertVisible:
+    id: scene-starfield
+- takeScreenshot: starfield-en
+- tapOn:
+    id: effect-sphere
+- extendedWaitUntil:
+    visible:
+      id: sphere-fallback
+    timeout: 15000
+- assertVisible:
+    id: scene-sphere
+- takeScreenshot: sphere-en
+- tapOn:
+    id: effect-particles
+- assertVisible:
+    id: scene-particles
+- takeScreenshot: particles-en
+- tapOn:
+    id: effect-tarot
+- assertVisible:
+    id: scene-tarot
+- takeScreenshot: tarot-en
+- tapOn:
+    id: effect-coins
+- assertVisible:
+    id: scene-coins
+- takeScreenshot: coins-en
+- tapOn:
+    id: effect-wheel
+- assertVisible:
+    id: scene-wheel
+- takeScreenshot: wheel-en

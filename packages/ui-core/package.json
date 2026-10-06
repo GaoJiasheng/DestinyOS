@@ -6,10 +6,15 @@
   "exports": {
     ".": "./tokens/index.ts",
     "./tokens": "./tokens/index.ts",
-    "./tokens.css": "./tokens/tokens.css"
+    "./tokens.css": "./tokens/tokens.css",
+    "./celestial": "./tokens/celestial.ts",
+    "./sky-position": "./tokens/sky-position.ts"
   },
   "scripts": {
     "build": "tsx scripts/build.ts && tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.tools.json --noEmit"
+  },
+  "dependencies": {
+    "astronomy-engine": "2.1.19"
   }
 }

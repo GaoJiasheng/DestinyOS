@@ -96,6 +96,22 @@ function longitude(jd: number, body: Body, node: 'mean' | 'true'): { lon: number
   const p = Astronomy.Ecliptic(Astronomy.GeoVector(astronomyBodies[body], astroTime(jd), true));
   return { lon: p.elon, lat: p.elat };
 }
+/** Apparent geocentric longitudes (degrees of date), without unused velocity samples.
+ * @param jdUT Explicit UT Julian day.
+ * @param bodies Bodies to evaluate in caller order. */
+export function computeLongitudes<B extends Body>(
+  jdUT: number,
+  bodies: readonly B[],
+): Record<B, number> {
+  const result = {} as Record<B, number>;
+  try {
+    astroTime(jdUT);
+    for (const body of bodies) result[body] = longitude(jdUT, body, 'true').lon;
+  } catch {
+    throw new EngineError('E_EPHEMERIS');
+  }
+  return result;
+}
 /** Apparent geocentric longitude/latitude (degrees), speed (degrees/UT day), including aberration. */
 export function computePositions<B extends Body>(
   jdUT: number,
