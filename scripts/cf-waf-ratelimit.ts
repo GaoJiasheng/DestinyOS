@@ -16,7 +16,7 @@ export function wafRule() {
       characteristics: ['cf.colo.id', 'ip.src'],
       period: 10,
       requests_per_period: 60,
-      mitigation_timeout: 60,
+      mitigation_timeout: 10,
     },
   };
 }
@@ -57,7 +57,11 @@ export async function configureWaf({
   const zones = z
     .array(z.object({ id: z.string(), name: z.literal('gavin.pub') }))
     .length(1)
-    .parse(await request('/zones?name=gavin.pub&status=active'));
+    .parse(
+      process.env.CLOUDFLARE_ZONE_ID
+        ? { result: [{ id: process.env.CLOUDFLARE_ZONE_ID, name: 'gavin.pub' }] }
+        : await request('/zones?name=gavin.pub&status=active'),
+    );
   const base = `/zones/${zones[0]!.id}`;
   const current = await request(`${base}/rulesets/phases/http_ratelimit/entrypoint`);
   if (!current)
