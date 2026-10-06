@@ -18,6 +18,8 @@ const shellNamespaces = new Set([
   'learn',
   'anon',
   'engine',
+  // DESIGN-GAP: Artwork alt text belongs to the shared shell because first-visit and error illustrations render outside feature providers.
+  'art',
 ]);
 /** Keep private feature and encyclopedia text out of every public HTML response. */
 export function shellMessages(messages: AbstractIntlMessages): AbstractIntlMessages {

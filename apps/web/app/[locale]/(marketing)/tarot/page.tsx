@@ -2,7 +2,7 @@ import { publicRouteMetadata } from '@/lib/public-seo';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { TarotSelection } from '@/components/tarot/tarot-selection';
-// DESIGN-GAP: Public spread selection serializes only its tarot namespace, keeping unrelated report/glossary prose out of the document.
+// DESIGN-GAP: Public spread selection serializes only tarot and artwork labels, keeping unrelated report/glossary prose out of the document.
 export const revalidate = 3600;
 /** Public spread selection: no birth profile is needed. */
 export default async function TarotPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -10,7 +10,7 @@ export default async function TarotPage({ params }: { params: Promise<{ locale: 
   setRequestLocale(locale);
   const messages = await getMessages();
   return (
-    <NextIntlClientProvider messages={{ tarot: messages.tarot ?? {} }}>
+    <NextIntlClientProvider messages={{ tarot: messages.tarot ?? {}, art: messages.art ?? {} }}>
       <TarotSelection />
     </NextIntlClientProvider>
   );

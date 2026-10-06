@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { SystemArt } from '@/components/art/system-art';
 import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
@@ -33,6 +34,7 @@ export default async function SystemPage({
   const t = await getCopy();
   return (
     <section className="status-page">
+      <SystemArt system={key} banner priority />
       <h1 className="type-h1">{t(`nav.${key}`)}</h1>
       <Button asChild>
         <Link href={`/${key}/new`}>{t('form.birth.submit')}</Link>

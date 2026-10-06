@@ -1,6 +1,15 @@
 import { test, expect } from '@playwright/test';
+import type { Page } from '@playwright/test';
+
+// DESIGN-GAP: Artwork must retain translated alt text after public message catalogs are trimmed; fail on client translation errors as well as missing pixels.
+const translationErrors = new WeakMap<Page, string[]>();
 
 test.beforeEach(async ({ page }, info) => {
+  const errors: string[] = [];
+  translationErrors.set(page, errors);
+  page.on('console', (message) => {
+    if (/MISSING_MESSAGE|INVALID_MESSAGE/.test(message.text())) errors.push(message.text());
+  });
   await page.route('**/pagead/**', (route) =>
     route.fulfill({ status: 200, contentType: 'application/javascript', body: '' }),
   );
@@ -8,6 +17,7 @@ test.beforeEach(async ({ page }, info) => {
     if (accepted) localStorage.setItem('tianji-disclaimer-v1', 'accepted');
   }, !info.title.includes('first-visit'));
 });
+test.afterEach(({ page }) => expect(translationErrors.get(page)).toEqual([]));
 
 test('zh: first-visit artwork including offline precache stays within 400KB', async ({
   page,

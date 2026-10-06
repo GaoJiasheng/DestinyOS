@@ -254,6 +254,10 @@ test('public HTML cache, lightweight health, RSC isolation and deferred qimen re
     expect(hit.headers()['server-timing']).not.toContain('open-next-init');
     if (path === '/zh' || path === '/en')
       expect((await hit.body()).length).toBeLessThanOrEqual(120000);
+    if (path === '/zh/bazi' || path === '/zh/qimen' || path === '/zh/tarot') {
+      const system = path.split('/').at(-1);
+      expect(await hit.text()).toContain(`data-art="systems/${system}-banner"`);
+    }
   }
   const rsc = await request.get('/zh/tarot?_rsc=perf', { headers: { RSC: '1' } });
   expect(rsc.headers()['content-type']).toContain('text/x-component');
@@ -271,4 +275,8 @@ test('public HTML cache, lightweight health, RSC isolation and deferred qimen re
   await expect(page.getByLabel(zh['tarot.question'], { exact: true })).toBeVisible();
   await page.goto('/zh/qimen');
   await expect(page.locator('textarea')).toBeVisible();
+  await expect(page.locator('[data-art="systems/qimen-banner"] img')).toHaveAttribute(
+    'alt',
+    zh['art.systems.qimen'],
+  );
 });

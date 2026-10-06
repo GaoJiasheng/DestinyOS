@@ -35,12 +35,16 @@ const child = spawn(
     env: { ...process.env, WRANGLER_SEND_METRICS: 'false' },
   },
 );
+// DESIGN-GAP: The local smoke server runs until stopped; an operator-requested shutdown is successful, while unexpected startup/runtime exits keep their failure status.
+let stopping = false;
 process.on('SIGTERM', () => {
+  stopping = true;
   child.kill('SIGTERM');
 });
 process.on('SIGINT', () => {
+  stopping = true;
   child.kill('SIGINT');
 });
 child.on('exit', (code) => {
-  process.exit(code ?? 1);
+  process.exit(stopping ? 0 : (code ?? 1));
 });

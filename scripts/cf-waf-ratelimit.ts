@@ -9,13 +9,14 @@ export function wafRule() {
     ref: reference,
     description: 'DestinyOS: block IP above 60 dynamic requests / 10 seconds',
     expression:
-      '(http.host eq "tianji.gavin.pub" and not (starts_with(http.request.uri.path, "/_next/static/") or starts_with(http.request.uri.path, "/fonts/") or starts_with(http.request.uri.path, "/images/") or starts_with(http.request.uri.path, "/icons/") or starts_with(http.request.uri.path, "/tarot/") or starts_with(http.request.uri.path, "/workers/") or starts_with(http.request.uri.path, "/_data/") or starts_with(http.request.uri.path, "/offline/") or http.request.uri.path in {"/favicon.ico" "/manifest.webmanifest" "/robots.txt" "/sw.js" "/stars.bin" "/stars-source.json"}))',
+      '(http.host eq "tianji.gavin.pub" and not (starts_with(http.request.uri.path, "/_next/static/") or starts_with(http.request.uri.path, "/fonts/") or starts_with(http.request.uri.path, "/art/") or starts_with(http.request.uri.path, "/images/") or starts_with(http.request.uri.path, "/icons/") or starts_with(http.request.uri.path, "/tarot/") or starts_with(http.request.uri.path, "/workers/") or starts_with(http.request.uri.path, "/_data/") or starts_with(http.request.uri.path, "/offline/") or http.request.uri.path in {"/favicon.ico" "/manifest.webmanifest" "/robots.txt" "/sw.js" "/stars.bin" "/stars-source.json"}))',
     action: 'block',
     enabled: true,
     ratelimit: {
       characteristics: ['cf.colo.id', 'ip.src'],
       period: 10,
       requests_per_period: 60,
+      // DESIGN-GAP: Preserve deploy's existing 10-second mitigation window for its configured Zone plan.
       mitigation_timeout: 10,
     },
   };
@@ -59,7 +60,7 @@ export async function configureWaf({
     .length(1)
     .parse(
       process.env.CLOUDFLARE_ZONE_ID
-        ? { result: [{ id: process.env.CLOUDFLARE_ZONE_ID, name: 'gavin.pub' }] }
+        ? [{ id: process.env.CLOUDFLARE_ZONE_ID, name: 'gavin.pub' }]
         : await request('/zones?name=gavin.pub&status=active'),
     );
   const base = `/zones/${zones[0]!.id}`;

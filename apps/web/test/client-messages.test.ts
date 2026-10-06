@@ -19,6 +19,8 @@ for (const [locale, catalog] of [
     expect(t('synastry.requiresTwo')).toBe(catalog['synastry.requiresTwo']);
     expect(t('daily.color.teal')).toBe(catalog['daily.color.teal']);
     expect(t('bazi.stems.jia')).toBe(catalog['bazi.stems.jia']);
+    expect(t('art.states.disclaimer')).toBe(catalog['art.states.disclaimer']);
+    expect(t('art.states.error')).toBe(catalog['art.states.error']);
     expect(messages.glossary).toBeUndefined();
     expect(messages.rectification).toBeUndefined();
     expect(messages.charts).toBeUndefined();
