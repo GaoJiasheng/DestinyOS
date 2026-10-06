@@ -6,7 +6,7 @@ import { PricingControls } from '@/components/billing/billing-controls';
 import { Link } from '@/i18n/navigation';
 import { setRequestLocale } from 'next-intl/server';
 export const dynamic = 'force-dynamic';
-/** Localized free/pro comparison, recurrence terms, interval switch and Checkout entry. */
+/** Localized free/pro comparison, monthly/lifetime terms, payment switch and Checkout entry. */
 export default async function PricingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);

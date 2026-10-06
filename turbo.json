@@ -38,7 +38,8 @@
     "MINIMAX_*",
     "FEATURE_LLM_CHAT",
     "LOCAL_DATABASE_URL",
-    "PLATFORM"
+    "PLATFORM",
+    "REVENUECAT_*"
   ],
   "globalDependencies": ["prisma/schema.prisma", "apps/web/migrations/**"]
 }

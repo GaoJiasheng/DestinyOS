@@ -59,6 +59,22 @@
         "default": "free"
       },
       {
+        "name": "lifetime",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": false
+      },
+      {
+        "name": "revenuecatProUntil",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
         "name": "locale",
         "kind": "scalar",
         "type": "String",
@@ -927,6 +943,22 @@
       },
       {
         "name": "stripePriceId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "lifetime",
+        "kind": "scalar",
+        "type": "Boolean",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": false
+      },
+      {
+        "name": "stripeCheckoutSessionId",
         "kind": "scalar",
         "type": "String",
         "isId": false,

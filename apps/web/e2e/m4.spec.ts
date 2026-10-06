@@ -3,10 +3,11 @@ import { test, expect } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
 import zh from '../messages/zh.json' with { type: 'json' };
 import en from '../messages/en.json' with { type: 'json' };
+import tw from '../messages/zh-TW.json' with { type: 'json' };
 const db = sqliteClient(testDatabaseUrl(57542));
 test.afterAll(async () => db.$disconnect());
-for (const locale of ['zh', 'en'] as const) {
-  const copy = locale === 'zh' ? zh : en;
+for (const locale of ['zh', 'zh-TW', 'en'] as const) {
+  const copy = locale === 'zh-TW' ? tw : locale === 'zh' ? zh : en;
   test(`${locale}: legal pages, secure headers, hosted subscription, portal cancellation and expiration`, async ({
     page,
     request,
@@ -21,7 +22,7 @@ for (const locale of ['zh', 'en'] as const) {
       expect((await page.locator('main').innerText()).length).toBeGreaterThan(180);
       await expect(page.locator('ins.adsbygoogle')).toHaveCount(0);
     }
-    const email = `m4-${locale}-${randomUUID()}@example.test`;
+    const email = `m4-${locale.toLowerCase()}-${randomUUID()}@example.test`;
     await page.goto(`/${locale}/auth/login`);
     await page.getByLabel(copy['auth.login.email']).fill(email);
     await page.getByRole('button', { name: copy['auth.login.send'], exact: true }).click();
@@ -36,7 +37,7 @@ for (const locale of ['zh', 'en'] as const) {
     await page.getByRole('button', { name: copy['auth.verify.confirm'], exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}$`));
     await page.goto(`/${locale}/pricing`);
-    await page.getByRole('button', { name: copy['billing.yearly'], exact: true }).click();
+    await page.getByRole('button', { name: copy['billing.monthly'], exact: true }).click();
     await page.screenshot({ path: info.outputPath('pricing.png'), fullPage: true });
     await page.getByRole('button', { name: copy['billing.subscribe'], exact: true }).click();
     await expect(page).toHaveURL(/127.0.0.1:60282\/checkout/);
@@ -47,7 +48,7 @@ for (const locale of ['zh', 'en'] as const) {
     const user = await db.user.findUniqueOrThrow({ where: { email } });
     expect(user.plan).toBe('pro');
     let sub = await db.subscription.findUniqueOrThrow({ where: { userId: user.id } });
-    expect(sub.stripePriceId).toBe('price_yearly_test');
+    expect(sub.stripePriceId).toBe('price_monthly_test');
     await page.getByRole('button', { name: copy['me.billing.portal'], exact: true }).click();
     await page.getByRole('button', { name: 'Cancel renewal' }).click();
     await expect(page.getByText(copy['billing.canceledAtEnd'], { exact: true })).toBeVisible();
@@ -61,6 +62,23 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(
       page.locator('main').getByText(copy['me.plan.free'], { exact: true }),
     ).toBeVisible();
+    await page.goto(`/${locale}/pricing`);
+    await page.getByRole('button', { name: copy['billing.lifetime'], exact: true }).click();
+    await expect(page.getByText(copy['billing.lifetimePrice'], { exact: true })).toBeVisible();
+    await page.screenshot({ path: info.outputPath('pricing-lifetime.png'), fullPage: true });
+    await page.getByRole('button', { name: copy['billing.buyLifetime'], exact: true }).click();
+    await page.getByRole('button', { name: 'Complete test payment' }).click();
+    await expect(page.getByText(copy['billing.state.lifetime'], { exact: true })).toBeVisible();
+    expect(await db.user.findUniqueOrThrow({ where: { id: user.id } })).toMatchObject({
+      plan: 'pro',
+      lifetime: true,
+    });
+    expect(
+      (await request.post(`http://127.0.0.1:60282/expire?id=${sub.stripeSubscriptionId}`)).ok(),
+    ).toBe(true);
+    await page.reload();
+    await expect(page.getByText(copy['billing.state.lifetime'], { exact: true })).toBeVisible();
+    expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).plan).toBe('pro');
     const exported = await page.request.get('/api/v1/me/export');
     expect(exported.ok()).toBe(true);
     expect((await page.request.get('/api/v1/me/export')).status()).toBe(429);

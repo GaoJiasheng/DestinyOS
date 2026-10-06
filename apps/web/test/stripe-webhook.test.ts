@@ -1,12 +1,18 @@
 import { beforeEach, afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import Stripe from 'stripe';
 import { isolatedSqlite } from '../../../scripts/sqlite-test';
-const mock = vi.hoisted(() => ({ retrieve: vi.fn(), mail: vi.fn(), db: null as unknown }));
+const mock = vi.hoisted(() => ({
+  retrieve: vi.fn(),
+  checkout: vi.fn(),
+  mail: vi.fn(),
+  db: null as unknown,
+}));
 vi.mock('../lib/db', () => ({ getDb: () => mock.db }));
 vi.mock('../lib/stripe', async (original) => ({
   ...(await original<typeof import('../lib/stripe')>()),
   getStripe: () => ({
     subscriptions: { retrieve: mock.retrieve },
+    checkout: { sessions: { retrieve: mock.checkout } },
     webhooks: new Stripe('sk_test').webhooks,
   }),
 }));
@@ -40,6 +46,9 @@ beforeEach(async () => {
   vi.stubEnv('AUTH_SECRET', 'isolated-unit-event-secret');
   vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');
   vi.stubEnv('STRIPE_WEBHOOK_SECRET', 'whsec_test');
+  vi.stubEnv('STRIPE_PRICE_LIFETIME', 'price_lifetime');
+  vi.stubEnv('REVENUECAT_SECRET_KEY', '');
+  vi.stubEnv('REVENUECAT_STRIPE_API_KEY', '');
   mock.mail.mockResolvedValue(undefined);
   await db.ephemeralState.deleteMany();
   await db.user.deleteMany();
@@ -206,4 +215,135 @@ describe('signed Stripe webhooks on SQLite', () => {
     );
     expect(mock.mail).toHaveBeenCalledTimes(2);
   });
+});
+
+const lifetimeCheckout = () =>
+  event(
+    'checkout.session.completed',
+    {
+      id: 'cs_lifetime',
+      mode: 'payment',
+      customer: 'cus_test',
+      client_reference_id: 'owner',
+      metadata: { userId: 'owner', price: 'lifetime' },
+      payment_status: 'paid',
+    },
+    'evt_lifetime',
+  );
+function paidCheckout() {
+  return {
+    id: 'cs_lifetime',
+    mode: 'payment',
+    payment_status: 'paid',
+    customer: 'cus_test',
+    client_reference_id: 'owner',
+    metadata: { price: 'lifetime', userId: 'owner' },
+    line_items: { data: [{ price: { id: 'price_lifetime' }, quantity: 1 }] },
+  };
+}
+it('grants a paid one-time lifetime once and preserves it after subscription cancellation', async () => {
+  await handleStripeEvent(checkout());
+  mock.checkout.mockResolvedValue(paidCheckout());
+  expect(await handleStripeEvent(lifetimeCheckout())).toBe('processed');
+  expect(await handleStripeEvent(lifetimeCheckout())).toBe('duplicate');
+  expect(await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).toMatchObject({
+    plan: 'pro',
+    lifetime: true,
+  });
+  expect(await db.subscription.findUniqueOrThrow({ where: { userId: 'owner' } })).toMatchObject({
+    lifetime: true,
+    stripeCheckoutSessionId: 'cs_lifetime',
+    stripeSubscriptionId: 'sub_test',
+  });
+  mock.retrieve.mockResolvedValue({
+    id: 'sub_test',
+    customer: 'cus_test',
+    status: 'canceled',
+    cancel_at_period_end: false,
+    items: { data: [] },
+  });
+  await handleStripeEvent(
+    event(
+      'customer.subscription.deleted',
+      { id: 'sub_test', customer: 'cus_test', metadata: {} },
+      'evt_lifetime_cancel',
+    ),
+  );
+  expect(await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).toMatchObject({
+    plan: 'pro',
+    lifetime: true,
+  });
+  expect(await db.event.count({ where: { name: 'sub.ended' } })).toBe(0);
+});
+it('does not grant unpaid or unrelated one-time purchases and retries delayed payment success', async () => {
+  mock.checkout.mockResolvedValue({ ...paidCheckout(), payment_status: 'unpaid' });
+  await handleStripeEvent(lifetimeCheckout());
+  expect(await db.subscription.count()).toBe(0);
+  mock.checkout.mockResolvedValue({
+    ...paidCheckout(),
+    line_items: { data: [{ price: { id: 'wrong_price' }, quantity: 1 }] },
+  });
+  const delayed = event(
+    'checkout.session.async_payment_succeeded',
+    lifetimeCheckout().data.object,
+    'evt_delayed',
+  );
+  await expect(handleStripeEvent(delayed)).rejects.toMatchObject({ code: 'E_PAYMENT' });
+  mock.checkout.mockResolvedValue(paidCheckout());
+  await handleStripeEvent(delayed);
+  expect(await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).toMatchObject({
+    plan: 'pro',
+    lifetime: true,
+  });
+  expect(await db.subscription.findUniqueOrThrow({ where: { userId: 'owner' } })).toMatchObject({
+    stripeSubscriptionId: null,
+    currentPeriodEnd: null,
+    lifetime: true,
+  });
+});
+it('retries RevenueCat imports after committing local lifetime, without duplicate transitions', async () => {
+  vi.stubEnv('REVENUECAT_SECRET_KEY', 'rc_secret');
+  const fetcher = vi
+    .spyOn(globalThis, 'fetch')
+    .mockResolvedValueOnce(new Response('{}', { status: 503 }))
+    .mockResolvedValue(new Response('{}'));
+  try {
+    mock.checkout.mockResolvedValue(paidCheckout());
+    await expect(handleStripeEvent(lifetimeCheckout())).rejects.toMatchObject({ status: 503 });
+    expect((await db.user.findUniqueOrThrow({ where: { id: 'owner' } })).lifetime).toBe(true);
+    expect(await handleStripeEvent(lifetimeCheckout())).toBe('processed');
+    expect(await db.event.count({ where: { name: 'sub.started' } })).toBe(1);
+    expect(fetcher).toHaveBeenLastCalledWith(
+      'https://api.revenuecat.com/v1/receipts',
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({
+          Authorization: 'Bearer rc_secret',
+          'X-Platform': 'stripe',
+        }),
+        body: JSON.stringify({ app_user_id: 'owner', fetch_token: 'cs_lifetime' }),
+      }),
+    );
+  } finally {
+    fetcher.mockRestore();
+  }
+});
+it('imports monthly purchases using subscription IDs and skips deleted lifetime owners', async () => {
+  vi.stubEnv('REVENUECAT_SECRET_KEY', 'rc_secret');
+  const fetcher = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('{}'));
+  try {
+    await handleStripeEvent(checkout());
+    expect(fetcher).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({
+        body: JSON.stringify({ app_user_id: 'owner', fetch_token: 'sub_test' }),
+      }),
+    );
+    await db.user.update({ where: { id: 'owner' }, data: { deletedAt: new Date(), plan: 'free' } });
+    await handleStripeEvent(lifetimeCheckout());
+    expect(mock.checkout).not.toHaveBeenCalled();
+    expect(fetcher).toHaveBeenCalledOnce();
+  } finally {
+    fetcher.mockRestore();
+  }
 });

@@ -25,16 +25,20 @@ export default async function BillingPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ status?: string }>;
+  searchParams: Promise<{ status?: string; purchase?: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getCopy(),
     session = await auth();
   if (!session?.user.id) return redirect({ href: '/auth/login?callbackUrl=/me/billing', locale });
-  const subscription = await getDb().subscription.findUnique({
-    where: { userId: session.user.id },
+  const user = await getDb().user.findUniqueOrThrow({
+    where: { id: session.user.id },
+    include: { subscription: true },
   });
+  const subscription = user.subscription;
+  // DESIGN-GAP: The purchase option keeps an already-Pro monthly owner polling until their lifetime purchase is confirmed.
+  const query = await searchParams;
   // DESIGN-GAP: Portal availability needs only the secret key, independently of price configuration.
   const enabled = Boolean(process.env.STRIPE_SECRET_KEY);
   if (enabled) getStripe();
@@ -42,15 +46,30 @@ export default async function BillingPage({
     <section className="settings-page">
       <h1 className="type-h1">{t('me.billing')}</h1>
       <div className="report-card">
-        <p>{t(session.user.plan === 'pro' ? 'me.plan.pro' : 'me.plan.free')}</p>
-        <p>{t(session.user.plan === 'pro' ? 'me.billing.pro' : 'me.billing.free')}</p>
-        {subscription ? (
+        <p>{t(user.plan === 'pro' ? 'me.plan.pro' : 'me.plan.free')}</p>
+        <p>{t(user.plan === 'pro' ? 'me.billing.pro' : 'me.billing.free')}</p>
+        {user.lifetime ? <p>{t('billing.state.lifetime')}</p> : null}
+        {user.lifetime &&
+        subscription?.stripeSubscriptionId &&
+        subscription.status !== 'canceled' ? (
+          <p>{t('billing.lifetimeExistingSubscription')}</p>
+        ) : null}
+        {subscription?.stripeSubscriptionId &&
+        (!user.lifetime || !['canceled', 'incomplete_expired'].includes(subscription.status)) ? (
           <dl>
             <dt>{t('billing.status')}</dt>
             <dd>{t(billingStateKeys[subscription.status] ?? 'billing.state.unknown')}</dd>
             {subscription.currentPeriodEnd ? (
               <>
-                <dt>{t(subscription.cancelAtPeriodEnd ? 'billing.endsAt' : 'billing.renewsAt')}</dt>
+                <dt>
+                  {t(
+                    user.lifetime
+                      ? 'billing.subscriptionEndsAt'
+                      : subscription.cancelAtPeriodEnd
+                        ? 'billing.endsAt'
+                        : 'billing.renewsAt',
+                  )}
+                </dt>
                 <dd>
                   <time dateTime={subscription.currentPeriodEnd.toISOString()}>
                     {new Intl.DateTimeFormat(locale, {
@@ -69,9 +88,11 @@ export default async function BillingPage({
         ) : null}
         <BillingControls
           enabled={enabled}
-          initialPlan={session.user.plan}
-          hasSubscription={Boolean(subscription)}
-          success={(await searchParams).status === 'success'}
+          initialPlan={user.plan as 'free' | 'pro'}
+          initialLifetime={user.lifetime}
+          lifetimePurchase={query.purchase === 'lifetime'}
+          hasSubscription={Boolean(subscription?.stripeSubscriptionId)}
+          success={query.status === 'success'}
         />
         <Link href="/pricing">{t('billing.title')}</Link>
       </div>

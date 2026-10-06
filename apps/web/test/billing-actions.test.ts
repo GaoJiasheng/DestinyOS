@@ -20,7 +20,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');
   vi.stubEnv('STRIPE_PRICE_MONTHLY', 'price_month');
-  vi.stubEnv('STRIPE_PRICE_YEARLY', 'price_year');
+  vi.stubEnv('STRIPE_PRICE_LIFETIME', 'price_lifetime');
   vi.stubEnv('STRIPE_TAX_ENABLED', 'true');
   vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://example.test');
   mock.auth.mockResolvedValue({ user: { id: 'owner' } });
@@ -38,17 +38,17 @@ afterEach(() => vi.unstubAllEnvs());
 it('restricts prices, uses owner email and localized return URLs, and honors Tax toggle', async () => {
   expect((await createCheckoutSessionAction({ price: 'arbitrary' })).ok).toBe(false);
   expect(mock.checkout).not.toHaveBeenCalled();
-  expect((await createCheckoutSessionAction({ price: 'yearly' })).ok).toBe(true);
+  expect((await createCheckoutSessionAction({ price: 'monthly' })).ok).toBe(true);
   expect(mock.checkout).toHaveBeenCalledWith(
     expect.objectContaining({
       customer_email: 'user@example.test',
       mode: 'subscription',
-      line_items: [{ price: 'price_year', quantity: 1 }],
+      line_items: [{ price: 'price_month', quantity: 1 }],
       allow_promotion_codes: true,
       automatic_tax: { enabled: true },
-      success_url: 'https://example.test/en/me/billing?status=success',
+      success_url: 'https://example.test/en/me/billing?status=success&purchase=monthly',
     }),
-    expect.objectContaining({ idempotencyKey: expect.stringContaining('checkout:owner:yearly:') }),
+    expect.objectContaining({ idempotencyKey: expect.stringContaining('checkout:owner:monthly:') }),
   );
   vi.stubEnv('STRIPE_TAX_ENABLED', 'false');
   await createCheckoutSessionAction({ price: 'monthly' });
@@ -88,4 +88,39 @@ it('avoids duplicate active subscriptions and opens only the owner customer port
     customer: 'cus_owner',
     return_url: 'https://example.test/en/me/billing',
   });
+});
+
+it('creates lifetime payments with a customer, without subscription_data, and rejects annual or repeat lifetime purchases', async () => {
+  expect((await createCheckoutSessionAction({ price: 'yearly' })).ok).toBe(false);
+  expect((await createCheckoutSessionAction({ price: 'lifetime' })).ok).toBe(true);
+  const input = mock.checkout.mock.calls[0]?.[0] as Record<string, unknown>;
+  expect(input).toMatchObject({
+    mode: 'payment',
+    customer_creation: 'always',
+    metadata: { userId: 'owner', price: 'lifetime' },
+    line_items: [{ price: 'price_lifetime', quantity: 1 }],
+    success_url: 'https://example.test/en/me/billing?status=success&purchase=lifetime',
+  });
+  expect(input).not.toHaveProperty('subscription_data');
+  mock.user.mockResolvedValue({ id: 'owner', lifetime: true, plan: 'pro' });
+  expect((await createCheckoutSessionAction({ price: 'lifetime' })).ok).toBe(false);
+  expect(mock.checkout).toHaveBeenCalledOnce();
+});
+it('allows monthly owners to buy lifetime using their existing customer', async () => {
+  mock.user.mockResolvedValue({
+    id: 'owner',
+    lifetime: false,
+    plan: 'pro',
+    subscription: {
+      stripeCustomerId: 'cus_owner',
+      stripeSubscriptionId: 'sub_owner',
+      status: 'active',
+    },
+  });
+  expect((await createCheckoutSessionAction({ price: 'lifetime' })).ok).toBe(true);
+  expect(mock.checkout).toHaveBeenCalledWith(
+    expect.objectContaining({ mode: 'payment', customer: 'cus_owner' }),
+    expect.any(Object),
+  );
+  expect(mock.checkout.mock.calls[0]?.[0]).not.toHaveProperty('customer_creation');
 });

@@ -14,13 +14,14 @@ Requirements are defined only by repository docs/; this is an operator runbook.
   and blocked-hostname counts only, with no URL paths/queries. Inspect browser console with real ads before enforcing CSP and
   auditing statically generated scripts; violation URLs must not contain PII.
 - Set Stripe test secret, run `pnpm stripe:products`, copy returned price IDs.
-  Suggested USD prices are 2.99 / 24.99. Optional cents overrides require matching
-  display/terms changes before launch. Configure Customer Portal with payment
-  methods, monthly/yearly price switching and cancellation at period end.
+  Owner-fixed USD prices are 2.99/month and 6.99 lifetime (one-time payment).
+  Annual prices are archived by the script; existing subscriptions are retained.
+  Configure Customer Portal with payment methods and cancellation at period end;
+  remove annual switching.
   Enable receipts/invoices in Stripe. Activate Stripe Tax before setting
   `STRIPE_TAX_ENABLED=true`; leave it false until configured.
 - Subscribe webhook endpoint `/api/v1/stripe/webhook` to
-  `checkout.session.completed`, `customer.subscription.updated`,
+  `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `customer.subscription.updated`,
   `customer.subscription.deleted`, `invoice.payment_failed`.
   Set webhook secret independently of API key. For local signed events:
   `stripe listen --forward-to localhost:3000/api/v1/stripe/webhook`.

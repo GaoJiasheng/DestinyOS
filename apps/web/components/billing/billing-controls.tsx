@@ -9,17 +9,17 @@ import {
   getBillingAction,
 } from '@/app/billing/actions';
 
-/** Toggle documented monthly/yearly billing and redirect to hosted Checkout. */
+/** Toggle documented monthly/lifetime billing and redirect to hosted Checkout. */
 export function PricingControls({ enabled }: { enabled: boolean }) {
   const t = useCopy();
   const router = useRouter();
-  const [price, setPrice] = useState<'monthly' | 'yearly'>('monthly');
+  const [price, setPrice] = useState<'monthly' | 'lifetime'>('monthly');
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(false);
   return (
     <div>
       <div className="action-row" role="group" aria-label={t('billing.interval')}>
-        {(['monthly', 'yearly'] as const).map((p) => (
+        {(['monthly', 'lifetime'] as const).map((p) => (
           <Button
             key={p}
             variant={price === p ? 'default' : 'secondary'}
@@ -31,7 +31,7 @@ export function PricingControls({ enabled }: { enabled: boolean }) {
         ))}
       </div>
       <p className="type-h2">
-        {t(price === 'monthly' ? 'billing.monthlyPrice' : 'billing.yearlyPrice')}
+        {t(price === 'monthly' ? 'billing.monthlyPrice' : 'billing.lifetimePrice')}
       </p>
       {enabled ? (
         <Button
@@ -50,7 +50,13 @@ export function PricingControls({ enabled }: { enabled: boolean }) {
               .finally(() => setBusy(false));
           }}
         >
-          {t(busy ? 'common.loading' : 'billing.subscribe')}
+          {t(
+            busy
+              ? 'common.loading'
+              : price === 'lifetime'
+                ? 'billing.buyLifetime'
+                : 'billing.subscribe',
+          )}
         </Button>
       ) : (
         <p role="status">{t('billing.soon')}</p>
@@ -65,22 +71,26 @@ export function BillingControls({
   hasSubscription,
   enabled,
   initialPlan,
+  initialLifetime,
+  lifetimePurchase,
 }: {
   success: boolean;
   hasSubscription: boolean;
   enabled: boolean;
   initialPlan: 'free' | 'pro';
+  initialLifetime: boolean;
+  lifetimePurchase: boolean;
 }) {
   const t = useCopy(),
     router = useRouter();
   const [state, setState] = useState<'pending' | 'ready' | 'delayed'>(
-    success && initialPlan !== 'pro' ? 'pending' : 'ready',
+    success && (lifetimePurchase ? !initialLifetime : initialPlan !== 'pro') ? 'pending' : 'ready',
   );
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(false);
   useEffect(() => {
     if (!success) return;
-    if (initialPlan === 'pro') {
+    if (lifetimePurchase ? initialLifetime : initialPlan === 'pro') {
       setState('ready');
       return;
     }
@@ -91,7 +101,7 @@ export function BillingControls({
       try {
         const result = await getBillingAction();
         if (!active) return;
-        if (result.ok && result.data.plan === 'pro') {
+        if (result.ok && (lifetimePurchase ? result.data.lifetime : result.data.plan === 'pro')) {
           setState('ready');
           router.refresh();
           return;
@@ -112,7 +122,7 @@ export function BillingControls({
       active = false;
       clearTimeout(timer);
     };
-  }, [success, initialPlan, router]);
+  }, [success, initialPlan, initialLifetime, lifetimePurchase, router]);
   return (
     <div>
       {success ? (

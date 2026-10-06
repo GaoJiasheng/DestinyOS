@@ -23,40 +23,45 @@ function failure(error: unknown) {
     error: { code: error instanceof ApiError ? error.code : 'E_PAYMENT' },
   };
 }
-/** Create a hosted subscription checkout for the authenticated owner and an allowlisted price. */
+/** Create a hosted monthly subscription or lifetime payment checkout for the authenticated owner and an allowlisted price. */
 export async function createCheckoutSessionAction(raw: unknown) {
   try {
     const { price } = z
-      .object({ price: z.enum(['monthly', 'yearly']) })
+      .object({ price: z.enum(['monthly', 'lifetime']) })
       .strict()
       .parse(raw);
     if (!billingEnabled()) throw new ApiError('E_PAYMENT', 'Billing unavailable', 503);
     const user = await billingUser();
     if (
-      user.plan === 'pro' ||
-      (user.subscription && !['canceled', 'incomplete_expired'].includes(user.subscription.status))
+      user.lifetime ||
+      (price === 'monthly' &&
+        (user.plan === 'pro' ||
+          (user.subscription?.stripeSubscriptionId &&
+            !['canceled', 'incomplete_expired'].includes(user.subscription.status))))
     )
       throw new ApiError('E_PAYMENT', 'Use the billing portal for an existing subscription', 409);
     const locale = await getLocale();
     const base = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`;
     // DESIGN-GAP: A per-user, ten-minute Stripe idempotency key prevents double clicks creating duplicate checkouts.
+    // DESIGN-GAP: Buying lifetime preserves an existing subscription; the UI tells its owner to cancel renewal in Portal.
     const checkout = await getStripe().checkout.sessions.create(
       {
-        mode: 'subscription',
+        mode: price === 'lifetime' ? 'payment' : 'subscription',
+        ...(price === 'lifetime' && !user.subscription ? { customer_creation: 'always' } : {}),
         ...(user.subscription
           ? { customer: user.subscription.stripeCustomerId }
           : user.email
             ? { customer_email: user.email }
             : {}),
         client_reference_id: user.id,
-        metadata: { userId: user.id },
-        subscription_data: { metadata: { userId: user.id } },
+        metadata: { userId: user.id, price },
+        ...(price === 'monthly' ? { subscription_data: { metadata: { userId: user.id } } } : {}),
         line_items: [
           {
             price:
               price === 'monthly'
                 ? process.env.STRIPE_PRICE_MONTHLY
-                : process.env.STRIPE_PRICE_YEARLY,
+                : process.env.STRIPE_PRICE_LIFETIME,
             quantity: 1,
           },
         ],
@@ -68,7 +73,7 @@ export async function createCheckoutSessionAction(raw: unknown) {
               ...(user.subscription ? { customer_update: { address: 'auto' as const } } : {}),
             }
           : {}),
-        success_url: `${base}/${locale}/me/billing?status=success`,
+        success_url: `${base}/${locale}/me/billing?status=success&purchase=${price}`,
         cancel_url: `${base}/${locale}/pricing?status=canceled`,
       },
       { idempotencyKey: `checkout:${user.id}:${price}:${Math.floor(Date.now() / 600000)}` },
@@ -102,6 +107,7 @@ export async function getBillingAction() {
       ok: true as const,
       data: {
         plan: user.plan,
+        lifetime: user.lifetime,
         status: user.subscription?.status ?? null,
         currentPeriodEnd: user.subscription?.currentPeriodEnd?.toISOString() ?? null,
         cancelAtPeriodEnd: user.subscription?.cancelAtPeriodEnd ?? false,

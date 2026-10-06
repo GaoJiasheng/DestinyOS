@@ -22,7 +22,15 @@ export async function startStripeMock(port: number, site: string) {
   const subscriptions = new Map<string, TestSubscription>();
   const checkouts = new Map<
     string,
-    { userId: string; price: string; success: string; canceled: string }
+    {
+      userId: string;
+      price: string;
+      success: string;
+      canceled: string;
+      mode: string;
+      customer: string;
+      paid: boolean;
+    }
   >();
   const events: string[] = [];
   async function send(type: string, object: object) {
@@ -62,9 +70,9 @@ export async function startStripeMock(port: number, site: string) {
                   price: {
                     ...item.price,
                     currency: 'usd',
-                    unit_amount: item.price.id === 'price_yearly_test' ? 2499 : 299,
+                    unit_amount: 299,
                     recurring: {
-                      interval: item.price.id === 'price_yearly_test' ? 'year' : 'month',
+                      interval: 'month',
                       interval_count: 1,
                     },
                   },
@@ -81,8 +89,26 @@ export async function startStripeMock(port: number, site: string) {
           price: input.get('line_items[0][price]') ?? '',
           success: input.get('success_url') ?? site,
           canceled: input.get('cancel_url') ?? site,
+          mode: input.get('mode') ?? 'subscription',
+          customer: input.get('customer') ?? `cus_${randomUUID()}`,
+          paid: false,
         });
         response.end(JSON.stringify({ id, url: `${origin}/checkout?id=${id}` }));
+      } else if (url.pathname.startsWith('/v1/checkout/sessions/')) {
+        const id = url.pathname.split('/').at(-1) ?? '';
+        const checkout = checkouts.get(id);
+        if (!checkout) throw new Error('Checkout missing');
+        response.end(
+          JSON.stringify({
+            id,
+            mode: checkout.mode,
+            payment_status: checkout.paid ? 'paid' : 'unpaid',
+            customer: checkout.customer,
+            client_reference_id: checkout.userId,
+            metadata: { userId: checkout.userId, price: 'lifetime' },
+            line_items: { data: [{ price: { id: checkout.price }, quantity: 1 }] },
+          }),
+        );
       } else if (url.pathname === '/checkout') {
         response.setHeader('Content-Type', 'text/html');
         // Test-surface copy is deliberately separate from product UI.
@@ -92,9 +118,22 @@ export async function startStripeMock(port: number, site: string) {
       } else if (url.pathname === '/complete') {
         const checkout = checkouts.get(url.searchParams.get('id') ?? '');
         if (!checkout) throw new Error('Checkout missing');
+        checkout.paid = true;
+        if (checkout.mode === 'payment') {
+          await send('checkout.session.completed', {
+            id: url.searchParams.get('id'),
+            mode: 'payment',
+            payment_status: 'paid',
+            customer: checkout.customer,
+            client_reference_id: checkout.userId,
+          });
+          response.writeHead(303, { Location: checkout.success });
+          response.end();
+          return;
+        }
         const sub: TestSubscription = {
           id: `sub_${randomUUID()}`,
-          customer: `cus_${randomUUID()}`,
+          customer: checkout.customer,
           status: 'active',
           cancel_at_period_end: false,
           metadata: { userId: checkout.userId },

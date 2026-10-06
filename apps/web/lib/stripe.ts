@@ -6,7 +6,7 @@ export function billingEnabled(): boolean {
   return Boolean(
     process.env.STRIPE_SECRET_KEY &&
     process.env.STRIPE_PRICE_MONTHLY &&
-    process.env.STRIPE_PRICE_YEARLY,
+    process.env.STRIPE_PRICE_LIFETIME,
   );
 }
 /** Lazily construct the Stripe client; never expose a key or an SDK error to the browser. */

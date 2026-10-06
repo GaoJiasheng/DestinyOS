@@ -25,8 +25,11 @@ export default defineConfig({
       STRIPE_SECRET_KEY: 'sk_test_m4',
       STRIPE_WEBHOOK_SECRET: 'whsec_m4',
       STRIPE_PRICE_MONTHLY: 'price_monthly_test',
-      STRIPE_PRICE_YEARLY: 'price_yearly_test',
+      STRIPE_PRICE_LIFETIME: 'price_lifetime_test',
       STRIPE_TAX_ENABLED: 'true',
+      // DESIGN-GAP: Browser fixtures must never import mock purchases into a real RevenueCat account.
+      REVENUECAT_SECRET_KEY: '',
+      REVENUECAT_STRIPE_API_KEY: '',
       TEST_STRIPE_MOCK: '1',
       TEST_STRIPE_URL: 'http://127.0.0.1:60282',
       TEST_STRIPE_PORT: '60282',
