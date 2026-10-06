@@ -1,4 +1,5 @@
 'use client';
+import { SystemArt } from '@/components/art/system-art';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import {
@@ -26,6 +27,7 @@ export function TarotSelection() {
   const [error, setError] = useState(false);
   return (
     <section className="tarot-page">
+      <SystemArt system="tarot" banner priority />
       <header>
         <p className="eyebrow">{t('intro')}</p>
         <h1 className="type-h1">{t('title')}</h1>

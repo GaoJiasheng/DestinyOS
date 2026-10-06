@@ -1,3 +1,4 @@
+import { SystemArt } from '@/components/art/system-art';
 import { notFound, redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { setRequestLocale } from 'next-intl/server';
@@ -13,10 +14,13 @@ export default async function QimenPage({ params }: { params: Promise<{ locale: 
   if (locale !== 'zh' && locale !== 'en' && locale !== 'zh-TW') notFound();
   if ((await cookies()).get('age_gate')?.value === 'blocked') redirect(`/${locale}/age-restricted`);
   return (
-    <DivinationFlow
-      system="qimen"
-      knowledge={await loadKnowledge('qimen', locale)}
-      signedIn={Boolean(await auth())}
-    />
+    <>
+      <SystemArt system="qimen" banner priority />
+      <DivinationFlow
+        system="qimen"
+        knowledge={await loadKnowledge('qimen', locale)}
+        signedIn={Boolean(await auth())}
+      />
+    </>
   );
 }

@@ -1,12 +1,21 @@
 'use client';
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
 import { getProfileAction } from '@/app/readings/actions';
 import { getMotionPreferenceAction } from '@/app/home/actions';
-import { HomeSky } from './home-sky';
 import { systems } from '@/lib/system-links';
 import type { DailyChart } from '@tianji/shared';
+function SkyCaption() {
+  const t = useCopy();
+  return <p className="sky-caption">{t('home.sky.origin')}</p>;
+}
+// DESIGN-GAP: Defer the sky capability/location controller with its renderer, keeping the localized caption visible while the painted Hero is already ready.
+const HomeSky = dynamic(() => import('./home-sky').then((module) => module.HomeSky), {
+  ssr: false,
+  loading: SkyCaption,
+});
 /** Resolve saved/local profiles after hydration without embedding private information in cached HTML. */
 export function HomeInsights({
   initialSky,

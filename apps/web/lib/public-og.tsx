@@ -4,6 +4,8 @@ import { localeText } from '@tianji/shared/locale';
 import { getCopy } from '@/i18n/get-copy';
 import { resourceBytes } from './platform/resources';
 import { publicPageCatalog } from './public-seo';
+import { artDataUrl } from './art-resource';
+import { isArtSystem } from '@tianji/ui-core/art';
 
 /** Render public editorial metadata only; unknown or private destinations return no image. */
 export async function renderPublicOg(locale: Locale, path: string) {
@@ -11,6 +13,11 @@ export async function renderPublicOg(locale: Locale, path: string) {
   if (!page) return null;
   const t = await getCopy(locale);
   const font = await resourceBytes('resources/og-font.ttf');
+  const system = path.split('/').filter(Boolean).find(isArtSystem);
+  // DESIGN-GAP: System cards pair their cutout with the text-safe quote frame for a single main subject.
+  const background = await artDataUrl(system ? 'share/quote-landscape' : 'brand/og-default');
+  const illustration = system ? await artDataUrl(`systems/${system}`) : null;
+  const illustrationAlt = system ? t(`art.systems.${system}`) : '';
   // DESIGN-GAP: The shared public OG template uses the documented dark/gold palette and a self-hosted font; long titles are bounded to keep the 1200×630 frame readable.
   return new ImageResponse(
     <div
@@ -21,7 +28,9 @@ export async function renderPublicOg(locale: Locale, path: string) {
         width: '100%',
         height: '100%',
         padding: 64,
-        background: 'radial-gradient(ellipse at 25% 20%, #111628, #05070F 75%)',
+        backgroundColor: '#05070F',
+        backgroundImage: `url(${background})`,
+        backgroundSize: '100% 100%',
         color: '#F3F1EA',
         fontFamily: 'Tianji',
         border: '8px solid #D4AF6A',
@@ -35,15 +44,32 @@ export async function renderPublicOg(locale: Locale, path: string) {
             name: localeText(locale === 'en' ? brand.nameEn : brand.nameZh, locale),
           })}
         </span>
-        <span>{t('learn.ogLabel')}</span>
+        {/* DESIGN-GAP: A dark caption surface keeps gold lettering legible over painted highlights. */}
+        <span
+          style={{ backgroundColor: 'rgba(5,7,15,0.88)', borderRadius: 14, padding: '6px 12px' }}
+        >
+          {t('learn.ogLabel')}
+        </span>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-        <div style={{ display: 'flex', fontSize: 52, lineHeight: 1.3 }}>
-          {t('report.content', { text: page.title.slice(0, 85) })}
+      <div style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 28,
+            width: illustration ? '70%' : '100%',
+          }}
+        >
+          <div style={{ display: 'flex', fontSize: 52, lineHeight: 1.3 }}>
+            {t('report.content', { text: page.title.slice(0, 85) })}
+          </div>
+          <div style={{ display: 'flex', fontSize: 25, lineHeight: 1.5, color: '#B8B5AC' }}>
+            {t('report.content', { text: page.description.slice(0, locale === 'en' ? 180 : 90) })}
+          </div>
         </div>
-        <div style={{ display: 'flex', fontSize: 25, lineHeight: 1.5, color: '#B8B5AC' }}>
-          {t('report.content', { text: page.description.slice(0, locale === 'en' ? 180 : 90) })}
-        </div>
+        {illustration ? (
+          <img src={illustration} width={260} height={260} alt={illustrationAlt} />
+        ) : null}
       </div>
       <div
         style={{

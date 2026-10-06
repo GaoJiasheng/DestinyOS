@@ -42,11 +42,12 @@ export async function generateMetadata({
     title: t('common.brandTitle', { nameZh: brand.nameZh, nameEn: brand.nameEn }),
     description: t('brand.tagline'),
     manifest: '/manifest.webmanifest',
-    icons: { icon: '/icons/icon-192.png', apple: '/icons/apple-touch-icon.png' },
+    icons: { icon: '/art/brand/favicon.ico', apple: '/art/brand/apple-touch-icon.png' },
     appleWebApp: {
       capable: true,
       statusBarStyle: 'black-translucent',
       title: t('brand.nameEn', { name: brand.nameEn }),
+      startupImage: '/art/brand/apple-launch.png',
     },
     metadataBase: new URL(`https://${brand.domain}`),
     alternates: { languages: { zh: '/zh', 'zh-TW': '/zh-TW', en: '/en' } },

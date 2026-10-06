@@ -1,4 +1,5 @@
 'use client';
+import { StateArt } from '@/components/art/state-art';
 import { useEffect } from 'react';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ export default function ErrorPage({
   }, [error]);
   return (
     <section className="status-page">
+      <StateArt state="error" priority />
       <h1 className="type-h1">{t('errors.generic')}</h1>
       <Button onClick={reset}>{t('common.retry')}</Button>
     </section>

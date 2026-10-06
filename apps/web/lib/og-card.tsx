@@ -7,6 +7,7 @@ import type { PublicShare, DailyCard } from './share-projection';
 import { publicText } from './share-projection';
 import { shareCopy } from './share-copy';
 import QRCode from 'qrcode';
+import { artDataUrl } from './art-resource';
 // DESIGN-GAP: Satori cannot read browser theme variables; embedded image values mirror docs/03 tokens.
 const palette = { surface: '#111628', gold: '#D4AF6A', text: '#F3F1EA', line: '#6C9BE0' };
 /** Extract bounded display text shared by all three image templates; this is also the privacy test boundary. */
@@ -45,6 +46,9 @@ export async function renderCard(
     synastry: palette.line,
   };
   const headline = publicText(card.headline).slice(0, 120);
+  const background = await artDataUrl(
+    `share/${template === 'synastry' ? 'chart' : template}-${story ? 'portrait' : 'landscape'}`,
+  );
   const scores = 'system' in card ? Object.entries(card.scores) : [];
   return new ImageResponse(
     <div
@@ -53,7 +57,9 @@ export async function renderCard(
         flexDirection: 'column',
         justifyContent: 'space-between',
         position: 'relative',
-        background: 'radial-gradient(ellipse at 30% 20%, #0D1330, #05070F 70%)',
+        backgroundColor: '#05070F',
+        backgroundImage: `url(${background})`,
+        backgroundSize: '100% 100%',
         color: palette.text,
         width: '100%',
         height: '100%',
@@ -62,18 +68,6 @@ export async function renderCard(
         border: `12px solid ${colors[template]}`,
       }}
     >
-      <svg width={width} height={height} style={{ position: 'absolute', left: 0, top: 0 }}>
-        {Array.from({ length: 64 }, (_, i) => (
-          <circle
-            key={i}
-            cx={(i * 137 + 24) % width}
-            cy={(i * 211 + 48) % height}
-            r={i % 5 ? 1 : 2}
-            fill={palette.gold}
-            opacity="0.5"
-          />
-        ))}
-      </svg>
       <div
         style={{
           display: 'flex',

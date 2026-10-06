@@ -1,4 +1,5 @@
 'use client';
+import { ArtImage } from '@/components/art/art-image';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useCopy } from '@/i18n/use-copy';
@@ -43,6 +44,15 @@ export function Disclaimer() {
       title={t('legal.firstVisit.title')}
       description={t('legal.disclaimer.full')}
     >
+      {/* DESIGN-GAP: Use the existing copy hook and bounded bitmap directly to keep the mandatory first-visit shell small. */}
+      <ArtImage
+        asset="states/disclaimer"
+        alt={t('art.states.disclaimer')}
+        className="state-art"
+        sizes="(min-width: 640px) 240px, 180px"
+        maxWidth={512}
+        priority
+      />
       <p className="type-small muted">{t('legal.ageConfirmation')}</p>
       <Button className="disclaimer-confirm" onClick={acknowledge}>
         {t('legal.firstVisit.confirm')}

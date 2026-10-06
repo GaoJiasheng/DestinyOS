@@ -31,6 +31,9 @@ const config: NextConfig = {
     '/api/export': ['./node_modules/@sparticuz/chromium/bin/**/*'],
     '/*': [
       './resources/**/*',
+      './public/art/share/*.png',
+      './public/art/systems/*.png',
+      './public/art/brand/og-default.png',
       './messages/*/glossary.json',
       // DESIGN-GAP: Next traces Node export conditions; OpenNext selects Sentry's workerd edge entry, so explicitly trace its SDK dependency.
       './node_modules/@sentry/vercel-edge/**/*',
