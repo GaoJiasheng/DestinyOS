@@ -94,3 +94,8 @@ apps/mobile/native/widget/Info.plist
 apps/mobile/test-results/M12/*
 !apps/mobile/test-results/M12/*.png
 !apps/mobile/test-results/M12/*.json
+
+!apps/mobile/test-results/M13/
+apps/mobile/test-results/M13/*
+!apps/mobile/test-results/M13/*.png
+!apps/mobile/test-results/M13/*.json

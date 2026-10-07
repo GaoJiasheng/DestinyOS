@@ -93,6 +93,11 @@ export function ProfileScreen() {
         label={t('me.history')}
         onPress={() => router.push('/me/history')}
       />
+      <Action
+        id="me-billing"
+        label={t('billing.title')}
+        onPress={() => router.push('/me/billing')}
+      />
       <Preferences />
     </Page>
   );

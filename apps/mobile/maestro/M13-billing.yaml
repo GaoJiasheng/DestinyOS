@@ -1,0 +1,291 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/monetization'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: m13-prepare
+    timeout: 60000
+- tapOn:
+    id: m13-prepare
+- extendedWaitUntil:
+    visible:
+      id: m13-plan
+    timeout: 30000
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-en
+    centerElement: true
+- tapOn:
+    id: m13-en
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-show
+    centerElement: true
+- tapOn:
+    id: m13-show
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: billing-plan
+    centerElement: true
+- assertVisible:
+    id: billing-plan
+- takeScreenshot: billing-free-en
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: buy-tianji_pro_monthly
+    centerElement: true
+- assertVisible:
+    id: buy-tianji_pro_monthly
+- takeScreenshot: products-en
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: buy-tianji_pro_monthly
+    centerElement: true
+- tapOn:
+    id: buy-tianji_pro_monthly
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: billing-plan
+    centerElement: true
+- assertVisible:
+    id: billing-plan
+- takeScreenshot: billing-monthly-en
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: billing-manage
+    centerElement: true
+- tapOn:
+    id: billing-manage
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-close
+    centerElement: true
+- tapOn:
+    id: m13-close
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-refund
+    centerElement: true
+- tapOn:
+    id: m13-refund
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-plan
+    centerElement: true
+- assertVisible: 'Free account'
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-cancel
+    centerElement: true
+- tapOn:
+    id: m13-cancel
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-monthly
+    centerElement: true
+- tapOn:
+    id: m13-monthly
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-message
+    centerElement: true
+- assertVisible:
+    id: m13-message
+- takeScreenshot: purchase-cancelled-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-fail
+    centerElement: true
+- tapOn:
+    id: m13-fail
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-monthly
+    centerElement: true
+- tapOn:
+    id: m13-monthly
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-message
+    centerElement: true
+- assertVisible:
+    id: m13-message
+- takeScreenshot: purchase-error-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-server
+    centerElement: true
+- tapOn:
+    id: m13-server
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-lifetime
+    centerElement: true
+- tapOn:
+    id: m13-lifetime
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-plan
+    centerElement: true
+- assertVisible: 'Lifetime membership.*'
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-sync-pending
+    centerElement: true
+- assertVisible:
+    id: m13-sync-pending
+- takeScreenshot: sync-pending-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-server
+    centerElement: true
+- tapOn:
+    id: m13-server
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-restore
+    centerElement: true
+- tapOn:
+    id: m13-restore
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-plan
+    centerElement: true
+- assertVisible: 'Lifetime membership.*'
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-message
+    centerElement: true
+- assertVisible:
+    id: m13-message
+- takeScreenshot: purchase-restored-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-offline
+    centerElement: true
+- tapOn:
+    id: m13-offline
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-show
+    centerElement: true
+- tapOn:
+    id: m13-show
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: billing-offline
+    centerElement: true
+- assertVisible:
+    id: billing-offline
+- takeScreenshot: billing-offline-en
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-close
+    centerElement: true
+- tapOn:
+    id: m13-close
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-offline
+    centerElement: true
+- tapOn:
+    id: m13-offline
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-zh
+    centerElement: true
+- tapOn:
+    id: m13-zh
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-show
+    centerElement: true
+- tapOn:
+    id: m13-show
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: billing-plan
+    centerElement: true
+- assertVisible:
+    id: billing-plan
+- takeScreenshot: billing-lifetime-zh
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: billing-restore
+    centerElement: true
+- assertVisible:
+    id: billing-restore
+- takeScreenshot: restore-zh
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-close
+    centerElement: true
+- tapOn:
+    id: m13-close
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-refund
+    centerElement: true
+- tapOn:
+    id: m13-refund
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-plan
+    centerElement: true
+- assertVisible: '免费账户'
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: native-ad-0
+    centerElement: true
+- assertVisible:
+    id: native-ad-0
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: refund-test-ad-zh

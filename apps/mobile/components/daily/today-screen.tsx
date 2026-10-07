@@ -1,3 +1,4 @@
+import { NativeAdCard } from '../native-ad-card';
 import { spacing, corner } from '@tianji/ui-core/tokens';
 import { useState, useRef } from 'react';
 import { ScrollView, View, Pressable, RefreshControl } from 'react-native';
@@ -266,8 +267,9 @@ export function TodayScreen() {
                   </View>
                 ))}
               </ReportCard>
-              {/* DESIGN-GAP: M13 owns consent/entitlement-aware AdMob. Keep its documented single slot without making ad requests before consent exists. */}
-              <View testID="daily-block-13" />
+              <View testID="daily-block-13">
+                <NativeAdCard slot={0} />
+              </View>
               <DailyInsights value={value} tz={tz} onShare={() => setShare(true)} />
             </BlurTargetView>
             {!active && (

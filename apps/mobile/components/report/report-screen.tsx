@@ -1,3 +1,5 @@
+import { NativeAdCard } from '../native-ad-card';
+import { reportAdSlot } from '../../lib/monetization/ad-policy';
 import { useEffect, useState, useRef, useSyncExternalStore } from 'react';
 import { ScrollView, View, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -247,7 +249,7 @@ export function ReportScreen({
             }}
             style={{ padding: 16, gap: 16 }}
           >
-            {view.report.sections.map((section) => (
+            {view.report.sections.map((section, index) => (
               <View
                 key={section.key}
                 onLayout={(event) => {
@@ -271,6 +273,9 @@ export function ReportScreen({
                     setVotes((current) => ({ ...current, [section.key]: helpful }));
                   }}
                 />
+                {reportAdSlot(index, view.report.sections.length) !== null && (
+                  <NativeAdCard slot={reportAdSlot(index, view.report.sections.length)!} />
+                )}
               </View>
             ))}
             {professional ? (

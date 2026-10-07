@@ -1,5 +1,8 @@
 import type { ExpoConfig } from 'expo/config';
 import { brand } from '@tianji/shared/brand';
+import en from '../web/messages/en.json';
+import zh from '../web/messages/zh.json';
+import zhTW from '../web/messages/zh-TW.json';
 import { designTokens } from '@tianji/ui-core/tokens';
 // DESIGN-GAP: Keep TypeScript 5.9 per docs/09; Expo's suggested TS6 upgrade is excluded from version checks.
 // SDK57 requires the new architecture; there is no legacy architecture switch.
@@ -16,6 +19,12 @@ const config: ExpoConfig = {
         ]
       : []),
   ],
+  // DESIGN-GAP: ATT's system prompt is generated from the shared next-intl catalogs using Expo's native locale resources.
+  locales: {
+    en: { ios: { NSUserTrackingUsageDescription: en['mobile.billing.attPurpose'] } },
+    'zh-Hans': { ios: { NSUserTrackingUsageDescription: zh['mobile.billing.attPurpose'] } },
+    'zh-Hant': { ios: { NSUserTrackingUsageDescription: zhTW['mobile.billing.attPurpose'] } },
+  },
   orientation: 'portrait',
   userInterfaceStyle: 'dark',
   ios: {
@@ -60,6 +69,17 @@ const config: ExpoConfig = {
         enableBackgroundRecording: false,
       },
     ],
+    // DESIGN-GAP: M13 always uses Google's public sample app IDs and native test units; production inventory is configured in a later release.
+    [
+      'react-native-google-mobile-ads',
+      {
+        iosAppId: 'ca-app-pub-3940256099942544~1458002511',
+        androidAppId: 'ca-app-pub-3940256099942544~3347511713',
+        androidSdk: 'classic',
+        delayAppMeasurementInit: true,
+      },
+    ],
+    ['expo-tracking-transparency', { userTrackingPermission: en['mobile.billing.attPurpose'] }],
     'expo-router',
     'expo-apple-authentication',
     'expo-web-browser',

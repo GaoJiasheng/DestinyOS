@@ -157,6 +157,11 @@ export function AccountSettingsScreen() {
         label={t('mobile.push.title')}
         onPress={() => router.push('/me/settings/notifications')}
       />
+      <Action
+        id="account-billing"
+        label={t('billing.title')}
+        onPress={() => router.push('/me/billing')}
+      />
       {state.deleted && <CopyText testID="account-deleted">{t('mobile.account.deleted')}</CopyText>}
       {!state.session ? (
         <Action

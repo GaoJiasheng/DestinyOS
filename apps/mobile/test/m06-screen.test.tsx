@@ -14,7 +14,12 @@ jest.mock('react-native-reanimated', () => ({
 const mockReplace = jest.fn();
 jest.mock('expo-router', () => ({ useRouter: () => ({ replace: mockReplace }) }));
 jest.mock('../lib/profiles', () => ({
-  useProfiles: () => ({ settings: { reducedMotion: false } }),
+  useProfiles: () => ({
+    profiles: [],
+    loading: false,
+    error: false,
+    settings: { reducedMotion: false, ageBlocked: false },
+  }),
 }));
 jest.mock('../lib/reports/readings', () => ({
   ...jest.requireActual<typeof import('../lib/reports/readings')>('../lib/reports/readings'),

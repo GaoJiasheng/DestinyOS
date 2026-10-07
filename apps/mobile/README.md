@@ -105,3 +105,52 @@ buttons, import consent, single-use magic-link confirmation, refresh, offline
 retry, device revocation, and deletion. Screenshots go to `test-results/M10`.
 Production builds reject the mock setup. HTTPS association and real provider
 credentials require provisioned console settings and a signed device build.
+
+M13 membership and ads: `/pricing` and `/me/billing` purchase the exact products
+`tianji_pro_monthly` ($2.99/month, subscription) and `tianji_pro_lifetime`
+($6.99 once, non-consumable), both attached to RevenueCat entitlement `pro`.
+The SDK uses the signed-in Web `User.id`; guests must sign in first. Membership
+refresh calls the existing authenticated Worker `/api/v1/mobile/entitlements/sync`
+with an empty body. No client/mock entitlement is sent as a server grant.
+Subscription management uses RevenueCat's iOS sheet or Android's official Play
+subscriptions center; lifetime members can still cancel an existing monthly renewal.
+
+Public SDK configuration (set locally, never commit `.env` or credentials):
+
+- `EXPO_PUBLIC_REVENUECAT_TEST_API_KEY`: your RevenueCat **Test Store** `test_`
+  public SDK key; development builds only. Configure both exact product IDs and
+  map both to `pro` in that Test Store. This account-specific key must come from
+  the project dashboard; RevenueCat has no universal working test key.
+- `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_API_KEY`:
+  platform public SDK keys (`appl_` / `goog_`) for provisioned store sandbox
+  accounts. Worker `REVENUECAT_SECRET_KEY` and webhook authorization remain
+  server-only; the existing verified webhook must be registered in RevenueCat.
+- `EXPO_PUBLIC_UMP_DEBUG_GEOGRAPHY=EEA` or `US`: development-only regional UMP
+  tests. A configured AdMob project/message is required for regional consent
+  forms. Google's sample app IDs can show their test tracking explanation or
+  return a configuration error, which hides ads.
+
+Google sample app IDs and `TestIds.NATIVE` are fixed for M13. The app never loads
+production ad inventory. UMP precedes ATT and SDK initialization; underage or
+unknown-age users receive TFUA and non-personalized requests. Rejection does not
+block content. Consent failures hide ads; membership/privacy retry remains
+available. Today has one slot, reports at most two slots between chapters.
+
+Without a RevenueCat Test Store key, run the explicit development-only
+`tianji:///dev/monetization` fixture. Synthetic store results exercise purchase,
+restore, expiration/refund, cancellation, server-sync failure and system-manager
+invocation; its UI clearly labels local testing, and it never grants real Web
+access. The ad fixture loads real Google test native inventory and injects
+UMP/ATT answers. The native-consent button separately runs the real UMP/ATT
+adapter. Production builds redirect this route and reject fixture injection.
+
+Rebuild the native client after installing SDKs (`expo prebuild`, `pod install`,
+iOS simulator build), start Metro on port 8081, then run:
+`bash apps/mobile/scripts/m13-simulator.sh <UDID> M13-billing` and
+`bash apps/mobile/scripts/m13-simulator.sh <UDID> M13-ads`.
+Run `M13-placements` with the same script for Today and both report slots.
+The ads flow leaves tracking permission unset so Maestro cannot pre-grant ATT;
+it captures the actual system prompt and refuses tracking. Native ad screenshots
+assert there are no Google validator errors before dismissing its test overlay.
+Evidence is saved under `test-results/M13`. Android prebuild is supported;
+Android native build/device verification awaits Owner's Java installation.

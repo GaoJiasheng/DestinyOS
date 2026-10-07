@@ -1,0 +1,142 @@
+{
+  "task": "M-13",
+  "date": "2026-10-07",
+  "bundleId": "pub.gavin.tianji",
+  "appGroup": "group.pub.gavin.tianji",
+  "expoSdk": "57.0.27",
+  "requiredCommands": {
+    "pnpm install": "passed",
+    "pnpm lint": "passed",
+    "pnpm typecheck": "passed",
+    "pnpm test": "passed",
+    "pnpm build": "passed"
+  },
+  "tests": {
+    "vitest": {
+      "passed": 3722,
+      "skipped": 2,
+      "passedFiles": 136,
+      "skippedFiles": 1
+    },
+    "jest": {
+      "passed": 233,
+      "files": 45,
+      "m13Cases": 38
+    },
+    "webMembershipE2E": {
+      "passed": 6
+    },
+    "platformManagementUnitTests": "iOS sheet and Android Play subscriptions center passed"
+  },
+  "ios": {
+    "device": "dedicated iPhone 17 Pro simulator",
+    "version": "26.4",
+    "nativeBuild": "passed: Xcode 26, Debug arm64, no signing"
+  },
+  "android": {
+    "prebuild": "passed: expo prebuild --platform android --no-install",
+    "staticChecks": [
+      "pub.gavin.tianji namespace/package",
+      "Google sample app ID",
+      "delayed app measurement",
+      "Small/Medium/Large widget receivers"
+    ],
+    "nativeBuild": "deferred per Owner instruction",
+    "javaInstalledByThisTask": false
+  },
+  "maestro": {
+    "M13-billing": "passed",
+    "M13-ads": "passed",
+    "M13-placements": "passed"
+  },
+  "purchases": {
+    "mode": "explicit isolated development adapter; not real RevenueCat sandbox transactions",
+    "products": {
+      "tianji_pro_monthly": {
+        "priceUSD": 2.99,
+        "type": "subscription"
+      },
+      "tianji_pro_lifetime": {
+        "priceUSD": 6.99,
+        "type": "non-consumable"
+      }
+    },
+    "entitlement": "pro",
+    "verified": [
+      "purchase",
+      "restore",
+      "cancel/error",
+      "manager invocation",
+      "refund/free",
+      "offline restrictions",
+      "retryable server sync failure",
+      "HTTP success remains pending until the server confirms the purchased tier"
+    ],
+    "realTestStore": "pending project public SDK key and backend configuration"
+  },
+  "ads": {
+    "mode": "real Google test native inventory, sample app IDs only",
+    "verified": [
+      "free/paid visibility",
+      "teen non-personalized requests",
+      "rejected personalization",
+      "failed consent hides ads",
+      "Today one slot",
+      "reports two slots",
+      "native validator: no implementation issues"
+    ]
+  },
+  "consent": {
+    "nativeVerified": [
+      "Google sample UMP tracking explanation",
+      "real iOS ATT Chinese prompt",
+      "tracking denial followed by non-personalized test ads"
+    ],
+    "deterministicFixtures": [
+      "13–17 TFUA + non-personalized",
+      "UMP failure",
+      "rejected personalization"
+    ],
+    "regionalForms": "pending configured AdMob Privacy & messaging project"
+  },
+  "licenses": {
+    "checkedPackages": 1755,
+    "result": "passed"
+  },
+  "pending": [
+    "RevenueCat project Test Store / Apple / Google sandbox transactions and real webhook cross-platform synchronization",
+    "real store subscription management/refund/grace cycles",
+    "regional UMP forms and withdrawal",
+    "Android native build, simulator, widget execution and Play/UMP/ads verification"
+  ],
+  "screenshots": [
+    "att-denied-native-en.png",
+    "billing-free-en.png",
+    "billing-lifetime-zh.png",
+    "billing-monthly-en.png",
+    "billing-offline-en.png",
+    "consent-failed-en.png",
+    "native-free-en.png",
+    "native-rejected-en.png",
+    "native-teen-en.png",
+    "native-ump-att-explanation-en.png",
+    "native-ump-ready-npa-en.png",
+    "native-validator-pass-en.png",
+    "pro-hides-ad-en.png",
+    "products-en.png",
+    "purchase-cancelled-en.png",
+    "purchase-error-en.png",
+    "purchase-restored-en.png",
+    "refund-test-ad-zh.png",
+    "refunded-native-en.png",
+    "report-first-test-ad-en.png",
+    "report-second-test-ad-en.png",
+    "restore-zh.png",
+    "startup-system-att-zh.png",
+    "sync-pending-en.png",
+    "system-att-denied-ad-en.png",
+    "system-att-zh.png",
+    "teen-nonpersonalized-en.png",
+    "today-test-ad-en.png"
+  ]
+}

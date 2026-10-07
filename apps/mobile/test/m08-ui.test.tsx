@@ -30,7 +30,13 @@ jest.mock('expo-router', () => ({
 }));
 jest.mock('expo-router/react-navigation', () => ({ useIsFocused: () => true }));
 jest.mock('../lib/profiles', () => ({
-  useProfiles: () => ({ active: mockActive, settings: MockSettingsSchema.parse({}) }),
+  useProfiles: () => ({
+    active: mockActive,
+    profiles: [],
+    loading: false,
+    error: false,
+    settings: MockSettingsSchema.parse({}),
+  }),
 }));
 jest.mock('../lib/daily/use-daily', () => ({ useDaily: jest.fn() }));
 jest.mock('../lib/daily/service', () => ({

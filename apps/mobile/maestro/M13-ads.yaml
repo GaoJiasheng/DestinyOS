@@ -1,0 +1,254 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    permissions:
+      all: unset
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/monetization'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- runFlow:
+    when:
+      visible: 'Our app wants to stay free for you'
+    commands:
+      - takeScreenshot: native-ump-att-explanation-en
+      - tapOn: Continue
+      - extendedWaitUntil:
+          visible: '.*(Allow.*track|允许.*跟踪).*'
+          timeout: 15000
+      - takeScreenshot: startup-system-att-zh
+      - tapOn:
+          text: '.*(Ask App Not to Track|要求.*不跟踪).*'
+- runFlow:
+    when:
+      visible: '.*(Allow.*track|允许.*跟踪).*'
+    commands:
+      - takeScreenshot: startup-system-att-zh
+      - tapOn:
+          text: '.*(Ask App Not to Track|要求.*不跟踪).*'
+- extendedWaitUntil:
+    visible:
+      id: m13-prepare
+    timeout: 60000
+- tapOn:
+    id: m13-prepare
+- extendedWaitUntil:
+    visible:
+      id: m13-plan
+    timeout: 30000
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-en
+    centerElement: true
+- tapOn:
+    id: m13-en
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: native-ad-0
+    centerElement: true
+- assertVisible:
+    id: native-ad-0
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: native-free-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-teen
+    centerElement: true
+- tapOn:
+    id: m13-teen
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-npa
+    centerElement: true
+- assertVisible:
+    id: m13-npa
+- takeScreenshot: teen-nonpersonalized-en
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: native-ad-0
+    centerElement: true
+- assertVisible:
+    id: native-ad-0
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: native-teen-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-reject
+    centerElement: true
+- tapOn:
+    id: m13-reject
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: native-ad-0
+    centerElement: true
+- assertVisible:
+    id: native-ad-0
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: native-rejected-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-consent-error
+    centerElement: true
+- tapOn:
+    id: m13-consent-error
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-consent-failed
+    centerElement: true
+- assertVisible:
+    id: m13-consent-failed
+- takeScreenshot: consent-failed-en
+- assertNotVisible:
+    id: native-ad-0
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-adult
+    centerElement: true
+- tapOn:
+    id: m13-adult
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: native-ad-0
+    centerElement: true
+- assertVisible:
+    id: native-ad-0
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: att-denied-native-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-monthly
+    centerElement: true
+- tapOn:
+    id: m13-monthly
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-plan
+    centerElement: true
+- assertVisible: 'Monthly membership'
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-npa
+    centerElement: true
+- assertVisible:
+    id: m13-npa
+- takeScreenshot: pro-hides-ad-en
+- assertNotVisible:
+    id: native-ad-0
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-refund
+    centerElement: true
+- tapOn:
+    id: m13-refund
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: native-ad-0
+    centerElement: true
+- assertVisible:
+    id: native-ad-0
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: refunded-native-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-native-att
+    centerElement: true
+- tapOn:
+    id: m13-native-att
+- runFlow:
+    when:
+      visible: '.*(Allow.*track|允许.*跟踪).*'
+    commands:
+      - takeScreenshot: system-att-zh
+      - tapOn:
+          text: '.*(Ask App Not to Track|要求.*不跟踪).*'
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: m13-npa
+    centerElement: true
+- assertVisible:
+    id: m13-npa
+- scrollUntilVisible:
+    element:
+      id: native-ad-0
+    centerElement: true
+- assertVisible:
+    id: native-ad-0
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: system-att-denied-ad-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m13-native-consent
+    centerElement: true
+- tapOn:
+    id: m13-native-consent
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      id: 'm13-consent-(ready|failed)'
+    centerElement: true
+- runFlow:
+    when:
+      visible:
+        id: m13-consent-failed
+    commands:
+      - takeScreenshot: native-ump-unconfigured-en
+      - assertNotVisible:
+          id: native-ad-0
+- runFlow:
+    when:
+      visible:
+        id: m13-consent-ready
+    commands:
+      - assertVisible:
+          id: m13-npa
+      - scrollUntilVisible:
+          direction: DOWN
+          element:
+            id: native-ad-0
+          centerElement: true
+      - assertNotVisible: '[1-9].*implementation issue.*'
+      - tapOn:
+          text: Dismiss
+          optional: true
+      - takeScreenshot: native-ump-ready-npa-en

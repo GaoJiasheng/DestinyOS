@@ -1,0 +1,105 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/monetization'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: m13-prepare
+    timeout: 60000
+- tapOn:
+    id: m13-prepare
+- extendedWaitUntil:
+    visible:
+      id: m13-plan
+    timeout: 30000
+- tapOn:
+    id: m13-en
+- openLink: 'tianji:///today'
+- scrollUntilVisible:
+    element:
+      id: native-ad-0
+    timeout: 60000
+    centerElement: true
+- assertVisible:
+    id: daily-block-13
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: today-test-ad-en
+- openLink: 'tianji:///reading'
+- extendedWaitUntil:
+    visible:
+      id: system-bazi
+    timeout: 30000
+- tapOn:
+    id: system-bazi
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: nav-overview
+    centerElement: false
+- tapOn:
+    id: nav-overview
+- tapOn:
+    id: section-toggle-overview
+- scrollUntilVisible:
+    element:
+      id: section-toggle-day_master
+    centerElement: false
+- tapOn:
+    id: section-toggle-day_master
+- scrollUntilVisible:
+    element:
+      id: native-ad-0
+    timeout: 60000
+    centerElement: true
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: report-first-test-ad-en
+- scrollUntilVisible:
+    element:
+      id: section-toggle-elements
+    centerElement: false
+- tapOn:
+    id: section-toggle-elements
+- scrollUntilVisible:
+    element:
+      id: section-toggle-pattern_career
+    centerElement: false
+- tapOn:
+    id: section-toggle-pattern_career
+- scrollUntilVisible:
+    element:
+      id: section-toggle-wealth
+    centerElement: false
+- tapOn:
+    id: section-toggle-wealth
+- scrollUntilVisible:
+    element:
+      id: section-toggle-love
+    centerElement: false
+- tapOn:
+    id: section-toggle-love
+- scrollUntilVisible:
+    element:
+      id: native-ad-1
+    timeout: 60000
+    centerElement: true
+- assertNotVisible: '[1-9].*implementation issue.*'
+- tapOn:
+    text: Dismiss
+    optional: true
+- takeScreenshot: report-second-test-ad-en
