@@ -8,6 +8,7 @@ export default tseslint.config(
       '**/.next/**',
       '**/.open-next/**',
       '**/.wrangler/**',
+      '**/.media/**',
       '**/dist/**',
       '**/.turbo/**',
       'apps/mobile/.expo/**',

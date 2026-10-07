@@ -1,14 +1,15 @@
 'use client';
-import { useState, useTransition } from 'react';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
+import { useState } from 'react';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { setConfigAction } from '@/app/admin/actions';
 import { SiteConfigSchema, type SiteSettings } from '@/lib/site-config-schema';
 /** Controlled SiteConfig form validates the same strict boundary as the server. */
 export function ConfigEditor({ initial }: { initial: SiteSettings }) {
+  const { pending, run: start } = useSubmitTransition();
   const t = useCopy(),
     [value, setValue] = useState(initial),
-    [pending, start] = useTransition(),
     [message, setMessage] = useState('');
   const change = (next: SiteSettings) => {
     setValue(next);

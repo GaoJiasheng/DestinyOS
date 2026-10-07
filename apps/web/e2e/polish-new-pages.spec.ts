@@ -155,7 +155,8 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const) {
       const response = await page.goto(`/${locale}${path}`);
       expect(response?.status()).toBe(200);
       if (name === 'learn-long') {
-        await expect(page.locator('[data-tutorial-body]')).toBeVisible();
+        // DESIGN-GAP: Verify the visible tutorial while its temporary hidden streamed copy is replaced; capture still audits the complete settled document.
+        await expect(page.locator('[data-tutorial-body]').filter({ visible: true })).toBeVisible();
         // Exercise repeated reads after Next promotes the pre-rendered locale cache entry.
         for (let read = 0; read < 2; read++)
           expect((await page.request.get(`/${locale}${path}`)).status()).toBe(200);

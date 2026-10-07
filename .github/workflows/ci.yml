@@ -67,16 +67,19 @@ jobs:
         with:
           node-version: 22
       - run: pnpm install --frozen-lockfile
-      # DESIGN-GAP: cf:build runs Wrangler dry-run and enforces an 8,000,000-byte gzip gate including WASM.
+      # DESIGN-GAP: Enforce main/media raw <=8MB and compute raw <=24MB; every service also has an 8MB gzip upload gate, including WASM.
       - run: pnpm cf:build
+      - run: pnpm cf:multi:smoke
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: cloudflare-size-analysis
           path: |
-            apps/web/.wrangler/budget-check/size.json
-            apps/web/.wrangler/budget-check/modules.json
-            apps/web/.wrangler/budget-check/metafile.json
-            apps/web/.wrangler/budget-check/wrangler.log
+            apps/web/.wrangler/budget-check*/size.json
+            apps/web/.wrangler/budget-check*/modules.json
+            apps/web/.wrangler/budget-check*/metafile.json
+            apps/web/.wrangler/budget-check*/wrangler.log
             apps/web/.open-next/server-functions/default/apps/web/handler.mjs.meta.json
+            .test-data/perf-web-2.json
+            .test-data/multi-worker.log
           if-no-files-found: error

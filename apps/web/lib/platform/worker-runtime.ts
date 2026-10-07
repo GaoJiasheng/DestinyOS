@@ -5,6 +5,8 @@ import { writeWorkerLog } from './logger-sink';
 import { workerHealth } from './worker-health';
 import { withDatabaseScope } from './database-scope';
 export interface WorkerEnvironment {
+  COMPUTE?: { fetch(request: Request): Promise<Response> };
+  ASSETS?: { fetch(request: Request): Promise<Response> };
   CACHE: KVNamespace;
   DB?: D1Database;
   CF_VERSION_METADATA?: { id: string };
@@ -31,7 +33,13 @@ export async function workerFetch(
   const finish = (response: Response, phase: string) => {
     const headers = new Headers(response.headers);
     // DESIGN-GAP: Language preference is generated per outgoing request, outside the shared object; no authentication cookies enter Cache API.
-    if (phase === 'public' && response.status === 200 && !headers.has('set-cookie')) {
+    if (
+      phase === 'public' &&
+      response.status === 200 &&
+      !headers.has('set-cookie') &&
+      !request.headers.has('next-router-prefetch') &&
+      request.headers.get('purpose') !== 'prefetch'
+    ) {
       const locale = path.split('/')[1];
       const preference = request.headers.get('cookie')?.match(/(?:^|;\s*)NEXT_LOCALE=([^;]*)/)?.[1];
       if (locale && locale !== preference)

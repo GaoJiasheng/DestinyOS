@@ -34,12 +34,17 @@ for (const locale of ['zh', 'en'] as const)
       const reading = await seedExportReading(user.id, system, locale);
       const source = await db.reading.findUniqueOrThrow({ where: { id: reading.id } });
       await page.goto(`/${locale}/${system}/r/${reading.id}/print`);
-      await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true', {
-        timeout: 60000,
-      });
+      await expect(page.locator('.print-report').filter({ visible: true })).toHaveAttribute(
+        'data-ready',
+        'true',
+        {
+          timeout: 60000,
+        },
+      );
       const sheetCount = await page.locator('.print-sheet').count();
       const ink = await page
         .locator('.print-report')
+        .filter({ visible: true })
         .evaluate((node) => getComputedStyle(node).color);
       expect(ink).toBe('rgb(243, 241, 234)');
       expect(sheetCount).toBeLessThanOrEqual(['iching', 'qimen', 'tarot'].includes(system) ? 3 : 6);
@@ -256,9 +261,15 @@ for (const locale of ['zh', 'en'] as const)
       );
       // Light edition uses the same measured geometry and is rendered as a separate preview baseline.
       await page.goto(`/${locale}/${system}/r/${reading.id}/print?theme=light`);
-      await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true');
+      await expect(page.locator('.print-report').filter({ visible: true })).toHaveAttribute(
+        'data-ready',
+        'true',
+      );
       expect(
-        await page.locator('.print-report').evaluate((node) => getComputedStyle(node).color),
+        await page
+          .locator('.print-report')
+          .filter({ visible: true })
+          .evaluate((node) => getComputedStyle(node).color),
       ).toBe('rgb(27, 29, 42)');
       await page
         .locator('.print-sheet')

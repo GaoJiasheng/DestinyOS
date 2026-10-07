@@ -5,6 +5,8 @@ import { Link } from '@/i18n/navigation';
 import { learnContent } from '@/lib/learn';
 import { learnMetadata } from '@/lib/learn-metadata';
 import { LearnArticle } from '@/components/learn/learn-article';
+// DESIGN-GAP: Permit published locale entries to recover from ISR cache misses; middleware rejects unknown learning URLs before streaming.
+export const dynamicParams = true;
 export const revalidate = 86400;
 /** Build every documented system introduction in both inherited locale routes. */
 export async function generateStaticParams() {

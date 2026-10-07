@@ -31,6 +31,8 @@ export async function login(
   const copy = copies[locale];
   await page.goto(`/${locale}/auth/login`);
   const signOut = page.getByRole('button', { name: copy['auth.login.signOut'], exact: true });
+  // DESIGN-GAP: Wait for the streamed login state before choosing sign-out versus email authentication.
+  await expect(signOut.or(page.getByLabel(copy['auth.login.email']))).toBeVisible();
   if (await signOut.isVisible()) await signOut.click();
   await page.getByLabel(copy['auth.login.email']).fill(email);
   await page.getByRole('button', { name: copy['auth.login.send'], exact: true }).click();

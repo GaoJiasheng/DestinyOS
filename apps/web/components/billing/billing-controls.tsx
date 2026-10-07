@@ -36,10 +36,10 @@ export function PricingControls({ enabled }: { enabled: boolean }) {
       {enabled ? (
         <Button
           disabled={busy}
-          onClick={() => {
+          action={async () => {
             setBusy(true);
             setError(false);
-            void createCheckoutSessionAction({ price })
+            await createCheckoutSessionAction({ price })
               .then((result) => {
                 if (result.ok) window.location.assign(result.data.url);
                 else if (result.error.code === 'E_UNAUTHORIZED')
@@ -142,10 +142,10 @@ export function BillingControls({
       {hasSubscription ? (
         <Button
           disabled={!enabled || busy}
-          onClick={() => {
+          action={async () => {
             setBusy(true);
             setError(false);
-            void createPortalSessionAction()
+            await createPortalSessionAction()
               .then((r) => {
                 if (r.ok) window.location.assign(r.data.url);
                 else setError(true);
@@ -154,7 +154,7 @@ export function BillingControls({
               .finally(() => setBusy(false));
           }}
         >
-          {t('me.billing.portal')}
+          {t(busy ? 'common.loading' : 'me.billing.portal')}
         </Button>
       ) : null}
       {!enabled ? <p>{t('billing.soon')}</p> : null}

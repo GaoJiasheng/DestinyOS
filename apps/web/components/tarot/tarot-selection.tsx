@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { SystemArt } from '@/components/art/system-art';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
@@ -23,8 +24,11 @@ export function TarotSelection() {
   const [question, setQuestion] = useState('');
   const [allowReversed, setReversed] = useState(true);
   const [seed, setSeed] = useState('');
-  const [busy, setBusy] = useState(false);
+  const { pending, run } = useSubmitTransition();
+  const [working, setBusy] = useState(false);
   const [error, setError] = useState(false);
+  const busy = working || pending;
+  const common = useTranslations('common');
   return (
     <section className="tarot-page">
       <SystemArt system="tarot" banner priority />
@@ -36,26 +40,28 @@ export function TarotSelection() {
         onSubmit={(event) => {
           event.preventDefault();
           if (busy) return;
-          setBusy(true);
-          setError(false);
-          void updateAnonymous((data) => ({
-            ...data,
-            settings: {
-              ...data.settings,
-              tarotDraft: {
-                spread,
-                category,
-                question,
-                allowReversed,
-                seed: seed.trim() || crypto.randomUUID(),
+          run(async () => {
+            setBusy(true);
+            setError(false);
+            await updateAnonymous((data) => ({
+              ...data,
+              settings: {
+                ...data.settings,
+                tarotDraft: {
+                  spread,
+                  category,
+                  question,
+                  allowReversed,
+                  seed: seed.trim() || crypto.randomUUID(),
+                },
               },
-            },
-          }))
-            .then(() => router.push('/tarot/reading'))
-            .catch(() => {
-              setBusy(false);
-              setError(true);
-            });
+            }))
+              .then(() => router.push('/tarot/reading'))
+              .catch(() => {
+                setBusy(false);
+                setError(true);
+              });
+          });
         }}
       >
         <div className="tarot-spread-options">
@@ -124,7 +130,7 @@ export function TarotSelection() {
         </details>
         {error ? <p role="alert">{t('error')}</p> : null}
         <Button type="submit" disabled={busy}>
-          {t('begin')}
+          {busy ? common('loading') : t('begin')}
         </Button>
       </form>
     </section>

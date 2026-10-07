@@ -162,6 +162,9 @@ for (const locale of ['zh', 'en'] as const) {
     // DESIGN-GAP: T-39 replaced the old standalone daily-card markup with the documented profile-dependent 13-block page; verify its actual flipped card with a real Fixture A device profile.
     const dailyCopy = otherLocale === 'zh' ? zh : en;
     await page.goto(`/${otherLocale}/me/birth`);
+    // DESIGN-GAP: New loading boundaries briefly retain hidden streamed segments; wait for the unique hydrated editor before entering private inputs.
+    await expect(page.getByLabel(dailyCopy['form.birth.year'], { exact: true })).toHaveCount(1);
+    await expect(page.locator('main .birth-controls')).toBeEnabled();
     await page.getByLabel(dailyCopy['form.birth.year'], { exact: true }).fill('1990');
     await page.getByLabel(dailyCopy['form.birth.month'], { exact: true }).fill('5');
     await page.getByLabel(dailyCopy['form.birth.day'], { exact: true }).fill('15');

@@ -1,0 +1,24 @@
+name = "destinyos-media"
+main = ".media/worker.js"
+account_id = "9aea83b326d8175abdd136c1177637a5"
+workers_dev = false
+preview_urls = false
+minify = true
+compatibility_date = "2026-10-05"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+[limits]
+cpu_ms = 5000
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+[browser]
+binding = "BROWSER"
+[observability]
+enabled = true
+[vars]
+PLATFORM = "cloudflare"
+NEXT_PUBLIC_SITE_URL = "https://tianji.gavin.pub"
+[[rules]]
+type = "CompiledWasm"
+globs = ["**/*.wasm"]
+fallthrough = true

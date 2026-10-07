@@ -2,7 +2,9 @@ import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { routing, isLocale } from './i18n/routing';
 import { reportOnlyCsp } from './lib/security-headers';
+import learnPaths from './lib/learn-paths-generated.json' with { type: 'json' };
 const intl = createMiddleware(routing);
+const learning = new Set<string>(learnPaths);
 /** A session age gate blocks returning to input routes; server actions independently enforce the same cookie. */
 export default function middleware(request: NextRequest) {
   if (
@@ -24,8 +26,20 @@ export default function middleware(request: NextRequest) {
   if (/^\/s\//.test(request.nextUrl.pathname)) {
     const locale = request.nextUrl.searchParams.get('locale');
     request.headers.set('x-share-locale', locale && isLocale(locale) ? locale : '');
+    // DESIGN-GAP: The independent share root needs the child token to retain its locale/theme; the nested layout guards availability before its loading boundary.
+    request.headers.set('x-share-token', request.nextUrl.pathname.split('/')[2] ?? '');
   }
   request.headers.set('Content-Security-Policy', csp);
+  const learn = request.nextUrl.pathname.match(/^\/(zh|en|zh-TW)(\/learn(?:\/.*)?)$/);
+  if (learn && !learning.has(learn[2]!.replace(/\/$/, ''))) {
+    // DESIGN-GAP: Reuse the existing localized not-found renderer; the middleware status stays 404 even when its layout streams a loading shell.
+    const response = NextResponse.rewrite(new URL(`/${learn[1]}/404`, request.url), {
+      status: 404,
+      request: { headers: request.headers },
+    });
+    response.headers.set('Content-Security-Policy-Report-Only', csp);
+    return response;
+  }
   const excluded =
     /^\/(api|admin|s)(?:\/|$)/.test(request.nextUrl.pathname) ||
     /\.[^/]+$/.test(request.nextUrl.pathname);

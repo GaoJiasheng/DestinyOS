@@ -86,12 +86,16 @@ for (const locale of ['zh', 'en'] as const)
       await page.getByRole('button', { name: copy['billing.subscribe'], exact: true }).click();
       await expect(page).toHaveURL(/127.0.0.1:60302\/checkout/);
       await page.getByRole('button', { name: 'Complete test payment' }).click();
-      await expect(page.getByText(copy['billing.activated'], { exact: true })).toBeVisible();
+      await expect(
+        page.getByText(copy['billing.activated'], { exact: true }).filter({ visible: true }),
+      ).toBeVisible();
       expect((await db.user.findUniqueOrThrow({ where: { id: userId } })).plan).toBe('pro');
       await audit(page);
       await page.getByRole('button', { name: copy['me.billing.portal'], exact: true }).click();
       await page.getByRole('button', { name: 'Cancel renewal' }).click();
-      await expect(page.getByText(copy['billing.canceledAtEnd'], { exact: true })).toBeVisible();
+      await expect(
+        page.getByText(copy['billing.canceledAtEnd'], { exact: true }).filter({ visible: true }),
+      ).toBeVisible();
       const subscription = await db.subscription.findUniqueOrThrow({ where: { userId } });
       expect(
         (

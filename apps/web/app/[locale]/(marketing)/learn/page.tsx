@@ -2,7 +2,6 @@ import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
 import { learnContent } from '@/lib/learn';
-import { GlossaryNavigation } from '@/components/learn/glossary-navigation';
 import { learnMetadata } from '@/lib/learn-metadata';
 import { SystemArt } from '@/components/art/system-art';
 import { isArtSystem } from '@tianji/ui-core/art';
@@ -76,7 +75,6 @@ export default async function LearnPage({
       <section className="report-card">
         <h2>{t('learn.glossary')}</h2>
         <Link href="/learn/glossary">{t('learn.glossaryIntro')}</Link>
-        <GlossaryNavigation locale={locale} />
       </section>
     </article>
   );

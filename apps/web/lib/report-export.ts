@@ -1,5 +1,4 @@
 import { readExport, writeExport } from './platform/storage';
-import { openReportPage } from './platform/browser';
 import { createHmac, createHash, timingSafeEqual } from 'node:crypto';
 import { brand } from '@tianji/shared/brand';
 import { auth } from './auth';
@@ -10,14 +9,8 @@ import { ApiError } from './api-error';
 import { canExport, EXPORT_VERSION, type ExportRequest } from './report-export-schema';
 import type { ReadingView } from './reading-schema';
 import { z } from 'zod';
-import {
-  EXPORT_TIMEOUT_MS,
-  EXPORT_IMAGE_BYTES,
-  EXPORT_IMAGE_TARGET_BYTES,
-  EXPORT_PDF_BYTES,
-  EXPORT_IMAGE_HEIGHT,
-} from './report-export-schema';
-import type { ReportPage } from './platform/browser';
+import { platform } from './platform/environment';
+import { mediaExport } from './platform/media-client';
 const tokenSchema = z
   .object({
     userId: z.string(),
@@ -138,63 +131,26 @@ export async function renderExport(
       : (process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`),
   ).origin;
   const path = `/${request.locale}/${reading.system}/r/${encodeURIComponent(reading.id)}/print`;
-  let page: ReportPage | undefined;
-  let expired = false;
-  let timer: ReturnType<typeof setTimeout> | undefined;
-  const timeout = new Promise<never>((_, reject) => {
-    timer = setTimeout(() => {
-      expired = true;
-      reject(new ApiError('E_EXPORT_TIMEOUT', 'Export exceeded 60 seconds', 504));
-    }, EXPORT_TIMEOUT_MS);
-  });
-  const render = async () => {
-    page = await openReportPage(origin, path, printToken(userId, request));
-    if (expired) {
-      await page.close();
-      throw new ApiError('E_EXPORT_TIMEOUT', 'Export exceeded 60 seconds', 504);
-    }
+  if (platform() === 'cloudflare') {
     progress(10);
-    const layout =
-      request.format === 'pdf' ? 'pdf' : request.format === 'cover' ? 'cover' : 'poster';
-    await page.navigate(
-      `${origin}${path}?${new URLSearchParams({ theme: request.theme, layout })}`,
+    return mediaExport(
+      {
+        request,
+        reading: { system: reading.system, createdAt: reading.createdAt },
+        origin,
+        path,
+        token: printToken(userId, request),
+      },
+      progress,
     );
-    await page.validate();
-    progress(40);
-    if (request.format === 'pdf') {
-      const pdf = await page.pdf();
-      if (pdf.length > EXPORT_PDF_BYTES)
-        throw new ApiError('E_EXPORT_SIZE', 'PDF size budget exceeded', 422);
-      progress(90);
-      return pdf;
-    }
-    const height = await page.prepareImage();
-    if (height > EXPORT_IMAGE_HEIGHT) {
-      const scaledHeight = await page.limitImageHeight(EXPORT_IMAGE_HEIGHT);
-      // DESIGN-GAP: JPEG quality cannot reduce pixel height; reject content that cannot fit at the 9pt floor rather than crop, paginate or widen it.
-      if (scaledHeight > EXPORT_IMAGE_HEIGHT)
-        throw new ApiError('E_EXPORT_SIZE', 'Image height exceeds the readable A4 budget', 422);
-    }
-    progress(60);
-    const screenshot = await page.screenshotImage(82);
-    // DESIGN-GAP: Re-encode the single capture for oversize artifacts; never capture or expose individual pages.
-    const image =
-      screenshot.length <= EXPORT_IMAGE_TARGET_BYTES
-        ? screenshot
-        : await page.compressImage(screenshot);
-    if (image.length > EXPORT_IMAGE_BYTES)
-      throw new ApiError('E_EXPORT_SIZE', 'Image size budget exceeded', 422);
-    progress(90);
-    return image;
-  };
-  try {
-    return await Promise.race([render(), timeout]);
-  } finally {
-    clearTimeout(timer);
-    if (page) {
-      if (expired) void page.close().catch(() => undefined);
-      else await page.close();
-    }
   }
+  return (await import('./export-render')).renderAuthorizedExport(
+    request,
+    origin,
+    path,
+    printToken(userId, request),
+    progress,
+  );
 }
+
 export { mime as exportMime };

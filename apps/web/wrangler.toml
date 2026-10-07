@@ -16,8 +16,12 @@ directory = ".open-next/assets"
 binding = "ASSETS"
 
 [[services]]
-binding = "WORKER_SELF_REFERENCE"
-service = "destinyos"
+binding = "COMPUTE"
+service = "destinyos-compute"
+
+[[services]]
+binding = "MEDIA"
+service = "destinyos-media"
 
 [[r2_buckets]]
 binding = "EXPORT_BUCKET"
@@ -27,8 +31,6 @@ bucket_name = "destinyos-exports"
 binding = "NEXT_INC_CACHE_R2_BUCKET"
 bucket_name = "destinyos-next-cache"
 
-[browser]
-binding = "BROWSER"
 
 # Email Sending domain must be onboarded in Email Service before sending to users.
 [[send_email]]

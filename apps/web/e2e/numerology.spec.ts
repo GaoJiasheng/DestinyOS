@@ -17,9 +17,18 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(page.locator('[data-home-system="numerology"]')).toBeVisible();
     await page.locator('[data-home-system="numerology"]').click();
     await page.getByRole('link', { name: copy['form.birth.submit'], exact: true }).click();
-    await page.getByLabel(copy['form.birth.year'], { exact: true }).fill('1990');
-    await page.getByLabel(copy['form.birth.month'], { exact: true }).fill('5');
-    await page.getByLabel(copy['form.birth.day'], { exact: true }).fill('15');
+    await page
+      .getByLabel(copy['form.birth.year'], { exact: true })
+      .filter({ visible: true })
+      .fill('1990');
+    await page
+      .getByLabel(copy['form.birth.month'], { exact: true })
+      .filter({ visible: true })
+      .fill('5');
+    await page
+      .getByLabel(copy['form.birth.day'], { exact: true })
+      .filter({ visible: true })
+      .fill('15');
     await page.getByLabel(copy['numerology.name'], { exact: true }).fill('John Doe');
     await page.getByRole('button', { name: copy['form.birth.submit'], exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/numerology/r/local/`));
@@ -40,9 +49,15 @@ for (const locale of ['zh', 'en'] as const) {
       fullPage: true,
     });
     await page.goto(`/${locale}/numerology/new`);
-    await expect(page.getByLabel(copy['form.birth.year'], { exact: true })).toHaveValue('1990');
-    await expect(page.getByLabel(copy['form.birth.month'], { exact: true })).toHaveValue('5');
-    await expect(page.getByLabel(copy['form.birth.day'], { exact: true })).toHaveValue('15');
+    await expect(
+      page.getByLabel(copy['form.birth.year'], { exact: true }).filter({ visible: true }),
+    ).toHaveValue('1990');
+    await expect(
+      page.getByLabel(copy['form.birth.month'], { exact: true }).filter({ visible: true }),
+    ).toHaveValue('5');
+    await expect(
+      page.getByLabel(copy['form.birth.day'], { exact: true }).filter({ visible: true }),
+    ).toHaveValue('15');
     await page.getByRole('button', { name: copy['form.birth.submit'], exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/numerology/r/local/`));
     await expect(page.getByText(copy['numerology.noName'], { exact: true })).toBeVisible();

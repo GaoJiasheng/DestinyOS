@@ -58,7 +58,10 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const)
     expect(listener).toBeTypeOf('function');
     listener?.({ data: input });
     const knowledge = JSON.parse(
-      readFileSync('packages/content/dist/daily.zh.json', 'utf8'),
+      readFileSync(
+        `packages/content/dist/daily.${locale === 'zh-TW' ? 'zh-TW' : 'zh'}.json`,
+        'utf8',
+      ),
     ) as KnowledgeBundle;
     // Compare serialized public output across realms, including localized prose, chart fields and provenance.
     expect(JSON.parse(JSON.stringify(response))).toEqual({

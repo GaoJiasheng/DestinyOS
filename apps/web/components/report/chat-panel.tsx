@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { useEffect, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { z } from 'zod';
@@ -48,15 +49,18 @@ export function ChatPanel({
     [messages, setMessages] = useState<Message[]>([]);
   const [question, setQuestion] = useState(''),
     [answer, setAnswer] = useState('');
-  const [busy, setBusy] = useState(false),
+  const { pending, run } = useSubmitTransition();
+  const [working, setBusy] = useState(false),
     [loading, setLoading] = useState(false),
     [available, setAvailable] = useState(false);
+  const busy = working || pending;
   const [remaining, setRemaining] = useState(0),
     [limit, setLimit] = useState(0),
     [error, setError] = useState('');
   const abort = useRef<AbortController | null>(null);
   const end = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLTextAreaElement>(null);
+  const restoreFocus = useRef<Element | null>(null);
   const url = `/api/v1/readings/${encodeURIComponent(readingId)}/chat`;
   const errorCopy = (code: string) =>
     t(
@@ -98,6 +102,17 @@ export function ChatPanel({
   useEffect(() => {
     if (busy) end.current?.scrollIntoView({ block: 'nearest' });
   }, [answer, busy]);
+  useEffect(() => {
+    if (busy || !restoreFocus.current) return;
+    const from = restoreFocus.current;
+    restoreFocus.current = null;
+    // DESIGN-GAP: Restore keyboard focus after the transition commits enabled controls, without taking focus from another user-selected element.
+    const frame = requestAnimationFrame(() => {
+      if (document.activeElement === document.body || document.activeElement === from)
+        composer.current?.focus();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [busy]);
   const send = async () => {
     if (busy || !question.trim()) return;
     const submittedFrom = document.activeElement;
@@ -167,14 +182,9 @@ export function ChatPanel({
       setAnswer('');
       setError(t('report.chat.away'));
     } finally {
+      if (restoreComposer) restoreFocus.current = submittedFrom;
       setBusy(false);
       abort.current = null;
-      // DESIGN-GAP: Sending disables the focused composer control; restore its textarea after completion when focus has not moved elsewhere.
-      if (restoreComposer)
-        requestAnimationFrame(() => {
-          if (document.activeElement === document.body || document.activeElement === submittedFrom)
-            composer.current?.focus();
-        });
     }
   };
   const clear = async () => {
@@ -251,7 +261,7 @@ export function ChatPanel({
               <form
                 onSubmit={(event) => {
                   event.preventDefault();
-                  void send();
+                  run(send);
                 }}
               >
                 <label className="birth-field">
@@ -273,7 +283,7 @@ export function ChatPanel({
           ) : null}
           {error ? <p role="alert">{error}</p> : null}
           {messages.length ? (
-            <Button variant="ghost" disabled={busy} onClick={() => void clear()}>
+            <Button variant="ghost" disabled={busy} action={clear}>
               {t('report.chat.delete')}
             </Button>
           ) : null}

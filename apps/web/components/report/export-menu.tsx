@@ -154,13 +154,13 @@ export function ExportMenu({
               </select>
             </label>
             <div className="export-primary-actions">
-              <Button disabled={busy} onClick={() => void generate('png')}>
+              <Button disabled={busy} action={() => generate('png')}>
                 {t('export.png')}
               </Button>
-              <Button variant="secondary" disabled={busy} onClick={() => void generate('pdf')}>
+              <Button variant="secondary" disabled={busy} action={() => generate('pdf')}>
                 {t('export.pdf')}
               </Button>
-              <Button variant="secondary" disabled={busy} onClick={() => void generate('cover')}>
+              <Button variant="secondary" disabled={busy} action={() => generate('cover')}>
                 {t('export.cover')}
               </Button>
             </div>

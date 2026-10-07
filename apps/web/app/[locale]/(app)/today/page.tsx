@@ -1,48 +1,25 @@
-import { siteConfig } from '@/lib/site-config';
-import { currentProfile } from '@/lib/profile-service';
-import { auth } from '@/lib/auth';
-import { getDb } from '@/lib/db';
-import { TarotMessages } from '@/components/tarot/tarot-messages';
-import { TodayView } from '@/components/daily/today-view';
+import { Suspense } from 'react';
+import { setRequestLocale } from 'next-intl/server';
 import { preload } from 'react-dom';
+import { TarotMessages } from '@/components/tarot/tarot-messages';
+import { TodayClient } from '@/components/daily/today-client';
+import { RouteSkeleton } from '@/components/ui/route-skeleton';
 import workerAsset from '@/lib/daily-worker-asset.json';
-import { getLocale } from 'next-intl/server';
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 export const metadata = { robots: { index: false, follow: false } };
-/** Daily view hydrates local anonymous state or requests the owner cache. */
-export default async function TodayPage() {
-  const session = await auth();
-  if (!session?.user.id)
-    preload((await getLocale()) === 'zh-TW' ? workerAsset.traditionalUrl : workerAsset.url, {
-      as: 'script',
-      fetchPriority: 'low',
-    });
-  const user = session?.user.id
-    ? await getDb().user.findUnique({
-        where: { id: session.user.id },
-        select: { tz: true, plan: true },
-      })
-    : null;
-  const profile = session?.user.id ? await currentProfile(session.user.id) : null;
-  const vedicUsed = session?.user.id
-    ? Boolean(
-        await getDb().reading.findFirst({
-          where: { userId: session.user.id, profileId: profile?.id, system: 'vedic' },
-          select: { id: true },
-        }),
-      )
-    : false;
+/** A public shell contains no account data; the owner context loads after client navigation. */
+export default async function TodayPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  preload(locale === 'zh-TW' ? workerAsset.traditionalUrl : workerAsset.url, {
+    as: 'script',
+    fetchPriority: 'low',
+  });
   return (
     <TarotMessages daily>
-      <TodayView
-        key={profile ? `${profile.id}:${profile.version}` : 'local'}
-        signedIn={Boolean(session?.user.id)}
-        profileId={profile?.id}
-        tz={user?.tz}
-        plan={user?.plan ?? 'free'}
-        vedicUsed={vedicUsed}
-        panchangDefaultOpen={(await siteConfig())['feature.panchangDefaultOpen']}
-      />
+      <Suspense fallback={<RouteSkeleton kind="daily" />}>
+        <TodayClient />
+      </Suspense>
     </TarotMessages>
   );
 }

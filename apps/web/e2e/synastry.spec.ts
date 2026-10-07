@@ -184,8 +184,12 @@ for (const locale of ['zh', 'en'] as const) {
         .poll(async () => (await cache.keys(`daily:${user.id}:${second.id}:1:*`)).length)
         .toBeGreaterThan(0);
       await page.goto(`/${locale}/me/history`);
-      await expect(page.locator(`a[href="/${locale}/synastry/r/${readingId}"]`)).toBeVisible();
-      await expect(page.locator(`a[href="/${locale}/synastry/r/${legacy.id}"]`)).toBeVisible();
+      await expect(
+        page.locator(`a[href="/${locale}/synastry/r/${readingId}"]`).filter({ visible: true }),
+      ).toBeVisible();
+      await expect(
+        page.locator(`a[href="/${locale}/synastry/r/${legacy.id}"]`).filter({ visible: true }),
+      ).toBeVisible();
       await page.goto(`/${locale}/me/profiles`);
       await beta.getByRole('button', { name: t['profiles.edit'], exact: true }).click();
       await page.getByRole('button', { name: t['form.birth.next'], exact: true }).click();

@@ -40,6 +40,9 @@ for (const locale of ['zh', 'en'] as const) {
         await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
         const response = await page.goto(`/${locale}${path}`);
         expect(response?.status()).toBe(200);
+        // DESIGN-GAP: A streamed private page returns its shell before its authentication redirect; audit the completed login document.
+        if (path === '/me/billing')
+          await page.waitForURL((url) => url.pathname === `/${locale}/auth/login`);
         const result = await audit(page);
         await auditLocale(page, locale);
         await info.attach('axe-document', {

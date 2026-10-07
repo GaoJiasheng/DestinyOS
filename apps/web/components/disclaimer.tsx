@@ -27,14 +27,14 @@ export function Disclaimer() {
       setOpen(true);
     }
   }, [pathname]);
-  function acknowledge() {
+  async function acknowledge() {
     try {
       localStorage.setItem('tianji-disclaimer-v1', 'accepted');
     } catch {
       /* Keep this visit usable if storage is blocked. */
     }
-    void acknowledgeDisclaimerAction().catch(() => undefined);
     setOpen(false);
+    await acknowledgeDisclaimerAction().catch(() => undefined);
   }
   return (
     <Dialog
@@ -54,7 +54,7 @@ export function Disclaimer() {
         priority
       />
       <p className="type-small muted">{t('legal.ageConfirmation')}</p>
-      <Button className="disclaimer-confirm" onClick={acknowledge}>
+      <Button className="disclaimer-confirm" action={acknowledge}>
         {t('legal.firstVisit.confirm')}
       </Button>
     </Dialog>

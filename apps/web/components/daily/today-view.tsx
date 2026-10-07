@@ -3,6 +3,7 @@ import { DailyArt } from '@/components/art/daily-art';
 import { DailyPanchang } from './daily-panchang';
 import { DailyLuckyRow } from './daily-lucky-row';
 import { useRef } from 'react';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { dailyStars } from '@tianji/engine/daily';
 import { useDailyReport } from './use-daily-report';
 import { useSearchParams } from 'next/navigation';
@@ -63,6 +64,7 @@ export function TodayView({
     vedicUsed,
     panchangDefaultOpen,
   });
+  const feedback = useSubmitTransition();
   const touch = useRef<{ x: number; y: number } | null>(null);
   const chart = value?.chart,
     report = value?.report,
@@ -353,10 +355,11 @@ export function TodayView({
                 <Button
                   key={n}
                   variant="ghost"
-                  disabled={vote !== null}
+                  disabled={vote !== null || feedback.pending}
                   aria-label={t(n === 1 ? 'daily.feedbackYes' : 'daily.feedbackNo')}
                   onClick={() => {
-                    void submitFeedbackAction({ sectionKey: 'daily', vote: n }).then((r) => {
+                    feedback.run(async () => {
+                      const r = await submitFeedbackAction({ sectionKey: 'daily', vote: n });
                       if (r.ok) setVote(n);
                       else setError(true);
                     });
@@ -365,6 +368,7 @@ export function TodayView({
                   {n === 1 ? '👍' : '👎'}
                 </Button>
               ))}
+              {feedback.pending ? <p role="status">{t('common.loading')}</p> : null}
               {vote !== null ? <p role="status">{t('daily.feedbackSaved')}</p> : null}
             </section>
           </div>
