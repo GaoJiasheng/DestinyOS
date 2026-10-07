@@ -1,0 +1,40 @@
+appId: pub.gavin.tianji
+---
+# DESIGN-GAP: The native gallery row/carousel coordinates target iPhone 17 Pro / iOS 26.4.
+- pressKey: Home
+- longPressOn:
+    point: '50%,60%'
+- tapOn: '^(编辑|Edit)$'
+- tapOn: '^\s*(添加小组件|Add Widget)\s*$'
+- tapOn: '^(搜索小组件|Search Widgets)$'
+- inputText: '天机'
+- pressKey: Enter
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn:
+    point: '30%,29%'
+- extendedWaitUntil:
+    visible: '^(每日运势小组件|每日運勢小元件|Daily fortune widget)$'
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: widget-small
+- swipe:
+    start: '90%,56%'
+    end: '10%,56%'
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: widget-medium
+- swipe:
+    start: '90%,56%'
+    end: '10%,56%'
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: widget-large
+- tapOn: '^\s*(添加小组件|Add Widget)\s*$'
+- pressKey: Home
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: widget-home-large

@@ -152,6 +152,11 @@ export function AccountSettingsScreen() {
     [feedback, setFeedback] = useState(false);
   return (
     <Page title="me.settings">
+      <Action
+        id="account-notifications"
+        label={t('mobile.push.title')}
+        onPress={() => router.push('/me/settings/notifications')}
+      />
       {state.deleted && <CopyText testID="account-deleted">{t('mobile.account.deleted')}</CopyText>}
       {!state.session ? (
         <Action

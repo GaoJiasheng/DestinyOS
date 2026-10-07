@@ -70,12 +70,19 @@ async function enterBirth() {
   fireEvent.press(screen.getByTestId('birth-submit'));
   await screen.findByTestId('birth-city');
 }
+it('automatically requests permission on the second onboarding screen', async () => {
+  jest.mocked(requestNotificationPermission).mockResolvedValue(true);
+  render(<Onboarding />);
+  expect(requestNotificationPermission).not.toHaveBeenCalled();
+  fireEvent.press(screen.getByTestId('onboarding-next'));
+  expect(screen.getByTestId('onboarding-1')).toBeTruthy();
+  await waitFor(() => expect(requestNotificationPermission).toHaveBeenCalledTimes(1));
+});
 it('walks through three screens, denial and optional profile without treating denial as failure', async () => {
   jest.mocked(requestNotificationPermission).mockResolvedValue(false);
   render(<Onboarding />);
   for (let step = 0; step < 3; step++) fireEvent.press(screen.getByTestId('onboarding-next'));
   expect(screen.getByTestId('onboarding-3')).toBeTruthy();
-  fireEvent.press(screen.getByTestId('notifications-request'));
   await screen.findByTestId('notifications-denied');
   fireEvent.press(screen.getByTestId('onboarding-next'));
   fireEvent.press(screen.getByTestId('onboarding-skip'));

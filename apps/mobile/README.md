@@ -14,7 +14,7 @@ pnpm --filter @tianji/mobile prebuild:android
 
 The native package and bundle identifier are `pub.gavin.tianji`. Continuous Native
 Generation recreates ignored `ios/` and `android/` projects from `app.config.ts`;
-handwritten widgets will live under `native/` in M11. No Android native build is
+WidgetKit and Android widgets live under `native/`. No Android native build is
 required until Owner enables the Java toolchain.
 
 The App imports Web's compiled flat `messages/{zh,zh-TW,en}.json` catalogs directly.

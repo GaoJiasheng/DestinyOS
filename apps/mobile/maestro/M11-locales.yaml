@@ -1,0 +1,60 @@
+appId: pub.gavin.tianji
+---
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji:///dev/engagement'
+- waitForAnimationToEnd:
+    timeout: 2000
+- extendedWaitUntil:
+    visible:
+      id: engagement-en
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: engagement-background
+- tapOn:
+    id: engagement-background
+- scrollUntilVisible:
+    element:
+      id: engagement-background-done
+    timeout: 30000
+- takeScreenshot: background-refresh-verified
+- openLink: 'tianji:///dev/engagement'
+- waitForAnimationToEnd:
+    timeout: 2000
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: engagement-zh
+- tapOn:
+    id: engagement-zh
+- extendedWaitUntil:
+    visible: 准备无档案场景
+    timeout: 10000
+- openLink: 'tianji:///me/settings/notifications'
+- waitForAnimationToEnd:
+    timeout: 2000
+- extendedWaitUntil:
+    visible:
+      id: push-enabled
+    timeout: 30000
+- takeScreenshot: push-settings-zh
+- openLink: 'tianji:///dev/engagement'
+- waitForAnimationToEnd:
+    timeout: 2000
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: engagement-zh-TW
+- tapOn:
+    id: engagement-zh-TW
+- extendedWaitUntil:
+    visible: 準備無檔案場景
+    timeout: 10000
+- openLink: 'tianji:///me/settings/notifications'
+- waitForAnimationToEnd:
+    timeout: 2000
+- extendedWaitUntil:
+    visible:
+      id: push-enabled
+    timeout: 30000
+- takeScreenshot: push-settings-zh-TW

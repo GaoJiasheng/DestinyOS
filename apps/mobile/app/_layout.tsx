@@ -7,6 +7,7 @@ import { I18nextProvider } from 'react-i18next';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AccountBootstrap } from '../components/account-bootstrap';
+import { EngagementBootstrap } from '../components/engagement-bootstrap';
 import { ProfilesProvider } from '../lib/profiles';
 import { SessionGate } from '../components/session-gate';
 import { fonts } from '../lib/fonts';
@@ -32,6 +33,7 @@ export default function RootLayout() {
           <StatusBar style="light" />
           <AccountBootstrap>
             <ProfilesProvider>
+              <EngagementBootstrap />
               <Stack
                 screenOptions={{ headerShown: false }}
                 screenLayout={({ children }) => <SessionGate>{children}</SessionGate>}

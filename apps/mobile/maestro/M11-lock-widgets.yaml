@@ -1,0 +1,44 @@
+appId: pub.gavin.tianji
+---
+# DESIGN-GAP: Lock-screen coordinates are measured on a fresh iPhone 17 Pro / iOS 26.4 wallpaper.
+- tapOn:
+    point: '50%,30%'
+- extendedWaitUntil:
+    visible:
+      id: daily-block-1
+    timeout: 30000
+- takeScreenshot: widget-link-en
+- pressKey: Home
+- pressKey: Lock
+- pressKey: Lock
+- longPressOn:
+    point: '50%,60%'
+- takeScreenshot: lock-widget-editor
+- tapOn:
+    point: '50%,91%'
+- tapOn:
+    point: '50%,77%'
+- swipe:
+    start: '50%,90%'
+    end: '50%,52%'
+    duration: 500
+- tapOn: '^天机$'
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: lock-widget-gallery
+- tapOn:
+    point: '28%,72%'
+- tapOn:
+    point: '62%,72%'
+- tapOn:
+    point: '90%,47%'
+- tapOn:
+    point: '50%,25%'
+- tapOn: '^\s*(完成|Done)\s*$'
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn:
+    point: '50%,45%'
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: widget-lock-circular-rectangular

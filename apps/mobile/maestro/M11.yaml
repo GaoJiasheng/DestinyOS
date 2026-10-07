@@ -1,0 +1,133 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    permissions:
+      notifications: allow
+- runFlow:
+    when:
+      visible: '^(允许|Allow)$'
+    commands:
+      - tapOn: '^(允许|Allow)$'
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- runFlow:
+    when:
+      visible: '^(打开|Open)$'
+    commands:
+      - tapOn: '^(打开|Open)$'
+- openLink: 'tianji:///dev/engagement'
+- runFlow:
+    when:
+      visible: '^(打开|Open)$'
+    commands:
+      - tapOn: '^(打开|Open)$'
+- extendedWaitUntil:
+    visible:
+      id: engagement-en
+    timeout: 90000
+- tapOn:
+    id: engagement-en
+- tapOn:
+    id: engagement-empty
+- runFlow:
+    when:
+      visible: '^(允许|Allow)$'
+    commands:
+      - tapOn: '^(允许|Allow)$'
+- extendedWaitUntil:
+    visible: 'Scheduled: 7 · Deep link: /me/birth'
+    timeout: 30000
+- takeScreenshot: schedule-empty-en
+- scrollUntilVisible:
+    element:
+      id: engagement-send
+- tapOn:
+    id: engagement-send
+- extendedWaitUntil:
+    visible:
+      id: engagement-sent
+    timeout: 30000
+- pressKey: Home
+- extendedWaitUntil:
+    visible: 'Daily reminders'
+    timeout: 20000
+- waitForAnimationToEnd
+- takeScreenshot: notification-guide-en
+- tapOn: 'Daily reminders'
+- extendedWaitUntil:
+    visible:
+      id: birth-year
+    timeout: 30000
+- takeScreenshot: notification-guide-link-en
+- openLink: 'tianji:///dev/engagement'
+- runFlow:
+    when:
+      visible: '^(打开|Open)$'
+    commands:
+      - tapOn: '^(打开|Open)$'
+- extendedWaitUntil:
+    visible:
+      id: engagement-profile
+    timeout: 30000
+- tapOn:
+    id: engagement-profile
+- extendedWaitUntil:
+    visible: 'Scheduled: 7 · Deep link: /today'
+    timeout: 30000
+- takeScreenshot: schedule-profile-en
+- scrollUntilVisible:
+    element:
+      id: engagement-send
+- tapOn:
+    id: engagement-send
+- extendedWaitUntil:
+    visible:
+      id: engagement-sent
+    timeout: 30000
+- pressKey: Home
+- extendedWaitUntil:
+    visible: 'Daily reminders'
+    timeout: 20000
+- waitForAnimationToEnd
+- takeScreenshot: notification-fortune-en
+- tapOn: 'Daily reminders'
+- extendedWaitUntil:
+    visible:
+      id: daily-block-1
+    timeout: 30000
+- takeScreenshot: notification-fortune-link-en
+- openLink: 'tianji:///dev/engagement'
+- runFlow:
+    when:
+      visible: '^(打开|Open)$'
+    commands:
+      - tapOn: '^(打开|Open)$'
+- scrollUntilVisible:
+    element:
+      id: engagement-background
+- tapOn:
+    id: engagement-background
+- extendedWaitUntil:
+    visible:
+      id: engagement-background-done
+    timeout: 30000
+- takeScreenshot: background-refresh-en
+- scrollUntilVisible:
+    element:
+      id: engagement-settings
+- tapOn:
+    id: engagement-settings
+- extendedWaitUntil:
+    visible:
+      id: push-enabled
+    timeout: 30000
+- takeScreenshot: push-settings-en
+- scrollUntilVisible:
+    element:
+      id: widget-theme-west
+- tapOn:
+    id: widget-theme-west
+- scrollUntilVisible:
+    element:
+      id: push-saved
+    timeout: 30000
+- takeScreenshot: widget-theme-en

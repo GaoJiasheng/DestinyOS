@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Linking } from 'react-native';
+import { Linking, AppState } from 'react-native';
 import { getPermissionsAsync } from 'expo-notifications';
 import { useProfiles } from '../../lib/profiles';
 import { useCopy } from '../../lib/copy';
@@ -13,13 +13,20 @@ export function NotificationHint() {
     [error, setError] = useState(false);
   useEffect(() => {
     let alive = true;
-    void getPermissionsAsync()
-      .then((permission) => {
-        if (alive) setDenied(permission.status === 'denied');
-      })
-      .catch(() => undefined);
+    const refresh = () => {
+      void getPermissionsAsync()
+        .then((permission) => {
+          if (alive) setDenied(permission.status === 'denied');
+        })
+        .catch(() => undefined);
+    };
+    refresh();
+    const listener = AppState.addEventListener('change', (state) => {
+      if (state === 'active') refresh();
+    });
     return () => {
       alive = false;
+      listener.remove();
     };
   }, []);
   if (!denied || settings.dailyNotificationHintDismissed) return null;

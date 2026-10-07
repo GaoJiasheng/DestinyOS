@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { Redirect, useRouter } from 'expo-router';
 import { useSharedValue, useFrameCallback } from 'react-native-reanimated';
@@ -23,6 +23,19 @@ export function Onboarding() {
   const [denied, setDenied] = useState(false);
   const [fillNext, setFillNext] = useState(false);
   const [failed, setFailed] = useState(false);
+  const requested = useRef(false);
+  useEffect(() => {
+    if (step !== 1 || requested.current) return;
+    requested.current = true;
+    // Request automatically on the documented second onboarding screen.
+    void (async () => {
+      try {
+        setDenied(!(await requestNotificationPermission(t('mobile.onboarding.notifications'))));
+      } catch {
+        setDenied(true);
+      }
+    })();
+  }, [step, t]);
   const size = Math.min(useWindowDimensions().width - 48, 320);
   const { active } = useEffectsMotion();
   const clock = useSharedValue(0);

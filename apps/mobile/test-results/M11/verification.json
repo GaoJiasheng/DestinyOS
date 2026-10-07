@@ -1,0 +1,72 @@
+{
+  "task": "app_M11",
+  "date": "2026-10-07",
+  "expo": "57.0.27 (npm latest)",
+  "simulator": {
+    "model": "iPhone 17 Pro",
+    "runtime": "iOS 26.4",
+    "udid": "B1D3D12A-3674-4778-9B75-240498E93B58"
+  },
+  "identifiers": {
+    "host": "pub.gavin.tianji",
+    "widget": "pub.gavin.tianji.widget",
+    "appGroup": "group.pub.gavin.tianji",
+    "team": "D33974QQTD"
+  },
+  "checks": {
+    "install": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "test": "passed",
+    "build": "passed",
+    "licenses": "1746 packages passed",
+    "androidPrebuild": "passed",
+    "androidAutolinking": "TianjiWidgetStorage found",
+    "iosNativeBuild": "Xcode 26.4.1 ad-hoc simulator build passed"
+  },
+  "tests": {
+    "vitestFilesPassed": 134,
+    "vitestPassed": 3712,
+    "vitestFilesSkipped": 1,
+    "vitestSkipped": 2,
+    "jestSuites": 36,
+    "jestPassed": 172
+  },
+  "maestro": {
+    "M11": "passed: 7 daily schedules with/without profile, actual OS delivery, both notification links, settings, background Success",
+    "widgetGallery": "passed: small/medium/large previews and home-screen installation",
+    "widgetDeepLink": "passed: native widget tap opens Today",
+    "lockWidgets": "native circular/rectangular installation verified through Maestro step flows",
+    "locales": "passed: background Success, zh/zh-TW language assertions and notification settings screenshots"
+  },
+  "sharedStorage": {
+    "dayCount": 8,
+    "firstDate": "2026-10-07",
+    "lastDate": "2026-10-14",
+    "displayFields": [
+      "accent",
+      "background",
+      "card",
+      "cardLabel",
+      "cardReversed",
+      "color",
+      "colorHex",
+      "date",
+      "dimensions",
+      "expiresAt",
+      "foreground",
+      "hours",
+      "line",
+      "numbers",
+      "stars",
+      "startsAt",
+      "title",
+      "url"
+    ],
+    "sensitiveFieldsAbsent": true
+  },
+  "pending": [
+    "Android native build, emulator and OS background/reboot acceptance after Owner installs Java",
+    "iOS physical-device BGTaskScheduler dispatch, locked SQLCipher and long-term background/reboot acceptance"
+  ]
+}

@@ -1,8 +1,4 @@
-// DESIGN-GAP: Hermes lacks Intl.PluralRules on the tested iOS runtime; install a
-// locale-scoped MIT polyfill before either ICU translator initializes.
-import '@formatjs/intl-pluralrules/polyfill.js';
-import '@formatjs/intl-pluralrules/locale-data/en.js';
-import '@formatjs/intl-pluralrules/locale-data/zh.js';
+import './intl';
 import { createInstance } from 'i18next';
 import ICU from 'i18next-icu';
 import { initReactI18next } from 'react-i18next';
