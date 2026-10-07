@@ -1,6 +1,6 @@
 /* global self, caches, URL, fetch */
 /* DESIGN-GAP: Explicit public-shell allowlist instead of caching authenticated Next HTML/RSC or API responses. */
-const CACHE = 'tianji-public-shell-8dc75e37c814';
+const CACHE = 'tianji-public-shell-sw2-8dc75e37c814';
 const SHELL = [
   '/offline/zh.html',
   '/offline/en.html',
@@ -15,7 +15,14 @@ const SHELL = [
   '/art/states/offline-small.webp',
 ];
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)));
+  // Activate fixed workers immediately so a previously installed broken worker cannot keep failing navigations.
+  event.waitUntil(
+    caches
+      .open(CACHE)
+      .then((cache) => cache.addAll(SHELL))
+      .catch(() => undefined)
+      .then(() => self.skipWaiting()),
+  );
 });
 self.addEventListener('activate', (event) => {
   event.waitUntil(
@@ -35,22 +42,22 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin) return;
-  if (request.mode === 'navigate' && /^\/(?:zh-TW|zh|en)?\/?$/.test(url.pathname)) {
+  // Only the locale homes get an offline fallback. The bare root is left to the network because it redirects,
+  // and a redirected response must never be returned for a navigation request (Chrome reports ERR_FAILED).
+  if (request.mode === 'navigate' && /^\/(?:zh-TW|zh|en)\/?$/.test(url.pathname)) {
+    const fallback = url.pathname.startsWith('/zh-TW')
+      ? '/offline/zh-TW.html'
+      : url.pathname.startsWith('/en')
+        ? '/offline/en.html'
+        : '/offline/zh.html';
     event.respondWith(
       fetch(request)
         .then((response) => {
+          if (response.redirected) return Response.redirect(response.url, 302);
           if (!response.ok) throw new Error('Home unavailable');
           return response;
         })
-        .catch(() =>
-          caches.match(
-            url.pathname.startsWith('/zh-TW')
-              ? '/offline/zh-TW.html'
-              : url.pathname.startsWith('/en')
-                ? '/offline/en.html'
-                : '/offline/zh.html',
-          ),
-        ),
+        .catch(async () => (await caches.match(fallback)) || Response.error()),
     );
     return;
   }
