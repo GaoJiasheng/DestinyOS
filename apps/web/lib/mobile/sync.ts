@@ -75,6 +75,7 @@ async function record(userId: string, resource: Resource, id: string) {
           id: row.id,
           request: JSON.parse(row.encInput) as unknown,
           profileId: row.profileId,
+          profileVersion: row.profileVersion,
           partnerProfileId: row.partnerProfileId,
           system: row.system,
           chart: row.chart,

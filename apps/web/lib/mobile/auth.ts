@@ -330,3 +330,56 @@ export async function mobileOwner(request: Request) {
   });
   return { user: row.user, sessionId: row.id };
 }
+
+/** Exchange Android's HTTPS Google code server-side; confidential OAuth secrets never enter the App. */
+export async function exchangeGoogleCode(raw: unknown) {
+  // DESIGN-GAP: Android Google uses the existing Web OAuth client with an HTTPS relay because Google blocks native custom redirect schemes on Android.
+  const input = z
+    .object({
+      challengeId: z.string().uuid(),
+      codeVerifier: z.string().regex(/^[A-Za-z0-9._~-]{43,128}$/),
+      authorizationCode: z.string().min(1).max(4096),
+      providerCodeVerifier: z.string().regex(/^[A-Za-z0-9._~-]{43,128}$/),
+      locale: z.enum(['zh', 'en', 'zh-TW']),
+    })
+    .strict()
+    .parse(raw);
+  const row = await getDb().ephemeralState.findUnique({
+    where: { key: `mobile:challenge:${input.challengeId}` },
+  });
+  if (!row || row.expiresAt <= Date.now()) throw unavailable();
+  const challenge = challengeState.parse(JSON.parse(row.value));
+  if (
+    challenge.provider !== 'google' ||
+    createHash('sha256').update(input.codeVerifier).digest('base64url') !== challenge.codeChallenge
+  )
+    throw unavailable();
+  const clientId = process.env.AUTH_GOOGLE_ID,
+    clientSecret = process.env.AUTH_GOOGLE_SECRET;
+  if (!clientId || !clientSecret)
+    throw new ApiError('E_INTERNAL', 'Google OAuth not configured', 503);
+  const response = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      client_id: clientId,
+      client_secret: clientSecret,
+      grant_type: 'authorization_code',
+      code: input.authorizationCode,
+      code_verifier: input.providerCodeVerifier,
+      redirect_uri: new URL(
+        '/auth/mobile/google',
+        process.env.NEXT_PUBLIC_SITE_URL ?? 'https://tianji.gavin.pub',
+      ).toString(),
+    }),
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!response.ok) throw unavailable();
+  const tokens = z.object({ id_token: z.string().min(1).max(12000) }).parse(await response.json());
+  return exchangeOAuth('google', {
+    challengeId: input.challengeId,
+    codeVerifier: input.codeVerifier,
+    idToken: tokens.id_token,
+    locale: input.locale,
+  });
+}

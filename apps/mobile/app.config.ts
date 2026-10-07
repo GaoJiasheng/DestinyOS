@@ -8,13 +8,21 @@ const config: ExpoConfig = {
   slug: 'tianji',
   version: '0.1.0',
   // DESIGN-GAP: Use a brand-based custom scheme for development links; production auth uses documented HTTPS universal links.
-  scheme: 'tianji',
+  scheme: [
+    'tianji',
+    ...(process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID
+      ? [
+          `com.googleusercontent.apps.${process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID.split('.apps.googleusercontent.com')[0]}`,
+        ]
+      : []),
+  ],
   orientation: 'portrait',
   userInterfaceStyle: 'dark',
   ios: {
     bundleIdentifier: 'pub.gavin.tianji',
     appleTeamId: 'D33974QQTD',
     supportsTablet: true,
+    usesAppleSignIn: true,
     associatedDomains: [`applinks:${brand.domain}`],
     entitlements: { 'com.apple.security.application-groups': ['group.pub.gavin.tianji'] },
     infoPlist: {
@@ -27,7 +35,18 @@ const config: ExpoConfig = {
       EXDevMenuIsOnboardingFinished: true,
     },
   },
-  android: { package: 'pub.gavin.tianji', predictiveBackGestureEnabled: true },
+  android: {
+    package: 'pub.gavin.tianji',
+    predictiveBackGestureEnabled: true,
+    intentFilters: [
+      {
+        action: 'VIEW',
+        autoVerify: true,
+        category: ['BROWSABLE', 'DEFAULT'],
+        data: [{ scheme: 'https', host: brand.domain, pathPrefix: '/auth/verify' }],
+      },
+    ],
+  },
   plugins: [
     // DESIGN-GAP: SDK57's cached RNCore Release binary omits RCTPackagerConnection during
     // a subsequent Debug link. Source builds keep development/production symbols consistent.
@@ -42,6 +61,8 @@ const config: ExpoConfig = {
       },
     ],
     'expo-router',
+    'expo-apple-authentication',
+    'expo-web-browser',
     'expo-sharing',
     'expo-asset',
     'expo-notifications',

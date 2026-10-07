@@ -10,6 +10,7 @@ import {
   refreshSession,
   beginOAuth,
   exchangeOAuth,
+  exchangeGoogleCode,
 } from '../lib/mobile/auth';
 import { sendEmail } from '../lib/platform/email';
 import { auth } from '../lib/auth';
@@ -192,6 +193,72 @@ it('validates actual signed Apple/Google JWTs, nonce, S256 proof, audiences and 
       ).userId,
     ).toBe(session.userId);
     await expect(exchangeOAuth(provider, input)).rejects.toMatchObject({ code: 'E_UNAUTHORIZED' });
+    if (provider === 'google') {
+      vi.stubEnv('AUTH_GOOGLE_ID', 'google-mobile');
+      vi.stubEnv('AUTH_GOOGLE_SECRET', 'synthetic-confidential-secret');
+      const android = await beginOAuth({
+        provider,
+        codeChallenge,
+        deviceName: 'Pixel',
+        platform: 'android',
+      });
+      const identity = await new SignJWT({ nonce: android.nonce })
+        .setProtectedHeader({ alg: 'RS256', kid: 'mobile-test' })
+        .setSubject('google-id')
+        .setIssuer(issuer)
+        .setAudience(audience)
+        .setIssuedAt()
+        .setExpirationTime('5m')
+        .sign(key.privateKey);
+      const codeInput = {
+        challengeId: android.challengeId,
+        codeVerifier: verifier,
+        authorizationCode: 'authorization-code',
+        providerCodeVerifier: 'p'.repeat(43),
+        locale: 'en',
+      };
+      await expect(
+        exchangeGoogleCode({ ...codeInput, codeVerifier: 'b'.repeat(43) }),
+      ).rejects.toMatchObject({ code: 'E_UNAUTHORIZED' });
+      fetcher.mockImplementationOnce(async (_url, options) => {
+        const body = new URLSearchParams(String(options?.body));
+        expect(body.get('client_secret')).toBe('synthetic-confidential-secret');
+        expect(body.get('code_verifier')).toBe('p'.repeat(43));
+        expect(body.get('redirect_uri')).toBe('https://tianji.gavin.pub/auth/mobile/google');
+        return Response.json({ id_token: identity });
+      });
+      expect((await exchangeGoogleCode(codeInput)).userId).toBe(session.userId);
+      await expect(exchangeGoogleCode(codeInput)).rejects.toMatchObject({ code: 'E_UNAUTHORIZED' });
+    }
   }
   fetcher.mockRestore();
+});
+
+it('deletes an account inside the App with optional feedback erasure and invalidates every device', async () => {
+  const session = await issueSession('owner', { deviceName: 'iPhone', platform: 'ios' });
+  const second = await issueSession('owner', { deviceName: 'Pixel', platform: 'android' });
+  await raw.feedback.create({ data: { userId: 'owner', vote: 1, text: 'Synthetic feedback' } });
+  expect(
+    (await mobileApi(request('account', 'DELETE', { confirmText: 'delete' }, session.accessToken)))
+      .status,
+  ).toBe(400);
+  expect(await raw.mobileSession.count({ where: { userId: 'owner' } })).toBe(2);
+  expect(
+    (
+      await mobileApi(
+        request(
+          'account',
+          'DELETE',
+          { confirmText: 'DELETE', deleteFeedback: true },
+          session.accessToken,
+        ),
+      )
+    ).status,
+  ).toBe(200);
+  expect(await raw.feedback.count()).toBe(0);
+  expect(await raw.mobileSession.count({ where: { userId: 'owner' } })).toBe(0);
+  expect((await raw.user.findUniqueOrThrow({ where: { id: 'owner' } })).deletedAt).not.toBeNull();
+  expect(
+    (await mobileApi(request('auth/sessions', 'GET', undefined, second.accessToken))).status,
+  ).toBe(401);
 });

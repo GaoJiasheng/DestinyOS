@@ -75,3 +75,8 @@ apps/mobile/test-results/M07/*
 apps/mobile/test-results/M08/*
 !apps/mobile/test-results/M08/*.png
 !apps/mobile/test-results/M08/*.json
+
+!apps/mobile/test-results/M10/
+apps/mobile/test-results/M10/*
+!apps/mobile/test-results/M10/*.png
+!apps/mobile/test-results/M10/*.json

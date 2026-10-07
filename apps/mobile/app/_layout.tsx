@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { I18nextProvider } from 'react-i18next';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { AccountBootstrap } from '../components/account-bootstrap';
 import { ProfilesProvider } from '../lib/profiles';
 import { SessionGate } from '../components/session-gate';
 import { fonts } from '../lib/fonts';
@@ -29,12 +30,14 @@ export default function RootLayout() {
       <I18nextProvider i18n={i18n}>
         <SafeAreaProvider>
           <StatusBar style="light" />
-          <ProfilesProvider>
-            <Stack
-              screenOptions={{ headerShown: false }}
-              screenLayout={({ children }) => <SessionGate>{children}</SessionGate>}
-            />
-          </ProfilesProvider>
+          <AccountBootstrap>
+            <ProfilesProvider>
+              <Stack
+                screenOptions={{ headerShown: false }}
+                screenLayout={({ children }) => <SessionGate>{children}</SessionGate>}
+              />
+            </ProfilesProvider>
+          </AccountBootstrap>
         </SafeAreaProvider>
       </I18nextProvider>
     </GestureHandlerRootView>

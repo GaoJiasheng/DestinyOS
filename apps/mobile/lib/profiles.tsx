@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react';
+import { currentOwner, subscribeOwner } from './account/scope';
 import { getLocalStore } from './data/store';
 import { SettingsSchema, type LocalRecord, type Profile, type Settings } from './data/models';
 
@@ -38,6 +39,9 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
   }, []);
   useEffect(() => {
     void reload();
+    return subscribeOwner(() => {
+      void reload();
+    });
   }, [reload]);
   async function updateSettings(patch: Partial<Settings>) {
     const saved = await (await getLocalStore()).updateSettings(patch);
@@ -50,7 +54,10 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
     error,
     reload,
     active:
-      profiles.find((profile) => profile.id === settings.activeProfileId) ?? profiles[0] ?? null,
+      profiles.find((profile) => profile.id === settings.activeProfileId) ??
+      profiles.find((profile) => profile.data?.isDefault) ??
+      profiles[0] ??
+      null,
     updateSettings,
     async select(id) {
       await updateSettings({ activeProfileId: id });
@@ -62,7 +69,8 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
       const saved = await store.database.write(async (sql) => {
         const record = await store.profiles.saveInTransaction(sql, profile, id);
         const previous = await sql.getFirstAsync<{ id: string; data: string }>(
-          'SELECT id,data FROM Settings WHERE userId IS NULL AND deletedAt IS NULL',
+          'SELECT id,data FROM Settings WHERE userId IS ? AND deletedAt IS NULL',
+          currentOwner(),
         );
         await store.settings.saveInTransaction(
           sql,

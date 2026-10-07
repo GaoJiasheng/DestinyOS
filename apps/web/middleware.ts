@@ -29,6 +29,7 @@ export default function middleware(request: NextRequest) {
   const excluded =
     /^\/(api|admin|s|\.well-known)(?:\/|$)/.test(request.nextUrl.pathname) ||
     /^\/auth\/verify\/?$/.test(request.nextUrl.pathname) ||
+    /^\/auth\/mobile\/(apple|google)$/.test(request.nextUrl.pathname) ||
     /\.[^/]+$/.test(request.nextUrl.pathname);
   const response = excluded
     ? NextResponse.next({ request: { headers: request.headers } })

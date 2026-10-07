@@ -75,3 +75,33 @@ After native prebuild/rebuild (SQLCipher is unavailable in Expo Go), run
 route `tianji:///dev/storage` tests an isolated database, checks ciphertext bytes and wrong-key
 rejection, closes/reopens the database, and deletes all ephemeral database/key material. Evidence
 is stored under `test-results/M04`; this route redirects away in production builds.
+
+M10 account flow: `/auth/login`, `/auth/verify`, `/me/settings`, and
+`/me/settings/devices` use the shared `@tianji/api-client` and Worker Bearer APIs.
+Tokens are a single SecureStore record; local account data and opaque sync cursors
+stay in SQLCipher. Anonymous data is uploaded only after explicit confirmation.
+Foreground sync runs at login/resume and every five minutes, with a manual retry.
+
+OAuth provisioning (public IDs only; do not commit local environment files):
+
+- `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID`: Google iOS client for `pub.gavin.tianji`;
+  prebuild registers its reversed client scheme.
+- `EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID`: the Google **Web** OAuth client ID,
+  matching Worker's `AUTH_GOOGLE_ID`; register
+  `https://tianji.gavin.pub/auth/mobile/google` as its redirect. The Worker uses
+  `AUTH_GOOGLE_SECRET` and receives both PKCE proofs. Add both Google client IDs
+  to `MOBILE_GOOGLE_CLIENT_IDS` on the Worker.
+- `EXPO_PUBLIC_APPLE_SERVICE_ID`: Apple Services ID for Android browser login;
+  register `https://tianji.gavin.pub/auth/mobile/apple`, add the ID to Worker's
+  `MOBILE_APPLE_CLIENT_IDS`. iOS uses the native Apple capability already enabled
+  for the documented Bundle ID and Team ID.
+- Deploy the existing first-party AASA/assetlinks files. Android association
+  requires `MOBILE_ANDROID_CERT_SHA256` for the actual Play signing certificate.
+
+Use a dedicated simulator for M10 diagnostics (mock identity, no real email):
+`pnpm --filter @tianji/mobile exec expo start --port 8081`, open `/dev/account`, then run
+`bash apps/mobile/scripts/m10-simulator.sh <UDID>`. It verifies both provider
+buttons, import consent, single-use magic-link confirmation, refresh, offline
+retry, device revocation, and deletion. Screenshots go to `test-results/M10`.
+Production builds reject the mock setup. HTTPS association and real provider
+credentials require provisioned console settings and a signed device build.

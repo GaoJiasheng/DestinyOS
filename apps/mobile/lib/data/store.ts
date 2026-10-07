@@ -1,4 +1,5 @@
 import * as Crypto from 'expo-crypto';
+import { currentOwner } from '../account/scope';
 import { Repository } from './repository';
 import { ProfileSchema, ReadingSchema, JournalSchema, SettingsSchema } from './models';
 import type { LocalDatabase } from './database';
@@ -57,6 +58,22 @@ export function createLocalStore(
         );
       });
     },
+    /** Remove only this account's local data, including archived versions and sync cursors. */
+    async eraseAccountData() {
+      await database.write(async (sql) => {
+        await sql.runAsync(
+          'DELETE FROM BirthProfileVersion WHERE profileId IN (SELECT id FROM BirthProfile WHERE userId IS ?)',
+          userId,
+        );
+        await sql.runAsync(
+          'DELETE FROM ReportFeedback WHERE readingId IN (SELECT id FROM Reading WHERE userId IS ?)',
+          userId,
+        );
+        for (const table of ['JournalEntry', 'Reading', 'Settings', 'BirthProfile'])
+          await sql.runAsync(`DELETE FROM "${table}" WHERE userId IS ?`, userId);
+        await sql.runAsync('DELETE FROM MobileSyncState WHERE userId IS ?', userId);
+      });
+    },
     /** Clear all local personal scopes atomically. This is device erasure, not a server delete. */
     async eraseDeviceData() {
       await database.write(erasePersonalData);
@@ -65,7 +82,7 @@ export function createLocalStore(
 }
 let databasePromise: Promise<LocalDatabase> | undefined;
 /** Share one initialization/key-generation promise; a failure may be retried without data reset. */
-export async function getLocalStore(userId: string | null = null) {
+export async function getLocalStore(userId: string | null = currentOwner()) {
   if (!databasePromise) {
     databasePromise = openEncryptedDatabase().catch((error: unknown) => {
       databasePromise = undefined;

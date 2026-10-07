@@ -86,7 +86,14 @@ export class Repository<T> {
       if (age < 13) throw new Error('E_AGE_RESTRICTED');
       const old = previous?.data ? (JSON.parse(previous.data) as unknown) : null;
       const oldProfile = old ? ProfileSchema.parse(old) : null;
-      data = { ...profile, version: (oldProfile?.version ?? 0) + 1 };
+      data = {
+        ...(oldProfile?.relation && !profile.relation ? { relation: oldProfile.relation } : {}),
+        ...(oldProfile?.isDefault !== undefined && profile.isDefault === undefined
+          ? { isDefault: oldProfile.isDefault }
+          : {}),
+        ...profile,
+        version: (oldProfile?.version ?? 0) + 1,
+      };
     }
     const record = {
       id,
@@ -141,7 +148,8 @@ export class Repository<T> {
     await this.database.write(async (sql) => {
       for (const record of records) {
         const previous = await this.row(sql, record.id);
-        if (!previous || record.updatedAt >= previous.updatedAt) await this.persist(sql, record);
+        if (!previous || record.deletedAt !== null || record.updatedAt >= previous.updatedAt)
+          await this.persist(sql, record);
       }
     });
   }

@@ -76,6 +76,11 @@ export function ProfileScreen() {
       )}
       {failed && <CopyText>{t('mobile.storage.error')}</CopyText>}
       <Action id="me-journal" label={t('me.journal')} onPress={() => router.push('/me/journal')} />
+      <Action
+        id="me-settings"
+        label={t('me.settings')}
+        onPress={() => router.push('/me/settings')}
+      />
       <Preferences />
     </Page>
   );

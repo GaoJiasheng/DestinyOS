@@ -31,6 +31,7 @@ const parentMessages = new Set([
   'journal.mood',
   'mobile.onboarding.notifications',
   'mobile.profiles.delete',
+  'mobile.account.devices',
 ]);
 /** Resolve the documented parent-message/namespace collisions without bundling a catalog. */
 export function runtimeKey(key: string, catalog?: Record<string, string>): string {

@@ -7,6 +7,7 @@ import { getDb } from '../db';
 import {
   beginOAuth,
   exchangeOAuth,
+  exchangeGoogleCode,
   exchangeMagic,
   refreshSession,
   mobileOwner,
@@ -74,7 +75,14 @@ export async function mobileApi(request: Request): Promise<Response> {
       const input = await body(request, 20000);
       if (route === 'auth/challenge') return success(await beginOAuth(input));
       if (route === 'auth/apple' || route === 'auth/google')
-        return success(await exchangeOAuth(route === 'auth/apple' ? 'apple' : 'google', input));
+        return success(
+          route === 'auth/google' &&
+            input &&
+            typeof input === 'object' &&
+            'authorizationCode' in input
+            ? await exchangeGoogleCode(input)
+            : await exchangeOAuth(route === 'auth/apple' ? 'apple' : 'google', input),
+        );
       if (route === 'auth/magic/request')
         return success(await requestMagic(input, requestIp(request.headers)));
       if (route === 'auth/magic/verify') return success(await exchangeMagic(input));
@@ -190,10 +198,11 @@ export async function mobileApi(request: Request): Promise<Response> {
     }
     // DESIGN-GAP: Account deletion has an explicit mobile route and reuses the existing DELETE confirmation and seven-day retention workflow.
     if (route === 'account' && method === 'DELETE') {
-      z.object({ confirmText: z.literal('DELETE') })
+      const deletion = z
+        .object({ confirmText: z.literal('DELETE'), deleteFeedback: z.boolean().default(false) })
         .strict()
         .parse(await body(request, 1000));
-      await softDeleteAccount(user.id);
+      await softDeleteAccount(user.id, deletion.deleteFeedback);
       return success({ deleted: true });
     }
     throw new ApiError('E_NOT_FOUND', 'Mobile endpoint unavailable', 404);

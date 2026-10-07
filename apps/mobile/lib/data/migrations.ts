@@ -46,6 +46,8 @@ export const migrations: readonly string[] = [
   );
   CREATE TRIGGER reading_feedback_delete AFTER UPDATE OF deletedAt ON Reading
   WHEN NEW.deletedAt IS NOT NULL BEGIN DELETE FROM ReportFeedback WHERE readingId=NEW.id; END;`,
+  // DESIGN-GAP: Keep opaque server cursors and upload watermarks inside SQLCipher, scoped by account/resource.
+  `CREATE TABLE MobileSyncState (userId TEXT NOT NULL, resource TEXT NOT NULL, cursor TEXT, uploadedAt TEXT, PRIMARY KEY(userId,resource));`,
 ];
 /** Upgrade atomically; never silently downgrade an unknown future schema. */
 export async function migrate(database: LocalDatabase): Promise<void> {
@@ -61,6 +63,7 @@ export async function migrate(database: LocalDatabase): Promise<void> {
 }
 /** Remove personal content immediately, including archived profile versions; retain public knowledge. */
 export async function erasePersonalData(sql: SqlConnection): Promise<void> {
+  await sql.execAsync('DELETE FROM MobileSyncState');
   await sql.execAsync('DELETE FROM ReportFeedback');
   await sql.execAsync('DELETE FROM BirthProfileVersion');
   for (const table of entities) await sql.execAsync(`DELETE FROM "${table}"`);

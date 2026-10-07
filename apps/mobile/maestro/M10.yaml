@@ -1,0 +1,247 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/account'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: account-fixture-prepare
+    timeout: 90000
+- tapOn:
+    id: account-fixture-zh
+- tapOn:
+    id: account-fixture-prepare
+- extendedWaitUntil:
+    visible:
+      id: account-google
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: login-zh
+- tapOn:
+    id: account-google
+- extendedWaitUntil:
+    visible:
+      id: account-import-confirm
+      enabled: true
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: import-zh
+- tapOn:
+    id: account-import-confirm
+- extendedWaitUntil:
+    visible:
+      id: account-continue
+      enabled: true
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn:
+    id: account-continue
+- extendedWaitUntil:
+    visible:
+      id: account-sync
+    timeout: 30000
+- tapOn:
+    id: account-sync
+- extendedWaitUntil:
+    visible:
+      id: account-sync-success
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: settings-synced-zh
+- tapOn:
+    id: account-devices
+- extendedWaitUntil:
+    visible:
+      id: account-device-other
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: devices-zh
+- tapOn:
+    id: account-device-other
+- tapOn:
+    text: '注销此设备'
+    index: 1
+- extendedWaitUntil:
+    notVisible:
+      id: account-device-other
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: device-revoked-zh
+- openLink: 'tianji://dev/account'
+- tapOn:
+    id: account-fixture-expire
+- tapOn:
+    id: account-sync
+- extendedWaitUntil:
+    visible:
+      id: account-sync-success
+    timeout: 30000
+- assertNotVisible:
+    id: account-error
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: token-refreshed-zh
+- openLink: 'tianji://dev/account'
+- tapOn:
+    id: account-fixture-offline
+- tapOn:
+    id: account-sync
+- extendedWaitUntil:
+    visible:
+      id: account-error
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: offline-zh
+- openLink: 'tianji://dev/account'
+- tapOn:
+    id: account-fixture-online
+- tapOn:
+    id: account-sync
+- assertNotVisible:
+    id: account-error
+- tapOn:
+    id: account-logout
+- extendedWaitUntil:
+    visible:
+      id: account-login
+    timeout: 30000
+- tapOn:
+    id: account-login
+- tapOn:
+    id: account-email
+- inputText: 'maestro@example.test'
+- tapOn:
+    text: '邮箱地址'
+    index: 0
+- tapOn:
+    id: account-magic-send
+- assertVisible:
+    id: account-magic-sent
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: magic-sent-zh
+- openLink: 'tianji://auth/verify?email=maestro%40example.test&token=M10-magic-token-1234567890'
+- extendedWaitUntil:
+    visible:
+      id: account-magic-confirm
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: magic-confirm-zh
+- tapOn:
+    id: account-magic-confirm
+- extendedWaitUntil:
+    visible:
+      id: account-continue
+      enabled: true
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn:
+    id: account-continue
+- scrollUntilVisible:
+    element:
+      id: account-delete-text
+    centerElement: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: delete-confirm-zh
+- tapOn:
+    id: account-delete-text
+- inputText: 'DELETE'
+- tapOn:
+    text: '^输入 DELETE .*'
+    index: 0
+- scrollUntilVisible:
+    element:
+      id: account-delete
+    centerElement: true
+- tapOn:
+    id: account-delete
+- extendedWaitUntil:
+    visible:
+      id: account-deleted
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: deleted-zh
+- openLink: 'tianji://dev/account'
+- tapOn:
+    id: account-fixture-en
+- tapOn:
+    id: account-fixture-prepare
+- extendedWaitUntil:
+    visible:
+      id: account-apple
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: login-en
+- tapOn:
+    id: account-apple
+- extendedWaitUntil:
+    visible:
+      id: account-import-skip
+      enabled: true
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: import-en
+- tapOn:
+    id: account-import-skip
+- extendedWaitUntil:
+    visible:
+      id: account-continue
+      enabled: true
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn:
+    id: account-continue
+- extendedWaitUntil:
+    visible:
+      id: account-sync
+    timeout: 30000
+- tapOn:
+    id: account-sync
+- extendedWaitUntil:
+    visible:
+      id: account-sync-success
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: settings-en
+- tapOn:
+    id: account-devices
+- extendedWaitUntil:
+    visible:
+      id: account-device-current
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: devices-en
+- tapOn:
+    id: account-device-current
+- tapOn:
+    text: 'Sign out this device'
+    index: 1
+- extendedWaitUntil:
+    visible:
+      id: account-google
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: current-device-revoked-en

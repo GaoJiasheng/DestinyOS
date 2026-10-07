@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { MobileProfileMetadataSchema } from '@tianji/api-client';
 import {
   BirthInputSchema,
   JournalInputSchema,
@@ -30,6 +31,8 @@ export type Metadata = z.infer<typeof MetadataSchema>;
 export const ProfileSchema = z
   .object({
     name: z.string().trim().max(80),
+    relation: MobileProfileMetadataSchema.shape.relation.optional(),
+    isDefault: z.boolean().optional(),
     birth: BirthInputSchema,
     // DESIGN-GAP: Store per-profile school defaults alongside the encrypted birth payload;
     // the App plan does not specify their persistence fields. Defaults match docs/04.

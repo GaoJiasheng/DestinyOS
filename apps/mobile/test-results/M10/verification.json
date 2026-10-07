@@ -1,0 +1,70 @@
+{
+  "task": "app_M10",
+  "status": "passed",
+  "identity": "development mock only",
+  "ios": {
+    "device": "iPhone 17e",
+    "runtime": "iOS 26.4",
+    "bundleId": "pub.gavin.tianji",
+    "build": "Xcode 26, ad-hoc simulator signing"
+  },
+  "maestro": {
+    "flow": "maestro/M10.yaml",
+    "locales": [
+      "zh",
+      "en"
+    ],
+    "checks": [
+      "Google login + confirmed anonymous import",
+      "Apple login + skipped anonymous import",
+      "profiles/readings/journal/settings sync",
+      "other-device revocation",
+      "expired access token refresh",
+      "offline retry",
+      "logout",
+      "magic-link confirmation",
+      "DELETE account + local erase",
+      "current-device revocation",
+      "validated age gate retains auth navigation during account projection reload"
+    ]
+  },
+  "android": {
+    "prebuild": "passed",
+    "nativeBuild": "pending Owner Java installation",
+    "emulatorAcceptance": "pending Owner Java installation"
+  },
+  "realProvidersAndHttpsAssociation": "pending provisioned provider IDs, deployed association files and signed-device validation",
+  "screenshots": {
+    "current-device-revoked-en.png": "afd6ab4dc8aea48e814d7b23c6efefcf6fca3b945dc6e3848bcc6eb5e59f8fe4",
+    "delete-confirm-zh.png": "ea34cd88e1fac3b1ff8ff3345a292ee3ed5add83da93e21ec8e322602ffd04f8",
+    "deleted-zh.png": "e7a7f604c6eefca0de68e4b66e8d4b6a6c77c9db9e0dd3a06f79e7ba9275e87e",
+    "device-revoked-zh.png": "3f1df5b774e106ca010a6a3ebc4cbce083613e9f77f6003d9163eaed2a1f86df",
+    "devices-en.png": "80c8d011b9d092ecfca9667e378857d56dd51226da6b6ca49ba03562361f6e58",
+    "devices-zh.png": "48801eac389c699324afd3af8904f10db3af7b6f9df281fbd804f67c48d2921a",
+    "import-en.png": "833333b265ec1d8bf9dae83f70eeb5d43d7f97fdb340dd6a6354d8cb213db13e",
+    "import-zh.png": "a9186549705a68bc18d50a9e3ed2c35cf1537c20c33312dd507e71984591e250",
+    "login-en.png": "1cdb29bac8264322531db74411f088ea761a8b7ae3dcdbc688ca03bfe4ce7b3c",
+    "login-zh.png": "adb56160de21bb43b818b24378e84b70be0ce28fb98cdd3ef40b408cacc31cc8",
+    "magic-confirm-zh.png": "fcaee83c192155d16ba95d5e6652c6585a45b16523bf471a1769f32ba3b50956",
+    "magic-sent-zh.png": "26f162379eb1271df31d75dfc77bfd26b1ed71d13419d8809219c463916bccd5",
+    "offline-zh.png": "29e514143cc840a845a7256d6c3d32793da75f3b6f0c0100d4617a5440616f5b",
+    "settings-en.png": "f257b166651cfda53fbb090badd11c0b4229a1b197a5da55a14eeb33c11e3ef4",
+    "settings-synced-zh.png": "8e43b7d88b16fd2e9a532d6dbe2ef3de67194140dd61b145f197dc459f28cf3c",
+    "token-refreshed-zh.png": "8e43b7d88b16fd2e9a532d6dbe2ef3de67194140dd61b145f197dc459f28cf3c"
+  },
+  "unit": {
+    "webAndShared": {
+      "passedFiles": 134,
+      "passedTests": 3712,
+      "skippedTests": 2
+    },
+    "mobile": {
+      "passedSuites": 30,
+      "passedTests": 153,
+      "concurrency": [
+        "owner credential isolation during in-flight sync and SecureStore writes",
+        "foreground sync paused during logout and account erasure"
+      ]
+    }
+  }
+}
