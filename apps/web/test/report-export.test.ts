@@ -1,5 +1,11 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { canExport, ExportRequestSchema } from '../lib/report-export-schema';
+import { createHash } from 'node:crypto';
+import {
+  canExport,
+  ExportRequestSchema,
+  EXPORT_VERSION,
+  EXPORT_IMAGE_WIDTH,
+} from '../lib/report-export-schema';
 import { RATE_LIMITS } from '../lib/ratelimit';
 vi.mock('../lib/auth', () => ({ auth: vi.fn() }));
 import { printToken, verifyPrintToken, exportKey, exportFilename } from '../lib/report-export';
@@ -55,12 +61,38 @@ describe('report exports', () => {
   });
 });
 
-it('defaults to the mobile long image and separates width-specific cache artifacts', () => {
-  expect(request.width).toBe(1242);
-  expect(ExportRequestSchema.safeParse({ ...request, width: 1500 }).success).toBe(false);
-  expect(exportKey({ ...request, width: 1600 }, baziReading('zh'), 'owner')).not.toBe(
-    exportKey(request, baziReading('zh'), 'owner'),
-  );
+it('uses only the fixed A4 width, retires width requests and versions the cache', () => {
+  expect(EXPORT_IMAGE_WIDTH).toBe(1654);
+  expect(EXPORT_VERSION).toBe('onepage-a4-v2');
+  expect(request).not.toHaveProperty('width');
+  for (const width of [1242, 1600, 1654])
+    expect(ExportRequestSchema.safeParse({ ...request, width }).success).toBe(false);
+  const reading = baziReading('zh');
+  const current = exportKey(request, reading, 'owner');
+  for (const width of [1242, 1600]) {
+    const legacy = createHash('sha256')
+      .update(
+        JSON.stringify([
+          'owner',
+          reading.id,
+          'onepage-v1',
+          reading.report.engineVersion,
+          reading.report.knowledgeVersion,
+          reading.report.interpretVersion,
+          reading.report,
+          reading.chart,
+          reading.meta.schoolUsed,
+          request.locale,
+          request.theme,
+          request.format,
+          width,
+        ]),
+      )
+      .digest('hex');
+    expect(current).not.toBe(legacy);
+    const staleRuntimeField = { ...request, width };
+    expect(exportKey(staleRuntimeField, reading, 'owner')).toBe(current);
+  }
   expect(exportFilename({ ...request, format: 'png' }, baziReading('zh'))).toBe(
     'bazi-2026-10-05-zh.jpg',
   );

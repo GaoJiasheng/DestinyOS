@@ -46,7 +46,7 @@ export async function POST(request: Request) {
             );
             await cacheExport(key, data, input.format);
           }
-          const query = new URLSearchParams({ ...input, width: String(input.width) });
+          const query = new URLSearchParams(input);
           const filename = exportFilename(input, reading);
           emit({
             progress: 100,

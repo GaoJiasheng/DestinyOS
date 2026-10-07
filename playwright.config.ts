@@ -10,6 +10,8 @@ export default defineConfig({
     'seo-content.spec.ts',
     'journal.spec.ts',
     'export.spec.ts',
+    'export-menu.spec.ts',
+    'export-geometry.spec.ts',
     'chat.spec.ts',
     'numerology.spec.ts',
     'rectification.spec.ts',

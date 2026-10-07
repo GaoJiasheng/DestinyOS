@@ -1,3 +1,4 @@
+import { EXPORT_IMAGE_WIDTH } from '../report-export-schema';
 import {
   printSettled,
   sizePoster,
@@ -68,12 +69,13 @@ export async function openCloudflarePage(
           tagged: true,
         });
       },
-      async prepareImage(width) {
+      async prepareImage() {
+        const width = EXPORT_IMAGE_WIDTH;
         await page.setViewport({ width, height: 1200, deviceScaleFactor: 1 });
-        return page.evaluate(sizePoster, width);
+        return page.evaluate(sizePoster);
       },
       async limitImageHeight(height) {
-        await page.evaluate(limitPosterHeight, height);
+        return page.evaluate(limitPosterHeight, height);
       },
       async compressImage(data) {
         const encoded = await page.evaluate(

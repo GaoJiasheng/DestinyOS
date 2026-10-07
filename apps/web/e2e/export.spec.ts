@@ -1,5 +1,5 @@
-import { testDatabaseUrl } from '../../../scripts/sqlite-test';
 import { TestCache } from '../../../scripts/test-cache';
+import { testDatabaseUrl } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -7,70 +7,10 @@ import { execFileSync } from 'node:child_process';
 import jsQR from 'jsqr';
 import { sizePoster, limitPosterHeight } from '../lib/platform/print-dom';
 import { randomUUID } from 'node:crypto';
-import { login, seedReading, db, birth, copies } from './m5-helpers';
-import { generateReading, json } from '../lib/reading-service';
-import { encryptField } from '../lib/crypto';
+import { login, db } from './m5-helpers';
 import sharp from 'sharp';
-const systems = [
-  'bazi',
-  'ziwei',
-  'iching',
-  'qimen',
-  'tarot',
-  'astrology',
-  'vedic',
-  'numerology',
-] as const;
+import { systems, seedExportReading } from './export-fixtures';
 const output = 'test-results/export';
-// Fixture A follows launch-check's documented fixed birth/clock, number cast and seeded Celtic Cross.
-async function seedExportReading(
-  userId: string,
-  system: (typeof systems)[number],
-  locale: 'zh' | 'en',
-) {
-  const now = '2026-10-04T00:00:00Z';
-  const input = {
-    system,
-    locale,
-    birth,
-    idempotencyKey: randomUUID(),
-    seed: 'fixture-A',
-    ...(system === 'tarot' ? { spread: 'celtic_cross' as const } : {}),
-    ...(system === 'iching'
-      ? {
-          method: 'meihua' as const,
-          category: 'career',
-          numbers: [1, 8, 1] as [number, number, number],
-        }
-      : {}),
-    ...(system === 'qimen'
-      ? {
-          question: {
-            at: `${now}[UTC]`,
-            place: { lng: birth.place!.lng, tz: birth.place!.tz },
-            category: 'general',
-          },
-        }
-      : {}),
-  };
-  const result = await generateReading(input, now);
-  return db.reading.create({
-    data: {
-      userId,
-      system,
-      encInput: encryptField(JSON.stringify(input), 'Reading.encInput', userId),
-      chart: json(result.chart),
-      reportZh: locale === 'zh' ? json(result.report) : undefined,
-      reportEn: locale === 'en' ? json(result.report) : undefined,
-      schoolUsed: json(result.meta.schoolUsed),
-      engineVersion: result.report.engineVersion,
-      interpretVersion: result.report.interpretVersion,
-      knowledgeVersion: result.report.knowledgeVersion,
-      createdAt: new Date(now),
-    },
-  });
-}
-process.env.LOCAL_DATABASE_URL = testDatabaseUrl(57552);
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
 });
@@ -118,6 +58,14 @@ for (const locale of ['zh', 'en'] as const)
       await expect(
         page.locator('.print-sheet').first().locator('[data-print-section="chart"]'),
       ).toHaveCount(1);
+      const { chartWidth: pdfChartWidth, ...introduction } = await page
+        .locator('.print-pages .print-intro')
+        .evaluate((node) => ({
+          titleFont: getComputedStyle(node.querySelector('h1')!).fontFamily,
+          titleSize: getComputedStyle(node.querySelector('h1')!).fontSize,
+          personaFont: getComputedStyle(node.querySelector('.print-persona')!).fontFamily,
+          chartWidth: getComputedStyle(node.querySelector('.print-chart svg')!).width,
+        }));
       await expect(page.locator('.print-footer').last()).toContainText(
         `${sheetCount} / ${sheetCount}`,
       );
@@ -138,6 +86,9 @@ for (const locale of ['zh', 'en'] as const)
           size: number;
           pages: number;
           width?: number;
+          bodyPixels?: number;
+          marginPixels?: number;
+          scale?: number;
           height?: number;
           qr?: string;
           searchable?: boolean;
@@ -168,16 +119,20 @@ for (const locale of ['zh', 'en'] as const)
         expect(done.error).toBeUndefined();
         expect(done.progress).toBe(100);
         expect(done.url).toBeTruthy();
+        expect(done.url).not.toContain('width=');
         const file = await page.request.get(done.url!);
         expect(file.ok()).toBe(true);
         const data = await file.body();
-        expect(data.length).toBeLessThanOrEqual(format === 'pdf' ? 2000000 : 3000000);
+        expect(data.length).toBeLessThanOrEqual(format === 'pdf' ? 2000000 : 6000000);
         const path = join(output, done.filename!);
         await writeFile(path, data);
         artifact[format] = { size: data.length, pages: sheetCount };
         if (format === 'pdf') {
           const info = execFileSync('pdfinfo', [path], { encoding: 'utf8' });
           expect(Number(/Pages:\s+(\d+)/.exec(info)?.[1])).toBe(sheetCount);
+          const a4 = /Page size:\s+([\d.]+) x ([\d.]+) pts/.exec(info);
+          expect(Math.abs(Number(a4?.[1]) - (210 * 72) / 25.4)).toBeLessThan(1);
+          expect(Math.abs(Number(a4?.[2]) - (297 * 72) / 25.4)).toBeLessThan(1);
           // Raw content-stream order preserves the two columns; crop only the repeating header/footer areas (points at 72dpi).
           const text = execFileSync(
             'pdftotext',
@@ -207,18 +162,39 @@ for (const locale of ['zh', 'en'] as const)
           expect(done.files).toBeUndefined();
           const metadata = await sharp(data).metadata();
           expect(metadata.format).toBe('jpeg');
-          expect([1242, 1600]).toContain(metadata.width);
+          expect(metadata.width).toBe(1654);
           expect(metadata.height).toBeLessThanOrEqual(16000);
           expect(metadata.height).toBeGreaterThan(metadata.width!);
-          await page.goto(
-            `/${locale}/${system}/r/${reading.id}/print?layout=poster&width=${metadata.width}`,
-          );
+          await page.goto(`/${locale}/${system}/r/${reading.id}/print?layout=poster`);
           await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true');
+          const { chartWidth: posterChartWidth, ...posterIntroduction } = await page
+            .locator('.print-source .print-intro')
+            .evaluate((node) => ({
+              titleFont: getComputedStyle(node.querySelector('h1')!).fontFamily,
+              titleSize: getComputedStyle(node.querySelector('h1')!).fontSize,
+              personaFont: getComputedStyle(node.querySelector('.print-persona')!).fontFamily,
+              chartWidth: getComputedStyle(node.querySelector('.print-chart svg')!).width,
+            }));
+          expect(posterIntroduction).toEqual(introduction);
+          expect(Math.abs(parseFloat(posterChartWidth) - parseFloat(pdfChartWidth))).toBeLessThan(
+            0.1,
+          );
           await page.setViewportSize({ width: metadata.width!, height: 1200 });
-          const height = await page.evaluate(sizePoster, metadata.width!);
+          const height = await page.evaluate(sizePoster);
           if (height > 16000) await page.evaluate(limitPosterHeight, 16000);
+          const type = await page.locator('.print-report').evaluate((node) => {
+            const styles = getComputedStyle(node);
+            const zoom = parseFloat(styles.zoom);
+            return {
+              bodyPixels: parseFloat(styles.fontSize) * zoom,
+              marginPixels: parseFloat(styles.paddingLeft) * zoom,
+              scale: Number((node as HTMLElement).dataset.posterScale),
+            };
+          });
+          expect(type.bodyPixels).toBeGreaterThanOrEqual(25 - 0.01);
+          expect(type.marginPixels).toBeCloseTo(((12 * 200) / 25.4) * type.scale, 0);
           const frame = await page.locator('.print-report').boundingBox();
-          expect(Math.abs(frame!.width - metadata.width!)).toBeLessThanOrEqual(1);
+          expect(Math.abs(frame!.width - metadata.width! * type.scale)).toBeLessThanOrEqual(1);
           expect(Math.abs(frame!.height - metadata.height!)).toBeLessThanOrEqual(2);
           const posterText = await page.locator('.print-source').innerText();
           for (const prose of sourceProse)
@@ -230,6 +206,7 @@ for (const locale of ['zh', 'en'] as const)
               const box = section.getBoundingClientRect();
               const previous = sections[i - 1]?.getBoundingClientRect();
               return {
+                section: section.dataset.printSection,
                 inside:
                   box.left >= root.left && box.right <= root.right && box.bottom <= root.bottom,
                 height: box.height,
@@ -237,9 +214,13 @@ for (const locale of ['zh', 'en'] as const)
               };
             });
           });
+          // The introduction adds 3mm padding and a 0.2mm rule before the body's 2mm margin.
+          const maximumGap = ((5.2 * 200) / 25.4) * type.scale + 1;
           expect(
-            geometry.every((section) => section.inside && section.height > 0 && section.gap <= 40),
-          ).toBe(true);
+            geometry.filter(
+              (section) => !section.inside || section.height <= 0 || section.gap > maximumGap,
+            ),
+          ).toEqual([]);
           // Decode pixels from the downloaded artifact, independent of a second browser's font/layout timing.
           const scanHeight = Math.min(metadata.height!, 4000);
           const pixels = await sharp(data)
@@ -265,6 +246,7 @@ for (const locale of ['zh', 'en'] as const)
             width: metadata.width,
             height: metadata.height,
             qr: decoded?.data,
+            ...type,
           };
         }
       }
@@ -284,116 +266,3 @@ for (const locale of ['zh', 'en'] as const)
         .screenshot({ path: join(output, `${system}-${locale}-light-cover.png`) });
     }
   });
-test('owner, membership, cache and quota enforcement', async ({ page, request }) => {
-  const user = await login(page, request, 'en', `export-security-${randomUUID()}@example.test`);
-  const reading = await seedReading(user.id, 'bazi', 'en');
-  const input = { readingId: reading.id, locale: 'en', format: 'cover', theme: 'light' };
-  await db.siteConfig.upsert({
-    where: { key: 'export.freeEnabled' },
-    create: { key: 'export.freeEnabled', value: false, updatedBy: user.id },
-    update: { value: false },
-  });
-  const redis = new TestCache(testDatabaseUrl(57552));
-  await redis.del('site-config');
-  expect((await page.request.post('/api/export', { data: input })).status()).toBe(403);
-  await db.user.update({ where: { id: user.id }, data: { plan: 'pro' } });
-  const response = await page.request.post('/api/export', { data: input, timeout: 240000 });
-  const done = JSON.parse((await response.text()).trim().split('\n').at(-1)!) as {
-    url: string;
-    progress: number;
-  };
-  expect(done.progress).toBe(100);
-  expect((await page.request.get(done.url)).status()).toBe(200);
-  const cached = await page.request.post('/api/export', { data: input });
-  expect(await cached.text()).toContain('"progress":95');
-  await db.user.update({ where: { id: user.id }, data: { plan: 'free' } });
-  expect((await page.request.get(done.url)).status()).toBe(403);
-  await db.siteConfig.update({ where: { key: 'export.freeEnabled' }, data: { value: true } });
-  await redis.del('site-config');
-  for (let i = 0; i < 12; i++)
-    expect((await page.request.post('/api/export', { data: input })).ok()).toBe(true);
-  const { ratelimit } = await import('../lib/ratelimit');
-  for (let i = 0; i < 9; i++) await ratelimit('export', user.id);
-  expect(
-    (await page.request.post('/api/export', { data: { ...input, format: 'pdf' } })).status(),
-  ).toBe(429);
-  expect((await page.request.post('/api/export', { data: input })).ok()).toBe(true);
-  await login(page, request, 'en', `export-other-${randomUUID()}@example.test`);
-  expect((await page.request.get(done.url)).status()).toBe(404);
-  const anonymous = await request.get(done.url);
-  expect(anonymous.status()).toBe(401);
-});
-for (const locale of ['zh', 'en'] as const)
-  test(`${locale}: export menu streams progress and downloads the light vector PDF`, async ({
-    page,
-    request,
-  }) => {
-    const user = await login(
-      page,
-      request,
-      locale,
-      `export-menu-${locale}-${randomUUID()}@example.test`,
-    );
-    const reading = await seedExportReading(user.id, 'bazi', locale);
-    const copy = copies[locale];
-    await page.goto(`/${locale}/bazi/r/${reading.id}`);
-    const menu = page.locator('#main .export-menu');
-    await menu.getByRole('button', { name: copy['export.menu'], exact: true }).click();
-    const dialog = page.getByRole('dialog');
-    await expect(dialog.getByLabel(copy['export.theme'])).toHaveValue('dark');
-    await dialog.getByLabel(copy['export.theme']).selectOption('light');
-    const downloadPromise = page.waitForEvent('download');
-    await dialog.getByRole('button', { name: copy['export.pdf'], exact: true }).click();
-    await expect(dialog.locator('progress')).toHaveAttribute('value', '100', { timeout: 120000 });
-    const download = await downloadPromise;
-    const path = join(output, `bazi-${locale}-light.pdf`);
-    await download.saveAs(path);
-    const info = execFileSync('pdfinfo', [path], { encoding: 'utf8' });
-    expect(Number(/Pages:\s+(\d+)/.exec(info)?.[1])).toBeLessThanOrEqual(6);
-    const text = execFileSync('pdftotext', ['-layout', path, '-'], { encoding: 'utf8' });
-    expect(text).toContain(locale === 'zh' ? '免责声明' : 'Disclaimer');
-  });
-test('mobile drawer retries a timeout, downloads one wide JPEG and shares the cover', async ({
-  page,
-  request,
-}) => {
-  await page.setViewportSize({ width: 375, height: 812 });
-  const user = await login(page, request, 'en', `export-mobile-${randomUUID()}@example.test`);
-  const reading = await seedExportReading(user.id, 'bazi', 'en');
-  const copy = copies.en;
-  await page.goto(`/en/bazi/r/${reading.id}`);
-  await page.locator('.export-menu').getByRole('button').click();
-  const dialog = page.getByRole('dialog');
-  const box = await dialog.boundingBox();
-  expect(Math.round(box!.y + box!.height)).toBe(812);
-  await dialog.getByLabel(copy['export.width']).selectOption('1600');
-  await page.route('**/api/export', (route) =>
-    route.fulfill({ contentType: 'application/x-ndjson', body: '{"error":"E_EXPORT_TIMEOUT"}\n' }),
-  );
-  await dialog.getByRole('button', { name: copy['export.png'], exact: true }).click();
-  await expect(dialog.getByRole('alert')).toContainText(copy['export.timeout']);
-  await page.unroute('**/api/export');
-  const downloadPromise = page.waitForEvent('download');
-  await dialog.getByRole('button', { name: copy['export.retry'], exact: true }).click();
-  const download = await downloadPromise;
-  const path = join(output, 'bazi-en-wide.jpg');
-  await download.saveAs(path);
-  const metadata = await sharp(path).metadata();
-  expect(metadata.width).toBe(1600);
-  expect(metadata.height).toBeLessThanOrEqual(16000);
-  expect(await dialog.locator('ol').count()).toBe(0);
-  await page.evaluate(() => {
-    Object.defineProperty(navigator, 'canShare', { configurable: true, value: () => true });
-    Object.defineProperty(navigator, 'share', {
-      configurable: true,
-      value: async (data: ShareData) => {
-        document.documentElement.dataset.sharedCover = data.files?.[0]?.name;
-      },
-    });
-  });
-  await dialog.getByRole('button', { name: copy['export.cover'], exact: true }).click();
-  await expect(page.locator('html')).toHaveAttribute('data-shared-cover', /-cover\.jpg$/, {
-    timeout: 65000,
-  });
-  await expect(dialog).toContainText(copy['export.complete']);
-});

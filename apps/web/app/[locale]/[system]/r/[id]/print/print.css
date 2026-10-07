@@ -454,9 +454,8 @@ body:has(.print-report[data-print-theme='light']) {
 
 /* Export geometry tokens are independent of the interactive web layout. */
 .print-report {
-  --poster-body: 36px;
-  --poster-space: 36px;
-  --poster-title: 60px;
+  --poster-space: 2mm;
+  --poster-margin: 12mm;
   --pdf-chart: 78mm;
 }
 .print-page-content {
@@ -579,12 +578,13 @@ body:has(.print-report[data-print-theme='light']) {
   line-height: 1.4;
   padding-top: 1mm;
 }
-.print-report[data-layout='poster'],
-.print-report[data-layout='cover'] {
-  padding: 60px;
+/* A4 geometry uses the same physical type and introduction as PDF, rasterized at 200 DPI. */
+.print-report:is([data-layout='poster'], [data-layout='cover']) {
+  width: 210mm;
+  zoom: calc(1654 / (210 * 96 / 25.4));
+  padding: var(--poster-margin);
+  margin-inline: auto;
   background: var(--bg-0);
-  font-size: var(--poster-body);
-  line-height: 1.55;
   print-color-adjust: exact;
 }
 .print-report:is([data-layout='poster'], [data-layout='cover']) .print-source {
@@ -599,117 +599,38 @@ body:has(.print-report[data-print-theme='light']) {
 .print-report[data-layout='cover'] [data-print-section]:not([data-print-section='cover']) {
   display: none;
 }
-.print-report:is([data-layout='poster'], [data-layout='cover']) h1 {
-  font-size: 72px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) h2 {
-  font-size: var(--poster-title);
-  margin-bottom: 24px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) h3 {
-  font-size: 42px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) p {
-  margin-bottom: 24px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-kicker {
-  font-size: 26px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-lead {
-  font-size: 42px;
-  line-height: 1.4;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover'])
-  [data-print-section]
-  + [data-print-section] {
-  border-top: 1px solid var(--gold);
+.print-report[data-layout='poster'] .print-source > [data-print-section] {
+  border-top: 0.2mm solid var(--gold);
   margin-top: var(--poster-space);
   padding-top: var(--poster-space);
 }
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-chapter-heading {
+.print-report[data-layout='poster'] .print-intro + [data-print-section] {
+  border-top: 0;
+}
+.print-report[data-layout='poster'] .print-chapter-heading {
   border: 0;
-  margin-bottom: 24px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-cover {
-  padding: 36px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-brand-zh {
-  font-size: 108px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-brand-en {
-  font-size: 36px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-persona {
-  font-size: 42px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-radar {
-  width: 420px;
-  height: 408px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-keywords span {
-  font-size: 26px;
-  padding: 8px 24px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-cover-bottom {
-  font-size: 26px;
-  padding-top: 24px;
-}
-.print-report:is([data-layout='poster'], [data-layout='cover']) .print-cover-bottom img {
-  width: 160px;
-  height: 160px;
-  padding: 12px;
-}
-.print-report[data-layout='poster'] .print-chart {
-  width: 780px;
-  max-width: 100%;
-  margin: 24px auto;
-}
-.print-report[data-layout='poster'] .print-chart > svg {
-  width: 100%;
-  height: auto;
-}
-.print-report[data-layout='poster'] .print-navamsa {
-  width: 44.7%;
-  height: 44.7%;
-  left: 27.65%;
-  top: 27.65%;
-}
-.print-report[data-layout='poster'] .print-legend,
-.print-report[data-layout='poster'] .print-footnote,
-.print-report[data-layout='poster'] .print-parameter {
-  font-size: 27px;
-  line-height: 1.4;
-}
-.print-report[data-layout='poster'] .print-advice {
-  padding: 18px 24px;
-  margin: 24px 0;
-}
-.print-report[data-layout='poster'] .print-advice strong,
-.print-report[data-layout='poster'] .print-evidence strong,
-.print-report[data-layout='poster'] .print-evidence span {
-  font-size: 27px;
-}
-.print-report[data-layout='poster'] .print-action {
-  padding: 18px 0;
-  gap: 24px;
-}
-.print-report[data-layout='poster'] .print-checkbox {
-  width: 24px;
-  height: 24px;
-}
-.print-report[data-layout='poster'] .print-end-qr {
-  gap: 24px;
-  font-size: 27px;
-  margin: 24px 0;
 }
 .print-report[data-layout='poster'] .print-end-qr img {
-  width: 180px;
-  height: 180px;
-  padding: 12px;
+  width: calc(180px / (1654 / (210 * 96 / 25.4)));
+  height: calc(180px / (1654 / (210 * 96 / 25.4)));
+  padding: calc(12px / (1654 / (210 * 96 / 25.4)));
+}
+.print-report[data-layout='poster']:is(
+    [data-system='iching'],
+    [data-system='qimen'],
+    [data-system='tarot']
+  ) {
+  --pdf-chart: 64mm;
 }
 
-/* DESIGN-GAP: PDF-only Noto Sans width-axis typography accommodates long English snapshots; poster and interactive report fonts keep their normal width. */
-.print-report[data-layout='pdf'][data-locale='en'] {
+/* DESIGN-GAP: The shared Noto Sans width axis matches English A4 typography; the interactive report retains its normal font. */
+.print-report:is([data-layout='pdf'], [data-layout='poster'])[data-locale='en'] {
+  font-family: 'Noto Sans Variable', 'Noto Serif SC', serif;
+  font-stretch: 62.5%;
+  font-variation-settings: 'wdth' 62.5;
+}
+/* Keep the English poster introduction identical to the PDF introduction. */
+.print-report[data-locale='en'] .print-intro {
   font-family: 'Noto Sans Variable', 'Noto Serif SC', serif;
   font-stretch: 62.5%;
   font-variation-settings: 'wdth' 62.5;
@@ -719,40 +640,40 @@ body:has(.print-report[data-print-theme='light']) {
   transform: scaleX(var(--print-density, 1));
   transform-origin: top left;
 }
-.print-report[data-layout='pdf'] .print-evidence {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-evidence {
   display: block;
   font-size: 7pt;
   line-height: 1.4;
   margin: 1mm 0;
 }
-.print-report[data-layout='pdf'] .print-evidence span {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-evidence span {
   display: inline;
   border: 0;
   padding: 0;
   margin-right: 1mm;
   font-size: 7pt;
 }
-.print-report[data-layout='pdf'] .print-evidence strong {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-evidence strong {
   font-size: 7pt;
 }
-.print-report[data-layout='pdf'] p {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) p {
   margin-bottom: 0.5mm;
 }
-.print-report[data-layout='pdf'] .print-advice {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-advice {
   margin: 1mm 0;
   padding: 1mm 2mm;
 }
-.print-report[data-layout='pdf'] .print-action {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-action {
   padding: 1mm 0;
 }
-.print-report[data-layout='pdf'] .print-lead {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-lead {
   font-size: 10.5pt;
   line-height: 1.35;
 }
-.print-report[data-layout='pdf'] .print-kicker {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-kicker {
   font-size: 6pt;
 }
-.print-report[data-layout='pdf'] .print-chapter-heading {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-chapter-heading {
   margin-bottom: 1mm;
 }
 .print-intro .print-radar {
@@ -767,12 +688,12 @@ body:has(.print-report[data-print-theme='light']) {
 }
 
 /* DESIGN-GAP: Compact recommendations and checklists separately from the specified prose size; no words are omitted. */
-.print-report[data-layout='pdf'] .print-advice strong {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-advice strong {
   display: inline;
   margin: 0 1mm 0 0;
   font-size: 7pt;
 }
-.print-report[data-layout='pdf'] .print-advice p {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-advice p {
   display: inline;
   margin: 0;
 }
@@ -781,7 +702,7 @@ body:has(.print-report[data-print-theme='light']) {
   line-height: 1.4;
   padding: 0.6mm 0;
 }
-.print-report[data-layout='pdf']:is(
+.print-report:is([data-layout='pdf'], [data-layout='poster']):is(
     [data-system='iching'],
     [data-system='qimen'],
     [data-system='tarot']
@@ -809,7 +730,7 @@ body:has(.print-report[data-print-theme='light']) {
   border-top: 0;
   padding: 0;
 }
-.print-report[data-layout='pdf'] .print-parameter {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-parameter {
   display: inline-flex;
   align-items: baseline;
   gap: 1mm;
@@ -817,16 +738,34 @@ body:has(.print-report[data-print-theme='light']) {
   font-size: 6.5pt;
   line-height: 1.35;
 }
-.print-report[data-layout='pdf'] h3 {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) h3 {
   font-size: 10pt;
   margin: 2mm 0 1mm;
 }
 
 /* DESIGN-GAP: Render the legal appendix as readable fine print, avoiding an extra page of auxiliary text while preserving all prose at its specified size. */
-.print-report[data-layout='pdf'] .print-legal-heading {
+.print-report:is([data-layout='pdf'], [data-layout='poster']) .print-legal-heading {
   font-size: 12pt;
 }
 .print-report[data-layout='pdf'] .print-disclaimer {
   font-size: 7pt;
   line-height: 1.4;
+}
+
+/* DESIGN-GAP: Continuous A4 posters use book-style leading and the PDF's compact auxiliary rows to retain all prose at the 9pt floor within 16000px. */
+.print-report[data-layout='poster'] {
+  line-height: 1.45;
+}
+.print-report[data-layout='poster'][data-locale='en'] {
+  line-height: 1.25;
+}
+.print-report[data-layout='poster'] .print-intro {
+  line-height: 1.55;
+}
+.print-report[data-layout='poster'] p {
+  margin-bottom: 0.25mm;
+}
+.print-report[data-layout='poster'] .print-action {
+  line-height: 1.4;
+  padding: 0.6mm 0;
 }

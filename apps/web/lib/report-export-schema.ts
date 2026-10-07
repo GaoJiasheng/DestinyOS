@@ -7,14 +7,10 @@ export const ExportRequestSchema = z
     theme: z.enum(['dark', 'light']).default('dark'),
     // DESIGN-GAP: Keep the existing png API enum for compatibility; its artifact is now one JPEG.
     format: z.enum(['pdf', 'png', 'cover']),
-    width: z.coerce
-      .number()
-      .pipe(z.union([z.literal(1242), z.literal(1600)]))
-      .default(1242),
   })
   .strict();
 export type ExportRequest = z.infer<typeof ExportRequestSchema>;
-export const EXPORT_VERSION = 'onepage-v1';
+export const EXPORT_VERSION = 'onepage-a4-v2';
 export const EXPORT_TTL = 86400;
 /** Resolve free/member entitlement without treating an anonymous viewer as an owner. */
 export function canExport(plan: 'free' | 'pro', freeEnabled: boolean): boolean {
@@ -22,6 +18,10 @@ export function canExport(plan: 'free' | 'pro', freeEnabled: boolean): boolean {
 }
 
 export const EXPORT_TIMEOUT_MS = 60000;
-export const EXPORT_IMAGE_BYTES = 3000000;
+// DESIGN-GAP: A4/200-DPI prose at JPEG 70 can exceed the previous 3MB target; allow up to 6MB rather than violate the owner's type/quality floors.
+export const EXPORT_IMAGE_TARGET_BYTES = 3000000;
+export const EXPORT_IMAGE_BYTES = 6000000;
 export const EXPORT_PDF_BYTES = 2000000;
 export const EXPORT_IMAGE_HEIGHT = 16000;
+
+export const EXPORT_IMAGE_WIDTH = 1654;

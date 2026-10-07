@@ -13,7 +13,7 @@ function renderer(): ReportPage {
     validate: vi.fn().mockResolvedValue(undefined),
     pdf: vi.fn().mockResolvedValue(new Uint8Array(100)),
     prepareImage: vi.fn().mockResolvedValue(18000),
-    limitImageHeight: vi.fn().mockResolvedValue(undefined),
+    limitImageHeight: vi.fn().mockResolvedValue(15998),
     compressImage: vi.fn().mockResolvedValue(new Uint8Array(2000000)),
     screenshotImage: vi.fn().mockResolvedValue(new Uint8Array(3100000)),
     close: vi.fn().mockResolvedValue(undefined),
@@ -24,13 +24,13 @@ afterEach(() => {
   vi.restoreAllMocks();
   vi.unstubAllEnvs();
 });
-it('captures a tall report once, widens it and compresses the single artifact', async () => {
+it('captures a tall A4 report once, scales it and compresses the single artifact', async () => {
   vi.stubEnv('AUTH_SECRET', 'export-render-secret');
   const page = renderer();
   vi.mocked(openReportPage).mockResolvedValue(page);
   const result = await renderExport(input, baziReading('zh'), 'owner', vi.fn());
-  expect(page.prepareImage).toHaveBeenNthCalledWith(1, 1242);
-  expect(page.prepareImage).toHaveBeenNthCalledWith(2, 1600);
+  expect(page.prepareImage).toHaveBeenCalledExactlyOnceWith();
+  expect(page.navigate).toHaveBeenCalledWith(expect.not.stringContaining('width='));
   expect(page.limitImageHeight).toHaveBeenCalledWith(16000);
   expect(page.screenshotImage).toHaveBeenCalledExactlyOnceWith(82);
   expect(page.compressImage).toHaveBeenCalledOnce();
@@ -60,4 +60,39 @@ it('rejects oversized PDFs while leaving their text as browser-generated PDF', a
   ).rejects.toMatchObject({ code: 'E_EXPORT_SIZE' });
   expect(page.screenshotImage).not.toHaveBeenCalled();
   expect(page.close).toHaveBeenCalledOnce();
+});
+
+it('rejects unreadably tall content before capture and never widens or paginates it', async () => {
+  vi.stubEnv('AUTH_SECRET', 'export-render-secret');
+  const page = renderer();
+  vi.mocked(page.limitImageHeight).mockResolvedValue(17000);
+  vi.mocked(openReportPage).mockResolvedValue(page);
+  await expect(renderExport(input, baziReading('zh'), 'owner', vi.fn())).rejects.toMatchObject({
+    code: 'E_EXPORT_SIZE',
+  });
+  expect(page.screenshotImage).not.toHaveBeenCalled();
+  expect(page.close).toHaveBeenCalledOnce();
+});
+it('rejects bytes still over budget after the JPEG quality floor', async () => {
+  vi.stubEnv('AUTH_SECRET', 'export-render-secret');
+  const page = renderer();
+  vi.mocked(page.prepareImage).mockResolvedValue(12000);
+  vi.mocked(page.compressImage).mockResolvedValue(new Uint8Array(6000001));
+  vi.mocked(openReportPage).mockResolvedValue(page);
+  await expect(renderExport(input, baziReading('zh'), 'owner', vi.fn())).rejects.toMatchObject({
+    code: 'E_EXPORT_SIZE',
+  });
+  expect(page.limitImageHeight).not.toHaveBeenCalled();
+  expect(page.screenshotImage).toHaveBeenCalledExactlyOnceWith(82);
+});
+
+it('retains a complete quality-floor artifact above the soft target and below the hard budget', async () => {
+  vi.stubEnv('AUTH_SECRET', 'export-render-secret');
+  const page = renderer();
+  vi.mocked(page.prepareImage).mockResolvedValue(12000);
+  vi.mocked(page.compressImage).mockResolvedValue(new Uint8Array(4500000));
+  vi.mocked(openReportPage).mockResolvedValue(page);
+  expect((await renderExport(input, baziReading('zh'), 'owner', vi.fn())).length).toBe(4500000);
+  expect(page.compressImage).toHaveBeenCalledOnce();
+  expect(page.screenshotImage).toHaveBeenCalledExactlyOnceWith(82);
 });

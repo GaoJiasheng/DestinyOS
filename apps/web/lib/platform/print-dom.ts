@@ -21,11 +21,14 @@ export function selectPrintSheet(nodes: Element[], selected: number): void {
   window.scrollTo(0, 0);
 }
 
-/** Set poster width before measuring its natural height; no sheet visibility or clipping is used. */
-export function sizePoster(width: number): number {
+/** Measure a fixed A4 layout at 200 DPI on a 1654px canvas, without changing its line wrapping. */
+export function sizePoster(): number {
   const root = document.querySelector<HTMLElement>('.print-report');
   if (!root) throw new Error('Missing poster');
-  root.style.width = `${width}px`;
+  const a4Width = (210 * 96) / 25.4;
+  root.style.width = `${a4Width}px`;
+  root.style.zoom = String(1654 / a4Width);
+  root.dataset.posterScale = '1';
   window.scrollTo(0, 0);
   return Math.ceil(root.getBoundingClientRect().height);
 }
@@ -60,30 +63,43 @@ export async function compressPrintImages(): Promise<void> {
   }
 }
 
-/** Uniformly compact exceptionally tall posters without cropping or creating another sheet. */
-export function limitPosterHeight(height: number): void {
+/** Uniformly shrink the fixed A4 geometry, stopping at a 9pt body size at 200 DPI.
+ * @param height Maximum output height in pixels; returns the measured result (possibly over budget).
+ */
+export function limitPosterHeight(height: number): number {
   const root = document.querySelector<HTMLElement>('.print-report');
   if (!root) throw new Error('Missing poster');
-  const width = root.getBoundingClientRect().width;
-  // DESIGN-GAP: Wider logical text reflows as zoom changes, so measure a bounded binary search instead of over-shrinking by the original height ratio.
-  let low = Math.min(1, (height - 2) / root.getBoundingClientRect().height);
-  let high = 1;
-  const apply = (ratio: number) => {
-    root.style.width = `${width / ratio}px`;
-    root.style.zoom = String(ratio);
-    // DESIGN-GAP: Keep the final QR at 180 physical pixels with a 12px quiet border even when an exceptionally long poster is scaled.
-    for (const qr of root.querySelectorAll<HTMLElement>('.print-end-qr img')) {
-      qr.style.width = qr.style.height = `${180 / ratio}px`;
-      qr.style.padding = `${12 / ratio}px`;
-    }
-    return root.getBoundingClientRect().height;
-  };
-  for (let i = 0; i < 10; i++) {
-    const ratio = (low + high) / 2;
-    if (apply(ratio) <= height - 2) low = ratio;
-    else high = ratio;
+  const initialZoom = Number(root.style.zoom);
+  const initialHeight = root.getBoundingClientRect().height;
+  const bodyPixels = parseFloat(getComputedStyle(root).fontSize) * initialZoom;
+  const minimumScale = Math.min(1, (9 * 200) / 72 / bodyPixels);
+  // DESIGN-GAP: Center a uniformly reduced A4 sheet on the fixed canvas; its logical width and existing line breaks never change.
+  const ratio = Math.max(minimumScale, Math.min(1, (height - 2) / initialHeight));
+  root.style.zoom = String(initialZoom * ratio);
+  root.dataset.posterScale = String(ratio);
+  // DESIGN-GAP: Preserve both QR codes at their original output dimensions and quiet borders; remeasure their extra height after scaling.
+  for (const qr of root.querySelectorAll<HTMLElement>(
+    '.print-end-qr img, .print-cover-bottom img',
+  )) {
+    if (getComputedStyle(qr).display === 'none') continue;
+    qr.style.width = qr.style.height = `${180 / (initialZoom * ratio)}px`;
+    qr.style.padding = `${12 / (initialZoom * ratio)}px`;
   }
-  apply(low);
+  // QR growth can add height; one correction keeps the same layout and respects the type floor.
+  const measured = root.getBoundingClientRect().height;
+  if (measured > height && ratio > minimumScale) {
+    const corrected = Math.max(minimumScale, (ratio * (height - 2)) / measured);
+    root.style.zoom = String(initialZoom * corrected);
+    root.dataset.posterScale = String(corrected);
+    for (const qr of root.querySelectorAll<HTMLElement>(
+      '.print-end-qr img, .print-cover-bottom img',
+    )) {
+      if (getComputedStyle(qr).display === 'none') continue;
+      qr.style.width = qr.style.height = `${180 / (initialZoom * corrected)}px`;
+      qr.style.padding = `${12 / (initialZoom * corrected)}px`;
+    }
+  }
+  return Math.ceil(root.getBoundingClientRect().height);
 }
 /** Compress the already-captured JPEG on the browser, usable in Workers without a native addon. */
 export async function compressPoster(dataUrl: string): Promise<string> {
@@ -97,7 +113,7 @@ export async function compressPoster(dataUrl: string): Promise<string> {
   if (!context) throw new Error('Image encoder unavailable');
   context.drawImage(image, 0, 0);
   let result = dataUrl;
-  for (const quality of [0.76, 0.68, 0.6, 0.5, 0.4]) {
+  for (const quality of [0.8, 0.76, 0.72, 0.7]) {
     result = canvas.toDataURL('image/jpeg', quality);
     if ((result.length - result.indexOf(',') - 1) * 0.75 <= 3000000) break;
   }

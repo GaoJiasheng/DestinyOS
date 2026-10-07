@@ -28,7 +28,6 @@ export function ExportMenu({
   const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-  const [width, setWidth] = useState<1242 | 1600>(1242);
   const [progress, setProgress] = useState<number | null>(null);
   const [seconds, setSeconds] = useState(25);
   const [error, setError] = useState('');
@@ -49,7 +48,7 @@ export function ExportMenu({
       const response = await fetch('/api/export', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ readingId, locale, theme, format, width }),
+        body: JSON.stringify({ readingId, locale, theme, format }),
         signal: abort.current.signal,
       });
       if (!response.ok) {
@@ -152,17 +151,6 @@ export function ExportMenu({
               >
                 <option value="dark">{t('export.dark')}</option>
                 <option value="light">{t('export.light')}</option>
-              </select>
-            </label>
-            <label className="birth-field">
-              {t('export.width')}
-              <select
-                value={width}
-                disabled={busy}
-                onChange={(e) => setWidth(e.target.value === '1600' ? 1600 : 1242)}
-              >
-                <option value="1242">{t('export.widthMobile')}</option>
-                <option value="1600">{t('export.widthWide')}</option>
               </select>
             </label>
             <div className="export-primary-actions">

@@ -13,6 +13,7 @@ import { z } from 'zod';
 import {
   EXPORT_TIMEOUT_MS,
   EXPORT_IMAGE_BYTES,
+  EXPORT_IMAGE_TARGET_BYTES,
   EXPORT_PDF_BYTES,
   EXPORT_IMAGE_HEIGHT,
 } from './report-export-schema';
@@ -104,7 +105,6 @@ export function exportKey(request: ExportRequest, reading: ReadingView, userId: 
       request.locale,
       request.theme,
       request.format,
-      request.width,
     ]),
   );
 }
@@ -157,7 +157,7 @@ export async function renderExport(
     const layout =
       request.format === 'pdf' ? 'pdf' : request.format === 'cover' ? 'cover' : 'poster';
     await page.navigate(
-      `${origin}${path}?${new URLSearchParams({ theme: request.theme, layout, width: String(request.width) })}`,
+      `${origin}${path}?${new URLSearchParams({ theme: request.theme, layout })}`,
     );
     await page.validate();
     progress(40);
@@ -168,17 +168,20 @@ export async function renderExport(
       progress(90);
       return pdf;
     }
-    let height = await page.prepareImage(request.width);
-    if (height > EXPORT_IMAGE_HEIGHT && request.width === 1242)
-      height = await page.prepareImage(1600);
-    // DESIGN-GAP: If the wider poster is still taller than 16000px, scale its CSS geometry uniformly, preserving every block and a single fullPage capture.
-    // The browser adapter performs this final geometry reduction before capture.
-    if (height > EXPORT_IMAGE_HEIGHT) await page.limitImageHeight(EXPORT_IMAGE_HEIGHT);
+    const height = await page.prepareImage();
+    if (height > EXPORT_IMAGE_HEIGHT) {
+      const scaledHeight = await page.limitImageHeight(EXPORT_IMAGE_HEIGHT);
+      // DESIGN-GAP: JPEG quality cannot reduce pixel height; reject content that cannot fit at the 9pt floor rather than crop, paginate or widen it.
+      if (scaledHeight > EXPORT_IMAGE_HEIGHT)
+        throw new ApiError('E_EXPORT_SIZE', 'Image height exceeds the readable A4 budget', 422);
+    }
     progress(60);
     const screenshot = await page.screenshotImage(82);
     // DESIGN-GAP: Re-encode the single capture for oversize artifacts; never capture or expose individual pages.
     const image =
-      screenshot.length <= EXPORT_IMAGE_BYTES ? screenshot : await page.compressImage(screenshot);
+      screenshot.length <= EXPORT_IMAGE_TARGET_BYTES
+        ? screenshot
+        : await page.compressImage(screenshot);
     if (image.length > EXPORT_IMAGE_BYTES)
       throw new ApiError('E_EXPORT_SIZE', 'Image size budget exceeded', 422);
     progress(90);

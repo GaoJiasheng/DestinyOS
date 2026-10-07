@@ -5,8 +5,8 @@ export interface ReportPage {
   navigate(url: string): Promise<void>;
   validate(): Promise<void>;
   pdf(): Promise<Uint8Array>;
-  prepareImage(width: 1242 | 1600): Promise<number>;
-  limitImageHeight(height: number): Promise<void>;
+  prepareImage(): Promise<number>;
+  limitImageHeight(height: number): Promise<number>;
   compressImage(data: Uint8Array): Promise<Uint8Array>;
   screenshotImage(quality: number): Promise<Uint8Array>;
   close(): Promise<void>;

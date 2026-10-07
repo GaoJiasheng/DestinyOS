@@ -94,9 +94,9 @@ it('uses the browser binding, restricts requests, validates fonts/pagination and
     tagged: true,
   });
   mock.evaluate.mockResolvedValue(9000);
-  expect(await page.prepareImage(1242)).toBe(9000);
+  expect(await page.prepareImage()).toBe(9000);
   expect(mock.viewport).toHaveBeenLastCalledWith({
-    width: 1242,
+    width: 1654,
     height: 1200,
     deviceScaleFactor: 1,
   });

@@ -21,7 +21,7 @@ export default async function PrintPage({
   searchParams,
 }: {
   params: Promise<{ locale: string; system: string; id: string }>;
-  searchParams: Promise<{ theme?: string; layout?: string; width?: string }>;
+  searchParams: Promise<{ theme?: string; layout?: string }>;
 }) {
   const { locale, system, id } = await params;
   if (!isLocale(locale)) notFound();
@@ -32,7 +32,6 @@ export default async function PrintPage({
     locale,
     theme: query.theme ?? 'dark',
     format: query.layout === 'poster' ? 'png' : query.layout === 'cover' ? 'cover' : 'pdf',
-    width: query.width ?? 1242,
   });
   if (!request.success) notFound();
   const token = (await headers()).get('x-report-print-token');
@@ -60,7 +59,7 @@ export default async function PrintPage({
         <link rel="stylesheet" href="/fonts/fonts-print.css" />
         <link rel="stylesheet" href="/fonts/fonts-print-symbols.css" />
         <PrintReport
-          key={`${reading.id}:${locale}:${request.data.theme}:${request.data.format}:${request.data.width}`}
+          key={`${reading.id}:${locale}:${request.data.theme}:${request.data.format}`}
           reading={reading}
           theme={request.data.theme}
           qr={qr}
@@ -71,7 +70,6 @@ export default async function PrintPage({
                 ? 'cover'
                 : 'poster'
           }
-          width={request.data.width}
         />
       </>
     );
