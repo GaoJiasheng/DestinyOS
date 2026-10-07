@@ -6,15 +6,15 @@ import {
   NativeAsset,
   NativeAssetType,
   NativeMediaView,
-  TestIds,
 } from 'react-native-google-mobile-ads';
 import { useBilling } from '../lib/monetization/billing';
 import { useConsent } from '../lib/monetization/consent';
 import { useCopy } from '../lib/copy';
 import { useTheme } from '../lib/theme';
 import { useProfiles } from '../lib/profiles';
+import { nativeAdUnit } from '../lib/monetization/ad-unit';
 import { adAge } from '../lib/monetization/ad-policy';
-/** Native-only test inventory. No placement outside Today/reports and no user targeting payloads. */
+/** Native inventory. No placement outside Today/reports and no user targeting payloads. */
 export function NativeAdCard({ slot }: { slot: 0 | 1 }) {
   const billing = useBilling(),
     consent = useConsent();
@@ -43,7 +43,9 @@ function LoadedNativeAd({ slot, nonPersonalized }: { slot: 0 | 1; nonPersonalize
   useEffect(() => {
     let active = true;
     let loaded: NativeAd | undefined;
-    void NativeAd.createForAdRequest(TestIds.NATIVE, {
+    const unit = nativeAdUnit();
+    if (!unit) return;
+    void NativeAd.createForAdRequest(unit, {
       requestNonPersonalizedAdsOnly: nonPersonalized,
     })
       .then((value) => {

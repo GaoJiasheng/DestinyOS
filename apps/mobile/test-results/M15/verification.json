@@ -1,0 +1,49 @@
+{
+  "task": "APP-M15",
+  "requiredChecks": {
+    "pnpm install": "passed",
+    "pnpm lint": "passed",
+    "pnpm typecheck": "passed",
+    "pnpm test": "passed",
+    "pnpm build": "passed"
+  },
+  "tests": {
+    "vitest": { "filesPassed": 136, "filesSkipped": 1, "passed": 3722, "skipped": 2 },
+    "mobileJestRntl": { "suitesPassed": 54, "passed": 254, "m15Passed": 11 }
+  },
+  "additionalChecks": [
+    "i18n:check",
+    "licenses:check (1771 packages)",
+    "expo install --check",
+    "iOS and Android expo prebuild --no-install",
+    "plutil privacy manifest lint and JSON/plist consistency",
+    "Widget synchronized target membership, App Group, Android application ID and widget receivers",
+    "Production missing-ID rejection and test-ad inventory rejection",
+    "Store metadata lengths and screenshot source SHA-256 verification",
+    "Known Expo refresh-overlay rejection"
+  ],
+  "screenshots": {
+    "locales": ["zh", "en", "zh-TW"],
+    "scenesPerLocaleAndDevice": 6,
+    "rawCaptured": 36,
+    "brandedGenerated": 36,
+    "iphone69": { "width": 1320, "height": 2868, "simulator": "30B6AC1B-42FD-4E44-BD57-543556CCE673" },
+    "iphone65": { "width": 1242, "height": 2688, "simulator": "2C6D56C1-EFE6-496C-AEDC-B9904065EAA5" },
+    "automation": "Maestro, real native screens with public Fixture A",
+    "pngAlpha": false,
+    "sourceHashes": "screenshots.json",
+    "visualReview": "passed for both sizes and all three languages"
+  },
+  "android": {
+    "staticPrebuild": "passed",
+    "nativeBuild": "pending-owner-java",
+    "emulatorAcceptance": "pending-owner-java-and-emulator",
+    "screenshotsPending": 18,
+    "javaInstalledByThisTask": false
+  },
+  "release": {
+    "ownerProvisionedProductionIds": "pending",
+    "signedArchiveAndSdkPrivacyReport": "pending",
+    "realStoreTestingAndSubmission": "pending"
+  }
+}

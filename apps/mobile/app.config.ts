@@ -1,15 +1,28 @@
 import type { ExpoConfig } from 'expo/config';
+import { validateProduction } from './release/production.ts';
+import privacyManifest from './release/privacy-manifest.json';
+validateProduction(process.env);
 import { brand } from '@tianji/shared/brand';
 import en from '../web/messages/en.json';
 import zh from '../web/messages/zh.json';
 import zhTW from '../web/messages/zh-TW.json';
 import { designTokens } from '@tianji/ui-core/tokens';
 // DESIGN-GAP: Keep TypeScript 5.9 per docs/09; Expo's suggested TS6 upgrade is excluded from version checks.
+// DESIGN-GAP: Retain M14's verified Sentry 8 redaction/source-map integration instead of Expo's suggested Sentry 7 downgrade.
 // SDK57 requires the new architecture; there is no legacy architecture switch.
 const config: ExpoConfig = {
   name: brand.nameZh,
   slug: 'tianji',
-  version: '0.1.0',
+  version: '1.0.0',
+  icon: './assets/icon.png',
+  // DESIGN-GAP: EAS project IDs are provisioned by Owner; native fingerprints prevent incompatible OTA updates.
+  runtimeVersion: { policy: 'fingerprint' },
+  ...(process.env.EAS_PROJECT_ID
+    ? {
+        extra: { eas: { projectId: process.env.EAS_PROJECT_ID } },
+        updates: { url: `https://u.expo.dev/${process.env.EAS_PROJECT_ID}` },
+      }
+    : {}),
   // DESIGN-GAP: Use a brand-based custom scheme for development links; production auth uses documented HTTPS universal links.
   scheme: [
     'tianji',
@@ -29,6 +42,7 @@ const config: ExpoConfig = {
   userInterfaceStyle: 'dark',
   ios: {
     bundleIdentifier: 'pub.gavin.tianji',
+    privacyManifests: privacyManifest,
     appleTeamId: 'D33974QQTD',
     supportsTablet: true,
     usesAppleSignIn: true,
@@ -46,6 +60,10 @@ const config: ExpoConfig = {
   },
   android: {
     package: 'pub.gavin.tianji',
+    adaptiveIcon: {
+      foregroundImage: './assets/adaptive-icon.png',
+      backgroundColor: designTokens.base['bg-0'],
+    },
     predictiveBackGestureEnabled: true,
     intentFilters: [
       {
@@ -77,12 +95,14 @@ const config: ExpoConfig = {
         enableBackgroundRecording: false,
       },
     ],
-    // DESIGN-GAP: M13 always uses Google's public sample app IDs and native test units; production inventory is configured in a later release.
+    // DESIGN-GAP: Public AdMob IDs come from the EAS environment; validateProduction rejects test inventory for production.
     [
       'react-native-google-mobile-ads',
       {
-        iosAppId: 'ca-app-pub-3940256099942544~1458002511',
-        androidAppId: 'ca-app-pub-3940256099942544~3347511713',
+        iosAppId:
+          process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID || 'ca-app-pub-3940256099942544~1458002511',
+        androidAppId:
+          process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID || 'ca-app-pub-3940256099942544~3347511713',
         androidSdk: 'classic',
         delayAppMeasurementInit: true,
       },

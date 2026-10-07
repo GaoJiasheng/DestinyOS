@@ -4,7 +4,8 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "allowImportingTsExtensions": true
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.mts", ".expo/types/**/*.ts", "expo-env.d.ts"],
   "exclude": ["node_modules", "ios", "android", "dist"]

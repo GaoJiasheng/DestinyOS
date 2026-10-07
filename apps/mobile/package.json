@@ -11,7 +11,10 @@
     "typecheck": "tsc --noEmit",
     "test": "jest --runInBand",
     "prebuild:android": "expo prebuild --platform android --no-install",
-    "test:e2e": "bash scripts/maestro.sh"
+    "test:e2e": "bash scripts/maestro.sh",
+    "store:metadata": "tsx scripts/store-assets.mts --metadata-only",
+    "store:assets": "tsx scripts/store-assets.mts",
+    "store:capture": "bash scripts/m15-simulator.sh"
   },
   "dependencies": {
     "@bacons/apple-targets": "^5.0.0",
@@ -64,6 +67,7 @@
     "expo-system-ui": "~57.0.4",
     "expo-task-manager": "~57.0.21",
     "expo-tracking-transparency": "~57.0.2",
+    "expo-updates": "~57.0.25",
     "expo-web-browser": "~57.0.3",
     "fflate": "^0.8.2",
     "i18next": "^25.6.0",
@@ -102,7 +106,8 @@
   "expo": {
     "install": {
       "exclude": [
-        "typescript"
+        "typescript",
+        "@sentry/react-native"
       ]
     }
   }

@@ -1,0 +1,124 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji://dev/store?scene=today&locale=${LOCALE}'
+- extendedWaitUntil:
+    visible:
+      id: store-go
+    timeout: 90000
+- tapOn:
+    id: store-go
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 90000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: 01-today
+- openLink: 'tianji://dev/store?scene=bazi&locale=${LOCALE}'
+- extendedWaitUntil:
+    visible:
+      id: store-go
+    timeout: 90000
+- tapOn:
+    id: store-go
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-chart-toggle
+    centerElement: false
+- swipe:
+    start: 95%, 80%
+    end: 95%, 46%
+    duration: 1000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: 02-bazi
+- openLink: 'tianji://dev/store?scene=astrology&locale=${LOCALE}'
+- extendedWaitUntil:
+    visible:
+      id: store-go
+    timeout: 90000
+- tapOn:
+    id: store-go
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-chart-toggle
+    centerElement: false
+- swipe:
+    start: 95%, 80%
+    end: 95%, 46%
+    duration: 1000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: 03-astrology
+- openLink: 'tianji://dev/store?scene=tarot&locale=${LOCALE}'
+- extendedWaitUntil:
+    visible:
+      id: store-go
+    timeout: 90000
+- tapOn:
+    id: store-go
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-chart-toggle
+    centerElement: false
+- swipe:
+    start: 95%, 80%
+    end: 95%, 46%
+    duration: 1000
+- waitForAnimationToEnd:
+    timeout: 1000
+- scrollUntilVisible:
+    element:
+      id: chart-reset
+    centerElement: false
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: 04-tarot
+- openLink: 'tianji://dev/store?scene=calendar&locale=${LOCALE}'
+- extendedWaitUntil:
+    visible:
+      id: store-go
+    timeout: 90000
+- tapOn:
+    id: store-go
+- extendedWaitUntil:
+    visible:
+      id: calendar-grid
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: 05-calendar
+- openLink: 'tianji://dev/store?scene=learn&locale=${LOCALE}'
+- extendedWaitUntil:
+    visible:
+      id: store-go
+    timeout: 90000
+- tapOn:
+    id: store-go
+- extendedWaitUntil:
+    visible:
+      id: learn-card-title
+    timeout: 30000
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: 06-learn
