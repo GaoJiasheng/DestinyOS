@@ -128,7 +128,7 @@ export function SynastryForm({
       <div className="hero-actions">
         <Button
           disabled={busy || !(signedIn ? a && b && a !== b : birthA && birthB)}
-          onClick={() => void submit()}
+          action={submit}
         >
           {t('synastry.submit')}
         </Button>

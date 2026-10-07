@@ -34,6 +34,10 @@ for (const locale of ['zh', 'en', 'zh-TW']) {
   const path = `messages/${locale}/glossary.json`;
   await mkdir(resolve(assets, `messages/${locale}`), { recursive: true });
   await cp(resolve(web, path), resolve(assets, path));
+  await cp(
+    resolve(web, `messages/${locale}/tarot.json`),
+    resolve(assets, `messages/${locale}/tarot.json`),
+  );
 }
 
 await mkdir(resolve(assets, 'geo'), { recursive: true });

@@ -1,3 +1,4 @@
+import { navigationStarted } from './lib/navigation-feedback';
 import { beforeSend } from './lib/sentry';
 import { sanitize } from './lib/privacy';
 // DESIGN-GAP: The optional browser DSN is public; the server DSN remains server-only.
@@ -24,6 +25,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
 export function onRouterTransitionStart(
   ...args: Parameters<typeof import('@sentry/nextjs').captureRouterTransitionStart>
 ): void {
+  navigationStarted();
   if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
     void import('@sentry/nextjs').then((Sentry) => Sentry.captureRouterTransitionStart(...args));
   }

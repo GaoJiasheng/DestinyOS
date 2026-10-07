@@ -7,6 +7,8 @@ import { routing, isLocale } from '@/i18n/routing';
 import { getCopy } from '@/i18n/get-copy';
 import { shellMessages } from '@/i18n/client-messages';
 import { Providers } from '@/components/providers';
+import { Suspense } from 'react';
+import { NavigationProgress } from '@/components/navigation-progress';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { Starfield } from '@/components/three/starfield';
@@ -81,6 +83,9 @@ export default async function LocaleLayout({
               <a href="#main" className="skip-link">
                 {t('common.skip')}
               </a>
+              <Suspense fallback={null}>
+                <NavigationProgress />
+              </Suspense>
               <Navigation />
               <main id="main" tabIndex={-1}>
                 <SiteSettings>{children}</SiteSettings>

@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { recordShareView } from './share-counts';
 import { ownedProfile } from './profile-service';
 import { fromDbLocale } from './db-locale';
@@ -19,8 +20,8 @@ const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 export function shareToken() {
   return Array.from({ length: 22 }, () => alphabet[randomInt(alphabet.length)]).join('');
 }
-/** Resolve active shares and an explicit safe projection, never owner inputs or a raw report. */
-export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW') {
+// DESIGN-GAP: Availability is request-scoped, so layouts can reject revoked shares before streaming without repeating the owner lookup.
+const activeShare = cache(async (token: string) => {
   if (!/^[a-zA-Z0-9]{22}$/.test(token)) throw new ApiError('E_NOT_FOUND', 'Share not found', 404);
   const link = await getDb().shareLink.findUnique({
     where: { token },
@@ -47,6 +48,15 @@ export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW')
     (link.expiresAt && link.expiresAt <= new Date())
   )
     throw new ApiError('E_NOT_FOUND', 'Share not found', 404);
+  return link;
+});
+/** Guard a share layout outside its page loading boundary, retaining the documented HTTP 404. */
+export async function assertActiveShare(token: string): Promise<void> {
+  await activeShare(token);
+}
+/** Resolve active shares and an explicit safe projection, never owner inputs or a raw report. */
+export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW') {
+  const link = await activeShare(token);
   const lang = locale ?? fromDbLocale(link.user.locale);
   let raw: unknown = lang !== 'en' ? link.reading.reportZh : link.reading.reportEn;
   if (!raw)

@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { useCopy } from '@/i18n/use-copy';
 import { Link, useRouter } from '@/i18n/navigation';
@@ -51,12 +52,13 @@ export function ProfileSwitcher() {
         ) : data.items.length ? (
           <div className="settings-fields">
             {data.items.map((p) => (
-              <button
+              <Button
+                variant="ghost"
                 type="button"
                 key={p.id}
                 disabled={busy}
                 aria-pressed={p.id === data.selectedId}
-                onClick={async () => {
+                action={async () => {
                   setBusy(true);
                   try {
                     const r = await selectProfileAction(p.id);
@@ -74,7 +76,7 @@ export function ProfileSwitcher() {
               >
                 {t('report.content', { text: p.label || t('profiles.unnamed') })}
                 {p.isDefault ? ` · ${t('profiles.default')}` : ''}
-              </button>
+              </Button>
             ))}
           </div>
         ) : (

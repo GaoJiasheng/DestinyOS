@@ -22,6 +22,19 @@ it('accepts ready/error sentinels and keeps missing or pending print documents u
   }
 });
 
+it('waits for the streamed hidden duplicate before accepting a ready document', () => {
+  const root = document.createElement('div');
+  root.className = 'print-report';
+  root.dataset.ready = 'true';
+  const hidden = document.createElement('div');
+  hidden.hidden = true;
+  hidden.append(root.cloneNode(true));
+  document.body.append(root, hidden);
+  expect(printSettled()).toBe(false);
+  hidden.remove();
+  expect(printSettled()).toBe(true);
+});
+
 it('keeps A4 zoom and zero-based sheet visibility identical for both browser adapters', () => {
   const root = document.createElement('div');
   zoomPrintReport(root);

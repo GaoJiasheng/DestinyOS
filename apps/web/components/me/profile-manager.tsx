@@ -78,8 +78,8 @@ export function ProfileManager({ initial }: { initial: Data }) {
               <div className="hero-actions">
                 <Button
                   disabled={busy || p.id === data.selectedId}
-                  onClick={() =>
-                    void mutate(() =>
+                  action={() =>
+                    mutate(() =>
                       selectProfileAction(p.id).then((r) =>
                         r.ok ? { ok: true as const, data: { saved: true } } : r,
                       ),
@@ -91,7 +91,7 @@ export function ProfileManager({ initial }: { initial: Data }) {
                 <Button
                   disabled={busy}
                   variant="secondary"
-                  onClick={async (event) => {
+                  action={async (event) => {
                     editorOpener.current = event.currentTarget;
                     setBusy(true);
                     setError(null);
@@ -113,7 +113,7 @@ export function ProfileManager({ initial }: { initial: Data }) {
                 <Button
                   disabled={busy || p.isDefault}
                   variant="ghost"
-                  onClick={() => void mutate(() => defaultProfileAction(p.id))}
+                  action={() => mutate(() => defaultProfileAction(p.id))}
                 >
                   {t('profiles.setDefault')}
                 </Button>
@@ -203,8 +203,8 @@ export function ProfileManager({ initial }: { initial: Data }) {
       >
         <Button
           disabled={busy}
-          onClick={() =>
-            void mutate(async () => {
+          action={() =>
+            mutate(async () => {
               const r = await removeProfileAction(deleting);
               if (r.ok) setDeleting(null);
               return r.ok ? { ok: true as const, data: { saved: true } } : r;

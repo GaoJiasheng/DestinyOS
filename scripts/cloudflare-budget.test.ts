@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 import { gzipSync } from 'node:zlib';
-import { assertWorkerBudget, workerSize } from './cloudflare-budget-size';
+import { assertWorkerBudget, assertWorkerRawBudget, workerSize } from './cloudflare-budget-size';
 
 it('counts actual Wrangler JS, WASM and font uploads, excluding maps and analysis reports', () => {
   const modules = [
@@ -26,4 +26,12 @@ it('accepts 8MB exactly and rejects the first byte above it or invalid measureme
   expect(() => assertWorkerBudget(8_000_001)).toThrow('exceeds');
   for (const size of [-1, NaN, 0.5, Infinity])
     expect(() => assertWorkerBudget(size)).toThrow('Invalid');
+});
+
+it('enforces raw isolate size independently of compression and honors child budgets', () => {
+  expect(() => assertWorkerRawBudget(8_000_000)).not.toThrow();
+  expect(() => assertWorkerRawBudget(8_000_001)).toThrow('exceeds');
+  expect(() => assertWorkerRawBudget(21_500_000, 24_000_000)).not.toThrow();
+  for (const size of [-1, NaN, 0.5, Infinity])
+    expect(() => assertWorkerRawBudget(size)).toThrow('Invalid');
 });

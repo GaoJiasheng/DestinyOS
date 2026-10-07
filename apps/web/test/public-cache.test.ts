@@ -1,5 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { publicCacheRequest, publicCachedFetch } from '../lib/platform/public-cache';
+import { publicCacheKey } from '../lib/platform/public-cache';
 function memoryCache() {
   const objects = new Map<string, { body: ArrayBuffer; response: Response }>();
   return {
@@ -13,7 +14,50 @@ function memoryCache() {
   } as unknown as Cache;
 }
 afterEach(() => vi.useRealTimers());
-it('isolates RSC, actions, auth, queries, range and private routes from document cache', () => {
+it('isolates HTML, Flight, locale, router state and prefetch while ignoring the opaque _rsc token', async () => {
+  const request = (query: string, headers: Record<string, string> = {}, locale = 'zh') =>
+    new Request(`https://example.test/${locale}/learn${query}`, { headers });
+  const flight = { RSC: '1', 'Next-Router-State-Tree': 'public-tree' };
+  expect(publicCacheRequest(request('?_rsc=a', flight))).toBe(true);
+  const a = await publicCacheKey(request('?_rsc=a', flight));
+  const b = await publicCacheKey(request('?_rsc=b', flight));
+  expect(a.url).toBe(b.url);
+  for (const variant of [
+    request(''),
+    request('?_rsc=a', { ...flight, 'Next-Router-Prefetch': '1' }),
+    request('?_rsc=a', { ...flight, 'Next-Router-State-Tree': 'different' }),
+    request('?_rsc=a', flight, 'en'),
+  ])
+    expect((await publicCacheKey(variant)).url).not.toBe(a.url);
+  expect(publicCacheRequest(request('?_rsc=a&private=true', flight))).toBe(false);
+  expect(
+    publicCacheRequest(request('?_rsc=a', { ...flight, cookie: 'authjs.session-token.0=secret' })),
+  ).toBe(false);
+});
+it('stores and hits both full navigation and Next-Router-Prefetch responses without mixing them', async () => {
+  const cache = memoryCache();
+  const pending: Promise<unknown>[] = [];
+  const dispatch = vi.fn(
+    async (request: Request) =>
+      new Response(request.headers.get('next-router-prefetch') ? 'prefetch' : 'navigation', {
+        headers: { 'Content-Type': 'text/x-component' },
+      }),
+  );
+  for (const prefetch of [false, true]) {
+    const request = new Request('https://example.test/zh/learn?_rsc=1', {
+      headers: { RSC: '1', ...(prefetch ? { 'Next-Router-Prefetch': '1' } : {}) },
+    });
+    const first = await publicCachedFetch(request, cache, (p) => pending.push(p), dispatch);
+    expect(first.headers.get('X-Destiny-Cache')).toBe('MISS');
+    await Promise.all(pending);
+    const hit = await publicCachedFetch(request, cache, (p) => pending.push(p), dispatch);
+    expect(hit.headers.get('X-Destiny-Cache')).toBe('HIT');
+    expect(hit.headers.get('Cache-Control')).toContain('s-maxage=3600');
+    expect(await hit.text()).toBe(prefetch ? 'prefetch' : 'navigation');
+  }
+  expect(dispatch).toHaveBeenCalledTimes(2);
+});
+it('isolates actions, auth, queries, range and private routes from public cache', () => {
   for (const path of [
     '/zh',
     '/en/tarot',
@@ -33,7 +77,6 @@ it('isolates RSC, actions, auth, queries, range and private routes from document
   ])
     expect(publicCacheRequest(new Request(`https://example.test${path}`))).toBe(false);
   const variants: Record<string, string>[] = [
-    { rsc: '1' },
     { 'next-router-state-tree': 'tree' },
     { 'next-action': 'action' },
     { 'x-isr': '1' },

@@ -6,6 +6,8 @@ export default defineConfig({
   testIgnore: [
     // DESIGN-GAP: Workers binding checks require wrangler on port 8787 and run separately via test:cloudflare:e2e after cf:build/cf:smoke.
     'cloudflare.spec.ts',
+    // DESIGN-GAP: Membership tests seed the isolated WEB-NOPAY database and must run with its own services config.
+    'web-nopay.spec.ts',
     // DESIGN-GAP: Merged feature suites seed private data and require their dedicated isolated-service configs, just like the original auth/report suites.
     'seo-content.spec.ts',
     'journal.spec.ts',

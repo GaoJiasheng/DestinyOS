@@ -5,6 +5,8 @@ import { learnContent } from '@/lib/learn';
 import { learnMetadata } from '@/lib/learn-metadata';
 import { LearnArticle } from '@/components/learn/learn-article';
 import { Link } from '@/i18n/navigation';
+// DESIGN-GAP: Permit published locale entries to recover from ISR cache misses; middleware rejects unknown learning URLs before streaming.
+export const dynamicParams = true;
 export const revalidate = 86400;
 /** Pre-render all 64 King Wen hexagrams from the editorial source. */
 export async function generateStaticParams() {

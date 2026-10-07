@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition, pause } from './use-submit-transition';
 import { useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { interpret } from '@tianji/interpret';
@@ -23,7 +24,6 @@ import { useDivinationExit } from './use-divination-exit';
 import { DivinationFields } from './divination-fields';
 import { NumberPad } from './number-pad';
 export type CastMethod = 'time' | 'numbers' | 'random' | 'liuyao';
-const pause = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 /** Complete birth-independent casting ritual, preserving the clock/seed across retries and all coin throws. */
 export function DivinationFlow({
   system,
@@ -46,7 +46,9 @@ export function DivinationFlow({
   const [tz, setTz] = useState('UTC');
   const [numbers, setNumbers] = useState(['', '', '']);
   const [step, setStep] = useState<'question' | 'ritual' | 'generating'>('question');
-  const [busy, setBusy] = useState(false);
+  const [working, setBusy] = useState(false);
+  const { pending, run } = useSubmitTransition();
+  const busy = working || pending;
   const [error, setError] = useState<string | null>(null);
   const [chart, setChart] = useState<IchingChart | QimenChart | null>(null);
   const [throwsDone, setThrowsDone] = useState(0);
@@ -56,7 +58,6 @@ export function DivinationFlow({
   const [fast, setFast] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const [exitHref, setExitHref] = useState(`/${locale}`);
-  const lock = useRef(false);
   const active = useRef(true);
   const snapshot = useRef<{ req: ReadingRequest; chart: IchingChart | QimenChart } | null>(null);
   const completed = useRef(false);
@@ -191,8 +192,6 @@ export function DivinationFlow({
     } else router.push(`/${system}/r/local/${id}`);
   };
   const cast = async (all = false) => {
-    if (lock.current) return;
-    lock.current = true;
     setError(null);
     setBusy(true);
     setFast(all);
@@ -226,7 +225,6 @@ export function DivinationFlow({
       );
       setStep(system === 'qimen' ? 'question' : 'ritual');
     } finally {
-      lock.current = false;
       if (active.current) setBusy(false);
     }
   };
@@ -266,7 +264,7 @@ export function DivinationFlow({
           onSubmit={(e) => {
             e.preventDefault();
             if (system === 'iching' && step === 'question') setStep('ritual');
-            else void cast();
+            else run(cast);
           }}
         >
           <fieldset className="cast-fields" disabled={busy || !local}>
@@ -353,7 +351,7 @@ export function DivinationFlow({
                   type="button"
                   variant="secondary"
                   disabled={busy}
-                  onClick={() => void cast(true)}
+                  onClick={() => run(() => cast(true))}
                 >
                   {t('shakeAll')}
                 </Button>

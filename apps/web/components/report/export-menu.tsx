@@ -111,13 +111,13 @@ export function ExportMenu({
                 <option value="light">{t('export.light')}</option>
               </select>
             </label>
-            <Button variant="ghost" disabled={busy} onClick={() => void generate('pdf')}>
+            <Button variant="ghost" disabled={busy} action={() => generate('pdf')}>
               {t('export.pdf')}
             </Button>
-            <Button variant="ghost" disabled={busy} onClick={() => void generate('png')}>
+            <Button variant="ghost" disabled={busy} action={() => generate('png')}>
               {t('export.png')}
             </Button>
-            <Button variant="ghost" disabled={busy} onClick={() => void generate('cover')}>
+            <Button variant="ghost" disabled={busy} action={() => generate('cover')}>
               {t('export.cover')}
             </Button>
           </>

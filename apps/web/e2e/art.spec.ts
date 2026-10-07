@@ -57,7 +57,8 @@ for (const locale of ['zh', 'en'] as const) {
     page,
   }) => {
     await page.goto(`/${locale}`);
-    const hero = page.locator('[data-art="hero/galaxy"] img');
+    // DESIGN-GAP: Streaming may temporarily retain a hidden image copy; verify the painted image's decoded pixels and unchanged transfer budget.
+    const hero = page.locator('[data-art="hero/galaxy"] img').filter({ visible: true });
     await expect
       .poll(() =>
         hero.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0),
@@ -67,6 +68,7 @@ for (const locale of ['zh', 'en'] as const) {
       .poll(() =>
         page
           .locator('[data-art="hero/ink-clouds"] img')
+          .filter({ visible: true })
           .evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0),
       )
       .toBe(true);

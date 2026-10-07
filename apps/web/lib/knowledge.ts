@@ -6,7 +6,7 @@ const bundled = new Map<string, Promise<KnowledgeBundle>>();
 const published = new Map<string, KnowledgeBundle>();
 /** Read the validated build-time fallback without resolving a database release. */
 export async function bundledKnowledge(system: System, locale: Locale): Promise<KnowledgeBundle> {
-  const key = `${system}.${locale === 'en' ? 'en' : 'zh'}`;
+  const key = `${system}.${locale}`;
   let bundle = bundled.get(key);
   if (!bundle) {
     // DESIGN-GAP: Build validates the complete corpus; trusted compiled artifacts are typed at this filesystem boundary.

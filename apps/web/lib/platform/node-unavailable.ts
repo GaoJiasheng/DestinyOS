@@ -27,3 +27,14 @@ export function nodeTimezone(): never {
 export function localAdapter(): never {
   throw new Error('D1 binding required');
 }
+
+/** Rendering belongs to the media service. */
+export function renderCard(): never {
+  throw new Error('Media binding required');
+}
+export function renderPublicOg(): never {
+  throw new Error('Media binding required');
+}
+export function renderAuthorizedExport(): never {
+  throw new Error('Media binding required');
+}

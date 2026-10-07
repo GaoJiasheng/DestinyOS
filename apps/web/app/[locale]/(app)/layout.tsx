@@ -1,5 +1,4 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 /** Feature screens receive their translations only when their route is requested. */
 export default async function AppLayout({
   children,
@@ -10,5 +9,5 @@ export default async function AppLayout({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <NextIntlClientProvider messages={await getMessages()}>{children}</NextIntlClientProvider>;
+  return children;
 }

@@ -1,0 +1,94 @@
+name = "destinyos-compute"
+main = "compute-worker.ts"
+workers_dev = false
+preview_urls = false
+account_id = "9aea83b326d8175abdd136c1177637a5"
+# DESIGN-GAP: Minify the deployed bundle to reduce transfer size while preserving runtime behavior.
+minify = true
+# DESIGN-GAP: Pin the latest compatibility date supported by the installed workerd.
+compatibility_date = "2026-10-05"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+# DESIGN-GAP: Local slowest sampled route CPU P99=742.541ms; max(5000, ceil(3*P99))=5000. Production calibration: docs/11 §4.
+[limits]
+cpu_ms = 5000
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "destinyos-compute"
+
+[[services]]
+binding = "MEDIA"
+service = "destinyos-media"
+
+[[r2_buckets]]
+binding = "EXPORT_BUCKET"
+bucket_name = "destinyos-exports"
+
+[[r2_buckets]]
+binding = "NEXT_INC_CACHE_R2_BUCKET"
+bucket_name = "destinyos-next-cache"
+
+
+# Email Sending domain must be onboarded in Email Service before sending to users.
+[[send_email]]
+name = "EMAIL"
+
+[version_metadata]
+binding = "CF_VERSION_METADATA"
+
+[observability]
+enabled = true
+
+[vars]
+PLATFORM = "cloudflare"
+# DESIGN-GAP: Safe request phase timings for production tail/Observability after Owner deploys.
+PERF_OBSERVABILITY = "true"
+EMAIL_FROM = "noreply@mail.gavin.pub"
+EMAIL_FROM_NAME = "天机 DestinyOS"
+AUTH_TRUST_HOST = "true"
+AUTH_URL = "https://tianji.gavin.pub"
+NEXT_PUBLIC_SITE_URL = "https://tianji.gavin.pub"
+FEATURE_ADS = "true"
+FEATURE_WEB_PAYMENTS = "false"
+CF_ANALYTICS_ACCOUNT_ID = "9aea83b326d8175abdd136c1177637a5"
+CF_BILLING_CYCLE_DAY = "1"
+FEATURE_LLM_CHAT = "true"
+FEATURE_LLM_POLISH = "false"
+MINIMAX_BASE_URL = "https://api.minimaxi.com/v1"
+MINIMAX_MODEL = "MiniMax-M2.5"
+
+# Set other non-secret values for each environment: EMAIL_FROM, EMAIL_FROM_NAME, ADMIN_EMAILS,
+# STRIPE_PRICE_MONTHLY, STRIPE_PRICE_LIFETIME, STRIPE_TAX_ENABLED,
+# PRIVACY_CONTROLLER_NAME, PRIVACY_CONTACT_EMAIL, SENTRY_DSN.
+# Build-time public vars: NEXT_PUBLIC_DEFAULT_LOCALE, NEXT_PUBLIC_ADSENSE_CLIENT,
+# NEXT_PUBLIC_ADSENSE_SLOT_{HOME,REPORT_TOP,REPORT_BOTTOM,TODAY,LEARN}, NEXT_PUBLIC_SENTRY_DSN,
+# NEXT_PUBLIC_APP_STORE_URL, NEXT_PUBLIC_PLAY_STORE_URL.
+# Secrets: wrangler secret put <NAME> (never place values here):
+# AUTH_SECRET, AUTH_GOOGLE_ID, AUTH_GOOGLE_SECRET,
+# FIELD_ENCRYPTION_KEYS, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, CRON_SECRET,
+# MINIMAX_API_KEY (only when chat is enabled), CF_ANALYTICS_TOKEN,
+# REVENUECAT_SECRET_KEY, REVENUECAT_STRIPE_API_KEY, REVENUECAT_WEBHOOK_SECRET.
+# Deployment-only credentials: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN.
+# D1, KV and R2 bindings require no runtime connection secrets.
+# Bind the custom domain after preview verification:
+[[d1_databases]]
+binding = "DB"
+database_name = "destinyos"
+database_id = "7d4b2c61-d7dd-412f-a84e-89eb184378cc"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "0db59c62dc5e4e85a9e1ae5eed33693f"
+
+# DESIGN-GAP: Native binding handles a 60-second burst guard; documented hourly dimensions use atomic D1 counters.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 200, period = 60 }

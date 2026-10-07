@@ -1,8 +1,9 @@
 /** Check the existing print-ready/error sentinel inside either browser adapter. */
 export function printSettled(): boolean {
-  return ['true', 'error'].includes(
-    document.querySelector('.print-report')?.getAttribute('data-ready') ?? '',
-  );
+  // DESIGN-GAP: Wait for streaming's hidden report copy to disappear before counting sheets or producing binary exports.
+  const reports = document.querySelectorAll('.print-report');
+  if (reports.length !== 1) return false;
+  return ['true', 'error'].includes(reports[0]?.getAttribute('data-ready') ?? '');
 }
 /** Scale the report to the existing 2480px, 300-DPI A4 screenshot width.
  * @param node Print-report root evaluated inside the browser page.

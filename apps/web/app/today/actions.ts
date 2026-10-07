@@ -1,4 +1,6 @@
 'use server';
+import { siteConfig } from '@/lib/site-config';
+
 import { fromDbLocale } from '@/lib/db-locale';
 import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
@@ -138,4 +140,27 @@ export async function getCalendarYearAction(raw: unknown): Promise<ActionResult<
   } catch (error) {
     return { ok: false, error: { code: actionError(error) } };
   }
+}
+
+/** Owner-only daily context; never part of a shared page or prefetch response. */
+export async function todayContextAction() {
+  const session = await auth();
+  if (!session?.user.id) return null;
+  const [user, profile, config] = await Promise.all([
+    getDb().user.findUnique({ where: { id: session.user.id }, select: { tz: true, plan: true } }),
+    currentProfile(session.user.id),
+    siteConfig(),
+  ]);
+  const reading = await getDb().reading.findFirst({
+    where: { userId: session.user.id, profileId: profile?.id, system: 'vedic' },
+    select: { id: true },
+  });
+  return {
+    profileId: profile?.id,
+    version: profile?.version,
+    tz: user?.tz,
+    plan: user?.plan ?? 'free',
+    vedicUsed: Boolean(reading),
+    panchangDefaultOpen: config['feature.panchangDefaultOpen'],
+  };
 }

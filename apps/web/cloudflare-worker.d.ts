@@ -17,3 +17,12 @@ declare module '*/.open-next/cloudflare/init.js' {
     handler: () => Promise<Response>,
   ): Promise<Response>;
 }
+
+declare module '*.wasm' {
+  const wasm: WebAssembly.Module;
+  export default wasm;
+}
+declare module '*/.open-next/public-artifacts.json' {
+  const routes: Record<string, { html: string; rsc: string }>;
+  export default routes;
+}

@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { StateArt } from '@/components/art/state-art';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
@@ -12,14 +13,16 @@ import type { MessageKey } from '@/i18n/catalog';
 type Page = Extract<Awaited<ReturnType<typeof listReadingsAction>>, { ok: true }>['data'];
 /** Owner history with server-side search/filter, bounded infinite pagination and confirmed swipe deletion. */
 export function HistoryList({ initial }: { initial: Page }) {
+  const { pending, run } = useSubmitTransition();
   const t = useCopy(),
     locale = useLocale(),
     [data, setData] = useState(initial),
     [system, setSystem] = useState(''),
     [search, setSearch] = useState(''),
-    [busy, setBusy] = useState(false),
+    [working, setBusy] = useState(false),
     [error, setError] = useState(false),
     [remove, setRemove] = useState<string | null>(null);
+  const busy = working || pending;
   const sentinel = useRef<HTMLDivElement | null>(null),
     lock = useRef(false),
     generation = useRef(0),
@@ -70,7 +73,7 @@ export function HistoryList({ initial }: { initial: Page }) {
         onSubmit={(e) => {
           e.preventDefault();
           generation.current++;
-          void load(false);
+          run(() => load(false));
         }}
       >
         <label>
@@ -88,7 +91,7 @@ export function HistoryList({ initial }: { initial: Page }) {
           {t('me.history.search')}
           <input maxLength={120} value={search} onChange={(e) => setSearch(e.target.value)} />
         </label>
-        <Button disabled={busy}>{t('me.history.search')}</Button>
+        <Button disabled={busy}>{t(busy ? 'common.loading' : 'me.history.search')}</Button>
       </form>
       {!data.items.length ? (
         <div>
@@ -139,7 +142,7 @@ export function HistoryList({ initial }: { initial: Page }) {
       {data.nextCursor ? (
         <>
           <div ref={sentinel} />
-          <Button disabled={busy} onClick={() => void load(true)}>
+          <Button disabled={busy} action={() => load(true)}>
             {t('report.history.more')}
           </Button>
         </>
@@ -154,16 +157,17 @@ export function HistoryList({ initial }: { initial: Page }) {
       >
         <Button
           disabled={busy}
-          onClick={() => {
+          action={async () => {
             if (!remove) return;
             setBusy(true);
-            void deleteReadingAction(remove)
+            await deleteReadingAction(remove)
               .then((r) => {
                 if (r.ok) {
                   setData((d) => ({ ...d, items: d.items.filter((i) => i.id !== remove) }));
                   setRemove(null);
                 } else setError(true);
               })
+              .catch(() => setError(true))
               .finally(() => setBusy(false));
           }}
         >

@@ -4,28 +4,18 @@ import {
   type WorkerContext,
 } from './lib/platform/worker-runtime';
 import { scheduledMaintenance } from './lib/platform/scheduled';
-/** Reuse OpenNext through the cost gate and request-scoped database cleanup. */
+import { publicArtifact } from './lib/platform/public-artifact';
+/** Small entry serves public build artifacts without importing Next, Prisma, engines or media. */
 function fetchRequest(
   request: Request,
   env: WorkerEnvironment,
   ctx: WorkerContext,
 ): Promise<Response> {
-  // DESIGN-GAP: Cache hits and health never initialize OpenNext's full application bundle.
   return workerFetch(request, env, ctx, async (incoming) => {
-    const started = performance.now();
-    const { default: handler } = await import('./.open-next/worker.js');
-    const initialized = performance.now();
-    const response = await handler.fetch(incoming, env, ctx);
-    const headers = new Headers(response.headers);
-    headers.append(
-      'Server-Timing',
-      `open-next-init;dur=${(initialized - started).toFixed(2)}, open-next;dur=${(performance.now() - initialized).toFixed(2)}`,
-    );
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers,
-    });
+    const artifact = env.ASSETS ? await publicArtifact(incoming, env.ASSETS) : null;
+    if (artifact) return artifact;
+    if (!env.COMPUTE) return new Response(null, { status: 503 });
+    return env.COMPUTE.fetch(incoming);
   });
 }
 export default {

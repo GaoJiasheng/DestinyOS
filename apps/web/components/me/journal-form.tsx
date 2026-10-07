@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { JournalInputSchema } from '@tianji/shared';
@@ -20,15 +21,17 @@ export function JournalForm({
   date: string;
   tz: string;
 }) {
+  const { pending, run } = useSubmitTransition();
   const t = useCopy(),
     locale = useLocale();
   const [mood, setMood] = useState<number | null>(null),
     [text, setText] = useState('');
   const [loading, setLoading] = useState(Boolean(profileId)),
-    [saving, setSaving] = useState(false);
+    [working, setSaving] = useState(false);
   const [error, setError] = useState<MessageKey | null>(null),
     [saved, setSaved] = useState(false),
     [retry, setRetry] = useState(0);
+  const saving = working || pending;
   useEffect(() => {
     if (!profileId) return;
     let active = true;
@@ -99,25 +102,27 @@ export function JournalForm({
                   setError('journal.validation');
                   return;
                 }
-                setSaving(true);
-                setError(null);
-                setSaved(false);
-                void saveJournalEntryAction(input.data, locale)
-                  .then((result) => {
-                    if (result.ok) {
-                      setSaved(true);
-                      setText(result.data.text);
-                    } else
-                      setError(
-                        result.error.code === 'E_DATE_OUT_OF_RANGE'
-                          ? 'journal.future'
-                          : result.error.code === 'E_RATE_LIMITED'
-                            ? 'report.error.E_RATE_LIMITED'
-                            : 'journal.saveError',
-                      );
-                  })
-                  .catch(() => setError('journal.saveError'))
-                  .finally(() => setSaving(false));
+                run(async () => {
+                  setSaving(true);
+                  setError(null);
+                  setSaved(false);
+                  await saveJournalEntryAction(input.data, locale)
+                    .then((result) => {
+                      if (result.ok) {
+                        setSaved(true);
+                        setText(result.data.text);
+                      } else
+                        setError(
+                          result.error.code === 'E_DATE_OUT_OF_RANGE'
+                            ? 'journal.future'
+                            : result.error.code === 'E_RATE_LIMITED'
+                              ? 'report.error.E_RATE_LIMITED'
+                              : 'journal.saveError',
+                        );
+                    })
+                    .catch(() => setError('journal.saveError'))
+                    .finally(() => setSaving(false));
+                });
               }}
             >
               <fieldset disabled={saving || future} className="journal-moods">

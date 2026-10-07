@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { z } from 'zod';
@@ -29,6 +30,7 @@ export function RectificationWizard({
   initial?: BirthInput & { displayName?: string };
   signedIn: boolean;
 }) {
+  const { pending, run } = useSubmitTransition();
   const t = useTranslations('rectification');
   const intl = useTranslations();
   const locale = useLocale() as Locale;
@@ -37,7 +39,7 @@ export function RectificationWizard({
   const [name, setName] = useState(initial?.displayName ?? '');
   const [ready, setReady] = useState(false);
   const [editing, setEditing] = useState(false);
-  const [busy, setBusy] = useState(false);
+  const [working, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<RectificationAnswers['answers']>(
     Array.from({ length: 7 }, () => 'unsure' as const),
@@ -46,6 +48,7 @@ export function RectificationWizard({
   const [candidates, setCandidates] = useState<RankedRectificationCandidate[] | null>(null);
   const resultHeading = useRef<HTMLHeadingElement>(null);
   const trialRequests = useRef(new Map<string, ReadingRequest>());
+  const busy = working || pending;
   useEffect(() => {
     let active = true;
     void readAnonymous()
@@ -222,13 +225,13 @@ export function RectificationWizard({
                   </dd>
                 </dl>
                 <div className="hero-actions">
-                  <Button disabled={busy} onClick={() => void tryCandidate(candidate, 'ziwei')}>
+                  <Button disabled={busy} action={() => tryCandidate(candidate, 'ziwei')}>
                     {t('try')}
                   </Button>
                   <Button
                     disabled={busy}
                     variant="secondary"
-                    onClick={() => void tryCandidate(candidate, 'bazi')}
+                    action={() => tryCandidate(candidate, 'bazi')}
                   >
                     {t('tryBazi')}
                   </Button>
@@ -256,7 +259,7 @@ export function RectificationWizard({
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            void rank();
+            run(rank);
           }}
         >
           <label className="birth-field">

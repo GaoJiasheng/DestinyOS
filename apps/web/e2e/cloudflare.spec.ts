@@ -1,3 +1,5 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import { p75 } from '../../../scripts/perf-ttfb-support';
 import { test, expect } from '@playwright/test';
 import zh from '../messages/zh.json' with { type: 'json' };
 import en from '../messages/en.json' with { type: 'json' };
@@ -212,13 +214,13 @@ test('cost circuit blocks pages and expensive APIs; Cron stays reachable and man
       .getByRole('combobox', { name: zh['admin.config.circuit.mode'], exact: true })
       .selectOption('closed');
     await page.getByRole('button', { name: zh['admin.config.save'], exact: true }).click();
-    await expect(page.getByRole('status')).toHaveText(zh['admin.saved']);
+    await expect(page.locator('p[role="status"]')).toHaveText(zh['admin.saved']);
     expect((await request.get('/en/pricing')).status()).toBe(200);
     await page
       .getByRole('combobox', { name: zh['admin.config.circuit.mode'], exact: true })
       .selectOption('auto');
     await page.getByRole('button', { name: zh['admin.config.save'], exact: true }).click();
-    await expect(page.getByRole('status')).toHaveText(zh['admin.saved']);
+    await expect(page.locator('p[role="status"]')).toHaveText(zh['admin.saved']);
     expect((await request.get('/en/pricing')).status()).toBe(503);
     expect((await request.post('/api/v1/stripe/webhook', { data: {} })).status()).toBe(404);
   } finally {
@@ -261,7 +263,24 @@ test('public HTML cache, lightweight health, RSC isolation and deferred qimen re
   }
   const rsc = await request.get('/zh/tarot?_rsc=perf', { headers: { RSC: '1' } });
   expect(rsc.headers()['content-type']).toContain('text/x-component');
-  expect(rsc.headers()['x-destiny-cache']).toBeUndefined();
+  expect(rsc.headers()['cache-control']).toContain('s-maxage=3600');
+  for (const prefetch of [false, true]) {
+    await expect
+      .poll(
+        async () =>
+          (
+            await request.get('/zh/tarot?_rsc=another-opaque-value', {
+              headers: { RSC: '1', ...(prefetch ? { 'Next-Router-Prefetch': '1' } : {}) },
+            })
+          ).headers()['x-destiny-cache'],
+      )
+      .toBe('HIT');
+  }
+  const loggedFlight = await request.get('/zh/learn?_rsc=private', {
+    headers: { RSC: '1', Cookie: 'authjs.session-token=private-test' },
+  });
+  expect(loggedFlight.headers()['x-destiny-cache']).toBeUndefined();
+  expect(loggedFlight.headers()['cache-control']).toContain('private');
   expect((await request.get('/zh?perf=1')).headers()['x-destiny-cache']).toBeUndefined();
   const health = await request.get('/api/v1/health');
   expect(await health.json()).toMatchObject({ ok: true, db: true, redis: true });
@@ -279,4 +298,74 @@ test('public HTML cache, lightweight health, RSC isolation and deferred qimen re
     'alt',
     zh['art.systems.qimen'],
   );
+});
+
+// DESIGN-GAP: Sample completed client navigation separately from server TTFB, after one unmeasured warm-up cycle and 400ms of link intent prefetch.
+test('public client navigation completes within the 300ms P75 budget', async ({
+  page,
+  request,
+}) => {
+  await request.post('/_smoke/circuit', { data: { state: 'closed' } });
+  await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
+  await page.goto('/zh');
+  await expect(page.locator('.navigation-progress')).toHaveAttribute('data-ready', 'true');
+  const results: { path: string; samples: number[]; p75Ms: number }[] = [
+    '/zh/tarot',
+    '/zh/today',
+    '/zh/learn',
+    '/zh',
+  ].map((path) => ({ path, samples: [], p75Ms: 0 }));
+  for (let cycle = 0; cycle <= 10; cycle++) {
+    for (const result of results) {
+      await page.evaluate((path) => {
+        const link = [...document.querySelectorAll<HTMLAnchorElement>(`a[href="${path}"]`)].find(
+          (node) => node.getClientRects().length > 0,
+        );
+        if (!link) throw new Error(`Missing navigation link: ${path}`);
+        link.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+        link.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+      }, result.path);
+      await page.waitForTimeout(400);
+      const elapsed = await page.evaluate(async (path) => {
+        const link = [...document.querySelectorAll<HTMLAnchorElement>(`a[href="${path}"]`)].find(
+          (node) => node.getClientRects().length > 0,
+        );
+        const previous = [...document.querySelectorAll('main h1')].find(
+          (node) => node.getClientRects().length > 0,
+        )?.textContent;
+        if (!link) throw new Error('Missing navigation link');
+        const started = performance.now();
+        link.click();
+        while (performance.now() - started < 10000) {
+          await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+          const title = [...document.querySelectorAll('main h1')].find(
+            (node) => node.getClientRects().length > 0,
+          )?.textContent;
+          if (
+            location.pathname === path &&
+            title &&
+            title !== previous &&
+            document.querySelector('.navigation-progress')?.getAttribute('data-active') === 'false'
+          )
+            return performance.now() - started;
+        }
+        throw new Error(`Navigation did not finish: ${path}`);
+      }, result.path);
+      if (cycle > 0) result.samples.push(elapsed);
+    }
+  }
+  for (const result of results) result.p75Ms = p75(result.samples);
+  await mkdir('.test-data', { recursive: true });
+  await writeFile(
+    '.test-data/perf-navigation.json',
+    JSON.stringify(
+      {
+        mode: 'warm, link intent prefetch; click to changed heading and finished navigation',
+        results,
+      },
+      null,
+      2,
+    ) + '\n',
+  );
+  for (const result of results) expect(result.p75Ms, result.path).toBeLessThanOrEqual(300);
 });

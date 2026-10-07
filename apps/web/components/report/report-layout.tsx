@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { AstroChartSchema, VedicChartSchema, type HouseSystem } from '@tianji/shared';
 import { AstrologyReportChart } from '../charts/astrology-report-chart';
 import { VedicReportChart } from '../charts/vedic-report-chart';
@@ -48,6 +49,7 @@ export function ReportLayout({
   plan?: 'free' | 'pro';
   birthDetails?: string;
 }) {
+  const { pending: chartPending, run: runPreview } = useSubmitTransition();
   const t = useCopy();
   const intl = useTranslations();
   const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
@@ -60,7 +62,8 @@ export function ReportLayout({
   const [title, setTitle] = useState(reading.title ?? '');
   const [busy, setBusy] = useState(false);
   const [details, setDetails] = useState(birthDetails);
-  const [chartBusy, setChartBusy] = useState(false);
+  const [chartWorking, setChartBusy] = useState(false);
+  const chartBusy = chartWorking || chartPending;
   const [housePreview, setHousePreview] = useState(false);
   const astro = view.system === 'astrology' ? AstroChartSchema.safeParse(view.chart) : null;
   const vedic = view.system === 'vedic' ? VedicChartSchema.safeParse(view.chart) : null;
@@ -219,7 +222,7 @@ export function ReportLayout({
           {birthDetails || owner ? (
             <details
               onToggle={(e) => {
-                if (e.currentTarget.open) void revealBirth();
+                if (e.currentTarget.open) runPreview(revealBirth);
               }}
             >
               <summary>{t('report.birthDetails')}</summary>
@@ -244,7 +247,7 @@ export function ReportLayout({
                 <Button variant="ghost" onClick={() => setDialog('rename')}>
                   {t('report.rename')}
                 </Button>
-                <Button variant="ghost" disabled={busy} onClick={() => void regenerate()}>
+                <Button variant="ghost" disabled={busy} action={regenerate}>
                   {t('report.regenerate')}
                 </Button>
                 <Button variant="ghost" onClick={() => setDialog('delete')}>
@@ -306,7 +309,11 @@ export function ReportLayout({
                   chart={astro.data}
                   highlight={highlight}
                   onSelect={selectChart}
-                  onHouseSystem={(system) => void switchHouses(system)}
+                  onHouseSystem={(system) =>
+                    runPreview(async () => {
+                      await switchHouses(system);
+                    })
+                  }
                   busy={chartBusy}
                 />
               ) : vedic?.success ? (
