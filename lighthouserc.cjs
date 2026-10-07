@@ -1,5 +1,5 @@
 /* global module, process */
-// DESIGN-GAP: Lighthouse uses isolated local DB/Redis services and a full anonymous production-KU report, with no external account credentials.
+// DESIGN-GAP: Lighthouse uses isolated local SQLite services and a full anonymous production-KU report, with no external account credentials.
 module.exports = {
   ci: {
     collect: {

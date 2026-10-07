@@ -55,6 +55,10 @@ appId: pub.gavin.tianji
 - assertVisible:
     id: native-ad-0
 - assertNotVisible: '[1-9].*implementation issue.*'
+# DESIGN-GAP: Refresh native validator evidence with the actual no-issue assertion.
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: native-validator-pass-en
 - tapOn:
     text: Dismiss
     optional: true

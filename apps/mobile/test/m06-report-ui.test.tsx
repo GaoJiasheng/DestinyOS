@@ -82,6 +82,6 @@ test('English sources and error feedback remain translated and show a failed sav
 
 test('technical values pass through next-intl without losing the content interpolation', () => {
   render(<DataTree value={{ score: 3, available: false }} />);
-  expect(screen.getByText('score: 3')).toBeTruthy();
-  expect(screen.getByText('available: 未启用')).toBeTruthy();
+  expect(screen.getByText('得分: 3')).toBeTruthy();
+  expect(screen.getByText('可用状态: 未启用')).toBeTruthy();
 });

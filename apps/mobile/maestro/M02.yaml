@@ -2,6 +2,11 @@ appId: pub.gavin.tianji
 ---
 - launchApp:
     clearState: true
+    clearKeychain: true
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
 - openLink: 'tianji:///dev/effects'
 - tapOn:
     text: '打开|Open'
@@ -12,10 +17,7 @@ appId: pub.gavin.tianji
     timeout: 30000
 - assertVisible:
     id: scene-starfield
-- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/starfield')}
-- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
-- assertVisible: '.*fps.*'
-- takeScreenshot: starfield
+# DESIGN-GAP: Validate uncached compute without host video encoding; thresholds remain unchanged.
 - tapOn:
     id: engine-check
 - extendedWaitUntil:
@@ -23,6 +25,21 @@ appId: pub.gavin.tianji
       id: engine-passed
     timeout: 120000
 - takeScreenshot: engine-hermes
+# Stop before clearing samples so the earlier scene cannot write a stale result.
+- stopApp
+- evalScript: ${output.recording = http.get('http://127.0.0.1:' + M02_PORT + '/recording/start')}
+- assertTrue: ${output.recording.status == 200 && json(output.recording.body).started}
+# Restart preserves the engine proof and creates new samples for all six filmed scenes.
+- launchApp
+- openLink: 'tianji:///dev/effects'
+- extendedWaitUntil:
+    visible:
+      id: scene-starfield
+    timeout: 30000
+- evalScript: ${output.sample = http.get('http://127.0.0.1:' + M02_PORT + '/frames/starfield')}
+- assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
+- assertVisible: '.*fps.*'
+- takeScreenshot: starfield
 - waitForAnimationToEnd:
     timeout: 1000
 - scrollUntilVisible:
@@ -81,3 +98,5 @@ appId: pub.gavin.tianji
 - assertTrue: ${output.sample.status == 200 && json(output.sample.body).passed}
 - assertVisible: '.*fps.*'
 - takeScreenshot: wheel
+- evalScript: ${output.recording = http.get('http://127.0.0.1:' + M02_PORT + '/recording/stop')}
+- assertTrue: ${output.recording.status == 200 && json(output.recording.body).stopped}

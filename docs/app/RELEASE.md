@@ -45,7 +45,7 @@ Fixture A 是公开算法测试档案，截图只显示产品体验；`/dev/stor
 
 4. profile 已设置 `APP_VARIANT=production`、`EXPO_PUBLIC_M14_AUDIT=false`。删除 UMP debug geography 和 RevenueCat Test Store key。生产校验会拒绝缺配置、Google 示例 ID、审计开关、测试 key；本地预览可以用测试 ID。
 5. OAuth：Apple Services ID 回调与 Worker `auth/apple` 配套；Google iOS URL Scheme 自动从 client ID 派生。验证域名 AASA（主 App 与 widget ID/Team）及 Android assetlinks（Play App Signing SHA-256），`https://tianji.gavin.pub/auth/verify` 真实邮件可唤起 App。
-6. Worker 的 RevenueCat webhook/server key、Apple/Google OAuth、Resend、字段加密、AI/导出等依赖在 Owner 生产环境配置；Web 保持 `FEATURE_WEB_PAYMENTS=false`。验证 `/api/v1/health`、移动登录/刷新/同步、知识库签名。
+6. Worker 的 RevenueCat webhook/server key、Apple/Google OAuth、Cloudflare `EMAIL` binding、字段加密、AI/导出等依赖在 Owner 生产环境配置；Web 保持 `FEATURE_WEB_PAYMENTS=false`。验证 `/api/v1/health`、移动登录/刷新/同步、知识库签名。
 7. `eas build --profile production --platform ios`；Android 必须等 Owner 完成 Java 与原生验收后再 `--platform android`。首次构建检查 widget Bundle ID `pub.gavin.tianji.widget` 被创建、加入同 App Group，主 App 与扩展 provisioning profile 都包含 group。
 8. `eas submit --profile production --platform ios --id <BUILD_ID>` 上传 TestFlight；Android profile 只上传 internal draft。先手动在 Play 上传首个 AAB 以初始化应用，再安全配置 service account，执行 `eas submit --profile production --platform android --id <BUILD_ID>`。上传不等于正式提审。
 9. EAS Update 已装入依赖；只允许 bug 修复，知识库变化优先签名数据包。`APP_VARIANT=production eas update --channel production --environment production --message '<fix>'` 前核对 fingerprint、回滚与商店规则；新功能必须新商店版本。不要在没有真实 EAS 项目配置的本地包宣称 OTA 已上线。
@@ -116,3 +116,27 @@ Reviewer credentials: [Owner inserts a working account through the private revie
 - 演示账号、审核视频、内购审核截图、公开删除说明/请求网页、支持页面、隐私政策 App 补充、最终 Archive 隐私报告与 export 问卷：Owner 完成后才能提审。
 
 参考：上述后台填法于 2026-10-07 核对官方 [Apple 截图规格](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/)、[Play 数据安全](https://support.google.com/googleplay/android-developer/answer/10787469)、[EAS 配置](https://docs.expo.dev/eas/json/)、[EAS 环境变量](https://docs.expo.dev/eas/environment-variables/usage/)；平台政策更新以提审时后台要求为准。
+
+## T-64 本地总验收（2026-10-07）
+
+- iOS 原生 Release：CocoaPods 与 Xcode 实际构建成功（含 Widget），不是仅 Expo export。使用独立审计模拟器、Hermes 内嵌 bundle、`EXPO_PUBLIC_M14_AUDIT=true SENTRY_DISABLE_AUTO_UPLOAD=true`；正式 production 必须关闭审计开关。
+- 普通生产包在 SessionGate 拦截全部 `/dev/*`；显式 Release 审计仅开放离线 `effects` / `audit`，登录/购买 mock 不会随审计开放。相关门禁测试覆盖已完成引导的用户。
+- 七体系 + daily 的 zh/en 各四次未缓存计算和报告签名在 Release Hermes 中通过；首份中文报告的重复前缀匹配成本已修复，本轮最慢 259.3ms（预算 300ms），六项特效预算全部通过。此前 326.5/318.4ms 失败证据保留在本地，不计为通过。计算阶段不启动录屏，随后同包重启录制六项特效；simctl 使用 SIGINT 保存视频；模拟器球体采用 Skia fallback，不能替代真机 GPU/低端性能验收。
+- 总入口 `pnpm --filter @tianji/mobile test:e2e` 已从 M01 smoke 改为全部 Maestro YAML，逐项失败返回非零；M02/M04 保留原生 JSON 验证，M15 覆盖 6.9 / 6.5 寸 × zh/en/zh-TW。只运行部分流程的记录为 incomplete。
+- 全部流程通过后自动独立测五次 Release 冷启动和六个 10 秒窗口；JSON 绑定源码哈希。M02 需要本机 ffprobe 验证视频，已有 ffmpeg 时压缩交付副本，原始录屏保留在本地；编码帧率不作 App 帧率。`launch:check --app` 重新计算各门槛并核验交付视频与四张原生 Skia 输出哈希。
+- M14 按文档保留冷启动 ≤2s、星空 ≥55fps；文档未给列表定量阈值，因此以 DESIGN-GAP 明确列表 ≥55fps、P95 ≤20ms、最慢帧 ≤50ms，完整保留 >25ms 帧间隔计数，不声称零掉帧。连续六个窗口使用同一进程；测量前关闭其他专用模拟器，避免其系统动画干扰。
+- 本轮完整验收：36 流程全部通过；290 张当前基线、四张原生分享 PNG、36 张商店素材及源码/YAML/图片哈希核验通过。最终五次冷启动最慢 1682.4ms；六窗口均约 60fps，P95/最慢帧 16.67ms，>25ms 计数为 0。此前包含 33.3ms 间隔的测量与失败证据仍保留，不能据本轮结果声称所有设备零掉帧。
+- 用专用 iPhone 17 Pro 开发模拟器设置 `MAESTRO_DEVICE`；当前 Release 审计模拟器设置 `MAESTRO_AUDIT_DEVICE`；商店两尺寸设 `MAESTRO_IPHONE_69` / `MAESTRO_IPHONE_65`。Metro 使用 `expo start --lan --port 8081`；不要与 Web build/content:build 并发（共享知识包重建会触发开发重载）；M12 用 `node apps/mobile/scripts/m12-server.mjs` 的 loopback mock，导出产物先由 Web export E2E 生成。
+- 全新安装流程同时清理专用模拟器 Keychain，避免旧令牌恢复登录而跳过引导；不得指向含真实数据的设备。`--resume` 只复用源码/语料/文案、YAML 和截图哈希仍一致的通过记录，保留原始时间及路径。
+- `pnpm launch:check --app` 逐项检查当前所有流程与截图哈希；本地完整证据 `apps/mobile/test-results/launch/results.json`，可提交凭据 `apps/mobile/test-results/M15/launch-verification.json`，基线各 Mxx 目录，最终结果见 [T-64](../progress/T-64.md)。
+- Android 原生构建/全部模拟器流程与 18 张商店截图按任务要求待 Owner 装 Java/SDK；使用 Maestro 已有 JVM 做 Apple 自动化不代表 Android 已验收。真机、iPad、真实服务/商店沙盒、签名、内测、上传与提审仍按 §8 门槛执行。
+
+Xcode 审计构建（先在 apps/mobile 执行 iOS prebuild，apps/mobile/ios 执行 pod install）：
+
+```bash
+EXPO_PUBLIC_M14_AUDIT=true SENTRY_DISABLE_AUTO_UPLOAD=true xcodebuild \
+  -workspace app.xcworkspace -scheme app -configuration Release -sdk iphonesimulator \
+  -destination id=<AUDIT_UDID> -derivedDataPath /tmp/DestinyOS-Release \
+  CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- build
+# xcrun simctl install <AUDIT_UDID> /tmp/DestinyOS-Release/Build/Products/Release-iphonesimulator/app.app
+```

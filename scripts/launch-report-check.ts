@@ -11,7 +11,9 @@ import { compute, normalizeBirth, ENGINE_VERSION } from '../packages/engine/src'
 import { interpret, systemConfigs, expandTerms } from '../packages/interpret/src';
 import type { KnowledgeBundle } from '../packages/content/src';
 import { banned } from '../packages/content/scripts/validation';
-import { projectShare } from '../apps/web/lib/share-projection';
+import { z } from 'zod';
+// DESIGN-GAP: Import the canonical shared projection directly; Node ESM cannot reliably name-import the Web CJS re-export shim.
+import { projectShare } from '../packages/ui-core/src/share-projection';
 /** Verify deterministic bilingual fixture reports and privacy projection for launch evidence.
  * @param context Explicit fixture input, ISO clock and result recorder.
  */
@@ -28,6 +30,21 @@ export async function checkLaunchReports({
   now: string;
   check: (id: string, probe: () => string | Promise<string>) => Promise<void>;
 }) {
+  await check('I18N/section-catalogs', async () => {
+    const nativeCatalog = await readFile('apps/mobile/lib/i18n.ts', 'utf8');
+    for (const locale of ['zh', 'en', 'zh-TW'] as const) {
+      const file = `apps/web/messages/${locale}/interpretation.json`;
+      assert.ok(nativeCatalog.includes(`messages/${locale}/interpretation.json`));
+      const catalog = z.record(z.string()).parse(JSON.parse(await readFile(file, 'utf8')));
+      for (const [system, config] of Object.entries(systemConfigs))
+        for (const section of config.sectionPlan)
+          assert.ok(
+            catalog[`report.sections.${system}.${section.key}`],
+            `${file}: ${system}/${section.key}`,
+          );
+    }
+    return 'All report section keys exist in three locales and are included in native catalogs';
+  });
   // DESIGN-GAP: Newly merged synastry reports pair Fixture A with the documented Fixture B while retaining the same deterministic acceptance clock.
   const partnerBirth = normalizeBirth(
     BirthInputSchema.parse(

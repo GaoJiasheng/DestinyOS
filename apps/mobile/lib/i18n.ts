@@ -8,13 +8,16 @@ import en from '../../web/messages/en.json';
 import zhTarot from '../../web/messages/zh/tarot.json';
 import zhTWTarot from '../../web/messages/zh-TW/tarot.json';
 import enTarot from '../../web/messages/en/tarot.json';
+import zhInterpretation from '../../web/messages/zh/interpretation.json';
+import zhTWInterpretation from '../../web/messages/zh-TW/interpretation.json';
+import enInterpretation from '../../web/messages/en/interpretation.json';
 
 export const locales = ['zh', 'zh-TW', 'en'] as const;
 export type MobileLocale = (typeof locales)[number];
 const catalogs = {
-  zh: { ...zh, ...zhTarot },
-  'zh-TW': { ...zhTW, ...zhTWTarot },
-  en: { ...en, ...enTarot },
+  zh: { ...zh, ...zhTarot, ...zhInterpretation },
+  'zh-TW': { ...zhTW, ...zhTWTarot, ...zhTWInterpretation },
+  en: { ...en, ...enTarot, ...enInterpretation },
 };
 export type MessageKey = keyof typeof catalogs.zh;
 export const resources = {

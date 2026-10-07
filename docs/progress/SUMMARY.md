@@ -1,4 +1,4 @@
-# 任务状态总表（2026-10-06）
+# 任务状态总表（2026-10-07）
 
 状态依据仓库实现与既有进度记录；“已实现”不代替外部服务/人工验收。任务号以 13-delivery-plan.md 为准（无 T-07–09 等任务）。
 
@@ -7,7 +7,7 @@
 | T-01 | 已实现；Preview 待 Owner                                           |
 | T-02 | 已实现                                                             |
 | T-03 | 已实现                                                             |
-| T-04 | 已实现；Neon 部署待 Owner                                          |
+| T-04 | D1/SQLite 已实现；生产 D1 迁移/验收待 Owner                                          |
 | T-05 | 已实现；Google 生产手测待 Owner                                    |
 | T-06 | 已实现                                                             |
 | T-10 | 已实现；Fixture F 已按 04 §9 修正为合法闰月并回归                  |
@@ -48,15 +48,16 @@
 | T-61 | 已实现                                                             |
 | T-62 | 已实现；完整双语/移动 E2E 294 项通过                               |
 | T-63 | axe/键盘已实现；VoiceOver 实机抽查未完成                           |
-| T-64 | 本地自动验收全部通过；生产发布门槛待 Owner                         |
+| T-64 | 当前 Web + App 总验收执行中；生产发布门槛待 Owner                         |
 
 已知问题：内容相似度 warning、5% 人工审稿、T-22 流水线和 T-24 知识库导出。Fixture F 已修正为合法 1993 闰三月十五；XVAL 的 60 个奇门局有 34 个原始三元/局数差异，按文档规则投影单独验证，未伪造原始一致。
 运行边界：星历凯龙近似/学派差异见原任务；每日周/月 P1 功能未纳入当前交付；低端硬件与 VoiceOver 实机仍需人工验证。
-生产门槛：Vercel 未登录，Preview 未部署；OAuth consent/Google 重登、AdSense/CMP、真实服务密钥、CSP enforce、备份恢复及告警见 [LAUNCH.md](../../LAUNCH.md)。
-DESIGN-GAP 汇总：[全部代码注释索引](../../DESIGN-GAPS.md)；主要类别是学派/算法边界、未知时间降级、内容编辑与术语、匿名存储/分享投影、服务测试替代和部署配置；当前索引包含 730 条代码注释。
+App 开发日志仍有 @noble/hashes/crypto.js 导出回退和 Skia SkPath.moveTo/lineTo 弃用 warning；当前功能/构建验收通过，后续 SDK 升级需处理迁移。
+生产门槛：Cloudflare 为当前主路径，生产密钥/远端迁移/内容发布待 Owner；Vercel CLI 62.7.0 未登录，无 Preview；OAuth consent/Google 重登、AdSense/CMP、真实服务密钥、CSP enforce、备份恢复及告警见 [LAUNCH.md](../../LAUNCH.md)。
+DESIGN-GAP 汇总：[全部代码注释索引](../../DESIGN-GAPS.md)；主要类别是学派/算法边界、未知时间降级、内容编辑与术语、匿名存储/分享投影、服务测试替代和部署配置；索引包含当前 Web、共享包与 App 的代码注释；详见根 DESIGN-GAPS.md。
 语料现状：3826 KU、627 双语术语、27 篇双语公共长文；知识/解读/引擎版本为 1.7.1/1.2.1/0.3.0；62 份额外报告审计和完整浏览器链已包含既有 POLISH 检查。
 T-64 新增：枚举/证据本地化、内部 seed 不展示、Vercel 工作区资源追踪、不可变内容导入、Worker 初始化与解密并行、静态 Brotli、冷启动串行、截图核对和失败证据保存、分享图 OCR 小型大写匹配、开发 CSP 求值边界、按需广告存储、完整表格内部滚动、流式完成/字体稳定等待、manifest 必需及报告留档；真实浏览器/性能验收与手动门槛分别报告，见 [T-64.md](T-64.md)。
-依赖审计：Vitest 漏洞已升级修复；4 个既有 advisory 按窄范围例外豁免，`security:policy` 已验证适用上下文；依据见 [合规说明](../../scripts/compliance/README.md)。
+依赖审计：Vitest 漏洞已升级修复；4 个既有 advisory 按窄范围例外豁免；新增 node-forge/braces/sprintf-js 三项按实际安全补丁例外处理，`security:policy` 验证已安装代码的攻击样本与正常样本；依据见 [合规说明](../../scripts/compliance/README.md)。
 
 二期任务状态（14-backlog.md；仅已合入范围提前交付）：
 
@@ -65,7 +66,7 @@ T-64 新增：枚举/证据本地化、内部 seed 不展示、Vercel 工作区�
 | B-01      | 多档案已实现，配额、默认与级联删除已覆盖              |
 | B-02      | 合盘四体系已实现；传统算法边界见专门记录              |
 | B-03      | 辅助定盘已实现，启发式结果不声称确定出生时间          |
-| B-04      | 未实现，Web Push/邮件推送仍属 backlog                 |
+| B-04      | App 本地通知已实现；Web Push/邮件推送仍属 backlog                 |
 | B-05      | 可选 AI 追问已实现，默认关闭，生产供应商由 Owner 配置 |
 | B-06      | 月/年运势日历已实现                                   |
 | B-07      | 八体系双语 PDF/300dpi PNG 导出已实现                  |
@@ -80,7 +81,7 @@ T-64 新增：枚举/证据本地化、内部 seed 不展示、Vercel 工作区�
 | B-16 | 加密日记与 Mirror 自我追踪已实现；数据导出、轮换、删除均覆盖 |
 | B-17 | 未实现，社交公开档案仍需隐私评估 |
 | B-18 | 未实现，微信生态仍属 backlog |
-| B-19 | 未实现，原生 App 仍属 backlog；现有 PWA 可安装 |
+| B-19 | 原生 App 已实现（M-01–M-15）；Android 原生/商店发布待验，见 App 汇总 |
 | B-20 | 未实现，LLM 润色仍为空接口、默认关闭 |
 | B-21 | 未实现，每日评分后台调参仍属 backlog |
 | B-22 | 未实现，A/B 与额外分析平台仍属 backlog |
@@ -92,6 +93,35 @@ T-64 新增：枚举/证据本地化、内部 seed 不展示、Vercel 工作区�
 新增 DESIGN-GAP：合盘 Fixture A 配对 B；合盘 bundle 包含四个体系的证据术语但正文注释密度仍按本体系过滤；英文教程保留 12 文档要求的首次中文/拼音释义；Wrangler 专项单独运行。中文文案变化的截图逐张审查后更新，仍使用 0.5% 容差。
 聊天已归档真实供应商评测；末轮调优未追加付费复测，归档仍有两条英文恢复提示，不以单测替代真实 provider judge。
 
-最终全链：Node 25.8.2 / pnpm 9.15.9；113 文件、3611 单测通过，真实供应商 smoke 跳过 1 项；22 组 E2E 共 294 项及性能前置 4 项通过；37 项本地门槛通过、4 项外部门槛待 Owner。移动 Lighthouse 五页各三次，最差性能 100/93/98/99/96，无障碍均 100。
+上一轮 Web 历史验收（非本次 T-64 结果）：Node 25.8.2 / pnpm 9.15.9；113 文件、3611 单测通过，真实供应商 smoke 跳过 1 项；22 组 E2E 共 294 项及性能前置 4 项通过；37 项本地门槛通过、4 项外部门槛待 Owner。移动 Lighthouse 五页各三次，最差性能 100/93/98/99/96，无障碍均 100。
 
-Cloudflare 最终构建通过：minify 后未压缩 36040.92KiB / 64MiB、gzip 8655.30KiB，cf:build 自动检查当前体积规则；本地 Wrangler 双语 2 项通过，秘密扫描通过，未部署云端。
+上一轮 Cloudflare 历史构建通过：minify 后未压缩 36040.92KiB / 64MiB、gzip 8655.30KiB，cf:build 自动检查当前体积规则；本地 Wrangler 双语 2 项通过，秘密扫描通过，未部署云端。
+
+## App 汇总（docs/app/00-app-plan.md §10）
+
+状态覆盖已实现功能；Android 原生构建按本任务指示待 Owner 安装 Java/SDK，不以 Expo export 或 iOS 截图代替。真实商店/身份/广告与真机门槛见 [RELEASE](../app/RELEASE.md)。
+
+| 任务 | 状态与边界 |
+| --- | --- |
+| M-01 | Expo SDK 57 / RN / TS strict、共享文案/字体/三主题已实现；iOS 原生 Release 构建通过 |
+| M-02 | Release Hermes 七体系 + daily 双语四次未缓存核验通过；最慢 259.3ms / 300ms，六项特效预算通过；Android 待验 |
+| M-03 | ui-core / api-client 已抽取；Web 回归纳入完整链 |
+| M-04 | SQLCipher / SecureStore 本地档案、报告、日记已实现；原生错误密钥/重启/删除验收 |
+| M-05 | 五 Tab、引导、离线城市/农历/无时辰/年龄/档案已实现 |
+| M-06 | 八体系原生命盘、数据表、点选/缩放和双语报告已实现；当前命盘基线核验通过 |
+| M-07 | 手势塔罗、按钮/摇动六爻、梅花/奇门、触感音效已实现；摇动真机待验 |
+| M-08 | 星空今日、日历、加密日记、分享与空状态已实现 |
+| M-09 | Cloudflare 移动端令牌/轮换/同步/知识包与 RevenueCat 接口已实现；生产凭据待配 |
+| M-10 | Apple/Google/魔法链接、同步、设备撤销、账户删除已实现；mock 端到端与真实登录分开 |
+| M-11 | 本地 7 天通知/后台刷新、iOS/Android 小组件已实现；Android 与真机午夜更新待验 |
+| M-12 | 追问、导出/分享、合盘、多档案已实现；流式协议/配额/离线边界纳入回归 |
+| M-13 | 月付/永久内购、恢复、跨端权益、AdMob/UMP/ATT 已实现；真实商店沙盒/正式 IDs 待 Owner |
+| M-14 | 无障碍语义/动态字体/运动偏好/Sentry 脱敏已实现；诊断路由生产禁用；真机读屏/性能/上报待验 |
+| M-15 | 两种 iPhone 尺寸各三语六张商店素材、隐私草稿/EAS/手册已实现；Android/iPad 素材、签名与提审待 Owner |
+
+本轮 T-64 自动检查：install、lint、typecheck、content:validate、i18n:check、build、licenses:check 已通过；Web/共享 138 文件、3737 单测（2 个既有跳过）、App 55 套件、262 项通过；依赖许可证、安全补丁回归与 audit 通过。iOS Release 构建、全部 36 个 Maestro 流程、290 张基线、四张原生 Skia PNG 与 36 张商店素材通过；冷启动最慢 1682.4ms，六窗口约 60fps/P95/最慢帧 16.67ms。完整 Web E2E 与 Lighthouse 正在执行，结果以 T-64.md 最终记录为准。
+新增 DESIGN-GAP：全新模拟器 Keychain 隔离、显式 Metro 重连；Release Hermes 性能验收只开放 effects/audit；全部流程/源码/截图哈希与安全续跑；Cloudflare binding/SQLite/D1 迁移探针；共享投影直接导入避免 Node ESM/CJS re-export 启动失败。
+
+本轮 App 性能 DESIGN-GAP：保留文档冷启动 ≤2s、星空 ≥55fps，列表以 ≥55fps/P95≤20ms/最慢≤50ms 验收并记录全部 >25ms 间隔；本轮为 0，之前 33.3ms 样本保留，真机性能另验。连续六窗口同进程、测量前关闭其他专用模拟器，避免系统动画负载干扰。
+
+本轮浏览器服务隔离 DESIGN-GAP：同机工作区占用 M5 固定端口时，用 TEST_M5_PORT_OFFSET 同时调整网页、邮件和 Stripe mock；POLISH/导出继承同一地址，CI 禁止复用其他工作区服务，完整链重跑。

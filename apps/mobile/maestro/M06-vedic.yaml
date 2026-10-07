@@ -13,21 +13,36 @@ appId: pub.gavin.tianji
     element:
       id: fixture-vedic
     centerElement: true
-- tapOn:
-    id: fixture-vedic
+# DESIGN-GAP: Let the centered fixture button settle before dispatching the native report.
+- waitForAnimationToEnd:
+    timeout: 2000
+- repeat:
+    times: 2
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: fixture-vedic
+          commands:
+            - tapOn:
+                id: fixture-vedic
+                retryTapIfNoChange: true
 - extendedWaitUntil:
     visible:
       id: report-headline
     timeout: 30000
+# DESIGN-GAP: centerElement clears a directional edge; a slow reset-button swipe positions the complete canvas without inertial overshoot.
 - scrollUntilVisible:
     element:
-      id: chart-midpoint
+      id: chart-reset
     centerElement: true
-- scrollUntilVisible:
-    element:
-      id: chart-midpoint
-    direction: UP
-    centerElement: true
+- swipe:
+    from:
+      id: chart-reset
+    direction: DOWN
+    duration: 5000
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: chart-vedic-zh
 - scrollUntilVisible:
     element:
@@ -36,15 +51,18 @@ appId: pub.gavin.tianji
     centerElement: true
 - tapOn:
     id: vedic-north
+# DESIGN-GAP: centerElement clears a directional edge; a slow reset-button swipe positions the complete canvas without inertial overshoot.
 - scrollUntilVisible:
     element:
-      id: chart-midpoint
+      id: chart-reset
     centerElement: true
-- scrollUntilVisible:
-    element:
-      id: chart-midpoint
-    direction: UP
-    centerElement: true
+- swipe:
+    from:
+      id: chart-reset
+    direction: DOWN
+    duration: 5000
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: chart-vedic-north-zh
 - scrollUntilVisible:
     element:
@@ -53,13 +71,16 @@ appId: pub.gavin.tianji
     centerElement: true
 - tapOn:
     id: vedic-D9
+# DESIGN-GAP: centerElement clears a directional edge; a slow reset-button swipe positions the complete canvas without inertial overshoot.
 - scrollUntilVisible:
     element:
-      id: chart-midpoint
+      id: chart-reset
     centerElement: true
-- scrollUntilVisible:
-    element:
-      id: chart-midpoint
-    direction: UP
-    centerElement: true
+- swipe:
+    from:
+      id: chart-reset
+    direction: DOWN
+    duration: 5000
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: chart-vedic-D9-zh

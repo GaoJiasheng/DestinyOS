@@ -82,12 +82,16 @@
     "@formatjs/icu-messageformat-parser": "^2.11.0",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.56.0",
+    "@prisma/adapter-better-sqlite3": "6.19.3",
+    "@prisma/adapter-d1": "6.19.3",
     "@prisma/client": "6.19.3",
     "@testing-library/react": "^16",
     "@testing-library/user-event": "^14",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/license-checker": "^25.0.6",
     "@types/node": "^22.19.0",
     "@vitest/coverage-v8": "^4.1.11",
+    "better-sqlite3": "^12.4.1",
     "esbuild": "^0.25.0",
     "eslint": "^9.39.0",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -96,6 +100,7 @@
     "jsonrepair": "^3.15.0",
     "license-checker-rseidelsohn": "^5.0.1",
     "liuyao": "0.5.1",
+    "miniflare": "4.20260730.0",
     "prettier": "^3.6.2",
     "prisma": "^6",
     "qimen-dunjia": "3.1.0",
@@ -107,12 +112,7 @@
     "typescript-eslint": "^8.46.0",
     "vitest": "^4.1.11",
     "yaml": "^2.9.1",
-    "zod": "^3.25.76",
-    "@prisma/adapter-d1": "6.19.3",
-    "@prisma/adapter-better-sqlite3": "6.19.3",
-    "better-sqlite3": "^12.4.1",
-    "@types/better-sqlite3": "^7.6.13",
-    "miniflare": "4.20260730.0"
+    "zod": "^3.25.76"
   },
   "type": "module",
   "pnpm": {
@@ -131,10 +131,16 @@
       "@types/react-dom": "~19.2.0",
       "react-native-reanimated": "4.5.1",
       "react-native-gesture-handler": "~2.32.0",
-      "@sentry/cli": "2.57.0"
+      "@sentry/cli": "2.57.0",
+      "undici@>=7.0.0 <7.29.1": "7.29.1",
+      "@xmldom/xmldom@<0.8.15": "0.8.15",
+      "decode-uri-component@<0.5.0": "0.5.0"
     },
     "patchedDependencies": {
-      "extract-zip@2.0.1": "patches/extract-zip@2.0.1.patch"
+      "extract-zip@2.0.1": "patches/extract-zip@2.0.1.patch",
+      "node-forge@1.4.0": "patches/node-forge@1.4.0.patch",
+      "braces@3.0.3": "patches/braces@3.0.3.patch",
+      "sprintf-js@1.0.3": "patches/sprintf-js@1.0.3.patch"
     },
     "auditConfig": {
       "ignoreCves": [
@@ -143,7 +149,10 @@
         "CVE-2026-19693"
       ],
       "ignoreGhsas": [
-        "GHSA-4c35-wcg5-mm9h"
+        "GHSA-4c35-wcg5-mm9h",
+        "GHSA-86w9-cpqp-85rv",
+        "GHSA-vfj7-8cjw-p6xm",
+        "GHSA-hp3w-g68c-fv3c"
       ]
     }
   }

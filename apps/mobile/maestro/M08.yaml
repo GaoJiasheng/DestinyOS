@@ -40,6 +40,23 @@ appId: pub.gavin.tianji
 - waitForAnimationToEnd:
     timeout: 1000
 - takeScreenshot: today-share-zh
+# DESIGN-GAP: Refresh the real Chinese system share sheet baseline alongside its preview.
+- scrollUntilVisible:
+    element:
+      id: daily-share-native
+    centerElement: true
+- tapOn:
+    id: daily-share-native
+- assertVisible: '^(拷贝|Copy)$'
+- waitForAnimationToEnd:
+    timeout: 1000
+- takeScreenshot: today-share-system-zh
+- tapOn:
+    point: 50%,30%
+- scrollUntilVisible:
+    element:
+      id: report-sheet-close
+    centerElement: true
 - tapOn: '关闭'
 - scrollUntilVisible:
     element:

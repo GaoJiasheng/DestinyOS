@@ -1,9 +1,20 @@
 appId: pub.gavin.tianji
 ---
+# DESIGN-GAP: Capture settled native screens, excluding navigation and Expo refresh transitions.
+# DESIGN-GAP: Dismiss an OS permission dialog left by a failed prior run before reinstalling.
+- launchApp
+- tapOn:
+    text: '^(不允许|Don.t Allow)$'
+    optional: true
 - launchApp:
     clearState: true
+    clearKeychain: true
     permissions:
       notifications: unset
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
 - extendedWaitUntil:
     visible:
       id: onboarding-0
@@ -19,6 +30,8 @@ appId: pub.gavin.tianji
     element:
       text: 'Begin with your sky'
     direction: UP
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: onboarding-stars-en
 - scrollUntilVisible:
     centerElement: true
@@ -26,9 +39,20 @@ appId: pub.gavin.tianji
       id: onboarding-next
 - tapOn:
     id: onboarding-next
+- extendedWaitUntil:
+    visible: '^(允许|Allow)$'
+    timeout: 15000
+- waitForAnimationToEnd:
+    timeout: 2000
+- takeScreenshot: notifications-system-en
+- tapOn: '^(允许|Allow)$'
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: onboarding-intro-en
 - tapOn:
     id: onboarding-next
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: onboarding-disclaimer-en
 - scrollUntilVisible:
     centerElement: true
@@ -36,21 +60,39 @@ appId: pub.gavin.tianji
       id: onboarding-next
 - tapOn:
     id: onboarding-next
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: notifications-request-en
 - tapOn:
     id: notifications-request
-- takeScreenshot: notifications-system-en
-- tapOn:
-    text: '^(允许|Allow)$'
 - extendedWaitUntil:
     visible:
       id: onboarding-skip
     timeout: 20000
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: optional-profile-en
 - tapOn:
     id: onboarding-skip
-- assertVisible:
-    id: today-birth
+# DESIGN-GAP: Close the SDK's test UMP/ATT dialogs after onboarding before exercising form controls.
+# DESIGN-GAP: UMP can arrive after the cold SDK request; allow bounded retries before form assertions.
+- repeat:
+    times: 6
+    commands:
+      - tapOn:
+          text: '^(Continue|继续|繼續)$'
+          optional: true
+          retryTapIfNoChange: true
+      - tapOn:
+          text: '.*(Ask App Not to Track|要求.*不跟踪|要求.*不追蹤).*'
+          optional: true
+# DESIGN-GAP: English Today copy places the empty-profile action below the initial viewport.
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: today-birth
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: navigation-empty-en
 - tapOn:
     id: today-birth
@@ -58,6 +100,8 @@ appId: pub.gavin.tianji
     id: birth-year
 - inputText: '1988'
 - hideKeyboard
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: birth-date-en
 - scrollUntilVisible:
     centerElement: true
@@ -65,6 +109,8 @@ appId: pub.gavin.tianji
       id: time-precise
 - tapOn:
     id: time-precise
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: birth-precise-en
 - scrollUntilVisible:
     centerElement: true
@@ -96,12 +142,16 @@ appId: pub.gavin.tianji
 - eraseText: 100
 - inputText: 'Australia/Sydney'
 - hideKeyboard
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: birth-manual-en
 # DESIGN-GAP: January in Sydney is a deterministic southern-hemisphere DST fixture.
 - scrollUntilVisible:
     centerElement: true
     element:
       id: dst-note
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: birth-dst-en
 - scrollUntilVisible:
     centerElement: true
@@ -109,6 +159,8 @@ appId: pub.gavin.tianji
       id: advanced-open
 - tapOn:
     id: advanced-open
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: birth-advanced-en
 - scrollUntilVisible:
     centerElement: true
@@ -118,4 +170,6 @@ appId: pub.gavin.tianji
     id: birth-submit
 - assertVisible:
     id: profile-saved
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: profiles-en

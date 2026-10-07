@@ -1,3 +1,4 @@
+import { m5MailURL } from '../../../scripts/m5-test-urls';
 import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { expect, type Page, type APIRequestContext } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -46,7 +47,7 @@ export async function login(
 }
 /** Retrieve only the newest test email's link from the isolated loopback sink. */
 export async function mailLink(request: APIRequestContext, email: string) {
-  const outbox = (await (await request.get('http://127.0.0.1:60201/mail')).json()) as {
+  const outbox = (await (await request.get(m5MailURL)).json()) as {
     to: string;
     text: string;
   }[];

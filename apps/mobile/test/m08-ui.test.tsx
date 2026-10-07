@@ -119,6 +119,20 @@ it('renders all thirteen blocks, moves dates and connects pull refresh/calendar'
   fireEvent.press(screen.getByTestId('daily-vote-yes'));
   await waitFor(() => expect(saveFeedback).toHaveBeenCalledWith('daily-a', 'daily', true));
 });
+it.each([
+  ['zh', ['今日星象', '今日一牌', '今日五要素历', '事业与学业']],
+  ['zh-TW', ['今日星象', '今日一牌', '今日五要素歷', '事業與學業']],
+  ['en', ['Today’s Sky', 'Today’s Card', 'Today’s Panchang', 'Career & Study']],
+] as const)(
+  'localizes every daily heading in %s through the shared interpretation catalog',
+  async (locale, headings) => {
+    usePreferences.setState({ locale });
+    render(<TodayScreen />);
+    await waitFor(() => expect(getFeedback).toHaveBeenCalledWith('daily-a'));
+    for (const heading of headings) expect(screen.getByText(heading)).toBeTruthy();
+    expect(screen.queryByText(/^report\.sections\./)).toBeNull();
+  },
+);
 it('gates the sample from personal feedback and exposes an English birth CTA', async () => {
   usePreferences.setState({ locale: 'en' });
   mockActive = null;

@@ -1,8 +1,9 @@
+import { verifySecurityBackports } from './security-backports';
 import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 const require = createRequire(import.meta.url);
-// DESIGN-GAP: Keep documented next-intl 3.x; narrowly suppress non-applicable advisories and verify the extract-zip security backport before audit.
+// DESIGN-GAP: Keep always-prefixed locale routing; narrowly suppress non-applicable advisories and verify the extract-zip security backport before audit.
 const routing = await readFile('apps/web/i18n/routing.ts', 'utf8');
 assert.match(routing, /localePrefix:\s*'always'/);
 const nextConfig = await readFile('apps/web/next.config.ts', 'utf8');
@@ -18,4 +19,5 @@ const extracted = browsers.resolve('extract-zip');
 const source = await readFile(extracted, 'utf8');
 assert.match(source, /Archive symlink target escapes extraction root/);
 assert.match(source, /flags: 'wx'/);
+await verifySecurityBackports();
 console.log('Context-specific audit exceptions verified. See scripts/compliance/README.md.');

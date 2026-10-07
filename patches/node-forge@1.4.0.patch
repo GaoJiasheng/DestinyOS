@@ -1,0 +1,17 @@
+diff --git a/lib/rsa.js b/lib/rsa.js
+index a4264822b4dcd6dca44ca3e59e410c982eed7183..781fb7c03e4fc96c0d6814cd23a9e0c551ec3048 100644
+--- a/lib/rsa.js
++++ b/lib/rsa.js
+@@ -1172,7 +1172,11 @@ pki.setRsaPublicKey = pki.rsa.setPublicKey = function(n, e) {
+           var capture = {};
+           var errors = [];
+           if(!asn1.validate(obj, digestInfoValidator, capture, errors) ||
+-            obj.value.length !== 2) {
++            obj.value.length !== 2 ||
++            obj.value[0].value.length < 1 ||
++            obj.value[0].value.length > 2 ||
++            // DESIGN-GAP: DER NULL parameters cannot carry hidden signature-forgery padding.
++            ('parameters' in capture && capture.parameters !== '')) {
+             var error = new Error(
+               'ASN.1 object does not contain a valid RSASSA-PKCS1-v1_5 ' +
+               'DigestInfo value.');

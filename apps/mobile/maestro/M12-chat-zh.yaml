@@ -1,5 +1,6 @@
 appId: pub.gavin.tianji
 ---
+# DESIGN-GAP: A native scroll can consume the first tap; retry only while chat is unopened.
 - launchApp
 - openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
 - tapOn:
@@ -26,8 +27,16 @@ appId: pub.gavin.tianji
       id: report-chat
     centerElement: true
 - waitForAnimationToEnd
-- tapOn:
-    id: report-chat
+- repeat:
+    times: 2
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: report-chat
+          commands:
+            - tapOn:
+                id: report-chat
 - extendedWaitUntil:
     visible:
       id: chat-question

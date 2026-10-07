@@ -35,10 +35,10 @@
     {
       "scene": "starfield",
       "run": 2,
-      "fps": 59.999999998095824,
+      "fps": 60.000000000952085,
       "p95Ms": 16.666666984558105,
       "frames": 601,
-      "durationMs": 10016.666666984558,
+      "durationMs": 10016.666666507721,
       "source": "ui-display",
       "longFrames": 0,
       "maxMs": 16.666666984558105,
@@ -65,10 +65,10 @@
     {
       "scene": "starfield",
       "run": 3,
-      "fps": 60.000000000952085,
+      "fps": 59.999999998095824,
       "p95Ms": 16.666666984558105,
       "frames": 601,
-      "durationMs": 10016.666666507721,
+      "durationMs": 10016.666666984558,
       "source": "ui-display",
       "longFrames": 0,
       "maxMs": 16.666666984558105,
@@ -94,7 +94,11 @@
     }
   ],
   "starfieldBudgetFps": 55,
-  "listLongFrameBudget": 0,
+  "listBudgetFps": 55,
+  "listP95BudgetMs": 20,
+  "listMaxFrameBudgetMs": 50,
   "longFrameThresholdMs": 25,
+  "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+  "checkedAt": "2026-10-07T11:17:50.575542Z",
   "passed": true
 }

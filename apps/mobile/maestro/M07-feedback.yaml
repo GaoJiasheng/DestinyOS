@@ -10,7 +10,9 @@ appId: pub.gavin.tianji
 - tapOn:
     id: fixture-locale-en
 - openLink: 'tianji://iching?method=liuyao'
+# DESIGN-GAP: Center switches above the safe-area edge before tapping their state.
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-sound
 - runFlow:
@@ -30,6 +32,7 @@ appId: pub.gavin.tianji
     id: ritual-sound
     checked: true
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-haptics
 - runFlow:
@@ -49,6 +52,7 @@ appId: pub.gavin.tianji
     id: ritual-haptics
     checked: false
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-motion
 - runFlow:
@@ -68,21 +72,25 @@ appId: pub.gavin.tianji
     id: ritual-motion
     checked: true
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: iching-begin
 - waitForAnimationToEnd
 - takeScreenshot: feedback-enabled-reduced-en
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: iching-begin
 - tapOn:
     id: iching-begin
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: iching-shake-all
 - tapOn:
     id: iching-shake-all
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-result
 - takeScreenshot: liuyao-reduced-motion-en
@@ -96,29 +104,34 @@ appId: pub.gavin.tianji
 - launchApp
 - openLink: 'tianji://tarot/reading'
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-sound
 - assertVisible:
     id: ritual-sound
     checked: true
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-haptics
 - assertVisible:
     id: ritual-haptics
     checked: false
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-motion
 - assertVisible:
     id: ritual-motion
     checked: true
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: tarot-begin
 - waitForAnimationToEnd
 - takeScreenshot: feedback-persisted-en
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-sound
 - tapOn:
@@ -127,6 +140,7 @@ appId: pub.gavin.tianji
     id: ritual-sound
     checked: false
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-haptics
 - tapOn:
@@ -135,6 +149,7 @@ appId: pub.gavin.tianji
     id: ritual-haptics
     checked: true
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-motion
 - tapOn:
@@ -144,16 +159,19 @@ appId: pub.gavin.tianji
     checked: false
 - openLink: 'tianji://iching?method=liuyao'
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: iching-begin
 - tapOn:
     id: iching-begin
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: iching-shake-all
 - tapOn:
     id: iching-shake-all
 - scrollUntilVisible:
+    centerElement: true
     element:
       id: ritual-result
 - takeScreenshot: liuyao-animation-final-en

@@ -1,6 +1,28 @@
 appId: pub.gavin.tianji
 ---
 # DESIGN-GAP: Lock-screen coordinates are measured on a fresh iPhone 17 Pro / iOS 26.4 wallpaper.
+# DESIGN-GAP: Initialize the English widget snapshot, then reset to the first Home
+# page before tapping the newly added large widget; do not inherit gallery focus.
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- openLink: 'tianji:///dev/engagement'
+- extendedWaitUntil:
+    visible:
+      id: engagement-en
+    timeout: 90000
+- tapOn:
+    id: engagement-en
+- tapOn:
+    id: engagement-profile
+- extendedWaitUntil:
+    visible: 'Scheduled: 7 · Deep link: /today'
+    timeout: 30000
+- pressKey: Home
+- waitForAnimationToEnd:
+    timeout: 2000
+- pressKey: Home
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn:
     point: '50%,30%'
 - extendedWaitUntil:

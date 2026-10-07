@@ -1,0 +1,1 @@
+任务：在当前目录（分支 deploy）把本地分支 wt/perf_web 与 wt/art_assets 合并进来（先 perf_web 后 art_assets），解决冲突时保留双方功能（性能改造的缓存/懒加载与美术素材替换都要保留）。合并后 `pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`、`pnpm build`、`pnpm cf:build`、`pnpm cf:smoke` 全部通过，重新生成受影响的视觉基线。每个分支一次 merge commit，修复另提交 `chore: post-merge fixes`。不要部署、不要 push。

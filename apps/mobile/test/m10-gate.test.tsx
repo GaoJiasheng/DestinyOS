@@ -4,9 +4,10 @@ import { Redirect } from 'expo-router';
 import { SessionGate } from '../components/session-gate';
 import { SettingsSchema } from '../lib/data/models';
 const mockState = { loading: true, error: false, settings: SettingsSchema.parse({}) };
+let mockSegments = ['auth', 'verify'];
 jest.mock('../lib/profiles', () => ({ useProfiles: () => mockState }));
 jest.mock('expo-router', () => ({
-  useSegments: () => ['auth', 'verify'],
+  useSegments: () => mockSegments,
   Redirect: jest.fn(() => null),
 }));
 beforeEach(() => {
@@ -14,6 +15,31 @@ beforeEach(() => {
   mockState.loading = true;
   mockState.error = false;
   mockState.settings = SettingsSchema.parse({});
+  mockSegments = ['auth', 'verify'];
+});
+it('hides production diagnostics even for an onboarded user and restricts Release audit routes', () => {
+  const originalDev = __DEV__;
+  const originalAudit = process.env.EXPO_PUBLIC_M14_AUDIT;
+  Object.defineProperty(globalThis, '__DEV__', { configurable: true, value: false });
+  try {
+    mockState.loading = false;
+    mockState.settings = SettingsSchema.parse({ onboardingVersion: 1 });
+    mockSegments = ['dev', 'effects'];
+    delete process.env.EXPO_PUBLIC_M14_AUDIT;
+    const view = render(content());
+    expect(screen.queryByTestId('credential-surface')).toBeNull();
+    expect(jest.mocked(Redirect).mock.calls.at(-1)?.[0]).toMatchObject({ href: '/today' });
+    process.env.EXPO_PUBLIC_M14_AUDIT = 'true';
+    view.rerender(content());
+    expect(screen.getByTestId('credential-surface')).toBeVisible();
+    mockSegments = ['dev', 'monetization'];
+    view.rerender(content());
+    expect(screen.queryByTestId('credential-surface')).toBeNull();
+  } finally {
+    Object.defineProperty(globalThis, '__DEV__', { configurable: true, value: originalDev });
+    if (originalAudit === undefined) delete process.env.EXPO_PUBLIC_M14_AUDIT;
+    else process.env.EXPO_PUBLIC_M14_AUDIT = originalAudit;
+  }
 });
 const content = () => (
   <SessionGate>

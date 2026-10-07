@@ -19,17 +19,16 @@ appId: pub.gavin.tianji
     visible:
       id: report-headline
     timeout: 30000
+# DESIGN-GAP: centerElement clears a directional edge; a slow reset-button swipe positions the complete canvas without inertial overshoot.
 - scrollUntilVisible:
     element:
-      id: chart-midpoint
-    centerElement: true
-- scrollUntilVisible:
-    element:
-      id: chart-midpoint
-    direction: UP
+      id: chart-reset
     centerElement: true
 - swipe:
-    start: 95%, 70%
-    end: 95%, 45%
-    duration: 1200
+    from:
+      id: chart-reset
+    direction: DOWN
+    duration: 5000
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: chart-numerology-zh

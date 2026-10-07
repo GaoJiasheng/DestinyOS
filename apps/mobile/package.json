@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "test": "jest --runInBand",
     "prebuild:android": "expo prebuild --platform android --no-install",
-    "test:e2e": "bash scripts/maestro.sh",
+    "test:e2e": "tsx scripts/launch-maestro.mts",
     "store:metadata": "tsx scripts/store-assets.mts --metadata-only",
     "store:assets": "tsx scripts/store-assets.mts",
     "store:capture": "bash scripts/m15-simulator.sh"

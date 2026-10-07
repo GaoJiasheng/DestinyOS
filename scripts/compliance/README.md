@@ -49,3 +49,25 @@ Audit exceptions (verified by `pnpm security:policy`, never blanket severity ign
 - Automatic feedback scrubbing matches emails, dates, phone-like numbers and
   coordinates. Free-text names are not reliably detectable; users can delete
   feedback on account deletion, and admins may remove sensitive feedback text.
+
+T-64 dependency audit (2026-10-07):
+
+- Upgrade Undici 7.x to 7.29.1, xmldom <0.8.15 to 0.8.15, and
+  decode-uri-component <0.5.0 to 0.5.0; keep unaffected major versions.
+- GHSA-86w9-cpqp-85rv / CVE-2026-85393: node-forge 1.4.0 has no fixed
+  release. Backport the nested DigestAlgorithm child-count validation from
+  [upstream PR 1152](https://github.com/digitalbazaar/forge/pull/1152).
+  Also reject nonempty NULL parameters (DER requires empty NULL); the regression
+  covers extra children and hidden NULL content, plus valid absent/empty NULL forms
+  required by [RFC 8017 Appendix C](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-C).
+- GHSA-vfj7-8cjw-p6xm / CVE-2026-93687: braces 3.0.3 has no fixed release.
+  Bound parsed brace/parenthesis depth and all public AST walkers to 128 levels.
+  [Upstream advisory](https://github.com/micromatch/braces/issues/70).
+- GHSA-hp3w-g68c-fv3c / CVE-2026-97058: sprintf-js 1.0.3 has no fixed
+  release. Bound width/string precision to 65536 and numeric precision to 100,
+  before argument processing or allocation.
+  [Advisory](https://github.com/advisories/GHSA-hp3w-g68c-fv3c).
+- These three exact suppressions are permitted only with committed pnpm patches;
+  `security:policy` and the regression test exercise the installed code with valid
+  controls and adversarial inputs. They do not ignore a severity class. Remove the
+  backports and corresponding suppressions when upstream publishes fixed versions.

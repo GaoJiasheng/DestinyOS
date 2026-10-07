@@ -1,3 +1,4 @@
+import { m5BaseURL } from '../../../scripts/m5-test-urls';
 import { testDatabaseUrl } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
@@ -129,7 +130,7 @@ test('admin: 404, safe users, re-auth, draft→fixture→release→rollback, con
     .context()
     .browser()!
     .newContext({
-      baseURL: 'http://localhost:3230',
+      baseURL: m5BaseURL,
       viewport: { width: 375, height: 812 },
       reducedMotion: 'reduce',
     });

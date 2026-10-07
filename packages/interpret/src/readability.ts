@@ -1,13 +1,14 @@
 import { enWords, zhChars } from '@tianji/content';
 import type { GlossaryEntry } from '@tianji/content';
 import type { Report } from './types';
-import { expandTerms, termCount } from './terms';
+import { expandTerms, createTermCounter } from './terms';
 /** Check expanded article length, terminology density and unresolved placeholders.
  * @param report Sections and system/locale used to select the documented minimum length.
  * @param glossary Entries used for marker expansion and terminology counting. */
 export function checkReadability(
   report: Pick<Report, 'system' | 'locale' | 'sections'>,
   glossary: GlossaryEntry[],
+  countTerms: (text: string) => number = createTermCounter(glossary, report.locale),
 ): Report['readability'] {
   const text = report.sections
     .flatMap((s) => [
@@ -26,7 +27,7 @@ export function checkReadability(
   const size = report.locale !== 'en' ? chars : words;
   const divination = ['iching', 'qimen', 'tarot'].includes(report.system);
   const minimum = report.locale !== 'en' ? (divination ? 1200 : 2500) : divination ? 900 : 1800;
-  const density = (termCount(text, glossary, report.locale) * 100) / (size || 1);
+  const density = (countTerms(text) * 100) / (size || 1);
   // Stable issue keys are translated by next-intl at the presentation boundary.
   const issues: string[] = [];
   if (size < minimum) issues.push('report.readability.tooShort');

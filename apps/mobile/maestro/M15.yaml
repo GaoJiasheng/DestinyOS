@@ -19,8 +19,12 @@ appId: pub.gavin.tianji
     visible:
       id: home-sky
     timeout: 90000
+# DESIGN-GAP: The initial development-client connection may leave its refresh banner after the sky mounts; wait for the SDK to settle before capturing the original screen.
 - waitForAnimationToEnd:
-    timeout: 1000
+    timeout: 5000
+- extendedWaitUntil:
+    notVisible: 'Refreshing.*'
+    timeout: 30000
 - takeScreenshot: 01-today
 - openLink: 'tianji://dev/store?scene=bazi&locale=${LOCALE}'
 - extendedWaitUntil:

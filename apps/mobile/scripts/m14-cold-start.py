@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 """Measure five independent process starts of an embedded Release build; no Metro timing."""
 import json
+import datetime
 import pathlib
 import subprocess
 import sys
 import time
 
 simulator, output = sys.argv[1:3]
+
+# DESIGN-GAP: Stamp real measurements with the current native source, outside timed windows.
+repo = pathlib.Path(__file__).resolve().parents[3]
+def source_hash():
+    return subprocess.check_output(['pnpm', 'exec', 'tsx', '-e', "import {launchNativeSourceHash} from './scripts/launch-source-hash.ts';launchNativeSourceHash().then(console.log)"], cwd=repo, text=True).strip()
+native_source_hash = source_hash()
 root = pathlib.Path(output)
 root.mkdir(parents=True, exist_ok=True)
 
@@ -35,6 +42,9 @@ for run in range(5):
     time.sleep(0.5)
 result = {'platform': 'ios', 'configuration': 'Release', 'metro': False, 'samples': measurements,
           'maxMs': max(s['launchToReadyMs'] for s in measurements), 'budgetMs': 2000, 'teardownCooldownMs': 2000}
+assert source_hash() == native_source_hash, 'Native source changed during measurement'
+result['sourceHash'] = native_source_hash
+result['checkedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z')
 result['passed'] = result['maxMs'] <= result['budgetMs'] and all(s['hermes'] for s in measurements)
 (root / 'cold-start.json').write_text(json.dumps(result, indent=2) + '\n')
 print(json.dumps(result, indent=2))

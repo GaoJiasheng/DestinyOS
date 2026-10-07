@@ -21,7 +21,7 @@ export interface EmailFrom {
 export function emailFrom(env: Record<string, string | undefined> = process.env): EmailFrom {
   // DESIGN-GAP: EMAIL_FROM stays an address; EMAIL_FROM_NAME configures the display name independently, with brand-derived defaults.
   return {
-    email: env.EMAIL_FROM || 'noreply@send.gavin.pub',
+    email: env.EMAIL_FROM || 'noreply@mail.gavin.pub',
     name: env.EMAIL_FROM_NAME || `${brand.nameZh} ${brand.nameEn}`,
   };
 }

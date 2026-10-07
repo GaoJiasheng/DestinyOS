@@ -42,7 +42,7 @@ enabled = true
 
 [vars]
 PLATFORM = "cloudflare"
-EMAIL_FROM = "noreply@send.gavin.pub"
+EMAIL_FROM = "noreply@mail.gavin.pub"
 EMAIL_FROM_NAME = "天机 DestinyOS"
 AUTH_TRUST_HOST = "true"
 AUTH_URL = "https://tianji.gavin.pub"

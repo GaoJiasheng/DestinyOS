@@ -8,5 +8,5 @@ export default defineConfig({
   projects: [
     { name: 'export', use: { viewport: { width: 1000, height: 1200 }, reducedMotion: 'reduce' } },
   ],
-  use: { ...base.use, baseURL: 'http://localhost:3230' },
+  use: { ...base.use },
 });

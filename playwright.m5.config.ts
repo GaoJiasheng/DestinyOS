@@ -1,3 +1,11 @@
+import {
+  m5BaseURL,
+  m5MailPort,
+  m5MailURL,
+  m5StripePort,
+  m5StripeURL,
+  m5WebPort,
+} from './scripts/m5-test-urls';
 import { testDatabaseUrl } from './scripts/sqlite-test';
 import { defineConfig, devices } from '@playwright/test';
 import base from './playwright.m4.config';
@@ -25,23 +33,23 @@ export default defineConfig({
       },
     },
   ],
-  use: { ...base.use, baseURL: 'http://localhost:3230', reducedMotion: 'reduce' },
+  use: { ...base.use, baseURL: m5BaseURL, reducedMotion: 'reduce' },
   webServer: {
     ...server,
-    url: 'http://localhost:3230/zh',
+    url: `${m5BaseURL}/zh`,
     env: {
       ...server?.env,
       TEST_DATABASE_ID: '57552',
       TEST_SHADOW_PORT: '57553',
-      TEST_MAIL_PORT: '60201',
-      TEST_WEB_PORT: '3230',
+      TEST_MAIL_PORT: String(m5MailPort),
+      TEST_WEB_PORT: String(m5WebPort),
       // DESIGN-GAP: SQLite files are isolated per suite and shared across test processes.
       LOCAL_DATABASE_URL: testDatabaseUrl(57552),
-      AUTH_URL: 'http://localhost:3230',
-      NEXT_PUBLIC_SITE_URL: 'http://localhost:3230',
-      TEST_MAIL_URL: 'http://127.0.0.1:60201/mail',
-      TEST_STRIPE_URL: 'http://127.0.0.1:60302',
-      TEST_STRIPE_PORT: '60302',
+      AUTH_URL: m5BaseURL,
+      NEXT_PUBLIC_SITE_URL: m5BaseURL,
+      TEST_MAIL_URL: m5MailURL,
+      TEST_STRIPE_URL: m5StripeURL,
+      TEST_STRIPE_PORT: String(m5StripePort),
     },
   },
 });

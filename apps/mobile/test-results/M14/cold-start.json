@@ -4,38 +4,40 @@
   "metro": false,
   "samples": [
     {
-      "readyAtUnixMs": 1791347458316,
-      "jsReadyMs": 157.12770795822144,
+      "readyAtUnixMs": 1791371772750,
+      "jsReadyMs": 201.05637502670288,
       "hermes": true,
-      "launchToReadyMs": 1560.27783203125
+      "launchToReadyMs": 1682.388916015625
     },
     {
-      "readyAtUnixMs": 1791347462478,
-      "jsReadyMs": 158.97949981689453,
+      "readyAtUnixMs": 1791371776830,
+      "jsReadyMs": 149.2934169769287,
       "hermes": true,
-      "launchToReadyMs": 1531.158935546875
+      "launchToReadyMs": 1459.710205078125
     },
     {
-      "readyAtUnixMs": 1791347466603,
-      "jsReadyMs": 160.09191703796387,
+      "readyAtUnixMs": 1791371780918,
+      "jsReadyMs": 152.2971248626709,
       "hermes": true,
-      "launchToReadyMs": 1485.030029296875
+      "launchToReadyMs": 1467.894775390625
     },
     {
-      "readyAtUnixMs": 1791347470707,
-      "jsReadyMs": 154.78737497329712,
+      "readyAtUnixMs": 1791371785021,
+      "jsReadyMs": 150.09899997711182,
       "hermes": true,
-      "launchToReadyMs": 1472.742919921875
+      "launchToReadyMs": 1479.10107421875
     },
     {
-      "readyAtUnixMs": 1791347474860,
-      "jsReadyMs": 158.9580421447754,
+      "readyAtUnixMs": 1791371789151,
+      "jsReadyMs": 149.4568748474121,
       "hermes": true,
-      "launchToReadyMs": 1502.1640625
+      "launchToReadyMs": 1495.153076171875
     }
   ],
-  "maxMs": 1560.27783203125,
+  "maxMs": 1682.388916015625,
   "budgetMs": 2000,
   "teardownCooldownMs": 2000,
+  "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+  "checkedAt": "2026-10-07T11:16:30.103908Z",
   "passed": true
 }

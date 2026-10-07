@@ -1,5 +1,6 @@
 appId: pub.gavin.tianji
 ---
+# DESIGN-GAP: Capture settled native screens, excluding navigation and Expo refresh transitions.
 - openLink: 'tianji:///me'
 - tapOn:
     text: '打开|Open'
@@ -10,6 +11,8 @@ appId: pub.gavin.tianji
 - assertVisible: 'Effects laboratory'
 - assertVisible:
     id: scene-starfield
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: starfield-en
 - tapOn:
     id: effect-sphere
@@ -19,24 +22,34 @@ appId: pub.gavin.tianji
     timeout: 15000
 - assertVisible:
     id: scene-sphere
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: sphere-en
 - tapOn:
     id: effect-particles
 - assertVisible:
     id: scene-particles
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: particles-en
 - tapOn:
     id: effect-tarot
 - assertVisible:
     id: scene-tarot
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: tarot-en
 - tapOn:
     id: effect-coins
 - assertVisible:
     id: scene-coins
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: coins-en
 - tapOn:
     id: effect-wheel
 - assertVisible:
     id: scene-wheel
+- waitForAnimationToEnd:
+    timeout: 2000
 - takeScreenshot: wheel-en

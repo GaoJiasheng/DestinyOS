@@ -11,6 +11,7 @@ import { useCallback, useRef } from 'react';
 import { focusHeading, useReducedMotion } from '../../lib/accessibility';
 import { bundledKnowledge } from '../../lib/knowledge/bundled';
 import { sourceLocale, localeText } from '@tianji/shared/locale';
+import { dataPathLabel, dataValueLabel } from '../../lib/reports/data-labels';
 
 /** Localized dynamic catalog access, retaining source keys and next-intl for every value. */
 export function useChartLabel(): ChartLabel {
@@ -123,26 +124,27 @@ export function DataTree({
   value,
   path = '',
   depth = 0,
+  professional = false,
 }: {
   value: unknown;
   path?: string;
   depth?: number;
+  professional?: boolean;
 }) {
+  const locale = usePreferences((s) => s.locale);
   const t = useChartLabel(),
     { colors, body } = useTheme();
+  const displayPath = professional ? path : dataPathLabel(path, t);
   if (value === null || typeof value !== 'object') {
-    const text =
-      value === null || value === undefined
-        ? t('charts.unavailable')
-        : typeof value === 'boolean'
-          ? t(value ? 'bazi.chart.enabled' : 'bazi.chart.disabled')
-          : t(`glossary.${String(value)}.term`, String(value));
+    const text = professional
+      ? t('report.content', String(value))
+      : dataValueLabel(value, path, locale, t, resources[locale].translation, bundledKnowledge());
     return (
       <Text
         selectable
         style={{ color: colors['text-2'], fontFamily: body, fontSize: 15, lineHeight: 23 }}
       >
-        {t('report.content', `${path}: ${text}`)}
+        {t('report.content', `${displayPath}: ${text}`)}
       </Text>
     );
   }
@@ -158,9 +160,23 @@ export function DataTree({
       {Object.entries(value).map(([key, child]) => (
         <View key={key} style={{ gap: 4 }}>
           {child !== null && typeof child === 'object' ? (
-            <CopyText>{t('report.content', path ? `${path}.${key}` : key)}</CopyText>
+            <CopyText>
+              {t(
+                'report.content',
+                professional
+                  ? path
+                    ? `${path}.${key}`
+                    : key
+                  : dataPathLabel(path ? `${path}.${key}` : key, t),
+              )}
+            </CopyText>
           ) : null}
-          <DataTree value={child} path={path ? `${path}.${key}` : key} depth={depth + 1} />
+          <DataTree
+            value={child}
+            path={path ? `${path}.${key}` : key}
+            depth={depth + 1}
+            professional={professional}
+          />
         </View>
       ))}
     </View>

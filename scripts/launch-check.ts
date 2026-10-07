@@ -1,4 +1,6 @@
+import { verifySecurityBackports } from './security-backports';
 import { checkLaunchReports } from './launch-report-check';
+import { checkLaunchApp } from './launch-app-check';
 import assert from 'node:assert/strict';
 import { createHash, randomBytes } from 'node:crypto';
 import { brotliDecompressSync } from 'node:zlib';
@@ -93,20 +95,23 @@ await check('I18N/tutorials', async () => {
         copy.description,
         ...copy.sections.map((section) => section.heading),
         ...article.links.map((link) => link.label[locale]),
-        // DESIGN-GAP: English tutorial paragraphs preserve the documented first-mention Chinese/pinyin glosses; navigation metadata and all Chinese prose must be localized.
-        ...(locale === 'zh' ? copy.sections.flatMap((section) => section.paragraphs) : []),
+        ...copy.sections.flatMap((section) => section.paragraphs),
       ].join('\n');
-      // DESIGN-GAP: docs/12 requires first-mention Chinese/pinyin glosses in English; exempt only canonical terms at the start of that explicit parenthetical form.
+      // DESIGN-GAP: docs/12 requires first-mention Chinese/pinyin glosses; exempt only
+      // the canonical teaching terms at that parenthetical prefix, scanning all remaining prose.
       const localized =
         locale === 'en'
-          ? text.replace(/\((?:四柱|十神|大运|流年|紫微斗数|大限|卦|动爻|奇门遁甲),/g, '(')
+          ? text.replace(
+              /\((?:四柱|日主|五行|十神|藏干|大运|流年|合|冲|紫微斗数|命宫|身宫|大限|卦|动爻|梅花易数|六爻|奇门遁甲),/g,
+              '(',
+            )
           : text.replaceAll('DestinyOS', '');
       assert.ok(
         locale === 'en' ? !/\p{Script=Han}/u.test(localized) : !/[A-Za-z]{2,}/.test(localized),
         `Untranslated tutorial ${article.system}/${article.slug}/${locale}`,
       );
     }
-  return `${articles.length} bilingual tutorial titles/descriptions/headings/links and Chinese paragraphs checked`;
+  return `${articles.length} bilingual tutorial titles/descriptions/headings/links and all paragraphs checked`;
 });
 await check('VISUAL/config', async () => {
   const config = await readFile('playwright.config.ts', 'utf8');
@@ -150,6 +155,13 @@ await check('VISUAL/config', async () => {
   return `${snapshots.length} baselines share names across macOS/Ubuntu; rendering remains covered by E2E`;
 });
 await checkLaunchReports({ systems, birth, normalized, now, check });
+if (process.argv.includes('--app')) {
+  // DESIGN-GAP: Native acceptance stays opt-in for Linux CI; require every current
+  // Maestro flow and verify the actual published screenshots instead of a smoke count.
+  await check('APP/Maestro', async () => {
+    return checkLaunchApp();
+  });
+}
 await check('PRD-2', () => {
   const unknown = normalizeBirth({
     ...birth,
@@ -216,7 +228,11 @@ await check('SEC-3', () => {
   );
   return 'Sentry beforeSend removes PII from seeded event';
 });
-// DESIGN-GAP: Vercel uses apps/web as project root; deployment resources must be present in Next.js file traces, and cron config must live at that app root.
+await check('SEC/dependency-backports', async () => {
+  await verifySecurityBackports();
+  return 'Installed RSA, brace AST and formatting backports reject adversarial inputs with valid controls';
+});
+// DESIGN-GAP: Validate the current Cloudflare bindings and scheduler as well as Node fallback file traces; historical Vercel configuration is not production evidence.
 await check('DEPLOY/config', async () => {
   const worker = z
     .object({
@@ -231,17 +247,26 @@ await check('DEPLOY/config', async () => {
     assert.ok(compressed.byteLength < bytes.byteLength);
     assert.ok(url.includes(createHash('sha256').update(bytes).digest('hex').slice(0, 16)));
   }
-  const config = z
-    .object({
-      crons: z.array(z.object({ path: z.string(), schedule: z.string() })),
-      buildCommand: z.string(),
-    })
-    .parse(JSON.parse(await readFile('apps/web/vercel.json', 'utf8')));
-  assert.ok(config.buildCommand.includes('pnpm db:deploy && pnpm build'));
+  const workerConfig = await readFile('apps/web/wrangler.toml', 'utf8');
+  for (const binding of [
+    'DB',
+    'CACHE',
+    'RATE_LIMITER',
+    'EXPORT_BUCKET',
+    'NEXT_INC_CACHE_R2_BUCKET',
+    'BROWSER',
+  ])
+    assert.ok(
+      new RegExp(`(?:binding|name)\\s*=\\s*"${binding}"`).test(workerConfig),
+      `Missing Workers binding ${binding}`,
+    );
+  assert.ok(workerConfig.includes('0 3 * * *'), 'Missing daily scheduled maintenance');
+  const schema = await readFile('prisma/schema.prisma', 'utf8');
+  assert.ok(/provider\s*=\s*"sqlite"/.test(schema), 'D1 requires SQLite schema');
+  const migrations = await readdir('apps/web/migrations');
   assert.ok(
-    config.crons.some(
-      (cron) => cron.path === '/api/v1/cron/daily-maintenance' && cron.schedule === '0 3 * * *',
-    ),
+    migrations.some((file) => file.endsWith('.sql')),
+    'Missing D1 deployment migrations',
   );
   const traceFile = 'apps/web/.next/server/app/[locale]/(app)/[system]/r/[id]/page.js.nft.json';
   const trace = z
@@ -254,7 +279,7 @@ await check('DEPLOY/config', async () => {
         files.has(resolve(`packages/content/dist/${system}.${locale}.json`)),
         `Missing deployed ${system}.${locale} knowledge`,
       );
-  return 'Workspace knowledge traced; hashed daily worker present; app-root cron and migration-before-build configured';
+  return 'Workspace knowledge traced; hashed daily worker present; D1/KV/rate-limit/R2/browser bindings, SQLite schema, migrations and daily scheduled maintenance checked';
 });
 // DESIGN-GAP: Browser-dependent checklist items execute the real-app suites; a quick run never claims their evidence.
 const browserGates = [

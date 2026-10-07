@@ -297,9 +297,10 @@ export function ReportScreen({
                 }}
               >
                 <CopyText title>{t('report.school')}</CopyText>
-                <DataTree value={data.schoolUsed} />
+                <DataTree value={data.schoolUsed} professional />
                 <CopyText title>{t('report.debug')}</CopyText>
                 <DataTree
+                  professional
                   value={{
                     engineVersion: data.engineVersion,
                     interpretVersion: data.interpretVersion,
@@ -312,7 +313,7 @@ export function ReportScreen({
                   label={t('report.rawChart')}
                   onPress={() => setFullData((v) => !v)}
                 />
-                {fullData ? <DataTree value={view.chart.data} /> : null}
+                {fullData ? <DataTree value={view.chart.data} professional /> : null}
                 <CopyText title>{t('report.hits')}</CopyText>
                 {view.report.hits.map((hit, i) => (
                   <View key={`${hit.unitId}-${i}`}>

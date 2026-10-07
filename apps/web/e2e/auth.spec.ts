@@ -40,7 +40,7 @@ for (const locale of ['zh', 'en'] as const) {
       | { text: string; html: string; subject: string; from: { email: string; name: string } }
       | undefined;
     if (!mail) throw new Error('No email delivered');
-    expect(mail.from).toEqual({ email: 'noreply@send.gavin.pub', name: '天机 DestinyOS' });
+    expect(mail.from).toEqual({ email: 'noreply@mail.gavin.pub', name: '天机 DestinyOS' });
     expect(mail.subject).toBe(locale === 'zh' ? '登录 天机' : 'Sign in to DestinyOS');
     expect(mail.html).toContain(`lang="${locale}"`);
     const link = mail.text.match(/http:\/\/[^\s]+/)?.[0];

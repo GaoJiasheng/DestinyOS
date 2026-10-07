@@ -6,6 +6,7 @@ import { BirthInputSchema } from '@tianji/shared';
 import { createNativeReading, reportSystems, type ReportSystem } from '../../lib/reports/readings';
 import { getLocalStore } from '../../lib/data/store';
 import { useCopy } from '../../lib/copy';
+import { useProfiles } from '../../lib/profiles';
 import { usePreferences } from '../../lib/preferences';
 import { ReportScreen } from '../../components/report/report-screen';
 import { ReportTheme } from '../../components/report/report-theme';
@@ -14,10 +15,25 @@ import { Page, Action, CopyText } from '../../components/native-ui';
 /** Developer-only deterministic fixture acceptance uses real encrypted storage and production reports. */
 export default function ReportsPreview() {
   const t = useCopy();
+  const { updateSettings } = useProfiles();
   const [reading, setReading] = useState<{ id: string; system: ReportSystem } | null>(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(false);
   if (!__DEV__) return <Redirect href="/" />;
+  // DESIGN-GAP: An explicit developer fixture selection provisions adult Fixture A state;
+  // independent native flows must not inherit the preceding under-age test's blocked device.
+  async function prepareLocale(locale: 'zh' | 'en') {
+    setBusy(true);
+    setError(false);
+    try {
+      await updateSettings({ onboardingVersion: 1, ageBlocked: false });
+      usePreferences.getState().setLocale(locale);
+    } catch {
+      setError(true);
+    } finally {
+      setBusy(false);
+    }
+  }
   async function fixture(system: ReportSystem) {
     setBusy(true);
     setError(false);
@@ -61,7 +77,8 @@ export default function ReportsPreview() {
           key={locale}
           id={`fixture-locale-${locale}`}
           label={t(`nav.locale.${locale}`)}
-          onPress={() => usePreferences.getState().setLocale(locale)}
+          disabled={busy}
+          onPress={() => void prepareLocale(locale)}
         />
       ))}
       {busy ? <CopyText>{t('report.loading')}</CopyText> : null}

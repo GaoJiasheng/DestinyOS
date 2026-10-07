@@ -12,13 +12,17 @@ export function SessionGate({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!state.loading && !state.error) ageStateLoaded.current = true;
   }, [state.loading, state.error]);
-  // DESIGN-GAP: Existing diagnostic routes remain directly reachable in development builds.
-  if (
-    (__DEV__ ||
-      (process.env.EXPO_PUBLIC_M14_AUDIT === 'true' && String(segments[1]) === 'audit')) &&
-    segments[0] === 'dev'
-  )
-    return children;
+  // DESIGN-GAP: Performance acceptance uses optimized Release Hermes with only the
+  // offline effects/audit routes enabled; production must hide every diagnostic route.
+  if (segments[0] === 'dev') {
+    if (
+      __DEV__ ||
+      (process.env.EXPO_PUBLIC_M14_AUDIT === 'true' &&
+        ['audit', 'effects'].includes(String(segments[1])))
+    )
+      return children;
+    return <Redirect href="/today" />;
+  }
   // DESIGN-GAP: After device age validation, keep auth forms mounted across account projection reloads so their input/navigation is retained. Blocked or failed storage still hides credentials.
   if (
     segments[0] === 'auth' &&

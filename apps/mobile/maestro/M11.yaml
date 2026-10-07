@@ -1,6 +1,9 @@
 appId: pub.gavin.tianji
 ---
+# DESIGN-GAP: The empty-profile notification case must not inherit M10's imported profiles.
 - launchApp:
+    clearState: true
+    clearKeychain: true
     permissions:
       notifications: allow
 - runFlow:
@@ -33,6 +36,17 @@ appId: pub.gavin.tianji
       visible: '^(允许|Allow)$'
     commands:
       - tapOn: '^(允许|Allow)$'
+# DESIGN-GAP: A fresh SDK install may show UMP/ATT after the notification request.
+- repeat:
+    times: 6
+    commands:
+      - tapOn:
+          text: '^(Continue|继续|繼續)$'
+          optional: true
+          retryTapIfNoChange: true
+      - tapOn:
+          text: '.*(Ask App Not to Track|要求.*不跟踪|要求.*不追蹤).*'
+          optional: true
 - extendedWaitUntil:
     visible: 'Scheduled: 7 · Deep link: /me/birth'
     timeout: 30000

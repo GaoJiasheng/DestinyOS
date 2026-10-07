@@ -38,7 +38,7 @@ export default defineConfig({
       AUTH_TRUST_HOST: 'true',
       AUTH_GOOGLE_ID: 'test-google-id',
       AUTH_GOOGLE_SECRET: 'test-google-secret',
-      EMAIL_FROM: 'noreply@send.gavin.pub',
+      EMAIL_FROM: 'noreply@mail.gavin.pub',
       EMAIL_FROM_NAME: '天机 DestinyOS',
       TEST_MAIL_URL: 'http://127.0.0.1:58081/mail',
       ADMIN_EMAILS: 'admin@example.com',

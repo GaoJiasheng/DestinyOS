@@ -110,33 +110,304 @@
     "Android native build, simulator, widget execution and Play/UMP/ads verification"
   ],
   "screenshots": [
-    "att-denied-native-en.png",
-    "billing-free-en.png",
-    "billing-lifetime-zh.png",
-    "billing-monthly-en.png",
-    "billing-offline-en.png",
-    "consent-failed-en.png",
-    "native-free-en.png",
-    "native-rejected-en.png",
-    "native-teen-en.png",
-    "native-ump-att-explanation-en.png",
-    "native-ump-ready-npa-en.png",
-    "native-validator-pass-en.png",
-    "pro-hides-ad-en.png",
-    "products-en.png",
-    "purchase-cancelled-en.png",
-    "purchase-error-en.png",
-    "purchase-restored-en.png",
-    "refund-test-ad-zh.png",
-    "refunded-native-en.png",
-    "report-first-test-ad-en.png",
-    "report-second-test-ad-en.png",
-    "restore-zh.png",
-    "startup-system-att-zh.png",
-    "sync-pending-en.png",
-    "system-att-denied-ad-en.png",
-    "system-att-zh.png",
-    "teen-nonpersonalized-en.png",
-    "today-test-ad-en.png"
-  ]
+    {
+      "file": "att-denied-native-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "374276bfbb7e1ba456658db6152639fcca7a4a8750e534e01c43a5db236f1fb7"
+    },
+    {
+      "file": "consent-failed-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "954cdbe1ff4130c5d8e4bf2eb0464e8828157eb1cf8b9dc3fd2b932638be9b75"
+    },
+    {
+      "file": "native-free-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "07ace44478759dcd51fe1251570f484d099983efb33d3a79d5997c6630254d54"
+    },
+    {
+      "file": "native-rejected-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "513cc5f15dbd2df608fc136eec2535187006b85615859bc6897cc59dd41e470a"
+    },
+    {
+      "file": "native-teen-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "b48b5feb40d2286581529946920938de671b94d246c8858f3be96ea4f33af3dd"
+    },
+    {
+      "file": "native-ump-ready-npa-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "13376fd2f9a5a0059239fac82a33b0d00d13b3ea24fc3f4da5efeb73fb030adb"
+    },
+    {
+      "file": "native-validator-pass-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "7568098e833d519d7ed16426f178faf777009dd8ab3401ef37bd6c7055953c00"
+    },
+    {
+      "file": "pro-hides-ad-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "57ed47176d49a0d609555164db365893decd635aad9b65b6befee562860a83ea"
+    },
+    {
+      "file": "refunded-native-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "91943c5747e0f3be24c55a583db5f4755062f1d7ef5230f19f8e79a6d1c9ee06"
+    },
+    {
+      "file": "startup-system-att-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "972271eda58d158e926f71f0366f0ab04eeb1a4515dfcc138d23b1a19cf58ec9"
+    },
+    {
+      "file": "system-att-denied-ad-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "b4065ff8a90d7d600b154ea2db7f7f516d1ef43bf419849162713abda33b4bbb"
+    },
+    {
+      "file": "teen-nonpersonalized-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "5f8ad3b9da3feae470385855cf2b1cc669566b4085b3cc867927112deeb39e3b"
+    },
+    {
+      "file": "billing-free-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+    },
+    {
+      "file": "billing-lifetime-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "8160e35fbde5e64c427d878c43cd4202647a0ce23841025550fe2491eef0991f"
+    },
+    {
+      "file": "billing-monthly-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+    },
+    {
+      "file": "billing-offline-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "6325b8dca1a625ad8a216774fb0674e9bac565aa4082828c176b51117b069d6e"
+    },
+    {
+      "file": "products-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+    },
+    {
+      "file": "purchase-cancelled-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "58cbebdd8def8fc86e56e087f577b0eaea3f8d90da70fe0507f8d2061e99397b"
+    },
+    {
+      "file": "purchase-error-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "6fe111f3608eca0e76142e5e7b3934e48465b729e32576ffef127f84783c36e6"
+    },
+    {
+      "file": "purchase-restored-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "690849a3e2bab4c7165126a76550f82f6c8d3371e48fa18b2afcef68ce4305e8"
+    },
+    {
+      "file": "refund-test-ad-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "6b20226516482d10ec6fb013b94dc5ebc8de634aa4d3f2466af1e9fa0dba4f82"
+    },
+    {
+      "file": "restore-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "1df7e4af409374e3f53c2049d464a4a1049d3d9ff8399cd61245a87b82f2fcc9"
+    },
+    {
+      "file": "sync-pending-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "057dd03df4b165c542dae37b4d595e4417dc61e77281ee71c3c5c76a0bd477b8"
+    },
+    {
+      "file": "report-first-test-ad-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "9193d7e6d8fefd6dd87a72bdf1d0e1d7189eaa65bee8aabd393120501761615c"
+    },
+    {
+      "file": "report-second-test-ad-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "02820e6601edb82cb215e76280c63446e288f9df81bf772d8147025c60ee58b4"
+    },
+    {
+      "file": "today-test-ad-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "261420b587ccce2f107198f7fa6de250c44c9362802239b24c296733a9493855"
+    }
+  ],
+  "historicalEvidenceScope": "Original task-specific fields describe earlier acceptance; current source, flows and baseline hashes are recorded in launchAcceptance and M15/launch-verification.json.",
+  "launchAcceptance": {
+    "task": "T-64",
+    "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+    "checkedAt": "2026-10-07T11:17:50.578Z",
+    "receipt": "../M15/launch-verification.json",
+    "flowsPassed": [
+      "M13-ads",
+      "M13-billing",
+      "M13-placements"
+    ],
+    "device": "95E57954-4F1E-4DCF-82A2-E5D37E67F35D",
+    "runtime": "Expo 57.0.27 / RN 0.86.3 / iOS 26.4; M02/M14 native performance use Release Hermes",
+    "baselineHashes": [
+      {
+        "file": "test-results/M13/att-denied-native-en.png",
+        "sha256": "374276bfbb7e1ba456658db6152639fcca7a4a8750e534e01c43a5db236f1fb7"
+      },
+      {
+        "file": "test-results/M13/consent-failed-en.png",
+        "sha256": "954cdbe1ff4130c5d8e4bf2eb0464e8828157eb1cf8b9dc3fd2b932638be9b75"
+      },
+      {
+        "file": "test-results/M13/native-free-en.png",
+        "sha256": "07ace44478759dcd51fe1251570f484d099983efb33d3a79d5997c6630254d54"
+      },
+      {
+        "file": "test-results/M13/native-rejected-en.png",
+        "sha256": "513cc5f15dbd2df608fc136eec2535187006b85615859bc6897cc59dd41e470a"
+      },
+      {
+        "file": "test-results/M13/native-teen-en.png",
+        "sha256": "b48b5feb40d2286581529946920938de671b94d246c8858f3be96ea4f33af3dd"
+      },
+      {
+        "file": "test-results/M13/native-ump-ready-npa-en.png",
+        "sha256": "13376fd2f9a5a0059239fac82a33b0d00d13b3ea24fc3f4da5efeb73fb030adb"
+      },
+      {
+        "file": "test-results/M13/native-validator-pass-en.png",
+        "sha256": "7568098e833d519d7ed16426f178faf777009dd8ab3401ef37bd6c7055953c00"
+      },
+      {
+        "file": "test-results/M13/pro-hides-ad-en.png",
+        "sha256": "57ed47176d49a0d609555164db365893decd635aad9b65b6befee562860a83ea"
+      },
+      {
+        "file": "test-results/M13/refunded-native-en.png",
+        "sha256": "91943c5747e0f3be24c55a583db5f4755062f1d7ef5230f19f8e79a6d1c9ee06"
+      },
+      {
+        "file": "test-results/M13/startup-system-att-zh.png",
+        "sha256": "972271eda58d158e926f71f0366f0ab04eeb1a4515dfcc138d23b1a19cf58ec9"
+      },
+      {
+        "file": "test-results/M13/system-att-denied-ad-en.png",
+        "sha256": "b4065ff8a90d7d600b154ea2db7f7f516d1ef43bf419849162713abda33b4bbb"
+      },
+      {
+        "file": "test-results/M13/teen-nonpersonalized-en.png",
+        "sha256": "5f8ad3b9da3feae470385855cf2b1cc669566b4085b3cc867927112deeb39e3b"
+      },
+      {
+        "file": "test-results/M13/billing-free-en.png",
+        "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+      },
+      {
+        "file": "test-results/M13/billing-lifetime-zh.png",
+        "sha256": "8160e35fbde5e64c427d878c43cd4202647a0ce23841025550fe2491eef0991f"
+      },
+      {
+        "file": "test-results/M13/billing-monthly-en.png",
+        "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+      },
+      {
+        "file": "test-results/M13/billing-offline-en.png",
+        "sha256": "6325b8dca1a625ad8a216774fb0674e9bac565aa4082828c176b51117b069d6e"
+      },
+      {
+        "file": "test-results/M13/products-en.png",
+        "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+      },
+      {
+        "file": "test-results/M13/purchase-cancelled-en.png",
+        "sha256": "58cbebdd8def8fc86e56e087f577b0eaea3f8d90da70fe0507f8d2061e99397b"
+      },
+      {
+        "file": "test-results/M13/purchase-error-en.png",
+        "sha256": "6fe111f3608eca0e76142e5e7b3934e48465b729e32576ffef127f84783c36e6"
+      },
+      {
+        "file": "test-results/M13/purchase-restored-en.png",
+        "sha256": "690849a3e2bab4c7165126a76550f82f6c8d3371e48fa18b2afcef68ce4305e8"
+      },
+      {
+        "file": "test-results/M13/refund-test-ad-zh.png",
+        "sha256": "6b20226516482d10ec6fb013b94dc5ebc8de634aa4d3f2466af1e9fa0dba4f82"
+      },
+      {
+        "file": "test-results/M13/restore-zh.png",
+        "sha256": "1df7e4af409374e3f53c2049d464a4a1049d3d9ff8399cd61245a87b82f2fcc9"
+      },
+      {
+        "file": "test-results/M13/sync-pending-en.png",
+        "sha256": "057dd03df4b165c542dae37b4d595e4417dc61e77281ee71c3c5c76a0bd477b8"
+      },
+      {
+        "file": "test-results/M13/report-first-test-ad-en.png",
+        "sha256": "9193d7e6d8fefd6dd87a72bdf1d0e1d7189eaa65bee8aabd393120501761615c"
+      },
+      {
+        "file": "test-results/M13/report-second-test-ad-en.png",
+        "sha256": "02820e6601edb82cb215e76280c63446e288f9df81bf772d8147025c60ee58b4"
+      },
+      {
+        "file": "test-results/M13/today-test-ad-en.png",
+        "sha256": "261420b587ccce2f107198f7fa6de250c44c9362802239b24c296733a9493855"
+      }
+    ],
+    "checks": {
+      "webSharedTests": 3737,
+      "webSharedFiles": 138,
+      "mobileTests": 262,
+      "mobileSuites": 55,
+      "install": "passed",
+      "lint": "passed",
+      "typecheck": "passed",
+      "test": "passed",
+      "content:validate": "passed",
+      "i18n:check": "passed",
+      "build": "passed",
+      "licenses:check": "passed:1769-packages",
+      "security:policy": "passed",
+      "audit": "passed:controlled-advisory-exceptions"
+    },
+    "iosNativeBuild": {
+      "result": "BUILD SUCCEEDED",
+      "configuration": "Release",
+      "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+      "simulator": "D9DD26B9-3EC5-4D1D-97E7-CA2E82DC709C"
+    },
+    "androidNativeBuild": "pending-owner-java-and-sdk"
+  }
 }

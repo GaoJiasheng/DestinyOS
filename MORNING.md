@@ -22,11 +22,11 @@ Browser Rendering 本地不可用时使用测试 renderer mock，生产验收需
 ## CF-EMAIL：Owner 发信域名配置
 
 Cloudflare Email Service 的 Email Sending 自 2026 年 4 月公开测试；本次仅改代码和本地验证，未部署、未启用远端服务或修改 DNS。
-gavin.pub 已托管在 Cloudflare；Owner 必须在控制台 Compute > Email Service > Email Sending > Onboard Domain 为 **send.gavin.pub** 单独启用发信。
-按控制台生成的内容添加/确认 DNS 验证记录：cf-bounce.send.gavin.pub 的 MX 和 SPF TXT、cf-bounce._domainkey.send.gavin.pub 的 DKIM TXT、_dmarc.send.gavin.pub 的 DMARC TXT。
+gavin.pub 已托管在 Cloudflare；Owner 必须在控制台 Compute > Email Service > Email Sending > Onboard Domain 为 **mail.gavin.pub** 单独启用发信。
+按控制台生成的内容添加/确认 DNS 验证记录：cf-bounce.mail.gavin.pub 的 MX 和 SPF TXT、cf-bounce._domainkey.mail.gavin.pub 的 DKIM TXT、_dmarc.mail.gavin.pub 的 DMARC TXT。
 DKIM 公钥和记录值以控制台为准；等待验证完成（通常 5–15 分钟，最长 24 小时），再检查真实发信与收件。
-只启用 Email Routing 或只验证 gavin.pub 不等于已启用 send.gavin.pub 的 Email Sending。
-Wrangler 已声明 [[send_email]] name="EMAIL"；EMAIL_FROM=noreply@send.gavin.pub、EMAIL_FROM_NAME=天机 DestinyOS 均可配置，换地址时须验证对应发信域名。
+只启用 Email Routing 或只验证 gavin.pub 不等于已启用 mail.gavin.pub 的 Email Sending。
+Wrangler 已声明 [[send_email]] name="EMAIL"；EMAIL_FROM=noreply@mail.gavin.pub、EMAIL_FROM_NAME=天机 DestinyOS 均可配置，换地址时须验证对应发信域名。
 向任意用户邮箱发信需要 Workers Paid；当前每账户每月含 3,000 封，超额 $0.35/1,000 封。已验证 destination 的发送免费，不计配额。
 新账户每日配额由账户信誉决定，无固定公开数值；单封最多 50 位收件人、主题 998 字符、总大小 5 MiB，触发限制会报错并保留业务重试行为。
 本地 Node 开发/测试使用 mock，邮件不会发给外部收件人；E2E 使用 HTTP loopback outbox；未配置 EMAIL 的 Workers 发信会失败，不回退 mock。

@@ -1,0 +1,33 @@
+{
+  "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+  "artifacts": [
+    {
+      "file": "test-results/M08/share-card-zh.png",
+      "flow": "M08",
+      "flowHash": "0eb6a9c1c478bb6b03c7add223d62f2d838e7151efd1b66574191ce5d2dda8ac",
+      "sha256": "f639e90f7f8c6738f55b1e9d6e9cbf1a6d391ddf29fe602a9a7c81ac44e2408e",
+      "capturedAt": "2026-10-07T09:55:20.819691Z"
+    },
+    {
+      "file": "test-results/M08/share-card-en.png",
+      "flow": "M08-share",
+      "flowHash": "5de86285c02a4853ba78fedf63cf96ada66a1fb9bc7f3f3f058e47deaecde653",
+      "sha256": "7c043cf3e8320f948b8083281788a0070f42815ea73cf4cfe3d1b7c081f56090",
+      "capturedAt": "2026-10-07T10:01:53.508981Z"
+    },
+    {
+      "file": "test-results/M12/poster-portrait-en.png",
+      "flow": "M12",
+      "flowHash": "55572426ebb0a63a5f17766637e7abad7fcb1b05b3cfd8d2193ad64a77ee93ae",
+      "sha256": "ce9f8839a100f7629ac93985f8b44f89d91b147daff8ce8b4efbd2fb81d044b3",
+      "capturedAt": "2026-10-07T10:11:37.231219Z"
+    },
+    {
+      "file": "test-results/M12/poster-landscape-zh.png",
+      "flow": "M12-share",
+      "flowHash": "e1c27614b10f8e76f631c3fe475a396a5e4ce8ecbf333884c1f7074c02401de4",
+      "sha256": "fe9842736c3b8993993f30bbbbde525362e06cd977e171c29d2fb3182e331cf9",
+      "capturedAt": "2026-10-07T10:19:23.615768Z"
+    }
+  ]
+}

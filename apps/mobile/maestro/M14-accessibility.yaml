@@ -9,13 +9,28 @@ appId: pub.gavin.tianji
     visible:
       id: audit-sky
     timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: audit-zh
+    direction: DOWN
+    centerElement: true
+    timeout: 60000
 - tapOn:
     id: audit-zh
+- scrollUntilVisible:
+    element:
+      text: '无障碍与性能审计'
+    direction: UP
+    timeout: 60000
+- waitForAnimationToEnd:
+    timeout: 1000
 - takeScreenshot: large-text-title-zh
 - scrollUntilVisible:
     element:
       id: audit-input
     direction: DOWN
+    centerElement: true
+    timeout: 60000
 - takeScreenshot: large-text-controls-zh
 - tapOn:
     id: audit-input
@@ -28,9 +43,19 @@ appId: pub.gavin.tianji
     direction: UP
 - tapOn:
     id: audit-en
+# DESIGN-GAP: Return to the translated heading after selecting a locale below it, so the title baseline includes the complete heading at maximum font size.
+- scrollUntilVisible:
+    element:
+      text: 'Accessibility and performance audit'
+    direction: UP
+    timeout: 60000
+- waitForAnimationToEnd:
+    timeout: 1000
 - takeScreenshot: large-text-title-en
 - scrollUntilVisible:
     element:
       id: audit-input
     direction: DOWN
+    centerElement: true
+    timeout: 60000
 - takeScreenshot: large-text-controls-en

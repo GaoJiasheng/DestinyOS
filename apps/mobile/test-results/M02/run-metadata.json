@@ -1,8 +1,8 @@
 {
-  "recordedAt": "2026-10-07T00:43:02.144314+08:00",
-  "device": "iPhone 17e Simulator",
+  "recordedAt": "2026-10-07T08:52:22.580294Z",
+  "device": "iPhone 17 Pro Simulator",
   "runtime": "iOS 26.4",
-  "udid": "E35A99F1-F6C1-4BF8-8EED-018CDDB93917",
+  "udid": "D9DD26B9-3EC5-4D1D-97E7-CA2E82DC709C",
   "hostCpu": "Apple M5 Max",
   "xcode": "Xcode 26.4.1\nBuild version 17E202",
   "expo": "57.0.27",
@@ -13,18 +13,24 @@
   "sampleMs": 10000,
   "fpsFloatTolerance": 1e-06,
   "frameScope": "UI display-link scheduling; a full 2s warmup and 10s sample restarts after fallback. Native r3f callbacks require verified GL output. GPU completion is not measured.",
-  "recording": "simctl H.264 capture, resized to 720px width with ffmpeg/libx264 CRF26 for delivery; encoded frame rate is not an app FPS measurement.",
-  "rawRecordingSha256": "713a8f1b0c03cd731a91c8617e95e87d0865888ad76a920f5520103cf4daa129",
-  "recordingSha256": "101235ff43dc5cf016118ff590b70059100184fa49c3e30cee914838c5894da3",
+  "recording": "simctl H.264 original; 720px libx264 CRF26 delivery; encoded FPS is not an app FPS measurement",
+  "rawRecordingSha256": "cc15306d44b0c5a4b56a272cd025ccd90ef0da2e96623bbfb73bab57ed78293e",
+  "recordingSha256": "f4d16189f40c5bb813792f016ad19451f3a43d3dcc896f4dee0625e1759a5e01",
   "gl": {
-    "visible": 387,
+    "visible": 388,
     "renderError": 0,
     "probeError": 0,
     "simulatorFallback": true,
     "isDevice": false,
-    "width": 1074,
-    "height": 1073,
+    "width": 1110,
+    "height": 1109,
     "calls": 15
   },
-  "recordingDurationSeconds": 124.631834
+  "recordingDurationSeconds": 111.267463,
+  "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+  "nativeBundleSha256": "ed1c396d37f163eb47f121b4a55fb542cfd7f39f030b1c79b0cbf601763b71d5",
+  "engineMaxMs": 259.2627501487732,
+  "computeObserver": "Maestro; host recorder stopped",
+  "effectObserver": "UI-display probe during actual simctl recording",
+  "recordingStartedAfterEngine": true
 }

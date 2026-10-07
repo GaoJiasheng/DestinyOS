@@ -21,36 +21,186 @@
     "M07-feedback"
   ],
   "screenshots": [
-    "ask-liuyao-zh.png",
-    "feedback-enabled-reduced-en.png",
-    "feedback-persisted-en.png",
-    "liuyao-animation-final-en.png",
-    "liuyao-changing-zh.png",
-    "liuyao-en.png",
-    "liuyao-one-line-zh.png",
-    "liuyao-ready-zh.png",
-    "liuyao-reduced-motion-en.png",
-    "liuyao-report-zh.png",
-    "liuyao-six-lines-zh.png",
-    "meihua-invalid-numbers-zh.png",
-    "meihua-numbers-zh.png",
-    "meihua-random-zh.png",
-    "meihua-time-zh.png",
-    "qimen-en.png",
-    "qimen-lighting-zh.png",
-    "qimen-report-zh.png",
-    "qimen-setup-zh.png",
-    "tarot-cut-zh.png",
-    "tarot-exit-confirm-en.png",
-    "tarot-fan-zh.png",
-    "tarot-report-en.png",
-    "tarot-report-zh.png",
-    "tarot-revealed-en.png",
-    "tarot-revealed-zh.png",
-    "tarot-selected-zh.png",
-    "tarot-settings-en.png",
-    "tarot-setup-zh.png",
-    "tarot-shuffle-zh.png"
+    {
+      "file": "ask-liuyao-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "33e139d756a1e3f970cd30b9d37d2737c97a84f574e12f97b9b943192fc1800a"
+    },
+    {
+      "file": "liuyao-changing-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "6f8fe9eb08b1f6e1465982e7325d26bb5b5d75b65ae9053ce237eebc08076a17"
+    },
+    {
+      "file": "liuyao-one-line-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "e700d16209af37c52f57202619f272f81e79ac543d78ae01f88c771d0c4bff0e"
+    },
+    {
+      "file": "liuyao-ready-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "48103ae197124bd644eaee2ffe9c7ff820bd1e287595fbb6fb0501e6a1e67a1a"
+    },
+    {
+      "file": "liuyao-report-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "20ba5a4fb3c1fccf55b4ad0f2f49f747eacce83811518549c0bf45e5c31d6ca5"
+    },
+    {
+      "file": "liuyao-six-lines-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "c08e9f7135a59ad65511d7645d7afc52ad99e89afcbd7e161dbded47cd54da9b"
+    },
+    {
+      "file": "meihua-invalid-numbers-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "ac8c01b1087c16893f1a434668666a2928eab7c256546e0196d2fadad873de01"
+    },
+    {
+      "file": "meihua-numbers-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "08856a4d52033514988e801cbf127cf5d36a0ff73ed01ee97a59cb66978cc13e"
+    },
+    {
+      "file": "meihua-random-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "41b2145d58fe94a5f380863be085f47f84571c782e67a6f5df85daa8784e5689"
+    },
+    {
+      "file": "meihua-time-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "32276c0ca24e96e006eb7cc344685eee9e9ac3bf07f9b4573e7dd82245cbb7e2"
+    },
+    {
+      "file": "qimen-lighting-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "25bc58847fa3fe607225a77234bdf8157b8d12a23c6591e4c1c83d60afbf6799"
+    },
+    {
+      "file": "qimen-report-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "421c5a74f437348baf912390401aca0d525d208c0ff278a579963cf12e0b3c92"
+    },
+    {
+      "file": "qimen-setup-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "48e34082f4864ad2e61381cbf29f99790b5b8d849ca5d4255f1f0280fd86e777"
+    },
+    {
+      "file": "liuyao-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "27b35e161ce8b3d893f2679989a01c7a0434b792a1d8f6d15b0e1d2d7f9a77c7"
+    },
+    {
+      "file": "qimen-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "b06b4cdf9b86d8216de5397cc9316d2a0280ec758ed8e35f64fc8b43f7042f52"
+    },
+    {
+      "file": "tarot-exit-confirm-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "7936fb833e3e3fdc6521865fea7cc12bbe5845170366e9ffb89105f95e9e6d6f"
+    },
+    {
+      "file": "tarot-report-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "18609aef1b5e92dc06e6f593b695f6d99f0b4e6ee545a2a2ab5c25e9b80ba941"
+    },
+    {
+      "file": "tarot-revealed-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "345434f563f66e3e48568be3ea90c9abe52efa756aa7cc9f4dc77d6da53b7a3a"
+    },
+    {
+      "file": "tarot-settings-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "ada0694f263dc12ab6aa72b0f3613c3f148593cf1e5ae86ea312a42d0e7650f4"
+    },
+    {
+      "file": "feedback-enabled-reduced-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "aa8cb70edbb98979c8f36eaabfba4debd1274d49419a60d80dc30a00e39aafd5"
+    },
+    {
+      "file": "feedback-persisted-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "284f9840ec92ad419988ef8a5a6408fdeb68b4db2ba3b221e1149723f2afc84f"
+    },
+    {
+      "file": "liuyao-animation-final-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "bb2bf7c4870f73d77e4706742553dcfd6583ff333a561c14741ce1de71f60590"
+    },
+    {
+      "file": "liuyao-reduced-motion-en.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "8171f0a6c1c54641d6a7ff628afe502b29b896e1b109ca31ead51fb992ef5eb3"
+    },
+    {
+      "file": "tarot-cut-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "47c6f403493c050544ac003ef4f34b4c0a8bc24c6cb15a0a0f6cbd155292799d"
+    },
+    {
+      "file": "tarot-fan-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "fd9abab800cd2248d6c04c3ef745b61cedb1488eeb1ffbe229b59a4e9a450216"
+    },
+    {
+      "file": "tarot-report-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "fd8bf7d6467d7c70181e68977c27d6f17302d4654cfaa0d67041bbaf838ae1a3"
+    },
+    {
+      "file": "tarot-revealed-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "f919ab2c685d11b13115f3f370d51eebcd5019411b104cf23de98f4af99befb9"
+    },
+    {
+      "file": "tarot-selected-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "5d62085054e85b1560655cf4f1cdff978fd23497cbd990078d8fb6824829c8b8"
+    },
+    {
+      "file": "tarot-setup-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "6d391329d3cfcad78cf63e4b101eaef4d7f53a33016302916745028372b3abd1"
+    },
+    {
+      "file": "tarot-shuffle-zh.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "79a2205f1163aa1937c5788eddb2202fee165795b551651c7621488165efcb9a"
+    }
   ],
   "frames": {
     "tarot": {
@@ -121,5 +271,165 @@
     "reducedMotion": true,
     "afterAppRestart": true,
     "defaultsRestoredAfterFlow": true
+  },
+  "historicalEvidenceScope": "Original task-specific fields describe earlier acceptance; current source, flows and baseline hashes are recorded in launchAcceptance and M15/launch-verification.json.",
+  "launchAcceptance": {
+    "task": "T-64",
+    "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+    "checkedAt": "2026-10-07T11:17:50.578Z",
+    "receipt": "../M15/launch-verification.json",
+    "flowsPassed": [
+      "M07-casting",
+      "M07-en",
+      "M07-feedback",
+      "M07-tarot"
+    ],
+    "device": "95E57954-4F1E-4DCF-82A2-E5D37E67F35D",
+    "runtime": "Expo 57.0.27 / RN 0.86.3 / iOS 26.4; M02/M14 native performance use Release Hermes",
+    "baselineHashes": [
+      {
+        "file": "test-results/M07/ask-liuyao-zh.png",
+        "sha256": "33e139d756a1e3f970cd30b9d37d2737c97a84f574e12f97b9b943192fc1800a"
+      },
+      {
+        "file": "test-results/M07/liuyao-changing-zh.png",
+        "sha256": "6f8fe9eb08b1f6e1465982e7325d26bb5b5d75b65ae9053ce237eebc08076a17"
+      },
+      {
+        "file": "test-results/M07/liuyao-one-line-zh.png",
+        "sha256": "e700d16209af37c52f57202619f272f81e79ac543d78ae01f88c771d0c4bff0e"
+      },
+      {
+        "file": "test-results/M07/liuyao-ready-zh.png",
+        "sha256": "48103ae197124bd644eaee2ffe9c7ff820bd1e287595fbb6fb0501e6a1e67a1a"
+      },
+      {
+        "file": "test-results/M07/liuyao-report-zh.png",
+        "sha256": "20ba5a4fb3c1fccf55b4ad0f2f49f747eacce83811518549c0bf45e5c31d6ca5"
+      },
+      {
+        "file": "test-results/M07/liuyao-six-lines-zh.png",
+        "sha256": "c08e9f7135a59ad65511d7645d7afc52ad99e89afcbd7e161dbded47cd54da9b"
+      },
+      {
+        "file": "test-results/M07/meihua-invalid-numbers-zh.png",
+        "sha256": "ac8c01b1087c16893f1a434668666a2928eab7c256546e0196d2fadad873de01"
+      },
+      {
+        "file": "test-results/M07/meihua-numbers-zh.png",
+        "sha256": "08856a4d52033514988e801cbf127cf5d36a0ff73ed01ee97a59cb66978cc13e"
+      },
+      {
+        "file": "test-results/M07/meihua-random-zh.png",
+        "sha256": "41b2145d58fe94a5f380863be085f47f84571c782e67a6f5df85daa8784e5689"
+      },
+      {
+        "file": "test-results/M07/meihua-time-zh.png",
+        "sha256": "32276c0ca24e96e006eb7cc344685eee9e9ac3bf07f9b4573e7dd82245cbb7e2"
+      },
+      {
+        "file": "test-results/M07/qimen-lighting-zh.png",
+        "sha256": "25bc58847fa3fe607225a77234bdf8157b8d12a23c6591e4c1c83d60afbf6799"
+      },
+      {
+        "file": "test-results/M07/qimen-report-zh.png",
+        "sha256": "421c5a74f437348baf912390401aca0d525d208c0ff278a579963cf12e0b3c92"
+      },
+      {
+        "file": "test-results/M07/qimen-setup-zh.png",
+        "sha256": "48e34082f4864ad2e61381cbf29f99790b5b8d849ca5d4255f1f0280fd86e777"
+      },
+      {
+        "file": "test-results/M07/liuyao-en.png",
+        "sha256": "27b35e161ce8b3d893f2679989a01c7a0434b792a1d8f6d15b0e1d2d7f9a77c7"
+      },
+      {
+        "file": "test-results/M07/qimen-en.png",
+        "sha256": "b06b4cdf9b86d8216de5397cc9316d2a0280ec758ed8e35f64fc8b43f7042f52"
+      },
+      {
+        "file": "test-results/M07/tarot-exit-confirm-en.png",
+        "sha256": "7936fb833e3e3fdc6521865fea7cc12bbe5845170366e9ffb89105f95e9e6d6f"
+      },
+      {
+        "file": "test-results/M07/tarot-report-en.png",
+        "sha256": "18609aef1b5e92dc06e6f593b695f6d99f0b4e6ee545a2a2ab5c25e9b80ba941"
+      },
+      {
+        "file": "test-results/M07/tarot-revealed-en.png",
+        "sha256": "345434f563f66e3e48568be3ea90c9abe52efa756aa7cc9f4dc77d6da53b7a3a"
+      },
+      {
+        "file": "test-results/M07/tarot-settings-en.png",
+        "sha256": "ada0694f263dc12ab6aa72b0f3613c3f148593cf1e5ae86ea312a42d0e7650f4"
+      },
+      {
+        "file": "test-results/M07/feedback-enabled-reduced-en.png",
+        "sha256": "aa8cb70edbb98979c8f36eaabfba4debd1274d49419a60d80dc30a00e39aafd5"
+      },
+      {
+        "file": "test-results/M07/feedback-persisted-en.png",
+        "sha256": "284f9840ec92ad419988ef8a5a6408fdeb68b4db2ba3b221e1149723f2afc84f"
+      },
+      {
+        "file": "test-results/M07/liuyao-animation-final-en.png",
+        "sha256": "bb2bf7c4870f73d77e4706742553dcfd6583ff333a561c14741ce1de71f60590"
+      },
+      {
+        "file": "test-results/M07/liuyao-reduced-motion-en.png",
+        "sha256": "8171f0a6c1c54641d6a7ff628afe502b29b896e1b109ca31ead51fb992ef5eb3"
+      },
+      {
+        "file": "test-results/M07/tarot-cut-zh.png",
+        "sha256": "47c6f403493c050544ac003ef4f34b4c0a8bc24c6cb15a0a0f6cbd155292799d"
+      },
+      {
+        "file": "test-results/M07/tarot-fan-zh.png",
+        "sha256": "fd9abab800cd2248d6c04c3ef745b61cedb1488eeb1ffbe229b59a4e9a450216"
+      },
+      {
+        "file": "test-results/M07/tarot-report-zh.png",
+        "sha256": "fd8bf7d6467d7c70181e68977c27d6f17302d4654cfaa0d67041bbaf838ae1a3"
+      },
+      {
+        "file": "test-results/M07/tarot-revealed-zh.png",
+        "sha256": "f919ab2c685d11b13115f3f370d51eebcd5019411b104cf23de98f4af99befb9"
+      },
+      {
+        "file": "test-results/M07/tarot-selected-zh.png",
+        "sha256": "5d62085054e85b1560655cf4f1cdff978fd23497cbd990078d8fb6824829c8b8"
+      },
+      {
+        "file": "test-results/M07/tarot-setup-zh.png",
+        "sha256": "6d391329d3cfcad78cf63e4b101eaef4d7f53a33016302916745028372b3abd1"
+      },
+      {
+        "file": "test-results/M07/tarot-shuffle-zh.png",
+        "sha256": "79a2205f1163aa1937c5788eddb2202fee165795b551651c7621488165efcb9a"
+      }
+    ],
+    "checks": {
+      "webSharedTests": 3737,
+      "webSharedFiles": 138,
+      "mobileTests": 262,
+      "mobileSuites": 55,
+      "install": "passed",
+      "lint": "passed",
+      "typecheck": "passed",
+      "test": "passed",
+      "content:validate": "passed",
+      "i18n:check": "passed",
+      "build": "passed",
+      "licenses:check": "passed:1769-packages",
+      "security:policy": "passed",
+      "audit": "passed:controlled-advisory-exceptions"
+    },
+    "iosNativeBuild": {
+      "result": "BUILD SUCCEEDED",
+      "configuration": "Release",
+      "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+      "simulator": "D9DD26B9-3EC5-4D1D-97E7-CA2E82DC709C"
+    },
+    "androidNativeBuild": "pending-owner-java-and-sdk"
   }
 }

@@ -4,6 +4,40 @@ import type { Locale } from '@tianji/shared';
 function escape(text: string): string {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+/** Factor shared prefixes without changing longest-match priority or literal spelling. */
+function alternatives(terms: string[]): string {
+  type Node = { terminal: boolean; children: Map<string, Node> };
+  const root: Node = { terminal: false, children: new Map() };
+  for (const term of terms) {
+    let node = root;
+    for (let character of term) {
+      // Preserve RegExp's simple Unicode case folding when equivalent prefixes
+      // have different lowercase forms (e.g. Greek final sigma), without full folds.
+      const folded = character.toUpperCase().toLowerCase();
+      if (
+        folded !== character &&
+        [...folded].length === 1 &&
+        new RegExp(`^${escape(character)}$`, 'iu').test(folded)
+      )
+        character = folded;
+      let child = node.children.get(character);
+      if (!child) {
+        child = { terminal: false, children: new Map() };
+        node.children.set(character, child);
+      }
+      node = child;
+    }
+    node.terminal = true;
+  }
+  const compile = (node: Node): string => {
+    const choices = [...node.children].map(
+      ([character, child]) => escape(character) + compile(child),
+    );
+    if (node.terminal) choices.push('');
+    return choices.length > 1 ? `(?:${choices.join('|')})` : (choices[0] ?? '');
+  };
+  return compile(root);
+}
 // DESIGN-GAP: Single Han characters match only standalone tokens to avoid marking 己 in 自己 or 子 in 例子.
 /** Longest terms win; English boundaries prevent Wood matching Hollywood. */
 export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
@@ -31,14 +65,19 @@ export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
       ambiguous.add(spelling);
     } else unique.set(spelling, entry.key);
   }
-  const pattern = [...unique.keys()]
-    .map((term) =>
-      locale === 'en'
-        ? escape(term)
-        : [...term].length === 1
-          ? `(?<![\\p{Script=Han}])${escape(term)}(?![\\p{Script=Han}])`
-          : escape(term),
-    )
+  const spellings = [...unique.keys()];
+  const standalone = locale === 'en' ? [] : spellings.filter((term) => [...term].length === 1);
+  // DESIGN-GAP: Share identical Chinese single-character boundaries, preserving longest
+  // matches while avoiding repeated Unicode lookbehind at every character on Hermes.
+  const pattern = [
+    // DESIGN-GAP: Hermes pays the flat glossary's repeated-prefix cost on the first
+    // Chinese report; a literal prefix trie keeps the same longest-first matches.
+    alternatives(spellings.filter((term) => locale === 'en' || [...term].length !== 1)),
+    standalone.length
+      ? `(?<![\\p{Script=Han}])(?:${standalone.map(escape).join('|')})(?![\\p{Script=Han}])`
+      : '',
+  ]
+    .filter(Boolean)
     .join('|');
   // DESIGN-GAP: English hexagram names are proper titles; lowercase prose such as approach, progress or waiting is not a reference to another hexagram.
   const exactNames = new Map(
@@ -56,8 +95,12 @@ export function termPattern(glossary: GlossaryEntry[], locale: Locale) {
 /** Create a report-scoped annotator marking only the first unambiguous term occurrence.
  * @param glossary Fixed glossary entries for one report.
  * @param locale Matching language; Chinese variants use localized terms. */
-export function termMarker(glossary: GlossaryEntry[], locale: Locale) {
-  const { regex, unique, isTechnicalMatch } = termPattern(glossary, locale);
+export function termMarker(
+  glossary: GlossaryEntry[],
+  locale: Locale,
+  matcher = termPattern(glossary, locale),
+) {
+  const { regex, unique, isTechnicalMatch } = matcher;
   const seen = new Set<string>();
   return (text: string): string => {
     if (!regex) return text;
@@ -110,8 +153,9 @@ export function termCount(text: string, glossary: GlossaryEntry[], locale: Local
 export function createTermCounter(
   glossary: GlossaryEntry[],
   locale: Locale,
+  matcher = termPattern(glossary, locale),
 ): (text: string) => number {
-  const { regex, unique, isTechnicalMatch } = termPattern(glossary, locale);
+  const { regex, unique, isTechnicalMatch } = matcher;
   const explicitOnly = new Set(
     glossary
       .filter(

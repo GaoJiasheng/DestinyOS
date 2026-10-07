@@ -13,7 +13,7 @@ import {
 import type { KnowledgeUnit, TransitionKind, Source, Dim } from '@tianji/content';
 import type { Hit, InterpretInput, Report, ReportBlock, Score, Section } from './types';
 import { numeric, systemConfigs } from './config';
-import { termMarker, createTermCounter } from './terms';
+import { termPattern, termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
 import { localizeReport } from './localize-report';
 import displayLabels from './display-labels.json' with { type: 'json' };
@@ -107,7 +107,9 @@ export function interpret(input: InterpretInput): Report {
     variantChoices.set(root, variants[hash(`${identity}:${root}`) % variants.length]!.unit.id);
   }
   // Prefer an equivalent plain variant when the original exceeds the term-density budget.
-  const countTerms = createTermCounter(knowledge.glossary, locale);
+  // DESIGN-GAP: Reuse one report-scoped matcher across selection, annotation and readability, without stale global caches.
+  const matcher = termPattern(knowledge.glossary, locale);
+  const countTerms = createTermCounter(knowledge.glossary, locale, matcher);
   const candidates = evaluated.filter((candidate) => {
     const variant = variantChoices.get(candidate.unit.id.slice(0, -2));
     if (variant && variant !== candidate.unit.id) return false;
@@ -235,7 +237,7 @@ export function interpret(input: InterpretInput): Report {
     // DESIGN-GAP: Exhausted templates produce a paragraph break instead of repeating a transition.
     return undefined;
   };
-  const mark = termMarker(knowledge.glossary, locale);
+  const mark = termMarker(knowledge.glossary, locale, matcher);
   const sections: Section[] = [];
   const allAdvice = deduplicate(
     retained.flatMap((c) => c.unit[locale].advice.map((text) => substitute(text, c.unit))),
@@ -393,6 +395,6 @@ export function interpret(input: InterpretInput): Report {
     readability: { zhChars: 0, enWords: 0, termDensity: 0, passed: false, issues: [] },
     disclaimerKey: disclaimer.id,
   };
-  report.readability = checkReadability(report, knowledge.glossary);
+  report.readability = checkReadability(report, knowledge.glossary, countTerms);
   return report;
 }

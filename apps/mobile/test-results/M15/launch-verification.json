@@ -1,0 +1,1493 @@
+{
+  "startedAt": "2026-10-07T11:16:07.076Z",
+  "checkedAt": "2026-10-07T11:17:50.578Z",
+  "device": "95E57954-4F1E-4DCF-82A2-E5D37E67F35D",
+  "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+  "complete": true,
+  "results": [
+    {
+      "flow": "M02",
+      "passed": true,
+      "flowHash": "37ed011372b600ba7d25ced3ecc1fcfad0cedbaad57ad512e858d55d288ba27f",
+      "checkedAt": "2026-10-07T08:52:22.991Z",
+      "artifacts": "test-results/launch/run-1791362972235/M02",
+      "screenshots": [
+        {
+          "file": "test-results/M02/coins.png",
+          "sha256": "9a8a865fbb9e45a804df67a4f4d0723385ad957a1a6a01f27cba1eceda5034c0"
+        },
+        {
+          "file": "test-results/M02/engine-hermes.png",
+          "sha256": "006adcdcfff946cff336da7be3b226adcb0f3000d26f83083685966d048ba678"
+        },
+        {
+          "file": "test-results/M02/particles-ink.png",
+          "sha256": "4f4e197ab2f71c86130d729cd76f11ec978a532247b21851f0f23aef82f389dc"
+        },
+        {
+          "file": "test-results/M02/particles-stardust.png",
+          "sha256": "aa0ec033e9d47582bbbadfc8b566a64f6650dc188178f3e67070ee7a94b52b85"
+        },
+        {
+          "file": "test-results/M02/particles.png",
+          "sha256": "ab29eebdf9a57283191f7acbc5d3ad052d74d15dc4654d12a2d821bf01041975"
+        },
+        {
+          "file": "test-results/M02/sphere-fallback.png",
+          "sha256": "338d066a56bfe76b7fafd0d30c170270005c21b5eec3c7d808bd685642249e2d"
+        },
+        {
+          "file": "test-results/M02/sphere.png",
+          "sha256": "338d066a56bfe76b7fafd0d30c170270005c21b5eec3c7d808bd685642249e2d"
+        },
+        {
+          "file": "test-results/M02/starfield.png",
+          "sha256": "18f49eab7de1753e3581773ddedf6b430d643dfeb888f83566702aa4d9ea1625"
+        },
+        {
+          "file": "test-results/M02/tarot.png",
+          "sha256": "1d631e3445ecc5fc2845e395a9fc221a52bd1a514dfb85d1a6f49f8bfdecf9f1"
+        },
+        {
+          "file": "test-results/M02/wheel.png",
+          "sha256": "12b2d848048f3edcc0ca8e3640243b3292c9e4064aa6c4fedadc4be9743edbc9"
+        }
+      ]
+    },
+    {
+      "flow": "M01",
+      "passed": true,
+      "flowHash": "e34c0771a60d899651e7b313d276ed138fa0d15bfe84a7b804c32197bb843a74",
+      "checkedAt": "2026-10-07T09:06:17.185Z",
+      "artifacts": "test-results/launch/run-1791363851138/M01",
+      "screenshots": [
+        {
+          "file": "test-results/M01/brand-en.png",
+          "sha256": "636b3b91f08cd8561beada571d7bdb76bf572c3f72d8866d693227d930f957eb"
+        },
+        {
+          "file": "test-results/M01/brand-zh.png",
+          "sha256": "b078578a3be44a7b6cf66f2924b814f15ad652c7bb3e91e88d742f65083b37d4"
+        },
+        {
+          "file": "test-results/M01/locale-en.png",
+          "sha256": "04274c676629cbadf8fa811192d405c070307755c4ec4925abc72a0e1bcf854f"
+        },
+        {
+          "file": "test-results/M01/locale-zh-TW.png",
+          "sha256": "6f13b2034f6664907d424ac84ba74a61b7d4a8f398b61f820167518d0e64eaa8"
+        },
+        {
+          "file": "test-results/M01/theme-east.png",
+          "sha256": "752d94f9d709a6a68acf63aa1d0d7379987d392ae6eaffb00a3f1ab19d730e52"
+        },
+        {
+          "file": "test-results/M01/theme-vedic.png",
+          "sha256": "775ebb97036a36679ff68f2687c843be3f348cd7fdb9efa5c04798b71dbf5a94"
+        },
+        {
+          "file": "test-results/M01/theme-west.png",
+          "sha256": "e3408f3c6937f695f87b40969c2cfb620f6fff6fb0f5289dea0f3c569cc58f10"
+        }
+      ]
+    },
+    {
+      "flow": "M02-en",
+      "passed": true,
+      "flowHash": "4780f0234df6355b9811d6bc8512c6ad1a7e72a3fda0537a3f5aac39b57de717",
+      "checkedAt": "2026-10-07T09:07:35.696Z",
+      "artifacts": "test-results/launch/run-1791363851138/M02-en",
+      "screenshots": [
+        {
+          "file": "test-results/M02/coins-en.png",
+          "sha256": "c58d1eeb542d1ff965bd3a685e0aa6f14d6cff7b70a37ce1957ba387e09ed63b"
+        },
+        {
+          "file": "test-results/M02/particles-en.png",
+          "sha256": "940f207db563880eacbaeee922aeb7d69fb50c598fd1fa9bd3fe1749275edfcd"
+        },
+        {
+          "file": "test-results/M02/sphere-en.png",
+          "sha256": "7b2ef8911a27429a10b447fd03590b30ac1597ee7b65e7e659f7a2c735631f28"
+        },
+        {
+          "file": "test-results/M02/starfield-en.png",
+          "sha256": "a57ee6e01fefd6900f6171e2105006736afecf54a6e8f4cee9c8fd1d4638b136"
+        },
+        {
+          "file": "test-results/M02/tarot-en.png",
+          "sha256": "824e1d16910ce0edfd1aec3f536f9bcf322b394c4b745ade665854c9c191ba28"
+        },
+        {
+          "file": "test-results/M02/wheel-en.png",
+          "sha256": "b50cd21a5b716bd94aa007dcbdcaeb8cf56ee3552717c52c96edcc0ba6e24676"
+        }
+      ]
+    },
+    {
+      "flow": "M04",
+      "passed": true,
+      "flowHash": "4250e3d5da93d5a1fd5fd34ead787844ae3d9adec25511b83fc1d4b3148178a0",
+      "checkedAt": "2026-10-07T09:08:14.062Z",
+      "artifacts": "test-results/launch/run-1791363851138/M04",
+      "screenshots": [
+        {
+          "file": "test-results/M04/storage-passed.png",
+          "sha256": "b2c5164fe21579bd02177b4a9fd38ead6ab239b9b7eadbc57a67d8382e0ef07e"
+        }
+      ]
+    },
+    {
+      "flow": "M05",
+      "passed": true,
+      "flowHash": "39be4bdd76eb0e81b419de04c14c155873295fe8df357b96f59a46240281da0f",
+      "checkedAt": "2026-10-07T09:13:32.521Z",
+      "artifacts": "test-results/launch/run-1791363851138/M05",
+      "screenshots": [
+        {
+          "file": "test-results/M05/ask-sheet-en.png",
+          "sha256": "38b0773bbf03b516afe70029beb5a569f151a1f1376a42375b25e496475901cd"
+        },
+        {
+          "file": "test-results/M05/ask-sheet-zh.png",
+          "sha256": "97fb84f606b36601f9e58b5c50dc71132b16e1ba26babda33dc478c35f38041e"
+        },
+        {
+          "file": "test-results/M05/birth-advanced-zh.png",
+          "sha256": "91156411b84a00d7909c7a2691300775bd5b6ca24fb9d7b6993daffd3d59c893"
+        },
+        {
+          "file": "test-results/M05/birth-date-zh.png",
+          "sha256": "e1fb65b00f8d846cf10c03907e6150898b50c31527c77a9d946370439322fa26"
+        },
+        {
+          "file": "test-results/M05/birth-disabled-clock-zh.png",
+          "sha256": "040c53f60a22dc790a4f05499e0b88ca8834b752e51ab6fbef202fb36c42495c"
+        },
+        {
+          "file": "test-results/M05/birth-unknown-zh.png",
+          "sha256": "89c57efe767f65ae721e6812c30f025851d5e630b2179f4431bfd97a1fb678d1"
+        },
+        {
+          "file": "test-results/M05/lunar-leap-zh.png",
+          "sha256": "abff90c5e3aee99a9ee3de255b2b947ff73ea51a480145ff65e89e5656eb9ebf"
+        },
+        {
+          "file": "test-results/M05/multi-profiles-en.png",
+          "sha256": "e3c6b1b0d7945369da5b1730777218b0e51e5f351da30cc880f55e4af942f62b"
+        },
+        {
+          "file": "test-results/M05/multi-profiles-zh.png",
+          "sha256": "ad822dc07653f11d5e85a417b7fb133d6c9f5e77ea95a1f142fd330fc6ce4779"
+        },
+        {
+          "file": "test-results/M05/navigation-learn-zh.png",
+          "sha256": "16c96294c283ebd125410ab763cdd3c906116e5d906122b049ff697e9d9f35a5"
+        },
+        {
+          "file": "test-results/M05/navigation-reading-zh.png",
+          "sha256": "9121bd48289e61ed860b47831b92594aae8f4bde16f83aeb1dbdd49a6d18418a"
+        },
+        {
+          "file": "test-results/M05/navigation-today-zh.png",
+          "sha256": "ac09e4413968bd80673d9f2492a430ff6cf9886a2f07005635347c7527e118be"
+        },
+        {
+          "file": "test-results/M05/notifications-denied-zh.png",
+          "sha256": "9d390f31380ac6b57f3817e6b826ab30df5d72a30bb5b51723e8ae29611f06b1"
+        },
+        {
+          "file": "test-results/M05/notifications-request-zh.png",
+          "sha256": "9d390f31380ac6b57f3817e6b826ab30df5d72a30bb5b51723e8ae29611f06b1"
+        },
+        {
+          "file": "test-results/M05/notifications-system-zh.png",
+          "sha256": "4dfd895d6ce122464854d715b1a912f73655073a83411595269b42f099484134"
+        },
+        {
+          "file": "test-results/M05/offline-city-zh.png",
+          "sha256": "32de256dcaef85b171cb10bb88b314b9dcdafa23bb699ac74ac7eccd5dc9ebca"
+        },
+        {
+          "file": "test-results/M05/onboarding-disclaimer-zh.png",
+          "sha256": "4dbc2abd8b23d07fd62ec0788bbb3d067074fd1250457e97b982bf00c858f2a6"
+        },
+        {
+          "file": "test-results/M05/onboarding-intro-zh.png",
+          "sha256": "a20c767d6f66c48b25a28bdcf9b328fd39659c25da890bacfac94c44739e4029"
+        },
+        {
+          "file": "test-results/M05/onboarding-stars-zh.png",
+          "sha256": "8ed45d41ac8cb54877c56026763caa3d9175ae3c9bf652fd36bd56616d941090"
+        },
+        {
+          "file": "test-results/M05/optional-profile-zh.png",
+          "sha256": "6c0aa3f498b46fe4ee57e2a5c75dbebb3ecb2a8463e7c5060cba68d9f33f6635"
+        },
+        {
+          "file": "test-results/M05/profile-switched-zh.png",
+          "sha256": "e8657a87e1221fe630c08d88802a7d9b56c6a8ed154680e41a797156c2c76a3c"
+        },
+        {
+          "file": "test-results/M05/profiles-after-restart-en.png",
+          "sha256": "b379e1a5c5c88ee0b5c7414fc993117c3a493f9b54b5d7de43bc1b3f45018755"
+        },
+        {
+          "file": "test-results/M05/profiles-first-zh.png",
+          "sha256": "0af5cdb80c10dff1e2346d2a345b2ba88dd6518a790ff1abcd9ea854cad05b12"
+        }
+      ]
+    },
+    {
+      "flow": "M05-en",
+      "passed": true,
+      "flowHash": "469a128a3834e83ba2752b227909a5a48ec5e05f048415324580fe7abe3ffe52",
+      "checkedAt": "2026-10-07T09:18:11.219Z",
+      "artifacts": "test-results/launch/run-1791363851138/M05-en",
+      "screenshots": [
+        {
+          "file": "test-results/M05/birth-advanced-en.png",
+          "sha256": "ac4e872a3ae692dd71bfd7c7f4dff46caad9280a1dc3aa4a1a5e2b40552a2c26"
+        },
+        {
+          "file": "test-results/M05/birth-date-en.png",
+          "sha256": "4fc6dd221b432d0de0c44605a1335bffaf40da3a1510d80744dd2788b8f2111d"
+        },
+        {
+          "file": "test-results/M05/birth-dst-en.png",
+          "sha256": "7c35bf9ca25a10f53202dba4625899abd157f588e44071620da7e915cf0efd51"
+        },
+        {
+          "file": "test-results/M05/birth-manual-en.png",
+          "sha256": "7c35bf9ca25a10f53202dba4625899abd157f588e44071620da7e915cf0efd51"
+        },
+        {
+          "file": "test-results/M05/birth-precise-en.png",
+          "sha256": "55a227221d343303e29becd34758a75263e2e95a8d7085b9120654d3ba990e65"
+        },
+        {
+          "file": "test-results/M05/navigation-empty-en.png",
+          "sha256": "631de097917ced66aa6c44fd39e770d5d16cb679a9bffcedbbcdfa5f4c1e34cc"
+        },
+        {
+          "file": "test-results/M05/notifications-request-en.png",
+          "sha256": "36c192ae25f41fb676d171796f200fe33cfc0cce924e890401cdc99ef870d6de"
+        },
+        {
+          "file": "test-results/M05/notifications-system-en.png",
+          "sha256": "038beb3c54e90f016b80eddd098df7009a72d7c507a169b2ce65290d9918b922"
+        },
+        {
+          "file": "test-results/M05/onboarding-disclaimer-en.png",
+          "sha256": "679e6f08bc21eea2cb0e2daf94a6ccc2650c16fe66889a46dbea2cde9085d5e8"
+        },
+        {
+          "file": "test-results/M05/onboarding-intro-en.png",
+          "sha256": "d467e65f905576fb9098fe094f562451f6d2bd243b883e3a5927ae14358bcf57"
+        },
+        {
+          "file": "test-results/M05/onboarding-stars-en.png",
+          "sha256": "ad3a2881c93d09ae0b8830b47bff6c3dd47f09969975029b7be9020607ff7251"
+        },
+        {
+          "file": "test-results/M05/optional-profile-en.png",
+          "sha256": "8f75b44490e24f0f9e4faf13a5ae7e6740bbffe597aa8da65a826510ddc50003"
+        },
+        {
+          "file": "test-results/M05/profiles-en.png",
+          "sha256": "6ac8da6c979db92f587d0af915cdd990b1e036841cfabbd371fad5f14bc16b01"
+        }
+      ]
+    },
+    {
+      "flow": "M05-age",
+      "passed": true,
+      "flowHash": "074b030e94ae4f540e547dc7b653744bd317f8fe7b3a7fb20fdaed5a643d8c5e",
+      "checkedAt": "2026-10-07T09:21:48.222Z",
+      "artifacts": "test-results/launch/run-1791363851138/M05-age",
+      "screenshots": [
+        {
+          "file": "test-results/M05/age-restricted-after-restart-en.png",
+          "sha256": "4846aaa218d1e12d61c9e41cfeb020239691e40ff181c4ca76e2b9f674f1c350"
+        },
+        {
+          "file": "test-results/M05/age-restricted-en.png",
+          "sha256": "4846aaa218d1e12d61c9e41cfeb020239691e40ff181c4ca76e2b9f674f1c350"
+        }
+      ]
+    },
+    {
+      "flow": "M06",
+      "passed": true,
+      "flowHash": "655415b61ed8f2eaf804b70398bdf1dc9f5a68b611d7d0a6f228d50e38ec03c0",
+      "checkedAt": "2026-10-07T09:42:27.660Z",
+      "artifacts": "test-results/launch/run-1791365752716/M06",
+      "screenshots": [
+        {
+          "file": "test-results/M06/chart-astrology-zh.png",
+          "sha256": "b91e7a28fc2d444e16e06ff3e1d50b0f954e01dfc167066903eb990fe4294b50"
+        },
+        {
+          "file": "test-results/M06/chart-bazi-en.png",
+          "sha256": "8e85674716f8fe9066925668965d0b02a5aed98cafacf5623d2202ae5e071dbe"
+        },
+        {
+          "file": "test-results/M06/chart-bazi-zh.png",
+          "sha256": "ede81b43d46ea7bbe8096308a32c34ea3ee0fceef77155a5a1bae9bf0af55bad"
+        },
+        {
+          "file": "test-results/M06/chart-iching-zh.png",
+          "sha256": "8ea7cb6d187cdad804500464bb4f05c18d71e423f8514c52221a31ce0924ea4d"
+        },
+        {
+          "file": "test-results/M06/chart-qimen-zh.png",
+          "sha256": "5d9785ec35ed7b2090fe7391ad3117217d5255a00bbae6afc8c673828aac1ca0"
+        },
+        {
+          "file": "test-results/M06/chart-synastry-zh.png",
+          "sha256": "23503f3aed08aa18e6cfa4de1889f2decbfbdc2da6e53e1c4b542f2bc4fb0ed7"
+        },
+        {
+          "file": "test-results/M06/chart-tarot-zh.png",
+          "sha256": "1b186749e63b6e7e9a8b89e62ab0672df5ffa1a647b400d90f43986b646518f9"
+        },
+        {
+          "file": "test-results/M06/chart-ziwei-zh.png",
+          "sha256": "638d0187c97d0bba405e8e5a0f1856fcb69ba5ca79ba84896ba11237b3cf3ab8"
+        },
+        {
+          "file": "test-results/M06/detail-bazi-zh.png",
+          "sha256": "116772afea9ced8673016ab3b1f003d14f90bf53e805c38758dd6ce9b5bce187"
+        },
+        {
+          "file": "test-results/M06/headline-bazi-en.png",
+          "sha256": "0c8cd0479a516b2ae0f0c921dc632bf71719b909170fefbd2def09958e0e2b1b"
+        },
+        {
+          "file": "test-results/M06/headline-bazi-zh.png",
+          "sha256": "0cc901c55b7c674d637fd85db312273f9cfb4d6aab9767ae3571b1fade370e38"
+        },
+        {
+          "file": "test-results/M06/overview-chart-numerology-zh.png",
+          "sha256": "12e3d20ab816e5d99a2cc2ea9e48221cf67dc3554425082bf2695ebf8d1df947"
+        },
+        {
+          "file": "test-results/M06/overview-chart-vedic-D9-zh.png",
+          "sha256": "891920947021ffcdd60eb538250fa49d7d6de04b9564b41607018126cc01d5e4"
+        },
+        {
+          "file": "test-results/M06/overview-chart-vedic-north-zh.png",
+          "sha256": "9efc0b8795f5c16a7c22a72c4526a1550c4a16f17ba9c23c3ef54dc781cf1a15"
+        },
+        {
+          "file": "test-results/M06/overview-chart-vedic-zh.png",
+          "sha256": "e8b7d176c92375278e92190dfe07cd05033c58090e024c15a7af0d3d53ad5873"
+        }
+      ]
+    },
+    {
+      "flow": "M06-interactions",
+      "passed": true,
+      "flowHash": "9bfe0e60495a33df309da1e0c288de346608d873436fd2ca99e070e7e887930b",
+      "checkedAt": "2026-10-07T09:46:08.252Z",
+      "artifacts": "test-results/launch/run-1791365752716/M06-interactions",
+      "screenshots": [
+        {
+          "file": "test-results/M06/interaction-evidence-zh.png",
+          "sha256": "afc581863dd565ddebfacb7ed54c52af062a0cda9284667e759d8c6d83e30a76"
+        },
+        {
+          "file": "test-results/M06/interaction-feedback-zh.png",
+          "sha256": "6e28c07236ed1c0ecbcbb800fd9507ef50eba5aa69a77010ebc964b0d7bddf14"
+        },
+        {
+          "file": "test-results/M06/interaction-professional-zh.png",
+          "sha256": "b8fa4feb117e166816d21deb0a3ba2010917863f7b557d7ea23ba535f8434068"
+        },
+        {
+          "file": "test-results/M06/interaction-term-zh.png",
+          "sha256": "6c09858d14dbeabec53a450deddf8f919dd12d8bbfbdf8014c97abe1d1ee586f"
+        },
+        {
+          "file": "test-results/M06/interaction-three-fallback-zh.png",
+          "sha256": "5e59628b8836214f980805912939b078d69d8150fb45d1eb9920aee174523d2f"
+        }
+      ]
+    },
+    {
+      "flow": "M06-numerology",
+      "passed": true,
+      "flowHash": "26c6556f4820d83273d0b5b46b3e56ea001ae0af1ba12744eeb4b31739848987",
+      "checkedAt": "2026-10-07T09:46:56.418Z",
+      "artifacts": "test-results/launch/run-1791365752716/M06-numerology",
+      "screenshots": [
+        {
+          "file": "test-results/M06/chart-numerology-zh.png",
+          "sha256": "85d0f8902f068c1b49f82aaeb1f5b978b793cb2634a228b0f74b51d18cc45503"
+        }
+      ]
+    },
+    {
+      "flow": "M06-vedic",
+      "passed": true,
+      "flowHash": "442539e66f002578c432045ecfda4c93ee1626a8d1f77dd1edb723a17519e13a",
+      "checkedAt": "2026-10-07T09:48:11.985Z",
+      "artifacts": "test-results/launch/run-1791365752716/M06-vedic",
+      "screenshots": [
+        {
+          "file": "test-results/M06/chart-vedic-D9-zh.png",
+          "sha256": "2608425f0be492c14308d2598e3a79ba614d7cbdd37b423d863d511028afd517"
+        },
+        {
+          "file": "test-results/M06/chart-vedic-north-zh.png",
+          "sha256": "c283eed6b78579d150fb55d0cd0b186d80b9a21fb5e6ec6c0ea79ba51f98e2e8"
+        },
+        {
+          "file": "test-results/M06/chart-vedic-zh.png",
+          "sha256": "3f925760f2072ae008a827b4a801d9a0cc5b59e8ddfb7b19037d258c4920acea"
+        }
+      ]
+    },
+    {
+      "flow": "M07-casting",
+      "passed": true,
+      "flowHash": "95ff5058544bb2e0e73ec749ba539e4949c37d9e84c597896e164721e77e1c91",
+      "checkedAt": "2026-10-07T09:49:57.841Z",
+      "artifacts": "test-results/launch/run-1791365752716/M07-casting",
+      "screenshots": [
+        {
+          "file": "test-results/M07/ask-liuyao-zh.png",
+          "sha256": "33e139d756a1e3f970cd30b9d37d2737c97a84f574e12f97b9b943192fc1800a"
+        },
+        {
+          "file": "test-results/M07/liuyao-changing-zh.png",
+          "sha256": "6f8fe9eb08b1f6e1465982e7325d26bb5b5d75b65ae9053ce237eebc08076a17"
+        },
+        {
+          "file": "test-results/M07/liuyao-one-line-zh.png",
+          "sha256": "e700d16209af37c52f57202619f272f81e79ac543d78ae01f88c771d0c4bff0e"
+        },
+        {
+          "file": "test-results/M07/liuyao-ready-zh.png",
+          "sha256": "48103ae197124bd644eaee2ffe9c7ff820bd1e287595fbb6fb0501e6a1e67a1a"
+        },
+        {
+          "file": "test-results/M07/liuyao-report-zh.png",
+          "sha256": "20ba5a4fb3c1fccf55b4ad0f2f49f747eacce83811518549c0bf45e5c31d6ca5"
+        },
+        {
+          "file": "test-results/M07/liuyao-six-lines-zh.png",
+          "sha256": "c08e9f7135a59ad65511d7645d7afc52ad99e89afcbd7e161dbded47cd54da9b"
+        },
+        {
+          "file": "test-results/M07/meihua-invalid-numbers-zh.png",
+          "sha256": "ac8c01b1087c16893f1a434668666a2928eab7c256546e0196d2fadad873de01"
+        },
+        {
+          "file": "test-results/M07/meihua-numbers-zh.png",
+          "sha256": "08856a4d52033514988e801cbf127cf5d36a0ff73ed01ee97a59cb66978cc13e"
+        },
+        {
+          "file": "test-results/M07/meihua-random-zh.png",
+          "sha256": "41b2145d58fe94a5f380863be085f47f84571c782e67a6f5df85daa8784e5689"
+        },
+        {
+          "file": "test-results/M07/meihua-time-zh.png",
+          "sha256": "32276c0ca24e96e006eb7cc344685eee9e9ac3bf07f9b4573e7dd82245cbb7e2"
+        },
+        {
+          "file": "test-results/M07/qimen-lighting-zh.png",
+          "sha256": "25bc58847fa3fe607225a77234bdf8157b8d12a23c6591e4c1c83d60afbf6799"
+        },
+        {
+          "file": "test-results/M07/qimen-report-zh.png",
+          "sha256": "421c5a74f437348baf912390401aca0d525d208c0ff278a579963cf12e0b3c92"
+        },
+        {
+          "file": "test-results/M07/qimen-setup-zh.png",
+          "sha256": "48e34082f4864ad2e61381cbf29f99790b5b8d849ca5d4255f1f0280fd86e777"
+        }
+      ]
+    },
+    {
+      "flow": "M07-en",
+      "passed": true,
+      "flowHash": "47e43c10b4205afce8ba2960e0d62352f174764b8beba5fc457e16603a54c3ea",
+      "checkedAt": "2026-10-07T09:50:59.423Z",
+      "artifacts": "test-results/launch/run-1791365752716/M07-en",
+      "screenshots": [
+        {
+          "file": "test-results/M07/liuyao-en.png",
+          "sha256": "27b35e161ce8b3d893f2679989a01c7a0434b792a1d8f6d15b0e1d2d7f9a77c7"
+        },
+        {
+          "file": "test-results/M07/qimen-en.png",
+          "sha256": "b06b4cdf9b86d8216de5397cc9316d2a0280ec758ed8e35f64fc8b43f7042f52"
+        },
+        {
+          "file": "test-results/M07/tarot-exit-confirm-en.png",
+          "sha256": "7936fb833e3e3fdc6521865fea7cc12bbe5845170366e9ffb89105f95e9e6d6f"
+        },
+        {
+          "file": "test-results/M07/tarot-report-en.png",
+          "sha256": "18609aef1b5e92dc06e6f593b695f6d99f0b4e6ee545a2a2ab5c25e9b80ba941"
+        },
+        {
+          "file": "test-results/M07/tarot-revealed-en.png",
+          "sha256": "345434f563f66e3e48568be3ea90c9abe52efa756aa7cc9f4dc77d6da53b7a3a"
+        },
+        {
+          "file": "test-results/M07/tarot-settings-en.png",
+          "sha256": "ada0694f263dc12ab6aa72b0f3613c3f148593cf1e5ae86ea312a42d0e7650f4"
+        }
+      ]
+    },
+    {
+      "flow": "M07-feedback",
+      "passed": true,
+      "flowHash": "126846b8a0a72773e09c0f883960b00c4c4814dcb9ef553920518f27f4224e26",
+      "checkedAt": "2026-10-07T09:53:39.068Z",
+      "artifacts": "test-results/launch/run-1791365752716/M07-feedback",
+      "screenshots": [
+        {
+          "file": "test-results/M07/feedback-enabled-reduced-en.png",
+          "sha256": "aa8cb70edbb98979c8f36eaabfba4debd1274d49419a60d80dc30a00e39aafd5"
+        },
+        {
+          "file": "test-results/M07/feedback-persisted-en.png",
+          "sha256": "284f9840ec92ad419988ef8a5a6408fdeb68b4db2ba3b221e1149723f2afc84f"
+        },
+        {
+          "file": "test-results/M07/liuyao-animation-final-en.png",
+          "sha256": "bb2bf7c4870f73d77e4706742553dcfd6583ff333a561c14741ce1de71f60590"
+        },
+        {
+          "file": "test-results/M07/liuyao-reduced-motion-en.png",
+          "sha256": "8171f0a6c1c54641d6a7ff628afe502b29b896e1b109ca31ead51fb992ef5eb3"
+        }
+      ]
+    },
+    {
+      "flow": "M07-tarot",
+      "passed": true,
+      "flowHash": "a901b3eb2d2d6ec7a982ba001de7d109747cdd39a99028a1800528b4996b2715",
+      "checkedAt": "2026-10-07T09:54:28.452Z",
+      "artifacts": "test-results/launch/run-1791365752716/M07-tarot",
+      "screenshots": [
+        {
+          "file": "test-results/M07/tarot-cut-zh.png",
+          "sha256": "47c6f403493c050544ac003ef4f34b4c0a8bc24c6cb15a0a0f6cbd155292799d"
+        },
+        {
+          "file": "test-results/M07/tarot-fan-zh.png",
+          "sha256": "fd9abab800cd2248d6c04c3ef745b61cedb1488eeb1ffbe229b59a4e9a450216"
+        },
+        {
+          "file": "test-results/M07/tarot-report-zh.png",
+          "sha256": "fd8bf7d6467d7c70181e68977c27d6f17302d4654cfaa0d67041bbaf838ae1a3"
+        },
+        {
+          "file": "test-results/M07/tarot-revealed-zh.png",
+          "sha256": "f919ab2c685d11b13115f3f370d51eebcd5019411b104cf23de98f4af99befb9"
+        },
+        {
+          "file": "test-results/M07/tarot-selected-zh.png",
+          "sha256": "5d62085054e85b1560655cf4f1cdff978fd23497cbd990078d8fb6824829c8b8"
+        },
+        {
+          "file": "test-results/M07/tarot-setup-zh.png",
+          "sha256": "6d391329d3cfcad78cf63e4b101eaef4d7f53a33016302916745028372b3abd1"
+        },
+        {
+          "file": "test-results/M07/tarot-shuffle-zh.png",
+          "sha256": "79a2205f1163aa1937c5788eddb2202fee165795b551651c7621488165efcb9a"
+        }
+      ]
+    },
+    {
+      "flow": "M08",
+      "passed": true,
+      "flowHash": "0eb6a9c1c478bb6b03c7add223d62f2d838e7151efd1b66574191ce5d2dda8ac",
+      "checkedAt": "2026-10-07T09:58:59.241Z",
+      "artifacts": "test-results/launch/run-1791365752716/M08",
+      "screenshots": [
+        {
+          "file": "test-results/M08/share-card-zh.png",
+          "sha256": "f639e90f7f8c6738f55b1e9d6e9cbf1a6d391ddf29fe602a9a7c81ac44e2408e"
+        },
+        {
+          "file": "test-results/M08/calendar-en.png",
+          "sha256": "0a2d68f01861a94beae86fc3536ac2eef36587e551edfdefa912a9bf5be62c04"
+        },
+        {
+          "file": "test-results/M08/calendar-zh.png",
+          "sha256": "f4ef99dc176c4489e9d4c2734890a500fd1193bbb4ce28028aa320a3466cfbc9"
+        },
+        {
+          "file": "test-results/M08/journal-en.png",
+          "sha256": "007f03259a438ea3d2aa04548c7f90e83a687eccbbec6a2b67705a97e2e89bd5"
+        },
+        {
+          "file": "test-results/M08/journal-list-zh.png",
+          "sha256": "ff19a8bdaffa2fef6697e545137724c0f2eab202a78b111e383191e18579fbf9"
+        },
+        {
+          "file": "test-results/M08/journal-month-zh.png",
+          "sha256": "8d5e31e576fb65d635bf7477ae47f0d79736a333407b0337257681825865e06e"
+        },
+        {
+          "file": "test-results/M08/journal-stats-zh.png",
+          "sha256": "6ef6f6a0b9866432493be94c26880a928d6e17937321d9e390d0143378bdb435"
+        },
+        {
+          "file": "test-results/M08/learn-card-en.png",
+          "sha256": "6e8a6075fd0dfb3f0d36b6e4dead1174ddbca732c4bf58ec8142926b2a16e191"
+        },
+        {
+          "file": "test-results/M08/learn-card-zh.png",
+          "sha256": "19d4577533769779c1a9206fc09c09f7ef8d8e02b30d6d5bfeaf411a6f64edf0"
+        },
+        {
+          "file": "test-results/M08/learn-hexagram-en.png",
+          "sha256": "10bc3a4da158b95b93d7edf96b210696d7932e8eac6f7a1cd987d581be4e6716"
+        },
+        {
+          "file": "test-results/M08/learn-hexagram-zh.png",
+          "sha256": "4b93985036a70d46024a9ebd8c0f9e22030a23b08c104fde64dc3c2d12d719b6"
+        },
+        {
+          "file": "test-results/M08/learn-hexagrams-zh.png",
+          "sha256": "509da4e58f7488eb22ce193e5dacd54be9f94109b7656320e3860f44158205d7"
+        },
+        {
+          "file": "test-results/M08/learn-original-zh.png",
+          "sha256": "ac5e9d8b5c210203ed8f6b3ed5b4237a0389eabc481ab4c2bafdf0ce7ef75903"
+        },
+        {
+          "file": "test-results/M08/learn-systems-zh.png",
+          "sha256": "2adeb7ffdffd70b48532eb4b53d756ef490c4c334f7ffce2066b6347c67dc977"
+        },
+        {
+          "file": "test-results/M08/learn-tutorial-en.png",
+          "sha256": "7368a0279aeaadddab10cfab019736acb73674e3ca18ab060ccdd2a597a0811e"
+        },
+        {
+          "file": "test-results/M08/learn-tutorial-zh.png",
+          "sha256": "6547bdbc405ea9b72ea584057336db1477dcd4b9bccc9eb5a6b97049eb2f1016"
+        },
+        {
+          "file": "test-results/M08/today-astro-zh.png",
+          "sha256": "50c8fd80ab9723d75f08f876267ce26161a7911accc618efa176621c17721c0b"
+        },
+        {
+          "file": "test-results/M08/today-feedback-zh.png",
+          "sha256": "954d1c1b960762c0b18a7ae704cb57690582641c4413d563dd5bc62ed83368ed"
+        },
+        {
+          "file": "test-results/M08/today-journal-saved-zh.png",
+          "sha256": "5e0e20186050d16dec411fb114e34a3c1f78a114eb180c773e2f2a7e42f6b1b9"
+        },
+        {
+          "file": "test-results/M08/today-lucky-zh.png",
+          "sha256": "fbf411c78d37c09b2f04082ceed633dfbae60f1587a04fe1e578f921eeed2de0"
+        },
+        {
+          "file": "test-results/M08/today-oneliner-zh.png",
+          "sha256": "7d9f82b9b229ae60ae5c2040bfe5a67d3f811c8f4a6df5de2702a15e0ab65a29"
+        },
+        {
+          "file": "test-results/M08/today-panchang-zh.png",
+          "sha256": "551ffa7919b27d6f5e90c3bb1cee44d2a3208aee4ce6080c54200064505dcc99"
+        },
+        {
+          "file": "test-results/M08/today-ratings-en.png",
+          "sha256": "bb67d543bba113591ebb690558b9aeb82ad941cdced1d9fb1491b7b9d4e2d05d"
+        },
+        {
+          "file": "test-results/M08/today-share-system-zh.png",
+          "sha256": "0da894e2c5e5df1456c95fc9146fdd3d69cb27479ebfbeaea3bb5b77ed944980"
+        },
+        {
+          "file": "test-results/M08/today-share-zh.png",
+          "sha256": "5018d9f1290d4b476fc74ca06487fe2abcd7a3bf526f7187b8385070c02bcb99"
+        },
+        {
+          "file": "test-results/M08/today-sky-en.png",
+          "sha256": "ebe3a78ca84eacb934af2392ae2806b6ba73e29dda238b35a2237cbad329eb29"
+        },
+        {
+          "file": "test-results/M08/today-sky-zh.png",
+          "sha256": "9b3767f6a96d1e63f7116f9c6191a8638264afd79abe34be42fd658f932390f4"
+        },
+        {
+          "file": "test-results/M08/today-tarot-zh.png",
+          "sha256": "8c0a8a5afc0f52c52caf5de5322dab23a06f0b4f2c915dca6b3772e3692d02e3"
+        }
+      ]
+    },
+    {
+      "flow": "M08-learn",
+      "passed": true,
+      "flowHash": "49488d4f5665a5b4d3d48eb643ea9397603b0ede2d603dca05f26099027bbcd2",
+      "checkedAt": "2026-10-07T09:59:40.288Z",
+      "artifacts": "test-results/launch/run-1791365752716/M08-learn",
+      "screenshots": [
+        {
+          "file": "test-results/M08/learn-encyclopedia-en.png",
+          "sha256": "145ddfc55d01ffba88628f516fa0203ecd0c196379413a7e6e9e63ee309e91e0"
+        },
+        {
+          "file": "test-results/M08/learn-encyclopedia-zh.png",
+          "sha256": "0aa4ae1eb7752efc34ba827eb9c1e48437f87838e667b9a457f6cca01abb1f36"
+        }
+      ]
+    },
+    {
+      "flow": "M08-sample",
+      "passed": true,
+      "flowHash": "e939bfcc549522238a58c33dd4312714b6bd7f708988f80dac913417efd2d75c",
+      "checkedAt": "2026-10-07T10:01:12.404Z",
+      "artifacts": "test-results/launch/run-1791365752716/M08-sample",
+      "screenshots": [
+        {
+          "file": "test-results/M08/calendar-empty-en.png",
+          "sha256": "2621cd298479335561cefbec029ee10cc38c3876a58729b403b0b8a60f6fafa1"
+        },
+        {
+          "file": "test-results/M08/calendar-zh-TW.png",
+          "sha256": "aaa2ab81dd906db6cd393a16387255a21481169dcf4ef9edd8d688b33fab9bcd"
+        },
+        {
+          "file": "test-results/M08/journal-empty-en.png",
+          "sha256": "1e778ffb627d1539986c96bc8ea90c538779cb9a9ea4cc6bb533ac9e8ac2042f"
+        },
+        {
+          "file": "test-results/M08/today-empty-blur-en.png",
+          "sha256": "3230870d92a7338f8d6dbe266fd1e06354ba5121452f99b816d7968a41ae0af7"
+        },
+        {
+          "file": "test-results/M08/today-empty-sky-en.png",
+          "sha256": "f5d56d7e4c1f578f1470ec9dc26cc4a9baff415d39cc379eff9c49af5e3bf64f"
+        },
+        {
+          "file": "test-results/M08/today-sky-zh-TW.png",
+          "sha256": "422b0ff3dfdcd5a100bef9c563b85acd8856ed39edfa87fdcd25b7d2967f408b"
+        }
+      ]
+    },
+    {
+      "flow": "M08-share",
+      "passed": true,
+      "flowHash": "5de86285c02a4853ba78fedf63cf96ada66a1fb9bc7f3f3f058e47deaecde653",
+      "checkedAt": "2026-10-07T10:02:21.434Z",
+      "artifacts": "test-results/launch/run-1791365752716/M08-share",
+      "screenshots": [
+        {
+          "file": "test-results/M08/share-card-en.png",
+          "sha256": "7c043cf3e8320f948b8083281788a0070f42815ea73cf4cfe3d1b7c081f56090"
+        },
+        {
+          "file": "test-results/M08/today-share-en.png",
+          "sha256": "543c233a4cf5d754a5eca630e0e1b57a52f993e74208a8377ee0124cd7d37dd7"
+        },
+        {
+          "file": "test-results/M08/today-share-system.png",
+          "sha256": "83b4134124fa7af8cd99d01cc1c26cf22f669ce79134821b871922a9f8e50736"
+        }
+      ]
+    },
+    {
+      "flow": "M10",
+      "passed": true,
+      "flowHash": "78110ad9d3f61abb5a3075a1f06b7bd771e6e298ecda572793ebef0faf062b92",
+      "checkedAt": "2026-10-07T10:04:28.812Z",
+      "artifacts": "test-results/launch/run-1791365752716/M10",
+      "screenshots": [
+        {
+          "file": "test-results/M10/current-device-revoked-en.png",
+          "sha256": "b348d5185740b19819357b86057329eadfd5de9461d848f75fdb328a9d1d65fc"
+        },
+        {
+          "file": "test-results/M10/delete-confirm-zh.png",
+          "sha256": "904c4aea621fbe2795d5bdcc63a23e79247f1c4cdffabc57ccbb78697ef83d37"
+        },
+        {
+          "file": "test-results/M10/deleted-zh.png",
+          "sha256": "1f72416f3cbd43989c5f841a8fd02a1d6520f352723a3a3a54f89ef9411dd474"
+        },
+        {
+          "file": "test-results/M10/device-revoked-zh.png",
+          "sha256": "cd242effd3d56fd5b77bbcab33a92382177d640165346c84836ec83da9acb191"
+        },
+        {
+          "file": "test-results/M10/devices-en.png",
+          "sha256": "ed98e37767a9b301cac7bb2e032e2513a6986e3e9c1880bae0b16b42aeb9019b"
+        },
+        {
+          "file": "test-results/M10/devices-zh.png",
+          "sha256": "d2390082ed54f625fadeeb6645782c41d82f5833cd2236a98f3f0f31ce8336fc"
+        },
+        {
+          "file": "test-results/M10/import-en.png",
+          "sha256": "aaaed9fc4511545c6b755daca372ae2d04bd1621fec5db585062f91c5116c448"
+        },
+        {
+          "file": "test-results/M10/import-zh.png",
+          "sha256": "3ed86cc01dd305daec42abccfad42fd81a976495bb7ac20e984e95450606e65e"
+        },
+        {
+          "file": "test-results/M10/login-en.png",
+          "sha256": "b348d5185740b19819357b86057329eadfd5de9461d848f75fdb328a9d1d65fc"
+        },
+        {
+          "file": "test-results/M10/login-zh.png",
+          "sha256": "69f6b77057f00b38900171bbd5b23f749b94bcaf76de28652d680ee7f88bb8d8"
+        },
+        {
+          "file": "test-results/M10/magic-confirm-zh.png",
+          "sha256": "b2c3ba453e4e79ce5c7bd2f561a26f77dec98ec09f11ab8b32b07c98f1b9890b"
+        },
+        {
+          "file": "test-results/M10/magic-sent-zh.png",
+          "sha256": "b1e03059001ab914b255f47569f74b2a0390f04028c019d4a12c047834e2206f"
+        },
+        {
+          "file": "test-results/M10/offline-zh.png",
+          "sha256": "9216d11137db2a1a9abb9c3ac7c7876f65dab1ef0f4896ee1f4f00f7a78f94a4"
+        },
+        {
+          "file": "test-results/M10/settings-en.png",
+          "sha256": "f800cc51bd26046f5687bd1ef86f41c55987298c0b723f0167d8f09e921f28b6"
+        },
+        {
+          "file": "test-results/M10/settings-synced-zh.png",
+          "sha256": "93b8810dc0abfd6c4dcb0be3d7fd38a8fc86224eb1f204dc4057d0308e97e5f9"
+        },
+        {
+          "file": "test-results/M10/token-refreshed-zh.png",
+          "sha256": "93b8810dc0abfd6c4dcb0be3d7fd38a8fc86224eb1f204dc4057d0308e97e5f9"
+        }
+      ]
+    },
+    {
+      "flow": "M11",
+      "passed": true,
+      "flowHash": "d11cbd9ae87345b7457d9936fc88b939f21b35e42f11e7cdc81ba698a2e3f42b",
+      "checkedAt": "2026-10-07T10:07:12.191Z",
+      "artifacts": "test-results/launch/run-1791365752716/M11",
+      "screenshots": [
+        {
+          "file": "test-results/M11/background-refresh-en.png",
+          "sha256": "bed2f56e8a6e4a91642b38cd9ee1a49c414e4db9b5efd33176c4642640a8b8b3"
+        },
+        {
+          "file": "test-results/M11/notification-fortune-en.png",
+          "sha256": "856c9575f6ed8d2c2a49a19defd67f81a973aef78ae0017700e55a5dbc436b61"
+        },
+        {
+          "file": "test-results/M11/notification-fortune-link-en.png",
+          "sha256": "4f6919c7ed7e4fb17b84ccc5a4b321e9a0e846e8ff534f5e0dcf9e11d3763fe5"
+        },
+        {
+          "file": "test-results/M11/notification-guide-en.png",
+          "sha256": "6d0e958d5227ac99c150656143914ea6782c1c12e5d182af5bbaa68384d719f9"
+        },
+        {
+          "file": "test-results/M11/notification-guide-link-en.png",
+          "sha256": "b5e822ac5a1095c475491b1bb2181a912ad7ee33bc72023216f69813ee031abf"
+        },
+        {
+          "file": "test-results/M11/push-settings-en.png",
+          "sha256": "dc489948e4fd351bdffa2bbf79f4fbfcaa958467942d7e04cf0477188f393aa8"
+        },
+        {
+          "file": "test-results/M11/schedule-empty-en.png",
+          "sha256": "861443e37d784669d56f3e0fe76c7c83e43168a16ea1cf414b1ffbf76c66284b"
+        },
+        {
+          "file": "test-results/M11/schedule-profile-en.png",
+          "sha256": "dc580cd46b60c9927f822fc0fbecd5c7f252f62cf66753ac980963ce56e50119"
+        },
+        {
+          "file": "test-results/M11/widget-theme-en.png",
+          "sha256": "c3afda8ec0e7b17eebd7900dc88929388cbfa815ad0aa23cca1f16ee0b549a9e"
+        }
+      ]
+    },
+    {
+      "flow": "M11-locales",
+      "passed": true,
+      "flowHash": "318949622ae8793b8175305815d8d5ebc307431b6e4792f6cf6c79c5c90098c9",
+      "checkedAt": "2026-10-07T10:08:03.199Z",
+      "artifacts": "test-results/launch/run-1791365752716/M11-locales",
+      "screenshots": [
+        {
+          "file": "test-results/M11/background-refresh-verified.png",
+          "sha256": "f7c4dd98000dc7f671347381db15051ad0098244386979832a2deca734194bbd"
+        },
+        {
+          "file": "test-results/M11/push-settings-zh-TW.png",
+          "sha256": "b478b387cbae3898f8fbc147c2a91c462aef7def092a56f11e0bed129d1724bb"
+        },
+        {
+          "file": "test-results/M11/push-settings-zh.png",
+          "sha256": "80b64e650448bc5bda58b9256a33cbfac672e4a9e8d3ea4b186d8ff25f1dd7f0"
+        }
+      ]
+    },
+    {
+      "flow": "M11-widget-gallery",
+      "passed": true,
+      "flowHash": "9c9d0f223decc9dab41cd1b3077816114b57236a61c030f85f91a3d715cf95b4",
+      "checkedAt": "2026-10-07T10:09:15.729Z",
+      "artifacts": "test-results/launch/run-1791365752716/M11-widget-gallery",
+      "screenshots": [
+        {
+          "file": "test-results/M11/widget-home-large.png",
+          "sha256": "7911d9e4251f16dc91f66413e4544f16ec58acbd0c929c3510f233b1cd2b6a9a"
+        },
+        {
+          "file": "test-results/M11/widget-large.png",
+          "sha256": "45b09f232d8b60407ac4b7f879a12ed2a7e7672461da654db43431f81c09f4b6"
+        },
+        {
+          "file": "test-results/M11/widget-medium.png",
+          "sha256": "b54c60cf74e09d9b04c84c91278c3f32672fa2c340a534d89b6642df847bb416"
+        },
+        {
+          "file": "test-results/M11/widget-small.png",
+          "sha256": "69f45082a633af9b4f308a40ba9da15468d7c7f9071442d13d71e5f9b5cbc259"
+        }
+      ]
+    },
+    {
+      "flow": "M12",
+      "passed": true,
+      "flowHash": "55572426ebb0a63a5f17766637e7abad7fcb1b05b3cfd8d2193ad64a77ee93ae",
+      "checkedAt": "2026-10-07T10:12:15.304Z",
+      "artifacts": "test-results/launch/run-1791365752716/M12",
+      "screenshots": [
+        {
+          "file": "test-results/M12/poster-portrait-en.png",
+          "sha256": "ce9f8839a100f7629ac93985f8b44f89d91b147daff8ce8b4efbd2fb81d044b3"
+        },
+        {
+          "file": "test-results/M12/chat-complete-en.png",
+          "sha256": "46f3fc382456feb9cc3812700448b1ec6ca21e04958767ef35db31596aa10c91"
+        },
+        {
+          "file": "test-results/M12/chat-empty-en.png",
+          "sha256": "6b0d7fb1be08aff85c2a00157cbc6516b4ebd9e5bd140f5022f517e4f9326619"
+        },
+        {
+          "file": "test-results/M12/chat-empty-zh.png",
+          "sha256": "a1857433353de56c5953532f7443d0ec8d9cb66ec2c46889ccf779b21fc23e53"
+        },
+        {
+          "file": "test-results/M12/chat-stream-en.png",
+          "sha256": "ebbab4f8ec65092d8b1b99f5cf284e4053c6b702a988a847bd78d4729db411b8"
+        },
+        {
+          "file": "test-results/M12/report-offline-en.png",
+          "sha256": "8ff42afdb6478c73106568d56f842be1327b3d9063b75202a26f0a7ea5452132"
+        },
+        {
+          "file": "test-results/M12/share-card-offline-en.png",
+          "sha256": "99083f94ac285b6e1a8cd2d58a39b20a99c4b791e28ed5e0716159c1467098e6"
+        },
+        {
+          "file": "test-results/M12/share-link-control-en.png",
+          "sha256": "ac9c992c2efd31f08d3178d9652d60f94ca2c18c76bbbb54b2d2d72a6c075e3f"
+        },
+        {
+          "file": "test-results/M12/share-link-en.png",
+          "sha256": "5b39b8b962ecb8ec1ac5a95ac98cf545881ee1107590eb27b5ea2f5d940b8254"
+        }
+      ]
+    },
+    {
+      "flow": "M11-lock-widgets",
+      "passed": true,
+      "flowHash": "7937dd282db87a0ed4aa39ce399f7be3c50cd5d26f029ad8cec10805abcf4014",
+      "checkedAt": "2026-10-07T10:14:17.302Z",
+      "artifacts": "test-results/launch/run-1791367951974/M11-lock-widgets",
+      "screenshots": [
+        {
+          "file": "test-results/M11/lock-widget-editor.png",
+          "sha256": "47294f56af57bf190fce0b360f467943ad837732d0c78dec39a8a720469a4330"
+        },
+        {
+          "file": "test-results/M11/lock-widget-gallery.png",
+          "sha256": "3e98ae077e216b15e959b0e50fe3bab108455821e9d0e094acae984d0e53f53b"
+        },
+        {
+          "file": "test-results/M11/widget-link-en.png",
+          "sha256": "635e90d9495e9b2e8496cef5b3d593b90475ddc92a5c93aa8287b3a7ea2426ec"
+        },
+        {
+          "file": "test-results/M11/widget-lock-circular-rectangular.png",
+          "sha256": "1109e66240b56170301af25f3c75b9b81c17d7c78b8968457d6efe04a6b3343a"
+        }
+      ]
+    },
+    {
+      "flow": "M12-chat-zh",
+      "passed": true,
+      "flowHash": "e58d22f6652b4ddd8124b9aa812d7ae00e7e4c3e56d9ad80083b7fdb6ada78a6",
+      "checkedAt": "2026-10-07T10:15:12.641Z",
+      "artifacts": "test-results/launch/run-1791367951974/M12-chat-zh",
+      "screenshots": [
+        {
+          "file": "test-results/M12/chat-complete-zh.png",
+          "sha256": "deb66e1e165f0da3b781507306116bc89e903c9493a3c1fbc353b46c8c935eea"
+        },
+        {
+          "file": "test-results/M12/chat-stream-zh.png",
+          "sha256": "cc2e28d8f7bf30a81c13f567d8733d5febea8ac0ded4019db5c6f7419951addd"
+        }
+      ]
+    },
+    {
+      "flow": "M12-diagrams",
+      "passed": true,
+      "flowHash": "159e96e87348fd0d03a304dc1bab940cf073faf453cc222f41c43101dbf10887",
+      "checkedAt": "2026-10-07T10:16:30.898Z",
+      "artifacts": "test-results/launch/run-1791367951974/M12-diagrams",
+      "screenshots": [
+        {
+          "file": "test-results/M12/diagram-controls.png",
+          "sha256": "2963376540ddc2820c9de2a78d4c7fefc3b3982d118af7cf385cfe6291a9c916"
+        },
+        {
+          "file": "test-results/M12/share-iching-lines-en.png",
+          "sha256": "646f56e9b4825218a23842caa8473887689c2061f17f4427406e0bd1719aab3f"
+        },
+        {
+          "file": "test-results/M12/share-tarot-labels-en.png",
+          "sha256": "db742c8f102c780073bcfcd941ea944b94c185a34b62285fbae0eeed2d5efc62"
+        }
+      ]
+    },
+    {
+      "flow": "M12-export",
+      "passed": true,
+      "flowHash": "78a429431b0262c39ff6cd1fa6a12fe12102c4ee302d12772e2fe63f8578268f",
+      "checkedAt": "2026-10-07T10:17:20.454Z",
+      "artifacts": "test-results/launch/run-1791367951974/M12-export",
+      "screenshots": [
+        {
+          "file": "test-results/M12/export-a4-native-en.png",
+          "sha256": "dc6b7b1c59600b5bde6985cca6d8b711fd0a4473b74a3caa7acfcd0965ef17f4"
+        },
+        {
+          "file": "test-results/M12/export-menu-en.png",
+          "sha256": "8bc92d36849db9f92599907912ed87996b848224273898b17e7f69b00262dcea"
+        },
+        {
+          "file": "test-results/M12/export-pdf-native-en.png",
+          "sha256": "5281573cf24d29da944f93230acbbad76d762fe8b75b57f56dcb8174e36badbf"
+        }
+      ]
+    },
+    {
+      "flow": "M12-profiles",
+      "passed": true,
+      "flowHash": "2eacaa5da3290f2b52ee977c0599c7d44b463aefadfce49c378fed1cfde29d9f",
+      "checkedAt": "2026-10-07T10:18:34.007Z",
+      "artifacts": "test-results/launch/run-1791367951974/M12-profiles",
+      "screenshots": [
+        {
+          "file": "test-results/M12/history-partner-en.png",
+          "sha256": "9b7449b155343c3e0048aa6a44ac6b944ea719c97738b9d3a85354d1f84740fc"
+        },
+        {
+          "file": "test-results/M12/profile-default-en.png",
+          "sha256": "50029f2dde299f9f80d7931c30984c68257cc307828d9101bb2ad43d000ea545"
+        },
+        {
+          "file": "test-results/M12/profiles-en.png",
+          "sha256": "c19148efba9aed3278609a973b2236ff3a596e4505f5aba76eccaecf34aca4fb"
+        },
+        {
+          "file": "test-results/M12/synastry-report-en.png",
+          "sha256": "770233a761eaf8a2d5b3549273feda75fdf0b4efcc9bcde8a51b80d997d05468"
+        },
+        {
+          "file": "test-results/M12/synastry-select-en.png",
+          "sha256": "e8b1272e640c22e52ff8c8d42db67eedcba2b854d1ad4d022aac3ec570e28f4c"
+        },
+        {
+          "file": "test-results/M12/synastry-share-landscape-en.png",
+          "sha256": "abed98fcc87202afe2a1982eb188e7eaf6c73d608ccfc6458d07a3348fa0354f"
+        }
+      ]
+    },
+    {
+      "flow": "M12-share",
+      "passed": true,
+      "flowHash": "e1c27614b10f8e76f631c3fe475a396a5e4ce8ecbf333884c1f7074c02401de4",
+      "checkedAt": "2026-10-07T10:19:38.501Z",
+      "artifacts": "test-results/launch/run-1791367951974/M12-share",
+      "screenshots": [
+        {
+          "file": "test-results/M12/poster-landscape-zh.png",
+          "sha256": "fe9842736c3b8993993f30bbbbde525362e06cd977e171c29d2fb3182e331cf9"
+        },
+        {
+          "file": "test-results/M12/share-card-chart-zh.png",
+          "sha256": "ed1df7cfcb6e772fa3a62004747c66883d25ce2f19142f07b3b3a1b7cc78a753"
+        },
+        {
+          "file": "test-results/M12/share-card-landscape-zh.png",
+          "sha256": "18e9e32d4c9a040d892dfd9f6b655df36bb17456689f1438ecb137a68a5dbf21"
+        },
+        {
+          "file": "test-results/M12/share-card-native-zh.png",
+          "sha256": "8d6ee3674aa5965f36eb819efd9fc1b8f6936eeb00bd2a83409a829c1c88527a"
+        }
+      ]
+    },
+    {
+      "flow": "M13-ads",
+      "passed": true,
+      "flowHash": "4348bb18f2680ddf2c952f48e9e931d09a2ceec55e81d838a1561c4a63ce80b4",
+      "checkedAt": "2026-10-07T10:22:41.269Z",
+      "artifacts": "test-results/launch/run-1791367951974/M13-ads",
+      "screenshots": [
+        {
+          "file": "test-results/M13/att-denied-native-en.png",
+          "sha256": "374276bfbb7e1ba456658db6152639fcca7a4a8750e534e01c43a5db236f1fb7"
+        },
+        {
+          "file": "test-results/M13/consent-failed-en.png",
+          "sha256": "954cdbe1ff4130c5d8e4bf2eb0464e8828157eb1cf8b9dc3fd2b932638be9b75"
+        },
+        {
+          "file": "test-results/M13/native-free-en.png",
+          "sha256": "07ace44478759dcd51fe1251570f484d099983efb33d3a79d5997c6630254d54"
+        },
+        {
+          "file": "test-results/M13/native-rejected-en.png",
+          "sha256": "513cc5f15dbd2df608fc136eec2535187006b85615859bc6897cc59dd41e470a"
+        },
+        {
+          "file": "test-results/M13/native-teen-en.png",
+          "sha256": "b48b5feb40d2286581529946920938de671b94d246c8858f3be96ea4f33af3dd"
+        },
+        {
+          "file": "test-results/M13/native-ump-ready-npa-en.png",
+          "sha256": "13376fd2f9a5a0059239fac82a33b0d00d13b3ea24fc3f4da5efeb73fb030adb"
+        },
+        {
+          "file": "test-results/M13/native-validator-pass-en.png",
+          "sha256": "7568098e833d519d7ed16426f178faf777009dd8ab3401ef37bd6c7055953c00"
+        },
+        {
+          "file": "test-results/M13/pro-hides-ad-en.png",
+          "sha256": "57ed47176d49a0d609555164db365893decd635aad9b65b6befee562860a83ea"
+        },
+        {
+          "file": "test-results/M13/refunded-native-en.png",
+          "sha256": "91943c5747e0f3be24c55a583db5f4755062f1d7ef5230f19f8e79a6d1c9ee06"
+        },
+        {
+          "file": "test-results/M13/startup-system-att-zh.png",
+          "sha256": "972271eda58d158e926f71f0366f0ab04eeb1a4515dfcc138d23b1a19cf58ec9"
+        },
+        {
+          "file": "test-results/M13/system-att-denied-ad-en.png",
+          "sha256": "b4065ff8a90d7d600b154ea2db7f7f516d1ef43bf419849162713abda33b4bbb"
+        },
+        {
+          "file": "test-results/M13/teen-nonpersonalized-en.png",
+          "sha256": "5f8ad3b9da3feae470385855cf2b1cc669566b4085b3cc867927112deeb39e3b"
+        }
+      ]
+    },
+    {
+      "flow": "M13-billing",
+      "passed": true,
+      "flowHash": "be9b6e531e6fff8db18f444e977b4bfcfad2a66c5ecb45da248dd5a2c393dcce",
+      "checkedAt": "2026-10-07T10:26:33.020Z",
+      "artifacts": "test-results/launch/run-1791367951974/M13-billing",
+      "screenshots": [
+        {
+          "file": "test-results/M13/billing-free-en.png",
+          "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+        },
+        {
+          "file": "test-results/M13/billing-lifetime-zh.png",
+          "sha256": "8160e35fbde5e64c427d878c43cd4202647a0ce23841025550fe2491eef0991f"
+        },
+        {
+          "file": "test-results/M13/billing-monthly-en.png",
+          "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+        },
+        {
+          "file": "test-results/M13/billing-offline-en.png",
+          "sha256": "6325b8dca1a625ad8a216774fb0674e9bac565aa4082828c176b51117b069d6e"
+        },
+        {
+          "file": "test-results/M13/products-en.png",
+          "sha256": "0671cfba8631f150b83088bc46fe67378cccc048676c9f235c2631b30c486bab"
+        },
+        {
+          "file": "test-results/M13/purchase-cancelled-en.png",
+          "sha256": "58cbebdd8def8fc86e56e087f577b0eaea3f8d90da70fe0507f8d2061e99397b"
+        },
+        {
+          "file": "test-results/M13/purchase-error-en.png",
+          "sha256": "6fe111f3608eca0e76142e5e7b3934e48465b729e32576ffef127f84783c36e6"
+        },
+        {
+          "file": "test-results/M13/purchase-restored-en.png",
+          "sha256": "690849a3e2bab4c7165126a76550f82f6c8d3371e48fa18b2afcef68ce4305e8"
+        },
+        {
+          "file": "test-results/M13/refund-test-ad-zh.png",
+          "sha256": "6b20226516482d10ec6fb013b94dc5ebc8de634aa4d3f2466af1e9fa0dba4f82"
+        },
+        {
+          "file": "test-results/M13/restore-zh.png",
+          "sha256": "1df7e4af409374e3f53c2049d464a4a1049d3d9ff8399cd61245a87b82f2fcc9"
+        },
+        {
+          "file": "test-results/M13/sync-pending-en.png",
+          "sha256": "057dd03df4b165c542dae37b4d595e4417dc61e77281ee71c3c5c76a0bd477b8"
+        }
+      ]
+    },
+    {
+      "flow": "M13-placements",
+      "passed": true,
+      "flowHash": "49e3527672d4dff171207ba128fe7aee591aab304792ebbea1ad45fd56abded5",
+      "checkedAt": "2026-10-07T10:28:27.853Z",
+      "artifacts": "test-results/launch/run-1791367951974/M13-placements",
+      "screenshots": [
+        {
+          "file": "test-results/M13/report-first-test-ad-en.png",
+          "sha256": "9193d7e6d8fefd6dd87a72bdf1d0e1d7189eaa65bee8aabd393120501761615c"
+        },
+        {
+          "file": "test-results/M13/report-second-test-ad-en.png",
+          "sha256": "02820e6601edb82cb215e76280c63446e288f9df81bf772d8147025c60ee58b4"
+        },
+        {
+          "file": "test-results/M13/today-test-ad-en.png",
+          "sha256": "261420b587ccce2f107198f7fa6de250c44c9362802239b24c296733a9493855"
+        }
+      ]
+    },
+    {
+      "flow": "M14",
+      "passed": true,
+      "flowHash": "41a0e3e3095c7a80b9c262181ff97a83b7cd1e0daa9ea7e4e3d53d48123c1b1b",
+      "checkedAt": "2026-10-07T10:29:35.274Z",
+      "artifacts": "test-results/launch/run-1791367951974/M14",
+      "screenshots": [
+        {
+          "file": "test-results/M14/audit-list-en.png",
+          "sha256": "976286926047f580281aa1c50537e141744a3085af602eec3e1ca3b90b5027ba"
+        },
+        {
+          "file": "test-results/M14/audit-list-scrolled-en.png",
+          "sha256": "3aed671820317fcacb956426535f9af725601464cf827e211875872296416867"
+        },
+        {
+          "file": "test-results/M14/audit-list-zh.png",
+          "sha256": "0d6ba764fd55903a8f388b4cbc9f029dfcdbcd85dfdc3d23498cfdbe83b7a6cb"
+        },
+        {
+          "file": "test-results/M14/audit-reduced-motion-zh.png",
+          "sha256": "2800d14b434b88d9627c80f804a434e4f1f62a00e6e335302d55cfca54fb7aae"
+        },
+        {
+          "file": "test-results/M14/audit-stars-en.png",
+          "sha256": "642f81f554ad9c074ca4ae570ba3b1b2ca61d9449edc1e803aa70e9707dfb741"
+        }
+      ]
+    },
+    {
+      "flow": "M14-accessibility",
+      "passed": true,
+      "flowHash": "edb111582a566e81783da58e397d0a4cde8e9985c4044d148040df6b560058ca",
+      "checkedAt": "2026-10-07T10:42:51.568Z",
+      "artifacts": "test-results/launch/run-1791369659677/M14-accessibility",
+      "screenshots": [
+        {
+          "file": "test-results/M14/large-text-controls-en.png",
+          "sha256": "377391e2e2e15bcf1c8f3368cd70d9b85f678d6289440ffac7555bcad5625117"
+        },
+        {
+          "file": "test-results/M14/large-text-controls-zh.png",
+          "sha256": "756a2527ce3760dfc8cf34ad5c6f4ee6f6d1389dadac2217a34227de04d6db17"
+        },
+        {
+          "file": "test-results/M14/large-text-field-zh.png",
+          "sha256": "5cd3ecba26c67f16b8bf25f13ba5b991b79bc33cd11b6a08d021a71642fb7900"
+        },
+        {
+          "file": "test-results/M14/large-text-title-en.png",
+          "sha256": "2a03c81f8440ee467a18f68d17a72c9574352f10982c6c8d16010decb6cafedf"
+        },
+        {
+          "file": "test-results/M14/large-text-title-zh.png",
+          "sha256": "d2f209114c01e0d01ced7ea471d5973242d43f1911d4c0003b94a4ad2d90be57"
+        }
+      ]
+    },
+    {
+      "flow": "M15",
+      "passed": true,
+      "flowHash": "c2a0ac5d8f46972fa651c6368db3475727c97297212f30d3eaa8b9ea768ce003",
+      "checkedAt": "2026-10-07T10:52:44.248Z",
+      "artifacts": "test-results/launch/run-1791369659677/M15",
+      "screenshots": [
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh-TW/01-today.png",
+          "sha256": "456b8839ca26d3d5c6f4759bd2d2fb25fbac4e8f3a73b5b012c983aba7b3b647"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh-TW/02-bazi.png",
+          "sha256": "772c550568c96f902088d154f73245499af2ffd1d90c68d95eb6733c39ed5418"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh-TW/03-astrology.png",
+          "sha256": "ca8666a67be8057b0fa7be11a534163546ca9965f72d21664d51938fd9e2c2e3"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh-TW/04-tarot.png",
+          "sha256": "c78871756a72374c885d1e87a20ccb3248b45941499df575d3921bd8adb122eb"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh-TW/05-calendar.png",
+          "sha256": "56e13673c2d7bdfbaf5fbe13bdef8205dfa508e274042a69012547191147625c"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh-TW/06-learn.png",
+          "sha256": "5cb6f3cdcd05f966c431c733a39de86111de812e444f3385289803a70746d610"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh/01-today.png",
+          "sha256": "6142c14d8ee286d920452c173053e3cc97da42cb78dc9bdfd13c27abc6b098fe"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh/02-bazi.png",
+          "sha256": "a9bc8f26b70a473e9d471d366fde1d44c069d9f8f790f81112e9df436c8a021e"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh/03-astrology.png",
+          "sha256": "5f4cdea8119e541abacf080230fd0631742b0799b7dc9d055c383e64f71b0ff2"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh/04-tarot.png",
+          "sha256": "654432284e0b5f11e4c5db85810641898c4fdbee548ff407c7c169aa3376e431"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh/05-calendar.png",
+          "sha256": "6dad7dc6ce867f8ebce29ec37e1788acf100c576d2b5a3f8a4d6082098a3c2cb"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/zh/06-learn.png",
+          "sha256": "60e5eaaebed60f6f4ecd6871ce559c0dda5b8b9638008300c5af0c4e939acde1"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/en/01-today.png",
+          "sha256": "1796720f29f363cdc9645f9d9853b5a316f5bed3441cbfcc7603912cd76f7757"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/en/02-bazi.png",
+          "sha256": "7f83208f65f3e4cc44dd6d637518a1ea7e177c20ba08e8fd15676f26345d6800"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/en/03-astrology.png",
+          "sha256": "80e466326d90baf15e8cef520e504cef226e039c6a30c7897de635856398488b"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/en/04-tarot.png",
+          "sha256": "db51171987e6eca95892495f073ad59c29476954006da3da7fda537f066c62db"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/en/05-calendar.png",
+          "sha256": "1b696e9f6596f20cce0fdeea6e294772ee9887bbd3ee8b6e5bc247c14bd6adb3"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.9/en/06-learn.png",
+          "sha256": "87a1f94bd27e8caa2b494721bcd930c62187244e68fe4dcee959ea384a706c77"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh-TW/01-today.png",
+          "sha256": "a6da10a690d1f1634406bbfdc9d8a348f9d04e60b17599e5a909a52dec71e816"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh-TW/02-bazi.png",
+          "sha256": "0f9964784da0bc4d8c0e0c0815c31d31e1e4b837975ac07d7dcae022b5b5f27e"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh-TW/03-astrology.png",
+          "sha256": "2482a5ae724e2b16f660af2074cce61d1c068f6d29942de9ef2f3dcb263d3b8c"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh-TW/04-tarot.png",
+          "sha256": "2f741b7e5810d0babc0666eaee658dcd0fb672f55f9b497a5c356f2b2889680f"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh-TW/05-calendar.png",
+          "sha256": "58ee15c1852ae3b3afa6112deffceb18e4ed1ab4aa9153ecd2f7542e3f432e20"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh-TW/06-learn.png",
+          "sha256": "aafa41612a4bc1fc929f1eed2f1885ae8862844e1fd545258e1098a21430ba55"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh/01-today.png",
+          "sha256": "559b071f0e89650d174a149076f9c0f0c471401b1619527adaca777a929c2cc7"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh/02-bazi.png",
+          "sha256": "b3ddcef434dcc96d37a87cab24558d20a1bf599c9b176f32820b6142ef4da96f"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh/03-astrology.png",
+          "sha256": "7eeb8a9030b7cc3bb3aafe44be42f8da041b09518779fb30c8dabd35715ddee3"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh/04-tarot.png",
+          "sha256": "e846271b03554b046fa2601ce30d451efd6e2fc7f010eb46f0dc01ac4e333d95"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh/05-calendar.png",
+          "sha256": "6b4e57910910d1c7f9defb293a101ef16a330118c2524dd59484f6942312e140"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/zh/06-learn.png",
+          "sha256": "da449a27343ccd2fb6fea2a8cd20069cdb8144e1286aec4852c94aece924b48d"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/en/01-today.png",
+          "sha256": "ea8de9e03d81683de0ebf76087f93152d7615d06bf6e37a43fa818fe5674e266"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/en/02-bazi.png",
+          "sha256": "85592e46a60fd3e5706e772e0785061d16a9b717251ceae8ddf7bda4696c5ffd"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/en/03-astrology.png",
+          "sha256": "e398dd661a4a48daa760126e447d7526cd2a0b3a4ad41df85af750b73701aca5"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/en/04-tarot.png",
+          "sha256": "6c96ecdaffbc6bdfadbdf065e75e52354668b53b1e05fc782ce9057bc0e4264c"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/en/05-calendar.png",
+          "sha256": "ff4e10446442ab3340a3766aa298f0ab8bd0049a5ef34ac47a6077f72eab54b2"
+        },
+        {
+          "file": "test-results/M15/raw/iphone-6.5/en/06-learn.png",
+          "sha256": "66dba933cb561c80956b2eaaec7a47aa8a5e0224c1f534bc6510119895b18248"
+        }
+      ]
+    }
+  ]
+}

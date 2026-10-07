@@ -4,9 +4,11 @@
   "active": true,
   "target": 60,
   "passed": true,
-  "fps": 59.999999998095824,
+  "fps": 60.000000000952085,
   "p95Ms": 16.666666984558105,
   "frames": 601,
-  "durationMs": 10016.666666984558,
-  "source": "ui-display"
+  "durationMs": 10016.666666507721,
+  "source": "ui-display",
+  "longFrames": 0,
+  "maxMs": 16.666666984558105
 }

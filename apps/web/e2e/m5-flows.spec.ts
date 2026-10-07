@@ -1,3 +1,4 @@
+import { m5BaseURL, m5StripeURL } from '../../../scripts/m5-test-urls';
 import { test, expect, type BrowserContext, type Page } from '@playwright/test';
 import { audit, login, fillBirth, db, copies } from './m5-helpers';
 for (const locale of ['zh', 'en'] as const)
@@ -6,7 +7,7 @@ for (const locale of ['zh', 'en'] as const)
     const copy = copies[locale];
     test.beforeAll(async ({ browser }) => {
       context = await browser.newContext({
-        baseURL: 'http://localhost:3230',
+        baseURL: m5BaseURL,
         viewport: { width: 375, height: 812 },
         isMobile: true,
         hasTouch: true,
@@ -84,7 +85,9 @@ for (const locale of ['zh', 'en'] as const)
       await page.goto(`/${locale}/pricing`);
       await audit(page);
       await page.getByRole('button', { name: copy['billing.subscribe'], exact: true }).click();
-      await expect(page).toHaveURL(/127.0.0.1:60302\/checkout/);
+      await expect(page).toHaveURL(
+        (url) => url.origin === m5StripeURL && url.pathname === '/checkout',
+      );
       await page.getByRole('button', { name: 'Complete test payment' }).click();
       await expect(page.getByText(copy['billing.activated'], { exact: true })).toBeVisible();
       expect((await db.user.findUniqueOrThrow({ where: { id: userId } })).plan).toBe('pro');
@@ -94,9 +97,7 @@ for (const locale of ['zh', 'en'] as const)
       await expect(page.getByText(copy['billing.canceledAtEnd'], { exact: true })).toBeVisible();
       const subscription = await db.subscription.findUniqueOrThrow({ where: { userId } });
       expect(
-        (
-          await request.get(`http://127.0.0.1:60302/expire?id=${subscription.stripeSubscriptionId}`)
-        ).ok(),
+        (await request.get(`${m5StripeURL}/expire?id=${subscription.stripeSubscriptionId}`)).ok(),
       ).toBe(true);
       expect((await db.user.findUniqueOrThrow({ where: { id: userId } })).plan).toBe('free');
       const events = await db.event.findMany({

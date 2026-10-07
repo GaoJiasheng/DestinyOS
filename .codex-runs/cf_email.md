@@ -1,0 +1,3 @@
+任务：邮件发送改用 Cloudflare Email Service（Owner 决定，去掉 Resend）。
+阅读：Cloudflare 官方文档 https://developers.cloudflare.com/email-service/ （send_email binding、发信域名配置、限制与定价，2026 年 4 月起公开测试）；现有魔法链接发信代码与 Resend 封装。
+要做：在 apps/web/wrangler.toml 加 send_email 绑定（按官方当前写法，binding 名 EMAIL，发信地址 noreply@send.gavin.pub 与显示名「天机 DestinyOS」可配置）；平台抽象层新增邮件发送接口，Cloudflare 实现用 binding，本地/测试用 mock 实现；保留 zh/en 魔法链接与订阅失败提醒模板；移除 Resend 依赖与 RESEND_* 环境变量（.env.example、LAUNCH.md、MORNING.md 同步）；在 MORNING.md 写明 Owner 需在 Cloudflare 控制台为 send.gavin.pub 启用 Email Service 并添加其 DNS 验证记录（gavin.pub 已托管在 Cloudflare）。测试：邮件接口单测、魔法链接 E2E（mock），pnpm cf:build 通过。不要部署。提交并写 docs/progress/CF-EMAIL.md。

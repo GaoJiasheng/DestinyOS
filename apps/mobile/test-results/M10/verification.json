@@ -66,5 +66,106 @@
         "foreground sync paused during logout and account erasure"
       ]
     }
+  },
+  "historicalEvidenceScope": "Original task-specific fields describe earlier acceptance; current source, flows and baseline hashes are recorded in launchAcceptance and M15/launch-verification.json.",
+  "launchAcceptance": {
+    "task": "T-64",
+    "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+    "checkedAt": "2026-10-07T11:17:50.578Z",
+    "receipt": "../M15/launch-verification.json",
+    "flowsPassed": [
+      "M10"
+    ],
+    "device": "95E57954-4F1E-4DCF-82A2-E5D37E67F35D",
+    "runtime": "Expo 57.0.27 / RN 0.86.3 / iOS 26.4; M02/M14 native performance use Release Hermes",
+    "baselineHashes": [
+      {
+        "file": "test-results/M10/current-device-revoked-en.png",
+        "sha256": "b348d5185740b19819357b86057329eadfd5de9461d848f75fdb328a9d1d65fc"
+      },
+      {
+        "file": "test-results/M10/delete-confirm-zh.png",
+        "sha256": "904c4aea621fbe2795d5bdcc63a23e79247f1c4cdffabc57ccbb78697ef83d37"
+      },
+      {
+        "file": "test-results/M10/deleted-zh.png",
+        "sha256": "1f72416f3cbd43989c5f841a8fd02a1d6520f352723a3a3a54f89ef9411dd474"
+      },
+      {
+        "file": "test-results/M10/device-revoked-zh.png",
+        "sha256": "cd242effd3d56fd5b77bbcab33a92382177d640165346c84836ec83da9acb191"
+      },
+      {
+        "file": "test-results/M10/devices-en.png",
+        "sha256": "ed98e37767a9b301cac7bb2e032e2513a6986e3e9c1880bae0b16b42aeb9019b"
+      },
+      {
+        "file": "test-results/M10/devices-zh.png",
+        "sha256": "d2390082ed54f625fadeeb6645782c41d82f5833cd2236a98f3f0f31ce8336fc"
+      },
+      {
+        "file": "test-results/M10/import-en.png",
+        "sha256": "aaaed9fc4511545c6b755daca372ae2d04bd1621fec5db585062f91c5116c448"
+      },
+      {
+        "file": "test-results/M10/import-zh.png",
+        "sha256": "3ed86cc01dd305daec42abccfad42fd81a976495bb7ac20e984e95450606e65e"
+      },
+      {
+        "file": "test-results/M10/login-en.png",
+        "sha256": "b348d5185740b19819357b86057329eadfd5de9461d848f75fdb328a9d1d65fc"
+      },
+      {
+        "file": "test-results/M10/login-zh.png",
+        "sha256": "69f6b77057f00b38900171bbd5b23f749b94bcaf76de28652d680ee7f88bb8d8"
+      },
+      {
+        "file": "test-results/M10/magic-confirm-zh.png",
+        "sha256": "b2c3ba453e4e79ce5c7bd2f561a26f77dec98ec09f11ab8b32b07c98f1b9890b"
+      },
+      {
+        "file": "test-results/M10/magic-sent-zh.png",
+        "sha256": "b1e03059001ab914b255f47569f74b2a0390f04028c019d4a12c047834e2206f"
+      },
+      {
+        "file": "test-results/M10/offline-zh.png",
+        "sha256": "9216d11137db2a1a9abb9c3ac7c7876f65dab1ef0f4896ee1f4f00f7a78f94a4"
+      },
+      {
+        "file": "test-results/M10/settings-en.png",
+        "sha256": "f800cc51bd26046f5687bd1ef86f41c55987298c0b723f0167d8f09e921f28b6"
+      },
+      {
+        "file": "test-results/M10/settings-synced-zh.png",
+        "sha256": "93b8810dc0abfd6c4dcb0be3d7fd38a8fc86224eb1f204dc4057d0308e97e5f9"
+      },
+      {
+        "file": "test-results/M10/token-refreshed-zh.png",
+        "sha256": "93b8810dc0abfd6c4dcb0be3d7fd38a8fc86224eb1f204dc4057d0308e97e5f9"
+      }
+    ],
+    "checks": {
+      "webSharedTests": 3737,
+      "webSharedFiles": 138,
+      "mobileTests": 262,
+      "mobileSuites": 55,
+      "install": "passed",
+      "lint": "passed",
+      "typecheck": "passed",
+      "test": "passed",
+      "content:validate": "passed",
+      "i18n:check": "passed",
+      "build": "passed",
+      "licenses:check": "passed:1769-packages",
+      "security:policy": "passed",
+      "audit": "passed:controlled-advisory-exceptions"
+    },
+    "iosNativeBuild": {
+      "result": "BUILD SUCCEEDED",
+      "configuration": "Release",
+      "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+      "simulator": "D9DD26B9-3EC5-4D1D-97E7-CA2E82DC709C"
+    },
+    "androidNativeBuild": "pending-owner-java-and-sdk"
   }
 }

@@ -1,5 +1,14 @@
 appId: pub.gavin.tianji
 ---
+# DESIGN-GAP: A reinstalled development client needs its Metro connection before storage diagnostics.
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '打开|Open'
+    optional: true
+- tapOn:
+    text: 'Continue'
+    optional: true
 - openLink: 'tianji:///dev/storage'
 - tapOn:
     text: 'Continue'

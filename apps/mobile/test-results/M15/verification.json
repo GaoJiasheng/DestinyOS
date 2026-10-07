@@ -8,8 +8,17 @@
     "pnpm build": "passed"
   },
   "tests": {
-    "vitest": { "filesPassed": 136, "filesSkipped": 1, "passed": 3722, "skipped": 2 },
-    "mobileJestRntl": { "suitesPassed": 54, "passed": 254, "m15Passed": 11 }
+    "vitest": {
+      "filesPassed": 136,
+      "filesSkipped": 1,
+      "passed": 3722,
+      "skipped": 2
+    },
+    "mobileJestRntl": {
+      "suitesPassed": 54,
+      "passed": 254,
+      "m15Passed": 11
+    }
   },
   "additionalChecks": [
     "i18n:check",
@@ -23,12 +32,24 @@
     "Known Expo refresh-overlay rejection"
   ],
   "screenshots": {
-    "locales": ["zh", "en", "zh-TW"],
+    "locales": [
+      "zh",
+      "en",
+      "zh-TW"
+    ],
     "scenesPerLocaleAndDevice": 6,
     "rawCaptured": 36,
     "brandedGenerated": 36,
-    "iphone69": { "width": 1320, "height": 2868, "simulator": "30B6AC1B-42FD-4E44-BD57-543556CCE673" },
-    "iphone65": { "width": 1242, "height": 2688, "simulator": "2C6D56C1-EFE6-496C-AEDC-B9904065EAA5" },
+    "iphone69": {
+      "width": 1320,
+      "height": 2868,
+      "simulator": "30B6AC1B-42FD-4E44-BD57-543556CCE673"
+    },
+    "iphone65": {
+      "width": 1242,
+      "height": 2688,
+      "simulator": "2C6D56C1-EFE6-496C-AEDC-B9904065EAA5"
+    },
     "automation": "Maestro, real native screens with public Fixture A",
     "pngAlpha": false,
     "sourceHashes": "screenshots.json",
@@ -45,5 +66,186 @@
     "ownerProvisionedProductionIds": "pending",
     "signedArchiveAndSdkPrivacyReport": "pending",
     "realStoreTestingAndSubmission": "pending"
+  },
+  "historicalEvidenceScope": "Original task-specific fields describe earlier acceptance; current source, flows and baseline hashes are recorded in launchAcceptance and M15/launch-verification.json.",
+  "launchAcceptance": {
+    "task": "T-64",
+    "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+    "checkedAt": "2026-10-07T11:17:50.578Z",
+    "receipt": "../M15/launch-verification.json",
+    "flowsPassed": [
+      "M15"
+    ],
+    "device": "95E57954-4F1E-4DCF-82A2-E5D37E67F35D",
+    "runtime": "Expo 57.0.27 / RN 0.86.3 / iOS 26.4; M02/M14 native performance use Release Hermes",
+    "baselineHashes": [
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh-TW/01-today.png",
+        "sha256": "456b8839ca26d3d5c6f4759bd2d2fb25fbac4e8f3a73b5b012c983aba7b3b647"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh-TW/02-bazi.png",
+        "sha256": "772c550568c96f902088d154f73245499af2ffd1d90c68d95eb6733c39ed5418"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh-TW/03-astrology.png",
+        "sha256": "ca8666a67be8057b0fa7be11a534163546ca9965f72d21664d51938fd9e2c2e3"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh-TW/04-tarot.png",
+        "sha256": "c78871756a72374c885d1e87a20ccb3248b45941499df575d3921bd8adb122eb"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh-TW/05-calendar.png",
+        "sha256": "56e13673c2d7bdfbaf5fbe13bdef8205dfa508e274042a69012547191147625c"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh-TW/06-learn.png",
+        "sha256": "5cb6f3cdcd05f966c431c733a39de86111de812e444f3385289803a70746d610"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh/01-today.png",
+        "sha256": "6142c14d8ee286d920452c173053e3cc97da42cb78dc9bdfd13c27abc6b098fe"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh/02-bazi.png",
+        "sha256": "a9bc8f26b70a473e9d471d366fde1d44c069d9f8f790f81112e9df436c8a021e"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh/03-astrology.png",
+        "sha256": "5f4cdea8119e541abacf080230fd0631742b0799b7dc9d055c383e64f71b0ff2"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh/04-tarot.png",
+        "sha256": "654432284e0b5f11e4c5db85810641898c4fdbee548ff407c7c169aa3376e431"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh/05-calendar.png",
+        "sha256": "6dad7dc6ce867f8ebce29ec37e1788acf100c576d2b5a3f8a4d6082098a3c2cb"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/zh/06-learn.png",
+        "sha256": "60e5eaaebed60f6f4ecd6871ce559c0dda5b8b9638008300c5af0c4e939acde1"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/en/01-today.png",
+        "sha256": "1796720f29f363cdc9645f9d9853b5a316f5bed3441cbfcc7603912cd76f7757"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/en/02-bazi.png",
+        "sha256": "7f83208f65f3e4cc44dd6d637518a1ea7e177c20ba08e8fd15676f26345d6800"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/en/03-astrology.png",
+        "sha256": "80e466326d90baf15e8cef520e504cef226e039c6a30c7897de635856398488b"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/en/04-tarot.png",
+        "sha256": "db51171987e6eca95892495f073ad59c29476954006da3da7fda537f066c62db"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/en/05-calendar.png",
+        "sha256": "1b696e9f6596f20cce0fdeea6e294772ee9887bbd3ee8b6e5bc247c14bd6adb3"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.9/en/06-learn.png",
+        "sha256": "87a1f94bd27e8caa2b494721bcd930c62187244e68fe4dcee959ea384a706c77"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh-TW/01-today.png",
+        "sha256": "a6da10a690d1f1634406bbfdc9d8a348f9d04e60b17599e5a909a52dec71e816"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh-TW/02-bazi.png",
+        "sha256": "0f9964784da0bc4d8c0e0c0815c31d31e1e4b837975ac07d7dcae022b5b5f27e"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh-TW/03-astrology.png",
+        "sha256": "2482a5ae724e2b16f660af2074cce61d1c068f6d29942de9ef2f3dcb263d3b8c"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh-TW/04-tarot.png",
+        "sha256": "2f741b7e5810d0babc0666eaee658dcd0fb672f55f9b497a5c356f2b2889680f"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh-TW/05-calendar.png",
+        "sha256": "58ee15c1852ae3b3afa6112deffceb18e4ed1ab4aa9153ecd2f7542e3f432e20"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh-TW/06-learn.png",
+        "sha256": "aafa41612a4bc1fc929f1eed2f1885ae8862844e1fd545258e1098a21430ba55"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh/01-today.png",
+        "sha256": "559b071f0e89650d174a149076f9c0f0c471401b1619527adaca777a929c2cc7"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh/02-bazi.png",
+        "sha256": "b3ddcef434dcc96d37a87cab24558d20a1bf599c9b176f32820b6142ef4da96f"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh/03-astrology.png",
+        "sha256": "7eeb8a9030b7cc3bb3aafe44be42f8da041b09518779fb30c8dabd35715ddee3"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh/04-tarot.png",
+        "sha256": "e846271b03554b046fa2601ce30d451efd6e2fc7f010eb46f0dc01ac4e333d95"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh/05-calendar.png",
+        "sha256": "6b4e57910910d1c7f9defb293a101ef16a330118c2524dd59484f6942312e140"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/zh/06-learn.png",
+        "sha256": "da449a27343ccd2fb6fea2a8cd20069cdb8144e1286aec4852c94aece924b48d"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/en/01-today.png",
+        "sha256": "ea8de9e03d81683de0ebf76087f93152d7615d06bf6e37a43fa818fe5674e266"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/en/02-bazi.png",
+        "sha256": "85592e46a60fd3e5706e772e0785061d16a9b717251ceae8ddf7bda4696c5ffd"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/en/03-astrology.png",
+        "sha256": "e398dd661a4a48daa760126e447d7526cd2a0b3a4ad41df85af750b73701aca5"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/en/04-tarot.png",
+        "sha256": "6c96ecdaffbc6bdfadbdf065e75e52354668b53b1e05fc782ce9057bc0e4264c"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/en/05-calendar.png",
+        "sha256": "ff4e10446442ab3340a3766aa298f0ab8bd0049a5ef34ac47a6077f72eab54b2"
+      },
+      {
+        "file": "test-results/M15/raw/iphone-6.5/en/06-learn.png",
+        "sha256": "66dba933cb561c80956b2eaaec7a47aa8a5e0224c1f534bc6510119895b18248"
+      }
+    ],
+    "checks": {
+      "webSharedTests": 3737,
+      "webSharedFiles": 138,
+      "mobileTests": 262,
+      "mobileSuites": 55,
+      "install": "passed",
+      "lint": "passed",
+      "typecheck": "passed",
+      "test": "passed",
+      "content:validate": "passed",
+      "i18n:check": "passed",
+      "build": "passed",
+      "licenses:check": "passed:1769-packages",
+      "security:policy": "passed",
+      "audit": "passed:controlled-advisory-exceptions"
+    },
+    "iosNativeBuild": {
+      "result": "BUILD SUCCEEDED",
+      "configuration": "Release",
+      "sourceHash": "efa22b866eae4dec53382ad87fc2aa19bfe3d3811ec16b604db03138fb773274",
+      "simulator": "D9DD26B9-3EC5-4D1D-97E7-CA2E82DC709C"
+    },
+    "androidNativeBuild": "pending-owner-java-and-sdk"
   }
 }
