@@ -1,3 +1,4 @@
+import { FlatList } from 'react-native';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'expo-router';
 import { useProfiles } from '../lib/profiles';
@@ -43,8 +44,9 @@ export function HistoryScreen() {
       alive = false;
     };
   }, [active?.id, retry]);
+  // DESIGN-GAP: Variable-height translated rows use FlatList windowing without fixed getItemLayout so large text never overlaps.
   return (
-    <Page title="me.history">
+    <Page title="me.history" scroll={false}>
       <Action label={t('nav.me')} onPress={() => router.push('/me')} />
       {loading && <CopyText>{t('common.loading')}</CopyText>}
       {failed && (
@@ -54,25 +56,35 @@ export function HistoryScreen() {
         </>
       )}
       {!loading && !failed && !readings.length && <CopyText>{t('mobile.history.empty')}</CopyText>}
-      {readings.map((item) => {
-        const system = ReportSystemSchema.safeParse(item.data?.system);
-        return system.success ? (
-          <Action
-            key={item.id}
-            id={`history-${item.id}`}
-            label={t('mobile.history.item', {
-              system: t(`nav.${system.data}`),
-              date: item.createdAt.slice(0, 10),
-            })}
-            onPress={() =>
-              router.push({
-                pathname: '/[system]/r/[id]',
-                params: { system: system.data, id: item.id },
-              })
-            }
-          />
-        ) : null;
-      })}
+      <FlatList
+        testID="history-list"
+        style={{ flex: 1 }}
+        data={readings}
+        keyExtractor={(item) => item.id}
+        initialNumToRender={12}
+        maxToRenderPerBatch={6}
+        windowSize={5}
+        contentContainerStyle={{ gap: 12, paddingBottom: 24 }}
+        renderItem={({ item }) => {
+          const system = ReportSystemSchema.safeParse(item.data?.system);
+          return system.success ? (
+            <Action
+              key={item.id}
+              id={`history-${item.id}`}
+              label={t('mobile.history.item', {
+                system: t(`nav.${system.data}`),
+                date: item.createdAt.slice(0, 10),
+              })}
+              onPress={() =>
+                router.push({
+                  pathname: '/[system]/r/[id]',
+                  params: { system: system.data, id: item.id },
+                })
+              }
+            />
+          ) : null;
+        }}
+      />
     </Page>
   );
 }

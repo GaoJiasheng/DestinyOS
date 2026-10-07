@@ -34,6 +34,7 @@ export function DailyStars({ count }: { count: number }) {
       {Array.from({ length: 5 }, (_, i) => (
         <Text
           key={i}
+          allowFontScaling={false}
           style={{ width: 28, textAlign: 'center', fontSize: nativeTypography.h2, color }}
         >
           {star}
@@ -47,9 +48,12 @@ export function DailyStars({ count }: { count: number }) {
       accessibilityLabel={t('daily.stars', { count })}
       style={{ width: 140, height: 36, justifyContent: 'center' }}
     >
-      <View accessibilityElementsHidden>{row(colors['line-2'])}</View>
+      <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+        {row(colors['line-2'])}
+      </View>
       <Animated.View
         accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
         style={[{ position: 'absolute', overflow: 'hidden', height: 36 }, fill]}
       >
         {row(colors.gold)}

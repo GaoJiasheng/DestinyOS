@@ -173,7 +173,7 @@ export function ReportScreen({
                   setProfessional(!professional);
                 }}
               />
-              <View style={{ flexDirection: 'row', gap: 8 }}>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
                 {(['zh', 'en'] as const).map((language) => (
                   <Action
                     key={language}

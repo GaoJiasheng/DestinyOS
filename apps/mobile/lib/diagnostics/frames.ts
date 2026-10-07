@@ -49,6 +49,8 @@ export function useFrameProbe(
         frames: state.intervals.length,
         durationMs: state.intervals.reduce((sum, n) => sum + n, 0),
         source: 'ui-display',
+        longFrames: state.intervals.filter((ms) => ms > 25).length,
+        maxMs: Math.max(0, ...state.intervals),
       });
     }
   });

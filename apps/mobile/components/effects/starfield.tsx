@@ -146,9 +146,9 @@ export function Starfield({
     };
   }, [project, stars]);
   const transform = useDerivedValue(() => [
-    { translateX: (tilt.value.x * size) / 85 },
-    { translateY: (tilt.value.y * size) / 85 },
-    { rotate: (((clock.value * Math.PI) / 180) * 0.25) / 60000 },
+    { translateX: active ? (tilt.value.x * size) / 85 : 0 },
+    { translateY: active ? (tilt.value.y * size) / 85 : 0 },
+    { rotate: active ? (((clock.value * Math.PI) / 180) * 0.25) / 60000 : 0 },
   ]);
   const meteorPath = useDerivedValue(() => {
     const p = Skia.Path.Make();
@@ -163,7 +163,12 @@ export function Starfield({
     return p;
   });
   return (
-    <Canvas style={{ width: size, height: size }}>
+    <Canvas
+      accessible={false}
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+      style={{ width: size, height: size }}
+    >
       <Group transform={transform} origin={vec(size / 2, size / 2)}>
         {batch && (
           <Atlas

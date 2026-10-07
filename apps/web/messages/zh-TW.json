@@ -2540,5 +2540,11 @@
   "mobile.billing.network": "需要網路",
   "mobile.billing.adLabel": "廣告",
   "mobile.billing.attPurpose": "允許跟蹤可幫助展示相關廣告。出生資訊不會用於廣告；拒絕後仍可使用全部功能。",
-  "mobile.billing.mock.nativeAtt": "測試 UMP 通過後的系統 ATT 授權"
+  "mobile.billing.mock.nativeAtt": "測試 UMP 通過後的系統 ATT 授權",
+  "mobile.audit.title": "無障礙與效能審計",
+  "mobile.audit.measured": "實測幀率：{fps} fps",
+  "mobile.audit.sampling": "正在取樣顯示幀…",
+  "mobile.audit.reduced": "減少動態效果",
+  "mobile.audit.field": "測試輸入（不儲存）",
+  "mobile.audit.row": "第 {count} 條 · {system} · 離線報告"
 }

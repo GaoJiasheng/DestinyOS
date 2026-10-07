@@ -2540,5 +2540,11 @@
   "mobile.billing.network": "Network required",
   "mobile.billing.adLabel": "Advertisement",
   "mobile.billing.attPurpose": "Tracking helps show relevant ads. Birth information is never used for advertising. All features remain available if you decline.",
-  "mobile.billing.mock.nativeAtt": "Test system ATT after test UMP"
+  "mobile.billing.mock.nativeAtt": "Test system ATT after test UMP",
+  "mobile.audit.title": "Accessibility and performance audit",
+  "mobile.audit.measured": "Measured cadence: {fps} fps",
+  "mobile.audit.sampling": "Sampling display frames…",
+  "mobile.audit.reduced": "Reduce motion",
+  "mobile.audit.field": "Test input (not saved)",
+  "mobile.audit.row": "Record {count} · {system} · Offline report"
 }

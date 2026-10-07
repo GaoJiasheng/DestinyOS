@@ -99,3 +99,8 @@ apps/mobile/test-results/M12/*
 apps/mobile/test-results/M13/*
 !apps/mobile/test-results/M13/*.png
 !apps/mobile/test-results/M13/*.json
+
+!apps/mobile/test-results/M14/
+apps/mobile/test-results/M14/*
+!apps/mobile/test-results/M14/*.png
+!apps/mobile/test-results/M14/*.json

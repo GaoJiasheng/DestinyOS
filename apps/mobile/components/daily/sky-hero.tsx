@@ -1,7 +1,10 @@
+import { useMemo, useEffect, useCallback, useState } from 'react';
+import { useFrameProbe } from '../../lib/diagnostics/frames';
+import { captureMetric } from '../../lib/monitoring';
 import { spacing } from '@tianji/ui-core/tokens';
 import { useWindowDimensions, View } from 'react-native';
 import { useIsFocused } from 'expo-router/react-navigation';
-import { useFrameCallback, useSharedValue } from 'react-native-reanimated';
+import { useSharedValue } from 'react-native-reanimated';
 import { brand } from '@tianji/shared/brand';
 import { useCopy } from '../../lib/copy';
 import { useChartLabel } from '../report/report-ui';
@@ -19,26 +22,40 @@ export function SkyHero({ visible = true }: { visible?: boolean }) {
   const { active } = useEffectsMotion(),
     focused = useIsFocused();
   const { settings } = useProfiles();
-  const animate = active && focused && visible && !settings.reducedMotion;
-  const clock = useSharedValue(0);
-  useFrameCallback((frame) => {
-    if (animate) clock.value += frame.timeSincePreviousFrame ?? 0;
-  });
+  const [degraded, setDegraded] = useState(false);
+  const animate = active && focused && visible && !settings.reducedMotion && !degraded;
+  const probeEnabled = useSharedValue(false);
+  useEffect(() => {
+    probeEnabled.value = animate;
+  }, [animate, probeEnabled]);
+  const measured = useCallback((value: import('../../lib/diagnostics/frames').FrameMeasurement) => {
+    captureMetric('starfield.fps', value.fps);
+    // DESIGN-GAP: A sustained below-budget scene becomes static for this screen visit; do not oscillate quality or send device/profile details.
+    if (value.fps < 55) setDegraded(true);
+  }, []);
+  const clock = useFrameProbe(probeEnabled, measured);
   const locale = usePreferences((s) => s.locale);
+  const instant = useMemo(() => new Date(), []);
+  const place = useMemo(() => ({ lat: 0, lng: 0 }), []);
+  const labels = useMemo(
+    () =>
+      Object.fromEntries(
+        ['sun', 'moon', 'mercury', 'venus', 'mars', 'jupiter', 'saturn'].map((p) => [
+          p,
+          label(`charts.planet.${p}`),
+        ]),
+      ),
+    [label],
+  );
   return (
     <View testID="home-sky" style={{ gap: spacing('space-3'), alignItems: 'center' }}>
       <Starfield
         size={size}
         clock={clock}
         active={animate}
-        labels={Object.fromEntries(
-          ['sun', 'moon', 'mercury', 'venus', 'mars', 'jupiter', 'saturn'].map((p) => [
-            p,
-            label(`charts.planet.${p}`),
-          ]),
-        )}
-        now={new Date()}
-        place={{ lat: 0, lng: 0 }}
+        labels={labels}
+        now={instant}
+        place={place}
         parallax={true}
         diagnostics={false}
       />

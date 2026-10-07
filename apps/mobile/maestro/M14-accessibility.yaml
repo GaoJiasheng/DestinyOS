@@ -1,0 +1,36 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji:///dev/audit'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: audit-sky
+    timeout: 30000
+- tapOn:
+    id: audit-zh
+- takeScreenshot: large-text-title-zh
+- scrollUntilVisible:
+    element:
+      id: audit-input
+    direction: DOWN
+- takeScreenshot: large-text-controls-zh
+- tapOn:
+    id: audit-input
+- inputText: 'Test'
+- pressKey: Enter
+- takeScreenshot: large-text-field-zh
+- scrollUntilVisible:
+    element:
+      id: audit-en
+    direction: UP
+- tapOn:
+    id: audit-en
+- takeScreenshot: large-text-title-en
+- scrollUntilVisible:
+    element:
+      id: audit-input
+    direction: DOWN
+- takeScreenshot: large-text-controls-en

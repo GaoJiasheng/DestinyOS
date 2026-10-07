@@ -173,7 +173,7 @@ export function TarotFan({
           })}
         </Animated.View>
       </GestureDetector>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
         <View style={{ flex: 1 }}>
           <Action
             id="tarot-fan-prev"

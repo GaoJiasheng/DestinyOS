@@ -154,3 +154,38 @@ it captures the actual system prompt and refuses tracking. Native ad screenshots
 assert there are no Google validator errors before dismissing its test overlay.
 Evidence is saved under `test-results/M13`. Android prebuild is supported;
 Android native build/device verification awaits Owner's Java installation.
+
+## M14 accessibility, performance and monitoring
+
+Native text follows Dynamic Type/font scaling. VoiceOver/TalkBack can use labelled
+buttons, stateful radios and the chart data table; sheets focus their headings.
+System and encrypted app reduce-motion settings suppress navigation/sheet motion;
+reader, low-power and background states also stop decorative effects.
+
+Sentry RN uses `EXPO_PUBLIC_SENTRY_DSN` (public ingestion address, never an auth
+secret). Provision `SENTRY_ORG`, `SENTRY_PROJECT` and private `SENTRY_AUTH_TOKEN`
+in the build environment for symbol/source-map uploads. Automatic network,
+console, interaction breadcrumbs, replay, screenshots and view hierarchy are
+disabled. `beforeSend` projects technical crash frames and finite named timing
+aggregates; arbitrary messages, request bodies, user data and local variables
+are discarded. Local development and M14 audit builds do not send telemetry.
+Sentry's build CLI is pinned to the reviewed BSD-3-Clause 2.57.0 release.
+Setup reference: https://docs.expo.dev/guides/using-sentry/
+
+Build a dedicated simulator Release with `EXPO_PUBLIC_M14_AUDIT=true`,
+`SENTRY_DISABLE_AUTO_UPLOAD=true`, `CODE_SIGNING_ALLOWED=YES` and
+`CODE_SIGN_IDENTITY=-`; install with `xcrun simctl install`. Xcode injects simulated
+Keychain entitlements while using a local adhoc signature. Disabling signing also
+disables that injection and fails encrypted-storage startup. No certificate/key
+is stored in this repo.
+Run `python3 scripts/m14-cold-start.py <UDID> test-results/M14` and
+`bash scripts/m14-simulator.sh <UDID>` from `apps/mobile`.
+Run `python3 scripts/m14-performance.py <UDID> test-results/M14` after Maestro
+exits for six observer-free performance windows. The audit route uses 500
+synthetic records and the production BSC5 Atlas.
+Cold timings include host simctl overhead and end after encrypted identity,
+profiles and fonts are ready. UI display-link cadence is not GPU completion;
+physical-device Instruments and Android native/TalkBack acceptance remain
+separate checks. Use `xcrun simctl ui <UDID> content_size
+accessibility-extra-extra-extra-large` to repeat the large-text audit with
+`bash scripts/m14-simulator.sh <UDID> M14-accessibility`.

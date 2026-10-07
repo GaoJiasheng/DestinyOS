@@ -13,19 +13,17 @@ import { ProfilesProvider } from '../lib/profiles';
 import { SessionGate } from '../components/session-gate';
 import { fonts } from '../lib/fonts';
 import { i18n } from '../lib/i18n';
-import { getOfflineKnowledge } from '../lib/knowledge';
+import * as Sentry from '@sentry/react-native';
+import { MotionPreferenceContext, useSystemAccessibility } from '../lib/accessibility';
+import { useProfiles } from '../lib/profiles';
+import { markStartupReady } from '../lib/diagnostics/startup';
 void SplashScreen.preventAutoHideAsync();
 /** Load embedded subsets before exposing native routes; all copy comes from the Web catalogs. */
-export default function RootLayout() {
+function RootLayout() {
   const [loaded, error] = useFonts(fonts);
   useEffect(() => {
     if (loaded || error) void SplashScreen.hideAsync();
   }, [loaded, error]);
-  useEffect(() => {
-    // DESIGN-GAP: Warm the offline content/data layer after mounting. M05 owns the localized
-    // storage recovery screen; a key/cipher failure never falls back to plaintext storage.
-    void getOfflineKnowledge('bazi').catch(() => undefined);
-  }, []);
   if (!loaded && !error) return null;
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -36,10 +34,7 @@ export default function RootLayout() {
             <ProfilesProvider>
               <EngagementBootstrap />
               <MonetizationBootstrap />
-              <Stack
-                screenOptions={{ headerShown: false }}
-                screenLayout={({ children }) => <SessionGate>{children}</SessionGate>}
-              />
+              <AccessibleStack />
             </ProfilesProvider>
           </AccountBootstrap>
         </SafeAreaProvider>
@@ -47,3 +42,25 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
+
+/** System and in-app motion settings also apply to native navigation transitions. */
+function AccessibleStack() {
+  const { reduced } = useSystemAccessibility();
+  const { settings, loading, error } = useProfiles();
+  useEffect(() => {
+    if (!loading && !error) requestAnimationFrame(() => markStartupReady());
+  }, [loading, error]);
+  return (
+    <MotionPreferenceContext.Provider value={settings.reducedMotion}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          animation: reduced || settings.reducedMotion ? 'none' : 'default',
+        }}
+        screenLayout={({ children }) => <SessionGate>{children}</SessionGate>}
+      />
+    </MotionPreferenceContext.Provider>
+  );
+}
+
+export default Sentry.wrap(RootLayout);

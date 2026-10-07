@@ -74,3 +74,8 @@ jest.mock('react-native-google-mobile-ads', () => {
     AdsConsentDebugGeography: { EEA: 1, REGULATED_US_STATE: 3 },
   };
 });
+jest.mock('@sentry/react-native', () => ({
+  init: jest.fn(),
+  captureEvent: jest.fn(),
+  wrap: (component: unknown) => component,
+}));

@@ -1,6 +1,6 @@
 import { spacing } from '@tianji/ui-core/tokens';
 import { useState } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, FlatList } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { z } from 'zod';
 import {
@@ -43,7 +43,6 @@ export function LearnScreen() {
     { colors } = useTheme();
   const [category, setCategory] = useState<Category>('systems'),
     [search, setSearch] = useState(''),
-    [limit, setLimit] = useState(50),
     [original, setOriginal] = useState(false);
   const prose = (text: string) => t('report.content', { text: localeText(text, locale) });
   const block = (title: string, text: string, id?: string) => (
@@ -65,6 +64,85 @@ export function LearnScreen() {
   }
   const matches = (text: string) =>
     text.toLocaleLowerCase(locale).includes(search.trim().toLocaleLowerCase(locale));
+  if (!system) {
+    const rows =
+      category === 'systems'
+        ? content.systems.map((s) => ({
+            key: s.key,
+            title: s[language].title,
+            href: `/learn/${s.key}`,
+          }))
+        : category === 'cards'
+          ? content.cards.map((c) => ({
+              key: c.key,
+              title: c.name[language],
+              href: `/learn/tarot/${c.key}`,
+            }))
+          : category === 'hexagrams'
+            ? content.hexagrams.map((h) => ({
+                key: h.key,
+                title: language === 'en' ? h.englishName : h.name,
+                href: `/learn/iching/${h.key}`,
+              }))
+            : category === 'tutorials'
+              ? content.articles.map((a) => ({
+                  key: `${a.system}/${a.slug}`,
+                  title: a[language].title,
+                  href: `/learn/${a.system}/articles/${a.slug}`,
+                }))
+              : glossary.map((g) => ({
+                  key: g.key,
+                  title: g[language].term,
+                  href: `/learn/glossary/${g.key}`,
+                }));
+    const filtered = rows.filter((r) => matches(localeText(r.title, locale)));
+    // DESIGN-GAP: The encyclopedia index uses one variable-height FlatList instead of appending unbounded ScrollView rows.
+    return (
+      <Page title="learn.title" scroll={false}>
+        <FlatList
+          testID="learn-list"
+          style={{ flex: 1 }}
+          data={filtered}
+          keyExtractor={(row) => row.key}
+          initialNumToRender={12}
+          maxToRenderPerBatch={6}
+          windowSize={5}
+          contentContainerStyle={{ gap: spacing('space-2'), paddingBottom: 24 }}
+          ListHeaderComponent={
+            <View style={{ gap: spacing('space-3'), marginBottom: 12 }}>
+              <CopyText>{t('learn.intro')}</CopyText>
+              {categories.map((c) => (
+                <Action
+                  key={c}
+                  id={`learn-category-${c}`}
+                  label={t(`learn.${c}`)}
+                  selected={category === c}
+                  onPress={() => {
+                    setCategory(c);
+                    setSearch('');
+                  }}
+                />
+              ))}
+              <Field
+                id="learn-search"
+                label={t('mobile.learn.search')}
+                value={search}
+                onChange={setSearch}
+              />
+            </View>
+          }
+          ListEmptyComponent={<CopyText>{t('mobile.learn.empty')}</CopyText>}
+          renderItem={({ item, index }) => (
+            <Action
+              id={`learn-item-${index}`}
+              label={prose(item.title)}
+              onPress={() => link(item.href)}
+            />
+          )}
+        />
+      </Page>
+    );
+  }
   return (
     <Page title="learn.title">
       {system && (
@@ -128,7 +206,13 @@ export function LearnScreen() {
             {[...hexagram.lines].reverse().map((line, i) => (
               <View
                 key={i}
-                style={{ width: 160, height: 6, flexDirection: 'row', gap: spacing('space-4') }}
+                style={{
+                  width: 160,
+                  height: 6,
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  gap: spacing('space-4'),
+                }}
               >
                 {line ? (
                   <View style={{ flex: 1, backgroundColor: colors.gold }} />
@@ -192,88 +276,6 @@ export function LearnScreen() {
               />
             ))}
           <Action label={t('learn.start')} onPress={() => router.push('/reading')} />
-        </>
-      )}
-      {!system && (
-        <>
-          <CopyText>{t('learn.intro')}</CopyText>
-          <View style={{ gap: spacing('space-2') }}>
-            {categories.map((c) => (
-              <Action
-                key={c}
-                id={`learn-category-${c}`}
-                label={t(`learn.${c}`)}
-                selected={category === c}
-                onPress={() => {
-                  setCategory(c);
-                  setSearch('');
-                  setLimit(50);
-                }}
-              />
-            ))}
-          </View>
-          <Field
-            id="learn-search"
-            label={t('mobile.learn.search')}
-            value={search}
-            onChange={(s) => {
-              setSearch(s);
-              setLimit(50);
-            }}
-          />
-          {(() => {
-            const rows =
-              category === 'systems'
-                ? content.systems.map((s) => ({
-                    key: s.key,
-                    title: s[language].title,
-                    href: `/learn/${s.key}`,
-                  }))
-                : category === 'cards'
-                  ? content.cards.map((c) => ({
-                      key: c.key,
-                      title: c.name[language],
-                      href: `/learn/tarot/${c.key}`,
-                    }))
-                  : category === 'hexagrams'
-                    ? content.hexagrams.map((h) => ({
-                        key: h.key,
-                        title: language === 'en' ? h.englishName : h.name,
-                        href: `/learn/iching/${h.key}`,
-                      }))
-                    : category === 'tutorials'
-                      ? content.articles.map((a) => ({
-                          key: `${a.system}/${a.slug}`,
-                          title: a[language].title,
-                          href: `/learn/${a.system}/articles/${a.slug}`,
-                        }))
-                      : glossary.map((g) => ({
-                          key: g.key,
-                          title: g[language].term,
-                          href: `/learn/glossary/${g.key}`,
-                        }));
-            const filtered = rows.filter((r) => matches(localeText(r.title, locale)));
-            return (
-              <>
-                {!filtered.length && <CopyText>{t('mobile.learn.empty')}</CopyText>}
-                {filtered.slice(0, limit).map((r, i) => (
-                  <Action
-                    key={r.key}
-                    id={`learn-item-${i}`}
-                    label={prose(r.title)}
-                    onPress={() => link(r.href)}
-                  />
-                ))}
-                {filtered.length > limit && (
-                  <Action
-                    id="learn-more"
-                    label={t('mobile.learn.more')}
-                    onPress={() => setLimit(limit + 50)}
-                  />
-                )}
-              </>
-            );
-          })()}
         </>
       )}
     </Page>

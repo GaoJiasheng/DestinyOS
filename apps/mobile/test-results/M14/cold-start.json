@@ -1,0 +1,41 @@
+{
+  "platform": "ios",
+  "configuration": "Release",
+  "metro": false,
+  "samples": [
+    {
+      "readyAtUnixMs": 1791347458316,
+      "jsReadyMs": 157.12770795822144,
+      "hermes": true,
+      "launchToReadyMs": 1560.27783203125
+    },
+    {
+      "readyAtUnixMs": 1791347462478,
+      "jsReadyMs": 158.97949981689453,
+      "hermes": true,
+      "launchToReadyMs": 1531.158935546875
+    },
+    {
+      "readyAtUnixMs": 1791347466603,
+      "jsReadyMs": 160.09191703796387,
+      "hermes": true,
+      "launchToReadyMs": 1485.030029296875
+    },
+    {
+      "readyAtUnixMs": 1791347470707,
+      "jsReadyMs": 154.78737497329712,
+      "hermes": true,
+      "launchToReadyMs": 1472.742919921875
+    },
+    {
+      "readyAtUnixMs": 1791347474860,
+      "jsReadyMs": 158.9580421447754,
+      "hermes": true,
+      "launchToReadyMs": 1502.1640625
+    }
+  ],
+  "maxMs": 1560.27783203125,
+  "budgetMs": 2000,
+  "teardownCooldownMs": 2000,
+  "passed": true
+}

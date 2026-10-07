@@ -37,7 +37,8 @@ export function Onboarding() {
     })();
   }, [step, t]);
   const size = Math.min(useWindowDimensions().width - 48, 320);
-  const { active } = useEffectsMotion();
+  const { active: systemActive } = useEffectsMotion();
+  const active = systemActive && !settings.reducedMotion && step === 0;
   const clock = useSharedValue(0);
   useFrameCallback((frame) => {
     if (active) clock.value = frame.timestamp;

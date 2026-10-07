@@ -8,7 +8,7 @@ import { Tabs } from 'expo-router';
 import { useState } from 'react';
 import { AskSheet } from '../../components/ask-sheet';
 import { useCopy } from '../../lib/copy';
-import { Text } from 'react-native';
+import { Text, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../lib/theme';
 const tabs = [
   ['today', 'nav.today', '☀︎'],
@@ -20,6 +20,7 @@ const tabs = [
 /** Five documented native tabs, with a raised central ask entry. */
 export default function TabLayout() {
   const t = useCopy();
+  const { fontScale } = useWindowDimensions();
   const [askOpen, setAskOpen] = useState(false);
   const { colors, body } = useTheme();
   return (
@@ -27,9 +28,14 @@ export default function TabLayout() {
       <Tabs
         screenOptions={{
           headerShown: false,
+          tabBarAllowFontScaling: true,
           tabBarActiveTintColor: colors.gold,
           tabBarInactiveTintColor: colors['text-2'],
-          tabBarStyle: { backgroundColor: colors['bg-1'], borderTopColor: colors['line-1'] },
+          tabBarStyle: {
+            height: 60 + 24 * fontScale,
+            backgroundColor: colors['bg-1'],
+            borderTopColor: colors['line-1'],
+          },
           tabBarLabelStyle: { fontFamily: body, fontSize: type.caption },
         }}
       >
@@ -49,10 +55,12 @@ export default function TabLayout() {
             }
             options={{
               title: t(key),
+              tabBarAccessibilityLabel: t(key),
               tabBarButtonTestID: `tab-${name}`,
               tabBarIcon: ({ color }) => (
                 <Text
                   accessible={false}
+                  allowFontScaling={false}
                   style={{
                     color,
                     fontSize: name === 'ask' ? geometry.askIcon : geometry.icon,

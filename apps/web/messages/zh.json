@@ -2540,5 +2540,11 @@
   "mobile.billing.network": "需要网络",
   "mobile.billing.adLabel": "广告",
   "mobile.billing.attPurpose": "允许跟踪可帮助展示相关广告。出生信息不会用于广告；拒绝后仍可使用全部功能。",
-  "mobile.billing.mock.nativeAtt": "测试 UMP 通过后的系统 ATT 授权"
+  "mobile.billing.mock.nativeAtt": "测试 UMP 通过后的系统 ATT 授权",
+  "mobile.audit.title": "无障碍与性能审计",
+  "mobile.audit.measured": "实测帧率：{fps} fps",
+  "mobile.audit.sampling": "正在采样显示帧…",
+  "mobile.audit.reduced": "减少动态效果",
+  "mobile.audit.field": "测试输入（不保存）",
+  "mobile.audit.row": "第 {count} 条 · {system} · 离线报告"
 }

@@ -9,7 +9,18 @@ export function useCopy() {
   return useMemo(() => getCopy(locale), [locale]);
 }
 /** Translate catalog keys outside React for synchronized profile metadata. */
+// DESIGN-GAP: Native catalogs are immutable during a session; reuse one next-intl translator per locale to avoid rebuilding it for each list row.
+const copyCache = new Map<MobileLocale, ReturnType<typeof createCopy>>();
+/** Cache immutable translators so list rows do not rebuild the entire bilingual catalog. */
 export function getCopy(locale: MobileLocale) {
+  let copy = copyCache.get(locale);
+  if (!copy) {
+    copy = createCopy(locale);
+    copyCache.set(locale, copy);
+  }
+  return copy;
+}
+function createCopy(locale: MobileLocale) {
   // DESIGN-GAP: Flatten native runtime names with underscores to preserve source keys that
   // are both a value and namespace (e.g. timeUnknown). The source catalogs remain unchanged.
   const messages = Object.fromEntries(

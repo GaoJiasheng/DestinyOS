@@ -13,7 +13,12 @@ export function SessionGate({ children }: { children: ReactNode }) {
     if (!state.loading && !state.error) ageStateLoaded.current = true;
   }, [state.loading, state.error]);
   // DESIGN-GAP: Existing diagnostic routes remain directly reachable in development builds.
-  if (__DEV__ && segments[0] === 'dev') return children;
+  if (
+    (__DEV__ ||
+      (process.env.EXPO_PUBLIC_M14_AUDIT === 'true' && String(segments[1]) === 'audit')) &&
+    segments[0] === 'dev'
+  )
+    return children;
   // DESIGN-GAP: After device age validation, keep auth forms mounted across account projection reloads so their input/navigation is retained. Blocked or failed storage still hides credentials.
   if (
     segments[0] === 'auth' &&

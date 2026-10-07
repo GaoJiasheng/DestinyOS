@@ -12,10 +12,12 @@ import { useTheme } from '../../lib/theme';
 import { usePreferences } from '../../lib/preferences';
 import { Action, CopyText, Page } from '../native-ui';
 import { ReportCard } from '../report/report-ui';
-import { View, Pressable, Text } from 'react-native';
+import { View, Pressable, Text, useWindowDimensions } from 'react-native';
 
 /** Private per-profile month/list comparison and shared Web long-term reflection statistics. */
 export function JournalScreen() {
+  // DESIGN-GAP: Large-text month view keeps every date as a full-width row, preserving month/list selection and unrecorded-day navigation.
+  const largeText = useWindowDimensions().fontScale > 1.3;
   const t = useCopy(),
     router = useRouter(),
     focused = useIsFocused(),
@@ -120,7 +122,7 @@ export function JournalScreen() {
                 <Action label={t('journal.methodLabel')} onPress={() => setMethod(!method)} />
                 {method && <CopyText>{t('journal.method')}</CopyText>}
               </ReportCard>
-              <View style={{ flexDirection: 'row', gap: spacing('space-2') }}>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing('space-2') }}>
                 <Action
                   id="journal-prev"
                   disabled={month === '1900-01'}
@@ -166,12 +168,11 @@ export function JournalScreen() {
                 <>
                   <CopyText>{t('journal.legend')}</CopyText>
                   <View testID="journal-grid" style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                    {Array.from(
-                      { length: Temporal.PlainDate.from(`${month}-01`).dayOfWeek - 1 },
-                      (_, i) => (
-                        <View key={`empty-${i}`} style={{ width: '14.285%' }} />
-                      ),
-                    )}
+                    {!largeText &&
+                      Array.from(
+                        { length: Temporal.PlainDate.from(`${month}-01`).dayOfWeek - 1 },
+                        (_, i) => <View key={`empty-${i}`} style={{ width: '14.285%' }} />,
+                      )}
                     {days.map((day) => {
                       const entry = byDate.get(day.date),
                         forecast = journalStars(entry?.prediction.scores.overall ?? day.overall);
@@ -187,7 +188,7 @@ export function JournalScreen() {
                           })}
                           onPress={() => navigate(day.date)}
                           style={{
-                            width: '14.285%',
+                            width: largeText ? '100%' : '14.285%',
                             minHeight: 78,
                             padding: spacing('space-1') / 2,
                           }}
@@ -211,7 +212,9 @@ export function JournalScreen() {
                                 color: colors['text-1'],
                               }}
                             >
-                              {t('report.content', { text: day.date.slice(-2) })}
+                              {t('report.content', {
+                                text: largeText ? day.date : day.date.slice(-2),
+                              })}
                             </Text>
                             <Text
                               style={{

@@ -1,12 +1,6 @@
-import { useMemo, useState, useCallback, useEffect } from 'react';
-import {
-  View,
-  ScrollView,
-  Text,
-  useWindowDimensions,
-  AccessibilityInfo,
-  useColorScheme,
-} from 'react-native';
+import { useMemo, useState, useCallback } from 'react';
+import { View, ScrollView, Text, useWindowDimensions } from 'react-native';
+import { useSystemAccessibility } from '../../lib/accessibility';
 import { SceneCanvas } from './scene-canvas';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { useSharedValue, useAnimatedStyle } from 'react-native-reanimated';
@@ -42,7 +36,7 @@ export function NativeChartView({
   const t = useCopy(),
     label = useChartLabel(),
     { colors, body } = useTheme();
-  const { width: screenWidth } = useWindowDimensions();
+  const { width: screenWidth, fontScale } = useWindowDimensions();
   const width = Math.min(screenWidth - 64, 440);
   const [division, setDivision] = useState<'D1' | 'D9'>('D1'),
     [layout, setLayout] = useState<'south' | 'north'>('south'),
@@ -53,16 +47,7 @@ export function NativeChartView({
     [failed3D, setFailed3D] = useState(false);
   const reduced = useProfiles().settings.reducedMotion;
   const motion = useEffectsMotion();
-  const [systemReduced, setSystemReduced] = useState(false);
-  useColorScheme();
-  useEffect(() => {
-    void AccessibilityInfo.isReduceMotionEnabled().then(setSystemReduced);
-    const subscription = AccessibilityInfo.addEventListener(
-      'reduceMotionChanged',
-      setSystemReduced,
-    );
-    return () => subscription.remove();
-  }, []);
+  const { reduced: systemReduced, screenReader } = useSystemAccessibility();
   const scene = useMemo(
     () => makeChartScene(chart, label, { division, layout, northUp }),
     [chart, label, division, layout, northUp],
@@ -141,7 +126,7 @@ export function NativeChartView({
     <View testID={`chart-${chart.system}`} style={{ gap: 12 }}>
       {chart.system === 'vedic' ? (
         <>
-          <View style={{ flexDirection: 'row', gap: 8 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
             {(['D1', 'D9'] as const).map((d) => (
               <Action
                 key={d}
@@ -155,7 +140,7 @@ export function NativeChartView({
               />
             ))}
           </View>
-          <View style={{ flexDirection: 'row', gap: 8 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
             {(['south', 'north'] as const).map((l) => (
               <Action
                 key={l}
@@ -204,6 +189,8 @@ export function NativeChartView({
       {chart.system === 'synastry' ? <CopyText>{t('synastry.wheel')}</CopyText> : null}
       <CopyText>{t('mobile.report.gesture')}</CopyText>
       <View
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
         style={{
           width,
           height: show3D ? width : height,
@@ -249,7 +236,7 @@ export function NativeChartView({
           })}
         </CopyText>
       ) : null}
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
         <Action
           id="chart-zoom"
           label={t('ziwei.chart.zoom')}
@@ -264,7 +251,8 @@ export function NativeChartView({
         label={t('mobile.report.chartData')}
         onPress={() => setTable((v) => !v)}
       />
-      {table ? (
+      {/* DESIGN-GAP: Fixed-geometry Skia labels have a complete scalable native table at accessibility font sizes. */}
+      {table || screenReader || fontScale > 1.3 ? (
         <ScrollView style={{ maxHeight: 280 }} contentContainerStyle={{ gap: 8 }}>
           {scene.nodes.map((n, i) => (
             <Action

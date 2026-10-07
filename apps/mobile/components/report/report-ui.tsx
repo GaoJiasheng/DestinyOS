@@ -7,7 +7,8 @@ import { usePreferences } from '../../lib/preferences';
 import { resources, type MessageKey } from '../../lib/i18n';
 import { CopyText, Action } from '../native-ui';
 import type { ChartLabel } from '../../lib/reports/chart-scene';
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
+import { focusHeading, useReducedMotion } from '../../lib/accessibility';
 import { bundledKnowledge } from '../../lib/knowledge/bundled';
 import { sourceLocale, localeText } from '@tianji/shared/locale';
 
@@ -76,10 +77,23 @@ export function ReportSheet({
 }) {
   const { colors } = useTheme(),
     t = useCopy();
+  const heading = useRef<Text>(null);
+  const reduced = useReducedMotion();
   return (
-    <Modal visible animationType="slide" transparent onRequestClose={close}>
+    <Modal
+      visible
+      animationType={reduced ? 'none' : 'slide'}
+      onShow={() => focusHeading(heading)}
+      transparent
+      onRequestClose={close}
+    >
       <View style={{ flex: 1, justifyContent: 'flex-end', backgroundColor: '#00000088' }}>
-        <Pressable accessibilityLabel={t('common.close')} onPress={close} style={{ flex: 1 }} />
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('common.close')}
+          onPress={close}
+          style={{ flex: 1 }}
+        />
         <SafeAreaView
           edges={['bottom']}
           testID={id}
@@ -93,7 +107,9 @@ export function ReportSheet({
           }}
         >
           <ScrollView contentContainerStyle={{ gap: 16, paddingBottom: 12 }}>
-            <CopyText title>{title}</CopyText>
+            <CopyText title textRef={heading}>
+              {title}
+            </CopyText>
             {children}
           </ScrollView>
           <Action id="report-sheet-close" label={t('common.close')} onPress={close} />

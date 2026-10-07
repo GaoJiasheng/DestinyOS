@@ -86,7 +86,7 @@ export function TodayScreen() {
               switchDay(e.nativeEvent.pageX < touch.current.x ? 1 : -1);
           }}
         >
-          <View style={{ flexDirection: 'row', gap: spacing('space-2') }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing('space-2') }}>
             <Action
               id="daily-prev"
               label={t('daily.yesterday')}
@@ -208,7 +208,7 @@ export function TodayScreen() {
               </ReportCard>
               <ReportCard id="daily-block-4">
                 <CopyText title>{t('daily.lucky')}</CopyText>
-                <View style={{ flexDirection: 'row', gap: spacing('space-2') }}>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing('space-2') }}>
                   <View
                     style={{
                       width: 24,

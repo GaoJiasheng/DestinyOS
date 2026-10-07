@@ -14,6 +14,8 @@ export type FrameMeasurement = {
   frames: number;
   durationMs: number;
   source: 'ui-display' | 'r3f-render';
+  longFrames?: number;
+  maxMs?: number;
 };
 /** Reject dropped-frame cadence; epsilon only accommodates display timestamp floating point error. */
 export function meetsFrameBudget(fps: number, target: number): boolean {
@@ -33,4 +35,8 @@ export function summarizeFrames(
     durationMs,
     source,
   };
+}
+/** Count missed 60Hz display deadlines in an audit window, retaining the worst stall in milliseconds. */
+export function frameStalls(intervals: readonly number[]) {
+  return { longFrames: intervals.filter((ms) => ms > 25).length, maxMs: Math.max(0, ...intervals) };
 }

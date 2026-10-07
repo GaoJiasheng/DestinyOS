@@ -1,0 +1,15 @@
+{
+  "prebuild": true,
+  "package": "pub.gavin.tianji",
+  "newArchitecture": true,
+  "hermes": true,
+  "sentryBuildPlugin": true,
+  "widgets": [
+    ".widget.TianjiSmall",
+    ".widget.TianjiMedium",
+    ".widget.TianjiLarge"
+  ],
+  "nativeBuild": false,
+  "javaInstalled": false,
+  "runtimeAcceptance": "pending Owner Java installation"
+}

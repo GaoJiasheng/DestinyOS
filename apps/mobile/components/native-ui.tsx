@@ -1,4 +1,5 @@
-import type { ReactNode, RefObject } from 'react';
+import { useEffect, useRef, type ReactNode, type RefObject } from 'react';
+import { focusHeading } from '../lib/accessibility';
 import {
   Pressable,
   Text,
@@ -8,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Keyboard,
+  AccessibilityInfo,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { nativeTypography as type, spacing, corner } from '@tianji/ui-core/tokens';
@@ -20,14 +22,25 @@ export function CopyText({
   children,
   title = false,
   testID,
+  textRef,
+  status = false,
 }: {
   children: ReactNode;
   title?: boolean;
   testID?: string;
+  textRef?: RefObject<Text | null>;
+  status?: boolean;
 }) {
   const { colors, body, heading } = useTheme();
+  useEffect(() => {
+    if (status && typeof children === 'string' && Platform.OS === 'ios')
+      AccessibilityInfo.announceForAccessibility(children);
+  }, [children, status]);
   return (
     <Text
+      ref={textRef}
+      allowFontScaling
+      accessibilityLiveRegion={status ? 'polite' : undefined}
       testID={testID}
       accessibilityRole={title ? 'header' : undefined}
       style={{
@@ -47,34 +60,50 @@ export function Page({
   children,
   footer,
   scrollRef,
+  scroll = true,
 }: {
   title: MessageKey;
   children: ReactNode;
   footer?: ReactNode;
   scrollRef?: RefObject<ScrollView | null>;
+  scroll?: boolean;
 }) {
   const { colors } = useTheme();
   const t = useCopy();
+  const heading = useRef<Text>(null);
+  useEffect(() => focusHeading(heading), [title]);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors['bg-0'] }}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
-        <ScrollView
-          ref={scrollRef}
-          keyboardShouldPersistTaps="handled"
-          keyboardDismissMode="on-drag"
-          contentContainerStyle={{
-            padding: spacing('space-6'),
-            gap: spacing('space-5'),
-            flexGrow: 1,
-          }}
-        >
-          <CopyText title>{t(title)}</CopyText>
-          {children}
-          <CopyText>{t('report.disclaimer.short')}</CopyText>
-        </ScrollView>
+        {scroll ? (
+          <ScrollView
+            ref={scrollRef}
+            keyboardShouldPersistTaps="handled"
+            keyboardDismissMode="on-drag"
+            contentContainerStyle={{
+              padding: spacing('space-6'),
+              gap: spacing('space-5'),
+              flexGrow: 1,
+            }}
+          >
+            <CopyText title textRef={heading}>
+              {t(title)}
+            </CopyText>
+            {children}
+            <CopyText>{t('report.disclaimer.short')}</CopyText>
+          </ScrollView>
+        ) : (
+          <View style={{ flex: 1, padding: spacing('space-6'), gap: spacing('space-4') }}>
+            <CopyText title textRef={heading}>
+              {t(title)}
+            </CopyText>
+            {children}
+            <CopyText>{t('report.disclaimer.short')}</CopyText>
+          </View>
+        )}
         {footer && (
           <View style={{ padding: 16, gap: 12, backgroundColor: colors['bg-1'] }}>{footer}</View>
         )}
@@ -108,6 +137,7 @@ export function Action({
       disabled={disabled}
       onPress={onPress}
       style={{
+        minWidth: 48,
         minHeight: 48,
         justifyContent: 'center',
         padding: spacing('space-4'),
@@ -118,7 +148,10 @@ export function Action({
         opacity: disabled ? 0.45 : 1,
       }}
     >
-      <Text style={{ color: colors['text-1'], fontFamily: body, fontSize: type.body }}>
+      <Text
+        allowFontScaling
+        style={{ color: colors['text-1'], fontFamily: body, fontSize: type.body }}
+      >
         {label}
       </Text>
       {children}

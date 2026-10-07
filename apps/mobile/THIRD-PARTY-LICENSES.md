@@ -13,3 +13,8 @@ M04 uses MIT-licensed expo-sqlite, expo-secure-store, expo-crypto, Zod, Ajv, ffl
 @noble/curves and @noble/hashes. The bundled SQLCipher implementation is BSD-3-Clause;
 its copyright, redistribution conditions and disclaimer are retained in
 `assets/licenses/SQLCipher.txt`. No GPL/AGPL dependency is introduced.
+
+M14 uses MIT-licensed `@sentry/react-native@8.29.0` and its MIT native SDKs.
+// DESIGN-GAP: Pin Sentry's build-time CLI to `2.57.0` (BSD-3-Clause), the
+reviewed permissive release, rather than the newer FSL-only CLI. It supports
+Hermes source maps and Debug IDs; no GPL/AGPL dependency is introduced.

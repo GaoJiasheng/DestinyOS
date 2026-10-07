@@ -123,7 +123,7 @@ export function ReportSection({
             style={{ borderTopWidth: 1, borderColor: colors['line-1'], paddingTop: 12, gap: 8 }}
           >
             <CopyText>{t('report.feedback')}</CopyText>
-            <View style={{ flexDirection: 'row', gap: 8 }}>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
               <Action
                 id={`feedback-yes-${section.key}`}
                 label={t('report.feedback.yes')}

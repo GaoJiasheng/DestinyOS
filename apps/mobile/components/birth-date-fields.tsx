@@ -33,7 +33,7 @@ export function BirthDateFields({
       : Array.from({ length: 12 }, (_, i) => ({ month: i + 1, days: 31 }));
   return (
     <>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
         {(['gregorian', 'lunar'] as const).map((calendar) => (
           <Action
             key={calendar}
@@ -63,7 +63,7 @@ export function BirthDateFields({
           })}
         </CopyText>
       )}
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
         {wheel(
           t('form.birth.month'),
           birth.isLeapMonth ? -birth.month : birth.month,

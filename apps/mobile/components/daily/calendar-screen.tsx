@@ -1,6 +1,6 @@
 import { corner, nativeTypography, spacing } from '@tianji/ui-core/tokens';
 import { useState, useEffect } from 'react';
-import { View, Pressable, Text } from 'react-native';
+import { View, Pressable, Text, useWindowDimensions } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Temporal } from '@js-temporal/polyfill';
 import { dailyStars, type DailyRangeDay } from '@tianji/engine/daily';
@@ -20,6 +20,8 @@ export function CalendarScreen() {
     router = useRouter(),
     { colors, body } = useTheme();
   const { active, settings } = useProfiles();
+  // DESIGN-GAP: Seven columns cannot fit accessibility text; expose full-date rows at large system sizes.
+  const largeText = useWindowDimensions().fontScale > 1.3;
   const tz = settings.tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone,
     locale = usePreferences((s) => s.locale);
   const [month, setMonth] = useState(() => todayIn(tz).slice(0, 7)),
@@ -77,7 +79,7 @@ export function CalendarScreen() {
         </>
       ) : (
         <>
-          <View style={{ flexDirection: 'row', gap: spacing('space-2') }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing('space-2') }}>
             <Action
               id="calendar-prev"
               disabled={busy || month === '1900-01'}
@@ -117,30 +119,30 @@ export function CalendarScreen() {
           )}
           {!busy && !error && (
             <View testID="calendar-grid" style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-              {Array.from({ length: 7 }, (_, i) => (
-                <View
-                  key={`week-${i}`}
-                  style={{
-                    width: '14.285%',
-                    alignItems: 'center',
-                    paddingVertical: spacing('space-2'),
-                  }}
-                >
-                  <CopyText>
-                    {t('report.content', {
-                      text: format(`2026-10-${String(5 + i).padStart(2, '0')}`, {
-                        weekday: 'short',
-                      }),
-                    })}
-                  </CopyText>
-                </View>
-              ))}
-              {Array.from(
-                { length: Temporal.PlainDate.from(`${month}-01`).dayOfWeek - 1 },
-                (_, i) => (
-                  <View key={`empty-${i}`} style={{ width: '14.285%' }} />
-                ),
-              )}
+              {!largeText &&
+                Array.from({ length: 7 }, (_, i) => (
+                  <View
+                    key={`week-${i}`}
+                    style={{
+                      width: '14.285%',
+                      alignItems: 'center',
+                      paddingVertical: spacing('space-2'),
+                    }}
+                  >
+                    <CopyText>
+                      {t('report.content', {
+                        text: format(`2026-10-${String(5 + i).padStart(2, '0')}`, {
+                          weekday: 'short',
+                        }),
+                      })}
+                    </CopyText>
+                  </View>
+                ))}
+              {!largeText &&
+                Array.from(
+                  { length: Temporal.PlainDate.from(`${month}-01`).dayOfWeek - 1 },
+                  (_, i) => <View key={`empty-${i}`} style={{ width: '14.285%' }} />,
+                )}
               {days.map((day) => (
                 <Pressable
                   key={day.date}
@@ -150,7 +152,11 @@ export function CalendarScreen() {
                     date: format(day.date, { dateStyle: 'full' }),
                     score: day.overall,
                   })}
-                  style={{ width: '14.285%', minHeight: 58, padding: spacing('space-1') / 2 }}
+                  style={{
+                    width: largeText ? '100%' : '14.285%',
+                    minHeight: 58,
+                    padding: spacing('space-1') / 2,
+                  }}
                   onPress={() => router.push({ pathname: '/today', params: { date: day.date } })}
                 >
                   <View
@@ -171,7 +177,12 @@ export function CalendarScreen() {
                         color: dailyStars(day.overall) >= 3 ? colors['bg-0'] : colors['text-1'],
                       }}
                     >
-                      {t('report.content', { text: day.date.slice(-2) })}
+                      {largeText
+                        ? t('calendar.dayLabel', {
+                            date: format(day.date, { dateStyle: 'full' }),
+                            score: day.overall,
+                          })
+                        : t('report.content', { text: day.date.slice(-2) })}
                     </Text>
                   </View>
                 </Pressable>

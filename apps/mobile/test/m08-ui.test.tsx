@@ -1,3 +1,4 @@
+import { FlatList } from 'react-native';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react-native';
 import { TodayScreen } from '../components/daily/today-screen';
 import { JournalEditor } from '../components/daily/journal-editor';
@@ -172,7 +173,8 @@ it('browses offline 64 hexagrams, 78 cards and 27 tutorials through documented r
   fireEvent.changeText(screen.getByTestId('learn-search'), 'no-such-card');
   expect(screen.queryByTestId('learn-item-0')).toBeNull();
   fireEvent.press(screen.getByTestId('learn-category-tutorials'));
-  expect(screen.getAllByTestId(/learn-item-/)).toHaveLength(27);
+  expect(screen.getAllByTestId(/learn-item-/)).toHaveLength(12);
+  expect(screen.UNSAFE_getByType(FlatList).props.data).toHaveLength(27);
 });
 it('renders English card meanings, classical hexagram toggle and missing content state', () => {
   usePreferences.setState({ locale: 'en' });
