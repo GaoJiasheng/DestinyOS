@@ -237,15 +237,19 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const) {
         await capture(page, info, 'synastry-side-by-side', locale);
       }
       if (system === 'bazi') {
-        await activate(page, page.locator('.export-menu summary'));
+        await activate(page, page.locator('.export-menu button'));
         await expect(
           page.getByRole('combobox', { name: t['export.theme'], exact: true }),
         ).toBeVisible();
         await capture(page, info, 'export-menu', locale);
         await page.route('**/api/export', (route) => route.fulfill({ status: 503, body: '{}' }));
         await activate(page, page.getByRole('button', { name: t['export.pdf'], exact: true }));
-        await expect(page.locator('main').getByRole('alert')).toContainText(t['export.failed']);
+        await expect(page.getByRole('dialog').getByRole('alert')).toContainText(t['export.failed']);
         await capture(page, info, 'export-error', locale);
+        await page
+          .getByRole('dialog')
+          .getByRole('button', { name: t['common.close'], exact: true })
+          .click();
         await activate(page, page.locator('.chat-panel summary'));
         const chip = page.getByRole('button', { name: t['report.chat.chips.bazi.0'], exact: true });
         await expect(chip).toBeVisible();

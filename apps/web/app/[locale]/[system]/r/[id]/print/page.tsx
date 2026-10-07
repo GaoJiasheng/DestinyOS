@@ -11,6 +11,7 @@ import { ExportRequestSchema } from '@/lib/report-export-schema';
 import { exportReading, verifyPrintToken } from '@/lib/report-export';
 import { getDb } from '@/lib/db';
 import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource-variable/noto-sans/wdth.css';
 import './print.css';
 export const dynamic = 'force-dynamic';
 export const metadata = { robots: { index: false, follow: false } };
@@ -20,7 +21,7 @@ export default async function PrintPage({
   searchParams,
 }: {
   params: Promise<{ locale: string; system: string; id: string }>;
-  searchParams: Promise<{ theme?: string }>;
+  searchParams: Promise<{ theme?: string; layout?: string; width?: string }>;
 }) {
   const { locale, system, id } = await params;
   if (!isLocale(locale)) notFound();
@@ -30,7 +31,8 @@ export default async function PrintPage({
     readingId: id,
     locale,
     theme: query.theme ?? 'dark',
-    format: 'pdf',
+    format: query.layout === 'poster' ? 'png' : query.layout === 'cover' ? 'cover' : 'pdf',
+    width: query.width ?? 1242,
   });
   if (!request.success) notFound();
   const token = (await headers()).get('x-report-print-token');
@@ -57,7 +59,20 @@ export default async function PrintPage({
         <link rel="stylesheet" href="/fonts/fonts-body.css" />
         <link rel="stylesheet" href="/fonts/fonts-print.css" />
         <link rel="stylesheet" href="/fonts/fonts-print-symbols.css" />
-        <PrintReport reading={reading} theme={request.data.theme} qr={qr} />
+        <PrintReport
+          key={`${reading.id}:${locale}:${request.data.theme}:${request.data.format}:${request.data.width}`}
+          reading={reading}
+          theme={request.data.theme}
+          qr={qr}
+          layout={
+            request.data.format === 'pdf'
+              ? 'pdf'
+              : request.data.format === 'cover'
+                ? 'cover'
+                : 'poster'
+          }
+          width={request.data.width}
+        />
       </>
     );
     return system === 'tarot' ? <TarotMessages>{report}</TarotMessages> : report;

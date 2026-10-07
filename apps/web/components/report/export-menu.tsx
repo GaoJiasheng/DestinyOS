@@ -4,20 +4,17 @@ import { z } from 'zod';
 import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
-import { ShareDialog } from '@/components/share/share-dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Link } from '@/i18n/navigation';
 import type { ExportRequest } from '@/lib/report-export-schema';
 const updateSchema = z.object({
   progress: z.number().min(0).max(100).optional(),
+  estimatedSeconds: z.number().nonnegative().optional(),
   url: z.string().startsWith('/api/export?').optional(),
   filename: z.string().optional(),
   error: z.string().optional(),
-  files: z
-    .array(z.object({ url: z.string().startsWith('/api/export?'), filename: z.string() }))
-    .max(80)
-    .optional(),
 });
-/** Accessible export chooser reports real streamed stages and retains a retry/download state. */
+/** Responsive export dialog streams progress, shares the cover and downloads one completed artifact. */
 export function ExportMenu({
   readingId,
   local,
@@ -29,24 +26,30 @@ export function ExportMenu({
 }) {
   const t = useCopy();
   const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
+  const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [width, setWidth] = useState<1242 | 1600>(1242);
   const [progress, setProgress] = useState<number | null>(null);
-  const [url, setUrl] = useState('');
-  const [files, setFiles] = useState<{ url: string; filename: string }[]>([]);
+  const [seconds, setSeconds] = useState(25);
   const [error, setError] = useState('');
+  const [finished, setFinished] = useState(false);
+  const [working, setWorking] = useState(false);
+  const lastFormat = useRef<ExportRequest['format']>('png');
   const abort = useRef<AbortController | null>(null);
   useEffect(() => () => abort.current?.abort(), []);
   const generate = async (format: ExportRequest['format']) => {
+    setWorking(true);
+    lastFormat.current = format;
     setError('');
-    setUrl('');
-    setFiles([]);
+    setFinished(false);
     setProgress(0);
+    setSeconds(25);
     abort.current = new AbortController();
     try {
       const response = await fetch('/api/export', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ readingId, locale, theme, format }),
+        body: JSON.stringify({ readingId, locale, theme, format, width }),
         signal: abort.current.signal,
       });
       if (!response.ok) {
@@ -65,32 +68,72 @@ export function ExportMenu({
       if (!reader) throw new Error('Missing stream');
       const decoder = new TextDecoder();
       let buffer = '';
+      let result: { url: string; filename: string } | undefined;
       for (;;) {
         const { value, done } = await reader.read();
         buffer += decoder.decode(value, { stream: !done });
         const lines = buffer.split('\n');
         buffer = lines.pop() ?? '';
+        if (done && buffer.trim()) lines.push(buffer);
         for (const line of lines) {
           if (!line.trim()) continue;
           const update = updateSchema.parse(JSON.parse(line));
-          if (update.error) throw new Error('Export failed');
+          if (update.error) {
+            setError(t(update.error === 'E_EXPORT_TIMEOUT' ? 'export.timeout' : 'export.failed'));
+            return;
+          }
           if (update.progress !== undefined) setProgress(update.progress);
-          if (update.url) setUrl(update.url);
-          if (update.files) setFiles(update.files);
+          if (update.estimatedSeconds !== undefined) setSeconds(update.estimatedSeconds);
+          if (update.url && update.filename)
+            result = { url: update.url, filename: update.filename };
         }
         if (done) break;
       }
+      if (!result) throw new Error('Incomplete export');
+      let shared = false;
+      if (format === 'cover' && navigator.canShare && navigator.share) {
+        const download = await fetch(result.url, { signal: abort.current.signal });
+        if (!download.ok) throw new Error('Download unavailable');
+        const file = new File([await download.blob()], result.filename, { type: 'image/jpeg' });
+        if (navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file], title: t('export.cover') });
+            shared = true;
+          } catch (failure) {
+            if (failure instanceof DOMException && failure.name === 'AbortError') shared = true;
+            // DESIGN-GAP: Browsers that lose user activation during generation fall back to a direct attachment download.
+          }
+        }
+      }
+      if (!shared) {
+        const link = document.createElement('a');
+        link.href = result.url;
+        link.download = result.filename;
+        document.body.append(link);
+        link.click();
+        link.remove();
+      }
+      setFinished(true);
     } catch {
       setError(t('export.failed'));
     } finally {
+      setWorking(false);
       setProgress((p) => (p === 100 ? 100 : null));
     }
   };
-  const busy = progress !== null && progress < 100;
+  const busy = working;
   return (
-    <details className="report-more export-menu">
-      <summary>{t('export.menu')}</summary>
-      <div className="report-more-actions">
+    <div className="export-menu">
+      <Button variant="ghost" onClick={() => setOpen(true)}>
+        {t('export.menu')}
+      </Button>
+      <Dialog
+        open={open}
+        onOpenChange={setOpen}
+        title={t('export.menu')}
+        description={t('export.description')}
+        className="export-dialog"
+      >
         {local || !owner ? (
           <>
             <p>{t('export.login')}</p>
@@ -99,7 +142,7 @@ export function ExportMenu({
             </Link>
           </>
         ) : (
-          <>
+          <div className="export-options">
             <label className="birth-field">
               {t('export.theme')}
               <select
@@ -111,45 +154,53 @@ export function ExportMenu({
                 <option value="light">{t('export.light')}</option>
               </select>
             </label>
-            <Button variant="ghost" disabled={busy} onClick={() => void generate('pdf')}>
-              {t('export.pdf')}
-            </Button>
-            <Button variant="ghost" disabled={busy} onClick={() => void generate('png')}>
-              {t('export.png')}
-            </Button>
-            <Button variant="ghost" disabled={busy} onClick={() => void generate('cover')}>
-              {t('export.cover')}
-            </Button>
-          </>
+            <label className="birth-field">
+              {t('export.width')}
+              <select
+                value={width}
+                disabled={busy}
+                onChange={(e) => setWidth(e.target.value === '1600' ? 1600 : 1242)}
+              >
+                <option value="1242">{t('export.widthMobile')}</option>
+                <option value="1600">{t('export.widthWide')}</option>
+              </select>
+            </label>
+            <div className="export-primary-actions">
+              <Button disabled={busy} onClick={() => void generate('png')}>
+                {t('export.png')}
+              </Button>
+              <Button variant="secondary" disabled={busy} onClick={() => void generate('pdf')}>
+                {t('export.pdf')}
+              </Button>
+              <Button variant="secondary" disabled={busy} onClick={() => void generate('cover')}>
+                {t('export.cover')}
+              </Button>
+            </div>
+          </div>
         )}
-        <ShareDialog readingId={readingId} local={local} />
         {progress !== null ? (
-          <div role="status" aria-live="polite">
+          <div role="status" aria-live="polite" className="export-status">
             <p>{t('export.progress', { percent: progress })}</p>
+            {busy && progress < 100 ? (
+              <p className="muted">{t('export.estimate', { seconds })}</p>
+            ) : null}
             <progress
               value={progress}
               max="100"
               aria-label={t('export.progress', { percent: progress })}
             />
+            {finished ? <p>{t('export.complete')}</p> : null}
           </div>
         ) : null}
-        {error ? <p role="alert">{error}</p> : null}
-        {files.length ? (
-          <ol>
-            {files.map((file, index) => (
-              <li key={file.url}>
-                <a className="text-link" href={file.url} download>
-                  {t('export.pageDownload', { number: index + 1 })}
-                </a>
-              </li>
-            ))}
-          </ol>
-        ) : url ? (
-          <a className="text-link" href={url} download>
-            {t('export.download')}
-          </a>
+        {error ? (
+          <div className="export-error">
+            <p role="alert">{error}</p>
+            <Button variant="ghost" onClick={() => void generate(lastFormat.current)}>
+              {t('export.retry')}
+            </Button>
+          </div>
         ) : null}
-      </div>
-    </details>
+      </Dialog>
+    </div>
   );
 }

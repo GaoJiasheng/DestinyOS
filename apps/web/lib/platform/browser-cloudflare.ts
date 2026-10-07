@@ -1,4 +1,10 @@
-import { printSettled, zoomPrintReport, selectPrintSheet } from './print-dom';
+import {
+  printSettled,
+  sizePoster,
+  compressPrintImages,
+  limitPosterHeight,
+  compressPoster,
+} from './print-dom';
 import puppeteer from '@cloudflare/puppeteer';
 import { cloudflareBindings } from './cloudflare';
 import type { ReportPage } from './browser';
@@ -28,6 +34,10 @@ export async function openCloudflarePage(
     });
     return {
       async navigate(url) {
+        // DESIGN-GAP: Select final media before measuring columns; switching after pagination can wrap and clip a condensed line.
+        await page.emulateMediaType(
+          new URL(url).searchParams.get('layout') === 'pdf' ? 'print' : 'screen',
+        );
         if (!(await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 }))?.ok())
           throw new Error('Print route unavailable');
       },
@@ -39,8 +49,9 @@ export async function openCloudflarePage(
           return (
             root?.getAttribute('data-ready') === 'true' &&
             document.fonts.status === 'loaded' &&
-            document.querySelectorAll('.print-sheet').length > 0 &&
-            !Array.from(document.querySelectorAll('.print-page-content')).some(
+            (root?.getAttribute('data-layout') !== 'pdf' ||
+              document.querySelectorAll('.print-sheet').length > 0) &&
+            !Array.from(document.querySelectorAll('.print-column')).some(
               (n) => n.scrollHeight > n.clientHeight + 1,
             )
           );
@@ -48,6 +59,7 @@ export async function openCloudflarePage(
         if (!valid) throw new Error('Print fonts or pagination failed');
       },
       async pdf() {
+        await page.evaluate(compressPrintImages);
         await page.emulateMediaType('print');
         return page.pdf({
           format: 'A4',
@@ -56,14 +68,22 @@ export async function openCloudflarePage(
           tagged: true,
         });
       },
-      async preparePng() {
-        await page.setViewport({ width: 2480, height: 3508, deviceScaleFactor: 1 });
-        await page.$eval('.print-report', zoomPrintReport);
+      async prepareImage(width) {
+        await page.setViewport({ width, height: 1200, deviceScaleFactor: 1 });
+        return page.evaluate(sizePoster, width);
       },
-      pageCount: () => page.$$eval('.print-sheet', (nodes) => nodes.length),
-      async screenshot(index) {
-        await page.$$eval('.print-sheet', selectPrintSheet, index);
-        return page.screenshot({ type: 'png' });
+      async limitImageHeight(height) {
+        await page.evaluate(limitPosterHeight, height);
+      },
+      async compressImage(data) {
+        const encoded = await page.evaluate(
+          compressPoster,
+          `data:image/jpeg;base64,${Buffer.from(data).toString('base64')}`,
+        );
+        return Buffer.from(encoded.slice(encoded.indexOf(',') + 1), 'base64');
+      },
+      async screenshotImage(quality) {
+        return page.screenshot({ type: 'jpeg', quality, fullPage: true });
       },
       close: () => browser.close(),
     };

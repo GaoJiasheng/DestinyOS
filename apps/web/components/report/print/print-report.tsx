@@ -12,15 +12,19 @@ import type { ReadingView } from '@/lib/reading-schema';
 import { PrintChart } from './print-chart';
 import { paginatePrint } from './print-pagination';
 const dims = ['career', 'wealth', 'love', 'health', 'social'] as const;
-/** Paginated, privacy-minimized A4 report; source blocks are measured after every font and image loads. */
+/** Continuous poster or compact, privacy-minimized A4 report; source blocks are measured after every font and image loads. */
 export function PrintReport({
   reading,
   theme,
   qr,
+  layout = 'pdf',
+  width = 1242,
 }: {
   reading: ReadingView;
   theme: 'dark' | 'light';
   qr: string;
+  layout?: 'pdf' | 'poster' | 'cover';
+  width?: 1242 | 1600;
 }) {
   const t = useTranslations();
   const locale = useLocale();
@@ -43,6 +47,10 @@ export function PrintReport({
         .map((node) => node.textContent)
         .join('');
       await Promise.all([
+        // DESIGN-GAP: The source is hidden in print media, so explicitly load the condensed PDF font before cloning or measuring text.
+        ...(layout === 'pdf' && locale === 'en'
+          ? [document.fonts.load('12px "Noto Sans Variable"', prose)]
+          : []),
         document.fonts.load('14px "Noto Serif SC"', prose),
         document.fonts.load('24px "LXGW WenKai"', headings),
         document.fonts.load('24px "Cinzel"', headings),
@@ -55,7 +63,7 @@ export function PrintReport({
       );
       if (active && element) {
         try {
-          paginatePrint(element);
+          if (layout === 'pdf') paginatePrint(element);
           element.dataset.ready = 'true';
         } catch {
           element.dataset.ready = 'error';
@@ -65,7 +73,7 @@ export function PrintReport({
     return () => {
       active = false;
     };
-  }, []);
+  }, [layout, width, locale]);
   const b = BaziChartSchema.safeParse(reading.chart),
     z = ZiweiChartSchema.safeParse(reading.chart),
     a = AstroChartSchema.safeParse(reading.chart),
@@ -105,6 +113,9 @@ export function PrintReport({
       data-print-theme={theme}
       data-system={reading.system}
       data-locale={locale}
+      data-layout={layout}
+      data-ready="false"
+      style={{ width: layout === 'pdf' ? undefined : width }}
     >
       <div data-sheet-template hidden>
         <section className="print-sheet-template">
@@ -230,15 +241,15 @@ export function PrintReport({
                 );
               if (block.type === 'sources')
                 return block.items.map((source, k) => (
-                  <details open className="print-footnote" key={`${j}-${k}`} data-print-block>
-                    <summary>
+                  <div className="print-footnote" key={`${j}-${k}`} data-print-block>
+                    <strong>
                       {t('report.sources')} {k + 1}
-                    </summary>
+                    </strong>
                     <blockquote>
                       {text(source.text)}
                       <cite>{text(source.from)}</cite>
                     </blockquote>
-                  </details>
+                  </div>
                 ));
               return null;
             })}
@@ -262,8 +273,16 @@ export function PrintReport({
           ))}
         </section>
         <section data-print-section="legal">
-          <h2 data-print-block>{t('export.appendix')}</h2>
-          <p data-print-block>{t('legal.disclaimer.full')}</p>
+          <div className="print-end-qr" data-print-block>
+            <img src={qr} width="120" height="120" alt={t('export.qr')} />
+            <p>{text(brand.domain)}</p>
+          </div>
+          <h2 className="print-legal-heading" data-print-block>
+            {t('export.appendix')}
+          </h2>
+          <p className="print-disclaimer" data-print-block>
+            {t('legal.disclaimer.full')}
+          </p>
           <h3 data-print-block>{t('report.school')}</h3>
           {Object.entries(reading.meta.schoolUsed).map(([key, value]) => (
             <p className="print-parameter" key={key} data-print-block>

@@ -23,7 +23,7 @@ export async function capture(page: Page, info: TestInfo, name: string, locale: 
   await page.mouse.move(0, 0);
   const directory = `test-results/polish/${info.project.name}/${locale}`;
   await mkdir(directory, { recursive: true });
-  const dialogOpen = name.endsWith('-dialog');
+  const dialogOpen = name.endsWith('-dialog') || name.startsWith('export-');
   if (dialogOpen) await expect(page.getByRole('dialog')).toBeVisible();
   // DESIGN-GAP: Full-page evidence must visit lazy artwork before capture; this does not change production loading behavior.
   if (!dialogOpen && !name.startsWith('term-')) {

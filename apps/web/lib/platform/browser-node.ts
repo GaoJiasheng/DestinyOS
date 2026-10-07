@@ -1,4 +1,10 @@
-import { printSettled, zoomPrintReport, selectPrintSheet } from './print-dom';
+import {
+  printSettled,
+  sizePoster,
+  compressPrintImages,
+  limitPosterHeight,
+  compressPoster,
+} from './print-dom';
 import { chromium } from 'playwright-core';
 import type { ReportPage } from './browser';
 /** Run Playwright locally or with Vercel's serverless Chromium. */
@@ -36,6 +42,10 @@ export async function openNodePage(
     const page = await context.newPage();
     return {
       async navigate(url) {
+        // DESIGN-GAP: Select final media before measuring columns; switching after pagination can wrap and clip a condensed line.
+        await page.emulateMedia({
+          media: new URL(url).searchParams.get('layout') === 'pdf' ? 'print' : 'screen',
+        });
         if (!(await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }))?.ok())
           throw new Error('Print route unavailable');
       },
@@ -45,12 +55,13 @@ export async function openNodePage(
           throw new Error('Print pagination failed');
         if (
           await page
-            .locator('.print-page-content')
+            .locator('.print-column')
             .evaluateAll((nodes) => nodes.some((n) => n.scrollHeight > n.clientHeight + 1))
         )
           throw new Error('Print content overflow');
       },
       async pdf() {
+        await page.evaluate(compressPrintImages);
         await page.emulateMedia({ media: 'print' });
         return page.pdf({
           format: 'A4',
@@ -59,14 +70,28 @@ export async function openNodePage(
           tagged: true,
         });
       },
-      async preparePng() {
-        await page.setViewportSize({ width: 2480, height: 3508 });
-        await page.locator('.print-report').evaluate(zoomPrintReport);
+      async prepareImage(width) {
+        await page.setViewportSize({ width, height: 1200 });
+        return page.evaluate(sizePoster, width);
       },
-      pageCount: () => page.locator('.print-sheet').count(),
-      async screenshot(index) {
-        await page.locator('.print-sheet').evaluateAll(selectPrintSheet, index);
-        return page.screenshot({ type: 'png', animations: 'disabled', scale: 'css' });
+      async limitImageHeight(height) {
+        await page.evaluate(limitPosterHeight, height);
+      },
+      async compressImage(data) {
+        const encoded = await page.evaluate(
+          compressPoster,
+          `data:image/jpeg;base64,${Buffer.from(data).toString('base64')}`,
+        );
+        return Buffer.from(encoded.slice(encoded.indexOf(',') + 1), 'base64');
+      },
+      async screenshotImage(quality) {
+        return page.screenshot({
+          type: 'jpeg',
+          quality,
+          fullPage: true,
+          animations: 'disabled',
+          scale: 'css',
+        });
       },
       close: () => browser.close(),
     };

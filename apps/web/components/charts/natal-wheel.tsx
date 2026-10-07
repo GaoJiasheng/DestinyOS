@@ -19,10 +19,12 @@ export function NatalWheel({
   chart,
   highlight,
   onSelect,
+  print = false,
 }: {
   chart: AstroChart;
   highlight?: string;
   onSelect?: (section: string, path?: string) => void;
+  print?: boolean;
 }) {
   const t = useTranslations();
   const [selected, setSelected] = useState<Planet>();
@@ -40,7 +42,8 @@ export function NatalWheel({
   };
   return (
     <div className="natal-art-board">
-      <ChartArt system="astrology" />
+      {/* DESIGN-GAP: Print artwork loads eagerly because a full-page poster must settle before scrolling or capture. */}
+      <ChartArt system="astrology" priority={print} />
       <svg
         className="natal-wheel"
         viewBox="0 0 400 400"

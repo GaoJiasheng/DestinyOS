@@ -54,3 +54,14 @@ describe('report exports', () => {
     expect(exportFilename(request, reading)).toBe('bazi-2026-10-05-zh.pdf');
   });
 });
+
+it('defaults to the mobile long image and separates width-specific cache artifacts', () => {
+  expect(request.width).toBe(1242);
+  expect(ExportRequestSchema.safeParse({ ...request, width: 1500 }).success).toBe(false);
+  expect(exportKey({ ...request, width: 1600 }, baziReading('zh'), 'owner')).not.toBe(
+    exportKey(request, baziReading('zh'), 'owner'),
+  );
+  expect(exportFilename({ ...request, format: 'png' }, baziReading('zh'))).toBe(
+    'bazi-2026-10-05-zh.jpg',
+  );
+});

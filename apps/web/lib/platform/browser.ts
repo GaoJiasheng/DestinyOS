@@ -5,9 +5,10 @@ export interface ReportPage {
   navigate(url: string): Promise<void>;
   validate(): Promise<void>;
   pdf(): Promise<Uint8Array>;
-  preparePng(): Promise<void>;
-  pageCount(): Promise<number>;
-  screenshot(index: number): Promise<Uint8Array>;
+  prepareImage(width: 1242 | 1600): Promise<number>;
+  limitImageHeight(height: number): Promise<void>;
+  compressImage(data: Uint8Array): Promise<Uint8Array>;
+  screenshotImage(quality: number): Promise<Uint8Array>;
   close(): Promise<void>;
 }
 /** Open an isolated browser, allowing only the canonical origin and document-only print capability. */

@@ -8,6 +8,7 @@ const mock = vi.hoisted(() => ({
   evaluate: vi.fn(),
   goto: vi.fn(),
   viewport: vi.fn(),
+  media: vi.fn(),
   pdf: vi.fn(),
   screenshot: vi.fn(),
   sheets: vi.fn(),
@@ -17,7 +18,7 @@ vi.mock('../lib/platform/cloudflare', () => ({
   cloudflareBindings: async () => ({ BROWSER: 'isolated-browser-binding' }),
 }));
 afterEach(() => vi.clearAllMocks());
-it('uses the browser binding, restricts requests, validates fonts/pagination and renders A4 or 300dpi pages', async () => {
+it('uses the browser binding, restricts requests, validates fonts/pagination and renders compact A4 or one full-page JPEG', async () => {
   const noop = async () => undefined;
   mock.launch.mockResolvedValue({ newPage: mock.newPage, close: mock.close });
   mock.newPage.mockResolvedValue({
@@ -29,7 +30,7 @@ it('uses the browser binding, restricts requests, validates fonts/pagination and
     goto: mock.goto,
     waitForFunction: noop,
     evaluate: mock.evaluate,
-    emulateMediaType: noop,
+    emulateMediaType: mock.media,
     pdf: mock.pdf,
     $eval: noop,
     $$eval: mock.sheets,
@@ -79,9 +80,12 @@ it('uses the browser binding, restricts requests, validates fonts/pagination and
     continue: proceed,
   });
   expect(proceed).toHaveBeenLastCalledWith({ headers: {} });
-  await page.navigate('https://isolated.example/en/bazi/r/id/print');
+  await page.navigate('https://isolated.example/en/bazi/r/id/print?layout=pdf');
+  expect(mock.media).toHaveBeenCalledWith('print');
+  expect(mock.media.mock.invocationCallOrder[0]).toBeLessThan(
+    mock.goto.mock.invocationCallOrder[0]!,
+  );
   await page.validate();
-  expect(await page.pageCount()).toBe(3);
   expect(await page.pdf()).toEqual(new Uint8Array([1]));
   expect(mock.pdf).toHaveBeenCalledWith({
     format: 'A4',
@@ -89,13 +93,19 @@ it('uses the browser binding, restricts requests, validates fonts/pagination and
     preferCSSPageSize: true,
     tagged: true,
   });
-  await page.preparePng();
+  mock.evaluate.mockResolvedValue(9000);
+  expect(await page.prepareImage(1242)).toBe(9000);
   expect(mock.viewport).toHaveBeenLastCalledWith({
-    width: 2480,
-    height: 3508,
+    width: 1242,
+    height: 1200,
     deviceScaleFactor: 1,
   });
-  expect(await page.screenshot(2)).toEqual(new Uint8Array([2]));
+  expect(await page.screenshotImage(82)).toEqual(new Uint8Array([2]));
+  expect(mock.screenshot).toHaveBeenCalledExactlyOnceWith({
+    type: 'jpeg',
+    quality: 82,
+    fullPage: true,
+  });
   mock.evaluate.mockResolvedValue(false);
   await expect(page.validate()).rejects.toThrow('Print fonts or pagination failed');
   await page.close();
