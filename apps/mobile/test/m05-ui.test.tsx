@@ -57,6 +57,7 @@ beforeEach(() => {
     updateSettings: mockUpdate,
     save: mockSave,
     select: mockSelect,
+    setDefault: jest.fn(async () => {}),
     remove: jest.fn(),
   });
   mockSave.mockResolvedValue(undefined);

@@ -1,0 +1,116 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/reports'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: fixture-locale-en
+    timeout: 60000
+- tapOn:
+    id: fixture-locale-en
+- scrollUntilVisible:
+    element:
+      id: fixture-tarot
+    centerElement: true
+- tapOn:
+    id: fixture-tarot
+- extendedWaitUntil:
+    visible:
+      id: report-share
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-share
+    centerElement: true
+- tapOn:
+    id: report-share
+- extendedWaitUntil:
+    visible:
+      id: report-share-panel
+    timeout: 10000
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: share-level-1
+    centerElement: true
+- waitForAnimationToEnd
+- takeScreenshot: diagram-controls
+- tapOn:
+    id: share-level-1
+- scrollUntilVisible:
+    element:
+      id: share-format-landscape
+    centerElement: true
+- waitForAnimationToEnd
+- tapOn:
+    id: share-format-landscape
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- takeScreenshot: share-tarot-labels-en
+- tapOn:
+    id: report-sheet-close
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: report-back
+    centerElement: true
+- tapOn:
+    id: report-back
+- scrollUntilVisible:
+    element:
+      id: fixture-iching
+    centerElement: true
+- tapOn:
+    id: fixture-iching
+- extendedWaitUntil:
+    visible:
+      id: report-share
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-share
+    centerElement: true
+- tapOn:
+    id: report-share
+- extendedWaitUntil:
+    visible:
+      id: report-share-panel
+    timeout: 10000
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: share-level-1
+    centerElement: true
+- waitForAnimationToEnd
+- takeScreenshot: diagram-controls
+- tapOn:
+    id: share-level-1
+- scrollUntilVisible:
+    element:
+      id: share-format-landscape
+    centerElement: true
+- waitForAnimationToEnd
+- tapOn:
+    id: share-format-landscape
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- takeScreenshot: share-iching-lines-en

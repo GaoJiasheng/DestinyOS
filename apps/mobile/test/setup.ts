@@ -12,3 +12,7 @@ jest.mock('../lib/data/preferences-storage', () => ({
     removeItem: jest.fn(async () => undefined),
   },
 }));
+
+jest.mock('expo-network', () => ({
+  useNetworkState: () => ({ isConnected: true, isInternetReachable: true }),
+}));

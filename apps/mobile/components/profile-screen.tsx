@@ -10,7 +10,7 @@ export function ProfileScreen() {
   const t = useCopy();
   const router = useRouter();
   const { saved } = useLocalSearchParams<{ saved?: string }>();
-  const { profiles, active, select, remove } = useProfiles();
+  const { profiles, active, select, remove, setDefault } = useProfiles();
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
   async function run(action: () => Promise<void>) {
@@ -52,6 +52,13 @@ export function ProfileScreen() {
       />
       {active && (
         <>
+          <CopyText>{t(`profiles.relation.${active.data?.relation ?? 'self'}`)}</CopyText>
+          <Action
+            id="profile-default"
+            label={t(active.data?.isDefault ? 'profiles.default' : 'profiles.setDefault')}
+            disabled={busy || active.data?.isDefault}
+            onPress={() => void run(() => setDefault(active.id))}
+          />
           <Action
             id="profile-edit"
             label={t('mobile.profiles.edit')}
@@ -80,6 +87,11 @@ export function ProfileScreen() {
         id="me-settings"
         label={t('me.settings')}
         onPress={() => router.push('/me/settings')}
+      />
+      <Action
+        id="profile-history"
+        label={t('me.history')}
+        onPress={() => router.push('/me/history')}
       />
       <Preferences />
     </Page>

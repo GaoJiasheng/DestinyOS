@@ -1,3 +1,4 @@
+import { fetch as expoFetch } from 'expo/fetch';
 import { z } from 'zod';
 import * as SecureStore from 'expo-secure-store';
 import {
@@ -37,7 +38,7 @@ export class SessionManager {
   private readonly api;
   constructor(
     private readonly storage: CredentialStorage = secureStorage,
-    transport: typeof fetch = globalThis.fetch,
+    private readonly transport: typeof fetch = globalThis.fetch,
     private readonly now = Date.now,
     private readonly changed = () => {},
   ) {
@@ -115,6 +116,33 @@ export class SessionManager {
         });
     }
     return this.refreshFlight;
+  }
+  /** Authenticate first-party binary/stream requests; replay only a rejected authentication response. */
+  async raw(path: string, init: RequestInit = {}): Promise<Response> {
+    if (!path.startsWith('/api/v1/mobile/') || path.includes('..') || path.includes('\\'))
+      throw new ApiClientError('E_FORBIDDEN', 0, 'validation');
+    if (!this.session) throw new ApiClientError('E_UNAUTHORIZED', 401, 'api');
+    if (this.session.expiresAt <= this.now() + 30000) await this.refresh();
+    const attemptedToken = this.session?.accessToken;
+    // DESIGN-GAP: Expo's native fetch supports ReadableStream; RN's default fetch buffers the full answer.
+    const send = () =>
+      (this.transport === globalThis.fetch ? expoFetch : this.transport)(
+        `https://${brand.domain}${path}`,
+        {
+          ...init,
+          credentials: 'omit',
+          headers: {
+            ...Object.fromEntries(new Headers(init.headers)),
+            Authorization: `Bearer ${this.session?.accessToken}`,
+          },
+        },
+      );
+    let response = await send();
+    if (response.status === 401) {
+      if (this.session?.accessToken === attemptedToken) await this.refresh();
+      response = await send();
+    }
+    return response;
   }
   /** Proactively refresh within 30 seconds of expiry and replay one rejected request after rotation. */
   async request<I extends z.ZodType<unknown>, O extends z.ZodType<unknown>>(

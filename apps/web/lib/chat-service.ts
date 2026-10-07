@@ -43,8 +43,8 @@ export async function chatOwner(rawId: string, mobileUserId?: string) {
   return { db, user, reading };
 }
 /** Decrypt owner-scoped history only; reading IDs/public share links cannot bypass ownership. */
-export async function chatHistory(id: string) {
-  const { db, user, reading } = await chatOwner(id);
+export async function chatHistory(id: string, mobileUserId?: string) {
+  const { db, user, reading } = await chatOwner(id, mobileUserId);
   assertRateLimit(await ratelimit('chat', user.id));
   const settings = await siteConfig();
   // DESIGN-GAP: Return the latest 500 messages to bound UI payloads; all stored messages remain exportable/deletable.
@@ -70,8 +70,8 @@ export async function chatHistory(id: string) {
   };
 }
 /** Delete dialogue without resetting quota, serialized against active generation. */
-export async function deleteChat(id: string) {
-  const owner = await chatOwner(id);
+export async function deleteChat(id: string, mobileUserId?: string) {
+  const owner = await chatOwner(id, mobileUserId);
   assertRateLimit(await ratelimit('chat', owner.user.id));
   const release = await lockReading(id);
   try {

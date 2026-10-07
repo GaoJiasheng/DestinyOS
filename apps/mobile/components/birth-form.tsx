@@ -43,6 +43,9 @@ export function BirthForm() {
     },
   );
   const [year, setYear] = useState(original?.data ? String(original.data.birth.year) : '');
+  const [relation, setRelation] = useState<NonNullable<Profile['relation']>>(
+    original?.data?.relation ?? 'self',
+  );
   const [name, setName] = useState(original?.data?.name ?? '');
   const [school, setSchool] = useState<School>(original?.data?.options?.school ?? defaultSchool);
   const [step, setStep] = useState(1);
@@ -145,6 +148,8 @@ export function BirthForm() {
       await save(
         {
           name,
+          relation,
+          isDefault: original?.data?.isDefault ?? false,
           birth: BirthInputSchema.parse(candidate),
           options: { school },
           version: original?.data?.version ?? 1,
@@ -153,8 +158,12 @@ export function BirthForm() {
         id,
       );
       router.replace({ pathname: '/me', params: { saved: '1' } });
-    } catch {
-      setError('mobile.storage.error');
+    } catch (cause) {
+      setError(
+        cause instanceof Error && cause.message === 'E_PROFILE_LIMIT'
+          ? 'report.error.E_PROFILE_LIMIT'
+          : 'mobile.storage.error',
+      );
     } finally {
       setBusy(false);
     }
@@ -162,6 +171,20 @@ export function BirthForm() {
   return (
     // DESIGN-GAP: Remount the native scroll view per step so the next heading starts at the top.
     <Page key={step} title="form.birth.title">
+      {step === 1 && (
+        <>
+          <CopyText>{t('profiles.relation')}</CopyText>
+          {(['self', 'partner', 'family', 'friend', 'other'] as const).map((item) => (
+            <Action
+              key={item}
+              id={`profile-relation-${item}`}
+              label={t(`profiles.relation.${item}`)}
+              selected={relation === item}
+              onPress={() => setRelation(item)}
+            />
+          ))}
+        </>
+      )}
       <CopyText>{t('form.birth.step', { step })}</CopyText>
       <CopyText title>{t(step === 1 ? 'form.birth.dateTime' : 'form.birth.placeGender')}</CopyText>
       {step === 1 ? (

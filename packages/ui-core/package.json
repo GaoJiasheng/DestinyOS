@@ -14,7 +14,8 @@
     "./ziwei-geometry": "./src/ziwei-geometry.ts",
     "./chart-geometry": "./src/chart-geometry.ts",
     "./journal-stats": "./src/journal-stats.ts",
-    "./daily-excerpt": "./src/daily-excerpt.ts"
+    "./daily-excerpt": "./src/daily-excerpt.ts",
+    "./share-projection": "./src/share-projection.ts"
   },
   "scripts": {
     "build": "tsx scripts/build.ts && tsc -p tsconfig.json",
@@ -23,6 +24,8 @@
   "dependencies": {
     "astronomy-engine": "2.1.19",
     "@tianji/shared": "workspace:*",
-    "@js-temporal/polyfill": "0.5.1"
+    "@js-temporal/polyfill": "0.5.1",
+    "@tianji/interpret": "workspace:*",
+    "zod": "^3.25.76"
   }
 }

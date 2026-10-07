@@ -64,6 +64,7 @@ export const profileSyncSchema = z
               deleted: z.literal(false),
               birth: BirthInputSchema,
               metadata: ProfileMetadataSchema,
+              isDefault: z.boolean().optional(),
               locale: localeSchema,
             })
             .strict(),

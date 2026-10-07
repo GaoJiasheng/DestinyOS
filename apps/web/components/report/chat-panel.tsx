@@ -57,6 +57,7 @@ export function ChatPanel({
   const abort = useRef<AbortController | null>(null);
   const end = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLTextAreaElement>(null);
+  const restoreComposerAfterCommit = useRef<Element | null>(null);
   const url = `/api/v1/readings/${encodeURIComponent(readingId)}/chat`;
   const errorCopy = (code: string) =>
     t(
@@ -98,6 +99,17 @@ export function ChatPanel({
   useEffect(() => {
     if (busy) end.current?.scrollIntoView({ block: 'nearest' });
   }, [answer, busy]);
+  useEffect(() => {
+    if (busy) return;
+    const submittedFrom = restoreComposerAfterCommit.current;
+    restoreComposerAfterCommit.current = null;
+    // DESIGN-GAP: Restore focus after React enables the composer; an animation frame can precede that commit.
+    if (
+      submittedFrom &&
+      (document.activeElement === document.body || document.activeElement === submittedFrom)
+    )
+      composer.current?.focus();
+  }, [busy]);
   const send = async () => {
     if (busy || !question.trim()) return;
     const submittedFrom = document.activeElement;
@@ -167,14 +179,9 @@ export function ChatPanel({
       setAnswer('');
       setError(t('report.chat.away'));
     } finally {
+      restoreComposerAfterCommit.current = restoreComposer ? submittedFrom : null;
       setBusy(false);
       abort.current = null;
-      // DESIGN-GAP: Sending disables the focused composer control; restore its textarea after completion when focus has not moved elsewhere.
-      if (restoreComposer)
-        requestAnimationFrame(() => {
-          if (document.activeElement === document.body || document.activeElement === submittedFrom)
-            composer.current?.focus();
-        });
     }
   };
   const clear = async () => {

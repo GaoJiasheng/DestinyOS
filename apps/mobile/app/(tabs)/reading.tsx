@@ -5,17 +5,16 @@ import { useProfiles } from '../../lib/profiles';
 import { useCopy } from '../../lib/copy';
 import { Page, CopyText, Action } from '../../components/native-ui';
 import { createNativeReading, readingError, type ReportSystem } from '../../lib/reports/readings';
-import { useChartLabel, ReportSheet } from '../../components/report/report-ui';
+import { useChartLabel } from '../../components/report/report-ui';
 /** One-tap local reports use the active encrypted profile; divination retains the M07 routes. */
 export default function ReadingScreen() {
   const t = useCopy();
   const router = useRouter();
-  const { active, profiles } = useProfiles();
+  const { active } = useProfiles();
   const label = useChartLabel();
   const [busy, setBusy] = useState(false),
-    [error, setError] = useState<string | null>(null),
-    [pair, setPair] = useState(false);
-  async function create(system: ReportSystem, partner?: (typeof profiles)[number]) {
+    [error, setError] = useState<string | null>(null);
+  async function create(system: ReportSystem) {
     if (busy) return;
     if (!active?.data) {
       router.push('/me/birth');
@@ -23,9 +22,8 @@ export default function ReadingScreen() {
     }
     setBusy(true);
     setError(null);
-    setPair(false);
     try {
-      const reading = await createNativeReading(system, active, partner);
+      const reading = await createNativeReading(system, active);
       router.push({ pathname: '/[system]/r/[id]', params: { system, id: reading.id } });
     } catch (cause) {
       setError(readingError(cause));
@@ -64,28 +62,8 @@ export default function ReadingScreen() {
         id="system-synastry"
         label={t('mobile.reading.synastry')}
         disabled={busy}
-        onPress={() => setPair(true)}
+        onPress={() => router.push('/synastry')}
       />
-      {pair ? (
-        <ReportSheet title={t('synastry.b')} close={() => setPair(false)}>
-          {profiles
-            .filter((p) => p.id !== active?.id)
-            .map((p) => (
-              <Action
-                key={p.id}
-                label={t('report.content', { text: p.data?.name || t('mobile.profiles.unnamed') })}
-                onPress={() => void create('synastry', p)}
-              />
-            ))}
-          <Action
-            label={t('mobile.profiles.add')}
-            onPress={() => {
-              setPair(false);
-              router.push('/me/birth');
-            }}
-          />
-        </ReportSheet>
-      ) : null}
     </Page>
   );
 }

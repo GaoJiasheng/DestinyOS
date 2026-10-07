@@ -1,0 +1,106 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/report-actions'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: m12-en
+    timeout: 60000
+- tapOn:
+    id: m12-en
+- tapOn:
+    id: m12-prepare
+- extendedWaitUntil:
+    visible:
+      id: report-chat
+    timeout: 30000
+- tapOn:
+    id: m12-profiles
+- extendedWaitUntil:
+    visible:
+      id: profile-M12-fixture-B
+    timeout: 20000
+- takeScreenshot: profiles-en
+- tapOn:
+    id: profile-M12-fixture-B
+- scrollUntilVisible:
+    element:
+      id: profile-default
+- tapOn:
+    id: profile-default
+- takeScreenshot: profile-default-en
+- openLink: 'tianji:///synastry'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: synastry-a-M12-fixture-B
+    timeout: 20000
+- tapOn:
+    id: synastry-b-M12-fixture-A
+- scrollUntilVisible:
+    element:
+      id: synastry-swap
+- tapOn:
+    id: synastry-swap
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: synastry-a-M12-fixture-A
+- takeScreenshot: synastry-select-en
+- scrollUntilVisible:
+    element:
+      id: synastry-create
+- tapOn:
+    id: synastry-create
+- extendedWaitUntil:
+    visible:
+      id: report-share
+    timeout: 60000
+- takeScreenshot: synastry-report-en
+- tapOn:
+    id: report-share
+- scrollUntilVisible:
+    element:
+      id: share-level-1
+- tapOn:
+    id: share-level-1
+- scrollUntilVisible:
+    element:
+      id: share-format-landscape
+- tapOn:
+    id: share-format-landscape
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- takeScreenshot: synastry-share-landscape-en
+- tapOn:
+    id: report-sheet-close
+- openLink: 'tianji:///me'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: profile-M12-fixture-B
+    timeout: 20000
+- tapOn:
+    id: profile-M12-fixture-B
+- scrollUntilVisible:
+    element:
+      id: profile-history
+- tapOn:
+    id: profile-history
+- extendedWaitUntil:
+    visible: 'Synastry.*'
+    timeout: 20000
+- takeScreenshot: history-partner-en

@@ -1,0 +1,54 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/report-actions'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: m12-en
+    timeout: 90000
+- tapOn:
+    id: m12-en
+- tapOn:
+    id: m12-prepare
+- extendedWaitUntil:
+    visible:
+      id: report-export
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-export
+- tapOn:
+    id: report-export
+- assertVisible:
+    id: export-pdf
+- takeScreenshot: export-menu-en
+- tapOn:
+    id: export-pdf
+- extendedWaitUntil:
+    visible: '.*reading-1.*'
+    timeout: 30000
+- waitForAnimationToEnd
+- takeScreenshot: export-pdf-native-en
+- tapOn:
+    text: '^(关闭|Close)$'
+    optional: true
+- tapOn:
+    point: 50%, 20%
+- extendedWaitUntil:
+    visible:
+      id: export-png
+    timeout: 10000
+- tapOn:
+    id: export-png
+- extendedWaitUntil:
+    visible: '.*reading-1.*'
+    timeout: 30000
+- waitForAnimationToEnd
+- takeScreenshot: export-a4-native-en

@@ -214,6 +214,20 @@ export class Repository<T> {
         );
         if (!profile) throw new Error('E_FORBIDDEN');
       }
+      if (this.entity === 'Reading') {
+        const reading = ReadingSchema.parse(record.data);
+        const partnerId = reading.inputSnapshot.partnerProfileId;
+        if (
+          partnerId &&
+          (partnerId === profileId ||
+            !(await sql.getFirstAsync(
+              'SELECT id FROM BirthProfile WHERE id=? AND userId IS ? AND deletedAt IS NULL',
+              partnerId,
+              this.userId,
+            )))
+        )
+          throw new Error('E_FORBIDDEN');
+      }
     }
     if (record.data !== null && this.entity === 'Settings') {
       const selected = SettingsSchema.parse(record.data).activeProfileId;

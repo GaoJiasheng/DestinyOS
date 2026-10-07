@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, RefObject } from 'react';
 import {
   Pressable,
   Text,
@@ -42,7 +42,17 @@ export function CopyText({
   );
 }
 /** Scrollable native screen with keyboard avoidance and persistent entertainment notice. */
-export function Page({ title, children }: { title: MessageKey; children: ReactNode }) {
+export function Page({
+  title,
+  children,
+  footer,
+  scrollRef,
+}: {
+  title: MessageKey;
+  children: ReactNode;
+  footer?: ReactNode;
+  scrollRef?: RefObject<ScrollView | null>;
+}) {
   const { colors } = useTheme();
   const t = useCopy();
   return (
@@ -52,6 +62,7 @@ export function Page({ title, children }: { title: MessageKey; children: ReactNo
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
         <ScrollView
+          ref={scrollRef}
           keyboardShouldPersistTaps="handled"
           keyboardDismissMode="on-drag"
           contentContainerStyle={{
@@ -64,6 +75,9 @@ export function Page({ title, children }: { title: MessageKey; children: ReactNo
           {children}
           <CopyText>{t('report.disclaimer.short')}</CopyText>
         </ScrollView>
+        {footer && (
+          <View style={{ padding: 16, gap: 12, backgroundColor: colors['bg-1'] }}>{footer}</View>
+        )}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

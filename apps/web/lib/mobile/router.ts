@@ -16,7 +16,7 @@ import {
 import { getSync, putSync } from './sync';
 import { resourceSchema, idSchema } from './schema';
 import { knowledgeManifest, knowledgeBundle } from './knowledge';
-import { prepareChat } from '../chat-service';
+import { prepareChat, chatHistory, deleteChat } from '../chat-service';
 import { mobileExport, mobileDownload } from './export';
 import { createShareForUser } from '../share-service';
 import { refreshRevenuecat } from '../revenuecat';
@@ -130,6 +130,13 @@ export async function mobileApi(request: Request): Promise<Response> {
       return success(await knowledgeManifest(url.searchParams.get('knowledgeVersion')));
     if (path[0] === 'knowledge' && path[1] === 'bundle' && path.length === 3 && method === 'GET')
       return knowledgeBundle(path[2]!, url.searchParams.get('since'));
+    // DESIGN-GAP: Native history and deletion reuse the Web owner checks with Bearer identity.
+    if (path[0] === 'chat' && path.length === 2 && method === 'GET')
+      return success(await chatHistory(idSchema.parse(path[1]), user.id));
+    if (path[0] === 'chat' && path.length === 2 && method === 'DELETE') {
+      await deleteChat(idSchema.parse(path[1]), user.id);
+      return success({});
+    }
     if (path[0] === 'chat' && path.length === 2 && method === 'POST') {
       const abort = new AbortController(),
         iterator = await prepareChat(

@@ -25,6 +25,7 @@ beforeEach(() => {
     reload: async () => {},
     save: async () => {},
     select: async () => {},
+    setDefault: jest.fn(async () => {}),
     remove: async () => {},
   });
 });

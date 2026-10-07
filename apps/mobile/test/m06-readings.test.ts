@@ -92,3 +92,22 @@ test('public errors contain documented codes and never include sensitive input',
   );
   expect(readingError(new Error(JSON.stringify(A)))).toBe('mobile.storage.error');
 });
+
+test('deleting either synastry partner erases the dual snapshot but preserves unrelated reports', async () => {
+  const a = await mockStore.profiles.save({ name: 'A', birth: A, version: 1, isCurrent: true });
+  const b = await mockStore.profiles.save({ name: 'B', birth: B, version: 1, isCurrent: true });
+  const pair = await createNativeReading('synastry', a, b);
+  const single = await createNativeReading('bazi', a);
+  await mockStore.profiles.delete(b.id);
+  expect(await mockStore.readings.get(pair.id)).toBeNull();
+  expect(await mockStore.readings.get(single.id)).not.toBeNull();
+  expect((await mockStore.readings.changes()).find((item) => item.id === pair.id)?.data).toBeNull();
+});
+test('synastry rejects the same profile and foreign partner identities before persisting', async () => {
+  const a = await mockStore.profiles.save({ name: 'A', birth: A, version: 1, isCurrent: true });
+  await expect(createNativeReading('synastry', a, a)).rejects.toThrow();
+  await expect(createNativeReading('synastry', a, { ...a, id: 'foreign' })).rejects.toThrow(
+    'E_FORBIDDEN',
+  );
+  expect(await mockStore.readings.list()).toHaveLength(0);
+});

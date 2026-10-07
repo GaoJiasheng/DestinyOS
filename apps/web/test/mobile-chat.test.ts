@@ -72,6 +72,24 @@ it('streams owner NDJSON with shared Web daily quotas, encrypted history and can
       )
     ).status,
   ).toBe(403);
+  const history = await mobileApi(
+    request('chat/tarot-reading', 'GET', undefined, session.accessToken),
+  );
+  expect(history.status).toBe(200);
+  const body = (await history.json()) as { data: { messages: unknown[]; remaining: number } };
+  expect(body.data.messages).toHaveLength(6);
+  expect(body.data.remaining).toBe(27);
+  for (const method of ['GET', 'DELETE']) {
+    expect(
+      (await mobileApi(request('chat/tarot-reading', method, undefined, other.accessToken))).status,
+    ).toBe(403);
+  }
+  const deleted = await mobileApi(
+    request('chat/tarot-reading', 'DELETE', undefined, session.accessToken),
+  );
+  expect(deleted.status).toBe(200);
+  expect(await raw.chatMessage.count()).toBe(0);
+  expect((await raw.chatQuota.findFirstOrThrow({ where: { userId: 'owner' } })).count).toBe(3);
   vi.stubEnv('FEATURE_LLM_CHAT', 'false');
   vi.stubEnv('MINIMAX_API_KEY', '');
 });

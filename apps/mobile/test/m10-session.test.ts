@@ -93,3 +93,46 @@ it('does not expose an identity if SecureStore persistence fails and discards ma
   await restored.restore();
   expect(restored.session).toBeNull();
 });
+it('authenticates native streaming downloads and replays only an expired access response', async () => {
+  const calls: { url: string; token: string | null; signal?: AbortSignal | null }[] = [];
+  let attempts = 0;
+  const fetcher: typeof fetch = async (url, init) => {
+    calls.push({
+      url: String(url),
+      token: new Headers(init?.headers).get('Authorization'),
+      signal: init?.signal,
+    });
+    if (String(url).endsWith('auth/refresh')) return reply(pair(1));
+    return ++attempts === 1 ? reply(null, 401) : new Response('{"type":"done"}\n');
+  };
+  const manager = new SessionManager(storage(), fetcher);
+  await manager.accept(pair());
+  const controller = new AbortController();
+  const response = await manager.raw('/api/v1/mobile/chat/reading-1', {
+    method: 'POST',
+    signal: controller.signal,
+  });
+  expect(await response.text()).toContain('done');
+  expect(attempts).toBe(2);
+  const streamCalls = calls.filter((call) => call.url.endsWith('/chat/reading-1'));
+  expect(streamCalls.map((call) => call.token)).toEqual([
+    `Bearer ${pair().accessToken}`,
+    `Bearer ${pair(1).accessToken}`,
+  ]);
+  expect(streamCalls.every((call) => call.signal === controller.signal)).toBe(true);
+  expect(calls.every((call) => !call.url.includes(pair().accessToken))).toBe(true);
+});
+it('rejects foreign and traversal URLs before attaching native credentials', async () => {
+  const fetcher: typeof fetch = jest.fn(async () => new Response());
+  const manager = new SessionManager(storage(), fetcher);
+  await manager.accept(pair());
+  for (const path of [
+    'https://example.com',
+    '//example.com',
+    '/api/v1/mobile/../secret',
+    '/api/v1/mobile/\\secret',
+  ]) {
+    await expect(manager.raw(path)).rejects.toMatchObject({ code: 'E_FORBIDDEN' });
+  }
+  expect(fetcher).not.toHaveBeenCalled();
+});

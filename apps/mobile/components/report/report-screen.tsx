@@ -1,8 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useSyncExternalStore } from 'react';
 import { ScrollView, View, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { normalizeBirth } from '@tianji/engine';
+import { currentOwner, subscribeOwner } from '../../lib/account/scope';
 import { getFeedback, saveFeedback } from '../../lib/reports/feedback';
 import {
   loadNativeReading,
@@ -16,6 +17,7 @@ import { usePreferences } from '../../lib/preferences';
 import { useTheme } from '../../lib/theme';
 import { CopyText, Action } from '../native-ui';
 import { ReportCard, DataTree, useChartLabel } from './report-ui';
+import { ReportActions } from './report-actions';
 import { ReportHeadline } from './report-headline';
 import { ReportSection } from './report-section';
 import { ReportParagraph } from './report-paragraph';
@@ -36,6 +38,7 @@ export function ReportScreen({
     label = useChartLabel(),
     { colors } = useTheme(),
     router = useRouter();
+  const owner = useSyncExternalStore(subscribeOwner, currentOwner, currentOwner);
   const locale = usePreferences((s) => s.locale),
     reduced = useProfiles().settings.reducedMotion;
   const [view, setView] = useState<NativeReading | null>(null),
@@ -55,6 +58,7 @@ export function ReportScreen({
   useEffect(() => {
     let active = true;
     setState('loading');
+    setView(null);
     void Promise.all([loadNativeReading(id, system, locale), getFeedback(id)])
       .then(([reading, feedback]) => {
         if (!active) return;
@@ -69,7 +73,7 @@ export function ReportScreen({
     return () => {
       active = false;
     };
-  }, [id, system, locale, retry]);
+  }, [id, system, locale, retry, owner]);
   function jump(key: string) {
     setExpanded((current) => ({ ...current, [key]: true }));
     requestAnimationFrame(() =>
@@ -190,6 +194,7 @@ export function ReportScreen({
             {view.warnings.map((warning) => (
               <CopyText key={warning.code}>{label(warning.messageKey)}</CopyText>
             ))}
+            <ReportActions reading={view} />
             <ReportHeadline headline={view.report.headline} />
             <View
               onLayout={(event) => {

@@ -1,0 +1,144 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/report-actions'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: m12-en
+    timeout: 60000
+- tapOn:
+    id: m12-en
+- tapOn:
+    id: m12-prepare
+- extendedWaitUntil:
+    visible:
+      id: report-chat
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-chat
+    centerElement: true
+- waitForAnimationToEnd
+- tapOn:
+    id: report-chat
+- extendedWaitUntil:
+    visible:
+      id: chat-question
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chat-quota
+    centerElement: true
+- takeScreenshot: chat-empty-en
+- scrollUntilVisible:
+    element:
+      id: chat-question
+- tapOn:
+    id: chat-question
+- inputText: 'What supports clear communication?'
+- tapOn:
+    id: chat-send
+- extendedWaitUntil:
+    visible:
+      id: chat-stream
+    timeout: 5000
+- takeScreenshot: chat-stream-en
+- extendedWaitUntil:
+    notVisible:
+      id: chat-stream
+    timeout: 30000
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: chat-quota
+- takeScreenshot: chat-complete-en
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: chat-back
+- tapOn:
+    id: chat-back
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m12-offline
+- tapOn:
+    id: m12-offline
+- scrollUntilVisible:
+    element:
+      id: report-network
+- assertVisible:
+    id: report-network
+- takeScreenshot: report-offline-en
+- scrollUntilVisible:
+    element:
+      id: report-share
+- tapOn:
+    id: report-share
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- takeScreenshot: share-card-offline-en
+- tapOn:
+    id: report-sheet-close
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m12-offline
+- tapOn:
+    id: m12-offline
+- scrollUntilVisible:
+    element:
+      id: report-share
+- tapOn:
+    id: report-share
+- scrollUntilVisible:
+    element:
+      id: share-link
+    centerElement: true
+- takeScreenshot: share-link-control-en
+- tapOn:
+    id: share-link
+- scrollUntilVisible:
+    element:
+      id: share-link-url
+    centerElement: true
+- takeScreenshot: share-link-en
+- tapOn:
+    id: report-sheet-close
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: m12-zh
+- tapOn:
+    id: m12-zh
+- tapOn:
+    id: m12-prepare
+- extendedWaitUntil:
+    visible:
+      id: report-chat
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-chat
+    centerElement: true
+- waitForAnimationToEnd
+- tapOn:
+    id: report-chat
+- extendedWaitUntil:
+    visible:
+      id: chat-question
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: chat-quota
+    centerElement: true
+- takeScreenshot: chat-empty-zh

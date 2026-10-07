@@ -6,7 +6,7 @@ import { ApiError } from '../api-error';
 import { saveProfile, removeProfile, profileBirth } from '../profile-service';
 import { saveJournalEntry } from '../journal-service';
 import { persistReading, resolveBirth } from '../reading-service';
-import { MobilePreferencesSchema } from '@tianji/shared';
+import { MobilePreferencesSchema, BirthInputSchema } from '@tianji/shared';
 import { assertRateLimit, ratelimit } from '../ratelimit';
 import {
   profileSyncSchema,
@@ -226,10 +226,33 @@ export async function putSync(userId: string, resource: Resource, raw: unknown) 
           const existing = await getDb().birthProfile.findFirst({
             where: { id: item.id, userId, isCurrent: true },
           });
-          await saveProfile(userId, item.birth, item.metadata, item.locale, existing?.id, {
-            createId: item.id,
-            ...checks,
-          });
+          const defaults = item.isDefault
+            ? [
+                statement(
+                  'UPDATE "BirthProfile" SET "isDefault"=0 WHERE "userId"=? AND "isDefault"=1',
+                  userId,
+                ),
+                statement(
+                  'UPDATE "BirthProfile" SET "isDefault"=1 WHERE id=? AND "userId"=?',
+                  item.id,
+                  userId,
+                ),
+              ]
+            : [];
+          // DESIGN-GAP: Default-only sync edits preserve birth versions and cached reports; false values never clear the owner's sole default.
+          const same =
+            existing &&
+            JSON.stringify(profileBirth(existing)) ===
+              JSON.stringify(BirthInputSchema.parse(item.birth)) &&
+            (existing.label ?? existing.encName) === item.metadata.label &&
+            existing.relation === item.metadata.relation;
+          if (same) await atomicBatch([...checks.checks, ...defaults, ...checks.after]);
+          else
+            await saveProfile(userId, item.birth, item.metadata, item.locale, existing?.id, {
+              createId: item.id,
+              ...checks,
+              after: [...defaults, ...checks.after],
+            });
         }
       }
       results.push(await view(userId, resource, item.id));

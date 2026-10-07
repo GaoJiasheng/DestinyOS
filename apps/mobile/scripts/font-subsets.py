@@ -25,7 +25,7 @@ for locale in ['zh', 'zh-TW', 'en']:
             chars.update(value)
 # DESIGN-GAP: Report prose and Skia labels need the complete bundled CJK vocabulary,
 # not only the navigation subset. Editorial content still comes from packages/content.
-for source in [*ROOT.glob('packages/content/dist/*.json'), *ROOT.glob('apps/web/messages/*.json')]:
+for source in [*ROOT.glob('packages/content/dist/*.json'), *ROOT.glob('apps/web/messages/**/*.json')]:
     chars.update(char for char in source.read_text() if '\u4e00' <= char <= '\u9fff')
 # DESIGN-GAP: Native requires TTF/OTF rather than Web's WOFF2; the native subset covers the shell and effect labels in all three locales.
 # Match the pinned Web source hashes; fetch only when the shared local cache is absent.

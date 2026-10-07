@@ -255,3 +255,26 @@ it('reuses private exports, shares and entitlement sync; revoked access cannot d
   await hardDeleteAccounts(new Date(Date.now() + 8 * 86400000));
   expect(await raw.user.findUnique({ where: { id: 'owner' } })).toBeNull();
 });
+it('syncs a new default without invalidating either birth version', async () => {
+  const first = await saveProfile('owner', A, { label: 'A', relation: 'self' }, 'en');
+  const second = await saveProfile('owner', A, { label: 'B', relation: 'partner' }, 'en');
+  await putSync('owner', 'profiles', {
+    items: [
+      {
+        id: second.profileId,
+        updatedAt: stamp(2000),
+        deleted: false,
+        birth: A,
+        metadata: { label: 'B', relation: 'partner' },
+        isDefault: true,
+        locale: 'en',
+      },
+    ],
+  });
+  expect(
+    await raw.birthProfile.findUniqueOrThrow({ where: { id: first.profileId } }),
+  ).toMatchObject({ version: 1, isDefault: false });
+  expect(
+    await raw.birthProfile.findUniqueOrThrow({ where: { id: second.profileId } }),
+  ).toMatchObject({ version: 1, isDefault: true });
+});

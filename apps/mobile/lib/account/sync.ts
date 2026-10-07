@@ -157,6 +157,7 @@ function upload(
     return {
       ...base,
       birth: data.birth,
+      isDefault: data.isDefault,
       metadata: {
         label: data.name || getCopy(locale)('mobile.profiles.unnamed'),
         relation: data.relation ?? 'self',

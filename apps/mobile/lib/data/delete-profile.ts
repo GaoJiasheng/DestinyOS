@@ -10,9 +10,10 @@ export async function deleteProfileDependents(
   await sql.runAsync('DELETE FROM BirthProfileVersion WHERE profileId=?', id);
   for (const table of ['Reading', 'JournalEntry'] as const) {
     const children = await sql.getAllAsync<{ id: string; updatedAt: string }>(
-      `SELECT id,updatedAt FROM "${table}" WHERE userId IS ? AND profileId=?`,
+      `SELECT id,updatedAt FROM "${table}" WHERE userId IS ? AND (profileId=?${table === 'Reading' ? " OR json_extract(data, '$.inputSnapshot.partnerProfileId')=?" : ''})`,
       userId,
       id,
+      ...(table === 'Reading' ? [id] : []),
     );
     for (const child of children) {
       const deletedAt = new Date(
@@ -25,6 +26,23 @@ export async function deleteProfileDependents(
         child.id,
       );
     }
+  }
+  // DESIGN-GAP: Match Web's oldest-surviving default after deletion, without changing birth versions.
+  const remaining = await sql.getAllAsync<{ id: string; data: string }>(
+    'SELECT id,data FROM BirthProfile WHERE userId IS ? AND deletedAt IS NULL ORDER BY createdAt,id',
+    userId,
+  );
+  if (
+    remaining.length &&
+    !remaining.some((row) => (JSON.parse(row.data) as { isDefault?: boolean }).isDefault)
+  ) {
+    const first = remaining[0]!;
+    await sql.runAsync(
+      'UPDATE BirthProfile SET data=?,updatedAt=? WHERE id=?',
+      JSON.stringify({ ...(JSON.parse(first.data) as Record<string, unknown>), isDefault: true }),
+      timestamp,
+      first.id,
+    );
   }
   const settings = await sql.getFirstAsync<{ id: string; data: string; updatedAt: string }>(
     'SELECT id,data,updatedAt FROM Settings WHERE userId IS ? AND deletedAt IS NULL',

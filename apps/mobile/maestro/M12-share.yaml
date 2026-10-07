@@ -1,0 +1,69 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- openLink: 'tianji:///dev/report-actions'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: m12-zh
+    timeout: 60000
+- tapOn:
+    id: m12-zh
+- tapOn:
+    id: m12-prepare
+- extendedWaitUntil:
+    visible:
+      id: report-share
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-share
+    centerElement: true
+- tapOn:
+    id: report-share
+- scrollUntilVisible:
+    element:
+      id: share-template-chart
+    centerElement: true
+- tapOn:
+    id: share-template-chart
+- scrollUntilVisible:
+    element:
+      id: share-level-1
+    centerElement: true
+- tapOn:
+    id: share-level-1
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- takeScreenshot: share-card-chart-zh
+- scrollUntilVisible:
+    direction: UP
+    element:
+      id: share-format-landscape
+    centerElement: true
+- tapOn:
+    id: share-format-landscape
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- takeScreenshot: share-card-landscape-zh
+- scrollUntilVisible:
+    element:
+      id: share-card-native
+    centerElement: true
+- tapOn:
+    id: share-card-native
+- extendedWaitUntil:
+    visible: '.*report-card.*'
+    timeout: 30000
+- waitForAnimationToEnd
+- takeScreenshot: share-card-native-zh

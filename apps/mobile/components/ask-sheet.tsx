@@ -1,12 +1,14 @@
 import { Modal, View, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useOnline } from '../lib/network';
 import { useCopy } from '../lib/copy';
 import { useTheme } from '../lib/theme';
 import { Action, CopyText } from './native-ui';
 /** The central tab opens a dismissible native bottom sheet without replacing the selected tab. */
 export function AskSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
   const t = useCopy();
+  const online = useOnline();
   const router = useRouter();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
@@ -58,9 +60,16 @@ export function AskSheet({ open, onClose }: { open: boolean; onClose: () => void
           />
           <Action
             id="ask-master"
-            disabled
-            label={`${t('mobile.ask.master')} · ${t('mobile.ask.network')}`}
-            onPress={() => undefined}
+            disabled={!online}
+            label={
+              online
+                ? t('mobile.ask.master')
+                : `${t('mobile.ask.master')} · ${t('mobile.ask.network')}`
+            }
+            onPress={() => {
+              onClose();
+              router.push('/me/history');
+            }}
           />
           <Action id="ask-close" label={t('mobile.ask.close')} onPress={onClose} />
         </View>

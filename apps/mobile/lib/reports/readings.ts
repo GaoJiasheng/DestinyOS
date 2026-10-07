@@ -82,6 +82,8 @@ export async function createNativeReading(
   ritual?: RitualInput,
   id = Crypto.randomUUID(),
 ) {
+  if (system === 'synastry' && (!profile?.data || !partner?.data || profile.id === partner.id))
+    throw new Error('E_INVALID_INPUT');
   const birth = profile?.data?.birth;
   const request = ReadingRequestSchema.parse({
     system,

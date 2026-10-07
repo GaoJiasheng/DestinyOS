@@ -184,7 +184,9 @@ export const mobilePullEndpoint = (resource: MobileResource) =>
 const uploads = {
   profiles: z.union([
     deleted,
-    profile.omit({ version: true, isDefault: true }).extend({ locale: z.nativeEnum(Locale) }),
+    profile
+      .omit({ version: true })
+      .extend({ isDefault: z.boolean().optional(), locale: z.nativeEnum(Locale) }),
   ]),
   readings: z.union([
     deleted,
