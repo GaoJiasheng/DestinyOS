@@ -1,14 +1,19 @@
 import { cloudflareBindings } from './cloudflare';
 import { z } from 'zod';
-import { ApiError } from '../api-error';
+import { ApiError } from '../api-error-core';
 import { EXPORT_TIMEOUT_MS } from '../report-export-schema';
 /** Service-only media calls never cross a public network or forward session cookies. */
-export async function mediaRequest(path: string, payload: unknown): Promise<Response> {
+export async function mediaRequest(
+  path: string,
+  payload: unknown,
+  signal?: AbortSignal,
+): Promise<Response> {
   const response = await (
     await cloudflareBindings()
   ).MEDIA.fetch(
     new Request(`https://media.internal${path}`, {
       method: 'POST',
+      signal,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     }),
@@ -41,10 +46,16 @@ const eventSchema = z.discriminatedUnion('kind', [
 async function readMediaExport(
   payload: unknown,
   progress: (percent: number) => void,
+  signal: AbortSignal,
 ): Promise<Uint8Array> {
-  const response = await mediaRequest('/export', payload);
+  const response = await mediaRequest('/export', payload, signal);
   const reader = response.body?.getReader();
   if (!reader) throw new Error('Missing media stream');
+  const cancel = () => {
+    void reader.cancel().catch(() => undefined);
+  };
+  signal.addEventListener('abort', cancel, { once: true });
+  if (signal.aborted) cancel();
   const decoder = new TextDecoder();
   let pending = '';
   let result: Uint8Array | undefined;
@@ -71,7 +82,7 @@ async function readMediaExport(
           if (result) throw new Error('Unexpected media part');
           const part = new Uint8Array(Buffer.from(event.data, 'base64'));
           bytes += part.byteLength;
-          // DESIGN-GAP: Per-artifact frames preserve the existing 8MiB export limit; cap total private bytes at 32MiB to fit Worker memory without a giant base64 JSON object.
+          // DESIGN-GAP: One bounded private frame retains transport headroom; format-specific budgets are enforced by the renderer.
           if (part.byteLength > 8 * 1024 * 1024 || bytes > 32 * 1024 * 1024 || parts.length >= 1)
             throw new Error('Export stream budget exceeded');
           parts.push(part);
@@ -85,6 +96,7 @@ async function readMediaExport(
       }
     }
   } finally {
+    signal.removeEventListener('abort', cancel);
     await reader.cancel();
   }
   if (!result || pending) throw new Error('Incomplete media export');
@@ -97,15 +109,16 @@ export async function mediaExport(
   progress: (percent: number) => void,
 ): Promise<Uint8Array> {
   let timer: ReturnType<typeof setTimeout> | undefined;
+  const abort = new AbortController();
   // DESIGN-GAP: A second deadline covers stalled service transport; the media renderer owns browser cleanup.
   const timeout = new Promise<never>((_, reject) => {
-    timer = setTimeout(
-      () => reject(new ApiError('E_EXPORT_TIMEOUT', 'Export exceeded 60 seconds', 504)),
-      EXPORT_TIMEOUT_MS,
-    );
+    timer = setTimeout(() => {
+      reject(new ApiError('E_EXPORT_TIMEOUT', 'Export exceeded 60 seconds', 504));
+      abort.abort();
+    }, EXPORT_TIMEOUT_MS);
   });
   try {
-    return await Promise.race([readMediaExport(payload, progress), timeout]);
+    return await Promise.race([readMediaExport(payload, progress, abort.signal), timeout]);
   } finally {
     clearTimeout(timer);
   }

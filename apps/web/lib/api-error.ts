@@ -1,16 +1,7 @@
 import { z } from 'zod';
 import { EngineError } from '@tianji/engine/common';
-/** Uniform API failure with an English developer message and optional structured details. */
-export class ApiError extends Error {
-  constructor(
-    public readonly code: string,
-    message: string,
-    public readonly status: number,
-    public readonly details?: Record<string, unknown>,
-  ) {
-    super(message);
-  }
-}
+import { ApiError } from './api-error-core';
+export { ApiError } from './api-error-core';
 
 /** Convert a known failure to the documented JSON envelope and Retry-After header. */
 export function errorResponse(error: ApiError): Response {

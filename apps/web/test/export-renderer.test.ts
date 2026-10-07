@@ -4,6 +4,8 @@ import type { ReportPage } from '../lib/platform/browser';
 import { baziReading } from './fixtures/bazi-reading';
 vi.mock('../lib/auth', () => ({ auth: vi.fn() }));
 vi.mock('../lib/platform/browser', () => ({ openReportPage: vi.fn() }));
+vi.mock('../lib/platform/media-client', () => ({ mediaExport: vi.fn() }));
+import { mediaExport } from '../lib/platform/media-client';
 import { openReportPage } from '../lib/platform/browser';
 import { renderExport } from '../lib/report-export';
 const input = ExportRequestSchema.parse({ readingId: 'r-example', locale: 'zh', format: 'png' });
@@ -95,4 +97,25 @@ it('retains a complete quality-floor artifact above the soft target and below th
   expect((await renderExport(input, baziReading('zh'), 'owner', vi.fn())).length).toBe(4500000);
   expect(page.compressImage).toHaveBeenCalledOnce();
   expect(page.screenshotImage).toHaveBeenCalledExactlyOnceWith(82);
+});
+
+it('Cloudflare sends the private capability to MEDIA and leaves the compute worker without a browser', async () => {
+  vi.stubEnv('AUTH_SECRET', 'export-render-secret');
+  vi.stubEnv('PLATFORM', 'cloudflare');
+  vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://tianji.gavin.pub');
+  const artifact = new Uint8Array([255, 216, 255, 217]);
+  vi.mocked(mediaExport).mockResolvedValue(artifact);
+  vi.mocked(openReportPage).mockClear();
+  const progress = vi.fn();
+  expect(await renderExport(input, baziReading('zh'), 'owner', progress)).toEqual(artifact);
+  expect(mediaExport).toHaveBeenCalledWith(
+    expect.objectContaining({
+      request: input,
+      origin: 'https://tianji.gavin.pub',
+      path: expect.stringMatching(/^\/zh\/bazi\/r\/[^/]+\/print$/),
+      token: expect.any(String),
+    }),
+    progress,
+  );
+  expect(openReportPage).not.toHaveBeenCalled();
 });

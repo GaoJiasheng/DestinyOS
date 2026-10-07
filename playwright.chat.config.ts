@@ -1,8 +1,8 @@
 import { testDatabaseUrl } from './scripts/sqlite-test';
 import base from './playwright.auth.config';
 import { defineConfig } from '@playwright/test';
-// DESIGN-GAP: Dedicated service offsets let this suite run beside another worktree's isolated test harness.
-const offset = Number(process.env.TEST_SERVICE_PORT_OFFSET ?? 0);
+// DESIGN-GAP: Chat defaults to a separate service range from auth; callers can still override the offset for parallel worktrees.
+const offset = Number(process.env.TEST_SERVICE_PORT_OFFSET ?? 250);
 const baseURL = `http://localhost:${3100 + offset}`;
 const databaseURL = testDatabaseUrl(55432 + offset);
 // DESIGN-GAP: Reuse the isolated SQLite/KV harness and preload a provider-protocol mock; no production auth bypass.
@@ -19,6 +19,7 @@ export default defineConfig({
     url: `${baseURL}/zh/auth/login`,
     env: {
       ...base.webServer?.env,
+      TEST_SERVICE_PORT_OFFSET: String(offset),
       LOCAL_DATABASE_URL: databaseURL,
 
       TEST_MAIL_URL: `http://127.0.0.1:${58081 + offset}/mail`,

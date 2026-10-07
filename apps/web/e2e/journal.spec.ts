@@ -97,8 +97,10 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(page.locator('[data-journal-stats]')).toContainText(
       locale === 'zh' ? '3 天' : '3 days',
     );
+    // DESIGN-GAP: Capture the visible hydrated journal while Next temporarily retains a hidden streamed copy.
     await page
       .locator('.settings-page')
+      .filter({ visible: true })
       .screenshot({ path: `test-results/journal-month-${locale}-${test.info().project.name}.png` });
     await page.getByRole('button', { name: copy['journal.listView'], exact: true }).click();
     await expect(page.locator('[data-journal-entry]')).toHaveCount(Math.min(today.day, 3));
@@ -107,6 +109,7 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(page.getByText(copy['journal.method'], { exact: true })).toBeVisible();
     await page
       .locator('.settings-page')
+      .filter({ visible: true })
       .screenshot({ path: `test-results/journal-${locale}-${test.info().project.name}.png` });
     expect(await page.locator('body').evaluate((el) => el.scrollWidth <= window.innerWidth)).toBe(
       true,

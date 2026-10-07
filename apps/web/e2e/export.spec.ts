@@ -5,7 +5,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import jsQR from 'jsqr';
-import { sizePoster, limitPosterHeight } from '../lib/platform/print-dom';
+import { sizePoster, limitPosterHeight, printSettled } from '../lib/platform/print-dom';
 import { randomUUID } from 'node:crypto';
 import { login, db } from './m5-helpers';
 import sharp from 'sharp';
@@ -34,6 +34,8 @@ for (const locale of ['zh', 'en'] as const)
       const reading = await seedExportReading(user.id, system, locale);
       const source = await db.reading.findUniqueOrThrow({ where: { id: reading.id } });
       await page.goto(`/${locale}/${system}/r/${reading.id}/print`);
+      // DESIGN-GAP: Match the renderer's combined single-copy/ready contract; a second streamed copy can appear after the initial shell.
+      await expect.poll(() => page.evaluate(printSettled), { timeout: 60000 }).toBe(true);
       await expect(page.locator('.print-report').filter({ visible: true })).toHaveAttribute(
         'data-ready',
         'true',
@@ -171,6 +173,7 @@ for (const locale of ['zh', 'en'] as const)
           expect(metadata.height).toBeLessThanOrEqual(16000);
           expect(metadata.height).toBeGreaterThan(metadata.width!);
           await page.goto(`/${locale}/${system}/r/${reading.id}/print?layout=poster`);
+          await expect.poll(() => page.evaluate(printSettled)).toBe(true);
           await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true');
           const { chartWidth: posterChartWidth, ...posterIntroduction } = await page
             .locator('.print-source .print-intro')
@@ -261,6 +264,7 @@ for (const locale of ['zh', 'en'] as const)
       );
       // Light edition uses the same measured geometry and is rendered as a separate preview baseline.
       await page.goto(`/${locale}/${system}/r/${reading.id}/print?theme=light`);
+      await expect.poll(() => page.evaluate(printSettled)).toBe(true);
       await expect(page.locator('.print-report').filter({ visible: true })).toHaveAttribute(
         'data-ready',
         'true',

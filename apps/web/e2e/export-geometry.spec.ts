@@ -6,7 +6,7 @@ import { seedExportReading } from './export-fixtures';
 import { login } from './m5-helpers';
 import { mkdir, writeFile } from 'node:fs/promises';
 import jsQR from 'jsqr';
-import { sizePoster, limitPosterHeight } from '../lib/platform/print-dom';
+import { sizePoster, limitPosterHeight, printSettled } from '../lib/platform/print-dom';
 const output = 'test-results/export';
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
@@ -19,6 +19,8 @@ test('height limiting preserves A4 line breaks, the body floor and scannable QR 
   const reading = await seedExportReading(user.id, 'bazi', 'zh');
   await page.setViewportSize({ width: 1654, height: 1200 });
   await page.goto(`/zh/bazi/r/${reading.id}/print?layout=poster`);
+  // DESIGN-GAP: Match the renderer's combined single-copy/ready contract; a second streamed copy can appear after the initial shell.
+  await expect.poll(() => page.evaluate(printSettled)).toBe(true);
   await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true');
   await page.evaluate(sizePoster);
   const before = await page.locator('.print-report').evaluate((node) => {

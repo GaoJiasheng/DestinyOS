@@ -7,7 +7,7 @@ import { ReadingRequestSchema } from '../lib/reading-schema';
 import zh from '../messages/zh.json' with { type: 'json' };
 import en from '../messages/en.json' with { type: 'json' };
 // DESIGN-GAP: Match the chat harness port offset when other worktrees are running E2E services.
-const portOffset = Number(process.env.TEST_SERVICE_PORT_OFFSET ?? 0);
+const portOffset = Number(process.env.TEST_SERVICE_PORT_OFFSET ?? 250);
 const baseURL = `http://localhost:${3100 + portOffset}`;
 const key = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
 const db = sqliteClient(testDatabaseUrl(55432 + portOffset));

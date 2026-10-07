@@ -4,7 +4,7 @@ import { mediaContext, type MediaEnvironment } from './media-context';
 import { renderCard } from '../lib/og-card-render';
 import { renderPublicOgTemplate } from '../lib/public-og-template';
 import { renderAuthorizedExport } from '../lib/export-render';
-import { ApiError } from '../lib/api-error';
+import { ApiError } from '../lib/api-error-core';
 import { ExportRequestSchema } from '../lib/report-export-schema';
 import { DailyCardSchema } from '../lib/share-projection';
 import { System } from '@tianji/shared';
@@ -105,10 +105,17 @@ export default {
             !/^\/(zh|en|zh-TW)\/[a-z]+\/r\/[^/]+\/print$/.test(input.path)
           )
             return new Response(null, { status: 400 });
+          // DESIGN-GAP: A timed-out caller can cancel its transport before browser cleanup finishes; suppress late frames.
+          let disconnected = false;
           const stream = new ReadableStream<Uint8Array>({
+            cancel() {
+              disconnected = true;
+            },
             async start(controller) {
-              const emit = (event: unknown) =>
-                controller.enqueue(new TextEncoder().encode(JSON.stringify(event) + '\n'));
+              const emit = (event: unknown) => {
+                if (!disconnected)
+                  controller.enqueue(new TextEncoder().encode(JSON.stringify(event) + '\n'));
+              };
               try {
                 const data = await renderAuthorizedExport(
                   input.request,
@@ -131,7 +138,7 @@ export default {
                   code: error instanceof ApiError ? error.code : 'E_INTERNAL',
                 });
               } finally {
-                controller.close();
+                if (!disconnected) controller.close();
               }
             },
           });

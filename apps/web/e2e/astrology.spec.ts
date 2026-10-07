@@ -1,3 +1,4 @@
+import { settleArtwork } from './settle-artwork';
 import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect, type Page } from '@playwright/test';
 import zh from '../messages/zh.json' with { type: 'json' };
@@ -50,6 +51,7 @@ for (const locale of ['zh', 'en'] as const) {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
       );
+      await settleArtwork(page.locator('#chart-root'));
       if (system === 'astrology') {
         const wheel = page.locator('#chart-root .natal-wheel');
         // DESIGN-GAP: Independent visual checks collect all mismatches while keeping the test failed, so later chart and interaction checks remain visible.
@@ -202,6 +204,7 @@ for (const locale of ['zh', 'en'] as const) {
         ).toHaveAttribute('disabled', '');
         await expect(page.getByText(copy['charts.vedic.noonDasha'])).toBeVisible();
       }
+      await settleArtwork(page.locator('#chart-root'));
       await expect(page.locator('#chart-root')).toHaveScreenshot(`noon-${system}-${locale}.png`, {
         stylePath: 'apps/web/e2e/astrology-screenshot.css',
       });

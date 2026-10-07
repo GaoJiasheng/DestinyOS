@@ -1,5 +1,5 @@
 import { openReportPage, type ReportPage } from './platform/browser';
-import { ApiError } from './api-error';
+import { ApiError } from './api-error-core';
 import {
   EXPORT_TIMEOUT_MS,
   EXPORT_IMAGE_BYTES,
