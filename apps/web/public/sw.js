@@ -1,4 +1,4 @@
-/* global self, caches, URL, fetch */
+/* global Response, self, caches, URL, fetch */
 /* DESIGN-GAP: Explicit public-shell allowlist instead of caching authenticated Next HTML/RSC or API responses. */
 const CACHE = 'tianji-public-shell-sw2-8dc75e37c814';
 const SHELL = [

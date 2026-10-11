@@ -1,7 +1,7 @@
 import { Temporal } from '@js-temporal/polyfill';
 import { Solar } from 'lunar-typescript';
 import { MoonPhase } from 'astronomy-engine';
-import { BirthInputSchema, type BirthInput } from '@tianji/shared';
+import { BirthInputSchema, Stem, Branch, type BirthInput } from '@tianji/shared';
 import { normalizeBirth } from '@tianji/engine/common';
 import { computeBazi } from '@tianji/engine/bazi';
 import { computeAstrology } from '@tianji/engine/astrology';
@@ -16,21 +16,8 @@ const phases = [
   'last_quarter',
   'waning_crescent',
 ];
-const stems = ['jia', 'yi', 'bing', 'ding', 'wu', 'ji', 'geng', 'xin', 'ren', 'gui'];
-const branches = [
-  'zi',
-  'chou',
-  'yin',
-  'mao',
-  'chen',
-  'si',
-  'wu',
-  'wei',
-  'shen',
-  'you',
-  'xu',
-  'hai',
-];
+const stems = Object.values(Stem);
+const branches = Object.values(Branch);
 const terms = [
   'dong_zhi',
   'xiao_han',

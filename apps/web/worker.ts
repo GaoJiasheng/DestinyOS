@@ -6,11 +6,27 @@ import {
 import { scheduledMaintenance } from './lib/platform/scheduled';
 import { publicArtifact } from './lib/platform/public-artifact';
 /** Small entry serves public build artifacts without importing Next, Prisma, engines or media. */
-function fetchRequest(
+async function fetchRequest(
   request: Request,
   env: WorkerEnvironment,
   ctx: WorkerContext,
 ): Promise<Response> {
+  if (/^\/api\/v1\/mobile(?:\/|$)/.test(new URL(request.url).pathname)) {
+    // DESIGN-GAP: Compute alone handles mobile authentication, maintenance and callbacks; never cache native traffic at the public entry.
+    const response = env.COMPUTE
+      ? await env.COMPUTE.fetch(request)
+      : Response.json(
+          { ok: false, error: { code: 'E_INTERNAL', message: 'Mobile service unavailable' } },
+          { status: 503 },
+        );
+    const headers = new Headers(response.headers);
+    headers.set('Cache-Control', 'private, no-store');
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
   return workerFetch(request, env, ctx, async (incoming) => {
     const artifact = env.ASSETS ? await publicArtifact(incoming, env.ASSETS) : null;
     if (artifact) return artifact;

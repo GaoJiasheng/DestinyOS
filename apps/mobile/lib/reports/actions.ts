@@ -80,9 +80,10 @@ export const reportActions: ReportActions = {
     return expected;
   },
   async download(path, filename) {
+    // DESIGN-GAP: The shared format=png contract now downloads a single A4 JPEG; retain legacy PNG/ZIP downloads alongside JPG.
     if (
       !/^\/api\/v1\/mobile\/export\/[A-Za-z0-9-]+\?/.test(path) ||
-      !/^[A-Za-z0-9_.-]+\.(pdf|png|zip)$/.test(filename)
+      !/^[A-Za-z0-9_.-]+\.(pdf|jpg|png|zip)$/.test(filename)
     )
       throw new ApiClientError('E_INTERNAL', 0, 'decode');
     const response = await accountSession.raw(path);
@@ -110,7 +111,9 @@ export async function shareExport(
         ? 'application/pdf'
         : item.filename.endsWith('.zip')
           ? 'application/zip'
-          : 'image/png',
+          : item.filename.endsWith('.jpg')
+            ? 'image/jpeg'
+            : 'image/png',
       dialogTitle: title,
     });
   } finally {

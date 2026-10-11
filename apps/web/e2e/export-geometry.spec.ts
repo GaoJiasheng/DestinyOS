@@ -4,13 +4,43 @@ import { join } from 'node:path';
 import sharp from 'sharp';
 import { seedExportReading } from './export-fixtures';
 import { login } from './m5-helpers';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 import jsQR from 'jsqr';
 import { sizePoster, limitPosterHeight, printSettled } from '../lib/platform/print-dom';
 const output = 'test-results/export';
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
 });
+for (const theme of ['dark', 'light'] as const)
+  test(`${theme}: an empty shell host cannot prepend a blank PDF page`, async ({ page }) => {
+    const css = await readFile(
+      new URL('../app/[locale]/[system]/r/[id]/print/print.css', import.meta.url),
+      'utf8',
+    );
+    await page.emulateMedia({ media: 'print' });
+    // Reproduce a hydrated notification host that has no text or height before named report sheets.
+    await page.setContent(`
+      <style>${css}</style>
+      <section aria-label="Notifications" tabindex="-1"></section>
+      <main id="main">
+        <div class="print-report" data-print-theme="${theme}" data-layout="pdf">
+          <div class="print-pages">
+            <section class="print-sheet">First</section>
+            <section class="print-sheet">Second</section>
+          </div>
+        </div>
+      </main>
+    `);
+    await mkdir(output, { recursive: true });
+    const path = join(output, `no-blank-host-${theme}.pdf`);
+    await page.pdf({ path, format: 'A4', printBackground: true, preferCSSPageSize: true });
+    const info = execFileSync('pdfinfo', [path], { encoding: 'utf8' });
+    expect(Number(/Pages:\s+(\d+)/.exec(info)?.[1])).toBe(2);
+    const text = execFileSync('pdftotext', [path, '-'], { encoding: 'utf8' });
+    expect(text.split('\f')[0]).toContain('First');
+    expect(text.split('\f')[1]).toContain('Second');
+  });
 test('height limiting preserves A4 line breaks, the body floor and scannable QR pixels', async ({
   page,
   request,

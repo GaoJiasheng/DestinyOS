@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { localWorkerConfigs } from './cloudflare-local-configs';
 import { p75 } from './perf-ttfb-support';
+import { mobileMultiSmoke } from './cloudflare-mobile-smoke';
 const port = 8797;
 const base = `http://localhost:${port}`;
 const configs = await localWorkerConfigs(port);
@@ -160,11 +161,22 @@ try {
   }
   const auth = await probe('/api/auth/providers');
   assert.ok(auth.bytes > 0);
+  const mobile = await mobileMultiSmoke(base);
   await mkdir('.test-data', { recursive: true });
   await writeFile(
     '.test-data/perf-web-2.json',
     JSON.stringify(
-      { startupMs, cold, results, logged, publicImage, traditionalImage, articleImage, dailyImage },
+      {
+        startupMs,
+        cold,
+        results,
+        logged,
+        publicImage,
+        traditionalImage,
+        articleImage,
+        dailyImage,
+        mobile,
+      },
       null,
       2,
     ) + '\n',

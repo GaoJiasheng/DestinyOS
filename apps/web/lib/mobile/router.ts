@@ -129,7 +129,7 @@ export async function mobileApi(request: Request): Promise<Response> {
     if (route === 'knowledge/manifest' && method === 'GET')
       return success(await knowledgeManifest(url.searchParams.get('knowledgeVersion')));
     if (path[0] === 'knowledge' && path[1] === 'bundle' && path.length === 3 && method === 'GET')
-      return knowledgeBundle(path[2]!, url.searchParams.get('since'));
+      return await knowledgeBundle(path[2]!, url.searchParams.get('since'));
     // DESIGN-GAP: Native history and deletion reuse the Web owner checks with Bearer identity.
     if (path[0] === 'chat' && path.length === 2 && method === 'GET')
       return success(await chatHistory(idSchema.parse(path[1]), user.id));
@@ -172,7 +172,7 @@ export async function mobileApi(request: Request): Promise<Response> {
       const id = idSchema.parse(path[1]);
       if (method === 'POST')
         return success(await mobileExport(user.id, id, await body(request, 1000)));
-      if (method === 'GET') return mobileDownload(user.id, id, url.searchParams);
+      if (method === 'GET') return await mobileDownload(user.id, id, url.searchParams);
     }
     if (path[0] === 'share' && path.length === 2 && method === 'POST') {
       const input = z

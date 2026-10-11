@@ -76,6 +76,22 @@ export async function workerFetch(
     const open = await circuitOpen(env.CACHE);
     gateMs = performance.now() - started;
     if (open) {
+      // DESIGN-GAP: Native clients consume the API envelope during maintenance; Web pages keep their localized maintenance screen.
+      if (/^\/api\/v1\/mobile(?:\/|$)/.test(path))
+        return finish(
+          Response.json(
+            {
+              ok: false,
+              error: {
+                code: 'E_INTERNAL',
+                message: 'Service temporarily unavailable',
+                details: { retryAfter: 3600 },
+              },
+            },
+            { status: 503, headers: { 'Retry-After': '3600', 'Cache-Control': 'no-store' } },
+          ),
+          'maintenance',
+        );
       const { maintenanceResponse } = await import('./circuit-gate');
       return finish(maintenanceResponse(request), 'maintenance');
     }

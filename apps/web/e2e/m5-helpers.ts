@@ -49,7 +49,7 @@ export async function login(
 }
 /** Retrieve only the newest test email's link from the isolated loopback sink. */
 export async function mailLink(request: APIRequestContext, email: string) {
-  const outbox = (await (await request.get(m5MailURL)).json()) as {
+  const outbox = (await (await request.get(process.env.TEST_MAIL_URL ?? m5MailURL)).json()) as {
     to: string;
     text: string;
   }[];

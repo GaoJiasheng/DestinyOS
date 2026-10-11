@@ -423,11 +423,14 @@ body:has(.print-report) #main {
 
 html:has(.print-report[data-print-theme='dark']),
 body:has(.print-report[data-print-theme='dark']) {
+  /* DESIGN-GAP: Empty lazy shell hosts can allocate an unnamed sheet before the report; use the same named paper from the document root. */
+  page: print-dark;
   color-scheme: only light;
   background: #05070f;
 }
 html:has(.print-report[data-print-theme='light']),
 body:has(.print-report[data-print-theme='light']) {
+  page: print-light;
   color-scheme: only light;
   background: #f3f1ea;
 }

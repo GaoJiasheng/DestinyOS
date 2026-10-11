@@ -5,7 +5,32 @@ import { FrameMonitor } from '../lib/three-policy';
 import { zenithAt, planetsAt } from '../components/three/sky-position';
 import { computeHomeInsights } from '../lib/home-insights';
 import { baziReading } from './fixtures/bazi-reading';
+import { Stem, Branch } from '@tianji/shared';
+import zh from '../messages/zh.json' with { type: 'json' };
+import en from '../messages/en.json' with { type: 'json' };
 describe('real sky and home previews', () => {
+  it('uses shared stem/branch keys with Chinese and English copy throughout the sixty-day cycle', () => {
+    const stems = new Set<string>();
+    const branches = new Set<string>();
+    for (let day = 0; day < 60; day++) {
+      const instant = new Date(Date.UTC(2026, 9, 11 + day)).toISOString();
+      const { sky } = computeHomeInsights(undefined, instant, 'Asia/Singapore');
+      stems.add(sky.stem);
+      branches.add(sky.branch);
+      for (const copy of [zh, en]) {
+        expect(Object.hasOwn(copy, `bazi.stems.${sky.stem}`)).toBe(true);
+        expect(Object.hasOwn(copy, `bazi.branches.${sky.branch}`)).toBe(true);
+      }
+    }
+    expect(stems).toEqual(new Set(Object.values(Stem)));
+    expect(branches).toEqual(new Set(Object.values(Branch)));
+    expect(
+      computeHomeInsights(undefined, '2026-10-11T00:00:00Z', 'Asia/Singapore').sky,
+    ).toMatchObject({
+      stem: Stem.wu_stem,
+      branch: Branch.wu,
+    });
+  });
   it('contains all 9096 stars and correct J2000 Sirius coordinates', () => {
     const bytes = readFileSync(new URL('../public/stars.bin', import.meta.url));
     const stars = decodeStars(

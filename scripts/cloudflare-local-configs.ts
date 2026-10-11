@@ -16,6 +16,7 @@ export async function localWorkerConfigs(port: number): Promise<string[]> {
     CRON_SECRET: 'isolated-cron',
     FEATURE_ADS: 'false',
     FEATURE_WEB_PAYMENTS: 'false',
+    REVENUECAT_WEBHOOK_AUTHORIZATION: 'Bearer isolated-revenuecat-smoke',
     CF_ANALYTICS_TOKEN: '',
     ADMIN_EMAILS: 'smoke-admin@example.test',
     NEXT_PUBLIC_SITE_URL: `http://localhost:${port}`,

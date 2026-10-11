@@ -225,15 +225,37 @@ it('reuses private exports, shares and entitlement sync; revoked access cannot d
   vi.mocked(writeExport).mockImplementation(async (key, bytes) => {
     cache.set(key, bytes);
   });
-  const response = await mobileApi(
-    request('export/reading', 'POST', { format: 'pdf', locale: 'zh' }, session.accessToken),
-  );
-  expect(response.status).toBe(200);
-  const result = (await response.json()) as { data: { url: string } };
-  const download = new Request(new URL(result.data.url, 'https://tianji.gavin.pub'), {
-    headers: { Authorization: `Bearer ${session.accessToken}` },
-  });
-  expect((await mobileApi(download)).headers.get('Content-Type')).toBe('application/pdf');
+  let download = new Request('https://tianji.gavin.pub');
+  for (const format of ['pdf', 'png', 'cover'] as const) {
+    const response = await mobileApi(
+      request('export/reading', 'POST', { format, locale: 'zh' }, session.accessToken),
+    );
+    expect(response.status).toBe(200);
+    const result = (await response.json()) as {
+      data: { url: string; filename: string; files: { url: string; filename: string }[] };
+    };
+    expect(result.data.files).toHaveLength(1);
+    expect(result.data.filename).toMatch(format === 'pdf' ? /\.pdf$/ : /\.jpg$/);
+    download = new Request(new URL(result.data.url, 'https://tianji.gavin.pub'), {
+      headers: { Authorization: `Bearer ${session.accessToken}` },
+    });
+    const file = await mobileApi(download);
+    expect(file.headers.get('Content-Type')).toBe(
+      format === 'pdf' ? 'application/pdf' : 'image/jpeg',
+    );
+    expect(file.headers.get('Cache-Control')).toBe('private, no-store');
+    expect(new Uint8Array(await file.arrayBuffer())).toEqual(new Uint8Array([1, 2, 3]));
+    const invalidPage = await mobileApi(
+      new Request(download.url.replace('page=0', 'page=1'), {
+        headers: { Authorization: `Bearer ${session.accessToken}` },
+      }),
+    );
+    expect(invalidPage.status).toBe(400);
+    expect(await invalidPage.json()).toMatchObject({
+      ok: false,
+      error: { code: 'E_VALIDATION' },
+    });
+  }
   expect((await mobileApi(new Request(download.url))).status).toBe(401);
   const share = await mobileApi(
     request('share/reading', 'POST', { template: 'quote' }, session.accessToken),

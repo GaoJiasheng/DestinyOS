@@ -65,7 +65,16 @@ export function Providers({ children }: { children: ReactNode }) {
   }, []);
   const [needsImport, setNeedsImport] = useState(false);
   useEffect(() => {
-    setNeedsImport(document.cookie.includes('anon_import=1'));
+    // DESIGN-GAP: Saving an offline report sets the import cookie; defer the network-only lazy importer until reconnection so a missing chunk cannot replace the report with an error boundary.
+    const updateImport = () =>
+      setNeedsImport(navigator.onLine && document.cookie.includes('anon_import=1'));
+    updateImport();
+    window.addEventListener('online', updateImport);
+    window.addEventListener('offline', updateImport);
+    return () => {
+      window.removeEventListener('online', updateImport);
+      window.removeEventListener('offline', updateImport);
+    };
   }, [pathname]);
   return (
     <ThemeProvider>

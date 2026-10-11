@@ -63,6 +63,44 @@ export default {
       ]);
       return Response.json({ userId: id, token });
     }
+    // DESIGN-GAP: Local integration fixtures issue hashed native credentials directly in compute D1; no mock OAuth provider or production bypass is needed.
+    if (path === '/_smoke/mobile-session' && request.method === 'POST') {
+      const userId = crypto.randomUUID(),
+        sessionId = crypto.randomUUID();
+      const token = () =>
+        btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(32))))
+          .replaceAll('+', '-')
+          .replaceAll('/', '_')
+          .replaceAll('=', '');
+      const accessToken = token(),
+        refreshToken = token();
+      const hash = async (value: string) =>
+        Array.from(
+          new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))),
+          (byte) => byte.toString(16).padStart(2, '0'),
+        ).join('');
+      const now = new Date().toISOString().replace('Z', '+00:00');
+      await env.DB.batch([
+        env.DB.prepare(
+          'INSERT INTO "User" (id,email,"createdAt","updatedAt") VALUES (?,?,?,?)',
+        ).bind(userId, `mobile-${userId}@example.test`, now, now),
+        env.DB.prepare(
+          'INSERT INTO "MobileSession" (id,"userId","accessTokenHash","refreshTokenHash","accessExpiresAt","refreshExpiresAt","deviceName",platform,"createdAt","lastUsedAt") VALUES (?,?,?,?,?,?,?,?,?,?)',
+        ).bind(
+          sessionId,
+          userId,
+          await hash(accessToken),
+          await hash(refreshToken),
+          new Date(Date.now() + 900000).toISOString().replace('Z', '+00:00'),
+          new Date(Date.now() + 60 * 86400000).toISOString().replace('Z', '+00:00'),
+          'iOS integration smoke',
+          'ios',
+          now,
+          now,
+        ),
+      ]);
+      return Response.json({ userId, sessionId, accessToken, refreshToken });
+    }
     // DESIGN-GAP: Inspect only public glossary cache keys in the local smoke entry to verify Assets-to-KV loading.
     if (path === '/_smoke/glossary-cache')
       return Response.json(

@@ -50,7 +50,14 @@ it('serves M04-compatible signed manifests and full/delta R2 bytes, rejecting ta
   expect(await response.json()).toEqual({ ok: true, data: bundles[1]!.manifest });
   await bucket.put('knowledge/2.0.0/0.0.0.json.gz', Buffer.from('tampered data!!'));
   await expect(knowledgeBundle('2.0.0', null)).rejects.toMatchObject({ status: 503 });
+  const invalidBundle = await mobileApi(request('knowledge/bundle/2.0.0', 'GET', undefined, token));
+  expect(invalidBundle.status).toBe(503);
+  expect(await invalidBundle.json()).toMatchObject({ ok: false, error: { code: 'E_INTERNAL' } });
   await expect(knowledgeBundle('../v2', null)).rejects.toBeDefined();
   await bucket.put('knowledge/manifest.json', JSON.stringify({ ...index, payload: '{}' }));
   await expect(knowledgeManifest()).rejects.toMatchObject({ status: 503 });
+  await bucket.delete('knowledge/manifest.json');
+  const missingBundle = await mobileApi(request('knowledge/bundle/2.0.0', 'GET', undefined, token));
+  expect(missingBundle.status).toBe(404);
+  expect(await missingBundle.json()).toMatchObject({ ok: false, error: { code: 'E_NOT_FOUND' } });
 });
