@@ -334,7 +334,7 @@ export function TarotRitual({
             >
               {t('revealAll')}
             </Button>
-            <Button disabled={revealed.length !== count || busy} onClick={() => void complete()}>
+            <Button disabled={revealed.length !== count || busy} action={complete}>
               {t(busy ? 'saving' : 'result')}
             </Button>
           </div>

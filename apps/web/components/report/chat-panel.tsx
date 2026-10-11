@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { useEffect, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { z } from 'zod';
@@ -48,9 +49,11 @@ export function ChatPanel({
     [messages, setMessages] = useState<Message[]>([]);
   const [question, setQuestion] = useState(''),
     [answer, setAnswer] = useState('');
-  const [busy, setBusy] = useState(false),
+  const { pending, run } = useSubmitTransition();
+  const [working, setBusy] = useState(false),
     [loading, setLoading] = useState(false),
     [available, setAvailable] = useState(false);
+  const busy = working || pending;
   const [remaining, setRemaining] = useState(0),
     [limit, setLimit] = useState(0),
     [error, setError] = useState('');
@@ -258,7 +261,7 @@ export function ChatPanel({
               <form
                 onSubmit={(event) => {
                   event.preventDefault();
-                  void send();
+                  run(send);
                 }}
               >
                 <label className="birth-field">
@@ -280,7 +283,7 @@ export function ChatPanel({
           ) : null}
           {error ? <p role="alert">{error}</p> : null}
           {messages.length ? (
-            <Button variant="ghost" disabled={busy} onClick={() => void clear()}>
+            <Button variant="ghost" disabled={busy} action={clear}>
               {t('report.chat.delete')}
             </Button>
           ) : null}

@@ -177,7 +177,7 @@ export function ShareDialog({
             ) : (
               <p>{t('share.reveal.0')}</p>
             )}
-            <Button disabled={busy} onClick={() => void generate()}>
+            <Button disabled={busy} action={generate}>
               {t('share.generate')}
             </Button>
             {preview ? (
@@ -190,8 +190,8 @@ export function ShareDialog({
                 </a>
                 <Button
                   variant="ghost"
-                  onClick={() => {
-                    void navigator.clipboard
+                  action={async () => {
+                    await navigator.clipboard
                       .writeText(url)
                       .then(() => setCopied(true))
                       .catch(() => setError(true));
@@ -201,19 +201,17 @@ export function ShareDialog({
                 </Button>
                 <Button
                   variant="ghost"
-                  onClick={() => {
-                    void (async () => {
-                      try {
-                        const blob = await (await fetch(preview)).blob(),
-                          file = new File([blob], 'tianji.png', { type: 'image/png' });
-                        if (navigator.canShare?.({ files: [file] }))
-                          await navigator.share({ files: [file], title: t('report.share') });
-                        else if (navigator.share) await navigator.share({ url });
-                        else await navigator.clipboard.writeText(url);
-                      } catch (e) {
-                        if (!(e instanceof DOMException && e.name === 'AbortError')) setError(true);
-                      }
-                    })();
+                  action={async () => {
+                    try {
+                      const blob = await (await fetch(preview)).blob(),
+                        file = new File([blob], 'tianji.png', { type: 'image/png' });
+                      if (navigator.canShare?.({ files: [file] }))
+                        await navigator.share({ files: [file], title: t('report.share') });
+                      else if (navigator.share) await navigator.share({ url });
+                      else await navigator.clipboard.writeText(url);
+                    } catch (e) {
+                      if (!(e instanceof DOMException && e.name === 'AbortError')) setError(true);
+                    }
                   }}
                 >
                   {t('share.native')}
@@ -221,14 +219,16 @@ export function ShareDialog({
                 {token ? (
                   <Button
                     variant="ghost"
-                    onClick={() => {
-                      void revokeShareLinkAction(token).then((r) => {
-                        if (r.ok) {
-                          setUrl('');
-                          setImage('');
-                          setToken('');
-                        } else setError(true);
-                      });
+                    action={async () => {
+                      await revokeShareLinkAction(token)
+                        .then((r) => {
+                          if (r.ok) {
+                            setUrl('');
+                            setImage('');
+                            setToken('');
+                          } else setError(true);
+                        })
+                        .catch(() => setError(true));
                     }}
                   >
                     {t('share.revoke')}

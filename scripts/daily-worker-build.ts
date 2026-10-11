@@ -1,4 +1,4 @@
-import { build, type Plugin } from 'esbuild';
+import { build } from 'esbuild';
 import { createHash } from 'node:crypto';
 import { brotliCompressSync, constants } from 'node:zlib';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -8,21 +8,7 @@ import { resolve } from 'node:path';
 const root = fileURLToPath(new URL('../', import.meta.url));
 // DESIGN-GAP: Emit content-addressed daily Workers with existing esbuild tooling so the RSC can preload it before local profile decryption; user data is never embedded or transmitted.
 // DESIGN-GAP: Root build creates this public asset before Turbo as well, so a restored .next cache cannot omit the ignored worker file on a clean checkout.
-// DESIGN-GAP: Keep the full OpenCC dictionary in a separate traditional-language worker; zh/en never convert text, and an accidental conversion in the smaller worker fails closed.
-const withoutTraditional: Plugin = {
-  name: 'daily-without-traditional',
-  setup(plugin) {
-    plugin.onResolve({ filter: /^opencc-js\/cn2t$/ }, () => ({
-      path: 'converter',
-      namespace: 'daily-without-traditional',
-    }));
-    plugin.onLoad({ filter: /.*/, namespace: 'daily-without-traditional' }, () => ({
-      contents:
-        'export function Converter() { return () => { throw new Error("Traditional worker required"); }; }',
-      loader: 'js',
-    }));
-  },
-};
+// DESIGN-GAP: Traditional worker inputs use build-generated knowledge; published prose conversion uses the compact generated vocabulary, with no OpenCC dependency.
 async function emit(traditional: boolean, calendar = false) {
   const result = await build({
     absWorkingDir: root,
@@ -36,7 +22,17 @@ async function emit(traditional: boolean, calendar = false) {
     legalComments: 'inline',
     define: { 'process.env.NODE_ENV': '"production"' },
     write: false,
-    plugins: traditional ? [] : [withoutTraditional],
+    plugins: [
+      {
+        name: 'traditional-knowledge',
+        setup(plugin) {
+          if (traditional)
+            plugin.onResolve({ filter: /daily\.zh\.json$/ }, () => ({
+              path: resolve(root, 'packages/content/dist/daily.zh-TW.json'),
+            }));
+        },
+      },
+    ],
   });
   const bytes = result.outputFiles[0]!.contents;
   const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 16);

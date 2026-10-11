@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { TarotChartSchema } from '@tianji/shared';
 import { TarotDetails } from '@/components/tarot/tarot-details';
@@ -75,26 +76,28 @@ export function FeedbackBar({ readingId, sectionKey }: { readingId?: string; sec
     <div className="feedback-bar">
       <span>{t('report.feedback')}</span>
       {([1, -1] as const).map((v) => (
-        <button
+        <Button
+          variant="ghost"
           key={v}
           type="button"
           disabled={busy}
           aria-pressed={vote === v}
           aria-label={t(v === 1 ? 'report.feedback.yes' : 'report.feedback.no')}
-          onClick={() => {
+          action={async () => {
             setBusy(true);
-            void submitFeedbackAction({ readingId, sectionKey, vote: v })
+            await submitFeedbackAction({ readingId, sectionKey, vote: v })
               .then((result) => {
                 if (result.ok) {
                   setVote(v);
                   toast.success(t('report.feedback.saved'));
                 } else toast.error(t(`report.error.${result.error.code}` as MessageKey));
               })
+              .catch(() => toast.error(t('report.error.E_INTERNAL')))
               .finally(() => setBusy(false));
           }}
         >
           {v === 1 ? '👍' : '👎'}
-        </button>
+        </Button>
       ))}
     </div>
   );

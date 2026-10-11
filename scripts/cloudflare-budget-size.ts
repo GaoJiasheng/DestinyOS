@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { gzipSync } from 'node:zlib';
 
 // DESIGN-GAP: Use decimal MB for the task's 8MB CI limit, stricter than Cloudflare's MiB limit.
+export const maxWorkerRawBytes = 8_000_000;
 export const maxWorkerGzipBytes = 8_000_000;
 export const targetWorkerGzipBytes = 6_000_000;
 
@@ -19,6 +20,7 @@ export function workerSize(files: ReadonlyArray<{ name: string; contents: Uint8A
     'Worker JS is missing',
   );
   return {
+    maxRawBytes: maxWorkerRawBytes,
     rawBytes: modules.reduce((sum, file) => sum + file.rawBytes, 0),
     gzipBytes: modules.reduce((sum, file) => sum + file.gzipBytes, 0),
     maxGzipBytes: maxWorkerGzipBytes,
@@ -34,4 +36,10 @@ export function assertWorkerBudget(gzipBytes: number): void {
     gzipBytes <= maxWorkerGzipBytes,
     `Worker gzip ${gzipBytes} bytes exceeds ${maxWorkerGzipBytes} bytes (8MB)`,
   );
+}
+
+/** Raw executable bytes govern main-isolate parsing, independently of the upload compression limit. */
+export function assertWorkerRawBudget(rawBytes: number, maximum = maxWorkerRawBytes): void {
+  assert.ok(Number.isSafeInteger(rawBytes) && rawBytes >= 0, 'Invalid Worker raw size');
+  assert.ok(rawBytes <= maximum, `Worker raw ${rawBytes} bytes exceeds ${maximum} bytes`);
 }

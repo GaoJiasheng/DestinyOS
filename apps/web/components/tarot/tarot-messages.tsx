@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import { dailyMessages, featureMessages } from '@/i18n/feature-messages';
 import { toMessages } from '@/i18n/catalog';
 /** Keep illustrated card prose out of the global shell; daily cards only need names, keywords and advice. */
 export async function TarotMessages({
@@ -30,7 +31,7 @@ export async function TarotMessages({
   return (
     <NextIntlClientProvider
       messages={{
-        ...messages,
+        ...(daily ? dailyMessages(messages) : featureMessages(messages)),
         tarot: {
           ...(typeof messages.tarot === 'object' ? messages.tarot : {}),
           ...(typeof scoped.tarot === 'object' ? scoped.tarot : {}),

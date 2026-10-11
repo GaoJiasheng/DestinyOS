@@ -38,10 +38,7 @@ export function ReportOwnerDialog({
         <Button variant="secondary" disabled={busy} onClick={() => setDialog(null)}>
           {t('report.cancel')}
         </Button>
-        <Button
-          disabled={busy || (dialog === 'rename' && !title.trim())}
-          onClick={() => void confirm()}
-        >
+        <Button disabled={busy || (dialog === 'rename' && !title.trim())} action={confirm}>
           {t('report.confirm')}
         </Button>
       </div>

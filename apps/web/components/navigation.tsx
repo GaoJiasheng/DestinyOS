@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { Sun, Compass, Sparkles, BookOpen, UserRound } from 'lucide-react';
@@ -14,7 +15,6 @@ import { ProfileSwitcher } from './me/profile-switcher';
 import { useSignedIn } from './providers';
 export { systems } from '@/lib/system-links';
 /** Responsive desktop navigation and the five-item mobile tab bar. */
-// DESIGN-GAP: Menu links fetch on explicit navigation; preserve mobile bandwidth for the requested chart and keep normal client routing.
 export function Navigation() {
   const t = useCopy();
   const pathname = usePathname();
@@ -23,7 +23,7 @@ export function Navigation() {
     <>
       <header className="site-header">
         <Link
-          prefetch={false}
+          prefetch={true}
           href="/"
           className="brand-mark"
           aria-label={t('brand.nameEn', { name: brand.nameEn })}
@@ -34,7 +34,7 @@ export function Navigation() {
         <nav className="desktop-nav" aria-label={t('nav.label')}>
           {(['today', ...systems] as const).map((item) => (
             <Link
-              prefetch={false}
+              prefetch={true}
               key={item}
               href={`/${item}`}
               aria-current={pathname.startsWith(`/${item}`) ? 'page' : undefined}
@@ -49,7 +49,7 @@ export function Navigation() {
           {signedIn ? (
             <ProfileSwitcher />
           ) : (
-            <Link prefetch={false} href="/auth/login" className="login-link">
+            <Link prefetch={true} href="/auth/login" className="login-link">
               {t('nav.login')}
             </Link>
           )}
@@ -57,7 +57,7 @@ export function Navigation() {
       </header>
       <nav className="mobile-tabs" aria-label={t('nav.label')}>
         <Link
-          prefetch={false}
+          prefetch={true}
           href="/today"
           aria-current={pathname.startsWith('/today') ? 'page' : undefined}
         >
@@ -67,7 +67,7 @@ export function Navigation() {
         <ReadingLauncher tab />
         <AskLauncher />
         <Link
-          prefetch={false}
+          prefetch={true}
           href="/learn"
           aria-current={pathname.startsWith('/learn') ? 'page' : undefined}
         >
@@ -75,7 +75,7 @@ export function Navigation() {
           <span>{t('nav.learn')}</span>
         </Link>
         <Link
-          prefetch={false}
+          prefetch={true}
           href="/me"
           aria-current={pathname.startsWith('/me') ? 'page' : undefined}
         >
@@ -92,7 +92,9 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
   const t = useCopy();
   const locale = useLocale() as import('@tianji/shared').Locale;
   const router = useRouter();
-  const [busy, setBusy] = useState(false);
+  const { pending, run } = useSubmitTransition();
+  const [working, setBusy] = useState(false);
+  const busy = working || pending;
   const [error, setError] = useState<string | null>(null);
   const show = () => {
     setOpen(true);
@@ -124,7 +126,7 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
         <div className="system-picker" aria-busy={busy}>
           {systems.map((system, index) => (
             <Link
-              prefetch={false}
+              prefetch={true}
               key={system}
               href={
                 ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
@@ -132,7 +134,7 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
                   : `/${system}`
               }
               aria-disabled={busy}
-              onClick={async (event) => {
+              onClick={(event) => {
                 if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
                 window.dispatchEvent(
                   new CustomEvent('tianji:event', { detail: { name: `home.card.${system}` } }),
@@ -151,21 +153,23 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
                   return;
                 }
                 event.preventDefault();
-                setBusy(true);
-                setError(null);
-                try {
-                  const { launchSystem } = await import('@/lib/launch-system');
-                  const result = await launchSystem(system, locale);
-                  if ('error' in result) setError(result.error);
-                  else {
-                    setOpen(false);
-                    router.push(result.href);
+                run(async () => {
+                  setBusy(true);
+                  setError(null);
+                  try {
+                    const { launchSystem } = await import('@/lib/launch-system');
+                    const result = await launchSystem(system, locale);
+                    if ('error' in result) setError(result.error);
+                    else {
+                      setOpen(false);
+                      router.push(result.href);
+                    }
+                  } catch {
+                    setError('E_INTERNAL');
+                  } finally {
+                    setBusy(false);
                   }
-                } catch {
-                  setError('E_INTERNAL');
-                } finally {
-                  setBusy(false);
-                }
+                });
               }}
             >
               <span className="system-index" aria-hidden>
@@ -212,12 +216,12 @@ function AskLauncher() {
       <Dialog open={open} onOpenChange={setOpen} title={t('home.ask.title')}>
         <div className="dialog-actions">
           <Button asChild>
-            <Link prefetch={false} href="/tarot" onClick={() => setOpen(false)}>
+            <Link prefetch={true} href="/tarot" onClick={() => setOpen(false)}>
               {t('home.ask.tarot')}
             </Link>
           </Button>
           <Button variant="secondary" asChild>
-            <Link prefetch={false} href="/iching/cast?method=random" onClick={() => setOpen(false)}>
+            <Link prefetch={true} href="/iching/cast?method=random" onClick={() => setOpen(false)}>
               {t('home.ask.iching')}
             </Link>
           </Button>

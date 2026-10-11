@@ -74,7 +74,10 @@
     "db:remote": "pnpm --filter @tianji/web exec wrangler d1 migrations apply destinyos --remote",
     "cf:smoke": "tsx scripts/cloudflare-smoke.ts",
     "mobile:fonts": "python3 apps/mobile/scripts/font-subsets.py",
-    "test:web-nopay:e2e": "playwright test --config playwright.web-nopay.config.ts"
+    "test:web-nopay:e2e": "playwright test --config playwright.web-nopay.config.ts",
+    "perf:ttfb": "tsx scripts/perf-ttfb.ts",
+    "cf:media:build": "tsx scripts/media-worker-build.ts",
+    "cf:multi:smoke": "tsx scripts/cloudflare-multi-smoke.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
@@ -112,7 +115,9 @@
     "typescript-eslint": "^8.46.0",
     "vitest": "^4.1.11",
     "yaml": "^2.9.1",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "jsqr": "^1.4.0",
+    "opencc-js": "1.4.2"
   },
   "type": "module",
   "pnpm": {

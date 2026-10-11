@@ -2,8 +2,9 @@ import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
 import { learnContent } from '@/lib/learn';
-import { GlossaryNavigation } from '@/components/learn/glossary-navigation';
 import { learnMetadata } from '@/lib/learn-metadata';
+import { SystemArt } from '@/components/art/system-art';
+import { isArtSystem } from '@tianji/ui-core/art';
 export const revalidate = 86400;
 /** Index metadata contains article-specific hreflang. */
 export async function generateMetadata({
@@ -38,7 +39,8 @@ export default async function LearnPage({
         <ul className="learn-grid">
           {content.systems.map((s) => (
             <li key={s.key}>
-              <Link href={`/learn/${s.key}`}>
+              <Link href={`/learn/${s.key}`} className="learn-system-link">
+                {isArtSystem(s.key) ? <SystemArt system={s.key} /> : null}
                 {t('report.content', { text: s[locale === 'en' ? 'en' : 'zh'].title })}
               </Link>
             </li>
@@ -73,7 +75,6 @@ export default async function LearnPage({
       <section className="report-card">
         <h2>{t('learn.glossary')}</h2>
         <Link href="/learn/glossary">{t('learn.glossaryIntro')}</Link>
-        <GlossaryNavigation locale={locale} />
       </section>
     </article>
   );

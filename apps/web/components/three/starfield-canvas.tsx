@@ -2,7 +2,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Html } from '@react-three/drei/web/Html';
-import { AdditiveBlending, BackSide, Color, Group, ShaderMaterial, Vector3 } from 'three';
+import { useTexture } from '@react-three/drei/core/Texture';
+import { artTextures } from '@tianji/ui-core/art';
+import {
+  AdditiveBlending,
+  BackSide,
+  Color,
+  Group,
+  ShaderMaterial,
+  SRGBColorSpace,
+  Vector3,
+} from 'three';
 import { useTranslations } from 'next-intl';
 import { decodeStars, equatorialPoint, type CatalogStar } from '@/lib/star-catalog';
 import { DemandCanvas } from './demand-canvas';
@@ -56,20 +66,32 @@ function Stars({ stars }: { stars: CatalogStar[] }) {
   );
 }
 function Galaxy() {
-  // DESIGN-GAP: A procedural galactic band avoids third-party image licensing and a 4K texture's GPU memory.
+  // DESIGN-GAP: Reuse the responsive Hero URL already downloaded by the browser; a second resolution would exceed the first-screen image budget. Native clients retain the full master URL.
+  const source = useMemo(
+    () =>
+      (typeof document === 'undefined'
+        ? undefined
+        : document.querySelector<HTMLImageElement>('[data-art="hero/galaxy"] img')?.currentSrc) ||
+      artTextures.galaxy,
+    [],
+  );
+  const texture = useTexture(source);
+  // DESIGN-GAP: Painted color textures use sRGB, matching the same bitmap displayed by picture.
+  texture.colorSpace = SRGBColorSpace;
   return (
     <mesh>
       <sphereGeometry args={[110, 32, 16]} />
-      <shaderMaterial
+      <meshBasicMaterial
+        map={texture}
         side={BackSide}
         transparent
+        opacity={0.35}
         depthWrite={false}
-        vertexShader={`varying vec3 direction; void main(){direction=normalize(position);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`}
-        fragmentShader={`varying vec3 direction; void main(){vec3 n=normalize(vec3(-.868,.456,-.198));float band=exp(-pow(dot(normalize(direction),n)*12.0,2.0));float noise=fract(sin(dot(direction.xy,vec2(12.9898,78.233)))*43758.5453);gl_FragColor=vec4(.26,.28,.42,band*(.2+.15*noise));}`}
       />
     </mesh>
   );
 }
+
 function Meteor() {
   const group = useRef<Group>(null),
     material = useRef<ShaderMaterial>(null);

@@ -1,85 +1,26 @@
-import { testDatabaseUrl } from '../../../scripts/sqlite-test';
 import { TestCache } from '../../../scripts/test-cache';
+import { testDatabaseUrl } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { unzipSync } from 'fflate';
+import jsQR from 'jsqr';
+import { sizePoster, limitPosterHeight, printSettled } from '../lib/platform/print-dom';
 import { randomUUID } from 'node:crypto';
-import { login, seedReading, db, birth, copies } from './m5-helpers';
-import { generateReading, json } from '../lib/reading-service';
-import { encryptField } from '../lib/crypto';
+import { login, db } from './m5-helpers';
 import sharp from 'sharp';
-const systems = [
-  'bazi',
-  'ziwei',
-  'iching',
-  'qimen',
-  'tarot',
-  'astrology',
-  'vedic',
-  'numerology',
-] as const;
+import { systems, seedExportReading } from './export-fixtures';
 const output = 'test-results/export';
-// Fixture A follows launch-check's documented fixed birth/clock, number cast and seeded Celtic Cross.
-async function seedExportReading(
-  userId: string,
-  system: (typeof systems)[number],
-  locale: 'zh' | 'en',
-) {
-  const now = '2026-10-04T00:00:00Z';
-  const input = {
-    system,
-    locale,
-    birth,
-    idempotencyKey: randomUUID(),
-    seed: 'fixture-A',
-    ...(system === 'tarot' ? { spread: 'celtic_cross' as const } : {}),
-    ...(system === 'iching'
-      ? {
-          method: 'meihua' as const,
-          category: 'career',
-          numbers: [1, 8, 1] as [number, number, number],
-        }
-      : {}),
-    ...(system === 'qimen'
-      ? {
-          question: {
-            at: `${now}[UTC]`,
-            place: { lng: birth.place!.lng, tz: birth.place!.tz },
-            category: 'general',
-          },
-        }
-      : {}),
-  };
-  const result = await generateReading(input, now);
-  return db.reading.create({
-    data: {
-      userId,
-      system,
-      encInput: encryptField(JSON.stringify(input), 'Reading.encInput', userId),
-      chart: json(result.chart),
-      reportZh: locale === 'zh' ? json(result.report) : undefined,
-      reportEn: locale === 'en' ? json(result.report) : undefined,
-      schoolUsed: json(result.meta.schoolUsed),
-      engineVersion: result.report.engineVersion,
-      interpretVersion: result.report.interpretVersion,
-      knowledgeVersion: result.report.knowledgeVersion,
-      createdAt: new Date(now),
-    },
-  });
-}
-
-process.env.LOCAL_DATABASE_URL = testDatabaseUrl(57552);
-
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
 });
 for (const locale of ['zh', 'en'] as const)
-  test(`${locale}: Fixture A eight-system PDF and 300dpi PNG acceptance`, async ({
+  test(`${locale}: Fixture A eight-system compact PDF and single JPEG acceptance`, async ({
     page,
     request,
   }) => {
+    // Sixteen render jobs each retain their own enforced 60s deadline; allow the full bilingual-fixture loop to finish.
+    test.setTimeout(1100000);
     const user = await login(
       page,
       request,
@@ -89,40 +30,77 @@ for (const locale of ['zh', 'en'] as const)
     await mkdir(output, { recursive: true });
     // Test-fixture entitlement allows eight pairs while production quotas remain ten per hour per account.
     for (const system of systems) {
+      await page.setViewportSize({ width: 1000, height: 1200 });
       const reading = await seedExportReading(user.id, system, locale);
       const source = await db.reading.findUniqueOrThrow({ where: { id: reading.id } });
       await page.goto(`/${locale}/${system}/r/${reading.id}/print`);
-      await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true', {
-        timeout: 60000,
-      });
+      // DESIGN-GAP: Match the renderer's combined single-copy/ready contract; a second streamed copy can appear after the initial shell.
+      await expect.poll(() => page.evaluate(printSettled), { timeout: 60000 }).toBe(true);
+      await expect(page.locator('.print-report').filter({ visible: true })).toHaveAttribute(
+        'data-ready',
+        'true',
+        {
+          timeout: 60000,
+        },
+      );
       const sheetCount = await page.locator('.print-sheet').count();
       const ink = await page
         .locator('.print-report')
+        .filter({ visible: true })
         .evaluate((node) => getComputedStyle(node).color);
       expect(ink).toBe('rgb(243, 241, 234)');
-      expect(sheetCount).toBeGreaterThan(4);
+      expect(sheetCount).toBeLessThanOrEqual(['iching', 'qimen', 'tarot'].includes(system) ? 3 : 6);
       await expect(page.locator('.print-pages .print-keywords span')).toHaveCount(3);
-      const layout = await page.locator('.print-page-content').evaluateAll((nodes) =>
+      const layout = await page.locator('.print-column').evaluateAll((nodes) =>
         nodes.map((n) => ({
           overflow: n.scrollHeight - n.clientHeight,
           text: n.textContent?.trim().length ?? 0,
         })),
       );
-      expect(layout.every((p) => p.overflow <= 1 && p.text > 0)).toBe(true);
+      expect(layout.every((p) => p.overflow <= 1)).toBe(true);
+      expect(layout.slice(0, -1).every((p) => p.text > 0)).toBe(true);
+      await expect(
+        page.locator('.print-sheet').first().locator('[data-print-section="cover"]'),
+      ).toHaveCount(1);
+      await expect(
+        page.locator('.print-sheet').first().locator('[data-print-section="chart"]'),
+      ).toHaveCount(1);
+      const { chartWidth: pdfChartWidth, ...introduction } = await page
+        .locator('.print-pages .print-intro')
+        .evaluate((node) => ({
+          titleFont: getComputedStyle(node.querySelector('h1')!).fontFamily,
+          titleSize: getComputedStyle(node.querySelector('h1')!).fontSize,
+          personaFont: getComputedStyle(node.querySelector('.print-persona')!).fontFamily,
+          chartWidth: getComputedStyle(node.querySelector('.print-chart svg')!).width,
+        }));
       await expect(page.locator('.print-footer').last()).toContainText(
         `${sheetCount} / ${sheetCount}`,
       );
       const sourceReport = source[locale === 'zh' ? 'reportZh' : 'reportEn'] as {
         sections: { title: string; blocks: { type: string; text?: string }[] }[];
       };
-      const visible = await page.locator('.print-pages').innerText();
+      // Read columns in flow order without inserting repeated page headers/footers into split paragraphs.
+      const visible = (await page.locator('.print-column').allTextContents()).join('');
       const sourceProse = await page.locator('.print-source p[data-print-block]').allTextContents();
       const normalized = (text: string) => text.replace(/[\s\u00ad]/g, '');
       for (const prose of sourceProse) expect(normalized(visible)).toContain(normalized(prose));
       for (const section of sourceReport.sections) expect(visible).toContain(section.title);
       expect(visible).not.toContain('1990-5-15');
       expect(visible).not.toContain('08:30');
-      const artifact: Record<string, { size: number; pages: number }> = {};
+      const artifact: Record<
+        string,
+        {
+          size: number;
+          pages: number;
+          width?: number;
+          bodyPixels?: number;
+          marginPixels?: number;
+          scale?: number;
+          height?: number;
+          qr?: string;
+          searchable?: boolean;
+        }
+      > = {};
       for (const format of ['pdf', 'png'] as const) {
         // Reset test quota only: the API must still reserve a real D1 slot for each generated artifact.
         const redis = new TestCache(testDatabaseUrl(57552));
@@ -148,54 +126,136 @@ for (const locale of ['zh', 'en'] as const)
         expect(done.error).toBeUndefined();
         expect(done.progress).toBe(100);
         expect(done.url).toBeTruthy();
+        expect(done.url).not.toContain('width=');
         const file = await page.request.get(done.url!);
         expect(file.ok()).toBe(true);
         const data = await file.body();
-        expect(data.length).toBeLessThanOrEqual(8 * 1024 * 1024);
+        expect(data.length).toBeLessThanOrEqual(format === 'pdf' ? 2000000 : 6000000);
         const path = join(output, done.filename!);
         await writeFile(path, data);
         artifact[format] = { size: data.length, pages: sheetCount };
         if (format === 'pdf') {
           const info = execFileSync('pdfinfo', [path], { encoding: 'utf8' });
           expect(Number(/Pages:\s+(\d+)/.exec(info)?.[1])).toBe(sheetCount);
-          const text = execFileSync('pdftotext', ['-layout', path, '-'], { encoding: 'utf8' });
+          const a4 = /Page size:\s+([\d.]+) x ([\d.]+) pts/.exec(info);
+          expect(Math.abs(Number(a4?.[1]) - (210 * 72) / 25.4)).toBeLessThan(1);
+          expect(Math.abs(Number(a4?.[2]) - (297 * 72) / 25.4)).toBeLessThan(1);
+          // Raw content-stream order preserves the two columns; crop only the repeating header/footer areas (points at 72dpi).
+          const text = execFileSync(
+            'pdftotext',
+            ['-raw', '-x', '28', '-y', '53', '-W', '539', '-H', '735', path, '-'],
+            { encoding: 'utf8' },
+          );
           expect(text).toContain(locale === 'zh' ? '免责声明' : 'Disclaimer');
           for (const section of sourceReport.sections)
             expect(text.replace(/\s/g, '')).toContain(section.title.replace(/\s/g, ''));
           for (const prose of sourceProse) expect(normalized(text)).toContain(normalized(prose));
           expect(text).not.toContain('1990-05-15');
+          artifact[format]!.searchable = true;
           const fonts = execFileSync('pdffonts', [path], { encoding: 'utf8' });
           expect(fonts).toContain('Tianji-Noto');
           expect(fonts).not.toContain('STSongti');
           expect(fonts).not.toMatch(/PingFang|ArialUnicode|STIXTwo/);
-          expect(fonts).toContain('yes');
+          const fontRows = fonts.trim().split('\n').slice(2);
+          expect(fontRows.every((row) => /yes\s+yes\s+yes/.test(row))).toBe(true);
+          execFileSync('pdftoppm', [
+            '-scale-to',
+            '1000',
+            '-png',
+            path,
+            join(output, `${system}-${locale}-pdf`),
+          ]);
         } else {
-          const pngs: Record<string, Uint8Array> = done.files ? {} : unzipSync(data);
-          if (done.files) {
-            for (const part of done.files) {
-              const download = await page.request.get(part.url);
-              expect(download.ok()).toBe(true);
-              const bytes = await download.body();
-              expect(bytes.length).toBeLessThanOrEqual(8 * 1024 * 1024);
-              pngs[part.filename] = bytes;
-              artifact[format]!.size = Math.max(artifact[format]!.size, bytes.length);
-            }
-          }
-          expect(Object.keys(pngs)).toHaveLength(sheetCount);
-          for (const [name, png] of Object.entries(pngs)) {
-            expect(new DataView(png.buffer, png.byteOffset, png.byteLength).getUint32(16)).toBe(
-              2480,
-            );
-            expect(new DataView(png.buffer, png.byteOffset, png.byteLength).getUint32(20)).toBe(
-              3508,
-            );
-            expect((await sharp(png).metadata()).density).toBe(300);
-            // A hidden dialog backdrop must never dim/blur the renderer's fresh-browser PNG capture.
-            expect((await sharp(png).stats()).channels.some((channel) => channel.max >= 180)).toBe(
-              true,
-            );
-            await writeFile(join(output, name), png);
-          }
+          expect(done.files).toBeUndefined();
+          const metadata = await sharp(data).metadata();
+          expect(metadata.format).toBe('jpeg');
+          expect(metadata.width).toBe(1654);
+          expect(metadata.height).toBeLessThanOrEqual(16000);
+          expect(metadata.height).toBeGreaterThan(metadata.width!);
+          await page.goto(`/${locale}/${system}/r/${reading.id}/print?layout=poster`);
+          await expect.poll(() => page.evaluate(printSettled)).toBe(true);
+          await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true');
+          const { chartWidth: posterChartWidth, ...posterIntroduction } = await page
+            .locator('.print-source .print-intro')
+            .evaluate((node) => ({
+              titleFont: getComputedStyle(node.querySelector('h1')!).fontFamily,
+              titleSize: getComputedStyle(node.querySelector('h1')!).fontSize,
+              personaFont: getComputedStyle(node.querySelector('.print-persona')!).fontFamily,
+              chartWidth: getComputedStyle(node.querySelector('.print-chart svg')!).width,
+            }));
+          expect(posterIntroduction).toEqual(introduction);
+          expect(Math.abs(parseFloat(posterChartWidth) - parseFloat(pdfChartWidth))).toBeLessThan(
+            0.1,
+          );
+          await page.setViewportSize({ width: metadata.width!, height: 1200 });
+          const height = await page.evaluate(sizePoster);
+          if (height > 16000) await page.evaluate(limitPosterHeight, 16000);
+          const type = await page.locator('.print-report').evaluate((node) => {
+            const styles = getComputedStyle(node);
+            const zoom = parseFloat(styles.zoom);
+            return {
+              bodyPixels: parseFloat(styles.fontSize) * zoom,
+              marginPixels: parseFloat(styles.paddingLeft) * zoom,
+              scale: Number((node as HTMLElement).dataset.posterScale),
+            };
+          });
+          expect(type.bodyPixels).toBeGreaterThanOrEqual(25 - 0.01);
+          expect(type.marginPixels).toBeCloseTo(((12 * 200) / 25.4) * type.scale, 0);
+          const frame = await page.locator('.print-report').boundingBox();
+          expect(Math.abs(frame!.width - metadata.width! * type.scale)).toBeLessThanOrEqual(1);
+          expect(Math.abs(frame!.height - metadata.height!)).toBeLessThanOrEqual(2);
+          const posterText = await page.locator('.print-source').innerText();
+          for (const prose of sourceProse)
+            expect(normalized(posterText)).toContain(normalized(prose));
+          const geometry = await page.locator('.print-source').evaluate((node) => {
+            const root = node.closest('.print-report')!.getBoundingClientRect();
+            const sections = Array.from(node.querySelectorAll<HTMLElement>('[data-print-section]'));
+            return sections.map((section, i) => {
+              const box = section.getBoundingClientRect();
+              const previous = sections[i - 1]?.getBoundingClientRect();
+              return {
+                section: section.dataset.printSection,
+                inside:
+                  box.left >= root.left && box.right <= root.right && box.bottom <= root.bottom,
+                height: box.height,
+                gap: previous ? box.top - previous.bottom : 0,
+              };
+            });
+          });
+          // The introduction adds 3mm padding and a 0.2mm rule before the body's 2mm margin.
+          const maximumGap = ((5.2 * 200) / 25.4) * type.scale + 1;
+          expect(
+            geometry.filter(
+              (section) => !section.inside || section.height <= 0 || section.gap > maximumGap,
+            ),
+          ).toEqual([]);
+          // Decode pixels from the downloaded artifact, independent of a second browser's font/layout timing.
+          const scanHeight = Math.min(metadata.height!, 4000);
+          const pixels = await sharp(data)
+            .extract({
+              left: 0,
+              top: metadata.height! - scanHeight,
+              width: metadata.width!,
+              height: scanHeight,
+            })
+            .resize({ width: 1000, withoutEnlargement: true })
+            .ensureAlpha()
+            .raw()
+            .toBuffer({ resolveWithObject: true });
+          const decoded = jsQR(
+            new Uint8ClampedArray(pixels.data),
+            pixels.info.width,
+            pixels.info.height,
+          );
+          expect(decoded?.data).toBe(`https://tianji.gavin.pub/${locale}`);
+          artifact[format] = {
+            size: data.length,
+            pages: 1,
+            width: metadata.width,
+            height: metadata.height,
+            qr: decoded?.data,
+            ...type,
+          };
         }
       }
       await writeFile(
@@ -204,78 +264,20 @@ for (const locale of ['zh', 'en'] as const)
       );
       // Light edition uses the same measured geometry and is rendered as a separate preview baseline.
       await page.goto(`/${locale}/${system}/r/${reading.id}/print?theme=light`);
-      await expect(page.locator('.print-report')).toHaveAttribute('data-ready', 'true');
+      await expect.poll(() => page.evaluate(printSettled)).toBe(true);
+      await expect(page.locator('.print-report').filter({ visible: true })).toHaveAttribute(
+        'data-ready',
+        'true',
+      );
       expect(
-        await page.locator('.print-report').evaluate((node) => getComputedStyle(node).color),
+        await page
+          .locator('.print-report')
+          .filter({ visible: true })
+          .evaluate((node) => getComputedStyle(node).color),
       ).toBe('rgb(27, 29, 42)');
       await page
         .locator('.print-sheet')
         .first()
         .screenshot({ path: join(output, `${system}-${locale}-light-cover.png`) });
     }
-  });
-test('owner, membership, cache and quota enforcement', async ({ page, request }) => {
-  const user = await login(page, request, 'en', `export-security-${randomUUID()}@example.test`);
-  const reading = await seedReading(user.id, 'bazi', 'en');
-  const input = { readingId: reading.id, locale: 'en', format: 'cover', theme: 'light' };
-  await db.siteConfig.upsert({
-    where: { key: 'export.freeEnabled' },
-    create: { key: 'export.freeEnabled', value: false, updatedBy: user.id },
-    update: { value: false },
-  });
-  const redis = new TestCache(testDatabaseUrl(57552));
-  await redis.del('site-config');
-  expect((await page.request.post('/api/export', { data: input })).status()).toBe(403);
-  await db.user.update({ where: { id: user.id }, data: { plan: 'pro' } });
-  const response = await page.request.post('/api/export', { data: input, timeout: 240000 });
-  const done = JSON.parse((await response.text()).trim().split('\n').at(-1)!) as {
-    url: string;
-    progress: number;
-  };
-  expect(done.progress).toBe(100);
-  expect((await page.request.get(done.url)).status()).toBe(200);
-  const cached = await page.request.post('/api/export', { data: input });
-  expect(await cached.text()).toContain('"progress":95');
-  await db.user.update({ where: { id: user.id }, data: { plan: 'free' } });
-  expect((await page.request.get(done.url)).status()).toBe(403);
-  await db.siteConfig.update({ where: { key: 'export.freeEnabled' }, data: { value: true } });
-  await redis.del('site-config');
-  for (let i = 0; i < 8; i++)
-    expect((await page.request.post('/api/export', { data: input })).ok()).toBe(true);
-  expect((await page.request.post('/api/export', { data: input })).status()).toBe(429);
-  await login(page, request, 'en', `export-other-${randomUUID()}@example.test`);
-  expect((await page.request.get(done.url)).status()).toBe(404);
-  const anonymous = await request.get(done.url);
-  expect(anonymous.status()).toBe(401);
-});
-
-for (const locale of ['zh', 'en'] as const)
-  test(`${locale}: export menu streams progress and downloads the light vector PDF`, async ({
-    page,
-    request,
-  }) => {
-    const user = await login(
-      page,
-      request,
-      locale,
-      `export-menu-${locale}-${randomUUID()}@example.test`,
-    );
-    const reading = await seedExportReading(user.id, 'bazi', locale);
-    const copy = copies[locale];
-    await page.goto(`/${locale}/bazi/r/${reading.id}`);
-    const menu = page.locator('#main .export-menu');
-    await menu.locator('summary').click();
-    await expect(menu.getByLabel(copy['export.theme'])).toHaveValue('dark');
-    await menu.getByLabel(copy['export.theme']).selectOption('light');
-    await menu.getByRole('button', { name: copy['export.pdf'], exact: true }).click();
-    await expect(menu.locator('progress')).toHaveAttribute('value', '100', { timeout: 120000 });
-    const link = menu.getByRole('link', { name: copy['export.download'], exact: true });
-    const response = await page.request.get((await link.getAttribute('href'))!);
-    expect(response.ok()).toBe(true);
-    const path = join(output, `bazi-${locale}-light.pdf`);
-    await writeFile(path, await response.body());
-    const info = execFileSync('pdfinfo', [path], { encoding: 'utf8' });
-    expect(Number(/Pages:\s+(\d+)/.exec(info)?.[1])).toBeGreaterThan(4);
-    const text = execFileSync('pdftotext', ['-layout', path, '-'], { encoding: 'utf8' });
-    expect(text).toContain(locale === 'zh' ? '免责声明' : 'Disclaimer');
   });

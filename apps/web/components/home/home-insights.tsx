@@ -1,18 +1,23 @@
 'use client';
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
 import { getProfileAction } from '@/app/readings/actions';
 import { getMotionPreferenceAction } from '@/app/home/actions';
-import { HomeSky } from './home-sky';
 import { systems } from '@/lib/system-links';
 import type { DailyChart } from '@tianji/shared';
+function SkyCaption() {
+  const t = useCopy();
+  return <p className="sky-caption">{t('home.sky.origin')}</p>;
+}
+// DESIGN-GAP: Defer the sky capability/location controller with its renderer, keeping the localized caption visible while the painted Hero is already ready.
+const HomeSky = dynamic(() => import('./home-sky').then((module) => module.HomeSky), {
+  ssr: false,
+  loading: SkyCaption,
+});
 /** Resolve saved/local profiles after hydration without embedding private information in cached HTML. */
-export function HomeInsights({
-  initialSky,
-}: {
-  initialSky: { phase: string; stem: string; branch: string; term: string };
-}) {
+export function HomeInsights() {
   const t = useCopy();
   const [motion, setMotion] = useState<boolean | null>(null);
   const [allowLocation, setAllowLocation] = useState(false);
@@ -22,7 +27,7 @@ export function HomeInsights({
     stem: string;
     branch: string;
     term: string;
-  } | null>(initialSky);
+  } | null>(null);
   const [error, setError] = useState(false);
   const [revision, setRevision] = useState(0);
   useEffect(() => {
@@ -56,7 +61,6 @@ export function HomeInsights({
       setAllowLocation(!!(saved?.ok && saved.data));
       document.documentElement.dataset.reducedMotion = String(reduced);
       const birth = saved?.ok && saved.data ? saved.data : local?.profile;
-      if (!birth && revision === 0) return;
       if (revision === 0) {
         await new Promise<void>((resolve) => window.setTimeout(resolve, 3000));
         if (!live) return;

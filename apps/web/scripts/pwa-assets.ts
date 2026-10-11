@@ -12,15 +12,15 @@ async function main() {
   const formatting = (await resolveConfig(process.cwd() + '/scripts/pwa-assets.ts')) ?? {};
   await mkdir(new URL('icons/', root), { recursive: true });
   await mkdir(new URL('offline/', root), { recursive: true });
-  // DESIGN-GAP: A vector armillary-sphere mark keeps icons original and the maskable safe area clear.
-  const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#05070f"/><g fill="none" stroke="#d4af6a" stroke-width="10"><circle cx="256" cy="256" r="138"/><ellipse cx="256" cy="256" rx="64" ry="138" transform="rotate(35 256 256)"/><ellipse cx="256" cy="256" rx="138" ry="64" transform="rotate(35 256 256)"/></g><path d="M256 211l12 33 33 12-33 12-12 33-12-33-33-12 33-12z" fill="#e8d3a3"/></svg>`;
+  // DESIGN-GAP: Derive every install size from the approved generated brand bitmap; system masks provide the corner radius.
+  const icon = await readFile(new URL('art/brand/app-icon.webp', root));
   for (const [name, size] of [
     ['icon-192', 192],
     ['icon-512', 512],
     ['maskable-512', 512],
     ['apple-touch-icon', 180],
   ] as const) {
-    await sharp(Buffer.from(icon))
+    await sharp(icon)
       .resize(size, size)
       .png()
       .toFile(new URL(`icons/${name}.png`, root).pathname);
@@ -38,7 +38,7 @@ async function main() {
     const t = (key: string) => escape(translator(key));
     await writeFile(
       new URL(`offline/${locale}.html`, root),
-      `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#05070f"><title>${escape(brand.nameZh)} · ${escape(brand.nameEn)}</title><link rel="icon" href="/icons/icon-192.png"><link rel="stylesheet" href="/fonts/fonts.css"><link rel="stylesheet" href="/offline/style.css"></head><body><main><section class="hero"><p>${t('home.eyebrow')}</p><h1>${escape(brand.nameZh)}<small>${escape(brand.nameEn)}</small></h1><p>${t('brand.tagline')}</p><aside role="status"><h2>${t('pwa.offline.title')}</h2><p>${t('pwa.offline.body')}</p><a href="/${locale}">${t('pwa.offline.retry')}</a></aside><a href="#systems">${t('home.cta.start')} ↓</a></section><section id="systems"><h2>${t('home.cards.title')}</h2><div class="cards">${systems.map((system) => `<a href="/${locale}/${system}"><h3>${t('nav.' + system)}</h3><p>${t(system + '.placeholder')}</p></a>`).join('')}</div></section><section><h2>${t('home.how.title')}</h2><ol>${['chart', 'knowledge', 'report'].map((step) => `<li><h3>${t('home.how.' + step + '.title')}</h3><p>${t('home.how.' + step + '.body')}</p></li>`).join('')}</ol></section></main><footer><p>${t('report.disclaimer.short')}</p><a href="/${locale !== 'en' ? 'en' : 'zh'}">${t(locale !== 'en' ? 'nav.locale.en' : 'nav.locale.zh')}</a></footer></body></html>`,
+      `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#05070f"><title>${escape(brand.nameZh)} · ${escape(brand.nameEn)}</title><link rel="icon" href="/art/brand/favicon.png"><link rel="stylesheet" href="/fonts/fonts.css"><link rel="stylesheet" href="/offline/style.css"></head><body><main><section class="hero"><p>${t('home.eyebrow')}</p><h1>${escape(brand.nameZh)}<small>${escape(brand.nameEn)}</small></h1><p>${t('brand.tagline')}</p><aside role="status"><picture><source type="image/webp" srcset="/art/states/offline-small.webp"><img src="/art/states/offline.png" width="180" height="180" alt="${t('art.states.offline')}" loading="lazy"></picture><h2>${t('pwa.offline.title')}</h2><p>${t('pwa.offline.body')}</p><a href="/${locale}">${t('pwa.offline.retry')}</a></aside><a href="#systems">${t('home.cta.start')} ↓</a></section><section id="systems"><h2>${t('home.cards.title')}</h2><div class="cards">${systems.map((system) => `<a href="/${locale}/${system}"><h3>${t('nav.' + system)}</h3><p>${t(system + '.placeholder')}</p></a>`).join('')}</div></section><section><h2>${t('home.how.title')}</h2><ol>${['chart', 'knowledge', 'report'].map((step) => `<li><h3>${t('home.how.' + step + '.title')}</h3><p>${t('home.how.' + step + '.body')}</p></li>`).join('')}</ol></section></main><footer><p>${t('report.disclaimer.short')}</p><a href="/${locale !== 'en' ? 'en' : 'zh'}">${t(locale !== 'en' ? 'nav.locale.en' : 'nav.locale.zh')}</a></footer></body></html>`,
     );
   }
   await writeFile(
@@ -65,6 +65,9 @@ async function main() {
     'fonts/fonts-body.css',
     'fonts/budget.json',
     'fonts/selection.json',
+    'art/brand/favicon.png',
+    'art/brand/app-icon.webp',
+    'art/states/offline-small.webp',
   ])
     version.update(await readFile(new URL(file, root)));
   const worker = new URL('sw.js', root);

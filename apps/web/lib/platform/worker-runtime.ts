@@ -1,8 +1,16 @@
-import type { KVNamespace } from '@cloudflare/workers-types';
-import { circuitOpen, circuitBypass, maintenanceResponse } from './circuit-gate';
+import type { D1Database, KVNamespace } from '@cloudflare/workers-types';
+import { circuitOpen, circuitBypass } from './circuit-policy';
+import { publicCacheRequest, publicCachedFetch } from './public-cache';
+import { writeWorkerLog } from './logger-sink';
+import { workerHealth } from './worker-health';
 import { withDatabaseScope } from './database-scope';
 export interface WorkerEnvironment {
+  COMPUTE?: { fetch(request: Request): Promise<Response> };
+  ASSETS?: { fetch(request: Request): Promise<Response> };
   CACHE: KVNamespace;
+  DB?: D1Database;
+  CF_VERSION_METADATA?: { id: string };
+  PERF_OBSERVABILITY?: string;
   FEATURE_WEB_PAYMENTS?: string;
   CRON_SECRET?: string;
   NEXT_PUBLIC_SITE_URL?: string;
@@ -20,24 +28,68 @@ export async function workerFetch(
   const path = new URL(request.url).pathname;
   if (/^\/api\/v1\/stripe(?:\/|$)/.test(path) && env.FEATURE_WEB_PAYMENTS !== 'true')
     return new Response(null, { status: 404 });
-  if (!circuitBypass(path) && (await circuitOpen(env.CACHE))) {
-    // DESIGN-GAP: Native clients consume the API envelope during maintenance; Web pages keep their localized maintenance screen.
-    if (path.startsWith('/api/v1/mobile/'))
-      return Response.json(
-        {
-          ok: false,
-          error: {
-            code: 'E_INTERNAL',
-            message: 'Service temporarily unavailable',
-            details: { retryAfter: 3600 },
-          },
-        },
-        { status: 503, headers: { 'Retry-After': '3600', 'Cache-Control': 'no-store' } },
-      );
-    return maintenanceResponse(request);
+  const started = performance.now();
+  let gateMs = 0;
+  const finish = (response: Response, phase: string) => {
+    const headers = new Headers(response.headers);
+    // DESIGN-GAP: Language preference is generated per outgoing request, outside the shared object; no authentication cookies enter Cache API.
+    if (
+      phase === 'public' &&
+      response.status === 200 &&
+      !headers.has('set-cookie') &&
+      !request.headers.has('next-router-prefetch') &&
+      request.headers.get('purpose') !== 'prefetch'
+    ) {
+      const locale = path.split('/')[1];
+      const preference = request.headers.get('cookie')?.match(/(?:^|;\s*)NEXT_LOCALE=([^;]*)/)?.[1];
+      if (locale && locale !== preference)
+        headers.append('Set-Cookie', `NEXT_LOCALE=${locale}; Path=/; SameSite=Lax`);
+    }
+    const totalMs = performance.now() - started;
+    headers.append(
+      'Server-Timing',
+      `gate;dur=${gateMs.toFixed(2)}, ${phase};dur=${(totalMs - gateMs).toFixed(2)}`,
+    );
+    // DESIGN-GAP: Observability logs contain a route class, cache state and durations only, never URLs, request bodies, cookies or user IDs.
+    if (env.PERF_OBSERVABILITY === 'true')
+      writeWorkerLog('info', {
+        event: 'request-lifecycle',
+        phase,
+        gateMs,
+        totalMs,
+        cache: headers.get('X-Destiny-Cache') ?? headers.get('X-Destiny-Health'),
+      });
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  };
+  const waitUntil = (promise: Promise<unknown>) => ctx.waitUntil(promise);
+  if (path === '/api/v1/health' && request.method === 'GET' && env.DB) {
+    const cache = await caches
+      .open(`destiny-health-${env.CF_VERSION_METADATA?.id ?? 'local'}`)
+      .catch(() => undefined);
+    return finish(await workerHealth(env.DB, env.CACHE, cache, request, waitUntil), 'health');
   }
-  return withDatabaseScope(
-    () => dispatch(request),
-    (promise) => ctx.waitUntil(promise),
-  );
+  if (!circuitBypass(path)) {
+    const open = await circuitOpen(env.CACHE);
+    gateMs = performance.now() - started;
+    if (open) {
+      const { maintenanceResponse } = await import('./circuit-gate');
+      return finish(maintenanceResponse(request), 'maintenance');
+    }
+  }
+  const scoped = (incoming: Request) => withDatabaseScope(() => dispatch(incoming), waitUntil);
+  if (publicCacheRequest(request)) {
+    // DESIGN-GAP: The deployment version namespaces edge objects so rollback/new deployments never reuse obsolete HTML.
+    const cache = await caches
+      .open(`destiny-public-${env.CF_VERSION_METADATA?.id ?? 'local'}`)
+      .catch(() => undefined);
+    return finish(
+      cache ? await publicCachedFetch(request, cache, waitUntil, scoped) : await scoped(request),
+      'public',
+    );
+  }
+  return finish(await scoped(request), 'next');
 }

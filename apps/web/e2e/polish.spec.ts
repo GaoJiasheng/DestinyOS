@@ -133,7 +133,11 @@ for (const locale of ['en', 'zh'] as const) {
       release = resolve;
     });
     await page.route('**/today', async (route) => {
-      if (route.request().method() === 'POST') {
+      // DESIGN-GAP: Block only the forecast Action's date input, allowing account hydration and the uncached context Action to settle independently.
+      if (
+        route.request().method() === 'POST' &&
+        /"date"\s*:/.test(route.request().postData() ?? '')
+      ) {
         await gate;
         await route.abort('failed');
       } else await route.continue();
@@ -144,7 +148,10 @@ for (const locale of ['en', 'zh'] as const) {
     ).toBeVisible();
     await capture(page, info, 'daily-loading', locale);
     release();
-    await expect(page.getByRole('alert')).toBeVisible();
+    await expect(page.locator('main').getByRole('alert')).toBeVisible();
+    await expect(
+      page.getByRole('button', { name: copy['common.retry'], exact: true }),
+    ).toBeVisible();
     await capture(page, info, 'daily-error', locale);
     await page.unroute('**/today');
     await page.getByRole('button', { name: copy['common.retry'], exact: true }).click();
@@ -160,7 +167,7 @@ for (const locale of ['en', 'zh'] as const) {
       .last()
       .selectOption('west');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'west');
-    await page.getByLabel(copy['me.motion'], { exact: true }).check();
+    await page.getByRole('checkbox', { name: copy['me.motion'], exact: true }).check();
     await page.getByRole('button', { name: copy['me.save'], exact: true }).click();
     await expect(page.getByRole('status').filter({ hasText: copy['me.saved'] })).toBeVisible();
     await expect(page.locator('html')).toHaveAttribute('data-reduced-motion', 'true');
@@ -320,7 +327,7 @@ for (const locale of ['en', 'zh'] as const) {
       .getByRole('combobox', { name: copy['nav.theme'], exact: true })
       .last()
       .selectOption('west');
-    await page.getByLabel(copy['me.motion'], { exact: true }).check();
+    await page.getByRole('checkbox', { name: copy['me.motion'], exact: true }).check();
     await page.getByRole('button', { name: copy['me.save'], exact: true }).click();
     await expect(page.getByRole('status').filter({ hasText: copy['me.saved'] })).toBeVisible();
     await page.goto(`/s/${link.token}?locale=${locale}`);

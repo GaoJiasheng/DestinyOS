@@ -1,5 +1,6 @@
 'use client';
-import { useState, useTransition } from 'react';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
+import { useState } from 'react';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { publishReleaseAction } from '@/app/admin/actions';
@@ -12,13 +13,13 @@ export function ReleaseManager({
   drafts: { id: string; unitId: string; version: number }[];
   releases: { version: string; notes: string | null; createdAt: string }[];
 }) {
+  const { pending, run: start } = useSubmitTransition();
   const t = useCopy(),
     [selected, setSelected] = useState(drafts.map((d) => d.id)),
     [notes, setNotes] = useState(''),
     [rollback, setRollback] = useState('');
   const [result, setResult] = useState<Awaited<ReturnType<typeof publishRelease>> | null>(null),
-    [error, setError] = useState(''),
-    [pending, start] = useTransition();
+    [error, setError] = useState('');
   const dirty = () => {
     setResult(null);
     setError('');

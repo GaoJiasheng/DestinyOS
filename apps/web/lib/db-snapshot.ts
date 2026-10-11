@@ -42,25 +42,29 @@ export async function loadSnapshot(
   version: string,
   value: unknown,
   client?: Pick<PrismaClient, 'knowledgeBundleChunk'>,
+  requestedSystem?: string,
 ): Promise<unknown> {
   const manifest = manifestSchema.safeParse(value);
   if (!manifest.success) return unpackSnapshot(value);
   const query = {
-    where: { releaseVersion: version },
+    // DESIGN-GAP: Report requests read only one system; admin export still restores the entire release.
+    where: { releaseVersion: version, ...(requestedSystem ? { system: requestedSystem } : {}) },
     orderBy: [{ system: 'asc' as const }, { ordinal: 'asc' as const }],
   };
   const rows = client
     ? await client.knowledgeBundleChunk.findMany(query)
     : await getDb().knowledgeBundleChunk.findMany(query);
   return Object.fromEntries(
-    manifest.data.systems.map((system) => {
-      const parts = rows.filter((r) => r.system === system);
-      if (!parts.length || parts.some((p, i) => p.ordinal !== i))
-        throw new Error('Incomplete knowledge snapshot');
-      return [
-        system,
-        unpackSnapshot({ encoding: 'gzip-base64', data: parts.map((r) => r.data).join('') }),
-      ];
-    }),
+    manifest.data.systems
+      .filter((system) => !requestedSystem || system === requestedSystem)
+      .map((system) => {
+        const parts = rows.filter((r) => r.system === system);
+        if (!parts.length || parts.some((p, i) => p.ordinal !== i))
+          throw new Error('Incomplete knowledge snapshot');
+        return [
+          system,
+          unpackSnapshot({ encoding: 'gzip-base64', data: parts.map((r) => r.data).join('') }),
+        ];
+      }),
   );
 }

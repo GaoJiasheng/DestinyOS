@@ -1,5 +1,5 @@
 import type { DestinationStream } from 'pino';
-import { sanitize } from '../privacy';
+import { writeWorkerLog } from './logger-sink';
 import { platform } from './environment';
 import { createNodeLogger } from './logger-node';
 export interface JsonLogger {
@@ -10,16 +10,8 @@ export interface JsonLogger {
 /** Emit sanitized JSON without Node streams in Workers, using pino on Vercel/local Node. */
 export function createLogger(destination?: DestinationStream): JsonLogger {
   if (platform() !== 'cloudflare') return createNodeLogger(destination);
-  const write = (level: string, fields: unknown, message?: string) => {
-    const line = JSON.stringify({
-      level,
-      time: Date.now(),
-      data: sanitize(fields),
-      msg: sanitize(message),
-    });
-    if (destination) destination.write(line + '\n');
-    else console.log(line);
-  };
+  const write = (level: string, fields: unknown, message?: string) =>
+    writeWorkerLog(level, fields, message, destination);
   return {
     info: (fields, message) => write('info', fields, message),
     warn: (fields, message) => write('warn', fields, message),

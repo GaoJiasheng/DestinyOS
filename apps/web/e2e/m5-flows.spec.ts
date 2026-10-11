@@ -89,12 +89,16 @@ for (const locale of ['zh', 'en'] as const)
         (url) => url.origin === m5StripeURL && url.pathname === '/checkout',
       );
       await page.getByRole('button', { name: 'Complete test payment' }).click();
-      await expect(page.getByText(copy['billing.activated'], { exact: true })).toBeVisible();
+      await expect(
+        page.getByText(copy['billing.activated'], { exact: true }).filter({ visible: true }),
+      ).toBeVisible();
       expect((await db.user.findUniqueOrThrow({ where: { id: userId } })).plan).toBe('pro');
       await audit(page);
       await page.getByRole('button', { name: copy['me.billing.portal'], exact: true }).click();
       await page.getByRole('button', { name: 'Cancel renewal' }).click();
-      await expect(page.getByText(copy['billing.canceledAtEnd'], { exact: true })).toBeVisible();
+      await expect(
+        page.getByText(copy['billing.canceledAtEnd'], { exact: true }).filter({ visible: true }),
+      ).toBeVisible();
       const subscription = await db.subscription.findUniqueOrThrow({ where: { userId } });
       expect(
         (await request.get(`${m5StripeURL}/expire?id=${subscription.stripeSubscriptionId}`)).ok(),

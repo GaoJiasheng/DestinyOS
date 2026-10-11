@@ -1,3 +1,6 @@
+import { Suspense } from 'react';
+import { NavigationProgress } from '@/components/navigation-progress';
+import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -26,6 +29,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={await getMessages({ locale })}>
+          <Suspense fallback={null}>
+            <NavigationProgress />
+          </Suspense>
           <a className="skip-link" href="#main">
             {t('common.skip')}
           </a>
@@ -37,9 +43,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                 <option value="zh">{t('me.language.zh')}</option>
                 <option value="en">{t('me.language.en')}</option>
               </select>
-              <button type="submit" className="button button-secondary">
+              <Button type="submit" variant="secondary">
                 {t('admin.apply')}
-              </button>
+              </Button>
             </form>
           </header>
           <nav aria-label={t('admin.navigation')} className="admin-nav">

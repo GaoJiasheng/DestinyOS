@@ -1,42 +1,33 @@
-import { Converter } from 'opencc-js/cn2t';
+import uiPairs from './traditional-ui-generated.json' with { type: 'json' };
+const ui = new Map<string, string>(uiPairs as [string, string][]);
+import chains from './traditional-generated.json' with { type: 'json' };
+import { traditionalTerms } from './traditional-terms';
+export { traditionalTerms } from './traditional-terms';
 import type { Locale } from './enums';
 
-// B-09: cn → twp is OpenCC's s2twp pipeline (Taiwan phrases included).
-const convert = Converter({ from: 'cn', to: 'twp' });
+// DESIGN-GAP: Only build-generated vocabulary for published prose is available at runtime; OpenCC stays in the build tools/media service.
+const stages = chains.map((entries) => {
+  const dictionary = new Map<string, string>(entries as [string, string][]);
+  const tokens = [...dictionary.keys()]
+    .sort((a, b) => b.length - a.length)
+    .map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  return { dictionary, pattern: tokens.length ? new RegExp(tokens.join('|'), 'gu') : null };
+});
+const convert = (text: string) =>
+  stages.reduce(
+    (result, stage) =>
+      stage.pattern
+        ? result.replace(stage.pattern, (word) => stage.dictionary.get(word) ?? word)
+        : result,
+    text,
+  );
 // DESIGN-GAP: Use 裡 consistently; retain 體系 for metaphysical systems and 乾 for the Qian trigram.
-export const traditionalTerms: ReadonlyArray<readonly [string, string]> = [
-  ['軟件', '軟體'],
-  ['體系', '體系'],
-  ['數據', '資料'],
-  ['信息', '資訊'],
-  ['默認', '預設'],
-  ['賬戶', '帳戶'],
-  ['賬號', '帳號'],
-  ['登錄', '登入'],
-  ['打印', '列印'],
-  ['鼠標', '滑鼠'],
-  ['視頻', '影片'],
-  ['羅喉', '羅睺'],
-  ['罗睺', '羅睺'],
-  ['幹坤', '乾坤'],
-  ['幹卦', '乾卦'],
-  ['鬥數', '斗數'],
-  ['姓名錶', '姓名表'],
-  ['字母錶', '字母表'],
-  ['數字錶', '數字表'],
-  ['錶格', '表格'],
-  ['裏', '裡'],
-  // DESIGN-GAP: Correct ambiguous locative phrases without rewriting geographic names or distance units containing 里.
-  ['生日里', '生日裡'],
-  ['姓名里', '姓名裡'],
-  ['命盤里', '命盤裡'],
-  ['數字里', '數字裡'],
-  ['九宮格里', '九宮格裡'],
-];
 const cache = new Map<string, string>();
 let cachedChars = 0;
 /** Convert reader-facing prose, preserving ICU arguments, term keys and Markdown destinations. */
 export function toTraditional(text: string): string {
+  const preset = ui.get(text);
+  if (preset !== undefined) return preset;
   const found = cache.get(text);
   if (found !== undefined) {
     cache.delete(text);

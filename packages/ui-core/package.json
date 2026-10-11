@@ -15,7 +15,9 @@
     "./chart-geometry": "./src/chart-geometry.ts",
     "./journal-stats": "./src/journal-stats.ts",
     "./daily-excerpt": "./src/daily-excerpt.ts",
-    "./share-projection": "./src/share-projection.ts"
+    "./share-projection": "./src/share-projection.ts",
+    "./art": "./tokens/art.ts",
+    "./art-path": "./tokens/art-path.ts"
   },
   "scripts": {
     "build": "tsx scripts/build.ts && tsc -p tsconfig.json",

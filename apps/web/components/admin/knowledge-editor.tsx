@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState, useTransition } from 'react';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
+import { useEffect, useState } from 'react';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { validateKuAction, saveKuDraftAction, previewKuAction } from '@/app/admin/actions';
@@ -20,8 +21,8 @@ export function KnowledgeEditor({
     [fixture, setFixture] = useState('A');
   const [validation, setValidation] = useState<Awaited<ReturnType<typeof validateKu>> | null>(null);
   const [preview, setPreview] = useState<Awaited<ReturnType<typeof previewKu>> | null>(null);
-  const [pending, start] = useTransition(),
-    [message, setMessage] = useState('');
+  const { pending, run: start } = useSubmitTransition();
+  const [message, setMessage] = useState('');
   useEffect(() => {
     let alive = true;
     setValidation(null);

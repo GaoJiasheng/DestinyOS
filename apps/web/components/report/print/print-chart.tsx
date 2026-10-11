@@ -137,7 +137,7 @@ export function PrintChart({ chart }: { chart: unknown }) {
       </svg>
     );
   }
-  if (a.success) return <NatalWheel chart={a.data} />;
+  if (a.success) return <NatalWheel chart={a.data} print />;
   if (v.success)
     return (
       <>

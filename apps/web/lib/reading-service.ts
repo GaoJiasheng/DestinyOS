@@ -1,8 +1,9 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { Prisma, type Reading } from '@prisma/client';
 import { z } from 'zod';
-import { compute, normalizeBirth, baziWarnings } from '@tianji/engine';
-import { interpret, localizeReport } from '@tianji/interpret';
+import { normalizeBirth } from '@tianji/engine/common';
+import { baziWarnings } from '@tianji/engine/bazi';
+import { localizeReport } from '@tianji/interpret';
 import {
   BaziChartSchema,
   AstroChartSchema,
@@ -41,6 +42,9 @@ export function checkAge(birth: BirthInput, locale: Locale) {
 }
 /** Compute then interpret using one immutable chart; callers persist only sanitized derivatives. */
 export async function generateReading(req: ReadingRequest, now: string, userId?: string) {
+  // DESIGN-GAP: Load computation only for report generation, never merely to read a stored report.
+  const { compute } = await import('@tianji/engine');
+  const { interpret } = await import('@tianji/interpret');
   const birth = req.birth ? normalizeBirth(req.birth, req.locale) : null;
   if (req.birth) checkAge(req.birth, req.locale);
   if (req.partnerBirth) checkAge(req.partnerBirth, req.locale);
@@ -122,6 +126,7 @@ export async function readingView(
   let report: unknown = locale !== 'en' ? row.reportZh : row.reportEn;
   const snapshot = ReadingRequestSchema.parse(JSON.parse(row.encInput));
   if (!report) {
+    const { interpret } = await import('@tianji/interpret');
     report = json(
       interpret({
         system,

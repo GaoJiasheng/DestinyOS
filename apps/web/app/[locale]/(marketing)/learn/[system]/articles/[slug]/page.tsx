@@ -7,9 +7,9 @@ import { learnMetadata } from '@/lib/learn-metadata';
 import { LearnArticle } from '@/components/learn/learn-article';
 
 type Params = { locale: 'zh' | 'en' | 'zh-TW'; system: string; slug: string };
-export const revalidate = 86400;
-// DESIGN-GAP: Allow on-demand ISR when the installed Next.js cache misses a promoted locale entry; the compiled content lookup still returns 404 for unknown slugs.
+// DESIGN-GAP: The installed Next.js ISR cache can miss promoted locale entries; allow published tutorials to render on demand, with unknown URLs rejected by middleware before streaming.
 export const dynamicParams = true;
+export const revalidate = 86400;
 /** Pre-render only the three tutorials belonging to the inherited system. */
 export async function generateStaticParams({ params }: { params: { system?: string } }) {
   return (await learnContent()).articles

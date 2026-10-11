@@ -1,5 +1,6 @@
 import { cp, mkdir, readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { publicCacheRequest } from '../apps/web/lib/platform/public-cache';
 // DESIGN-GAP: Large immutable public data stays in Workers Assets instead of consuming the 64MiB uncompressed Worker limit.
 const root = resolve(import.meta.dirname, '..');
 const web = resolve(root, 'apps/web');
@@ -7,6 +8,9 @@ const assets = resolve(web, '.open-next/assets/_data');
 await mkdir(assets, { recursive: true });
 for (const [source, target] of [
   ['resources', 'resources'],
+  ['public/art/share', 'public/art/share'],
+  ['public/art/systems', 'public/art/systems'],
+  ['public/art/brand/og-default.png', 'public/art/brand/og-default.png'],
   ['lib/llm/prompts', 'lib/llm/prompts'],
   [
     'node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff',
@@ -30,6 +34,10 @@ for (const locale of ['zh', 'en', 'zh-TW']) {
   const path = `messages/${locale}/glossary.json`;
   await mkdir(resolve(assets, `messages/${locale}`), { recursive: true });
   await cp(resolve(web, path), resolve(assets, path));
+  await cp(
+    resolve(web, `messages/${locale}/tarot.json`),
+    resolve(assets, `messages/${locale}/tarot.json`),
+  );
 }
 
 await mkdir(resolve(assets, 'geo'), { recursive: true });
@@ -71,4 +79,20 @@ for (const file of await readdir(workers)) {
       resolve(workers, file),
       brotliDecompressSync(await readFile(resolve(workers, file))),
     );
+}
+
+// DESIGN-GAP: OpenNext's supported Static Assets cache format includes both HTML and RSC; copy only public prerenders into its worker-only cdn-cgi namespace. R2 remains writable and deployment-versioned.
+const cacheRoot = resolve(web, '.open-next/cache');
+for (const file of await readdir(cacheRoot, { recursive: true })) {
+  if (!file.endsWith('.cache')) continue;
+  // DESIGN-GAP: Next 15.5 stores route keys under route-cache/APP_PAGE/<hash>/$/<route>; keep the adapter's full key and support its older plain route format too.
+  const marker = '/$/';
+  const start = file.includes(marker)
+    ? file.lastIndexOf(marker) + marker.length
+    : file.indexOf('/') + 1;
+  const route = `/${file.slice(start, -'.cache'.length)}`;
+  if (!publicCacheRequest(new Request(`https://assets.internal${route}`))) continue;
+  const destination = resolve(web, '.open-next/assets/cdn-cgi/_next_cache', file);
+  await mkdir(resolve(destination, '..'), { recursive: true });
+  await cp(resolve(cacheRoot, file), destination);
 }

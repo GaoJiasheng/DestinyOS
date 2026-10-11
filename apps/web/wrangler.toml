@@ -16,8 +16,12 @@ directory = ".open-next/assets"
 binding = "ASSETS"
 
 [[services]]
-binding = "WORKER_SELF_REFERENCE"
-service = "destinyos"
+binding = "COMPUTE"
+service = "destinyos-compute"
+
+[[services]]
+binding = "MEDIA"
+service = "destinyos-media"
 
 [[r2_buckets]]
 binding = "EXPORT_BUCKET"
@@ -27,8 +31,6 @@ bucket_name = "destinyos-exports"
 binding = "NEXT_INC_CACHE_R2_BUCKET"
 bucket_name = "destinyos-next-cache"
 
-[browser]
-binding = "BROWSER"
 
 # Email Sending domain must be onboarded in Email Service before sending to users.
 [[send_email]]
@@ -37,11 +39,16 @@ name = "EMAIL"
 [triggers]
 crons = ["0 3 * * *", "0 * * * *"]
 
+[version_metadata]
+binding = "CF_VERSION_METADATA"
+
 [observability]
 enabled = true
 
 [vars]
 PLATFORM = "cloudflare"
+# DESIGN-GAP: Safe request phase timings for production tail/Observability after Owner deploys.
+PERF_OBSERVABILITY = "true"
 EMAIL_FROM = "noreply@mail.gavin.pub"
 EMAIL_FROM_NAME = "天机 DestinyOS"
 AUTH_TRUST_HOST = "true"
@@ -51,7 +58,7 @@ FEATURE_ADS = "true"
 FEATURE_WEB_PAYMENTS = "false"
 CF_ANALYTICS_ACCOUNT_ID = "9aea83b326d8175abdd136c1177637a5"
 CF_BILLING_CYCLE_DAY = "1"
-FEATURE_LLM_CHAT = "false"
+FEATURE_LLM_CHAT = "true"
 FEATURE_LLM_POLISH = "false"
 MINIMAX_BASE_URL = "https://api.minimaxi.com/v1"
 MINIMAX_MODEL = "MiniMax-M2.5"
@@ -70,9 +77,9 @@ MINIMAX_MODEL = "MiniMax-M2.5"
 # Deployment-only credentials: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN.
 # D1, KV and R2 bindings require no runtime connection secrets.
 # Bind the custom domain after preview verification:
-# [[routes]]
-# pattern = "tianji.gavin.pub"
-# custom_domain = true
+[[routes]]
+pattern = "tianji.gavin.pub"
+custom_domain = true
 
 [[d1_databases]]
 binding = "DB"

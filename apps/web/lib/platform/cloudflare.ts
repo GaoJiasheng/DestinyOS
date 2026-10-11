@@ -8,6 +8,7 @@ import type {
   SendEmail,
 } from '@cloudflare/workers-types';
 export interface PlatformBindings {
+  MEDIA: { fetch(request: Request): Promise<Response> };
   EMAIL: SendEmail;
   DB: D1Database;
   CACHE: KVNamespace;

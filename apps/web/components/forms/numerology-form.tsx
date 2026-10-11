@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from './use-submit-transition';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import {
@@ -30,7 +31,9 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
   const [birth, setBirth] = useState(initial ?? empty);
   const [name, setName] = useState('');
   const [ready, setReady] = useState(false);
-  const [busy, setBusy] = useState(false);
+  const [working, setBusy] = useState(false);
+  const { pending, run } = useSubmitTransition();
+  const busy = working || pending;
   const [error, setError] = useState<MessageKey | null>(null);
   const [requestId, setRequestId] = useState<string | null>(null);
   useEffect(() => {
@@ -128,7 +131,7 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
         className="birth-card"
         onSubmit={(event) => {
           event.preventDefault();
-          void submit();
+          run(submit);
         }}
       >
         <fieldset className="birth-controls" disabled={!ready || busy}>

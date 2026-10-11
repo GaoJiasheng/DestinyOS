@@ -19,7 +19,9 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
       if (/stripe\.com/.test(req.url())) providers.push(req.url());
     });
     await page.goto(`/${locale}/pricing`);
-    await expect(page.getByText(copy['billing.appPrice'], { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(copy['billing.appPrice'], { exact: true }).filter({ visible: true }),
+    ).toBeVisible();
     await expect(
       page.getByRole('button', { name: copy['billing.openInApp'], exact: true }),
     ).toBeVisible();
@@ -56,14 +58,18 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
       },
     ]);
     await page.goto(`/${locale}/me/billing`);
-    await expect(page.getByText(copy['billing.state.lifetime'], { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(copy['billing.state.lifetime'], { exact: true }).filter({ visible: true }),
+    ).toBeVisible();
     await expect(
       page.getByRole('button', { name: copy['me.billing.portal'], exact: true }),
     ).toHaveCount(0);
     await page
       .getByRole('button', { name: copy['billing.refreshMembership'], exact: true })
       .click();
-    await expect(page.getByText(copy['billing.refreshSkipped'], { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(copy['billing.refreshSkipped'], { exact: true }).filter({ visible: true }),
+    ).toBeVisible();
     await page.screenshot({ path: info.outputPath(`billing-${locale}.png`), fullPage: true });
     expect((await request.post('/api/v1/stripe/webhook', { data: {} })).status()).toBe(404);
     expect(providers).toEqual([]);

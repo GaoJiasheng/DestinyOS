@@ -1,4 +1,6 @@
 'use client';
+import { ArtImage } from '@/components/art/art-image';
+import { artAssets } from '@tianji/ui-core/art';
 import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'motion/react';
@@ -30,7 +32,12 @@ export function TarotCard({
   const content = (
     <span className={`tarot-flipper ${revealed ? 'is-revealed' : ''}`}>
       <span className="tarot-back">
-        <Image src="/tarot/card-back.svg" width={343} height={600} alt="" />
+        <ArtImage
+          asset="tarot/card-back"
+          {...artAssets['tarot/card-back']}
+          alt={t('faceDown', { position })}
+          sizes="(min-width: 768px) 160px, 120px"
+        />
       </span>
       <span className="tarot-face">
         {revealed && card && failedKey === card.cardKey ? (

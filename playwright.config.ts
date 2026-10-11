@@ -6,12 +6,16 @@ export default defineConfig({
   testIgnore: [
     // DESIGN-GAP: Workers binding checks require wrangler on port 8787 and run separately via test:cloudflare:e2e after cf:build/cf:smoke.
     'cloudflare.spec.ts',
+    // DESIGN-GAP: Membership tests seed the isolated WEB-NOPAY database and must run with its own services config.
+    'web-nopay.spec.ts',
     // DESIGN-GAP: Merged feature suites seed private data and require their dedicated isolated-service configs, just like the original auth/report suites.
     'seo-content.spec.ts',
     'journal.spec.ts',
     // DESIGN-GAP: Membership fixtures require the isolated account/mail/database service, not the generic shell dev server.
     'web-nopay.spec.ts',
     'export.spec.ts',
+    'export-menu.spec.ts',
+    'export-geometry.spec.ts',
     'chat.spec.ts',
     'numerology.spec.ts',
     'rectification.spec.ts',
@@ -34,6 +38,8 @@ export default defineConfig({
     // DESIGN-GAP: The polish suite seeds private reports through isolated production services, so it must run with playwright.polish.config.ts.
     'polish.spec.ts',
     'polish-new-pages.spec.ts',
+    // DESIGN-GAP: Artwork budget tests require the production PWA and run through the existing polish configuration.
+    'art.spec.ts',
   ],
   fullyParallel: true,
   // DESIGN-GAP: Cold dev compilation and hydration share the test budget; allow 60s without relaxing individual UI assertions.

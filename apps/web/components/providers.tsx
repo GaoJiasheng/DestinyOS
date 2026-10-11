@@ -2,7 +2,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import { usePathname } from '@/i18n/navigation';
-import { Toaster } from 'sonner';
 import { useCopy } from '@/i18n/use-copy';
 const AnonymousImport = dynamic(
   () => import('./report/anonymous-import').then((module) => module.AnonymousImport),
@@ -11,6 +10,10 @@ const AnonymousImport = dynamic(
 import { getSettingsAction } from '@/app/me/actions';
 import { MotionConfig } from 'motion/react';
 import { ThemeProvider } from './theme-provider';
+// DESIGN-GAP: The notification host has no initial visible content; load it after hydration so navigation feedback remains inside the existing shell JS budget.
+const Toaster = dynamic(() => import('sonner').then((module) => module.Toaster), {
+  ssr: false,
+});
 const SignedInContext = createContext(false);
 /** Reuse account hydration for the navigation avatar without exposing profile data. */
 export function useSignedIn() {

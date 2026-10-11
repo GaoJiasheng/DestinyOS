@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from './use-submit-transition';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { toast } from 'sonner';
@@ -56,7 +57,9 @@ export function BirthForm({
   // DESIGN-GAP: Disable pre-hydration edits so native checkbox changes cannot be lost before React attaches handlers.
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => setHydrated(true), []);
-  const [busy, setBusy] = useState(false);
+  const [working, setBusy] = useState(false);
+  const { pending, run } = useSubmitTransition();
+  const busy = working || pending;
   const [error, setError] = useState<string | null>(null);
   const [requestId, setRequestId] = useState<string | null>(null);
   useEffect(() => {
@@ -258,10 +261,10 @@ export function BirthForm({
         onSubmit={(e) => {
           e.preventDefault();
           if (step === 1)
-            void validate().then((ok) => {
-              if (ok) setStep(2);
+            run(async () => {
+              if (await validate()) setStep(2);
             });
-          else void submit();
+          else run(submit);
         }}
       >
         <fieldset disabled={!hydrated || busy} className="birth-controls">
@@ -352,10 +355,12 @@ export function BirthForm({
               disabled={busy || (system === 'ziwei' && birth.timeUnknown && !profileMode)}
             >
               {t(
-                step === 1
-                  ? 'form.birth.next'
-                  : busy
-                    ? 'form.birth.saving'
+                busy
+                  ? step === 1
+                    ? 'common.loading'
+                    : 'form.birth.saving'
+                  : step === 1
+                    ? 'form.birth.next'
                     : onComplete
                       ? (completionKey ?? 'rectification.start')
                       : profileMode

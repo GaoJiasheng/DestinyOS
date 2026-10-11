@@ -1,7 +1,5 @@
 import { readExport, writeExport } from './platform/storage';
-import { openReportPage } from './platform/browser';
 import { createHmac, createHash, timingSafeEqual } from 'node:crypto';
-import { zipSync } from 'fflate';
 import { brand } from '@tianji/shared/brand';
 import { auth } from './auth';
 import { getDb } from './db';
@@ -11,7 +9,8 @@ import { ApiError } from './api-error';
 import { canExport, EXPORT_VERSION, type ExportRequest } from './report-export-schema';
 import type { ReadingView } from './reading-schema';
 import { z } from 'zod';
-import { printPng } from './print-png';
+import { platform } from './platform/environment';
+import { mediaExport } from './platform/media-client';
 const tokenSchema = z
   .object({
     userId: z.string(),
@@ -104,10 +103,10 @@ export function exportKey(request: ExportRequest, reading: ReadingView, userId: 
 }
 /** Safe attachment name uses only system, report generation date and locale. */
 export function exportFilename(request: ExportRequest, reading: ReadingView): string {
-  return `${reading.system}-${reading.createdAt.slice(0, 10)}-${request.locale}${request.format === 'cover' ? '-cover' : ''}.${request.format === 'pdf' ? 'pdf' : request.format === 'cover' ? 'png' : 'zip'}`;
+  return `${reading.system}-${reading.createdAt.slice(0, 10)}-${request.locale}${request.format === 'cover' ? '-cover' : ''}.${request.format === 'pdf' ? 'pdf' : 'jpg'}`;
 }
 const mime = (format: ExportRequest['format']) =>
-  format === 'pdf' ? 'application/pdf' : format === 'cover' ? 'image/png' : 'application/zip';
+  format === 'pdf' ? 'application/pdf' : 'image/jpeg';
 /** Read a private export using the selected deployment platform. */
 export const cachedExport = readExport;
 /** Persist a private export with the documented TTL. */
@@ -125,45 +124,33 @@ export async function renderExport(
   reading: ReadingView,
   userId: string,
   progress: (percent: number) => void,
-): Promise<Uint8Array | Uint8Array[]> {
+): Promise<Uint8Array> {
   const origin = new URL(
     process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : (process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`),
   ).origin;
   const path = `/${request.locale}/${reading.system}/r/${encodeURIComponent(reading.id)}/print`;
-  const page = await openReportPage(origin, path, printToken(userId, request));
-  try {
+  if (platform() === 'cloudflare') {
     progress(10);
-    await page.navigate(`${origin}${path}?theme=${request.theme}`);
-    await page.validate();
-    progress(30);
-    if (request.format === 'pdf') {
-      const pdf = await page.pdf();
-      if (pdf.length > 8 * 1024 * 1024) throw new Error('PDF size budget exceeded');
-      progress(90);
-      return pdf;
-    }
-    // DESIGN-GAP: Native 2480x3508 capture with CSS zoom avoids fractional-DPR rounding (2481x3509) while retaining 300dpi vector/text rasterization.
-    await page.preparePng();
-    const count = request.format === 'cover' ? 1 : await page.pageCount();
-    const files: Record<string, Uint8Array> = {};
-    for (let i = 0; i < count; i++) {
-      const screenshot = await page.screenshot(i);
-      const png = await printPng(screenshot);
-      if (png.length > 8 * 1024 * 1024) throw new Error('PNG size budget exceeded');
-      files[
-        `${reading.system}-${reading.createdAt.slice(0, 10)}-${request.locale}-${String(i + 1).padStart(2, '0')}.png`
-      ] = png;
-      progress(30 + Math.round(((i + 1) / count) * 60));
-    }
-    if (request.format === 'cover') return Object.values(files)[0]!;
-    const zip = zipSync(files, { level: 0 });
-    // DESIGN-GAP: Long reports exceeding the ZIP budget remain lossless 300dpi; offer individually cached PNG pages instead.
-    if (zip.length > 8 * 1024 * 1024) return Object.values(files);
-    return zip;
-  } finally {
-    await page.close();
+    return mediaExport(
+      {
+        request,
+        reading: { system: reading.system, createdAt: reading.createdAt },
+        origin,
+        path,
+        token: printToken(userId, request),
+      },
+      progress,
+    );
   }
+  return (await import('./export-render')).renderAuthorizedExport(
+    request,
+    origin,
+    path,
+    printToken(userId, request),
+    progress,
+  );
 }
+
 export { mime as exportMime };

@@ -1,4 +1,5 @@
 'use client';
+import { StateArt } from '@/components/art/state-art';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -32,25 +33,28 @@ export function LocalHistory({ limit = 50 }: { limit?: number }) {
   }, [limit]);
   if (error) return <p role="alert">{t('report.storageError')}</p>;
   return (
-    <ul className="history-list">
-      {readings.map((reading) => (
-        <li className="report-card" key={reading.id}>
-          <Link href={`/${reading.system}/r/local/${reading.id}`}>
-            <h2 className="type-h3">
-              {reading.title
-                ? t('report.content', { text: reading.title })
-                : t(`nav.${reading.system}` as MessageKey)}
-            </h2>
-            <time dateTime={reading.createdAt}>
-              {t('report.content', {
-                text: new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(
-                  new Date(reading.createdAt),
-                ),
-              })}
-            </time>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      {!readings.length ? <StateArt state="no-report" /> : null}
+      <ul className="history-list">
+        {readings.map((reading) => (
+          <li className="report-card" key={reading.id}>
+            <Link href={`/${reading.system}/r/local/${reading.id}`}>
+              <h2 className="type-h3">
+                {reading.title
+                  ? t('report.content', { text: reading.title })
+                  : t(`nav.${reading.system}` as MessageKey)}
+              </h2>
+              <time dateTime={reading.createdAt}>
+                {t('report.content', {
+                  text: new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(
+                    new Date(reading.createdAt),
+                  ),
+                })}
+              </time>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }

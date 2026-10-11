@@ -43,7 +43,10 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
     await expect(page).toHaveURL(/127.0.0.1:60282\/checkout/);
     await page.getByRole('button', { name: 'Complete test payment' }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/me/billing\\?status=success`));
-    await expect(page.getByText(copy['billing.activated'], { exact: true })).toBeVisible();
+    // DESIGN-GAP: Assert the accessible live document; Next retains hidden streaming/BFCache copies that text-only selectors also match.
+    const activated = page.getByRole('status').filter({ hasText: copy['billing.activated'] });
+    await expect(activated).toHaveCount(1);
+    await expect(activated).toBeVisible();
     await page.screenshot({ path: info.outputPath('billing.png'), fullPage: true });
     const user = await db.user.findUniqueOrThrow({ where: { email } });
     expect(user.plan).toBe('pro');
@@ -51,7 +54,12 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
     expect(sub.stripePriceId).toBe('price_monthly_test');
     await page.getByRole('button', { name: copy['me.billing.portal'], exact: true }).click();
     await page.getByRole('button', { name: 'Cancel renewal' }).click();
-    await expect(page.getByText(copy['billing.canceledAtEnd'], { exact: true })).toBeVisible();
+    // DESIGN-GAP: Assert the accessible live document; Next retains hidden streaming/BFCache copies that text-only selectors also match.
+    const canceled = page
+      .getByRole('definition')
+      .filter({ hasText: copy['billing.canceledAtEnd'] });
+    await expect(canceled).toHaveCount(1);
+    await expect(canceled).toBeVisible();
     expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).plan).toBe('pro');
     sub = await db.subscription.findUniqueOrThrow({ where: { userId: user.id } });
     expect(
@@ -60,15 +68,22 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
     await page.reload();
     expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).plan).toBe('free');
     await expect(
-      page.locator('main').getByText(copy['me.plan.free'], { exact: true }),
+      page
+        .locator('main')
+        .getByText(copy['me.plan.free'], { exact: true })
+        .filter({ visible: true }),
     ).toBeVisible();
     await page.goto(`/${locale}/pricing`);
     await page.getByRole('button', { name: copy['billing.lifetime'], exact: true }).click();
-    await expect(page.getByText(copy['billing.lifetimePrice'], { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(copy['billing.lifetimePrice'], { exact: true }).filter({ visible: true }),
+    ).toBeVisible();
     await page.screenshot({ path: info.outputPath('pricing-lifetime.png'), fullPage: true });
     await page.getByRole('button', { name: copy['billing.buyLifetime'], exact: true }).click();
     await page.getByRole('button', { name: 'Complete test payment' }).click();
-    await expect(page.getByText(copy['billing.state.lifetime'], { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(copy['billing.state.lifetime'], { exact: true }).filter({ visible: true }),
+    ).toBeVisible();
     expect(await db.user.findUniqueOrThrow({ where: { id: user.id } })).toMatchObject({
       plan: 'pro',
       lifetime: true,
@@ -77,7 +92,9 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
       (await request.post(`http://127.0.0.1:60282/expire?id=${sub.stripeSubscriptionId}`)).ok(),
     ).toBe(true);
     await page.reload();
-    await expect(page.getByText(copy['billing.state.lifetime'], { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(copy['billing.state.lifetime'], { exact: true }).filter({ visible: true }),
+    ).toBeVisible();
     expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).plan).toBe('pro');
     const exported = await page.request.get('/api/v1/me/export');
     expect(exported.ok()).toBe(true);

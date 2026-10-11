@@ -1,4 +1,6 @@
 node_modules/
+.art-*.json
+apps/web/public/art/originals/
 .next/
 dist/
 .turbo/
@@ -111,3 +113,7 @@ apps/mobile/test-results/M15/*
 !apps/mobile/test-results/M15/raw/
 !apps/mobile/test-results/M15/raw/**/
 !apps/mobile/test-results/M15/raw/**/*.png
+
+apps/web/resources/learn.zh-TW.json
+
+.media/

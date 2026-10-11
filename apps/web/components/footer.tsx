@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-heading">
-        <Link prefetch={false} href="/" className="brand-mark">
+        <Link prefetch={true} href="/" className="brand-mark">
           <span className="brand-zh">{t('brand.nameZh', { name: brand.nameZh })}</span>
           <span className="brand-en">{t('brand.nameEn', { name: brand.nameEn })}</span>
         </Link>
@@ -20,25 +20,25 @@ export function Footer() {
       </div>
       <div className="footer-links">
         {systems.map((system) => (
-          <Link prefetch={false} key={system} href={`/${system}`}>
+          <Link prefetch={true} key={system} href={`/${system}`}>
             {t(`nav.${system}`)}
           </Link>
         ))}
-        <Link prefetch={false} href="/learn">
+        <Link prefetch={true} href="/learn">
           {t('nav.learn')}
         </Link>
       </div>
       <div className="footer-links legal-links">
-        <Link prefetch={false} href="/faq">
+        <Link prefetch={true} href="/faq">
           {t('learn.faq')}
         </Link>
         {(['about', 'privacy', 'terms', 'disclaimer', 'contact'] as const).map((page) => (
-          <Link prefetch={false} key={page} href={`/${page}`}>
+          <Link prefetch={true} key={page} href={`/${page}`}>
             {t(`legal.${page}`)}
           </Link>
         ))}
         <PrivacyChoices />
-        <Link prefetch={false} href="/credits">
+        <Link prefetch={true} href="/credits">
           {t('legal.attributions')}
         </Link>
       </div>

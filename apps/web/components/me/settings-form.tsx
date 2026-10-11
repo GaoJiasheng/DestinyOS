@@ -1,4 +1,5 @@
 'use client';
+import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { PrivacyChoices } from '@/components/ads/privacy-choices';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
@@ -28,6 +29,7 @@ export function SettingsForm({
   initial: Settings | null;
   signedIn: boolean;
 }) {
+  const { pending, run } = useSubmitTransition();
   const t = useCopy(),
     locale = useLocale() as Locale;
   const [form, setForm] = useState(
@@ -44,8 +46,9 @@ export function SettingsForm({
     [confirm, setConfirm] = useState(''),
     [feedback, setFeedback] = useState(false),
     [open, setOpen] = useState(false),
-    [busy, setBusy] = useState(false),
+    [working, setBusy] = useState(false),
     [status, setStatus] = useState<'saved' | 'error' | null>(null);
+  const busy = working || pending;
   useEffect(() => {
     setPanchang(localStorage.getItem('tianji-panchang') === 'true');
     if (!signedIn)
@@ -139,7 +142,7 @@ export function SettingsForm({
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          void save();
+          run(save);
         }}
         className="report-card settings-fields"
       >
@@ -204,12 +207,14 @@ export function SettingsForm({
         </label>
         <p>{t('me.tzHelp')}</p>
         <Button disabled={busy} type="submit">
-          {t('me.save')}
+          {t(busy ? 'common.loading' : 'me.save')}
         </Button>
       </form>
       <section className="report-card">
         <h2>{t('me.data')}</h2>
-        <Button onClick={() => void download()}>{t('me.export')}</Button>
+        <Button disabled={busy} action={download}>
+          {t('me.export')}
+        </Button>
         <p>
           <PrivacyChoices settings />
           <Link href="/privacy">{t('me.privacy')}</Link>
@@ -241,7 +246,7 @@ export function SettingsForm({
             {t('me.deleteFeedback')}
           </label>
         ) : null}
-        <Button disabled={busy || confirm !== 'DELETE'} onClick={() => void remove()}>
+        <Button disabled={busy || confirm !== 'DELETE'} action={remove}>
           {t('me.deleteFinal')}
         </Button>
         {status === 'error' ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}

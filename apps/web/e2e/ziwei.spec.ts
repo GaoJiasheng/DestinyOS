@@ -6,6 +6,17 @@ async function settleFonts(page: Page) {
   });
   await page.evaluate(() => document.fonts.ready);
 }
+// DESIGN-GAP: Screenshot scrolling can trigger artwork after fonts settle; await decoded pixels without changing production lazy loading.
+async function settleArtwork(scope: Locator) {
+  for (const image of await scope.locator('[data-art] img').all()) {
+    await expect
+      .poll(() =>
+        image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0),
+      )
+      .toBe(true);
+    await image.evaluate((node: HTMLImageElement) => node.decode());
+  }
+}
 // DESIGN-GAP: Remove sidebar scrolling only during component captures so the baseline includes all twelve cells.
 async function chartScreenshot(page: Page, board: Locator, name: string) {
   const style = await page.addStyleTag({
@@ -14,6 +25,8 @@ async function chartScreenshot(page: Page, board: Locator, name: string) {
   });
   try {
     await settleFonts(page);
+    await board.scrollIntoViewIfNeeded();
+    await settleArtwork(board);
     // DESIGN-GAP: Collect independent chart baseline differences without skipping later interaction checks; any soft mismatch still fails the test.
     await expect.soft(board).toHaveScreenshot(name);
   } finally {
@@ -90,6 +103,7 @@ for (const locale of ['zh', 'en'] as const) {
     );
     await expect(expanded.locator('[data-related="true"]')).toHaveCount(4);
     await settleFonts(page);
+    await settleArtwork(expanded);
     await expect
       .soft(dialog.locator('.ziwei-viewport'))
       .toHaveScreenshot(`ziwei-${locale}-fullscreen.png`);

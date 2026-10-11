@@ -1,76 +1,77 @@
 import assert from 'node:assert/strict';
-import { spawnSync } from 'node:child_process';
-import { resolve, relative } from 'node:path';
+import { spawn } from 'node:child_process';
+import { resolve } from 'node:path';
 import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import type { Metafile } from 'esbuild';
-import { assertWorkerBudget, workerSize } from './cloudflare-budget-size';
-
+import { assertWorkerBudget, assertWorkerRawBudget, workerSize } from './cloudflare-budget-size';
 const web = resolve(import.meta.dirname, '../apps/web');
-const output = resolve(web, '.wrangler/budget-check');
-await rm(output, { recursive: true, force: true });
-await mkdir(output, { recursive: true });
-// DESIGN-GAP: Wrangler dry-run uses the actual deployment configuration and nodejs_compat transforms; never upload or write secrets.
-const run = spawnSync(
-  'pnpm',
-  [
-    'exec',
-    'wrangler',
-    'deploy',
-    '--dry-run',
-    '--outdir',
-    output,
-    '--metafile',
-    resolve(output, 'metafile.json'),
-  ],
-  { cwd: web, encoding: 'utf8', env: { ...process.env, WRANGLER_SEND_METRICS: 'false' } },
-);
-await writeFile(resolve(output, 'wrangler.log'), run.stdout + run.stderr);
-assert.equal(run.status, 0, run.stderr || run.stdout || run.error?.message);
-const files = await Promise.all(
-  (await readdir(output)).map(async (name) => ({
-    name,
-    contents: await readFile(resolve(output, name)),
-  })),
-);
-const report = workerSize(files);
-await writeFile(resolve(output, 'size.json'), JSON.stringify(report, null, 2) + '\n');
-
-// DESIGN-GAP: Expand OpenNext's inner esbuild metafile because Wrangler sees a single prebundled server module; keep raw contributions separate from final gzip totals.
-const serverMeta = resolve(
-  web,
-  '.open-next/server-functions/default/apps/web/handler.mjs.meta.json',
-);
-const metafile = JSON.parse(await readFile(serverMeta, 'utf8')) as Metafile;
-const modules = new Map<string, number>();
-for (const result of Object.values(metafile.outputs)) {
-  for (const [name, input] of Object.entries(result.inputs)) {
-    modules.set(name, (modules.get(name) ?? 0) + input.bytesInOutput);
-  }
-}
-const outer = JSON.parse(await readFile(resolve(output, 'metafile.json'), 'utf8')) as Metafile;
-const serverHandler = serverMeta.replace(/\.meta\.json$/, '');
-for (const result of Object.values(outer.outputs))
-  for (const [name, input] of Object.entries(result.inputs)) {
-    // The server aggregate was expanded above; retain middleware and Worker bootstrap contributions.
-    if (resolve(web, name) !== serverHandler)
-      modules.set(name, (modules.get(name) ?? 0) + input.bytesInOutput);
-  }
-for (const file of report.modules.filter(({ name }) => /\.(?:wasm|bin)$/.test(name)))
-  modules.set(file.name, file.rawBytes);
-const ranked = [...modules]
-  .map(([name, bytes]) => ({ name: relative(web, resolve(web, name)), bytes }))
-  .sort((a, b) => b.bytes - a.bytes);
-await writeFile(resolve(output, 'modules.json'), JSON.stringify(ranked, null, 2) + '\n');
-console.table(ranked.slice(0, 30));
-// DESIGN-GAP: Fail on accidental Node adapter reintroduction even if the total remains under budget.
-for (const { name } of ranked)
-  assert.ok(
-    !/(?:playwright-core|geo-tz|@sparticuz\/chromium|better-sqlite3|@vercel\/blob|pino)\//.test(
-      name,
-    ),
-    `Node-only dependency bundled in Worker: ${name}`,
+// DESIGN-GAP: The compute service owns the full dynamic application, with a separate explicit budget; public startup never parses it.
+for (const [name, config, maximum] of [
+  ['main', 'wrangler.toml', 8_000_000],
+  ['compute', 'wrangler.compute.toml', 24_000_000],
+  ['media', 'wrangler.media.toml', 8_000_000],
+] as const) {
+  const output = resolve(web, `.wrangler/budget-check${name === 'main' ? '' : `-${name}`}`);
+  await rm(output, { recursive: true, force: true });
+  await mkdir(output, { recursive: true });
+  let log = '';
+  const status = await new Promise<number | null>((done, reject) => {
+    const child = spawn(
+      'pnpm',
+      [
+        'exec',
+        'wrangler',
+        'deploy',
+        '--dry-run',
+        '--config',
+        config,
+        '--outdir',
+        output,
+        '--metafile',
+        resolve(output, 'metafile.json'),
+      ],
+      { cwd: web, env: { ...process.env, CI: 'true', WRANGLER_SEND_METRICS: 'false' } },
+    );
+    child.stdout.on('data', (chunk: Buffer) => {
+      log += chunk.toString();
+      process.stdout.write(chunk);
+    });
+    child.stderr.on('data', (chunk: Buffer) => {
+      log += chunk.toString();
+      process.stderr.write(chunk);
+    });
+    child.on('error', reject);
+    child.on('close', done);
+  });
+  await writeFile(resolve(output, 'wrangler.log'), log);
+  assert.equal(status, 0, log);
+  const files = await Promise.all(
+    (await readdir(output)).map(async (file) => ({
+      name: file,
+      contents: await readFile(resolve(output, file)),
+    })),
   );
-assertWorkerBudget(report.gzipBytes);
-console.log(
-  `Cloudflare Worker: raw ${report.rawBytes} bytes; gzip ${report.gzipBytes} / ${report.maxGzipBytes} bytes — passed`,
-);
+  const report = { ...workerSize(files), service: name, maxRawBytes: maximum };
+  await writeFile(resolve(output, 'size.json'), JSON.stringify(report, null, 2) + '\n');
+  const outer = JSON.parse(await readFile(resolve(output, 'metafile.json'), 'utf8')) as Metafile;
+  const modules = Object.values(outer.outputs)
+    .flatMap((result) =>
+      Object.entries(result.inputs).map(([path, input]) => ({
+        name: path,
+        bytes: input.bytesInOutput,
+      })),
+    )
+    .sort((a, b) => b.bytes - a.bytes);
+  await writeFile(resolve(output, 'modules.json'), JSON.stringify(modules, null, 2) + '\n');
+  assertWorkerRawBudget(report.rawBytes, maximum);
+  assertWorkerBudget(report.gzipBytes);
+  if (name === 'main')
+    for (const module of modules)
+      assert.ok(
+        !/prisma|sentry|opencc|satori|resvg|puppeteer|handler\.mjs/.test(module.name),
+        `Heavy dependency in main Worker: ${module.name}`,
+      );
+  console.log(
+    `${name}: raw ${report.rawBytes} / ${maximum}; gzip ${report.gzipBytes} bytes — passed`,
+  );
+}

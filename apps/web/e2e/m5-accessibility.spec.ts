@@ -1,3 +1,4 @@
+import { settleArtwork } from './settle-artwork';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { audit, auditLocale, login, db, seedReading, copies } from './m5-helpers';
@@ -40,6 +41,9 @@ for (const locale of ['zh', 'en'] as const) {
         await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
         const response = await page.goto(`/${locale}${path}`);
         expect(response?.status()).toBe(200);
+        // DESIGN-GAP: A streamed private page returns its shell before its authentication redirect; audit the completed login document.
+        if (path === '/me/billing')
+          await page.waitForURL((url) => url.pathname === `/${locale}/auth/login`);
         const result = await audit(page);
         await auditLocale(page, locale);
         await info.attach('axe-document', {
@@ -82,6 +86,7 @@ for (const locale of ['zh', 'en'] as const) {
         body: JSON.stringify(result),
         contentType: 'application/json',
       });
+      await settleArtwork(page.locator('#chart-root'));
       // DESIGN-GAP: Collect every system's independent visual mismatch in one run; soft assertions still fail the test and preserve all subsequent accessibility evidence.
       await expect
         .soft(page.locator('#chart-root'))

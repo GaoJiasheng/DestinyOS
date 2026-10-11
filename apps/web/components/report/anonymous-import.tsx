@@ -58,11 +58,11 @@ export function AnonymousImport() {
         </Button>
         <Button
           disabled={busy || !data}
-          onClick={() => {
+          action={async () => {
             if (!data) return;
             setBusy(true);
             setError(null);
-            void importAnonymousDataAction({
+            await importAnonymousDataAction({
               ...data,
               readings: data.readings.map(({ id, request, chart, meta, createdAt }) => ({
                 id,
@@ -87,7 +87,7 @@ export function AnonymousImport() {
               .finally(() => setBusy(false));
           }}
         >
-          {t('report.import.confirm')}
+          {t(busy ? 'common.loading' : 'report.import.confirm')}
         </Button>
       </div>
     </Dialog>

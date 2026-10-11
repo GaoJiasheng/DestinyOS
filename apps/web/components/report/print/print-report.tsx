@@ -13,15 +13,17 @@ import type { ReadingView } from '@/lib/reading-schema';
 import { PrintChart } from './print-chart';
 import { paginatePrint } from './print-pagination';
 const dims = ['career', 'wealth', 'love', 'health', 'social'] as const;
-/** Paginated, privacy-minimized A4 report; source blocks are measured after every font and image loads. */
+/** Continuous poster or compact, privacy-minimized A4 report; source blocks are measured after every font and image loads. */
 export function PrintReport({
   reading,
   theme,
   qr,
+  layout = 'pdf',
 }: {
   reading: ReadingView;
   theme: 'dark' | 'light';
   qr: string;
+  layout?: 'pdf' | 'poster' | 'cover';
 }) {
   const t = useTranslations();
   const locale = useLocale();
@@ -44,6 +46,8 @@ export function PrintReport({
         .map((node) => node.textContent)
         .join('');
       await Promise.all([
+        // DESIGN-GAP: Load the shared English introduction font explicitly before either A4 layout is measured, including hidden PDF source blocks.
+        ...(locale === 'en' ? [document.fonts.load('12px "Noto Sans Variable"', prose)] : []),
         document.fonts.load('14px "Noto Serif SC"', prose),
         document.fonts.load('24px "LXGW WenKai"', headings),
         document.fonts.load('24px "Cinzel"', headings),
@@ -56,7 +60,7 @@ export function PrintReport({
       );
       if (active && element) {
         try {
-          paginatePrint(element);
+          if (layout === 'pdf') paginatePrint(element);
           element.dataset.ready = 'true';
         } catch {
           element.dataset.ready = 'error';
@@ -66,7 +70,7 @@ export function PrintReport({
     return () => {
       active = false;
     };
-  }, []);
+  }, [layout, locale]);
   const b = BaziChartSchema.safeParse(reading.chart),
     z = ZiweiChartSchema.safeParse(reading.chart),
     a = AstroChartSchema.safeParse(reading.chart),
@@ -105,6 +109,8 @@ export function PrintReport({
       data-print-theme={theme}
       data-system={reading.system}
       data-locale={locale}
+      data-layout={layout}
+      data-ready="false"
     >
       <div data-sheet-template hidden>
         <section className="print-sheet-template">
@@ -122,80 +128,89 @@ export function PrintReport({
         </section>
       </div>
       <div className="print-source">
-        <section data-print-section="cover">
-          <div className="print-cover" data-print-block>
-            <p className="print-kicker">{t('export.edition')}</p>
-            <div className="print-brand-zh">{t('brand.nameZh', { name: brand.nameZh })}</div>
-            <div className="print-brand-en">{t('brand.nameEn', { name: brand.nameEn })}</div>
-            <h1>{t(`nav.${reading.system}`)}</h1>
-            <p className="print-persona">{text(reading.report.headline.persona)}</p>
-            <div className="print-keywords">
-              {keywords.map((k) => (
-                <span key={k}>{text(k)}</span>
-              ))}
-            </div>
-            <svg
-              viewBox="0 0 360 350"
-              className="print-radar"
-              role="img"
-              aria-label={t('report.radar')}
-            >
-              {[1, 2, 3, 4, 5].map((n) => (
-                <polygon
-                  key={n}
-                  points={dims.map((_, i) => point(i, n * 20)).join(' ')}
-                  fill="none"
-                  stroke="var(--line-2)"
-                />
-              ))}
-              <polygon
-                points={dims
-                  .map((d, i) => point(i, reading.report.headline.scores[d] * 20))
-                  .join(' ')}
-                fill="var(--accent-glow)"
-                stroke="var(--gold)"
-                strokeWidth="2"
-              />
-              {dims.map((d, i) => {
-                const [x, y] = point(i, 140).split(',');
-                return (
-                  <text key={d} x={x} y={y} textAnchor="middle" fill="var(--text-2)" fontSize="12">
-                    {t(`report.dim.${d}`)} {reading.report.headline.scores[d]}/5
-                  </text>
-                );
-              })}
-            </svg>
-            <div className="print-cover-bottom">
-              <div>
-                {reading.birthYear ? (
-                  <p>
-                    {t('report.birthYear', { year: reading.birthYear })}
-                    {zodiac ? ` · ${zodiac}` : ''}
-                  </p>
-                ) : null}
-                <p>
-                  {t('export.generated', {
-                    date: new Intl.DateTimeFormat(locale, {
-                      dateStyle: 'long',
-                      timeZone: 'UTC',
-                    }).format(new Date(reading.createdAt)),
-                  })}
-                </p>
-                <p className="print-domain">{text(brand.domain)}</p>
+        <div className={layout === 'poster' ? 'print-intro' : undefined}>
+          <section data-print-section="cover">
+            <div className="print-cover" data-print-block>
+              <p className="print-kicker">{t('export.edition')}</p>
+              <div className="print-brand-zh">{t('brand.nameZh', { name: brand.nameZh })}</div>
+              <div className="print-brand-en">{t('brand.nameEn', { name: brand.nameEn })}</div>
+              <h1>{t(`nav.${reading.system}`)}</h1>
+              <p className="print-persona">{text(reading.report.headline.persona)}</p>
+              <div className="print-keywords">
+                {keywords.map((k) => (
+                  <span key={k}>{text(k)}</span>
+                ))}
               </div>
-              <img src={qr} width="90" height="90" alt={t('export.qr')} />
+              <svg
+                viewBox="0 0 360 350"
+                className="print-radar"
+                role="img"
+                aria-label={t('report.radar')}
+              >
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <polygon
+                    key={n}
+                    points={dims.map((_, i) => point(i, n * 20)).join(' ')}
+                    fill="none"
+                    stroke="var(--line-2)"
+                  />
+                ))}
+                <polygon
+                  points={dims
+                    .map((d, i) => point(i, reading.report.headline.scores[d] * 20))
+                    .join(' ')}
+                  fill="var(--accent-glow)"
+                  stroke="var(--gold)"
+                  strokeWidth="2"
+                />
+                {dims.map((d, i) => {
+                  const [x, y] = point(i, 140).split(',');
+                  return (
+                    <text
+                      key={d}
+                      x={x}
+                      y={y}
+                      textAnchor="middle"
+                      fill="var(--text-2)"
+                      fontSize="12"
+                    >
+                      {t(`report.dim.${d}`)} {reading.report.headline.scores[d]}/5
+                    </text>
+                  );
+                })}
+              </svg>
+              <div className="print-cover-bottom">
+                <div>
+                  {reading.birthYear ? (
+                    <p>
+                      {t('report.birthYear', { year: reading.birthYear })}
+                      {zodiac ? ` · ${zodiac}` : ''}
+                    </p>
+                  ) : null}
+                  <p>
+                    {t('export.generated', {
+                      date: new Intl.DateTimeFormat(locale, {
+                        dateStyle: 'long',
+                        timeZone: 'UTC',
+                      }).format(new Date(reading.createdAt)),
+                    })}
+                  </p>
+                  <p className="print-domain">{text(brand.domain)}</p>
+                </div>
+                <img src={qr} width="90" height="90" alt={t('export.qr')} />
+              </div>
             </div>
-          </div>
-        </section>
-        <section data-print-section="chart">
-          <h2 data-print-block>{t('report.chart')}</h2>
-          <div className="print-chart" data-print-block>
-            <PrintChart chart={reading.chart} />
-          </div>
-          <aside className="print-legend" data-print-block>
-            {t(`export.legend.${reading.system}`)}
-          </aside>
-        </section>
+          </section>
+          <section data-print-section="chart">
+            <h2 data-print-block>{t('report.chart')}</h2>
+            <div className="print-chart" data-print-block>
+              <PrintChart chart={reading.chart} />
+            </div>
+            <aside className="print-legend" data-print-block>
+              {t(`export.legend.${reading.system}`)}
+            </aside>
+          </section>
+        </div>
         {reading.report.sections.map((section, i) => (
           <section key={section.key} data-print-section={section.key}>
             <div className="print-chapter-heading" data-print-block>
@@ -230,15 +245,15 @@ export function PrintReport({
                 );
               if (block.type === 'sources')
                 return block.items.map((source, k) => (
-                  <details open className="print-footnote" key={`${j}-${k}`} data-print-block>
-                    <summary>
+                  <div className="print-footnote" key={`${j}-${k}`} data-print-block>
+                    <strong>
                       {t('report.sources')} {k + 1}
-                    </summary>
+                    </strong>
                     <blockquote>
                       {text(source.text)}
                       <cite>{text(source.from)}</cite>
                     </blockquote>
-                  </details>
+                  </div>
                 ));
               return null;
             })}
@@ -262,8 +277,16 @@ export function PrintReport({
           ))}
         </section>
         <section data-print-section="legal">
-          <h2 data-print-block>{t('export.appendix')}</h2>
-          <p data-print-block>{t('legal.disclaimer.full')}</p>
+          <div className="print-end-qr" data-print-block>
+            <img src={qr} width="120" height="120" alt={t('export.qr')} />
+            <p>{text(brand.domain)}</p>
+          </div>
+          <h2 className="print-legal-heading" data-print-block>
+            {t('export.appendix')}
+          </h2>
+          <p className="print-disclaimer" data-print-block>
+            {t('legal.disclaimer.full')}
+          </p>
           <h3 data-print-block>{t('report.school')}</h3>
           {Object.entries(reading.meta.schoolUsed).map(([key, value]) => (
             <p className="print-parameter" key={key} data-print-block>

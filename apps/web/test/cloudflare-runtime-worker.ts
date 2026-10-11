@@ -1,4 +1,4 @@
-import worker from '../worker';
+import worker from '../compute-worker';
 import { z } from 'zod';
 import type {
   D1Database,

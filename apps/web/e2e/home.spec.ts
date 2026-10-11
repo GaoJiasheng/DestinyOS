@@ -63,6 +63,15 @@ for (const locale of ['zh', 'en'] as const) {
     );
     // DESIGN-GAP: Collect independent homepage visual differences while preserving failure status and subsequent interaction coverage.
     await expect.soft(page.locator('.home-hero')).toHaveScreenshot(`hero-${locale}.png`);
+    // DESIGN-GAP: Full-card evidence visits lazy paintings before capturing the complete grid.
+    for (const image of await page.locator('.home-systems picture img').all()) {
+      await image.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() =>
+          image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0),
+        )
+        .toBe(true);
+    }
     await expect.soft(page.locator('.home-systems')).toHaveScreenshot(`systems-${locale}.png`);
     await page.waitForFunction(() => navigator.serviceWorker.controller);
     expect(

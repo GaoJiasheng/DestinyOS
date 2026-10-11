@@ -1,4 +1,5 @@
 'use client';
+import { ArtImage } from '@/components/art/art-image';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useCopy } from '@/i18n/use-copy';
@@ -26,14 +27,14 @@ export function Disclaimer() {
       setOpen(true);
     }
   }, [pathname]);
-  function acknowledge() {
+  async function acknowledge() {
     try {
       localStorage.setItem('tianji-disclaimer-v1', 'accepted');
     } catch {
       /* Keep this visit usable if storage is blocked. */
     }
-    void acknowledgeDisclaimerAction().catch(() => undefined);
     setOpen(false);
+    await acknowledgeDisclaimerAction().catch(() => undefined);
   }
   return (
     <Dialog
@@ -43,8 +44,17 @@ export function Disclaimer() {
       title={t('legal.firstVisit.title')}
       description={t('legal.disclaimer.full')}
     >
+      {/* DESIGN-GAP: Use the existing copy hook and bounded bitmap directly to keep the mandatory first-visit shell small. */}
+      <ArtImage
+        asset="states/disclaimer"
+        alt={t('art.states.disclaimer')}
+        className="state-art"
+        sizes="(min-width: 640px) 240px, 180px"
+        maxWidth={512}
+        priority
+      />
       <p className="type-small muted">{t('legal.ageConfirmation')}</p>
-      <Button className="disclaimer-confirm" onClick={acknowledge}>
+      <Button className="disclaimer-confirm" action={acknowledge}>
         {t('legal.firstVisit.confirm')}
       </Button>
     </Dialog>
