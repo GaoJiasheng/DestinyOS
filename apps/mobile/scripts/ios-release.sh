@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+mobile_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$mobile_root"
+mode="${1:-archive}"
+export SENTRY_DISABLE_AUTO_UPLOAD="${SENTRY_DISABLE_AUTO_UPLOAD:-true}"
+export APP_VARIANT=production CONFIGURATION=Release
+case "$mode" in
+  archive)
+    npx expo prebuild --platform ios --clean
+    xcodebuild archive -workspace ios/app.xcworkspace -scheme app -configuration Release \
+      -destination 'generic/platform=iOS' -archivePath release/Tianji.xcarchive \
+      -allowProvisioningUpdates CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=D33974QQTD
+    # Export to disk only; destination=export prevents submission/upload.
+    xcodebuild -exportArchive -archivePath release/Tianji.xcarchive \
+      -exportPath release -exportOptionsPlist release/ExportOptions.plist -allowProvisioningUpdates
+    ;;
+  simulator|integration)
+    device="${2:?Pass the dedicated simulator UDID}"
+    if [[ "$mode" == integration ]]; then
+      # DESIGN-GAP: Real Worker integration changes only origin/metrics, never enables mock identity or diagnostic routes.
+      export APP_VARIANT=development EAS_BUILD_PROFILE=integration API_BASE_URL=http://localhost:8787 EXPO_PUBLIC_BUILD_METRICS=true
+    fi
+    # DESIGN-GAP: SDK57 cleans by default; the Widget plugin is not idempotent on existing targets, so always regenerate native projects and install Pods.
+    npx expo prebuild --platform ios --clean
+    xcodebuild -workspace ios/app.xcworkspace -scheme app -configuration Release \
+      -sdk iphonesimulator -destination "platform=iOS Simulator,id=$device" \
+      -derivedDataPath /tmp/Tianji-IOS-BUILD -jobs 4 ONLY_ACTIVE_ARCH=YES \
+      -allowProvisioningUpdates CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=D33974QQTD CODE_SIGN_IDENTITY=- build
+    xcrun simctl install "$device" /tmp/Tianji-IOS-BUILD/Build/Products/Release-iphonesimulator/app.app
+    xcrun simctl launch "$device" pub.gavin.tianji
+    ;;
+  *) exit 2 ;;
+esac

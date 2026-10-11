@@ -1,0 +1,34 @@
+appId: pub.gavin.tianji
+---
+# Stop only the dedicated local smoke backend before this phase; native OS still reports host internet.
+- launchApp
+- openLink: 'tianji://reading'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- tapOn:
+    id: system-bazi
+- extendedWaitUntil:
+    visible:
+      id: report-network
+    timeout: 40000
+- assertVisible:
+    id: report-chat
+    enabled: false
+- takeScreenshot: offline-report-master-disabled
+# Exercise all systems while the configured Worker origin is unavailable.
+- runFlow: IOS-BUILD-reports.yaml
+- runFlow: IOS-BUILD-tarot.yaml
+- runFlow: IOS-BUILD-casting.yaml
+- openLink: 'tianji://today'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: daily-block-2
+- takeScreenshot: offline-today-release

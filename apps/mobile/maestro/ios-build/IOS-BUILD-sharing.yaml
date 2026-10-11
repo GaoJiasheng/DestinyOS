@@ -1,0 +1,94 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+# Wait for restored account routing, then use the actual visible tab.
+- extendedWaitUntil:
+    visible:
+      id: tab-reading
+    timeout: 30000
+- tapOn:
+    id: tab-reading
+- scrollUntilVisible:
+    element:
+      id: system-bazi
+- tapOn:
+    id: system-bazi
+- extendedWaitUntil:
+    visible:
+      id: report-share
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: report-share
+    centerElement: true
+- tapOn:
+    id: report-share
+- scrollUntilVisible:
+    element:
+      id: share-card-image
+    centerElement: true
+- takeScreenshot: share-card-release
+- scrollUntilVisible:
+    element:
+      id: share-link
+    centerElement: true
+- tapOn:
+    id: share-link
+- extendedWaitUntil:
+    visible:
+      id: share-link-url
+    timeout: 90000
+- takeScreenshot: worker-share-link
+- scrollUntilVisible:
+    element:
+      id: share-card-native
+    direction: UP
+    centerElement: true
+- tapOn:
+    id: share-card-native
+- extendedWaitUntil:
+    visible: '.*report-card.*'
+    timeout: 30000
+- takeScreenshot: native-share-sheet
+# iOS 26 exposes the system popover dismiss region; one tap prevents a retry reaching the App backdrop.
+- tapOn:
+    id: PopoverDismissRegion
+    point: 50%, 15%
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible:
+        id: report-sheet-close
+    commands:
+      - tapOn:
+          id: report-sheet-close
+- scrollUntilVisible:
+    element:
+      id: report-export
+    direction: UP
+- tapOn:
+    id: report-export
+- takeScreenshot: export-menu-release
+- tapOn:
+    id: export-pdf
+- extendedWaitUntil:
+    visible: '.*bazi-.*'
+    timeout: 120000
+- takeScreenshot: worker-export-pdf-native
+# iOS 26 exposes the system popover dismiss region; one tap prevents a retry reaching the App backdrop.
+- tapOn:
+    id: PopoverDismissRegion
+    point: 50%, 15%
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible:
+      id: export-png
+    timeout: 10000
+- tapOn:
+    id: export-png
+- extendedWaitUntil:
+    visible: '.*bazi-.*'
+    timeout: 120000
+- takeScreenshot: worker-export-a4-native

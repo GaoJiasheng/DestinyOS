@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Redirect } from 'expo-router';
-import mobileAds from 'react-native-google-mobile-ads';
+import { loadAdsSdk } from '../../lib/monetization/sdk';
 import { BirthInputSchema } from '@tianji/shared';
 import A from '../../../../packages/engine/test/fixtures/birth/A.json';
 import { usePreferences } from '../../lib/preferences';
@@ -62,10 +62,11 @@ export default function MonetizationDiagnostics() {
         return nativeTracking ? nativeConsent.att() : false;
       },
       async initialize(underAge, nonPersonalized) {
-        await mobileAds().setRequestConfiguration(
-          adRequestConfiguration(underAge, nonPersonalized),
-        );
-        await mobileAds().initialize();
+        const sdk = await loadAdsSdk();
+        await sdk
+          .default()
+          .setRequestConfiguration(adRequestConfiguration(underAge, nonPersonalized, sdk));
+        await sdk.default().initialize();
       },
     });
     await gatherAdConsent(teen ? 'teen' : 'adult');

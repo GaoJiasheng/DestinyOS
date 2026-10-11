@@ -1,0 +1,73 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://reading'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: system-bazi
+- tapOn:
+    id: system-bazi
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: report-bazi-release
+- openLink: 'tianji://reading'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: system-ziwei
+- tapOn:
+    id: system-ziwei
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: report-ziwei-release
+- openLink: 'tianji://reading'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: system-astrology
+- tapOn:
+    id: system-astrology
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: report-astrology-release
+- openLink: 'tianji://reading'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: system-vedic
+- tapOn:
+    id: system-vedic
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: report-vedic-release
+- openLink: 'tianji://reading'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: system-numerology
+- tapOn:
+    id: system-numerology
+- extendedWaitUntil:
+    visible:
+      id: report-headline
+    timeout: 30000
+- takeScreenshot: report-numerology-release

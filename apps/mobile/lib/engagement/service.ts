@@ -65,7 +65,17 @@ export function refreshEngagement(context?: {
       // Clear on identity changes before computation. Ordinary rollovers publish once so
       // WidgetKit's reload budget is not spent on an intermediate empty snapshot.
       if (identity !== publishedIdentity) await clearWidgetSnapshot();
-      const plan = planEngagement(selected.profile, selected.settings);
+      const permission = await Notifications.getPermissionsAsync();
+      const canNotify =
+        permission.granted ||
+        permission.ios?.status === Notifications.IosAuthorizationStatus.PROVISIONAL;
+      // DESIGN-GAP: Denied OS permission still needs the eight-day Widget snapshot, but computing a full calendar for undeliverable reminders wastes startup work.
+      const plan = planEngagement(
+        selected.profile,
+        canNotify
+          ? selected.settings
+          : { ...selected.settings, dailyPushEnabled: false, specialDayReminders: false },
+      );
       if (owner !== currentOwner()) return;
       await writeWidgetSnapshot(plan.snapshot);
       publishedIdentity = identity;
@@ -75,12 +85,7 @@ export function refreshEngagement(context?: {
           name: getCopy(selected.settings.locale)('mobile.push.title'),
           importance: Notifications.AndroidImportance.DEFAULT,
         });
-      const permission = await Notifications.getPermissionsAsync();
-      if (
-        !permission.granted &&
-        permission.ios?.status !== Notifications.IosAuthorizationStatus.PROVISIONAL
-      )
-        return;
+      if (!canNotify) return;
       try {
         for (const reminder of plan.reminders) {
           if (owner !== currentOwner()) {

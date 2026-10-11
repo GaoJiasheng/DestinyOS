@@ -1,0 +1,24 @@
+{
+  "phase": "after",
+  "platform": "real-local-multi-worker-D1",
+  "actorSha256": "c4668f9ee88cdbcc55c63c848f19f493aaff6805b35818e14192136df78bf240",
+  "profiles": 1,
+  "readings": 26,
+  "systems": [
+    "astrology",
+    "bazi",
+    "iching",
+    "numerology",
+    "qimen",
+    "tarot",
+    "vedic",
+    "ziwei"
+  ],
+  "encryptedPrivateFields": true,
+  "mobileSessions": 0,
+  "activeShareLinks": 0,
+  "softDeleted": true,
+  "retentionDaysAfterDeletion": 7,
+  "passed": true,
+  "checkedAt": "2026-10-11T18:46:41.681631Z"
+}

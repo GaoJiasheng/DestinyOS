@@ -1,0 +1,125 @@
+{
+  "configuration": "Release",
+  "phases": {
+    "onboarding": {
+      "passed": true,
+      "variant": "production",
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "checkedAt": "2026-10-11T18:11:54.761379+00:00",
+      "flowSha256": "d9349ca2a7f2662aa1700252753719c2178984836f35ce39bb08cf6192499d62",
+      "apiBaseUrl": "https://tianji.gavin.pub"
+    },
+    "reports": {
+      "passed": true,
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "checkedAt": "2026-10-11T18:14:21.100668Z",
+      "flowSha256": "4c228a4c828086ea6e074ed9b1239515d52723a2e74f3a41dcc50ec65c28b340",
+      "variant": "production",
+      "apiBaseUrl": "https://tianji.gavin.pub"
+    },
+    "tarot": {
+      "passed": true,
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "checkedAt": "2026-10-11T18:15:29.746497Z",
+      "flowSha256": "445dd6f176a13aa742992f3d90b89bb63996b14abc56af76677dac4ee5877cef",
+      "variant": "production",
+      "apiBaseUrl": "https://tianji.gavin.pub"
+    },
+    "casting": {
+      "passed": true,
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "checkedAt": "2026-10-11T18:18:02.096472Z",
+      "flowSha256": "bfebce02966bfac64e92c9f8817acd850580db86b4101a5e7ef51a2b117c883a",
+      "variant": "production",
+      "apiBaseUrl": "https://tianji.gavin.pub"
+    },
+    "offline": {
+      "passed": true,
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "checkedAt": "2026-10-11T18:25:32.951786Z",
+      "flowSha256": "aafcd09dbcc3dd22c84945e23b748edef81af4763fb46931b033bbf2e4b43e68",
+      "variant": "development",
+      "apiBaseUrl": "http://localhost:8787",
+      "workerStopped": true
+    },
+    "account": {
+      "passed": true,
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "variant": "development",
+      "apiBaseUrl": "http://localhost:8787",
+      "checkedAt": "2026-10-11T18:33:24.227947Z",
+      "flowSha256": "32ce5da3ae19e6c6f139326f75f7ff5db865c7436180e1b4acab2ed61a0e8ed5"
+    },
+    "sharing": {
+      "passed": true,
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "variant": "development",
+      "apiBaseUrl": "http://localhost:8787",
+      "checkedAt": "2026-10-11T18:43:02.053176Z",
+      "flowSha256": "4cee0294ce7053a949e695c46b99c386e972d0eb61f6b646a231ed579cc1a82d"
+    },
+    "delete": {
+      "passed": true,
+      "device": "FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+      "variant": "development",
+      "apiBaseUrl": "http://localhost:8787",
+      "checkedAt": "2026-10-11T18:45:59.823035Z",
+      "flowSha256": "2fda47c5ff8b67db9cd89f5cd2afc761d4d2380d4d12c5e8df29024b0d774c99"
+    }
+  },
+  "screenshots": {
+    "anonymous-import-consent.png": "4d05b5c8c9d0c6fba80c4b8f378207f3e6608793ce7900b3ffaa56d348abc479",
+    "anonymous-profile.png": "3689725c6e9b2cc53102c3545bd67b6efecfb49f63c615ca0027f3d5073d0ae6",
+    "ask-liuyao-zh.png": "912bc37b8bbb97cf665e3ecd4a3b200692ac403eef8cf359c4347a0bbc644e7d",
+    "delete-confirm-release.png": "efaf6dad55a9d932b5d6be325d39c26c1dd9956211f61e2f6d1b330adfa4c8ac",
+    "export-menu-release.png": "f7e6a04d2f6cc1149a02df6c6b9b5f0825b58256da7b52391fde9295e2b951ac",
+    "liuyao-changing-zh.png": "7f991a5dec8472e556759dba82e6de6b98a354191b58f44bce906be1ae22583a",
+    "liuyao-one-line-zh.png": "caf27cd1c8ce7847ac595e171e2b87031aa582f3705512bf15cb7ccc675b5653",
+    "liuyao-ready-zh.png": "fc1734122cdeb753bfb37cb9a59219710ffff08eb4e05db508191ba522915567",
+    "liuyao-report-zh.png": "74337c64cb7a86d50f2fb5cccbc5741d5e20468a4da58adb4361a9b3588a5de9",
+    "liuyao-six-lines-zh.png": "9e0c967a8ecd231cb807837bfb9051c189a0a6aa028d43862ede1f6ffc1842dc",
+    "magic-link-confirm.png": "de5bd67b1c963f4a94df57d9aa6e90c95b7a9bcb6d1af86e643c1d9d54296724",
+    "meihua-invalid-numbers-zh.png": "e7bcd516210fc58df909faf20ae6578dd4383b19237de9b37e14a88ef1a1dc97",
+    "meihua-numbers-zh.png": "edf99a092bfeacadadfc00defaeec1b152d26124153e566627f6f1553f6e5f11",
+    "meihua-random-zh.png": "3996387edc4fed9e234d28c8120b0b30cc4f39d0833848acefb6208762e48522",
+    "meihua-time-zh.png": "075325bd2c4027e4561196a1822c682e13ff1cc1f01d2263d059a7ba43d3a10e",
+    "native-share-sheet.png": "befc69211de4753fbf8b079beaf48edd68c442b34753e4159822a6a0d53c9a9f",
+    "offline-report-master-disabled.png": "1127aa61fb63009fbd5a06d496e54229e1c7e0ee4f15d15dbe68be6a12b7c78c",
+    "offline-today-release.png": "1362d2fb72b050589f81609b30822185d7b123abc9a565d83a37420b5b1aac33",
+    "onboarding-release.png": "b08078012e97cf37c74a796e4034247ce4da1c99685e262973ea84a9641fecdf",
+    "production-launch.png": "9cc52c78e5f5c6b8359afd6a6e043709e6e7afffc77fd8d54b94e446b9888f69",
+    "purchases-coming-soon.png": "355f0c72eef663013cca1638937689696e31e43b78f5fe1c354a6934993da178",
+    "qimen-lighting-zh.png": "e718758dd3d8309d8cc3c596133e3203ca3bdb3bb7042d783c169dd09dedba63",
+    "qimen-report-zh.png": "a48986023d9e86e9090ae94951aeeeadf852e0bedac617530fb750d2236fbc29",
+    "qimen-setup-zh.png": "23a975a31c28c42ae36ebc5faaece09a69bf8b17b8d9031122ea45aba948b914",
+    "report-astrology-release.png": "f985624c0cd00caaabb3869a500c0d368e111ee87d7d7041e07fb5d52936ea89",
+    "report-bazi-release.png": "2c3db21a090863f1c93307442dfc779cb6c035a3dad55c12cac22424c11cb10c",
+    "report-numerology-release.png": "edc1f05a66d5c9d2e01d1d443a5ef208ec13f16b9d1c7685299dc813c0d7ea1c",
+    "report-vedic-release.png": "417f3b76daaa40c4f1f61981884027508362aa8d244b5302d7babf7162129864",
+    "report-ziwei-release.png": "7869fe8d3179bfce01e36de2e832bd35cfb964b3afe7fae2d24c4fa5c006cb9a",
+    "share-card-release.png": "7ee48ecdc7a5ad587dc9afcd45718e4642cb9d171facb0654246e3e24153313f",
+    "tarot-cut-zh.png": "4836ae41a05befd5f23a955e48c4cceffd7dde6965df8a6aec57158824f64cbd",
+    "tarot-fan-zh.png": "80d23d3113772d3efe2c3d566a511d0ae9c9280c509d06d955e2195eebd39365",
+    "tarot-report-zh.png": "1447a2a0234a93aa4ae97cb4a38f1655a273214547e6acd6aac03ae3feb72ebb",
+    "tarot-revealed-zh.png": "6436d28926e23657eab167be302d3b6b13d47204608bd0ce067c5c1054b70db6",
+    "tarot-selected-zh.png": "6ffd211b05ec09298db5a660d4b1333cda943b3cd12916a80a999c92533d2420",
+    "tarot-setup-zh.png": "93b60d5ad517846ad107ae4e3aafc8604af1e68c6b2e80ddbabef04975c9ef1c",
+    "tarot-shuffle-zh.png": "c1a20c0b37153d829851004c06dddd717eb2ff4a2bda796357ffea6b13e2d129",
+    "today-release.png": "71161fb9c2fe67016332d9f4c49f0d7375d929d9ceb882b6ed48adfb88b68ba6",
+    "worker-account-deleted.png": "336c2ac7ed9e81ed876f7f38e12a07bc8e29c5a42a572d46a200acc73e6c7faa",
+    "worker-export-a4-native.png": "d6c88f509765b3daee88608c3dd3fee68d8ac625de823ad7742a8839753fb1df",
+    "worker-export-pdf-native.png": "34b2d28d13f31e38d82771434fdd2323b14bcde6b3bd468820eca0487d910bab",
+    "worker-share-link.png": "375d268ce729d8b3e21f68a7a90b5159cb6caf4e15c7a2147b0d9dd17790f1b0",
+    "worker-sync-success.png": "0b388d8217be17be7a53fd810122a7a49af454c3158ba885f11bd663bf1d6fa7"
+  },
+  "flowDependencies": {
+    "IOS-BUILD-account.yaml": "32ce5da3ae19e6c6f139326f75f7ff5db865c7436180e1b4acab2ed61a0e8ed5",
+    "IOS-BUILD-casting.yaml": "bfebce02966bfac64e92c9f8817acd850580db86b4101a5e7ef51a2b117c883a",
+    "IOS-BUILD-delete.yaml": "2fda47c5ff8b67db9cd89f5cd2afc761d4d2380d4d12c5e8df29024b0d774c99",
+    "IOS-BUILD-offline.yaml": "aafcd09dbcc3dd22c84945e23b748edef81af4763fb46931b033bbf2e4b43e68",
+    "IOS-BUILD-onboarding.yaml": "d9349ca2a7f2662aa1700252753719c2178984836f35ce39bb08cf6192499d62",
+    "IOS-BUILD-reports.yaml": "4c228a4c828086ea6e074ed9b1239515d52723a2e74f3a41dcc50ec65c28b340",
+    "IOS-BUILD-sharing.yaml": "4cee0294ce7053a949e695c46b99c386e972d0eb61f6b646a231ed579cc1a82d",
+    "IOS-BUILD-tarot.yaml": "445dd6f176a13aa742992f3d90b89bb63996b14abc56af76677dac4ee5877cef"
+  }
+}

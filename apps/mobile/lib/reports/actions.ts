@@ -1,8 +1,8 @@
+import { apiBaseUrl } from '../api-base';
 import { z } from 'zod';
 import { File, Paths } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import { Share } from 'react-native';
-import { brand } from '@tianji/shared';
 import {
   ApiClientError,
   ChatInputSchema,
@@ -75,7 +75,7 @@ export const reportActions: ReportActions = {
   async link(id, input) {
     await prepare(id);
     const value = await accountSession.request(shareEndpoint(id), input);
-    const expected = `https://${brand.domain}/s/${value.token}`;
+    const expected = `${apiBaseUrl}/s/${value.token}`;
     if (value.url !== expected) throw new ApiClientError('E_INTERNAL', 0, 'decode');
     return expected;
   },

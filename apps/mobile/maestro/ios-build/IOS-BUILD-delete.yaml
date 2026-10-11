@@ -1,0 +1,33 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- extendedWaitUntil:
+    visible:
+      id: tab-me
+    timeout: 30000
+- openLink: 'tianji://me/settings'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: account-delete-text
+    centerElement: true
+- takeScreenshot: delete-confirm-release
+- tapOn:
+    id: account-delete-text
+- inputText: 'DELETE'
+- tapOn:
+    text: '^输入 DELETE .*'
+    index: 0
+- scrollUntilVisible:
+    element:
+      id: account-delete
+    centerElement: true
+- tapOn:
+    id: account-delete
+- extendedWaitUntil:
+    visible:
+      id: account-deleted
+    timeout: 30000
+- takeScreenshot: worker-account-deleted

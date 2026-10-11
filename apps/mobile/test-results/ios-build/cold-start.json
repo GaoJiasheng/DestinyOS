@@ -1,0 +1,44 @@
+{
+  "platform": "ios",
+  "configuration": "Release",
+  "metro": false,
+  "samples": [
+    {
+      "readyAtUnixMs": 1791744236032,
+      "jsReadyMs": 184.21745920181274,
+      "hermes": true,
+      "launchToReadyMs": 1553.52001953125
+    },
+    {
+      "readyAtUnixMs": 1791744240189,
+      "jsReadyMs": 187.1666660308838,
+      "hermes": true,
+      "launchToReadyMs": 1545.64208984375
+    },
+    {
+      "readyAtUnixMs": 1791744244347,
+      "jsReadyMs": 180.06004190444946,
+      "hermes": true,
+      "launchToReadyMs": 1533.266845703125
+    },
+    {
+      "readyAtUnixMs": 1791744248518,
+      "jsReadyMs": 178.51954174041748,
+      "hermes": true,
+      "launchToReadyMs": 1540.468017578125
+    },
+    {
+      "readyAtUnixMs": 1791744252691,
+      "jsReadyMs": 182.48591709136963,
+      "hermes": true,
+      "launchToReadyMs": 1553.4111328125
+    }
+  ],
+  "maxMs": 1553.52001953125,
+  "budgetMs": 2000,
+  "teardownCooldownMs": 2000,
+  "sourceHash": "3bb469ca47f6718b2b89c3c01b1470e1aa9070ce24db256963aa4137b9c220ab",
+  "checkedAt": "2026-10-11T18:44:13.643852Z",
+  "passed": true,
+  "condition": "authenticated; dedicated local Worker stopped; no Maestro observer"
+}

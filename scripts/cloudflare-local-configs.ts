@@ -3,7 +3,8 @@ import { resolve } from 'node:path';
 /** Generate isolated local configurations; these mock values never enter deployment files. */
 export async function localWorkerConfigs(port: number): Promise<string[]> {
   const web = resolve(import.meta.dirname, '../apps/web');
-  const directory = resolve(web, '.wrangler/multi-smoke');
+  // DESIGN-GAP: Port-scoped configs let simulator integration and bounded smoke tests coexist without Wrangler watch reloads switching origins.
+  const directory = resolve(web, '.wrangler/multi-smoke', String(port));
   await mkdir(directory, { recursive: true });
   const variables = {
     PLATFORM: 'cloudflare',

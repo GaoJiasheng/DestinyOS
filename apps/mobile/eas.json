@@ -1,7 +1,7 @@
 {
   "cli": {
     "version": ">= 16.0.0",
-    "appVersionSource": "remote"
+    "appVersionSource": "local"
   },
   "build": {
     "development": {
@@ -19,7 +19,7 @@
       "environment": "production",
       "distribution": "store",
       "channel": "production",
-      "autoIncrement": true,
+      "autoIncrement": false,
       "env": {
         "APP_VARIANT": "production",
         "EXPO_PUBLIC_M14_AUDIT": "false"

@@ -39,6 +39,22 @@ export async function mobileMultiSmoke(base: string) {
     },
     body: JSON.stringify(value),
   });
+  // DESIGN-GAP: Substitute local email delivery while exercising the real single-use mobile verification endpoint.
+  const magic = z
+    .object({ url: z.string() })
+    .parse(await (await fetch(`${base}/_smoke/mobile-magic`, { method: 'POST' })).json());
+  const magicUrl = new URL(magic.url);
+  const magicInput = {
+    email: magicUrl.searchParams.get('email'),
+    token: magicUrl.searchParams.get('token'),
+    locale: 'zh',
+    platform: 'ios',
+    deviceName: 'IOS-BUILD',
+  };
+  const identity = await mobile('auth/magic/verify', 200, json(magicInput));
+  const magicTokens = z.object({ accessToken: z.string() }).parse(identity.data);
+  await mobile('auth/magic/verify', 401, json(magicInput));
+  await mobile('auth/logout', 200, json({}, magicTokens.accessToken));
   const fixture = fixtureSchema.parse(
     await (await fetch(`${base}/_smoke/mobile-session`, { method: 'POST' })).json(),
   );

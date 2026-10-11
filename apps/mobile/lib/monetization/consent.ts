@@ -1,3 +1,4 @@
+import { nativeAdUnit } from './ad-unit';
 import { create } from 'zustand';
 import type { AdAge } from './ad-policy';
 export interface ConsentPort {
@@ -31,7 +32,8 @@ export function gatherAdConsent(age: AdAge, reopen = false) {
   useConsent.setState({ age, status: 'loading', nonPersonalized: true });
   const run = queue.then(async () => {
     if (epoch !== generation) return;
-    if (age === 'blocked') {
+    // DESIGN-GAP: No configured inventory means no UMP/ATT prompts or SDK initialization.
+    if (age === 'blocked' || !nativeAdUnit()) {
       useConsent.setState({ status: 'idle' });
       return;
     }

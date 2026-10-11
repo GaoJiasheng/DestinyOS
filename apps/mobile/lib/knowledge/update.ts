@@ -1,3 +1,4 @@
+import { apiBaseUrl } from '../api-base';
 import {
   MobileKnowledgeEnvelopeSchema as EnvelopeSchema,
   MobileKnowledgeManifestSchema as ManifestSchema,
@@ -7,7 +8,6 @@ import { ed25519 } from '@noble/curves/ed25519';
 import { sha256 } from '@noble/hashes/sha256';
 import { bytesToHex, hexToBytes } from '@noble/hashes/utils';
 import { Gunzip, strFromU8, strToU8 } from 'fflate';
-import { brand } from '@tianji/shared/brand';
 import { DeltaSchema, KnowledgeSchema, compareKnowledgeVersion } from './schema';
 import type { KnowledgeCache } from './cache';
 
@@ -22,7 +22,7 @@ export function createKnowledgeTransport(
   fetcher: typeof fetch = fetch,
   accessToken?: () => Promise<string | undefined>,
 ): KnowledgeTransport {
-  const base = `https://${brand.domain}/api/v1/mobile/knowledge`;
+  const base = `${apiBaseUrl}/api/v1/mobile/knowledge`;
   let baseVersion: string | undefined;
   async function response(path: string) {
     const token = await accessToken?.();

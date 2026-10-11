@@ -1,5 +1,5 @@
 import type { ExpoConfig } from 'expo/config';
-import { validateProduction } from './release/production.ts';
+import { releaseEnvironment, validateProduction } from './release/production.ts';
 import privacyManifest from './release/privacy-manifest.json';
 validateProduction(process.env);
 import { brand } from '@tianji/shared/brand';
@@ -10,6 +10,8 @@ import { designTokens } from '@tianji/ui-core/tokens';
 // DESIGN-GAP: Keep TypeScript 5.9 per docs/09; Expo's suggested TS6 upgrade is excluded from version checks.
 // DESIGN-GAP: Retain M14's verified Sentry 8 redaction/source-map integration instead of Expo's suggested Sentry 7 downgrade.
 // SDK57 requires the new architecture; there is no legacy architecture switch.
+const { production, apiBaseUrl } = releaseEnvironment(process.env);
+const nativeRelease = production || process.env.CONFIGURATION === 'Release';
 const config: ExpoConfig = {
   name: brand.nameZh,
   slug: 'tianji',
@@ -17,9 +19,13 @@ const config: ExpoConfig = {
   icon: './assets/icon.png',
   // DESIGN-GAP: EAS project IDs are provisioned by Owner; native fingerprints prevent incompatible OTA updates.
   runtimeVersion: { policy: 'fingerprint' },
+  extra: {
+    APP_VARIANT: production ? 'production' : 'development',
+    API_BASE_URL: apiBaseUrl,
+    ...(process.env.EAS_PROJECT_ID ? { eas: { projectId: process.env.EAS_PROJECT_ID } } : {}),
+  },
   ...(process.env.EAS_PROJECT_ID
     ? {
-        extra: { eas: { projectId: process.env.EAS_PROJECT_ID } },
         updates: { url: `https://u.expo.dev/${process.env.EAS_PROJECT_ID}` },
       }
     : {}),
@@ -41,14 +47,21 @@ const config: ExpoConfig = {
   orientation: 'portrait',
   userInterfaceStyle: 'dark',
   ios: {
+    buildNumber: '1',
     bundleIdentifier: 'pub.gavin.tianji',
     privacyManifests: privacyManifest,
     appleTeamId: 'D33974QQTD',
     supportsTablet: true,
     usesAppleSignIn: true,
     associatedDomains: [`applinks:${brand.domain}`],
-    entitlements: { 'com.apple.security.application-groups': ['group.pub.gavin.tianji'] },
+    entitlements: {
+      'com.apple.security.application-groups': ['group.pub.gavin.tianji'],
+      'aps-environment': production ? 'production' : 'development',
+    },
     infoPlist: {
+      ...(!production && apiBaseUrl.startsWith('http:')
+        ? { NSAppTransportSecurity: { NSAllowsLocalNetworking: true } }
+        : {}),
       CFBundleLocalizations: ['zh-Hans', 'zh-Hant', 'en'],
       ITSAppUsesNonExemptEncryption: false,
       // DESIGN-GAP: Hide Expo's development-only overlay during native E2E and screenshots;
@@ -59,6 +72,7 @@ const config: ExpoConfig = {
     },
   },
   android: {
+    versionCode: 1,
     package: 'pub.gavin.tianji',
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
@@ -95,18 +109,26 @@ const config: ExpoConfig = {
         enableBackgroundRecording: false,
       },
     ],
-    // DESIGN-GAP: Public AdMob IDs come from the EAS environment; validateProduction rejects test inventory for production.
-    [
-      'react-native-google-mobile-ads',
-      {
-        iosAppId:
-          process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID || 'ca-app-pub-3940256099942544~1458002511',
-        androidAppId:
-          process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID || 'ca-app-pub-3940256099942544~3347511713',
-        androidSdk: 'classic',
-        delayAppMeasurementInit: true,
-      },
-    ],
+    // DESIGN-GAP: Do not embed Google sample App IDs in store builds. An unconfigured SDK stays dormant.
+    ...(!nativeRelease ||
+    process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID ||
+    process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID
+      ? [
+          [
+            'react-native-google-mobile-ads',
+            {
+              iosAppId:
+                process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID ||
+                (!nativeRelease ? 'ca-app-pub-3940256099942544~1458002511' : undefined),
+              androidAppId:
+                process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID ||
+                (!nativeRelease ? 'ca-app-pub-3940256099942544~3347511713' : undefined),
+              androidSdk: 'classic',
+              delayAppMeasurementInit: true,
+            },
+          ] as [string, Record<string, unknown>],
+        ]
+      : []),
     ['expo-tracking-transparency', { userTrackingPermission: en['mobile.billing.attPurpose'] }],
     'expo-router',
     'expo-apple-authentication',

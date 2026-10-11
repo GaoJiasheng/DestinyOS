@@ -1,4 +1,4 @@
-import { validateProduction } from '../release/production';
+import { releaseEnvironment, validateProduction } from '../release/production';
 import manifest from '../release/privacy-manifest.json';
 const production = {
   APP_VARIANT: 'production',
@@ -16,11 +16,12 @@ const production = {
   SENTRY_ORG: 'fixture',
   SENTRY_PROJECT: 'fixture',
 };
-it('keeps local builds usable and requires provisioned production services', () => {
+it('keeps local builds usable and allows absent production services with disabled providers', () => {
   expect(() => validateProduction({})).not.toThrow();
   expect(() => validateProduction(production)).not.toThrow();
   for (const key of Object.keys(production).filter((key) => key !== 'APP_VARIANT')) {
-    expect(() => validateProduction({ ...production, [key]: undefined })).toThrow(key);
+    expect(() => validateProduction({ ...production, [key]: undefined })).not.toThrow();
+    expect(() => validateProduction({ ...production, [key]: 'invalid!' })).toThrow(key);
   }
 });
 it.each([
@@ -58,4 +59,21 @@ it('declares advertising tracking without labeling birth data or purchases as tr
       entry.NSPrivacyAccessedAPIType.endsWith('UserDefaults'),
     )?.NSPrivacyAccessedAPITypeReasons,
   ).toContain('1C8F.1');
+});
+
+it('locks production API origin and limits development HTTP to loopback', () => {
+  expect(
+    releaseEnvironment({ APP_VARIANT: 'production', API_BASE_URL: 'http://127.0.0.1:8787' }),
+  ).toEqual({ production: true, apiBaseUrl: 'https://tianji.gavin.pub' });
+  expect(
+    releaseEnvironment({ APP_VARIANT: 'development', API_BASE_URL: 'http://127.0.0.1:8787' })
+      .apiBaseUrl,
+  ).toBe('http://127.0.0.1:8787');
+  for (const API_BASE_URL of [
+    'http://example.test',
+    'https://user:password@example.test',
+    'https://example.test/path',
+    'https://example.test/?token=x',
+  ])
+    expect(() => releaseEnvironment({ API_BASE_URL })).toThrow('API_BASE_URL');
 });

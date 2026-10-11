@@ -1,0 +1,42 @@
+{
+  "configuration": "Release",
+  "screen": "today",
+  "observer": "none",
+  "samples": [
+    {
+      "run": 1,
+      "fps": 59.999999998095824,
+      "p95Ms": 16.666667461395264,
+      "frames": 601,
+      "durationMs": 10016.666666984558,
+      "source": "ui-display",
+      "longFrames": 0,
+      "maxMs": 16.666667461395264
+    },
+    {
+      "run": 2,
+      "fps": 60.000000000952085,
+      "p95Ms": 16.666667461395264,
+      "frames": 601,
+      "durationMs": 10016.666666507721,
+      "source": "ui-display",
+      "longFrames": 0,
+      "maxMs": 16.666667461395264
+    },
+    {
+      "run": 3,
+      "fps": 60.000000000952085,
+      "p95Ms": 16.666667461395264,
+      "frames": 601,
+      "durationMs": 10016.666666507721,
+      "source": "ui-display",
+      "longFrames": 0,
+      "maxMs": 16.666667461395264
+    }
+  ],
+  "budgetFps": 55,
+  "sourceHash": "3bb469ca47f6718b2b89c3c01b1470e1aa9070ce24db256963aa4137b9c220ab",
+  "checkedAt": "2026-10-11T18:45:01.779271Z",
+  "passed": true,
+  "condition": "authenticated; dedicated local Worker stopped; no Maestro observer"
+}

@@ -48,7 +48,10 @@ export function EngagementBootstrap() {
           () => undefined,
         );
     };
-    refresh();
+    // DESIGN-GAP: Seven-day widget/reminder planning is background work; allow the loaded native screen to paint before computing future dates.
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(refresh);
+    });
     if (settings.onboardingVersion >= 1 && !settings.ageBlocked)
       void registerEngagementBackground().catch(() => undefined);
     const listener = AppState.addEventListener('change', (state) => {
@@ -68,6 +71,7 @@ export function EngagementBootstrap() {
     }, 60000);
     return () => {
       alive = false;
+      cancelAnimationFrame(frame);
       listener.remove();
       clearInterval(timer);
     };

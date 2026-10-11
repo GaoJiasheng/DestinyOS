@@ -1,20 +1,18 @@
 import { Platform } from 'react-native';
-import mobileAds, {
-  AdsConsent,
-  AdsConsentPrivacyOptionsRequirementStatus,
-  AdsConsentStatus,
-  AdsConsentDebugGeography,
-  AgeRestrictedTreatment,
-  MaxAdContentRating,
-  type RequestConfiguration,
-} from 'react-native-google-mobile-ads';
+import type { RequestConfiguration } from 'react-native-google-mobile-ads';
+import { loadAdsSdk } from './sdk';
 import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 import type { ConsentPort } from './consent';
 /** Shared with diagnostics, so tests exercise the same SDK age restrictions. */
 export function adRequestConfiguration(
   underAge: boolean,
   nonPersonalized: boolean,
+  sdk: Pick<
+    typeof import('react-native-google-mobile-ads'),
+    'AgeRestrictedTreatment' | 'MaxAdContentRating'
+  >,
 ): RequestConfiguration {
+  const { AgeRestrictedTreatment, MaxAdContentRating } = sdk;
   return {
     ageRestrictedTreatment: underAge
       ? AgeRestrictedTreatment.TEEN
@@ -28,6 +26,12 @@ export function adRequestConfiguration(
 /** Native consent adapter; UMP handles regulated regions and state-law/RDP signals itself. */
 export const nativeConsent: ConsentPort = {
   async gather(underAge) {
+    const {
+      AdsConsent,
+      AdsConsentStatus,
+      AdsConsentDebugGeography,
+      AdsConsentPrivacyOptionsRequirementStatus,
+    } = await loadAdsSdk();
     const info = await AdsConsent.gatherConsent({
       tagForUnderAgeOfConsent: underAge,
       ...(__DEV__ && process.env.EXPO_PUBLIC_UMP_DEBUG_GEOGRAPHY === 'EEA'
@@ -53,6 +57,7 @@ export const nativeConsent: ConsentPort = {
     };
   },
   async privacy() {
+    const { AdsConsent } = await loadAdsSdk();
     await AdsConsent.showPrivacyOptionsForm();
   },
   async att() {
@@ -60,7 +65,10 @@ export const nativeConsent: ConsentPort = {
     return (await requestTrackingPermissionsAsync()).status === 'granted';
   },
   async initialize(underAge, nonPersonalized) {
-    await mobileAds().setRequestConfiguration(adRequestConfiguration(underAge, nonPersonalized));
-    await mobileAds().initialize();
+    const sdk = await loadAdsSdk();
+    await sdk
+      .default()
+      .setRequestConfiguration(adRequestConfiguration(underAge, nonPersonalized, sdk));
+    await sdk.default().initialize();
   },
 };

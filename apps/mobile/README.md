@@ -130,8 +130,9 @@ Public SDK configuration (set locally, never commit `.env` or credentials):
   forms. Google's sample app IDs can show their test tracking explanation or
   return a configuration error, which hides ads.
 
-Google sample app IDs and `TestIds.NATIVE` are fixed for M13. The app never loads
-production ad inventory. UMP precedes ATT and SDK initialization; underage or
+Debug uses Google sample app IDs and `TestIds.NATIVE`; Release requires real
+platform App IDs and native units. Missing configuration hides ads and skips
+UMP/ATT initialization. Missing RevenueCat keys show shared coming-soon copy. UMP precedes ATT and SDK initialization; underage or
 unknown-age users receive TFUA and non-personalized requests. Rejection does not
 block content. Consent failures hide ads; membership/privacy retry remains
 available. Today has one slot, reports at most two slots between chapters.
@@ -189,3 +190,15 @@ physical-device Instruments and Android native/TalkBack acceptance remain
 separate checks. Use `xcrun simctl ui <UDID> content_size
 accessibility-extra-extra-extra-large` to repeat the large-text audit with
 `bash scripts/m14-simulator.sh <UDID> M14-accessibility`.
+
+## Local iOS Release
+
+See `docs/app/RELEASE.md` (IOS-BUILD) for signing, local archive/export and real
+multi-Worker acceptance. `bash scripts/ios-release.sh simulator <UDID>` builds
+production 1.0.0 (1); `archive` exports locally, without uploading. `integration
+<UDID>` embeds the local Worker origin in a Release bundle. `APP_VARIANT=production`
+locks the production origin regardless of `API_BASE_URL`. Both native targets use
+Team D33974QQTD and group.pub.gavin.tianji; the widget keeps pub.gavin.tianji.widget.
+`EXPO_PUBLIC_BUILD_METRICS=true` records timing/frame aggregates only in local
+acceptance; production validation rejects it. All diagnostic routes remain blocked
+in the integration Release. No Java installation or Android native build occurs.

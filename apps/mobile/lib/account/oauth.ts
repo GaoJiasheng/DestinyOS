@@ -1,3 +1,4 @@
+import { apiBaseUrl } from '../api-base';
 import { Platform } from 'react-native';
 import * as Device from 'expo-device';
 import * as Crypto from 'expo-crypto';
@@ -14,9 +15,9 @@ import {
 import { brand } from '@tianji/shared/brand';
 import type { MobileLocale } from '../i18n';
 WebBrowser.maybeCompleteAuthSession();
-/** First-party API always uses HTTPS; public OAuth client identifiers are configuration, never secrets. */
+/** Use the configured first-party origin; public OAuth client identifiers never contain secrets. */
 export const publicApi = (transport?: typeof fetch) =>
-  createApiClient({ baseUrl: `https://${brand.domain}`, fetch: transport });
+  createApiClient({ baseUrl: apiBaseUrl, fetch: transport });
 /** Platform/device description is bounded and contains no birth data or advertising identifiers. */
 export const device = () => ({
   platform: Platform.OS === 'ios' ? ('ios' as const) : ('android' as const),

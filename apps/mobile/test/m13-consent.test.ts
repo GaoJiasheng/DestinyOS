@@ -1,3 +1,4 @@
+import * as adsSdk from 'react-native-google-mobile-ads';
 import {
   configureConsentDiagnostic,
   gatherAdConsent,
@@ -53,7 +54,7 @@ it.each(['teen', 'unknown'] as const)(
     expect(port.gather).toHaveBeenCalledWith(true);
     expect(port.att).not.toHaveBeenCalled();
     expect(port.initialize).toHaveBeenCalledWith(true, true);
-    expect(adRequestConfiguration(true, true)).toMatchObject({
+    expect(adRequestConfiguration(true, true, adsSdk)).toMatchObject({
       ageRestrictedTreatment: 'teen',
       tagForUnderAgeOfConsent: true,
       publisherPrivacyPersonalizationState: 'disabled',

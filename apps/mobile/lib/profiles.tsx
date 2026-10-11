@@ -39,19 +39,25 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const generation = useRef(0);
+  const loadedOwner = useRef<string | null | undefined>(undefined);
   const reload = useCallback(async () => {
     const owner = currentOwner(),
       version = ++generation.current;
-    setLoading(true);
+    // DESIGN-GAP: A same-owner sync refresh keeps existing screens/sheets mounted; initial hydration, identity changes and cipher recovery still gate all private content.
+    if (loadedOwner.current !== owner) setLoading(true);
     setError(false);
     try {
       const store = await getLocalStore(owner);
       const [list, saved] = await Promise.all([store.profiles.list(500), store.settings.list(1)]);
       if (owner !== currentOwner() || version !== generation.current) return;
+      loadedOwner.current = owner;
       setProfiles(list);
       setSettings(saved[0]?.data ?? SettingsSchema.parse({}));
     } catch {
-      if (owner === currentOwner() && version === generation.current) setError(true);
+      if (owner === currentOwner() && version === generation.current) {
+        loadedOwner.current = undefined;
+        setError(true);
+      }
     } finally {
       if (owner === currentOwner() && version === generation.current) setLoading(false);
     }
@@ -60,8 +66,11 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
     void reload();
     return subscribeOwner(() => {
       // DESIGN-GAP: Bind pending work to its initial owner and clear projections before an account-switch reload.
-      setProfiles([]);
-      setSettings(SettingsSchema.parse({}));
+      if (loadedOwner.current !== currentOwner()) {
+        loadedOwner.current = undefined;
+        setProfiles([]);
+        setSettings(SettingsSchema.parse({}));
+      }
       void reload();
     });
   }, [reload]);

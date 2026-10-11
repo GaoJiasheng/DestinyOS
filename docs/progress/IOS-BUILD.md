@@ -1,0 +1,38 @@
+# IOS-BUILD — iOS 正式构建与真实后端联调
+
+- 环境：Xcode 26.4.1 (17E202)、iPhone 17 Pro / iOS 26.4 独立模拟器；未安装 Java、未做 Android 原生构建。
+- 完成：production/development 配置、锁定生产 API、1.0.0 (1)、Apple 登录/推送/关联域名/App Group，沿用 Widget ID `pub.gavin.tianji.widget`，两 target 自动签名 Team `D33974QQTD`。
+- 完成：Release 缺 AdMob App ID 时排除原生 SDK，缺真实广告单元隐藏广告；缺 RevenueCat 公钥用 zh/en 共享「即将开放」，购买禁用；生产拒绝测试 ID/诊断开关。
+- 完成：所有 JSON、流式、下载、知识库请求统一 origin；本地联调仍为原生 Release/Hermes，不开放 `/dev/*`。
+- 完成：本地 archive/export 脚本与 ExportOptions（app-store-connect / automatic / teamID / uploadSymbols / destination=export），不含上传。
+- 验证：`pnpm install`、`pnpm lint`、`pnpm typecheck`、`pnpm test`、`pnpm build` 全通过；Web 150 文件/3795 测试通过（既有 1 文件/2 测试 skip），App 57 suites/273 测试通过。
+- 验证：`APP_VARIANT=production npx expo prebuild --platform ios --clean`，CocoaPods 完成，Google 广告 SDK 不在未配置生产 Pods 中。
+- 验证：`APP_VARIANT=production pnpm --filter @tianji/mobile exec expo prebuild --platform android --no-install` 通过，含 Android Widget；仅静态验收。
+- 验证：`xcodebuild -workspace ios/app.xcworkspace -scheme app -configuration Release -sdk iphonesimulator -destination id=<UDID> -derivedDataPath /tmp/Tianji-IOS-BUILD -jobs 4 ONLY_ACTIVE_ARCH=YES -allowProvisioningUpdates CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=D33974QQTD CODE_SIGN_IDENTITY=- build` 通过。
+- 验证：`xcrun simctl install <UDID> .../app.app`、`xcrun simctl launch <UDID> pub.gavin.tianji`，生产匿名建档/今日/报告/塔罗实际运行。
+- 归档：`xcodebuild archive -workspace ios/app.xcworkspace -scheme app -destination generic/platform=iOS -archivePath release/Tianji.xcarchive -allowProvisioningUpdates -configuration Release CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=D33974QQTD` 失败（exit 65）。
+- 准确错误：主 App、Widget 都是 `No Accounts: Add a new account in Accounts settings.`；`Provisioning profile "iOS Team Provisioning Profile: *" doesn't include the App Groups capability.` / `doesn't support the group.pub.gavin.tianji App Group.`；主 App 还缺 Associated Domains / Push Notifications / Sign In with Apple 及对应 entitlements。
+- Owner 操作：Xcode → Settings → Accounts 登录 Apple Developer 账号/Team D33974QQTD，两个 target 保持 Automatically manage signing，允许注册 Widget App ID 并加入同一 App Group；Manage Certificates 允许生成 Apple Distribution（或导入带私钥的有效分发证书）。本机仅有 Apple Development，无 Apple Distribution。
+- 未完成：因上述账号/签名阻断，没有可导出的 `.xcarchive` / `.ipa`；按任务停在归档，未执行无效 export。修复后 `bash apps/mobile/scripts/ios-release.sh archive` 会执行 `xcodebuild -exportArchive -archivePath release/Tianji.xcarchive -exportPath release -exportOptionsPlist release/ExportOptions.plist -allowProvisioningUpdates`，只导出磁盘。
+- Worker 验证：`pnpm cf:multi:smoke` 26 项真实多 Worker 断言通过（魔法链接消费/重放拒绝/退出），冷入口 87.5ms，最慢公开 RSC P75 23.4ms。
+- 联调命令：`pnpm cf:smoke` → `bash apps/mobile/scripts/ios-release.sh integration <UDID>` → `bash apps/mobile/scripts/ios-build-maestro.sh <UDID> <phase>`。
+- 联调结果：生产匿名建档/今日通过；停机后七体系 + 灵数/塔罗/六爻/梅花/奇门通过，云追问禁用；真实魔法链接/导入同意/同步/内购禁用态通过；分享链接、原生卡片、真实 PDF 与 A4 图导出通过。删除与原生确认通过；8 个 Maestro phase 全通过，43 张截图。
+- D1 验证：停机后 `python3 apps/mobile/scripts/ios-build-backend-proof.py before apps/mobile/test-results/ios-build /tmp/tianji-ios-proof-owner` 通过；1 档案、26 报告、八体系，私有字段全部 v1 加密，1 会话、3 分享链接；删除后相同 actor 的 `after` 通过：0 会话、0 有效分享、softDeleted=true，保留七天加密记录。
+- 性能命令：`python3 apps/mobile/scripts/m14-cold-start.py <UDID> apps/mobile/test-results/ios-build`；`python3 apps/mobile/scripts/ios-build-performance.py <UDID> apps/mobile/test-results/ios-build`（Maestro 退出后）。
+- 性能结果：首次冷启动最慢 2608.2ms 超标；优化首帧后的规划与拒绝通知后的无效特殊日期计算后通过；最终修复同账号刷新后，五次独立冷启动最慢 1553.5ms 通过；三次首屏均约 60fps、P95 16.67ms、>25ms 间隔 0，通过 ≥55fps；这是 UI display-link cadence，非真机 GPU。
+- 包体：生产 arm64 模拟器 `.app` 未压缩 122,234,701 bytes；这是本地代理指标，不能替代 IPA 体积；IPA 体积待签名恢复后测量并检查 ≤150MB。
+- 证据：`apps/mobile/test-results/ios-build/` 的 PNG、配置/包体/性能 JSON 与 Maestro 成功收据；原始日志留本地且忽略，避免提交一次性链接。
+- DESIGN-GAP：文档未给环境选择器，采用 APP_VARIANT/EAS profile，生产固定 HTTPS origin；HTTP 仅允许 loopback。
+- DESIGN-GAP：广告 SDK 在 JS 之前校验 App ID，未配置 Release 必须移除平台自动链接；真实 App ID 与单元 ID 双门禁，SDK/creative 延迟加载。
+- DESIGN-GAP：可选公钥缺失安全降级、已提供但非法/测试值阻断生产；复用现有双语 billing.soon，不增造业务文案。
+- DESIGN-GAP：同账号同步保留既有页面/弹层，初始加载、换账号和存储失败仍清空并门禁；回归覆盖同账号延迟刷新及 cipher 失败。
+- DESIGN-GAP：OS 联网不代表 API 可用，前台第一方匿名 health 探测（5s 超时/15s 重试），后台暂停，无出生/设备标识。
+- DESIGN-GAP：Jest 的 CommonJS VM 单独转换 dynamic import，Metro 保留按需加载；新增 Babel 插件为 MIT，无 GPL/AGPL 新依赖。
+- DESIGN-GAP：独立 Wrangler test entry 只替代邮件投递，真实 verify/令牌/同意/同步/删除不替代；端口隔离防并发配置互相覆盖。
+- DESIGN-GAP：SDK57 clean 默认与 Widget 插件重复更新不兼容，脚本统一 clean prebuild + Pods；模拟器用本地 ad-hoc 签名，设备归档使用自动 Apple 签名。
+- DESIGN-GAP：性能聚合仅联调 Release 写文件，生产拒绝开关；首屏沿用星空 ≥55fps，UI cadence 不宣称真机 GPU；冷启动包含 simctl 开销。
+- DESIGN-GAP：将未来日期规划移出首帧、取消陈旧帧任务；通知拒绝时只规划 Widget，保留用户设置，不计算无法投递的特殊提醒。
+- DESIGN-GAP：只读临时快照验证本地 D1 加密与七天软删除，不打印令牌/出生信息。
+- DESIGN-GAP：Maestro 复用已有 JVM，不安装 Android Java；版本来源 local/不自增以保证 1.0.0 (1)。
+- 遗留：Owner 部署后按 RELEASE.md 重新构建 production，验真实 OAuth/HTTPS 魔法链接/AASA、商店沙盒/跨端权益、实体机推送/Widget/性能；Android Java/原生构建/模拟器验收仍待 Owner 开启。
+- 安全：未提交证书/私钥/.env，未动 `.codex-runs/`；不 push、不上传、不部署。

@@ -11,6 +11,7 @@ interface SmokeEnvironment {
   CACHE: KVNamespace;
   EXPORT_BUCKET: R2Bucket;
   CRON_SECRET?: string;
+  AUTH_SECRET?: string;
   NEXT_PUBLIC_SITE_URL?: string;
 }
 // DESIGN-GAP: Count successful daily KV writes only in this local entry, proving a reload reads cache without rewriting it.
@@ -62,6 +63,29 @@ export default {
         ),
       ]);
       return Response.json({ userId: id, token });
+    }
+    // DESIGN-GAP: Only the local Wrangler test entry substitutes email delivery; verification, token consumption, sessions and synchronization use production routes.
+    if (path === '/_smoke/mobile-magic' && request.method === 'POST') {
+      if (!env.AUTH_SECRET) return new Response(null, { status: 503 });
+      const email = `ios-build-${crypto.randomUUID()}@example.test`;
+      const token = crypto.randomUUID() + crypto.randomUUID();
+      const hash = Array.from(
+        new Uint8Array(
+          await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token + env.AUTH_SECRET)),
+        ),
+        (byte) => byte.toString(16).padStart(2, '0'),
+      ).join('');
+      await env.DB.prepare(
+        'INSERT INTO "VerificationToken" (identifier,token,expires) VALUES (?,?,?)',
+      )
+        .bind(email, hash, new Date(Date.now() + 900000).toISOString())
+        .run();
+      const url = new URL('tianji://auth/verify');
+      url.search = new URLSearchParams({ email, token, locale: 'zh' }).toString();
+      return Response.json(
+        { url: url.toString() },
+        { headers: { 'Cache-Control': 'private, no-store' } },
+      );
     }
     // DESIGN-GAP: Local integration fixtures issue hashed native credentials directly in compute D1; no mock OAuth provider or production bypass is needed.
     if (path === '/_smoke/mobile-session' && request.method === 'POST') {

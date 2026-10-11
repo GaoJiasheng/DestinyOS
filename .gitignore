@@ -117,3 +117,17 @@ apps/mobile/test-results/M15/*
 apps/web/resources/learn.zh-TW.json
 
 .media/
+
+# Local signing/build artifacts; never upload or commit these.
+apps/mobile/release/*.xcarchive/
+apps/mobile/release/*.ipa
+apps/mobile/release/*.dSYM/
+apps/mobile/release/*.zip
+apps/mobile/release/*.log
+apps/mobile/release/*.xcresult/
+apps/mobile/release/DistributionSummary.plist
+apps/mobile/release/Packaging.log
+!apps/mobile/test-results/ios-build/
+apps/mobile/test-results/ios-build/*
+!apps/mobile/test-results/ios-build/*.png
+!apps/mobile/test-results/ios-build/*.json

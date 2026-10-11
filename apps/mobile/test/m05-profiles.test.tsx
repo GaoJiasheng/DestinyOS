@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { Text, Pressable } from 'react-native';
+import { useEffect } from 'react';
 import { ProfilesProvider, useProfiles } from '../lib/profiles';
 import { createLocalStore } from '../lib/data/store';
 import { testDatabase } from './sqlite';
@@ -161,4 +162,59 @@ it('account switches discard a delayed prior-owner projection and reject a stale
     await expect(oldState.setDefault(a.id)).rejects.toThrow('E_FORBIDDEN');
   });
   expect((await bob.profiles.list())[0]?.data?.isDefault).toBe(true);
+});
+
+let mockPanelUnmounts = 0;
+function StatefulPanel() {
+  useEffect(
+    () => () => {
+      mockPanelUnmounts++;
+    },
+    [],
+  );
+  return <Text testID="preserved-panel">Share result</Text>;
+}
+function GatedPanel() {
+  const state = useProfiles();
+  return state.loading || state.error ? (
+    <Text testID="gated-panel">Blocked</Text>
+  ) : (
+    <StatefulPanel />
+  );
+}
+it('preserves same-owner panels through real repository refresh while gating cipher failures', async () => {
+  await mockStore.profiles.save(profile);
+  mockPanelUnmounts = 0;
+  const view = render(
+    <ProfilesProvider>
+      <Probe />
+      <GatedPanel />
+    </ProfilesProvider>,
+  );
+  await waitFor(() => expect(screen.getByTestId('active')).toHaveTextContent('Alice'));
+  expect(screen.getByTestId('preserved-panel')).toBeVisible();
+  const records = await mockStore.profiles.list();
+  let finish: (value: typeof records) => void = () => {};
+  const query = jest.spyOn(mockStore.profiles, 'list').mockImplementationOnce(
+    () =>
+      new Promise((resolve) => {
+        finish = resolve;
+      }),
+  );
+  await act(async () => setCurrentOwner(null));
+  expect(mockState.loading).toBe(false);
+  expect(screen.getByTestId('preserved-panel')).toBeVisible();
+  expect(mockPanelUnmounts).toBe(0);
+  await act(async () =>
+    finish(records.map((record) => ({ ...record, data: { ...profile, name: 'Synced Alice' } }))),
+  );
+  await waitFor(() => expect(screen.getByTestId('active')).toHaveTextContent('Synced Alice'));
+  expect(mockPanelUnmounts).toBe(0);
+  query.mockRejectedValueOnce(new Error('cipher unavailable'));
+  await act(async () => setCurrentOwner(null));
+  await waitFor(() => expect(screen.getByTestId('gated-panel')).toBeVisible());
+  expect(screen.queryByTestId('preserved-panel')).toBeNull();
+  expect(mockPanelUnmounts).toBe(1);
+  query.mockRestore();
+  view.unmount();
 });

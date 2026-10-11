@@ -64,6 +64,11 @@ it('permission denial still publishes widgets, but never schedules or asks again
     .mockResolvedValue({ granted: false } as Notifications.NotificationPermissionsStatus);
   await refreshEngagement(context);
   expect(writeWidgetSnapshot).toHaveBeenCalled();
+  expect(planEngagement).toHaveBeenCalledWith(
+    context.profile,
+    expect.objectContaining({ dailyPushEnabled: false, specialDayReminders: false }),
+  );
+  expect(context.settings.dailyPushEnabled).toBe(true);
   expect(Notifications.scheduleNotificationAsync).not.toHaveBeenCalled();
 });
 it('gates minors and incomplete onboarding and clears prior snapshots', async () => {

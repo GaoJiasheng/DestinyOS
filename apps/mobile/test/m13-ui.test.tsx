@@ -106,9 +106,12 @@ it('lifetime members can still cancel an existing monthly renewal in system mana
 it('test native creative loads without personal targeting; upgrading destroys and hides it immediately', async () => {
   render(<NativeAdCard slot={0} />);
   await waitFor(() => expect(screen.getByTestId('native-ad-0')).toBeTruthy());
-  expect(NativeAd.createForAdRequest).toHaveBeenLastCalledWith('test-native', {
-    requestNonPersonalizedAdsOnly: true,
-  });
+  expect(NativeAd.createForAdRequest).toHaveBeenLastCalledWith(
+    'ca-app-pub-3940256099942544/3986624511',
+    {
+      requestNonPersonalizedAdsOnly: true,
+    },
+  );
   const value = (await jest.mocked(NativeAd.createForAdRequest).mock.results[0]?.value) as NativeAd;
   act(() =>
     useBilling.setState({ access: { pro: true, lifetime: true, until: null, renews: false } }),
@@ -147,9 +150,12 @@ it('13–17 requests are non-personalized and replacing consent destroys the loa
   useConsent.setState({ age: 'teen', nonPersonalized: false });
   render(<NativeAdCard slot={1} />);
   await waitFor(() => expect(screen.getByTestId('native-ad-1')).toBeTruthy());
-  expect(NativeAd.createForAdRequest).toHaveBeenLastCalledWith('test-native', {
-    requestNonPersonalizedAdsOnly: true,
-  });
+  expect(NativeAd.createForAdRequest).toHaveBeenLastCalledWith(
+    'ca-app-pub-3940256099942544/3986624511',
+    {
+      requestNonPersonalizedAdsOnly: true,
+    },
+  );
   const value = (await jest.mocked(NativeAd.createForAdRequest).mock.results[0]?.value) as NativeAd;
   act(() => useConsent.setState({ status: 'loading' }));
   expect(screen.queryByTestId('native-ad-1')).toBeNull();
@@ -173,4 +179,33 @@ it('late ad loads destroy themselves after paywall entitlement removes the conta
   });
   expect(destroy).toHaveBeenCalledTimes(1);
   expect(screen.queryByTestId('native-ad-0')).toBeNull();
+});
+
+it.each(['zh', 'en'] as const)(
+  'unconfigured purchases show coming soon and stay disabled in %s',
+  (locale) => {
+    usePreferences.setState({ locale });
+    useAccount.setState({
+      session: { userId: 'alice' } as NonNullable<
+        ReturnType<typeof useAccount.getState>['session']
+      >,
+    });
+    render(<BillingScreen />);
+    expect(screen.getByTestId('billing-unconfigured')).toHaveTextContent(
+      locale === 'zh' ? /即将开放/ : /soon/,
+    );
+    expect(screen.getByTestId('buy-tianji_pro_monthly')).toBeDisabled();
+    expect(screen.getByTestId('buy-tianji_pro_lifetime')).toBeDisabled();
+  },
+);
+it('an unconfigured release hides ads even when stale consent says ready', () => {
+  const originalDev = __DEV__;
+  Object.defineProperty(globalThis, '__DEV__', { value: false, configurable: true });
+  try {
+    render(<NativeAdCard slot={0} />);
+    expect(screen.queryByTestId('native-ad-0')).toBeNull();
+    expect(NativeAd.createForAdRequest).not.toHaveBeenCalled();
+  } finally {
+    Object.defineProperty(globalThis, '__DEV__', { value: originalDev, configurable: true });
+  }
 });

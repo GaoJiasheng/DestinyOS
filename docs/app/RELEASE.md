@@ -29,7 +29,7 @@ Fixture A 是公开算法测试档案，截图只显示产品体验；`/dev/stor
 ## 2. EAS 与生产环境（从 apps/mobile 执行）
 
 1. Owner 用自己的 Expo 账号创建/关联项目，`eas init`，把项目 UUID 放到 EAS **production** 环境的 `EAS_PROJECT_ID`；不要提交凭据或 `.env`。当前仓库不虚构项目 UUID。
-2. EAS `production` profile 为 store 分发、Release、AAB、远程版本号自动递增、production channel；运行时采用 native fingerprint；Node 22.20.0 支持配置模块的原生 TypeScript 加载。Preview 留在 preview channel。首版版本 1.0.0。
+2. EAS `production` profile 为 store 分发、Release、AAB、本地固定版本号（首版 build 1，后续版本由 Owner 显式递增）、production channel；运行时采用 native fingerprint；Node 22.20.0 支持配置模块的原生 TypeScript 加载。Preview 留在 preview channel。首版版本 1.0.0。
 3. 设置下表公开客户端配置。`EXPO_PUBLIC_*` 会进包，不能放服务端 secret；RevenueCat 仅公开 `appl_`/`goog_` SDK key，绝不能放 `sk_` server key。Sentry 上传 token、ASC API key、Play service account、签名资料使用 EAS 安全凭据存储。
 
 | EAS production 变量 | Owner 获取位置 |
@@ -43,7 +43,7 @@ Fixture A 是公开算法测试档案，截图只显示产品体验；`/dev/stor
 | `EXPO_PUBLIC_APPLE_SERVICE_ID` | Apple 的 Android/Web OAuth Service ID（Owner 新建/核对，§12 未给出） |
 | `EXPO_PUBLIC_SENTRY_DSN`、`SENTRY_ORG`、`SENTRY_PROJECT` | Sentry 移动项目；DSN 是公开上报地址 |
 
-4. profile 已设置 `APP_VARIANT=production`、`EXPO_PUBLIC_M14_AUDIT=false`。删除 UMP debug geography 和 RevenueCat Test Store key。生产校验会拒绝缺配置、Google 示例 ID、审计开关、测试 key；本地预览可以用测试 ID。
+4. profile 已设置 `APP_VARIANT=production`、`EXPO_PUBLIC_M14_AUDIT=false`。删除 UMP debug geography 和 RevenueCat Test Store key。生产校验允许公开服务配置缺失：缺 AdMob App/单元 ID 不初始化 UMP/ATT/广告；缺 App ID 的 Release 不链接该平台的原生 SDK，避免 GMA 的启动期校验崩溃，缺 RevenueCat key 显示「即将开放」并禁用购买/恢复。已提供但格式错误的配置、Google 示例 ID、审计/性能开关与测试 key 仍拒绝；本地预览可以用测试 ID。
 5. OAuth：Apple Services ID 回调与 Worker `auth/apple` 配套；Google iOS URL Scheme 自动从 client ID 派生。验证域名 AASA（主 App 与 widget ID/Team）及 Android assetlinks（Play App Signing SHA-256），`https://tianji.gavin.pub/auth/verify` 真实邮件可唤起 App。
 6. Worker 的 RevenueCat webhook/server key、Apple/Google OAuth、Cloudflare `EMAIL` binding、字段加密、AI/导出等依赖在 Owner 生产环境配置；Web 保持 `FEATURE_WEB_PAYMENTS=false`。验证 `/api/v1/health`、移动登录/刷新/同步、知识库签名。
 7. `eas build --profile production --platform ios`；Android 必须等 Owner 完成 Java 与原生验收后再 `--platform android`。首次构建检查 widget Bundle ID `pub.gavin.tianji.widget` 被创建、加入同 App Group，主 App 与扩展 provisioning profile 都包含 group。
@@ -86,7 +86,7 @@ Fixture A 是公开算法测试档案，截图只显示产品体验；`/dev/stor
 ## 6. AdMob
 
 1. 新建 iOS/Android App，绑定包名，上架后关联对应商店 URL；核对付款、政策中心、App readiness 与 app-ads.txt 验证。Owner 将 AdMob 提供的准确 publisher 记录发布到主域 `/app-ads.txt`，不把示例 ID 发布。
-2. 每个平台创建 Native Advanced 原生单元，分别填 EAS App ID（`~`）和 native unit（`/`）。生产不使用 Google 示例库存；调试包始终测试广告，内部测试设备登记为 test device，避免真实自点。
+2. 每个平台创建 Native Advanced 原生单元，分别填 EAS App ID（`~`）和 native unit（`/`）。生产不使用 Google 示例库存；缺真实配置隐藏广告，Debug 包始终测试广告，内部测试设备登记为 test device，避免真实自点。
 3. Privacy & messaging：配置 UK/CH 等适用地区的 UMP 欧洲法规消息及美国州法消息/RDP；EU27 禁售不等于 UK/CH 不需同意。先 UMP、再 iOS ATT；撤回入口在我 → 设置/会员隐私选项。
 4. 真机验证拒绝、允许、撤回、ATT deny、未知年龄/13–17 非个性化、13 以下阻断、会员无广告、最多两个报告广告/一个今日广告。出生信息、提问、邮箱不得进入任何广告 targeting/identifier payload。
 5. 无开屏/插屏。No-fill 静默收起，不伪造内容卡。上线前核对 SDK privacy report、AdChoices、布局及广告点击区域。
@@ -140,3 +140,49 @@ EXPO_PUBLIC_M14_AUDIT=true SENTRY_DISABLE_AUTO_UPLOAD=true xcodebuild \
   CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- build
 # xcrun simctl install <AUDIT_UDID> /tmp/DestinyOS-Release/Build/Products/Release-iphonesimulator/app.app
 ```
+
+## IOS-BUILD · 本机正式构建与切换后端（2026-10-12）
+
+本机 Xcode 26.4.1；主 App `pub.gavin.tianji`、扩展沿用 `pub.gavin.tianji.widget`、Team `D33974QQTD`、App Group `group.pub.gavin.tianji`。版本 **1.0.0 (1)**，EAS 使用 local 版本来源且不自动递增。
+
+`APP_VARIANT=production`（或 EAS production profile）锁定 `extra.API_BASE_URL=https://tianji.gavin.pub`，忽略本地 `API_BASE_URL`。关联域名固定 `applinks:tianji.gavin.pub`；Apple 登录、App Group 和 production 推送 entitlement 由 prebuild 生成。所有 JSON、流式、下载和知识库请求复用同一 origin；缺公钥降级不创建虚假会员。
+
+```bash
+# repository root: validate first; no deployment/upload
+pnpm install
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+# production simulator (boot dedicated UDID first)
+bash apps/mobile/scripts/ios-release.sh simulator <UDID>
+# archive + export to apps/mobile/release/, never upload
+bash apps/mobile/scripts/ios-release.sh archive
+```
+
+脚本实际执行 `npx expo prebuild --platform ios --clean`、`xcodebuild archive -allowProvisioningUpdates -configuration Release CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=D33974QQTD`，再 `xcodebuild -exportArchive`。`release/ExportOptions.plist`：`method=app-store-connect`、`signingStyle=automatic`、`teamID=D33974QQTD`、`uploadSymbols=true`、**destination=export**；无上传命令。默认关闭 Sentry 自动上传；配置正式符号上传时由 Owner 安全注入 token 并将 `SENTRY_DISABLE_AUTO_UPLOAD=false`。
+
+本轮归档被本机签名状态阻塞：主 App 和 Widget 均报 **`No Accounts: Add a new account in Accounts settings.`**；通配 `iOS Team Provisioning Profile: *` 缺 App Group，主 App 还缺 Associated Domains、Push Notifications、Sign In with Apple。未生成可导出的 Archive/IPA，未执行无效 export。钥匙串有 Apple Development，无 Apple Distribution。
+
+Owner：Xcode → Settings → Accounts 登录所属 Apple Developer 账号，选择 Team D33974QQTD；两个 target 保持 Automatically manage signing。允许 Xcode 注册 `pub.gavin.tianji.widget` 并关联 `group.pub.gavin.tianji`，主 App 的 capabilities 保持 §12。Accounts → Manage Certificates 允许创建 Apple Distribution（或使用有私钥的有效分发证书），然后重跑 archive 脚本。参见 [Apple 签名流程](https://help.apple.com/xcode/mac/current/en.lproj/dev60b6fbbc7.html)、[自动分发签名](https://help.apple.com/xcode/mac/current/en.lproj/devff5ececf8.html)。
+
+```bash
+# local real multi-Worker integration; production deployment remains Owner-owned
+pnpm cf:smoke
+# separate terminal; Release Hermes bundle, no /dev routes or mocked App transport
+bash apps/mobile/scripts/ios-release.sh integration <UDID>
+bash apps/mobile/scripts/ios-build-maestro.sh <UDID> onboarding
+# repeat reports / tarot / casting / account / sharing / delete
+python3 apps/mobile/scripts/m14-cold-start.py <UDID> apps/mobile/test-results/ios-build
+python3 apps/mobile/scripts/ios-build-performance.py <UDID> apps/mobile/test-results/ios-build
+```
+
+联调包使用 development 配置和 CONFIGURATION=Release，仅将 API origin 换为 `http://localhost:8787`，开启仅含有限性能聚合的 `EXPO_PUBLIC_BUILD_METRICS=true`；原生编译仍为 Release、内嵌 Hermes、不依赖 Metro，不开放诊断路由。第一方 health 探测失败会禁用云操作，本地计算继续可用；后台暂停探测，回到前台和联网恢复后自动重试。`account` 流程从独立 Wrangler test entry 取得一次性邮件替身链接，App 使用真实 magic verify、SecureStore、导入确认与 D1 同步；该 test entry 不被生产 Worker 引入。Maestro 使用既有 JVM，不安装 Android Java。
+
+Owner 部署合并后的后端后，**重新用 simulator/archive 模式构建 production 包**；不要把联调包改名发布。生产无需设置 API_BASE_URL；移除 BUILD_METRICS、M14_AUDIT、UMP debug、RC Test Store 配置。实测线上 health、HTTPS 魔法链接/AASA、Apple/Google OAuth、RevenueCat 沙盒与跨端权益、真机通知/Widget、导出与删除后再提审。Android 保留 prebuild/类型/单测静态验收，Java、原生构建及模拟器验收继续由 Owner 后续开启。
+
+性能验收使用真实 Today 首屏、独立进程启动，先退出 Maestro。未来日期提醒规划在首帧之后执行；OS 拒绝通知时仍更新 Widget，但不计算无法投递的特殊日期提醒，也不改用户设置。同账号同步以后台方式刷新档案，保留分享/导出弹层；首次加载、身份切换与 SQLCipher 失败仍执行门禁。
+
+额外后端证据：在 `pnpm cf:smoke` **优雅停止后**运行 `python3 apps/mobile/scripts/ios-build-backend-proof.py before apps/mobile/test-results/ios-build /tmp/tianji-ios-proof-owner`；重新启动 Worker 完成删除，再停机运行相同命令的 `after` 模式。只读临时 D1 快照验证加密字段、会话撤销与分享撤销，不打印 token 或出生字段。删除是 docs/06 规定的七天软删除，不能把立即撤销账号/设备访问写成数据库已物理清空。
+
+本轮实测：生产/联调原生 Release（含 Widget）构建与安装运行通过；8 个 Maestro phase、43 张截图，真实邮件替身后的验证/导入/同步、离线七体系 + 灵数、分享、PDF/A4 原生导出、购买禁用态、删除均通过。D1 为 1 档案/26 报告，私有字段加密；删除后会话和有效分享均为 0，七天软删除成立。最终五次冷启动最慢 1553.5ms；三次 Today 首屏约 60fps，P95 16.67ms，>25ms 计数 0（模拟器 UI cadence）。生产 arm64 模拟器 .app 未压缩 122,234,701 bytes；Archive/IPA 仍被 No Accounts 阻断，IPA 体积待实际导出测量。详见 [IOS-BUILD](../progress/IOS-BUILD.md)。

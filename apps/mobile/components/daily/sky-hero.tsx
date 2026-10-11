@@ -1,3 +1,4 @@
+import { File, Paths } from 'expo-file-system';
 import { useMemo, useEffect, useCallback, useState } from 'react';
 import { useFrameProbe } from '../../lib/diagnostics/frames';
 import { captureMetric } from '../../lib/monitoring';
@@ -30,6 +31,9 @@ export function SkyHero({ visible = true }: { visible?: boolean }) {
   }, [animate, probeEnabled]);
   const measured = useCallback((value: import('../../lib/diagnostics/frames').FrameMeasurement) => {
     captureMetric('starfield.fps', value.fps);
+    // DESIGN-GAP: Local Release acceptance records finite frame aggregates without enabling any diagnostic route.
+    if (process.env.EXPO_PUBLIC_BUILD_METRICS === 'true')
+      new File(Paths.document, 'IOS-first-screen.json').write(JSON.stringify(value));
     // DESIGN-GAP: A sustained below-budget scene becomes static for this screen visit; do not oscillate quality or send device/profile details.
     if (value.fps < 55) setDegraded(true);
   }, []);

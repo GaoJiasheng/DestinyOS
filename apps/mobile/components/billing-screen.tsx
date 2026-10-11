@@ -19,7 +19,7 @@ export function BillingScreen() {
     consent = useConsent(),
     locale = usePreferences((s) => s.locale);
   const disabled = !online || state.busy || state.status === 'loading';
-  // DESIGN-GAP: Store unavailability uses a neutral retry notice; SDK setup instructions stay in the developer README.
+  // DESIGN-GAP: Missing public purchase configuration uses shared coming-soon copy for guests and accounts.
   return (
     <Page title="billing.title">
       <CopyText title>
@@ -48,6 +48,7 @@ export function BillingScreen() {
         <CopyText testID="billing-diagnostic">{t('mobile.billing.diagnostic')}</CopyText>
       )}
       {!online && <CopyText testID="billing-offline">{t('mobile.billing.network')}</CopyText>}
+      {!state.configured && <CopyText testID="billing-unconfigured">{t('billing.soon')}</CopyText>}
       {!signedIn ? (
         <Action
           id="billing-login"
@@ -56,9 +57,6 @@ export function BillingScreen() {
         />
       ) : (
         <>
-          {!state.configured && (
-            <CopyText testID="billing-unconfigured">{t('mobile.billing.unconfigured')}</CopyText>
-          )}
           {state.status === 'loading' && <CopyText>{t('mobile.billing.loading')}</CopyText>}
           {products.map((id, index) => {
             const product = state.products.find((item) => item.id === id);
@@ -66,7 +64,7 @@ export function BillingScreen() {
               <Action
                 key={id}
                 id={`buy-${id}`}
-                disabled={disabled || !product || state.access.lifetime}
+                disabled={disabled || !state.configured || !product || state.access.lifetime}
                 label={t(index === 0 ? 'mobile.billing.monthly' : 'mobile.billing.buyLifetime', {
                   price: product?.price ?? (index === 0 ? 'US$2.99' : 'US$6.99'),
                 })}
@@ -104,7 +102,7 @@ export function BillingScreen() {
       {state.message && <CopyText testID="billing-message">{t(state.message)}</CopyText>}
       <Action
         id="billing-privacy"
-        disabled={!online}
+        disabled={!online || consent.status === 'idle'}
         label={t('mobile.billing.privacy')}
         onPress={() => void gatherAdConsent(consent.age, consent.privacyRequired)}
       />

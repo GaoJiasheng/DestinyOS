@@ -1,3 +1,4 @@
+import { apiBaseUrl } from '../api-base';
 import { fetch as expoFetch } from 'expo/fetch';
 import { z } from 'zod';
 import * as SecureStore from 'expo-secure-store';
@@ -9,7 +10,6 @@ import {
   type ApiEndpoint,
   type MobileTokens,
 } from '@tianji/api-client';
-import { brand } from '@tianji/shared/brand';
 const storedSchema = MobileTokensSchema.extend({
   expiresAt: z.number(),
   refreshExpiresAt: z.number(),
@@ -43,7 +43,7 @@ export class SessionManager {
     private readonly changed = () => {},
   ) {
     this.api = createApiClient({
-      baseUrl: `https://${brand.domain}`,
+      baseUrl: apiBaseUrl,
       fetch: transport,
       accessToken: () => this.session?.accessToken,
     });
@@ -126,17 +126,14 @@ export class SessionManager {
     const attemptedToken = this.session?.accessToken;
     // DESIGN-GAP: Expo's native fetch supports ReadableStream; RN's default fetch buffers the full answer.
     const send = () =>
-      (this.transport === globalThis.fetch ? expoFetch : this.transport)(
-        `https://${brand.domain}${path}`,
-        {
-          ...init,
-          credentials: 'omit',
-          headers: {
-            ...Object.fromEntries(new Headers(init.headers)),
-            Authorization: `Bearer ${this.session?.accessToken}`,
-          },
+      (this.transport === globalThis.fetch ? expoFetch : this.transport)(`${apiBaseUrl}${path}`, {
+        ...init,
+        credentials: 'omit',
+        headers: {
+          ...Object.fromEntries(new Headers(init.headers)),
+          Authorization: `Bearer ${this.session?.accessToken}`,
         },
-      );
+      });
     let response = await send();
     if (response.status === 401) {
       if (this.session?.accessToken === attemptedToken) await this.refresh();

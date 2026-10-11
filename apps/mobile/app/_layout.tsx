@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { I18nextProvider } from 'react-i18next';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ConnectivityBootstrap } from '../components/connectivity-bootstrap';
 import { AccountBootstrap } from '../components/account-bootstrap';
 import { MonetizationBootstrap } from '../components/monetization-bootstrap';
 import { EngagementBootstrap } from '../components/engagement-bootstrap';
@@ -30,6 +31,7 @@ function RootLayout() {
       <I18nextProvider i18n={i18n}>
         <SafeAreaProvider>
           <StatusBar style="light" />
+          <ConnectivityBootstrap />
           <AccountBootstrap>
             <ProfilesProvider>
               <EngagementBootstrap />

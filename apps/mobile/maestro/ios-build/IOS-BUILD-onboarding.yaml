@@ -1,0 +1,90 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    clearState: true
+    clearKeychain: true
+    permissions:
+      notifications: unset
+- tapOn:
+    text: '^(取消|Cancel)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: onboarding-0
+    timeout: 90000
+- takeScreenshot: onboarding-release
+- scrollUntilVisible:
+    element:
+      id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    text: '^(不允许|Don.t Allow)$'
+    optional: true
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- runFlow:
+    when:
+      visible:
+        id: notifications-denied
+    commands:
+      - tapOn:
+          id: onboarding-next
+- tapOn:
+    id: onboarding-fill
+- tapOn:
+    id: birth-year
+- inputText: '1990'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- tapOn:
+    id: birth-city
+- inputText: 'Beijing'
+- hideKeyboard
+- extendedWaitUntil:
+    visible:
+      id: city-result-0
+    timeout: 30000
+- tapOn:
+    id: city-result-0
+- scrollUntilVisible:
+    element:
+      id: birth-name
+- tapOn:
+    id: birth-name
+- inputText: 'IOS Build'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: birth-submit
+- takeScreenshot: anonymous-profile
+- tapOn:
+    id: birth-submit
+- extendedWaitUntil:
+    visible:
+      id: profile-saved
+    timeout: 30000
+- openLink: 'tianji://dev/account'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- assertNotVisible:
+    id: account-fixture-prepare
+- openLink: 'tianji://today'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: daily-block-2
+- takeScreenshot: today-release

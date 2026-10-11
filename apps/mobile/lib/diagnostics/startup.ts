@@ -9,7 +9,10 @@ export function markStartupReady() {
   const elapsedMs = performance.now() - enteredAt;
   captureMetric('startup.js_ready_ms', elapsedMs);
   // DESIGN-GAP: Cold start is measured externally from simctl launch to this ready frame; JS evaluation time alone is not native cold-start latency.
-  if (process.env.EXPO_PUBLIC_M14_AUDIT === 'true')
+  if (
+    process.env.EXPO_PUBLIC_M14_AUDIT === 'true' ||
+    process.env.EXPO_PUBLIC_BUILD_METRICS === 'true'
+  )
     new File(Paths.document, 'M14-startup.json').write(
       JSON.stringify({
         readyAtUnixMs: Date.now(),

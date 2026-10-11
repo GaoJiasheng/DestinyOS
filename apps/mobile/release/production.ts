@@ -1,4 +1,4 @@
-// DESIGN-GAP: Owner-provisioned public service IDs are required only for a production build; no backend credentials belong in app config.
+// DESIGN-GAP: Optional provider configuration fails closed; missing public keys hide ads and disable purchases, while malformed/test values fail production builds.
 type Environment = Readonly<Record<string, string | undefined>>;
 const samplePublisher = 'ca-app-pub-3940256099942544';
 const publicFields = {
@@ -16,19 +16,41 @@ const publicFields = {
   SENTRY_ORG: /^[\w-]+$/,
   SENTRY_PROJECT: /^[\w-]+$/,
 } as const;
-/** Fail before producing a store binary with absent service configuration, test inventory or audit gates. */
+/** Reject malformed supplied public configuration and every production diagnostic gate. */
 export function validateProduction(env: Environment): void {
   if (env.APP_VARIANT !== 'production' && env.EAS_BUILD_PROFILE !== 'production') return;
   for (const [name, pattern] of Object.entries(publicFields)) {
     const value = env[name];
-    if (!value || !pattern.test(value) || value.startsWith(samplePublisher))
-      throw new Error(`Production configuration requires a valid ${name}`);
+    if (value && (!pattern.test(value) || value.startsWith(samplePublisher)))
+      throw new Error(`Production configuration has an invalid ${name}`);
   }
   for (const name of [
     'EXPO_PUBLIC_M14_AUDIT',
+    'EXPO_PUBLIC_BUILD_METRICS',
     'EXPO_PUBLIC_UMP_DEBUG_GEOGRAPHY',
     'EXPO_PUBLIC_REVENUECAT_TEST_API_KEY',
   ]) {
     if (env[name] && env[name] !== 'false') throw new Error(`Remove ${name} from production`);
   }
+}
+
+/** Resolve native environment; production never accepts an alternate backend. */
+export function releaseEnvironment(env: Environment) {
+  const production = env.APP_VARIANT === 'production' || env.EAS_BUILD_PROFILE === 'production';
+  const apiBaseUrl = production
+    ? 'https://tianji.gavin.pub'
+    : env.API_BASE_URL || 'https://tianji.gavin.pub';
+  const url = new URL(apiBaseUrl);
+  // DESIGN-GAP: HTTP is limited to loopback for simulator integration; all other API origins require HTTPS.
+  if (
+    (url.protocol !== 'https:' &&
+      !(url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))) ||
+    url.username ||
+    url.password ||
+    url.pathname !== '/' ||
+    url.search ||
+    url.hash
+  )
+    throw new Error('Invalid API_BASE_URL origin');
+  return { production, apiBaseUrl: url.origin };
 }

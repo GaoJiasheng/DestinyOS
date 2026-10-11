@@ -1,0 +1,52 @@
+{
+  "configuration": "Release",
+  "source": "production-app/EXConstants.bundle/app.config",
+  "version": "1.0.0",
+  "extra": {
+    "APP_VARIANT": "production",
+    "API_BASE_URL": "https://tianji.gavin.pub",
+    "router": {},
+    "eas": {
+      "build": {
+        "experimental": {
+          "ios": {
+            "appExtensions": [
+              {
+                "bundleIdentifier": "pub.gavin.tianji.widget",
+                "targetName": "TianjiWidget",
+                "entitlements": {
+                  "com.apple.security.application-groups": [
+                    "group.pub.gavin.tianji"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "ios": {
+    "bundleIdentifier": "pub.gavin.tianji",
+    "buildNumber": "1",
+    "appleTeamId": "D33974QQTD",
+    "usesAppleSignIn": true,
+    "associatedDomains": [
+      "applinks:tianji.gavin.pub"
+    ],
+    "entitlements": {
+      "com.apple.security.application-groups": [
+        "group.pub.gavin.tianji"
+      ],
+      "aps-environment": "production"
+    }
+  },
+  "android": {
+    "package": "pub.gavin.tianji",
+    "versionCode": 1
+  },
+  "hasAdMobConfigPlugin": false,
+  "GADApplicationIdentifier": null,
+  "embeddedWidget": true,
+  "bundleSha256": "1af50d97d292c3732bcb1db4e537bf6524d131a1d8903cbeaa9dd58532b3b66b"
+}

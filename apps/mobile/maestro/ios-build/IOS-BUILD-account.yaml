@@ -1,0 +1,55 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: ${MAGIC_URL}
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: account-magic-confirm
+    timeout: 30000
+- takeScreenshot: magic-link-confirm
+- tapOn:
+    id: account-magic-confirm
+- extendedWaitUntil:
+    visible:
+      id: account-import-confirm
+      enabled: true
+    timeout: 30000
+- takeScreenshot: anonymous-import-consent
+- tapOn:
+    id: account-import-confirm
+- extendedWaitUntil:
+    visible:
+      id: account-continue
+      enabled: true
+    timeout: 60000
+- tapOn:
+    id: account-continue
+- extendedWaitUntil:
+    visible:
+      id: account-sync
+    timeout: 30000
+- tapOn:
+    id: account-sync
+- extendedWaitUntil:
+    visible:
+      id: account-sync-success
+    timeout: 90000
+- assertNotVisible:
+    id: account-error
+- takeScreenshot: worker-sync-success
+- openLink: 'tianji://me/billing'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: billing-unconfigured
+    timeout: 30000
+- assertVisible: '.*即将开放.*'
+- assertVisible:
+    id: buy-tianji_pro_monthly
+    enabled: false
+- takeScreenshot: purchases-coming-soon

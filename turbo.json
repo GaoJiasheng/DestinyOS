@@ -29,7 +29,17 @@
     "@tianji/mobile#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
-      "inputs": ["$TURBO_DEFAULT$", "../web/messages/**"]
+      "inputs": ["$TURBO_DEFAULT$", "../web/messages/**"],
+      "env": [
+        "APP_VARIANT",
+        "API_BASE_URL",
+        "EAS_BUILD_PROFILE",
+        "EAS_PROJECT_ID",
+        "EXPO_PUBLIC_*",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "CONFIGURATION"
+      ]
     }
   },
   "globalPassThroughEnv": [
