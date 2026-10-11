@@ -140,6 +140,42 @@ async function reading(userId: string, locale: Locale, system: 'bazi' | 'numerol
 
 for (const locale of ['zh', 'en', 'zh-TW'] as const) {
   const t = copies[locale];
+  test(`${locale}: App legal pages`, async ({ page }, info) => {
+    for (const document of ['privacy', 'terms'] as const) {
+      const response = await page.goto(`/${locale}/${document}`);
+      expect(response?.status()).toBe(200);
+      await expect(page.locator('main h1')).toHaveText(t[`legal.${document}`]);
+      await expect(page.locator('main article > p')).toHaveText(
+        t['legal.updated'].replace('{date}', '2026-10-12'),
+      );
+      const chapter = page.getByRole('heading', { name: 'iOS / Android App', exact: true });
+      await expect(chapter).toBeVisible();
+      const content = t[`legal.${document}.markdown`].split('## iOS / Android App\n')[1];
+      if (!content) throw new Error(`Missing ${locale} ${document} App chapter`);
+      // DESIGN-GAP: Verify every App paragraph through the actual next-intl route, including content below the initial viewport.
+      for (const line of content.split('\n')) {
+        await expect(
+          page.locator('.legal-markdown').getByText(line.replace(/^- /, ''), { exact: true }),
+        ).toBeAttached();
+      }
+      await expect(page.locator('main')).not.toContainText(/\{(?:email|controller|date)\}/);
+      await expect(page.locator('main')).toContainText('privacy@gavin.pub');
+      await chapter.evaluate((element) => element.scrollIntoView({ block: 'start' }));
+      await capture(page, info, `${document}-app`, locale);
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+      await expect(page).toHaveScreenshot(`${locale}-${document}-full.png`, {
+        fullPage: true,
+        scale: 'css',
+      });
+      await page.screenshot({
+        path: info.outputPath(`${locale}-${document}-full.png`),
+        fullPage: true,
+        scale: 'css',
+        animations: 'disabled',
+      });
+    }
+  });
+
   test(`${locale}: new public pages, error states and long learning article`, async ({
     page,
   }, info) => {

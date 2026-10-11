@@ -91,14 +91,15 @@ F = App Functionality；A = Analytics；P = Product Personalization；T = Third-
 - **Sentry**：8.x 已依赖，但 `Boolean(DSN) && !__DEV__ && audit !== true` 才启用。本次无 DSN。启用后 `beforeSend` 丢弃 user/request/contexts/breadcrumbs/附件与自由文本，只留技术栈和白名单数值；replay、截图、视图树、日志、自动性能 tracing 均关闭。JS 已脱敏不等于原生崩溃完全匿名；本表保守列其他诊断关联，最终 Archive/真实事件复核。
 - **邮件**：移动端调用 Worker 的现有发信接口；`lib/auth-email.ts → platform/email.ts` 实际 production 为 Cloudflare Email binding，Node 兼容路径可用 Resend。申报邮箱用于 F；不申报读取用户邮箱内容，不发送营销邮件。
 - **Google / Apple**：Google OAuth scopes 为 openid/email/profile；iOS Apple 只请求 EMAIL scope（不请求 FULL_NAME）。Worker 保存 sub/email 与 User ID；Google 的 scope 不证明它另用于广告。Google 无 client ID 不可登录；服务启用前复核真实生产 OAuth。
-- **本地加密**：SQLCipher 整库，32 字节密钥放 SecureStore，访问/刷新令牌也在 SecureStore。匿名资料不自动上传，用户确认导入后才同步。通知在本地计算排程；小组件 App Group 只写当天展示数据，无出生信息。传感器、星表/离线城市搜索不上传。
-- **AI**：核心排盘无运行时模型；可选追问由第一方网关转交配置的 AI 服务，服务端保存对话与举报，归 Other User Content/Customer Support。不可笼统声称整个 App 不使用 AI。
+- **本地加密与会话**：SQLCipher 整库，32 字节密钥放 SecureStore，访问/刷新令牌也在 SecureStore。访问令牌 15 分钟，刷新令牌 60 天、使用时轮换并续期；设备管理可撤销，账号删除立即撤销全部会话。匿名资料不自动上传，用户确认导入后才同步；登录账号的档案、报告、日记和设置联网同步。通知在本地计算排程，不注册或上传远程推送令牌；小组件共享区域只写最多 8 天的展示快照，无出生信息（不是仅当天）。传感器、星表/离线城市搜索不上传。
+- **AI**：核心排盘无运行时模型；用户主动使用可选在线追问时，第一方网关向 **MiniMax** 发送去标识化的问题、近期对话、派生命盘要素与解读摘录。`apps/web/lib/llm/context.ts` 排除原始出生日期/时间/地点/坐标、账号 ID/令牌、邮箱与已知姓名；不应声称绝对匿名或保证自由文本无残留。第一方加密保存成功对话，用户可单独删除；删除报告/账号级联删除对话。主动举报发给第一方安全审核，归 Other User Content/Customer Support；第三方模型处理仍须披露。不可笼统声称整个 App 不使用 AI。
+- **购买与删除/导出**：Apple 处理 iOS 付款（Android 为 Google Play），App 与 RevenueCat 不接触卡号；RevenueCat 的 User ID/交易/权益处理同时用于功能与交易统计。App「我的 → 设置」可直接删账号及选择删除反馈，清除当前设备该账号缓存、提醒与小组件；服务端先软删除，满 7 天后每日清理硬删除，政策请求上限 30 天。删除或卸载 **不取消 Apple / Google 订阅**，也不自动清除未导入匿名资料及其他离线设备缓存。App 内导出的是报告文件；完整账户 JSON 通过同账号网站设置或 privacy@gavin.pub 请求，不能声称已有 App 内完整 JSON 导出按钮。依据 `account-service.ts`、`account/controller.ts`、`reports/actions.ts`。
 
 ## 5. 政策链接与发布预览
 
 Privacy Policy URL：`https://tianji.gavin.pub/en/privacy`；简中 `/zh/privacy`；繁中 `/zh-TW/privacy`。Privacy Choices URL 可用对应政策页，页内解释导出、删除与广告撤回；这是可选字段，不使用需要登录的设置页当公开说明页。
 
-本次现有政策只写 Web、浏览器存储与 30 天网站会话；移动会话为访问 15 分钟/刷新 60 天。需补充 SQLCipher/SecureStore、Apple 登录、AdMob/UMP/ATT、商店购买/续期、Sentry 开关、AI 接收方与保留、原生账户删除，以及删除账号不取消 Apple 订阅。**网页可访问不代表政策已覆盖 App**；本任务不改网页。
+本次已在政策与条款的 zh / zh-TW / en 文案中新增「iOS / Android App」章节，更新日期为 2026-10-12，覆盖 SQLCipher/SecureStore、Apple/Google/邮箱登录与会话、同步、本地通知及小组件、商店购买/续期、AdMob/UMP/ATT、Sentry 开关、MiniMax 去标识化与第一方对话保留、App 内删除及实际导出路径、18+ 与 privacy@gavin.pub。**本次未部署**，公开 URL 仍需在发布后核对；不能用旧页面可访问性替代 App 政策验收。
 
 本次 Release 预览应有 Data Linked to You，无 Data Used to Track You；服务全启用后须出现广告类型的 Data Used to Track You，不能选 Data Not Collected。提交前对最终 Archive 生成 Xcode Privacy Report 并复核本表差异；本次模拟器不是最终签名 Archive。
 
