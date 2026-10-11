@@ -1,0 +1,29 @@
+{
+  "configuration": "Release",
+  "appVariant": "production",
+  "apiBaseUrl": "https://tianji.gavin.pub",
+  "bundleId": "pub.gavin.tianji",
+  "appVersion": "1.0.0",
+  "buildNumber": "1",
+  "devRoutesEnabled": false,
+  "auditEnabled": false,
+  "mockIdentity": false,
+  "executableSha256": "a0d1b43f80e8ab25e8d0c502772ec2cbfcbb385d3efa244047f81a91d5bb32bf",
+  "bundleSha256": "5a21365166a54dc517dab66f7681f1239926497450e8baf41d157c2d5d7ce29f",
+  "checkedAt": "2026-10-11T19:03:11.476627+00:00",
+  "sourceCommit": "70c5dec0ce1b2f55846201644d11a09d8f8263e7",
+  "buildCommand": "bash apps/mobile/scripts/ios-release.sh simulator FC8CD49B-897E-4E91-997A-25ADFE727F5A",
+  "admobConfigured": false,
+  "revenuecatConfigured": false,
+  "sentryEnabled": false,
+  "devices": {
+    "6.9": {
+      "udid": "AFE23D86-9D6C-4BB6-B65C-D7A87DBEB930",
+      "model": "iPhone 16 Pro Max"
+    },
+    "6.5": {
+      "udid": "E4309EB4-7BFF-48BC-A72D-0DEFC953047B",
+      "model": "iPhone 14 Plus"
+    }
+  }
+}

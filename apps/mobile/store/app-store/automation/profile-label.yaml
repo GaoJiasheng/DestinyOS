@@ -1,0 +1,30 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://me'
+- scrollUntilVisible:
+    element:
+      id: profile-edit
+- tapOn:
+    id: profile-edit
+- scrollUntilVisible:
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- scrollUntilVisible:
+    element:
+      id: birth-name
+- tapOn:
+    id: birth-name
+- inputText: 'Alex'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- extendedWaitUntil:
+    visible:
+      id: profile-saved
+    timeout: 30000

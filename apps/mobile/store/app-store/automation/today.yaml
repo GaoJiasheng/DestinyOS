@@ -1,0 +1,27 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://me/settings'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: locale-${LOCALE}
+- tapOn:
+    id: locale-${LOCALE}
+- openLink: 'tianji://today'
+- extendedWaitUntil:
+    visible:
+      id: home-sky
+    timeout: 90000
+- runFlow:
+    when:
+      visible:
+        id: daily-notifications
+    commands:
+      - tapOn:
+          text: '^(Close|关闭|關閉)$'
+- waitForAnimationToEnd:
+    timeout: 2000
+- takeScreenshot: 01-today

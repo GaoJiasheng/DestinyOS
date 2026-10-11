@@ -1,0 +1,18 @@
+appId: pub.gavin.tianji
+---
+- launchApp
+- openLink: 'tianji://me/settings'
+- scrollUntilVisible:
+    element:
+      id: locale-${LOCALE}
+- tapOn:
+    id: locale-${LOCALE}
+- openLink: 'tianji://reading'
+- extendedWaitUntil:
+    visible:
+      id: system-bazi
+    timeout: 30000
+- assertVisible: Alex
+- waitForAnimationToEnd:
+    timeout: 2000
+- takeScreenshot: 06-systems

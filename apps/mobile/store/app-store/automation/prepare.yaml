@@ -1,0 +1,67 @@
+appId: pub.gavin.tianji
+---
+- launchApp:
+    clearState: true
+    clearKeychain: true
+    permissions:
+      notifications: unset
+- extendedWaitUntil:
+    visible:
+      id: onboarding-0
+    timeout: 90000
+- scrollUntilVisible:
+    element:
+      id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    text: '^(不允许|Don.t Allow)$'
+    optional: true
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- runFlow:
+    when:
+      visible:
+        id: notifications-denied
+    commands:
+      - tapOn:
+          id: onboarding-next
+- tapOn:
+    id: onboarding-fill
+- tapOn:
+    id: birth-year
+- inputText: '1992'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- tapOn:
+    id: birth-city
+- inputText: 'Singapore'
+- hideKeyboard
+- extendedWaitUntil:
+    visible:
+      id: city-result-0
+    timeout: 30000
+- tapOn:
+    id: city-result-0
+- scrollUntilVisible:
+    element:
+      id: birth-name
+- tapOn:
+    id: birth-name
+- inputText: 'Alex'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- extendedWaitUntil:
+    visible:
+      id: profile-saved
+    timeout: 30000

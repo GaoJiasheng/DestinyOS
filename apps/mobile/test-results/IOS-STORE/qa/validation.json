@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-11T19:16:58.434686+00:00",
+  "screenshots": 36,
+  "locales": [
+    "en-US",
+    "zh-Hans",
+    "zh-Hant"
+  ],
+  "sizes": {
+    "6.9": [
+      1320,
+      2868
+    ],
+    "6.5": [
+      1284,
+      2778
+    ]
+  },
+  "visualReview": {
+    "contactSheets": [
+      "qa/contact-6.9.png",
+      "qa/contact-6.5.png"
+    ],
+    "captionsLegible": true,
+    "localeMatches": true,
+    "noDebugOrRefreshBanners": true,
+    "noFixtureOrMockLabels": true,
+    "wholeScreenPreserved": true,
+    "profileNickname": "Alex (fictitious adult example)"
+  },
+  "checks": {
+    "install": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "test": {
+      "vitestPassed": 3802,
+      "vitestSkipped": 2,
+      "mobileSuitesPassed": 57,
+      "mobileTestsPassed": 273
+    },
+    "build": "passed: 9 turbo tasks",
+    "iosNativeRelease": "passed",
+    "androidPrebuild": "passed; no native Android build",
+    "assetsOnly": "passed",
+    "fullStoreCheck": "expected failure: genuine IAP membership screenshot unavailable"
+  },
+  "iap": "not captured; production RevenueCat and review sign-in unavailable",
+  "flowCorrections": [
+    "Notification-denied hint dismissed via real UI and Today recaptured.",
+    "Empty nickname showed existing empty-state copy; changed via profile editor to Alex and recaptured systems grid.",
+    "Capture wrapper edited during execution caused an end-of-file parse failure after successful captures; final wrapper syntax and full three-locale correction runs passed."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-10-12",
+  "method": "curl GET with redirects",
+  "checks": [
+    {
+      "url": "https://tianji.gavin.pub/en/faq",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/en/privacy",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/en",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/zh/faq",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/zh/privacy",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/zh",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/zh-TW/faq",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/zh-TW/privacy",
+      "status": "200",
+      "exitCode": 0
+    },
+    {
+      "url": "https://tianji.gavin.pub/zh-TW",
+      "status": "200",
+      "exitCode": 0,
+      "retry": "curl GET timeout 60s"
+    }
+  ]
+}

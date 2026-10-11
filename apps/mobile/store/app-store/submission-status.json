@@ -1,0 +1,15 @@
+{
+  "readyForSubmission": false,
+  "iapReviewScreenshots": "blocked-unconfigured-revenuecat-and-review-account",
+  "requiredIapFiles": [
+    "screenshots/en-US/iap-review/01-membership.png",
+    "screenshots/en-US/iap-review/02-purchase-confirmation.png"
+  ],
+  "blockers": [
+    "RevenueCat production key and real reviewer sign-in are unavailable; no genuine IAP purchase confirmation can be captured without Owner provisioning.",
+    "Public privacy policy is Web-focused and must cover mobile SDKs, local storage, sessions, AI and Apple purchases before submission.",
+    "Final signing Archive privacy report and SDK configuration must reconcile Name, manual birth coordinates, Customer Support and diagnostic data with the existing manifest.",
+    "Private reviewer account/contact, iPad screenshots, TestFlight sandbox and device widget/notification validation remain Owner release prerequisites."
+  ],
+  "android": "No Java installation or native build; native and emulator acceptance pending Owner Java provisioning."
+}
