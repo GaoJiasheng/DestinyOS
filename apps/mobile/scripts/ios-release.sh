@@ -5,15 +5,31 @@ cd "$mobile_root"
 mode="${1:-archive}"
 export SENTRY_DISABLE_AUTO_UPLOAD="${SENTRY_DISABLE_AUTO_UPLOAD:-true}"
 export APP_VARIANT=production CONFIGURATION=Release
+# Command-line signing uses an App Store Connect team API key; xcodebuild cannot see Xcode 26 GUI accounts.
+# The .p8 lives outside the repo; key and issuer IDs are identifiers, not secrets.
+asc_key_id="${ASC_KEY_ID:-HDV7627JM4}"
+asc_issuer_id="${ASC_ISSUER_ID:-3659a31c-d035-4195-842f-d269268a59c3}"
+asc_key_path="${ASC_KEY_PATH:-$HOME/.appstoreconnect/private_keys/AuthKey_${asc_key_id}.p8}"
+auth=(-allowProvisioningUpdates)
+if [[ -f "$asc_key_path" ]]; then
+  auth+=(-authenticationKeyPath "$asc_key_path" -authenticationKeyID "$asc_key_id" -authenticationKeyIssuerID "$asc_issuer_id")
+fi
 case "$mode" in
   archive)
     npx expo prebuild --platform ios --clean
     xcodebuild archive -workspace ios/app.xcworkspace -scheme app -configuration Release \
       -destination 'generic/platform=iOS' -archivePath release/Tianji.xcarchive \
-      -allowProvisioningUpdates CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=D33974QQTD
+      "${auth[@]}" CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=D33974QQTD
     # Export to disk only; destination=export prevents submission/upload.
     xcodebuild -exportArchive -archivePath release/Tianji.xcarchive \
-      -exportPath release -exportOptionsPlist release/ExportOptions.plist -allowProvisioningUpdates
+      -exportPath release -exportOptionsPlist release/ExportOptions.plist "${auth[@]}"
+    ;;
+  upload)
+    # Uploads the existing archive to App Store Connect (TestFlight); run only after an explicit release decision.
+    upload_options="$(mktemp -t tianji-upload).plist"
+    sed 's|<string>export</string>|<string>upload</string>|' release/ExportOptions.plist > "$upload_options"
+    xcodebuild -exportArchive -archivePath release/Tianji.xcarchive \
+      -exportPath release/upload -exportOptionsPlist "$upload_options" "${auth[@]}"
     ;;
   simulator|integration)
     device="${2:?Pass the dedicated simulator UDID}"
