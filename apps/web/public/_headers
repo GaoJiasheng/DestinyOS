@@ -1,3 +1,11 @@
+# Static HTML/Flight bypass Next headers(); mirror lib/security-headers.ts for every asset response.
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Content-Security-Policy: base-uri 'self'; object-src 'none'; frame-ancestors 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
 # DESIGN-GAP: Workers Assets bypass Next headers(); mirror immutable caching here; cf:build expands precompressed JS so Assets negotiates encoding.
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
