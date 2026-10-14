@@ -1,3 +1,9 @@
+beforeEach(() => {
+  process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP = 'true';
+});
+afterEach(() => {
+  delete process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP;
+});
 import { Platform } from 'react-native';
 import { nativeAdUnit } from '../lib/monetization/ad-unit';
 const originalDev = __DEV__;

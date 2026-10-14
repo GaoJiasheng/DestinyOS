@@ -1,3 +1,4 @@
+import { membershipEnabled } from './membership';
 import { createHash, randomUUID } from 'node:crypto';
 import { Prisma, type Reading } from '@prisma/client';
 import { z } from 'zod';
@@ -273,16 +274,17 @@ export async function persistReading(
     }),
   );
   // DESIGN-GAP: Retention is decided inside the same D1 batch from current plan and ordered history.
-  statements.push(
-    statement(
-      `DELETE FROM "Reading" WHERE "userId"=? AND "isPublic"=0 AND id IN
+  if (membershipEnabled())
+    statements.push(
+      statement(
+        `DELETE FROM "Reading" WHERE "userId"=? AND "isPublic"=0 AND id IN
     (SELECT id FROM "Reading" WHERE "userId"=? ORDER BY "createdAt" DESC,id DESC LIMIT -1 OFFSET 50)
     AND EXISTS (SELECT 1 FROM "User" WHERE id=? AND plan='free')`,
-      userId,
-      userId,
-      userId,
-    ),
-  );
+        userId,
+        userId,
+        userId,
+      ),
+    );
   await atomicBatch([...statements, ...syncAfter]);
   await recordEvent('reading.created', { userId, system: req.system, locale: req.locale, plan });
   return { readingId: row.id, ...generated, report: localizeReport(generated.report, req.locale) };

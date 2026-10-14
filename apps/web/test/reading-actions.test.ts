@@ -43,6 +43,8 @@ import {
   translateAnonymousReportAction,
 } from '../app/readings/actions';
 beforeEach(() => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
   vi.clearAllMocks();
   mocks.auth.mockResolvedValue(null);
   mocks.rate.mockResolvedValue({ success: true });

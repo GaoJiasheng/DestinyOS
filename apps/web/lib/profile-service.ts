@@ -1,3 +1,4 @@
+import { ownerFeaturePlan } from './membership';
 import { cookies } from 'next/headers';
 import { z } from 'zod';
 import { BirthInputSchema, type BirthInput, type Locale } from '@tianji/shared';
@@ -87,7 +88,7 @@ export async function saveProfile(
       : null;
     if (id && !existing) throw new ApiError('E_FORBIDDEN', 'Profile access denied', 403);
     const count = await tx.birthProfile.count({ where: { userId, isCurrent: true } });
-    if (!id && count >= (user.plan === 'pro' ? 20 : 3))
+    if (!id && count >= (ownerFeaturePlan(user.plan) === 'pro' ? 20 : 3))
       throw new ApiError('E_PROFILE_LIMIT', 'Profile limit reached', 403);
     const data = {
       encBirth: JSON.stringify(input),
@@ -123,6 +124,14 @@ export async function saveProfile(
         ),
       );
     else {
+      // DESIGN-GAP: Recheck the runtime tier ceiling in the same write batch; the database trigger retains the absolute twenty-profile ceiling.
+      statements.push(
+        ...guard(
+          '(SELECT count(*) FROM "BirthProfile" WHERE "userId"=? AND "isCurrent"=1) < ?',
+          userId,
+          ownerFeaturePlan(user.plan) === 'pro' ? 20 : 3,
+        ),
+      );
       statements.push(insertRow('BirthProfile', { ...data, id: rowId, userId, isDefault: false }));
       statements.push(
         statement(

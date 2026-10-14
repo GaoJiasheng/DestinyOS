@@ -20,8 +20,6 @@ it('stops the entire public site and expensive routes before Next.js, and leaves
   };
   for (const path of [
     '/zh',
-    '/zh-TW/pricing',
-    '/en/me/billing',
     '/api/export',
     '/api/v1/readings/a/chat',
     '/api/v1/og/daily',
@@ -37,6 +35,18 @@ it('stops the entire public site and expensive routes before Next.js, and leaves
     expect(await response.text()).not.toContain('<script');
   }
   expect(dispatch).not.toHaveBeenCalled();
+  for (const path of ['/zh-TW/pricing', '/en/me/billing']) {
+    const response = await workerFetch(
+      new Request(`https://example.test${path}`),
+      env,
+      context,
+      dispatch,
+    );
+    expect(response.status).toBe(302);
+    expect(response.headers.get('Location')).toBe(
+      `https://example.test${path.startsWith('/zh-TW') ? '/zh-TW' : '/en'}`,
+    );
+  }
   expect(
     (
       await workerFetch(

@@ -11,6 +11,7 @@ import { designTokens } from '@tianji/ui-core/tokens';
 // DESIGN-GAP: Retain M14's verified Sentry 8 redaction/source-map integration instead of Expo's suggested Sentry 7 downgrade.
 // SDK57 requires the new architecture; there is no legacy architecture switch.
 const { production, apiBaseUrl } = releaseEnvironment(process.env);
+const membership = process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP === 'true';
 const nativeRelease = production || process.env.CONFIGURATION === 'Release';
 const config: ExpoConfig = {
   name: brand.nameZh,
@@ -20,6 +21,7 @@ const config: ExpoConfig = {
   // DESIGN-GAP: EAS project IDs are provisioned by Owner; native fingerprints prevent incompatible OTA updates.
   runtimeVersion: { policy: 'fingerprint' },
   extra: {
+    FEATURE_MEMBERSHIP: membership,
     APP_VARIANT: production ? 'production' : 'development',
     API_BASE_URL: apiBaseUrl,
     ...(process.env.EAS_PROJECT_ID ? { eas: { projectId: process.env.EAS_PROJECT_ID } } : {}),
@@ -39,11 +41,13 @@ const config: ExpoConfig = {
       : []),
   ],
   // DESIGN-GAP: ATT's system prompt is generated from the shared next-intl catalogs using Expo's native locale resources.
-  locales: {
-    en: { ios: { NSUserTrackingUsageDescription: en['mobile.billing.attPurpose'] } },
-    'zh-Hans': { ios: { NSUserTrackingUsageDescription: zh['mobile.billing.attPurpose'] } },
-    'zh-Hant': { ios: { NSUserTrackingUsageDescription: zhTW['mobile.billing.attPurpose'] } },
-  },
+  locales: membership
+    ? {
+        en: { ios: { NSUserTrackingUsageDescription: en['mobile.billing.attPurpose'] } },
+        'zh-Hans': { ios: { NSUserTrackingUsageDescription: zh['mobile.billing.attPurpose'] } },
+        'zh-Hant': { ios: { NSUserTrackingUsageDescription: zhTW['mobile.billing.attPurpose'] } },
+      }
+    : {},
   orientation: 'portrait',
   userInterfaceStyle: 'dark',
   ios: {
@@ -110,9 +114,10 @@ const config: ExpoConfig = {
       },
     ],
     // DESIGN-GAP: Do not embed Google sample App IDs in store builds. An unconfigured SDK stays dormant.
-    ...(!nativeRelease ||
-    process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID ||
-    process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID
+    ...(membership &&
+    (!nativeRelease ||
+      process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID ||
+      process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID)
       ? [
           [
             'react-native-google-mobile-ads',
@@ -129,7 +134,14 @@ const config: ExpoConfig = {
           ] as [string, Record<string, unknown>],
         ]
       : []),
-    ['expo-tracking-transparency', { userTrackingPermission: en['mobile.billing.attPurpose'] }],
+    ...(membership
+      ? [
+          [
+            'expo-tracking-transparency',
+            { userTrackingPermission: en['mobile.billing.attPurpose'] },
+          ] as [string, Record<string, unknown>],
+        ]
+      : []),
     'expo-router',
     'expo-apple-authentication',
     'expo-web-browser',

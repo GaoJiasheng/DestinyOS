@@ -1,3 +1,4 @@
+import { membershipPublicEnabled } from '@/lib/membership';
 import { setRequestLocale } from 'next-intl/server';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
@@ -34,19 +35,21 @@ export default async function FaqPage({ params }: { params: Promise<Params> }) {
       </div>
       <nav className="report-card" aria-label={t('learn.related')}>
         <ul>
-          {(['learn', 'privacy', 'about', 'contact', 'pricing'] as const).map((path) => (
-            <li key={path}>
-              <Link href={`/${path}`}>
-                {t(
-                  path === 'learn'
-                    ? 'nav.learn'
-                    : path === 'pricing'
-                      ? 'billing.title'
-                      : `legal.${path}`,
-                )}
-              </Link>
-            </li>
-          ))}
+          {(['learn', 'privacy', 'about', 'contact', 'pricing'] as const)
+            .filter((path) => path !== 'pricing' || membershipPublicEnabled())
+            .map((path) => (
+              <li key={path}>
+                <Link href={`/${path}`}>
+                  {t(
+                    path === 'learn'
+                      ? 'nav.learn'
+                      : path === 'pricing'
+                        ? 'billing.title'
+                        : `legal.${path}`,
+                  )}
+                </Link>
+              </li>
+            ))}
         </ul>
       </nav>
       <p>{t('report.disclaimer.short')}</p>

@@ -1,0 +1,89 @@
+appId: pub.gavin.tianji
+---
+# DESIGN-GAP: Exercise the actual production Release routes; no diagnostic seeding or mock sign-in.
+- runFlow: ios-build/IOS-BUILD-onboarding.yaml
+- runFlow: ios-build/IOS-BUILD-reports.yaml
+- runFlow: ios-build/IOS-BUILD-tarot.yaml
+- runFlow: ios-build/IOS-BUILD-casting.yaml
+- openLink: 'tianji://me'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- scrollUntilVisible:
+    element:
+      id: me-settings
+- assertNotVisible:
+    id: me-billing
+- takeScreenshot: no-membership-me-zh
+- tapOn:
+    id: me-settings
+- assertNotVisible:
+    id: account-billing
+- takeScreenshot: no-membership-settings-zh
+- openLink: 'tianji://me/billing'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: profile-add
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: me-settings
+- assertNotVisible:
+    id: billing-plan
+- assertNotVisible:
+    id: billing-restore
+- assertNotVisible:
+    id: buy-tianji_pro_monthly
+- assertNotVisible: '.*即将开放.*'
+- openLink: 'tianji://me'
+- scrollUntilVisible:
+    element:
+      id: locale-en
+- tapOn:
+    id: locale-en
+- scrollUntilVisible:
+    element:
+      id: me-settings
+    direction: UP
+- assertNotVisible:
+    id: me-billing
+- takeScreenshot: no-membership-me-en
+- tapOn:
+    id: me-settings
+- assertNotVisible:
+    id: account-billing
+- takeScreenshot: no-membership-settings-en
+- openLink: 'tianji://pricing'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: profile-add
+    timeout: 30000
+- scrollUntilVisible:
+    element:
+      id: me-settings
+- assertNotVisible:
+    id: billing-plan
+- assertNotVisible: '.*Coming soon.*'
+- scrollUntilVisible:
+    element:
+      id: locale-zh-TW
+- tapOn:
+    id: locale-zh-TW
+- scrollUntilVisible:
+    element:
+      id: me-settings
+    direction: UP
+- assertNotVisible:
+    id: me-billing
+- takeScreenshot: no-membership-me-zh-TW
+- tapOn:
+    id: me-settings
+- assertNotVisible:
+    id: account-billing
+- takeScreenshot: no-membership-settings-zh-TW

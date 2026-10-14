@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
 import { auth } from '@/lib/auth';
+import { ownerFeaturePlan } from '@/lib/membership';
 import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
 import { runAction as run } from '@/lib/action-result';
@@ -50,7 +51,7 @@ export async function listProfilesAction() {
         version: p.version,
       })),
       selectedId: selected?.id ?? null,
-      limit: user.plan === 'pro' ? 20 : 3,
+      limit: ownerFeaturePlan(user.plan) === 'pro' ? 20 : 3,
     };
   });
 }

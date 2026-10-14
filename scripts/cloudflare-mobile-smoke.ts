@@ -116,12 +116,18 @@ export async function mobileMultiSmoke(base: string) {
     { event: { id: `integration-${crypto.randomUUID()}`, type: 'TEST' } },
     'isolated-revenuecat-smoke',
   );
-  await mobile('webhooks/revenuecat', 401, json({ event: { id: 'unsigned', type: 'TEST' } }));
-  assert.deepEqual((await mobile('webhooks/revenuecat', 200, callback)).data, {
-    result: 'processed',
-  });
-  assert.deepEqual((await mobile('webhooks/revenuecat', 200, callback)).data, {
-    result: 'duplicate',
+  // Disabled provider traffic stops at the main Worker before the compute service.
+  for (const options of [json({ event: { id: 'unsigned', type: 'TEST' } }), callback]) {
+    const disabled = await fetch(`${base}/api/v1/mobile/webhooks/revenuecat`, options);
+    assert.equal(disabled.status, 404);
+    checks.push('POST webhooks/revenuecat: 404 (membership disabled)');
+  }
+  const entitlement = await mobile('entitlements/sync', 200, { ...bearer, method: 'POST' });
+  assert.deepEqual(entitlement.data, {
+    userId: fixture.userId,
+    plan: 'free',
+    lifetime: false,
+    revenuecatProUntil: null,
   });
   await fetch(`${base}/_smoke/circuit`, json({ state: 'open' }));
   try {
@@ -138,9 +144,7 @@ export async function mobileMultiSmoke(base: string) {
         codeChallenge: 'A'.repeat(43),
       }),
     );
-    assert.deepEqual((await mobile('webhooks/revenuecat', 200, callback)).data, {
-      result: 'duplicate',
-    });
+    assert.equal((await fetch(`${base}/api/v1/mobile/webhooks/revenuecat`, callback)).status, 404);
   } finally {
     await fetch(`${base}/_smoke/circuit`, json({ state: 'closed' }));
   }
@@ -155,7 +159,7 @@ export async function mobileMultiSmoke(base: string) {
     headers: { Authorization: `Bearer ${rotated.accessToken}` },
   });
   console.log(
-    `Mobile main → compute smoke passed: ${checks.length} assertions; no public cache, rotation, sync, maintenance, RevenueCat replay.`,
+    `Mobile main → compute smoke passed: ${checks.length} assertions; no public cache, rotation, sync, maintenance, disabled membership callbacks.`,
   );
   return checks;
 }

@@ -1,6 +1,8 @@
+import { membershipEnabled } from './features';
 import { Platform } from 'react-native';
 /** Development uses Google's test inventory; release binaries use only provisioned native units. */
 export function nativeAdUnit(): string | null {
+  if (!membershipEnabled()) return null;
   // DESIGN-GAP: Use the installed SDK's documented test inventory without importing its mandatory native module during production boot.
   if (__DEV__)
     return Platform.OS === 'ios'

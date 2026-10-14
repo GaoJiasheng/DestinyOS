@@ -30,6 +30,8 @@ beforeAll(async () => {
   state.db = raw.$extends(fieldEncryptionExtension());
 });
 beforeEach(async () => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
   state.selected = undefined;
   userId = (await raw.user.create({ data: {} })).id;
 });
@@ -188,4 +190,12 @@ it('every system associates the current profile while anonymous pairs require bo
   await expect(resolveBirth(request)).rejects.toMatchObject({ code: 'E_PROFILE_REQUIRED' });
   expect((await resolveBirth({ ...request, partnerBirth: birth })).req.partnerBirth).toEqual(birth);
   expect(a.profileId).not.toBe(b.profileId);
+});
+
+it('default-off membership permits twenty profiles for a free owner without granting paid identity', async () => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'false');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'false');
+  for (let i = 0; i < 20; i++) await save(`Free profile ${i}`);
+  expect((await raw.user.findUniqueOrThrow({ where: { id: userId } })).plan).toBe('free');
+  await expect(save('Twenty-first')).rejects.toMatchObject({ code: 'E_PROFILE_LIMIT' });
 });

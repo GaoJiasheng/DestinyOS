@@ -1,3 +1,4 @@
+import { membershipEnabled } from './lib/membership';
 import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { routing, isLocale } from './i18n/routing';
@@ -30,6 +31,13 @@ export default function middleware(request: NextRequest) {
     request.headers.set('x-share-token', request.nextUrl.pathname.split('/')[2] ?? '');
   }
   request.headers.set('Content-Security-Policy', csp);
+  if (
+    !membershipEnabled() &&
+    /^\/(?:zh|en|zh-TW)\/(?:pricing|me\/billing)\/?$/.test(request.nextUrl.pathname)
+  ) {
+    const locale = request.nextUrl.pathname.split('/')[1];
+    return NextResponse.redirect(new URL(`/${locale}`, request.url));
+  }
   const learn = request.nextUrl.pathname.match(/^\/(zh|en|zh-TW)(\/learn(?:\/.*)?)$/);
   if (learn && !learning.has(learn[2]!.replace(/\/$/, ''))) {
     // DESIGN-GAP: Reuse the existing localized not-found renderer; the middleware status stays 404 even when its layout streams a loading shell.

@@ -1,3 +1,4 @@
+import { ownerFeaturePlan } from './membership';
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { auth } from './auth';
@@ -56,7 +57,8 @@ export async function chatHistory(id: string, mobileUserId?: string) {
   const quota = await db.chatQuota.findUnique({
     where: { userId_day: { userId: user.id, day: chatDay() } },
   });
-  const limit = settings[user.plan === 'pro' ? 'chat.proDailyLimit' : 'chat.freeDailyLimit'];
+  const limit =
+    settings[ownerFeaturePlan(user.plan) === 'pro' ? 'chat.proDailyLimit' : 'chat.freeDailyLimit'];
   return {
     available: settings['feature.llmChat'] && Boolean(process.env.MINIMAX_API_KEY),
     remaining: Math.max(0, limit - (quota?.count ?? 0)),
@@ -156,7 +158,10 @@ export async function prepareChat(
       identities,
       history,
     });
-    const limit = settings[user.plan === 'pro' ? 'chat.proDailyLimit' : 'chat.freeDailyLimit'];
+    const limit =
+      settings[
+        ownerFeaturePlan(user.plan) === 'pro' ? 'chat.proDailyLimit' : 'chat.freeDailyLimit'
+      ];
     await reserveChatQuota(user.id, limit, day);
     reserved = true;
     let finished = false;

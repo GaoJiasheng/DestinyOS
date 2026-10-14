@@ -39,6 +39,8 @@ export default defineConfig({
     url: `${m5BaseURL}/zh`,
     env: {
       ...server?.env,
+      FEATURE_MEMBERSHIP: 'false',
+      NEXT_PUBLIC_FEATURE_MEMBERSHIP: 'false',
       TEST_DATABASE_ID: '57552',
       TEST_SHADOW_PORT: '57553',
       TEST_MAIL_PORT: String(m5MailPort),

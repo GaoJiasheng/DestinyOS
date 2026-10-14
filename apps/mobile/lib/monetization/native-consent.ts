@@ -1,7 +1,6 @@
 import { Platform } from 'react-native';
 import type { RequestConfiguration } from 'react-native-google-mobile-ads';
 import { loadAdsSdk } from './sdk';
-import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 import type { ConsentPort } from './consent';
 /** Shared with diagnostics, so tests exercise the same SDK age restrictions. */
 export function adRequestConfiguration(
@@ -62,6 +61,7 @@ export const nativeConsent: ConsentPort = {
   },
   async att() {
     if (Platform.OS !== 'ios') return true;
+    const { requestTrackingPermissionsAsync } = await import('expo-tracking-transparency');
     return (await requestTrackingPermissionsAsync()).status === 'granted';
   },
   async initialize(underAge, nonPersonalized) {

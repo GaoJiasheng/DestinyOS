@@ -1,4 +1,5 @@
 'use server';
+import { ownerFeaturePlan } from '@/lib/membership';
 import {
   idSchema,
   userId,
@@ -53,7 +54,11 @@ export async function createReadingAction(raw: unknown) {
     if (resolved.req.birth) checkAge(resolved.req.birth, req.locale);
     assertRateLimit(
       await ratelimit(
-        id ? (session.user.plan === 'pro' ? 'reading.pro' : 'reading.free') : 'reading.anon',
+        id
+          ? ownerFeaturePlan(session.user.plan) === 'pro'
+            ? 'reading.pro'
+            : 'reading.free'
+          : 'reading.anon',
         id ?? ip,
       ),
     );
@@ -371,7 +376,7 @@ export async function previewAstrologyHousesAction(raw: unknown) {
     assertRateLimit(
       await ratelimit(
         session?.user.id
-          ? session.user.plan === 'pro'
+          ? ownerFeaturePlan(session.user.plan) === 'pro'
             ? 'reading.pro'
             : 'reading.free'
           : 'reading.anon',

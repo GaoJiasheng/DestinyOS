@@ -8,7 +8,8 @@
     "./locale": "./src/locale.ts",
     "./brand": "./src/brand.ts",
     "./enums": "./src/enums.ts",
-    "./schemas/*": "./src/schemas/*.ts"
+    "./schemas/*": "./src/schemas/*.ts",
+    "./membership": "./src/membership.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

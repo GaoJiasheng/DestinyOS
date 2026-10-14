@@ -56,7 +56,7 @@ export function ExportMenu({
           response.status === 401
             ? t('export.login')
             : response.status === 403
-              ? t('export.membership')
+              ? t('export.denied')
               : response.status === 429
                 ? t('export.rateLimit')
                 : t('export.failed'),

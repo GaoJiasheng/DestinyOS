@@ -1,3 +1,4 @@
+import { membershipEnabled } from '../lib/monetization/features';
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
@@ -35,7 +36,7 @@ function RootLayout() {
           <AccountBootstrap>
             <ProfilesProvider>
               <EngagementBootstrap />
-              <MonetizationBootstrap />
+              {membershipEnabled() && <MonetizationBootstrap />}
               <AccessibleStack />
             </ProfilesProvider>
           </AccountBootstrap>

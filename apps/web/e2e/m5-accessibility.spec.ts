@@ -10,7 +10,6 @@ const publicPaths = [
   '/terms',
   '/disclaimer',
   '/credits',
-  '/pricing',
   '/auth/login',
   '/auth/verify',
   '/age-restricted',
@@ -23,7 +22,6 @@ const publicPaths = [
   '/me/birth',
   '/me/history',
   '/me/settings',
-  '/me/billing',
   '/iching',
   '/iching/cast',
   '/qimen',
@@ -42,8 +40,6 @@ for (const locale of ['zh', 'en'] as const) {
         const response = await page.goto(`/${locale}${path}`);
         expect(response?.status()).toBe(200);
         // DESIGN-GAP: A streamed private page returns its shell before its authentication redirect; audit the completed login document.
-        if (path === '/me/billing')
-          await page.waitForURL((url) => url.pathname === `/${locale}/auth/login`);
         const result = await audit(page);
         await auditLocale(page, locale);
         await info.attach('axe-document', {
@@ -108,7 +104,7 @@ for (const locale of ['zh', 'en'] as const)
     page,
   }) => {
     await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
-    await page.goto(`/${locale}/pricing`);
+    await page.goto(`/${locale}/learn`);
     await expect(page.locator('.mobile-tabs')).toBeVisible();
     await page.evaluate(() => {
       const content = document.createElement('div');

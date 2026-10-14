@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+import { membershipEnabled } from '@/lib/membership';
 import { publicRouteMetadata } from '@/lib/public-seo';
 import { brand } from '@tianji/shared';
 import { getCopy } from '@/i18n/get-copy';
@@ -8,6 +10,7 @@ import { setRequestLocale } from 'next-intl/server';
 export const dynamic = 'force-dynamic';
 /** Localized free/pro comparison, monthly/lifetime terms, payment switch and Checkout entry. */
 export default async function PricingPage({ params }: { params: Promise<{ locale: string }> }) {
+  if (!membershipEnabled()) notFound();
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getCopy();

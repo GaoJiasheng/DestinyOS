@@ -21,6 +21,8 @@ export default defineConfig({
       NEXT_PUBLIC_SITE_URL: 'http://localhost:3241',
       TEST_MAIL_URL: 'http://127.0.0.1:60211/mail',
       FEATURE_WEB_PAYMENTS: 'false',
+      FEATURE_MEMBERSHIP: 'false',
+      NEXT_PUBLIC_FEATURE_MEMBERSHIP: 'false',
       STRIPE_SECRET_KEY: '',
       STRIPE_PRICE_MONTHLY: '',
       STRIPE_PRICE_LIFETIME: '',

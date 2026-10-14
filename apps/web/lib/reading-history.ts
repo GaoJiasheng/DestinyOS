@@ -1,3 +1,4 @@
+import { ownerFeaturePlan } from './membership';
 import { z } from 'zod';
 import { getLocale } from 'next-intl/server';
 import { localeText } from '@tianji/shared/locale';
@@ -31,7 +32,7 @@ export async function listReadingHistory(raw: unknown = { limit: 20 }) {
       select: { plan: true },
     });
     const recent =
-      plan.plan === 'free'
+      ownerFeaturePlan(plan.plan) === 'free'
         ? await getDb().reading.findMany({
             where: { userId: owner },
             orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],

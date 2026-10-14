@@ -1,3 +1,4 @@
+import { membershipPublicEnabled } from './membership';
 import { isLocale } from '@/i18n/routing';
 import { brand, type Locale } from '@tianji/shared';
 import { cache } from 'react';
@@ -25,7 +26,8 @@ export const publicPageCatalog = cache(async (locale: Locale) => {
     title: c.editorial.about[language].title,
     description: c.editorial.about[language].description,
   });
-  pages.set('/pricing', { title: t('billing.title'), description: t('billing.proFeatures') });
+  if (membershipPublicEnabled())
+    pages.set('/pricing', { title: t('billing.title'), description: t('billing.proFeatures') });
   pages.set('/credits', {
     title: t('legal.attributions'),
     description: t('seo.credits.description'),

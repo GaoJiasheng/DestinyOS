@@ -201,7 +201,9 @@ it('syncs recomputed readings/journal/settings, paginates same-time changes, and
   expect(ids.size).toBe(5);
 });
 
-it('reuses private exports, shares and entitlement sync; revoked access cannot download cached exports', async () => {
+it('lets free owners use all private export formats and shares while membership is off; revoked access cannot download cached exports', async () => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'false');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'false');
   const session = await issueSession('owner', { deviceName: 'Phone', platform: 'ios' });
   await putSync('owner', 'readings', {
     items: [
@@ -219,7 +221,7 @@ it('reuses private exports, shares and entitlement sync; revoked access cannot d
       },
     ],
   });
-  await raw.user.update({ where: { id: 'owner' }, data: { plan: 'pro' } });
+  expect((await raw.user.findUniqueOrThrow({ where: { id: 'owner' } })).plan).toBe('free');
   const cache = new Map<string, Uint8Array>();
   vi.mocked(readExport).mockImplementation(async (key) => cache.get(key) ?? null);
   vi.mocked(writeExport).mockImplementation(async (key, bytes) => {

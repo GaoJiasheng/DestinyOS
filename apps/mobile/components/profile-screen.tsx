@@ -1,3 +1,4 @@
+import { membershipEnabled } from '../lib/monetization/features';
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
@@ -93,11 +94,13 @@ export function ProfileScreen() {
         label={t('me.history')}
         onPress={() => router.push('/me/history')}
       />
-      <Action
-        id="me-billing"
-        label={t('billing.title')}
-        onPress={() => router.push('/me/billing')}
-      />
+      {membershipEnabled() && (
+        <Action
+          id="me-billing"
+          label={t('billing.title')}
+          onPress={() => router.push('/me/billing')}
+        />
+      )}
       <Preferences />
     </Page>
   );

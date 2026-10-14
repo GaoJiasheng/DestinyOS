@@ -1,3 +1,4 @@
+import { membershipEnabled } from '../membership';
 import { z } from 'zod';
 import { ApiError, errorResponse } from '../api-error';
 import { logger } from '../logger';
@@ -194,6 +195,13 @@ export async function mobileApi(request: Request): Promise<Response> {
       );
     }
     if (route === 'entitlements/sync' && method === 'POST') {
+      if (!membershipEnabled())
+        return success({
+          userId: user.id,
+          plan: 'free',
+          lifetime: false,
+          revenuecatProUntil: null,
+        });
       await refreshRevenuecat(user.id);
       const current = await getDb().user.findUniqueOrThrow({ where: { id: user.id } });
       return success({

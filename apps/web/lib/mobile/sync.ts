@@ -1,3 +1,4 @@
+import { ownerFeaturePlan } from '../membership';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
 import { getDb } from '../db';
@@ -265,7 +266,10 @@ export async function putSync(userId: string, resource: Resource, raw: unknown) 
         else {
           const user = await getDb().user.findUniqueOrThrow({ where: { id: userId } });
           assertRateLimit(
-            await ratelimit(user.plan === 'pro' ? 'reading.pro' : 'reading.free', userId),
+            await ratelimit(
+              ownerFeaturePlan(user.plan) === 'pro' ? 'reading.pro' : 'reading.free',
+              userId,
+            ),
           );
           const existing = await getDb().reading.findFirst({ where: { id: item.id, userId } });
           if (existing) {

@@ -36,6 +36,8 @@ function customer(expires: string | null | undefined, grace: string | null = nul
   });
 }
 beforeEach(async () => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
   vi.stubEnv('REVENUECAT_WEBHOOK_SECRET', 'rc_signing');
   vi.stubEnv('REVENUECAT_SECRET_KEY', 'rc_secret');
   await db.ephemeralState.deleteMany();

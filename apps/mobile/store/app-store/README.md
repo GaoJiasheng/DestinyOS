@@ -36,6 +36,6 @@ pnpm exec tsx scripts/store-check.ts --assets-only
 pnpm exec tsx scripts/store-check.ts
 ```
 
-Maestro 使用本机既有 JVM；没有安装 Java、Android SDK 或进行 Android 原生构建。正式提审前须补真实已登录内购页和 StoreKit 购买确认态；购买配置缺失时无法采集，诊断截图只保留在 test-results，不当作审核素材。完整 `store-check.ts` 默认会拒绝缺少这两张图或存在提交门槛的资料包；`--assets-only` 仅验已交付的三语文案和 36 张手机图。
+Maestro 使用本机既有 JVM；没有安装 Java 或进行 Android 原生构建。首版不提供内购与广告，关闭会员开关时 store-check 不要求 IAP 截图。其他提交门槛（私密审核信息、iPad、真机、签名 Archive）仍需 Owner 完成；--assets-only 仅校验已交付素材。
 
-URL 是仓库现有路由，`url-checks.json` 记录本次 HTTP 实测；隐私页仍需覆盖 App 数据流。本任务只在 `docs/progress/IOS-STORE.md` 写要求的进度，不修改其他 docs 或网页政策。iPad、Android 原生/模拟器、TestFlight、真实沙盒、最终签名 Archive 与 Owner 私密审核信息待验。
+URL 是仓库现有路由，`url-checks.json` 记录本次 HTTP 实测；隐私页已覆盖首版 App 数据流，线上版本待发布后核对。本任务只在 `docs/progress/IOS-STORE.md` 写要求的进度，不修改其他 docs 或网页政策。iPad、Android 原生/模拟器、TestFlight、最终签名 Archive 与 Owner 私密审核信息待验。

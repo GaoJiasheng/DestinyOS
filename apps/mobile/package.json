@@ -110,6 +110,11 @@
         "typescript",
         "@sentry/react-native"
       ]
+    },
+    "autolinking": {
+      "exclude": [
+        "expo-tracking-transparency"
+      ]
     }
   }
 }

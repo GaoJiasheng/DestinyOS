@@ -1,3 +1,9 @@
+beforeEach(() => {
+  process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP = 'true';
+});
+afterEach(() => {
+  delete process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP;
+});
 import Purchases, {
   PRODUCT_CATEGORY,
   type PurchasesStoreProduct,

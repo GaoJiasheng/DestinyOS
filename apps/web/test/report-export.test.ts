@@ -14,6 +14,8 @@ const request = ExportRequestSchema.parse({ readingId: 'r-example', locale: 'zh'
 afterEach(() => vi.unstubAllEnvs());
 describe('report exports', () => {
   it('requires membership only when free exports are disabled', () => {
+    vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+    vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
     expect(canExport('free', true)).toBe(true);
     expect(canExport('free', false)).toBe(false);
     expect(canExport('pro', false)).toBe(true);

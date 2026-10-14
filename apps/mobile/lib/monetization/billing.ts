@@ -1,3 +1,4 @@
+import { membershipEnabled } from './features';
 import { create } from 'zustand';
 import { accountSession, useAccount } from '../account/controller';
 import {
@@ -8,12 +9,7 @@ import {
   type Access,
   type ProductId,
 } from './model';
-import {
-  createPurchasesProvider,
-  revenuecatKey,
-  type PurchaseProvider,
-  type StoreProduct,
-} from './purchases';
+import type { PurchaseProvider, StoreProduct } from './purchases';
 import type { MessageKey } from '../i18n';
 interface BillingState {
   userId: string | null;
@@ -150,9 +146,14 @@ export function identifyBilling(userId: string | null) {
     syncPending: false,
     message: null,
   });
+  if (!membershipEnabled()) {
+    useBilling.setState({ status: 'ready' });
+    return Promise.resolve();
+  }
   return serialize(async () => {
     if (!userId || !valid(userId, epoch)) return;
     if (!provider && !useAccount.getState().mock) {
+      const { revenuecatKey, createPurchasesProvider } = await import('./purchases');
       const key = revenuecatKey();
       if (key) provider = createPurchasesProvider(key);
     }
@@ -162,6 +163,7 @@ export function identifyBilling(userId: string | null) {
 }
 /** Refresh StoreKit/Play and Worker rights on foreground, account change and explicit retry. */
 export function refreshBilling() {
+  if (!membershipEnabled()) return Promise.resolve();
   const user = currentUser,
     epoch = generation;
   return serialize(async () => {
@@ -173,6 +175,7 @@ export function refreshBilling() {
 }
 /** Store purchase/restore never accepts a client entitlement as a server grant. Failed sync remains retryable. */
 export function billingAction(action: 'restore' | 'manage' | ProductId) {
+  if (!membershipEnabled()) return Promise.resolve();
   const user = currentUser,
     epoch = generation;
   if (!user || !provider || !identified || useBilling.getState().busy) return Promise.resolve();

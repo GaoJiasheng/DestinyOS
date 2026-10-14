@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+import { membershipEnabled } from '@/lib/membership';
 import type { MessageKey } from '@/i18n/catalog';
 import { getCopy } from '@/i18n/get-copy';
 import { auth } from '@/lib/auth';
@@ -28,6 +30,7 @@ export default async function BillingPage({
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ status?: string; purchase?: string }>;
 }) {
+  if (!membershipEnabled()) notFound();
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getCopy(),

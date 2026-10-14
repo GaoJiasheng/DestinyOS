@@ -23,14 +23,16 @@ export default defineConfig({
       TEST_MAIL_URL: mail,
       TEST_STRIPE_PORT: '60327',
       TEST_STRIPE_URL: 'http://127.0.0.1:60327',
-      // DESIGN-GAP: Fake numeric ad IDs exercise reserved containers; browser tests block all external ad delivery.
+      // DESIGN-GAP: Stale configured ad IDs exercise the first-release kill switch; no slot or provider script may render.
       NEXT_PUBLIC_ADSENSE_CLIENT: 'ca-pub-0000000000000000',
       NEXT_PUBLIC_ADSENSE_SLOT_HOME: '1000000001',
       NEXT_PUBLIC_ADSENSE_SLOT_REPORT_TOP: '1000000002',
       NEXT_PUBLIC_ADSENSE_SLOT_REPORT_BOTTOM: '1000000003',
       NEXT_PUBLIC_ADSENSE_SLOT_TODAY: '1000000004',
       NEXT_PUBLIC_ADSENSE_SLOT_LEARN: '1000000005',
-      FEATURE_ADS: 'true',
+      FEATURE_ADS: 'false',
+      FEATURE_MEMBERSHIP: 'false',
+      NEXT_PUBLIC_FEATURE_MEMBERSHIP: 'false',
       FEATURE_LLM_CHAT: 'true',
       MINIMAX_API_KEY: 'isolated-chat-key',
       MINIMAX_MODEL: 'MiniMax-M2.5',

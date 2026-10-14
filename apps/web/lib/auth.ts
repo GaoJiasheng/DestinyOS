@@ -1,3 +1,4 @@
+import { ownerMembershipPlan } from './membership';
 import { isLocale } from '../i18n/routing';
 import { toDbLocale, fromDbLocale } from './db-locale';
 import NextAuth from 'next-auth';
@@ -94,7 +95,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
         session.user.id = user.id;
         session.user.role =
           roleForEmail(user.email) === 'admin' && current.role === 'admin' ? 'admin' : 'user';
-        session.user.plan = current.plan;
+        session.user.plan = ownerMembershipPlan(current.plan);
         await recordEvent('user.active', { userId: user.id });
         await db.user.updateMany({
           where: {

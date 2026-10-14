@@ -1,3 +1,4 @@
+import { ownerFeaturePlan } from './membership';
 import { z } from 'zod';
 // DESIGN-GAP: Export uses an owner-only API, with explicit format/theme and the existing report ID.
 export const ExportRequestSchema = z
@@ -14,7 +15,7 @@ export const EXPORT_VERSION = 'onepage-a4-v2';
 export const EXPORT_TTL = 86400;
 /** Resolve free/member entitlement without treating an anonymous viewer as an owner. */
 export function canExport(plan: 'free' | 'pro', freeEnabled: boolean): boolean {
-  return plan === 'pro' || freeEnabled;
+  return ownerFeaturePlan(plan) === 'pro' || freeEnabled;
 }
 
 export const EXPORT_TIMEOUT_MS = 60000;

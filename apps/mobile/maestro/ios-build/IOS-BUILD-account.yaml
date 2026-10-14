@@ -46,10 +46,10 @@ appId: pub.gavin.tianji
     optional: true
 - extendedWaitUntil:
     visible:
-      id: billing-unconfigured
+      id: me-settings
     timeout: 30000
-- assertVisible: '.*即将开放.*'
-- assertVisible:
+- assertNotVisible:
+    id: me-billing
+- assertNotVisible:
     id: buy-tianji_pro_monthly
-    enabled: false
-- takeScreenshot: purchases-coming-soon
+- takeScreenshot: membership-disabled

@@ -1,3 +1,4 @@
+import { membershipEnabled } from '@/lib/membership';
 import { createHmac, timingSafeEqual, randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { ApiError, errorResponse } from '@/lib/api-error';
@@ -29,6 +30,7 @@ function verified(body: string, header: string | null, secret: string): boolean 
 
 /** Verify, deduplicate, and reconcile mobile pro using authoritative RevenueCat customer state. */
 export async function POST(request: Request) {
+  if (!membershipEnabled()) return new Response(null, { status: 404 });
   const secret = process.env.REVENUECAT_WEBHOOK_SECRET;
   const authorization = process.env.REVENUECAT_WEBHOOK_AUTHORIZATION;
   if (!secret && !authorization)

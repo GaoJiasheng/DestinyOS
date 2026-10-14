@@ -1,3 +1,4 @@
+import { membershipPublicEnabled } from '@/lib/membership';
 import type { MetadataRoute } from 'next';
 import { learnContent } from '@/lib/learn';
 import { brand } from '@tianji/shared';
@@ -10,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/learn',
     '/learn/glossary',
     '/faq',
-    '/pricing',
+    ...(membershipPublicEnabled() ? ['/pricing'] : []),
     '/about',
     '/privacy',
     '/terms',

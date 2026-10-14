@@ -23,6 +23,11 @@ case "$mode" in
     fi
     # DESIGN-GAP: SDK57 cleans by default; the Widget plugin is not idempotent on existing targets, so always regenerate native projects and install Pods.
     npx expo prebuild --platform ios --clean
+    # DESIGN-GAP: Xcode preserves removed Pod resources in incremental .app products; recreate the product so disabled SDK bundles cannot survive a previous build.
+    if [[ -d /tmp/Tianji-IOS-BUILD/Build/Products/Release-iphonesimulator/app.app ]]; then
+      previous_product="$(mktemp -d /tmp/Tianji-previous-product-XXXXXX)"
+      mv /tmp/Tianji-IOS-BUILD/Build/Products/Release-iphonesimulator/app.app "$previous_product/"
+    fi
     xcodebuild -workspace ios/app.xcworkspace -scheme app -configuration Release \
       -sdk iphonesimulator -destination "platform=iOS Simulator,id=$device" \
       -derivedDataPath /tmp/Tianji-IOS-BUILD -jobs 4 ONLY_ACTIVE_ARCH=YES \

@@ -6,6 +6,8 @@ import { putSync } from '../lib/mobile/sync';
 import { decryptField } from '../lib/crypto';
 import { streamChatReply } from '../lib/llm/reply';
 it('streams owner NDJSON with shared Web daily quotas, encrypted history and cancelled generation refunds', async () => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
   vi.stubEnv('FEATURE_LLM_CHAT', 'true');
   vi.stubEnv('MINIMAX_API_KEY', 'mock-provider');
   const session = await issueSession('owner', { deviceName: 'Phone', platform: 'ios' });
@@ -92,4 +94,5 @@ it('streams owner NDJSON with shared Web daily quotas, encrypted history and can
   expect((await raw.chatQuota.findFirstOrThrow({ where: { userId: 'owner' } })).count).toBe(3);
   vi.stubEnv('FEATURE_LLM_CHAT', 'false');
   vi.stubEnv('MINIMAX_API_KEY', '');
+  vi.unstubAllEnvs();
 });

@@ -1,3 +1,4 @@
+import { membershipEnabled } from '../lib/monetization/features';
 import { brand } from '@tianji/shared/brand';
 import { openBrowserAsync } from 'expo-web-browser';
 import { usePreferences } from '../lib/preferences';
@@ -18,6 +19,7 @@ export function BillingScreen() {
   const state = useBilling(),
     consent = useConsent(),
     locale = usePreferences((s) => s.locale);
+  if (!membershipEnabled()) return null;
   const disabled = !online || state.busy || state.status === 'loading';
   // DESIGN-GAP: Missing public purchase configuration uses shared coming-soon copy for guests and accounts.
   return (

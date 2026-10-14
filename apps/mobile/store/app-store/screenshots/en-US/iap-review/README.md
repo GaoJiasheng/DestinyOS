@@ -1,7 +1,5 @@
-# 内购审核截图待采集
+# 首版不提交内购
 
-应补 `01-membership.png`（真实已登录会员页，商品、当地价格与恢复入口可见）和 `02-purchase-confirmation.png`（实际 StoreKit 沙盒购买确认态），均为 1290 像素宽、不透明 PNG，等比保留界面。
+`EXPO_PUBLIC_FEATURE_MEMBERSHIP` 默认关闭。首版不提供 App 内购买，也不提交内购商品或内购审核截图；`store-check` 在关闭状态不要求本目录的图片。
 
-本次 production Release 未配置 RevenueCat，不能展示可购买商品或真实购买确认态；也没有真实审核登录。`test-results/IOS-STORE/raw/*/*/membership-unconfigured.png` 是不可购买状态的诊断证据，不能上传作为审核图。旧 M13 mock 购买/恢复截图同样不适用。本目录没有生成占位 PNG。
-
-Owner 提供正式公开 SDK key、已连接产品与测试登录后，在 Release 沙盒/真机中采集；不将密钥、账号或签名资料写入仓库。两项 IAP 仍使用 `tianji_pro_monthly`、`tianji_pro_lifetime`，首版与 App 一同送审。完整 `scripts/store-check.ts` 会在这些图片缺失时失败。
+将来明确开启会员后，须配置真实产品与公开 SDK key，并采集真实 Release 沙盒会员页及购买确认截图。现有产品 ID 保持 `tianji_pro_monthly`、`tianji_pro_lifetime`；诊断或 mock 截图不能作为审核图。审核账号、密钥及签名资料不写入仓库。

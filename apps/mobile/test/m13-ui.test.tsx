@@ -1,3 +1,9 @@
+beforeEach(() => {
+  process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP = 'true';
+});
+afterEach(() => {
+  delete process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP;
+});
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { NativeAd } from 'react-native-google-mobile-ads';
 import { BirthInputSchema } from '@tianji/shared';

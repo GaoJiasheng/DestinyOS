@@ -1,0 +1,51 @@
+{
+  "install": "passed",
+  "lint": "passed",
+  "typecheck": "passed",
+  "build": "passed",
+  "webUnitTests": {
+    "filesPassed": 152,
+    "testsPassed": 3810,
+    "existingSkipped": 2
+  },
+  "appUnitTests": {
+    "suitesPassed": 58,
+    "testsPassed": 276
+  },
+  "webMainE2e": {
+    "passed": 97
+  },
+  "noMembershipE2e": {
+    "passed": 6
+  },
+  "polish": {
+    "totalPassed": 52,
+    "fullRunPassed": 48,
+    "reviewedSnapshotRerunsPassed": 4,
+    "baselineThresholdUnchanged": true
+  },
+  "i18n": "passed",
+  "fonts": "passed",
+  "performanceBudgets": "passed",
+  "contentAudit": "passed",
+  "storeAssets": {
+    "passed": true,
+    "screenshots": 36,
+    "submissionReadinessAsserted": false
+  },
+  "cloudflareBuild": "passed",
+  "cloudflareMultiSmoke": {
+    "passed": true,
+    "mobileChecks": 25,
+    "coldMs": 72.4,
+    "maxPublicRscP75Ms": 5.3
+  },
+  "iosRelease": "passed",
+  "maestroMain": "passed",
+  "iosScreenshots": 33,
+  "androidPrebuild": "passed",
+  "androidNativeBuild": "pending_owner_java",
+  "androidEmulator": "pending_owner_java",
+  "deployed": false,
+  "pushed": false
+}

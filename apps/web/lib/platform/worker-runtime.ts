@@ -12,6 +12,7 @@ export interface WorkerEnvironment {
   CF_VERSION_METADATA?: { id: string };
   PERF_OBSERVABILITY?: string;
   FEATURE_WEB_PAYMENTS?: string;
+  FEATURE_MEMBERSHIP?: string;
   CRON_SECRET?: string;
   NEXT_PUBLIC_SITE_URL?: string;
 }
@@ -26,8 +27,17 @@ export async function workerFetch(
   dispatch: (request: Request) => Promise<Response>,
 ): Promise<Response> {
   const path = new URL(request.url).pathname;
-  if (/^\/api\/v1\/stripe(?:\/|$)/.test(path) && env.FEATURE_WEB_PAYMENTS !== 'true')
+  if (
+    /^\/api\/v1\/stripe(?:\/|$)/.test(path) &&
+    (env.FEATURE_MEMBERSHIP !== 'true' || env.FEATURE_WEB_PAYMENTS !== 'true')
+  )
     return new Response(null, { status: 404 });
+  if (env.FEATURE_MEMBERSHIP !== 'true') {
+    if (/^\/api\/v1\/mobile\/webhooks\/revenuecat$/.test(path))
+      return new Response(null, { status: 404 });
+    if (/^\/(?:zh|en|zh-TW)\/(?:pricing|me\/billing)\/?$/.test(path))
+      return Response.redirect(new URL('/' + path.split('/')[1], request.url));
+  }
   const started = performance.now();
   let gateMs = 0;
   const finish = (response: Response, phase: string) => {

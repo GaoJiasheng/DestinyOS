@@ -1,4 +1,5 @@
 'use client';
+import { membershipPublicEnabled } from '@/lib/membership';
 import { useState } from 'react';
 import Script from 'next/script';
 import { useCopy } from '@/i18n/use-copy';
@@ -14,7 +15,7 @@ export function PrivacyChoices({ settings = false }: { settings?: boolean }) {
       <button
         type="button"
         onClick={() => {
-          if (!process.env.NEXT_PUBLIC_ADSENSE_CLIENT) {
+          if (!membershipPublicEnabled() || !process.env.NEXT_PUBLIC_ADSENSE_CLIENT) {
             setOpen(true);
             return;
           }

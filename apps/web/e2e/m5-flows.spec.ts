@@ -1,4 +1,4 @@
-import { m5BaseURL, m5StripeURL } from '../../../scripts/m5-test-urls';
+import { m5BaseURL } from '../../../scripts/m5-test-urls';
 import { test, expect, type BrowserContext, type Page } from '@playwright/test';
 import { audit, login, fillBirth, db, copies } from './m5-helpers';
 for (const locale of ['zh', 'en'] as const)
@@ -81,49 +81,21 @@ for (const locale of ['zh', 'en'] as const)
       const html = await (await request.get(`/s/${token}?locale=${locale}`)).text();
       expect(html).not.toMatch(/1990-05-15|08:30|Beijing|encBirth|encInput/);
     });
-    test('6 subscription and cancellation', async ({ request }) => {
-      await page.goto(`/${locale}/pricing`);
+    test('6 first release has no payment routes or prompts', async ({ request }) => {
+      for (const path of ['/pricing', '/me/billing']) {
+        await page.goto(`/${locale}${path}`);
+        await expect(page).toHaveURL(new RegExp(`/${locale}/?$`));
+      }
+      await page.goto(`/${locale}/me`);
       await audit(page);
-      await page.getByRole('button', { name: copy['billing.subscribe'], exact: true }).click();
-      await expect(page).toHaveURL(
-        (url) => url.origin === m5StripeURL && url.pathname === '/checkout',
-      );
-      await page.getByRole('button', { name: 'Complete test payment' }).click();
       await expect(
-        page.getByText(copy['billing.activated'], { exact: true }).filter({ visible: true }),
-      ).toBeVisible();
-      expect((await db.user.findUniqueOrThrow({ where: { id: userId } })).plan).toBe('pro');
-      await audit(page);
-      await page.getByRole('button', { name: copy['me.billing.portal'], exact: true }).click();
-      await page.getByRole('button', { name: 'Cancel renewal' }).click();
-      await expect(
-        page.getByText(copy['billing.canceledAtEnd'], { exact: true }).filter({ visible: true }),
-      ).toBeVisible();
-      const subscription = await db.subscription.findUniqueOrThrow({ where: { userId } });
+        page.locator('a[href$="/pricing"], a[href$="/me/billing"], .ad-slot'),
+      ).toHaveCount(0);
+      expect((await request.post('/api/v1/stripe/webhook', { data: {} })).status()).toBe(404);
       expect(
-        (await request.get(`${m5StripeURL}/expire?id=${subscription.stripeSubscriptionId}`)).ok(),
-      ).toBe(true);
+        (await request.post('/api/v1/mobile/webhooks/revenuecat', { data: {} })).status(),
+      ).toBe(404);
       expect((await db.user.findUniqueOrThrow({ where: { id: userId } })).plan).toBe('free');
-      const events = await db.event.findMany({
-        select: { name: true, userHash: true, system: true, locale: true, plan: true },
-      });
-      for (const name of [
-        'user.registered',
-        'user.active',
-        'reading.created',
-        'daily.viewed',
-        'share.created',
-        'sub.started',
-        'sub.ended',
-      ])
-        expect(events.some((event) => event.name === name)).toBe(true);
-      expect(
-        events.some(
-          (event) =>
-            event.name === 'reading.created' && event.locale === locale && event.system === 'bazi',
-        ),
-      ).toBe(true);
-      expect(JSON.stringify(events)).not.toContain(userId);
     });
     test('7 account deletion revokes sessions/shares', async ({ request }) => {
       await page.goto(`/${locale}/me/settings`);

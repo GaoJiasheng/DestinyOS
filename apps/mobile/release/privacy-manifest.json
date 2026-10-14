@@ -1,6 +1,6 @@
 {
-  "NSPrivacyTracking": true,
-  "NSPrivacyTrackingDomains": ["googleads.g.doubleclick.net", "pagead2.googlesyndication.com"],
+  "NSPrivacyTracking": false,
+  "NSPrivacyTrackingDomains": [],
   "NSPrivacyAccessedAPITypes": [
     {
       "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
@@ -45,46 +45,10 @@
       "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"]
     },
     {
-      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypePurchaseHistory",
+      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCoarseLocation",
       "NSPrivacyCollectedDataTypeLinked": true,
       "NSPrivacyCollectedDataTypeTracking": false,
       "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"]
-    },
-    {
-      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeDeviceID",
-      "NSPrivacyCollectedDataTypeLinked": true,
-      "NSPrivacyCollectedDataTypeTracking": true,
-      "NSPrivacyCollectedDataTypePurposes": [
-        "NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising",
-        "NSPrivacyCollectedDataTypePurposeAnalytics"
-      ]
-    },
-    {
-      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCoarseLocation",
-      "NSPrivacyCollectedDataTypeLinked": true,
-      "NSPrivacyCollectedDataTypeTracking": true,
-      "NSPrivacyCollectedDataTypePurposes": [
-        "NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising",
-        "NSPrivacyCollectedDataTypePurposeAnalytics"
-      ]
-    },
-    {
-      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeAdvertisingData",
-      "NSPrivacyCollectedDataTypeLinked": true,
-      "NSPrivacyCollectedDataTypeTracking": true,
-      "NSPrivacyCollectedDataTypePurposes": [
-        "NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising",
-        "NSPrivacyCollectedDataTypePurposeAnalytics"
-      ]
-    },
-    {
-      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeProductInteraction",
-      "NSPrivacyCollectedDataTypeLinked": true,
-      "NSPrivacyCollectedDataTypeTracking": true,
-      "NSPrivacyCollectedDataTypePurposes": [
-        "NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising",
-        "NSPrivacyCollectedDataTypePurposeAnalytics"
-      ]
     },
     {
       "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCrashData",
@@ -92,19 +56,41 @@
       "NSPrivacyCollectedDataTypeTracking": false,
       "NSPrivacyCollectedDataTypePurposes": [
         "NSPrivacyCollectedDataTypePurposeAppFunctionality",
-        "NSPrivacyCollectedDataTypePurposeAnalytics",
-        "NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising"
+        "NSPrivacyCollectedDataTypePurposeAnalytics"
       ]
     },
     {
       "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypePerformanceData",
       "NSPrivacyCollectedDataTypeLinked": true,
-      "NSPrivacyCollectedDataTypeTracking": true,
+      "NSPrivacyCollectedDataTypeTracking": false,
       "NSPrivacyCollectedDataTypePurposes": [
         "NSPrivacyCollectedDataTypePurposeAppFunctionality",
-        "NSPrivacyCollectedDataTypePurposeAnalytics",
-        "NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising"
+        "NSPrivacyCollectedDataTypePurposeAnalytics"
       ]
+    },
+    {
+      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeName",
+      "NSPrivacyCollectedDataTypeLinked": true,
+      "NSPrivacyCollectedDataTypeTracking": false,
+      "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"]
+    },
+    {
+      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypePreciseLocation",
+      "NSPrivacyCollectedDataTypeLinked": true,
+      "NSPrivacyCollectedDataTypeTracking": false,
+      "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"]
+    },
+    {
+      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeCustomerSupport",
+      "NSPrivacyCollectedDataTypeLinked": true,
+      "NSPrivacyCollectedDataTypeTracking": false,
+      "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"]
+    },
+    {
+      "NSPrivacyCollectedDataType": "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+      "NSPrivacyCollectedDataTypeLinked": false,
+      "NSPrivacyCollectedDataTypeTracking": false,
+      "NSPrivacyCollectedDataTypePurposes": ["NSPrivacyCollectedDataTypePurposeAppFunctionality"]
     }
   ]
 }

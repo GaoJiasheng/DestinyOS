@@ -17,6 +17,8 @@ vi.mock('../lib/stripe', async (original) => ({
 }));
 import { createCheckoutSessionAction, createPortalSessionAction } from '../app/billing/actions';
 beforeEach(() => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
   vi.clearAllMocks();
   vi.stubEnv('FEATURE_WEB_PAYMENTS', 'true');
   vi.stubEnv('STRIPE_SECRET_KEY', 'sk_test');

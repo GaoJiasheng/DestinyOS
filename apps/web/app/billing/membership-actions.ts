@@ -1,9 +1,11 @@
 'use server';
+import { membershipEnabled } from '@/lib/membership';
 import { auth } from '@/lib/auth';
 import { refreshRevenuecat } from '@/lib/revenuecat';
 import { revalidatePath } from 'next/cache';
 /** Refresh only the logged-in customer's entitlement; absent provider configuration is a no-op. */
 export async function refreshMembershipAction() {
+  if (!membershipEnabled()) return { result: 'skipped' as const };
   const session = await auth();
   if (!session?.user.id) return { result: 'error' as const };
   try {

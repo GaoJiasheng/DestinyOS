@@ -45,20 +45,35 @@ it('rejects Google sample app and ad unit IDs in production', () => {
     }),
   ).toThrow();
 });
-it('declares advertising tracking without labeling birth data or purchases as tracking', () => {
-  expect(manifest.NSPrivacyTracking).toBe(true);
-  for (const kind of ['OtherUserContent', 'OtherDataTypes', 'EmailAddress', 'PurchaseHistory']) {
-    expect(
-      manifest.NSPrivacyCollectedDataTypes.find(
-        (entry) => entry.NSPrivacyCollectedDataType === `NSPrivacyCollectedDataType${kind}`,
-      )?.NSPrivacyCollectedDataTypeTracking,
-    ).toBe(false);
-  }
+it('declares no tracking, advertising or purchase history in the first-release manifest', () => {
+  expect(manifest.NSPrivacyTracking).toBe(false);
+  expect(manifest.NSPrivacyTrackingDomains).toEqual([]);
   expect(
     manifest.NSPrivacyAccessedAPITypes.find((entry) =>
       entry.NSPrivacyAccessedAPIType.endsWith('UserDefaults'),
     )?.NSPrivacyAccessedAPITypeReasons,
   ).toContain('1C8F.1');
+  for (const kind of [
+    'OtherUserContent',
+    'OtherDataTypes',
+    'EmailAddress',
+    'Name',
+    'PreciseLocation',
+    'CustomerSupport',
+  ]) {
+    expect(
+      manifest.NSPrivacyCollectedDataTypes.find(
+        (data) => data.NSPrivacyCollectedDataType === `NSPrivacyCollectedDataType${kind}`,
+      )?.NSPrivacyCollectedDataTypeTracking,
+    ).toBe(false);
+  }
+  for (const kind of ['PurchaseHistory', 'AdvertisingData', 'DeviceID', 'ProductInteraction']) {
+    expect(
+      manifest.NSPrivacyCollectedDataTypes.some(
+        (data) => data.NSPrivacyCollectedDataType === `NSPrivacyCollectedDataType${kind}`,
+      ),
+    ).toBe(false);
+  }
 });
 
 it('locks production API origin and limits development HTTP to loopback', () => {

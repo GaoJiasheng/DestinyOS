@@ -177,8 +177,9 @@ export async function checkStore(assetsOnly = false): Promise<void> {
   }
   if (manifest.captures.length !== 36) throw new Error('Unexpected capture count');
   if (!assetsOnly) {
-    // DESIGN-GAP: Full validation fails closed on unavailable purchase proof; assets-only is an explicit local QA mode, never a submission-ready claim.
-    for (const file of ['01-membership.png', '02-purchase-confirmation.png']) {
+    const membership = process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP === 'true';
+    // DESIGN-GAP: Purchase proof is required only in membership-enabled builds; assets-only is local QA, never a submission-ready claim.
+    for (const file of membership ? ['01-membership.png', '02-purchase-confirmation.png'] : []) {
       const full = path.join(storeRoot, 'screenshots/en-US/iap-review', file);
       const info = await sharp(full).metadata();
       if (info.width !== 1290 || !info.height || info.format !== 'png' || info.hasAlpha)

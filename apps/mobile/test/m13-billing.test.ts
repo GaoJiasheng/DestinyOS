@@ -1,3 +1,9 @@
+beforeEach(() => {
+  process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP = 'true';
+});
+afterEach(() => {
+  delete process.env.EXPO_PUBLIC_FEATURE_MEMBERSHIP;
+});
 import { createBillingMock } from '../lib/monetization/mock';
 import {
   billingAction,

@@ -115,7 +115,8 @@ test('admin: 404, safe users, re-auth, draft→fixture→release→rollback, con
     timeout: 90000,
   });
   await page.getByRole('button', { name: copies.zh['admin.release.publish'], exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('knowledgeVersion');
+  // DESIGN-GAP: Publication repeats the full-corpus preflight; give it the same bounded budget as preflight on shared build hosts.
+  await expect(page.getByRole('status')).toContainText('knowledgeVersion', { timeout: 90000 });
   const release = await db.knowledgeRelease.findFirstOrThrow({
     orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
   });
@@ -175,7 +176,7 @@ test('admin: 404, safe users, re-auth, draft→fixture→release→rollback, con
     timeout: 90000,
   });
   await page.getByRole('button', { name: copies.zh['admin.release.publish'], exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('knowledgeVersion');
+  await expect(page.getByRole('status')).toContainText('knowledgeVersion', { timeout: 90000 });
   expect(await db.knowledgeRelease.count()).toBe(3);
   const restored = await db.knowledgeRelease.findFirstOrThrow({
     orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],

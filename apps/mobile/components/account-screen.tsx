@@ -1,3 +1,4 @@
+import { membershipEnabled } from '../lib/monetization/features';
 import { Platform } from 'react-native';
 import * as Apple from 'expo-apple-authentication';
 import { useState } from 'react';
@@ -157,11 +158,13 @@ export function AccountSettingsScreen() {
         label={t('mobile.push.title')}
         onPress={() => router.push('/me/settings/notifications')}
       />
-      <Action
-        id="account-billing"
-        label={t('billing.title')}
-        onPress={() => router.push('/me/billing')}
-      />
+      {membershipEnabled() && (
+        <Action
+          id="account-billing"
+          label={t('billing.title')}
+          onPress={() => router.push('/me/billing')}
+        />
+      )}
       {state.deleted && <CopyText testID="account-deleted">{t('mobile.account.deleted')}</CopyText>}
       {!state.session ? (
         <Action
@@ -202,7 +205,11 @@ export function AccountSettingsScreen() {
           />
           <CopyText title>{t('me.delete')}</CopyText>
           <CopyText>{t('me.deleteHelp')}</CopyText>
-          <CopyText>{t('mobile.account.storeSubscriptions')}</CopyText>
+          {membershipEnabled() && (
+            <CopyText testID="account-store-subscriptions">
+              {t('mobile.account.storeSubscriptions')}
+            </CopyText>
+          )}
           <Field
             id="account-delete-text"
             label={t('me.delete.confirm')}

@@ -1,4 +1,5 @@
 'use server';
+import { membershipEnabled } from '@/lib/membership';
 import { requestIp } from '@/lib/request-ip';
 import { cookies } from 'next/headers';
 import { auth } from '@/lib/auth';
@@ -8,6 +9,7 @@ import type { AdPolicy } from '@/lib/ads';
 /** Return only low-sensitivity ad eligibility; never send birth information to Google. */
 export async function getAdPolicyAction(): Promise<AdPolicy> {
   const fallback: AdPolicy = { enabled: false, plan: 'free', underAge: false, blocked: false };
+  if (!membershipEnabled()) return fallback;
   if (!(await siteConfig())['ads.enabled'] || !process.env.NEXT_PUBLIC_ADSENSE_CLIENT)
     return fallback;
   const blocked = (await cookies()).get('age_gate')?.value === 'blocked';
@@ -33,7 +35,8 @@ export async function getAdPolicyAction(): Promise<AdPolicy> {
 /** Count a filled ad slot without storing visitor identity or birth information. */
 export async function recordAdImpressionAction(placement: string) {
   const allowed = ['home', 'report-2-3', 'report-6-7', 'today', 'learn'];
-  if (!allowed.includes(placement) || process.env.FEATURE_ADS !== 'true') return;
+  if (!membershipEnabled() || !allowed.includes(placement) || process.env.FEATURE_ADS !== 'true')
+    return;
   try {
     const { headers } = await import('next/headers');
     const { ratelimit } = await import('@/lib/ratelimit');

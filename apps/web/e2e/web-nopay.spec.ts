@@ -8,7 +8,7 @@ const db = sqliteClient(testDatabaseUrl(57546));
 test.afterAll(() => db.$disconnect());
 for (const locale of ['zh', 'zh-TW', 'en'] as const) {
   const copy = locale === 'en' ? en : locale === 'zh-TW' ? tw : zh;
-  test(`${locale}: App membership without Stripe, refresh skips missing provider`, async ({
+  test(`${locale}: first release has no paid entry points, routes, providers or ads`, async ({
     page,
     request,
     context,
@@ -19,21 +19,10 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
       if (/stripe\.com/.test(req.url())) providers.push(req.url());
     });
     await page.goto(`/${locale}/pricing`);
-    await expect(
-      page.getByText(copy['billing.appPrice'], { exact: true }).filter({ visible: true }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole('button', { name: copy['billing.openInApp'], exact: true }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole('button', { name: copy['billing.subscribe'], exact: true }),
-    ).toHaveCount(0);
-    await expect(
-      page.getByRole('button', { name: copy['billing.buyLifetime'], exact: true }),
-    ).toHaveCount(0);
-    await page.getByRole('button', { name: copy['billing.openInApp'], exact: true }).click();
-    await expect(page.getByText(new RegExp(copy['billing.storeSoon'])).first()).toBeVisible();
-    await page.screenshot({ path: info.outputPath(`pricing-${locale}.png`), fullPage: true });
+    await expect(page).toHaveURL(new RegExp(`/${locale}/?$`));
+    await expect(page.locator('a[href$="/pricing"], a[href$="/me/billing"], .ad-slot')).toHaveCount(
+      0,
+    );
     const user = await db.user.create({
       data: { email: `${randomUUID()}@example.test`, plan: 'pro', lifetime: true },
     });
@@ -58,19 +47,16 @@ for (const locale of ['zh', 'zh-TW', 'en'] as const) {
       },
     ]);
     await page.goto(`/${locale}/me/billing`);
-    await expect(
-      page.getByText(copy['billing.state.lifetime'], { exact: true }).filter({ visible: true }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole('button', { name: copy['me.billing.portal'], exact: true }),
-    ).toHaveCount(0);
-    await page
-      .getByRole('button', { name: copy['billing.refreshMembership'], exact: true })
-      .click();
-    await expect(
-      page.getByText(copy['billing.refreshSkipped'], { exact: true }).filter({ visible: true }),
-    ).toBeVisible();
-    await page.screenshot({ path: info.outputPath(`billing-${locale}.png`), fullPage: true });
+    await expect(page).toHaveURL(new RegExp(`/${locale}/?$`));
+    await page.goto(`/${locale}/me`);
+    await expect(page.locator('a[href$="/pricing"], a[href$="/me/billing"], .ad-slot')).toHaveCount(
+      0,
+    );
+    await expect(page.getByText(copy['me.plan.pro'], { exact: true })).toHaveCount(0);
+    await page.screenshot({ path: info.outputPath(`no-membership-${locale}.png`), fullPage: true });
+    expect((await request.post('/api/v1/mobile/webhooks/revenuecat', { data: {} })).status()).toBe(
+      404,
+    );
     expect((await request.post('/api/v1/stripe/webhook', { data: {} })).status()).toBe(404);
     expect(providers).toEqual([]);
   });

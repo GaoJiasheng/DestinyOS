@@ -1,6 +1,7 @@
+import { membershipEnabled } from './membership';
 /** Owner switch: the website accepts no payments unless explicitly enabled. */
 export function webPaymentsEnabled(): boolean {
-  return process.env.FEATURE_WEB_PAYMENTS === 'true';
+  return membershipEnabled() && process.env.FEATURE_WEB_PAYMENTS === 'true';
 }
 /** Prices are optional while web payments are disabled. This module never loads Stripe. */
 export function billingEnabled(): boolean {

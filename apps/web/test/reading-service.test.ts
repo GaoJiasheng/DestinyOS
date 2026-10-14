@@ -255,14 +255,26 @@ describe('free history retention', () => {
     });
   }
   it('retains newest fifty and protects older public reports while pruning private excess', async () => {
+    vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+    vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
     await history();
     await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
     expect(await db.reading.count()).toBe(51);
     expect(await db.reading.findUnique({ where: { id: 'history-51' } })).not.toBeNull();
     expect(await db.reading.findUnique({ where: { id: 'history-52' } })).toBeNull();
   });
+  it('preserves all reports for a free account when membership is disabled', async () => {
+    vi.stubEnv('FEATURE_MEMBERSHIP', 'false');
+    vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'false');
+    await history();
+    await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
+    expect(await db.reading.count()).toBe(54);
+    expect(await db.reading.findUnique({ where: { id: 'history-52' } })).not.toBeNull();
+  });
   it('keeps unlimited subscriber history', async () => {
     await db.user.update({ where: { id: 'owner' }, data: { plan: 'pro' } });
+    vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+    vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
     await history();
     await persistReading('owner', request(), '2026-10-04T00:00:00Z', 'new-reading');
     expect(await db.reading.count()).toBe(54);

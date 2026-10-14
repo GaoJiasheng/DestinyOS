@@ -16,7 +16,6 @@ for (const locale of ['en', 'zh'] as const) {
     for (const [name, path] of Object.entries({
       home: '',
       login: '/auth/login',
-      pricing: '/pricing',
       me: '/me',
       settings: '/me/settings',
       'learn-card': '/learn/tarot/major_00_fool',
@@ -68,12 +67,7 @@ for (const locale of ['en', 'zh'] as const) {
         }));
         expect(scale.width).toBeLessThanOrEqual(Math.max(900, scale.viewport) + 1);
       }
-      await expect(page.locator('.ad-slot')).toHaveCount(2);
-      for (const ad of await page.locator('.ad-slot').all()) {
-        const before = await ad.boundingBox();
-        await expect(ad).toContainText(copy['report.ad']);
-        expect(before!.height).toBeGreaterThanOrEqual(info.project.name === '375' ? 280 : 250);
-      }
+      await expect(page.locator('.ad-slot')).toHaveCount(0);
       await expect(page.locator('html')).toHaveAttribute(
         'data-theme',
         ['tarot', 'astrology'].includes(system) ? 'west' : system === 'vedic' ? 'vedic' : 'east',

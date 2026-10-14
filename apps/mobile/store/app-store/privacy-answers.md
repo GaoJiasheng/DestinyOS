@@ -1,106 +1,71 @@
-# App Privacy 填写答案 · 2026-10-12
+# App Store 隐私问卷 · 首版无会员与广告
 
-对象：`pub.gavin.tianji`，1.0.0。按「收集数据 → 选择类型 → 每种类型用途 → 身份关联 → 跟踪 → 政策链接」顺序编排。未登录任何后台；题目用中文转述，选项保留 ASC 英文标签，后台顺序可能因版本变化而调整。
+更新：2026-10-14。仅适用于 FEATURE_MEMBERSHIP 与 EXPO_PUBLIC_FEATURE_MEMBERSHIP 关闭的首版。支付、广告和跟踪授权模块不链接；不请求广告同意或跟踪授权。未来启用时重新审计 SDK、问卷与政策。
 
-## 0. 先确定填写哪一列
+按 [Apple 数据收集定义](https://developer.apple.com/app-store/app-privacy-details/) 填写：仅设备上处理的数据无需申报；上传后加密保存的数据仍需申报。
 
-本次无服务配置的 production Release：AdMob/UMP/ATT 未启用；RevenueCat 未配置，购买/恢复禁用；Sentry 没有 DSN，不上报。Apple 登录、邮箱登录及第一方同步代码仍存在；Google 缺客户端 ID 时不能登录。纯本地 SQLCipher 数据不是 Apple 定义的收集。
+## 1. 是否收集数据
 
-**本次 Release**列对应实际采集包；**服务启用后**列供 Owner 填正式启用 RevenueCat、AdMob 和 Sentry 的版本。不能把后者当作本次已发生的数据流，也不能在启用 SDK 后继续沿用前者。最终签名包与服务配置尚未提供，因此本文件不宣称最终 Archive 问卷已封板。
+Yes。可选登录、同步、AI 追问与举报会上传并保留第一方账号或用户内容。不能因支持离线匿名使用而填 No。
 
-依据：`lib/monitoring.ts`、`lib/monetization/{ad-unit,native-consent,purchases,billing}.ts`、`release/production.ts`；第一方见 `apps/web/lib/mobile/{auth,sync}.ts`。服务启用必须来自真实 production 配置，不能采用测试 SDK key。
+## 2. 数据类型
 
-## 1. 你或第三方合作伙伴是否从 App 收集数据？
+| ASC 类型                               | 首版答案                | 实际数据与用途                                                                                                    |
+| -------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Contact Info → Name                    | Yes，条件               | 档案名称/昵称可同步；与网站同账号已有显示名。Google profile scope 不代表 SDK 已上传姓名属性                       |
+| Contact Info → Email Address           | Yes，条件               | Apple 隐藏邮箱或正常邮箱、Google/魔法链接邮箱，第一方账号与邮件投递                                               |
+| Contact Info → Phone Number            | No                      | 不要求电话                                                                                                        |
+| Contact Info → Physical Address        | No                      | 无住址字段；出生城市不作为邮寄地址                                                                                |
+| Contact Info → Other User Contact Info | No                      | 无其他联系字段                                                                                                    |
+| Health & Fitness → Health              | No                      | 不使用 HealthKit，不收集健康表单                                                                                  |
+| Health & Fitness → Fitness             | No                      | 摇卦加速度仅本地，不上传运动记录                                                                                  |
+| Financial Info → Payment Info          | No                      | 首版不提供付款、购买或广告，也不采集相关数据。                                                                    |
+| Financial Info → Credit Info           | No                      | 无信用数据                                                                                                        |
+| Financial Info → Other Financial Info  | No                      | 首版不提供付款、购买或广告，也不采集相关数据。                                                                    |
+| Location → Precise Location            | Yes，条件               | **保守申报**：手工出生地经纬度允许 ≥3 位小数并可同步；历史出生位置，不是 GPS/当前实时定位                         |
+| Location → Coarse Location             | Yes，条件               | 同步的城市级历史出生地，用于排盘，不用于跟踪。                                                                    |
+| Sensitive Info                         | No                      | 不请求宗教、种族、性取向、遗传/生物识别等；生理性别/生日归 Other Data Types；自由文本不按所有可能敏感内容额外勾选 |
+| Contacts                               | No                      | 不读取通讯录；合盘从本地档案选择                                                                                  |
+| User Content → Emails or Text Messages | No                      | 无用户间聊天、收件箱读取；魔法链接是投递功能，AI 对话归 Other User Content                                        |
+| User Content → Photos or Videos        | No                      | 不上传相册；分享卡是 App 生成输出                                                                                 |
+| User Content → Audio Data              | No                      | 音效仅播放，不录音                                                                                                |
+| User Content → Gameplay Content        | No                      | 非游戏                                                                                                            |
+| User Content → Customer Support        | Yes，条件               | 用户主动举报 AI 回答/内容反馈，服务端处理举报记录                                                                 |
+| User Content → Other User Content      | Yes，条件               | 同步报告/日记/问题；可选在线 AI 对话、导出/分享的报告                                                             |
+| Browsing History                       | No                      | 不采集外部网站浏览史                                                                                              |
+| Search History                         | No                      | 城市/学习搜索在设备，不上传查询记录                                                                               |
+| Identifiers → User ID                  | Yes，条件               | 第一方账号 ID 与会话，仅用于账户与跨设备同步。                                                                    |
+| Identifiers → Device ID                | No                      | 首版不提供付款、购买或广告，也不采集相关数据。                                                                    |
+| Purchases → Purchase History           | No（购买不可用）        | 首版不提供付款、购买或广告，也不采集相关数据。                                                                    |
+| Usage Data → Product Interaction       | No（无广告）            | 首版不提供付款、购买或广告，也不采集相关数据。                                                                    |
+| Usage Data → Advertising Data          | No                      | 广告展示、点击与广告测量                                                                                          |
+| Usage Data → Other Usage Data          | No                      | 未另设全局使用追踪                                                                                                |
+| Diagnostics → Crash Data               | No（本次无 Sentry DSN） | Sentry 原生代码保留；仅配置正式 DSN 才上报脱敏诊断。若发布时启用，须追加相应诊断类型，均不用于跟踪。              |
+| Diagnostics → Performance Data         | No（本次无 Sentry DSN） | Sentry 原生代码保留；仅配置正式 DSN 才上报脱敏诊断。若发布时启用，须追加相应诊断类型，均不用于跟踪。              |
+| Diagnostics → Other Diagnostic Data    | No（本次无 Sentry DSN） | Sentry 原生代码保留；仅配置正式 DSN 才上报脱敏诊断。若发布时启用，须追加相应诊断类型，均不用于跟踪。              |
+| Surroundings → Environment Scanning    | No                      | 不扫描环境                                                                                                        |
+| Body → Hands                           | No                      | 无手部追踪                                                                                                        |
+| Body → Head                            | No                      | 无头部追踪；陀螺仪仅本地视差                                                                                      |
+| Other Data → Other Data Types          | Yes，条件               | 同步生日、出生时间、性别、时区、档案关系、界面/提醒设置与设备型号等                                               |
 
-选择 **Yes**。可选登录、同步、举报等会发送并保存账号或用户内容；不能因为支持匿名离线模式选择 No。数据只在设备处理的部分不申报，但同步到服务端的加密数据仍需申报。按 [Apple 的收集定义](https://developer.apple.com/app-store/app-privacy-details/) 判断。
+## 3. 用途、关联与跟踪
 
-## 2. 选择所有收集的数据类型（ASC 类型清单顺序）
+所有 Yes 的账号、名称、邮箱、位置、用户内容、用户 ID 和其他数据：App Functionality；Linked to You = Yes；Used to Track You = No。出生地坐标是手动输入的历史地点，不读取 GPS，但允许三位以上小数并可同步，保守申报 Precise Location。Customer Support 包括主动举报，不能声称不收集。
 
-「条件」表示相应功能启用或用户主动使用才收集；不是可以从标签中省略。两列均覆盖第一方所有可用账号功能。
+Data Used to Track You = 无；Third-party Advertising / Developer Advertising = 无；Purchase History / Advertising Data / Device ID 不选择。设备型号归 Other Data Types，不是设备广告标识。无 GA4、Meta Pixel 或全局点击分析。
 
-| 类型                                   | 本次 Release          | 服务启用后    | 实际数据或不收集原因                                                                                              |
-| -------------------------------------- | --------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Contact Info → Name                    | Yes，条件             | Yes，条件     | 档案名称/昵称可同步；与网站同账号已有显示名。Google profile scope 不代表 SDK 已上传姓名属性                       |
-| Contact Info → Email Address           | Yes，条件             | Yes，条件     | Apple 隐藏邮箱或正常邮箱、Google/魔法链接邮箱，第一方账号与邮件投递                                               |
-| Contact Info → Phone Number            | No                    | No            | 不要求电话                                                                                                        |
-| Contact Info → Physical Address        | No                    | No            | 无住址字段；出生城市不作为邮寄地址                                                                                |
-| Contact Info → Other User Contact Info | No                    | No            | 无其他联系字段                                                                                                    |
-| Health & Fitness → Health              | No                    | No            | 不使用 HealthKit，不收集健康表单                                                                                  |
-| Health & Fitness → Fitness             | No                    | No            | 摇卦加速度仅本地，不上传运动记录                                                                                  |
-| Financial Info → Payment Info          | No                    | No            | Apple 处理支付方式，App/RevenueCat不获取卡号                                                                      |
-| Financial Info → Credit Info           | No                    | No            | 无信用数据                                                                                                        |
-| Financial Info → Other Financial Info  | No                    | No            | 无资产/收入表单；订阅见 Purchase History                                                                          |
-| Location → Precise Location            | Yes，条件             | Yes，条件     | **保守申报**：手工出生地经纬度允许 ≥3 位小数并可同步；历史出生位置，不是 GPS/当前实时定位                         |
-| Location → Coarse Location             | Yes，条件             | Yes，条件     | 同步的城市级出生地；启用 AdMob 后还包括 IP 推测区域。两者用途和跟踪必须分开判断                                   |
-| Sensitive Info                         | No                    | No            | 不请求宗教、种族、性取向、遗传/生物识别等；生理性别/生日归 Other Data Types；自由文本不按所有可能敏感内容额外勾选 |
-| Contacts                               | No                    | No            | 不读取通讯录；合盘从本地档案选择                                                                                  |
-| User Content → Emails or Text Messages | No                    | No            | 无用户间聊天、收件箱读取；魔法链接是投递功能，AI 对话归 Other User Content                                        |
-| User Content → Photos or Videos        | No                    | No            | 不上传相册；分享卡是 App 生成输出                                                                                 |
-| User Content → Audio Data              | No                    | No            | 音效仅播放，不录音                                                                                                |
-| User Content → Gameplay Content        | No                    | No            | 非游戏                                                                                                            |
-| User Content → Customer Support        | Yes，条件             | Yes，条件     | 用户主动举报 AI 回答/内容反馈，服务端处理举报记录                                                                 |
-| User Content → Other User Content      | Yes，条件             | Yes，条件     | 同步报告/日记/问题；可选在线 AI 对话、导出/分享的报告                                                             |
-| Browsing History                       | No                    | No            | 不采集外部网站浏览史                                                                                              |
-| Search History                         | No                    | No            | 城市/学习搜索在设备，不上传查询记录                                                                               |
-| Identifiers → User ID                  | Yes，条件             | Yes，条件     | 第一方账号 ID/会话；启用 RevenueCat 后同一 User.id，绝不使用邮箱作为 appUserID                                    |
-| Identifiers → Device ID                | No                    | Yes，广告条件 | AdMob 设备/广告标识；IDFA 须 ATT 同意，非个性化广告也可能有其他 SDK 标识                                          |
-| Purchases → Purchase History           | No（购买不可用）      | Yes，条件     | RevenueCat/Apple 交易、产品、订阅、退款与权益；月订阅与非消耗型永久项                                             |
-| Usage Data → Product Interaction       | No（无广告）          | Yes，广告条件 | AdMob App/广告交互；无 GA4、Meta Pixel 或全局点击分析                                                             |
-| Usage Data → Advertising Data          | No                    | Yes，广告条件 | 广告展示、点击与广告测量                                                                                          |
-| Usage Data → Other Usage Data          | No                    | No            | 未另设全局使用追踪                                                                                                |
-| Diagnostics → Crash Data               | No（Sentry/广告关闭） | Yes           | Sentry 脱敏异常；AdMob 非用户关联崩溃日志                                                                         |
-| Diagnostics → Performance Data         | No（Sentry/广告关闭） | Yes           | Sentry 仅允许启动/星空/历史数值；AdMob 启动、卡顿、能耗                                                           |
-| Diagnostics → Other Diagnostic Data    | No（SDK关闭）         | Yes，保守     | 启用 Sentry 原生崩溃、SDK 技术环境信息时按最终 Privacy Report 确认                                                |
-| Surroundings → Environment Scanning    | No                    | No            | 不扫描环境                                                                                                        |
-| Body → Hands                           | No                    | No            | 无手部追踪                                                                                                        |
-| Body → Head                            | No                    | No            | 无头部追踪；陀螺仪仅本地视差                                                                                      |
-| Other Data → Other Data Types          | Yes，条件             | Yes，条件     | 同步生日、出生时间、性别、时区、档案关系、界面/提醒设置与设备型号等                                               |
+## 4. 实际处理与 SDK
 
-Precise Location 比旧 M15 草稿更保守：`components/birth-form.tsx` 的 `manual-lat/manual-lng` 允许用户输入坐标。当前主隐私清单没有此项，也未列 Name/Customer Support/Other Diagnostic Data；正式提交前必须让最终 Archive 报告、营养标签与实际功能一致。该发现只记录，不在本文件任务中改 App 清单。
+- SQLCipher / SecureStore：设备档案、报告、日记与令牌加密；匿名资料只有确认导入才上传。
+- Apple / Google / 邮箱登录：邮箱、第一方账号 ID、平台和设备型号用于登录与会话。Google openid/email/profile；Apple 仅邮箱。
+- 通知与小组件：本地排程与展示快照，不注册远程推送令牌，不上传出生资料。
+- Sentry：SDK 保留但本次没有正式 DSN，不初始化；未来启用必须申报 Crash Data、Performance Data 和实际原生诊断，不用于跟踪。
+- MiniMax：用户主动在线追问时，第一方网关发送去标识化的问题、对话、派生命盘与解读，排除原始出生信息与账号身份。第一方对话加密存储，可删除、导出与举报。
+- 删除：App「我的 → 设置」可直接删账号及反馈，立即注销会话、分享并清理当前设备账号缓存、提醒和小组件；服务端七天后硬删，请求上限 30 天。未导入匿名资料与其他离线设备缓存需单独清理。
+- 导出：App 导出报告；完整账户 JSON 通过同账号网站设置或 privacy@gavin.pub 请求。
 
-## 3. 对每个 Yes 类型依次填写三个问题
+## 5. 清单与提交
 
-题 1：此类型用于哪些目的？按下表勾选。题 2：是否与你的用户身份关联？按下表 Yes/No。题 3：是否用于跟踪？按下表 Yes/No。未列目的均不勾选；没有 Developer’s Advertising or Marketing 或 Other Purposes。
+Privacy Policy：对应 /en/privacy、/zh/privacy、/zh-TW/privacy；政策已改为目前不提供 App 内购买与广告，将来提供时会更新。本任务不部署，线上版本待 Owner 发布后核对。
 
-F = App Functionality；A = Analytics；P = Product Personalization；T = Third-Party Advertising。
-
-| 类型                             | 本次 Release：目的 / 关联 / 跟踪 | 服务启用后：目的 / 关联 / 跟踪        |
-| -------------------------------- | -------------------------------- | ------------------------------------- |
-| Name                             | F / Yes / No                     | F / Yes / No                          |
-| Email Address                    | F / Yes / No                     | F / Yes / No                          |
-| Precise Location（历史手工坐标） | F / Yes / No                     | F / Yes / No                          |
-| Coarse Location                  | F / Yes / No                     | F、T、A / Yes / Yes（仅广告数据）     |
-| Customer Support                 | F / Yes / No                     | F / Yes / No                          |
-| Other User Content               | F、P / Yes / No                  | F、P / Yes / No                       |
-| User ID                          | F / Yes / No                     | F、A / Yes / No                       |
-| Device ID                        | 不选择                           | T、A / Yes / Yes（广告同意后）        |
-| Purchase History                 | 不选择                           | F、A / Yes / No                       |
-| Product Interaction              | 不选择                           | T、A / Yes / Yes（广告同意后）        |
-| Advertising Data                 | 不选择                           | T、A / Yes / Yes（广告同意后）        |
-| Crash Data                       | 不选择                           | F、A、T / No / No                     |
-| Performance Data                 | 不选择                           | F、A、T / Yes / Yes（保守覆盖 AdMob） |
-| Other Diagnostic Data            | 不选择                           | F / Yes（保守覆盖原生 SDK） / No      |
-| Other Data Types                 | F、P / Yes / No                  | F、P / Yes / No                       |
-
-同一类型有多个来源时 ASC 填其并集：例如出生城市本身永不跟踪，但启用 AdMob 后 Coarse Location 要覆盖广告 SDK。不能把 IDFA 受 ATT 约束写成「拒绝后 SDK 零收集」。用途 A 也包括 RevenueCat 的交易看板；旧草稿仅填写 Purchase History → F 不足。
-
-## 4. SDK 与第一方实证
-
-- **RevenueCat**：`react-native-purchases` 10.11.x；只在登录且有 `appl_` key 后配置。`Purchases.configure({appUserID:userId})`；无邮箱、出生字段、customer attributes 或广告标识集成。收集购买历史和 User ID，用于功能及 RevenueCat 交易统计，不跨其他公司 App 跟踪。用途同时覆盖 F/A，见 [RevenueCat 官方填写说明](https://www.revenuecat.com/docs/platform-resources/apple-platform-resources/apple-app-privacy)。
-- **AdMob + UMP + ATT**：`react-native-google-mobile-ads` 17.2.x。Release 缺 App ID/单元 ID 不初始化；缺 App ID 原生 GMA 也不链接。先 UMP 再 ATT，拒绝后走非个性化广告。SDK 类型按 Google 官方披露覆盖 IP 区域、标识、广告/交互、崩溃、性能；不传生日、提问、邮箱 targeting。SDK 类型依据 [Google iOS 披露](https://developers.google.com/admob/ios/privacy/data-disclosure)。
-- **Sentry**：8.x 已依赖，但 `Boolean(DSN) && !__DEV__ && audit !== true` 才启用。本次无 DSN。启用后 `beforeSend` 丢弃 user/request/contexts/breadcrumbs/附件与自由文本，只留技术栈和白名单数值；replay、截图、视图树、日志、自动性能 tracing 均关闭。JS 已脱敏不等于原生崩溃完全匿名；本表保守列其他诊断关联，最终 Archive/真实事件复核。
-- **邮件**：移动端调用 Worker 的现有发信接口；`lib/auth-email.ts → platform/email.ts` 实际 production 为 Cloudflare Email binding，Node 兼容路径可用 Resend。申报邮箱用于 F；不申报读取用户邮箱内容，不发送营销邮件。
-- **Google / Apple**：Google OAuth scopes 为 openid/email/profile；iOS Apple 只请求 EMAIL scope（不请求 FULL_NAME）。Worker 保存 sub/email 与 User ID；Google 的 scope 不证明它另用于广告。Google 无 client ID 不可登录；服务启用前复核真实生产 OAuth。
-- **本地加密与会话**：SQLCipher 整库，32 字节密钥放 SecureStore，访问/刷新令牌也在 SecureStore。访问令牌 15 分钟，刷新令牌 60 天、使用时轮换并续期；设备管理可撤销，账号删除立即撤销全部会话。匿名资料不自动上传，用户确认导入后才同步；登录账号的档案、报告、日记和设置联网同步。通知在本地计算排程，不注册或上传远程推送令牌；小组件共享区域只写最多 8 天的展示快照，无出生信息（不是仅当天）。传感器、星表/离线城市搜索不上传。
-- **AI**：核心排盘无运行时模型；用户主动使用可选在线追问时，第一方网关向 **MiniMax** 发送去标识化的问题、近期对话、派生命盘要素与解读摘录。`apps/web/lib/llm/context.ts` 排除原始出生日期/时间/地点/坐标、账号 ID/令牌、邮箱与已知姓名；不应声称绝对匿名或保证自由文本无残留。第一方加密保存成功对话，用户可单独删除；删除报告/账号级联删除对话。主动举报发给第一方安全审核，归 Other User Content/Customer Support；第三方模型处理仍须披露。不可笼统声称整个 App 不使用 AI。
-- **购买与删除/导出**：Apple 处理 iOS 付款（Android 为 Google Play），App 与 RevenueCat 不接触卡号；RevenueCat 的 User ID/交易/权益处理同时用于功能与交易统计。App「我的 → 设置」可直接删账号及选择删除反馈，清除当前设备该账号缓存、提醒与小组件；服务端先软删除，满 7 天后每日清理硬删除，政策请求上限 30 天。删除或卸载 **不取消 Apple / Google 订阅**，也不自动清除未导入匿名资料及其他离线设备缓存。App 内导出的是报告文件；完整账户 JSON 通过同账号网站设置或 privacy@gavin.pub 请求，不能声称已有 App 内完整 JSON 导出按钮。依据 `account-service.ts`、`account/controller.ts`、`reports/actions.ts`。
-
-## 5. 政策链接与发布预览
-
-Privacy Policy URL：`https://tianji.gavin.pub/en/privacy`；简中 `/zh/privacy`；繁中 `/zh-TW/privacy`。Privacy Choices URL 可用对应政策页，页内解释导出、删除与广告撤回；这是可选字段，不使用需要登录的设置页当公开说明页。
-
-本次已在政策与条款的 zh / zh-TW / en 文案中新增「iOS / Android App」章节，更新日期为 2026-10-12，覆盖 SQLCipher/SecureStore、Apple/Google/邮箱登录与会话、同步、本地通知及小组件、商店购买/续期、AdMob/UMP/ATT、Sentry 开关、MiniMax 去标识化与第一方对话保留、App 内删除及实际导出路径、18+ 与 privacy@gavin.pub。**本次未部署**，公开 URL 仍需在发布后核对；不能用旧页面可访问性替代 App 政策验收。
-
-本次 Release 预览应有 Data Linked to You，无 Data Used to Track You；服务全启用后须出现广告类型的 Data Used to Track You，不能选 Data Not Collected。提交前对最终 Archive 生成 Xcode Privacy Report 并复核本表差异；本次模拟器不是最终签名 Archive。
-
-官方核对（2026-10-12）：[Apple 填写流程](https://developer.apple.com/help/app-store-connect/manage-app-information/manage-app-privacy/)、[Apple 类型与跟踪定义](https://developer.apple.com/app-store/app-privacy-details/)、[Google iOS 数据披露](https://developers.google.com/admob/ios/privacy/data-disclosure)、[RevenueCat 问卷](https://www.revenuecat.com/docs/platform-resources/apple-platform-resources/apple-app-privacy)。
+主 PrivacyInfo.xcprivacy 与 Expo 清单无跟踪、广告或购买类型，保留实际第一方数据和可选诊断。最终签名 Archive 仍需生成 Xcode Privacy Report，与实际登录、同步、举报及 Sentry 配置逐项核对；模拟器 Release 不代替签名 Archive。

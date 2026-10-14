@@ -100,10 +100,15 @@ appId: pub.gavin.tianji
 - tapOn:
     id: iching-number-0
 - inputText: '0'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: iching-number-1
 - tapOn:
     id: iching-number-1
 - inputText: '5'
-- hideKeyboard
+# DESIGN-GAP: iOS may already dismiss the numeric keyboard during scrolling; a label tap safely dismisses it in either state.
+- tapOn: '第 2 个数'
 - scrollUntilVisible:
     element:
       id: iching-begin
@@ -121,6 +126,15 @@ appId: pub.gavin.tianji
 - eraseText
 - inputText: '3'
 - hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: iching-number-1
+- tapOn:
+    id: iching-number-1
+- eraseText
+- inputText: '5'
+# DESIGN-GAP: iOS may already dismiss the numeric keyboard during scrolling; a label tap safely dismisses it in either state.
+- tapOn: '第 2 个数'
 - scrollUntilVisible:
     element:
       id: iching-begin

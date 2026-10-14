@@ -42,6 +42,8 @@ it('is off by default even with configured Stripe credentials, and returns 404 w
   expect(mocks.auth).not.toHaveBeenCalled();
 });
 it('refreshes only the session identity and handles missing provider configuration', async () => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'true');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'true');
   mocks.auth.mockResolvedValue(null);
   expect(await refreshMembershipAction()).toEqual({ result: 'error' });
   expect(mocks.sync).not.toHaveBeenCalled();
@@ -61,4 +63,12 @@ it('selects mobile stores and validates missing or unsafe store URLs', () => {
   expect(appStoreUrl('')).toBeNull();
   expect(appStoreUrl('javascript:alert(1)')).toBeNull();
   expect(appStoreUrl('https://apps.apple.com/app/test')).toBe('https://apps.apple.com/app/test');
+});
+
+it('disabled membership never queries authentication or RevenueCat', async () => {
+  vi.stubEnv('FEATURE_MEMBERSHIP', 'false');
+  vi.stubEnv('NEXT_PUBLIC_FEATURE_MEMBERSHIP', 'false');
+  expect(await refreshMembershipAction()).toEqual({ result: 'skipped' });
+  expect(mocks.auth).not.toHaveBeenCalled();
+  expect(mocks.sync).not.toHaveBeenCalled();
 });

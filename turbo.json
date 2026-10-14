@@ -15,7 +15,9 @@
         "PLATFORM",
         "NEXT_PUBLIC_APP_STORE_URL",
         "NEXT_PUBLIC_PLAY_STORE_URL",
-        "MOBILE_ANDROID_CERT_SHA256"
+        "MOBILE_ANDROID_CERT_SHA256",
+        "FEATURE_MEMBERSHIP",
+        "NEXT_PUBLIC_FEATURE_MEMBERSHIP"
       ]
     },
     "dev": {
@@ -61,7 +63,8 @@
     "FEATURE_WEB_PAYMENTS",
     "CF_ANALYTICS_TOKEN",
     "CF_ANALYTICS_ACCOUNT_ID",
-    "CF_BILLING_CYCLE_DAY"
+    "CF_BILLING_CYCLE_DAY",
+    "FEATURE_MEMBERSHIP"
   ],
   "globalDependencies": ["prisma/schema.prisma", "apps/web/migrations/**", "apps/web/messages/**"]
 }

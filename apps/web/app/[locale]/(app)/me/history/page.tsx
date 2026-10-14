@@ -1,4 +1,5 @@
 export const dynamic = 'force-dynamic';
+import { membershipEnabled } from '@/lib/membership';
 import { auth } from '@/lib/auth';
 import { getCopy } from '@/i18n/get-copy';
 import { LocalHistory } from '@/components/report/local-history';
@@ -22,7 +23,9 @@ export default async function HistoryPage() {
   return (
     <section className="history-page">
       <h1 className="type-h1">{t('report.history')}</h1>
-      {session.user.plan === 'free' ? <p>{t('me.history.freeLimit')}</p> : null}
+      {membershipEnabled() && session.user.plan === 'free' ? (
+        <p>{t('me.history.freeLimit')}</p>
+      ) : null}
       {result.ok ? (
         <HistoryList initial={result.data} />
       ) : (

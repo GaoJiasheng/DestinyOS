@@ -1,3 +1,4 @@
+import { ownerFeaturePlan } from './membership';
 import { z } from 'zod';
 import { cookies, headers } from 'next/headers';
 import { auth } from './auth';
@@ -40,7 +41,7 @@ export async function limitReadingWork() {
   assertRateLimit(
     await ratelimit(
       session?.user.id
-        ? session.user.plan === 'pro'
+        ? ownerFeaturePlan(session.user.plan) === 'pro'
           ? 'reading.pro'
           : 'reading.free'
         : 'reading.anon',

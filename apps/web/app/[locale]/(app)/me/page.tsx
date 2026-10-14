@@ -1,3 +1,4 @@
+import { membershipEnabled } from '@/lib/membership';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { getProfileAction, listReadingsAction } from '@/app/readings/actions';
@@ -34,7 +35,9 @@ export default async function MePage() {
           <LocalDisplayName />
         )}
         {!user ? <Link href="/auth/login">{t('nav.login')}</Link> : null}
-        <p>{t(user?.plan === 'pro' ? 'me.plan.pro' : 'me.plan.free')}</p>
+        {membershipEnabled() ? (
+          <p>{t(user?.plan === 'pro' ? 'me.plan.pro' : 'me.plan.free')}</p>
+        ) : null}
       </div>
       <ProfileSummary profile={profile?.ok && profile.data ? profile.data : undefined} />
       <section className="report-card">
@@ -58,11 +61,13 @@ export default async function MePage() {
         )}
       </section>
       <nav className="report-card settings-fields">
-        {(['profiles', 'birth', 'history', 'journal', 'settings', 'billing'] as const).map((k) => (
-          <Link key={k} href={`/me/${k}`}>
-            {t(`me.${k}`)}
-          </Link>
-        ))}
+        {(['profiles', 'birth', 'history', 'journal', 'settings', 'billing'] as const)
+          .filter((k) => k !== 'billing' || membershipEnabled())
+          .map((k) => (
+            <Link key={k} href={`/me/${k}`}>
+              {t(`me.${k}`)}
+            </Link>
+          ))}
       </nav>
     </section>
   );
