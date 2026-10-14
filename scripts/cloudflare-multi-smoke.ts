@@ -4,6 +4,8 @@ import { resolve } from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { localWorkerConfigs } from './cloudflare-local-configs';
 import { p75 } from './perf-ttfb-support';
+import { dailyExamplePath } from '../apps/web/lib/daily-example';
+import { localToday } from '../apps/web/lib/daily-date';
 import { mobileMultiSmoke } from './cloudflare-mobile-smoke';
 const port = 8797;
 const base = `http://localhost:${port}`;
@@ -74,27 +76,28 @@ try {
   // DESIGN-GAP: The first actual application request follows Wrangler's ready marker; startup/tooling latency is reported separately from cold-request TTFB.
   const cold = await probe('/zh');
   assert.ok(cold.ttfbMs <= 400, `Cold first request ${cold.ttfbMs}ms exceeds 400ms`);
-  assert.equal(cold.renderer, 'artifact');
+  assert.equal(cold.renderer, 'static-assets');
+  assert.equal(cold.timing, null, 'Public HTML must bypass Worker execution');
   const results = [];
   for (const path of ['/zh', '/en', '/zh/tarot', '/zh/qimen', '/zh/learn', '/zh/today']) {
     for (const prefetch of [false, true]) {
       const samples = [];
       for (let index = 0; index < 10; index++)
         samples.push(
-          await probe(`${path}?_rsc=sample-${index}`, {
+          await probe(`${path}.rsc?_rsc=sample-${index}`, {
             RSC: '1',
             ...(prefetch ? { 'Next-Router-Prefetch': '1' } : {}),
           }),
         );
       assert.ok(
-        samples.every((sample) => sample.renderer === 'artifact'),
+        samples.every((sample) => sample.renderer === 'static-assets' && sample.timing === null),
         `${path}: public Flight initialized compute`,
       );
       const observed = p75(samples.map((sample) => sample.ttfbMs));
       assert.ok(observed <= 300, `${path}: P75 ${observed}ms exceeds 300ms`);
       assert.ok(
-        samples.filter((sample) => sample.cache === 'HIT').length >= 8,
-        `${path}: prefetch=${prefetch} lacks cache hits`,
+        samples.every((sample) => sample.cache === null),
+        `${path}: Static Flight executed Worker cache`,
       );
       if (['/zh/learn', '/zh/today'].includes(path))
         assert.ok(
@@ -104,11 +107,24 @@ try {
       results.push({ path, prefetch, p75Ms: observed, samples });
     }
   }
-  const logged = await probe('/zh/learn?_rsc=logged', {
+  const logged = await probe('/zh/learn.rsc?_rsc=logged', {
     RSC: '1',
     cookie: 'authjs.session-token=test-session',
   });
-  assert.equal(logged.cache, null, 'Logged-in Flight must bypass shared storage');
+  assert.equal(logged.cache, null, 'Public Flight must bypass Worker storage');
+  assert.equal(logged.renderer, 'static-assets');
+  for (const path of ['/robots.txt', '/sitemap.xml', '/manifest.webmanifest']) {
+    const metadata = await probe(path);
+    assert.equal(metadata.renderer, 'static-assets');
+    assert.equal(metadata.timing, null);
+  }
+  for (const locale of ['zh', 'en', 'zh-TW'] as const) {
+    const example = await probe(
+      dailyExamplePath(locale, 'Asia/Singapore', localToday('Asia/Singapore')),
+    );
+    assert.equal(example.renderer, 'static-assets');
+    assert.equal(example.timing, null, 'Public demonstration report must not initialize compute');
+  }
   const publicImage = await probe('/api/og/public?locale=zh&path=/learn');
   assert.equal(publicImage.type, 'image/png', 'Compute → media binding must render a real PNG');
   const traditionalImage = await probe('/api/og/public?locale=zh-TW&path=/learn');
@@ -158,6 +174,31 @@ try {
       },
     );
     assert.equal(image.type, 'image/png');
+  }
+  // DESIGN-GAP: Static assets remain readable during maintenance; costly actions still trip the live gate.
+  await fetch(`${base}/_smoke/circuit`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ state: 'open' }),
+  });
+  try {
+    assert.equal((await probe('/zh')).renderer, 'static-assets');
+    assert.equal((await probe('/zh.rsc', { RSC: '1' })).renderer, 'static-assets');
+    assert.equal(
+      (
+        await fetch(`${base}/_actions/zh/today`, {
+          method: 'POST',
+          headers: { 'Next-Action': 'smoke' },
+        })
+      ).status,
+      503,
+    );
+  } finally {
+    await fetch(`${base}/_smoke/circuit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ state: 'closed' }),
+    });
   }
   const auth = await probe('/api/auth/providers');
   assert.ok(auth.bytes > 0);

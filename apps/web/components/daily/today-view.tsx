@@ -5,10 +5,11 @@ import { DailyLuckyRow } from './daily-lucky-row';
 import { useRef } from 'react';
 import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { dailyStars } from '@tianji/engine/daily';
+import type { KnowledgeBundle } from '@tianji/content';
 import { useDailyReport } from './use-daily-report';
 import { useSearchParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { type Locale } from '@tianji/shared';
+import { type BirthInput, type Locale } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { Link } from '@/i18n/navigation';
@@ -23,6 +24,9 @@ import { AdSlot } from '@/components/report/report-section';
 export function TodayView({
   signedIn,
   profileId,
+  birth,
+  seedIdentity,
+  knowledge,
   tz,
   plan,
   vedicUsed,
@@ -30,6 +34,9 @@ export function TodayView({
 }: {
   signedIn: boolean;
   profileId?: string;
+  birth?: BirthInput;
+  seedIdentity?: string;
+  knowledge?: KnowledgeBundle;
   tz?: string | null;
   plan: 'free' | 'pro';
   vedicUsed: boolean;
@@ -58,6 +65,9 @@ export function TodayView({
   } = useDailyReport({
     signedIn,
     profileId,
+    birth,
+    seedIdentity,
+    knowledge,
     tz,
     locale,
     requestedDate,

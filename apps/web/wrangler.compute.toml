@@ -16,6 +16,8 @@ cpu_ms = 5000
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+# DESIGN-GAP: This private service must execute mutations even when their restored URL matches a public HTML asset; the main entry owns asset-first delivery.
+run_worker_first = true
 
 [[services]]
 binding = "WORKER_SELF_REFERENCE"

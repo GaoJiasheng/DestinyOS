@@ -7,6 +7,7 @@
   Cache-Control: public, max-age=86400
 /_data/*
   Cache-Control: public, max-age=86400
+  X-Destiny-Renderer: static-assets
 # DESIGN-GAP: Association files are served directly by Workers Assets, including the extensionless Apple JSON file.
 /.well-known/*
   Content-Type: application/json

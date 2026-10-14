@@ -6,7 +6,8 @@ import { loadKnowledge } from './knowledge';
 import { cacheRead, cacheWrite } from './cache';
 import { ApiError } from './api-error';
 import { ReportSchema } from './reading-schema';
-import { calculateDaily, dailyCacheKey, dailyTTL, type DailyReport } from './daily-compute';
+import type { DailyReport } from './daily-compute';
+import { dailyCacheKey, dailyTTL } from './daily-cache-identity';
 /** Owner-only daily cache, with zone validation to prevent reuse after travel or settings changes. */
 export async function dailyForUser(
   userId: string,
@@ -41,6 +42,8 @@ export async function dailyForUser(
     place: profile.encPlace ? JSON.parse(profile.encPlace) : undefined,
     gender: profile.gender,
   });
+  // DESIGN-GAP: A valid owner KV hit must not initialize natal engines or interpretation.
+  const { calculateDaily } = await import('./daily-compute');
   const value = calculateDaily(
     birth,
     date,

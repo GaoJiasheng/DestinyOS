@@ -1,3 +1,5 @@
+import { installStaticFlightFetch } from './lib/static-flight';
+if (process.env.NEXT_PUBLIC_STATIC_ASSETS === 'true') installStaticFlightFetch();
 import { navigationStarted } from './lib/navigation-feedback';
 import { beforeSend } from './lib/sentry';
 import { sanitize } from './lib/privacy';

@@ -6,15 +6,13 @@ import { requestIp } from '@/lib/request-ip';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
 import { cookies, headers } from 'next/headers';
-import { currentProfile, ownedProfile } from '@/lib/profile-service';
+import { currentProfile, ownedProfile, profileBirth } from '@/lib/profile-service';
 import { auth } from '@/lib/auth';
 import { recordEvent } from '@/lib/events';
 import { getDb } from '@/lib/db';
-import { dailyRangeDates, type DailyRangeDay } from '@tianji/engine/daily';
+import type { DailyRangeDay } from '@tianji/engine/daily';
 import type { CalendarEvent } from '@tianji/engine/calendar';
-import { dailyRangeForUser, calendarYearForUser } from '@/lib/calendar-service';
-import { dailyForUser } from '@/lib/daily-service';
-import { localToday } from '@/lib/daily-compute';
+import { localToday } from '@/lib/daily-date';
 import { ApiError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
 import { actionError } from '@/lib/api-error';
@@ -67,6 +65,8 @@ export async function getDailyAction(raw: unknown = {}): Promise<ActionResult<Da
       throw new ApiError('E_DATE_OUT_OF_RANGE', 'Date outside engine range', 400);
     assertRateLimit(await ratelimit('daily', user.id));
     const language = input.locale ?? fromDbLocale(user.locale);
+    // DESIGN-GAP: Import personalized computation only after owner validation; anonymous daily shells never initialize engines.
+    const { dailyForUser } = await import('@/lib/daily-service');
     const data = input.profileId
       ? await dailyForUser(user.id, date, tz, language, input.profileId)
       : await dailyForUser(user.id, date, tz, language);
@@ -94,6 +94,23 @@ export async function recordAnonymousDailyViewAction(locale: string) {
   }
 }
 
+/** Record owner daily visits after local calculation without transmitting birth, chart or journal data. */
+export async function recordOwnerDailyViewAction(locale: string) {
+  try {
+    const language = z.nativeEnum(Locale).parse(locale);
+    const session = await auth();
+    if (!session?.user.id || !(await ratelimit('daily', session.user.id)).success) return;
+    await recordEvent('daily.viewed', {
+      userId: session.user.id,
+      system: 'daily',
+      locale: language,
+      plan: session.user.plan,
+    });
+  } catch {
+    /* Telemetry never blocks a computed daily report. */
+  }
+}
+
 /** Owner-only inclusive calendar range; rejects reversed or over-31-day requests before computing. */
 export async function getDailyRangeAction(raw: unknown): Promise<ActionResult<DailyRangeDay[]>> {
   try {
@@ -106,6 +123,8 @@ export async function getDailyRangeAction(raw: unknown): Promise<ActionResult<Da
       })
       .strict()
       .parse(raw);
+    const { dailyRangeDates } = await import('@tianji/engine/daily');
+    const { dailyRangeForUser } = await import('@/lib/calendar-service');
     dailyRangeDates(input.from, input.to, input.tz);
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
@@ -133,6 +152,7 @@ export async function getCalendarYearAction(raw: unknown): Promise<ActionResult<
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
     assertRateLimit(await ratelimit('daily', session.user.id));
+    const { calendarYearForUser } = await import('@/lib/calendar-service');
     return {
       ok: true,
       data: await calendarYearForUser(session.user.id, input.year, input.tz, input.locale),
@@ -143,7 +163,8 @@ export async function getCalendarYearAction(raw: unknown): Promise<ActionResult<
 }
 
 /** Owner-only daily context; never part of a shared page or prefetch response. */
-export async function todayContextAction() {
+export async function todayContextAction(locale: string = 'zh') {
+  const language = z.nativeEnum(Locale).parse(locale);
   const session = await auth();
   if (!session?.user.id) return null;
   const [user, profile, config] = await Promise.all([
@@ -155,7 +176,14 @@ export async function todayContextAction() {
     where: { userId: session.user.id, profileId: profile?.id, system: 'vedic' },
     select: { id: true },
   });
+  // DESIGN-GAP: Return owned inputs and the current published daily bundle only through this authenticated, uncached action; date switches compute in a route-local browser worker with the identical server seed.
+  const knowledge = profile
+    ? await (await import('@/lib/knowledge')).loadKnowledge('daily', language)
+    : undefined;
   return {
+    birth: profile ? profileBirth(profile) : undefined,
+    seedIdentity: profile ? `${session.user.id}|${profile.id}` : undefined,
+    knowledge,
     profileId: profile?.id,
     version: profile?.version,
     tz: user?.tz,

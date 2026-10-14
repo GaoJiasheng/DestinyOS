@@ -5,21 +5,33 @@ import { todayContextAction } from '@/app/today/actions';
 import { RouteSkeleton } from '@/components/ui/route-skeleton';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
-import { TodayView } from './today-view';
+import dynamic from 'next/dynamic';
+import { useLocale } from 'next-intl';
+// DESIGN-GAP: Full viewport prefetch may parse the daily shell, but its engine/UI only downloads when the page mounts.
+const TodayView = dynamic(() => import('./today-view').then((module) => module.TodayView), {
+  ssr: false,
+  loading: () => <RouteSkeleton kind="daily" />,
+});
 /** Keep the public shell instant, loading authenticated context through an uncached Action. */
 export function TodayClient() {
   const signedIn = useSignedIn();
+  const locale = useLocale();
   const t = useCopy();
   const [context, setContext] = useState<Awaited<ReturnType<typeof todayContextAction>>>(null);
   const [pending, start] = useTransition();
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
   useEffect(() => {
+    const changed = () => setRetry((value) => value + 1);
+    window.addEventListener('tianji:profile-changed', changed);
+    return () => window.removeEventListener('tianji:profile-changed', changed);
+  }, []);
+  useEffect(() => {
     if (!signedIn) return;
     let live = true;
     start(async () => {
       try {
-        const result = await todayContextAction();
+        const result = await todayContextAction(locale);
         if (live) {
           setContext(result);
           setError(false);
@@ -31,7 +43,7 @@ export function TodayClient() {
     return () => {
       live = false;
     };
-  }, [signedIn, retry]);
+  }, [signedIn, retry, locale]);
   if (signedIn && error)
     return (
       <div role="alert">
@@ -47,6 +59,9 @@ export function TodayClient() {
       key={context ? `${context.profileId}:${context.version}` : 'local'}
       signedIn={signedIn}
       profileId={context?.profileId}
+      birth={context?.birth}
+      seedIdentity={context?.seedIdentity}
+      knowledge={context?.knowledge}
       tz={context?.tz}
       plan={context?.plan ?? 'free'}
       vedicUsed={context?.vedicUsed ?? false}

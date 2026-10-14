@@ -4,6 +4,8 @@ import { resolve } from 'node:path';
 import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
+  // DESIGN-GAP: Static Flight file transport is enabled only for the Workers build, preserving local Node development.
+  env: { NEXT_PUBLIC_STATIC_ASSETS: process.env.PLATFORM === 'cloudflare' ? 'true' : 'false' },
   transpilePackages: [
     '@tianji/shared',
     '@tianji/engine',

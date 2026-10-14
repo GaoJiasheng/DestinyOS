@@ -1,29 +1,28 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Temporal } from '@js-temporal/polyfill';
-import type { BirthInput, Locale } from '@tianji/shared';
+import { DailyChartSchema, type BirthInput, type Locale } from '@tianji/shared';
+import { ReportSchema } from '@/lib/reading-schema';
+import { dailyExample, dailyExamplePath } from '@/lib/daily-example';
+import type { KnowledgeBundle } from '@tianji/content';
 import type { DailyReport } from '@/lib/daily-compute';
-import { getDailyAction, recordAnonymousDailyViewAction } from '@/app/today/actions';
+import {
+  getDailyAction,
+  recordAnonymousDailyViewAction,
+  recordOwnerDailyViewAction,
+} from '@/app/today/actions';
 import { readAnonymous } from '@/lib/anonymous-storage';
 import { localToday } from '@/lib/daily-date';
 import { calculateDailyInWorker } from '@/lib/daily-worker';
-const demo: BirthInput = {
-  calendar: 'gregorian',
-  year: 1990,
-  month: 5,
-  day: 15,
-  hour: 8,
-  minute: 30,
-  timeUnknown: false,
-  gender: 'male',
-  place: { name: 'Example', lat: 39.9, lng: 116.4, tz: 'Asia/Shanghai' },
-};
 /** Load owner or device daily reports; cancel worker results when date/profile inputs change.
  * @param options Selected civil date, IANA timezone and presentation preferences.
  */
 export function useDailyReport({
   signedIn,
   profileId,
+  birth,
+  seedIdentity,
+  knowledge,
   tz,
   locale,
   requestedDate,
@@ -32,6 +31,9 @@ export function useDailyReport({
 }: {
   signedIn: boolean;
   profileId?: string;
+  birth?: BirthInput;
+  seedIdentity?: string;
+  knowledge?: KnowledgeBundle;
   tz?: string | null;
   locale: Locale;
   requestedDate: string | null;
@@ -68,7 +70,9 @@ export function useDailyReport({
       const date = Temporal.PlainDate.from(requestedDate ?? localToday(zone))
         .add({ days: offset })
         .toString();
-      if (signedIn) {
+      const year = Temporal.PlainDate.from(date).year;
+      if (year < 1900 || year > 2100) throw new Error('E_DATE_OUT_OF_RANGE');
+      if (signedIn && !birth) {
         const result = await getDailyAction({ date, tz: zone, locale, profileId });
         if (result.ok) {
           if (active) {
@@ -84,18 +88,45 @@ export function useDailyReport({
       const input = device.then(async (data) => {
         const hash = await crypto.subtle.digest(
           'SHA-256',
-          new TextEncoder().encode(`${data?.anonId ?? 'example'}|${date}`),
+          new TextEncoder().encode(`${birth ? seedIdentity : (data?.anonId ?? 'example')}|${date}`),
         );
         const seed = Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, '0')).join(
           '',
         );
-        return { profile: data?.profile ?? demo, date, tz: zone, seed, locale };
+        return {
+          profile: birth ?? data?.profile ?? dailyExample,
+          date,
+          tz: zone,
+          seed,
+          locale,
+          knowledge,
+        };
       });
-      const computed = await calculateDailyInWorker(input, controller.signal, locale);
       const data = await device;
+      let computed: DailyReport | null = null;
+      if (!birth && !data?.profile && process.env.NEXT_PUBLIC_STATIC_ASSETS === 'true') {
+        // DESIGN-GAP: Public date+locale+zone snapshots avoid loading the daily worker for example-only visitors; validate assets and retain offline/client fallback.
+        try {
+          const response = await fetch(dailyExamplePath(locale, zone, date), {
+            signal: controller.signal,
+          });
+          if (response.ok) {
+            const value: unknown = await response.json();
+            if (value && typeof value === 'object' && 'chart' in value && 'report' in value) {
+              const chart = DailyChartSchema.parse(value.chart);
+              const report = ReportSchema.parse(value.report);
+              if (chart.date.local === date && chart.date.tz === zone && report.locale === locale)
+                computed = { chart, report };
+            }
+          }
+        } catch {
+          /* Missing/stale/unsupported snapshots keep the original deterministic calculation. */
+        }
+      }
+      if (!computed) computed = await calculateDailyInWorker(input, controller.signal, locale);
       if (active) {
         setValue(computed);
-        setExample(!data?.profile);
+        setExample(!birth && !data?.profile);
         window.dispatchEvent(new CustomEvent('tianji:event', { detail: { name: 'daily.view' } }));
         if (
           localStorage.getItem('tianji-panchang') === null &&
@@ -114,21 +145,34 @@ export function useDailyReport({
       active = false;
       controller.abort();
     };
-  }, [signedIn, profileId, zone, offset, locale, retry, requestedDate]);
+  }, [
+    signedIn,
+    profileId,
+    birth,
+    seedIdentity,
+    knowledge,
+    zone,
+    offset,
+    locale,
+    retry,
+    requestedDate,
+  ]);
   useEffect(() => {
-    if (signedIn || !value) return;
+    if (!value || (signedIn && !birth)) return;
     // DESIGN-GAP: Record anonymous visit dimensions after the first result paint; telemetry's RSC response must not delay the locally computed content.
     let second = 0;
     const first = requestAnimationFrame(() => {
       second = requestAnimationFrame(() => {
-        void recordAnonymousDailyViewAction(locale).catch(() => undefined);
+        void (
+          signedIn ? recordOwnerDailyViewAction(locale) : recordAnonymousDailyViewAction(locale)
+        ).catch(() => undefined);
       });
     });
     return () => {
       cancelAnimationFrame(first);
       cancelAnimationFrame(second);
     };
-  }, [signedIn, value, locale]);
+  }, [signedIn, birth, value, locale]);
   return {
     offset,
     setOffset,

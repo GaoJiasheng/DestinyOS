@@ -113,7 +113,10 @@ export async function workerFetch(
       .open(`destiny-public-${env.CF_VERSION_METADATA?.id ?? 'local'}`)
       .catch(() => undefined);
     return finish(
-      cache ? await publicCachedFetch(request, cache, waitUntil, scoped) : await scoped(request),
+      await publicCachedFetch(request, cache, waitUntil, scoped, {
+        store: env.CACHE,
+        version: env.CF_VERSION_METADATA?.id ?? 'local',
+      }),
       'public',
     );
   }

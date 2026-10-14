@@ -11,9 +11,19 @@ import {
   VedicChartSchema,
   TarotChartSchema,
 } from '@tianji/shared';
-import { ZiweiGrid, ZiweiTimeRequired } from '@/components/charts/ziwei-grid';
-import { DivinationChart } from '@/components/charts/divination-chart';
-import { SpreadLayout } from '@/components/tarot/spread-layout';
+// DESIGN-GAP: Load system-specific chart views only for the validated active report.
+const ZiweiGrid = dynamic(() =>
+  import('@/components/charts/ziwei-grid').then((module) => module.ZiweiGrid),
+);
+const ZiweiTimeRequired = dynamic(() =>
+  import('@/components/charts/ziwei-grid').then((module) => module.ZiweiTimeRequired),
+);
+const DivinationChart = dynamic(() =>
+  import('@/components/charts/divination-chart').then((module) => module.DivinationChart),
+);
+const SpreadLayout = dynamic(() =>
+  import('@/components/tarot/spread-layout').then((module) => module.SpreadLayout),
+);
 import { NatalWheel } from '../charts/natal-wheel';
 import { VedicSouthChart } from '../charts/vedic-south-chart';
 import { useCopy } from '@/i18n/use-copy';

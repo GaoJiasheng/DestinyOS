@@ -30,6 +30,9 @@ export function shellMessages(messages: AbstractIntlMessages): AbstractIntlMessa
   if (admin && typeof admin === 'object' && admin.content)
     selected.admin = { content: admin.content };
 
+  const charts = messages.charts;
+  if (charts && typeof charts === 'object' && charts.planet)
+    selected.charts = { planet: charts.planet };
   const bazi = messages.bazi;
   if (bazi && typeof bazi === 'object' && bazi.stems && bazi.branches)
     selected.bazi = { stems: bazi.stems, branches: bazi.branches };

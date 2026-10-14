@@ -68,6 +68,13 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const)
       ok: true,
       value: calculateDaily(input.profile, input.date, input.tz, input.seed, locale, knowledge),
     });
+    // Published owner knowledge must override the immutable anonymous fallback without changing charts or seeded choices.
+    const published = { ...knowledge, knowledgeVersion: 'published-worker-test' };
+    listener?.({ data: { ...input, knowledge: published } });
+    expect(JSON.parse(JSON.stringify(response))).toEqual({
+      ok: true,
+      value: calculateDaily(input.profile, input.date, input.tz, input.seed, locale, published),
+    });
   });
 
 for (const locale of ['zh', 'en', 'zh-TW'] as const)

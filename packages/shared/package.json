@@ -9,7 +9,8 @@
     "./brand": "./src/brand.ts",
     "./enums": "./src/enums.ts",
     "./schemas/*": "./src/schemas/*.ts",
-    "./membership": "./src/membership.ts"
+    "./membership": "./src/membership.ts",
+    "./constants/*": "./src/constants/*.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

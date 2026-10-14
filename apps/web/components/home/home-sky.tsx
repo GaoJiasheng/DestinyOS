@@ -34,21 +34,32 @@ export function HomeSky({
     let idle = 0,
       timer = 0,
       paint = 0;
-    paint = requestAnimationFrame(() => {
-      timer = window.setTimeout(() => {
-        if (typeof window.requestIdleCallback === 'function')
-          idle = window.requestIdleCallback(update, { timeout: 3000 });
-        else update();
-      }, 3000);
-    });
-    media.addEventListener('change', update);
-    connection?.addEventListener('change', update);
+    // DESIGN-GAP: Preserve desktop WebGL after first pointer/keyboard intent and idle; mobile keeps the painted galaxy and CSS animation.
+    const intent = () => {
+      if (matchMedia('(max-width: 767px)').matches) return;
+      paint = requestAnimationFrame(() => {
+        timer = window.setTimeout(() => {
+          if (typeof window.requestIdleCallback === 'function')
+            idle = window.requestIdleCallback(update);
+          else update();
+        }, 3000);
+      });
+    };
+    window.addEventListener('pointermove', intent, { once: true });
+    window.addEventListener('keydown', intent, { once: true });
+    const changed = () => {
+      if (document.querySelector('[data-starfield-canvas]')) update();
+    };
+    media.addEventListener('change', changed);
+    connection?.addEventListener('change', changed);
     return () => {
+      window.removeEventListener('pointermove', intent);
+      window.removeEventListener('keydown', intent);
       cancelAnimationFrame(paint);
       if (idle) cancelIdleCallback(idle);
       clearTimeout(timer);
-      media.removeEventListener('change', update);
-      connection?.removeEventListener('change', update);
+      media.removeEventListener('change', changed);
+      connection?.removeEventListener('change', changed);
     };
   }, [reducedMotion]);
   useEffect(() => {

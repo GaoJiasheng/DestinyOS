@@ -4,13 +4,18 @@ import {
   type WorkerContext,
 } from './lib/platform/worker-runtime';
 import { scheduledMaintenance } from './lib/platform/scheduled';
-import { publicArtifact } from './lib/platform/public-artifact';
+import { publicArtifact, publicActionRequest } from './lib/platform/public-artifact';
 /** Small entry serves public build artifacts without importing Next, Prisma, engines or media. */
 async function fetchRequest(
   request: Request,
   env: WorkerEnvironment,
   ctx: WorkerContext,
 ): Promise<Response> {
+  // DESIGN-GAP: Missing/stale example snapshots fall back to the page's pure client engine, without booting Next for an asset 404.
+  if (request.method === 'GET' && new URL(request.url).pathname.startsWith('/_data/daily-example/'))
+    return new Response(null, { status: 404, headers: { 'Cache-Control': 'public, max-age=300' } });
+  if (new URL(request.url).pathname.startsWith('/_actions/'))
+    request = publicActionRequest(request) ?? request;
   if (/^\/api\/v1\/mobile(?:\/|$)/.test(new URL(request.url).pathname)) {
     // DESIGN-GAP: Compute alone handles mobile authentication, maintenance and callbacks; never cache native traffic at the public entry.
     const response = env.COMPUTE

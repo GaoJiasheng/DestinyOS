@@ -3,17 +3,16 @@ import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { SystemArt } from '@/components/art/system-art';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+// DESIGN-GAP: Landing prefetch needs tarot schemas/constants only; the shared barrel also initializes unrelated date/chart schemas.
 import {
   CategorySchema,
   SpreadKeySchema,
-  TAROT_SPREADS,
   type Category,
-  type SpreadKey,
-} from '@tianji/shared';
+} from '@tianji/shared/schemas/charts/tarot';
+import { TAROT_SPREADS, type SpreadKey } from '@tianji/shared/constants/tarot-spreads';
 import { useRouter } from '@/i18n/navigation';
-import { updateAnonymous } from '@/lib/anonymous-storage';
 import { Button } from '@/components/ui/button';
-import { SpreadThumbnail } from './spread-layout';
+import { SpreadThumbnail } from './spread-thumbnail';
 // DESIGN-GAP: Undocumented ritual control keys use tarot.*; canonical card/position names come from the bilingual content tables.
 /** Choose a documented spread and store the private question inside the existing encrypted device envelope. */
 export function TarotSelection() {
@@ -43,6 +42,8 @@ export function TarotSelection() {
           run(async () => {
             setBusy(true);
             setError(false);
+            // DESIGN-GAP: Question storage/schema decryption is needed only after submission, never during landing prefetch.
+            const { updateAnonymous } = await import('@/lib/anonymous-storage');
             await updateAnonymous((data) => ({
               ...data,
               settings: {

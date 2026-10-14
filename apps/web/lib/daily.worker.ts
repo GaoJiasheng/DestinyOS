@@ -16,7 +16,7 @@ self.addEventListener('message', (event: MessageEvent<DailyWorkerRequest>) => {
         tz,
         seed,
         locale,
-        knowledge as unknown as KnowledgeBundle,
+        event.data.knowledge ?? (knowledge as unknown as KnowledgeBundle),
       ),
     };
   } catch {

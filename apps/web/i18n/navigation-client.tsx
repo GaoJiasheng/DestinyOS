@@ -1,11 +1,22 @@
 'use client';
 import { forwardRef, useMemo, useEffect, useRef, useTransition, type ComponentProps } from 'react';
+import { useLocale } from 'next-intl';
+import { isStaticPublicPath } from '@/lib/static-public-path';
 import { Link, useRouter } from './navigation-core';
 import { navigationStarted, navigationFinished } from '@/lib/navigation-feedback';
 /** Next's viewport prefetch plus explicit keyboard, hover and touch intent. */
 export const PrefetchLink = forwardRef<HTMLAnchorElement, ComponentProps<typeof Link>>(
   function PrefetchLink({ prefetch = true, onMouseEnter, onTouchStart, onFocus, ...props }, ref) {
     const router = useRouter();
+    const locale = useLocale();
+    const href = typeof props.href === 'string' ? props.href : props.href.pathname;
+    const path = href?.split(/[?#]/)[0];
+    const localized =
+      path && /^\/(?:zh|en|zh-TW)(?:\/|$)/.test(path)
+        ? path
+        : `/${locale}${path === '/' ? '' : (path ?? '')}`;
+    // DESIGN-GAP: Static shells use full viewport prefetch; private/dynamic screens prefetch only their loading boundary rather than unrelated feature JS.
+    const strategy = prefetch === true && !isStaticPublicPath(localized) ? null : prefetch;
     const warm = () => {
       if (prefetch === false) return;
       const href = typeof props.href === 'string' ? props.href : props.href.pathname;
@@ -31,7 +42,7 @@ export const PrefetchLink = forwardRef<HTMLAnchorElement, ComponentProps<typeof 
       <Link
         {...props}
         ref={ref}
-        prefetch={prefetch}
+        prefetch={strategy}
         onMouseEnter={(event) => {
           warm();
           onMouseEnter?.(event);

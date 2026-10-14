@@ -1,108 +1,13 @@
-import { isArtSystem } from '@tianji/ui-core/art';
-import { SystemArt } from '@/components/art/system-art';
-import { publicRouteMetadata } from '@/lib/public-seo';
 import { notFound } from 'next/navigation';
-import { auth } from '@/lib/auth';
-import { TarotMessages } from '@/components/tarot/tarot-messages';
-import { DailyTarotCard } from '@/components/tarot/daily-tarot-card';
 import { setRequestLocale } from 'next-intl/server';
-import { getCopy } from '@/i18n/get-copy';
-import { Link } from '@/i18n/navigation';
-import { Button } from '@/components/ui/button';
-import type { MessageKey } from '@/i18n/catalog';
-const destinations: Record<string, MessageKey> = {
-  today: 'nav.today',
-  bazi: 'nav.bazi',
-  ziwei: 'nav.ziwei',
-  iching: 'nav.iching',
-  qimen: 'nav.qimen',
-  tarot: 'nav.tarot',
-  astrology: 'nav.astrology',
-  numerology: 'nav.numerology',
-  vedic: 'nav.vedic',
-  learn: 'nav.learn',
-  me: 'nav.me',
-  pricing: 'billing.title',
-  'auth/login': 'nav.login',
-  about: 'legal.about',
-  privacy: 'legal.privacy',
-  terms: 'legal.terms',
-  disclaimer: 'legal.disclaimer',
-  contact: 'legal.contact',
-  'iching/cast': 'nav.iching',
-};
-// DESIGN-GAP: Documented navigation destinations receive explicit M0 placeholders until their tasks ship.
-/** Render only documented shell destinations; unknown paths still return a real 404. */
-export default async function Placeholder({
+/** Unknown paths retain the localized 404; every documented destination has its own implemented route. */
+export default async function UnknownPage({
   params,
 }: {
   params: Promise<{ locale: string; slug: string[] }>;
 }) {
-  const { locale, slug } = await params;
+  const { locale } = await params;
   setRequestLocale(locale);
-  const path = slug.join('/');
-  const key = destinations[path];
-  if (!key) notFound();
-  const t = await getCopy();
-  if (path === 'today') {
-    const session = await auth();
-    return (
-      <section className="tarot-page">
-        <h1 className="type-h1">{t('nav.today')}</h1>
-        <TarotMessages daily>
-          <DailyTarotCard userId={session?.user?.id} />
-        </TarotMessages>
-      </section>
-    );
-  }
-  if (['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(path))
-    return (
-      <section className="status-page">
-        {isArtSystem(path) ? <SystemArt system={path} banner priority /> : null}
-        <h1 className="type-h1">{t(key)}</h1>
-        <Button asChild>
-          <Link href={`/${path}/new`}>{t('form.birth.submit')}</Link>
-        </Button>
-      </section>
-    );
-  if (path === 'me')
-    return (
-      <section className="status-page">
-        <h1 className="type-h1">{t(key)}</h1>
-        <div className="hero-actions">
-          <Button asChild>
-            <Link href="/me/birth">{t('form.birth.title')}</Link>
-          </Button>
-          <Button variant="secondary" asChild>
-            <Link href="/me/history">{t('report.history')}</Link>
-          </Button>
-        </div>
-      </section>
-    );
-  return (
-    <section className="status-page">
-      <p className="eyebrow">{t(key)}</p>
-      <h1 className="type-h1">{t('common.comingSoon.title')}</h1>
-      <p className="muted">{t('common.comingSoon.body')}</p>
-      {path === 'disclaimer' ? <p className="legal-body">{t('legal.disclaimer.full')}</p> : null}
-      <div className="hero-actions">
-        <Button asChild>
-          <Link href="/">{t('common.backHome')}</Link>
-        </Button>
-        <Button variant="secondary" asChild>
-          <Link href="/dev/tokens">{t('common.tokensLink')}</Link>
-        </Button>
-      </div>
-    </section>
-  );
-}
-
-/** Indexable system destinations receive precise language alternates; private shell destinations stay excluded. */
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string[] }>;
-}) {
-  const p = await params;
-  return publicRouteMetadata(Promise.resolve(p), `/${p.slug.join('/')}`);
+  // DESIGN-GAP: Retire unreachable M0 placeholders. Their daily-card imports were included in the homepage's fallback Flight tree and downloaded unrelated engines.
+  notFound();
 }

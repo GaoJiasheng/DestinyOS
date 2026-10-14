@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /s/
+Disallow: /*/me
+Disallow: /*/auth/
+Disallow: /*/today
+Disallow: /*/new
+Disallow: /*/r/
+Sitemap: https://tianji.gavin.pub/sitemap.xml

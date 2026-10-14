@@ -44,3 +44,19 @@ export async function publicArtifact(
   headers.set('X-Destiny-Renderer', 'artifact');
   return new Response(response.body, { headers });
 }
+
+/** Restore the original public page only for Next actions arriving through the separate mutation transport. */
+export function publicActionRequest(request: Request): Request | null {
+  const url = new URL(request.url);
+  const path = url.pathname.slice('/_actions'.length);
+  if (
+    !url.pathname.startsWith('/_actions/') ||
+    request.method !== 'POST' ||
+    !request.headers.has('next-action') ||
+    !routes[path]
+  )
+    return null;
+  // DESIGN-GAP: Static Assets handles matching POSTs as 405; mutations use an unmatched prefix, then retain Next's original URL, authentication, origin checks and body.
+  url.pathname = path;
+  return new Request(url, request);
+}

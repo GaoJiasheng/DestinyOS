@@ -25,7 +25,11 @@ import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import { ShareDialog } from '@/components/share/share-dialog';
 import { ChatPanel } from './chat-panel';
 import { ExportMenu } from './export-menu';
-import { ReportProfessional } from './report-professional';
+import dynamic from 'next/dynamic';
+// DESIGN-GAP: Detailed tables load only when the professional-view control is opened.
+const ReportProfessional = dynamic(() =>
+  import('./report-professional').then((module) => module.ReportProfessional),
+);
 import { ReportHeadline } from './report-headline';
 import { ChartPreview } from './chart-preview';
 import { SectionNav, ReportSection, AdSlot, AdviceList } from './report-section';

@@ -2,8 +2,6 @@ import { membershipEnabled } from './membership';
 import { createHash, randomUUID } from 'node:crypto';
 import { Prisma, type Reading } from '@prisma/client';
 import { z } from 'zod';
-import { normalizeBirth } from '@tianji/engine/common';
-import { baziWarnings } from '@tianji/engine/bazi';
 import { localizeReport } from '@tianji/interpret';
 import {
   BaziChartSchema,
@@ -18,8 +16,6 @@ import {
 import { getDb } from './db';
 import { currentProfile, profileBirth, ownedProfile } from './profile-service';
 import { recordEvent } from './events';
-import { loadKnowledge } from './knowledge';
-import { computeDivinationResult } from './divination';
 import { stripPII } from './strip-pii';
 import { isUnderThirteen } from './birth-form';
 import { ApiError } from './api-error';
@@ -45,6 +41,7 @@ export function checkAge(birth: BirthInput, locale: Locale) {
 export async function generateReading(req: ReadingRequest, now: string, userId?: string) {
   // DESIGN-GAP: Load computation only for report generation, never merely to read a stored report.
   const { compute } = await import('@tianji/engine');
+  const { normalizeBirth } = await import('@tianji/engine/common');
   const { interpret } = await import('@tianji/interpret');
   const birth = req.birth ? normalizeBirth(req.birth, req.locale) : null;
   if (req.birth) checkAge(req.birth, req.locale);
@@ -77,7 +74,7 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
     ['iching', 'qimen'].includes(req.system) &&
     typeof req.question === 'object' &&
     ('at' in req.question || 'meihua' in req.question)
-      ? computeDivinationResult(req)
+      ? (await import('./divination')).computeDivinationResult(req)
       : compute({
           system: req.system,
           name: req.name,
@@ -94,6 +91,7 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
             req.system === 'tarot' && req.category ? CategorySchema.parse(req.category) : undefined,
         });
 
+  const { loadKnowledge } = await import('./knowledge');
   const knowledge = await loadKnowledge(req.system, req.locale);
   const report = interpret({
     system: req.system,
@@ -128,6 +126,7 @@ export async function readingView(
   const snapshot = ReadingRequestSchema.parse(JSON.parse(row.encInput));
   if (!report) {
     const { interpret } = await import('@tianji/interpret');
+    const { loadKnowledge } = await import('./knowledge');
     report = json(
       interpret({
         system,
@@ -159,13 +158,17 @@ export async function readingView(
         select: { isCurrent: true, version: true },
       })
     : null;
+  // DESIGN-GAP: Stored report reads load only their birth-warning helpers, never other system engines or knowledge.
+  const { normalizeBirth } = await import('@tianji/engine/common');
   const normalized = snapshot.birth ? normalizeBirth(snapshot.birth, locale) : null;
   const bazi = row.system === 'bazi' ? BaziChartSchema.safeParse(row.chart) : null;
   const astro = row.system === 'astrology' ? AstroChartSchema.safeParse(row.chart) : null;
   const vedic = row.system === 'vedic' ? VedicChartSchema.safeParse(row.chart) : null;
   const warnings = [
     ...(normalized?.warnings ?? []),
-    ...(normalized && bazi?.success ? baziWarnings(normalized, bazi.data) : []),
+    ...(normalized && bazi?.success
+      ? (await import('@tianji/engine/bazi')).baziWarnings(normalized, bazi.data)
+      : []),
     ...((astro?.success && astro.data.noonChart) || (vedic?.success && vedic.data.noonChart)
       ? [{ code: 'W_NOON_CHART' as const, messageKey: 'engine.warnings.W_NOON_CHART' }]
       : []),

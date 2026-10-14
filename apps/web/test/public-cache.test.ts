@@ -164,3 +164,74 @@ it('continues serving when Cache API reads or writes fail', async () => {
   expect(await response.text()).toBe('available');
   await expect(Promise.all(pending)).resolves.toBeDefined();
 });
+it('restores public responses in a different colo from versioned KV and survives corrupt/failing KV', async () => {
+  const values = new Map<string, string>();
+  const store = {
+    get: vi.fn(async (key: string) => values.get(key) ?? null),
+    put: vi.fn(async (key: string, value: string) => {
+      values.set(key, value);
+    }),
+  };
+  const global = {
+    store: store as unknown as import('@cloudflare/workers-types').KVNamespace,
+    version: 'build-A',
+  };
+  const pending: Promise<unknown>[] = [];
+  const wait = (promise: Promise<unknown>) => pending.push(promise);
+  const dispatch = vi.fn(
+    async () => new Response('public', { headers: { 'Content-Type': 'text/html' } }),
+  );
+  const request = new Request('https://example.test/zh');
+  await publicCachedFetch(request, memoryCache(), wait, dispatch, global);
+  await Promise.all(pending);
+  const otherColo = memoryCache();
+  const response = await publicCachedFetch(request, otherColo, wait, dispatch, global);
+  expect(response.headers.get('X-Destiny-Cache')).toBe('KV-HIT');
+  expect(await response.text()).toBe('public');
+  expect(dispatch).toHaveBeenCalledOnce();
+  await Promise.all(pending);
+  expect(
+    (await publicCachedFetch(request, otherColo, wait, dispatch, global)).headers.get(
+      'X-Destiny-Cache',
+    ),
+  ).toBe('HIT');
+  await publicCachedFetch(request, undefined, wait, dispatch, { ...global, version: 'build-B' });
+  expect(dispatch).toHaveBeenCalledTimes(2);
+  await Promise.all(pending);
+  for (const key of values.keys()) values.set(key, '{corrupt');
+  await publicCachedFetch(request, undefined, wait, dispatch, global);
+  expect(dispatch).toHaveBeenCalledTimes(3);
+  store.get.mockRejectedValueOnce(new Error('KV unavailable'));
+  await publicCachedFetch(request, undefined, wait, dispatch, global);
+  expect(dispatch).toHaveBeenCalledTimes(4);
+  await Promise.all(pending);
+});
+it('refreshes stale global responses without serving expired data in new colos', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] });
+  const values = new Map<string, string>();
+  const global = {
+    store: {
+      get: async (key: string) => values.get(key) ?? null,
+      put: async (key: string, value: string) => {
+        values.set(key, value);
+      },
+    } as unknown as import('@cloudflare/workers-types').KVNamespace,
+    version: 'build',
+  };
+  const pending: Promise<unknown>[] = [];
+  const wait = (promise: Promise<unknown>) => pending.push(promise);
+  const dispatch = vi.fn(
+    async () => new Response('public', { headers: { 'Content-Type': 'text/html' } }),
+  );
+  const request = new Request('https://example.test/zh');
+  await publicCachedFetch(request, undefined, wait, dispatch, global);
+  await Promise.all(pending);
+  vi.setSystemTime(Date.now() + 3601_000);
+  const stale = await publicCachedFetch(request, memoryCache(), wait, dispatch, global);
+  expect(stale.headers.get('X-Destiny-Cache')).toBe('STALE');
+  await Promise.all(pending);
+  vi.setSystemTime(Date.now() + 3901_000);
+  const expired = await publicCachedFetch(request, undefined, wait, dispatch, global);
+  expect(expired.headers.get('X-Destiny-Cache')).toBe('MISS');
+  await Promise.all(pending);
+});

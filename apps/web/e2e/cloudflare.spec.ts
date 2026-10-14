@@ -12,7 +12,7 @@ for (const locale of ['zh', 'en'] as const) {
   }) => {
     await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
     await page.goto(`/${locale}`);
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('h1:visible')).toBeVisible();
     const providers = await request.get('/api/auth/providers');
     expect(providers.status()).toBe(200);
     expect(await providers.json()).toHaveProperty('google');
@@ -56,7 +56,7 @@ for (const locale of ['zh', 'en'] as const) {
 }
 
 // The local-only test entry returns a mock session; the UI and persistence use the actual deployed application modules.
-test('mock login → birth form → encrypted D1 reading, KV daily hit, 429 and exports', async ({
+test('mock login → birth form → encrypted D1 reading, client daily calculation, 429 and exports', async ({
   page,
   request,
 }) => {
@@ -115,10 +115,8 @@ test('mock login → birth form → encrypted D1 reading, KV daily hit, 429 and 
   await page.goto('/zh/today');
   await expect(page.locator('[data-daily-block]')).toHaveCount(13);
   const first = (await (await request.get(stateUrl)).json()) as typeof state;
-  expect(first.cache.length).toBeGreaterThan(0);
-  expect(Object.values(first.cacheWrites).reduce((sum, writes) => sum + writes, 0)).toBeGreaterThan(
-    0,
-  );
+  // DESIGN-GAP: Signed-in daily calculation is now local; owned inputs/knowledge hydrate once, and no daily computation is written by the server.
+  expect(first.cacheWrites).toEqual({});
   await page.reload();
   await expect(page.locator('[data-daily-block]')).toHaveCount(13);
   const second = (await (await request.get(stateUrl)).json()) as typeof state;
@@ -187,10 +185,12 @@ test('cost circuit blocks pages and expensive APIs; Cron stays reachable and man
   ]);
   await request.post('/_smoke/circuit', { data: { state: 'open' } });
   try {
+    for (const path of ['/zh/pricing', '/zh-TW/me/billing', '/en/today']) {
+      const response = await request.get(path);
+      expect(response.status()).toBe(200);
+      expect(response.headers()['x-destiny-renderer']).toBe('static-assets');
+    }
     for (const path of [
-      '/zh/pricing',
-      '/zh-TW/me/billing',
-      '/en/today',
       '/api/export',
       '/api/v1/readings/test/chat',
       '/api/v1/og/daily',
@@ -221,7 +221,7 @@ test('cost circuit blocks pages and expensive APIs; Cron stays reachable and man
       .selectOption('auto');
     await page.getByRole('button', { name: zh['admin.config.save'], exact: true }).click();
     await expect(page.locator('p[role="status"]')).toHaveText(zh['admin.saved']);
-    expect((await request.get('/en/pricing')).status()).toBe(503);
+    expect((await request.get('/api/export')).status()).toBe(503);
     expect((await request.post('/api/v1/stripe/webhook', { data: {} })).status()).toBe(404);
   } finally {
     await request.post('/_smoke/circuit', { data: { state: 'closed' } });
@@ -229,8 +229,8 @@ test('cost circuit blocks pages and expensive APIs; Cron stays reachable and man
   expect((await request.get('/en/pricing')).status()).toBe(200);
 });
 
-// DESIGN-GAP: Exercise real workerd Cache API and client navigation, rather than accepting fast SSR as an edge hit.
-test('public HTML cache, lightweight health, RSC isolation and deferred qimen remain functional', async ({
+// DESIGN-GAP: Public assets must bypass both Workers even with session cookies and Flight/prefetch headers.
+test('public Static Assets, lightweight health, Flight and deferred qimen remain functional', async ({
   page,
   request,
 }) => {
@@ -247,13 +247,11 @@ test('public HTML cache, lightweight health, RSC isolation and deferred qimen re
     const first = await request.get(path);
     expect(first.status()).toBe(200);
     await first.body();
-    await expect
-      .poll(async () => (await request.get(path)).headers()['x-destiny-cache'])
-      .toBe('HIT');
     const hit = await request.get(path);
-    expect(hit.headers()['cache-control']).toContain('s-maxage=3600');
+    expect(hit.headers()['x-destiny-renderer']).toBe('static-assets');
+    expect(hit.headers()['cache-control']).toContain('must-revalidate');
     expect(hit.headers()['set-cookie'] ?? '').not.toContain('session-token');
-    expect(hit.headers()['server-timing']).not.toContain('open-next-init');
+    expect(hit.headers()['server-timing']).toBeUndefined();
     if (path === '/zh' || path === '/en')
       expect((await hit.body()).length).toBeLessThanOrEqual(120000);
     if (path === '/zh/bazi' || path === '/zh/qimen' || path === '/zh/tarot') {
@@ -261,26 +259,19 @@ test('public HTML cache, lightweight health, RSC isolation and deferred qimen re
       expect(await hit.text()).toContain(`data-art="systems/${system}-banner"`);
     }
   }
-  const rsc = await request.get('/zh/tarot?_rsc=perf', { headers: { RSC: '1' } });
-  expect(rsc.headers()['content-type']).toContain('text/x-component');
-  expect(rsc.headers()['cache-control']).toContain('s-maxage=3600');
   for (const prefetch of [false, true]) {
-    await expect
-      .poll(
-        async () =>
-          (
-            await request.get('/zh/tarot?_rsc=another-opaque-value', {
-              headers: { RSC: '1', ...(prefetch ? { 'Next-Router-Prefetch': '1' } : {}) },
-            })
-          ).headers()['x-destiny-cache'],
-      )
-      .toBe('HIT');
+    const flight = await request.get('/zh/tarot.rsc?_rsc=perf', {
+      headers: { RSC: '1', ...(prefetch ? { 'Next-Router-Prefetch': '1' } : {}) },
+    });
+    expect(flight.headers()['content-type']).toContain('text/x-component');
+    expect(flight.headers()['x-destiny-renderer']).toBe('static-assets');
+    expect(flight.headers()['server-timing']).toBeUndefined();
   }
-  const loggedFlight = await request.get('/zh/learn?_rsc=private', {
+  const loggedFlight = await request.get('/zh/learn.rsc?_rsc=private', {
     headers: { RSC: '1', Cookie: 'authjs.session-token=private-test' },
   });
   expect(loggedFlight.headers()['x-destiny-cache']).toBeUndefined();
-  expect(loggedFlight.headers()['cache-control']).toContain('private');
+  expect(loggedFlight.headers()['x-destiny-renderer']).toBe('static-assets');
   expect((await request.get('/zh?perf=1')).headers()['x-destiny-cache']).toBeUndefined();
   const health = await request.get('/api/v1/health');
   expect(await health.json()).toMatchObject({ ok: true, db: true, redis: true });

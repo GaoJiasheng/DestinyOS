@@ -23,7 +23,8 @@ for (const [locale, catalog] of [
     expect(t('art.states.error')).toBe(catalog['art.states.error']);
     expect(messages.glossary).toBeUndefined();
     expect(messages.rectification).toBeUndefined();
-    expect(messages.charts).toBeUndefined();
+    expect(Object.keys(messages.charts ?? {})).toEqual(['planet']);
+    expect(t('charts.planet.sun')).toBe(catalog['charts.planet.sun']);
     expect(Buffer.byteLength(JSON.stringify(messages))).toBeLessThan(60000);
   });
 }

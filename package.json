@@ -77,7 +77,8 @@
     "test:web-nopay:e2e": "playwright test --config playwright.web-nopay.config.ts",
     "perf:ttfb": "tsx scripts/perf-ttfb.ts",
     "cf:media:build": "tsx scripts/media-worker-build.ts",
-    "cf:multi:smoke": "tsx scripts/cloudflare-multi-smoke.ts"
+    "cf:multi:smoke": "tsx scripts/cloudflare-multi-smoke.ts",
+    "perf:web:3": "tsx scripts/perf-web-3.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

@@ -1,25 +1,20 @@
 import { SystemArt } from '@/components/art/system-art';
-import { auth } from '@/lib/auth';
-import { listProfilesAction } from '@/app/profiles/actions';
-import { SynastryForm } from '@/components/forms/synastry-form';
-import { getCopy } from '@/i18n/get-copy';
-export const dynamic = 'force-dynamic';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { SynastryClient } from '@/components/forms/synastry-client';
+import { NextIntlClientProvider } from 'next-intl';
+import { featureMessages } from '@/i18n/feature-messages';
+export const revalidate = 3600;
 export const metadata = { robots: { index: false, follow: false } };
-/** Saved paired inputs are resolved server-side by owner ID; no birth information enters URLs. */
-export default async function SynastryPage() {
-  const session = await auth();
-  const result = session?.user.id ? await listProfilesAction() : null;
-  if (result && !result.ok)
-    return <p role="alert">{(await getCopy())('report.error.E_INTERNAL')}</p>;
+/** Pre-render the public shell, resolving owned paired inputs only after hydration. */
+export default async function SynastryPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <SystemArt system="synastry" banner priority />
-      <SynastryForm
-        key={result?.ok ? (result.data.selectedId ?? 'empty') : 'anonymous'}
-        signedIn={!!session?.user.id}
-        profiles={result?.ok ? result.data.items : undefined}
-        selectedId={result?.ok ? result.data.selectedId : undefined}
-      />
+      <NextIntlClientProvider messages={featureMessages(await getMessages())}>
+        <SynastryClient />
+      </NextIntlClientProvider>
     </>
   );
 }

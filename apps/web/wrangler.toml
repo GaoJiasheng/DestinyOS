@@ -14,6 +14,9 @@ cpu_ms = 5000
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+# DESIGN-GAP: Canonical public HTML and Flight bypass Worker execution; actions and unmatched routes continue through the cost gate.
+run_worker_first = ["/api/*", "/admin/*", "/s/*", "/_smoke/*"]
+html_handling = "drop-trailing-slash"
 
 [[services]]
 binding = "COMPUTE"

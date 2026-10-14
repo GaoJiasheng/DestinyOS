@@ -70,6 +70,8 @@ jobs:
       # DESIGN-GAP: Enforce main/media raw <=8MB and compute raw <=24MB; every service also has an 8MB gzip upload gate, including WASM.
       - run: pnpm cf:build
       - run: pnpm cf:multi:smoke
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm perf:web:3
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -81,5 +83,6 @@ jobs:
             apps/web/.wrangler/budget-check*/wrangler.log
             apps/web/.open-next/server-functions/default/apps/web/handler.mjs.meta.json
             .test-data/perf-web-2.json
+            .test-data/perf-web-3-*.json
             .test-data/multi-worker.log
           if-no-files-found: error

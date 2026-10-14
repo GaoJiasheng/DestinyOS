@@ -1,6 +1,7 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
+import { useSignedIn } from '@/components/providers';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
 import { getProfileAction } from '@/app/readings/actions';
@@ -19,6 +20,20 @@ const HomeSky = dynamic(() => import('./home-sky').then((module) => module.HomeS
 /** Resolve saved/local profiles after hydration without embedding private information in cached HTML. */
 export function HomeInsights() {
   const t = useCopy();
+  const signedIn = useSignedIn();
+  const glimpse = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    // DESIGN-GAP: Below-fold astronomical computation starts when the glimpse is visible, never on the first-screen timer.
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) {
+        setVisible(true);
+        observer.disconnect();
+      }
+    });
+    if (glimpse.current) observer.observe(glimpse.current);
+    return () => observer.disconnect();
+  }, []);
   const [motion, setMotion] = useState<boolean | null>(null);
   const [allowLocation, setAllowLocation] = useState(false);
   const [daily, setDaily] = useState<DailyChart | null>(null);
@@ -45,6 +60,7 @@ export function HomeInsights() {
     return () => document.removeEventListener('click', track);
   }, []);
   useEffect(() => {
+    if (!visible) return;
     let live = true;
     const run = async () => {
       const [local, saved, preference] = await Promise.all([
@@ -91,12 +107,13 @@ export function HomeInsights() {
       live = false;
       clearInterval(day);
     };
-  }, [revision]);
+  }, [revision, visible]);
   return (
     <>
-      <HomeSky reducedMotion={motion} allowLocation={allowLocation} />
+      <HomeSky reducedMotion={motion ?? false} allowLocation={allowLocation || signedIn} />
       <section
         className="home-glimpse home-section"
+        ref={glimpse}
         aria-labelledby="glimpse-title"
         aria-busy={!sky && !error}
       >

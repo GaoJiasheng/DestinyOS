@@ -129,3 +129,19 @@ await writeFile(
   resolve('packages/shared/src/traditional-ui-generated.json'),
   JSON.stringify([...uiPairs]) + '\n',
 );
+
+// DESIGN-GAP: Root failures must not bundle the full catalogs; extract existing labels at build time.
+const errors: Record<string, { errors: { generic: string }; common: { retry: string } }> = {};
+for (const locale of ['zh', 'en', 'zh-TW']) {
+  const catalog = JSON.parse(
+    await readFile(resolve(`apps/web/messages/${locale}.json`), 'utf8'),
+  ) as Record<string, string>;
+  errors[locale] = {
+    errors: { generic: catalog['errors.generic']! },
+    common: { retry: catalog['common.retry']! },
+  };
+}
+await writeFile(
+  resolve('apps/web/i18n/error-messages.json'),
+  JSON.stringify(errors, null, 2) + '\n',
+);
