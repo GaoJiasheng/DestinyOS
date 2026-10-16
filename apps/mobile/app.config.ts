@@ -51,7 +51,7 @@ const config: ExpoConfig = {
   orientation: 'portrait',
   userInterfaceStyle: 'dark',
   ios: {
-    buildNumber: '1',
+    buildNumber: '2',
     bundleIdentifier: 'pub.gavin.tianji',
     privacyManifests: privacyManifest,
     appleTeamId: 'D33974QQTD',
