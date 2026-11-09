@@ -332,118 +332,74 @@
       "confidence": 1
     },
     "useGod": {
-      "favorable": [
-        "wood",
-        "fire",
-        "water"
-      ],
-      "unfavorable": [
-        "earth",
-        "metal"
-      ],
+      "favorable": ["wood", "fire", "water"],
+      "unfavorable": ["earth", "metal"],
       "group": "drain",
       "tiaoHou": "water",
-      "rationale": [
-        "bazi.rules.drain",
-        "bazi.rules.tiao_hou_water"
-      ]
+      "rationale": ["bazi.rules.drain", "bazi.rules.tiao_hou_water"]
     },
     "pattern": {
       "name": "qi_sha",
       "viaStem": false,
-      "notes": [
-        "bazi.rules.no_transformation"
-      ]
+      "notes": ["bazi.rules.no_transformation"]
     },
     "relations": {
       "stems": [],
       "branches": [
         {
           "type": "punish",
-          "pillars": [
-            "day",
-            "hour"
-          ],
-          "branches": [
-            "chen",
-            "chen"
-          ],
+          "pillars": ["day", "hour"],
+          "branches": ["chen", "chen"],
           "complete": true
         }
       ]
     },
-    "voidBranches": [
-      "shen",
-      "you"
-    ],
+    "voidBranches": ["shen", "you"],
     "shenSha": [
       {
         "name": "ci_guan",
         "basedOn": "day_stem",
-        "hitsPillar": [
-          "month"
-        ]
+        "hitsPillar": ["month"]
       },
       {
         "name": "guo_yin",
         "basedOn": "day_stem",
-        "hitsPillar": [
-          "day",
-          "hour"
-        ]
+        "hitsPillar": ["day", "hour"]
       },
       {
         "name": "tian_de_gui_ren",
         "basedOn": "month_branch",
-        "hitsPillar": [
-          "month"
-        ]
+        "hitsPillar": ["month"]
       },
       {
         "name": "yue_de_gui_ren",
         "basedOn": "month_branch",
-        "hitsPillar": [
-          "year",
-          "day",
-          "hour"
-        ]
+        "hitsPillar": ["year", "day", "hour"]
       },
       {
         "name": "jiang_xing",
         "basedOn": "year_branch",
-        "hitsPillar": [
-          "year"
-        ]
+        "hitsPillar": ["year"]
       },
       {
         "name": "hua_gai",
         "basedOn": "day_branch",
-        "hitsPillar": [
-          "day",
-          "hour"
-        ]
+        "hitsPillar": ["day", "hour"]
       },
       {
         "name": "gu_chen_gua_su",
         "basedOn": "year_branch",
-        "hitsPillar": [
-          "day",
-          "hour"
-        ]
+        "hitsPillar": ["day", "hour"]
       },
       {
         "name": "tian_luo_di_wang",
         "basedOn": "day_branch",
-        "hitsPillar": [
-          "month"
-        ]
+        "hitsPillar": ["month"]
       },
       {
         "name": "kui_gang",
         "basedOn": "day_branch",
-        "hitsPillar": [
-          "day"
-        ]
+        "hitsPillar": ["day"]
       }
     ],
     "luck": {
@@ -586,62 +542,32 @@
         "relationsToNatal": [
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "shen",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["shen", "si"],
             "complete": true
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "shen",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["shen", "si"],
             "complete": true
           },
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "shen",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["shen", "si"],
             "complete": true
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "shen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["shen", "chen"],
             "complete": false
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "shen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["shen", "chen"],
             "complete": false
           }
         ],
@@ -656,38 +582,20 @@
         "relationsToNatal": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "you",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["you", "si"],
             "complete": false
           },
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "you",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["you", "chen"],
             "complete": true
           },
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "you",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["you", "chen"],
             "complete": true
           }
         ],
@@ -702,38 +610,20 @@
         "relationsToNatal": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "xu",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["xu", "wu"],
             "complete": false
           },
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "xu",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["xu", "chen"],
             "complete": true
           },
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "xu",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["xu", "chen"],
             "complete": true
           }
         ],
@@ -748,28 +638,16 @@
         "relationsToNatal": [
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "hai",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["hai", "si"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "hai",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["hai", "shen"],
             "complete": true
           }
         ],
@@ -783,52 +661,28 @@
         "relationsToNatal": [
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "zi",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["zi", "wu"],
             "complete": true
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "zi",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["zi", "chen"],
             "complete": false
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "zi",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["zi", "chen"],
             "complete": false
           }
         ],
         "relationsToLuck": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "zi",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["zi", "shen"],
             "complete": false
           }
         ],
@@ -842,50 +696,26 @@
         "relationsToNatal": [
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "chou",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["chou", "wu"],
             "complete": true
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "chou",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["chou", "si"],
             "complete": false
           },
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "chou",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["chou", "chen"],
             "complete": true
           },
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "chou",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["chou", "chen"],
             "complete": true
           }
         ],
@@ -900,64 +730,34 @@
         "relationsToNatal": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "yin",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["yin", "wu"],
             "complete": false
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "yin",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["yin", "si"],
             "complete": true
           },
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "yin",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["yin", "si"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "yin",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["yin", "shen"],
             "complete": true
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "yin",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["yin", "shen"],
             "complete": true
           }
         ],
@@ -971,38 +771,20 @@
         "relationsToNatal": [
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "mao",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["mao", "wu"],
             "complete": true
           },
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "mao",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["mao", "chen"],
             "complete": true
           },
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "mao",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["mao", "chen"],
             "complete": true
           }
         ],
@@ -1017,40 +799,22 @@
         "relationsToNatal": [
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "chen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["chen", "chen"],
             "complete": true
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "chen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["chen", "chen"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "chen",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["chen", "shen"],
             "complete": false
           }
         ],
@@ -1065,38 +829,20 @@
         "relationsToLuck": [
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "si",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["si", "shen"],
             "complete": true
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "si",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["si", "shen"],
             "complete": true
           },
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "si",
-              "shen"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["si", "shen"],
             "complete": true
           }
         ],
@@ -1110,14 +856,8 @@
         "relationsToNatal": [
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "wu",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["wu", "wu"],
             "complete": true
           }
         ],
@@ -1132,14 +872,8 @@
         "relationsToNatal": [
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "wei",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["wei", "wu"],
             "complete": true
           }
         ],
@@ -1154,62 +888,32 @@
         "relationsToNatal": [
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "shen",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["shen", "si"],
             "complete": true
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "shen",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["shen", "si"],
             "complete": true
           },
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "shen",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["shen", "si"],
             "complete": true
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "shen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["shen", "chen"],
             "complete": false
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "shen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["shen", "chen"],
             "complete": false
           }
         ],
@@ -1224,52 +928,28 @@
         "relationsToNatal": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "you",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["you", "si"],
             "complete": false
           },
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "you",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["you", "chen"],
             "complete": true
           },
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "you",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["you", "chen"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "you",
-              "you"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["you", "you"],
             "complete": true
           }
         ],
@@ -1283,52 +963,28 @@
         "relationsToNatal": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "xu",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["xu", "wu"],
             "complete": false
           },
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "xu",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["xu", "chen"],
             "complete": true
           },
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "xu",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["xu", "chen"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "xu",
-              "you"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["xu", "you"],
             "complete": true
           }
         ],
@@ -1342,14 +998,8 @@
         "relationsToNatal": [
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "hai",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["hai", "si"],
             "complete": true
           }
         ],
@@ -1364,52 +1014,28 @@
         "relationsToNatal": [
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "zi",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["zi", "wu"],
             "complete": true
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "zi",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["zi", "chen"],
             "complete": false
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "zi",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["zi", "chen"],
             "complete": false
           }
         ],
         "relationsToLuck": [
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "zi",
-              "you"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["zi", "you"],
             "complete": true
           }
         ],
@@ -1423,64 +1049,34 @@
         "relationsToNatal": [
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "chou",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["chou", "wu"],
             "complete": true
           },
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "chou",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["chou", "si"],
             "complete": false
           },
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "chou",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["chou", "chen"],
             "complete": true
           },
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "chou",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["chou", "chen"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "chou",
-              "you"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["chou", "you"],
             "complete": false
           }
         ],
@@ -1494,38 +1090,20 @@
         "relationsToNatal": [
           {
             "type": "tri_combine",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "yin",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["yin", "wu"],
             "complete": false
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "yin",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["yin", "si"],
             "complete": true
           },
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "month"
-            ],
-            "branches": [
-              "yin",
-              "si"
-            ],
+            "pillars": ["year_transit", "month"],
+            "branches": ["yin", "si"],
             "complete": true
           }
         ],
@@ -1540,52 +1118,28 @@
         "relationsToNatal": [
           {
             "type": "break",
-            "pillars": [
-              "year_transit",
-              "year"
-            ],
-            "branches": [
-              "mao",
-              "wu"
-            ],
+            "pillars": ["year_transit", "year"],
+            "branches": ["mao", "wu"],
             "complete": true
           },
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "mao",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["mao", "chen"],
             "complete": true
           },
           {
             "type": "harm",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "mao",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["mao", "chen"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "clash",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "mao",
-              "you"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["mao", "you"],
             "complete": true
           }
         ],
@@ -1599,40 +1153,22 @@
         "relationsToNatal": [
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "day"
-            ],
-            "branches": [
-              "chen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "day"],
+            "branches": ["chen", "chen"],
             "complete": true
           },
           {
             "type": "punish",
-            "pillars": [
-              "year_transit",
-              "hour"
-            ],
-            "branches": [
-              "chen",
-              "chen"
-            ],
+            "pillars": ["year_transit", "hour"],
+            "branches": ["chen", "chen"],
             "complete": true
           }
         ],
         "relationsToLuck": [
           {
             "type": "combine",
-            "pillars": [
-              "year_transit",
-              "luck"
-            ],
-            "branches": [
-              "chen",
-              "you"
-            ],
+            "pillars": ["year_transit", "luck"],
+            "branches": ["chen", "you"],
             "complete": true
           }
         ],
@@ -1806,9 +1342,7 @@
             "key": "tian_kui"
           }
         ],
-        "adjectiveStars": [
-          "en_guang"
-        ],
+        "adjectiveStars": ["en_guang"],
         "changsheng12": "yang",
         "boshi12": "zou_shu",
         "jiangqian12": "tian_sha",
@@ -1819,18 +1353,7 @@
           "fromYear": 1995,
           "toYear": 2004
         },
-        "ages": [
-          10,
-          22,
-          34,
-          46,
-          58,
-          70,
-          82,
-          94,
-          106,
-          118
-        ]
+        "ages": [10, 22, 34, 46, 58, 70, 82, 94, 106, 118]
       },
       {
         "index": 1,
@@ -1845,11 +1368,7 @@
           }
         ],
         "minorStars": [],
-        "adjectiveStars": [
-          "tian_xing",
-          "tian_ku",
-          "tian_xu"
-        ],
+        "adjectiveStars": ["tian_xing", "tian_ku", "tian_xu"],
         "changsheng12": "tai",
         "boshi12": "jiang_jun",
         "jiangqian12": "zai_sha",
@@ -1860,18 +1379,7 @@
           "fromYear": 2105,
           "toYear": 2114
         },
-        "ages": [
-          9,
-          21,
-          33,
-          45,
-          57,
-          69,
-          81,
-          93,
-          105,
-          117
-        ]
+        "ages": [9, 21, 33, 45, 57, 69, 81, 93, 105, 117]
       },
       {
         "index": 2,
@@ -1887,12 +1395,7 @@
           }
         ],
         "minorStars": [],
-        "adjectiveStars": [
-          "ba_zuo",
-          "tian_wu",
-          "tian_guan",
-          "yue_de"
-        ],
+        "adjectiveStars": ["ba_zuo", "tian_wu", "tian_guan", "yue_de"],
         "changsheng12": "jue",
         "boshi12": "xiao_hao",
         "jiangqian12": "jie_sha_annual",
@@ -1903,18 +1406,7 @@
           "fromYear": 2095,
           "toYear": 2104
         },
-        "ages": [
-          8,
-          20,
-          32,
-          44,
-          56,
-          68,
-          80,
-          92,
-          104,
-          116
-        ]
+        "ages": [8, 20, 32, 44, 56, 68, 80, 92, 104, 116]
       },
       {
         "index": 3,
@@ -1930,13 +1422,7 @@
           }
         ],
         "minorStars": [],
-        "adjectiveStars": [
-          "jie_shen",
-          "long_chi",
-          "tai_fu",
-          "hua_gai",
-          "xun_kong"
-        ],
+        "adjectiveStars": ["jie_shen", "long_chi", "tai_fu", "hua_gai", "xun_kong"],
         "changsheng12": "mu",
         "boshi12": "qing_long",
         "jiangqian12": "hua_gai",
@@ -1947,18 +1433,7 @@
           "fromYear": 2085,
           "toYear": 2094
         },
-        "ages": [
-          7,
-          19,
-          31,
-          43,
-          55,
-          67,
-          79,
-          91,
-          103,
-          115
-        ]
+        "ages": [7, 19, 31, 43, 55, 67, 79, 91, 103, 115]
       },
       {
         "index": 4,
@@ -1979,9 +1454,7 @@
             "brightness": "xian"
           }
         ],
-        "adjectiveStars": [
-          "hong_luan"
-        ],
+        "adjectiveStars": ["hong_luan"],
         "changsheng12": "si",
         "boshi12": "li_shi",
         "jiangqian12": "xi_shen_annual",
@@ -1992,18 +1465,7 @@
           "fromYear": 2075,
           "toYear": 2084
         },
-        "ages": [
-          6,
-          18,
-          30,
-          42,
-          54,
-          66,
-          78,
-          90,
-          102,
-          114
-        ]
+        "ages": [6, 18, 30, 42, 54, 66, 78, 90, 102, 114]
       },
       {
         "index": 5,
@@ -2029,11 +1491,7 @@
             "key": "tian_ma"
           }
         ],
-        "adjectiveStars": [
-          "gu_chen",
-          "yin_sha",
-          "tian_shi"
-        ],
+        "adjectiveStars": ["gu_chen", "yin_sha", "tian_shi"],
         "changsheng12": "bing",
         "boshi12": "bo_shi",
         "jiangqian12": "sui_yi",
@@ -2044,18 +1502,7 @@
           "fromYear": 2065,
           "toYear": 2074
         },
-        "ages": [
-          5,
-          17,
-          29,
-          41,
-          53,
-          65,
-          77,
-          89,
-          101,
-          113
-        ]
+        "ages": [5, 17, 29, 41, 53, 65, 77, 89, 101, 113]
       },
       {
         "index": 6,
@@ -2091,11 +1538,7 @@
             "brightness": "miao"
           }
         ],
-        "adjectiveStars": [
-          "tian_cai",
-          "tian_kong",
-          "kong_wang"
-        ],
+        "adjectiveStars": ["tian_cai", "tian_kong", "kong_wang"],
         "changsheng12": "shuai",
         "boshi12": "guan_fu",
         "jiangqian12": "pan_an",
@@ -2106,18 +1549,7 @@
           "fromYear": 2055,
           "toYear": 2064
         },
-        "ages": [
-          4,
-          16,
-          28,
-          40,
-          52,
-          64,
-          76,
-          88,
-          100,
-          112
-        ]
+        "ages": [4, 16, 28, 40, 52, 64, 76, 88, 100, 112]
       },
       {
         "index": 7,
@@ -2141,12 +1573,7 @@
             "brightness": "xian"
           }
         ],
-        "adjectiveStars": [
-          "feng_gao",
-          "tian_fu_aux",
-          "jie_lu",
-          "tian_shang"
-        ],
+        "adjectiveStars": ["feng_gao", "tian_fu_aux", "jie_lu", "tian_shang"],
         "changsheng12": "di_wang",
         "boshi12": "fu_bing",
         "jiangqian12": "jiang_xing",
@@ -2157,18 +1584,7 @@
           "fromYear": 2045,
           "toYear": 2054
         },
-        "ages": [
-          3,
-          15,
-          27,
-          39,
-          51,
-          63,
-          75,
-          87,
-          99,
-          111
-        ]
+        "ages": [3, 15, 27, 39, 51, 63, 75, 87, 99, 111]
       },
       {
         "index": 8,
@@ -2188,9 +1604,7 @@
             "brightness": "de"
           }
         ],
-        "adjectiveStars": [
-          "po_sui"
-        ],
+        "adjectiveStars": ["po_sui"],
         "changsheng12": "lin_guan",
         "boshi12": "da_hao",
         "jiangqian12": "wang_shen",
@@ -2201,18 +1615,7 @@
           "fromYear": 2035,
           "toYear": 2044
         },
-        "ages": [
-          2,
-          14,
-          26,
-          38,
-          50,
-          62,
-          74,
-          86,
-          98,
-          110
-        ]
+        "ages": [2, 14, 26, 38, 50, 62, 74, 86, 98, 110]
       },
       {
         "index": 9,
@@ -2227,12 +1630,7 @@
           }
         ],
         "minorStars": [],
-        "adjectiveStars": [
-          "tian_yao",
-          "feng_ge",
-          "gua_su",
-          "nian_jie"
-        ],
+        "adjectiveStars": ["tian_yao", "feng_ge", "gua_su", "nian_jie"],
         "changsheng12": "guan_dai",
         "boshi12": "bing_fu",
         "jiangqian12": "yue_sha",
@@ -2243,18 +1641,7 @@
           "fromYear": 2025,
           "toYear": 2034
         },
-        "ages": [
-          1,
-          13,
-          25,
-          37,
-          49,
-          61,
-          73,
-          85,
-          97,
-          109
-        ]
+        "ages": [1, 13, 25, 37, 49, 61, 73, 85, 97, 109]
       },
       {
         "index": 10,
@@ -2274,14 +1661,7 @@
             "key": "di_jie"
           }
         ],
-        "adjectiveStars": [
-          "tian_xi",
-          "xian_chi",
-          "san_tai",
-          "tian_gui",
-          "tian_shou",
-          "tian_de"
-        ],
+        "adjectiveStars": ["tian_xi", "xian_chi", "san_tai", "tian_gui", "tian_shou", "tian_de"],
         "changsheng12": "mu_yu",
         "boshi12": "xi_shen",
         "jiangqian12": "xian_chi",
@@ -2292,18 +1672,7 @@
           "fromYear": 2015,
           "toYear": 2024
         },
-        "ages": [
-          12,
-          24,
-          36,
-          48,
-          60,
-          72,
-          84,
-          96,
-          108,
-          120
-        ]
+        "ages": [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
       },
       {
         "index": 11,
@@ -2322,11 +1691,7 @@
           }
         ],
         "minorStars": [],
-        "adjectiveStars": [
-          "tian_chu",
-          "tian_yue_aux",
-          "fei_lian"
-        ],
+        "adjectiveStars": ["tian_chu", "tian_yue_aux", "fei_lian"],
         "changsheng12": "chang_sheng",
         "boshi12": "fei_lian_doctor",
         "jiangqian12": "zhi_bei",
@@ -2337,18 +1702,7 @@
           "fromYear": 2005,
           "toYear": 2014
         },
-        "ages": [
-          11,
-          23,
-          35,
-          47,
-          59,
-          71,
-          83,
-          95,
-          107,
-          119
-        ]
+        "ages": [11, 23, 35, 47, 59, 71, 83, 95, 107, 119]
       }
     ],
     "horoscope": {
@@ -2401,59 +1755,31 @@
     "primary": {
       "number": 41,
       "key": "hexagram_41",
-      "lines": [
-        1,
-        1,
-        0,
-        0,
-        0,
-        1
-      ],
+      "lines": [1, 1, 0, 0, 0, 1],
       "upper": "gen",
       "lower": "dui"
     },
     "changing": {
       "number": 19,
       "key": "hexagram_19",
-      "lines": [
-        1,
-        1,
-        0,
-        0,
-        0,
-        0
-      ],
+      "lines": [1, 1, 0, 0, 0, 0],
       "upper": "kun",
       "lower": "dui"
     },
     "mutual": {
       "number": 24,
       "key": "hexagram_24",
-      "lines": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "lines": [1, 0, 0, 0, 0, 0],
       "upper": "kun",
       "lower": "zhen"
     },
-    "movingLines": [
-      6
-    ],
+    "movingLines": [6],
     "meihua": {
       "numbers": {
         "upper": 7,
         "lower": 2,
         "moving": 6,
-        "source": [
-          7,
-          8,
-          24,
-          3
-        ]
+        "source": [7, 8, 24, 3]
       },
       "body": "dui",
       "use": "gen",
@@ -2519,9 +1845,7 @@
         "star": "tian_peng",
         "gate": "xiu",
         "deity": "xuan_wu",
-        "flags": [
-          "fu_yin"
-        ],
+        "flags": ["fu_yin"],
         "patterns": []
       },
       {
@@ -2534,16 +1858,8 @@
         "gate": "si",
         "deity": "zhi_fu",
         "hiddenStem": "yi",
-        "flags": [
-          "void",
-          "horse",
-          "fu_yin",
-          "ru_mu"
-        ],
-        "patterns": [
-          "fu_gong_ge",
-          "fei_gong_ge"
-        ]
+        "flags": ["void", "horse", "fu_yin", "ru_mu"],
+        "patterns": ["fu_gong_ge", "fei_gong_ge"]
       },
       {
         "index": 3,
@@ -2554,9 +1870,7 @@
         "star": "tian_chong",
         "gate": "shang",
         "deity": "liu_he",
-        "flags": [
-          "fu_yin"
-        ],
+        "flags": ["fu_yin"],
         "patterns": []
       },
       {
@@ -2568,9 +1882,7 @@
         "star": "tian_fu",
         "gate": "du",
         "deity": "tai_yin",
-        "flags": [
-          "fu_yin"
-        ],
+        "flags": ["fu_yin"],
         "patterns": []
       },
       {
@@ -2594,10 +1906,7 @@
         "star": "tian_xin",
         "gate": "kai",
         "deity": "jiu_di",
-        "flags": [
-          "fu_yin",
-          "ru_mu"
-        ],
+        "flags": ["fu_yin", "ru_mu"],
         "patterns": []
       },
       {
@@ -2609,13 +1918,8 @@
         "star": "tian_zhu",
         "gate": "jing",
         "deity": "jiu_tian",
-        "flags": [
-          "fu_yin"
-        ],
-        "patterns": [
-          "san_qi_sheng_dian_ding",
-          "qi_ru_tai_yin"
-        ]
+        "flags": ["fu_yin"],
+        "patterns": ["san_qi_sheng_dian_ding", "qi_ru_tai_yin"]
       },
       {
         "index": 8,
@@ -2626,12 +1930,8 @@
         "star": "tian_ren",
         "gate": "sheng",
         "deity": "bai_hu",
-        "flags": [
-          "fu_yin"
-        ],
-        "patterns": [
-          "tian_wang_si_zhang"
-        ]
+        "flags": ["fu_yin"],
+        "patterns": ["tian_wang_si_zhang"]
       },
       {
         "index": 9,
@@ -2642,71 +1942,37 @@
         "star": "tian_ying",
         "gate": "jing_view",
         "deity": "teng_she",
-        "flags": [
-          "void",
-          "fu_yin"
-        ],
-        "patterns": [
-          "tian_yu"
-        ]
+        "flags": ["void", "fu_yin"],
+        "patterns": ["tian_yu"]
       }
     ],
     "useGods": [
       {
         "key": "day_stem",
         "palaceIndex": 1,
-        "state": [
-          "fu_yin",
-          "good_gate"
-        ]
+        "state": ["fu_yin", "good_gate"]
       },
       {
         "key": "hour_stem",
         "palaceIndex": 2,
-        "state": [
-          "void",
-          "horse",
-          "fu_yin",
-          "ru_mu",
-          "fu_gong_ge",
-          "fei_gong_ge"
-        ]
+        "state": ["void", "horse", "fu_yin", "ru_mu", "fu_gong_ge", "fei_gong_ge"]
       },
       {
         "key": "zhi_fu",
         "palaceIndex": 2,
-        "state": [
-          "void",
-          "horse",
-          "fu_yin",
-          "ru_mu",
-          "fu_gong_ge",
-          "fei_gong_ge"
-        ]
+        "state": ["void", "horse", "fu_yin", "ru_mu", "fu_gong_ge", "fei_gong_ge"]
       },
       {
         "key": "zhi_shi",
         "palaceIndex": 2,
-        "state": [
-          "void",
-          "horse",
-          "fu_yin",
-          "ru_mu",
-          "fu_gong_ge",
-          "fei_gong_ge"
-        ]
+        "state": ["void", "horse", "fu_yin", "ru_mu", "fu_gong_ge", "fei_gong_ge"]
       }
     ],
     "verdict": "unfavorable",
     "score": 26,
-    "favorableDirections": [
-      "northeast"
-    ],
+    "favorableDirections": ["northeast"],
     "timing": {
-      "favorableHours": [
-        "chou",
-        "yin"
-      ]
+      "favorableHours": ["chou", "yin"]
     },
     "findings": [
       "fu_yin",
@@ -2746,19 +2012,9 @@
       "reversedPct": 100,
       "repeatedNumbers": [],
       "dominantElement": "fire",
-      "missingElements": [
-        "earth",
-        "air",
-        "water"
-      ]
+      "missingElements": ["earth", "air", "water"]
     },
-    "combos": [
-      "dominant_fire",
-      "missing_earth",
-      "missing_air",
-      "missing_water",
-      "reversed_theme"
-    ],
+    "combos": ["dominant_fire", "missing_earth", "missing_air", "missing_water", "reversed_theme"],
     "seed": "fixture-A"
   },
   "astrology": {
@@ -3365,29 +2621,15 @@
         "eastern": 5,
         "western": 5
       },
-      "quadrants": [
-        1,
-        1,
-        4,
-        4
-      ],
+      "quadrants": [1, 1, 4, 4],
       "stelliums": [
         {
           "sign": "capricorn",
-          "bodies": [
-            "moon",
-            "saturn",
-            "uranus",
-            "neptune"
-          ]
+          "bodies": ["moon", "saturn", "uranus", "neptune"]
         },
         {
           "house": 7,
-          "bodies": [
-            "moon",
-            "uranus",
-            "neptune"
-          ]
+          "bodies": ["moon", "uranus", "neptune"]
         }
       ]
     },
@@ -3402,86 +2644,43 @@
     "patterns": [
       {
         "key": "t_square",
-        "bodies": [
-          "jupiter",
-          "uranus",
-          "venus"
-        ]
+        "bodies": ["jupiter", "uranus", "venus"]
       },
       {
         "key": "t_square",
-        "bodies": [
-          "jupiter",
-          "neptune",
-          "venus"
-        ]
+        "bodies": ["jupiter", "neptune", "venus"]
       },
       {
         "key": "t_square",
-        "bodies": [
-          "chiron",
-          "uranus",
-          "venus"
-        ]
+        "bodies": ["chiron", "uranus", "venus"]
       },
       {
         "key": "t_square",
-        "bodies": [
-          "chiron",
-          "neptune",
-          "venus"
-        ]
+        "bodies": ["chiron", "neptune", "venus"]
       },
       {
         "key": "t_square",
-        "bodies": [
-          "chiron",
-          "moon",
-          "venus"
-        ]
+        "bodies": ["chiron", "moon", "venus"]
       },
       {
         "key": "grand_trine",
-        "bodies": [
-          "chiron",
-          "lilith",
-          "mars"
-        ]
+        "bodies": ["chiron", "lilith", "mars"]
       },
       {
         "key": "kite",
-        "bodies": [
-          "chiron",
-          "lilith",
-          "mars",
-          "moon"
-        ]
+        "bodies": ["chiron", "lilith", "mars", "moon"]
       },
       {
         "key": "grand_trine",
-        "bodies": [
-          "chiron",
-          "mars",
-          "pluto"
-        ]
+        "bodies": ["chiron", "mars", "pluto"]
       },
       {
         "key": "kite",
-        "bodies": [
-          "chiron",
-          "mars",
-          "neptune",
-          "pluto"
-        ]
+        "bodies": ["chiron", "mars", "neptune", "pluto"]
       },
       {
         "key": "kite",
-        "bodies": [
-          "chiron",
-          "mars",
-          "moon",
-          "pluto"
-        ]
+        "bodies": ["chiron", "mars", "moon", "pluto"]
       }
     ]
   },
@@ -3620,17 +2819,13 @@
         "index": 1,
         "sign": "gemini",
         "lord": "budha",
-        "occupants": [
-          "guru"
-        ]
+        "occupants": ["guru"]
       },
       {
         "index": 2,
         "sign": "cancer",
         "lord": "chandra",
-        "occupants": [
-          "ketu"
-        ]
+        "occupants": ["ketu"]
       },
       {
         "index": 3,
@@ -3660,50 +2855,37 @@
         "index": 7,
         "sign": "sagittarius",
         "lord": "guru",
-        "occupants": [
-          "chandra"
-        ]
+        "occupants": ["chandra"]
       },
       {
         "index": 8,
         "sign": "capricorn",
         "lord": "shani",
-        "occupants": [
-          "shani",
-          "rahu"
-        ]
+        "occupants": ["shani", "rahu"]
       },
       {
         "index": 9,
         "sign": "aquarius",
         "lord": "shani",
-        "occupants": [
-          "mangala"
-        ]
+        "occupants": ["mangala"]
       },
       {
         "index": 10,
         "sign": "pisces",
         "lord": "guru",
-        "occupants": [
-          "shukra"
-        ]
+        "occupants": ["shukra"]
       },
       {
         "index": 11,
         "sign": "aries",
         "lord": "mangala",
-        "occupants": [
-          "budha"
-        ]
+        "occupants": ["budha"]
       },
       {
         "index": 12,
         "sign": "taurus",
         "lord": "shukra",
-        "occupants": [
-          "surya"
-        ]
+        "occupants": ["surya"]
       }
     ],
     "moon": {
@@ -4291,23 +3473,13 @@
     "yogas": [
       {
         "key": "gajakesari",
-        "bodies": [
-          "chandra",
-          "guru"
-        ],
-        "houses": [
-          7,
-          1
-        ]
+        "bodies": ["chandra", "guru"],
+        "houses": [7, 1]
       },
       {
         "key": "malavya",
-        "bodies": [
-          "shukra"
-        ],
-        "houses": [
-          10
-        ]
+        "bodies": ["shukra"],
+        "houses": [10]
       }
     ],
     "panchangAtBirth": {
@@ -4407,23 +3579,11 @@
         "metal": 36.805556,
         "water": 11.111111
       },
-      "favorable": [
-        "wood",
-        "fire",
-        "water"
-      ],
-      "unfavorable": [
-        "earth",
-        "metal"
-      ],
+      "favorable": ["wood", "fire", "water"],
+      "unfavorable": ["earth", "metal"],
       "todayElement": "metal",
-      "luckyColor": [
-        "daily.color.emerald"
-      ],
-      "luckyNumbers": [
-        3,
-        8
-      ],
+      "luckyColor": ["daily.color.emerald"],
+      "luckyNumbers": [3, 8],
       "luckyDirection": "daily.direction.east",
       "goodHours": [
         {
@@ -4438,15 +3598,8 @@
         }
       ],
       "almanac": {
-        "yi": [
-          "daily.almanac.travel",
-          "daily.almanac.deals",
-          "daily.almanac.home"
-        ],
-        "ji": [
-          "daily.almanac.romance",
-          "daily.almanac.changes"
-        ]
+        "yi": ["daily.almanac.travel", "daily.almanac.deals", "daily.almanac.home"],
+        "ji": ["daily.almanac.romance", "daily.almanac.changes"]
       },
       "favorableHit": false,
       "unfavorableHit": true,
@@ -4465,11 +3618,7 @@
       ],
       "luckyColorHex": "#50C878",
       "luckyColorElement": "wood",
-      "nobleZodiac": [
-        "yin",
-        "mao",
-        "wei"
-      ]
+      "nobleZodiac": ["yin", "mao", "wei"]
     },
     "astro": {
       "moonSign": "cancer",
@@ -4503,9 +3652,7 @@
       ],
       "moonDegree": 23.628859884154977,
       "moonChangesSign": false,
-      "retrogrades": [
-        "venus"
-      ],
+      "retrogrades": ["venus"],
       "lunation": null,
       "natalMoon": {
         "sign": "capricorn",
@@ -4643,16 +3790,8 @@
       "tarot.daily.major_14_temperance.reversed"
     ],
     "doDont": {
-      "do": [
-        "daily.actions.pause",
-        "daily.actions.focus",
-        "daily.actions.prepare"
-      ],
-      "dont": [
-        "daily.actions.compare",
-        "daily.actions.argue",
-        "daily.actions.assume"
-      ]
+      "do": ["daily.actions.pause", "daily.actions.focus", "daily.actions.prepare"],
+      "dont": ["daily.actions.compare", "daily.actions.argue", "daily.actions.assume"]
     },
     "oneLiner": "daily.oneliner.careful.pian_yin"
   }

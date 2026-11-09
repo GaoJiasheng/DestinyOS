@@ -207,6 +207,7 @@ describe('daily scoring rows and boundary behavior', () => {
         {
           id: 'boundary',
           theme: 'shi_shen',
+          driver: 'element',
           matches: () => ['test.boundary'],
           delta: { career: delta, wealth: delta, love: delta, health: delta, social: delta },
         },
