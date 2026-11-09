@@ -32,6 +32,7 @@ import { selectDailyActions } from './actions';
 export { DailyChartSchema } from '@tianji/shared';
 export type { DailyChart } from '@tianji/shared';
 export * from './scoring';
+export * from './score-rules';
 export * from './actions';
 export * from './indicators';
 export * from './transits';
@@ -130,6 +131,8 @@ export function computeDaily(raw: DailyInput, rawOptions: DailyOptions = {}): Da
   const god = tenGod(natal.dayMaster.stem, flowDay.stem);
   const scored = scoreDaily({
     god,
+    branchGod: tenGod(natal.dayMaster.stem, HIDDEN_STEMS[flowDay.branch][0]!),
+    natalBranches: dailyNatalBranches(natal),
     strength: natal.strength.level,
     favorableHit,
     unfavorableHit,
@@ -202,12 +205,22 @@ export function computeDaily(raw: DailyInput, rawOptions: DailyOptions = {}): Da
         .day,
     },
     scores: scored.scores,
+    scoreDrivers: scored.drivers,
     findings,
     oneLiner: scored.oneLiner,
     doDont: selectDailyActions(input.seed, findings, almanac, options.actionUnits),
   });
 }
 
+/** Natal pillar branches named by a branch-relation driver; the hour pillar is absent for unknown birth times. */
+export function dailyNatalBranches(natal: DailyInput['baziChart']) {
+  return {
+    day: natal.pillars.day.branch,
+    month: natal.pillars.month.branch,
+    year: natal.pillars.year.branch,
+    ...(natal.pillars.hour ? { hour: natal.pillars.hour.branch } : {}),
+  };
+}
 /** Shared scoring context for daily reports and the calendar; all dates use explicit IANA zones. */
 export function dailyBaziContext(input: Pick<DailyInput, 'date' | 'birth' | 'baziChart'>) {
   let noon: Temporal.ZonedDateTime;

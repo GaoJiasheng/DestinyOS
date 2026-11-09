@@ -3,13 +3,20 @@ import { type BirthInput, type DailyChart, type Locale, IanaTimezoneSchema } fro
 import { normalizeBirth } from '../common/normalize-birth';
 import { hashSeed } from '../common/random';
 import { EngineError } from '../common/error';
-import { tenGod } from '../common/ganzhi';
+import { HIDDEN_STEMS, tenGod } from '../common/ganzhi';
 import { computeBazi } from '../bazi';
 import { drawDaily } from '../tarot';
-import { dailyBaziContext } from './index';
+import { dailyBaziContext, dailyNatalBranches } from './index';
 import { dailyScoreAstro, dailyScoreNatal } from './transits';
-import { scoreDaily } from './scoring';
-export type DailyRangeDay = { date: string; overall: number; scores: DailyChart['scores'] };
+import { scoreDaily, type Dimension } from './scoring';
+import type { DailyDriver } from './score-rules';
+export type DailyRangeDay = {
+  date: string;
+  overall: number;
+  scores: DailyChart['scores'];
+  /** Absent only on rows cached or constructed before driver explanations existed. */
+  drivers?: Record<Dimension, DailyDriver | null>;
+};
 /** Validate an inclusive civil-date range (1900–2100), at most 31 days. */
 export function dailyRangeDates(from: string, to: string, tz: string): string[] {
   try {
@@ -44,8 +51,10 @@ export function computeDailyRange(
   return dates.map((date) => {
     const context = dailyBaziContext({ birth, baziChart, date: { local: date, tz } });
     const drawn = drawDaily(hashSeed(`${identity}|${date}`));
-    const { scores } = scoreDaily({
+    const { scores, drivers } = scoreDaily({
       god: tenGod(baziChart.dayMaster.stem, context.flowDay.stem),
+      branchGod: tenGod(baziChart.dayMaster.stem, HIDDEN_STEMS[context.flowDay.branch][0]!),
+      natalBranches: dailyNatalBranches(baziChart),
       strength: baziChart.strength.level,
       favorableHit: context.favorableHit,
       unfavorableHit: context.unfavorableHit,
@@ -54,6 +63,6 @@ export function computeDailyRange(
       astro: dailyScoreAstro(date, astroChart, birth.timeUnknown),
       tarot: { card: drawn.cardKey, reversed: drawn.reversed },
     });
-    return { date, overall: scores.overall, scores };
+    return { date, overall: scores.overall, scores, drivers };
   });
 }
