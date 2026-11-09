@@ -109,11 +109,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <p className="muted">{t(`${system}.placeholder`)}</p>
                 <p className="type-caption system-requirements">
                   {t(
-                    ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
+                    ['bazi', 'ziwei', 'astrology', 'vedic'].includes(system)
                       ? 'home.cards.birth'
-                      : system === 'synastry'
-                        ? 'synastry.requiresTwo'
-                        : 'home.cards.noBirth',
+                      : system === 'numerology'
+                        ? 'home.cards.numerology'
+                        : system === 'synastry'
+                          ? 'home.cards.synastry'
+                          : 'home.cards.noBirth',
                   )}
                 </p>
               </div>
