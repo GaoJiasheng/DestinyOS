@@ -37,6 +37,10 @@
 
 ## 未完成 / 未验证
 
-- 未跑：`pnpm lint`、`pnpm typecheck`、`pnpm test`、任何 e2e、控制台 error 检查。
+- 实际跑过并通过：`tsx scripts/i18n-check.ts`（即 `pnpm i18n:check`）；改动文件的 prettier；
+  `disclaimer.tsx`、`shell.spec.ts`、首页 `page.tsx` 的 eslint。
+- zh-TW 由 `tsx scripts/i18n-traditional.ts` 生成；该脚本写完目录后因缺少内容构建产物
+  （`apps/web/resources/learn.json`）报错退出，后半段（字体语料、glossary 版本）没有执行，合并后需重跑 `pnpm content:build`。
+- 未跑：全量 `pnpm lint`、`pnpm typecheck`（web 的 tsc 超时未出结果）、`pnpm test`、任何 e2e、控制台 error 检查。
 - 新增文案可能引入字体子集外的字形（`scripts/font-subsets.py` 覆盖 home./legal.），需跑 `pnpm fonts:check`。
 - 提示条的移动端遮挡、键盘操作、与 InstallPrompt 的叠放都没有在浏览器里看过。
