@@ -10,14 +10,16 @@ import {
   enWords,
   zhChars,
 } from '@tianji/content';
-import type { KnowledgeUnit, TransitionKind, Source, Dim } from '@tianji/content';
+import type { KnowledgeUnit, Source, Dim } from '@tianji/content';
 import type { Hit, InterpretInput, Report, ReportBlock, Score, Section } from './types';
 import { numeric, systemConfigs } from './config';
 import { termPattern, termMarker, createTermCounter } from './terms';
 import { checkReadability } from './readability';
+import { createProseCompactor, identityCompactor, type ProseCompactor } from './compact-prose';
+import { createTransitionChooser, evidenceItems, markSections } from './report-assembly';
 import { localizeReport } from './localize-report';
 import displayLabels from './display-labels.json' with { type: 'json' };
-export const interpretVersion = '1.2.1';
+export const interpretVersion = '1.3.0';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
 const order = (a: Candidate, b: Candidate) =>
   b.hit.weight - a.hit.weight || (a.unit.id < b.unit.id ? -1 : a.unit.id > b.unit.id ? 1 : 0);
@@ -219,133 +221,123 @@ export function interpret(input: InterpretInput): Report {
     if (Array.isArray(value)) return value.map(display).join(locale === 'zh' ? '、' : ', ');
     return typeof value === 'object' && value !== null ? JSON.stringify(value) : String(value);
   };
-  const chooseTransition = (
-    kind: TransitionKind,
-    id: string,
-    used: Set<string>,
-  ): string | undefined => {
-    const templates = knowledge.transitions[locale][kind];
-    if (!templates.length) throw new Error(`Empty transition templates: ${kind}`);
-    const start = hash(id) % templates.length;
-    for (let i = 0; i < templates.length; i++) {
-      const text = templates[(start + i) % templates.length];
-      if (text && !used.has(text)) {
-        used.add(text);
-        return text;
-      }
-    }
-    // DESIGN-GAP: Exhausted templates produce a paragraph break instead of repeating a transition.
-    return undefined;
-  };
-  const mark = termMarker(knowledge.glossary, locale, matcher);
-  const sections: Section[] = [];
+  const chooseTransition = createTransitionChooser(knowledge.transitions[locale]);
   const allAdvice = deduplicate(
     retained.flatMap((c) => c.unit[locale].advice.map((text) => substitute(text, c.unit))),
     5,
   );
-  // DESIGN-GAP: Transition variety applies to the complete report, including confidence leads.
-  const used = new Set<string>();
-  for (const spec of plan) {
-    const chapter = retained.filter((c) => c.unit.section === spec.key);
-    const first = chapter[0];
-    let lead = first ? substitute(first.unit[locale].summary, first.unit) : '';
-    if (lead && confidence < 0.7)
-      lead = `${chooseTransition('low_confidence', first?.unit.id ?? spec.key, used) ?? ''}${locale === 'en' ? ' ' : ''}${lead}`;
-    const blocks: ReportBlock[] = [];
-    chapter.forEach((candidate, index) => {
-      const { unit } = candidate;
-      const previous = chapter[index - 1];
-      if (previous || truncated.has(unit.id)) {
-        const changed = previous && unit.polarity !== previous.unit.polarity;
-        const transition = chooseTransition(
-          changed || truncated.has(unit.id) ? 'concession' : 'continuation',
-          unit.id,
-          used,
+  const compactors =
+    system === 'daily'
+      ? [identityCompactor]
+      : [createProseCompactor(locale), createProseCompactor(locale, 'section')];
+  const assemble = (compact: ProseCompactor): Section[] => {
+    const sections: Section[] = [];
+    // DESIGN-GAP: Transition variety applies to the complete report, including confidence leads.
+    const used = new Set<string>();
+    for (const spec of plan) {
+      compact.startSection();
+      const chapter = retained.filter((c) => c.unit.section === spec.key);
+      const first = chapter[0];
+      let lead = first ? substitute(first.unit[locale].summary, first.unit) : '';
+      if (lead && confidence < 0.7)
+        lead = `${chooseTransition('low_confidence', first?.unit.id ?? spec.key, used) ?? ''}${locale === 'en' ? ' ' : ''}${lead}`;
+      const blocks: ReportBlock[] = [];
+      chapter.forEach((candidate, index) => {
+        const { unit } = candidate;
+        const text = compact.paragraph(
+          substitute(truncated.has(unit.id) ? unit[locale].summary : unit[locale].body, unit),
+          unit.polarity,
         );
-        if (transition) blocks.push({ type: 'transition', text: transition });
-      }
-      blocks.push({
-        type: 'paragraph',
-        unitId: unit.id,
-        polarity: unit.polarity,
-        text: substitute(truncated.has(unit.id) ? unit[locale].summary : unit[locale].body, unit),
-      });
-    });
-    const evidence = chapter
-      .flatMap((c) => c.hit.evidence)
-      // DESIGN-GAP: Random seeds are internal replay inputs, not reader-facing evidence; preserve them only in the hit trace.
-      .filter((item) => item.path !== 'seed')
-      .filter(
-        (item, n, items) =>
-          items.findIndex((other) => other.path === item.path && equal(other.value, item.value)) ===
-          n,
-      );
-    if (evidence.length)
-      blocks.push({
-        type: 'evidence',
-        items: evidence.map((item) => {
-          const value = display(item.value);
-          const leaf = item.path.split('.').at(-1) ?? item.path;
-          const entry = evidenceGlossary.find((g) => g.key === item.path || g.key === leaf);
-          // DESIGN-GAP: Anchors use URI-encoded paths; chart renderers can link to these exact stable IDs.
-          return {
-            label: entry?.[locale].term ?? value,
-            path: item.path,
-            value,
-            anchor: `chart:${encodeURIComponent(item.path)}`,
-          };
-        }),
-      });
-    const advice =
-      spec.key === 'summary_actions'
-        ? allAdvice
-        : deduplicate(
-            chapter.flatMap((c) => c.unit[locale].advice.map((text) => substitute(text, c.unit))),
-            3,
+        if (!text) return;
+        const previous = chapter[index - 1];
+        if (previous || truncated.has(unit.id)) {
+          const changed = previous && unit.polarity !== previous.unit.polarity;
+          const transition = chooseTransition(
+            changed || truncated.has(unit.id) ? 'concession' : 'continuation',
+            unit.id,
+            used,
           );
-    if (advice.length) blocks.push({ type: 'advice', items: advice });
-    const sources: Source[] = chapter
-      .flatMap((c) =>
-        (c.unit[locale].sources ?? []).map((source) => ({
-          text: substitute(source.text, c.unit),
-          from: substitute(source.from, c.unit),
-        })),
-      )
-      .filter(
-        (source, index, list) =>
-          list.findIndex((s) => s.text === source.text && s.from === source.from) === index,
-      );
-    if (sources.length) blocks.push({ type: 'sources', items: sources });
-    if (spec.chartRef) blocks.push({ type: 'chart_ref', ...spec.chartRef });
-    if (spec.key === 'summary_actions') {
-      if (!lead) lead = substitute(disclaimer[locale].summary, disclaimer);
-      blocks.push({
-        type: 'paragraph',
-        unitId: disclaimer.id,
-        polarity: disclaimer.polarity,
-        text: substitute(disclaimer[locale].body, disclaimer),
-      });
-    }
-    sections.push({ key: spec.key, title: spec.title[locale], lead, blocks });
-  }
-  // DESIGN-GAP: Divination tables omit summary_actions; append the shared summary required by 05 §4.
-  if (!keys.has('summary_actions'))
-    sections.push({
-      key: 'summary_actions',
-      title:
-        systemConfigs.bazi.sectionPlan.find((s) => s.key === 'summary_actions')?.title[locale] ??
-        disclaimer[locale].title,
-      lead: disclaimer[locale].summary,
-      blocks: [
-        { type: 'advice', items: allAdvice },
-        {
+          if (transition) blocks.push({ type: 'transition', text: transition });
+        }
+        blocks.push({
           type: 'paragraph',
-          text: disclaimer[locale].body,
+          unitId: unit.id,
+          polarity: unit.polarity,
+          text,
+        });
+      });
+      const evidence = chapter
+        .flatMap((c) => c.hit.evidence.map((item) => ({ ...item, unit: c.unit })))
+        // DESIGN-GAP: Random seeds are internal replay inputs, not reader-facing evidence; preserve them only in the hit trace.
+        .filter((item) => item.path !== 'seed')
+        .filter(
+          (item, n, items) =>
+            items.findIndex(
+              (other) => other.path === item.path && equal(other.value, item.value),
+            ) === n,
+        );
+      if (evidence.length) {
+        const items = evidenceItems(evidence, {
+          locale,
+          system,
+          evidenceGlossary,
+          display,
+          substitute,
+        });
+        if (items.length) blocks.push({ type: 'evidence', items });
+      }
+      const advice =
+        spec.key === 'summary_actions'
+          ? allAdvice
+          : deduplicate(
+              chapter.flatMap((c) => c.unit[locale].advice.map((text) => substitute(text, c.unit))),
+              3,
+            );
+      if (advice.length) blocks.push({ type: 'advice', items: advice });
+      const sources: Source[] = chapter
+        .flatMap((c) =>
+          (c.unit[locale].sources ?? []).map((source) => ({
+            text: substitute(source.text, c.unit),
+            from: substitute(source.from, c.unit),
+          })),
+        )
+        .filter(
+          (source, index, list) =>
+            list.findIndex((s) => s.text === source.text && s.from === source.from) === index,
+        );
+      if (sources.length) blocks.push({ type: 'sources', items: sources });
+      if (spec.chartRef) blocks.push({ type: 'chart_ref', ...spec.chartRef });
+      if (spec.key === 'summary_actions') {
+        if (!lead) lead = substitute(disclaimer[locale].summary, disclaimer);
+        blocks.push({
+          type: 'paragraph',
           unitId: disclaimer.id,
           polarity: disclaimer.polarity,
-        },
-      ],
-    });
+          text: substitute(disclaimer[locale].body, disclaimer),
+        });
+      }
+      sections.push({ key: spec.key, title: spec.title[locale], lead, blocks });
+    }
+    // DESIGN-GAP: Divination tables omit summary_actions; append the shared summary required by 05 §4.
+    if (!keys.has('summary_actions'))
+      sections.push({
+        key: 'summary_actions',
+        title:
+          systemConfigs.bazi.sectionPlan.find((s) => s.key === 'summary_actions')?.title[locale] ??
+          disclaimer[locale].title,
+        lead: disclaimer[locale].summary,
+        blocks: [
+          { type: 'advice', items: allAdvice },
+          {
+            type: 'paragraph',
+            text: disclaimer[locale].body,
+            unitId: disclaimer.id,
+            polarity: disclaimer.polarity,
+          },
+        ],
+      });
+    return sections;
+  };
   const tags = new Map<string, number>();
   for (const c of evaluated)
     for (const tag of new Set(c.unit.tags))
@@ -365,13 +357,18 @@ export function interpret(input: InterpretInput): Report {
   }
   const overview = retained.find((c) => c.unit.section === 'overview');
   const persona = overview ? substitute(overview.unit[locale].summary, overview.unit) : '';
-  for (const section of sections) {
-    section.lead = mark(section.lead);
-    for (const block of section.blocks) {
-      if (block.type === 'paragraph') block.text = mark(block.text);
-      else if (block.type === 'advice') block.items = block.items.map(mark);
-    }
-  }
+  // Term expansion is first-occurrence stateful, so each assembly gets its own marker.
+  const marked = (raw: Section[]) =>
+    markSections(raw, termMarker(knowledge.glossary, locale, matcher));
+  let sections = marked(assemble(compactors[0]!));
+  // Report-wide removal must not push a templated report under the documented minimum length.
+  if (
+    compactors[1] !== undefined &&
+    checkReadability({ system, locale, sections }, knowledge.glossary, countTerms).issues.includes(
+      'report.readability.tooShort',
+    )
+  )
+    sections = marked(assemble(compactors[1]));
   const report: Report = {
     system,
     locale,
