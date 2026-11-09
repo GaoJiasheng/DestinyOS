@@ -2,6 +2,7 @@ import { fromDbLocale } from '@/lib/db-locale';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { SettingsForm } from '@/components/me/settings-form';
+import { webPushAvailable } from '@/lib/web-push-flag';
 export const dynamic = 'force-dynamic';
 export const metadata = { robots: { index: false, follow: false } };
 /** Settings are owner-only on the server and device-only for anonymous visitors. */
@@ -24,6 +25,7 @@ export default async function SettingsPage() {
     <SettingsForm
       initial={user ? { ...user, locale: fromDbLocale(user.locale) } : null}
       signedIn={Boolean(session?.user.id)}
+      pushAvailable={webPushAvailable()}
     />
   );
 }

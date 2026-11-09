@@ -10,7 +10,7 @@ export async function circuitOpen(store: CircuitStore): Promise<boolean> {
   if (mode === 'closed') return false;
   return state === 'open';
 }
-/** Only essential admin/auth/cron and signed payment callbacks bypass the cost gate. */
+/** Only essential admin/auth/cron and signed payment callbacks bypass the cost gate. The web-push cron re-checks the circuit itself and sends nothing while it is open. */
 // DESIGN-GAP: Keep admin recovery, auth, health, Cron and RevenueCat callbacks reachable; all public actions and renderers receive 503 before Next.js dispatch.
 export function circuitBypass(path: string): boolean {
   return (
@@ -19,7 +19,7 @@ export function circuitBypass(path: string): boolean {
     /^\/api\/auth(?:\/|$)/.test(path) ||
     /^\/api\/v1\/mobile\/auth(?:\/|$)/.test(path) ||
     /^\/auth\/verify\/?$/.test(path) ||
-    /^\/api\/v1\/(?:health\/?|cron\/(?:daily-maintenance|cost-circuit)\/?|mobile\/webhooks\/revenuecat\/?)$/.test(
+    /^\/api\/v1\/(?:health\/?|cron\/(?:daily-maintenance|cost-circuit|web-push)\/?|mobile\/webhooks\/revenuecat\/?)$/.test(
       path,
     )
   );

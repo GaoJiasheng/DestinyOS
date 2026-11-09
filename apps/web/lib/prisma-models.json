@@ -257,6 +257,14 @@
         "isId": false,
         "hasDefaultValue": false,
         "default": null
+      },
+      {
+        "name": "pushSubscriptions",
+        "kind": "object",
+        "type": "PushSubscription",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
       }
     ]
   },
@@ -2040,6 +2048,123 @@
         "type": "Boolean",
         "isId": false,
         "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": null
+      }
+    ]
+  },
+  {
+    "name": "PushSubscription",
+    "fields": [
+      {
+        "name": "id",
+        "kind": "scalar",
+        "type": "String",
+        "isId": true,
+        "hasDefaultValue": true,
+        "default": null
+      },
+      {
+        "name": "userId",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "user",
+        "kind": "object",
+        "type": "User",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "endpointHash",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "encEndpoint",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "encKeys",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "locale",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "tz",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "hour",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": 8
+      },
+      {
+        "name": "lastSentDate",
+        "kind": "scalar",
+        "type": "String",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "failureCount",
+        "kind": "scalar",
+        "type": "Int",
+        "isId": false,
+        "hasDefaultValue": true,
+        "default": 0
+      },
+      {
+        "name": "disabledAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": false,
+        "default": null
+      },
+      {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "DateTime",
+        "isId": false,
+        "hasDefaultValue": true,
         "default": null
       },
       {

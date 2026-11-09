@@ -13,6 +13,7 @@ export interface WorkerEnvironment {
   PERF_OBSERVABILITY?: string;
   FEATURE_WEB_PAYMENTS?: string;
   FEATURE_MEMBERSHIP?: string;
+  FEATURE_WEB_PUSH?: string;
   CRON_SECRET?: string;
   NEXT_PUBLIC_SITE_URL?: string;
 }
