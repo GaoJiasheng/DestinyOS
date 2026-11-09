@@ -238,7 +238,9 @@ export function TodayView({
                       {'★'.repeat(dailyStars(chart.scores[k]))}
                       {'☆'.repeat(5 - dailyStars(chart.scores[k]))}
                     </p>
-                    <p>{t(`daily.rating.${dailyStars(chart.scores[k])}` as MessageKey)}</p>
+                    <p data-rating-note={k}>
+                      {t(`daily.rating.${k}.${dailyStars(chart.scores[k])}` as MessageKey)}
+                    </p>
                   </div>
                 ))}
               </div>
