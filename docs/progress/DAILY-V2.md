@@ -26,4 +26,6 @@
 - 正文四段去重与对冲句合并、周/月视图、今日星象文案、裂图均未做。
 - 裂图：本分支 `行动提示` 卡片内没有 `<img>`（只有 ShareDialog 的预览图，alt 为 `share.preview`），
   截图 `test-results/polish/1280/zh/daily.png` 也不在本 worktree，未能复现。
-- zh-TW 文案、lint / typecheck / i18n:check / test 的运行情况见最终回复。
+- zh-TW 已由 `scripts/i18n-traditional.ts` 生成（只提交了 `zh-TW.json`；脚本后半段因缺 `packages/content/dist` 中断）。
+- 已跑：新测试 6/6 通过、`i18n:check` 通过、改动文件的 eslint 与 prettier 通过。
+  未跑：全量 `pnpm lint` / `typecheck` / `test`、mobile 测试、`fonts:check`（新文案可能有字体子集外的字）。
