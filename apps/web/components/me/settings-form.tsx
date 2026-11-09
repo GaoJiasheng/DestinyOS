@@ -12,6 +12,7 @@ import { deleteAccountAction, updateSettingsAction } from '@/app/me/actions';
 import { clearAnonymous, readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import type { Locale } from '@tianji/shared';
 import { SettingsSchema } from '@/lib/account-service-schema';
+import { PushReminderSettings } from '@/components/me/push-reminder-settings';
 import webPackage from '../../package.json';
 type Settings = {
   locale: Locale;
@@ -25,9 +26,11 @@ type Settings = {
 export function SettingsForm({
   initial,
   signedIn,
+  pushAvailable = false,
 }: {
   initial: Settings | null;
   signedIn: boolean;
+  pushAvailable?: boolean;
 }) {
   const { pending, run } = useSubmitTransition();
   const t = useCopy(),
@@ -210,6 +213,7 @@ export function SettingsForm({
           {t(busy ? 'common.loading' : 'me.save')}
         </Button>
       </form>
+      {pushAvailable ? <PushReminderSettings signedIn={signedIn} /> : null}
       <section className="report-card">
         <h2>{t('me.data')}</h2>
         <Button disabled={busy} action={download}>

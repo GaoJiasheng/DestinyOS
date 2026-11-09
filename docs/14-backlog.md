@@ -9,7 +9,7 @@
 | B-01 | 多档案 | 一个账户多份 BirthProfile（家人朋友），档案切换器，每份档案独立历史与每日 | `BirthProfile` 已多行；去掉"每用户一份 isCurrent"约束，加 `label` 与 `isDefault`；Reading 已关联 profileId |
 | B-02 | 合盘 | 八字合婚（日柱/年柱/五行互补/十神互动）、紫微合盘（命宫夫妻宫互看）、西方 Synastry（行星两两相位 + 对方行星落我宫）、吠陀 Ashtakoot 36 Guna | 新 system `synastry`，输入两份 NormalizedBirth；KU 维度新增 |
 | B-03 | 辅助定盘（未知时辰） | 问卷（大致时段 + 若干性格/经历选择）→ 列出 12 时辰候选并给相似度排序 → 用户选一个"试排"并可随时改 | 紫微 `E_REQUIRES_BIRTH_TIME` 前端入口已留；引擎批量算 12 盘 |
-| B-04 | 推送 | Web Push（每日运势 8:00 当地时间）、邮件日报/周报订阅 | 需 `PushSubscription` 表、cron 分时区发送；Resend 批量 |
+| B-04 | 推送 | Web Push（每日运势 8:00 当地时间）**已实现，默认关闭，上线步骤见 `docs/progress/WEB-PUSH.md`**；邮件日报/周报订阅（未做） | `PushSubscription` 表、cron 分时区发送已就绪；邮件走 Resend 批量 |
 | B-05 | AI 追问大师 | 基于当前报告上下文的对话；提示词只含去 PII 的 chart + report；免费 3 次/天，会员 30 次 | `FEATURE_LLM_CHAT`；复用 `polish` 的隐私边界；需 LLM 供应商选择 |
 | B-06 | 运势日历 | 月视图热力图（总评颜色），点日期看当天；年度重要日期（节气、大运交接、流年换、水逆、日月食） | `getDailyRangeAction` 已定义 |
 | B-07 | PDF 导出 | 报告导出排版版 PDF（会员） | Playwright/`@react-pdf`；字体内嵌 |

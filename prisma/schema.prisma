@@ -45,6 +45,7 @@ model User {
   shareLinks           ShareLink[]
   feedbacks            Feedback[]
   journalEntries       JournalEntry[]
+  pushSubscriptions    PushSubscription[]
 
   @@index([deletedAt])
 }
@@ -391,4 +392,26 @@ model MobileSyncChange {
   updatedAt DateTime @default(now())
 
   @@index([userId, resource, sequence])
+}
+
+// DESIGN-GAP: B-04 web push. One row per browser/device; endpoint and keys are AES-256-GCM per-user ciphertext,
+// endpointHash (SHA-256 hex) provides de-duplication without storing the endpoint in clear text.
+model PushSubscription {
+  id           String    @id @default(cuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  endpointHash String    @unique
+  encEndpoint  String // AES-256-GCM, PushSubscription.encEndpoint AAD, per-user key
+  encKeys      String // AES-256-GCM JSON {p256dh, auth}, PushSubscription.encKeys AAD
+  locale       String // zh | zh-TW | en
+  tz           String // IANA zone reported by the browser
+  hour         Int       @default(8) // local reminder hour
+  lastSentDate String? // local YYYY-MM-DD claimed by the last send; idempotency key
+  failureCount Int       @default(0)
+  disabledAt   DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now()) @updatedAt
+
+  @@index([userId])
+  @@index([disabledAt, hour])
 }

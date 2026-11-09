@@ -142,9 +142,11 @@ it('manual mode overrides automatic status and costly URLs never bypass', async 
     '/api/auth/callback/google',
     '/api/v1/cron/cost-circuit',
     '/api/v1/cron/daily-maintenance',
+    '/api/v1/cron/web-push',
   ])
     expect(circuitBypass(path)).toBe(true);
   expect(circuitBypass('/api/v1/cron/cost-circuit/evil')).toBe(false);
+  expect(circuitBypass('/api/v1/cron/web-push/evil')).toBe(false);
 });
 it.each(['zh', 'zh-TW', 'en'])('serves a static translated 503 in %s', async (locale) => {
   const response = maintenanceResponse(new Request(`https://example.test/${locale}/today`));

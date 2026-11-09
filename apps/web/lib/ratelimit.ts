@@ -15,6 +15,7 @@ export const RATE_LIMITS = {
   feedback: 30,
   // DESIGN-GAP: Chat transport allows 60 requests/hour; paid/free daily generation quotas are separate.
   chat: 60,
+  push: 30,
 } as const;
 export type RateLimitRoute = keyof typeof RATE_LIMITS;
 export type RateLimitResult = { success: boolean; limit: number; remaining: number; reset: number };

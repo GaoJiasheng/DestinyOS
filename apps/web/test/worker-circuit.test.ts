@@ -91,6 +91,46 @@ it('dispatches daily and hourly jobs independently even during maintenance', asy
     dispatch.mock.calls.map((call) => new URL((call[0] as unknown as Request).url).pathname),
   ).toEqual(['/api/v1/cron/cost-circuit', '/api/v1/cron/daily-maintenance']);
 });
+it('adds the web-push run to the hourly cron only when its flag is on, after the cost check', async () => {
+  const paths = (flag?: string) => {
+    const seen: string[] = [];
+    return scheduledMaintenance(
+      { CRON_SECRET: 'isolated-cron', FEATURE_WEB_PUSH: flag },
+      async (request) => {
+        seen.push(new URL(request.url).pathname);
+        return new Response('ok');
+      },
+      '0 * * * *',
+    ).then(() => seen);
+  };
+  expect(await paths()).toEqual(['/api/v1/cron/cost-circuit']);
+  expect(await paths('false')).toEqual(['/api/v1/cron/cost-circuit']);
+  expect(await paths('true')).toEqual(['/api/v1/cron/cost-circuit', '/api/v1/cron/web-push']);
+});
+it('still runs web push when the cost check fails and reports either failure', async () => {
+  const seen: string[] = [];
+  await expect(
+    scheduledMaintenance(
+      { CRON_SECRET: 'isolated-cron', FEATURE_WEB_PUSH: 'true' },
+      async (request) => {
+        const path = new URL(request.url).pathname;
+        seen.push(path);
+        if (path.endsWith('cost-circuit')) throw new Error('boom');
+        return new Response('ok');
+      },
+      '0 * * * *',
+    ),
+  ).rejects.toThrow('Daily maintenance failed');
+  expect(seen).toEqual(['/api/v1/cron/cost-circuit', '/api/v1/cron/web-push']);
+  await expect(
+    scheduledMaintenance(
+      { CRON_SECRET: 'isolated-cron', FEATURE_WEB_PUSH: 'true' },
+      async (request) =>
+        new Response('x', { status: new URL(request.url).pathname.endsWith('push') ? 503 : 200 }),
+      '0 * * * *',
+    ),
+  ).rejects.toThrow('Daily maintenance failed');
+});
 
 it('keeps mobile login and universal confirmation reachable while returning JSON for paused mobile data APIs', async () => {
   const cache = { get: async () => 'open' } as unknown as KVNamespace;

@@ -45,6 +45,19 @@ export async function exportAccount(userId: string) {
     where: { userId },
     select: { status: true, currentPeriodEnd: true, cancelAtPeriodEnd: true },
   });
+  // DESIGN-GAP: Endpoint and browser keys are delivery credentials, not user content; only reminder preferences are exported.
+  const pushSubscriptions = await db.pushSubscription.findMany({
+    where: { userId },
+    orderBy: { createdAt: 'asc' },
+    select: {
+      locale: true,
+      tz: true,
+      hour: true,
+      lastSentDate: true,
+      disabledAt: true,
+      createdAt: true,
+    },
+  });
   return {
     user: { ...user, locale: fromDbLocale(user.locale) },
     profiles: profiles.map((p) => ({
@@ -87,6 +100,7 @@ export async function exportAccount(userId: string) {
       date: entry.date.toISOString().slice(0, 10),
     })),
     subscription,
+    pushSubscriptions,
   };
 }
 /** Enforce the documented export quota with one atomic D1 reservation. */
@@ -131,6 +145,7 @@ export async function softDeleteAccount(
     statement('DELETE FROM "Session" WHERE "userId"=?', userId),
     statement('DELETE FROM "MobileSession" WHERE "userId"=?', userId),
     statement('DELETE FROM "JournalEntry" WHERE "userId"=?', userId),
+    statement('DELETE FROM "PushSubscription" WHERE "userId"=?', userId),
     updateRows('ShareLink', { revokedAt: now }, '"userId"=? AND "revokedAt" IS NULL', userId),
     updateRows('Reading', { isPublic: false }, '"userId"=?', userId),
     deleteFeedback

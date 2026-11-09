@@ -85,6 +85,7 @@ function prepared(
     BirthProfile: ['encBirth', 'encPlace', 'encName', 'label'],
     Reading: ['encInput'],
     JournalEntry: ['text'],
+    PushSubscription: ['encEndpoint', 'encKeys'],
   };
   for (const key of encrypted[table] ?? []) {
     if (typeof result[key] === 'string') {

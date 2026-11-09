@@ -8,6 +8,7 @@ const encrypted: Record<string, readonly string[]> = {
   BirthProfile: ['encBirth', 'encPlace', 'encName', 'label'],
   Reading: ['encInput'],
   JournalEntry: ['text'],
+  PushSubscription: ['encEndpoint', 'encKeys'],
 };
 const models = new Map(relationModels.map((model) => [model.name, model]));
 function record(value: unknown): value is RecordValue {

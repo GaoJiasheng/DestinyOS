@@ -82,3 +82,43 @@ self.addEventListener('fetch', (event) => {
     );
   }
 });
+
+// B-04 web push. Appended listeners only: install / activate / fetch above are untouched.
+// The payload is the generic JSON built by lib/web-push-schedule.ts and never carries personal data.
+self.addEventListener('push', (event) => {
+  let data = {};
+  try {
+    data = event.data ? event.data.json() : {};
+  } catch {
+    data = {};
+  }
+  const title = typeof data.title === 'string' && data.title ? data.title : '天机 DestinyOS';
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: typeof data.body === 'string' ? data.body : '',
+      icon: '/icons/icon-192.png',
+      badge: '/icons/icon-192.png',
+      tag: typeof data.tag === 'string' ? data.tag : 'daily-reminder',
+      data: { url: typeof data.url === 'string' ? data.url : '/' },
+    }),
+  );
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const raw = event.notification.data && event.notification.data.url;
+  // Same-origin site paths only: one leading slash, never a scheme or protocol-relative URL.
+  const path = typeof raw === 'string' && /^\/(?![/\\])/.test(raw) ? raw : '/';
+  const target = new URL(path, self.location.origin);
+  if (target.origin !== self.location.origin) return;
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(async (clients) => {
+      const open = clients.find((client) => new URL(client.url).origin === self.location.origin);
+      if (!open) return self.clients.openWindow(target.href);
+      await open.focus();
+      if (open.url === target.href) return undefined;
+      // navigate() rejects for a tab this worker does not control; fall back to a fresh window.
+      return open.navigate(target.href).catch(() => self.clients.openWindow(target.href));
+    }),
+  );
+});
