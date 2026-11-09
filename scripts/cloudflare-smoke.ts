@@ -18,7 +18,13 @@ const child = spawn(
   {
     cwd: resolve(import.meta.dirname, '../apps/web'),
     stdio: 'inherit',
-    env: { ...process.env, WRANGLER_SEND_METRICS: 'false' },
+    // DESIGN-GAP: Per-segment assets exceed macOS's fd limit for Wrangler's per-file asset watcher, which then fails spawn with EBADF; these local servers poll instead, and deployment is unaffected.
+    env: {
+      ...process.env,
+      WRANGLER_SEND_METRICS: 'false',
+      CHOKIDAR_USEPOLLING: 'true',
+      CHOKIDAR_INTERVAL: '600000',
+    },
   },
 );
 // DESIGN-GAP: The local smoke server runs until stopped; an operator-requested shutdown is successful, while unexpected startup/runtime exits keep their failure status.

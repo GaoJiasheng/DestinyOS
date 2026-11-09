@@ -18,6 +18,8 @@ directory = ".open-next/assets"
 binding = "ASSETS"
 # DESIGN-GAP: This private service must execute mutations even when their restored URL matches a public HTML asset; the main entry owns asset-first delivery.
 run_worker_first = true
+# DESIGN-GAP: OpenNext runs in this service, so public files must resolve only at their exact path and never bypass middleware through an HTML alias.
+html_handling = "none"
 
 [[services]]
 binding = "WORKER_SELF_REFERENCE"

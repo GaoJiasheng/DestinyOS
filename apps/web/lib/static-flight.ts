@@ -1,4 +1,6 @@
 import { isStaticPublicPath } from './static-public-path';
+// Next encodes each segment as an URL-safe key, so traversal or query syntax is never a valid request.
+const segmentRequest = /^(?:\/[\w$!@~-]+)+$/;
 /** Map public Flight GETs to immutable assets without changing actions, APIs or private navigation. */
 export function staticFlightUrl(input: RequestInfo | URL, init?: RequestInit): URL | null {
   const request = input instanceof Request ? input : null;
@@ -22,7 +24,13 @@ export function staticFlightUrl(input: RequestInfo | URL, init?: RequestInit): U
   )
     return null;
   // DESIGN-GAP: The daily date is read by the client island; all dates share the same public Flight shell while the router retains the original query.
-  url.pathname += '.rsc';
+  const segment = headers.get('next-router-segment-prefetch');
+  if (segment && segment !== '/_full' && !segmentRequest.test(segment)) return null;
+  // DESIGN-GAP: Next 16 prefetches a route tree and individual segments; each maps to its build-emitted file, and only a whole-page request uses the full Flight.
+  url.pathname +=
+    segment && segment !== '/_full'
+      ? `.${segment.slice(1).replaceAll('/', '.')}.segment.rsc`
+      : '.rsc';
   url.search = '';
   return url;
 }

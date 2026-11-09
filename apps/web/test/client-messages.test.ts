@@ -3,7 +3,7 @@ import { createTranslator } from 'next-intl';
 import { Angle, Aspect, Planet, Sign } from '@tianji/shared';
 import { shellMessages } from '../i18n/client-messages';
 import { dailyMessages, featureMessages } from '../i18n/feature-messages';
-import { toMessages } from '../i18n/catalog';
+import { toMessages, type RuntimeMessages } from '../i18n/catalog';
 import { systems } from '../lib/system-links';
 import zh from '../messages/zh.json';
 import en from '../messages/en.json';
@@ -17,7 +17,7 @@ for (const [locale, catalog] of [
 ] as const) {
   it(`${locale}: shell keeps navigation and personal preview keys while excluding private feature prose`, () => {
     const messages = shellMessages(toMessages(catalog));
-    const t = createTranslator({ locale, messages });
+    const t = createTranslator<RuntimeMessages>({ locale, messages });
     for (const system of systems) {
       expect(t(`${system}.placeholder`)).toBe(catalog[`${system}.placeholder`]);
       expect(t(`nav.${system}`)).toBe(catalog[`nav.${system}`]);
@@ -83,7 +83,7 @@ for (const [locale, catalog] of [
   const full = toMessages(catalog);
   it(`${locale}: the today provider carries every dynamic chart and daily key`, () => {
     const messages = dailyMessages(full);
-    const t = createTranslator({ locale, messages });
+    const t = createTranslator<RuntimeMessages>({ locale, messages });
     for (const key of dailyDynamicKeys)
       expect(t(key as Parameters<typeof t>[0]), key).toBe(catalog[key as keyof typeof catalog]);
     for (const prefix of dailyDynamicPrefixes) expectNamespace(messages, prefix);
@@ -94,7 +94,7 @@ for (const [locale, catalog] of [
   });
   it(`${locale}: the root shell can name every planet for the home sky`, () => {
     const messages = shellMessages(full);
-    const t = createTranslator({ locale, messages });
+    const t = createTranslator<RuntimeMessages>({ locale, messages });
     for (const key of planets)
       expect(t(`charts.planet.${key}` as Parameters<typeof t>[0])).toBe(
         catalog[`charts.planet.${key}` as keyof typeof catalog],

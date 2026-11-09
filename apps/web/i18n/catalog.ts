@@ -2,11 +2,14 @@ import zh from '../messages/zh.json';
 export type MessageKey = keyof typeof zh;
 export type Catalog = Record<string, string>;
 export type MessageTree = { [key: string]: string | MessageTree };
+// DESIGN-GAP: next-intl 4 narrows createTranslator keys from the messages type; dynamically expanded catalogs have no literal keys, and exact key checking stays on MessageKey.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type RuntimeMessages = Record<string, any>;
 // DESIGN-GAP: The documented timeUnknown key is both a message and a namespace.
 // Keep every exact dotted key in the source catalogs; use __value only in the runtime tree.
 export { runtimeKey } from './runtime-key';
 /** Expand exact dotted source keys into the message namespaces required by next-intl. */
-export function toMessages(catalog: Catalog): MessageTree {
+export function toMessages(catalog: Catalog): RuntimeMessages {
   const result: MessageTree = {};
   // DESIGN-GAP: Resolve flat-key namespace collisions once; repeated quadratic scans slow the full static encyclopedia build.
   const parents = new Set<string>();

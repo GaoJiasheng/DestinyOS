@@ -9,6 +9,7 @@ const manifest = JSON.parse(
 ) as { routes: Record<string, unknown> };
 const registry: Record<string, { html: string; rsc: string }> = {};
 const assets = resolve(web, '.open-next/assets');
+let segmentFiles = 0;
 // DESIGN-GAP: Public HTML and full Flight live at canonical asset paths; the Worker compatibility path reads the same files without duplicating the asset tree.
 for (const route of Object.keys(manifest.routes)) {
   if (!isStaticPublicPath(route)) continue;
@@ -18,6 +19,20 @@ for (const route of Object.keys(manifest.routes)) {
     const target = resolve(assets, `.${route}.${kind}`);
     await mkdir(resolve(target, '..'), { recursive: true });
     await cp(source, target);
+  }
+  // DESIGN-GAP: Next 16 fetches per-segment Flight for prefetches; _full duplicates the route's .rsc, while the remaining build files stay on Static Assets with zero Worker calls.
+  const meta = JSON.parse(
+    await readFile(resolve(web, '.next/server/app', `${route.slice(1)}.meta`), 'utf8'),
+  ) as { segmentPaths?: string[] };
+  const segmentPaths = meta.segmentPaths ?? [];
+  assert.ok(segmentPaths.includes('/_tree'), `Missing segment prefetch data: ${route}`);
+  for (const segment of segmentPaths.filter((path) => path !== '/_full')) {
+    // DESIGN-GAP: Flatten each segment beside its route: Next's nested layout adds three directories per page, which exhausts Wrangler's local asset watcher.
+    await cp(
+      resolve(web, '.next/server/app', `${route.slice(1)}.segments${segment}.segment.rsc`),
+      resolve(assets, `.${route}.${segment.slice(1).replaceAll('/', '.')}.segment.rsc`),
+    );
+    segmentFiles += 1;
   }
   registry[route] = files;
 }
@@ -57,13 +72,14 @@ await writeFile(
     '\n' +
     [
       '/zh',
-      '/zh.rsc',
+      // Cloudflare joins duplicate headers when rules overlap, so this also covers the locale's .rsc.
+      '/zh.*',
       '/zh/*',
       '/en',
-      '/en.rsc',
+      '/en.*',
       '/en/*',
       '/zh-TW',
-      '/zh-TW.rsc',
+      '/zh-TW.*',
       '/zh-TW/*',
       '/robots.txt',
       '/sitemap.xml',
@@ -76,11 +92,12 @@ await writeFile(
             .join('\n')}`,
       )
       .join('\n') +
-    '\n/*.rsc\n  Content-Type: text/x-component\n',
+    // DESIGN-GAP: Next accepts a segment response only with the header its own per-segment cache sends; there is no other way to mark a static file as segment data.
+    '\n/*.rsc\n  Content-Type: text/x-component\n/*.segment.rsc\n  X-Nextjs-Postponed: 2\n',
 );
 await writeFile(resolve(web, '.open-next/public-artifacts.json'), JSON.stringify(registry) + '\n');
 console.log(
-  `Prepared ${Object.keys(registry).length} public HTML/Flight assets and static metadata.`,
+  `Prepared ${Object.keys(registry).length} public HTML/Flight assets, ${segmentFiles} segment files and static metadata.`,
 );
 await writeFile(
   resolve(web, '.open-next/static-assets-build.json'),

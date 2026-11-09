@@ -10,8 +10,8 @@ export default defineConfig({
       'apps/web/test/**/*.test.tsx',
     ],
     environment: 'node',
-    // DESIGN-GAP: Bundle Auth.js in Node tests so its Next.js extensionless imports resolve through Vite.
-    server: { deps: { inline: ['next-auth'] } },
+    // DESIGN-GAP: Bundle Auth.js and next-intl 4 in Node tests so their Next.js extensionless imports resolve through Vite.
+    server: { deps: { inline: ['next-auth', 'next-intl'] } },
     // DESIGN-GAP: A single coverage worker bounds merged-corpus audit memory and CPU contention across concurrent worktrees, retaining all assertions and timeouts.
     maxWorkers: 1,
     // DESIGN-GAP: Full-corpus audits under coverage can exceed 30s on shared hosts; retain all assertions with a bounded two-minute budget.

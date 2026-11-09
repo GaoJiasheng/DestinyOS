@@ -144,6 +144,11 @@ if (process.env.PERF_STATIC_ASSETS_REQUIRED === 'true') {
       const asset = await readFile(`apps/web/.open-next/assets${route}.${extension}`);
       assert.deepEqual(asset, source, `Static payload differs: ${route}.${extension}`);
     }
+    assert.deepEqual(
+      await readFile(`apps/web/.open-next/assets${route}._tree.segment.rsc`),
+      await readFile(directory + `server/app${route}.segments/_tree.segment.rsc`),
+      `Static route tree differs: ${route}`,
+    );
   }
   const config = await readFile('apps/web/wrangler.toml', 'utf8');
   assert.ok(config.includes('html_handling = "drop-trailing-slash"'));

@@ -3,6 +3,18 @@ import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
+interface EntryCompilation {
+  entrypoints: Map<string, { getFiles(): string[] }>;
+  emitAsset(name: string, source: unknown): void;
+  hooks: {
+    processAssets: { tap(options: { name: string; stage: number }, run: () => void): void };
+  };
+}
+interface EntryCompiler {
+  hooks: {
+    thisCompilation: { tap(name: string, run: (compilation: EntryCompilation) => void): void };
+  };
+}
 const config: NextConfig = {
   // DESIGN-GAP: Static Flight file transport is enabled only for the Workers build, preserving local Node development.
   env: { NEXT_PUBLIC_STATIC_ASSETS: process.env.PLATFORM === 'cloudflare' ? 'true' : 'false' },
@@ -53,7 +65,37 @@ const config: NextConfig = {
     ],
   },
   // DESIGN-GAP: Exclude Node-only binaries from Workers bundles while preserving the Vercel build.
-  webpack(config, { isServer, nextRuntime }) {
+  webpack(config, { isServer, nextRuntime, webpack }) {
+    // DESIGN-GAP: Next 16 no longer writes app-build-manifest.json; emit the same route-to-entry-chunks map so scripts/perf-budgets.ts keeps measuring exactly what it measured on Next 15.
+    if (!isServer)
+      config.plugins.push({
+        apply(compiler: EntryCompiler) {
+          compiler.hooks.thisCompilation.tap('AppEntryManifest', (compilation) =>
+            compilation.hooks.processAssets.tap(
+              {
+                name: 'AppEntryManifest',
+                stage: webpack.Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
+              },
+              () => {
+                const files = (name: string) =>
+                  (compilation.entrypoints.get(name)?.getFiles() ?? []).filter((file) =>
+                    file.endsWith('.js'),
+                  );
+                const main = files('main-app');
+                const pages = Object.fromEntries(
+                  [...compilation.entrypoints.keys()]
+                    .filter((name) => name.startsWith('app/'))
+                    .map((name) => [name.slice(3), [...main, ...files(name)]]),
+                );
+                compilation.emitAsset(
+                  'app-build-manifest.json',
+                  new webpack.sources.RawSource(JSON.stringify({ pages })),
+                );
+              },
+            ),
+          );
+        },
+      });
     // DESIGN-GAP: Public values are compiled into client code; isolate filesystem caches when E2E switches between configured ads and an unconfigured build.
     const publicConfig = createHash('sha256')
       .update(

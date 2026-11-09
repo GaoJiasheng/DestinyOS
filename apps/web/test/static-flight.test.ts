@@ -25,6 +25,18 @@ it('uses static Flight for public navigation, preserving private/action/query re
   expect(isStaticPublicPath('/en/synastry')).toBe(true);
   expect(isStaticPublicPath('/zh/bazi/new')).toBe(false);
 });
+it('maps Next 16 segment prefetches to their build files and rejects unsafe keys', () => {
+  const segment = (value: string) =>
+    staticFlightUrl(`${location.origin}/zh?_rsc=token`, {
+      headers: { RSC: '1', 'Next-Router-Prefetch': '1', 'Next-Router-Segment-Prefetch': value },
+    })?.pathname;
+  expect(segment('/_tree')).toBe('/zh._tree.segment.rsc');
+  expect(segment('/$d$locale/!KG1hcmtldGluZyk/__PAGE__')).toBe(
+    '/zh.$d$locale.!KG1hcmtldGluZyk.__PAGE__.segment.rsc',
+  );
+  expect(segment('/_full')).toBe('/zh.rsc');
+  expect(segment('/../secret')).toBeUndefined();
+});
 it('installs before prefetch, retains Request options and preserves private actions', async () => {
   const fetch = vi.fn(async () => new Response('flight'));
   vi.stubGlobal('fetch', fetch);

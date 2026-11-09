@@ -27,7 +27,13 @@ const server = spawn(
   {
     cwd: resolve(import.meta.dirname, '../apps/web'),
     detached: process.platform !== 'win32',
-    env: { ...process.env, WRANGLER_SEND_METRICS: 'false' },
+    // DESIGN-GAP: Per-segment assets exceed macOS's fd limit for Wrangler's per-file asset watcher, which then fails spawn with EBADF; these local servers poll instead, and deployment is unaffected.
+    env: {
+      ...process.env,
+      WRANGLER_SEND_METRICS: 'false',
+      CHOKIDAR_USEPOLLING: 'true',
+      CHOKIDAR_INTERVAL: '600000',
+    },
   },
 );
 const started = performance.now();
