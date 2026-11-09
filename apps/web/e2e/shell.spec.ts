@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { brand } from '../../../packages/shared/src/brand';
 import zh from '../messages/zh.json' with { type: 'json' };
@@ -80,6 +80,51 @@ for (const locale of ['zh', 'en'] as const) {
     });
   });
 }
+// DESIGN-GAP: Cold dev compilation of /tarot/reading (with its knowledge bundle) took up to 60s on a loaded host; keep every flow assertion and allow for it.
+const firstUseTimeout = 300_000;
+function consentDialog(page: Page) {
+  return page.getByRole('dialog', { name: zh['legal.firstVisit.title'] });
+}
+test('a first-time visitor confirms in place before drawing tarot, and only once', async ({
+  page,
+}) => {
+  test.setTimeout(firstUseTimeout);
+  await page.goto('/zh/tarot');
+  const question = page.getByRole('textbox', { name: zh['tarot.question'] });
+  await question.fill('今年适合换工作吗');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 30_000 });
+  const begin = page.getByRole('button', { name: zh['tarot.begin'] });
+  await begin.click();
+  const dialog = consentDialog(page);
+  await expect(dialog).toBeVisible({ timeout: 30_000 });
+  await expect(dialog).toContainText(zh['legal.ageConfirmation']);
+  await dialog.getByRole('button', { name: zh['legal.consent.cancel'] }).click();
+  await expect(dialog).toBeHidden();
+  await expect(page).toHaveURL(/\/zh\/tarot$/);
+  await expect(question).toHaveValue('今年适合换工作吗');
+  await expect
+    .poll(() => page.evaluate(() => localStorage.getItem('tianji-disclaimer-v1')))
+    .toBeNull();
+  await begin.click();
+  await dialog.getByRole('button', { name: zh['legal.consent.confirm'] }).click();
+  await expect(page).toHaveURL(/\/zh\/tarot\/reading$/, { timeout: 150_000 });
+  expect(await page.evaluate(() => localStorage.getItem('tianji-disclaimer-v1'))).toBe('accepted');
+  await page.goto('/zh/tarot');
+  await page.getByRole('button', { name: zh['tarot.begin'] }).click();
+  await expect(page).toHaveURL(/\/zh\/tarot\/reading$/, { timeout: 150_000 });
+  await expect(consentDialog(page)).toHaveCount(0);
+});
+test('dismissing the notice bar is not an age confirmation', async ({ page }) => {
+  test.setTimeout(firstUseTimeout);
+  await page.goto('/zh/iching/cast?method=time');
+  const notice = page.getByRole('complementary', { name: zh['legal.firstVisit.label'] });
+  await notice.getByRole('button', { name: zh['legal.firstVisit.confirm'] }).click();
+  await expect(notice).toBeHidden();
+  await page.getByRole('button', { name: zh['divination.continue'] }).click();
+  await expect(consentDialog(page)).toHaveCount(0);
+  await page.getByRole('button', { name: zh['divination.castTime'] }).click();
+  await expect(consentDialog(page)).toBeVisible({ timeout: 30_000 });
+});
 test('initial language negotiation honors Accept-Language and defaults to zh', async ({
   request,
 }) => {

@@ -159,6 +159,7 @@ export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
                   try {
                     const { launchSystem } = await import('@/lib/launch-system');
                     const result = await launchSystem(system, locale);
+                    if ('declined' in result) return;
                     if ('error' in result) setError(result.error);
                     else {
                       setOpen(false);

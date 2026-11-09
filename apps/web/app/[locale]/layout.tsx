@@ -15,6 +15,7 @@ import { Starfield } from '@/components/three/starfield';
 import { FontLoader } from '@/components/pwa/font-loader';
 import { InstallPrompt } from '@/components/pwa/install-prompt';
 import { Disclaimer } from '@/components/disclaimer';
+import { ConsentHost } from '@/components/consent/consent-host';
 import { SiteSettings } from '@/components/site-settings';
 import { AdsProvider } from '@/components/ads/ads-provider';
 import './fonts.css';
@@ -60,7 +61,7 @@ export async function generateMetadata({
   };
 }
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#05070f' };
-/** Localized root shell: accessible navigation, starfield, footer, toast, and first-visit dialog. */
+/** Localized root shell: accessible navigation, starfield, footer, toast, first-visit notice and first-reading consent. */
 export default async function LocaleLayout({
   children,
   params,
@@ -92,6 +93,7 @@ export default async function LocaleLayout({
               </main>
               <Footer />
               <Disclaimer />
+              <ConsentHost />
               <InstallPrompt />
               <FontLoader />
             </AdsProvider>

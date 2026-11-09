@@ -13,6 +13,7 @@ import { birthError, isUnderThirteen, lunarMonths } from '@/lib/birth-form';
 import { createReadingAction, upsertProfileAction, blockAgeAction } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import type { ReadingRequest, LocalReading } from '@/lib/reading-schema';
+import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import { BirthSchoolFields } from './birth-school-fields';
 import { BirthDateFields } from './birth-date-fields';
@@ -264,7 +265,9 @@ export function BirthForm({
             run(async () => {
               if (await validate()) setStep(2);
             });
-          else run(submit);
+          // DESIGN-GAP: Invalid dates and the under-13 block keep their own handling; only a submission that can proceed asks for the 18+ confirmation.
+          else if (birthError(birth, locale) || isUnderThirteen(birth, locale)) run(submit);
+          else afterConsent(() => run(submit));
         }}
       >
         <fieldset disabled={!hydrated || busy} className="birth-controls">

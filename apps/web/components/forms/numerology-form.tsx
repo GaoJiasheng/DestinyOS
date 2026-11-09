@@ -14,6 +14,7 @@ import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { useRouter } from '@/i18n/navigation';
+import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 const empty: BirthInput = {
   calendar: 'gregorian',
@@ -131,7 +132,7 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
         className="birth-card"
         onSubmit={(event) => {
           event.preventDefault();
-          run(submit);
+          afterConsent(() => run(submit));
         }}
       >
         <fieldset className="birth-controls" disabled={!ready || busy}>

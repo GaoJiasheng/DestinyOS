@@ -4,37 +4,42 @@ import { usePathname } from 'next/navigation';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
 import { Button } from './ui/button';
-import { acknowledgeDisclaimerAction, getDisclaimerAcknowledgementAction } from '@/app/me/actions';
-/** Non-blocking first-visit notice: never gates content or takes focus; remembered like the former dialog. */
+import { acknowledgeDisclaimerAction } from '@/app/me/actions';
+import {
+  dismissNotice,
+  hasDeviceConsent,
+  isNoticeDismissed,
+  refreshAccountConsent,
+  subscribeConsent,
+} from '@/lib/consent';
+/**
+ * Non-blocking first-visit notice: never gates content or takes focus.
+ * Dismissing it only hides it; age and disclaimer are confirmed at the first reading (see lib/consent).
+ */
 export function Disclaimer() {
   const [open, setOpen] = useState(false);
   const t = useCopy();
   const pathname = usePathname();
   useEffect(() => {
-    try {
-      if (localStorage.getItem('tianji-disclaimer-v1') === 'accepted') {
-        setOpen(false);
-        void acknowledgeDisclaimerAction().catch(() => undefined);
-        return;
-      }
-      void getDisclaimerAcknowledgementAction()
-        .then((accepted) => {
-          setOpen(!accepted);
-          if (accepted) localStorage.setItem('tianji-disclaimer-v1', 'accepted');
-        })
-        .catch(() => setOpen(true));
-    } catch {
-      setOpen(true);
+    if (hasDeviceConsent()) {
+      setOpen(false);
+      void acknowledgeDisclaimerAction().catch(() => undefined);
+      return;
     }
+    // DESIGN-GAP: Show the notice without waiting for the account lookup; an account that already confirmed closes it through the subscription below.
+    setOpen(!isNoticeDismissed());
+    void refreshAccountConsent();
   }, [pathname]);
-  async function acknowledge() {
-    try {
-      localStorage.setItem('tianji-disclaimer-v1', 'accepted');
-    } catch {
-      /* Keep this visit usable if storage is blocked. */
-    }
+  useEffect(
+    () =>
+      subscribeConsent(() => {
+        if (hasDeviceConsent()) setOpen(false);
+      }),
+    [],
+  );
+  function dismiss() {
+    dismissNotice();
     setOpen(false);
-    await acknowledgeDisclaimerAction().catch(() => undefined);
   }
   if (!open) return null;
   return (
@@ -45,7 +50,7 @@ export function Disclaimer() {
           {t('legal.firstVisit.more')}
         </Link>
       </p>
-      <Button className="disclaimer-confirm" action={acknowledge}>
+      <Button className="disclaimer-confirm" onClick={dismiss}>
         {t('legal.firstVisit.confirm')}
       </Button>
     </aside>
