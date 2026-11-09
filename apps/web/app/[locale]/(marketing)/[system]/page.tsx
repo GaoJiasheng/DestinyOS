@@ -1,9 +1,6 @@
 import { notFound } from 'next/navigation';
-import { SystemArt } from '@/components/art/system-art';
 import { setRequestLocale } from 'next-intl/server';
-import { getCopy } from '@/i18n/get-copy';
-import { Link } from '@/i18n/navigation';
-import { Button } from '@/components/ui/button';
+import { SystemLandingBody, SystemLandingHero } from '@/components/landing/system-landing';
 import { publicRouteMetadata } from '@/lib/public-seo';
 const systems = ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'] as const;
 export const revalidate = 3600;
@@ -31,14 +28,10 @@ export default async function SystemPage({
   setRequestLocale(locale);
   const key = systems.find((value) => value === system);
   if (!key) notFound();
-  const t = await getCopy();
   return (
-    <section className="status-page">
-      <SystemArt system={key} banner priority />
-      <h1 className="type-h1">{t(`nav.${key}`)}</h1>
-      <Button asChild>
-        <Link href={`/${key}/new`}>{t('form.birth.submit')}</Link>
-      </Button>
-    </section>
+    <>
+      <SystemLandingHero locale={locale} system={key} startHref={`/${key}/new`} />
+      <SystemLandingBody locale={locale} system={key} />
+    </>
   );
 }

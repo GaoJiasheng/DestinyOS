@@ -37,6 +37,7 @@ export function BirthForm({
   const t = useCopy();
   const locale = useLocale() as Locale;
   const router = useRouter();
+  const Title = onComplete ? 'h2' : 'h1';
   const [birth, setBirth] = useState<BirthInput>(() => initialBirth(initial));
   const [step, setStep] = useState(1);
   const stepHeading = useRef<HTMLHeadingElement | null>(null);
@@ -255,7 +256,8 @@ export function BirthForm({
   return (
     <section className="birth-shell">
       <p className="eyebrow">{t('form.birth.step', { step })}</p>
-      <h1 className="type-h1">{t('form.birth.title')}</h1>
+      {/* Embedded forms sit under their host page's h1. */}
+      <Title className="type-h1">{t('form.birth.title')}</Title>
       <form
         className="birth-card"
         onSubmit={(e) => {

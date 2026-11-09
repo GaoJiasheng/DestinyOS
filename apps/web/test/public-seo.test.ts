@@ -27,7 +27,7 @@ describe('public SEO coverage', () => {
     });
   });
 
-  it('includes every tutorial in all three languages and excludes private entry forms and reports', async () => {
+  it('includes every tutorial and system landing page in all three languages and excludes reports', async () => {
     const entries = await sitemap();
     const content = await learnContent();
     const urls = new Set(entries.map((entry) => entry.url));
@@ -42,8 +42,8 @@ describe('public SEO coverage', () => {
     for (const locale of ['zh', 'zh-TW', 'en']) {
       expect(urls.has(`https://${brand.domain}/${locale}/faq`)).toBe(true);
       expect(urls.has(`https://${brand.domain}/${locale}/learn/glossary`)).toBe(true);
-      expect(urls.has(`https://${brand.domain}/${locale}/synastry`)).toBe(false);
-      expect(urls.has(`https://${brand.domain}/${locale}/qimen`)).toBe(false);
+      expect(urls.has(`https://${brand.domain}/${locale}/synastry`)).toBe(true);
+      expect(urls.has(`https://${brand.domain}/${locale}/qimen`)).toBe(true);
     }
     expect(entries.every((entry) => !/\/(me|s|auth)(\/|$)|\/r\//.test(entry.url))).toBe(true);
     expect(

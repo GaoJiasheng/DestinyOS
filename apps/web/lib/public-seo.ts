@@ -5,6 +5,7 @@ import { cache } from 'react';
 import { getCopy } from '@/i18n/get-copy';
 import { learnContent } from './learn';
 import { publicMetadata } from './learn-metadata';
+import { landingCopy, landingSystems } from './system-landing';
 
 /** Resolve only public, language-independent paths; no request text or private report data enters OG rendering. */
 export const publicPageCatalog = cache(async (locale: Locale) => {
@@ -37,7 +38,10 @@ export const publicPageCatalog = cache(async (locale: Locale) => {
   for (const system of c.systems) {
     const data = { title: system[language].title, description: system[language].principle };
     pages.set(`/learn/${system.key}`, data);
-    if (system.key !== 'synastry') pages.set(`/${system.key}`, data);
+  }
+  // Entry pages carry their own introduction, so their titles and descriptions come from the landing catalog.
+  for (const system of landingSystems) {
+    pages.set(`/${system}`, landingCopy(locale, system).seo);
   }
   for (const article of c.articles)
     pages.set(`/learn/${article.system}/articles/${article.slug}`, article[language]);

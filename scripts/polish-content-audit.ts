@@ -4,7 +4,7 @@ import { BirthInputSchema, type System } from '../packages/shared/src';
 import { compute, normalizeBirth } from '../packages/engine/src';
 import { expandTerms, interpret, systemConfigs } from '../packages/interpret/src';
 import type { KnowledgeBundle } from '../packages/content/src';
-import { banned } from '../packages/content/scripts/validation';
+import { banned, positioningBanned } from '../packages/content/scripts/validation';
 
 const systems: Exclude<System, 'daily'>[] = [
   'bazi',
@@ -169,6 +169,40 @@ for (const fixture of ['A', 'B', 'D', 'E']) {
         `${fixture}/${mode}/${locale}: ${row.size} ${locale === 'zh' ? 'chars' : 'words'}, ${row.chapters} chapters${issues.length ? ` FAIL ${issues.join(', ')}` : ' PASS'}`,
       );
     }
+  }
+}
+// DESIGN-GAP: Landing pages are server-only catalogs outside the KU pipeline, so their copy is audited here alongside report prose.
+const leafStrings = (value: unknown): string[] =>
+  typeof value === 'string'
+    ? [value]
+    : Array.isArray(value)
+      ? value.flatMap(leafStrings)
+      : value && typeof value === 'object'
+        ? Object.values(value).flatMap(leafStrings)
+        : [];
+for (const locale of ['zh', 'en'] as const) {
+  const catalog = JSON.parse(
+    await readFile(`apps/web/messages/${locale}/landing.json`, 'utf8'),
+  ) as Record<string, unknown>;
+  for (const [key, entry] of Object.entries(catalog)) {
+    if (key === 'labels') continue;
+    const text = leafStrings(entry).join('\n');
+    const issues = [...banned[locale], ...positioningBanned[locale]]
+      .filter((word) =>
+        locale === 'zh'
+          ? text.includes(word)
+          : new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(text),
+      )
+      .map((word) => `banned:${word}`);
+    results.push({
+      fixture: 'landing',
+      system: key as System,
+      method: 'landing',
+      locale,
+      chapters: 0,
+      size: text.length,
+      issues,
+    });
   }
 }
 await writeFile('test-results/polish/content-audit.json', JSON.stringify(results, null, 2));

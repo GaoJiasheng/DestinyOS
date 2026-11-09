@@ -2,6 +2,11 @@ import { SystemArt } from '@/components/art/system-art';
 import { setRequestLocale } from 'next-intl/server';
 import { DeferredQimen } from '@/components/forms/deferred-qimen';
 import { publicRouteMetadata } from '@/lib/public-seo';
+import {
+  SYSTEM_TOOL_ANCHOR,
+  SystemLandingBody,
+  SystemLandingBridge,
+} from '@/components/landing/system-landing';
 export const revalidate = 3600;
 /** Birth-independent public landing; private state and casting dependencies load after hydration. */
 export default async function QimenPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -10,7 +15,11 @@ export default async function QimenPage({ params }: { params: Promise<{ locale: 
   return (
     <>
       <SystemArt system="qimen" banner priority />
-      <DeferredQimen />
+      <div id={SYSTEM_TOOL_ANCHOR}>
+        <DeferredQimen />
+      </div>
+      <SystemLandingBridge locale={locale} system="qimen" />
+      <SystemLandingBody locale={locale} system="qimen" />
     </>
   );
 }
