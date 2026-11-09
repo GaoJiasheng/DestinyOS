@@ -14,6 +14,7 @@ import type { MessageKey } from '@/i18n/catalog';
 import { castClock, computeDivination, computeDivinationResult } from '@/lib/divination';
 import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
+import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { useReducedMotionPreference } from '@/components/ui/use-reduced-motion';
@@ -264,7 +265,7 @@ export function DivinationFlow({
           onSubmit={(e) => {
             e.preventDefault();
             if (system === 'iching' && step === 'question') setStep('ritual');
-            else run(cast);
+            else afterConsent(() => run(cast));
           }}
         >
           <fieldset className="cast-fields" disabled={busy || !local}>
@@ -351,7 +352,7 @@ export function DivinationFlow({
                   type="button"
                   variant="secondary"
                   disabled={busy}
-                  onClick={() => run(() => cast(true))}
+                  onClick={() => afterConsent(() => run(() => cast(true)))}
                 >
                   {t('shakeAll')}
                 </Button>

@@ -6,6 +6,7 @@ import { useCopy } from '@/i18n/use-copy';
 import { useRouter, Link } from '@/i18n/navigation';
 import { createReadingAction } from '@/app/readings/actions';
 import dynamic from 'next/dynamic';
+import { ensureConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import { DivinationLoader } from '@/components/ui/divination-loader';
 import { updateAnonymous } from '@/lib/anonymous-storage';
@@ -128,7 +129,9 @@ export function SynastryForm({
       <div className="hero-actions">
         <Button
           disabled={busy || !(signedIn ? a && b && a !== b : birthA && birthB)}
-          action={submit}
+          action={async () => {
+            if (await ensureConsent()) await submit();
+          }}
         >
           {t('synastry.submit')}
         </Button>

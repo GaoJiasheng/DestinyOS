@@ -622,8 +622,27 @@ html:lang(en) {
     display: grid;
     gap: var(--space-3);
   }
-  .disclaimer-confirm {
-    width: 100%;
+  /* In-flow sticky bar: rests above the fixed mobile tabs without covering the end of the page. */
+  .disclaimer-bar {
+    position: sticky;
+    bottom: calc(var(--tab-height) + env(safe-area-inset-bottom));
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    border-top: 1px solid var(--line-1);
+    background: var(--bg-1, #05070f);
+  }
+  .disclaimer-bar p {
+    flex: 1 1 12rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .disclaimer-bar a {
+    text-decoration: underline;
   }
   .system-picker {
     display: grid;
@@ -830,6 +849,10 @@ html:lang(en) {
   }
   .mobile-tabs {
     display: none;
+  }
+  .disclaimer-bar {
+    bottom: 0;
+    padding-bottom: max(var(--space-2), env(safe-area-inset-bottom));
   }
   .home-hero {
     padding-bottom: var(--space-12);

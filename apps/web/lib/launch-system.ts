@@ -1,18 +1,20 @@
 import { BirthInputSchema, type Locale } from '@tianji/shared';
 import { createReadingAction, getProfileAction } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
+import { ensureConsent } from '@/lib/consent';
 import type { LocalReading } from './reading-schema';
 /** Reuse a saved birth profile for a one-click natal reading; absent profiles go to the documented form. */
 export async function launchSystem(
   system: 'bazi' | 'ziwei' | 'astrology' | 'vedic',
   locale: Locale,
-): Promise<{ href: string } | { error: string }> {
+): Promise<{ href: string } | { error: string } | { declined: true }> {
   const [local, saved] = await Promise.all([
     readAnonymous().catch(() => null),
     getProfileAction().catch(() => null),
   ]);
   const birth = saved?.ok && saved.data ? saved.data : local?.profile;
   if (!birth) return { href: `/${system}/new` };
+  if (!(await ensureConsent())) return { declined: true };
   const request = {
     system,
     locale,

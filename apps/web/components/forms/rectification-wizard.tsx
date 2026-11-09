@@ -16,6 +16,7 @@ import { createReadingAction, upsertProfileAction, blockAgeAction } from '@/app/
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { useRouter } from '@/i18n/navigation';
+import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import dynamic from 'next/dynamic';
 // DESIGN-GAP: Existing profiles enter the questionnaire directly; defer the birth editor and its calendar dependencies until needed.
@@ -259,7 +260,7 @@ export function RectificationWizard({
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            run(rank);
+            afterConsent(() => run(rank));
           }}
         >
           <label className="birth-field">

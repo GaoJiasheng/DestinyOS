@@ -13,6 +13,7 @@ vi.mock('../app/readings/actions', () => ({
   upsertProfileAction: vi.fn(),
   blockAgeAction: vi.fn(),
 }));
+vi.mock('../lib/consent', () => ({ afterConsent: (proceed: () => void) => proceed() }));
 vi.mock('../i18n/navigation', () => ({ useRouter: () => ({ push: vi.fn(), replace: vi.fn() }) }));
 afterEach(cleanup);
 const input: BirthInput = {

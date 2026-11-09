@@ -11,6 +11,7 @@ import {
 } from '@tianji/shared/schemas/charts/tarot';
 import { TAROT_SPREADS, type SpreadKey } from '@tianji/shared/constants/tarot-spreads';
 import { useRouter } from '@/i18n/navigation';
+import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import { SpreadThumbnail } from './spread-thumbnail';
 // DESIGN-GAP: Undocumented ritual control keys use tarot.*; canonical card/position names come from the bilingual content tables.
@@ -39,30 +40,32 @@ export function TarotSelection() {
         onSubmit={(event) => {
           event.preventDefault();
           if (busy) return;
-          run(async () => {
-            setBusy(true);
-            setError(false);
-            // DESIGN-GAP: Question storage/schema decryption is needed only after submission, never during landing prefetch.
-            const { updateAnonymous } = await import('@/lib/anonymous-storage');
-            await updateAnonymous((data) => ({
-              ...data,
-              settings: {
-                ...data.settings,
-                tarotDraft: {
-                  spread,
-                  category,
-                  question,
-                  allowReversed,
-                  seed: seed.trim() || crypto.randomUUID(),
+          afterConsent(() =>
+            run(async () => {
+              setBusy(true);
+              setError(false);
+              // DESIGN-GAP: Question storage/schema decryption is needed only after submission, never during landing prefetch.
+              const { updateAnonymous } = await import('@/lib/anonymous-storage');
+              await updateAnonymous((data) => ({
+                ...data,
+                settings: {
+                  ...data.settings,
+                  tarotDraft: {
+                    spread,
+                    category,
+                    question,
+                    allowReversed,
+                    seed: seed.trim() || crypto.randomUUID(),
+                  },
                 },
-              },
-            }))
-              .then(() => router.push('/tarot/reading'))
-              .catch(() => {
-                setBusy(false);
-                setError(true);
-              });
-          });
+              }))
+                .then(() => router.push('/tarot/reading'))
+                .catch(() => {
+                  setBusy(false);
+                  setError(true);
+                });
+            }),
+          );
         }}
       >
         <div className="tarot-spread-options">
