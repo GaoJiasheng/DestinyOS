@@ -26,6 +26,20 @@ for (const file of ['.json', '/glossary.json', '/interpretation.json', '/tarot.j
   );
 }
 
+// DESIGN-GAP: Landing copy is a nested server-only catalog, so it is converted value by value here; link targets stay untouched.
+const landingSource: unknown = JSON.parse(
+  await readFile(resolve('apps/web/messages/zh/landing.json'), 'utf8'),
+);
+await writeFile(
+  resolve('apps/web/messages/zh-TW/landing.json'),
+  JSON.stringify(
+    landingSource,
+    (key, value: unknown) =>
+      typeof value === 'string' && key !== 'href' ? toTraditional(value) : value,
+    2,
+  ) + '\n',
+);
+
 console.log('Generated zh-TW UI catalogs.');
 const common = await readFile(resolve('scripts/resources/common-3500.txt'), 'utf8');
 await writeFile(resolve('scripts/resources/common-3500-tw.txt'), toTraditional(common));

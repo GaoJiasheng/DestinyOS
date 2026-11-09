@@ -18,8 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/disclaimer',
     '/contact',
     '/credits',
-    // DESIGN-GAP: Existing qimen and synastry entry forms are noindex; their public learning pages remain included.
-    ...c.systems.filter((s) => !['synastry', 'qimen'].includes(s.key)).map((s) => `/${s.key}`),
+    ...c.systems.map((s) => `/${s.key}`),
     ...c.systems.map((s) => `/learn/${s.key}`),
     ...c.articles.map((article) => `/learn/${article.system}/articles/${article.slug}`),
     ...c.cards.map((s) => `/learn/tarot/${s.key}`),

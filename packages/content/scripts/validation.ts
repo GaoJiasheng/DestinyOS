@@ -100,6 +100,11 @@ export const banned = {
     'will rise',
   ],
 };
+// DESIGN-GAP: Marketing copy also avoids positioning claims the site deliberately does not make, even where the report KB can mention them in a negated sentence.
+export const positioningBanned = {
+  zh: ['精准', '预测', '改运', '化解', '算命', '预言', '吉凶'],
+  en: ['accurate', 'accuracy', 'predict', 'predicts', 'prediction', 'fate', 'fortune-telling'],
+};
 /** Parse a YAML source with locations and accumulate syntax diagnostics.
  * @param file Source filename used in diagnostics.
  * @param source Raw UTF-8 YAML content. */

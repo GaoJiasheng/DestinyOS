@@ -78,7 +78,7 @@ export function SynastryForm({
   }
   return (
     <section className="settings-page">
-      <h1 className="type-h1">{t('synastry.title')}</h1>
+      <h2 className="type-h1">{t('synastry.title')}</h2>
       <p>{t('synastry.intro')}</p>
       <p className="muted">{t('synastry.roles')}</p>
       {signedIn ? (

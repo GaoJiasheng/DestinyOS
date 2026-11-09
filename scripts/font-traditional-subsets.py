@@ -24,6 +24,21 @@ for path in (ROOT / 'apps/web/messages/zh-TW').glob('*.json'):
     for key, value in json.loads(path.read_text()).items():
         if key.endswith('.term'):
             required.update(value)
+
+
+def strings(value):
+    """Yield every string in a nested catalog such as landing.json."""
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from strings(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from strings(item)
+
+
+required.update(''.join(strings(json.loads((ROOT / 'apps/web/messages/zh-TW/landing.json').read_text()))))
 required = {ord(c) for c in required if '\u3000' <= c <= '\u9fff'}
 inventory = json.loads((OUT / 'selection.json').read_text())
 budget = json.loads((OUT / 'budget.json').read_text())

@@ -20,8 +20,22 @@ characters = set((ROOT / 'scripts/resources/common-3500.txt').read_text(encoding
 characters.update(''.join(json.loads((ROOT / 'apps/web/messages/zh.json').read_text()).values()))
 characters.update((ROOT / 'scripts/resources/common-3500-tw.txt').read_text(encoding='utf-8-sig'))
 characters.update((ROOT / 'scripts/resources/og-public-tw.txt').read_text(encoding='utf-8-sig'))
+
+
+def strings(value):
+    """Yield every string in a nested catalog such as landing.json."""
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from strings(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from strings(item)
+
+
 for catalog in (ROOT / 'apps/web/messages/zh-TW').glob('*.json'):
-    characters.update(''.join(json.loads(catalog.read_text()).values()))
+    characters.update(''.join(strings(json.loads(catalog.read_text()))))
 characters.update(''.join(json.loads((ROOT / 'apps/web/messages/zh-TW.json').read_text()).values()))
 characters.update(chr(i) for i in range(32, 127))
 characters.update('★☆·–—‘’“”')
