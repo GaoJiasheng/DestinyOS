@@ -1,12 +1,11 @@
 'use client';
-import { ArtImage } from '@/components/art/art-image';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useCopy } from '@/i18n/use-copy';
-import { Dialog } from './ui/dialog';
+import { Link } from '@/i18n/navigation';
 import { Button } from './ui/button';
 import { acknowledgeDisclaimerAction, getDisclaimerAcknowledgementAction } from '@/app/me/actions';
-/** Require an explicit first-visit acknowledgement; remember it when storage is available. */
+/** Non-blocking first-visit notice: never gates content or takes focus; remembered like the former dialog. */
 export function Disclaimer() {
   const [open, setOpen] = useState(false);
   const t = useCopy();
@@ -14,6 +13,7 @@ export function Disclaimer() {
   useEffect(() => {
     try {
       if (localStorage.getItem('tianji-disclaimer-v1') === 'accepted') {
+        setOpen(false);
         void acknowledgeDisclaimerAction().catch(() => undefined);
         return;
       }
@@ -36,27 +36,18 @@ export function Disclaimer() {
     setOpen(false);
     await acknowledgeDisclaimerAction().catch(() => undefined);
   }
+  if (!open) return null;
   return (
-    <Dialog
-      open={open}
-      onOpenChange={() => {}}
-      required
-      title={t('legal.firstVisit.title')}
-      description={t('legal.disclaimer.full')}
-    >
-      {/* DESIGN-GAP: Use the existing copy hook and bounded bitmap directly to keep the mandatory first-visit shell small. */}
-      <ArtImage
-        asset="states/disclaimer"
-        alt={t('art.states.disclaimer')}
-        className="state-art"
-        sizes="(min-width: 640px) 240px, 180px"
-        maxWidth={512}
-        priority
-      />
-      <p className="type-small muted">{t('legal.ageConfirmation')}</p>
+    <aside className="disclaimer-bar" aria-label={t('legal.firstVisit.label')}>
+      <p className="type-small">
+        {t('legal.firstVisit.notice')}{' '}
+        <Link prefetch={false} href="/disclaimer">
+          {t('legal.firstVisit.more')}
+        </Link>
+      </p>
       <Button className="disclaimer-confirm" action={acknowledge}>
         {t('legal.firstVisit.confirm')}
       </Button>
-    </Dialog>
+    </aside>
   );
 }

@@ -9,12 +9,12 @@ for (const locale of ['zh', 'en'] as const) {
     page,
   }, testInfo) => {
     await page.goto(`/${locale}`);
-    // DESIGN-GAP: A cold local dev build can spend over 5s compiling client hydration; allow 15s for the dialog within the shared 60s cold-start budget.
-    await expect(page.getByRole('dialog')).toBeVisible({ timeout: 15_000 });
-    await page.keyboard.press('Escape');
-    await expect(page.getByRole('dialog')).toBeVisible();
+    // DESIGN-GAP: A cold local dev build can spend over 5s compiling client hydration; allow 15s for the notice bar within the shared 60s cold-start budget.
+    const notice = page.getByRole('complementary', { name: messages['legal.firstVisit.label'] });
+    await expect(notice).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByRole('dialog')).toHaveCount(0);
     await page.getByRole('button', { name: messages['legal.firstVisit.confirm'] }).click();
-    await expect(page.getByRole('dialog')).toBeHidden();
+    await expect(notice).toBeHidden();
     await expect(page.getByRole('heading', { level: 1 })).toContainText(brand.nameZh);
     await expect(page.getByRole('heading', { level: 1 })).toContainText(brand.nameEn);
     await expect(page.getByText(messages['brand.tagline'], { exact: true })).toBeVisible();
