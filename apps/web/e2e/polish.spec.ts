@@ -72,6 +72,12 @@ for (const locale of ['en', 'zh'] as const) {
         'data-theme',
         ['tarot', 'astrology'].includes(system) ? 'west' : system === 'vedic' ? 'vedic' : 'east',
       );
+      // Sections fold by default; the checks below exercise the expanded prose and evidence.
+      await page
+        .locator('details.section-fold')
+        .evaluateAll((folds) =>
+          folds.forEach((fold) => ((fold as HTMLDetailsElement).open = true)),
+        );
       const chip = page.locator('.report-body .term-chip').first();
       await expect(chip).toBeVisible();
       await chip.click();

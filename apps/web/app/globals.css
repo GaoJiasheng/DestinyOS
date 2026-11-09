@@ -4898,3 +4898,72 @@ html[data-reduced-motion='true']
   scale: 1;
   transition-duration: 0ms !important;
 }
+/* Report summary and folded sections use native details; print always shows the full text. */
+.report-summary {
+  grid-area: summary;
+}
+.report-columns,
+.tarot-report .report-columns {
+  grid-template-areas: 'summary' 'notices' 'chart' 'headline' 'body';
+}
+.report-notices {
+  grid-area: notices;
+  min-width: 0;
+}
+.report-notices:empty {
+  display: none;
+}
+/* The one chart already rendered in the report sits beside the summary, so the first screen shows both. */
+@media (min-width: 1024px) {
+  .report-columns,
+  .report-layout[data-system='bazi'] .report-columns,
+  .tarot-report .report-columns {
+    grid-template-rows: auto auto auto minmax(0, 1fr);
+    grid-template-areas: 'chart summary' 'chart notices' 'chart headline' 'chart body';
+  }
+  .report-layout[data-system='bazi'] .report-columns,
+  .tarot-report .report-columns {
+    grid-template-columns: minmax(0, 480px) minmax(0, 720px);
+  }
+  .report-layout[data-system='bazi'] .bazi-chart {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .report-layout[data-system='bazi'] .report-chart .bazi-pillars {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    min-width: 0;
+  }
+  /* Dense wheels keep the full-width row their 44px targets were designed for. */
+  .report-layout:has(.vedic-report-chart) .report-columns,
+  .report-layout[data-system='synastry'] .report-columns {
+    grid-template-rows: none;
+    grid-template-areas: 'summary' 'notices' 'chart' 'headline' 'body';
+  }
+  .report-summary {
+    margin-top: 12px;
+  }
+}
+.report-summary .summary-takeaways,
+.report-summary .summary-advice {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.75rem 0;
+  padding-inline-start: 1.25rem;
+}
+.report-summary .summary-takeaways a {
+  text-decoration: underline;
+}
+.section-fold > summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  cursor: pointer;
+}
+@media print {
+  .section-fold::details-content {
+    display: block;
+    content-visibility: visible;
+  }
+  .section-fold > summary {
+    display: none;
+  }
+}
