@@ -37,7 +37,15 @@
 ## 验证（dev + 本地档案）
 
 `test-results/daily-v2/` 下 today / week / month 的桌面与 375px 截图。
-周/月视图首次点击才加载，匿名计算在 calendar worker。
+周/月视图首次点击才加载，匿名计算在 calendar worker；月视图点击到出图约 0.9 秒（并发负载下）。
+裂图：懒加载前 `<img>` 无 src 且 alt 已空，滚动后 6 张图 `naturalWidth>0`，已写入验证脚本日志。
+
+## 检查结果
+
+- 通过：`content:validate`、`i18n:check`、`fonts:check`（避开“彆”字）、engine/content/interpret/daily 相关测试、
+  新增 `daily-diversity`/`daily-period`、mobile 全量（`m05-ui` 并发下偶发，单跑 10/10）、web/engine/shared 等 tsc。
+- 已知：engine `calendar.test` 与 web `calendar-service` 的 400ms 预算在高负载下超时（`scoreDaily` ×29 仅 2ms，
+  负载下降后 200ms），与本次改动无关；mobile tsc 仅 `session-gate.tsx` 一处既有错误。
 
 ## 未覆盖
 
