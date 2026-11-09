@@ -2,6 +2,8 @@
 import { DailyArt } from '@/components/art/daily-art';
 import { DailyPanchang } from './daily-panchang';
 import { DailyLuckyRow } from './daily-lucky-row';
+import { DailyPeriodSection } from './daily-period-section';
+import { DailySkyNote, moonPhaseEmoji, useDimensionCopy } from './daily-dimension-copy';
 import { useRef } from 'react';
 import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { dailyStars } from '@tianji/engine/daily';
@@ -95,6 +97,7 @@ export function TodayView({
       );
   };
   const title = (key: string) => intl(`report.sections.daily.${key}`);
+  const dimensionCopy = useDimensionCopy(chart, locale);
   function switchDate(n: number) {
     window.dispatchEvent(
       new CustomEvent('tianji:event', { detail: { name: 'daily.date.switch' } }),
@@ -169,23 +172,7 @@ export function TodayView({
               {Object.values(chart.date.ganZhi)
                 .map((g) => `${intl(`bazi.stems.${g.stem}`)}${intl(`bazi.branches.${g.branch}`)}`)
                 .join(' · ')}{' '}
-              ·{' '}
-              <span aria-hidden>
-                {
-                  (
-                    {
-                      new_moon: '🌑',
-                      waxing_crescent: '🌒',
-                      first_quarter: '🌓',
-                      waxing_gibbous: '🌔',
-                      full_moon: '🌕',
-                      waning_gibbous: '🌖',
-                      last_quarter: '🌗',
-                      waning_crescent: '🌘',
-                    } as Record<string, string>
-                  )[chart.astro.moonPhase.name]
-                }
-              </span>{' '}
+              · <span aria-hidden>{moonPhaseEmoji[chart.astro.moonPhase.name]}</span>{' '}
               {intl(`daily.moonPhase.${chart.astro.moonPhase.name}`)}
             </p>
             {chart.date.solarTerm ? <p>{intl(`home.term.${chart.date.solarTerm.name}`)}</p> : null}
@@ -238,7 +225,10 @@ export function TodayView({
                       {'★'.repeat(dailyStars(chart.scores[k]))}
                       {'☆'.repeat(5 - dailyStars(chart.scores[k]))}
                     </p>
-                    <p>{t(`daily.rating.${dailyStars(chart.scores[k])}` as MessageKey)}</p>
+                    <p data-daily-note={k}>
+                      {dimensionCopy(k)?.note ??
+                        t(`daily.rating.${k}.${dailyStars(chart.scores[k])}` as MessageKey)}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -264,10 +254,10 @@ export function TodayView({
               </div>
             </section>
             <section className="report-card" data-daily-block="6">
-              {['career', 'wealth', 'love', 'health'].map((k) => (
-                <div key={k}>
+              {(['career', 'wealth', 'love', 'health'] as const).map((k) => (
+                <div key={k} data-daily-body={k}>
                   <h2>{title(k)}</h2>
-                  {content(k)}
+                  {dimensionCopy(k) ? <p>{dimensionCopy(k)?.paragraph}</p> : content(k)}
                 </div>
               ))}
             </section>
@@ -280,7 +270,7 @@ export function TodayView({
                 {intl(`charts.sign.${chart.astro.moonSign}`)} ·{' '}
                 {intl(`daily.moonPhase.${chart.astro.moonPhase.name}`)}
               </p>
-              {content('astro')}
+              <DailySkyNote chart={chart} locale={locale} />
               {chart.astro.transits.slice(0, 2).map((v, i) => (
                 <p key={i}>
                   {intl(`charts.planet.${v.transiting}`)} · {intl(`charts.aspect.${v.aspect}`)} ·{' '}
@@ -351,14 +341,14 @@ export function TodayView({
                 }}
               />
             </section>
-            <section className="report-card" data-daily-block="11">
-              <h2>{t('daily.period')}</h2>
-              <div className="action-row">
-                <Button disabled>{t('daily.week')}</Button>
-                <Button disabled>{t('daily.month')}</Button>
-              </div>
-              <p>{t('daily.periodSoon')}</p>
-            </section>
+            <DailyPeriodSection
+              date={chart.date.local}
+              zone={zone}
+              signedIn={signedIn}
+              profileId={profileId}
+              locale={locale}
+              example={example}
+            />
             <section className="report-card" data-daily-block="12">
               <h2>{t('daily.feedback')}</h2>
               {([1, -1] as const).map((n) => (

@@ -7,19 +7,14 @@ import type { CalendarWorkerRequest, CalendarWorkerResponse } from './calendar-w
 self.addEventListener('message', (event: MessageEvent<CalendarWorkerRequest>) => {
   let response: CalendarWorkerResponse;
   try {
-    const { profile, month, tz, identity, locale } = event.data;
-    const start = Temporal.PlainDate.from(`${month}-01`);
+    const { profile, month, from, to, tz, identity, locale } = event.data;
+    const start = Temporal.PlainDate.from(month ? `${month}-01` : from!);
+    const end = month ? start.with({ day: start.daysInMonth }) : Temporal.PlainDate.from(to!);
     response = {
       ok: true,
-      days: computeDailyRange(
-        profile,
-        start.toString(),
-        start.with({ day: start.daysInMonth }).toString(),
-        tz,
-        identity,
-        locale,
-      ),
-      events: computeCalendarYear(profile, start.year, tz, locale),
+      days: computeDailyRange(profile, start.toString(), end.toString(), tz, identity, locale),
+      // DESIGN-GAP: Week views only chart scores, so skip the annual astronomy pass used by month views.
+      events: month ? computeCalendarYear(profile, start.year, tz, locale) : [],
     };
   } catch {
     response = { ok: false, code: 'E_INTERNAL' };

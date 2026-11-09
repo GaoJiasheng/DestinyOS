@@ -28,14 +28,14 @@ describe('daily §8 Fixture A and deterministic output', () => {
       lunar.getMonthInGanZhiExact(),
       lunar.getDayInGanZhiExact(),
     ]).toEqual(['丙午', '丁酉', '辛亥']);
-    // Manual §3.5: peer [2,-8,-4,0,6] + unfavorable [-8,-8,-6,-8,-6], starting from 60.
+    // V2 table (score-rules.ts): peer jie_cai, unfavorable day, month clash, Moon–Sun sextile, branch god.
     expect(daily.scores).toEqual({
-      career: 54,
-      wealth: 44,
-      love: 50,
-      health: 52,
-      social: 60,
-      overall: 51.7,
+      career: 52,
+      wealth: 41,
+      love: 51,
+      health: 60,
+      social: 58,
+      overall: 48.15,
     });
     expect(daily.bazi.branchRelations).toContainEqual({ pillar: 'month', type: 'clash' });
     expect(daily.bazi.luckyColorElement).toBe('wood');

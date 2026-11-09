@@ -107,7 +107,11 @@
     "moonDegree": 23.628859884154977,
     "moonChangesSign": false,
     "retrogrades": ["venus"],
-    "lunation": null
+    "lunation": null,
+    "natalMoon": {
+      "sign": "capricorn",
+      "relation": "opposition"
+    }
   },
   "tarot": {
     "card": "major_14_temperance",
@@ -181,33 +185,67 @@
       }
     ]
   },
+  "numerology": {
+    "personalDay": 8
+  },
   "scores": {
-    "career": 54,
-    "wealth": 44,
-    "love": 50,
-    "health": 52,
-    "social": 60,
-    "overall": 51.7
+    "career": 52,
+    "wealth": 41,
+    "love": 51,
+    "health": 60,
+    "social": 58,
+    "overall": 48.15
+  },
+  "scoreDrivers": {
+    "career": {
+      "rule": "month_clash",
+      "category": "friction",
+      "direction": "down",
+      "hit": "bazi.branch.month.clash",
+      "natalBranch": "si"
+    },
+    "wealth": {
+      "rule": "peer",
+      "category": "peer",
+      "direction": "down",
+      "hit": "bazi.tenGod.jie_cai.strong"
+    },
+    "love": {
+      "rule": "unfavorable",
+      "category": "element",
+      "direction": "down",
+      "hit": "bazi.unfavorableHit"
+    },
+    "health": {
+      "rule": "moon_sun_support",
+      "category": "support",
+      "direction": "up",
+      "hit": "astro.transit.moon_sextile_sun"
+    },
+    "social": {
+      "rule": "unfavorable",
+      "category": "element",
+      "direction": "down",
+      "hit": "bazi.unfavorableHit"
+    }
   },
   "findings": [
     "bazi.tenGod.jie_cai.strong",
+    "bazi.branchGod.shi_shen",
     "bazi.unfavorableHit",
     "bazi.branch.month.clash",
     "bazi.secondary.year.stem.combine",
     "astro.transit.moon_sextile_sun",
+    "astro.retrograde.venus",
     "astro.transit.venus_opposition_mercury",
     "astro.transit.sun_opposition_venus",
     "astro.moon_sign.cancer",
     "astro.moon_phase.last_quarter",
-    "astro.retrograde.venus",
     "tarot.daily.major_14_temperance.reversed"
   ],
   "doDont": {
     "do": ["daily.actions.pause", "daily.actions.focus", "daily.actions.prepare"],
     "dont": ["daily.actions.compare", "daily.actions.argue", "daily.actions.assume"]
   },
-  "oneLiner": "daily.oneliner.careful.pian_yin",
-  "numerology": {
-    "personalDay": 8
-  }
+  "oneLiner": "daily.oneliner.careful.pian_yin"
 }

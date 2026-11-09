@@ -104,6 +104,24 @@ export function dailyScoreAstro(
     ),
   };
 }
+const SIGN_RELATIONS = [
+  'same',
+  'adjacent',
+  'sextile',
+  'square',
+  'trine',
+  'adjacent',
+  'opposition',
+] as const;
+/** Whole-sign relation between today's Moon and the natal Moon (ignores exact degrees and houses). */
+function natalMoonRelation(moonLon: number, natalLon: number) {
+  const signIndex = (lon: number) => Math.floor(wrap(lon) / 30);
+  const distance = (signIndex(moonLon) - signIndex(natalLon) + 12) % 12;
+  return {
+    sign: signAt(natalLon),
+    relation: SIGN_RELATIONS[distance > 6 ? 12 - distance : distance]!,
+  };
+}
 /** Compute daily tropical positions, Moon transitions and ranked natal transits.
  * @param localDate Target ISO civil date (YYYY-MM-DD).
  * @param tz IANA timezone for the local day boundaries.
@@ -147,7 +165,11 @@ export function dailyAstro(
     const event = Astronomy.SearchMoonPhase(angle, astroTime(start), end - start);
     if (event && event.ut + 2451545 >= start && event.ut + 2451545 < end) lunation = name;
   }
+  const natalMoonLon = natal?.bodies.find((body) => body.key === 'moon')?.lon;
   return {
+    ...(natalMoonLon === undefined
+      ? {}
+      : { natalMoon: natalMoonRelation(positions.moon.lon, natalMoonLon) }),
     moonSign: signAt(positions.moon.lon),
     moonDegree: wrap(positions.moon.lon) % 30,
     sunSign: signAt(positions.sun.lon),

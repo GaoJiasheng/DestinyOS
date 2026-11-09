@@ -15,6 +15,16 @@ import { CardKeySchema } from './tarot';
 import { PanchangSchema } from './vedic';
 import { PillarKeySchema } from './bazi';
 const score = z.number().finite().min(15).max(95);
+const scoreDriver = z
+  .object({
+    rule: z.string(),
+    category: z.string(),
+    direction: z.enum(['up', 'down']),
+    hit: z.string(),
+    natalBranch: z.string().optional(),
+  })
+  .strict()
+  .nullable();
 const elements = z
   .object({
     wood: z.number(),
@@ -116,6 +126,14 @@ export const DailyChartSchema = z
           .optional(),
         retrogrades: z.array(z.enum(['mercury', 'venus', 'mars'])),
         lunation: z.enum(['new_moon', 'full_moon']).nullable(),
+        // DESIGN-GAP: Whole-sign distance from the natal Moon gives a stable personal reading without birth-time-dependent houses; optional for older cached reports.
+        natalMoon: z
+          .object({
+            sign: z.nativeEnum(Sign),
+            relation: z.enum(['same', 'adjacent', 'sextile', 'square', 'trine', 'opposition']),
+          })
+          .strict()
+          .optional(),
       })
       .strict(),
     // DESIGN-GAP: TarotCard is not defined in 04; use the existing shared RWS CardKey rather than copying deck metadata.
@@ -135,6 +153,17 @@ export const DailyChartSchema = z
         overall: score,
       })
       .strict(),
+    // DESIGN-GAP: Optional so reports cached before this field existed still parse; each dimension's strongest reason drives its note and paragraph.
+    scoreDrivers: z
+      .object({
+        career: scoreDriver,
+        wealth: scoreDriver,
+        love: scoreDriver,
+        health: scoreDriver,
+        social: scoreDriver,
+      })
+      .strict()
+      .optional(),
     findings: z.array(z.string()),
     doDont: z.object({ do: z.array(z.string()).max(3), dont: z.array(z.string()).max(3) }).strict(),
     oneLiner: z.string().regex(/^daily\.oneliner\.(great|good|mixed|careful)\.[a-z_]+$/),
