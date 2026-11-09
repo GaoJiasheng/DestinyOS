@@ -3,7 +3,7 @@ import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { AstroChartSchema, VedicChartSchema, type HouseSystem } from '@tianji/shared';
 import { AstrologyReportChart } from '../charts/astrology-report-chart';
 import { VedicReportChart } from '../charts/vedic-report-chart';
-import { focusEvidence } from './focus-evidence';
+import { focusEvidence, openSection } from './focus-evidence';
 import { Fragment, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
@@ -31,8 +31,9 @@ const ReportProfessional = dynamic(() =>
   import('./report-professional').then((module) => module.ReportProfessional),
 );
 import { ReportHeadline } from './report-headline';
+import { ReportNotices } from './report-notices';
 import { ChartPreview } from './chart-preview';
-import { SectionNav, ReportSection, AdSlot, AdviceList } from './report-section';
+import { SectionNav, ReportSection, ReportSummary, AdSlot, AdviceList } from './report-section';
 import {
   baziSection,
   chartPath,
@@ -119,6 +120,7 @@ export function ReportLayout({
     setHighlight(path ?? section);
     const key = view.system === 'bazi' ? baziSection(section) : section;
     setSelectedSection(key);
+    openSection(key);
     focusChartAnchor(document.getElementById(`section-${key}`));
   };
   const regenerate = async () => {
@@ -222,7 +224,6 @@ export function ReportLayout({
               {intl('charts.vedic.rashi')} · {intl(`charts.sign.${vedic.data.moon.rashi}`)}
             </p>
           ) : null}
-
           {birthDetails || owner ? (
             <details
               onToggle={(e) => {
@@ -262,34 +263,9 @@ export function ReportLayout({
           ) : null}
         </div>
       </header>
-      {local ? (
-        <aside className="notice">
-          <p>{t('report.localNotice')}</p>
-          <Link href="/auth/login" className="text-link">
-            {t('report.loginSave')}
-          </Link>
-        </aside>
-      ) : null}
-      {view.meta.timeSource === 'rectified' ? (
-        <aside className="notice" data-testid="rectification-notice">
-          <p>
-            {intl('rectification.reportNotice', {
-              percent: Math.round((view.meta.rectificationConfidence ?? 0) * 100),
-            })}
-          </p>
-          <Link href="/me/birth">{intl('rectification.editBirth')}</Link>
-          {' · '}
-          <Link href="/rectify">{intl('rectification.retry')}</Link>
-        </aside>
-      ) : null}
-      {view.staleProfile ? <p className="notice">{t('report.stale')}</p> : null}
-      {view.isPublic ? <p className="notice">{t('report.public')}</p> : null}
-      {view.meta.warnings.map((w) => (
-        <p className="notice" key={w.code}>
-          {intl(w.messageKey)}
-        </p>
-      ))}
       <div className="report-columns">
+        <ReportSummary report={view.report} />
+        <ReportNotices view={view} local={local} />
         <ReportHeadline
           headline={{
             ...view.report.headline,

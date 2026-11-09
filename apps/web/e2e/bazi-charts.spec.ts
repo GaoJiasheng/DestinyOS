@@ -89,6 +89,8 @@ for (const locale of ['zh', 'en'] as const) {
       'aria-pressed',
       'true',
     );
+    // Sections fold by default; evidence buttons live inside the fold.
+    await page.locator('#section-elements details.section-fold > summary').click();
     await page.locator('#section-elements .evidence-tags button').click();
     await expect(chart.locator('[data-chart-path="elements.pct.wood"]')).toBeFocused();
     await expect(chart.locator('[data-chart-path="elements.pct.wood"]')).toHaveAttribute(
@@ -97,6 +99,7 @@ for (const locale of ['zh', 'en'] as const) {
     );
     // Evidence also reopens a folded chart and expands its stored current annual period.
     await page.locator('.report-chart > details > summary').click();
+    await page.locator('#section-luck_timeline details.section-fold > summary').click();
     await page.locator('#section-luck_timeline .evidence-tags button').click();
     await expect(chart).toBeVisible();
     const currentYearIndex = baziFixture.years.findIndex((year) => year.isCurrent);

@@ -1,15 +1,85 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TarotChartSchema } from '@tianji/shared';
 import { TarotDetails } from '@/components/tarot/tarot-details';
 import { toast } from 'sonner';
-import type { Section, ReportBlock } from '@tianji/interpret';
+import type { Report, Section, ReportBlock } from '@tianji/interpret';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { submitFeedbackAction } from '@/app/readings/actions';
 import { ReportText } from './report-text';
 import { ChartPreview } from './chart-preview';
+import { openSection } from './focus-evidence';
+const uninformative = new Set(['成立', '不成立', 'Present', 'Absent']);
+/** Deterministic one-page summary derived from the stored snapshot, so old reports need no new fields.
+ * Takeaways are section leads ranked by the heaviest rule hit in each section, shown in plan order. */
+export function summarize(report: Report): {
+  takeaways: { key: string; title: string; text: string }[];
+  advice: string[];
+} {
+  const weight = (key: string) =>
+    report.hits.reduce((max, hit) => (hit.section === key ? Math.max(max, hit.weight) : max), 0);
+  const ranked = report.sections
+    .map((section, index) => ({ section, index, weight: weight(section.key) }))
+    .filter((entry) => entry.section.key !== 'summary_actions' && entry.section.lead.trim())
+    .sort((a, b) => b.weight - a.weight || a.index - b.index)
+    .slice(0, 5)
+    .sort((a, b) => a.index - b.index);
+  const advice =
+    report.sections
+      .find((section) => section.key === 'summary_actions')
+      ?.blocks.flatMap((block) => (block.type === 'advice' ? block.items : [])) ?? [];
+  return {
+    takeaways: ranked.map(({ section }) => ({
+      key: section.key,
+      title: section.title,
+      text: section.lead,
+    })),
+    advice: (advice.length ? advice : (report.doDont?.do ?? [])).slice(0, 3),
+  };
+}
+/** First-screen summary card: ranked takeaways linked to their sections, top advice and one usage note. */
+export function ReportSummary({ report }: { report: Report }) {
+  const t = useCopy();
+  const { takeaways, advice } = summarize(report);
+  const fallback = report.headline.persona.trim();
+  if (!takeaways.length && !advice.length && !fallback) return null;
+  return (
+    <section id="report-summary" className="report-summary report-card">
+      <h2 className="type-h2">{t('report.brief.title')}</h2>
+      {takeaways.length ? (
+        <ol className="summary-takeaways" aria-label={t('report.brief.takeaways')}>
+          {takeaways.map((item) => (
+            <li key={item.key}>
+              <ReportText text={item.text} />{' '}
+              <a href={`#section-${item.key}`} onClick={() => openSection(item.key)}>
+                <ReportText text={item.title} />
+              </a>
+            </li>
+          ))}
+        </ol>
+      ) : fallback ? (
+        <p className="section-lead">
+          <ReportText text={fallback} />
+        </p>
+      ) : null}
+      {advice.length ? (
+        <>
+          <h3>{t('report.brief.advice')}</h3>
+          <ul className="summary-advice">
+            {advice.map((text, i) => (
+              <li key={i}>
+                <ReportText text={text} />
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+      <p className="muted summary-howto">{t('report.brief.howto')}</p>
+    </section>
+  );
+}
 /** Evidence links focus the chart and mark the matching path without disclosing birth input. */
 export function EvidenceTags({
   items,
@@ -19,12 +89,17 @@ export function EvidenceTags({
   onEvidence: (path: string) => void;
 }) {
   const t = useCopy();
+  // A bare boolean predicate ("成立: 成立") carries no information; a label repeating its value is shown once.
+  const shown = items.filter((item) => item.value && !uninformative.has(item.value));
+  if (!shown.length) return null;
   return (
     <div className="evidence-tags">
       <span>{t('report.evidence')}</span>
-      {items.map((item, i) => (
+      {shown.map((item, i) => (
         <button type="button" key={i} onClick={() => onEvidence(item.path)}>
-          <ReportText text={`${item.label}: ${item.value}`} />
+          <ReportText
+            text={item.label === item.value ? item.value : `${item.label}: ${item.value}`}
+          />
         </button>
       ))}
     </div>
@@ -121,6 +196,34 @@ export function ReportSection({
   selected?: boolean;
 }) {
   const tarot = section.key === 'cards' ? TarotChartSchema.safeParse(chart) : null;
+  const t = useCopy();
+  const fold = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const element = fold.current;
+    if (!element) return;
+    let openedForPrint = false;
+    const showIfTargeted = () => {
+      if (window.location.hash === `#section-${section.key}`) element.open = true;
+    };
+    // Browser printing must include every topic, then restore the reader's own fold state.
+    const beforePrint = () => {
+      if (!element.open) openedForPrint = true;
+      element.open = true;
+    };
+    const afterPrint = () => {
+      if (openedForPrint) element.open = false;
+      openedForPrint = false;
+    };
+    showIfTargeted();
+    window.addEventListener('hashchange', showIfTargeted);
+    window.addEventListener('beforeprint', beforePrint);
+    window.addEventListener('afterprint', afterPrint);
+    return () => {
+      window.removeEventListener('hashchange', showIfTargeted);
+      window.removeEventListener('beforeprint', beforePrint);
+      window.removeEventListener('afterprint', afterPrint);
+    };
+  }, [section.key]);
   return (
     <section
       id={`section-${section.key}`}
@@ -134,39 +237,42 @@ export function ReportSection({
         <ReportText text={section.lead} />
       </p>
       {tarot?.success ? <TarotDetails chart={tarot.data} /> : null}
-      {section.blocks.map((block, i) => {
-        switch (block.type) {
-          case 'paragraph':
-            return (
-              <p className="report-paragraph" key={i} data-unit-id={block.unitId}>
-                <ReportText text={block.text} />
-              </p>
-            );
-          case 'transition':
-            return (
-              <p className="report-transition" key={i}>
-                <ReportText text={block.text} />
-              </p>
-            );
-          case 'evidence':
-            return <EvidenceTags key={i} items={block.items} onEvidence={onEvidence} />;
-          case 'advice':
-            return <AdviceList key={i} items={block.items} />;
-          case 'sources':
-            return <SourceFold key={i} items={block.items} />;
-          case 'chart_ref':
-            return (
-              <ChartReference
-                key={i}
-                block={block}
-                chart={chart}
-                highlight={highlight}
-                onSelect={onChartSelect}
-              />
-            );
-        }
-      })}
-      <FeedbackBar readingId={readingId} sectionKey={section.key} />
+      <details className="section-fold" ref={fold}>
+        <summary>{t('report.section.expand')}</summary>
+        {section.blocks.map((block, i) => {
+          switch (block.type) {
+            case 'paragraph':
+              return (
+                <p className="report-paragraph" key={i} data-unit-id={block.unitId}>
+                  <ReportText text={block.text} />
+                </p>
+              );
+            case 'transition':
+              return (
+                <p className="report-transition" key={i}>
+                  <ReportText text={block.text} />
+                </p>
+              );
+            case 'evidence':
+              return <EvidenceTags key={i} items={block.items} onEvidence={onEvidence} />;
+            case 'advice':
+              return <AdviceList key={i} items={block.items} />;
+            case 'sources':
+              return <SourceFold key={i} items={block.items} />;
+            case 'chart_ref':
+              return (
+                <ChartReference
+                  key={i}
+                  block={block}
+                  chart={chart}
+                  highlight={highlight}
+                  onSelect={onChartSelect}
+                />
+              );
+          }
+        })}
+        <FeedbackBar readingId={readingId} sectionKey={section.key} />
+      </details>
     </section>
   );
 }
@@ -214,7 +320,7 @@ export function SectionNav({ sections }: { sections: Section[] }) {
   return (
     <nav aria-label={t('report.nav')} className="section-nav">
       {sections.map((s) => (
-        <a key={s.key} href={`#section-${s.key}`}>
+        <a key={s.key} href={`#section-${s.key}`} onClick={() => openSection(s.key)}>
           <ReportText text={s.title} />
         </a>
       ))}

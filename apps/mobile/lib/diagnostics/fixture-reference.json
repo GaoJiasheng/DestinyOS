@@ -62,7 +62,7 @@
         "bazi.fallback.luck_timeline",
         "bazi.fallback.summary_actions"
       ],
-      "zhChars": 12655,
+      "zhChars": 8921,
       "enWords": 0,
       "disclaimerKey": "common.disclaimer"
     },
@@ -129,7 +129,7 @@
         "bazi.fallback.summary_actions"
       ],
       "zhChars": 0,
-      "enWords": 7221,
+      "enWords": 4974,
       "disclaimerKey": "common.disclaimer"
     }
   },
@@ -182,7 +182,7 @@
         "ziwei.fallback.patterns",
         "ziwei.fallback.summary_actions"
       ],
-      "zhChars": 10049,
+      "zhChars": 8719,
       "enWords": 0,
       "disclaimerKey": "common.disclaimer"
     },
@@ -235,7 +235,7 @@
         "ziwei.fallback.summary_actions"
       ],
       "zhChars": 0,
-      "enWords": 6181,
+      "enWords": 4967,
       "disclaimerKey": "common.disclaimer"
     }
   },
@@ -267,7 +267,7 @@
         "iching.fallback.pro_view",
         "iching.fallback.process_outcome"
       ],
-      "zhChars": 4684,
+      "zhChars": 4259,
       "enWords": 0,
       "disclaimerKey": "common.disclaimer"
     },
@@ -299,7 +299,7 @@
         "iching.fallback.process_outcome"
       ],
       "zhChars": 0,
-      "enWords": 2510,
+      "enWords": 2283,
       "disclaimerKey": "common.disclaimer"
     }
   },
@@ -339,7 +339,7 @@
         "qimen.fallback.overview",
         "qimen.fallback.pro_view"
       ],
-      "zhChars": 6117,
+      "zhChars": 5709,
       "enWords": 0,
       "disclaimerKey": "common.disclaimer"
     },
@@ -379,13 +379,21 @@
         "qimen.fallback.pro_view"
       ],
       "zhChars": 0,
-      "enWords": 3465,
+      "enWords": 3183,
       "disclaimerKey": "common.disclaimer"
     }
   },
   "tarot": {
     "zh": {
-      "sections": ["overview", "cards", "dynamics", "answer", "advice", "learn", "summary_actions"],
+      "sections": [
+        "overview",
+        "cards",
+        "dynamics",
+        "answer",
+        "advice",
+        "learn",
+        "summary_actions"
+      ],
       "hits": [
         "tarot.learn.single",
         "tarot.category.general",
@@ -402,12 +410,20 @@
         "tarot.fallback.learn",
         "tarot.fallback.overview"
       ],
-      "zhChars": 3965,
+      "zhChars": 3519,
       "enWords": 0,
       "disclaimerKey": "common.disclaimer"
     },
     "en": {
-      "sections": ["overview", "cards", "dynamics", "answer", "advice", "learn", "summary_actions"],
+      "sections": [
+        "overview",
+        "cards",
+        "dynamics",
+        "answer",
+        "advice",
+        "learn",
+        "summary_actions"
+      ],
       "hits": [
         "tarot.learn.single",
         "tarot.category.general",
@@ -481,7 +497,7 @@
         "astrology.fallback.summary_actions",
         "astrology.fallback.transits_now"
       ],
-      "zhChars": 12027,
+      "zhChars": 11262,
       "enWords": 0,
       "disclaimerKey": "common.disclaimer"
     },
@@ -537,7 +553,7 @@
         "astrology.fallback.transits_now"
       ],
       "zhChars": 0,
-      "enWords": 6565,
+      "enWords": 5694,
       "disclaimerKey": "common.disclaimer"
     }
   },
@@ -583,7 +599,7 @@
         "vedic.fallback.summary_actions",
         "vedic.fallback.yogas"
       ],
-      "zhChars": 8678,
+      "zhChars": 7463,
       "enWords": 0,
       "disclaimerKey": "common.disclaimer"
     },
@@ -629,7 +645,7 @@
         "vedic.fallback.yogas"
       ],
       "zhChars": 0,
-      "enWords": 4905,
+      "enWords": 4194,
       "disclaimerKey": "common.disclaimer"
     }
   },

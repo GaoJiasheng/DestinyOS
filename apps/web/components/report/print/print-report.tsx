@@ -239,7 +239,11 @@ export function PrintReport({
                   <div className="print-evidence" key={j} data-print-block>
                     <strong>{t('report.evidence')}</strong>
                     {block.items.map((item, k) => (
-                      <span key={k}>{text(`${item.label}: ${item.value}`)}</span>
+                      <span key={k}>
+                        {text(
+                          item.label === item.value ? item.value : `${item.label}: ${item.value}`,
+                        )}
+                      </span>
                     ))}
                   </div>
                 );

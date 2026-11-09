@@ -61,6 +61,10 @@ for (const locale of ['zh', 'en'] as const) {
       fullPage: true,
     });
     await page.screenshot({ path: `test-results/report-top-${locale}-${info.project.name}.png` });
+    // Sections fold by default; open them so the first term chip in the prose is reachable.
+    await page
+      .locator('details.section-fold')
+      .evaluateAll((folds) => folds.forEach((fold) => ((fold as HTMLDetailsElement).open = true)));
     const term = page.locator('.report-paragraph .term-chip').first();
     await term.focus();
     await page.keyboard.press('Enter');
