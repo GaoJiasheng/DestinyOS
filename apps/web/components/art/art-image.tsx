@@ -62,7 +62,8 @@ export function ArtImage({
         src={enabled ? `${stem}.png` : undefined}
         width={width}
         height={height}
-        alt={alt}
+        // DESIGN-GAP: Before the observer sets a src, a non-empty alt renders as visible text; keep it empty until the image can load.
+        alt={enabled ? alt : ''}
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"

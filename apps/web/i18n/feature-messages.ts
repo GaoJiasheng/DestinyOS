@@ -30,6 +30,9 @@ export function dailyMessages(messages: AbstractIntlMessages): AbstractIntlMessa
     'errors',
     'engine',
     'art',
+    'dailyDriver',
+    'dailySky',
+    'dailyPeriod',
   ]);
   const selected = Object.fromEntries(
     Object.entries(messages).filter(([key]) => namespaces.has(key)),
@@ -71,7 +74,7 @@ export function dailyMessages(messages: AbstractIntlMessages): AbstractIntlMessa
               ]),
           )
         : key === 'bazi'
-          ? pick(value, ['stems', 'branches'])
+          ? pick(value, ['stems', 'branches', 'tenGods', 'elements', 'strength'])
           : key === 'nav'
             ? pick(value, ['today'])
             : pick(value, ['upright', 'reversed']);

@@ -8,6 +8,7 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Temporal } from '@js-temporal/polyfill';
 import { dailyStars } from '@tianji/engine/daily';
 import { dailyExcerpt } from '@tianji/ui-core/daily-excerpt';
+import { dailyDimensionCopy } from '@tianji/ui-core/daily-drivers';
 import { useCopy } from '../../lib/copy';
 import { useChartLabel, ReportCard } from '../report/report-ui';
 import { usePreferences } from '../../lib/preferences';
@@ -42,7 +43,15 @@ export function TodayScreen() {
     )
       setDate(next);
   }
+  const translateDriver = (key: string, values?: Record<string, string>) =>
+    label(key, undefined, values);
+  const dimensionCopy = (dim: (typeof domains)[number]) =>
+    chart ? dailyDimensionCopy(chart, dim, locale, translateDriver) : null;
   const excerpt = (key: string) => {
+    const copy = domains.includes(key as (typeof domains)[number])
+      ? dimensionCopy(key as (typeof domains)[number])
+      : null;
+    if (copy) return t('report.content', { text: copy.paragraph });
     const section = value?.report.sections.find((s) => s.key === key);
     const block = section?.blocks.find((b) => b.type === 'paragraph');
     return block?.type === 'paragraph'
@@ -202,7 +211,10 @@ export function TodayScreen() {
                       {t('daily.stars', { count: dailyStars(chart.scores[k]) })}
                     </CopyText>
                     <DailyStars count={dailyStars(chart.scores[k])} />
-                    <CopyText>{label(`daily.rating.${dailyStars(chart.scores[k])}`)}</CopyText>
+                    <CopyText>
+                      {dimensionCopy(k)?.note ??
+                        label(`daily.rating.${k}.${dailyStars(chart.scores[k])}`)}
+                    </CopyText>
                   </View>
                 ))}
               </ReportCard>

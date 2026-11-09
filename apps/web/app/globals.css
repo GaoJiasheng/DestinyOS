@@ -4898,3 +4898,78 @@ html[data-reduced-motion='true']
   scale: 1;
   transition-duration: 0ms !important;
 }
+.daily-period {
+  margin-top: var(--space-5);
+}
+.daily-period-skeleton {
+  height: 220px;
+  margin-top: var(--space-5);
+  border-radius: 12px;
+}
+.daily-week-trend {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: var(--space-3) auto;
+  color: var(--gold);
+}
+.daily-week-list,
+.daily-period-events {
+  margin: var(--space-4) 0;
+  padding: 0;
+  list-style: none;
+}
+.daily-week-list li a {
+  display: grid;
+  grid-template-columns: 3rem minmax(40px, 1fr) 7.5rem;
+  grid-template-areas:
+    'day bar score'
+    'day word word';
+  align-items: center;
+  gap: 0.15rem var(--space-3);
+  padding: 0.5rem 0.4rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 16%, transparent);
+  color: inherit;
+  text-decoration: none;
+}
+.daily-week-list li[data-today] a {
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  border-radius: 8px;
+}
+.daily-week-day {
+  grid-area: day;
+}
+.daily-week-bar {
+  grid-area: bar;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--gold);
+}
+.daily-week-score {
+  grid-area: score;
+  color: var(--gold-soft);
+  white-space: nowrap;
+  text-align: right;
+}
+.daily-week-word {
+  grid-area: word;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.daily-badge {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--bg-0);
+  font-size: 0.75rem;
+}
+.daily-badge-watch {
+  background: transparent;
+  color: var(--gold-soft);
+  border: 1px solid var(--gold-soft);
+}
+.daily-period-events li {
+  padding: 0.3rem 0;
+}
