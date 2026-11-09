@@ -18,7 +18,7 @@ export function SessionGate({ children }: { children: ReactNode }) {
     if (
       __DEV__ ||
       (process.env.EXPO_PUBLIC_M14_AUDIT === 'true' &&
-        ['audit', 'effects'].includes(String(segments[1])))
+        ['audit', 'effects'].includes(String((segments as readonly string[])[1])))
     )
       return children;
     return <Redirect href="/today" />;

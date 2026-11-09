@@ -4989,6 +4989,7 @@ html[data-reduced-motion='true']
   .section-fold > summary {
     display: none;
   }
+}
 .daily-period {
   margin-top: var(--space-5);
 }

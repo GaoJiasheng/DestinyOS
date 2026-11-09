@@ -18,7 +18,11 @@ it('preserves deployed 0001–0005 and appends mobile schema without losing acco
     .sort();
   expect(new Set(files.map((name) => name.split('_')[0])).size).toBe(files.length);
   const additions = files.filter((name) => name > '0005_lifetime_billing.sql');
-  expect(additions).toEqual(['0006_mobile_api.sql', '0007_first_release_profile_quota.sql']);
+  expect(additions).toEqual([
+    '0006_mobile_api.sql',
+    '0007_first_release_profile_quota.sql',
+    '0008_push_subscription.sql',
+  ]);
   const db = new Database(':memory:');
   db.pragma('foreign_keys=ON');
   try {
