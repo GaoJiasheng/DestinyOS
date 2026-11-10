@@ -1,64 +1,43 @@
 'use client';
-import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { X } from 'lucide-react';
-import { useRef, type ReactNode } from 'react';
-import { useCopy } from '@/i18n/use-copy';
-/** Accessible modal with focus trapping, labelled content, and translated controls. */
-export function Dialog({
-  open,
-  onOpenChange,
-  title,
-  description,
-  children,
-  required = false,
-  className,
-}: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  title: string;
-  description?: string;
-  children: ReactNode;
-  required?: boolean;
-  className?: string;
-}) {
-  const t = useCopy();
-  // DESIGN-GAP: Controlled dialogs use external buttons instead of Radix Trigger; preserve their actual opener for keyboard focus restoration.
-  const opener = useRef<HTMLElement | null>(null);
-  return (
-    <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
-      <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="dialog-overlay" />
-        <DialogPrimitive.Content
-          className={`dialog-content${className ? ` ${className}` : ''}`}
-          {...(!description ? { 'aria-describedby': undefined } : {})}
-          onOpenAutoFocus={() => {
-            opener.current =
-              document.activeElement instanceof HTMLElement ? document.activeElement : null;
-          }}
-          onCloseAutoFocus={(event) => {
-            event.preventDefault();
-            if (opener.current?.isConnected) opener.current.focus();
-          }}
-          onEscapeKeyDown={required ? (event) => event.preventDefault() : undefined}
-          onPointerDownOutside={required ? (event) => event.preventDefault() : undefined}
-        >
-          <DialogPrimitive.Title className="type-h2">{title}</DialogPrimitive.Title>
-          {description ? (
-            <DialogPrimitive.Description className="muted dialog-description">
-              {description}
-            </DialogPrimitive.Description>
-          ) : null}
-          {children}
-          {!required ? (
-            <DialogPrimitive.Close
-              className="icon-button dialog-close"
-              aria-label={t('common.close')}
-            >
-              <X aria-hidden size={20} />
-            </DialogPrimitive.Close>
-          ) : null}
-        </DialogPrimitive.Content>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
-  );
+import { useEffect, useState, type ComponentProps, type ComponentType } from 'react';
+import type { DialogImpl } from './dialog-impl';
+
+type DialogProps = ComponentProps<typeof DialogImpl>;
+let Loaded: ComponentType<DialogProps> | null = null;
+let pending: Promise<ComponentType<DialogProps>> | null = null;
+function load() {
+  pending ??= import('./dialog-impl').then((module) => (Loaded = module.DialogImpl));
+  return pending;
+}
+
+/**
+ * Accessible modal with focus trapping, labelled content, and translated controls.
+ * The Radix primitive (~11KB gzip) is fetched on idle and mounted on first open,
+ * keeping it out of every route's first-load JS.
+ */
+export function Dialog(props: DialogProps) {
+  const [Impl, setImpl] = useState(() => Loaded);
+  useEffect(() => {
+    if (Impl) return;
+    let live = true;
+    const start = () => void load().then((component) => live && setImpl(() => component));
+    if (props.open) start();
+    else if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(start, { timeout: 4000 });
+      return () => {
+        live = false;
+        window.cancelIdleCallback(id);
+      };
+    } else {
+      const id = window.setTimeout(start, 2000);
+      return () => {
+        live = false;
+        window.clearTimeout(id);
+      };
+    }
+    return () => {
+      live = false;
+    };
+  }, [Impl, props.open]);
+  return Impl ? <Impl {...props} /> : null;
 }

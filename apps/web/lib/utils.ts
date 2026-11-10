@@ -1,6 +1,8 @@
 import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-/** Merge conditional Tailwind classes; later conflicting utilities take precedence. */
+/**
+ * Join conditional class names. Components use semantic CSS classes rather than
+ * conflicting Tailwind utilities, so tailwind-merge (~10KB gzip in every route) is not needed.
+ */
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }

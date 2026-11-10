@@ -108,10 +108,10 @@ for (const [locale, catalog] of [
     expect(container.textContent).not.toContain('1990-05-15');
     expect(screen.getByText(catalog['ziwei.chart.cycles'])).toBeTruthy();
   });
-  it(`${locale}: fullscreen accessible zoom and focus-managed exit`, () => {
+  it(`${locale}: fullscreen accessible zoom and focus-managed exit`, async () => {
     render(wrap());
     fireEvent.click(screen.getByRole('button', { name: catalog['ziwei.chart.expand'] }));
-    const dialog = screen.getByRole('dialog');
+    const dialog = await screen.findByRole('dialog');
     const slider = within(dialog).getByRole('slider', { name: catalog['ziwei.chart.zoom'] });
     fireEvent.change(slider, { target: { value: '200' } });
     expect(within(dialog).getByTestId('ziwei-board').style.width).toBe('200%');
