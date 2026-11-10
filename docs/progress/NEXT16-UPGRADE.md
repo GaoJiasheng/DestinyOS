@@ -2,9 +2,9 @@
 
 日期：2026-11-09；基线：6e3eedb；分支：upgrade/next16。未 push、未部署、未写线上资源。
 
-## 状态：代码可运行，但 cf:build 未通过
+## 状态：cf:build 与 cf:multi:smoke 通过（2026-11-10）
 
-`pnpm cf:build` 的前几步全部通过，只在最后的 `perf:budgets` 退出 1。预算阈值未改动，需 Owner 决定（见“阻塞项”）。`cf:deploy` 串联 cf:build，当前会在部署前中止。
+Owner 选择先瘦身、不放宽预算。瘦身见下方“预算回收”；预算阈值未改动。
 
 ## 版本变化
 
@@ -51,10 +51,23 @@ apps/mobile 的依赖与 lockfile 解析版本未变。
 
 增量来自框架：Next 路由运行时 gzip +21.3KB、react-dom +9.7KB；应用代码约 -7KB。
 
-## 阻塞项（阈值未改）
-1. `perf:budgets`：首页 204,418 > 184,320（180KB），另有 rectify、calendar、[system]/new、r/[id]、r/local/[id] 超限。升级前首页已是 179,539，余量仅 4.8KB。
-2. `cf:multi:smoke`：`/zh/today` Flight 128,460 > 120,000。该路由新增 daily* 文案约 9.5KB（来自 10-14 之后的提交），Next 16 下 /zh、/zh/learn 的 Flight 基本持平，推断非升级导致。临时副本跳过此断言后其余 smoke 全部通过。
+## 预算回收（2026-11-10，阈值未改）
+
+- Radix Dialog 改为空闲预载、首次打开时挂载（`components/ui/dialog.tsx` 包装 `dialog-impl.tsx`）。
+- 移除 tailwind-merge：组件只传语义类名，`cn()` 改为 clsx。
+- `@tianji/shared` 标注 `sideEffects: false`，报告/校正页不再带 journal schema 背后的 Temporal polyfill。
+- 今日页塔罗 Provider 只下发牌名与正逆位；删除未被引用的 `DailyTarotCard`。
+
+| 指标（gzip 字节） | 升级后 | 回收后 | 预算 |
+| --- | ---: | ---: | ---: |
+| 首页首屏 JS | 204,418 | 182,894 | 184,320 |
+| rectify | 280,660 | 206,849 | 266,240 |
+| today/calendar | 279,372 | 249,946 | 266,240 |
+| [system]/new | 415,162 | 389,953 | 409,600 |
+| r/[id] / r/local/[id] | 379,728 / 380,259 | 322,008 / 322,541 | 358,400 |
+| /zh/today Flight | 128,460 | 96,736 | 120,000 |
+
+首页余量约 1.4KB；外壳剩余最大块为 next-intl 的 ICU 格式化（约 11.6KB），可用 next-intl 4 实验性 `messages.precompile` 再收，未做。
 
 ## 未完成项
-- 上述两项需决定：调预算，或另开任务削减首屏 JS / 今日页文案。
 - 线上行为需部署后复测，含 `$`、`!` 路径的段文件在真实 Workers Assets 的表现。
