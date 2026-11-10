@@ -2,14 +2,16 @@ import { pathToFileURL } from 'node:url';
 import { z } from 'zod';
 const api = 'https://api.cloudflare.com/client/v4';
 const reference = 'destinyos_ip_60_per_10s';
-/** Exact dynamic-host rule; renderer/API URLs are deliberately not exempted by file suffix. */
+/** Exact dynamic-host rule; only prerendered Flight/segment files (`.rsc`) are exempted by suffix. */
 export function wafRule() {
   // DESIGN-GAP: Cloudflare requires cf.colo.id alongside IP; counters are per edge location, not a globally atomic per-IP budget.
+  // Next 16 viewport prefetch fetches ~20 static `.rsc` segment files per page view; counting them blocked normal browsing.
+  // Dynamic Flight requests use `?_rsc=` on the route path and stay counted.
   return {
     ref: reference,
     description: 'DestinyOS: block IP above 60 dynamic requests / 10 seconds',
     expression:
-      '(http.host eq "tianji.gavin.pub" and not (starts_with(http.request.uri.path, "/_next/static/") or starts_with(http.request.uri.path, "/fonts/") or starts_with(http.request.uri.path, "/art/") or starts_with(http.request.uri.path, "/images/") or starts_with(http.request.uri.path, "/icons/") or starts_with(http.request.uri.path, "/tarot/") or starts_with(http.request.uri.path, "/workers/") or starts_with(http.request.uri.path, "/_data/") or starts_with(http.request.uri.path, "/offline/") or http.request.uri.path in {"/favicon.ico" "/manifest.webmanifest" "/robots.txt" "/sw.js" "/stars.bin" "/stars-source.json"}))',
+      '(http.host eq "tianji.gavin.pub" and not (starts_with(http.request.uri.path, "/_next/static/") or starts_with(http.request.uri.path, "/fonts/") or starts_with(http.request.uri.path, "/art/") or starts_with(http.request.uri.path, "/images/") or starts_with(http.request.uri.path, "/icons/") or starts_with(http.request.uri.path, "/tarot/") or starts_with(http.request.uri.path, "/workers/") or starts_with(http.request.uri.path, "/_data/") or starts_with(http.request.uri.path, "/offline/") or ends_with(http.request.uri.path, ".rsc") or http.request.uri.path in {"/favicon.ico" "/manifest.webmanifest" "/robots.txt" "/sw.js" "/stars.bin" "/stars-source.json"}))',
     action: 'block',
     enabled: true,
     ratelimit: {

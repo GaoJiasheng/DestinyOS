@@ -1,10 +1,10 @@
 /* global Response, self, caches, URL, fetch */
 /* DESIGN-GAP: Explicit public-shell allowlist instead of caching authenticated Next HTML/RSC or API responses. */
-const CACHE = 'tianji-public-shell-sw2-8dc75e37c814';
+const CACHE = 'tianji-public-shell-sw3-8dc75e37c814';
 const SHELL = [
-  '/offline/zh.html',
-  '/offline/en.html',
-  '/offline/zh-TW.html',
+  '/offline/zh',
+  '/offline/en',
+  '/offline/zh-TW',
   '/offline/style.css',
   '/fonts/selection.json',
   '/fonts/fonts.css',
@@ -46,18 +46,26 @@ self.addEventListener('fetch', (event) => {
   // and a redirected response must never be returned for a navigation request (Chrome reports ERR_FAILED).
   if (request.mode === 'navigate' && /^\/(?:zh-TW|zh|en)\/?$/.test(url.pathname)) {
     const fallback = url.pathname.startsWith('/zh-TW')
-      ? '/offline/zh-TW.html'
+      ? '/offline/zh-TW'
       : url.pathname.startsWith('/en')
-        ? '/offline/en.html'
-        : '/offline/zh.html';
+        ? '/offline/en'
+        : '/offline/zh';
     event.respondWith(
       fetch(request)
         .then((response) => {
           if (response.redirected) return Response.redirect(response.url, 302);
-          if (!response.ok) throw new Error('Home unavailable');
+          // 4xx (including an edge 429) is a real answer for the visitor; only an unreachable origin shows the shell.
+          if (response.status >= 500) throw new Error('Home unavailable');
           return response;
         })
-        .catch(async () => (await caches.match(fallback)) || Response.error()),
+        .catch(async () => {
+          const cached = await caches.match(fallback);
+          if (!cached) return Response.error();
+          // Shells cached before the extensionless URLs carry redirected=true, which Chrome rejects for navigations.
+          return cached.redirected
+            ? new Response(await cached.blob(), { status: 200, headers: cached.headers })
+            : cached;
+        }),
     );
     return;
   }
