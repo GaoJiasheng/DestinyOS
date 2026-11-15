@@ -5304,11 +5304,9 @@ html[data-reduced-motion='true']
   background: transparent;
   border: 0;
 }
+/* The art is a transparent cutout, so a tinted placeholder stays visible as a box behind it; reserving the square is enough to stop the cards jumping while images load. */
 .home-system-card .system-art {
   aspect-ratio: 1;
-  border-radius: var(--r-md);
-  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
-  overflow: hidden;
 }
 .home-system-card .system-art > img {
   height: 100%;

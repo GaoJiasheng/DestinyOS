@@ -78,7 +78,9 @@ export function HomeInsights() {
       document.documentElement.dataset.reducedMotion = String(reduced);
       const birth = saved?.ok && saved.data ? saved.data : local?.profile;
       if (revision === 0) {
-        await new Promise<void>((resolve) => window.setTimeout(resolve, 3000));
+        // The engine import must stay out of the first three seconds of the page, not of the visitor's attention: by the time someone scrolls here that window has usually passed, so they no longer watch a three-second placeholder.
+        const wait = 3000 - performance.now();
+        if (wait > 0) await new Promise<void>((resolve) => window.setTimeout(resolve, wait));
         if (!live) return;
       }
       // DESIGN-GAP: Home uses a deferred engine import rather than downloading natal/daily computation in its initial JS.

@@ -172,6 +172,10 @@ const config: NextConfig = {
     return config;
   },
   poweredByHeader: false,
+  // DESIGN-GAP: The service worker caches /offline/<locale> (Workers Assets strip .html and would redirect the suffixed URL); a Node server only has the .html files, so give it the same extensionless route.
+  async rewrites() {
+    return [{ source: '/offline/:locale(zh|en|zh-TW)', destination: '/offline/:locale.html' }];
+  },
   async headers() {
     return [
       {

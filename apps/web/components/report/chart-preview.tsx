@@ -21,9 +21,8 @@ const ZiweiTimeRequired = dynamic(() =>
 const DivinationChart = dynamic(() =>
   import('@/components/charts/divination-chart').then((module) => module.DivinationChart),
 );
-const SpreadLayout = dynamic(() =>
-  import('@/components/tarot/spread-layout').then((module) => module.SpreadLayout),
-);
+// DESIGN-GAP: The spread layout is 2KB and its card/thumbnail dependencies already ship with every report. As a lazy chunk it had to be fetched when the tarot ritual rendered its offline report, which fails without a network (ChunkLoadError), so it is imported statically.
+import { SpreadLayout } from '@/components/tarot/spread-layout';
 import { NatalWheel } from '../charts/natal-wheel';
 import { VedicSouthChart } from '../charts/vedic-south-chart';
 import { useCopy } from '@/i18n/use-copy';

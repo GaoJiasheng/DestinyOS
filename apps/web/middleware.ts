@@ -56,7 +56,8 @@ export default function middleware(request: NextRequest) {
     return response;
   }
   const excluded =
-    /^\/(api|admin|s|\.well-known)(?:\/|$)/.test(request.nextUrl.pathname) ||
+    // Workers Assets serve the offline shells before this runs; on Node the extensionless URL the service worker caches is rewritten in next.config.ts and must not be locale-redirected.
+    /^\/(api|admin|s|offline|\.well-known)(?:\/|$)/.test(request.nextUrl.pathname) ||
     /^\/auth\/verify\/?$/.test(request.nextUrl.pathname) ||
     /^\/auth\/mobile\/(apple|google)$/.test(request.nextUrl.pathname) ||
     /\.[^/]+$/.test(request.nextUrl.pathname);

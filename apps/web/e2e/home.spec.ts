@@ -32,7 +32,9 @@ for (const locale of ['zh', 'en'] as const) {
     await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
     await page.goto(`/${locale}`);
     await expect(page.getByRole('heading', { name: copy['home.glimpse.sky'] })).toBeVisible();
-    await expect(page.locator('.sky-facts')).not.toContainText('daily.');
+    // The glimpse computes only once it scrolls into view, three seconds after load at the earliest.
+    await page.locator('.home-glimpse').scrollIntoViewIfNeeded();
+    await expect(page.locator('.sky-facts')).not.toContainText('daily.', { timeout: 15_000 });
     await expect(page.locator('[data-home-system]')).toHaveCount(homeSystems.length);
     expect(
       await page
@@ -119,7 +121,10 @@ test('personal preview and report; lazy sky and natal 3D render without errors',
       );
   });
   await page.goto('/zh');
-  await expect(page.getByRole('heading', { name: zh['home.glimpse.title'] })).toBeVisible();
+  await page.locator('.home-glimpse').scrollIntoViewIfNeeded();
+  await expect(page.getByRole('heading', { name: zh['home.glimpse.title'] })).toBeVisible({
+    timeout: 15_000,
+  });
   await expect(page.locator('.lucky-color')).toBeVisible();
   await page.waitForFunction(() => document.documentElement.dataset.fontBudget);
   await page.evaluate(() => document.fonts.ready);
@@ -127,7 +132,9 @@ test('personal preview and report; lazy sky and natal 3D render without errors',
     350 * 1024 + 60 * 1024,
   );
   if (info.project.name === 'desktop') {
-    await expect(page.locator('[data-starfield-canvas] canvas')).toBeVisible();
+    // The WebGL sky mounts only after the first pointer intent plus an idle period.
+    await page.mouse.move(200, 200);
+    await expect(page.locator('[data-starfield-canvas] canvas')).toBeVisible({ timeout: 20_000 });
     expect(
       await page
         .locator('canvas')

@@ -46,7 +46,8 @@ for (const locale of ['zh', 'en'] as const) {
     await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.goto(`/${locale}/tarot`);
+    // Replay seeds are a developer control; production builds only show them with ?debug.
+    await page.goto(`/${locale}/tarot?debug`);
     await expect(page.getByRole('radio')).toHaveCount(8);
     await page.locator('[name="question"]').fill('Private question 36');
     await page.getByText(m['tarot.seed'], { exact: true }).click();
