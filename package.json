@@ -47,7 +47,7 @@
     "stripe:products": "tsx scripts/stripe-products.ts",
     "licenses:check": "tsx scripts/license-check.ts",
     "security:policy": "tsx scripts/security-policy.ts",
-    "test:m4:e2e": "playwright test --config playwright.m4.config.ts",
+    "test:m4:e2e": "NEXT_PUBLIC_FEATURE_MEMBERSHIP=true pnpm build && playwright test --config playwright.m4.config.ts && pnpm build",
     "test:m5:e2e": "playwright test --config playwright.m5.config.ts",
     "launch:check": "pnpm content:build && tsx scripts/launch-check.ts",
     "content:import": "pnpm content:build && tsx scripts/content-import.ts",

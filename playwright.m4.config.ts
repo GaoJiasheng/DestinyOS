@@ -22,6 +22,9 @@ export default defineConfig({
       AUTH_URL: 'http://localhost:3220',
       NEXT_PUBLIC_SITE_URL: 'http://localhost:3220',
       TEST_MAIL_URL: 'http://127.0.0.1:60191/mail',
+      // Membership is off by default; this suite needs it on at runtime and in the build (see test:m4:e2e).
+      FEATURE_MEMBERSHIP: 'true',
+      NEXT_PUBLIC_FEATURE_MEMBERSHIP: 'true',
       FEATURE_WEB_PAYMENTS: 'true',
       STRIPE_SECRET_KEY: 'sk_test_m4',
       STRIPE_WEBHOOK_SECRET: 'whsec_m4',
