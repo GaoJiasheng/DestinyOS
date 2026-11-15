@@ -10,9 +10,7 @@ import { json } from '../lib/reading-service';
 import { BirthInputSchema, brand } from '@tianji/shared';
 import zh from '../messages/zh.json' with { type: 'json' };
 import en from '../messages/en.json' with { type: 'json' };
-import { TestCache } from '../../../scripts/test-cache';
-const db = sqliteClient(testDatabaseUrl(57532)),
-  cache = new TestCache(testDatabaseUrl(57532));
+const db = sqliteClient(testDatabaseUrl(57532));
 process.env.FIELD_ENCRYPTION_KEYS = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
 const birth = BirthInputSchema.parse({
   calendar: 'gregorian',
@@ -27,7 +25,6 @@ const birth = BirthInputSchema.parse({
 });
 test.afterAll(async () => {
   await db.$disconnect();
-  cache.disconnect();
 });
 async function login(page: Page, request: APIRequestContext, locale: 'zh' | 'en') {
   const copy = locale === 'zh' ? zh : en,
@@ -149,7 +146,7 @@ for (const locale of ['zh', 'en'] as const) {
     expect(sitemap).toContain('/learn/iching/hexagram_64');
     expect(sitemap).not.toContain('/me/settings');
   });
-  test(`${locale}: cached daily → three share templates → export → delete → cron hard delete`, async ({
+  test(`${locale}: daily → three share templates → export → delete → cron hard delete`, async ({
     page,
     request,
   }, info) => {
@@ -159,11 +156,6 @@ for (const locale of ['zh', 'en'] as const) {
     await page.goto(`/${locale}/today`);
     await expect(page.locator('[data-daily-block="10"] li')).toHaveCount(6);
     const expectedDont = await page.locator('[data-daily-block="10"] li').last().textContent();
-    const keys = await cache.keys(
-      `daily:${user.id}:${reading.profileId}:${reading.profileVersion}:*:${locale}:*`,
-    );
-    expect(keys).toHaveLength(1);
-    expect(await cache.ttl(keys[0]!)).toBeGreaterThan(0);
     await page.getByRole('button', { name: copy['report.share'], exact: true }).click();
     await page.getByRole('button', { name: copy['share.generate'], exact: true }).click();
     await expect(page.getByAltText(copy['share.preview'])).toBeVisible();

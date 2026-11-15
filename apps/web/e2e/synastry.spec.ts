@@ -2,7 +2,6 @@ import { testDatabaseUrl, sqliteClient } from '../../../scripts/sqlite-test';
 import { test, expect } from '@playwright/test';
 import { Prisma } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
-import { TestCache } from '../../../scripts/test-cache';
 import { encryptField } from '../lib/crypto';
 import { BirthInputSchema } from '@tianji/shared';
 import A from '../../../packages/engine/test/fixtures/birth/A.json' with { type: 'json' };
@@ -11,9 +10,7 @@ import zh from '../messages/zh.json' with { type: 'json' };
 import en from '../messages/en.json' with { type: 'json' };
 const db = sqliteClient(testDatabaseUrl(57532));
 process.env.FIELD_ENCRYPTION_KEYS = `v1:${Buffer.alloc(32, 1).toString('base64')}`;
-const cache = new TestCache(testDatabaseUrl(57532));
 test.afterAll(async () => {
-  cache.disconnect();
   await db.$disconnect();
 });
 for (const locale of ['zh', 'en'] as const) {
@@ -91,9 +88,8 @@ for (const locale of ['zh', 'en'] as const) {
       expect(stored).toHaveLength(3);
       expect(stored.every((p) => p.label?.startsWith('v1:'))).toBe(true);
       await page.goto(`/${locale}/today`);
-      await expect
-        .poll(async () => (await cache.keys(`daily:${user.id}:${first.id}:1:*`)).length)
-        .toBeGreaterThan(0);
+      // A signed-in day is computed in the browser, so the page itself is the evidence.
+      await expect(page.locator('[data-daily-block="10"] li')).toHaveCount(6);
       await page.goto(`/${locale}/synastry`);
       await page.getByLabel(t['synastry.a'], { exact: true }).selectOption(first.id);
       await page.getByLabel(t['synastry.b'], { exact: true }).selectOption(second.id);
@@ -182,9 +178,8 @@ for (const locale of ['zh', 'en'] as const) {
         String(B.year),
       );
       await page.goto(`/${locale}/today`);
-      await expect
-        .poll(async () => (await cache.keys(`daily:${user.id}:${second.id}:1:*`)).length)
-        .toBeGreaterThan(0);
+      // A signed-in day is computed in the browser, so the page itself is the evidence.
+      await expect(page.locator('[data-daily-block="10"] li')).toHaveCount(6);
       await page.goto(`/${locale}/me/history`);
       await expect(
         page.locator(`a[href="/${locale}/synastry/r/${readingId}"]`).filter({ visible: true }),
