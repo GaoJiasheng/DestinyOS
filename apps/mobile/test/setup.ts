@@ -13,6 +13,28 @@ jest.mock('../lib/data/preferences-storage', () => ({
   },
 }));
 
+// expo-crypto extends native AES classes at module scope, which some jest environments do not provide,
+// so every suite reaching the local store failed to load. Node's crypto backs the same API here;
+// a suite that needs fixed ids still declares its own mock.
+jest.mock('expo-crypto', () => {
+  const node = jest.requireActual<typeof import('node:crypto')>('node:crypto');
+  return {
+    CryptoDigestAlgorithm: { SHA256: 'SHA-256' },
+    CryptoEncoding: { BASE64: 'base64', HEX: 'hex' },
+    randomUUID: () => node.randomUUID(),
+    getRandomBytes: (size: number) => new Uint8Array(node.randomBytes(size)),
+    getRandomBytesAsync: async (size: number) => new Uint8Array(node.randomBytes(size)),
+    digestStringAsync: async (
+      _algorithm: string,
+      data: string,
+      options?: { encoding?: 'base64' | 'hex' },
+    ) =>
+      node
+        .createHash('sha256')
+        .update(data)
+        .digest(options?.encoding ?? 'hex'),
+  };
+});
 jest.mock('expo-network', () => ({
   useNetworkState: () => ({ isConnected: true, isInternetReachable: true }),
 }));

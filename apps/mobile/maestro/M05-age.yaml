@@ -36,10 +36,6 @@ appId: pub.gavin.tianji
       id: onboarding-next
 - tapOn:
     id: onboarding-next
-- extendedWaitUntil:
-    visible: '^(允许|Allow)$'
-    timeout: 15000
-- tapOn: '^(允许|Allow)$'
 - tapOn:
     id: onboarding-next
 - scrollUntilVisible:
@@ -50,6 +46,10 @@ appId: pub.gavin.tianji
     id: onboarding-next
 - tapOn:
     id: notifications-request
+- extendedWaitUntil:
+    visible: '^(允许|Allow)$'
+    timeout: 15000
+- tapOn: '^(允许|Allow)$'
 - extendedWaitUntil:
     visible:
       id: onboarding-skip
@@ -88,13 +88,15 @@ appId: pub.gavin.tianji
       id: birth-submit
 - tapOn:
     id: birth-submit
-- assertVisible: 'This service is intended for users aged 18 and over'
+- assertVisible: 'Is this your own birthday?'
+- tapOn: "Yes, it's mine"
+- assertVisible: 'This service is for people aged 13 and over'
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: age-restricted-en
 - launchApp
 - openLink: 'tianji://me/birth'
-- assertVisible: 'This service is intended for users aged 18 and over'
+- assertVisible: 'This service is for people aged 13 and over'
 - assertNotVisible:
     id: birth-year
 - waitForAnimationToEnd:

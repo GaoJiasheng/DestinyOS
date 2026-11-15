@@ -66,6 +66,9 @@ appId: pub.gavin.tianji
       id: system-numerology
 - tapOn:
     id: system-numerology
+# Numerology asks for an optional Latin name before casting.
+- tapOn:
+    id: reading-numerology-start
 - extendedWaitUntil:
     visible:
       id: report-headline

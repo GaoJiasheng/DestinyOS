@@ -12,12 +12,13 @@ const mockReplace = jest.fn(),
   mockDispatch = jest.fn(),
   mockFeedback = jest.fn();
 let mockMethod = '',
+  mockQuestion: string | undefined,
   mockPrevent: ((input: { data: { action: { type: string } } }) => void) | undefined;
 const mockSettings = SettingsSchema.parse({ tz: 'Asia/Singapore' });
 jest.mock('expo-router', () => ({
   useRouter: () => ({ replace: mockReplace, back: mockBack }),
   useNavigation: () => ({ dispatch: mockDispatch }),
-  useLocalSearchParams: () => ({ method: mockMethod }),
+  useLocalSearchParams: () => ({ method: mockMethod, question: mockQuestion }),
 }));
 jest.mock('expo-router/react-navigation', () => ({
   useIsFocused: () => true,
@@ -66,15 +67,22 @@ jest.mock('../components/rituals/tarot-stage', () => {
     TarotFan: ({ onPick }: { onPick: (i: number) => void }) => (
       <Pressable testID="tarot-pick-77" onPress={() => onPick(77)} />
     ),
-    RitualCard: ({ onFlip, index }: { onFlip: () => void; index: number }) => (
-      <Pressable testID={`tarot-flip-${index}`} onPress={onFlip} />
-    ),
+    RitualCard: ({
+      onFlip,
+      onRemove,
+      index,
+    }: {
+      onFlip: () => void;
+      onRemove?: () => void;
+      index: number;
+    }) => <Pressable testID={`tarot-flip-${index}`} onPress={onRemove ?? onFlip} />,
   };
 });
 beforeEach(() => {
   jest.useFakeTimers();
   jest.clearAllMocks();
   mockMethod = '';
+  mockQuestion = undefined;
   mockPrevent = undefined;
   Object.assign(mockSettings, SettingsSchema.parse({ tz: 'Asia/Singapore' }));
   usePreferences.setState({ locale: 'zh', theme: 'auto' });
@@ -101,6 +109,12 @@ it('requires a shuffle, respects cut order/manual picks and waits for all flips 
   for (const i of [2, 0, 1]) fireEvent.press(screen.getByTestId(`tarot-pile-${i}`));
   fireEvent.press(screen.getByTestId('tarot-cut-next'));
   fireEvent.press(screen.getByTestId('tarot-pick-77'));
+  // Picks stay undoable until the reveal is started explicitly.
+  expect(screen.queryByTestId('ritual-result')).toBeNull();
+  fireEvent.press(screen.getByTestId('tarot-flip-0'));
+  expect(screen.getByText('已选 0 / 1 张')).toBeTruthy();
+  fireEvent.press(screen.getByTestId('tarot-pick-77'));
+  fireEvent.press(screen.getByTestId('tarot-start-reveal'));
   expect(screen.getByTestId('ritual-result').props.accessibilityState.disabled).toBe(true);
   fireEvent.press(screen.getByTestId('tarot-flip-0'));
   await advance(950);
@@ -159,13 +173,53 @@ it('protects unfinished ritual exits and cancels the in-flight coin on unmount',
 });
 it('validates zoned Qimen civil time and finishes all four layers before enabling the report', async () => {
   render(<QimenRitual />);
-  fireEvent.changeText(screen.getByTestId('qimen-clock'), 'bad');
-  fireEvent.press(screen.getByTestId('qimen-cast'));
-  expect(screen.getByTestId('ritual-invalid')).toBeTruthy();
-  fireEvent.changeText(screen.getByTestId('qimen-clock'), '2026-10-04T12:00:00');
+  expect(screen.getByTestId('qimen-clock').props.children).toMatch(
+    /^起局时刻：\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/,
+  );
+  // Typing only searches the zone list, so an invalid zone can no longer be entered.
+  fireEvent.changeText(screen.getByTestId('qimen-timezone'), 'Not/AZone');
+  expect(screen.queryByTestId('qimen-timezone-result-0')).toBeNull();
+  fireEvent.changeText(screen.getByTestId('qimen-timezone'), 'Asia/Singapore');
+  fireEvent.press(screen.getByTestId('qimen-timezone-result-0'));
+  expect(screen.getByTestId('qimen-timezone-current').props.children).toMatch(/Asia\/Singapore/);
   fireEvent.press(screen.getByTestId('qimen-cast'));
   expect(screen.getByTestId('ritual-result').props.accessibilityState.disabled).toBe(true);
   await advance(1500);
   expect(screen.getByTestId('ritual-result').props.accessibilityState.disabled).toBe(false);
   expect(mockFeedback.mock.calls.filter(([kind]) => kind === 'palace')).toHaveLength(4);
+});
+
+it('steps back through the tarot phases and asks before discarding shuffles', () => {
+  const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+  render(<TarotRitual />);
+  expect(mockPrevent).toBeUndefined();
+  fireEvent.press(screen.getByTestId('tarot-begin'));
+  expect(mockPrevent).toBeDefined();
+  // Nothing shuffled yet: going back needs no confirmation.
+  fireEvent.press(screen.getByTestId('tarot-back-question'));
+  expect(alert).not.toHaveBeenCalled();
+  expect(screen.getByTestId('tarot-begin')).toBeTruthy();
+  expect(mockPrevent).toBeUndefined();
+  fireEvent.press(screen.getByTestId('tarot-begin'));
+  fireEvent.press(screen.getByTestId('tarot-auto'));
+  fireEvent.press(screen.getByTestId('tarot-back'));
+  expect(screen.getByTestId('tarot-start-reveal')).toBeTruthy();
+  fireEvent.press(screen.getByTestId('tarot-back-question'));
+  expect(alert).toHaveBeenCalledTimes(1);
+  alert.mockRestore();
+});
+it('carries an ask-sheet question straight into the ritual and can return to edit it', () => {
+  mockQuestion = '这份工作该不该接？';
+  mockMethod = 'random';
+  render(<IchingRitual />);
+  expect(screen.getByTestId('iching-cast')).toBeTruthy();
+  expect(mockPrevent).toBeDefined();
+  fireEvent.press(screen.getByTestId('iching-back'));
+  expect(screen.getByTestId('ritual-question').props.value).toBe('这份工作该不该接？');
+});
+it('only confirms leaving an untouched Qimen setup once a question is typed', () => {
+  render(<QimenRitual />);
+  expect(mockPrevent).toBeUndefined();
+  fireEvent.changeText(screen.getByTestId('ritual-question'), '出行');
+  expect(mockPrevent).toBeDefined();
 });

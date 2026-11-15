@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { useProfiles } from '../lib/profiles';
 import { useCopy } from '../lib/copy';
 import { createNativeReading, readingError } from '../lib/reports/readings';
+import { yieldFrame } from '../lib/reports/launch';
 import { useChartLabel } from './report/report-ui';
 import { Page, Action, CopyText } from './native-ui';
 /** Two different saved profiles only; swapping preserves the documented directional Ashtakoot roles. */
@@ -25,6 +26,7 @@ export function SynastryScreen() {
     setBusy(true);
     setError('');
     try {
+      await yieldFrame();
       const reading = await createNativeReading('synastry', first, second);
       router.push({ pathname: '/[system]/r/[id]', params: { system: 'synastry', id: reading.id } });
     } catch (cause) {
@@ -70,7 +72,12 @@ export function SynastryScreen() {
         id="synastry-add"
         label={t('mobile.profiles.add')}
         disabled={busy}
-        onPress={() => router.push('/me/birth')}
+        onPress={() =>
+          router.push({
+            pathname: '/me/birth',
+            params: { returnTo: '/synastry', ...(profiles.length ? { relation: 'partner' } : {}) },
+          })
+        }
       />
       <Action
         id="synastry-create"
@@ -78,7 +85,11 @@ export function SynastryScreen() {
         disabled={busy || !first || !second || a === b}
         onPress={() => void create()}
       />
-      {busy && <CopyText>{t('report.loading')}</CopyText>}
+      {busy && (
+        <CopyText status testID="synastry-busy">
+          {t('mobile.launch.working', { system: t('nav.synastry') })}
+        </CopyText>
+      )}
     </Page>
   );
 }

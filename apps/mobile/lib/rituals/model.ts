@@ -11,6 +11,19 @@ export type CoinCount = 0 | 1 | 2 | 3;
 export function ritualClock(tz: string, instant = new Date().toISOString()) {
   return Temporal.Instant.from(instant).toZonedDateTimeISO(tz).toString();
 }
+/** Saved zone first, then the device zone. */
+export function ritualZone(tz: string | null | undefined) {
+  return tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone;
+}
+/** A question handed over by the ask sheet, trimmed to the shared 120-character limit. */
+export function initialQuestion(param: string | string[] | undefined) {
+  const text = Array.isArray(param) ? param[0] : param;
+  return (text ?? '').trim().slice(0, 120);
+}
+/** Remove one chosen card; later positions move up so the spread stays contiguous. */
+export function removePick(picked: number[], index: number) {
+  return picked.filter((value) => value !== index);
+}
 /** Unbiased three-coin count; the physical shake/button instant participates in the replay seed. */
 export function throwCoins(seed: string, round: number, instant: number): CoinCount {
   const rng = createRandom(hashSeed(`${seed}|${round}|${instant}`));

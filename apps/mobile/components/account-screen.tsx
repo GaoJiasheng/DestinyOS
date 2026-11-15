@@ -1,8 +1,8 @@
 import { membershipEnabled } from '../lib/monetization/features';
-import { Platform } from 'react-native';
+import { Alert, Platform } from 'react-native';
 import * as Apple from 'expo-apple-authentication';
-import { useState } from 'react';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
+import { useRouter, useLocalSearchParams, type Href } from 'expo-router';
 import { Page, CopyText, Action, Field } from './native-ui';
 import { useCopy } from '../lib/copy';
 import {
@@ -17,14 +17,44 @@ import {
   deleteAccount,
 } from '../lib/account/controller';
 import { Preferences } from './preferences';
+import { LocalDataSection } from './local-data-section';
+import { safeReturnTo } from '../lib/return-to';
+const resendSeconds = 60;
+// The magic link reopens the App through /auth/verify, which carries no return path of its own.
+let magicReturnTo: Href | undefined;
 // DESIGN-GAP: Native account-specific labels extend the shared next-intl catalogs under mobile.account; documented auth/me copy keys remain unchanged.
 /** Native provider and email entry with explicit anonymous-data upload consent. */
 export function LoginScreen() {
   const t = useCopy(),
     state = useAccount(),
-    router = useRouter();
+    router = useRouter(),
+    params = useLocalSearchParams<{ returnTo?: string }>();
+  // Kept as a plain string: typed-route unions are too large for dependency arrays.
+  const target = String(safeReturnTo(params.returnTo) ?? '/me/settings');
   const [email, setEmail] = useState(''),
-    [sent, setSent] = useState(false);
+    [sent, setSent] = useState(false),
+    [cooldown, setCooldown] = useState(0);
+  // Return to where sign-in started once a provider login (and any import decision) settles.
+  const signingIn = useRef(false);
+  useEffect(() => {
+    if (!signingIn.current || state.busy) return;
+    if (!state.session) {
+      if (state.error) signingIn.current = false;
+      return;
+    }
+    if (state.pending > 0) return;
+    signingIn.current = false;
+    router.replace(target as Href);
+  }, [state.session, state.pending, state.busy, state.error, router, target]);
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setTimeout(() => setCooldown((value) => value - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
+  function provider(name: 'apple' | 'google') {
+    signingIn.current = true;
+    void accountAction(() => loginProvider(name));
+  }
   return (
     <Page title="auth.login.title">
       {state.session ? (
@@ -53,8 +83,8 @@ export function LoginScreen() {
             <Action
               id="account-continue"
               disabled={state.busy}
-              label={t('auth.login.continue')}
-              onPress={() => router.replace('/me/settings')}
+              label={t('auth.login.continueBack')}
+              onPress={() => router.replace(target as Href)}
             />
           )}
         </>
@@ -68,7 +98,7 @@ export function LoginScreen() {
               cornerRadius={12}
               style={{ height: 48, width: '100%', opacity: state.busy ? 0.45 : 1 }}
               onPress={() => {
-                if (!state.busy) void accountAction(() => loginProvider('apple'));
+                if (!state.busy) provider('apple');
               }}
             />
           ) : (
@@ -76,30 +106,43 @@ export function LoginScreen() {
               id="account-apple"
               disabled={state.busy}
               label={t('mobile.account.apple')}
-              onPress={() => void accountAction(() => loginProvider('apple'))}
+              onPress={() => provider('apple')}
             />
           )}
           <Action
             id="account-google"
             disabled={state.busy}
             label={t('auth.login.google')}
-            onPress={() => void accountAction(() => loginProvider('google'))}
+            onPress={() => provider('google')}
           />
           <Field
             id="account-email"
             label={t('auth.login.email')}
             value={email}
-            onChange={setEmail}
+            onChange={(value) => {
+              setEmail(value);
+              // The confirmation names the address, so it must not outlive an edit.
+              setSent(false);
+            }}
             maxLength={254}
+            keyboardType="email-address"
+            textContentType="emailAddress"
+            autoComplete="email"
           />
           <Action
             id="account-magic-send"
-            disabled={state.busy}
-            label={t('auth.login.send')}
+            disabled={state.busy || cooldown > 0}
+            label={
+              cooldown > 0
+                ? t('mobile.account.resendIn', { seconds: cooldown })
+                : t('auth.login.send')
+            }
             onPress={() =>
               void accountAction(async () => {
                 await requestMagicLink(email);
+                magicReturnTo = safeReturnTo(params.returnTo);
                 setSent(true);
+                setCooldown(resendSeconds);
               })
             }
           />
@@ -133,7 +176,13 @@ export function VerifyScreen() {
             if (!params.email || !params.token) return;
             await confirmMagicLink(params.email, params.token);
             // DESIGN-GAP: Replace the verification route immediately after success so credentials are removed from navigation history.
-            router.replace('/auth/login');
+            const returnTo = magicReturnTo;
+            magicReturnTo = undefined;
+            router.replace(
+              returnTo
+                ? { pathname: '/auth/login', params: { returnTo: String(returnTo) } }
+                : '/auth/login',
+            );
           })
         }
       />
@@ -170,7 +219,9 @@ export function AccountSettingsScreen() {
         <Action
           id="account-login"
           label={t('auth.login.title')}
-          onPress={() => router.push('/auth/login')}
+          onPress={() =>
+            router.push({ pathname: '/auth/login', params: { returnTo: '/me/settings' } })
+          }
         />
       ) : (
         <>
@@ -201,7 +252,16 @@ export function AccountSettingsScreen() {
             id="account-logout"
             disabled={state.busy}
             label={t('auth.login.signOut')}
-            onPress={() => void accountAction(logoutAccount)}
+            onPress={() =>
+              Alert.alert(t('mobile.account.logout.title'), t('mobile.account.logout.body'), [
+                { text: t('profiles.cancel'), style: 'cancel' },
+                {
+                  text: t('auth.login.signOut'),
+                  style: 'destructive',
+                  onPress: () => void accountAction(logoutAccount),
+                },
+              ])
+            }
           />
           <CopyText title>{t('me.delete')}</CopyText>
           <CopyText>{t('me.deleteHelp')}</CopyText>
@@ -238,6 +298,7 @@ export function AccountSettingsScreen() {
       {!state.session && state.error && (
         <CopyText testID="account-error">{t(state.error)}</CopyText>
       )}
+      {!state.session && <LocalDataSection />}
       <Preferences />
     </Page>
   );

@@ -12,6 +12,15 @@ import { useOnline } from '../../lib/network';
 import { reportActions, reportActionError, type ReportActions } from '../../lib/reports/actions';
 import type { MessageKey } from '../../lib/i18n';
 import { Page, Action, CopyText, Field } from '../native-ui';
+/** The follow-up allowance resets at UTC midnight; show that moment in the device's own clock. */
+function localResetTime(locale: string, now = new Date()) {
+  const next = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1);
+  return new Intl.DateTimeFormat(locale, {
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  }).format(next);
+}
 /** Native incremental conversation with quota, cancellation, retry and owner-only history deletion. */
 export function ChatScreen({
   id,
@@ -30,7 +39,8 @@ export function ChatScreen({
   const [history, setHistory] = useState<z.infer<typeof ChatHistorySchema> | null>(null);
   const [question, setQuestion] = useState(''),
     [answer, setAnswer] = useState(''),
-    [submitted, setSubmitted] = useState('');
+    [submitted, setSubmitted] = useState(''),
+    [stopped, setStopped] = useState(false);
   const [busy, setBusy] = useState(false),
     [loading, setLoading] = useState(false),
     [retry, setRetry] = useState(0),
@@ -51,6 +61,7 @@ export function ChatScreen({
     setBusy(false);
     setAnswer('');
     setSubmitted('');
+    setStopped(false);
     setHistory(null);
     if (!online) {
       setLoading(false);
@@ -87,6 +98,7 @@ export function ChatScreen({
       text = question.trim();
     setBusy(true);
     setError(null);
+    setStopped(false);
     setAnswer('');
     setSubmitted(text);
     let complete = '';
@@ -149,6 +161,9 @@ export function ChatScreen({
             value={question}
             onChange={setQuestion}
             maxLength={121}
+            multiline
+            returnKeyType="send"
+            onSubmit={() => void send()}
           />
           <Action
             id="chat-send"
@@ -166,8 +181,9 @@ export function ChatScreen({
                 abort.current?.abort();
                 generation.current++;
                 setBusy(false);
-                setAnswer('');
-                setSubmitted('');
+                // Keep what already streamed in view, marked as stopped, instead of discarding it.
+                if (answer) setStopped(true);
+                else setSubmitted('');
               }}
             />
           )}
@@ -183,9 +199,17 @@ export function ChatScreen({
       <CopyText testID="chat-ai-notice">{t('mobile.chat.ai')}</CopyText>
       {!online && <CopyText testID="chat-offline">{t('mobile.ask.network')}</CopyText>}
       {loading && <CopyText>{t('report.chat.loading')}</CopyText>}
-      {error && <CopyText testID="chat-error">{t(error)}</CopyText>}
+      {error && (
+        <CopyText testID="chat-error">{t(error, { time: localResetTime(locale) })}</CopyText>
+      )}
       {error === 'report.chat.login' && (
-        <Action id="chat-login" label={t('nav.login')} onPress={() => router.push('/auth/login')} />
+        <Action
+          id="chat-login"
+          label={t('nav.login')}
+          onPress={() =>
+            router.push({ pathname: '/auth/login', params: { returnTo: `/r/${id}/chat` } })
+          }
+        />
       )}
       {online && !loading && (
         <Action
@@ -198,10 +222,16 @@ export function ChatScreen({
       {history && (
         <>
           <CopyText testID="chat-quota">
-            {t('report.chat.remaining', { remaining: history.remaining, limit: history.limit })}
+            {t('report.chat.remaining', {
+              remaining: history.remaining,
+              limit: history.limit,
+              time: localResetTime(locale),
+            })}
           </CopyText>
           {!history.available && <CopyText>{t('report.chat.away')}</CopyText>}
-          {!history.remaining && <CopyText>{t('report.chat.quota')}</CopyText>}
+          {!history.remaining && (
+            <CopyText>{t('report.chat.quota', { time: localResetTime(locale) })}</CopyText>
+          )}
           {!history.messages.length && !submitted && <CopyText>{t('report.chat.empty')}</CopyText>}
           {history.messages.map((message) => (
             <View key={message.id} style={{ gap: 8 }}>
@@ -218,6 +248,12 @@ export function ChatScreen({
         <CopyText testID="chat-stream">
           {answer ? t('report.content', { text: answer }) : t('report.chat.thinking')}
         </CopyText>
+      )}
+      {stopped && !busy && answer && (
+        <>
+          <CopyText testID="chat-stopped-answer">{t('report.content', { text: answer })}</CopyText>
+          <CopyText testID="chat-stopped">{t('mobile.chat.stopped')}</CopyText>
+        </>
       )}
       <Action
         id="chat-report"

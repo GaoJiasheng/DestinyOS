@@ -41,17 +41,25 @@ it('shows defaults and updates special toggle, theme and local reminder time', a
   await waitFor(() => expect(screen.getByTestId('push-refresh')).toBeEnabled());
   const date = new Date();
   date.setHours(9, 30);
+  expect(screen.queryByTestId('push-time')).toBeNull();
+  fireEvent.press(screen.getByTestId('push-time-open'));
+  const calls = updateSettings.mock.calls.length;
   fireEvent(screen.getByTestId('push-time'), 'change', { type: 'set' }, date);
+  // Spinner ticks only update the draft; saving waits for an explicit confirmation.
+  expect(updateSettings).toHaveBeenCalledTimes(calls);
+  fireEvent.press(screen.getByTestId('push-time-confirm'));
   await waitFor(() => expect(updateSettings).toHaveBeenCalledWith({ dailyPushTime: '09:30' }));
+  expect(screen.queryByTestId('push-time')).toBeNull();
   expect(refreshEngagement).toHaveBeenCalled();
 });
-it('localizes permission denial and retains enabled preference for OS settings recovery', async () => {
+it('localizes permission denial and keeps reminders off until the OS allows them', async () => {
   usePreferences.setState({ locale: 'en' });
   render(<NotificationSettings />);
   fireEvent(screen.getByTestId('push-enabled'), 'valueChange', true);
   await screen.findByTestId('push-denied');
   expect(requestNotificationPermission).toHaveBeenCalledWith('Daily reminders');
-  expect(updateSettings).toHaveBeenCalledWith({ dailyPushEnabled: true });
+  expect(updateSettings).toHaveBeenCalledWith({ dailyPushEnabled: false });
+  expect(screen.getByTestId('push-denied')).toHaveTextContent(/aren't allowed/);
   expect(screen.getByText('Widget theme')).toBeTruthy();
 });
 it('reports scheduling errors and offers a retry', async () => {

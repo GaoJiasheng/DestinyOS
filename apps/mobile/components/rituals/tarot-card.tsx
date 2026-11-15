@@ -26,6 +26,7 @@ export function RitualCard({
   revealed,
   animate,
   onFlip,
+  onRemove,
   index,
   sideways = false,
 }: {
@@ -34,6 +35,8 @@ export function RitualCard({
   revealed: boolean;
   animate: boolean;
   onFlip: () => void;
+  /** While cards are still being chosen, tapping a slot puts its card back instead of flipping. */
+  onRemove?: () => void;
   index: number;
   sideways?: boolean;
 }) {
@@ -83,7 +86,9 @@ export function RitualCard({
         name,
         orientation: t(card?.reversed ? 'tarot.reversed' : 'tarot.upright'),
       })
-    : t('tarot.flipCard', { position });
+    : onRemove
+      ? t('tarot.unpickPosition', { position })
+      : t('tarot.flipCard', { position });
   return (
     <View style={{ alignItems: 'center', gap: 12 }}>
       <CopyText>{position}</CopyText>
@@ -91,9 +96,9 @@ export function RitualCard({
         testID={`tarot-flip-${index}`}
         accessibilityRole="button"
         accessibilityLabel={description}
-        accessibilityState={{ disabled: revealed || !card }}
-        disabled={revealed || !card}
-        onPress={onFlip}
+        accessibilityState={{ disabled: onRemove ? false : revealed || !card }}
+        disabled={onRemove ? false : revealed || !card}
+        onPress={onRemove ?? onFlip}
       >
         <Animated.View style={[{ width: 136, height: 238 }, flying]}>
           <Animated.View style={[StyleSheet.absoluteFill, back]}>

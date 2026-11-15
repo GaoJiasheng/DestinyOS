@@ -1,4 +1,4 @@
-import { loadCities, searchCities } from '../lib/cities';
+import { cityLabel, loadCities, searchCities } from '../lib/cities';
 import manifest from '../assets/cities/manifest.json';
 jest.mock('../assets/cities/cities.bin', () => 1);
 jest.mock('expo-asset', () => ({
@@ -34,4 +34,18 @@ it('loads an attributed ~3MB offline database and searches Chinese and English w
   expect(searchCities(cities, '')).toEqual([]);
   expect(searchCities(cities, 'San').length).toBeLessThanOrEqual(12);
   expect(cities.every((city) => Number.isFinite(city.lat) && Number.isFinite(city.lng))).toBe(true);
+});
+it('finds cities in either Chinese script, ranks exact names first and shows localized labels', async () => {
+  const cities = await loadCities();
+  const vancouver = searchCities(cities, '温哥华')[0];
+  expect(vancouver?.tz).toBe('America/Vancouver');
+  expect(searchCities(cities, '溫哥華')[0]).toBe(vancouver);
+  expect(searchCities(cities, '纽约')[0]?.tz).toBe('America/New_York');
+  expect(searchCities(cities, 'paris')[0]?.country).toBe('FR');
+  expect(cityLabel(vancouver!, 'zh')).toBe('温哥华');
+  expect(cityLabel(vancouver!, 'zh-TW')).toBe('溫哥華');
+  expect(cityLabel(vancouver!, 'en')).toBe('Vancouver');
+  const started = Date.now();
+  for (const term of ['b', 'be', 'bei', 'beij']) searchCities(cities, term);
+  expect(Date.now() - started).toBeLessThan(1000);
 });

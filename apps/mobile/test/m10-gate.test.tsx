@@ -8,6 +8,7 @@ let mockSegments = ['auth', 'verify'];
 jest.mock('../lib/profiles', () => ({ useProfiles: () => mockState }));
 jest.mock('expo-router', () => ({
   useSegments: () => mockSegments,
+  usePathname: () => '/' + mockSegments.join('/'),
   Redirect: jest.fn(() => null),
 }));
 beforeEach(() => {

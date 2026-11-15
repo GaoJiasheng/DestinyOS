@@ -39,13 +39,6 @@ appId: pub.gavin.tianji
       id: onboarding-next
 - tapOn:
     id: onboarding-next
-- extendedWaitUntil:
-    visible: '^(允许|Allow)$'
-    timeout: 15000
-- waitForAnimationToEnd:
-    timeout: 2000
-- takeScreenshot: notifications-system-en
-- tapOn: '^(允许|Allow)$'
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: onboarding-intro-en
@@ -65,6 +58,13 @@ appId: pub.gavin.tianji
 - takeScreenshot: notifications-request-en
 - tapOn:
     id: notifications-request
+- extendedWaitUntil:
+    visible: '^(允许|Allow)$'
+    timeout: 15000
+- waitForAnimationToEnd:
+    timeout: 2000
+- takeScreenshot: notifications-system-en
+- tapOn: '^(允许|Allow)$'
 - extendedWaitUntil:
     visible:
       id: onboarding-skip
@@ -139,9 +139,10 @@ appId: pub.gavin.tianji
       id: manual-tz
 - tapOn:
     id: manual-tz
-- eraseText: 100
-- inputText: 'Australia/Sydney'
+- inputText: 'Sydney'
 - hideKeyboard
+- tapOn:
+    id: manual-tz-result-0
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: birth-manual-en

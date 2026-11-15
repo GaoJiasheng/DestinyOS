@@ -66,4 +66,5 @@ function AccessibleStack() {
   );
 }
 
+export { RouteErrorBoundary as ErrorBoundary } from '../components/error-boundary';
 export default Sentry.wrap(RootLayout);

@@ -26,11 +26,14 @@ interface ProfilesState {
   error: boolean;
   reload: () => Promise<void>;
   updateSettings: (patch: Partial<Settings>) => Promise<void>;
-  save: (profile: Profile, id?: string) => Promise<void>;
+  /** `activate: false` keeps the current profile (e.g. a partner's chart); the first profile always activates. */
+  save: (profile: Profile, id?: string, options?: { activate?: boolean }) => Promise<void>;
   select: (id: string) => Promise<void>;
   remove: (id: string) => Promise<void>;
   setDefault: (id: string) => Promise<void>;
 }
+/** Anonymous devices keep at most three local profiles; signed-in quotas are enforced by the server. */
+export const anonymousProfileLimit = 3;
 const Context = createContext<ProfilesState | null>(null);
 /** One reactive projection of encrypted local profiles/settings, shared across native routes. */
 export function ProfilesProvider({ children }: { children: ReactNode }) {
@@ -94,12 +97,12 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
     async select(id) {
       await updateSettings({ activeProfileId: id });
     },
-    async save(profile, id) {
+    async save(profile, id, options) {
       const owner = currentOwner(),
         store = await getLocalStore(owner);
       // DESIGN-GAP: Save and active selection in one SQLCipher transaction so interrupted
       // creation never leaves the profile selector pointing at an incomplete record.
-      const saved = await store.database.write(async (sql) => {
+      const result = await store.database.write(async (sql) => {
         if (owner !== currentOwner()) throw new Error('E_FORBIDDEN');
         const count = await sql.getFirstAsync<{ count: number }>(
           'SELECT COUNT(*) count FROM BirthProfile WHERE userId IS ? AND deletedAt IS NULL',
@@ -113,13 +116,18 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
             )
           : null;
         // DESIGN-GAP: Anonymous devices use the documented free quota; authenticated quotas remain authoritative on the server.
-        if (!existing && owner === null && (count?.count ?? 0) >= 3)
+        if (!existing && owner === null && (count?.count ?? 0) >= anonymousProfileLimit)
           throw new Error('E_PROFILE_LIMIT');
         const record = await store.profiles.saveInTransaction(
           sql,
           { ...profile, ...(!existing && !count?.count ? { isDefault: true } : {}) },
           id,
         );
+        const activate = options?.activate !== false || (!existing && !count?.count);
+        if (!activate) {
+          if (owner !== currentOwner()) throw new Error('E_FORBIDDEN');
+          return { record, activated: false };
+        }
         const previous = await sql.getFirstAsync<{ id: string; data: string }>(
           'SELECT id,data FROM Settings WHERE userId IS ? AND deletedAt IS NULL',
           owner,
@@ -135,11 +143,12 @@ export function ProfilesProvider({ children }: { children: ReactNode }) {
           previous?.id,
         );
         if (owner !== currentOwner()) throw new Error('E_FORBIDDEN');
-        return record;
+        return { record, activated: true };
       });
       if (owner !== currentOwner()) return;
+      const { record: saved, activated } = result;
       setProfiles((current) => [saved, ...current.filter((item) => item.id !== saved.id)]);
-      setSettings((current) => ({ ...current, activeProfileId: saved.id }));
+      if (activated) setSettings((current) => ({ ...current, activeProfileId: saved.id }));
     },
     async setDefault(id) {
       const owner = currentOwner(),
@@ -182,4 +191,12 @@ export function useProfiles() {
   const value = useContext(Context);
   if (!value) throw new Error('Missing ProfilesProvider');
   return value;
+}
+/** The name to show for a profile ("{name}'s day"); unnamed profiles fall back to the caller's label. */
+export function profileDisplayName(profile: ProfileRecord | null | undefined, fallback: string) {
+  return profile?.data?.name?.trim() || fallback;
+}
+/** True when an anonymous device already holds its full local profile quota. */
+export function profileLimitReached(profiles: readonly ProfileRecord[]) {
+  return currentOwner() === null && profiles.length >= anonymousProfileLimit;
 }

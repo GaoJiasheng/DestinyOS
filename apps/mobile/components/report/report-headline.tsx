@@ -9,8 +9,22 @@ import { useCopy } from '../../lib/copy';
 import { useTheme } from '../../lib/theme';
 import { ReportCard } from './report-ui';
 import { CopyText } from '../native-ui';
-/** Shared five-dimension radar geometry with a text alternative and confidence bar. */
-export function ReportHeadline({ headline }: { headline: Report['headline'] }) {
+import { isDivination } from '../../lib/reports/launch';
+
+/** A radar of five identical scores carries no information. */
+export function hasScoreSpread(scores: Report['headline']['scores']): boolean {
+  return new Set(SCORE_DIMENSIONS.map((dimension) => scores[dimension])).size > 1;
+}
+/** Shared five-dimension radar geometry with a text alternative and confidence bar.
+ * Divination draws have no natal profile, so scores and confidence are omitted for them;
+ * any report whose five scores are identical omits the radar and stars. */
+export function ReportHeadline({
+  headline,
+  system,
+}: {
+  headline: Report['headline'];
+  system: string;
+}) {
   const t = useCopy(),
     { colors } = useTheme();
   const reduced = useProfiles().settings.reducedMotion;
@@ -30,59 +44,78 @@ export function ReportHeadline({ headline }: { headline: Report['headline'] }) {
     path.close();
     return path;
   }
+  const divination = isDivination(system),
+    showScores = !divination && hasScoreSpread(headline.scores);
+  const starLabel = (dim: (typeof SCORE_DIMENSIONS)[number]) =>
+    t('mobile.report.stars', { dimension: t(`report.dim.${dim}`), count: headline.scores[dim] });
+  const percent = Math.round(headline.confidence * 100);
   return (
     <ReportCard id="report-headline">
       <CopyText title>{t('report.content', { text: headline.persona })}</CopyText>
       <CopyText>{t('report.content', { text: headline.keywords.join(' · ') })}</CopyText>
-      <View style={{ alignSelf: 'center' }} accessible accessibilityLabel={t('report.radar')}>
-        <Canvas style={{ width: 140, height: 140 }}>
-          {[1, 2, 3, 4, 5].map((level) => (
-            <Path
-              key={level}
-              path={polygon(() => level * 12)}
-              color={colors['line-2']}
-              style="stroke"
-              strokeWidth={1}
+      {showScores ? (
+        <>
+          <View
+            style={{ alignSelf: 'center' }}
+            accessible
+            accessibilityLabel={t('mobile.report.radarLabel', {
+              scores: SCORE_DIMENSIONS.map(starLabel).join(t('mobile.report.listSeparator')),
+            })}
+          >
+            <Canvas style={{ width: 140, height: 140 }}>
+              {[1, 2, 3, 4, 5].map((level) => (
+                <Path
+                  key={level}
+                  path={polygon(() => level * 12)}
+                  color={colors['line-2']}
+                  style="stroke"
+                  strokeWidth={1}
+                />
+              ))}
+              <Path
+                path={polygon((i) => headline.scores[SCORE_DIMENSIONS[i]!] * 12)}
+                color={colors.gold + '44'}
+                opacity={progress}
+              />
+              <Path
+                path={polygon((i) => headline.scores[SCORE_DIMENSIONS[i]!] * 12)}
+                color={colors.gold}
+                style="stroke"
+                strokeWidth={2}
+                end={progress}
+              />
+            </Canvas>
+          </View>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
+            {SCORE_DIMENSIONS.map((dim) => (
+              <View key={dim} accessible accessibilityLabel={starLabel(dim)}>
+                <CopyText>
+                  {t(`report.dim.${dim}`) + ' ' + '★'.repeat(headline.scores[dim])}
+                </CopyText>
+              </View>
+            ))}
+          </View>
+        </>
+      ) : null}
+      {divination ? null : (
+        <>
+          <CopyText>{t('report.confidence', { percent })}</CopyText>
+          <View
+            accessibilityRole="progressbar"
+            accessibilityValue={{ min: 0, max: 100, now: percent }}
+            style={{ height: 5, backgroundColor: colors['line-1'], borderRadius: 3 }}
+          >
+            <View
+              style={{
+                width: `${headline.confidence * 100}%`,
+                height: 5,
+                backgroundColor: colors.gold,
+                borderRadius: 3,
+              }}
             />
-          ))}
-          <Path
-            path={polygon((i) => headline.scores[SCORE_DIMENSIONS[i]!] * 12)}
-            color={colors.gold + '44'}
-            opacity={progress}
-          />
-          <Path
-            path={polygon((i) => headline.scores[SCORE_DIMENSIONS[i]!] * 12)}
-            color={colors.gold}
-            style="stroke"
-            strokeWidth={2}
-            end={progress}
-          />
-        </Canvas>
-      </View>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
-        {SCORE_DIMENSIONS.map((dim) => (
-          <CopyText key={dim}>
-            {t(`report.dim.${dim}`) + ' ' + '★'.repeat(headline.scores[dim])}
-          </CopyText>
-        ))}
-      </View>
-      <CopyText>
-        {t('report.confidence', { percent: Math.round(headline.confidence * 100) })}
-      </CopyText>
-      <View
-        accessibilityRole="progressbar"
-        accessibilityValue={{ min: 0, max: 100, now: Math.round(headline.confidence * 100) }}
-        style={{ height: 5, backgroundColor: colors['line-1'], borderRadius: 3 }}
-      >
-        <View
-          style={{
-            width: `${headline.confidence * 100}%`,
-            height: 5,
-            backgroundColor: colors.gold,
-            borderRadius: 3,
-          }}
-        />
-      </View>
+          </View>
+        </>
+      )}
     </ReportCard>
   );
 }

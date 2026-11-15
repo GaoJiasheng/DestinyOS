@@ -5,7 +5,6 @@ import { ScrollView, View, Pressable, RefreshControl } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BlurView, BlurTargetView } from 'expo-blur';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-import { Temporal } from '@js-temporal/polyfill';
 import { dailyStars } from '@tianji/engine/daily';
 import { dailyExcerpt } from '@tianji/ui-core/daily-excerpt';
 import { dailyDimensionCopy } from '@tianji/ui-core/daily-drivers';
@@ -22,6 +21,7 @@ import { DailyShare } from './daily-share';
 import { NotificationHint } from './notification-hint';
 import { DailyStars } from './stars';
 import { DailyInsights } from './daily-insights';
+import { DailyDateNav, inDailyRange, shiftDay } from './daily-date-nav';
 
 /** Thirteen documented daily blocks with native swipe, refresh, card flip and private reflection. */
 export function TodayScreen() {
@@ -35,14 +35,16 @@ export function TodayScreen() {
   const [share, setShare] = useState(false),
     [skyVisible, setSkyVisible] = useState(true);
   const chart = value?.chart;
-  function switchDay(delta: number) {
-    const next = Temporal.PlainDate.from(date).add({ days: delta }).toString();
-    if (
-      next >= '1900-01-01' &&
-      next <= Temporal.PlainDate.from(todayIn(tz)).add({ days: 1 }).toString()
-    )
-      setDate(next);
+  const today = todayIn(tz);
+  const formatDay = (day: string, options: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' }).format(
+      new Date(`${day}T12:00:00Z`),
+    );
+  // Unsaved journal text survives day changes as an in-memory draft (see journal-drafts).
+  function selectDay(next: string) {
+    if (inDailyRange(next)) setDate(next);
   }
+  const switchDay = (delta: number) => selectDay(shiftDay(date, delta));
   const translateDriver = (key: string, values?: Record<string, string>) =>
     label(key, undefined, values);
   const dimensionCopy = (dim: (typeof domains)[number]) =>
@@ -79,7 +81,20 @@ export function TodayScreen() {
       >
         <NotificationHint />
         <SkyHero visible={skyVisible} />
-        <CopyText title>{t('nav.today')}</CopyText>
+        <CopyText title>
+          {date === today
+            ? t('nav.today')
+            : t('report.content', { text: formatDay(date, { dateStyle: 'long' }) })}
+        </CopyText>
+        {active && (
+          <Action
+            id="today-profile"
+            label={t('mobile.daily.forProfile', {
+              name: active.data?.name || t('mobile.profiles.unnamed'),
+            })}
+            onPress={() => router.push('/me')}
+          />
+        )}
         <View
           testID="daily-block-1"
           onTouchStart={(e) => {
@@ -95,27 +110,15 @@ export function TodayScreen() {
               switchDay(e.nativeEvent.pageX < touch.current.x ? 1 : -1);
           }}
         >
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing('space-2') }}>
-            <Action
-              id="daily-prev"
-              label={t('daily.yesterday')}
-              disabled={busy || date === '1900-01-01'}
-              onPress={() => switchDay(-1)}
-            />
-            <Action id="daily-now" label={t('daily.today')} onPress={() => setDate(todayIn(tz))} />
-            <Action
-              id="daily-next"
-              label={t('daily.tomorrow')}
-              disabled={busy || date > todayIn(tz)}
-              onPress={() => switchDay(1)}
-            />
-          </View>
+          <DailyDateNav
+            date={date}
+            today={today}
+            busy={busy}
+            label={formatDay(date, { month: 'short', day: 'numeric', weekday: 'short' })}
+            onSelect={selectDay}
+          />
           <CopyText testID="daily-date">
-            {t('report.content', {
-              text: new Intl.DateTimeFormat(locale, { dateStyle: 'full', timeZone: 'UTC' }).format(
-                new Date(`${date}T12:00:00Z`),
-              ),
-            })}
+            {t('report.content', { text: formatDay(date, { dateStyle: 'full' }) })}
           </CopyText>
           {chart && (
             <>
@@ -171,11 +174,14 @@ export function TodayScreen() {
               importantForAccessibility={active ? 'auto' : 'no-hide-descendants'}
             >
               <ReportCard id="daily-block-2">
+                {/* Long press only: a plain tap while scrolling must not open the share sheet; the share button lives in DailyInsights. */}
                 <Pressable
                   testID="daily-card-longpress"
-                  accessibilityRole="button"
                   accessibilityLabel={t('share.template.daily')}
-                  onPress={() => setShare(true)}
+                  accessibilityActions={[{ name: 'longpress', label: t('share.generate') }]}
+                  onAccessibilityAction={(e) => {
+                    if (e.nativeEvent.actionName === 'longpress') setShare(true);
+                  }}
                   onLongPress={() => setShare(true)}
                 >
                   <CopyText>{t('daily.oneLiner.label')}</CopyText>

@@ -81,7 +81,10 @@ it('requires a second saved profile and exposes the add-profile route', () => {
   render(<SynastryScreen />);
   expect(screen.getByTestId('synastry-create')).toBeDisabled();
   fireEvent.press(screen.getByTestId('synastry-add'));
-  expect(mockPush).toHaveBeenCalledWith('/me/birth');
+  expect(mockPush).toHaveBeenCalledWith({
+    pathname: '/me/birth',
+    params: { relation: 'partner', returnTo: '/synastry' },
+  });
 });
 it('history includes B-side synastry and excludes unrelated owned readings', async () => {
   const list = jest.fn(async () => [
@@ -96,7 +99,7 @@ it('history includes B-side synastry and excludes unrelated owned readings', asy
   // The screen only needs the repository read boundary; no SQL or owner checks are bypassed in production.
   jest
     .mocked(getLocalStore)
-    .mockResolvedValue({ readings: { list } } as unknown as Awaited<
+    .mockResolvedValue({ readings: { listBySystem: list } } as unknown as Awaited<
       ReturnType<typeof getLocalStore>
     >);
   render(<HistoryScreen />);

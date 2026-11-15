@@ -1,6 +1,6 @@
 import * as Crypto from 'expo-crypto';
 import { currentOwner } from '../account/scope';
-import { Repository } from './repository';
+import { TolerantRepository } from './tolerant-repository';
 import { ProfileSchema, ReadingSchema, JournalSchema, SettingsSchema } from './models';
 import type { LocalDatabase } from './database';
 import { openEncryptedDatabase } from './encryption';
@@ -15,10 +15,11 @@ export function createLocalStore(
 ) {
   return {
     database,
-    profiles: new Repository(database, 'BirthProfile', userId, ProfileSchema, uuid, now),
-    readings: new Repository(database, 'Reading', userId, ReadingSchema, uuid, now),
-    journal: new Repository(database, 'JournalEntry', userId, JournalSchema, uuid, now),
-    settings: new Repository(database, 'Settings', userId, SettingsSchema, uuid, now),
+    // Lists skip rows that fail validation so one damaged record cannot lock the App.
+    profiles: new TolerantRepository(database, 'BirthProfile', userId, ProfileSchema, uuid, now),
+    readings: new TolerantRepository(database, 'Reading', userId, ReadingSchema, uuid, now),
+    journal: new TolerantRepository(database, 'JournalEntry', userId, JournalSchema, uuid, now),
+    settings: new TolerantRepository(database, 'Settings', userId, SettingsSchema, uuid, now),
     /** Save one day's mood; preserve the first prediction snapshot across later edits. */
     async saveJournal(raw: unknown) {
       const input = JournalSchema.parse(raw);
@@ -51,7 +52,7 @@ export function createLocalStore(
         return this.settings.saveInTransaction(
           sql,
           SettingsSchema.parse({
-            ...(previous ? SettingsSchema.parse(JSON.parse(previous.data)) : {}),
+            ...(previous ? parsePreviousSettings(previous.data) : {}),
             ...patch,
           }),
           previous?.id,
@@ -74,11 +75,34 @@ export function createLocalStore(
         await sql.runAsync('DELETE FROM MobileSyncState WHERE userId IS ?', userId);
       });
     },
+    /** Count live profiles and non-daily readings in this scope for the local data summary. */
+    async summary() {
+      return database.read(async (sql) => {
+        const profiles = await sql.getFirstAsync<{ count: number }>(
+          'SELECT COUNT(*) AS count FROM BirthProfile WHERE userId IS ? AND deletedAt IS NULL',
+          userId,
+        );
+        const readings = await sql.getFirstAsync<{ count: number }>(
+          "SELECT COUNT(*) AS count FROM Reading WHERE userId IS ? AND deletedAt IS NULL AND json_extract(data,'$.system') IS NOT 'daily'",
+          userId,
+        );
+        return { profiles: profiles?.count ?? 0, readings: readings?.count ?? 0 };
+      });
+    },
     /** Clear all local personal scopes atomically. This is device erasure, not a server delete. */
     async eraseDeviceData() {
       await database.write(erasePersonalData);
     },
   };
+}
+/** A damaged settings row is replaced on the next save instead of blocking every settings write. */
+function parsePreviousSettings(data: string) {
+  try {
+    const parsed = SettingsSchema.safeParse(JSON.parse(data));
+    return parsed.success ? parsed.data : {};
+  } catch {
+    return {};
+  }
 }
 let databasePromise: Promise<LocalDatabase> | undefined;
 /** Share one initialization/key-generation promise; a failure may be retried without data reset. */

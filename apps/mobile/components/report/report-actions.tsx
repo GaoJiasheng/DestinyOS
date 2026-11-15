@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'expo-router';
+import { Alert } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import { projectShare, type ShareTemplate } from '@tianji/ui-core/share-projection';
 import { useCopy } from '../../lib/copy';
@@ -111,6 +112,35 @@ export function ReportActions({
           setError(null);
         }}
       />
+      {!diagnostic && (
+        <Action
+          id="report-delete"
+          disabled={busy}
+          label={t('report.delete')}
+          onPress={() =>
+            Alert.alert(t('report.delete'), t('report.deleteConfirm'), [
+              { text: t('profiles.cancel'), style: 'cancel' },
+              {
+                text: t('report.delete'),
+                style: 'destructive',
+                onPress: () =>
+                  void (async () => {
+                    try {
+                      // Lazy import keeps native crypto out of this component's module graph.
+                      const { getLocalStore } = await import('../../lib/data/store');
+                      await (await getLocalStore()).readings.delete(reading.record.id);
+                      if (router.canGoBack()) router.back();
+                      else router.replace('/me/history');
+                    } catch {
+                      if (alive.current) setError('mobile.storage.error');
+                    }
+                  })(),
+              },
+            ])
+          }
+        />
+      )}
+      {error && !panel && <CopyText testID="report-delete-error">{t(error)}</CopyText>}
       {panel && (
         <ReportSheet
           id={`report-${panel}-panel`}
@@ -127,7 +157,10 @@ export function ReportActions({
               label={t('export.login')}
               onPress={() => {
                 setPanel(null);
-                router.push('/auth/login');
+                router.push({
+                  pathname: '/auth/login',
+                  params: { returnTo: `/${reading.chart.system}/r/${reading.record.id}` },
+                });
               }}
             />
           )}

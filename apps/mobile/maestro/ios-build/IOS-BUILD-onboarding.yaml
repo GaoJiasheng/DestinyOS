@@ -19,12 +19,14 @@ appId: pub.gavin.tianji
 - tapOn:
     id: onboarding-next
 - tapOn:
+    id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    id: notifications-request
+- tapOn:
     text: '^(不允许|Don.t Allow)$'
     optional: true
-- tapOn:
-    id: onboarding-next
-- tapOn:
-    id: onboarding-next
 - runFlow:
     when:
       visible:

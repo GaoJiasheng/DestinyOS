@@ -7,9 +7,10 @@ import { QimenChartSchema, QimenCategorySchema, type QimenChart } from '@tianji/
 import { useProfiles } from '../../lib/profiles';
 import { useCopy } from '../../lib/copy';
 import { useRitualSession } from '../../lib/rituals/session';
-import { ritualClock, type RitualInput } from '../../lib/rituals/model';
+import { ritualClock, ritualZone, type RitualInput } from '../../lib/rituals/model';
 import { ReportThemeContext } from '../../lib/theme';
-import { Page, Action, CopyText, Field } from '../native-ui';
+import { Page, Action, CopyText } from '../native-ui';
+import { TimezonePicker } from '../timezone-picker';
 import { QuestionFields, RitualSettings, ResultActions } from './controls';
 import { QimenLighting } from './cast-stage';
 /** Explicit civil time and category feed the shared rotating/chaibu Qimen engine, followed by four GPU layers. */
@@ -22,11 +23,8 @@ export function QimenRitual() {
 }
 function QimenFlow() {
   const t = useCopy(),
-    session = useRitualSession('qimen'),
-    { active } = useProfiles();
-  const [tz, setTz] = useState(
-    session.settings.tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone,
-  );
+    { active, settings } = useProfiles();
+  const [tz, setTz] = useState(() => ritualZone(settings.tz));
   const [local, setLocal] = useState(() =>
     Temporal.ZonedDateTime.from(ritualClock(tz)).toPlainDateTime().toString(),
   );
@@ -38,6 +36,10 @@ function QimenFlow() {
     [beat, setBeat] = useState(0);
   const [input, setInput] = useState<RitualInput | null>(null),
     [now, setNow] = useState('');
+  const session = useRitualSession(
+    'qimen',
+    Boolean(chart) || Boolean(question.trim()) || category !== 'general',
+  );
   function cast() {
     try {
       const clock = Temporal.PlainDateTime.from(local)
@@ -80,13 +82,16 @@ function QimenFlow() {
       {!chart ? (
         <>
           <CopyText>{t('divination.school')}</CopyText>
-          <Field id="qimen-timezone" label={t('divination.timezone')} value={tz} onChange={setTz} />
-          <Field
-            id="qimen-clock"
-            label={t('divination.castAt')}
-            value={local}
-            onChange={setLocal}
+          <TimezonePicker
+            id="qimen-timezone"
+            label={t('divination.timezone')}
+            value={tz}
+            onChange={setTz}
           />
+          {/* The cast time is only changed through the pickers below, never typed as raw ISO text. */}
+          <CopyText testID="qimen-clock">
+            {t('mobile.ritual.castAtValue', { value: local.slice(0, 16).replace('T', ' ') })}
+          </CopyText>
           <Action
             id="qimen-now"
             label={t('divination.now')}
@@ -101,10 +106,14 @@ function QimenFlow() {
           />
           <Action
             id="qimen-date"
-            label={t('form.birth.dateTime')}
-            onPress={() => setPicker('date')}
+            label={t('mobile.ritual.pickDate')}
+            onPress={() => setPicker((v) => (v === 'date' ? null : 'date'))}
           />
-          <Action id="qimen-time" label={t('form.birth.time')} onPress={() => setPicker('time')} />
+          <Action
+            id="qimen-time"
+            label={t('mobile.ritual.pickTime')}
+            onPress={() => setPicker((v) => (v === 'time' ? null : 'time'))}
+          />
           {picker && date ? (
             <DateTimePicker
               testID="qimen-native-clock"
@@ -168,6 +177,18 @@ function QimenFlow() {
             ready={beat === 36}
             onSave={() => void session.save(now, input!)}
           />
+          {/* Qimen is fully determined by time and category, so recasting after an edit is safe. */}
+          {!session.busy ? (
+            <Action
+              id="qimen-back"
+              label={t('divination.backToQuestion')}
+              onPress={() => {
+                setChart(null);
+                setBeat(0);
+                setInput(null);
+              }}
+            />
+          ) : null}
         </>
       )}
       <Action id="ritual-exit" label={t('divination.exit')} onPress={session.exit} />

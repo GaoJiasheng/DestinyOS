@@ -10,8 +10,11 @@ import { createNativeReading } from '../reports/readings';
 import { useRitualFeedback } from './feedback';
 import type { RitualInput } from './model';
 import { useRitualFrames } from './frames';
-/** Cancel all delayed effects on blur/background/unmount; protect unfinished private rituals on exit. */
-export function useRitualSession(system: 'tarot' | 'iching' | 'qimen') {
+/**
+ * Cancel all delayed effects on blur/background/unmount; protect unfinished private rituals on exit.
+ * `dirty` comes from the flow: only typed content or a started ritual needs an exit confirmation.
+ */
+export function useRitualSession(system: 'tarot' | 'iching' | 'qimen', dirty = false) {
   const t = useCopy(),
     router = useRouter(),
     navigation = useNavigation(),
@@ -19,7 +22,6 @@ export function useRitualSession(system: 'tarot' | 'iching' | 'qimen') {
   const { settings, updateSettings } = useProfiles();
   const motion = useEffectsMotion();
   const { feedback: emit, stop } = useRitualFeedback();
-  const [dirtyState, setDirtyState] = useState(false);
   const [animating, setAnimating] = useState(false);
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(false);
@@ -56,7 +58,7 @@ export function useRitualSession(system: 'tarot' | 'iching' | 'qimen') {
   useEffect(() => {
     if (!focused) cancel();
   }, [focused, cancel]);
-  usePreventRemove(dirtyState, ({ data }) => {
+  usePreventRemove(dirty, ({ data }) => {
     if (leaving.current) {
       navigation.dispatch(data.action);
       return;
@@ -78,7 +80,6 @@ export function useRitualSession(system: 'tarot' | 'iching' | 'qimen') {
   useRitualFrames(animating && animate && focused, system);
   async function sequence(steps: { delay: number; action: () => void }[]) {
     if (lock.current || !active.current) return false;
-    setDirtyState(true);
     lock.current = true;
     setBusy(true);
     setAnimating(true);
@@ -135,9 +136,6 @@ export function useRitualSession(system: 'tarot' | 'iching' | 'qimen') {
     sequence,
     save,
     feedback: emit,
-    markDirty: () => {
-      setDirtyState(true);
-    },
     exit: () => router.back(),
   };
 }

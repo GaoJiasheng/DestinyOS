@@ -8,13 +8,16 @@ import { useCopy } from '../../lib/copy';
 import { useRitualSession } from '../../lib/rituals/session';
 import { useShake } from '../../lib/rituals/shake';
 import {
+  initialQuestion,
   parseNumbers,
   ritualClock,
+  ritualZone,
   throwCoins,
   type CoinCount,
   type RitualInput,
 } from '../../lib/rituals/model';
 import { ReportThemeContext } from '../../lib/theme';
+import { useProfiles } from '../../lib/profiles';
 import { QuestionFields, RitualSettings, ResultActions } from './controls';
 import { CoinThrow, HexagramLines, HexagramResult, RitualBurst } from './cast-stage';
 type Method = 'time' | 'numbers' | 'random' | 'liuyao';
@@ -28,19 +31,22 @@ export function IchingRitual() {
 }
 function IchingFlow() {
   const t = useCopy(),
-    params = useLocalSearchParams<{ method?: string }>();
-  const session = useRitualSession('iching');
+    params = useLocalSearchParams<{ method?: string; question?: string }>(),
+    { settings } = useProfiles();
   const [method, setMethod] = useState<Method>(
     params.method === 'liuyao' ? 'liuyao' : params.method === 'random' ? 'random' : 'time',
   );
   const [category, setCategory] = useState(() => IchingCategorySchema.parse('other'));
-  const [question, setQuestion] = useState(''),
+  // A question carried in from the ask sheet skips straight to casting; "back" can still edit it.
+  const [question, setQuestion] = useState(() => initialQuestion(params.question)),
     [numbers, setNumbers] = useState(['', '', '']);
-  const [stage, setStage] = useState(false),
+  const [stage, setStage] = useState(() => Boolean(question)),
     [invalid, setInvalid] = useState(false);
-  const [now, setNow] = useState(() =>
-    ritualClock(session.settings.tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone),
+  const session = useRitualSession(
+    'iching',
+    stage || Boolean(question.trim()) || numbers.some((n) => n.trim()) || category !== 'other',
   );
+  const [now, setNow] = useState(() => ritualClock(ritualZone(settings.tz)));
   const [throws, setThrows] = useState<CoinCount[]>([]),
     [events, setEvents] = useState<number[]>([]);
   const [toss, setToss] = useState<{
@@ -191,12 +197,7 @@ function IchingFlow() {
                 setInvalid(true);
                 return;
               }
-              setNow(
-                ritualClock(
-                  session.settings.tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone,
-                ),
-              );
-              session.markDirty();
+              setNow(ritualClock(ritualZone(session.settings.tz)));
               setStage(true);
             }}
           />
@@ -283,6 +284,17 @@ function IchingFlow() {
           ) : null}
           {chart && method !== 'liuyao' && visible < 6 && !session.busy ? (
             <Action id="iching-resume" label={t('tarot.next')} onPress={() => setVisible(6)} />
+          ) : null}
+          {!chart && !throws.length ? (
+            <Action
+              id="iching-back"
+              label={t('divination.backToQuestion')}
+              disabled={session.busy}
+              onPress={() => {
+                setToss(null);
+                setStage(false);
+              }}
+            />
           ) : null}
         </>
       )}

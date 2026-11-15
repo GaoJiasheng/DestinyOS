@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
-import { Redirect, useSegments } from 'expo-router';
+import { Redirect, usePathname, useSegments, type Href } from 'expo-router';
 import { useProfiles } from '../lib/profiles';
 import { useCopy } from '../lib/copy';
 import { Page, CopyText, Action } from './native-ui';
@@ -8,7 +8,10 @@ export function SessionGate({ children }: { children: ReactNode }) {
   const state = useProfiles();
   const segments = useSegments();
   const t = useCopy();
+  const pathname = usePathname();
   const ageStateLoaded = useRef(false);
+  // A notification or deep link opened before onboarding is replayed once onboarding lands on Today.
+  const pendingLink = useRef<string | null>(null);
   useEffect(() => {
     if (!state.loading && !state.error) ageStateLoaded.current = true;
   }, [state.loading, state.error]);
@@ -49,7 +52,14 @@ export function SessionGate({ children }: { children: ReactNode }) {
     return <Redirect href="/age-restricted" />;
   // DESIGN-GAP: HTTPS verification can precede optional onboarding only after encrypted age-gate state has loaded successfully.
   if (segments[0] === 'auth' && !state.settings.ageBlocked) return children;
-  if (!state.settings.ageBlocked && state.settings.onboardingVersion < 1 && segments.length > 0)
+  if (!state.settings.ageBlocked && state.settings.onboardingVersion < 1 && segments.length > 0) {
+    if (pathname && pathname !== '/') pendingLink.current = pathname;
     return <Redirect href="/" />;
+  }
+  if (pendingLink.current && pathname === '/today' && state.settings.onboardingVersion >= 1) {
+    const target = pendingLink.current;
+    pendingLink.current = null;
+    if (target !== pathname) return <Redirect href={target as Href} />;
+  }
   return children;
 }

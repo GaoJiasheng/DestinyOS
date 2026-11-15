@@ -13,6 +13,7 @@ import { anonymousCount, mergeAnonymous, synchronize } from './sync';
 import { setCurrentOwner } from './scope';
 import { publicApi, device, signInProvider } from './oauth';
 import { usePreferences } from '../preferences';
+import { useBackendConnectivity } from '../network';
 import { SettingsSchema } from '../data/models';
 import type { MessageKey } from '../i18n';
 interface AccountState {
@@ -224,10 +225,26 @@ export function syncAccount() {
     });
   return syncFlight;
 }
-/** Revoke the current device remotely before forgetting credentials, allowing offline retries. */
+const logoutRevokeTimeout = 8000;
+/** Try to revoke this device remotely, but always forget local credentials so sign-out works offline. */
 export async function logoutAccount() {
   await mutateIdentity(async () => {
-    await accountSession.request(mobileLogoutEndpoint, {});
+    // DESIGN-GAP: No revocation retry queue yet; an unrevoked refresh token simply expires server-side.
+    if (useBackendConnectivity.getState().reachable) {
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      try {
+        await Promise.race([
+          accountSession.request(mobileLogoutEndpoint, {}),
+          new Promise((_, reject) => {
+            timer = setTimeout(() => reject(new Error('E_TIMEOUT')), logoutRevokeTimeout);
+          }),
+        ]);
+      } catch {
+        // Offline or server failure must not keep the user signed in on this device.
+      } finally {
+        clearTimeout(timer);
+      }
+    }
     await accountSession.clear();
     useAccount.setState({ pending: 0, lastSync: null });
     await usePreferences.persist.rehydrate();

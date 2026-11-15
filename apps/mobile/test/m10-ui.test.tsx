@@ -12,11 +12,13 @@ import {
 import { usePreferences } from '../lib/preferences';
 import { Alert } from 'react-native';
 const mockReplace = jest.fn();
+const mockPush = jest.fn();
 let mockParams: Record<string, string> = {};
 jest.mock('expo-router', () => ({
-  useRouter: () => ({ replace: mockReplace, push: jest.fn() }),
+  useRouter: () => ({ replace: mockReplace, push: mockPush }),
   useLocalSearchParams: () => mockParams,
 }));
+jest.mock('../components/local-data-section', () => ({ LocalDataSection: () => null }));
 jest.mock('../lib/account/controller', () => {
   const { create } = jest.requireActual<typeof import('zustand')>('zustand');
   const store = create(() => ({
@@ -148,5 +150,39 @@ it('loads current and other devices and confirms before revoking only the chosen
       { sessionId: 'other' },
     ),
   );
+  alert.mockRestore();
+});
+it('returns to the in-app page that started sign-in and ignores external targets', async () => {
+  mockParams = { returnTo: '/bazi/r/reading-1' };
+  render(<LoginScreen />);
+  fireEvent.press(screen.getByTestId('account-google'));
+  await waitFor(() => expect(loginProvider).toHaveBeenCalledWith('google'));
+  act(() => useAccount.setState({ session, pending: 0 }));
+  await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/bazi/r/reading-1'));
+  screen.unmount();
+  mockReplace.mockClear();
+  mockParams = { returnTo: '//evil.example/x' };
+  render(<LoginScreen />);
+  fireEvent.press(screen.getByTestId('account-continue'));
+  expect(mockReplace).toHaveBeenCalledWith('/me/settings');
+});
+it('keeps the email keyboard, clears the sent notice on edit and throttles resends', async () => {
+  render(<LoginScreen />);
+  const field = screen.getByTestId('account-email');
+  expect(field.props.keyboardType).toBe('email-address');
+  expect(field.props.autoComplete).toBe('email');
+  fireEvent.changeText(field, 'alice@example.test');
+  fireEvent.press(screen.getByTestId('account-magic-send'));
+  await screen.findByTestId('account-magic-sent');
+  expect(screen.getByTestId('account-magic-send')).toBeDisabled();
+  fireEvent.changeText(field, 'bob@example.test');
+  expect(screen.queryByTestId('account-magic-sent')).toBeNull();
+});
+it('confirms before signing out', () => {
+  useAccount.setState({ session });
+  const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+  render(<AccountSettingsScreen />);
+  fireEvent.press(screen.getByTestId('account-logout'));
+  expect(alert).toHaveBeenCalledWith('Sign out?', expect.any(String), expect.any(Array));
   alert.mockRestore();
 });

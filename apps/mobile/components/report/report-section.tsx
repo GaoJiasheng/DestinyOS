@@ -7,6 +7,7 @@ import { useTheme } from '../../lib/theme';
 import { ReportCard } from './report-ui';
 import { ReportParagraph } from './report-paragraph';
 import { CopyText, Action } from '../native-ui';
+import { sectionPreview } from '../../lib/reports/section-preview';
 /** Native collapsible chapter renders every interpretation block and durable feedback. */
 export function ReportSection({
   section,
@@ -27,6 +28,7 @@ export function ReportSection({
 }) {
   const t = useCopy(),
     { colors } = useTheme();
+  const preview = sectionPreview(section);
   const [sources, setSources] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(false);
@@ -52,6 +54,9 @@ export function ReportSection({
       >
         <CopyText title>{t('report.content', { text: section.title })}</CopyText>
       </Pressable>
+      {!open && preview ? (
+        <ReportParagraph id={`preview-${section.key}`} text={preview} glossary={glossary} />
+      ) : null}
       {open ? (
         <>
           <ReportParagraph text={section.lead} glossary={glossary} />

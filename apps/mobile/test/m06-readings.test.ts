@@ -111,3 +111,31 @@ test('synastry rejects the same profile and foreign partner identities before pe
   );
   expect(await mockStore.readings.list()).toHaveLength(0);
 });
+test('repeat natal taps find the newest matching report and numerology carries a Latin name', async () => {
+  const { findExistingReading, numerologyName } =
+    jest.requireActual<typeof import('../lib/reports/launch')>('../lib/reports/launch');
+  expect(numerologyName(' Ada Lovelace ')).toBe('Ada Lovelace');
+  expect(numerologyName('王小明')).toBeUndefined();
+  expect(numerologyName('')).toBeUndefined();
+  const a = await mockStore.profiles.save({ name: 'Ada', birth: A, version: 1, isCurrent: true });
+  const b = await mockStore.profiles.save({ name: 'B', birth: B, version: 1, isCurrent: true });
+  expect(await findExistingReading('bazi', a)).toBeNull();
+  const bazi = await createNativeReading('bazi', a, undefined, '2026-10-04T04:00:00.000Z');
+  await createNativeReading('bazi', b, undefined, '2026-10-04T05:00:00.000Z');
+  expect(await findExistingReading('bazi', a)).toBe(bazi.id);
+  expect(await findExistingReading('ziwei', a)).toBeNull();
+  const named = await createNativeReading(
+    'numerology',
+    a,
+    undefined,
+    '2026-10-04T04:00:00.000Z',
+    undefined,
+    { name: 'Ada' },
+  );
+  expect(named.data?.inputSnapshot.name).toBe('Ada');
+  expect(named.data?.chart).toMatchObject({ nameNumbers: expect.anything() });
+  expect(await findExistingReading('numerology', a, 'Ada')).toBe(named.id);
+  expect(await findExistingReading('numerology', a)).toBeNull();
+  const edited = await mockStore.profiles.save({ ...a.data!, version: 2 }, a.id);
+  expect(await findExistingReading('bazi', edited)).toBeNull();
+});

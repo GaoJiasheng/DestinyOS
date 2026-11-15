@@ -57,6 +57,91 @@ export class Repository<T> {
       ).map((row) => this.decode(row)),
     );
   }
+  /**
+   * Readings filtered by system in SQL, so daily caches can never crowd real reports out of a page.
+   * `profileId` keeps the history rule: that profile's readings, synastry partners, and unassigned divinations.
+   */
+  async listBySystem(
+    filter: { only?: readonly string[]; except?: readonly string[]; profileId?: string | null },
+    limit = 50,
+    offset = 0,
+  ): Promise<LocalRecord<T>[]> {
+    if (this.entity !== 'Reading') throw new Error('E_INVALID_INPUT');
+    if (
+      !Number.isInteger(limit) ||
+      limit < 1 ||
+      limit > 500 ||
+      !Number.isInteger(offset) ||
+      offset < 0
+    )
+      throw new Error('E_INVALID_INPUT');
+    const clauses: string[] = [],
+      params: (string | null)[] = [];
+    const systems = (list: readonly string[]) => list.map(() => '?').join(',');
+    if (filter.only) {
+      if (!filter.only.length) return [];
+      clauses.push(`json_extract(data,'$.system') IN (${systems(filter.only)})`);
+      params.push(...filter.only);
+    }
+    if (filter.except?.length) {
+      clauses.push(`json_extract(data,'$.system') NOT IN (${systems(filter.except)})`);
+      params.push(...filter.except);
+    }
+    if (filter.profileId !== undefined) {
+      clauses.push(
+        `(profileId IS NULL OR profileId=? OR json_extract(data,'$.inputSnapshot.partnerProfileId')=?)`,
+      );
+      params.push(filter.profileId, filter.profileId);
+    }
+    return this.database.read(async (sql) =>
+      (
+        await sql.getAllAsync<Row>(
+          `SELECT * FROM "Reading" WHERE userId IS ? AND deletedAt IS NULL${clauses.map((c) => ` AND ${c}`).join('')} ORDER BY createdAt DESC, id DESC LIMIT ? OFFSET ?`,
+          this.userId,
+          ...params,
+          limit,
+          offset,
+        )
+      ).flatMap((row) => {
+        // Like the tolerant list(): one damaged row must not hide every other report.
+        try {
+          return [this.decode(row)];
+        } catch {
+          return [];
+        }
+      }),
+    );
+  }
+  /**
+   * Remove device-only daily caches whose civil date is outside [from, to], except days a live
+   * journal entry of the same profile refers to. Daily snapshots are never uploaded, so they are
+   * hard-deleted rather than tombstoned (a tombstone would be pushed to the server). `keep` spares
+   * specific ids, e.g. the day on screen. Returns the number removed.
+   */
+  async pruneDaily(from: string, to: string, keep: readonly string[] = []): Promise<number> {
+    if (this.entity !== 'Reading') throw new Error('E_INVALID_INPUT');
+    const day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
+    day.parse(from);
+    day.parse(to);
+    return this.database.write(async (sql) => {
+      const stale = await sql.getAllAsync<{ id: string }>(
+        `SELECT r.id FROM "Reading" r WHERE r.userId IS ? AND r.deletedAt IS NULL
+          AND json_extract(r.data,'$.system')='daily'
+          AND (json_extract(r.data,'$.chart.date.local') < ? OR json_extract(r.data,'$.chart.date.local') > ?)
+          AND NOT EXISTS (SELECT 1 FROM JournalEntry j WHERE j.userId IS r.userId AND j.deletedAt IS NULL
+            AND j.profileId=r.profileId AND j.date=json_extract(r.data,'$.chart.date.local'))`,
+        this.userId,
+        from,
+        to,
+      );
+      const removed = stale.filter(({ id }) => !keep.includes(id));
+      for (const { id } of removed) {
+        await sql.runAsync('DELETE FROM ReportFeedback WHERE readingId=?', id);
+        await sql.runAsync('DELETE FROM "Reading" WHERE id=?', id);
+      }
+      return removed.length;
+    });
+  }
   /** Save validated content; edits advance UTC updatedAt even if the device clock moves backwards. */
   async save(raw: unknown, id = this.uuid()): Promise<LocalRecord<T>> {
     return this.database.write((sql) => this.saveInTransaction(sql, raw, id));

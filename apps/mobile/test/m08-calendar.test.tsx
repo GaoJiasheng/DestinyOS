@@ -7,13 +7,16 @@ import { usePreferences } from '../lib/preferences';
 import { SettingsSchema as MockSettingsSchema } from '../lib/data/models';
 import { getPermissionsAsync } from 'expo-notifications';
 const mockPush = jest.fn(),
+  mockDismissTo = jest.fn(),
   mockUpdate = jest.fn();
 let mockActive: { id: string; data: { birth: { timeUnknown: boolean } } } | null = {
   id: 'a',
   data: { birth: { timeUnknown: true } },
 };
 let mockDismissed = false;
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: mockPush, back: jest.fn() }) }));
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: mockPush, dismissTo: mockDismissTo, back: jest.fn() }),
+}));
 jest.mock('../lib/profiles', () => ({
   useProfiles: () => ({
     active: mockActive,
@@ -49,7 +52,10 @@ it('keeps explicit timezone, opens exact dates and changes month/year at the bou
     await jest.advanceTimersByTimeAsync(200);
   });
   fireEvent.press(screen.getByTestId('calendar-day-2026-10-04'));
-  expect(mockPush).toHaveBeenCalledWith({ pathname: '/today', params: { date: '2026-10-04' } });
+  expect(mockDismissTo).toHaveBeenCalledWith({
+    pathname: '/today',
+    params: { date: '2026-10-04' },
+  });
   expect(monthDays).toHaveBeenCalledWith(mockActive, '2026-10', 'America/New_York', 'zh');
   fireEvent.press(screen.getByTestId('calendar-prev'));
   await act(async () => {
@@ -92,4 +98,29 @@ it('reads denied permission without requesting it and persists one-time hint dis
   mockDismissed = true;
   view.rerender(<NotificationHint />);
   expect(screen.queryByTestId('daily-notifications')).toBeNull();
+});
+it('rounds spoken scores and folds the year’s past dates behind a toggle', async () => {
+  jest.mocked(monthDays).mockReturnValue([
+    {
+      date: '2026-10-04',
+      overall: 63.3,
+      scores: { career: 63, wealth: 63, love: 63, health: 63, social: 63, overall: 63.3 },
+    },
+  ]);
+  jest.mocked(computeCalendarYear).mockReturnValue([
+    { kind: 'new_moon', date: '2026-01-18', at: '2026-01-18T19:52:00Z' },
+    { kind: 'full_moon', date: '2026-10-26', at: '2026-10-26T04:12:00Z' },
+  ] as ReturnType<typeof computeCalendarYear>);
+  render(<CalendarScreen />);
+  await act(async () => {
+    await jest.advanceTimersByTimeAsync(200);
+  });
+  const label = screen.getByTestId('calendar-day-2026-10-04').props.accessibilityLabel as string;
+  expect(label).toContain('63 分');
+  expect(label).not.toContain('63.3');
+  // todayIn is mocked to 2026-10-07: January is past, late October is upcoming.
+  expect(screen.getByLabelText(/满月/)).toBeTruthy();
+  expect(screen.queryByLabelText(/新月/)).toBeNull();
+  fireEvent.press(screen.getByTestId('calendar-past-toggle'));
+  expect(screen.getByLabelText(/新月/)).toBeTruthy();
 });

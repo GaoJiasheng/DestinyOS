@@ -8,9 +8,18 @@ import { useNativePickers } from '../native-pickers';
 import { useCopy } from '../../lib/copy';
 import { useChartLabel } from '../report/report-ui';
 import { ReportThemeContext } from '../../lib/theme';
+import { useProfiles } from '../../lib/profiles';
 import { useRitualSession } from '../../lib/rituals/session';
-import { automaticPicks, ritualClock, type RitualInput } from '../../lib/rituals/model';
+import {
+  automaticPicks,
+  initialQuestion,
+  removePick,
+  ritualClock,
+  ritualZone,
+  type RitualInput,
+} from '../../lib/rituals/model';
 import { RitualSettings, QuestionFields, ResultActions } from './controls';
+import { TarotBackActions } from './tarot-back';
 import { DeckStage, SpreadThumbnail, TarotFan, RitualCard } from './tarot-stage';
 /** Native seeded tarot ritual; card selection, cut order and shuffle history survive in its encrypted snapshot. */
 export function TarotRitual() {
@@ -24,23 +33,31 @@ function TarotFlow() {
   const t = useCopy(),
     label = useChartLabel(),
     { wheel, toggle } = useNativePickers();
-  const session = useRitualSession('tarot');
-  const params = useLocalSearchParams<{ spread?: string }>();
-  const [phase, setPhase] = useState<'setup' | 'shuffle' | 'cut' | 'pick' | 'reveal'>('setup');
+  const { settings } = useProfiles();
+  const params = useLocalSearchParams<{ spread?: string; question?: string }>();
+  // A question carried in from the ask sheet goes straight to shuffling; "back" can still edit it.
+  const [carried] = useState(() => initialQuestion(params.question));
+  const [phase, setPhase] = useState<'setup' | 'shuffle' | 'cut' | 'pick' | 'reveal'>(
+    carried ? 'shuffle' : 'setup',
+  );
   // DESIGN-GAP: A public spread query can preselect a documented layout; invalid values fall back to One Card.
   const [spread, setSpread] = useState(() => {
     const initial = SpreadKeySchema.safeParse(params.spread);
     return initial.success ? initial.data : SpreadKeySchema.parse('single');
   });
   const [category, setCategory] = useState(() => CategorySchema.parse('general'));
-  const [question, setQuestion] = useState(''),
+  const [question, setQuestion] = useState(carried),
     [allowReversed, setReversed] = useState(true);
   const [count, setCount] = useState(0),
     [split, setSplit] = useState(false),
     [order, setOrder] = useState<number[]>([]);
   const [picked, setPicked] = useState<number[]>([]),
     [revealed, setRevealed] = useState<number[]>([]);
-  const [now, setNow] = useState('');
+  const [now, setNow] = useState(() => (carried ? ritualClock(ritualZone(settings.tz)) : ''));
+  const session = useRitualSession(
+    'tarot',
+    phase !== 'setup' || Boolean(question.trim()) || category !== 'general',
+  );
   const total = TAROT_SPREADS[spread].length;
   const seed = hashSeed(`${session.seed}|shuffle:${count}|cut:${order.join(',')}`);
   const input: RitualInput = {
@@ -68,6 +85,8 @@ function TarotFlow() {
         : null,
     [picked, total, now, seed, spread, category, allowReversed, question],
   );
+  const position = (i: number) =>
+    label(`tarot.position.${spread}.${TAROT_SPREADS[spread][i]!.key}.name`);
   function shuffle() {
     if (session.busy) return;
     void session.sequence([
@@ -82,15 +101,16 @@ function TarotFlow() {
     ]);
   }
   function pick(index: number) {
-    if (session.busy || picked.includes(index) || picked.length >= total) return;
-    session.markDirty();
+    if (session.busy) return;
+    if (picked.includes(index)) {
+      setPicked(removePick(picked, index));
+      return;
+    }
+    if (picked.length >= total) return;
     session.feedback('pick');
-    const next = [...picked, index];
-    setPicked(next);
-    if (next.length === total) setPhase('reveal');
+    setPicked([...picked, index]);
   }
   function auto() {
-    session.markDirty();
     session.feedback('shuffle');
     if (count === 0) setCount(1);
     setPicked(automaticPicks(seed, spread, picked));
@@ -161,12 +181,7 @@ function TarotFlow() {
             id="tarot-begin"
             label={t('tarot.begin')}
             onPress={() => {
-              setNow(
-                ritualClock(
-                  session.settings.tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone,
-                ),
-              );
-              session.markDirty();
+              setNow(ritualClock(ritualZone(session.settings.tz)));
               setPhase('shuffle');
             }}
           />
@@ -260,15 +275,27 @@ function TarotFlow() {
               <CopyText>{t('tarot.pickHelp')}</CopyText>
               <TarotFan
                 picked={picked}
+                total={total}
                 onPick={pick}
+                pickedLabel={(index) =>
+                  t('tarot.unpickPosition', { position: position(picked.indexOf(index)) })
+                }
                 animate={session.animate}
                 disabled={session.busy}
               />
-              <CopyText>{t('tarot.pickCount', { count: picked.length, total })}</CopyText>
+              <CopyText status>{t('tarot.pickCount', { count: picked.length, total })}</CopyText>
+              {picked.length ? <CopyText>{t('tarot.pickUndoHelp')}</CopyText> : null}
             </>
           ) : null}
           <SpreadThumbnail spread={spread} filled={picked.length} />
-          {phase !== 'reveal' ? (
+          {phase === 'pick' && picked.length === total ? (
+            <Action
+              id="tarot-start-reveal"
+              label={t('tarot.startReveal')}
+              disabled={session.busy}
+              onPress={() => setPhase('reveal')}
+            />
+          ) : phase !== 'reveal' ? (
             <Action
               id="tarot-auto"
               label={t('tarot.auto')}
@@ -293,9 +320,10 @@ function TarotFlow() {
                 index={i}
                 card={chart?.cards[i]}
                 revealed={revealed.includes(i)}
-                position={label(`tarot.position.${spread}.${TAROT_SPREADS[spread][i]!.key}.name`)}
+                position={position(i)}
                 animate={session.animate}
                 onFlip={() => flip(i)}
+                onRemove={phase === 'pick' ? () => pick(picked[i]!) : undefined}
                 sideways={TAROT_SPREADS[spread][i]!.rotation === 90}
               />
             ))}
@@ -307,6 +335,25 @@ function TarotFlow() {
               onSave={() => void session.save(now, input, seed)}
             />
           ) : null}
+          <TarotBackActions
+            phase={phase}
+            busy={session.busy}
+            started={count > 0}
+            picked={picked.length > 0}
+            revealed={revealed.length > 0}
+            onBack={(to) => {
+              if (to !== 'pick') setPicked([]);
+              if (to === 'shuffle' || to === 'setup') {
+                setSplit(false);
+                setOrder([]);
+              }
+              if (to === 'setup') {
+                setCount(0);
+                setRevealed([]);
+              }
+              setPhase(to);
+            }}
+          />
         </>
       )}
       <Action id="ritual-exit" label={t('divination.exit')} onPress={session.exit} />

@@ -1,5 +1,6 @@
 import { render, fireEvent, screen, waitFor } from '@testing-library/react-native';
 import { ReportScreen } from '../components/report/report-screen';
+import { ReportHeadline } from '../components/report/report-headline';
 import { loadNativeReading, parseNativeChart, type NativeReading } from '../lib/reports/readings';
 import { usePreferences } from '../lib/preferences';
 import { normalizeBirth } from '@tianji/engine';
@@ -11,8 +12,13 @@ jest.mock('react-native-reanimated', () => ({
   withTiming: (value: number) => value,
   ReduceMotion: { System: 'system' },
 }));
-const mockReplace = jest.fn();
-jest.mock('expo-router', () => ({ useRouter: () => ({ replace: mockReplace }) }));
+const mockReplace = jest.fn(),
+  mockBack = jest.fn(),
+  mockCanGoBack = jest.fn(() => false);
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ replace: mockReplace, back: mockBack, canGoBack: mockCanGoBack }),
+}));
+jest.mock('expo-crypto', () => ({ randomUUID: () => '00000000-0000-4000-8000-000000000001' }));
 jest.mock('../lib/profiles', () => ({
   useProfiles: () => ({
     profiles: [],
@@ -143,4 +149,50 @@ test('unknown time remains unknown when the saved birth header is expanded', asy
   expect(
     screen.getByText(`${birth.year}-${birth.month}-${birth.day} · 我不知道出生时间 · ${birth.tz}`),
   ).toBeTruthy();
+});
+
+test('report language switch offers Traditional Chinese without changing the app language', async () => {
+  jest.mocked(loadNativeReading).mockResolvedValue(reading());
+  render(<ReportScreen id="fixture" system="bazi" />);
+  await waitFor(() => expect(screen.getByTestId('report-locale-zh-TW')).toBeTruthy());
+  fireEvent.press(screen.getByTestId('report-locale-zh-TW'));
+  await waitFor(() =>
+    expect(jest.mocked(loadNativeReading)).toHaveBeenLastCalledWith('fixture', 'bazi', 'zh-TW'),
+  );
+  expect(usePreferences.getState().locale).toBe('zh');
+});
+
+test('back returns to the previous screen when there is one, else to the Reading tab', async () => {
+  jest.mocked(loadNativeReading).mockResolvedValue(reading());
+  render(<ReportScreen id="fixture" system="bazi" />);
+  await waitFor(() => expect(screen.getByTestId('report-back')).toBeTruthy());
+  mockCanGoBack.mockReturnValueOnce(true);
+  fireEvent.press(screen.getByTestId('report-back'));
+  expect(mockBack).toHaveBeenCalledTimes(1);
+  fireEvent.press(screen.getByTestId('report-back'));
+  expect(mockReplace).toHaveBeenCalledWith('/reading');
+});
+
+test('headline omits scores for divination and identical scores, and reads each star score', () => {
+  const { report } = fixtureReport('bazi', 'zh');
+  const spread: typeof report.headline = {
+    ...report.headline,
+    scores: { career: 3, wealth: 4, love: 2, health: 5, social: 1 },
+  };
+  const flat: typeof report.headline = {
+    ...report.headline,
+    scores: { career: 3, wealth: 3, love: 3, health: 3, social: 3 },
+  };
+  const natal = render(<ReportHeadline headline={spread} system="bazi" />);
+  expect(screen.getByLabelText('事业 3 星')).toBeTruthy();
+  expect(screen.getByLabelText(/^五维评分：事业 3 星/)).toBeTruthy();
+  expect(screen.getByText(/置信度/)).toBeTruthy();
+  natal.unmount();
+  const equal = render(<ReportHeadline headline={flat} system="bazi" />);
+  expect(screen.queryByLabelText(/五维评分/)).toBeNull();
+  expect(screen.getByText(/置信度/)).toBeTruthy();
+  equal.unmount();
+  render(<ReportHeadline headline={spread} system="tarot" />);
+  expect(screen.queryByLabelText(/五维评分/)).toBeNull();
+  expect(screen.queryByText(/置信度/)).toBeNull();
 });

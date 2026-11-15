@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { AskSheet } from '../../components/ask-sheet';
 import { useCopy } from '../../lib/copy';
 import { Text, useWindowDimensions } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../lib/theme';
 const tabs = [
   ['today', 'nav.today', '☀︎'],
@@ -17,10 +18,12 @@ const tabs = [
   ['learn', 'nav.learn', '☷'],
   ['me', 'nav.me', '○'],
 ] as const;
+export { RouteErrorBoundary as ErrorBoundary } from '../../components/error-boundary';
 /** Five documented native tabs, with a raised central ask entry. */
 export default function TabLayout() {
   const t = useCopy();
   const { fontScale } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
   const [askOpen, setAskOpen] = useState(false);
   const { colors, body } = useTheme();
   return (
@@ -32,7 +35,8 @@ export default function TabLayout() {
           tabBarActiveTintColor: colors.gold,
           tabBarInactiveTintColor: colors['text-2'],
           tabBarStyle: {
-            height: 60 + 24 * fontScale,
+            // A fixed height replaces the navigator's own inset handling, so add the home indicator back.
+            height: 60 + 24 * fontScale + insets.bottom,
             backgroundColor: colors['bg-1'],
             borderTopColor: colors['line-1'],
           },

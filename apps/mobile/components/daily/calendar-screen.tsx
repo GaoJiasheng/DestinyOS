@@ -31,7 +31,9 @@ export function CalendarScreen() {
     [yearBusy, setYearBusy] = useState(true),
     [error, setError] = useState(false),
     [yearError, setYearError] = useState(false),
-    [retry, setRetry] = useState(0);
+    [retry, setRetry] = useState(0),
+    [showPast, setShowPast] = useState(false);
+  const today = todayIn(tz);
   const year = Number(month.slice(0, 4));
   useEffect(() => {
     setDays([]);
@@ -65,6 +67,20 @@ export function CalendarScreen() {
     }, 150);
     return () => clearTimeout(timer);
   }, [active, year, tz, locale, retry]);
+  // dismissTo returns to the existing Tabs instance instead of stacking a second one above the calendar.
+  const openDay = (date: string) => router.dismissTo({ pathname: '/today', params: { date } });
+  // Ongoing intervals still count as upcoming; past dates fold away like on Web.
+  const upcoming = events.filter((e) => (e.endDate ?? e.date) >= today),
+    past = events.filter((e) => (e.endDate ?? e.date) < today);
+  const eventRow = (e: CalendarEvent) => (
+    <View key={`${e.kind}:${e.at}`}>
+      <Action
+        label={`${format(e.date, { month: 'short', day: 'numeric' })} · ${label(`calendar.event.${e.kind}`, undefined, { detail: e.detail ? label(`${e.kind === 'solar_term' ? 'home.term' : e.kind === 'retrograde' ? 'charts.planet' : 'charts.graha'}.${e.detail}`) : '' })}`}
+        onPress={() => openDay(e.date < `${year}-01-01` ? `${year}-01-01` : e.date)}
+      />
+      <CopyText>{label(`calendar.explanation.${e.kind}`)}</CopyText>
+    </View>
+  );
   const format = (date: string, options: Intl.DateTimeFormatOptions) =>
     new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' }).format(
       new Date(`${date}T12:00:00Z`),
@@ -150,14 +166,14 @@ export function CalendarScreen() {
                   accessibilityRole="button"
                   accessibilityLabel={t('calendar.dayLabel', {
                     date: format(day.date, { dateStyle: 'full' }),
-                    score: day.overall,
+                    score: Math.round(day.overall),
                   })}
                   style={{
                     width: largeText ? '100%' : '14.285%',
                     minHeight: 58,
                     padding: spacing('space-1') / 2,
                   }}
-                  onPress={() => router.push({ pathname: '/today', params: { date: day.date } })}
+                  onPress={() => openDay(day.date)}
                 >
                   <View
                     style={{
@@ -180,7 +196,7 @@ export function CalendarScreen() {
                       {largeText
                         ? t('calendar.dayLabel', {
                             date: format(day.date, { dateStyle: 'full' }),
-                            score: day.overall,
+                            score: Math.round(day.overall),
                           })
                         : t('report.content', { text: day.date.slice(-2) })}
                     </Text>
@@ -204,20 +220,18 @@ export function CalendarScreen() {
             {!yearBusy && !yearError && !events.length && (
               <CopyText>{t('calendar.empty')}</CopyText>
             )}
-            {events.map((e) => (
-              <View key={`${e.kind}:${e.at}`}>
-                <Action
-                  label={`${format(e.date, { month: 'short', day: 'numeric' })} · ${label(`calendar.event.${e.kind}`, undefined, { detail: e.detail ? label(`${e.kind === 'solar_term' ? 'home.term' : e.kind === 'retrograde' ? 'charts.planet' : 'charts.graha'}.${e.detail}`) : '' })}`}
-                  onPress={() =>
-                    router.push({
-                      pathname: '/today',
-                      params: { date: e.date < `${year}-01-01` ? `${year}-01-01` : e.date },
-                    })
-                  }
-                />
-                <CopyText>{label(`calendar.explanation.${e.kind}`)}</CopyText>
-              </View>
-            ))}
+            {events.length > 0 && !upcoming.length && year === Number(today.slice(0, 4)) && (
+              <CopyText>{t('calendar.upcomingEmpty')}</CopyText>
+            )}
+            {upcoming.map(eventRow)}
+            {past.length > 0 && (
+              <Action
+                id="calendar-past-toggle"
+                label={t('calendar.pastDates', { count: past.length })}
+                onPress={() => setShowPast((v) => !v)}
+              />
+            )}
+            {showPast && past.map(eventRow)}
           </ReportCard>
         </>
       )}

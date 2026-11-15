@@ -1,5 +1,5 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
-import { View } from 'react-native';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { Alert, View } from 'react-native';
 import { BirthForm } from '../components/birth-form';
 import { Onboarding } from '../components/onboarding';
 import { AskSheet } from '../components/ask-sheet';
@@ -14,13 +14,28 @@ const mockPush = jest.fn();
 jest.mock('expo-router', () => {
   const { View } = jest.requireActual<typeof import('react-native')>('react-native');
   return {
-    useRouter: () => ({ replace: mockReplace, push: mockPush, back: jest.fn() }),
-    useLocalSearchParams: () => ({}),
+    useRouter: () => ({
+      replace: mockReplace,
+      push: mockPush,
+      back: jest.fn(),
+      canGoBack: () => false,
+    }),
+    useLocalSearchParams: () => mockParams,
+    useNavigation: () => ({ dispatch: jest.fn() }),
     useSegments: () => ['me'],
+    usePathname: () => '/me',
     Redirect: ({ href }: { href: string }) => <View testID={`redirect-${href}`} />,
   };
 });
-jest.mock('../lib/profiles', () => ({ useProfiles: jest.fn() }));
+let mockParams: Record<string, string> = {};
+jest.mock('expo-router/react-navigation', () => ({ usePreventRemove: () => undefined }));
+jest.mock('../lib/profiles', () => ({
+  useProfiles: jest.fn(),
+  anonymousProfileLimit: 3,
+  profileLimitReached: (list: unknown[]) => list.length >= 3,
+  profileDisplayName: (p: { data?: { name?: string } } | null, fallback: string) =>
+    p?.data?.name || fallback,
+}));
 jest.mock('../lib/notifications', () => ({ requestNotificationPermission: jest.fn() }));
 jest.mock('../lib/cities', () => ({ loadCities: async () => [], searchCities: () => [] }));
 jest.mock('../components/effects/starfield', () => ({ Starfield: () => null }));
@@ -46,6 +61,7 @@ const mockUpdate = jest.fn();
 const mockSelect = jest.fn();
 beforeEach(() => {
   jest.clearAllMocks();
+  mockParams = {};
   usePreferences.setState({ locale: 'zh', theme: 'auto' });
   jest.mocked(useProfiles).mockReturnValue({
     profiles: [],
@@ -71,19 +87,22 @@ async function enterBirth() {
   fireEvent.press(screen.getByTestId('birth-submit'));
   await screen.findByTestId('birth-city');
 }
-it('automatically requests permission on the second onboarding screen', async () => {
+it('asks for notification permission only after the reminder screen opt-in, and allows skipping', async () => {
   jest.mocked(requestNotificationPermission).mockResolvedValue(true);
   render(<Onboarding />);
+  for (let step = 0; step < 3; step++) fireEvent.press(screen.getByTestId('onboarding-next'));
+  expect(screen.getByTestId('onboarding-3')).toBeTruthy();
   expect(requestNotificationPermission).not.toHaveBeenCalled();
-  fireEvent.press(screen.getByTestId('onboarding-next'));
-  expect(screen.getByTestId('onboarding-1')).toBeTruthy();
-  await waitFor(() => expect(requestNotificationPermission).toHaveBeenCalledTimes(1));
+  fireEvent.press(screen.getByTestId('notifications-skip'));
+  expect(screen.getByTestId('onboarding-4')).toBeTruthy();
+  expect(requestNotificationPermission).not.toHaveBeenCalled();
 });
 it('walks through three screens, denial and optional profile without treating denial as failure', async () => {
   jest.mocked(requestNotificationPermission).mockResolvedValue(false);
   render(<Onboarding />);
   for (let step = 0; step < 3; step++) fireEvent.press(screen.getByTestId('onboarding-next'));
   expect(screen.getByTestId('onboarding-3')).toBeTruthy();
+  fireEvent.press(screen.getByTestId('notifications-request'));
   await screen.findByTestId('notifications-denied');
   fireEvent.press(screen.getByTestId('onboarding-next'));
   fireEvent.press(screen.getByTestId('onboarding-skip'));
@@ -157,13 +176,26 @@ it('shows save failures and keeps the editor available for retry', async () => {
   fireEvent.press(screen.getByTestId('birth-submit'));
   await waitFor(() => expect(mockReplace).toHaveBeenCalled());
 });
-it('blocks under-13 birth input before persisting any personal profile', async () => {
+it('asks before locking an under-13 birth and locks only when it is the user own birthday', async () => {
+  const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
   render(<BirthForm />);
   fireEvent.changeText(screen.getByTestId('birth-year'), '2020');
+  fireEvent(screen.getByTestId('birth-month'), 'valueChange', 5);
+  fireEvent(screen.getByTestId('birth-day'), 'valueChange', 15);
+  fireEvent(screen.getByTestId('time-unknown'), 'valueChange', true);
   fireEvent.press(screen.getByTestId('birth-submit'));
+  expect(mockUpdate).not.toHaveBeenCalled();
+  const buttons = alert.mock.calls[0]![2]!;
+  act(() => buttons[0]!.onPress!());
+  expect(screen.getByTestId('birth-error-year')).toBeTruthy();
+  expect(mockUpdate).not.toHaveBeenCalled();
+  fireEvent.press(screen.getByTestId('birth-for-self'));
+  fireEvent.press(screen.getByTestId('birth-submit'));
+  act(() => alert.mock.calls[1]![2]![1]!.onPress!());
   await waitFor(() => expect(mockUpdate).toHaveBeenCalledWith({ ageBlocked: true }));
   expect(mockSave).not.toHaveBeenCalled();
-  expect(mockReplace).toHaveBeenCalledWith('/age-restricted');
+  await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/age-restricted'));
+  alert.mockRestore();
 });
 it('routes the ask sheet and closes it without selecting a new tab', () => {
   const close = jest.fn();
@@ -193,13 +225,17 @@ it('switches active profiles without rendering full birthdays', async () => {
       isCurrent: true as const,
     },
   };
+  const other = { ...profile, id: 'B', data: { ...profile.data, name: 'Bob' } };
   jest
     .mocked(useProfiles)
-    .mockReturnValue({ ...useProfiles(), profiles: [profile], active: profile });
+    .mockReturnValue({ ...useProfiles(), profiles: [profile, other], active: profile });
   render(<ProfileScreen />);
-  fireEvent.press(screen.getByTestId('profile-A'));
-  await waitFor(() => expect(screen.getByTestId('profile-A')).toBeEnabled());
-  expect(mockSelect).toHaveBeenCalledWith('A');
+  expect(screen.getByTestId('profile-A')).toBeDisabled();
+  fireEvent.press(screen.getByTestId('profile-B'));
+  await screen.findByTestId('profile-switched');
+  expect(mockSelect).toHaveBeenCalledWith('B');
+  fireEvent.press(screen.getByTestId('profile-edit-B'));
+  expect(mockPush).toHaveBeenCalledWith({ pathname: '/me/birth', params: { id: 'B' } });
   expect(screen.queryByText('1990-05-15')).toBeNull();
 });
 it('protects direct form links for unfinished onboarding and persisted age blocks', () => {

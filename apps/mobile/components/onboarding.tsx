@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { Redirect, useRouter } from 'expo-router';
 import { useSharedValue, useFrameCallback } from 'react-native-reanimated';
@@ -12,7 +12,8 @@ import { useEffectsMotion } from './effects/motion';
 import { Page, CopyText, Action } from './native-ui';
 import { Preferences } from './preferences';
 
-/** Three introduction screens, followed by OS notification permission and optional local profile. */
+/** Three introduction screens, an explained reminder opt-in and an optional local profile. */
+// DESIGN-GAP: The OS permission prompt appears only after the reminder screen's explicit opt-in; iOS allows one prompt.
 export function Onboarding() {
   const t = useCopy();
   const router = useRouter();
@@ -23,19 +24,6 @@ export function Onboarding() {
   const [denied, setDenied] = useState(false);
   const [fillNext, setFillNext] = useState(false);
   const [failed, setFailed] = useState(false);
-  const requested = useRef(false);
-  useEffect(() => {
-    if (step !== 1 || requested.current) return;
-    requested.current = true;
-    // Request automatically on the documented second onboarding screen.
-    void (async () => {
-      try {
-        setDenied(!(await requestNotificationPermission(t('mobile.onboarding.notifications'))));
-      } catch {
-        setDenied(true);
-      }
-    })();
-  }, [step, t]);
   const size = Math.min(useWindowDimensions().width - 48, 320);
   const { active: systemActive } = useEffectsMotion();
   const active = systemActive && !settings.reducedMotion && step === 0;
@@ -107,21 +95,29 @@ export function Onboarding() {
               </CopyText>
             )}
             {!denied ? (
-              <Action
-                id="notifications-request"
-                disabled={busy}
-                label={t('mobile.onboarding.notifications.request')}
-                onPress={() => {
-                  setBusy(true);
-                  void requestNotificationPermission(t('mobile.onboarding.notifications'))
-                    .then((granted) => {
-                      if (granted) setStep(4);
-                      else setDenied(true);
-                    })
-                    .catch(() => setDenied(true))
-                    .finally(() => setBusy(false));
-                }}
-              />
+              <>
+                <Action
+                  id="notifications-request"
+                  disabled={busy}
+                  label={t('mobile.onboarding.notificationsEnable')}
+                  onPress={() => {
+                    setBusy(true);
+                    void requestNotificationPermission(t('mobile.onboarding.notifications'))
+                      .then((granted) => {
+                        if (granted) setStep(4);
+                        else setDenied(true);
+                      })
+                      .catch(() => setDenied(true))
+                      .finally(() => setBusy(false));
+                  }}
+                />
+                <Action
+                  id="notifications-skip"
+                  disabled={busy}
+                  label={t('mobile.onboarding.notificationsLater')}
+                  onPress={() => setStep(4)}
+                />
+              </>
             ) : (
               <Action
                 id="onboarding-next"

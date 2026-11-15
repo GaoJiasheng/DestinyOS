@@ -79,7 +79,8 @@ export async function createNativeReading(
   partner?: LocalRecord<Profile>,
   now = new Date().toISOString(),
   seed?: string,
-  ritual?: RitualInput,
+  // Numerology's optional Latin name travels with the ritual-style extras into request and engine input.
+  ritual?: RitualInput & Pick<ComputeInput, 'name'>,
   id = Crypto.randomUUID(),
 ) {
   if (system === 'synastry' && (!profile?.data || !partner?.data || profile.id === partner.id))

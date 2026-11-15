@@ -1,15 +1,29 @@
-import { useEffect, useMemo, useState } from 'react';
-import { View } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useCallback, useMemo, useRef, useState } from 'react';
+import { Alert, View, type ScrollView, type TextInput } from 'react-native';
+import { useLocalSearchParams, useNavigation, useRouter, type Href } from 'expo-router';
+import { usePreventRemove } from 'expo-router/react-navigation';
 import { normalizeBirth } from '@tianji/engine/common';
 import { BirthInputSchema, type BirthInput } from '@tianji/shared';
 import { useCopy } from '../lib/copy';
 import { usePreferences } from '../lib/preferences';
-import { useProfiles } from '../lib/profiles';
-import { loadCities, searchCities, type City } from '../lib/cities';
-import { lunarMonths, monthDays, validateBirth, underThirteen } from '../lib/birth-form';
+import { anonymousProfileLimit, profileLimitReached, useProfiles } from '../lib/profiles';
+import {
+  deviceTimeZone,
+  emptyBirth,
+  lunarMonths,
+  monthDays,
+  stepOneIssues,
+  stepTwoIssues,
+  underThirteen,
+  validateBirth,
+  type BirthField,
+  type FieldIssue,
+} from '../lib/birth-form';
+import { birthDoneHref, relationParam, safeReturnTo } from '../lib/birth-route';
 import { BirthDateFields } from './birth-date-fields';
 import { BirthSchoolFields } from './birth-school-fields';
+import { BirthPlaceFields, type Coordinates } from './birth-place-fields';
+import { BirthTargetFields, type BirthTarget, type Relation } from './birth-target-fields';
 import { Page, CopyText, Action, Field } from './native-ui';
 import type { MessageKey } from '../lib/i18n';
 import type { Profile } from '../lib/data/models';
@@ -21,51 +35,62 @@ const defaultSchool: School = {
   houseSystem: 'placidus',
   leapMonth: 'split_by_15',
 };
-/** Native two-step profile editor; calendar, warnings and age validation reuse shared engines. */
+/** Native two-step profile editor; calendar, warnings and age validation reuse shared engines.
+ * Route params: `id` edits a profile; `returnTo` (in-app path) is where a save lands, with
+ * `system` passed back as a query parameter; `relation` presets who the profile is for. */
 export function BirthForm() {
   const t = useCopy();
   const locale = usePreferences((s) => s.locale);
   const router = useRouter();
-  const { id } = useLocalSearchParams<{ id?: string }>();
+  const navigation = useNavigation();
+  const params = useLocalSearchParams<{
+    id?: string;
+    returnTo?: string;
+    system?: string;
+    relation?: string;
+  }>();
+  const id = params.id;
+  const returnTo = safeReturnTo(params.returnTo);
   const { profiles, save, updateSettings } = useProfiles();
   const original = profiles.find((profile) => profile.id === id);
-  // DESIGN-GAP: Keep the year empty until explicitly entered; date wheels alone do not imply age.
-  const [birth, setBirth] = useState<BirthInput>(
-    original?.data?.birth ?? {
-      calendar: 'gregorian',
-      year: 0,
-      month: 1,
-      day: 1,
-      hour: 0,
-      minute: 0,
-      timeUnknown: false,
-      gender: 'unspecified',
-    },
-  );
+  const [birth, setBirth] = useState<BirthInput>(original?.data?.birth ?? emptyBirth());
   const [year, setYear] = useState(original?.data ? String(original.data.birth.year) : '');
-  const [relation, setRelation] = useState<NonNullable<Profile['relation']>>(
-    original?.data?.relation ?? 'self',
-  );
+  const [relation, setRelation] = useState<Relation>(() => {
+    const preset = original?.data?.relation ?? relationParam(params.relation);
+    if (preset) return preset;
+    // With a "self" profile already on the device, a new profile is most likely someone else's.
+    return profiles.some((p) => (p.data?.relation ?? 'self') === 'self') ? 'partner' : 'self';
+  });
+  const [target, setTarget] = useState<BirthTarget>(relation === 'self' ? 'self' : 'other');
   const [name, setName] = useState(original?.data?.name ?? '');
   const [school, setSchool] = useState<School>(original?.data?.options?.school ?? defaultSchool);
   const [step, setStep] = useState(1);
   const [advanced, setAdvanced] = useState(false);
   const [manual, setManual] = useState(false);
-  const [coordinates, setCoordinates] = useState({
+  const [precise, setPrecise] = useState(false);
+  const [coordinates, setCoordinates] = useState<Coordinates>({
     lat: String(birth.place?.lat ?? ''),
     lng: String(birth.place?.lng ?? ''),
-    tz: birth.place?.tz ?? (locale === 'en' ? 'UTC' : 'Asia/Shanghai'),
+    tz: birth.place?.tz ?? deviceTimeZone(),
   });
-  const [query, setQuery] = useState('');
-  const [cities, setCities] = useState<City[] | null>(null);
-  const [cityError, setCityError] = useState(false);
-  const [cityAttempt, setCityAttempt] = useState(0);
-  const [touched, setTouched] = useState(false);
+  const [attempted, setAttempted] = useState(0);
+  const [blurred, setBlurred] = useState<ReadonlySet<BirthField>>(new Set());
+  const [cityPending, setCityPending] = useState(false);
+  const [ageIssue, setAgeIssue] = useState<FieldIssue | null>(null);
+  const [dirty, setDirty] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<MessageKey | null>(null);
-  const change = (patch: Partial<BirthInput>) => {
-    setTouched(true);
+  const leaving = useRef(false);
+  const scroll = useRef<ScrollView>(null);
+  const yearInput = useRef<TextInput>(null);
+  const atLimit = !id && profileLimitReached(profiles);
+  const touch = () => {
+    setDirty(true);
     setError(null);
+  };
+  const change = (patch: Partial<BirthInput>) => {
+    touch();
+    setAgeIssue(null);
     setBirth((current) => ({
       ...current,
       ...patch,
@@ -88,7 +113,6 @@ export function BirthForm() {
         : birth,
     [birth, manual, coordinates, t],
   );
-  const invalid = touched ? validateBirth(candidate, locale) : null;
   const preview = useMemo(() => {
     try {
       return normalizeBirth(candidate, locale);
@@ -96,22 +120,36 @@ export function BirthForm() {
       return null;
     }
   }, [candidate, locale]);
-  const results = useMemo(() => (cities ? searchCities(cities, query) : []), [cities, query]);
-  useEffect(() => {
-    if (step !== 2) return;
-    let active = true;
-    setCityError(false);
-    void loadCities()
-      .then((list) => {
-        if (active) setCities(list);
-      })
-      .catch(() => {
-        if (active) setCityError(true);
-      });
-    return () => {
-      active = false;
-    };
-  }, [step, cityAttempt]);
+  // Errors appear once a field is left or its step is submitted, never on the first keystroke.
+  const stepIssues =
+    step === 1 ? stepOneIssues(birth, precise) : stepTwoIssues(candidate, cityPending);
+  const issues = stepIssues.filter((issue) => attempted >= step || blurred.has(issue.field));
+  if (step === 1 && ageIssue && !issues.some((issue) => issue.field === 'year'))
+    issues.unshift(ageIssue);
+  const onBlurField = useCallback(
+    (field: BirthField) => setBlurred((current) => new Set(current).add(field)),
+    [],
+  );
+  const leave = (href: Href) => {
+    leaving.current = true;
+    router.replace(href);
+  };
+  usePreventRemove(!leaving.current && (dirty || step === 2), ({ data }) => {
+    if (leaving.current) return navigation.dispatch(data.action);
+    // A back swipe or Android back on step two returns to step one instead of dropping both steps.
+    if (step === 2) return setStep(1);
+    Alert.alert(t('mobile.birth.leaveTitle'), t('mobile.birth.leaveBody'), [
+      { text: t('mobile.birth.stay'), style: 'cancel' },
+      {
+        text: t('mobile.birth.discard'),
+        style: 'destructive',
+        onPress: () => {
+          leaving.current = true;
+          navigation.dispatch(data.action);
+        },
+      },
+    ]);
+  });
   function updateDate(patch: Partial<BirthInput>) {
     const next = { ...birth, ...patch };
     if (next.calendar === 'gregorian') next.isLeapMonth = false;
@@ -126,25 +164,81 @@ export function BirthForm() {
     next.day = Math.min(next.day, monthDays(next));
     change(next);
   }
+  function chooseTarget(next: BirthTarget, nextRelation: Relation) {
+    touch();
+    setAgeIssue(null);
+    setTarget(next);
+    setRelation(nextRelation);
+  }
+  function showAgeIssue() {
+    setAgeIssue({ field: 'year', key: 'form.birth.error.underThirteen' });
+    scroll.current?.scrollTo({ y: 0, animated: true });
+  }
+  /** Step one: a complete date and hour, then the age check (asked unless it is someone else's). */
+  function checkStepOne() {
+    const found = stepOneIssues(birth, precise);
+    if (found.length) {
+      setAttempted((value) => Math.max(value, 1));
+      setStep(1);
+      scroll.current?.scrollTo({ y: 0, animated: true });
+      if (found[0]!.field === 'year') yearInput.current?.focus();
+      return false;
+    }
+    // The place is checked on step two, so a stale zone cannot trap the user on step one.
+    const dateOnly = { ...birth, place: undefined };
+    const engine = validateBirth(dateOnly, locale);
+    if (engine) {
+      setError(engine);
+      return false;
+    }
+    if (underThirteen(dateOnly, locale)) {
+      // DESIGN-GAP: The repository still rejects under-13 births, so "someone else" stops here with an inline reason.
+      if (target === 'other') {
+        showAgeIssue();
+        return false;
+      }
+      Alert.alert(t('form.birth.ageCheck.title'), t('form.birth.ageCheck.body'), [
+        {
+          text: t('form.birth.ageCheck.other'),
+          style: 'cancel',
+          onPress: () => {
+            setTarget('other');
+            if (relation === 'self') setRelation('partner');
+            showAgeIssue();
+          },
+        },
+        {
+          text: t('form.birth.ageCheck.self'),
+          style: 'destructive',
+          onPress: () =>
+            void updateSettings({ ageBlocked: true }).finally(() => leave('/age-restricted')),
+        },
+      ]);
+      return false;
+    }
+    return true;
+  }
+  function checkStepTwo() {
+    const found = stepTwoIssues(candidate, cityPending);
+    if (found.length) {
+      setAttempted(2);
+      if (found.some((issue) => issue.field === 'tz')) setManual(true);
+      scroll.current?.scrollTo({ y: 0, animated: true });
+      return false;
+    }
+    const engine = validateBirth(candidate, locale);
+    if (engine) setError(engine);
+    return !engine;
+  }
   async function submit() {
-    setTouched(true);
-    const validation = validateBirth(candidate, locale);
-    if (validation) {
-      setError(validation);
+    if (step === 1) {
+      if (checkStepOne()) setStep(2);
       return;
     }
+    if (!checkStepOne() || !checkStepTwo()) return;
     setBusy(true);
     setError(null);
     try {
-      if (underThirteen(candidate, locale)) {
-        await updateSettings({ ageBlocked: true });
-        router.replace('/age-restricted');
-        return;
-      }
-      if (step === 1) {
-        setStep(2);
-        return;
-      }
       await save(
         {
           name,
@@ -156,8 +250,10 @@ export function BirthForm() {
           isCurrent: true,
         },
         id,
+        // Someone else's chart never replaces the profile Today, reminders and widgets follow.
+        { activate: target === 'self' },
       );
-      router.replace({ pathname: '/me', params: { saved: '1' } });
+      leave(birthDoneHref(returnTo, params.system));
     } catch (cause) {
       setError(
         cause instanceof Error && cause.message === 'E_PROFILE_LIMIT'
@@ -168,22 +264,25 @@ export function BirthForm() {
       setBusy(false);
     }
   }
+  const back = () => {
+    if (step === 2) return setStep(1);
+    if (router.canGoBack()) router.back();
+    else router.replace((returnTo ?? '/me') as Href);
+  };
+  if (atLimit)
+    return (
+      <Page title="form.birth.title">
+        <CopyText testID="profile-limit">
+          {t('mobile.profiles.limit', { limit: anonymousProfileLimit })}
+        </CopyText>
+        <Action id="birth-back" label={t('form.birth.back')} onPress={back} />
+      </Page>
+    );
   return (
     // DESIGN-GAP: Remount the native scroll view per step so the next heading starts at the top.
-    <Page key={step} title="form.birth.title">
+    <Page key={step} title="form.birth.title" scrollRef={scroll}>
       {step === 1 && (
-        <>
-          <CopyText>{t('profiles.relation')}</CopyText>
-          {(['self', 'partner', 'family', 'friend', 'other'] as const).map((item) => (
-            <Action
-              key={item}
-              id={`profile-relation-${item}`}
-              label={t(`profiles.relation.${item}`)}
-              selected={relation === item}
-              onPress={() => setRelation(item)}
-            />
-          ))}
-        </>
+        <BirthTargetFields target={target} relation={relation} onChange={chooseTarget} />
       )}
       <CopyText>{t('form.birth.step', { step })}</CopyText>
       <CopyText title>{t(step === 1 ? 'form.birth.dateTime' : 'form.birth.placeGender')}</CopyText>
@@ -194,82 +293,36 @@ export function BirthForm() {
           setYear={setYear}
           change={change}
           updateDate={updateDate}
+          precise={precise}
+          setPrecise={(value) => {
+            touch();
+            setPrecise(value);
+          }}
+          issues={issues}
+          onBlurField={onBlurField}
+          yearRef={yearInput}
         />
       ) : (
         <>
-          <Field
-            id="birth-city"
-            label={t('form.birth.city')}
-            placeholder={t('form.birth.city.placeholder')}
-            value={query}
-            onChange={setQuery}
-          />
-          {!cities && !cityError && <CopyText>{t('form.birth.city.loading')}</CopyText>}
-          {cityError && (
-            <>
-              <CopyText>{t('form.birth.city.error')}</CopyText>
-              <Action
-                label={t('mobile.profiles.retry')}
-                onPress={() => setCityAttempt(cityAttempt + 1)}
-              />
-            </>
-          )}
-          {query.trim() && cities && results.length === 0 && (
-            <CopyText>{t('form.birth.city.empty')}</CopyText>
-          )}
-          {results.map((city, index) => (
-            <Action
-              key={`${city.name}-${city.lat}-${city.lng}`}
-              id={`city-result-${index}`}
-              label={`${city.name} · ${city.country} · ${city.admin} · ${city.tz}`}
-              onPress={() => {
-                change({ place: { name: city.name, lat: city.lat, lng: city.lng, tz: city.tz } });
-                setQuery('');
-                setManual(false);
-              }}
-            />
-          ))}
-          {birth.place && !manual && (
-            <CopyText testID="selected-city">
-              {birth.place.name} · {birth.place.tz}
-            </CopyText>
-          )}
-          <CopyText>{t('mobile.city.attribution')}</CopyText>
-          <CopyText>{t('form.birth.placeOptional')}</CopyText>
-          <Action
-            id="manual-open"
-            label={t('form.birth.manual')}
-            onPress={() => {
-              setManual(!manual);
-              setTouched(true);
+          <BirthPlaceFields
+            birth={birth}
+            change={change}
+            manual={manual}
+            setManual={(value) => {
+              touch();
+              setManual(value);
             }}
+            coordinates={coordinates}
+            setCoordinates={(value) => {
+              touch();
+              setCoordinates(value);
+            }}
+            issues={issues}
+            onBlurField={onBlurField}
+            onCityPending={setCityPending}
+            preview={preview}
+            solar={school.useApparentSolarTime}
           />
-          {manual &&
-            (['lat', 'lng', 'tz'] as const).map((key) => (
-              <Field
-                key={key}
-                id={`manual-${key}`}
-                label={t(`form.birth.${key}`)}
-                value={coordinates[key]}
-                numeric={key !== 'tz'}
-                onChange={(value) => {
-                  setCoordinates({ ...coordinates, [key]: value });
-                  setTouched(true);
-                }}
-              />
-            ))}
-          {preview?.warnings.some((warning) => warning.code === 'W_DST_PERIOD') && (
-            <CopyText testID="dst-note">{t('form.birth.dst.note')}</CopyText>
-          )}
-          {school.useApparentSolarTime &&
-            preview?.solarTime.offsetMinutes !== null &&
-            preview?.solarTime.offsetMinutes !== undefined && (
-              <CopyText>
-                {t('form.birth.solarTime.note', {
-                  minutes: Math.round(preview.solarTime.offsetMinutes),
-                })}
-              </CopyText>
-            )}
           <CopyText>{t('form.birth.gender')}</CopyText>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
             {(['male', 'female', 'unspecified'] as const).map((gender) => (
@@ -289,7 +342,10 @@ export function BirthForm() {
             id="birth-name"
             label={t('form.birth.displayName')}
             value={name}
-            onChange={setName}
+            onChange={(value) => {
+              touch();
+              setName(value);
+            }}
             maxLength={80}
           />
           <Action
@@ -297,25 +353,25 @@ export function BirthForm() {
             label={t('form.birth.advanced')}
             onPress={() => setAdvanced(!advanced)}
           />
-          {advanced && <BirthSchoolFields school={school} setSchool={setSchool} />}
+          {advanced && (
+            <BirthSchoolFields
+              school={school}
+              setSchool={(value) => {
+                touch();
+                setSchool(value);
+              }}
+            />
+          )}
         </>
       )}
-      {(error || invalid) && <CopyText testID="birth-error">{t((error || invalid)!)}</CopyText>}
+      {error && <CopyText testID="birth-error">{t(error)}</CopyText>}
       <Action
         id="birth-submit"
         disabled={busy}
         label={t(busy ? 'form.birth.saving' : step === 1 ? 'form.birth.next' : 'form.birth.save')}
         onPress={() => void submit()}
       />
-      <Action
-        id="birth-back"
-        disabled={busy}
-        label={t('form.birth.back')}
-        onPress={() => {
-          if (step === 2) setStep(1);
-          else router.replace('/me');
-        }}
-      />
+      <Action id="birth-back" disabled={busy} label={t('form.birth.back')} onPress={back} />
     </Page>
   );
 }

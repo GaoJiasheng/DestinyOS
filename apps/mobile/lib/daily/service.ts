@@ -101,6 +101,7 @@ export async function loadDaily(
       previous?.id ?? id,
     );
   }
+  if (profile?.data) void pruneDailyOnce(store, tz, [previous?.id ?? id]);
   return {
     id: profile ? id : null,
     chart,
@@ -141,9 +142,29 @@ export async function profileJournal(profileId: string) {
 /** Prior Vedic use must remain discoverable after years of daily history, within the current owner scope. */
 export async function hasVedicHistory() {
   const store = await getLocalStore();
-  for (let offset = 0; ; offset += 500) {
-    const page = await store.readings.list(500, offset);
-    if (page.some((record) => record.data?.system === 'vedic')) return true;
-    if (page.length < 500) return false;
-  }
+  return (await store.readings.listBySystem({ only: ['vedic'] }, 1)).length > 0;
+}
+/** Days of daily snapshots kept behind and ahead of today; journaled days are always kept. */
+export const DAILY_RETENTION = { pastDays: 90, futureDays: 31 } as const;
+const prunedOwners = new Set<string | null>();
+/**
+ * Bound the encrypted daily cache once per owner per launch. Old days recompute deterministically
+ * if reopened, so a failed cleanup is ignored and retried next launch.
+ */
+export function pruneDailyOnce(
+  store: Pick<Awaited<ReturnType<typeof getLocalStore>>, 'readings'>,
+  tz: string,
+  keep: readonly string[] = [],
+) {
+  const owner = store.readings.userId;
+  if (prunedOwners.has(owner)) return Promise.resolve(0);
+  prunedOwners.add(owner);
+  const today = Temporal.PlainDate.from(todayIn(tz));
+  const from = today.subtract({ days: DAILY_RETENTION.pastDays }).toString(),
+    to = today.add({ days: DAILY_RETENTION.futureDays }).toString();
+  // The day on screen stays cached even when it lies outside the window.
+  return store.readings.pruneDaily(from, to, keep).catch(() => {
+    prunedOwners.delete(owner);
+    return 0;
+  });
 }

@@ -25,24 +25,36 @@ import { ReportSection } from './report-section';
 import { ReportParagraph } from './report-paragraph';
 import { NativeChartView } from '../charts/native-chart';
 import { useProfiles } from '../../lib/profiles';
+import { locales, type MobileLocale } from '../../lib/i18n';
+import { ReportReuse } from './report-reuse';
+
+const chartTitleKey = (system: ReportSystem) =>
+  system === 'tarot' || system === 'iching' || system === 'qimen'
+    ? (`report.chartTitle.${system}` as const)
+    : 'report.chart';
 
 /** Owner-scoped offline report route with snapshot replay, chapter folding and two-way chart links. */
 export function ReportScreen({
   id,
   system,
   onBack,
+  reused = false,
 }: {
   id: string;
   system: ReportSystem;
   onBack?: () => void;
+  reused?: boolean;
 }) {
   const t = useCopy(),
     label = useChartLabel(),
     { colors } = useTheme(),
     router = useRouter();
   const owner = useSyncExternalStore(subscribeOwner, currentOwner, currentOwner);
-  const locale = usePreferences((s) => s.locale),
+  const appLocale = usePreferences((s) => s.locale),
     reduced = useProfiles().settings.reducedMotion;
+  // The report's own language switch must not change the app-wide language.
+  const [override, setOverride] = useState<MobileLocale | null>(null),
+    locale = override ?? appLocale;
   const [view, setView] = useState<NativeReading | null>(null),
     [state, setState] = useState<'loading' | 'ready' | 'missing' | 'error'>('loading'),
     [retry, setRetry] = useState(0);
@@ -99,9 +111,14 @@ export function ReportScreen({
   function related(node: ChartNode, scene: ChartScene) {
     if (view) jump(sectionForNode(view.report, view.chart, scene, node));
   }
+  function back() {
+    if (onBack) onBack();
+    else if (router.canGoBack()) router.back();
+    else router.replace('/reading');
+  }
   const data = view?.record.data,
     glossary = bundledKnowledge().glossary;
-  const birth = data?.inputSnapshot.birth ? normalizeBirth(data.inputSnapshot.birth).local : null;
+  const birth = data?.inputSnapshot.birth ? localBirth(data.inputSnapshot.birth) : null;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors['bg-0'] }}>
       {state !== 'ready' || !view || !data ? (
@@ -143,11 +160,7 @@ export function ReportScreen({
                 gap: 12,
               }}
             >
-              <Action
-                id="report-back"
-                label={t('report.another')}
-                onPress={() => (onBack ? onBack() : router.replace('/reading'))}
-              />
+              <Action id="report-back" label={t('mobile.report.back')} onPress={back} />
               <View style={{ flex: 1, alignItems: 'flex-end' }}>
                 <CopyText title>{t(`nav.${system}`)}</CopyText>
               </View>
@@ -173,14 +186,17 @@ export function ReportScreen({
                   setProfessional(!professional);
                 }}
               />
-              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
-                {(['zh', 'en'] as const).map((language) => (
+              <View
+                accessibilityLabel={t('mobile.report.language')}
+                style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}
+              >
+                {locales.map((language) => (
                   <Action
                     key={language}
                     id={`report-locale-${language}`}
                     label={t(`nav.locale.${language}`)}
                     selected={locale === language}
-                    onPress={() => usePreferences.getState().setLocale(language)}
+                    onPress={() => setOverride(language === appLocale ? null : language)}
                   />
                 ))}
               </View>
@@ -196,8 +212,9 @@ export function ReportScreen({
             {view.warnings.map((warning) => (
               <CopyText key={warning.code}>{label(warning.messageKey)}</CopyText>
             ))}
+            {reused ? <ReportReuse reading={view} /> : null}
             <ReportActions reading={view} />
-            <ReportHeadline headline={view.report.headline} />
+            <ReportHeadline headline={view.report.headline} system={system} />
             <View
               onLayout={(event) => {
                 chartY.current = event.nativeEvent.layout.y;
@@ -206,7 +223,7 @@ export function ReportScreen({
               <ReportCard>
                 <Action
                   id="report-chart-toggle"
-                  label={t('report.chart')}
+                  label={t(chartTitleKey(system))}
                   onPress={() => setChartOpen((v) => !v)}
                 />
                 {chartOpen ? (
@@ -344,10 +361,23 @@ export function ReportScreen({
                 ))}
               </ReportCard>
             ) : null}
+            <Action
+              id="report-another"
+              label={t('report.another')}
+              onPress={() => router.replace('/reading')}
+            />
             <CopyText>{t('legal.disclaimer.full')}</CopyText>
           </View>
         </ScrollView>
       )}
     </SafeAreaView>
   );
+}
+/** A stored snapshot that no longer normalizes must not take the whole report down with it. */
+function localBirth(birth: Parameters<typeof normalizeBirth>[0]) {
+  try {
+    return normalizeBirth(birth).local;
+  } catch {
+    return null;
+  }
 }

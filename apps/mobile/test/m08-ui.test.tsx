@@ -29,6 +29,8 @@ jest.mock('expo-router', () => ({
   useRouter: () => ({ push: mockPush, back: jest.fn() }),
   useLocalSearchParams: () => mockParams,
 }));
+// expo-crypto's real module needs native classes that the jest environment does not provide.
+jest.mock('expo-crypto', () => ({ randomUUID: () => '00000000-0000-4000-8000-000000000009' }));
 jest.mock('expo-router/react-navigation', () => ({ useIsFocused: () => true }));
 jest.mock('../lib/profiles', () => ({
   useProfiles: () => ({

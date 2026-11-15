@@ -3,6 +3,8 @@ import { IchingChartSchema, TarotChartSchema } from '@tianji/shared';
 import {
   automaticPicks,
   createShakeGate,
+  initialQuestion,
+  removePick,
   parseNumbers,
   ritualClock,
   throwCoins,
@@ -89,4 +91,11 @@ it('documented Liuyao golden coin sequence is the same through the native unifor
       clock,
     ),
   );
+});
+
+it('trims carried questions to 120 characters and removes picks without gaps', () => {
+  expect(initialQuestion(undefined)).toBe('');
+  expect(initialQuestion(['  a  ', 'b'])).toBe('a');
+  expect(initialQuestion('x'.repeat(130))).toHaveLength(120);
+  expect(removePick([5, 9, 2], 9)).toEqual([5, 2]);
 });

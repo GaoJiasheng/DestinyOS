@@ -1,12 +1,18 @@
-import { spacing } from '@tianji/ui-core/tokens';
+import { corner, nativeTypography, spacing } from '@tianji/ui-core/tokens';
 import { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import { useCopy } from '../../lib/copy';
+import { useTheme } from '../../lib/theme';
 import { getLocalStore } from '../../lib/data/store';
 import { profileJournal, todayIn, type NativeDaily } from '../../lib/daily/service';
+import {
+  clearJournalDraft,
+  readJournalDraft,
+  writeJournalDraft,
+} from '../../lib/daily/journal-drafts';
 import { JournalInputSchema } from '@tianji/shared';
 import { ReportCard } from '../report/report-ui';
-import { Action, CopyText, Field } from '../native-ui';
+import { Action, CopyText } from '../native-ui';
 /** Offline mood editor preserves the initial prediction while allowing sentence/mood revisions. */
 export function JournalEditor({
   profileId,
@@ -19,9 +25,11 @@ export function JournalEditor({
   value: NativeDaily;
   tz: string;
 }) {
-  const t = useCopy();
+  const t = useCopy(),
+    { colors, body } = useTheme();
   const [mood, setMood] = useState<number | null>(null),
-    [text, setText] = useState('');
+    [text, setText] = useState(''),
+    [restored, setRestored] = useState(false);
   const [busy, setBusy] = useState(true),
     [saving, setSaving] = useState(false),
     [saved, setSaved] = useState(false),
@@ -36,12 +44,16 @@ export function JournalEditor({
     setError(null);
     setMood(null);
     setText('');
+    setRestored(false);
     void profileJournal(profileId)
       .then((entries) => {
         if (!alive) return;
         const entry = entries.find((e) => e.data?.date === date)?.data;
-        setMood(entry?.mood ?? null);
-        setText(entry?.text ?? '');
+        // An unsaved edit from earlier in this session wins over the stored entry.
+        const draft = readJournalDraft(profileId, date);
+        setMood(draft ? draft.mood : (entry?.mood ?? null));
+        setText(draft ? draft.text : (entry?.text ?? ''));
+        setRestored(Boolean(draft));
       })
       .catch(() => {
         if (alive) setError('load');
@@ -53,6 +65,13 @@ export function JournalEditor({
       alive = false;
     };
   }, [profileId, date, retry]);
+  function edit(next: { mood?: number | null; text?: string }) {
+    const draft = { mood: next.mood !== undefined ? next.mood : mood, text: next.text ?? text };
+    setMood(draft.mood);
+    setText(draft.text);
+    setSaved(false);
+    writeJournalDraft(profileId, date, draft);
+  }
   async function save() {
     const input = JournalInputSchema.safeParse({ profileId, date, tz, mood, text });
     if (!input.success) {
@@ -74,6 +93,8 @@ export function JournalEditor({
           engineVersion: value.engineVersion,
         },
       });
+      clearJournalDraft(profileId, date);
+      setRestored(false);
       setSaved(true);
     } catch {
       setError('save');
@@ -112,23 +133,34 @@ export function JournalEditor({
                 selected={mood === n}
                 disabled={future || saving}
                 label={t(`journal.mood.${n}` as 'journal.mood.1')}
-                onPress={() => {
-                  setMood(n);
-                  setSaved(false);
-                }}
+                onPress={() => edit({ mood: n })}
               />
             ))}
           </View>
-          <Field
-            id="journal-text"
-            label={t('journal.text')}
+          <CopyText>{t('journal.text')}</CopyText>
+          {/* DESIGN-GAP: Native Field is single-line; the sentence wraps here but line breaks stay disallowed by the shared schema. */}
+          <TextInput
+            testID="journal-text"
+            accessibilityLabel={t('journal.text')}
             value={text}
+            multiline
+            submitBehavior="blurAndSubmit"
+            returnKeyType="done"
             maxLength={500}
-            onChange={(next) => {
-              setText(next);
-              setSaved(false);
+            textAlignVertical="top"
+            onChangeText={(next) => edit({ text: next.replace(/[\r\n]+/g, ' ') })}
+            style={{
+              minHeight: 120,
+              borderWidth: 1,
+              borderColor: colors['line-2'],
+              borderRadius: corner('r-md'),
+              padding: 12,
+              color: colors['text-1'],
+              fontFamily: body,
+              fontSize: nativeTypography.body,
             }}
           />
+          {restored && <CopyText testID="journal-draft">{t('mobile.journal.draftKept')}</CopyText>}
           <Action
             id="journal-save"
             label={t(saving ? 'common.loading' : 'journal.save')}

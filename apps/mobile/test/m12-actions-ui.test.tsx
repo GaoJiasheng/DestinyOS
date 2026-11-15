@@ -8,7 +8,16 @@ import type { ReportActions as Operations } from '../lib/reports/actions';
 import { shareExport } from '../lib/reports/actions';
 import type { PublicShare } from '@tianji/ui-core/share-projection';
 import { useAccount } from '../lib/account/controller';
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));
+import { Alert } from 'react-native';
+const mockPush = jest.fn();
+const mockBack = jest.fn();
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: mockPush, back: mockBack, canGoBack: () => true, replace: jest.fn() }),
+}));
+const mockDelete = jest.fn(async () => {});
+jest.mock('../lib/data/store', () => ({
+  getLocalStore: async () => ({ readings: { delete: mockDelete } }),
+}));
 jest.mock('../lib/account/controller', () => {
   const { create } = jest.requireActual<typeof import('zustand')>('zustand');
   return { useAccount: create(() => ({ session: null })) };
@@ -116,4 +125,24 @@ it('guests receive the sign-in path without cloud uploads', () => {
   fireEvent.press(screen.getByTestId('report-export'));
   expect(screen.getByTestId('export-pdf')).toBeDisabled();
   expect(actions.export).not.toHaveBeenCalled();
+});
+it('deletes the report only after confirmation and leaves the page', async () => {
+  const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+  render(<ReportActions reading={reading} actions={actions} />);
+  fireEvent.press(screen.getByTestId('report-delete'));
+  expect(mockDelete).not.toHaveBeenCalled();
+  const buttons = alert.mock.calls[0]?.[2];
+  buttons?.[1]?.onPress?.();
+  await waitFor(() => expect(mockDelete).toHaveBeenCalledWith('reading-1'));
+  await waitFor(() => expect(mockBack).toHaveBeenCalled());
+  alert.mockRestore();
+});
+it('sends signed-out export back to this report after sign-in', () => {
+  render(<ReportActions reading={reading} actions={actions} />);
+  fireEvent.press(screen.getByTestId('report-export'));
+  fireEvent.press(screen.getByLabelText('Sign in and save this reading to export it.'));
+  expect(mockPush).toHaveBeenCalledWith({
+    pathname: '/auth/login',
+    params: { returnTo: '/bazi/r/reading-1' },
+  });
 });

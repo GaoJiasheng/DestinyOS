@@ -1,32 +1,55 @@
-import { useState } from 'react';
-import { View, Platform } from 'react-native';
+import { useState, type RefObject } from 'react';
+import { View, Platform, type TextInput } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { LunarYear } from 'lunar-typescript';
 import type { BirthInput } from '@tianji/shared';
 import type { MessageKey } from '../lib/i18n';
-import { hourBranches, lunarMonths, monthDays } from '../lib/birth-form';
+import {
+  hourBranches,
+  lunarMonths,
+  monthDays,
+  type BirthField,
+  type FieldIssue,
+} from '../lib/birth-form';
 import { useCopy } from '../lib/copy';
 import { useNativePickers } from './native-pickers';
-import { Action, CopyText, Field } from './native-ui';
-/** Native civil/lunar date wheels, precise clock and explicit unknown-time mode. */
+import { Action, CopyText } from './native-ui';
+import { FieldErrors, TextEntry } from './birth-inputs';
+/** Native civil/lunar date wheels, precise clock and explicit unknown-time mode; every wheel starts on "choose". */
 export function BirthDateFields({
   birth,
   year,
   setYear,
   change,
   updateDate,
+  precise,
+  setPrecise,
+  issues,
+  onBlurField,
+  yearRef,
 }: {
   birth: BirthInput;
   year: string;
   setYear: (year: string) => void;
   change: (patch: Partial<BirthInput>) => void;
   updateDate: (patch: Partial<BirthInput>) => void;
+  precise: boolean;
+  setPrecise: (precise: boolean) => void;
+  issues: FieldIssue[];
+  onBlurField: (field: BirthField) => void;
+  yearRef?: RefObject<TextInput | null>;
 }) {
   const t = useCopy();
   const { wheel, toggle } = useNativePickers();
-  const [precise, setPrecise] = useState(false);
   const [datePicker, setDatePicker] = useState(false);
   const yearValid = birth.year >= 1900 && birth.year <= 2100;
+  const has = (field: BirthField) => issues.some((issue) => issue.field === field);
+  const choose = { value: 0, label: t('mobile.birth.choose') };
+  const noHour = { value: -1, label: t('form.birth.hourPlaceholder') };
+  const setHour = (value: number | string) =>
+    Number(value) < 0
+      ? change({ hour: undefined, minute: undefined })
+      : change({ hour: Number(value), minute: birth.minute ?? 0 });
   const months =
     birth.calendar === 'lunar' && yearValid
       ? lunarMonths(birth.year)
@@ -44,17 +67,23 @@ export function BirthDateFields({
           />
         ))}
       </View>
-      <Field
+      <TextEntry
         id="birth-year"
+        inputRef={yearRef}
         label={t('form.birth.year')}
         value={year}
-        numeric
+        keyboardType="number-pad"
         maxLength={4}
+        invalid={has('year')}
+        onBlur={() => onBlurField('year')}
         onChange={(value) => {
           setYear(value);
-          updateDate({ year: /^\d{4}$/.test(value) ? Number(value) : 0 });
+          // A partial year is "out of range" rather than empty, so the blur error names the real problem.
+          updateDate({ year: /^\d+$/.test(value) ? Number(value) : 0 });
         }}
-      />
+      >
+        <FieldErrors issues={issues} field="year" />
+      </TextEntry>
       {birth.calendar === 'lunar' && yearValid && (
         <CopyText>
           {t('form.birth.lunar.year', {
@@ -68,25 +97,33 @@ export function BirthDateFields({
           t('form.birth.month'),
           birth.isLeapMonth ? -birth.month : birth.month,
           (value) => updateDate({ month: Math.abs(Number(value)), isLeapMonth: Number(value) < 0 }),
-          months.map(({ month }) => ({
-            value: month,
-            label: t(month < 0 ? 'form.birth.lunar.leap' : 'form.birth.lunar.month', {
-              month: Math.abs(month),
-            }),
-          })),
+          [
+            choose,
+            ...months.map(({ month }) => ({
+              value: month,
+              label: t(month < 0 ? 'form.birth.lunar.leap' : 'form.birth.lunar.month', {
+                month: Math.abs(month),
+              }),
+            })),
+          ],
           'birth-month',
         )}
         {wheel(
           t('form.birth.day'),
           birth.day,
           (value) => change({ day: Number(value) }),
-          Array.from({ length: monthDays(birth) }, (_, i) => ({
-            value: i + 1,
-            label: t('form.birth.lunar.day', { day: i + 1 }),
-          })),
+          [
+            choose,
+            ...Array.from({ length: monthDays(birth) }, (_, i) => ({
+              value: i + 1,
+              label: t('form.birth.lunar.day', { day: i + 1 }),
+            })),
+          ],
           'birth-day',
         )}
       </View>
+      <FieldErrors issues={issues} field="month" />
+      <FieldErrors issues={issues} field="day" />
       {birth.calendar === 'gregorian' && (
         <>
           <Action
@@ -100,9 +137,9 @@ export function BirthDateFields({
               value={
                 new Date(
                   Date.UTC(
-                    yearValid ? birth.year : new Date().getUTCFullYear(),
-                    birth.month - 1,
-                    birth.day,
+                    yearValid ? birth.year : 1990,
+                    (birth.month || 1) - 1,
+                    birth.day || 1,
                     12,
                   ),
                 )
@@ -144,6 +181,7 @@ export function BirthDateFields({
         style={{ opacity: birth.timeUnknown ? 0.4 : 1 }}
       >
         {toggle(t('form.birth.precise'), precise, setPrecise, 'time-precise', !birth.timeUnknown)}
+        {/* DESIGN-GAP: The hour wheels start on a "choose" row so an untouched wheel never submits 子时. */}
         {/* DESIGN-GAP: Full-width branches keep ranges readable; remount on mode changes
             because iOS Picker selection overlays retain their prior column width. */}
         <View
@@ -153,23 +191,31 @@ export function BirthDateFields({
           {precise
             ? wheel(
                 t('form.birth.hour'),
-                birth.hour ?? 0,
-                (value) => change({ hour: Number(value) }),
-                Array.from({ length: 24 }, (_, i) => ({
-                  value: i,
-                  label: String(i).padStart(2, '0'),
-                })),
+                birth.hour ?? -1,
+                setHour,
+                [
+                  noHour,
+                  ...Array.from({ length: 24 }, (_, i) => ({
+                    value: i,
+                    label: String(i).padStart(2, '0'),
+                  })),
+                ],
                 'birth-hour',
                 !birth.timeUnknown,
               )
             : wheel(
                 t('form.birth.hourBranch'),
-                hourBranches.filter((hour) => hour <= (birth.hour ?? 0)).at(-1) ?? 0,
-                (value) => change({ hour: Number(value) }),
-                hourBranches.map((hour, index) => ({
-                  value: hour,
-                  label: t(`form.birth.branch.${index}` as MessageKey),
-                })),
+                birth.hour === undefined
+                  ? -1
+                  : (hourBranches.filter((hour) => hour <= birth.hour!).at(-1) ?? 0),
+                setHour,
+                [
+                  noHour,
+                  ...hourBranches.map((hour, index) => ({
+                    value: hour,
+                    label: t(`form.birth.branch.${index}` as MessageKey),
+                  })),
+                ],
                 'birth-branch',
                 !birth.timeUnknown,
               )}
@@ -186,6 +232,7 @@ export function BirthDateFields({
           )}
         </View>
       </View>
+      <FieldErrors issues={issues} field="hour" />
     </>
   );
 }

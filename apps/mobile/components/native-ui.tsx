@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode, type RefObject } from 'react';
+import { useEffect, useRef, type ReactNode, type RefObject, type ComponentProps } from 'react';
 import { focusHeading } from '../lib/accessibility';
 import {
   Pressable,
@@ -76,7 +76,8 @@ export function Page({
     <SafeAreaView style={{ flex: 1, backgroundColor: colors['bg-0'] }}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        // Android edge-to-edge no longer resizes the window for the keyboard, so shrink the page.
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         {scroll ? (
           <ScrollView
@@ -158,6 +159,7 @@ export function Action({
     </Pressable>
   );
 }
+type InputProps = ComponentProps<typeof TextInput>;
 /** Labeled native text entry; personal values stay inside component state and encrypted storage. */
 export function Field({
   label,
@@ -167,16 +169,35 @@ export function Field({
   numeric = false,
   placeholder,
   maxLength,
+  multiline = false,
+  keyboardType,
+  onSubmit,
+  returnKeyType,
+  textContentType,
+  autoComplete,
+  editable,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   id: string;
+  /** Legacy shortcut for signed decimals; prefer keyboardType="number-pad" for whole numbers. */
   numeric?: boolean;
   placeholder?: string;
   maxLength?: number;
+  /** Wraps long text; without onSubmit, Return inserts a new line. */
+  multiline?: boolean;
+  keyboardType?: InputProps['keyboardType'];
+  /** Return submits instead of only dismissing the keyboard (also for multiline fields). */
+  onSubmit?: () => void;
+  returnKeyType?: InputProps['returnKeyType'];
+  textContentType?: InputProps['textContentType'];
+  autoComplete?: InputProps['autoComplete'];
+  editable?: boolean;
 }) {
   const { colors, body } = useTheme();
+  // Android has no numbers-and-punctuation keyboard; "numeric" there still allows sign and decimal.
+  const legacyNumeric = Platform.OS === 'ios' ? 'numbers-and-punctuation' : 'numeric';
   return (
     <View style={{ gap: 6 }}>
       <CopyText>{label}</CopyText>
@@ -189,12 +210,17 @@ export function Field({
         placeholderTextColor={colors['text-2']}
         maxLength={maxLength}
         autoCorrect={false}
-        returnKeyType="done"
-        onSubmitEditing={Keyboard.dismiss}
+        multiline={multiline}
+        editable={editable}
+        returnKeyType={returnKeyType ?? (multiline && !onSubmit ? 'default' : 'done')}
+        submitBehavior={multiline ? (onSubmit ? 'submit' : 'newline') : 'blurAndSubmit'}
+        onSubmitEditing={onSubmit ?? Keyboard.dismiss}
         autoCapitalize="none"
-        keyboardType={numeric ? 'numbers-and-punctuation' : 'default'}
+        keyboardType={keyboardType ?? (numeric ? legacyNumeric : 'default')}
+        textContentType={textContentType}
+        autoComplete={autoComplete}
         style={{
-          minHeight: 48,
+          minHeight: multiline ? 96 : 48,
           borderWidth: 1,
           borderColor: colors['line-2'],
           borderRadius: corner('r-md'),
@@ -202,6 +228,7 @@ export function Field({
           color: colors['text-1'],
           fontFamily: body,
           fontSize: type.body,
+          textAlignVertical: multiline ? 'top' : 'center',
         }}
       />
     </View>

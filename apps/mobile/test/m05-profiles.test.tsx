@@ -218,3 +218,22 @@ it('preserves same-owner panels through real repository refresh while gating cip
   query.mockRestore();
   view.unmount();
 });
+it("keeps the active profile when saving someone else's, but always activates the first profile", async () => {
+  render(
+    <ProfilesProvider>
+      <Probe />
+    </ProfilesProvider>,
+  );
+  await waitFor(() => expect(screen.getByTestId('count')).toHaveTextContent('0'));
+  await act(() => mockState.save(profile, undefined, { activate: false }));
+  await waitFor(() => expect(screen.getByTestId('active')).toHaveTextContent('Alice'));
+  await act(() =>
+    mockState.save({ ...profile, name: 'Partner', relation: 'partner' }, undefined, {
+      activate: false,
+    }),
+  );
+  await waitFor(() => expect(screen.getByTestId('count')).toHaveTextContent('2'));
+  expect(screen.getByTestId('active')).toHaveTextContent('Alice');
+  const alice = (await mockStore.profiles.list()).find((item) => item.data?.name === 'Alice')!;
+  expect((await mockStore.settings.list())[0]?.data?.activeProfileId).toBe(alice.id);
+});

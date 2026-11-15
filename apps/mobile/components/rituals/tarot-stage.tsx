@@ -109,15 +109,22 @@ function ProxyCard({ index, count, animate }: { index: number; count: number; an
     </Animated.View>
   );
 }
-/** Virtualized 140-degree fan; horizontal native pan advances a bounded window of 25 cards. */
+/**
+ * Virtualized 140-degree fan; horizontal native pan advances a bounded window of 25 cards.
+ * Chosen cards stay tappable so they can be put back before the reveal starts.
+ */
 export function TarotFan({
   picked,
+  total,
   onPick,
+  pickedLabel,
   animate,
   disabled,
 }: {
   picked: number[];
+  total: number;
   onPick: (i: number) => void;
+  pickedLabel: (i: number) => string;
   animate: boolean;
   disabled: boolean;
 }) {
@@ -144,22 +151,26 @@ export function TarotFan({
           {Array.from({ length: 25 }, (_, i) => {
             const index = start + i,
               a = (i / 24 - 0.5) * 140,
-              radians = (a * Math.PI) / 180;
+              radians = (a * Math.PI) / 180,
+              chosen = picked.includes(index),
+              off = disabled || (!chosen && picked.length >= total);
             return (
               <Pressable
                 key={index}
                 testID={`tarot-pick-${index}`}
                 accessibilityRole="button"
-                accessibilityLabel={t('tarot.pickCard', { number: index + 1 })}
-                accessibilityState={{ disabled: disabled || picked.includes(index) }}
-                disabled={disabled || picked.includes(index)}
+                accessibilityLabel={
+                  chosen ? pickedLabel(index) : t('tarot.pickCard', { number: index + 1 })
+                }
+                accessibilityState={{ disabled: off, selected: chosen }}
+                disabled={off}
                 onPress={() => onPick(index)}
                 style={{
                   position: 'absolute',
                   left: '50%',
                   top: 18,
                   marginLeft: -26,
-                  opacity: picked.includes(index) ? 0.15 : 1,
+                  opacity: chosen ? 0.15 : off ? 0.5 : 1,
                   transform: [
                     { translateX: Math.sin(radians) * 135 },
                     { translateY: (1 - Math.cos(radians)) * 135 },

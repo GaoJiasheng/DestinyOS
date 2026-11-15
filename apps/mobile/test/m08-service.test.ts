@@ -156,18 +156,24 @@ it('keeps sharing disclaimer words readable while fitting English and Chinese in
   expect(shareLines('abcdefghijkl', 'en', (s) => s.length, 4)).toEqual(['abcd', 'efgh', 'ijkl']);
 });
 
-it('keeps prior Vedic use visible beyond the first 500 owner-scoped readings', async () => {
+it('keeps prior Vedic use visible however many daily snapshots precede it', async () => {
   const profile = await store.profiles.save(
     { name: '', birth: BirthInputSchema.parse(A), version: 1, isCurrent: true },
     'a',
   );
   const daily = await loadDaily(profile, '2026-10-04', 'UTC', 'zh');
   const record = (await store.readings.get(daily.id!))!;
-  const list = jest.spyOn(store.readings, 'list');
-  list.mockResolvedValueOnce(
-    Array.from({ length: 500 }, (_, i) => ({ ...record, id: `old-${i}` })),
+  expect(await hasVedicHistory()).toBe(false);
+  const listBySystem = jest.spyOn(store.readings, 'listBySystem');
+  await store.readings.save(
+    {
+      ...record.data!,
+      system: 'vedic',
+      inputSnapshot: { ...record.data!.inputSnapshot, system: 'vedic' },
+    },
+    'vedic-1',
   );
-  list.mockResolvedValueOnce([{ ...record, data: { ...record.data!, system: 'vedic' } }]);
   expect(await hasVedicHistory()).toBe(true);
-  expect(list).toHaveBeenLastCalledWith(500, 500);
+  // Filtered in SQL: one row is enough, no page scan over daily history.
+  expect(listBySystem).toHaveBeenLastCalledWith({ only: ['vedic'] }, 1);
 });

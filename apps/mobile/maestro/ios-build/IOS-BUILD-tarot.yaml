@@ -79,6 +79,11 @@ appId: pub.gavin.tianji
     id: tarot-pick-36
 - scrollUntilVisible:
     element:
+      id: tarot-start-reveal
+- tapOn:
+    id: tarot-start-reveal
+- scrollUntilVisible:
+    element:
       id: tarot-flip-0
     centerElement: true
 - takeScreenshot: tarot-selected-zh

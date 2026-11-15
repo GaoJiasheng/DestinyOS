@@ -3,6 +3,7 @@ import { gunzipSync, strFromU8 } from 'fflate';
 import { Asset } from 'expo-asset';
 import { File } from 'expo-file-system';
 import cityAsset from '../assets/cities/cities.bin';
+import { foldPairs, traditionalPairs } from './hanzi-variants';
 const CitySchema = z.object({
   name: z.string(),
   aliases: z.array(z.string()),
@@ -31,25 +32,64 @@ export function loadCities(): Promise<City[]> {
   });
   return cityPromise;
 }
-const normalize = (value: string) =>
-  value
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .trim()
-    .toLocaleLowerCase('en');
-/** Prefix matches rank first; population breaks ties, with bounded native autocomplete results. */
+function pairMap(pairs: string) {
+  const chars = Array.from(pairs);
+  const map = new Map<string, string>();
+  for (let i = 0; i + 1 < chars.length; i += 2) map.set(chars[i]!, chars[i + 1]!);
+  return map;
+}
+const toSimplified = pairMap(foldPairs);
+const toTraditional = pairMap(traditionalPairs);
+const convert = (value: string, map: Map<string, string>) =>
+  Array.from(value, (char) => map.get(char) ?? char).join('');
+/** Fold case, accents and traditional/simplified glyphs so either script finds the same city. */
+export const normalizeCityName = (value: string) =>
+  convert(
+    value
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim()
+      .toLocaleLowerCase('en'),
+    toSimplified,
+  );
+const han = /^[\u3400-\u9fff]+$/u;
+/** Chinese label for the UI locale when the data carries one; English otherwise. */
+export function cityLabel(city: City, locale: string): string {
+  if (locale === 'en') return city.name;
+  const alias = city.aliases.find((name) => han.test(name));
+  if (!alias) return city.name;
+  return locale === 'zh-TW' ? convert(alias, toTraditional) : convert(alias, toSimplified);
+}
+// Normalizing ~78k cities' aliases per keystroke cost ~20 ms in node; build the index once per list.
+const indexes = new WeakMap<readonly City[], string[][]>();
+function indexOf(cities: readonly City[]) {
+  let index = indexes.get(cities);
+  if (!index) {
+    index = cities.map((city) => [
+      ...new Set(city.aliases.concat(city.name).map(normalizeCityName)),
+    ]);
+    indexes.set(cities, index);
+  }
+  return index;
+}
+/** Exact > prefix > substring; population breaks ties, with bounded native autocomplete results. */
 export function searchCities(cities: readonly City[], query: string): City[] {
-  const term = normalize(query);
+  const term = normalizeCityName(query);
   if (!term) return [];
-  return cities
-    .map((city) => ({ city, names: city.aliases.map(normalize) }))
-    .filter(({ names }) => names.some((name) => name.includes(term)))
-    .sort(
-      (a, b) =>
-        Number(b.names.some((name) => name.startsWith(term))) -
-          Number(a.names.some((name) => name.startsWith(term))) ||
-        b.city.population - a.city.population,
-    )
+  const index = indexOf(cities);
+  const hits: { city: City; rank: number }[] = [];
+  cities.forEach((city, i) => {
+    let rank = 0;
+    for (const name of index[i]!) {
+      if (name === term) rank = 3;
+      else if (rank < 2 && name.startsWith(term)) rank = 2;
+      else if (rank < 1 && name.includes(term)) rank = 1;
+      if (rank === 3) break;
+    }
+    if (rank) hits.push({ city, rank });
+  });
+  return hits
+    .sort((a, b) => b.rank - a.rank || b.city.population - a.city.population)
     .slice(0, 12)
     .map(({ city }) => city);
 }

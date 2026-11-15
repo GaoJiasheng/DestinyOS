@@ -40,14 +40,6 @@ appId: pub.gavin.tianji
       id: onboarding-next
 - tapOn:
     id: onboarding-next
-# Notification permission is requested automatically on the second screen (App A6).
-- extendedWaitUntil:
-    visible: '^(不允许|Don.t Allow)$'
-    timeout: 15000
-- waitForAnimationToEnd:
-    timeout: 2000
-- takeScreenshot: notifications-system-zh
-- tapOn: '^(不允许|Don.t Allow)$'
 - assertVisible:
     id: onboarding-1
 - waitForAnimationToEnd:
@@ -69,6 +61,16 @@ appId: pub.gavin.tianji
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: notifications-request-zh
+# The OS prompt appears only after the explicit opt-in on the reminder screen.
+- tapOn:
+    id: notifications-request
+- extendedWaitUntil:
+    visible: '^(不允许|Don.t Allow)$'
+    timeout: 15000
+- waitForAnimationToEnd:
+    timeout: 2000
+- takeScreenshot: notifications-system-zh
+- tapOn: '^(不允许|Don.t Allow)$'
 - extendedWaitUntil:
     visible:
       id: notifications-denied
@@ -169,7 +171,7 @@ appId: pub.gavin.tianji
     visible:
       id: profile-saved
     timeout: 20000
-- assertVisible: 'Alice'
+- assertVisible: '.*Alice.*'
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: profiles-first-zh
@@ -204,12 +206,14 @@ appId: pub.gavin.tianji
       id: birth-submit
 - tapOn:
     id: birth-submit
-- assertVisible: 'Bob'
-- assertVisible: 'Alice'
+- assertVisible: '.*Bob.*'
+- assertVisible: '.*Alice.*'
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: multi-profiles-zh
-- tapOn: 'Alice'
+- tapOn: '.*Bob.*'
+- assertVisible:
+    id: profile-switched
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: profile-switched-zh

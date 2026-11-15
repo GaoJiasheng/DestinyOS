@@ -146,3 +146,17 @@ it.each(['logout', 'delete'] as const)(
     expect(store.eraseAccountData).toHaveBeenCalledTimes(method === 'delete' ? 1 : 0);
   },
 );
+it('signs out locally when the server cannot be reached', async () => {
+  jest.mocked(synchronize).mockReset().mockResolvedValue(undefined);
+  const fetcher = jest.fn<Promise<Response>, Parameters<typeof fetch>>(async () => {
+    throw new TypeError('Network request failed');
+  });
+  await configureAccountMock(fetcher, async () => pair('alice', 'a'));
+  await accountSession.accept(pair('alice', 'a'));
+  setCurrentOwner('alice');
+  await logoutAccount();
+  expect(fetcher).toHaveBeenCalled();
+  expect(accountSession.session).toBeNull();
+  expect(currentOwner()).toBeNull();
+  expect(useAccount.getState().error).toBeNull();
+});

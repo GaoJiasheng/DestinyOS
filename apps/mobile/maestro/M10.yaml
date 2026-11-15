@@ -114,6 +114,8 @@ appId: pub.gavin.tianji
     id: account-error
 - tapOn:
     id: account-logout
+# Sign-out is confirmed in a native alert first.
+- tapOn: '^(退出登录|Sign out)$'
 - extendedWaitUntil:
     visible:
       id: account-login
