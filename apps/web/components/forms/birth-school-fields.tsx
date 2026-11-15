@@ -31,6 +31,7 @@ export function BirthSchoolFields({
         <label className="birth-check">
           <input
             type="checkbox"
+            aria-label={t('form.birth.apparentSolarTime')}
             checked={solar}
             onChange={(e) => {
               setSolar(e.target.checked);

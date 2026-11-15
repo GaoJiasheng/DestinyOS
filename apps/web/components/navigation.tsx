@@ -1,19 +1,23 @@
 'use client';
-import { useSubmitTransition } from '@/components/forms/use-submit-transition';
-import { useState } from 'react';
-import { useLocale } from 'next-intl';
-import { Sun, Compass, Sparkles, BookOpen, UserRound } from 'lucide-react';
+import { Sun, BookOpen, UserRound } from 'lucide-react';
 import { brand } from '@tianji/shared/brand';
-import { Link, usePathname, useRouter } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { useCopy } from '@/i18n/use-copy';
 import { LocaleSwitch } from './locale-switch';
 import { ThemeSwitch } from './theme-provider';
-import { Dialog } from './ui/dialog';
-import { Button } from './ui/button';
 import { systems } from '@/lib/system-links';
 import { ProfileSwitcher } from './me/profile-switcher';
 import { useSignedIn } from './providers';
+import { ReadingLauncher } from './home/reading-launcher';
+import { AskLauncher } from './home/ask-launcher';
 export { systems } from '@/lib/system-links';
+export { ReadingLauncher } from './home/reading-launcher';
+/** Return here after signing in, except from the auth screens themselves. */
+function loginHref(pathname: string) {
+  return pathname.startsWith('/auth')
+    ? '/auth/login'
+    : `/auth/login?${new URLSearchParams({ callbackUrl: pathname })}`;
+}
 /** Responsive desktop navigation and the five-item mobile tab bar. */
 export function Navigation() {
   const t = useCopy();
@@ -32,7 +36,7 @@ export function Navigation() {
           <span className="brand-en">{t('brand.nameEn', { name: brand.nameEn })}</span>
         </Link>
         <nav className="desktop-nav" aria-label={t('nav.label')}>
-          {(['today', ...systems] as const).map((item) => (
+          {(['today', ...systems, 'learn'] as const).map((item) => (
             <Link
               prefetch={true}
               key={item}
@@ -44,15 +48,26 @@ export function Navigation() {
           ))}
         </nav>
         <div className="header-tools">
-          <LocaleSwitch />
-          <ThemeSwitch />
+          {/* Phones keep these in the footer and settings so the header stays one row. */}
+          <div className="header-prefs">
+            <LocaleSwitch />
+            <ThemeSwitch />
+          </div>
           {signedIn ? (
             <ProfileSwitcher />
           ) : (
-            <Link prefetch={true} href="/auth/login" className="login-link">
+            <Link prefetch={true} href={loginHref(pathname)} className="login-link">
               {t('nav.login')}
             </Link>
           )}
+          <Link
+            prefetch={true}
+            href="/me"
+            className="me-link"
+            aria-current={pathname.startsWith('/me') ? 'page' : undefined}
+          >
+            {t('nav.me')}
+          </Link>
         </div>
       </header>
       <nav className="mobile-tabs" aria-label={t('nav.label')}>
@@ -83,151 +98,6 @@ export function Navigation() {
           <span>{t('nav.me')}</span>
         </Link>
       </nav>
-    </>
-  );
-}
-/** Open the system picker from the hero CTA or the mobile tab. */
-export function ReadingLauncher({ tab = false }: { tab?: boolean }) {
-  const [open, setOpen] = useState(false);
-  const t = useCopy();
-  const locale = useLocale() as import('@tianji/shared').Locale;
-  const router = useRouter();
-  const { pending, run } = useSubmitTransition();
-  const [working, setBusy] = useState(false);
-  const busy = working || pending;
-  const [error, setError] = useState<string | null>(null);
-  const show = () => {
-    setOpen(true);
-    window.dispatchEvent(new CustomEvent('tianji:event', { detail: { name: 'home.cta.start' } }));
-  };
-  return (
-    <>
-      {tab ? (
-        <button type="button" onClick={show}>
-          <Compass size={21} aria-hidden />
-          <span>{t('nav.reading')}</span>
-        </button>
-      ) : (
-        <Button onClick={show}>
-          {t('home.cta.start')}
-          <Sparkles size={17} aria-hidden />
-        </Button>
-      )}
-      <Dialog
-        open={open}
-        onOpenChange={(value) => {
-          if (!busy) setOpen(value);
-        }}
-        title={t('home.systems.title')}
-        description={t('home.systems.note')}
-      >
-        {busy ? <p role="status">{t('report.loading')}</p> : null}
-        {error ? <p role="alert">{t(`report.error.${error}` as Parameters<typeof t>[0])}</p> : null}
-        <div className="system-picker" aria-busy={busy}>
-          {systems.map((system, index) => (
-            <Link
-              prefetch={true}
-              key={system}
-              href={
-                ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
-                  ? `/${system}/new`
-                  : `/${system}`
-              }
-              aria-disabled={busy}
-              onClick={(event) => {
-                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-                window.dispatchEvent(
-                  new CustomEvent('tianji:event', { detail: { name: `home.card.${system}` } }),
-                );
-                if (busy) {
-                  event.preventDefault();
-                  return;
-                }
-                if (
-                  system !== 'bazi' &&
-                  system !== 'ziwei' &&
-                  system !== 'astrology' &&
-                  system !== 'vedic'
-                ) {
-                  setOpen(false);
-                  return;
-                }
-                event.preventDefault();
-                run(async () => {
-                  setBusy(true);
-                  setError(null);
-                  try {
-                    const { launchSystem } = await import('@/lib/launch-system');
-                    const result = await launchSystem(system, locale);
-                    if ('declined' in result) return;
-                    if ('error' in result) setError(result.error);
-                    else {
-                      setOpen(false);
-                      router.push(result.href);
-                    }
-                  } catch {
-                    setError('E_INTERNAL');
-                  } finally {
-                    setBusy(false);
-                  }
-                });
-              }}
-            >
-              <span className="system-index" aria-hidden>
-                {t('common.number', { value: index + 1 })}
-              </span>
-              <span>
-                <strong>{t(`nav.${system}`)}</strong>
-                <span className="muted type-small">{t(`${system}.placeholder`)}</span>
-                <span className="muted type-caption">
-                  {t(
-                    ['bazi', 'ziwei', 'astrology', 'vedic', 'numerology'].includes(system)
-                      ? 'home.cards.birth'
-                      : system === 'synastry'
-                        ? 'synastry.requiresTwo'
-                        : system === 'qimen'
-                          ? 'home.cards.location'
-                          : 'home.cards.noBirth',
-                  )}{' '}
-                  · {t('home.cards.duration')}
-                </span>
-              </span>
-              <span aria-hidden>↗</span>
-            </Link>
-          ))}
-        </div>
-      </Dialog>
-    </>
-  );
-}
-/** Quick divination offers the documented one-card tarot and random Mei Hua choices. */
-function AskLauncher() {
-  const [open, setOpen] = useState(false);
-  const t = useCopy();
-  return (
-    <>
-      <button
-        type="button"
-        className="ask-tab"
-        onClick={() => setOpen(true)}
-        aria-label={t('nav.ask')}
-      >
-        <span>{t('nav.ask')}</span>
-      </button>
-      <Dialog open={open} onOpenChange={setOpen} title={t('home.ask.title')}>
-        <div className="dialog-actions">
-          <Button asChild>
-            <Link prefetch={true} href="/tarot" onClick={() => setOpen(false)}>
-              {t('home.ask.tarot')}
-            </Link>
-          </Button>
-          <Button variant="secondary" asChild>
-            <Link prefetch={true} href="/iching/cast?method=random" onClick={() => setOpen(false)}>
-              {t('home.ask.iching')}
-            </Link>
-          </Button>
-        </div>
-      </Dialog>
     </>
   );
 }

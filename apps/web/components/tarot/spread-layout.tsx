@@ -12,6 +12,7 @@ export function SpreadLayout({
   picked = [],
   revealed,
   onReveal,
+  onRemove,
   highlight,
 }: {
   spread: SpreadKey;
@@ -19,6 +20,8 @@ export function SpreadLayout({
   picked?: number[];
   revealed?: number[];
   onReveal?: (order: number) => void;
+  /** While choosing, tapping a filled position returns its card to the deck. */
+  onRemove?: (order: number) => void;
   highlight?: string;
 }) {
   const t = useTranslations('tarot');
@@ -37,7 +40,21 @@ export function SpreadLayout({
             style={{ left: `${p.x * 82 + 9}%`, top: `${p.y * 75 + 12}%` }}
           >
             <div className="tarot-slot" style={{ transform: `rotate(${p.rotation}deg)` }}>
-              {cards[i] || picked[i] !== undefined ? (
+              {onRemove && picked[i] !== undefined ? (
+                <button
+                  type="button"
+                  className="tarot-slot-remove"
+                  aria-label={t('unpickPosition', {
+                    position: t(`position.${spread}.${p.key}.name`),
+                  })}
+                  onClick={() => onRemove(i)}
+                >
+                  <TarotCard
+                    position={t(`position.${spread}.${p.key}.name`)}
+                    layoutId={`tarot-pick-${picked[i]}`}
+                  />
+                </button>
+              ) : cards[i] || picked[i] !== undefined ? (
                 <TarotCard
                   card={cards[i]}
                   position={t(`position.${spread}.${p.key}.name`)}

@@ -1,6 +1,8 @@
 import { LunarYear, LunarMonth } from 'lunar-typescript';
 import { normalizeBirth, EngineError } from '@tianji/engine/common';
 import type { BirthInput, Locale } from '@tianji/shared';
+import { gregorianDayCount } from './birth-form-date';
+export { gregorianDayCount };
 /** Return real lunar months (negative means leap), with the exact number of days. */
 export function lunarMonths(year: number) {
   return LunarYear.fromYear(year)
@@ -35,4 +37,38 @@ export const hourBranches = [0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23];
 /** Lunar month day count, used to clamp the day when the selected month changes. */
 export function lunarDayCount(year: number, month: number) {
   return LunarMonth.fromYm(year, month)?.getDayCount() ?? 30;
+}
+/** Days in the selected month of either calendar; lunar leap months use a negative month. */
+export function monthDayCount(
+  calendar: BirthInput['calendar'],
+  year: number,
+  month: number,
+  isLeapMonth = false,
+) {
+  if (month < 1 || month > 12) return 31;
+  if (calendar === 'gregorian') return gregorianDayCount(year, month);
+  if (year < 1900 || year > 2100) return 30;
+  return lunarDayCount(year, isLeapMonth ? -month : month);
+}
+/** Patch for a calendar switch: selecting the current calendar is a no-op, and the day is clamped to the target month's real length. */
+export function switchCalendar(
+  birth: BirthInput,
+  calendar: BirthInput['calendar'],
+): Partial<BirthInput> | null {
+  if (birth.calendar === calendar) return null;
+  const max = monthDayCount(calendar, birth.year, birth.month);
+  return { calendar, isLeapMonth: false, day: birth.day ? Math.min(birth.day, max) : birth.day };
+}
+/** Patch for a year edit: a lunar leap month or day that no longer exists in the new year is corrected. */
+export function yearPatch(birth: BirthInput, year: number): Partial<BirthInput> {
+  const patch: Partial<BirthInput> = { year };
+  if (birth.calendar !== 'lunar' || year < 1900 || year > 2100) return patch;
+  if (birth.isLeapMonth && !lunarMonths(year).some((m) => m.month === -birth.month))
+    patch.isLeapMonth = false;
+  if (birth.month && birth.day)
+    patch.day = Math.min(
+      birth.day,
+      monthDayCount('lunar', year, birth.month, patch.isLeapMonth ?? birth.isLeapMonth),
+    );
+  return patch;
 }

@@ -37,11 +37,7 @@ export default async function ShareLayout({ children }: { children: React.ReactN
   return (
     <html lang={locale} data-theme={theme} suppressHydrationWarning>
       <body>
-        <ClientMessages
-          locale={locale}
-          timeZone="UTC"
-          messages={{ common: messages.common ?? {} }}
-        >
+        <ClientMessages locale={locale} timeZone="UTC" messages={{ common: messages.common ?? {} }}>
           <Suspense fallback={null}>
             <NavigationProgress />
           </Suspense>

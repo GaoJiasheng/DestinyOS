@@ -1,5 +1,5 @@
 import type { BirthInput } from '@tianji/shared';
-/** Copy editable birth fields from a profile, or return the existing empty form defaults.
+/** Copy editable birth fields from a profile, or return an empty form.
  * @param initial Optional birth snapshot; display metadata is intentionally not copied into birth fields.
  */
 export function initialBirth(initial?: BirthInput): BirthInput {
@@ -23,11 +23,12 @@ export function initialBirth(initial?: BirthInput): BirthInput {
   }
   return {
     calendar: 'gregorian',
+    // Empty date and hour (0 / undefined) so nothing looks pre-filled; the form requires an explicit choice.
     year: 0,
-    month: 1,
-    day: 1,
-    hour: 0,
-    minute: 0,
+    month: 0,
+    day: 0,
+    hour: undefined,
+    minute: undefined,
     timeUnknown: false,
     gender: 'unspecified',
   };

@@ -1,7 +1,7 @@
 'use client';
 import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { SystemArt } from '@/components/art/system-art';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 // DESIGN-GAP: Landing prefetch needs tarot schemas/constants only; the shared barrel also initializes unrelated date/chart schemas.
 import {
@@ -14,6 +14,7 @@ import { useRouter } from '@/i18n/navigation';
 import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import { SpreadThumbnail } from './spread-thumbnail';
+import { showReplaySeed } from './ritual-state';
 // DESIGN-GAP: Undocumented ritual control keys use tarot.*; canonical card/position names come from the bilingual content tables.
 /** Choose a documented spread and store the private question inside the existing encrypted device envelope. */
 export function TarotSelection() {
@@ -24,6 +25,9 @@ export function TarotSelection() {
   const [question, setQuestion] = useState('');
   const [allowReversed, setReversed] = useState(true);
   const [seed, setSeed] = useState('');
+  const [seedTool, setSeedTool] = useState(false);
+  // The URL is read after hydration so the cached public page stays identical for every visitor.
+  useEffect(() => setSeedTool(showReplaySeed(window.location.search)), []);
   const { pending, run } = useSubmitTransition();
   const [working, setBusy] = useState(false);
   const [error, setError] = useState(false);
@@ -31,11 +35,13 @@ export function TarotSelection() {
   const common = useTranslations('common');
   return (
     <section className="tarot-page">
-      <SystemArt system="tarot" banner priority />
-      <header>
-        <p className="eyebrow">{t('intro')}</p>
-        <h1 className="type-h1">{t('title')}</h1>
-      </header>
+      <div className="tarot-hero">
+        <SystemArt system="tarot" banner priority />
+        <header>
+          <p className="eyebrow">{t('intro')}</p>
+          <h1 className="type-h1">{t('title')}</h1>
+        </header>
+      </div>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -55,7 +61,7 @@ export function TarotSelection() {
                     category,
                     question,
                     allowReversed,
-                    seed: seed.trim() || crypto.randomUUID(),
+                    seed: (seedTool && seed.trim()) || crypto.randomUUID(),
                   },
                 },
               }))
@@ -81,12 +87,7 @@ export function TarotSelection() {
               <SpreadThumbnail spread={key} />
               <strong>{t(`spread.${key}.name`)}</strong>
               <span>{t(`spread.${key}.hint`)}</span>
-              <span>
-                {t('pickCount', {
-                  count: TAROT_SPREADS[key].length,
-                  total: TAROT_SPREADS[key].length,
-                })}
-              </span>
+              <span>{t('spreadCount', { count: TAROT_SPREADS[key].length })}</span>
             </label>
           ))}
         </div>
@@ -120,18 +121,20 @@ export function TarotSelection() {
           />
           {t('allowReversed')}
         </label>
-        <details>
-          <summary>{t('seed')}</summary>
-          <label className="tarot-field">
-            {t('seedHelp')}
-            <input
-              name="seed"
-              value={seed}
-              maxLength={200}
-              onChange={(e) => setSeed(e.target.value)}
-            />
-          </label>
-        </details>
+        {seedTool ? (
+          <details>
+            <summary>{t('seed')}</summary>
+            <label className="tarot-field">
+              {t('seedHelp')}
+              <input
+                name="seed"
+                value={seed}
+                maxLength={200}
+                onChange={(e) => setSeed(e.target.value)}
+              />
+            </label>
+          </details>
+        ) : null}
         {error ? <p role="alert">{t('error')}</p> : null}
         <Button type="submit" disabled={busy}>
           {busy ? common('loading') : t('begin')}

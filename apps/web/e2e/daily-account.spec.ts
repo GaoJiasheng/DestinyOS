@@ -90,7 +90,12 @@ for (const locale of ['zh', 'en'] as const) {
     await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
     await page.goto(`/${locale}/today`);
     await expect(page.getByText(copy['daily.example'], { exact: true })).toBeVisible();
-    await expect(page.locator('[data-daily-block]')).toHaveCount(13);
+    // The example keeps the header and three blurred cards, then one explicit profile CTA.
+    await expect(page.locator('[data-daily-block]')).toHaveCount(4);
+    await expect(page.locator('[data-daily-cta] a')).toHaveAttribute(
+      'href',
+      /\/me\/birth\?from=%2Ftoday$/,
+    );
     // Inject a profile using the real encrypted device envelope through an actual form flow.
     await page.goto(`/${locale}/me/birth`);
     await page.getByLabel(copy['form.birth.year'], { exact: true }).fill('1990');
@@ -111,6 +116,8 @@ for (const locale of ['zh', 'en'] as const) {
     const today = await page.locator('header time').getAttribute('datetime');
     await page.getByRole('button', { name: copy['daily.tomorrow'], exact: true }).click();
     await expect(page.locator('header time')).not.toHaveAttribute('datetime', today!);
+    await expect(page).toHaveURL(/[?]date=\d{4}-\d{2}-\d{2}$/);
+    await expect(page.locator('.daily-page h1')).not.toHaveText(copy['nav.today']);
     await page
       .locator('.daily-page')
       .dispatchEvent('touchstart', { touches: [{ identifier: 1, clientX: 80, clientY: 160 }] });
@@ -118,6 +125,7 @@ for (const locale of ['zh', 'en'] as const) {
       changedTouches: [{ identifier: 1, clientX: 240, clientY: 165 }],
     });
     await expect(page.locator('header time')).toHaveAttribute('datetime', today!);
+    await expect(page).not.toHaveURL(/[?]date=/);
     await page.getByRole('button', { name: copy['daily.cardFlip'], exact: true }).click();
     await expect(page.locator('.daily-card-face')).toBeVisible();
     await expect(page.locator('.daily-card-face h3')).not.toContainText('tarot.card.');
@@ -244,8 +252,7 @@ for (const locale of ['zh', 'en'] as const) {
       .getByLabel(copy['me.language'], { exact: true })
       .selectOption(locale);
     await page.getByLabel(copy['me.motion'], { exact: true }).check();
-    await page.getByLabel(copy['me.sound'], { exact: true }).check();
-    await page.getByLabel(copy['me.tz'], { exact: true }).fill('Asia/Singapore');
+    await page.getByLabel(copy['me.tz'], { exact: true }).selectOption('Asia/Singapore');
     await page.getByRole('button', { name: copy['me.save'], exact: true }).click();
     await expect(page.getByRole('status').filter({ hasText: copy['me.saved'] })).toBeVisible();
     expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).reducedMotion).toBe(true);

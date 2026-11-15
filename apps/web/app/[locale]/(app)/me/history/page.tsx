@@ -6,7 +6,9 @@ import { LocalHistory } from '@/components/report/local-history';
 import { HistoryList } from '@/components/report/history-list';
 import { listReadingsAction } from '@/app/readings/actions';
 import { Link } from '@/i18n/navigation';
-export const metadata = { robots: { index: false, follow: false } };
+import { privatePageMetadata } from '@/lib/page-metadata';
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.meHistory');
 /** Owner history uses bounded server pagination and minimal report summaries. */
 export default async function HistoryPage() {
   const t = await getCopy();
@@ -15,7 +17,9 @@ export default async function HistoryPage() {
     return (
       <section className="status-page">
         <h1>{t('report.history')}</h1>
-        <Link href="/auth/login">{t('report.history.login')}</Link>
+        <p>
+          {t('report.history.localNote')} <Link href="/auth/login">{t('nav.login')}</Link>
+        </p>
         <LocalHistory />
       </section>
     );

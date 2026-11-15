@@ -4,8 +4,7 @@ import { DailyPanchang } from './daily-panchang';
 import { DailyLuckyRow } from './daily-lucky-row';
 import { DailyPeriodSection } from './daily-period-section';
 import { DailySkyNote, moonPhaseEmoji, useDimensionCopy } from './daily-dimension-copy';
-import { useRef } from 'react';
-import { useSubmitTransition } from '@/components/forms/use-submit-transition';
+import { useCallback, useMemo, useRef } from 'react';
 import { dailyStars } from '@tianji/engine/daily';
 import type { KnowledgeBundle } from '@tianji/content';
 import { useDailyReport } from './use-daily-report';
@@ -16,7 +15,16 @@ import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
-import { submitFeedbackAction } from '@/app/readings/actions';
+import {
+  localToday,
+  parseDailyDate,
+  shiftDate,
+  dailyDateRange,
+  dailyDateSearch,
+} from '@/lib/daily-date';
+import { DailyDateNav } from './daily-date-nav';
+import { DailyFeedback } from './daily-feedback';
+import { DailyProfileCta } from './daily-profile-cta';
 import { dailyExcerpt } from '@/lib/daily-excerpt';
 import { ShareDialog } from '@/components/share/share-dialog';
 import { JournalForm } from '@/components/me/journal-form';
@@ -44,18 +52,15 @@ export function TodayView({
   vedicUsed: boolean;
   panchangDefaultOpen?: boolean;
 }) {
-  const requestedDate = useSearchParams().get('date');
+  const requestedDate = parseDailyDate(useSearchParams().get('date'));
   const t = useCopy(),
     intl = useTranslations(),
     locale = useLocale() as Locale;
   const {
-    offset,
-    setOffset,
     zone,
     value,
     example,
     error,
-    setError,
     busy,
     setRetry,
     panchang,
@@ -76,7 +81,6 @@ export function TodayView({
     vedicUsed,
     panchangDefaultOpen,
   });
-  const feedback = useSubmitTransition();
   const touch = useRef<{ x: number; y: number } | null>(null);
   const chart = value?.chart,
     report = value?.report,
@@ -98,12 +102,32 @@ export function TodayView({
   };
   const title = (key: string) => intl(`report.sections.daily.${key}`);
   const dimensionCopy = useDimensionCopy(chart, locale);
-  function switchDate(n: number) {
-    window.dispatchEvent(
-      new CustomEvent('tianji:event', { detail: { name: 'daily.date.switch' } }),
+  const today = useMemo(() => (zone ? localToday(zone) : null), [zone]);
+  const selected = requestedDate ?? today;
+  const isToday = !requestedDate || requestedDate === today;
+  const formatDate = (date: string, options: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' }).format(
+      new Date(`${date}T12:00:00Z`),
     );
-    setOffset(requestedDate ? n : Math.max(-1, Math.min(1, n)));
-  }
+  // Native history updates keep the prerendered shell (no RSC round-trip) while useSearchParams stays in sync.
+  const selectDate = useCallback(
+    (date: string) => {
+      if (!today || date < dailyDateRange.min || date > dailyDateRange.max) return;
+      window.dispatchEvent(
+        new CustomEvent('tianji:event', { detail: { name: 'daily.date.switch' } }),
+      );
+      // null (not the current state) lets the router apply the URL; it copies its own internals itself.
+      window.history.replaceState(
+        null,
+        '',
+        `${window.location.pathname}${dailyDateSearch(window.location.search, date, today)}`,
+      );
+    },
+    [today],
+  );
+  const switchDate = (days: number) => {
+    if (selected) selectDate(shiftDate(selected, days));
+  };
   return (
     <article
       className="daily-page"
@@ -120,46 +144,31 @@ export function TodayView({
         const p = e.changedTouches[0],
           start = touch.current;
         if (p && start && Math.abs(p.clientX - start.x) > 60 && Math.abs(p.clientY - start.y) < 50)
-          switchDate(offset + (p.clientX < start.x ? 1 : -1));
+          switchDate(p.clientX < start.x ? 1 : -1);
         touch.current = null;
       }}
     >
       <header data-daily-block="1">
-        <h1 className="type-h1">{t('nav.today')}</h1>
+        <h1 className="type-h1">
+          {isToday || !selected ? t('nav.today') : formatDate(selected, { dateStyle: 'long' })}
+        </h1>
         <Link href="/today/calendar" className="text-link">
           {t('calendar.title')}
         </Link>
-        <nav className="action-row" aria-label={t('daily.dateNav')}>
-          <Button
-            variant="ghost"
-            disabled={!requestedDate && offset === -1}
-            onClick={() => switchDate(offset - 1)}
-          >
-            {t('daily.yesterday')}
-          </Button>
-          <Button
-            variant="ghost"
-            onClick={() => {
-              if (requestedDate) window.location.assign(`/${locale}/today`);
-              else switchDate(0);
-            }}
-          >
-            {t('daily.today')}
-          </Button>
-          <Button
-            variant="ghost"
-            disabled={!requestedDate && offset === 1}
-            onClick={() => switchDate(offset + 1)}
-          >
-            {t('daily.tomorrow')}
-          </Button>
-        </nav>
+        <DailyDateNav
+          date={selected}
+          today={today}
+          label={
+            selected
+              ? formatDate(selected, { month: 'short', day: 'numeric', weekday: 'short' })
+              : ''
+          }
+          onSelect={selectDate}
+        />
         {chart ? (
           <>
             <time dateTime={chart.date.local}>
-              {new Intl.DateTimeFormat(locale, { dateStyle: 'full', timeZone: 'UTC' }).format(
-                new Date(`${chart.date.local}T12:00:00Z`),
-              )}
+              {formatDate(chart.date.local, { dateStyle: 'full' })}
             </time>
             <p>
               {t('daily.lunar', {
@@ -182,7 +191,7 @@ export function TodayView({
       {busy ? <p role="status">{t('common.loading')}</p> : null}
       {error ? (
         <div role="alert">
-          {t('report.error.E_INTERNAL')}
+          {t(error === 'timeout' ? 'daily.error.timeout' : 'report.error.E_INTERNAL')}{' '}
           <Button onClick={() => setRetry((n) => n + 1)}>{t('common.retry')}</Button>
         </div>
       ) : null}
@@ -191,7 +200,10 @@ export function TodayView({
           {example ? (
             <div className="daily-example-overlay">
               <p>{t('daily.example')}</p>
-              <Link href="/me/birth" className="text-link">
+              <Link
+                href={{ pathname: '/me/birth', query: { from: '/today' } }}
+                className="text-link"
+              >
                 {t('daily.profileCTA')}
               </Link>
             </div>
@@ -237,141 +249,131 @@ export function TodayView({
               <h2>{t('daily.lucky')}</h2>
               <DailyLuckyRow bazi={chart.bazi} />
             </section>
-            <section className="report-card" data-daily-block="5">
-              <h2>{t('daily.almanac')}</h2>
-              <div className="daily-grid">
-                {(['yi', 'ji'] as const).map((k) => (
-                  <div key={k}>
-                    <h3>{t(`daily.${k}`)}</h3>
-                    <ul>
-                      {chart.bazi.almanac[k].map((v) => (
-                        <li key={v}>{intl(v)}</li>
-                      ))}
-                    </ul>
-                    {!chart.bazi.almanac[k].length ? <p>{t('daily.almanacEmpty')}</p> : null}
-                  </div>
-                ))}
-              </div>
-            </section>
-            <section className="report-card" data-daily-block="6">
-              {(['career', 'wealth', 'love', 'health'] as const).map((k) => (
-                <div key={k} data-daily-body={k}>
-                  <h2>{title(k)}</h2>
-                  {dimensionCopy(k) ? <p>{dimensionCopy(k)?.paragraph}</p> : content(k)}
-                </div>
-              ))}
-            </section>
-            <div data-daily-block="13">
-              <AdSlot slot="today" plan={plan} />
-            </div>
-            <section className="report-card" data-daily-block="7">
-              <h2>{title('astro')}</h2>
-              <p>
-                {intl(`charts.sign.${chart.astro.moonSign}`)} ·{' '}
-                {intl(`daily.moonPhase.${chart.astro.moonPhase.name}`)}
-              </p>
-              <DailySkyNote chart={chart} locale={locale} />
-              {chart.astro.transits.slice(0, 2).map((v, i) => (
-                <p key={i}>
-                  {intl(`charts.planet.${v.transiting}`)} · {intl(`charts.aspect.${v.aspect}`)} ·{' '}
-                  {intl(
-                    `${v.natal === 'asc' || v.natal === 'mc' ? 'charts.angle' : 'charts.planet'}.${v.natal}`,
-                  )}
-                </p>
-              ))}
-            </section>
-            <section className="report-card" data-daily-block="8">
-              <h2>{title('tarot')}</h2>
-              <Button aria-pressed={flipped} onClick={() => setFlipped((v) => !v)}>
-                {t(flipped ? 'daily.cardHide' : 'daily.cardFlip')}
-              </Button>
-              {flipped ? (
-                <div className="daily-card-face">
-                  <img
-                    width="160"
-                    height="267"
-                    src={`/tarot/rws/${chart.tarot.card}.webp`}
-                    alt={intl(`tarot.card.${chart.tarot.card}.name`)}
-                  />
-                  <h3>
-                    {intl(`tarot.card.${chart.tarot.card}.name`)} ·{' '}
-                    {intl(`tarot.${chart.tarot.reversed ? 'reversed' : 'upright'}`)}
-                  </h3>
-                  {content('tarot')}
-                  <Link href={`/learn/tarot/${chart.tarot.card}`}>{t('daily.cardLearn')}</Link>
-                </div>
-              ) : null}
-            </section>
-            <DailyPanchang
-              vedic={vedic}
-              panchang={panchang}
-              setPanchang={setPanchang}
-              locale={locale}
-              zone={zone}
-            >
-              {content('panchang')}
-            </DailyPanchang>
-            <section className="report-card" data-daily-block="10">
-              <h2>
-                <DailyArt kind="do-dont" alt={t('daily.doDont')} />
-                {t('daily.doDont')}
-              </h2>
-              <div className="daily-grid">
-                {(['do', 'dont'] as const).map((k) => (
-                  <div key={k}>
-                    <h3>{t(`daily.${k}`)}</h3>
-                    <ul>
-                      {(report.doDont?.[k] ?? []).map((v) => (
-                        <li key={v}>{t('report.content', { text: v })}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-              <ShareDialog
-                daily={{
-                  locale,
-                  date: chart.date.local,
-                  headline: intl(chart.oneLiner),
-                  stars: dailyStars(chart.scores.overall),
-                  color: intl(chart.bazi.luckyColor[0]!),
-                  numbers: chart.bazi.luckyNumbers,
-                  do: report.doDont?.do ?? [],
-                  dont: report.doDont?.dont ?? [],
-                }}
-              />
-            </section>
-            <DailyPeriodSection
-              date={chart.date.local}
-              zone={zone}
-              signedIn={signedIn}
-              profileId={profileId}
-              locale={locale}
-              example={example}
-            />
-            <section className="report-card" data-daily-block="12">
-              <h2>{t('daily.feedback')}</h2>
-              {([1, -1] as const).map((n) => (
-                <Button
-                  key={n}
-                  variant="ghost"
-                  disabled={vote !== null || feedback.pending}
-                  aria-label={t(n === 1 ? 'daily.feedbackYes' : 'daily.feedbackNo')}
-                  onClick={() => {
-                    feedback.run(async () => {
-                      const r = await submitFeedbackAction({ sectionKey: 'daily', vote: n });
-                      if (r.ok) setVote(n);
-                      else setError(true);
-                    });
-                  }}
-                >
-                  {n === 1 ? '👍' : '👎'}
-                </Button>
-              ))}
-              {feedback.pending ? <p role="status">{t('common.loading')}</p> : null}
-              {vote !== null ? <p role="status">{t('daily.feedbackSaved')}</p> : null}
-            </section>
           </div>
+          {example ? (
+            <DailyProfileCta
+              title={t('daily.exampleCta.title')}
+              body={t('daily.exampleCta.body')}
+              action={t('daily.profileCTA')}
+              from="/today"
+            />
+          ) : (
+            <>
+              <section className="report-card" data-daily-block="5">
+                <h2>{t('daily.almanac')}</h2>
+                <div className="daily-grid">
+                  {(['yi', 'ji'] as const).map((k) => (
+                    <div key={k}>
+                      <h3>{t(`daily.${k}`)}</h3>
+                      <ul>
+                        {chart.bazi.almanac[k].map((v) => (
+                          <li key={v}>{intl(v)}</li>
+                        ))}
+                      </ul>
+                      {!chart.bazi.almanac[k].length ? <p>{t('daily.almanacEmpty')}</p> : null}
+                    </div>
+                  ))}
+                </div>
+              </section>
+              <section className="report-card" data-daily-block="6">
+                {(['career', 'wealth', 'love', 'health'] as const).map((k) => (
+                  <div key={k} data-daily-body={k}>
+                    <h2>{title(k)}</h2>
+                    {dimensionCopy(k) ? <p>{dimensionCopy(k)?.paragraph}</p> : content(k)}
+                  </div>
+                ))}
+              </section>
+              <div data-daily-block="13">
+                <AdSlot slot="today" plan={plan} />
+              </div>
+              <section className="report-card" data-daily-block="7">
+                <h2>{title('astro')}</h2>
+                <p>
+                  {intl(`charts.sign.${chart.astro.moonSign}`)} ·{' '}
+                  {intl(`daily.moonPhase.${chart.astro.moonPhase.name}`)}
+                </p>
+                <DailySkyNote chart={chart} locale={locale} />
+                {chart.astro.transits.slice(0, 2).map((v, i) => (
+                  <p key={i}>
+                    {intl(`charts.planet.${v.transiting}`)} · {intl(`charts.aspect.${v.aspect}`)} ·{' '}
+                    {intl(
+                      `${v.natal === 'asc' || v.natal === 'mc' ? 'charts.angle' : 'charts.planet'}.${v.natal}`,
+                    )}
+                  </p>
+                ))}
+              </section>
+              <section className="report-card" data-daily-block="8">
+                <h2>{title('tarot')}</h2>
+                <Button aria-pressed={flipped} onClick={() => setFlipped((v) => !v)}>
+                  {t(flipped ? 'daily.cardHide' : 'daily.cardFlip')}
+                </Button>
+                {flipped ? (
+                  <div className="daily-card-face">
+                    <img
+                      width="160"
+                      height="267"
+                      src={`/tarot/rws/${chart.tarot.card}.webp`}
+                      alt={intl(`tarot.card.${chart.tarot.card}.name`)}
+                    />
+                    <h3>
+                      {intl(`tarot.card.${chart.tarot.card}.name`)} ·{' '}
+                      {intl(`tarot.${chart.tarot.reversed ? 'reversed' : 'upright'}`)}
+                    </h3>
+                    {content('tarot')}
+                    <Link href={`/learn/tarot/${chart.tarot.card}`}>{t('daily.cardLearn')}</Link>
+                  </div>
+                ) : null}
+              </section>
+              <DailyPanchang
+                vedic={vedic}
+                panchang={panchang}
+                setPanchang={setPanchang}
+                locale={locale}
+                zone={zone}
+              >
+                {content('panchang')}
+              </DailyPanchang>
+              <section className="report-card" data-daily-block="10">
+                <h2>
+                  <DailyArt kind="do-dont" alt={t('daily.doDont')} />
+                  {t('daily.doDont')}
+                </h2>
+                <div className="daily-grid">
+                  {(['do', 'dont'] as const).map((k) => (
+                    <div key={k}>
+                      <h3>{t(`daily.${k}`)}</h3>
+                      <ul>
+                        {(report.doDont?.[k] ?? []).map((v) => (
+                          <li key={v}>{t('report.content', { text: v })}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <ShareDialog
+                  daily={{
+                    locale,
+                    date: chart.date.local,
+                    headline: intl(chart.oneLiner),
+                    stars: dailyStars(chart.scores.overall),
+                    color: intl(chart.bazi.luckyColor[0]!),
+                    numbers: chart.bazi.luckyNumbers,
+                    do: report.doDont?.do ?? [],
+                    dont: report.doDont?.dont ?? [],
+                  }}
+                />
+              </section>
+              <DailyPeriodSection
+                date={chart.date.local}
+                zone={zone}
+                signedIn={signedIn}
+                profileId={profileId}
+                locale={locale}
+                example={example}
+              />
+              <DailyFeedback vote={vote} setVote={setVote} />
+            </>
+          )}
         </div>
       ) : null}
       {chart && zone && !busy && !error ? (

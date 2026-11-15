@@ -34,7 +34,7 @@ for (const [locale, catalog] of [
     const select = vi.fn();
     render(
       <NextIntlClientProvider locale={locale} messages={toMessages(catalog)} timeZone="UTC">
-        <CitySearch onSelect={select} />
+        <CitySearch id="city" onSelect={select} onClear={vi.fn()} onPendingChange={vi.fn()} />
       </NextIntlClientProvider>,
     );
     const input = screen.getByRole('combobox');
@@ -66,7 +66,7 @@ it('aborts pending city transport on unmount', async () => {
   vi.stubGlobal('fetch', fetcher);
   const view = render(
     <NextIntlClientProvider locale="en" messages={toMessages(en)} timeZone="UTC">
-      <CitySearch onSelect={vi.fn()} />
+      <CitySearch id="city" onSelect={vi.fn()} onClear={vi.fn()} onPendingChange={vi.fn()} />
     </NextIntlClientProvider>,
   );
   fireEvent.change(screen.getByRole('combobox'), { target: { value: 'Singapore' } });
@@ -90,25 +90,29 @@ it('retains timezone success, invalid-input and malformed-JSON error mapping', a
     gender: 'unspecified',
     place: { name: city.name, lat: city.lat, lng: city.lng, tz: city.tz },
   };
-  const setPlace = vi.fn();
+  const change = vi.fn();
   const setError = vi.fn();
   render(
     <NextIntlClientProvider locale="en" messages={toMessages(en)} timeZone="UTC">
       <BirthPlaceFields
         birth={birth}
-        change={vi.fn()}
+        change={change}
         manual
         setManual={vi.fn()}
-        setPlace={setPlace}
         setError={setError}
         preview={null}
         solar={false}
+        ids={{ year: 'y', month: 'm', day: 'd', hour: 'h', city: 'c', tz: 't' }}
+        issues={[]}
+        onCityPending={vi.fn()}
       />
     </NextIntlClientProvider>,
   );
   const button = screen.getByRole('button', { name: en['form.birth.resolveTz'] });
   fireEvent.click(button);
-  await waitFor(() => expect(setPlace).toHaveBeenCalledWith({ tz: city.tz }));
+  await waitFor(() =>
+    expect(change).toHaveBeenCalledWith({ place: expect.objectContaining({ tz: city.tz }) }),
+  );
   fetcher.mockImplementation(async () =>
     Response.json(
       { ok: false, error: { code: 'E_VALIDATION', message: 'Invalid coordinates' } },
@@ -120,4 +124,39 @@ it('retains timezone success, invalid-input and malformed-JSON error mapping', a
   fetcher.mockImplementation(async () => new Response('malformed'));
   fireEvent.click(button);
   await waitFor(() => expect(setError).toHaveBeenLastCalledWith('report.error.E_INTERNAL'));
+});
+
+it('flags unconfirmed city text, blocks Enter while unconfirmed and clears a chosen city', async () => {
+  const fetcher = vi.fn<typeof fetch>().mockImplementation(() => new Promise(() => {}));
+  vi.stubGlobal('fetch', fetcher);
+  const pending = vi.fn();
+  const clear = vi.fn();
+  render(
+    <NextIntlClientProvider locale="zh" messages={toMessages(zh)} timeZone="UTC">
+      <form
+        onSubmit={() => {
+          throw new Error('must not submit');
+        }}
+      >
+        <CitySearch
+          id="city"
+          place={{ name: city.name, lat: city.lat, lng: city.lng, tz: city.tz }}
+          onSelect={vi.fn()}
+          onClear={clear}
+          onPendingChange={pending}
+        />
+      </form>
+    </NextIntlClientProvider>,
+  );
+  const input = screen.getByRole('combobox');
+  fireEvent.change(input, { target: { value: 'Beij' } });
+  expect(pending).toHaveBeenLastCalledWith(true);
+  const enter = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true });
+  input.dispatchEvent(enter);
+  expect(enter.defaultPrevented).toBe(true);
+  fireEvent.blur(input);
+  expect(screen.getByText(zh['form.birth.city.unselected'])).toBeTruthy();
+  fireEvent.click(screen.getByRole('button', { name: zh['form.birth.city.clearLabel'] }));
+  expect(clear).toHaveBeenCalled();
+  expect((input as HTMLInputElement).value).toBe('');
 });

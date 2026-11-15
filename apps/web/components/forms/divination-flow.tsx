@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { interpret } from '@tianji/interpret';
 import { ENGINE_VERSION } from '@tianji/engine/version';
-import { Solar } from 'lunar-typescript';
 import { type IchingChart, type QimenChart } from '@tianji/shared';
 import type { KnowledgeBundle } from '@tianji/content';
 import { createReadingAction } from '@/app/readings/actions';
@@ -22,7 +21,7 @@ import { CoinToss } from '@/components/charts/coin-toss';
 import { ReportLayout } from '@/components/report/report-layout';
 import { DivinationChart } from '@/components/charts/divination-chart';
 import { useDivinationExit } from './use-divination-exit';
-import { DivinationFields } from './divination-fields';
+import { DivinationFields, lunarClockLabel, submitLabel } from './divination-fields';
 import { NumberPad } from './number-pad';
 export type CastMethod = 'time' | 'numbers' | 'random' | 'liuyao';
 /** Complete birth-independent casting ritual, preserving the clock/seed across retries and all coin throws. */
@@ -31,22 +30,29 @@ export function DivinationFlow({
   method = 'time',
   knowledge,
   signedIn,
+  initialQuestion = '',
 }: {
   system: 'iching' | 'qimen';
   method?: CastMethod;
   knowledge: KnowledgeBundle;
   signedIn: boolean;
+  /** Prefilled from `?q=` (already trimmed and clipped by the route). */
+  initialQuestion?: string;
 }) {
   const t = useTranslations('divination');
   const copy = useCopy();
   const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
   const router = useRouter();
-  const [question, setQuestion] = useState('');
-  const [category, setCategory] = useState(system === 'iching' ? 'other' : 'general');
+  const [question, setQuestion] = useState(initialQuestion);
+  const defaultCategory = system === 'iching' ? 'other' : 'general';
+  const [category, setCategory] = useState(defaultCategory);
   const [local, setLocal] = useState('');
   const [tz, setTz] = useState('UTC');
   const [numbers, setNumbers] = useState(['', '', '']);
-  const [step, setStep] = useState<'question' | 'ritual' | 'generating'>('question');
+  // A question carried in from the "ask" sheet goes straight to the ritual; "back" can still edit it.
+  const [step, setStep] = useState<'question' | 'ritual' | 'generating'>(
+    system === 'iching' && initialQuestion ? 'ritual' : 'question',
+  );
   const [working, setBusy] = useState(false);
   const { pending, run } = useSubmitTransition();
   const busy = working || pending;
@@ -75,11 +81,18 @@ export function DivinationFlow({
   useEffect(() => {
     active.current = true;
     now();
+    // DESIGN-GAP: Prefilled question text leaves the address bar once read, keeping it out of history.
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('q')) {
+      url.searchParams.delete('q');
+      window.history.replaceState(window.history.state, '', url);
+    }
     return () => {
       active.current = false;
     };
   }, []);
-  useDivinationExit({ question, step, system, completed, setExitHref, setLeaving });
+  const dirty = Boolean(question.trim()) || category !== defaultCategory || step !== 'question';
+  useDivinationExit({ dirty, completed, setExitHref, setLeaving });
   const prepare = () => {
     if (snapshot.current) return snapshot.current;
     const at = castClock(local, tz);
@@ -229,24 +242,7 @@ export function DivinationFlow({
       if (active.current) setBusy(false);
     }
   };
-  const lunar = (() => {
-    if (!local) return null;
-    try {
-      const [date, time] = local.split('T');
-      const [y, m, d] = date!.split('-').map(Number);
-      const [h, min] = time!.split(':').map(Number);
-      const l = Solar.fromYmdHms(y!, m!, d!, h!, min!, 0).getLunar();
-      return t('lunarClock', {
-        year: l.getYear(),
-        month: Math.abs(l.getMonth()),
-        day: l.getDay(),
-        hour: h!,
-        leap: l.getMonth() < 0 ? t('leap') : '',
-      });
-    } catch {
-      return null;
-    }
-  })();
+  const lunar = lunarClockLabel(local, t);
   if (offlineReading) return <ReportLayout reading={offlineReading} local />;
   return (
     <section className="birth-shell divination-shell">
@@ -329,24 +325,21 @@ export function DivinationFlow({
             ) : null}
             <div className="hero-actions">
               <Button type="submit" disabled={busy || !local}>
-                {t(
-                  busy
-                    ? 'working'
-                    : system === 'qimen'
-                      ? 'castQimen'
-                      : step === 'question'
-                        ? 'continue'
-                        : method === 'time'
-                          ? 'castTime'
-                          : method === 'random'
-                            ? 'toss'
-                            : method === 'liuyao'
-                              ? throwsDone === 6
-                                ? 'retry'
-                                : 'shake'
-                              : 'castNumbers',
-                )}
+                {t(submitLabel({ busy, system, step, method, throwsDone }))}
               </Button>
+              {step === 'ritual' && throwsDone === 0 ? (
+                <Button
+                  type="button"
+                  variant="secondary"
+                  disabled={busy}
+                  onClick={() => {
+                    setError(null);
+                    setStep('question');
+                  }}
+                >
+                  {t('backToQuestion')}
+                </Button>
+              ) : null}
               {step === 'ritual' && method === 'liuyao' && throwsDone < 6 ? (
                 <Button
                   type="button"
@@ -362,8 +355,11 @@ export function DivinationFlow({
                 variant="ghost"
                 disabled={busy}
                 onClick={() => {
-                  setExitHref(system === 'iching' ? `/${locale}/iching` : `/${locale}`);
-                  setLeaving(true);
+                  const target = system === 'iching' ? `/${locale}/iching` : `/${locale}`;
+                  if (dirty) {
+                    setExitHref(target);
+                    setLeaving(true);
+                  } else window.location.assign(target);
                 }}
               >
                 {t('exit')}

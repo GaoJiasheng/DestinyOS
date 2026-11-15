@@ -7,16 +7,27 @@ import { Link } from '@/i18n/navigation';
 import { readAnonymous } from '@/lib/anonymous-storage';
 import type { BirthInput } from '@tianji/shared';
 /** Compute non-sensitive profile summary locally and omit unavailable moon/ascendant data. */
-export function ProfileSummary({ profile }: { profile?: BirthInput }) {
+export function ProfileSummary({
+  profile,
+  signedIn = false,
+}: {
+  profile?: BirthInput;
+  signedIn?: boolean;
+}) {
   const t = useCopy(),
     intl = useTranslations(),
     [summary, setSummary] = useState<Record<string, string> | null>(null),
+    // Hold the empty state back until the device/profile lookup settles, so it never flashes.
+    [loading, setLoading] = useState(true),
     [error, setError] = useState(false);
   useEffect(() => {
     let active = true;
     void (async () => {
       const input = profile ?? (await readAnonymous())?.profile;
-      if (!input) return;
+      if (!input) {
+        if (active) setLoading(false);
+        return;
+      }
       const engine = await import('@tianji/engine');
       const { calendar, year, month, day, isLeapMonth, hour, minute, timeUnknown, place, gender } =
         input;
@@ -46,9 +57,15 @@ export function ProfileSummary({ profile }: { profile?: BirthInput }) {
           result.asc = `charts.sign.${['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces'][Math.floor(astro.angles.asc / 30)]}`;
         result.nakshatra = `charts.nakshatra.${vedic.bodies.find((p) => p.key === 'chandra')!.nakshatra}`;
       }
-      if (active) setSummary(result);
+      if (active) {
+        setSummary(result);
+        setLoading(false);
+      }
     })().catch(() => {
-      if (active) setError(true);
+      if (active) {
+        setError(true);
+        setLoading(false);
+      }
     });
     return () => {
       active = false;
@@ -57,7 +74,13 @@ export function ProfileSummary({ profile }: { profile?: BirthInput }) {
   return (
     <section className="report-card">
       <h2>{t('me.profile')}</h2>
-      {summary ? (
+      {loading ? (
+        <div className="me-summary-skeleton" role="status" aria-busy="true">
+          <span className="sr-only">{t('common.loading')}</span>
+          <div className="skeleton-gold skeleton-line" />
+          <div className="skeleton-gold skeleton-line" />
+        </div>
+      ) : summary ? (
         <dl className="daily-grid">
           {Object.entries(summary).map(([k, v]) => (
             <div key={k}>
@@ -73,7 +96,17 @@ export function ProfileSummary({ profile }: { profile?: BirthInput }) {
         </>
       )}
       {error ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
-      <Link href="/me/profiles">{t('profiles.manage')}</Link>
+      {signedIn ? (
+        <Link href="/me/profiles">{t('profiles.manage')}</Link>
+      ) : (
+        // An anonymous device keeps one profile it can edit in place; more profiles need an account.
+        <p className="action-row">
+          <Link href="/me/birth">{t('me.birth')}</Link>
+          <span className="muted">
+            {t('profiles.signInForMore')} <Link href="/auth/login">{t('nav.login')}</Link>
+          </span>
+        </p>
+      )}
     </section>
   );
 }

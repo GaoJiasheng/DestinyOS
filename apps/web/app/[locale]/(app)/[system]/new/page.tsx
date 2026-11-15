@@ -7,7 +7,12 @@ import { NumerologyForm } from '@/components/forms/numerology-form';
 import { BirthForm } from '@/components/forms/birth-form';
 import { auth } from '@/lib/auth';
 import { getProfileAction } from '@/app/readings/actions';
-export const metadata = { robots: { index: false, follow: false } };
+import { privatePageMetadata } from '@/lib/page-metadata';
+export const generateMetadata = ({
+  params,
+}: {
+  params: Promise<{ locale: string; system: string }>;
+}) => privatePageMetadata(params, 'seo.page.birth');
 /** Show the shared birth form with the owner's current encrypted profile when available. */
 export default async function NewReading({
   params,

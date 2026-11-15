@@ -4,6 +4,9 @@ import { cookies } from 'next/headers';
 import { BirthForm } from '@/components/forms/birth-form';
 import { getProfileAction } from '@/app/readings/actions';
 import { auth } from '@/lib/auth';
+import { privatePageMetadata } from '@/lib/page-metadata';
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.meBirth', { index: true });
 /** Share the birth editor for profile creation and encrypted versioned updates. */
 export default async function BirthPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

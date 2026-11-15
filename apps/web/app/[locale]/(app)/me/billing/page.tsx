@@ -9,6 +9,7 @@ import { AppMembership } from '@/components/billing/app-membership';
 import { RefreshMembership } from '@/components/billing/refresh-membership';
 import { Link, redirect } from '@/i18n/navigation';
 import { setRequestLocale } from 'next-intl/server';
+import { privatePageMetadata } from '@/lib/page-metadata';
 const billingStateKeys: Record<string, MessageKey> = {
   active: 'billing.state.active',
   trialing: 'billing.state.trialing',
@@ -21,7 +22,8 @@ const billingStateKeys: Record<string, MessageKey> = {
   unknown: 'billing.state.unknown',
 };
 export const dynamic = 'force-dynamic';
-export const metadata = { robots: { index: false, follow: false } };
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.meBilling');
 /** Show the owner's synchronized plan, billing period and scheduled cancellation. */
 export default async function BillingPage({
   params,

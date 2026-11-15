@@ -3,16 +3,21 @@ import type { DailyWorkerRequest, DailyWorkerResponse } from './daily-worker-typ
 import asset from './daily-worker-asset.json';
 import type { Locale } from '@tianji/shared';
 
+/** A stuck engine or decryption must surface a retry instead of an endless spinner. */
+export const DAILY_WORKER_TIMEOUT_MS = 10_000;
+
 /**
  * One isolated calculation, cancelled and terminated on navigation/date/profile changes.
  * @param request Authenticated profile/date input, or its pending device decryption.
  * @param signal Cancellation when the view's date, profile or route changes.
  * @param locale Known UI locale selects the smaller zh/en worker before device decryption; omission keeps the full converter for existing callers.
+ * @param timeoutMs Total budget including device decryption; on expiry the worker is terminated and the promise rejects with `E_TIMEOUT`.
  */
 export function calculateDailyInWorker(
   request: DailyWorkerRequest | Promise<DailyWorkerRequest>,
   signal: AbortSignal,
   locale: Locale = 'zh-TW',
+  timeoutMs = DAILY_WORKER_TIMEOUT_MS,
 ): Promise<DailyReport> {
   if (signal.aborted) {
     void Promise.resolve(request).catch(() => undefined);
@@ -23,6 +28,7 @@ export function calculateDailyInWorker(
     let finished = false;
     const finish = () => {
       finished = true;
+      clearTimeout(timer);
       signal.removeEventListener('abort', abort);
       worker.terminate();
     };
@@ -45,6 +51,10 @@ export function calculateDailyInWorker(
       reject(new Error('E_INTERNAL'));
     };
     signal.addEventListener('abort', abort, { once: true });
+    const timer = setTimeout(() => {
+      finish();
+      reject(new Error('E_TIMEOUT'));
+    }, timeoutMs);
     // DESIGN-GAP: Initialize the worker while the encrypted device profile is read; only post authenticated input once ready, and never after cancellation.
     void Promise.resolve(request)
       .then((value) => {

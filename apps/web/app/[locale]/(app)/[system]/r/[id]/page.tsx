@@ -8,7 +8,12 @@ import { ReportLayout } from '@/components/report/report-layout';
 import { getCopy } from '@/i18n/get-copy';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
-export const metadata = { robots: { index: false, follow: false } };
+import { privatePageMetadata } from '@/lib/page-metadata';
+export const generateMetadata = ({
+  params,
+}: {
+  params: Promise<{ locale: string; system: string }>;
+}) => privatePageMetadata(params, 'seo.page.report');
 /** Server-render a saved snapshot with owner/public access checks and locale-specific interpretation. */
 export default async function ReadingPage({
   params,

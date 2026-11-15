@@ -4,8 +4,10 @@ import { getDb } from '@/lib/db';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
 import { JournalView } from '@/components/me/journal-view';
+import { privatePageMetadata } from '@/lib/page-metadata';
 export const dynamic = 'force-dynamic';
-export const metadata = { robots: { index: false, follow: false } };
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.meJournal');
 /** Private journal follows the existing multi-profile selection, with explicit unauthenticated/missing-profile states. */
 export default async function JournalPage() {
   const t = await getCopy(),

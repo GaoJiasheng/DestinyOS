@@ -125,6 +125,8 @@ for (const locale of ['zh', 'en'] as const) {
     await page.reload();
     await expect(page.locator('.chat-user')).toHaveCount(3);
     await page.getByRole('button', { name: t['report.chat.delete'], exact: true }).click();
+    await expect(page.getByText(t['report.chat.deleteConfirm'], { exact: true })).toBeVisible();
+    await page.getByRole('button', { name: t['report.confirm'], exact: true }).click();
     await expect(page.locator('.chat-user')).toHaveCount(0);
     expect(await db.chatMessage.count({ where: { readingId: reading.id } })).toBe(0);
     expect((await db.chatQuota.findFirstOrThrow({ where: { userId: user.id } })).count).toBe(3);

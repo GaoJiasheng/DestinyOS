@@ -3,6 +3,7 @@ import { StateArt } from '@/components/art/state-art';
 import { useEffect } from 'react';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/navigation';
 /** Retry recoverable route failures while retaining the localized starfield shell. */
 export default function ErrorPage({
   error,
@@ -21,7 +22,12 @@ export default function ErrorPage({
     <section className="status-page">
       <StateArt state="error" priority />
       <h1 className="type-h1">{t('errors.generic')}</h1>
-      <Button onClick={reset}>{t('common.retry')}</Button>
+      <div className="action-row">
+        <Button onClick={reset}>{t('common.retry')}</Button>
+        <Button asChild variant="secondary">
+          <Link href="/">{t('common.backHome')}</Link>
+        </Button>
+      </div>
     </section>
   );
 }

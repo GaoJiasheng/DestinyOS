@@ -11,6 +11,7 @@ import { ApiError } from '@/lib/api-error';
 import { verificationSchema } from '@/lib/auth-confirmation';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { returnCookie, safeReturnPath } from './return-path';
 
 export type LoginState = {
   ok: boolean;
@@ -23,21 +24,50 @@ const loginSchema = z.object({
   locale: z.enum(['zh', 'en', 'zh-TW']),
 });
 
+/** Read `callbackUrl` from the login page URL when the form did not submit one. */
+function refererCallback(requestHeaders: Headers): string | undefined {
+  try {
+    const referer = requestHeaders.get('referer');
+    const host = requestHeaders.get('host');
+    if (!referer || !host) return undefined;
+    const url = new URL(referer);
+    return url.host === host ? (url.searchParams.get('callbackUrl') ?? undefined) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 /** Validate and send an Auth.js magic link with both email and IP sliding-window quotas. */
-export async function sendMagicLinkAction(email: string, locale: string): Promise<LoginState> {
+export async function sendMagicLinkAction(
+  email: string,
+  locale: string,
+  callbackUrl?: string,
+): Promise<LoginState> {
   const parsed = loginSchema.safeParse({ email, locale });
   if (!parsed.success) return { ok: false, code: 'E_VALIDATION' };
   try {
     const requestHeaders = await headers();
     const ip = requestIp(requestHeaders);
     await limitMagicLink(parsed.data.email, ip);
+    const returnTo = safeReturnPath(
+      callbackUrl || refererCallback(requestHeaders),
+      parsed.data.locale,
+    );
     const result: unknown = await signIn('resend', {
       email: parsed.data.email,
       redirect: false,
-      redirectTo: `/${parsed.data.locale}`,
+      redirectTo: returnTo,
     });
     if (typeof result !== 'string' || new URL(result, 'http://localhost').searchParams.has('error'))
       throw new Error('Authentication request failed');
+    // DESIGN-GAP: The emailed confirmation link carries only token/email, so the destination waits in a short-lived same-browser cookie; another device lands on home.
+    (await cookies()).set(returnCookie, returnTo, {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      path: '/',
+      maxAge: 15 * 60,
+    });
     return { ok: true, email: parsed.data.email };
   } catch (error) {
     if (error instanceof ApiError && error.code === 'E_RATE_LIMITED')
@@ -49,13 +79,18 @@ export async function sendMagicLinkAction(email: string, locale: string): Promis
 
 /** React form adapter for the documented sendMagicLinkAction(email, locale) API. */
 export async function loginFormAction(_previous: LoginState, form: FormData): Promise<LoginState> {
-  return sendMagicLinkAction(String(form.get('email') ?? ''), String(form.get('locale') ?? ''));
+  const callbackUrl = form.get('callbackUrl');
+  return sendMagicLinkAction(
+    String(form.get('email') ?? ''),
+    String(form.get('locale') ?? ''),
+    typeof callbackUrl === 'string' ? callbackUrl : undefined,
+  );
 }
 
-/** Start Google OAuth and return to the validated locale home. */
-export async function googleLoginAction(locale: string): Promise<void> {
+/** Start Google OAuth and return to the validated same-origin page, or the locale home. */
+export async function googleLoginAction(locale: string, callbackUrl?: string): Promise<void> {
   const valid = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
-  await signIn('google', { redirectTo: `/${valid}` });
+  await signIn('google', { redirectTo: safeReturnPath(callbackUrl, valid) });
 }
 
 /** Confirm login only after a CSRF-protected form submission, then let Auth.js consume the token. */
@@ -71,17 +106,20 @@ export async function confirmLoginAction(
   const requestHeaders = new Headers(await headers());
   const origin = requestHeaders.get('origin') ?? process.env.NEXT_PUBLIC_SITE_URL;
   if (!origin) throw new Error('Site origin is required');
+  const jar = await cookies();
+  const stored = jar.get(returnCookie)?.value;
   const callback = new URL('/api/auth/callback/resend', origin);
   callback.search = new URLSearchParams({
     token: parsed.data.token,
     email: parsed.data.email,
-    callbackUrl: returnTo === '/admin' ? '/admin' : `/${parsed.data.locale}`,
+    callbackUrl:
+      returnTo === '/admin' ? '/admin' : safeReturnPath(returnTo || stored, parsed.data.locale),
   }).toString();
   // DESIGN-GAP: Consume through Auth.js inside the CSRF-protected action. Public email GET callbacks
   // only show confirmation; redirecting via a Route Handler breaks Server Action router navigation.
   const response = await handlers.GET(new NextRequest(callback, { headers: requestHeaders }));
   const returned = new NextResponse(null, { status: response.status, headers: response.headers });
-  const jar = await cookies();
+  if (stored) jar.delete(returnCookie);
   for (const cookie of returned.cookies.getAll()) jar.set(cookie.name, cookie.value, cookie);
   const target = new URL(
     response.headers.get('Location') ?? `/${parsed.data.locale}/auth/login?error=Verification`,

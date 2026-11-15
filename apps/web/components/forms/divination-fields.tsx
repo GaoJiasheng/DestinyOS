@@ -1,8 +1,53 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import { IchingCategorySchema, QimenCategorySchema } from '@tianji/shared';
+import { Solar } from 'lunar-typescript';
 import { Button } from '@/components/ui/button';
 import type { CastMethod } from './divination-flow';
+/** Lunar reading of a `datetime-local` value, or null when it cannot be parsed. */
+export function lunarClockLabel(
+  local: string,
+  t: ReturnType<typeof useTranslations<'divination'>>,
+) {
+  if (!local) return null;
+  try {
+    const [date, time] = local.split('T');
+    const [y, m, d] = date!.split('-').map(Number);
+    const [h, min] = time!.split(':').map(Number);
+    const l = Solar.fromYmdHms(y!, m!, d!, h!, min!, 0).getLunar();
+    return t('lunarClock', {
+      year: l.getYear(),
+      month: Math.abs(l.getMonth()),
+      day: l.getDay(),
+      hour: h!,
+      leap: l.getMonth() < 0 ? t('leap') : '',
+    });
+  } catch {
+    return null;
+  }
+}
+/** Submit button message key for the current step and method. */
+export function submitLabel({
+  busy,
+  system,
+  step,
+  method,
+  throwsDone,
+}: {
+  busy: boolean;
+  system: 'iching' | 'qimen';
+  step: 'question' | 'ritual' | 'generating';
+  method: CastMethod;
+  throwsDone: number;
+}) {
+  if (busy) return 'working';
+  if (system === 'qimen') return 'castQimen';
+  if (step === 'question') return 'continue';
+  if (method === 'time') return 'castTime';
+  if (method === 'random') return 'toss';
+  if (method === 'liuyao') return throwsDone === 6 ? 'retry' : 'shake';
+  return 'castNumbers';
+}
 /** Question, category and civil-clock inputs; retries keep the snapshot until an input changes. */
 export function DivinationFields({
   system,

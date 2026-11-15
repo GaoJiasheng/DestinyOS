@@ -10,6 +10,7 @@ import { useRouter } from '@/i18n/navigation';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import { TarotDraftSchema, ritualDeck, type TarotDraft } from '@/lib/tarot';
 import { createReadingAction } from '@/app/readings/actions';
+import { ensureConsent } from '@/lib/consent';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
@@ -18,16 +19,20 @@ import { TarotCut } from './tarot-cut';
 import { TarotFan } from './tarot-fan';
 import { ReportLayout } from '@/components/report/report-layout';
 import { SpreadLayout } from './spread-layout';
+import { removePosition, togglePick, type TarotEntry } from './ritual-state';
 type Step = 'shuffle' | 'cut' | 'pick' | 'reveal';
 /** Complete deterministic ritual; bundled bilingual knowledge allows anonymous draw/report generation offline. */
 export function TarotRitual({
   knowledge,
   engineVersion,
   signedIn,
+  entry = null,
 }: {
   knowledge: KnowledgeBundle;
   engineVersion: string;
   signedIn: boolean;
+  /** Direct entry from `?spread=&q=` (e.g. the bottom "ask" sheet); replaces any stored draft. */
+  entry?: TarotEntry | null;
 }) {
   const t = useTranslations('tarot');
   const intl = useTranslations();
@@ -41,7 +46,6 @@ export function TarotRitual({
   const [picked, setPicked] = useState<number[]>([]);
   const [revealed, setRevealed] = useState<number[]>([]);
   const [chart, setChart] = useState<TarotChart | null>(null);
-  const [sound, setSound] = useState(false);
   const [leave, setLeave] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
@@ -51,21 +55,42 @@ export function TarotRitual({
   const exitHref = useRef<string | null>(null);
   const confirmedExit = useRef(false);
   const requestId = useRef<string | null>(null);
+  const entrySpread = entry?.spread;
+  const entryQuestion = entry?.question ?? '';
   const deck = useMemo(() => ritualDeck(shuffles, cut), [shuffles, cut]);
   useEffect(() => {
     let active = true;
-    void readAnonymous()
-      .then((data) => {
-        if (!active) return;
+    const load = async (): Promise<TarotDraft | null> => {
+      if (!entrySpread) {
+        const data = await readAnonymous();
         const parsed = TarotDraftSchema.safeParse(data?.settings.tarotDraft);
-        if (!parsed.success) {
+        return parsed.success ? parsed.data : null;
+      }
+      // Same age/disclaimer gate the selection form applies before storing a draft.
+      if (!(await ensureConsent())) return null;
+      const next: TarotDraft = {
+        spread: entrySpread,
+        question: entryQuestion,
+        category: 'general',
+        allowReversed: true,
+        seed: crypto.randomUUID(),
+      };
+      // Persist so a reload keeps the question after it is stripped from the address bar.
+      await updateAnonymous((data) => ({
+        ...data,
+        settings: { ...data.settings, tarotDraft: next },
+      })).catch(() => undefined);
+      window.history.replaceState(window.history.state, '', window.location.pathname);
+      return next;
+    };
+    void load()
+      .then((loaded) => {
+        if (!active) return;
+        if (!loaded) {
           router.replace('/tarot');
           return;
         }
-        setDraft(parsed.data);
-        setSound(
-          localStorage.getItem('tianji-sound') === 'true' || data?.settings.tarotSound === true,
-        );
+        setDraft(loaded);
         setReady(true);
       })
       .catch(() => {
@@ -77,7 +102,7 @@ export function TarotRitual({
     return () => {
       active = false;
     };
-  }, [router]);
+  }, [router, entrySpread, entryQuestion]);
   useEffect(() => {
     const unload = (event: BeforeUnloadEvent) => {
       if (!confirmedExit.current) event.preventDefault();
@@ -125,11 +150,10 @@ export function TarotRitual({
     setChart(result);
     setStep('reveal');
   };
+  // DESIGN-GAP: A full spread waits for an explicit "start revealing" so the last pick can still be undone.
   const pick = (index: number) => {
-    if (!draft || picked.includes(index)) return;
-    const next = [...picked, index];
-    if (next.length === TAROT_SPREADS[draft.spread].length) draw(next);
-    else setPicked(next);
+    if (draft)
+      setPicked((current) => togglePick(current, index, TAROT_SPREADS[draft.spread].length));
   };
   const auto = () => {
     if (!draft) return;
@@ -241,21 +265,6 @@ export function TarotRitual({
       <div className="hero-actions">
         <Button
           variant="ghost"
-          aria-pressed={sound}
-          onClick={() => {
-            const next = !sound;
-            setSound(next);
-            localStorage.setItem('tianji-sound', String(next));
-            void updateAnonymous((data) => ({
-              ...data,
-              settings: { ...data.settings, tarotSound: next },
-            })).catch(() => setError(true));
-          }}
-        >
-          {t('sound')}
-        </Button>
-        <Button
-          variant="ghost"
           onClick={() => {
             exitHref.current = null;
             setLeave(true);
@@ -264,7 +273,6 @@ export function TarotRitual({
           {t('exit')}
         </Button>
       </div>
-      <p className="muted">{t('soundPlaceholder')}</p>
       <MotionConfig
         reducedMotion={
           typeof window !== 'undefined' && document.documentElement.dataset.reducedMotion === 'true'
@@ -303,7 +311,14 @@ export function TarotRitual({
             <>
               <p role="status">{t('pickCount', { count: picked.length, total: count })}</p>
               <TarotFan deck={deck} picked={picked} onPick={pick} />
-              <Button onClick={auto}>{t('auto')}</Button>
+              {picked.length > 0 ? <p className="muted">{t('pickUndoHelp')}</p> : null}
+              <div className="hero-actions tarot-primary-actions">
+                {picked.length === count ? (
+                  <Button onClick={() => draw(picked)}>{t('startReveal')}</Button>
+                ) : (
+                  <Button onClick={auto}>{t('auto')}</Button>
+                )}
+              </div>
             </>
           ) : null}
           {step === 'pick' || step === 'reveal' ? (
@@ -312,6 +327,11 @@ export function TarotRitual({
               cards={chart?.cards}
               picked={picked}
               revealed={revealed}
+              onRemove={
+                step === 'pick'
+                  ? (order) => setPicked((current) => removePosition(current, order))
+                  : undefined
+              }
               onReveal={
                 step === 'reveal'
                   ? (order) =>
@@ -326,15 +346,26 @@ export function TarotRitual({
       </MotionConfig>
       {step === 'reveal' ? (
         <>
-          <p>{t('revealHelp')}</p>
-          <div className="hero-actions">
+          <p id="tarot-reveal-status">
+            {revealed.length === count
+              ? t('revealDone')
+              : t('revealPending', { count: count - revealed.length })}
+          </p>
+          <div className="hero-actions tarot-primary-actions">
+            {revealed.length === count ? null : (
+              <Button
+                variant="secondary"
+                onClick={() => setRevealed(Array.from({ length: count }, (_, i) => i))}
+              >
+                {t('revealAll')}
+              </Button>
+            )}
             <Button
-              variant="secondary"
-              onClick={() => setRevealed(Array.from({ length: count }, (_, i) => i))}
+              variant={revealed.length === count ? 'default' : 'secondary'}
+              disabled={revealed.length !== count || busy}
+              aria-describedby="tarot-reveal-status"
+              action={complete}
             >
-              {t('revealAll')}
-            </Button>
-            <Button disabled={revealed.length !== count || busy} action={complete}>
               {t(busy ? 'saving' : 'result')}
             </Button>
           </div>

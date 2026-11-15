@@ -1,6 +1,6 @@
 'use client';
 import { useSubmitTransition } from '@/components/forms/use-submit-transition';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { z } from 'zod';
 import type { System } from '@tianji/shared';
@@ -8,6 +8,7 @@ import type { MessageKey } from '@/i18n/catalog';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import { Square } from 'lucide-react';
 const historySchema = z.object({
   ok: z.literal(true),
   data: z.object({
@@ -56,8 +57,11 @@ export function ChatPanel({
   const busy = working || pending;
   const [remaining, setRemaining] = useState(0),
     [limit, setLimit] = useState(0),
-    [error, setError] = useState('');
+    [error, setError] = useState(''),
+    [stopped, setStopped] = useState(false),
+    [confirmClear, setConfirmClear] = useState(false);
   const abort = useRef<AbortController | null>(null);
+  const hintId = useId();
   const end = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLTextAreaElement>(null);
   const restoreComposerAfterCommit = useRef<Element | null>(null);
@@ -124,6 +128,7 @@ export function ChatPanel({
     }
     setBusy(true);
     setError('');
+    setStopped(false);
     setAnswer('');
     const controller = new AbortController();
     abort.current = controller;
@@ -180,7 +185,18 @@ export function ChatPanel({
       setRemaining((value) => Math.max(0, value - 1));
     } catch {
       setAnswer('');
-      setError(t('report.chat.away'));
+      if (controller.signal.aborted) {
+        // A reader-initiated stop keeps what already streamed; the quota was reserved on send.
+        if (text)
+          setMessages((old) => [
+            ...old,
+            { id: crypto.randomUUID(), role: 'user', content: submitted },
+            { id: crypto.randomUUID(), role: 'assistant', content: text },
+          ]);
+        setQuestion('');
+        setRemaining((value) => Math.max(0, value - 1));
+        setStopped(true);
+      } else setError(t('report.chat.away'));
     } finally {
       restoreComposerAfterCommit.current = restoreComposer ? submittedFrom : null;
       setBusy(false);
@@ -188,6 +204,7 @@ export function ChatPanel({
     }
   };
   const clear = async () => {
+    setConfirmClear(false);
     setBusy(true);
     setError('');
     try {
@@ -270,22 +287,65 @@ export function ChatPanel({
                     ref={composer}
                     value={question}
                     onChange={(event) => setQuestion(event.target.value)}
+                    onKeyDown={(event) => {
+                      // Enter sends, Shift+Enter breaks the line; IME composition keeps Enter for the candidate list.
+                      if (
+                        event.key !== 'Enter' ||
+                        event.shiftKey ||
+                        event.nativeEvent.isComposing ||
+                        event.keyCode === 229
+                      )
+                        return;
+                      event.preventDefault();
+                      event.currentTarget.form?.requestSubmit();
+                    }}
+                    aria-describedby={hintId}
                     maxLength={120}
                     rows={3}
                     disabled={busy || remaining === 0}
                   />
                 </label>
-                <Button disabled={busy || remaining === 0 || !question.trim()}>
-                  {t(busy ? 'report.chat.thinking' : 'report.chat.send')}
-                </Button>
+                <p id={hintId} className="muted">
+                  {t('report.chat.enterHint')}
+                </p>
+                <div className="action-row">
+                  <Button disabled={busy || remaining === 0 || !question.trim()}>
+                    {t(busy ? 'report.chat.thinking' : 'report.chat.send')}
+                  </Button>
+                  {pending ? (
+                    // A plain button: the shared Button reads form status and would disable itself mid-send.
+                    <button
+                      type="button"
+                      className="button button-secondary"
+                      onClick={() => abort.current?.abort()}
+                    >
+                      <Square aria-hidden="true" size={14} />
+                      {t('report.chat.stop')}
+                    </button>
+                  ) : null}
+                </div>
               </form>
             </>
           ) : null}
+          {stopped ? <p role="status">{t('report.chat.stopped')}</p> : null}
           {error ? <p role="alert">{error}</p> : null}
-          {messages.length ? (
-            <Button variant="ghost" disabled={busy} action={clear}>
+          {messages.length && !confirmClear ? (
+            <Button variant="ghost" disabled={busy} onClick={() => setConfirmClear(true)}>
               {t('report.chat.delete')}
             </Button>
+          ) : null}
+          {messages.length && confirmClear ? (
+            <div className="chat-confirm" role="group" aria-label={t('report.chat.delete')}>
+              <p>{t('report.chat.deleteConfirm')}</p>
+              <div className="action-row">
+                <Button variant="secondary" onClick={() => setConfirmClear(false)}>
+                  {t('report.cancel')}
+                </Button>
+                <Button disabled={busy} action={clear}>
+                  {t('report.confirm')}
+                </Button>
+              </div>
+            </div>
           ) : null}
         </>
       )}
@@ -305,6 +365,7 @@ export function ChatPanel({
     </section>
   ) : (
     <details
+      id="report-chat"
       className="report-card chat-panel"
       open={open}
       onToggle={(event) => setOpen(event.currentTarget.open)}

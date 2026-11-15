@@ -1,16 +1,44 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useCopy } from '@/i18n/use-copy';
 interface InstallEvent extends Event {
   prompt(): Promise<void>;
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
+const dismissDays = 30;
+/** Saved report pages (`/{system}/r/{id}`, including on-device `/r/local/{id}`). */
+const reportPath = /\/r\/[^/]+(\/[^/]+)?$/;
+function storage<T>(read: () => T, fallback: T): T {
+  try {
+    return read();
+  } catch {
+    return fallback;
+  }
+}
+/** Ask only once the visitor has opened a report or come back for a second visit. */
+function engaged(): boolean {
+  return storage(
+    () =>
+      localStorage.getItem('tianji-report-seen') === '1' ||
+      Number(localStorage.getItem('tianji-visits')) >= 2,
+    false,
+  );
+}
 /** Defer SW registration and offer installation only when the browser supports it. */
 export function InstallPrompt() {
-  const t = useCopy();
+  const t = useCopy(),
+    pathname = usePathname();
   const [event, setEvent] = useState<InstallEvent | null>(null),
     [ios, setIos] = useState(false),
-    [hidden, setHidden] = useState(true);
+    [hidden, setHidden] = useState(true),
+    [eligible, setEligible] = useState(false);
+  useEffect(() => {
+    storage(() => {
+      if (reportPath.test(pathname)) localStorage.setItem('tianji-report-seen', '1');
+    }, undefined);
+    setEligible(engaged());
+  }, [pathname]);
   useEffect(() => {
     const standalone =
       matchMedia('(display-mode: standalone)').matches ||
@@ -22,10 +50,20 @@ export function InstallPrompt() {
       /* Storage is optional. */
     }
     setHidden(!!standalone || dismissed);
+    storage(() => {
+      if (sessionStorage.getItem('tianji-visit-counted')) return;
+      sessionStorage.setItem('tianji-visit-counted', '1');
+      localStorage.setItem(
+        'tianji-visits',
+        String(Number(localStorage.getItem('tianji-visits')) + 1),
+      );
+    }, undefined);
+    setEligible(engaged());
     setIos(/iphone|ipad|ipod/i.test(navigator.userAgent));
     const install = (e: Event) => {
       e.preventDefault();
       setEvent(e as InstallEvent);
+      setEligible(engaged());
     };
     const installed = () => {
       setEvent(null);
@@ -46,12 +84,15 @@ export function InstallPrompt() {
       window.removeEventListener('appinstalled', installed);
     };
   }, []);
-  if (hidden || (!event && !ios)) return null;
+  if (hidden || !eligible || (!event && !ios)) return null;
   const dismiss = () => {
     setHidden(true);
-    // DESIGN-GAP: Installation dismissal lasts seven days; no push subscriptions are created.
+    // DESIGN-GAP: Installation dismissal lasts thirty days; no push subscriptions are created.
     try {
-      localStorage.setItem('tianji-install-dismissed', String(Date.now() + 7 * 86400_000));
+      localStorage.setItem(
+        'tianji-install-dismissed',
+        String(Date.now() + dismissDays * 86400_000),
+      );
     } catch {
       /* Storage is optional. */
     }

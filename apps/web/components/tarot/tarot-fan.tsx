@@ -50,7 +50,7 @@ export function TarotFan({
                 layoutId={picked.includes(index) ? undefined : `tarot-pick-${index}`}
                 className="tarot-fan-card"
                 type="button"
-                disabled={picked.includes(index)}
+                aria-pressed={picked.includes(index)}
                 aria-label={t('pickCard', { number: index + 1 })}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') swiped.current = false;

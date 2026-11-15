@@ -1,42 +1,72 @@
 'use client';
+import { useLocale } from 'next-intl';
 import { ApiClientError } from '@tianji/api-client';
 import { apiClient } from '@/lib/api-client';
 import type { BirthInput, NormalizedBirth } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
+import type { BirthField, FieldIssue } from '@/lib/birth-form-validate';
 import { Button } from '@/components/ui/button';
 import { CitySearch } from './city-search';
+import { FieldErrors, invalidProps } from './birth-form-parts';
 /** Place and timezone controls with the existing explicit manual-coordinate fallback. */
 export function BirthPlaceFields({
   birth,
   change,
   manual,
   setManual,
-  setPlace,
   setError,
   preview,
   solar,
+  ids,
+  issues,
+  onCityPending,
 }: {
   birth: BirthInput;
   change: (patch: Partial<BirthInput>) => void;
   manual: boolean;
   setManual: (value: boolean) => void;
-  setPlace: (patch: Partial<NonNullable<BirthInput['place']>>) => void;
   setError: (key: string) => void;
   preview: NormalizedBirth | null;
   solar: boolean;
+  ids: Record<BirthField, string>;
+  issues: FieldIssue[];
+  onCityPending: (pending: boolean) => void;
 }) {
   const t = useCopy();
+  const locale = useLocale();
+  const setPlace = (patch: Partial<NonNullable<BirthInput['place']>>) =>
+    change({
+      place: {
+        name: birth.place?.name ?? t('form.birth.manual'),
+        lat: birth.place?.lat ?? 0,
+        lng: birth.place?.lng ?? 0,
+        tz: birth.place?.tz ?? (locale !== 'en' ? 'Asia/Shanghai' : 'UTC'),
+        ...patch,
+      },
+    });
+  const tzIssue = issues.find((i) => i.field === 'tz');
   return (
     <>
-      <CitySearch place={birth.place} onSelect={(place) => change({ place })} />
+      <CitySearch
+        id={ids.city}
+        place={birth.place}
+        onSelect={(place) => change({ place })}
+        onClear={() => change({ place: undefined })}
+        onPendingChange={onCityPending}
+        issue={issues.find((i) => i.field === 'city')}
+        manualPlace={manual && !!birth.place}
+      />
       <p className="muted">{t('form.birth.placeOptional')}</p>
-      <details open={manual} onToggle={(e) => setManual(e.currentTarget.open)}>
+      <details open={manual || !!tzIssue} onToggle={(e) => setManual(e.currentTarget.open)}>
         <summary>{t('form.birth.manual')}</summary>
         <div className="birth-grid">
           <label className="birth-field">
             {t('form.birth.lat')}
             <input
               type="number"
+              inputMode="decimal"
+              enterKeyHint="next"
+              aria-label={t('form.birth.lat')}
               step="any"
               min={-90}
               max={90}
@@ -48,6 +78,9 @@ export function BirthPlaceFields({
             {t('form.birth.lng')}
             <input
               type="number"
+              inputMode="decimal"
+              enterKeyHint="next"
+              aria-label={t('form.birth.lng')}
               step="any"
               min={-180}
               max={180}
@@ -56,22 +89,29 @@ export function BirthPlaceFields({
             />
           </label>
         </div>
-        <label className="birth-field">
-          {t('form.birth.tz')}
+        <div className="birth-field">
+          <label htmlFor={ids.tz}>{t('form.birth.tz')}</label>
           <input
+            id={ids.tz}
             list="iana-timezones"
+            autoComplete="off"
+            enterKeyHint="done"
+            aria-label={t('form.birth.tz')}
             value={birth.place?.tz ?? ''}
             onChange={(e) => setPlace({ tz: e.target.value })}
+            {...invalidProps(ids.tz, tzIssue)}
           />
           <datalist id="iana-timezones">
             {Intl.supportedValuesOf('timeZone').map((tz) => (
               <option key={tz} value={tz} />
             ))}
           </datalist>
-        </label>
+          <FieldErrors issues={tzIssue ? [tzIssue] : []} ids={ids} />
+        </div>
         <Button
           type="button"
           variant="secondary"
+          aria-label={t('form.birth.resolveTz')}
           onClick={() => {
             void apiClient
               .lookupTimezone({

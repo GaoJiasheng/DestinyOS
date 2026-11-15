@@ -31,9 +31,16 @@ export function LocaleSwitch() {
           }
         }}
       >
-        <option value="zh">{t('nav.locale.zh')}</option>
-        <option value="zh-TW">{t('nav.locale.zh-TW')}</option>
-        <option value="en">{t('nav.locale.en')}</option>
+        {/* Each language is named in itself, so lang lets screen readers pronounce it correctly. */}
+        <option value="zh" lang="zh-CN">
+          {t('nav.locale.zh')}
+        </option>
+        <option value="zh-TW" lang="zh-TW">
+          {t('nav.locale.zh-TW')}
+        </option>
+        <option value="en" lang="en">
+          {t('nav.locale.en')}
+        </option>
       </select>
     </label>
   );

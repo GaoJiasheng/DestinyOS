@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { TarotChartSchema } from '@tianji/shared';
 import { TarotDetails } from '@/components/tarot/tarot-details';
 import { toast } from 'sonner';
@@ -11,6 +11,7 @@ import { submitFeedbackAction } from '@/app/readings/actions';
 import { ReportText } from './report-text';
 import { ChartPreview } from './chart-preview';
 import { openSection } from './focus-evidence';
+import { sectionPreview } from './report-utils';
 const uninformative = new Set(['成立', '不成立', 'Present', 'Absent']);
 /** Deterministic one-page summary derived from the stored snapshot, so old reports need no new fields.
  * Takeaways are section leads ranked by the heaviest rule hit in each section, shown in plan order. */
@@ -34,13 +35,14 @@ export function summarize(report: Report): {
     takeaways: ranked.map(({ section }) => ({
       key: section.key,
       title: section.title,
-      text: section.lead,
+      text: sectionPreview(section) || section.lead,
     })),
     advice: (advice.length ? advice : (report.doDont?.do ?? [])).slice(0, 3),
   };
 }
-/** First-screen summary card: ranked takeaways linked to their sections, top advice and one usage note. */
-export function ReportSummary({ report }: { report: Report }) {
+/** First-screen summary card: ranked takeaways linked to their sections, top advice, one usage note
+ * and optional follow-up actions such as the chat entry. */
+export function ReportSummary({ report, children }: { report: Report; children?: ReactNode }) {
   const t = useCopy();
   const { takeaways, advice } = summarize(report);
   const fallback = report.headline.persona.trim();
@@ -77,6 +79,7 @@ export function ReportSummary({ report }: { report: Report }) {
         </>
       ) : null}
       <p className="muted summary-howto">{t('report.brief.howto')}</p>
+      {children}
     </section>
   );
 }
@@ -198,6 +201,7 @@ export function ReportSection({
   const tarot = section.key === 'cards' ? TarotChartSchema.safeParse(chart) : null;
   const t = useCopy();
   const fold = useRef<HTMLDetailsElement>(null);
+  const preview = sectionPreview(section);
   useEffect(() => {
     const element = fold.current;
     if (!element) return;
@@ -236,6 +240,11 @@ export function ReportSection({
       <p className="section-lead">
         <ReportText text={section.lead} />
       </p>
+      {preview ? (
+        <p className="section-preview muted">
+          <ReportText text={preview} />
+        </p>
+      ) : null}
       {tarot?.success ? <TarotDetails chart={tarot.data} /> : null}
       <details className="section-fold" ref={fold}>
         <summary>{t('report.section.expand')}</summary>

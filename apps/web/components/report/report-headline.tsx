@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import type { Report } from '@tianji/interpret';
 import { useCopy } from '@/i18n/use-copy';
 import { ReportText } from './report-text';
+import { hasScoreSpread, isDivination } from './report-utils';
 const dims = SCORE_DIMENSIONS;
 /** Animated SVG radar includes a text table so dimension scores never rely on color or geometry. */
 export function ScoreRadar({ scores }: { scores: Report['headline']['scores'] }) {
@@ -51,12 +52,21 @@ export function ScoreRadar({ scores }: { scores: Report['headline']['scores'] })
     </div>
   );
 }
-/** Report lead, three keywords and confidence are localized content from the interpretation snapshot. */
-export function ReportHeadline({ headline }: { headline: Report['headline'] }) {
+/** Report lead, three keywords and confidence are localized content from the interpretation snapshot.
+ * Divination draws (tarot, I Ching, Qimen) have no natal profile, so the five-dimension scores and
+ * confidence meter are omitted for them; any report with five identical scores omits the radar. */
+export function ReportHeadline({
+  headline,
+  system,
+}: {
+  headline: Report['headline'];
+  system: string;
+}) {
   const t = useCopy();
+  const divination = isDivination(system);
   return (
     <section className="report-headline report-card">
-      <p className="eyebrow">{t('report.summary')}</p>
+      <p className="eyebrow">{t(divination ? 'report.readingSummary' : 'report.summary')}</p>
       <h2 className="type-h2">
         <ReportText text={headline.persona} />
       </h2>
@@ -67,14 +77,24 @@ export function ReportHeadline({ headline }: { headline: Report['headline'] }) {
           </span>
         ))}
       </div>
-      <ScoreRadar scores={headline.scores} />
-      <p>{t('report.confidence', { percent: Math.round(headline.confidence * 100) })}</p>
-      <progress
-        max={1}
-        value={headline.confidence}
-        aria-label={t('report.confidence', { percent: Math.round(headline.confidence * 100) })}
-      />
-      {headline.confidence < 0.7 ? <p className="notice">{t('report.confidence.low')}</p> : null}
+      {!divination && hasScoreSpread(headline.scores) ? (
+        <ScoreRadar scores={headline.scores} />
+      ) : null}
+      {divination ? null : (
+        <>
+          <p>{t('report.confidence', { percent: Math.round(headline.confidence * 100) })}</p>
+          <progress
+            max={1}
+            value={headline.confidence}
+            aria-label={t('report.confidence', {
+              percent: Math.round(headline.confidence * 100),
+            })}
+          />
+          {headline.confidence < 0.7 ? (
+            <p className="notice">{t('report.confidence.low')}</p>
+          ) : null}
+        </>
+      )}
     </section>
   );
 }

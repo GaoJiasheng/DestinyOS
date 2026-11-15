@@ -21,14 +21,16 @@ export function HistoryList({ initial }: { initial: Page }) {
     [search, setSearch] = useState(''),
     [working, setBusy] = useState(false),
     [error, setError] = useState(false),
-    [remove, setRemove] = useState<string | null>(null);
+    [remove, setRemove] = useState<string | null>(null),
+    // Filters behind the list currently shown, so an empty result can say why and offer a reset.
+    [applied, setApplied] = useState({ system: '', search: '' });
   const busy = working || pending;
   const sentinel = useRef<HTMLDivElement | null>(null),
     lock = useRef(false),
     generation = useRef(0),
     touch = useRef<{ x: number; y: number } | null>(null);
   const load = useCallback(
-    async (append: boolean) => {
+    async (append: boolean, filters = { system, search }) => {
       if (lock.current) return;
       lock.current = true;
       setBusy(true);
@@ -37,17 +39,18 @@ export function HistoryList({ initial }: { initial: Page }) {
       try {
         const r = await listReadingsAction({
           limit: 20,
-          ...(system ? { system } : {}),
-          ...(search ? { search } : {}),
+          ...(filters.system ? { system: filters.system } : {}),
+          ...(filters.search ? { search: filters.search } : {}),
           ...(append && data.nextCursor ? { cursor: data.nextCursor } : {}),
         });
         if (current !== generation.current) return;
-        if (r.ok)
+        if (r.ok) {
           setData((d) => ({
             items: append ? [...d.items, ...r.data.items] : r.data.items,
             nextCursor: r.data.nextCursor,
           }));
-        else setError(true);
+          if (!append) setApplied(filters);
+        } else setError(true);
       } catch {
         setError(true);
       } finally {
@@ -93,7 +96,23 @@ export function HistoryList({ initial }: { initial: Page }) {
         </label>
         <Button disabled={busy}>{t(busy ? 'common.loading' : 'me.history.search')}</Button>
       </form>
-      {!data.items.length ? (
+      {!data.items.length && (applied.system || applied.search) ? (
+        <div>
+          <p>{t('report.history.noMatch')}</p>
+          <Button
+            variant="secondary"
+            disabled={busy}
+            action={async () => {
+              setSystem('');
+              setSearch('');
+              generation.current++;
+              await load(false, { system: '', search: '' });
+            }}
+          >
+            {t('report.history.clearFilters')}
+          </Button>
+        </div>
+      ) : !data.items.length ? (
         <div>
           <StateArt state="no-report" />
           <p>

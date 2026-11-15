@@ -163,8 +163,8 @@ for (const locale of ['en', 'zh'] as const) {
     await capture(page, info, 'birth-city-empty', locale);
     await page.goto(`/${locale}/me/settings`);
     await page
+      .locator('main')
       .getByRole('combobox', { name: copy['nav.theme'], exact: true })
-      .last()
       .selectOption('west');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'west');
     await page.getByRole('checkbox', { name: copy['me.motion'], exact: true }).check();
@@ -294,9 +294,14 @@ for (const locale of ['en', 'zh'] as const) {
       'datetime',
       dateBefore!,
     );
+    // Off today the pager keeps flipping (previous/next day) and offers a way back.
+    await expect(page).toHaveURL(/[?]date=\d{4}-\d{2}-\d{2}$/);
     await expect(
-      page.getByRole('button', { name: copy['daily.tomorrow'], exact: true }),
-    ).toBeDisabled();
+      page.getByRole('button', { name: copy['daily.nextDay'], exact: true }),
+    ).toBeEnabled();
+    await expect(
+      page.getByRole('button', { name: copy['daily.backToToday'], exact: true }),
+    ).toBeVisible();
     const row = await seed(user.id, 'bazi', locale);
     await page.goto(`/${locale}/bazi/r/${row.id}`);
     await expect(
@@ -324,8 +329,8 @@ for (const locale of ['en', 'zh'] as const) {
     await capture(page, info, 'share-public', locale);
     await page.goto(`/${locale}/me/settings`);
     await page
+      .locator('main')
       .getByRole('combobox', { name: copy['nav.theme'], exact: true })
-      .last()
       .selectOption('west');
     await page.getByRole('checkbox', { name: copy['me.motion'], exact: true }).check();
     await page.getByRole('button', { name: copy['me.save'], exact: true }).click();

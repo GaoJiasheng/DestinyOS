@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { securityHeaders } from './lib/security-headers';
@@ -17,9 +18,26 @@ interface EntryCompiler {
 }
 // DESIGN-GAP: next-intl's experimental precompile loader nests dotted keys and rejects our flat catalogs (toMessages owns that expansion); take only its parser-free runtime and compile on the server instead (i18n/client-provider.tsx).
 const formatOnly = resolve(__dirname, 'i18n/format-message.ts');
+// The settings page shows which build a visitor is on; a checkout without git simply hides the row.
+function buildVersion(): string {
+  if (process.env.NEXT_PUBLIC_BUILD_VERSION) return process.env.NEXT_PUBLIC_BUILD_VERSION;
+  try {
+    return execFileSync('git', ['rev-parse', '--short', 'HEAD'], {
+      cwd: __dirname,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString()
+      .trim();
+  } catch {
+    return '';
+  }
+}
 const config: NextConfig = {
   // DESIGN-GAP: Static Flight file transport is enabled only for the Workers build, preserving local Node development.
-  env: { NEXT_PUBLIC_STATIC_ASSETS: process.env.PLATFORM === 'cloudflare' ? 'true' : 'false' },
+  env: {
+    NEXT_PUBLIC_STATIC_ASSETS: process.env.PLATFORM === 'cloudflare' ? 'true' : 'false',
+    NEXT_PUBLIC_BUILD_VERSION: buildVersion(),
+  },
   transpilePackages: [
     '@tianji/shared',
     '@tianji/engine',

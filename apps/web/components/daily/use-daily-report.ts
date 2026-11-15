@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Temporal } from '@js-temporal/polyfill';
 import { DailyChartSchema, type BirthInput, type Locale } from '@tianji/shared';
 import { ReportSchema } from '@/lib/reading-schema';
 import { dailyExample, dailyExamplePath } from '@/lib/daily-example';
@@ -14,8 +13,9 @@ import {
 import { readAnonymous } from '@/lib/anonymous-storage';
 import { localToday } from '@/lib/daily-date';
 import { calculateDailyInWorker } from '@/lib/daily-worker';
+export type DailyLoadError = 'timeout' | 'internal';
 /** Load owner or device daily reports; cancel worker results when date/profile inputs change.
- * @param options Selected civil date, IANA timezone and presentation preferences.
+ * @param options Selected civil date (validated `?date=`, or null for today), IANA timezone and presentation preferences.
  */
 export function useDailyReport({
   signedIn,
@@ -41,11 +41,10 @@ export function useDailyReport({
   panchangDefaultOpen: boolean;
 }) {
   // DESIGN-GAP: Panchang expansion is a device preference because the documented User schema has no field for it.
-  const [offset, setOffset] = useState(0),
-    [zone, setZone] = useState<string | null>(tz ?? null),
+  const [zone, setZone] = useState<string | null>(tz ?? null),
     [value, setValue] = useState<DailyReport | null>(null),
     [example, setExample] = useState(false),
-    [error, setError] = useState(false),
+    [error, setError] = useState<DailyLoadError | null>(null),
     [busy, setBusy] = useState(true),
     [retry, setRetry] = useState(0),
     [panchang, setPanchang] = useState(vedicUsed || panchangDefaultOpen),
@@ -63,15 +62,11 @@ export function useDailyReport({
     let active = true;
     const controller = new AbortController();
     setBusy(true);
-    setError(false);
+    setError(null);
     setFlipped(false);
     setVote(null);
     void (async () => {
-      const date = Temporal.PlainDate.from(requestedDate ?? localToday(zone))
-        .add({ days: offset })
-        .toString();
-      const year = Temporal.PlainDate.from(date).year;
-      if (year < 1900 || year > 2100) throw new Error('E_DATE_OUT_OF_RANGE');
+      const date = requestedDate ?? localToday(zone);
       if (signedIn && !birth) {
         const result = await getDailyAction({ date, tz: zone, locale, profileId });
         if (result.ok) {
@@ -135,8 +130,11 @@ export function useDailyReport({
           setPanchang(true);
       }
     })()
-      .catch(() => {
-        if (active) setError(true);
+      .catch((reason: unknown) => {
+        if (active)
+          setError(
+            reason instanceof Error && reason.message === 'E_TIMEOUT' ? 'timeout' : 'internal',
+          );
       })
       .finally(() => {
         if (active) setBusy(false);
@@ -145,18 +143,7 @@ export function useDailyReport({
       active = false;
       controller.abort();
     };
-  }, [
-    signedIn,
-    profileId,
-    birth,
-    seedIdentity,
-    knowledge,
-    zone,
-    offset,
-    locale,
-    retry,
-    requestedDate,
-  ]);
+  }, [signedIn, profileId, birth, seedIdentity, knowledge, zone, locale, retry, requestedDate]);
   useEffect(() => {
     if (!value || (signedIn && !birth)) return;
     // DESIGN-GAP: Record anonymous visit dimensions after the first result paint; telemetry's RSC response must not delay the locally computed content.
@@ -174,13 +161,10 @@ export function useDailyReport({
     };
   }, [signedIn, birth, value, locale]);
   return {
-    offset,
-    setOffset,
     zone,
     value,
     example,
     error,
-    setError,
     busy,
     setRetry,
     panchang,

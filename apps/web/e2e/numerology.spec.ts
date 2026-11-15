@@ -49,6 +49,8 @@ for (const locale of ['zh', 'en'] as const) {
       fullPage: true,
     });
     await page.goto(`/${locale}/numerology/new`);
+    // A saved device profile defaults to charting someone else; choosing "me" reuses it.
+    await page.getByLabel(copy['form.birth.for.self'], { exact: true }).check();
     await expect(
       page.getByLabel(copy['form.birth.year'], { exact: true }).filter({ visible: true }),
     ).toHaveValue('1990');

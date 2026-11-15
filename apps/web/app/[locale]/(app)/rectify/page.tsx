@@ -4,8 +4,10 @@ import { setRequestLocale } from 'next-intl/server';
 import { auth } from '@/lib/auth';
 import { getProfileAction } from '@/app/readings/actions';
 import { RectificationWizard } from '@/components/forms/rectification-wizard';
+import { privatePageMetadata } from '@/lib/page-metadata';
 export const dynamic = 'force-dynamic';
-export const metadata = { robots: { index: false, follow: false } };
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.rectify');
 /** Offer an optional birth-time trial while respecting the existing age gate and owner profile boundary. */
 export default async function RectificationPage({
   params,

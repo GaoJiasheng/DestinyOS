@@ -60,11 +60,15 @@ export function ProfileManager({ initial }: { initial: Data }) {
       setBusy(false);
     }
   }
+  const errorText = error ? (
+    <p role="alert">{t(`report.error.${error}` as Parameters<typeof t>[0])}</p>
+  ) : null;
   return (
     <section className="settings-page">
       <h1 className="type-h1">{t('profiles.manage')}</h1>
       <p>{t('profiles.quota', { count: data.items.length, limit: data.limit })}</p>
-      {error ? <p role="alert">{t(`report.error.${error}` as Parameters<typeof t>[0])}</p> : null}
+      {/* Errors render beside whatever the visitor is working on: the open editor, the delete dialog, or the list. */}
+      {error && !edit && !deleting ? errorText : null}
       {data.items.length ? (
         <ul className="settings-fields">
           {data.items.map((p) => (
@@ -181,11 +185,13 @@ export function ProfileManager({ initial }: { initial: Data }) {
               }
             }}
           />
+          {errorText}
           <Button
             variant="ghost"
             disabled={busy}
             onClick={() => {
               setEdit(null);
+              setError(null);
               editorOpener.current?.focus();
             }}
           >
@@ -196,7 +202,10 @@ export function ProfileManager({ initial }: { initial: Data }) {
       <Dialog
         open={!!deleting}
         onOpenChange={(open) => {
-          if (!open && !busy) setDeleting(null);
+          if (!open && !busy) {
+            setDeleting(null);
+            setError(null);
+          }
         }}
         title={t('profiles.delete')}
         description={t('profiles.deleteConfirm')}
@@ -213,6 +222,7 @@ export function ProfileManager({ initial }: { initial: Data }) {
         >
           {t('profiles.delete')}
         </Button>
+        {deleting ? errorText : null}
       </Dialog>
     </section>
   );

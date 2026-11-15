@@ -1,10 +1,8 @@
 'use client';
 import { useSubmitTransition } from '@/components/forms/use-submit-transition';
-import { PrivacyChoices } from '@/components/ads/privacy-choices';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
-import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { ThemeSwitch } from '@/components/theme-provider';
@@ -13,7 +11,8 @@ import { clearAnonymous, readAnonymous, updateAnonymous } from '@/lib/anonymous-
 import type { Locale } from '@tianji/shared';
 import { SettingsSchema } from '@/lib/account-service-schema';
 import { PushReminderSettings } from '@/components/me/push-reminder-settings';
-import webPackage from '../../package.json';
+import { SettingsData } from '@/components/me/settings-data';
+import { TimeZoneField } from '@/components/me/time-zone-field';
 type Settings = {
   locale: Locale;
   theme: string | null;
@@ -27,10 +26,16 @@ export function SettingsForm({
   initial,
   signedIn,
   pushAvailable = false,
+  version,
+  logout,
 }: {
   initial: Settings | null;
   signedIn: boolean;
   pushAvailable?: boolean;
+  /** Real build version; the row is hidden when none is known. */
+  version?: string | null;
+  /** Server-rendered sign-out control, present only for a signed-in owner. */
+  logout?: ReactNode;
 }) {
   const { pending, run } = useSubmitTransition();
   const t = useCopy(),
@@ -50,7 +55,8 @@ export function SettingsForm({
     [feedback, setFeedback] = useState(false),
     [open, setOpen] = useState(false),
     [working, setBusy] = useState(false),
-    [status, setStatus] = useState<'saved' | 'error' | null>(null);
+    [status, setStatus] = useState<'saved' | 'error' | null>(null),
+    [removeError, setRemoveError] = useState(false);
   const busy = working || pending;
   useEffect(() => {
     setPanchang(localStorage.getItem('tianji-panchang') === 'true');
@@ -97,7 +103,7 @@ export function SettingsForm({
   }
   async function remove() {
     setBusy(true);
-    setStatus(null);
+    setRemoveError(false);
     try {
       if (signedIn) {
         const r = await deleteAccountAction(confirm, feedback);
@@ -114,29 +120,8 @@ export function SettingsForm({
         localStorage.removeItem(k);
       window.location.assign(`/${locale}/auth/login?deleted=1`);
     } catch {
-      setStatus('error');
+      setRemoveError(true);
       setBusy(false);
-    }
-  }
-  async function download() {
-    setStatus(null);
-    try {
-      const blob = signedIn
-        ? await fetch('/api/v1/me/export').then(async (r) => {
-            if (!r.ok) throw new Error('Export failed');
-            return r.blob();
-          })
-        : new Blob([JSON.stringify({ ok: true, data: await readAnonymous() }, null, 2)], {
-            type: 'application/json',
-          });
-      const url = URL.createObjectURL(blob),
-        a = document.createElement('a');
-      a.href = url;
-      a.download = 'tianji-export.json';
-      a.click();
-      URL.revokeObjectURL(url);
-    } catch {
-      setStatus('error');
     }
   }
   return (
@@ -161,7 +146,10 @@ export function SettingsForm({
             <option value="en">{t('me.language.en')}</option>
           </select>
         </label>
-        <ThemeSwitch />
+        <div className="settings-theme">
+          <span aria-hidden>{t('nav.theme')}</span>
+          <ThemeSwitch />
+        </div>
         <label>
           {t('me.name')}
           <input
@@ -170,14 +158,7 @@ export function SettingsForm({
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
         </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={form.soundOn}
-            onChange={(e) => setForm({ ...form, soundOn: e.target.checked })}
-          />
-          {t('me.sound')}
-        </label>
+        {/* DESIGN-GAP: Sound effects are not implemented, so the switch is hidden; soundOn is still saved unchanged. */}
         <label>
           <input
             type="checkbox"
@@ -194,46 +175,38 @@ export function SettingsForm({
           />
           {t('me.panchang')}
         </label>
-        <label>
-          {t('me.tz')}
-          <input
-            list="time-zones"
-            value={form.tz ?? ''}
-            placeholder={Intl.DateTimeFormat().resolvedOptions().timeZone}
-            onChange={(e) => setForm({ ...form, tz: e.target.value || null })}
-          />
-          <datalist id="time-zones">
-            {Intl.supportedValuesOf('timeZone').map((zone) => (
-              <option value={zone} key={zone} />
-            ))}
-          </datalist>
-        </label>
-        <p>{t('me.tzHelp')}</p>
-        <Button disabled={busy} type="submit">
-          {t(busy ? 'common.loading' : 'me.save')}
-        </Button>
+        <TimeZoneField value={form.tz} onChange={(tz) => setForm((f) => ({ ...f, tz }))} />
+        <div className="settings-save">
+          <Button disabled={busy} type="submit">
+            {t(busy ? 'common.loading' : 'me.save')}
+          </Button>
+          {status ? (
+            <p role={status === 'error' ? 'alert' : 'status'}>
+              {t(status === 'saved' ? 'me.saved' : 'report.error.E_INTERNAL')}
+            </p>
+          ) : null}
+        </div>
       </form>
       {pushAvailable ? <PushReminderSettings signedIn={signedIn} /> : null}
-      <section className="report-card">
-        <h2>{t('me.data')}</h2>
-        <Button disabled={busy} action={download}>
-          {t('me.export')}
-        </Button>
-        <p>
-          <PrivacyChoices settings />
-          <Link href="/privacy">{t('me.privacy')}</Link>
-        </p>
-        <p>{t('me.version', { version: webPackage.version })}</p>
-      </section>
+      <SettingsData signedIn={signedIn} version={version} />
+      {logout ? (
+        <section className="report-card">
+          <h2>{t('me.account')}</h2>
+          {logout}
+        </section>
+      ) : null}
       <section className="report-card danger-zone">
         <h2>{t('me.danger')}</h2>
         <p>{t(signedIn ? 'me.deleteHelp' : 'me.deleteLocalHelp')}</p>
-        <Button onClick={() => setOpen(true)}>{t('me.delete')}</Button>
+        {/* An anonymous visitor has no account to delete, only device data to clear. */}
+        <Button onClick={() => setOpen(true)}>
+          {t(signedIn ? 'me.delete' : 'me.deleteLocal')}
+        </Button>
       </section>
       <Dialog
         open={open}
         onOpenChange={setOpen}
-        title={t('me.delete')}
+        title={t(signedIn ? 'me.delete' : 'me.deleteLocal')}
         description={t('me.deleteConfirmHelp')}
       >
         <label>
@@ -251,15 +224,10 @@ export function SettingsForm({
           </label>
         ) : null}
         <Button disabled={busy || confirm !== 'DELETE'} action={remove}>
-          {t('me.deleteFinal')}
+          {t(signedIn ? 'me.deleteFinal' : 'me.deleteLocal')}
         </Button>
-        {status === 'error' ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
+        {removeError ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
       </Dialog>
-      {status ? (
-        <p role={status === 'error' ? 'alert' : 'status'}>
-          {t(status === 'saved' ? 'me.saved' : 'report.error.E_INTERNAL')}
-        </p>
-      ) : null}
     </section>
   );
 }

@@ -5,23 +5,33 @@ import { useCopy } from '@/i18n/use-copy';
 import { Dialog } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/i18n/navigation';
+import { Share2 } from 'lucide-react';
+import type { MessageKey } from '@/i18n/catalog';
 import {
   createShareLinkAction,
   signDailyCardAction,
   revokeShareLinkAction,
 } from '@/app/share/actions';
 import type { DailyCard, ShareTemplate } from '@/lib/share-projection';
+const errorKey: Record<'create' | 'preview' | 'action', MessageKey> = {
+  create: 'report.shareCreateFailed',
+  preview: 'report.sharePreviewFailed',
+  action: 'report.error.E_INTERNAL',
+};
 /** Accessible template/privacy picker with PNG preview, download, link copy and native sharing. */
 export function ShareDialog({
   readingId,
   daily,
   local = false,
   system,
+  toolbar = false,
 }: {
   readingId?: string;
   daily?: DailyCard;
   local?: boolean;
   system?: string;
+  /** Render the trigger as an outlined icon button for the report toolbar. */
+  toolbar?: boolean;
 }) {
   const t = useCopy(),
     locale = useLocale();
@@ -35,8 +45,9 @@ export function ShareDialog({
     [url, setUrl] = useState(''),
     [image, setImage] = useState(''),
     [preview, setPreview] = useState(''),
-    [error, setError] = useState(false),
-    [copied, setCopied] = useState(false),
+    // Creating the link and rendering its preview fail independently; the link stays usable either way.
+    [error, setError] = useState<'' | 'create' | 'preview' | 'action'>(''),
+    [notice, setNotice] = useState<'' | 'copied' | 'revoked'>(''),
     [token, setToken] = useState('');
   useEffect(() => {
     if (!image) {
@@ -55,7 +66,7 @@ export function ShareDialog({
         if (active) setPreview(objectUrl);
       })
       .catch(() => {
-        if (active) setError(true);
+        if (active) setError('preview');
       });
     return () => {
       active = false;
@@ -64,8 +75,8 @@ export function ShareDialog({
   }, [image]);
   async function generate() {
     setBusy(true);
-    setError(false);
-    setCopied(false);
+    setError('');
+    setNotice('');
     try {
       const result = daily
         ? await signDailyCardAction(daily)
@@ -81,7 +92,7 @@ export function ShareDialog({
         setUrl(new URL(result.data.url, window.location.origin).toString());
       }
     } catch {
-      setError(true);
+      setError('create');
     } finally {
       setBusy(false);
     }
@@ -89,7 +100,8 @@ export function ShareDialog({
   return (
     <>
       <Button
-        variant="ghost"
+        variant={toolbar ? 'secondary' : 'ghost'}
+        className={toolbar ? 'report-action' : undefined}
         onClick={() => {
           if (daily)
             window.dispatchEvent(
@@ -98,6 +110,7 @@ export function ShareDialog({
           setOpen(true);
         }}
       >
+        {toolbar ? <Share2 aria-hidden="true" size={16} /> : null}
         {t('report.share')}
       </Button>
       <Dialog
@@ -183,61 +196,79 @@ export function ShareDialog({
             {preview ? (
               <img className="share-preview" src={preview} alt={t('share.preview')} />
             ) : null}
-            {preview ? (
-              <div className="action-row">
-                <a className="text-link" download="tianji.png" href={preview}>
-                  {t('share.download')}
-                </a>
-                <Button
-                  variant="ghost"
-                  action={async () => {
-                    await navigator.clipboard
-                      .writeText(url)
-                      .then(() => setCopied(true))
-                      .catch(() => setError(true));
-                  }}
-                >
-                  {t('share.copy')}
-                </Button>
-                <Button
-                  variant="ghost"
-                  action={async () => {
-                    try {
-                      const blob = await (await fetch(preview)).blob(),
-                        file = new File([blob], 'tianji.png', { type: 'image/png' });
-                      if (navigator.canShare?.({ files: [file] }))
-                        await navigator.share({ files: [file], title: t('report.share') });
-                      else if (navigator.share) await navigator.share({ url });
-                      else await navigator.clipboard.writeText(url);
-                    } catch (e) {
-                      if (!(e instanceof DOMException && e.name === 'AbortError')) setError(true);
-                    }
-                  }}
-                >
-                  {t('share.native')}
-                </Button>
-                {token ? (
+            {url ? (
+              <>
+                <input
+                  className="share-link"
+                  readOnly
+                  value={url}
+                  aria-label={t('report.shareLink')}
+                  onFocus={(e) => e.currentTarget.select()}
+                />
+                <div className="action-row">
+                  {preview ? (
+                    <a className="text-link" download="tianji.png" href={preview}>
+                      {t('share.download')}
+                    </a>
+                  ) : null}
                   <Button
                     variant="ghost"
                     action={async () => {
-                      await revokeShareLinkAction(token)
-                        .then((r) => {
-                          if (r.ok) {
-                            setUrl('');
-                            setImage('');
-                            setToken('');
-                          } else setError(true);
-                        })
-                        .catch(() => setError(true));
+                      await navigator.clipboard
+                        .writeText(url)
+                        .then(() => setNotice('copied'))
+                        .catch(() => setError('action'));
                     }}
                   >
-                    {t('share.revoke')}
+                    {t('share.copy')}
                   </Button>
-                ) : null}
-              </div>
+                  <Button
+                    variant="ghost"
+                    action={async () => {
+                      try {
+                        const blob = preview ? await (await fetch(preview)).blob() : null,
+                          file = blob
+                            ? new File([blob], 'tianji.png', { type: 'image/png' })
+                            : null;
+                        if (file && navigator.canShare?.({ files: [file] }))
+                          await navigator.share({ files: [file], title: t('report.share') });
+                        else if (navigator.share) await navigator.share({ url });
+                        else await navigator.clipboard.writeText(url);
+                      } catch (e) {
+                        if (!(e instanceof DOMException && e.name === 'AbortError'))
+                          setError('action');
+                      }
+                    }}
+                  >
+                    {t('share.native')}
+                  </Button>
+                  {token ? (
+                    <Button
+                      variant="ghost"
+                      action={async () => {
+                        await revokeShareLinkAction(token)
+                          .then((r) => {
+                            if (r.ok) {
+                              setUrl('');
+                              setImage('');
+                              setToken('');
+                              setError('');
+                              setNotice('revoked');
+                            } else setError('action');
+                          })
+                          .catch(() => setError('action'));
+                      }}
+                    >
+                      {t('share.revoke')}
+                    </Button>
+                  ) : null}
+                </div>
+              </>
             ) : null}
-            {copied ? <p role="status">{t('share.copied')}</p> : null}
-            {error ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
+            {notice ? (
+              <p role="status">{t(notice === 'copied' ? 'share.copied' : 'report.shareRevoked')}</p>
+            ) : null}
+            {error ? <p role="alert">{t(errorKey[error])}</p> : null}
           </>
         )}
       </Dialog>

@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { isLocale } from '@/i18n/routing';
@@ -7,11 +6,10 @@ import { Link } from '@/i18n/navigation';
 import { ConfirmButton } from '@/components/forms/confirm-button';
 import { verificationSchema } from '@/lib/auth-confirmation';
 import { confirmLoginAction } from '../actions';
+import { privatePageMetadata } from '@/lib/page-metadata';
 
-export const metadata: Metadata = {
-  robots: { index: false, follow: false },
-  referrer: 'no-referrer',
-};
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.verify', { extra: { referrer: 'no-referrer' } });
 
 export const dynamic = 'force-dynamic';
 

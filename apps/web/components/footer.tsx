@@ -3,9 +3,10 @@ import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
 import { brand } from '@tianji/shared/brand';
 import { LocaleSwitch } from './locale-switch';
+import { ThemeSwitch } from './theme-provider';
 import { systems } from './navigation';
 import { PrivacyChoices } from './ads/privacy-choices';
-/** Persistent footer includes legal links, privacy choices, credits, and language control. */
+/** Persistent footer includes legal links, privacy choices, credits, and language and theme controls. */
 // DESIGN-GAP: Footer destinations load on navigation so a loading anonymous report does not compete with automatic prefetches of fourteen unrelated RSC pages on mobile.
 export function Footer() {
   const t = useCopy();
@@ -16,7 +17,10 @@ export function Footer() {
           <span className="brand-zh">{t('brand.nameZh', { name: brand.nameZh })}</span>
           <span className="brand-en">{t('brand.nameEn', { name: brand.nameEn })}</span>
         </Link>
-        <LocaleSwitch />
+        <div className="footer-prefs">
+          <LocaleSwitch />
+          <ThemeSwitch />
+        </div>
       </div>
       <div className="footer-links">
         {systems.map((system) => (

@@ -8,6 +8,21 @@ import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 import type { MessageKey } from '@/i18n/catalog';
+const DISMISS_KEY = 'tianji:anon-import-later';
+function dismissedThisSession(): boolean {
+  try {
+    return window.sessionStorage.getItem(DISMISS_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+function dismissForSession() {
+  try {
+    window.sessionStorage.setItem(DISMISS_KEY, '1');
+  } catch {
+    // Blocked storage only means the offer may appear again on the next page.
+  }
+}
 /** Offer import after session confirmation; failures retain the encrypted device copy for a safe retry. */
 export function AnonymousImport() {
   const t = useCopy();
@@ -19,7 +34,7 @@ export function AnonymousImport() {
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     let active = true;
-    if (!document.cookie.includes('anon_import=1')) return;
+    if (!document.cookie.includes('anon_import=1') || dismissedThisSession()) return;
     void Promise.all([
       fetch('/api/auth/session').then((r) => r.json() as Promise<unknown>),
       readAnonymous(),
@@ -47,13 +62,24 @@ export function AnonymousImport() {
   return (
     <Dialog
       open={open}
-      onOpenChange={setOpen}
+      onOpenChange={(next) => {
+        // Closing without importing counts as "later" for the rest of this session.
+        if (!next) dismissForSession();
+        setOpen(next);
+      }}
       title={t('report.import.title')}
       description={t('report.import.body', { count: data?.readings.length ?? 0 })}
     >
       {error ? <p role="alert">{t(error as MessageKey)}</p> : null}
       <div className="hero-actions">
-        <Button variant="secondary" disabled={busy} onClick={() => setOpen(false)}>
+        <Button
+          variant="secondary"
+          disabled={busy}
+          onClick={() => {
+            dismissForSession();
+            setOpen(false);
+          }}
+        >
           {t('report.import.later')}
         </Button>
         <Button

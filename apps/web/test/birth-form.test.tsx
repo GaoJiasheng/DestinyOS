@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import type React from 'react';
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
@@ -6,7 +7,9 @@ import { BirthForm } from '../components/forms/birth-form';
 import { toMessages } from '../i18n/catalog';
 import zh from '../messages/zh.json';
 import en from '../messages/en.json';
-import { birthError, lunarMonths, isUnderThirteen } from '../lib/birth-form';
+import { birthError, lunarMonths, isUnderThirteen, switchCalendar } from '../lib/birth-form';
+import { dateIssues } from '../lib/birth-form-validate';
+import { safeReturnTo } from '../lib/birth-form-draft';
 import type { BirthInput } from '@tianji/shared';
 vi.mock('../app/readings/actions', () => ({
   createReadingAction: vi.fn(),
@@ -15,7 +18,11 @@ vi.mock('../app/readings/actions', () => ({
 }));
 vi.mock('../lib/consent', () => ({ afterConsent: (proceed: () => void) => proceed() }));
 vi.mock('../i18n/navigation', () => ({ useRouter: () => ({ push: vi.fn(), replace: vi.fn() }) }));
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  sessionStorage.clear();
+  window.history.replaceState(null, '', '/');
+});
 const input: BirthInput = {
   calendar: 'gregorian',
   year: 1990,
@@ -37,28 +44,65 @@ for (const [locale, catalog] of [
           <BirthForm />
         </NextIntlClientProvider>,
       );
-    it('offers exactly 13 branches and disables the clock for unknown birth time', () => {
+    it('offers exactly 13 branches, none preselected, and disables the clock for unknown birth time', () => {
       show();
-      expect(screen.getAllByRole('option')).toHaveLength(13);
+      const hour = screen.getByLabelText(catalog['form.birth.hourBranch']) as HTMLSelectElement;
+      expect(hour.value).toBe('');
+      expect([...hour.options].filter((o) => o.value !== '')).toHaveLength(13);
+      for (const field of ['year', 'month', 'day'] as const)
+        expect(
+          (screen.getByLabelText(catalog[`form.birth.${field}`]) as HTMLInputElement).value,
+        ).toBe('');
       fireEvent.click(screen.getByLabelText(catalog['form.birth.timeUnknown']));
       expect(
         (screen.getByLabelText(catalog['form.birth.hourBranch']) as HTMLSelectElement).disabled,
       ).toBe(true);
       expect(screen.getByText(catalog['form.birth.timeUnknown.help'])).toBeTruthy();
     });
-    it('validates impossible Gregorian dates before moving to step two', () => {
+    it('reports the exact missing day beside the field only after leaving it or submitting', async () => {
+      show();
+      const day = screen.getByLabelText(catalog['form.birth.day']);
+      fireEvent.change(screen.getByLabelText(catalog['form.birth.year']), {
+        target: { value: '1' },
+      });
+      expect(screen.queryByText(catalog['engine.errors.E_DATE_OUT_OF_RANGE'])).toBeNull();
+      fireEvent.change(screen.getByLabelText(catalog['form.birth.year']), {
+        target: { value: '1990' },
+      });
+      fireEvent.change(screen.getByLabelText(catalog['form.birth.month']), {
+        target: { value: '6' },
+      });
+      fireEvent.change(day, { target: { value: '31' } });
+      fireEvent.blur(day);
+      const message = screen.getByText(
+        locale === 'zh' ? '6 月没有 31 日。' : 'June has no day 31.',
+      );
+      expect(day.getAttribute('aria-describedby')).toBe(message.id);
+      expect(screen.queryByLabelText(catalog['form.birth.city'])).toBeNull();
+    });
+    it('requires an hour (or unknown time) and focuses the first invalid field on submit', async () => {
       show();
       fireEvent.change(screen.getByLabelText(catalog['form.birth.year']), {
         target: { value: '1990' },
       });
       fireEvent.change(screen.getByLabelText(catalog['form.birth.month']), {
-        target: { value: '2' },
+        target: { value: '5' },
       });
       fireEvent.change(screen.getByLabelText(catalog['form.birth.day']), {
-        target: { value: '30' },
+        target: { value: '15' },
       });
-      expect(screen.getByRole('alert').textContent).toBe(catalog['engine.errors.E_INVALID_INPUT']);
-      expect(screen.queryByLabelText(catalog['form.birth.city'])).toBeNull();
+      fireEvent.click(screen.getByRole('button', { name: catalog['form.birth.next'] }));
+      await screen.findByText(catalog['form.birth.error.hourRequired']);
+      await vi.waitFor(() =>
+        expect(document.activeElement).toBe(
+          screen.getByLabelText(catalog['form.birth.hourBranch']),
+        ),
+      );
+      fireEvent.change(screen.getByLabelText(catalog['form.birth.hourBranch']), {
+        target: { value: '7' },
+      });
+      fireEvent.click(screen.getByRole('button', { name: catalog['form.birth.next'] }));
+      await screen.findByLabelText(catalog['form.birth.city']);
     });
   });
 }
@@ -108,7 +152,7 @@ describe('rectified birth provenance', () => {
         '',
       ),
     );
-    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.back'] }));
+    fireEvent.click(await screen.findByRole('button', { name: zh['form.birth.back'] }));
     fireEvent.change(screen.getByLabelText(zh['form.birth.time'], { exact: true }), {
       target: { value: '10:00' },
     });
@@ -121,5 +165,84 @@ describe('rectified birth provenance', () => {
       timeSource: undefined,
       rectificationConfidence: undefined,
     });
+  });
+});
+
+describe('calendar switching and date reasons', () => {
+  it('ignores the current calendar and clamps to the target month length', () => {
+    expect(switchCalendar({ ...input, day: 31 }, 'gregorian')).toBeNull();
+    expect(switchCalendar({ ...input, month: 5, day: 31 }, 'lunar')).toMatchObject({
+      calendar: 'lunar',
+      day: 30,
+    });
+    expect(
+      switchCalendar({ ...input, calendar: 'lunar', month: 6, day: 30 }, 'gregorian'),
+    ).toMatchObject({ day: 30 });
+    expect(
+      switchCalendar({ ...input, calendar: 'lunar', year: 2023, month: 2, day: 30 }, 'gregorian'),
+    ).toMatchObject({ day: 28 });
+  });
+  it('names the specific impossible date', () => {
+    expect(dateIssues({ ...input, year: 2023, month: 2, day: 29 })).toEqual([
+      { field: 'day', key: 'form.birth.error.notLeap', params: { year: '2023' } },
+    ]);
+    expect(dateIssues({ ...input, month: 0, day: 0 }).map((i) => i.field)).toEqual([
+      'month',
+      'day',
+    ]);
+  });
+  it('accepts only in-site return paths', () => {
+    expect(safeReturnTo('/today')).toBe('/today');
+    expect(safeReturnTo('/zh/today/calendar')).toBe('/today/calendar');
+    expect(safeReturnTo('//evil.example')).toBeNull();
+    expect(safeReturnTo('https://evil.example')).toBeNull();
+    expect(safeReturnTo('/\\evil.example')).toBeNull();
+    expect(safeReturnTo(null)).toBeNull();
+  });
+});
+
+describe('age check, draft and history', () => {
+  const zhShow = (ui: React.ReactNode) =>
+    render(
+      <NextIntlClientProvider locale="zh" messages={toMessages(zh)} timeZone="UTC">
+        {ui}
+      </NextIntlClientProvider>,
+    );
+  const fillDate = (year: string) => {
+    fireEvent.change(screen.getByLabelText(zh['form.birth.year']), { target: { value: year } });
+    fireEvent.change(screen.getByLabelText(zh['form.birth.month']), { target: { value: '5' } });
+    fireEvent.change(screen.getByLabelText(zh['form.birth.day']), { target: { value: '15' } });
+    fireEvent.click(screen.getByLabelText(zh['form.birth.timeUnknown']));
+  };
+  afterEach(() => {
+    sessionStorage.clear();
+    window.history.replaceState(null, '', '/');
+  });
+  it('asks before locking an under-13 birthday and does not lock for someone else', async () => {
+    const { blockAgeAction } = await import('../app/readings/actions');
+    zhShow(<BirthForm />);
+    fillDate('2020');
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    fireEvent.click(await screen.findByRole('button', { name: zh['form.birth.ageCheck.other'] }));
+    expect(blockAgeAction).not.toHaveBeenCalled();
+    await screen.findByText(zh['form.birth.error.underThirteen']);
+    expect((screen.getByLabelText(zh['form.birth.for.other']) as HTMLInputElement).checked).toBe(
+      true,
+    );
+    expect(screen.queryByLabelText(zh['form.birth.city'])).toBeNull();
+  });
+  it('records step two in history and restores the session draft after a reload', async () => {
+    const view = zhShow(<BirthForm />);
+    fillDate('1990');
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    await screen.findByLabelText(zh['form.birth.city']);
+    expect(window.location.search).toBe('?step=2');
+    expect(sessionStorage.getItem('tianji.draft.bazi')).toContain('1990');
+    view.unmount();
+    zhShow(<BirthForm />);
+    await screen.findByLabelText(zh['form.birth.city']);
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.back'] }));
+    await vi.waitFor(() => expect(window.location.search).toBe(''));
+    await screen.findByDisplayValue('1990');
   });
 });

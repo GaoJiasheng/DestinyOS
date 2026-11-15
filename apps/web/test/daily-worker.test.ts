@@ -105,4 +105,59 @@ describe('anonymous daily worker lifecycle', () => {
     expect(event.preventDefault).toHaveBeenCalledOnce();
     expect(worker.terminate).toHaveBeenCalledOnce();
   });
+  it('times out a stuck calculation, terminates the worker and ignores late replies', async () => {
+    vi.useFakeTimers();
+    try {
+      const pending = calculateDailyInWorker(request, new AbortController().signal, 'zh', 10_000);
+      const rejected = expect(pending).rejects.toThrow('E_TIMEOUT');
+      const worker = BrowserWorker.instances[0]!;
+      await vi.advanceTimersByTimeAsync(9_999);
+      expect(worker.terminate).not.toHaveBeenCalled();
+      await vi.advanceTimersByTimeAsync(1);
+      await rejected;
+      expect(worker.terminate).toHaveBeenCalledOnce();
+      worker.onmessage!({
+        data: { ok: false, code: 'E_INTERNAL' },
+      } as MessageEvent<DailyWorkerResponse>);
+      expect(BrowserWorker.instances).toHaveLength(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+  it('times out while device decryption never settles and never posts afterwards', async () => {
+    vi.useFakeTimers();
+    try {
+      let resolveInput!: (value: DailyWorkerRequest) => void;
+      const input = new Promise<DailyWorkerRequest>((resolve) => {
+        resolveInput = resolve;
+      });
+      const pending = calculateDailyInWorker(input, new AbortController().signal, 'zh');
+      const rejected = expect(pending).rejects.toThrow('E_TIMEOUT');
+      await vi.advanceTimersByTimeAsync(10_000);
+      await rejected;
+      resolveInput(request);
+      await Promise.resolve();
+      expect(BrowserWorker.instances[0]!.postMessage).not.toHaveBeenCalled();
+      expect(BrowserWorker.instances[0]!.terminate).toHaveBeenCalledOnce();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+  it('clears the timeout once a result arrives, so a finished worker is not terminated twice', async () => {
+    vi.useFakeTimers();
+    try {
+      const pending = calculateDailyInWorker(request, new AbortController().signal, 'zh');
+      const rejected = expect(pending).rejects.toThrow('E_INTERNAL');
+      const worker = BrowserWorker.instances[0]!;
+      worker.onmessage!({
+        data: { ok: false, code: 'E_INTERNAL' },
+      } as MessageEvent<DailyWorkerResponse>);
+      await rejected;
+      expect(vi.getTimerCount()).toBe(0);
+      await vi.advanceTimersByTimeAsync(20_000);
+      expect(worker.terminate).toHaveBeenCalledOnce();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });

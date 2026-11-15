@@ -146,7 +146,12 @@ test('under 13 is blocked with a session cookie that prevents returning to the f
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
   await page.goto('/zh/bazi/new');
   await page.getByLabel('年', { exact: true }).fill('2020');
+  await page.getByLabel('月', { exact: true }).fill('5');
+  await page.getByLabel('日', { exact: true }).fill('15');
+  await page.getByLabel('我不知道出生时间', { exact: true }).check();
   await page.getByRole('button', { name: '下一步', exact: true }).click();
+  // The lock now follows an explicit confirmation that the birthday is the user's own.
+  await page.getByRole('button', { name: '是我本人', exact: true }).click();
   await expect(page).toHaveURL(/age-restricted$/);
   expect((await page.context().cookies()).find((c) => c.name === 'age_gate')).toMatchObject({
     value: 'blocked',

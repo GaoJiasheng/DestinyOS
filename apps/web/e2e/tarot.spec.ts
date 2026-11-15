@@ -54,10 +54,7 @@ for (const locale of ['zh', 'en'] as const) {
     await page.getByRole('button', { name: m['tarot.begin'] }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/tarot/reading$`));
     await expect(page.getByRole('button', { name: m['tarot.next'], exact: true })).toBeDisabled();
-    await expect(page.getByRole('button', { name: m['tarot.sound'], exact: true })).toHaveAttribute(
-      'aria-pressed',
-      'false',
-    );
+    await expect(page.getByRole('button', { name: m['tarot.sound'], exact: true })).toHaveCount(0);
     await expect(page.locator('.tarot-deck-proxy')).toHaveCount(36);
     await expect(page.locator('img[src*="/tarot/rws/"]')).toHaveCount(0);
     const shuffleFrames = measureFrames(page);
@@ -95,6 +92,9 @@ for (const locale of ['zh', 'en'] as const) {
       contentType: 'application/json',
     });
     await expect(page.locator('.tarot-card[data-card]')).toHaveCount(3);
+    await expect(page.getByRole('button', { name: m['tarot.revealAll'], exact: true })).toHaveCount(
+      0,
+    );
     await expect(page.locator('.tarot-card > button').first()).toHaveCSS('opacity', '1');
     const drawn = await page
       .locator('.tarot-card')

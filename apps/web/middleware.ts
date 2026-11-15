@@ -4,6 +4,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { routing, isLocale } from './i18n/routing';
 import { reportOnlyCsp } from './lib/security-headers';
 import learnPaths from './lib/learn-paths-generated.json' with { type: 'json' };
+import { isKnownRoute } from './lib/known-routes';
 const intl = createMiddleware(routing);
 const learning = new Set<string>(learnPaths);
 /** A session age gate blocks returning to input routes; server actions independently enforce the same cookie. */
@@ -38,10 +39,16 @@ export default function middleware(request: NextRequest) {
     const locale = request.nextUrl.pathname.split('/')[1];
     return NextResponse.redirect(new URL(`/${locale}`, request.url));
   }
-  const learn = request.nextUrl.pathname.match(/^\/(zh|en|zh-TW)(\/learn(?:\/.*)?)$/);
-  if (learn && !learning.has(learn[2]!.replace(/\/$/, ''))) {
+  const localized = request.nextUrl.pathname.match(/^\/(zh|en|zh-TW)((?:\/.*)?)$/);
+  const path = localized?.[2]!.replace(/\/$/, '') ?? '';
+  // Paths with a file extension are static Flight/segment assets, never pages.
+  const unknown =
+    localized &&
+    !/\.[^/]+$/.test(path) &&
+    (/^\/learn(?:\/|$)/.test(path) ? !learning.has(path) : !isKnownRoute(path));
+  if (localized && unknown) {
     // DESIGN-GAP: Reuse the existing localized not-found renderer; the middleware status stays 404 even when its layout streams a loading shell.
-    const response = NextResponse.rewrite(new URL(`/${learn[1]}/404`, request.url), {
+    const response = NextResponse.rewrite(new URL(`/${localized[1]}/404`, request.url), {
       status: 404,
       request: { headers: request.headers },
     });

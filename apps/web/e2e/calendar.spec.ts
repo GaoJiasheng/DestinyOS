@@ -93,6 +93,8 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const) {
       .screenshot({
         path: `test-results/calendar-${locale}-${test.info().project.name}.png`,
       });
+    const more = page.locator('button[aria-controls="calendar-upcoming"]');
+    if (await more.count()) await more.click();
     await page.locator('[data-calendar-event="solar_return"] a').click();
     await expect(page.locator('[data-daily-block="1"] time')).toHaveAttribute(
       'datetime',

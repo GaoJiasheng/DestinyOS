@@ -7,10 +7,15 @@ import { Link } from '@/i18n/navigation';
 import { LocalHistory } from '@/components/report/local-history';
 import { LocalDisplayName, ProfileSummary } from '@/components/me/profile-summary';
 import type { MessageKey } from '@/i18n/catalog';
+import { MeMenu } from '@/components/me/me-menu';
+import { LogoutForm } from '@/components/me/logout-form';
+import { privatePageMetadata } from '@/lib/page-metadata';
 export const dynamic = 'force-dynamic';
-export const metadata = { robots: { index: false, follow: false } };
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.me');
 /** Account overview with only five recent readings and owner profile derivatives. */
-export default async function MePage() {
+export default async function MePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getCopy(),
     session = await auth();
   const user = session?.user.id
@@ -39,7 +44,10 @@ export default async function MePage() {
           <p>{t(user?.plan === 'pro' ? 'me.plan.pro' : 'me.plan.free')}</p>
         ) : null}
       </div>
-      <ProfileSummary profile={profile?.ok && profile.data ? profile.data : undefined} />
+      <ProfileSummary
+        signedIn={Boolean(user)}
+        profile={profile?.ok && profile.data ? profile.data : undefined}
+      />
       <section className="report-card">
         <h2>{t('me.recent')}</h2>
         {!user ? (
@@ -60,15 +68,8 @@ export default async function MePage() {
           <p>{t('report.history.empty')}</p>
         )}
       </section>
-      <nav className="report-card settings-fields">
-        {(['profiles', 'birth', 'history', 'journal', 'settings', 'billing'] as const)
-          .filter((k) => k !== 'billing' || membershipEnabled())
-          .map((k) => (
-            <Link key={k} href={`/me/${k}`}>
-              {t(`me.${k}`)}
-            </Link>
-          ))}
-      </nav>
+      <MeMenu signedIn={Boolean(user)} billing={membershipEnabled()} />
+      {user ? <LogoutForm locale={locale} /> : null}
     </section>
   );
 }

@@ -2,8 +2,10 @@ import { getDb } from '@/lib/db';
 import { currentProfile } from '@/lib/profile-service';
 import { auth } from '@/lib/auth';
 import { CalendarView } from '@/components/daily/calendar-view';
+import { privatePageMetadata } from '@/lib/page-metadata';
 export const dynamic = 'force-dynamic';
-export const metadata = { robots: { index: false, follow: false } };
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.calendar');
 /** Calendar contains owner-only scores; anonymous profiles remain on the device. */
 export default async function CalendarPage() {
   const session = await auth();

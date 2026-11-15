@@ -6,6 +6,7 @@ import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { Link } from '@/i18n/navigation';
+import { Download } from 'lucide-react';
 import type { ExportRequest } from '@/lib/report-export-schema';
 const updateSchema = z.object({
   progress: z.number().min(0).max(100).optional(),
@@ -19,10 +20,13 @@ export function ExportMenu({
   readingId,
   local,
   owner,
+  toolbar = false,
 }: {
   readingId: string;
   local: boolean;
   owner: boolean;
+  /** Render the trigger as an outlined icon button for the report toolbar. */
+  toolbar?: boolean;
 }) {
   const t = useCopy();
   const locale = useLocale() as 'zh' | 'en' | 'zh-TW';
@@ -123,7 +127,12 @@ export function ExportMenu({
   const busy = working;
   return (
     <div className="export-menu">
-      <Button variant="ghost" onClick={() => setOpen(true)}>
+      <Button
+        variant={toolbar ? 'secondary' : 'ghost'}
+        className={toolbar ? 'report-action' : undefined}
+        onClick={() => setOpen(true)}
+      >
+        {toolbar ? <Download aria-hidden="true" size={16} /> : null}
         {t('export.menu')}
       </Button>
       <Dialog

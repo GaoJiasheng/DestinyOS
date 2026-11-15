@@ -1,6 +1,6 @@
 'use client';
 import { useSubmitTransition } from './use-submit-transition';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { toast } from 'sonner';
 import { normalizeBirth } from '@tianji/engine/common';
@@ -9,17 +9,36 @@ import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { useRouter } from '@/i18n/navigation';
 import { initialBirth } from '@/lib/birth-form-initial';
-import { birthError, isUnderThirteen, lunarMonths } from '@/lib/birth-form';
-import { createReadingAction, upsertProfileAction, blockAgeAction } from '@/app/readings/actions';
-import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
-import type { ReadingRequest, LocalReading } from '@/lib/reading-schema';
+import { birthError, isUnderThirteen, yearPatch } from '@/lib/birth-form';
+import {
+  birthFields,
+  stepOneIssues,
+  stepTwoIssues,
+  type BirthField,
+  type FieldIssue,
+} from '@/lib/birth-form-validate';
+import { safeReturnTo, setUrlStep, urlStep } from '@/lib/birth-form-draft';
+import {
+  createBirthReading,
+  networkError,
+  defaultSchool,
+  saveBirthProfile,
+  saveRectificationDraft,
+  schoolOptions,
+  submitLabel,
+  type School,
+} from '@/lib/birth-form-submit';
+import { blockAgeAction } from '@/app/readings/actions';
 import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
-import { BirthSchoolFields } from './birth-school-fields';
+import { BirthPersonFields } from './birth-person-fields';
 import { BirthDateFields } from './birth-date-fields';
 import { BirthPlaceFields } from './birth-place-fields';
+import { AgeConfirmDialog, BirthTargetChoice, type BirthTarget } from './birth-form-parts';
+import { useBirthDraft } from './use-birth-draft';
+import { useBirthTarget } from './use-birth-target';
 import { DivinationLoader } from '@/components/ui/divination-loader';
-/** Two-step shared birth editor with live calendar/timezone validation and privacy-safe submission. */
+/** Two-step shared birth editor with inline validation, a session draft and privacy-safe submission. */
 export function BirthForm({
   system = 'bazi',
   initial,
@@ -27,6 +46,8 @@ export function BirthForm({
   signedIn = false,
   onComplete,
   completionKey,
+  draftKey,
+  prefillProfile = true,
 }: {
   system?: Exclude<System, 'daily'>;
   initial?: BirthInput & { displayName?: string };
@@ -34,13 +55,19 @@ export function BirthForm({
   signedIn?: boolean;
   completionKey?: MessageKey;
   onComplete?: (birth: BirthInput, displayName: string) => void | Promise<void>;
+  /** Session draft slot; embedded forms keep no draft unless the host names one. */
+  draftKey?: string;
+  /** Embedded forms may start from the device profile (rectification) or blank (a synastry partner). */
+  prefillProfile?: boolean;
 }) {
   const t = useCopy();
   const locale = useLocale() as Locale;
   const router = useRouter();
-  const Title = onComplete ? 'h2' : 'h1';
+  const embedded = Boolean(onComplete);
+  const Title = embedded ? 'h2' : 'h1';
+  const slot = embedded ? (draftKey ?? null) : (draftKey ?? (profileMode ? 'profile' : system));
   const [birth, setBirth] = useState<BirthInput>(() => initialBirth(initial));
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState<1 | 2>(1);
   const stepHeading = useRef<HTMLHeadingElement | null>(null);
   const previousStep = useRef(1);
   // DESIGN-GAP: Move keyboard focus to the new step heading only after a step change, never on initial page load.
@@ -48,13 +75,10 @@ export function BirthForm({
     if (previousStep.current !== step) stepHeading.current?.focus();
     previousStep.current = step;
   }, [step]);
-  const [touched, setTouched] = useState(false);
   const [precise, setPrecise] = useState(Boolean(initial));
   const [name, setName] = useState(initial?.displayName ?? '');
-  const [solar, setSolar] = useState(true);
-  const [ziHour, setZiHour] = useState('zi_unified');
-  const [house, setHouse] = useState('placidus');
-  const [leap, setLeap] = useState('split');
+  const [school, setSchool] = useState<School>(defaultSchool);
+  const { solar } = school;
   const [manual, setManual] = useState(false);
   // DESIGN-GAP: Disable pre-hydration edits so native checkbox changes cannot be lost before React attaches handlers.
   const [hydrated, setHydrated] = useState(false);
@@ -64,24 +88,59 @@ export function BirthForm({
   const busy = working || pending;
   const [error, setError] = useState<string | null>(null);
   const [requestId, setRequestId] = useState<string | null>(null);
+  const [blurred, setBlurred] = useState<ReadonlySet<BirthField>>(new Set());
+  const [attempted, setAttempted] = useState(0);
+  const [ageIssue, setAgeIssue] = useState<FieldIssue | null>(null);
+  const [ageDialog, setAgeDialog] = useState(false);
+  const [cityPending, setCityPending] = useState(false);
+  const [returnTo, setReturnTo] = useState<string | null>(null);
+  const dirty = useRef(false);
+  const baseId = useId();
+  const ids = useMemo(
+    () =>
+      Object.fromEntries(birthFields.map((f) => [f, `${baseId}-${f}`])) as Record<
+        BirthField,
+        string
+      >,
+    [baseId],
+  );
+  const { target, setTarget, choose, hasSaved } = useBirthTarget({
+    signedIn,
+    hasInitial: Boolean(initial),
+    embedded,
+    profileMode,
+    prefillProfile,
+    dirty,
+    setBirth,
+    setName,
+    setPrecise,
+    setError,
+  });
+  const draft = useBirthDraft({
+    slot,
+    basis: JSON.stringify(initial ?? null),
+    dirty,
+    snapshot: { birth, name, precise, school, manual, target, step },
+    restore: (d) => {
+      if (typeof d.birth?.year !== 'number') return false;
+      setBirth(d.birth);
+      setName(d.name);
+      setPrecise(d.precise);
+      setSchool({ ...defaultSchool, ...d.school });
+      setManual(d.manual);
+      if (d.target) setTarget(d.target);
+      return d.step === 2 && stepOneIssues(d.birth, d.precise).length === 0;
+    },
+    setStep,
+  });
   useEffect(() => {
-    let active = true;
-    if (!signedIn && !initial)
-      void readAnonymous()
-        .then((data) => {
-          if (active && data?.profile) {
-            const saved = data.profile;
-            setBirth((current) => (current.year === 0 ? saved : current));
-            setName((current) => current || data.displayName || '');
-          }
-        })
-        .catch(() => {
-          if (active) setError('report.storageError');
-        });
-    return () => {
-      active = false;
-    };
-  }, [signedIn, initial]);
+    setReturnTo(safeReturnTo(new URL(window.location.href).searchParams.get('from')));
+  }, []);
+  const chooseTarget = (next: BirthTarget) => {
+    setRequestId(null);
+    setAgeIssue(null);
+    choose(next);
+  };
   const preview = useMemo(() => {
     try {
       return normalizeBirth(birth, locale);
@@ -89,11 +148,19 @@ export function BirthForm({
       return null;
     }
   }, [birth, locale]);
-  const validError = touched ? birthError(birth, locale) : null;
+  // Errors appear after a field is left or a step is submitted, never on the first keystroke.
+  const stepIssues = step === 1 ? stepOneIssues(birth, precise) : stepTwoIssues(birth, cityPending);
+  const visible = stepIssues.filter((i) => attempted >= step || blurred.has(i.field));
+  if (step === 1 && ageIssue && !visible.some((i) => i.field === 'year')) visible.unshift(ageIssue);
+  const focusFirst = (issues: FieldIssue[]) => {
+    const first = birthFields.find((f) => issues.some((i) => i.field === f));
+    if (first) setTimeout(() => document.getElementById(ids[first])?.focus(), 0);
+  };
   const change = (patch: Partial<BirthInput>) => {
-    setTouched(true);
+    dirty.current = true;
     setRequestId(null);
     setError(null);
+    setAgeIssue(null);
     // DESIGN-GAP: Manual changes to birth facts clear trial provenance; a display-name-only edit retains it.
     setBirth((current) => ({
       ...current,
@@ -102,125 +169,96 @@ export function BirthForm({
       rectificationConfidence: undefined,
     }));
   };
-  const changeYear = (year: number) => {
-    const patch: Partial<BirthInput> = { year };
-    if (
-      birth.calendar === 'lunar' &&
-      birth.isLeapMonth &&
-      !lunarMonths(Math.max(1900, Math.min(year, 2100))).some((m) => m.month === -birth.month)
-    )
-      patch.isLeapMonth = false;
-    change(patch);
+  const changeYear = (year: number) => change(yearPatch(birth, year));
+  const back = () => {
+    if (urlStep() === 2 && slot) window.history.back();
+    else setStep(1);
   };
-  const validate = async () => {
-    setTouched(true);
-    const e = birthError(birth, locale);
-    if (e) {
-      setError(e);
+  /** Step one: a complete date and hour, then the age check (dialog unless the user already said it is someone else). */
+  const checkStepOne = () => {
+    const issues = stepOneIssues(birth, precise);
+    if (issues.length) {
+      setAttempted((a) => Math.max(a, 1));
+      if (step !== 1) {
+        setStep(1);
+        setUrlStep(1, 'replace');
+      }
+      focusFirst(issues);
       return false;
     }
-    if (isUnderThirteen(birth, locale)) {
-      await blockAgeAction();
-      router.replace('/age-restricted');
+    // The place is validated on step two, so a stale zone cannot trap the user on step one.
+    const dateOnly = { ...birth, place: undefined };
+    const engine = birthError(dateOnly, locale);
+    if (engine) {
+      setError(engine);
+      return false;
+    }
+    if (isUnderThirteen(dateOnly, locale)) {
+      // DESIGN-GAP: The server still rejects and session-locks any under-13 birth, so "someone else" stops here with an inline reason instead of submitting.
+      if (target === 'other') {
+        setAgeIssue({ field: 'year', key: 'form.birth.error.underThirteen' });
+        focusFirst([{ field: 'year', key: '' }]);
+      } else setAgeDialog(true);
       return false;
     }
     return true;
   };
-  const submit = async () => {
-    if (system === 'ziwei' && birth.timeUnknown && !profileMode && !onComplete) {
-      setError('errors.E_REQUIRES_BIRTH_TIME');
-      return;
+  const checkStepTwo = () => {
+    const issues = stepTwoIssues(birth, cityPending);
+    if (issues.length) {
+      setAttempted(2);
+      if (issues.some((i) => i.field === 'tz')) setManual(true);
+      focusFirst(issues);
+      return false;
     }
-    if (!(await validate())) return;
-    if (onComplete) {
-      setBusy(true);
-      try {
-        await onComplete(BirthInputSchema.parse(birth), name);
-      } catch {
-        setError('report.error.E_INTERNAL');
-      } finally {
-        setBusy(false);
-      }
+    const engine = birthError(birth, locale);
+    if (engine) setError(engine);
+    return !engine;
+  };
+  const finish = (href: string) => {
+    if (slot) draft.clear();
+    router.push(href);
+  };
+  const submit = async () => {
+    if (system === 'ziwei' && birth.timeUnknown && !profileMode && !embedded) {
+      setError('errors.E_REQUIRES_BIRTH_TIME');
       return;
     }
     setBusy(true);
     setError(null);
-    const began = performance.now();
     try {
-      if (profileMode) {
-        if (signedIn) {
-          const saved = await upsertProfileAction(birth, name, locale);
-          if (!saved.ok) {
-            setError(`report.error.${saved.error.code}`);
-            return;
-          }
-        } else
-          await updateAnonymous((data) => ({
-            ...data,
-            profile: BirthInputSchema.parse(birth),
-            displayName: name,
-          }));
-        toast.success(t('form.birth.saved'));
-        router.push('/me');
+      if (onComplete) {
+        try {
+          await onComplete(BirthInputSchema.parse(birth), name);
+          if (slot) draft.clear();
+          setUrlStep(1, 'replace');
+        } catch {
+          setError('report.error.E_INTERNAL');
+        }
         return;
+      }
+      if (profileMode) {
+        const result = await saveBirthProfile(birth, name, locale, signedIn);
+        if ('error' in result) return setError(result.error);
+        toast.success(t('form.birth.saved'));
+        return finish(returnTo ?? '/me');
       }
       const idempotencyKey = requestId ?? crypto.randomUUID();
       setRequestId(idempotencyKey);
-      // DESIGN-GAP: Shared advanced controls send only parameters supported by the chosen system's current engine.
-      const school: Record<string, string | number | boolean> | undefined =
-        system === 'bazi'
-          ? { useApparentSolarTime: solar, ziHour }
-          : system === 'ziwei'
-            ? {
-                useApparentSolarTime: solar,
-                leapMonth:
-                  leap === 'split' ? 'split_by_15' : leap === 'current' ? 'as_prev' : 'as_next',
-              }
-            : system === 'astrology'
-              ? { houseSystem: house }
-              : undefined;
-      const req: ReadingRequest = {
+      const outcome = await createBirthReading({
         system,
-        birth: BirthInputSchema.parse(birth),
+        birth,
+        name,
         locale,
-        displayName: name,
-        options: school ? { school } : undefined,
+        school: schoolOptions(system, school),
         idempotencyKey,
-      };
-      const result = await createReadingAction(req);
-      await new Promise((resolve) =>
-        setTimeout(resolve, Math.max(0, 1200 - (performance.now() - began))),
-      );
-      if (!result.ok) {
-        if (result.error.code === 'E_AGE_RESTRICTED') {
-          router.replace('/age-restricted');
-          return;
-        }
-        setError(`report.error.${result.error.code}`);
-        return;
-      }
-      if ('readingId' in result.data && result.data.readingId) {
-        router.push(`/${system}/r/${result.data.readingId}`);
-        return;
-      }
-      const localId = crypto.randomUUID();
-      const local: LocalReading = {
-        id: localId,
-        system,
-        createdAt: new Date().toISOString(),
-        title: null,
-        request: req,
-        ...result.data,
-      };
-      await updateAnonymous((data) => ({
-        ...data,
-        profile: req.birth,
-        displayName: name,
-        readings: [local, ...data.readings].slice(0, 50),
-      }));
-      router.push(`/${system}/r/local/${localId}`);
+        writeProfile: target !== 'other',
+      });
+      if ('ageRestricted' in outcome) return router.replace('/age-restricted');
+      if ('error' in outcome) return setError(outcome.error);
+      finish(outcome.href);
     } catch {
-      setError('report.storageError');
+      setError(networkError);
     } finally {
       setBusy(false);
     }
@@ -228,15 +266,7 @@ export function BirthForm({
   const openRectification = async () => {
     setBusy(true);
     try {
-      const draft = BirthInputSchema.safeParse(birth);
-      // DESIGN-GAP: The encrypted device draft bridges routes for guests and signed-in users without putting birth facts in URLs.
-      await updateAnonymous((data) => ({
-        ...data,
-        settings: {
-          ...data.settings,
-          rectificationDraft: draft.success ? { birth: draft.data, displayName: name } : null,
-        },
-      }));
+      await saveRectificationDraft(birth, name);
       router.push('/rectify');
     } catch {
       setError('report.storageError');
@@ -244,16 +274,7 @@ export function BirthForm({
       setBusy(false);
     }
   };
-  const setPlace = (patch: Partial<NonNullable<BirthInput['place']>>) =>
-    change({
-      place: {
-        name: birth.place?.name ?? t('form.birth.manual'),
-        lat: birth.place?.lat ?? 0,
-        lng: birth.place?.lng ?? 0,
-        tz: birth.place?.tz ?? (locale !== 'en' ? 'Asia/Shanghai' : 'UTC'),
-        ...patch,
-      },
-    });
+  const showTarget = !signedIn && !embedded && !profileMode && (hasSaved || target !== null);
   return (
     <section className="birth-shell">
       <p className="eyebrow">{t('form.birth.step', { step })}</p>
@@ -261,15 +282,15 @@ export function BirthForm({
       <Title className="type-h1">{t('form.birth.title')}</Title>
       <form
         className="birth-card"
+        noValidate
         onSubmit={(e) => {
           e.preventDefault();
-          if (step === 1)
-            run(async () => {
-              if (await validate()) setStep(2);
-            });
-          // DESIGN-GAP: Invalid dates and the under-13 block keep their own handling; only a submission that can proceed asks for the 18+ confirmation.
-          else if (birthError(birth, locale) || isUnderThirteen(birth, locale)) run(submit);
-          else afterConsent(() => run(submit));
+          if (step === 1) {
+            if (checkStepOne()) {
+              setStep(2);
+              if (slot) setUrlStep(2, 'push');
+            }
+          } else if (checkStepOne() && checkStepTwo()) afterConsent(() => run(submit));
         }}
       >
         <fieldset disabled={!hydrated || busy} className="birth-controls">
@@ -278,17 +299,27 @@ export function BirthForm({
           </h2>
           {step === 1 ? (
             <>
+              {showTarget ? (
+                <BirthTargetChoice value={target ?? 'other'} onChange={chooseTarget} />
+              ) : null}
               <BirthDateFields
                 birth={birth}
                 change={change}
                 changeYear={changeYear}
                 precise={precise}
-                setPrecise={setPrecise}
+                setPrecise={(value) => {
+                  dirty.current = true;
+                  setPrecise(value);
+                }}
                 busy={busy}
-                canRectify={!onComplete}
+                canRectify={!embedded}
                 openRectification={openRectification}
                 system={system}
                 profileMode={profileMode}
+                ids={ids}
+                issues={visible}
+                onBlurField={(f) => setBlurred((s) => new Set(s).add(f))}
+                selfAutofill={!embedded && (profileMode || (!signedIn && target !== 'other'))}
               />
             </>
           ) : (
@@ -298,60 +329,38 @@ export function BirthForm({
                 change={change}
                 manual={manual}
                 setManual={setManual}
-                setPlace={setPlace}
                 setError={setError}
                 preview={preview}
                 solar={solar}
+                ids={ids}
+                issues={visible}
+                onCityPending={setCityPending}
               />
-              <label className="birth-field">
-                {t('form.birth.gender')}
-                <select
-                  aria-label={t('form.birth.gender')}
-                  value={birth.gender}
-                  onChange={(e) => change({ gender: e.target.value as BirthInput['gender'] })}
-                >
-                  {(['male', 'female', 'unspecified'] as const).map((g) => (
-                    <option key={g} value={g}>
-                      {t(`form.birth.gender.${g}`)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              {birth.gender === 'unspecified' ? (
-                <p className="muted">{t('form.birth.gender.unspecified.note')}</p>
-              ) : null}
-              <label className="birth-field">
-                {t('form.birth.displayName')}
-                <input
-                  maxLength={80}
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                    setRequestId(null);
-                  }}
-                />
-              </label>
-              <BirthSchoolFields
-                solar={solar}
-                setSolar={setSolar}
-                ziHour={ziHour}
-                setZiHour={setZiHour}
-                house={house}
-                setHouse={setHouse}
-                leap={leap}
-                setLeap={setLeap}
-                setRequestId={setRequestId}
+              <BirthPersonFields
+                gender={birth.gender}
+                onGender={(gender) => change({ gender })}
+                name={name}
+                onName={(value) => {
+                  dirty.current = true;
+                  setName(value);
+                  setRequestId(null);
+                }}
+                school={school}
+                setSchool={(next) => {
+                  setSchool(next);
+                  setRequestId(null);
+                }}
               />
             </>
           )}
-          {error || validError ? (
+          {error ? (
             <p role="alert" className="form-error">
-              {t((error ?? validError) as MessageKey)}
+              {t(error as MessageKey)}
             </p>
           ) : null}
-          <div className="hero-actions">
+          <div className="hero-actions birth-actions">
             {step === 2 ? (
-              <Button type="button" variant="secondary" disabled={busy} onClick={() => setStep(1)}>
+              <Button type="button" variant="secondary" disabled={busy} onClick={back}>
                 {t('form.birth.back')}
               </Button>
             ) : null}
@@ -359,25 +368,26 @@ export function BirthForm({
               type="submit"
               disabled={busy || (system === 'ziwei' && birth.timeUnknown && !profileMode)}
             >
-              {t(
-                busy
-                  ? step === 1
-                    ? 'common.loading'
-                    : 'form.birth.saving'
-                  : step === 1
-                    ? 'form.birth.next'
-                    : onComplete
-                      ? (completionKey ?? 'rectification.start')
-                      : profileMode
-                        ? 'form.birth.save'
-                        : 'form.birth.submit',
-              )}
+              {t(submitLabel({ busy, step, embedded, profileMode, completionKey: completionKey }))}
             </Button>
           </div>
         </fieldset>
       </form>
       {!signedIn ? <p className="muted">{t('report.localNotice')}</p> : null}
       {busy && !profileMode ? <DivinationLoader /> : null}
+      <AgeConfirmDialog
+        open={ageDialog}
+        onSelf={() => {
+          setAgeDialog(false);
+          void blockAgeAction().finally(() => router.replace('/age-restricted'));
+        }}
+        onOther={() => {
+          setAgeDialog(false);
+          setTarget('other');
+          setAgeIssue({ field: 'year', key: 'form.birth.error.underThirteen' });
+          focusFirst([{ field: 'year', key: '' }]);
+        }}
+      />
     </section>
   );
 }

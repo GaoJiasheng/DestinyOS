@@ -56,7 +56,8 @@ for (const locale of ['zh', 'en'] as const) {
       .click();
     await expect(page.getByText(messages['dev.tokens.chipDescription'])).toBeVisible();
     await page.keyboard.press('Escape');
-    await page.getByRole('combobox', { name: messages['nav.theme'] }).selectOption('east');
+    // Desktop shows the theme control in both the header and the footer.
+    await page.getByRole('combobox', { name: messages['nav.theme'] }).first().selectOption('east');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'east');
     await page.reload();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'east');

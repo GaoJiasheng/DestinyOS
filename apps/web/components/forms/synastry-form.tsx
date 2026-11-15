@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import type { BirthInput, Locale } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { DivinationLoader } from '@/components/ui/divination-loader';
 import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
+import { clearDraft, readDraft, writeDraft } from '@/lib/birth-form-draft';
 // DESIGN-GAP: Signed-in pairing uses saved profiles; load the birth editor only for the anonymous input flow.
 const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm));
 /** Two profile selectors never put private inputs in URLs; anonymous pairs stay in encrypted device storage. */
@@ -31,7 +32,35 @@ export function SynastryForm({
     [birthA, setBirthA] = useState<BirthInput | null>(null),
     [birthB, setBirthB] = useState<BirthInput | null>(null),
     [busy, setBusy] = useState(false),
-    [error, setError] = useState<string | null>(null);
+    [error, setError] = useState<string | null>(null),
+    [editing, setEditing] = useState<'a' | 'b' | null>(null),
+    [restored, setRestored] = useState(false);
+  // Completed guest entries survive a reload in this tab; in-progress fields use each form's own draft.
+  useEffect(() => {
+    if (signedIn) return;
+    const draft = readDraft<{ a: BirthInput | null; b: BirthInput | null }>('synastry', 'v1');
+    if (draft) {
+      setBirthA(draft.a);
+      setBirthB(draft.b);
+    }
+    setRestored(true);
+  }, [signedIn]);
+  useEffect(() => {
+    if (restored && (birthA || birthB)) writeDraft('synastry', 'v1', { a: birthA, b: birthB });
+  }, [restored, birthA, birthB]);
+  const active = editing ?? (!birthA ? 'a' : !birthB ? 'b' : null);
+  const pad = (n: number | undefined) => String(n ?? 0).padStart(2, '0');
+  const summary = (birth: BirthInput) =>
+    [
+      t(`form.birth.calendar.${birth.calendar}`),
+      `${birth.isLeapMonth ? t('form.birth.lunar.leap', { month: birth.month }) + ' ' : ''}${birth.year}-${pad(birth.month)}-${pad(birth.day)}`,
+      birth.timeUnknown || birth.hour === undefined
+        ? t('synastry.noTime')
+        : `${pad(birth.hour)}:${pad(birth.minute)}`,
+      birth.place?.name,
+    ]
+      .filter(Boolean)
+      .join(' · ');
   async function submit() {
     if (signedIn ? !a || !b || a === b : !birthA || !birthB) {
       setError('E_VALIDATION');
@@ -69,6 +98,7 @@ export function SynastryForm({
         ...data,
         readings: [reading, ...data.readings].slice(0, 50),
       }));
+      for (const key of ['synastry', 'synastry-a', 'synastry-b']) clearDraft(key);
       router.push(`/synastry/r/local/${reading.id}`);
     } catch {
       setError('E_INTERNAL');
@@ -112,17 +142,41 @@ export function SynastryForm({
           <p>
             {t('synastry.login')} <Link href="/auth/login">{t('nav.login')}</Link>
           </p>
-          <h2>{t(birthA ? 'synastry.b' : 'synastry.a')}</h2>
-          {!birthB ? (
-            <BirthForm
-              key={birthA ? 'b' : 'a'}
-              profileMode
-              completionKey="profiles.save"
-              onComplete={(birth) => {
-                if (!birthA) setBirthA(birth);
-                else setBirthB(birth);
-              }}
-            />
+          {(['a', 'b'] as const).map((side) => {
+            const value = side === 'a' ? birthA : birthB;
+            return value && active !== side ? (
+              <div className="notice synastry-summary" key={side}>
+                <p>
+                  <strong>{t(`synastry.${side}`)}</strong> {summary(value)}
+                </p>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  disabled={busy}
+                  onClick={() => setEditing(side)}
+                >
+                  {t('synastry.edit')}
+                </Button>
+              </div>
+            ) : null;
+          })}
+          {active && restored ? (
+            <>
+              <h2>{t(`synastry.${active}`)}</h2>
+              <BirthForm
+                key={active}
+                profileMode
+                completionKey="profiles.save"
+                draftKey={`synastry-${active}`}
+                // The partner form never starts from the device profile.
+                prefillProfile={active === 'a'}
+                initial={(active === 'a' ? birthA : birthB) ?? undefined}
+                onComplete={(birth) => {
+                  (active === 'a' ? setBirthA : setBirthB)(birth);
+                  setEditing(null);
+                }}
+              />
+            </>
           ) : null}
         </>
       )}

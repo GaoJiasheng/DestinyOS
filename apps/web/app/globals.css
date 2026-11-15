@@ -3251,6 +3251,47 @@ html[data-reduced-motion='true'] .bazi-pillar {
 .daily-tarot {
   margin-block: var(--space-5);
 }
+/* UX audit 6.8: on wide screens the banner sits beside the heading so spread choices stay above the fold. */
+.tarot-hero {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.tarot-hero .system-banner {
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .tarot-hero {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: center;
+    gap: var(--space-6);
+  }
+}
+/* UX audit 6.5: chosen cards stay tappable so they can be put back. */
+.tarot-fan-card[aria-pressed='true'] {
+  opacity: 0.45;
+}
+.tarot-slot-remove {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+.tarot-slot-remove:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.tarot-primary-actions {
+  margin-top: var(--space-5);
+}
+@media (max-width: 767px) {
+  .tarot-primary-actions > button {
+    flex: 1 1 100%;
+  }
+}
 @media (min-width: 768px) {
   .tarot-spread-options {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -5064,4 +5105,437 @@ html[data-reduced-motion='true']
 }
 .daily-period-events li {
   padding: 0.3rem 0;
+}
+
+/* UX audit 4.1–4.6: daily date control, lucky indicators, profile CTA and annual calendar list. */
+.daily-date-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.daily-date-segments {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  max-width: 100%;
+}
+.daily-date-segments .button {
+  padding-inline: var(--space-4);
+  white-space: nowrap;
+}
+.daily-date-current {
+  cursor: default;
+}
+@media (max-width: 600px) {
+  .daily-date-segments {
+    display: grid;
+    width: 100%;
+  }
+  .daily-date-segments .button {
+    padding-inline: var(--space-2);
+  }
+}
+.daily-lucky {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin: 0;
+}
+.daily-lucky > div {
+  display: contents;
+}
+.daily-lucky dt {
+  display: flex;
+  align-items: center;
+  color: var(--text-2);
+  font-size: var(--size-small);
+}
+.daily-lucky dd {
+  margin: 0;
+}
+.daily-lucky .daily-art {
+  width: 40px;
+  height: 40px;
+}
+@media (min-width: 720px) {
+  .daily-lucky {
+    grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
+  }
+}
+.daily-cta {
+  text-align: center;
+  border: 1px solid var(--accent);
+}
+.daily-cta .button {
+  margin-top: var(--space-4);
+}
+.report-card .daily-cta {
+  margin: var(--space-5) 0 0;
+}
+.calendar-past summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.calendar-past .calendar-events {
+  margin-top: var(--space-4);
+}
+/* UX 5.1/5.5/5.6/5.8/5.10/5.11: report toolbar, fold-all toggle, chat entry and share link. */
+.report-actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+}
+.report-actions > .export-menu,
+.report-actions > .report-more {
+  display: flex;
+}
+.report-action.button {
+  min-height: var(--touch-target);
+  padding: var(--space-2) var(--space-4);
+  white-space: nowrap;
+}
+.report-more > summary.report-action {
+  list-style: none;
+  cursor: pointer;
+}
+.report-more > summary.report-action::-webkit-details-marker {
+  display: none;
+}
+@media (max-width: 639px) {
+  /* Four equal columns with the icon above the label keep the row on one line at 320px. */
+  .report-actions {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+  .report-actions > .export-menu > .report-action,
+  .report-actions > .report-more > .report-action,
+  .report-actions > .report-action {
+    width: 100%;
+  }
+  .report-action.button {
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 4px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+}
+.section-fold-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-3);
+}
+.chat-entry {
+  margin-top: var(--space-3);
+  min-height: var(--touch-target);
+}
+.chat-confirm {
+  display: grid;
+  gap: var(--space-2);
+}
+.share-link {
+  width: 100%;
+  min-height: var(--touch-target);
+  margin-block: var(--space-2);
+}
+.report-locale-fallback {
+  max-width: 1120px;
+  margin: 24px auto 0;
+  padding: 0 20px;
+}
+@media print {
+  .section-fold-toggle,
+  .chat-entry {
+    display: none;
+  }
+}
+
+/* Navigation shell (UX 3.1, 3.2, 3.3, 3.6): one-row phone header, desktop Learn/Me, ask question, art placeholders. */
+.header-prefs,
+.footer-prefs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.footer-prefs {
+  flex-wrap: wrap;
+}
+.footer-heading {
+  flex-wrap: wrap;
+}
+.me-link {
+  display: none;
+}
+.desktop-nav a,
+.login-link,
+.me-link {
+  white-space: nowrap;
+}
+.ask-question {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.ask-question textarea {
+  width: 100%;
+  min-height: 64px;
+  padding: var(--space-3);
+  border-radius: var(--r-md);
+  border: 1px solid var(--line-2);
+  background: var(--surface-2);
+  color: var(--text-1);
+  resize: vertical;
+}
+.launch-choice .text-link {
+  min-height: 44px;
+  background: transparent;
+  border: 0;
+}
+.home-system-card .system-art {
+  aspect-ratio: 1;
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  overflow: hidden;
+}
+.home-system-card .system-art > img {
+  height: 100%;
+}
+@media (max-width: 1023px) {
+  :root {
+    --header-height: 56px;
+  }
+  .site-header {
+    min-height: 56px;
+    padding-block: var(--space-1);
+    flex-wrap: nowrap;
+  }
+  .header-tools {
+    flex-wrap: nowrap;
+  }
+  .header-prefs {
+    display: none;
+  }
+  .site-header .login-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--size-small);
+  }
+}
+@media (min-width: 1024px) {
+  .header-tools {
+    flex-wrap: nowrap;
+  }
+  .me-link {
+    display: inline-flex;
+    font-size: var(--size-small);
+  }
+  .me-link[aria-current='page'] {
+    color: var(--accent-2);
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .site-header {
+    padding-inline: var(--space-5);
+  }
+  .desktop-nav {
+    gap: var(--space-2);
+  }
+  .site-header .brand-en {
+    display: none;
+  }
+}
+
+/* UX pack H: account menu, settings layout, storage-aware notices and the neutral first-visit bar. */
+.me-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.me-menu li + li {
+  border-top: 1px solid var(--line-1);
+}
+.me-menu-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 52px;
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--r-sm);
+  color: var(--text-1);
+  text-decoration: none;
+}
+.me-menu-row:hover,
+.me-menu-row:focus-visible {
+  background: var(--surface-2);
+}
+.me-menu-icon {
+  flex: none;
+  color: var(--gold);
+}
+.me-menu-text {
+  flex: 1;
+  display: grid;
+  gap: var(--space-1);
+}
+.me-menu-chevron {
+  flex: none;
+  color: var(--text-2);
+}
+.settings-page .report-card.me-menu {
+  padding: var(--space-3) var(--space-4);
+}
+.me-logout {
+  margin: var(--space-5) 0;
+}
+.me-summary-skeleton .skeleton-line:last-of-type {
+  width: 50%;
+}
+.settings-theme {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.settings-tz {
+  display: grid;
+  gap: var(--space-2);
+}
+.settings-tz p {
+  margin: 0;
+}
+.settings-save {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+.settings-save p {
+  margin: 0;
+}
+.settings-data .action-row {
+  margin: var(--space-4) 0;
+}
+.settings-links {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+}
+.settings-links button,
+.settings-links a {
+  min-height: 44px;
+  text-decoration: underline;
+}
+.status-page .action-row {
+  justify-content: center;
+}
+/* The confirm button keeps the neutral gold primary instead of following the current system's theme. */
+.disclaimer-bar .disclaimer-confirm {
+  background: var(--gold);
+  color: var(--bg-0);
+}
+.disclaimer-short {
+  display: none;
+}
+@media (max-width: 600px) {
+  .disclaimer-bar {
+    flex-wrap: nowrap;
+    gap: var(--space-3);
+    padding-block: var(--space-2);
+  }
+  .disclaimer-bar .disclaimer-full {
+    display: none;
+  }
+  .disclaimer-bar .disclaimer-short {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    flex: 1 1 auto;
+    font-size: var(--size-caption);
+    line-height: 1.4;
+  }
+  .disclaimer-bar .disclaimer-confirm {
+    flex: none;
+    min-height: 44px;
+    padding-inline: var(--space-4);
+  }
+}
+
+/* UX 2.x: birth form inline errors, "who is this for" choice, city clear button and phone-width actions. */
+.field-error {
+  margin: 4px 0 0;
+  font-size: var(--size-small);
+}
+.birth-target {
+  border: 0;
+  padding: 0;
+  margin: 0 0 8px;
+}
+.birth-target .birth-check {
+  margin: 4px 0;
+}
+.city-input-row {
+  display: flex;
+  gap: 8px;
+}
+.city-input-row input {
+  flex: 1 1 auto;
+}
+.city-input-row .button {
+  flex: 0 0 auto;
+}
+.synastry-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+@media (max-width: 639px) {
+  .birth-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .birth-actions > .button {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+/* Folded report sections quote their first sentence; the expanded prose already starts with it. */
+.section-preview {
+  margin: 0 0 12px;
+  line-height: 1.8;
+}
+.report-section:has(.section-fold[open]) .section-preview {
+  display: none;
+}
+@media print {
+  .section-preview {
+    display: none;
+  }
+}
+
+.report-question {
+  margin: 8px 0 0;
+  font-family: var(--font-heading-current);
+  color: var(--gold-soft);
+  overflow-wrap: anywhere;
 }

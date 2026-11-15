@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useId, useState, type ReactNode } from 'react';
 import { usePathname } from '@/i18n/navigation';
 import { routeTheme, type ThemePreference } from '@/lib/themes';
 import { useCopy } from '@/i18n/use-copy';
@@ -45,12 +45,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 export function ThemeSwitch() {
   const { preference, setPreference } = useContext(ThemeContext);
   const t = useCopy();
+  const hint = useId();
+  // The east/west names alone read like content filters; the hint says they are colour schemes.
   return (
-    <label className="select-control">
+    <label className="select-control" title={t('nav.theme.hint')}>
       <Palette size={16} aria-hidden />
       <span className="sr-only">{t('nav.theme')}</span>
+      <span className="sr-only" id={hint}>
+        {t('nav.theme.hint')}
+      </span>
       <select
         aria-label={t('nav.theme')}
+        aria-describedby={hint}
         value={preference}
         onChange={(event) => {
           const value = event.target.value;

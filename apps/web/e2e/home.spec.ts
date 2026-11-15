@@ -45,6 +45,8 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(page.getByRole('dialog')).toBeVisible();
     await page.keyboard.press('Escape');
     await page.evaluate(() => {
+      // The install offer waits until a report has been opened (or a second visit).
+      localStorage.setItem('tianji-report-seen', '1');
       const install = new Event('beforeinstallprompt', { cancelable: true });
       Object.assign(install, {
         prompt: async () => {},

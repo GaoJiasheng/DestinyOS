@@ -3,8 +3,10 @@ import { auth } from '@/lib/auth';
 import { listProfilesAction } from '@/app/profiles/actions';
 import { ProfileManager } from '@/components/me/profile-manager';
 import { getCopy } from '@/i18n/get-copy';
+import { privatePageMetadata } from '@/lib/page-metadata';
 export const dynamic = 'force-dynamic';
-export const metadata = { robots: { index: false, follow: false } };
+export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
+  privatePageMetadata(params, 'seo.page.meProfiles');
 /** Owner profile management is never publicly cached. */
 export default async function ProfilesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -22,9 +22,11 @@ import {
   translateAnonymousReportAction,
 } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
-import { ShareDialog } from '@/components/share/share-dialog';
 import { ChatPanel } from './chat-panel';
-import { ExportMenu } from './export-menu';
+import { ReportActions } from './report-actions';
+import { SectionFoldToggle } from './section-fold-toggle';
+import { ChatEntry } from './chat-entry';
+import { chartTitleKey, formatClock } from './report-utils';
 import dynamic from 'next/dynamic';
 // DESIGN-GAP: Detailed tables load only when the professional-view control is opened.
 const ReportProfessional = dynamic(() =>
@@ -47,12 +49,15 @@ export function ReportLayout({
   owner = false,
   plan = 'free',
   birthDetails,
+  question,
 }: {
   reading: ReadingView;
   local?: boolean;
   owner?: boolean;
   plan?: 'free' | 'pro';
   birthDetails?: string;
+  /** The asker's own words; only device-stored readings keep them (snapshots hold a hash). */
+  question?: string;
 }) {
   const { pending: chartPending, run: runPreview } = useSubmitTransition();
   const t = useCopy();
@@ -105,7 +110,7 @@ export function ReportLayout({
     if (result.ok && result.data) {
       const b = result.data;
       setDetails(
-        `${t(`form.birth.calendar.${b.calendar}`)} · ${b.year}-${b.month}-${b.day} · ${b.timeUnknown ? t('common.unknown') : `${b.hour}:${b.minute}`} · ${b.place?.name ?? ''} · ${b.place?.tz ?? ''}`,
+        `${t(`form.birth.calendar.${b.calendar}`)} · ${b.year}-${b.month}-${b.day} · ${b.timeUnknown ? t('common.unknown') : formatClock(b.hour, b.minute)} · ${b.place?.name ?? ''} · ${b.place?.tz ?? ''}`,
       );
     } else toast.error(t('report.error.E_FORBIDDEN'));
   };
@@ -210,6 +215,9 @@ export function ReportLayout({
               : t(`nav.${view.system}` as MessageKey)}
           </h1>
           {view.displayName ? <p>{t('report.content', { text: view.displayName })}</p> : null}
+          {question ? (
+            <p className="report-question">{t('report.yourQuestion', { text: question })}</p>
+          ) : null}
           {view.birthYear ? (
             <p className="muted">{t('report.birthYear', { year: view.birthYear })}</p>
           ) : null}
@@ -235,38 +243,26 @@ export function ReportLayout({
             </details>
           ) : null}
         </div>
-        <div className="hero-actions">
-          <Button
-            variant="secondary"
-            aria-pressed={professional}
-            onClick={() => setProfessional((v) => !v)}
-          >
-            {t('report.proView')}
-          </Button>
-          <ShareDialog system={view.system} readingId={view.id} local={local} />
-          <ExportMenu readingId={view.id} local={local} owner={owner} />
-          {owner || local ? (
-            <details className="report-more">
-              <summary>{t('report.more')}</summary>
-              <div className="report-more-actions">
-                <Button variant="ghost" onClick={() => setDialog('rename')}>
-                  {t('report.rename')}
-                </Button>
-                <Button variant="ghost" disabled={busy} action={regenerate}>
-                  {t('report.regenerate')}
-                </Button>
-                <Button variant="ghost" onClick={() => setDialog('delete')}>
-                  {t('report.delete')}
-                </Button>
-              </div>
-            </details>
-          ) : null}
-        </div>
+        <ReportActions
+          system={view.system}
+          readingId={view.id}
+          local={local}
+          owner={owner}
+          professional={professional}
+          onProfessional={() => setProfessional((v) => !v)}
+          busy={busy}
+          onRename={() => setDialog('rename')}
+          onRegenerate={regenerate}
+          onDelete={() => setDialog('delete')}
+        />
       </header>
       <div className="report-columns">
-        <ReportSummary report={view.report} />
+        <ReportSummary report={view.report}>
+          <ChatEntry />
+        </ReportSummary>
         <ReportNotices view={view} local={local} />
         <ReportHeadline
+          system={view.system}
           headline={{
             ...view.report.headline,
             // DESIGN-GAP: Trial similarity caps the displayed report confidence so an inferred hour cannot appear fully verified.
@@ -278,7 +274,7 @@ export function ReportLayout({
         />
         <aside className="report-chart">
           <details open className="report-card">
-            <summary>{t('report.chart')}</summary>
+            <summary>{t(chartTitleKey(view.system))}</summary>
             <div
               id={astro?.success || vedic?.success ? 'chart-root' : undefined}
               data-highlight={highlight}
@@ -318,6 +314,7 @@ export function ReportLayout({
         </aside>
         <div className="report-body">
           <SectionNav sections={view.report.sections} />
+          <SectionFoldToggle />
           {view.report.sections.map((section, i) => (
             <Fragment key={section.key}>
               <ReportSection

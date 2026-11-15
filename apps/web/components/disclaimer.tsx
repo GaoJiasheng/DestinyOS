@@ -44,10 +44,17 @@ export function Disclaimer() {
   if (!open) return null;
   return (
     <aside className="disclaimer-bar" aria-label={t('legal.firstVisit.label')}>
-      <p className="type-small">
+      {/* DESIGN-GAP: Phones get a shorter notice so the bar stays within two lines; the full text is one tap away. */}
+      <p className="type-small disclaimer-full">
         {t('legal.firstVisit.notice')}{' '}
         <Link prefetch={false} href="/disclaimer">
           {t('legal.firstVisit.more')}
+        </Link>
+      </p>
+      <p className="type-small disclaimer-short">
+        {t('legal.firstVisit.short')}{' '}
+        <Link prefetch={false} href="/disclaimer">
+          {t('legal.firstVisit.moreShort')}
         </Link>
       </p>
       <Button className="disclaimer-confirm" onClick={dismiss}>

@@ -4,8 +4,13 @@ import { System } from '@tianji/shared';
 import { auth } from '@/lib/auth';
 import { getDb } from '@/lib/db';
 import { ChatPanel } from '@/components/report/chat-panel';
+import { privatePageMetadata } from '@/lib/page-metadata';
 export const dynamic = 'force-dynamic';
-export const metadata = { robots: { index: false, follow: false } };
+export const generateMetadata = ({
+  params,
+}: {
+  params: Promise<{ locale: string; system: string }>;
+}) => privatePageMetadata(params, 'seo.page.chat');
 /** Full-screen reading dialogue, with owner access and the same anonymous sign-in invitation. */
 export default async function ChatPage({
   params,

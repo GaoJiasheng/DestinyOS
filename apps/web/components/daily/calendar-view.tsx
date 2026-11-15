@@ -11,6 +11,8 @@ import { localToday } from '@/lib/daily-date';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { calculateCalendarInWorker } from '@/lib/calendar-worker';
+import { CalendarEvents } from './calendar-events';
+import { DailyProfileCta } from './daily-profile-cta';
 // DESIGN-GAP: B-06 omits shades and copy keys; the calendar namespace and five gold steps use the existing daily star thresholds.
 const gold = ['#3d301d', '#69502a', '#997139', '#c69b52', '#f0cf80'];
 /** SVG month grid with keyboard-accessible day links and non-color score labels. */
@@ -172,12 +174,12 @@ export function CalendarView({
         {zone ? <p>{t('calendar.zone', { zone })}</p> : null}
         {busy ? <p role="status">{t('common.loading')}</p> : null}
         {missing ? (
-          <p>
-            {t('calendar.profileRequired')}{' '}
-            <Link href="/me/birth" className="text-link">
-              {t('daily.profileCTA')}
-            </Link>
-          </p>
+          <DailyProfileCta
+            title={t('calendar.cta.title')}
+            body={t('calendar.profileRequired')}
+            action={t('daily.profileCTA')}
+            from="/today/calendar"
+          />
         ) : null}
         {error ? (
           <div role="alert">
@@ -218,9 +220,11 @@ export function CalendarView({
                         : day.overall >= 40
                           ? 1
                           : 0;
+                // Engine scores are fractional (63.3); cells and their labels show whole points.
+                const score = Math.round(day.overall);
                 const label = t('calendar.dayLabel', {
                   date: formatDate(day.date, { dateStyle: 'full' }),
-                  score: day.overall,
+                  score,
                 });
                 return (
                   <Link
@@ -247,7 +251,7 @@ export function CalendarView({
                       fill={band >= 2 ? 'var(--bg-0)' : 'var(--text-1)'}
                       fontSize="11"
                     >
-                      {day.overall}
+                      {score}
                     </text>
                   </Link>
                 );
@@ -279,45 +283,7 @@ export function CalendarView({
             </div>
           ) : null}
           {!yearBusy && !yearError && !events.length ? <p>{t('calendar.empty')}</p> : null}
-          <ul className="calendar-events">
-            {events.map((event) => {
-              const detail = event.detail
-                ? t(
-                    event.kind === 'solar_term'
-                      ? `home.term.${event.detail}`
-                      : event.kind === 'retrograde'
-                        ? `charts.planet.${event.detail}`
-                        : `charts.graha.${event.detail}`,
-                  )
-                : '';
-              return (
-                <li key={`${event.kind}:${event.at}`} data-calendar-event={event.kind}>
-                  <Link
-                    href={{
-                      pathname: '/today',
-                      query: { date: event.date < `${year}-01-01` ? `${year}-01-01` : event.date },
-                    }}
-                    className="text-link"
-                  >
-                    <time dateTime={event.at}>
-                      {formatDate(event.date, { month: 'short', day: 'numeric' })}
-                    </time>
-                    {event.endDate
-                      ? t('calendar.interval', {
-                          end: formatDate(event.endDate, {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                          }),
-                        })
-                      : null}{' '}
-                    · {t(`calendar.event.${event.kind}`, { detail })}
-                  </Link>
-                  <p>{t(`calendar.explanation.${event.kind}`)}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <CalendarEvents events={events} year={year} today={zone ? localToday(zone) : null} />
         </section>
       ) : null}
     </article>

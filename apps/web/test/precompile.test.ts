@@ -73,21 +73,24 @@ for (const [locale, catalogs] of [
     const t = createTranslator<RuntimeMessages>({ locale, messages: raw, timeZone: 'UTC' });
     let checked = 0;
     for (const [key, source] of leaves(raw)) {
-      const message = key.split('.').reduce<unknown>(
-        (node, part) => (node as Record<string, unknown>)[part],
-        compiled,
-      ) as CompiledMessage;
+      const message = key
+        .split('.')
+        .reduce<unknown>(
+          (node, part) => (node as Record<string, unknown>)[part],
+          compiled,
+        ) as CompiledMessage;
       // React Server Components only serialize plain objects across the client boundary.
       expect(JSON.parse(JSON.stringify(message)), key).toStrictEqual(message);
       const values = sampleValues(message);
       // Empty arguments exercise messages that format to nothing, which icu-minify alone returns as [].
       const empty = Object.fromEntries(
-        Object.entries(values).map(([name, value]) => [name, typeof value === 'string' ? '' : value]),
+        Object.entries(values).map(([name, value]) => [
+          name,
+          typeof value === 'string' ? '' : value,
+        ]),
       );
       for (const input of [values, empty])
-        expect(formatMessage(key, message, input, { ...options, locale }), key).toBe(
-          t(key, input),
-        );
+        expect(formatMessage(key, message, input, { ...options, locale }), key).toBe(t(key, input));
       // Plain text must cross the boundary untouched so Flight payloads do not grow.
       if (!/[{}'<]/.test(source)) expect(message, key).toBe(source);
       checked++;

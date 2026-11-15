@@ -1,24 +1,24 @@
 'use client';
 import { useEffect, type RefObject } from 'react';
-/** Guard page exit while the casting ritual or a private question is in progress. */
+/**
+ * Guard page exit while the visitor has typed a question, changed the category or started the
+ * ritual; an untouched form lets links and reloads through untouched.
+ */
 export function useDivinationExit({
-  question,
-  step,
-  system,
+  dirty,
   completed,
   setExitHref,
   setLeaving,
 }: {
-  question: string;
-  step: 'question' | 'ritual' | 'generating';
-  system: 'iching' | 'qimen';
+  dirty: boolean;
   completed: RefObject<boolean>;
   setExitHref: (value: string) => void;
   setLeaving: (value: boolean) => void;
 }) {
   useEffect(() => {
+    if (!dirty) return;
     const unload = (event: BeforeUnloadEvent) => {
-      if (!completed.current && (question || step !== 'question' || system === 'qimen')) {
+      if (!completed.current) {
         event.preventDefault();
         event.returnValue = '';
       }
@@ -50,5 +50,5 @@ export function useDivinationExit({
       window.removeEventListener('beforeunload', unload);
       document.removeEventListener('click', click, true);
     };
-  }, [question, step, system, completed, setExitHref, setLeaving]);
+  }, [dirty, completed, setExitHref, setLeaving]);
 }
