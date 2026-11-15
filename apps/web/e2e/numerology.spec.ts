@@ -4,6 +4,8 @@ import { Temporal } from '@js-temporal/polyfill';
 import { personalNumbers } from '@tianji/engine/numerology';
 import zh from '../messages/zh.json' with { type: 'json' };
 import en from '../messages/en.json' with { type: 'json' };
+import zhLanding from '../messages/zh/landing.json' with { type: 'json' };
+import enLanding from '../messages/en/landing.json' with { type: 'json' };
 for (const locale of ['zh', 'en'] as const) {
   test(`${locale}: numerology input, report, profile reuse, daily and encyclopedia`, async ({
     page,
@@ -16,7 +18,13 @@ for (const locale of ['zh', 'en'] as const) {
     await page.goto(`/${locale}`);
     await expect(page.locator('[data-home-system="numerology"]')).toBeVisible();
     await page.locator('[data-home-system="numerology"]').click();
-    await page.getByRole('link', { name: copy['form.birth.submit'], exact: true }).click();
+    await page
+      .getByRole('link', {
+        name: (locale === 'zh' ? zhLanding : enLanding).labels.start,
+        exact: true,
+      })
+      .first()
+      .click();
     await page
       .getByLabel(copy['form.birth.year'], { exact: true })
       .filter({ visible: true })

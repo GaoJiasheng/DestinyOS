@@ -78,6 +78,8 @@ for (const locale of ['zh', 'en'] as const) {
       await expect(page.getByRole('heading', { name: 'Alpha', exact: true })).toBeVisible();
       await page.getByRole('button', { name: t['profiles.add'], exact: true }).click();
       await page.getByLabel(t['form.birth.year'], { exact: true }).fill('1992');
+      await page.getByLabel(t['form.birth.month'], { exact: true }).fill('3');
+      await page.getByLabel(t['form.birth.day'], { exact: true }).fill('9');
       await page.getByRole('button', { name: t['form.birth.next'], exact: true }).click();
       await page.getByLabel(t['form.birth.displayName'], { exact: true }).fill('Gamma');
       await page.getByRole('button', { name: t['profiles.save'], exact: true }).click();

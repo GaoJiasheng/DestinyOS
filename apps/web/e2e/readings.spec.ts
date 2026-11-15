@@ -110,7 +110,8 @@ for (const locale of ['zh', 'en'] as const) {
     await page
       .getByRole('button', { name: locale === 'zh' ? '确认登录' : 'Confirm sign-in', exact: true })
       .click();
-    await expect(page).toHaveURL(new RegExp(`/${locale}$`), { timeout: 30_000 });
+    // Signing in from a report returns to that report, where the import prompt opens.
+    await expect(page).toHaveURL(new RegExp(`/${locale}/bazi/r/local/`), { timeout: 30_000 });
     await expect(page.getByRole('dialog')).toBeVisible({ timeout: 30_000 });
     await page
       .getByRole('button', {

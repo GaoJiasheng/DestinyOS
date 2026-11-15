@@ -195,8 +195,10 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
         noValidate
         onSubmit={(event) => {
           event.preventDefault();
-          run(async () => {
-            if (await check()) afterConsent(() => run(submit));
+          // The check stays outside the submit lock: with consent already given the callback
+          // fires before an enclosing run() has released it, and the submit would be dropped.
+          void check().then((ok) => {
+            if (ok) afterConsent(() => run(submit));
           });
         }}
       >
