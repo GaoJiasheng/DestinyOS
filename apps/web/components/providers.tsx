@@ -2,6 +2,7 @@
 import {
   createContext,
   useContext,
+  startTransition,
   useEffect,
   useLayoutEffect,
   useState,
@@ -24,6 +25,16 @@ const Toaster = dynamic(() => import('sonner').then((module) => module.Toaster),
 const SignedInContext = createContext(false);
 /** Device-local hint that the last visit was signed in; never trusted for access, only for the first paint. */
 const ACCOUNT_HINT = 'tianji-account';
+/**
+ * Apply a shell-wide state change without disturbing a page that is still streaming. An urgent
+ * context update makes React drop a pending Suspense boundary's server HTML and render it again in
+ * the browser, leaving a hidden duplicate; a transition waits for the stream instead.
+ */
+function afterStream(update: () => void) {
+  // React marks a boundary whose content has not arrived with a `B:` template.
+  if (document.querySelector('template[id^="B:"]')) startTransition(update);
+  else update();
+}
 /** Reuse account hydration for the navigation avatar without exposing profile data. */
 export function useSignedIn() {
   return useContext(SignedInContext);
@@ -39,7 +50,7 @@ export function Providers({ children }: { children: ReactNode }) {
   // navigation and the daily example; the server's answer below still decides.
   useLayoutEffect(() => {
     try {
-      if (localStorage.getItem(ACCOUNT_HINT) === '1') setSignedIn(true);
+      if (localStorage.getItem(ACCOUNT_HINT) === '1') afterStream(() => setSignedIn(true));
     } catch {
       // Storage may be unavailable; the round trip below settles the state.
     }
@@ -48,7 +59,7 @@ export function Providers({ children }: { children: ReactNode }) {
     let live = true;
     const update = () => {
       const value = localStorage.getItem('tianji-reduced-motion') === 'true';
-      setReduced(value);
+      afterStream(() => setReduced(value));
       document.documentElement.dataset.reducedMotion = String(value);
     };
     update();
@@ -74,7 +85,7 @@ export function Providers({ children }: { children: ReactNode }) {
         } catch {
           // The hint is an optimisation only.
         }
-        setSignedIn(Boolean(settings));
+        afterStream(() => setSignedIn(Boolean(settings)));
         if (!settings) return;
         restore('tianji-theme', settings.theme ?? 'auto');
         restore('tianji-reduced-motion', String(settings.reducedMotion));

@@ -189,6 +189,11 @@ for (const locale of ['zh', 'en'] as const) {
       ).toBeVisible();
       await page.goto(`/${locale}/me/profiles`);
       await beta.getByRole('button', { name: t['profiles.edit'], exact: true }).click();
+      // Only an edit that changes the chart marks earlier reports as outdated.
+      await page
+        .getByLabel(t['form.birth.day'], { exact: true })
+        .filter({ visible: true })
+        .fill(String((B.day % 27) + 1));
       await page.getByRole('button', { name: t['form.birth.next'], exact: true }).click();
       await page.getByRole('button', { name: t['profiles.save'], exact: true }).click();
       await expect(page.getByRole('button', { name: t['profiles.save'], exact: true })).toHaveCount(
