@@ -114,6 +114,8 @@ for (const locale of ['zh', 'en'] as const) {
     await panel.getByRole('link', { name: t['report.chat.fullScreen'] }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/bazi/r/${reading.id}/chat$`));
     await expect(page.locator('.chat-user')).toHaveCount(1);
+    // Every signed-in owner has 30 questions a day while membership is off; start two short of it.
+    await db.chatQuota.updateMany({ where: { userId: user.id }, data: { count: 28 } });
     for (let i = 0; i < 2; i++) {
       await page
         .getByLabel(t['report.chat.question'])
@@ -131,7 +133,7 @@ for (const locale of ['zh', 'en'] as const) {
     await page.getByRole('button', { name: t['report.confirm'], exact: true }).click();
     await expect(page.locator('.chat-user')).toHaveCount(0);
     expect(await db.chatMessage.count({ where: { readingId: reading.id } })).toBe(0);
-    expect((await db.chatQuota.findFirstOrThrow({ where: { userId: user.id } })).count).toBe(3);
+    expect((await db.chatQuota.findFirstOrThrow({ where: { userId: user.id } })).count).toBe(30);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
