@@ -1,5 +1,12 @@
 'use client';
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+  type ReactNode,
+} from 'react';
 import dynamic from 'next/dynamic';
 import { usePathname } from '@/i18n/navigation';
 import { useCopy } from '@/i18n/use-copy';
@@ -15,6 +22,8 @@ const Toaster = dynamic(() => import('sonner').then((module) => module.Toaster),
   ssr: false,
 });
 const SignedInContext = createContext(false);
+/** Device-local hint that the last visit was signed in; never trusted for access, only for the first paint. */
+const ACCOUNT_HINT = 'tianji-account';
 /** Reuse account hydration for the navigation avatar without exposing profile data. */
 export function useSignedIn() {
   return useContext(SignedInContext);
@@ -25,6 +34,16 @@ export function Providers({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [reduced, setReduced] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
+  // The public shell is static, so the session is only known after a round trip. A device that was
+  // signed in last time starts as signed in before the first paint, instead of flashing the guest
+  // navigation and the daily example; the server's answer below still decides.
+  useLayoutEffect(() => {
+    try {
+      if (localStorage.getItem(ACCOUNT_HINT) === '1') setSignedIn(true);
+    } catch {
+      // Storage may be unavailable; the round trip below settles the state.
+    }
+  }, []);
   useEffect(() => {
     let live = true;
     const update = () => {
@@ -48,8 +67,15 @@ export function Providers({ children }: { children: ReactNode }) {
     };
     void getSettingsAction()
       .then((settings) => {
-        if (!live || !settings) return;
-        setSignedIn(true);
+        if (!live) return;
+        try {
+          if (settings) localStorage.setItem(ACCOUNT_HINT, '1');
+          else localStorage.removeItem(ACCOUNT_HINT);
+        } catch {
+          // The hint is an optimisation only.
+        }
+        setSignedIn(Boolean(settings));
+        if (!settings) return;
         restore('tianji-theme', settings.theme ?? 'auto');
         restore('tianji-reduced-motion', String(settings.reducedMotion));
         restore('tianji-sound', String(settings.soundOn));
