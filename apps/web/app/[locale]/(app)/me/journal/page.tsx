@@ -24,7 +24,7 @@ export default async function JournalPage() {
       </Link>
       {!session?.user.id ? (
         <p>
-          <Link href="/auth/login" className="text-link">
+          <Link href="/auth/login?callbackUrl=/me/journal" className="text-link">
             {t('journal.login')}
           </Link>
         </p>

@@ -79,7 +79,8 @@ export function useDailyReport({
         }
         if (result.error.code !== 'E_PROFILE_REQUIRED') throw new Error(result.error.code);
       }
-      const device = signedIn ? Promise.resolve(null) : readAnonymous();
+      // Signed in without an account profile: a device profile not yet imported beats the example.
+      const device = signedIn ? readAnonymous().catch(() => null) : readAnonymous();
       const input = device.then(async (data) => {
         const hash = await crypto.subtle.digest(
           'SHA-256',

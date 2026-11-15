@@ -60,7 +60,8 @@ export async function createBirthReading({
   };
   let result: Awaited<ReturnType<typeof createReadingAction>>;
   try {
-    result = await createReadingAction(req);
+    // A signed-in owner without a profile adopts their own first chart as the profile; the server ignores this otherwise.
+    result = await createReadingAction(req, { saveAsSelf: writeProfile });
   } catch {
     return { error: networkError };
   }

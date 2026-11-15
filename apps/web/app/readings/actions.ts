@@ -10,7 +10,7 @@ import {
 } from '@/lib/reading-action-context';
 import { listReadingHistory } from '@/lib/reading-history';
 import { getCopy } from '@/i18n/get-copy';
-import { currentProfile, profileBirth, saveProfile, removeProfile } from '@/lib/profile-service';
+import { currentProfile, profileBirth, removeProfile } from '@/lib/profile-service';
 import { requestIp } from '@/lib/request-ip';
 import { cookies, headers } from 'next/headers';
 import { z } from 'zod';
@@ -31,9 +31,7 @@ import {
   resolveBirth,
   idempotentCreate,
   readingView,
-  persistReading,
   json,
-  digest,
   checkAge,
 } from '@/lib/reading-service';
 import { interpret, localizeReport } from '@tianji/interpret';
@@ -41,11 +39,19 @@ import { loadKnowledge } from '@/lib/knowledge';
 import { BirthInputSchema, System } from '@tianji/shared';
 import { ENGINE_VERSION } from '@tianji/engine/version';
 import { stripPII } from '@/lib/strip-pii';
+import {
+  ReadingIntentSchema,
+  adoptSelfProfile,
+  saveCurrentProfile,
+} from '@/lib/reading-profile-intent';
+import { importAnonymousBatch } from '@/lib/reading-import';
+import { randomUUID } from 'node:crypto';
 /** Validate, normalize, compute and interpret; authenticated results are persisted, anonymous results are returned only. */
-export async function createReadingAction(raw: unknown) {
+export async function createReadingAction(raw: unknown, rawIntent?: unknown) {
   return run(async () => {
     await guardAge();
     const req = ReadingRequestSchema.parse(raw);
+    const intent = ReadingIntentSchema.parse(rawIntent);
     if (req.birth) checkAge(req.birth, req.locale);
     const session = await auth();
     const id = session?.user.id;
@@ -63,8 +69,14 @@ export async function createReadingAction(raw: unknown) {
       ),
     );
     try {
-      const result = await idempotentCreate(resolved.req, id ?? ip, id, resolved.profile);
-      return result;
+      const profile = id
+        ? await adoptSelfProfile(resolved.req, id, resolved.profile, intent)
+        : undefined;
+      const request =
+        profile && !resolved.req.profileId
+          ? { ...resolved.req, profileId: profile.id }
+          : resolved.req;
+      return await idempotentCreate(request, id ?? ip, id, profile ?? resolved.profile);
     } catch (error) {
       await recordEvent('reading.failed', {
         userId: id,
@@ -171,11 +183,12 @@ export async function getProfileAction() {
       : null;
   });
 }
-/** Save a new encrypted profile version atomically, retaining earlier versions. */
+/** Save a new encrypted profile version atomically; `expectedProfileId` refuses a changed selection. */
 export async function upsertProfileAction(
   raw: unknown,
   displayName = '',
   locale: 'zh' | 'en' | 'zh-TW' = 'zh',
+  expectedProfileId?: string,
 ) {
   return run(async () => {
     await guardAge();
@@ -183,19 +196,8 @@ export async function upsertProfileAction(
     const lang = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const name = z.string().trim().max(80).parse(displayName);
     checkAge(birth, lang);
-    const owner = await userId();
-    const current = await currentProfile(owner);
-    return saveProfile(
-      owner,
-      birth,
-      {
-        label:
-          name || current?.label || current?.encName || (await getCopy())('profiles.relation.self'),
-        relation: current?.relation ?? 'self',
-      },
-      lang,
-      current?.id,
-    );
+    const expected = idSchema.optional().parse(expectedProfileId);
+    return saveCurrentProfile(await userId(), birth, name, lang, expected);
   });
 }
 /** Delete all owner profile versions and associated readings. */
@@ -207,57 +209,40 @@ export async function deleteProfileAction() {
     return { deleted: true };
   });
 }
-/** Import at most 50 local snapshots, validating charts and recomputing trusted content; owner-scoped IDs make retries safe. */
+/** Import one batch of device snapshots; damaged items are skipped, and owner-scoped IDs make retries safe. */
 export async function importAnonymousDataAction(raw: unknown) {
   return run(async () => {
     await guardAge();
     const owner = await userId();
-    const input = z
-      .object({
-        anonId: z.string().uuid(),
-        profile: BirthInputSchema.optional(),
-        displayName: z.string().max(80).optional(),
-        readings: z
-          .array(
-            z.object({
-              id: z.string().uuid(),
-              request: ReadingRequestSchema,
-              chart: z.unknown(),
-              meta: z.unknown(),
-              createdAt: z.string().datetime(),
-            }),
-          )
-          .max(50),
-      })
-      .parse(raw);
-    if (input.profile) checkAge(input.profile, 'zh');
-    for (const local of input.readings) {
-      if (local.request.birth) checkAge(local.request.birth, local.request.locale);
-      parseReadingChart(local.request.system, stripPII(local.chart));
-      ReadingMetaSchema.parse(local.meta);
-    }
-    if (input.profile) {
-      const hasProfile = await getDb().birthProfile.findFirst({
-        where: { userId: owner, isCurrent: true },
-      });
-      if (!hasProfile) {
-        const saved = await upsertProfileAction(input.profile, input.displayName);
-        if (!saved.ok) throw new ApiError(saved.error.code, 'Profile import failed', 400);
-      }
-    }
-    const ids: string[] = [];
-    for (const local of input.readings) {
-      const id = `r${digest(owner + ':' + input.anonId + ':' + local.id).slice(0, 30)}`;
-      const exists = await getDb().reading.findFirst({ where: { id, userId: owner } });
-      if (!exists) {
-        await limitReadingWork();
-        await persistReading(owner, local.request, local.createdAt, id);
-      }
-      ids.push(id);
-    }
-    await getDb().user.update({ where: { id: owner }, data: { anonId: input.anonId } });
+    // DESIGN-GAP: Imports re-run trusted computation outside the hourly reading quota; lib/reading-import keeps its own ceiling.
+    const result = await importAnonymousBatch(owner, raw, async () => {
+      const t = await getCopy();
+      return { self: t('profiles.relation.self'), other: t('profiles.relation.other') };
+    });
     (await cookies()).delete('anon_import');
-    return { readingIds: ids };
+    return result;
+  });
+}
+/** Re-run a stale owner reading with its profiles' current birth facts; the old snapshot is kept. */
+export async function rerunWithCurrentProfileAction(raw: string, locale: 'zh' | 'en' | 'zh-TW') {
+  const prepared = await run(async () => {
+    const owner = await userId();
+    const row = await getDb().reading.findFirst({
+      where: { id: idSchema.parse(raw), userId: owner },
+      select: { system: true, profileId: true, partnerProfileId: true },
+    });
+    if (!row) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+    if (!row.profileId) throw new ApiError('E_PROFILE_REQUIRED', 'Profile required', 400);
+    return row;
+  });
+  if (!prepared.ok) return prepared;
+  const { system, profileId, partnerProfileId } = prepared.data;
+  return createReadingAction({
+    system,
+    locale: z.enum(['zh', 'en', 'zh-TW']).parse(locale),
+    profileId,
+    ...(partnerProfileId ? { partnerProfileId } : {}),
+    idempotencyKey: randomUUID(),
   });
 }
 /** Persist bounded per-section votes; anonymous feedback is restricted to votes without text. */

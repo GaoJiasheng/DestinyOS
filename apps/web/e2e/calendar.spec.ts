@@ -95,6 +95,10 @@ for (const locale of ['zh', 'en', 'zh-TW'] as const) {
       });
     const more = page.locator('button[aria-controls="calendar-upcoming"]');
     if (await more.count()) await more.click();
+    // Dates already behind today are collapsed, and the fixture's solar return may be one of them.
+    await page
+      .locator('details.calendar-past')
+      .evaluateAll((folds) => folds.forEach((fold) => ((fold as HTMLDetailsElement).open = true)));
     await page.locator('[data-calendar-event="solar_return"] a').click();
     await expect(page.locator('[data-daily-block="1"] time')).toHaveAttribute(
       'datetime',

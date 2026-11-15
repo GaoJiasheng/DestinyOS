@@ -5,7 +5,7 @@ import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
-import { Link } from '@/i18n/navigation';
+import { LoginLink } from '@/components/auth/login-link';
 import { Download } from 'lucide-react';
 import type { ExportRequest } from '@/lib/report-export-schema';
 const updateSchema = z.object({
@@ -145,9 +145,7 @@ export function ExportMenu({
         {local || !owner ? (
           <>
             <p>{t('export.login')}</p>
-            <Link className="text-link" href="/auth/login">
-              {t('nav.login')}
-            </Link>
+            <LoginLink className="text-link">{t('nav.login')}</LoginLink>
           </>
         ) : (
           <div className="export-options">

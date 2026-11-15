@@ -193,3 +193,15 @@ export async function removeProfile(
     ...after,
   ]);
 }
+/** Count what `removeProfile` deletes so the confirmation can name it before anything is removed. */
+export async function profileDeletionImpact(userId: string, id: string) {
+  await ownedProfile(userId, id);
+  const db = getDb();
+  const readings = { userId, OR: [{ profileId: id }, { partnerProfileId: id }] };
+  const [readingCount, journals, shares] = await Promise.all([
+    db.reading.count({ where: readings }),
+    db.journalEntry.count({ where: { userId, profileId: id } }),
+    db.shareLink.count({ where: { userId, revokedAt: null, reading: readings } }),
+  ]);
+  return { readings: readingCount, journals, shares };
+}

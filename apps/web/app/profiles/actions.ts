@@ -14,6 +14,7 @@ import {
   saveProfile,
   setDefaultProfile,
   removeProfile,
+  profileDeletionImpact,
   PROFILE_COOKIE,
 } from '@/lib/profile-service';
 const idSchema = z.string().min(1).max(100);
@@ -65,6 +66,8 @@ export async function selectProfileAction(raw: unknown) {
       sameSite: 'lax',
       secure: process.env.NODE_ENV === 'production',
       path: '/',
+      // A session cookie reset the choice whenever the browser restarted, so reports seemed to vanish.
+      maxAge: 180 * 24 * 60 * 60,
     });
     revalidatePath('/[locale]', 'layout');
     return { selectedId: id };
@@ -115,4 +118,8 @@ export async function removeProfileAction(raw: unknown) {
     revalidatePath('/[locale]', 'layout');
     return { deleted: true };
   });
+}
+/** Count the readings, journal entries and live shares a profile deletion would remove. */
+export async function profileDeletionImpactAction(raw: unknown) {
+  return run(async () => profileDeletionImpact(await owner(), idSchema.parse(raw)));
 }

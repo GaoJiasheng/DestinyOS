@@ -121,7 +121,9 @@ for (const locale of ['zh', 'en'] as const) {
       await page.getByRole('button', { name: t['report.chat.send'], exact: true }).click();
       await expect(page.locator('.chat-user')).toHaveCount(i + 2);
     }
-    await expect(page.getByText(t['report.chat.quota'], { exact: true })).toBeVisible();
+    // The reset time is shown in the browser's own clock, so match the text before it.
+    const quota = t['report.chat.quota'];
+    await expect(page.getByText(quota.slice(0, quota.indexOf('{time}')))).toBeVisible();
     await page.reload();
     await expect(page.locator('.chat-user')).toHaveCount(3);
     await page.getByRole('button', { name: t['report.chat.delete'], exact: true }).click();

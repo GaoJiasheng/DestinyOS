@@ -31,7 +31,7 @@ export function RectificationWizard({
   initial,
   signedIn,
 }: {
-  initial?: BirthInput & { displayName?: string };
+  initial?: BirthInput & { displayName?: string; profileId?: string };
   signedIn: boolean;
 }) {
   const { pending, run } = useSubmitTransition();
@@ -41,6 +41,9 @@ export function RectificationWizard({
   const router = useRouter();
   const [birth, setBirth] = useState<BirthInput | null>(null);
   const [name, setName] = useState(initial?.displayName ?? '');
+  // Only a trial that starts from the selected profile (or the guest's device profile) may rewrite it;
+  // a draft handed over from a birth form may describe someone else.
+  const [ownProfile, setOwnProfile] = useState(false);
   const [ready, setReady] = useState(false);
   const [editing, setEditing] = useState(false);
   const [working, setBusy] = useState(false);
@@ -65,6 +68,12 @@ export function RectificationWizard({
             ? BirthInputSchema.parse(initialBirth(initial))
             : data?.profile;
         if (input) setBirth(input);
+        // A guest with nothing saved yet keeps the earlier behaviour: the trial becomes the device profile.
+        setOwnProfile(
+          signedIn
+            ? !draft.success && Boolean(initial?.profileId)
+            : !draft.success || !data?.profile,
+        );
         setName(
           draft.success
             ? draft.data.displayName
@@ -81,7 +90,7 @@ export function RectificationWizard({
     return () => {
       active = false;
     };
-  }, [initial]);
+  }, [initial, signedIn]);
   useEffect(() => {
     if (candidates) resultHeading.current?.focus();
   }, [candidates]);
@@ -118,8 +127,8 @@ export function RectificationWizard({
         timeSource: 'rectified',
         rectificationConfidence: candidate.confidence,
       });
-      if (signedIn) {
-        const saved = await upsertProfileAction(selected, name, locale);
+      if (ownProfile && signedIn) {
+        const saved = await upsertProfileAction(selected, name, locale, initial?.profileId);
         if (!saved.ok) {
           setError(`report.error.${saved.error.code}`);
           return;
@@ -127,8 +136,7 @@ export function RectificationWizard({
       } else {
         await updateAnonymous((data) => ({
           ...data,
-          profile: selected,
-          displayName: name,
+          ...(ownProfile ? { profile: selected, displayName: name } : {}),
           settings: { ...data.settings, rectificationDraft: null },
         }));
       }
@@ -136,7 +144,8 @@ export function RectificationWizard({
       const key = `${candidate.branch}:${system}`;
       const request: ReadingRequest = trialRequests.current.get(key) ?? {
         system,
-        birth: signedIn ? undefined : selected,
+        // A signed-in trial of the selected profile reads the just-saved profile; any other trial carries its birth.
+        birth: ownProfile && signedIn ? undefined : selected,
         locale,
         displayName: name,
         idempotencyKey: crypto.randomUUID(),
@@ -188,6 +197,8 @@ export function RectificationWizard({
           initial={birth ? { ...birth, displayName: name } : undefined}
           signedIn={signedIn}
           onComplete={(input, displayName) => {
+            // Changed birth facts no longer describe the saved profile, so the trial must not overwrite it.
+            if (birth && JSON.stringify(input) !== JSON.stringify(birth)) setOwnProfile(false);
             setBirth(input);
             setName(displayName);
             setEditing(false);
@@ -200,7 +211,7 @@ export function RectificationWizard({
             {t('results')}
           </h2>
           <p>{t('resultHelp')}</p>
-          <p className="muted">{t('tryNote')}</p>
+          <p className="muted">{t(ownProfile ? 'tryNote' : 'tryNoteTrial')}</p>
           <div className="rectification-results">
             {candidates.slice(0, 3).map((candidate, index) => (
               <article

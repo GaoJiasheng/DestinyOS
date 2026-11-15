@@ -236,7 +236,7 @@ for (const locale of ['zh', 'en'] as const) {
     const visitor = await visitorContext.newPage();
     await visitor.goto(`http://localhost:3210/${locale}/bazi/r/${reading.id}`);
     await expect(
-      visitor.getByText(copy['report.error.E_FORBIDDEN'], { exact: true }),
+      visitor.getByText(copy['report.accessMissing.signedOut'], { exact: true }),
     ).toBeVisible();
     await visitorContext.close();
     const exported = await page.request.get('/api/v1/me/export');

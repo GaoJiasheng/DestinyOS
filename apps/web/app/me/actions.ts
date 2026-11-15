@@ -29,7 +29,8 @@ export async function updateSettingsAction(raw: unknown) {
 /** Exact DELETE confirmation soft-deletes and immediately invalidates all sessions and shares. */
 export async function deleteAccountAction(confirmText: string, deleteFeedback = false) {
   try {
-    z.literal('DELETE').parse(confirmText);
+    // The localized confirmation words shown in each interface; nothing looser than an exact match.
+    z.enum(['DELETE', '删除', '刪除']).parse(confirmText);
     z.boolean().parse(deleteFeedback);
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);

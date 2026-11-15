@@ -48,7 +48,7 @@ export function TarotRitual({
   const [chart, setChart] = useState<TarotChart | null>(null);
   const [leave, setLeave] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null); // full message key
   const [ready, setReady] = useState(false);
   const [localResult, setLocalResult] = useState<LocalReading | null>(null);
   const lock = useRef(false);
@@ -95,7 +95,7 @@ export function TarotRitual({
       })
       .catch(() => {
         if (active) {
-          setError(true);
+          setError('tarot.error');
           setReady(true);
         }
       });
@@ -171,7 +171,7 @@ export function TarotRitual({
     if (!draft || !chart || lock.current) return;
     lock.current = true;
     setBusy(true);
-    setError(false);
+    setError(null);
     const idempotencyKey = requestId.current ?? crypto.randomUUID();
     requestId.current = idempotencyKey;
     const request: ReadingRequest = {
@@ -185,10 +185,12 @@ export function TarotRitual({
       pickedIndices: picked,
       idempotencyKey,
     };
+    let failure = signedIn ? 'form.birth.error.network' : 'tarot.error'; // a rejected action is a network failure
     try {
       if (signedIn) {
         const result = await createReadingAction(request);
-        if (!result.ok) throw new Error(result.error.code);
+        failure = result.ok ? 'tarot.error' : `report.error.${result.error.code}`;
+        if (!result.ok) throw new Error(failure);
         if ('readingId' in result.data && result.data.readingId) {
           router.push(`/tarot/r/${result.data.readingId}`);
           return;
@@ -229,7 +231,7 @@ export function TarotRitual({
       if (!navigator.onLine) setLocalResult(local);
       else router.push(`/tarot/r/local/${local.id}`);
     } catch {
-      setError(true);
+      setError(intl.has(failure) ? failure : 'tarot.error');
       setBusy(false);
       lock.current = false;
     }
@@ -371,7 +373,7 @@ export function TarotRitual({
           </div>
         </>
       ) : null}
-      {error ? <p role="alert">{t('error')}</p> : null}
+      {error ? <p role="alert">{intl(error)}</p> : null}
       <Dialog
         open={leave}
         onOpenChange={setLeave}

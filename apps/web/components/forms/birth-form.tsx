@@ -274,7 +274,10 @@ export function BirthForm({
       setBusy(false);
     }
   };
-  const showTarget = !signedIn && !embedded && !profileMode && (hasSaved || target !== null);
+  // A signed-in owner without a profile is asked too: their own first chart becomes the profile.
+  const accountFirst = signedIn && !initial && !embedded && !profileMode;
+  const showTarget =
+    accountFirst || (!signedIn && !embedded && !profileMode && (hasSaved || target !== null));
   return (
     <section className="birth-shell">
       <p className="eyebrow">{t('form.birth.step', { step })}</p>
@@ -300,7 +303,10 @@ export function BirthForm({
           {step === 1 ? (
             <>
               {showTarget ? (
-                <BirthTargetChoice value={target ?? 'other'} onChange={chooseTarget} />
+                <BirthTargetChoice
+                  value={target ?? (accountFirst ? 'self' : 'other')}
+                  onChange={chooseTarget}
+                />
               ) : null}
               <BirthDateFields
                 birth={birth}

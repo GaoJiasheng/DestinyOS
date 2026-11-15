@@ -6,6 +6,7 @@ import zh from '../messages/zh.json';
 import tw from '../messages/zh-TW.json';
 import en from '../messages/en.json';
 import { toMessages } from '../i18n/catalog';
+import { formatUntil } from './auth-notice';
 
 function escapeHtml(text: string): string {
   return text.replace(
@@ -40,4 +41,32 @@ export async function sendMagicEmail(
   url: string,
 ): Promise<void> {
   await sendEmail({ to: email, ...magicLinkEmail(locale, url) });
+}
+
+/** Tell the owner of a recently deleted account, by email only, why no sign-in link was sent. */
+export function accountDeletedEmail(locale: 'zh' | 'en' | 'zh-TW', until?: string) {
+  const t = createTranslator({
+    locale,
+    messages: toMessages(locale === 'zh-TW' ? tw : locale !== 'en' ? zh : en),
+  });
+  const name = locale !== 'en' ? localeText(brand.nameZh, locale) : brand.nameEn;
+  const subject = t('auth.deletedMail.subject', { brand: name });
+  const body = until
+    ? t('auth.error.accountDeleted', { date: formatUntil(until, locale) })
+    : t('auth.login.deleted');
+  const ignore = t('auth.magic.ignore');
+  return {
+    subject,
+    text: `${body}\n\n${ignore}`,
+    html: `<html lang="${locale}"><body><h1>${escapeHtml(subject)}</h1><p>${escapeHtml(body)}</p><p>${escapeHtml(ignore)}</p></body></html>`,
+  };
+}
+
+/** Send the deleted-account notice through the platform email interface. */
+export async function sendAccountDeletedEmail(
+  email: string,
+  locale: 'zh' | 'en' | 'zh-TW',
+  until?: string,
+): Promise<void> {
+  await sendEmail({ to: email, ...accountDeletedEmail(locale, until) });
 }

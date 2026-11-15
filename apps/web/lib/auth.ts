@@ -11,6 +11,7 @@ import { roleForEmail } from './auth-role';
 import { sendMagicEmail } from './auth-email';
 import { logger } from './logger';
 import { recordEvent } from './events';
+import { deletedAccountPath } from './auth-notice';
 
 export const { auth, handlers, signIn, signOut } = NextAuth(() => {
   const db = getDb();
@@ -79,7 +80,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
         const existing = user.email
           ? await db.user.findUnique({ where: { email: user.email } })
           : null;
-        if (existing?.deletedAt) return false;
+        // A relative path makes Auth.js redirect (or return it to signIn) instead of a generic AccessDenied, so both email and Google explain the cooling-off period.
+        if (existing?.deletedAt) return deletedAccountPath(existing.deletedAt);
         if (!email?.verificationRequest && existing)
           await db.user.update({
             where: { id: existing.id },

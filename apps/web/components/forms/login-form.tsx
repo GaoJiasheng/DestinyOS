@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { loginFormAction, type LoginState } from '@/app/[locale]/auth/actions';
+import { retryWait } from '@/lib/retry-wait';
 
 const resendCooldown = 60;
 /** Accessible email login form with translated pending, sent, validation and rate-limit states. */
@@ -70,11 +71,11 @@ export function LoginForm({ locale }: { locale: string }) {
             : t(state.ok ? 'auth.login.resend' : 'auth.login.send')}
       </Button>
       <div aria-live="polite" role={state.code ? 'alert' : 'status'}>
-        {state.ok && t('auth.magic.sent', { email: state.email ?? '' })}
+        {state.ok &&
+          `${t('auth.magic.sent', { email: state.email ?? '' })} ${t('auth.magic.sameDevice')}`}
         {state.code === 'E_VALIDATION' && t('auth.error.validation')}
         {state.code === 'E_INTERNAL' && t('auth.error.internal')}
-        {state.code === 'E_RATE_LIMITED' &&
-          t('auth.error.rateLimited', { seconds: state.retryAfter ?? 1 })}
+        {state.code === 'E_RATE_LIMITED' && t('common.retryAfterWait', retryWait(state.retryAfter))}
       </div>
     </form>
   );

@@ -30,7 +30,11 @@ vi.mock('../app/ads/actions', () => ({
   recordAdImpressionAction: vi.fn(),
 }));
 vi.mock('../app/readings/actions', () => ({ submitFeedbackAction: vi.fn() }));
-vi.mock('../i18n/navigation', () => ({ Link: 'a', useRouter: () => ({ push: vi.fn() }) }));
+vi.mock('../i18n/navigation', () => ({
+  Link: 'a',
+  useRouter: () => ({ push: vi.fn() }),
+  usePathname: () => '/bazi/r/local/test',
+}));
 beforeAll(() => {
   vi.stubGlobal(
     'matchMedia',

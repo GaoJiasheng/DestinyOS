@@ -6,6 +6,7 @@ import { JournalInputSchema } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { Link } from '@/i18n/navigation';
+import { LoginLink } from '@/components/auth/login-link';
 import { Button } from '@/components/ui/button';
 import { getJournalEntryAction, saveJournalEntryAction } from '@/app/me/journal/actions';
 import { localToday } from '@/lib/daily-date';
@@ -64,9 +65,7 @@ export function JournalForm({
       <h2>{t('journal.prompt')}</h2>
       {!signedIn ? (
         <p>
-          <Link href="/auth/login" className="text-link">
-            {t('journal.login')}
-          </Link>
+          <LoginLink className="text-link">{t('journal.login')}</LoginLink>
         </p>
       ) : !profileId ? (
         <p>

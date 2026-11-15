@@ -2,36 +2,20 @@
 import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { useEffect, useId, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
-import { z } from 'zod';
 import type { System } from '@tianji/shared';
 import type { MessageKey } from '@/i18n/catalog';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
+import { LoginLink } from '@/components/auth/login-link';
 import { Button } from '@/components/ui/button';
 import { Square } from 'lucide-react';
-const historySchema = z.object({
-  ok: z.literal(true),
-  data: z.object({
-    available: z.boolean(),
-    remaining: z.number(),
-    limit: z.number(),
-    messages: z.array(
-      z.object({
-        id: z.string(),
-        role: z.enum(['user', 'assistant']),
-        content: z.string(),
-        createdAt: z.string(),
-      }),
-    ),
-  }),
-});
-const eventSchema = z.discriminatedUnion('type', [
-  z.object({ type: z.literal('delta'), text: z.string() }),
-  z.object({ type: z.literal('done') }),
-  z.object({ type: z.literal('error'), code: z.string() }),
-]);
-const errorSchema = z.object({ error: z.object({ code: z.string() }) });
-type Message = { id: string; role: 'user' | 'assistant'; content: string };
+import {
+  errorSchema,
+  eventSchema,
+  historySchema,
+  localResetTime,
+  type Message,
+} from './chat-panel-support';
 /** Lazy, collapsible follow-up dialogue; unavailable chat never blocks report rendering. */
 export function ChatPanel({
   readingId,
@@ -59,7 +43,11 @@ export function ChatPanel({
     [limit, setLimit] = useState(0),
     [error, setError] = useState(''),
     [stopped, setStopped] = useState(false),
-    [confirmClear, setConfirmClear] = useState(false);
+    [confirmClear, setConfirmClear] = useState(false),
+    [resetTime, setResetTime] = useState(''),
+    // History failures: an expired session needs sign-in, anything else can simply be retried.
+    [historyError, setHistoryError] = useState<'login' | 'retry' | null>(null),
+    [historyAttempt, setHistoryAttempt] = useState(0);
   const abort = useRef<AbortController | null>(null);
   const hintId = useId();
   const end = useRef<HTMLDivElement>(null);
@@ -79,13 +67,19 @@ export function ChatPanel({
               : code === 'E_FORBIDDEN'
                 ? 'report.chat.forbidden'
                 : 'report.chat.away',
+      { time: localResetTime(locale) },
     );
   useEffect(() => {
     if (!open || !owner || busy) return;
     const controller = new AbortController();
     setLoading(true);
+    setHistoryError(null);
     void fetch(url, { signal: controller.signal, cache: 'no-store' })
       .then(async (response) => {
+        if (response.status === 401) {
+          setHistoryError('login');
+          return;
+        }
         const body: unknown = await response.json();
         const parsed = historySchema.safeParse(body);
         if (!parsed.success) throw new Error('Chat unavailable');
@@ -93,15 +87,16 @@ export function ChatPanel({
         setRemaining(parsed.data.data.remaining);
         setLimit(parsed.data.data.limit);
         setAvailable(parsed.data.data.available);
+        setResetTime(localResetTime(locale));
       })
       .catch(() => {
-        if (!controller.signal.aborted) setError(t('report.chat.away'));
+        if (!controller.signal.aborted) setHistoryError('retry');
       })
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
-  }, [open, owner, url, locale]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [open, owner, url, locale, historyAttempt]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => () => abort.current?.abort(), []);
   useEffect(() => {
     if (busy) end.current?.scrollIntoView({ block: 'nearest' });
@@ -144,7 +139,10 @@ export function ChatPanel({
       if (!response.ok) {
         const body: unknown = await response.json();
         const parsed = errorSchema.safeParse(body);
-        if (parsed.success && parsed.data.error.code === 'E_QUOTA_EXCEEDED') setRemaining(0);
+        if (parsed.success && parsed.data.error.code === 'E_QUOTA_EXCEEDED') {
+          setRemaining(0);
+          setResetTime(localResetTime(locale));
+        }
         setError(errorCopy(parsed.success ? parsed.data.error.code : 'E_INTERNAL'));
         return;
       }
@@ -186,7 +184,8 @@ export function ChatPanel({
     } catch {
       setAnswer('');
       if (controller.signal.aborted) {
-        // A reader-initiated stop keeps what already streamed; the quota was reserved on send.
+        // A stopped answer is not saved and the server returns its quota, so keep the count;
+        // what already streamed stays visible on this page only.
         if (text)
           setMessages((old) => [
             ...old,
@@ -194,7 +193,6 @@ export function ChatPanel({
             { id: crypto.randomUUID(), role: 'assistant', content: text },
           ]);
         setQuestion('');
-        setRemaining((value) => Math.max(0, value - 1));
         setStopped(true);
       } else setError(t('report.chat.away'));
     } finally {
@@ -223,17 +221,27 @@ export function ChatPanel({
     <div className="chat-body">
       <p className="muted">{t('report.chat.privacy')}</p>
       {!owner ? (
-        <Link className="text-link" href="/auth/login">
-          {t('report.chat.login')}
-        </Link>
+        <LoginLink className="text-link">{t('report.chat.login')}</LoginLink>
       ) : loading ? (
         <p role="status">{t('report.chat.loading')}</p>
+      ) : historyError === 'login' ? (
+        <p role="alert">
+          {t('report.chat.sessionExpired')}{' '}
+          <LoginLink className="text-link">{t('report.chat.login')}</LoginLink>
+        </p>
+      ) : historyError ? (
+        <div role="alert">
+          <p>{t('report.chat.historyFailed')}</p>
+          <Button variant="secondary" onClick={() => setHistoryAttempt((value) => value + 1)}>
+            {t('report.chat.retry')}
+          </Button>
+        </div>
       ) : (
         <>
           {!available ? (
             <p role="status">{t('report.chat.away')}</p>
           ) : (
-            <p>{t('report.chat.remaining', { remaining, limit })}</p>
+            <p>{t('report.chat.remaining', { remaining, limit, time: resetTime })}</p>
           )}
           {messages.length === 0 ? <p className="muted">{t('report.chat.empty')}</p> : null}
           <div
@@ -274,7 +282,9 @@ export function ChatPanel({
                   </Button>
                 ))}
               </div>
-              {remaining === 0 ? <p role="status">{t('report.chat.quota')}</p> : null}
+              {remaining === 0 ? (
+                <p role="status">{t('report.chat.quota', { time: resetTime })}</p>
+              ) : null}
               <form
                 onSubmit={(event) => {
                   event.preventDefault();

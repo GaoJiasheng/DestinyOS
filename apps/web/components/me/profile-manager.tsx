@@ -15,9 +15,14 @@ import {
   removeProfileAction,
   selectProfileAction,
   profileDetailAction,
+  profileDeletionImpactAction,
 } from '@/app/profiles/actions';
 type Data = Extract<Awaited<ReturnType<typeof listProfilesAction>>, { ok: true }>['data'];
 type Relation = Data['items'][number]['relation'];
+type Impact = Extract<
+  Awaited<ReturnType<typeof profileDeletionImpactAction>>,
+  { ok: true }
+>['data'];
 // DESIGN-GAP: The birth editor is needed only after add/edit; keep its calendar engine out of the profile list's initial chunks.
 const BirthForm = dynamic(
   () => import('@/components/forms/birth-form').then((module) => module.BirthForm),
@@ -38,6 +43,7 @@ export function ProfileManager({ initial }: { initial: Data }) {
     } | null>(null),
     [relation, setRelation] = useState<Relation>('self'),
     [deleting, setDeleting] = useState<string | null>(null),
+    [impact, setImpact] = useState<(Impact & { id: string }) | null>(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState<string | null>(null);
   useEffect(() => {
@@ -123,7 +129,20 @@ export function ProfileManager({ initial }: { initial: Data }) {
                 >
                   {t('profiles.setDefault')}
                 </Button>
-                <Button disabled={busy} variant="ghost" onClick={() => setDeleting(p.id)}>
+                <Button
+                  disabled={busy}
+                  variant="ghost"
+                  onClick={() => {
+                    setDeleting(p.id);
+                    setImpact(null);
+                    // Counts are best effort; the generic warning already names every category.
+                    void profileDeletionImpactAction(p.id)
+                      .then((r) => {
+                        if (r.ok) setImpact({ ...r.data, id: p.id });
+                      })
+                      .catch(() => undefined);
+                  }}
+                >
                   {t('profiles.delete')}
                 </Button>
               </div>
@@ -206,11 +225,20 @@ export function ProfileManager({ initial }: { initial: Data }) {
         onOpenChange={(open) => {
           if (!open && !busy) {
             setDeleting(null);
+            setImpact(null);
             setError(null);
           }
         }}
         title={t('profiles.delete')}
-        description={t('profiles.deleteConfirm')}
+        description={
+          impact && impact.id === deleting
+            ? t('profiles.deleteImpact', {
+                readings: impact.readings,
+                journals: impact.journals,
+                shares: impact.shares,
+              })
+            : t('profiles.deleteConfirm')
+        }
       >
         <Button
           disabled={busy}

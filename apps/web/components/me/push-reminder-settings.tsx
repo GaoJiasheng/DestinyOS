@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
-import { Link } from '@/i18n/navigation';
+import { LoginLink } from '@/components/auth/login-link';
 import {
   pushStatusAction,
   subscribePushAction,
@@ -168,7 +168,7 @@ export function PushReminderSettings({ signedIn }: { signedIn: boolean }) {
       <p>{t('me.push.help')}</p>
       {!signedIn ? (
         <p>
-          <Link href="/auth/login">{t('me.push.signIn')}</Link>
+          <LoginLink>{t('me.push.signIn')}</LoginLink>
         </p>
       ) : blocked ? (
         <p role="status">{blocked}</p>

@@ -7,6 +7,7 @@ import { PrivacyChoices } from '@/components/ads/privacy-choices';
 import { isQuotaError } from '@/lib/anonymous-encoding';
 type Status =
   | { kind: 'imported'; count: number }
+  | { kind: 'limited'; minutes: number }
   | {
       kind: 'error';
       key:
@@ -26,12 +27,15 @@ export function SettingsData({
 }) {
   const t = useCopy(),
     file = useRef<HTMLInputElement>(null),
-    [status, setStatus] = useState<Status | null>(null);
+    [status, setStatus] = useState<Status | null>(null),
+    [exporting, setExporting] = useState(false);
   async function download() {
     setStatus(null);
+    setExporting(true);
     try {
       const blob = signedIn
         ? await fetch('/api/v1/me/export').then(async (r) => {
+            if (r.status === 429) throw new ExportLimited(Number(r.headers.get('Retry-After')));
             if (!r.ok) throw new Error('Export failed');
             return r.blob();
           })
@@ -50,8 +54,14 @@ export function SettingsData({
       a.remove();
       // Safari starts the download asynchronously; revoking at once can cancel it.
       window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
-    } catch {
-      setStatus({ kind: 'error', key: 'report.error.E_INTERNAL' });
+    } catch (error) {
+      setStatus(
+        error instanceof ExportLimited
+          ? { kind: 'limited', minutes: error.minutes }
+          : { kind: 'error', key: 'report.error.E_INTERNAL' },
+      );
+    } finally {
+      setExporting(false);
     }
   }
   async function importFile(chosen: File) {
@@ -84,8 +94,8 @@ export function SettingsData({
     <section className="report-card settings-data">
       <h2>{t('me.data')}</h2>
       <div className="action-row">
-        <Button variant="secondary" action={download}>
-          {t('me.export')}
+        <Button variant="secondary" disabled={exporting} action={download}>
+          {t(exporting ? 'me.exporting' : 'me.export')}
         </Button>
         {/* DESIGN-GAP: Account data has no import endpoint; only the anonymous device snapshot can be restored. */}
         {!signedIn ? (
@@ -110,8 +120,12 @@ export function SettingsData({
       </div>
       {!signedIn ? <p className="muted">{t('me.importHelp')}</p> : null}
       {status ? (
-        <p role={status.kind === 'error' ? 'alert' : 'status'}>
-          {status.kind === 'error' ? t(status.key) : t('me.imported', { count: status.count })}
+        <p role={status.kind === 'imported' ? 'status' : 'alert'}>
+          {status.kind === 'error'
+            ? t(status.key)
+            : status.kind === 'limited'
+              ? t('me.exportLimited', { minutes: status.minutes })
+              : t('me.imported', { count: status.count })}
         </p>
       ) : null}
       <ul className="settings-links">
@@ -125,4 +139,14 @@ export function SettingsData({
       {version ? <p className="muted">{t('me.version', { version })}</p> : null}
     </section>
   );
+}
+/** The server allows one account export per ten minutes and says how long remains. */
+class ExportLimited extends Error {
+  readonly minutes: number;
+  constructor(retryAfterSeconds: number) {
+    super('Export rate limited');
+    const seconds =
+      Number.isFinite(retryAfterSeconds) && retryAfterSeconds > 0 ? retryAfterSeconds : 600;
+    this.minutes = Math.max(1, Math.ceil(seconds / 60));
+  }
 }

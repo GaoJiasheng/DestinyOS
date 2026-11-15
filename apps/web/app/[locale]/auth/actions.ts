@@ -11,7 +11,9 @@ import { ApiError } from '@/lib/api-error';
 import { verificationSchema } from '@/lib/auth-confirmation';
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import { sendAccountDeletedEmail } from '@/lib/auth-email';
 import { returnCookie, safeReturnPath } from './return-path';
+import { accountDeletedError, parseUntil } from '@/lib/auth-notice';
 
 export type LoginState = {
   ok: boolean;
@@ -58,8 +60,19 @@ export async function sendMagicLinkAction(
       redirect: false,
       redirectTo: returnTo,
     });
-    if (typeof result !== 'string' || new URL(result, 'http://localhost').searchParams.has('error'))
-      throw new Error('Authentication request failed');
+    const query =
+      typeof result === 'string' ? new URL(result, 'http://localhost').searchParams : null;
+    if (query?.get('error') === accountDeletedError) {
+      // Whether an address belongs to a recently deleted account is told only to its mailbox;
+      // the page answers exactly as it does for any other address.
+      await sendAccountDeletedEmail(
+        parsed.data.email,
+        parsed.data.locale,
+        parseUntil(query.get('until')),
+      ).catch((error: unknown) => logger.error({ err: error }, 'Deleted-account notice failed'));
+      return { ok: true, email: parsed.data.email };
+    }
+    if (!query || query.has('error')) throw new Error('Authentication request failed');
     // DESIGN-GAP: The emailed confirmation link carries only token/email, so the destination waits in a short-lived same-browser cookie; another device lands on home.
     (await cookies()).set(returnCookie, returnTo, {
       httpOnly: true,
@@ -93,16 +106,15 @@ export async function googleLoginAction(locale: string, callbackUrl?: string): P
   await signIn('google', { redirectTo: safeReturnPath(callbackUrl, valid) });
 }
 
-/** Confirm login only after a CSRF-protected form submission, then let Auth.js consume the token. */
-export async function confirmLoginAction(
+/** Let Auth.js consume the token inside a CSRF-protected action; resolves to the same-origin destination. */
+async function confirmLogin(
   locale: string,
   token: string,
   email: string,
   returnTo?: string,
-): Promise<void> {
+): Promise<string> {
   const parsed = verificationSchema.safeParse({ locale, token, email });
-  if (!parsed.success)
-    redirect(`/${isLocale(locale) ? locale : 'zh'}/auth/login?error=Verification`);
+  if (!parsed.success) return `/${isLocale(locale) ? locale : 'zh'}/auth/login?error=Verification`;
   const requestHeaders = new Headers(await headers());
   const origin = requestHeaders.get('origin') ?? process.env.NEXT_PUBLIC_SITE_URL;
   if (!origin) throw new Error('Site origin is required');
@@ -126,11 +138,38 @@ export async function confirmLoginAction(
     origin,
   );
   if (target.origin !== new URL(origin).origin)
-    redirect(`/${parsed.data.locale}/auth/login?error=Verification`);
-  redirect(`${target.pathname}${target.search}`);
+    return `/${parsed.data.locale}/auth/login?error=Verification`;
+  return `${target.pathname}${target.search}`;
 }
 
-/** Revoke the database session and return to the localized login page. */
+/** Pre-hydration form fallback: a native POST makes this redirect a full page load. */
+export async function confirmLoginAction(
+  locale: string,
+  token: string,
+  email: string,
+  returnTo?: string,
+): Promise<void> {
+  redirect(await confirmLogin(locale, token, email, returnTo));
+}
+
+/** Hydrated confirmation: the client performs a full navigation so the shell re-reads the session. */
+export async function confirmLoginTargetAction(
+  locale: string,
+  token: string,
+  email: string,
+  returnTo?: string,
+): Promise<string> {
+  return confirmLogin(locale, token, email, returnTo);
+}
+
+/** Revoke the database session and return to the localized login page (pre-hydration fallback). */
 export async function logoutAction(locale: string): Promise<void> {
   await signOut({ redirectTo: `/${isLocale(locale) ? locale : 'zh'}/auth/login` });
+}
+
+/** Revoke the session without a router redirect; the client then reloads the page so the shell drops its signed-in state. */
+export async function logoutTargetAction(locale: string): Promise<string> {
+  const target = `/${isLocale(locale) ? locale : 'zh'}/auth/login`;
+  await signOut({ redirect: false, redirectTo: target });
+  return target;
 }

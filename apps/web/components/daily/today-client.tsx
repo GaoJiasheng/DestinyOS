@@ -17,7 +17,8 @@ export function TodayClient() {
   const signedIn = useSignedIn();
   const locale = useLocale();
   const t = useCopy();
-  const [context, setContext] = useState<Awaited<ReturnType<typeof todayContextAction>>>(null);
+  // undefined = not loaded yet; null = the server no longer sees a session (e.g. just signed out).
+  const [context, setContext] = useState<Awaited<ReturnType<typeof todayContextAction>>>();
   const [pending, start] = useTransition();
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -44,7 +45,8 @@ export function TodayClient() {
       live = false;
     };
   }, [signedIn, retry, locale]);
-  if (signedIn && error)
+  const account = signedIn && context !== null;
+  if (account && error)
     return (
       <div role="alert">
         {t('report.error.E_INTERNAL')}
@@ -53,11 +55,11 @@ export function TodayClient() {
         </Button>
       </div>
     );
-  if (signedIn && (pending || !context)) return <RouteSkeleton kind="daily" />;
+  if (account && (pending || !context)) return <RouteSkeleton kind="daily" />;
   return (
     <TodayView
       key={context ? `${context.profileId}:${context.version}` : 'local'}
-      signedIn={signedIn}
+      signedIn={account}
       profileId={context?.profileId}
       birth={context?.birth}
       seedIdentity={context?.seedIdentity}

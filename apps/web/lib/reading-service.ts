@@ -27,6 +27,7 @@ import {
   type ReadingView,
 } from './reading-schema';
 import { stateRead, stateWrite, stateReserve, stateRelease } from './state';
+import { readingStaleProfile } from './reading-stale';
 import { atomicBatch, guard, insertRow, statement, type SqlStatement } from './db-batch';
 /** SHA-256 identifiers keep private request/owner values out of cache keys. */
 const digest = (value: string) => createHash('sha256').update(value).digest('hex');
@@ -146,18 +147,6 @@ export async function readingView(
       data: locale !== 'en' ? { reportZh: json(report) } : { reportEn: json(report) },
     });
   }
-  const profile = row.profileId
-    ? await getDb().birthProfile.findUnique({
-        where: { id: row.profileId },
-        select: { isCurrent: true, version: true },
-      })
-    : null;
-  const partnerProfile = row.partnerProfileId
-    ? await getDb().birthProfile.findUnique({
-        where: { id: row.partnerProfileId },
-        select: { isCurrent: true, version: true },
-      })
-    : null;
   // DESIGN-GAP: Stored report reads load only their birth-warning helpers, never other system engines or knowledge.
   const { normalizeBirth } = await import('@tianji/engine/common');
   const normalized = snapshot.birth ? normalizeBirth(snapshot.birth, locale) : null;
@@ -206,11 +195,7 @@ export async function readingView(
     birthYear: normalized?.local.year,
     displayName: owner ? snapshot.displayName : undefined,
     isPublic: row.isPublic,
-    staleProfile:
-      profile?.isCurrent === false ||
-      (!!profile && row.profileVersion !== profile.version) ||
-      partnerProfile?.isCurrent === false ||
-      (!!partnerProfile && snapshot.partnerProfileVersion !== partnerProfile.version),
+    staleProfile: await readingStaleProfile(row, snapshot),
   };
 }
 /** Save chart/report plaintext and input via the existing AES-GCM Prisma extension. */
@@ -223,6 +208,7 @@ export async function persistReading(
   syncChecks: SqlStatement[] = [],
   title?: string | null,
   syncAfter: SqlStatement[] = [],
+  keepCreatedAt = false,
 ) {
   const generated = await generateReading(
     { ...req, locale: req.locale === 'en' ? 'en' : 'zh' },
@@ -257,8 +243,8 @@ export async function persistReading(
   statements.push(
     insertRow('Reading', {
       id: row.id,
-      // DESIGN-GAP: Offline mobile imports retain their original generation time so synchronized history and engine time remain consistent.
-      createdAt: syncChecks.length ? new Date(now) : undefined,
+      // DESIGN-GAP: Offline mobile and web device imports retain their original generation time so synchronized history and engine time remain consistent.
+      createdAt: syncChecks.length || keepCreatedAt ? new Date(now) : undefined,
       title,
       userId,
       profileId: profile?.id,

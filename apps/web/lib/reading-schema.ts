@@ -102,7 +102,9 @@ export type ReadingView = {
   isPublic?: boolean;
   staleProfile?: boolean;
 };
-export type ActionResult<T> = { ok: true; data: T } | { ok: false; error: { code: string } };
+/** `retryAfter` (seconds) is present only on rate-limit failures. */
+export type ActionResult<T> =
+  { ok: true; data: T } | { ok: false; error: { code: string; retryAfter?: number } };
 export type LocalReading = ReadingView & {
   request: ReadingRequest;
   reportZh?: Report;

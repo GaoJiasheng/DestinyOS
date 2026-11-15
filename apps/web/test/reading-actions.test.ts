@@ -29,7 +29,7 @@ vi.mock('../lib/db', () => ({
   }),
 }));
 vi.mock('next/headers', () => ({
-  cookies: async () => ({ get: mocks.getCookie, set: mocks.setCookie }),
+  cookies: async () => ({ get: mocks.getCookie, set: mocks.setCookie, delete: vi.fn() }),
   headers: async () => new Headers(),
 }));
 import {
@@ -67,7 +67,7 @@ it('applies the report quota to regeneration and anonymous translation before in
   mocks.rate.mockResolvedValue({ success: false, reset: Date.now() + 3600000 });
   expect(await regenerateReportAction('private', 'en')).toEqual({
     ok: false,
-    error: { code: 'E_RATE_LIMITED' },
+    error: { code: 'E_RATE_LIMITED', retryAfter: 3600 },
   });
   expect(mocks.rate).toHaveBeenCalledWith('reading.free', 'owner');
   mocks.auth.mockResolvedValue(null);
@@ -91,7 +91,7 @@ it('applies the report quota to regeneration and anonymous translation before in
       { ...preview.data, system: 'astrology', request, createdAt: '2026-10-04T12:00:00Z' },
       'en',
     ),
-  ).toEqual({ ok: false, error: { code: 'E_RATE_LIMITED' } });
+  ).toEqual({ ok: false, error: { code: 'E_RATE_LIMITED', retryAfter: 3600 } });
   expect(mocks.create).not.toHaveBeenCalled();
 });
 it('rejects anonymous reads and all mutations on private owner reports', async () => {
@@ -137,7 +137,7 @@ it('sets the HttpOnly session age gate and never authenticates or writes underag
   expect(mocks.auth).not.toHaveBeenCalled();
   expect(mocks.create).not.toHaveBeenCalled();
 });
-it('rejects oversized imports and invalid chart snapshots before writes', async () => {
+it('rejects oversized import batches and skips invalid chart snapshots before writes', async () => {
   mocks.auth.mockResolvedValue({ user: { id: 'owner' } });
   const req = { system: 'bazi', locale: 'zh', idempotencyKey: crypto.randomUUID() };
   const reading = {
@@ -147,13 +147,18 @@ it('rejects oversized imports and invalid chart snapshots before writes', async 
     chart: {},
     meta: { schoolUsed: {}, warnings: [] },
   };
+  // A damaged snapshot is skipped on its own instead of failing the whole import.
   expect(
     await importAnonymousDataAction({ anonId: crypto.randomUUID(), readings: [reading] }),
-  ).toEqual({ ok: false, error: { code: 'E_VALIDATION' } });
+  ).toEqual({
+    ok: true,
+    data: { results: [{ status: 'failed', code: 'E_VALIDATION' }], profile: 'none' },
+  });
+  // The client sends batches of ten; anything larger is rejected before any work.
   expect(
     await importAnonymousDataAction({
       anonId: crypto.randomUUID(),
-      readings: Array.from({ length: 51 }, () => reading),
+      readings: Array.from({ length: 11 }, () => reading),
     }),
   ).toEqual({ ok: false, error: { code: 'E_VALIDATION' } });
   expect(mocks.create).not.toHaveBeenCalled();

@@ -26,14 +26,34 @@ export default async function ReadingPage({
   const t = await getCopy();
   if (!result.ok) {
     if (result.error.code === 'E_NOT_FOUND') notFound();
+    // Missing and foreign reports share one server code; the page only distinguishes signed-in state.
+    const signedIn = Boolean((await auth())?.user.id);
     return (
       <section className="status-page" role="alert">
         <h1 className="type-h2">
-          {t(result.error.code === 'E_FORBIDDEN' ? 'report.error.E_FORBIDDEN' : 'report.missing')}
+          {t(
+            !signedIn
+              ? 'report.accessMissing.signedOut'
+              : result.error.code === 'E_FORBIDDEN'
+                ? 'report.accessMissing.title'
+                : 'report.missing',
+          )}
         </h1>
-        <Link href="/auth/login" className="text-link">
-          {t('nav.login')}
-        </Link>
+        {signedIn ? (
+          <>
+            <p>{t('report.accessMissing.body')}</p>
+            <Link href="/me/history" className="text-link">
+              {t('report.accessMissing.history')}
+            </Link>
+          </>
+        ) : (
+          <Link
+            href={`/auth/login?${new URLSearchParams({ callbackUrl: `/${system}/r/${id}` })}`}
+            className="text-link"
+          >
+            {t('nav.login')}
+          </Link>
+        )}
       </section>
     );
   }

@@ -123,5 +123,14 @@ for (const [locale, copy] of [
       );
       expect(email.disabled).toBe(false);
     });
+    it('explains a rate limit in minutes', async () => {
+      const page = show();
+      const email = page.getByLabelText(copy['auth.login.email']) as HTMLInputElement;
+      fireEvent.change(email, { target: { value: 'person@example.test' } });
+      server.send.mockResolvedValueOnce({ ok: false, code: 'E_RATE_LIMITED', retryAfter: 600 });
+      fireEvent.submit(email.form!);
+      await waitFor(() => expect(page.getByRole('alert').textContent).toMatch(/10/));
+      expect(page.getByRole('alert').textContent).not.toMatch(/600/);
+    });
   });
 }

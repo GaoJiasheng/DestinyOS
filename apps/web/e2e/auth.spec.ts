@@ -66,6 +66,8 @@ for (const locale of ['zh', 'en'] as const) {
       .getByRole('button', { name: locale === 'zh' ? '确认登录' : 'Confirm sign-in' })
       .click();
     await expect(page).toHaveURL(new RegExp(`/${locale}$`));
+    // The confirmation reloads the page, so the shell must already know about the new session.
+    await expect(page.locator('.site-header .login-link')).toHaveCount(0);
     const session: unknown = await (await page.request.get('/api/auth/session')).json();
     expect(session).toMatchObject({ user: { email, role: 'user', plan: 'free' } });
     const user = await db.user.findUniqueOrThrow({ where: { email } });

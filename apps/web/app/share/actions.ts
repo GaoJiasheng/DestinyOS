@@ -8,7 +8,7 @@ import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
 import { actionError } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
-import { createShareForUser, signDailyCard } from '@/lib/share-service';
+import { activeLinks, createShareForUser, signDailyCard } from '@/lib/share-service';
 import { DailyCardSchema } from '@/lib/share-projection';
 /** Create a share only for an owned reading, defaulting to the most private level. */
 export async function createShareLinkAction(raw: unknown) {
@@ -29,7 +29,7 @@ export async function revokeShareLinkAction(token: string) {
       .parse(token);
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
-    await getDb().$transaction(async (tx) => {
+    const isPublic = await getDb().$transaction(async (tx) => {
       const link = await tx.shareLink.findFirst({ where: { token, userId: session.user.id } });
       if (!link) throw new ApiError('E_NOT_FOUND', 'Share not found', 404);
       await tx.shareLink.update({ where: { id: link.id }, data: { revokedAt: new Date() } });
@@ -42,8 +42,54 @@ export async function revokeShareLinkAction(token: string) {
       });
       if (!count)
         await tx.reading.update({ where: { id: link.readingId }, data: { isPublic: false } });
+      return count > 0;
     });
-    return { ok: true as const, data: { revoked: true } };
+    return { ok: true as const, data: { revoked: true, isPublic } };
+  } catch (error) {
+    return { ok: false as const, error: { code: actionError(error) } };
+  }
+}
+/** List an owner's live links for one reading so they can be found and revoked after the dialog closes. */
+export async function listShareLinksAction(readingId: string) {
+  try {
+    const id = z.string().min(1).max(100).parse(readingId);
+    const session = await auth();
+    if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
+    const links = await activeLinks(session.user.id, id);
+    return {
+      ok: true as const,
+      data: links.map((link) => ({
+        token: link.token,
+        template: link.template,
+        revealLevel: link.revealLevel,
+        createdAt: link.createdAt.toISOString(),
+        expiresAt: link.expiresAt?.toISOString() ?? null,
+      })),
+    };
+  } catch (error) {
+    return { ok: false as const, error: { code: actionError(error) } };
+  }
+}
+/** Revoke every owner link of one reading and make the reading private again. */
+export async function revokeAllShareLinksAction(readingId: string) {
+  try {
+    const id = z.string().min(1).max(100).parse(readingId);
+    const session = await auth();
+    if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
+    const owner = session.user.id;
+    await getDb().$transaction(async (tx) => {
+      const reading = await tx.reading.findFirst({
+        where: { id, userId: owner },
+        select: { id: true },
+      });
+      if (!reading) throw new ApiError('E_FORBIDDEN', 'Reading access denied', 403);
+      await tx.shareLink.updateMany({
+        where: { readingId: id, userId: owner, revokedAt: null },
+        data: { revokedAt: new Date() },
+      });
+      await tx.reading.update({ where: { id }, data: { isPublic: false } });
+    });
+    return { ok: true as const, data: { revoked: true, isPublic: false } };
   } catch (error) {
     return { ok: false as const, error: { code: actionError(error) } };
   }

@@ -30,3 +30,9 @@ export function actionError(error: unknown): string {
       ? 'E_VALIDATION'
       : 'E_INTERNAL';
 }
+
+/** Wait in seconds carried by a rate-limit failure, so action envelopes can show how long to wait. */
+export function actionRetryAfter(error: unknown): number | undefined {
+  const value = error instanceof ApiError ? error.details?.retryAfter : undefined;
+  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? value : undefined;
+}

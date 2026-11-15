@@ -3,7 +3,13 @@ import { isolatedSqlite } from '../../../scripts/sqlite-test';
 import { encryptField } from '../lib/crypto';
 const state = vi.hoisted(() => ({ db: null as unknown }));
 vi.mock('../lib/db', () => ({ getDb: () => state.db }));
-import { cronAuthorized, hardDeleteAccounts, softDeleteAccount } from '../lib/account-service';
+import {
+  cronAuthorized,
+  hardDeleteAccounts,
+  releaseExport,
+  reserveExport,
+  softDeleteAccount,
+} from '../lib/account-service';
 const database = isolatedSqlite(),
   db = database.client;
 state.db = db;
@@ -150,4 +156,19 @@ describe('account lifecycle on the D1 SQLite schema', () => {
       target: null,
     });
   });
+});
+it('a released export lease frees the quota; a held one reports the remaining wait', async () => {
+  await db.ephemeralState.deleteMany();
+  const lease = await reserveExport('owner');
+  await expect(reserveExport('owner')).rejects.toMatchObject({
+    code: 'E_RATE_LIMITED',
+    details: { retryAfter: expect.any(Number) },
+  });
+  await releaseExport('owner', lease);
+  await reserveExport('owner');
+  const refused = await reserveExport('owner').catch((error: unknown) => error);
+  expect(refused).toMatchObject({ status: 429 });
+  const wait = (refused as { details: { retryAfter: number } }).details.retryAfter;
+  expect(wait).toBeGreaterThan(590);
+  expect(wait).toBeLessThanOrEqual(600);
 });

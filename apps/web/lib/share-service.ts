@@ -189,7 +189,26 @@ export async function createShareForUser(
     }))
   )
     throw new ApiError('E_PROFILE_REQUIRED', 'Birth profile required for a daily card', 400);
+  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`;
+  // Daily cards are tied to their creation day, so only the other templates reuse a live link.
+  const reusable =
+    input.template === 'daily'
+      ? undefined
+      : (await activeLinks(userId, reading.id)).find(
+          (link) =>
+            link.template === input.template &&
+            link.revealLevel === input.revealLevel &&
+            expiryDays(link) === (input.expiresIn ?? null),
+        );
+  if (reusable)
+    return {
+      token: reusable.token,
+      url: `${origin}/s/${reusable.token}`,
+      expiresAt: reusable.expiresAt?.toISOString() ?? null,
+      reused: true,
+    };
   const token = shareToken();
+  const expiresAt = input.expiresIn ? new Date(Date.now() + input.expiresIn * 86400000) : null;
   await atomicBatch([
     ...guard(
       'EXISTS (SELECT 1 FROM "Reading" r JOIN "User" u ON u.id=r."userId" WHERE r.id=? AND u.id=? AND u."deletedAt" IS NULL)',
@@ -202,7 +221,7 @@ export async function createShareForUser(
       userId,
       template: input.template,
       revealLevel: input.revealLevel,
-      expiresAt: input.expiresIn ? new Date(Date.now() + input.expiresIn * 86400000) : null,
+      expiresAt,
     }),
     updateRows('Reading', { isPublic: true }, 'id=? AND "userId"=?', reading.id, userId),
   ]);
@@ -212,6 +231,29 @@ export async function createShareForUser(
     locale: locale ?? ((await getLocale()) === 'en' ? 'en' : 'zh'),
     plan: user.plan,
   });
-  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`;
-  return { token, url: `${origin}/s/${token}` };
+  return {
+    token,
+    url: `${origin}/s/${token}`,
+    expiresAt: expiresAt?.toISOString() ?? null,
+    reused: false,
+  };
+}
+/** Owner's live (not revoked, not expired) links for one reading, newest first. */
+export function activeLinks(userId: string, readingId: string) {
+  return getDb().shareLink.findMany({
+    where: {
+      userId,
+      readingId,
+      revokedAt: null,
+      OR: [{ expiresAt: null }, { expiresAt: { gt: new Date() } }],
+    },
+    orderBy: { createdAt: 'desc' },
+    select: { token: true, template: true, revealLevel: true, createdAt: true, expiresAt: true },
+  });
+}
+/** The 7/30-day option a link was created with, or null for a link without expiry. */
+function expiryDays(link: { createdAt: Date; expiresAt: Date | null }) {
+  return link.expiresAt
+    ? Math.round((link.expiresAt.getTime() - link.createdAt.getTime()) / 86400000)
+    : null;
 }

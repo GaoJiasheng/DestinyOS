@@ -58,6 +58,8 @@ export function SettingsForm({
     [status, setStatus] = useState<'saved' | 'error' | null>(null),
     [removeError, setRemoveError] = useState(false);
   const busy = working || pending;
+  // Chinese screens ask for 「删除」; the English token stays valid everywhere, and the server accepts only these exact words.
+  const confirmed = confirm === t('me.deleteWord') || confirm === 'DELETE';
   useEffect(() => {
     setPanchang(localStorage.getItem('tianji-panchang') === 'true');
     if (!signedIn)
@@ -223,7 +225,7 @@ export function SettingsForm({
             {t('me.deleteFeedback')}
           </label>
         ) : null}
-        <Button disabled={busy || confirm !== 'DELETE'} action={remove}>
+        <Button disabled={busy || !confirmed} action={remove}>
           {t(signedIn ? 'me.deleteFinal' : 'me.deleteLocal')}
         </Button>
         {removeError ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}

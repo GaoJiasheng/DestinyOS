@@ -1,6 +1,6 @@
 import { ownerFeaturePlan } from './membership';
 import { z } from 'zod';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { localeText } from '@tianji/shared/locale';
 import { System } from '@tianji/shared';
 import { getDb } from './db';
@@ -8,6 +8,18 @@ import { ApiError } from './api-error';
 import { currentProfile } from './profile-service';
 import { ReportSchema } from './reading-schema';
 import { idSchema, userId, run } from './reading-action-context';
+/** Most reports keep their default title, so a search also matches the localized system name. */
+async function searchCondition(search: string) {
+  const t = await getTranslations();
+  const term = search.toLowerCase();
+  const systems = Object.values(System).filter((system) => {
+    const name = t(`nav.${system === 'daily' ? 'today' : system}`).toLowerCase();
+    return name.includes(term) || term.includes(name) || system.includes(term);
+  });
+  return {
+    OR: [{ title: { contains: search } }, ...(systems.length ? [{ system: { in: systems } }] : [])],
+  };
+}
 /** Paginate owner-only history, excluding encrypted inputs and full chart/report payloads. */
 export async function listReadingHistory(raw: unknown = { limit: 20 }) {
   return run(async () => {
@@ -18,6 +30,8 @@ export async function listReadingHistory(raw: unknown = { limit: 20 }) {
         cursor: idSchema.optional(),
         // DESIGN-GAP: Title search is a bounded optional argument for the documented history search UI.
         search: z.string().trim().max(120).optional(),
+        // Omitted keeps the selected-profile view other callers rely on; the history page sends 'all' or an ID.
+        profile: z.union([z.literal('all'), idSchema]).optional(),
         limit: z.number().int().min(1).max(50).default(20),
       })
       .strict()
@@ -40,23 +54,30 @@ export async function listReadingHistory(raw: unknown = { limit: 20 }) {
             select: { id: true },
           })
         : null;
-    const selected = await currentProfile(owner);
+    const selectedId =
+      input.profile === 'all'
+        ? null
+        : (input.profile ?? (await currentProfile(owner))?.id ?? undefined);
     const rows = await getDb().reading.findMany({
       where: {
         userId: owner,
         system: input.system,
-        // DESIGN-GAP: Legacy divination and anonymous imports without a profile remain visible in owner history.
-        ...(selected
-          ? {
-              OR: [
-                { profileId: selected.id },
-                { partnerProfileId: selected.id },
-                { profileId: null },
-              ],
-            }
-          : { profileId: null }),
+        AND: [
+          // DESIGN-GAP: Legacy divination and anonymous imports without a profile remain visible in owner history.
+          selectedId === null
+            ? {}
+            : selectedId
+              ? {
+                  OR: [
+                    { profileId: selectedId },
+                    { partnerProfileId: selectedId },
+                    { profileId: null },
+                  ],
+                }
+              : { profileId: null },
+          input.search ? await searchCondition(input.search) : {},
+        ],
         ...(recent ? { id: { in: recent.map((r) => r.id) } } : {}),
-        ...(input.search ? { title: { contains: input.search } } : {}),
       },
       orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
       cursor: input.cursor ? { id: input.cursor } : undefined,
@@ -66,6 +87,7 @@ export async function listReadingHistory(raw: unknown = { limit: 20 }) {
         id: true,
         title: true,
         system: true,
+        profileId: true,
         createdAt: true,
         reportZh: true,
         reportEn: true,
@@ -83,6 +105,7 @@ export async function listReadingHistory(raw: unknown = { limit: 20 }) {
           id: row.id,
           title: row.title,
           system: row.system,
+          profileId: row.profileId,
           createdAt: row.createdAt.toISOString(),
           keywords: report.success
             ? report.data.headline.keywords.map((text) =>

@@ -1,15 +1,22 @@
 import { auth } from '@/lib/auth';
-import { exportAccount, reserveExport } from '@/lib/account-service';
+import { exportAccount, releaseExport, reserveExport } from '@/lib/account-service';
 import { ApiError, errorResponse } from '@/lib/api-error';
 export const dynamic = 'force-dynamic';
-/** Download the authenticated owner's decrypted JSON under an atomic ten-minute quota. */
+/** Download the authenticated owner's decrypted JSON under an atomic ten-minute quota that only successful exports use. */
 export async function GET() {
   try {
     const session = await auth();
     if (!session?.user.id) throw new ApiError('E_UNAUTHORIZED', 'Sign in required', 401);
-    await reserveExport(session.user.id);
+    const lease = await reserveExport(session.user.id);
+    let data: Awaited<ReturnType<typeof exportAccount>>;
+    try {
+      data = await exportAccount(session.user.id);
+    } catch (error) {
+      await releaseExport(session.user.id, lease).catch(() => undefined);
+      throw error;
+    }
     return Response.json(
-      { ok: true, data: await exportAccount(session.user.id) },
+      { ok: true, data },
       {
         headers: {
           'Content-Disposition': 'attachment; filename="tianji-export.json"',

@@ -7,7 +7,9 @@ import { Link } from '@/i18n/navigation';
 import { LoginForm } from '@/components/forms/login-form';
 import { Button } from '@/components/ui/button';
 import { auth } from '@/lib/auth';
-import { googleLoginAction, logoutAction } from '../actions';
+import { googleLoginAction } from '../actions';
+import { LogoutButton } from '@/components/auth/logout-button';
+import { authErrorKey, formatUntil, parseUntil } from '@/lib/auth-notice';
 import { safeReturnPath } from '../return-path';
 import { privatePageMetadata } from '@/lib/page-metadata';
 
@@ -21,7 +23,13 @@ export default async function LoginPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ error?: string; sent?: string; callbackUrl?: string }>;
+  searchParams: Promise<{
+    error?: string;
+    sent?: string;
+    callbackUrl?: string;
+    deleted?: string;
+    until?: string;
+  }>;
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
@@ -32,6 +40,8 @@ export default async function LoginPage({
   // Validated once here; the actions validate again because form arguments are client-controlled.
   const returnTo = safeReturnPath(query.callbackUrl, locale);
   const callbackUrl = returnTo === `/${locale}` ? undefined : returnTo;
+  const until = parseUntil(query.until);
+  const errorKey = query.error ? authErrorKey(query.error) : undefined;
   return (
     <section className="auth-panel">
       <StateArt state="login" priority />
@@ -40,19 +50,30 @@ export default async function LoginPage({
         <>
           <p role="status">{t('auth.login.signedIn')}</p>
           {callbackUrl ? (
-            <a href={callbackUrl}>{t('auth.login.continue')}</a>
+            <a href={callbackUrl}>{t('auth.login.continueBack')}</a>
           ) : (
             <Link href="/">{t('auth.login.continue')}</Link>
           )}
-          <form action={logoutAction.bind(null, locale)}>
-            <Button>{t('auth.login.signOut')}</Button>
-          </form>
+          <LogoutButton locale={locale} label={t('auth.login.signOut')} />
         </>
       ) : (
         <>
           <p>{t('auth.login.noPassword')}</p>
-          {query.error && <p role="alert">{t('auth.error.verification')}</p>}
-          {query.sent && <p role="status">{t('auth.login.checkInbox')}</p>}
+          {query.deleted === '1' && !errorKey && <p role="status">{t('auth.login.deleted')}</p>}
+          {errorKey === 'auth.error.accountDeleted' ? (
+            <p role="alert">
+              {until
+                ? t('auth.error.accountDeleted', { date: formatUntil(until, locale) })
+                : t('auth.login.deleted')}
+            </p>
+          ) : errorKey ? (
+            <p role="alert">{t(errorKey)}</p>
+          ) : null}
+          {query.sent && (
+            <p role="status">
+              {t('auth.login.checkInbox')} {t('auth.magic.sameDevice')}
+            </p>
+          )}
           <form action={googleLoginAction.bind(null, locale, callbackUrl)}>
             <Button type="submit">{t('auth.login.google')}</Button>
           </form>

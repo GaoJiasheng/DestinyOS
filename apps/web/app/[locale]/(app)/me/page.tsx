@@ -39,7 +39,7 @@ export default async function MePage({ params }: { params: Promise<{ locale: str
         ) : (
           <LocalDisplayName />
         )}
-        {!user ? <Link href="/auth/login">{t('nav.login')}</Link> : null}
+        {!user ? <Link href="/auth/login?callbackUrl=/me">{t('nav.login')}</Link> : null}
         {membershipEnabled() ? (
           <p>{t(user?.plan === 'pro' ? 'me.plan.pro' : 'me.plan.free')}</p>
         ) : null}

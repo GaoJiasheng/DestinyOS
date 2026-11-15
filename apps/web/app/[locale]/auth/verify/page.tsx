@@ -3,9 +3,11 @@ import { setRequestLocale } from 'next-intl/server';
 import { isLocale } from '@/i18n/routing';
 import { getCopy } from '@/i18n/get-copy';
 import { Link } from '@/i18n/navigation';
-import { ConfirmButton } from '@/components/forms/confirm-button';
+import { cookies } from 'next/headers';
+import { ConfirmLoginForm } from '@/components/auth/confirm-login-form';
 import { verificationSchema } from '@/lib/auth-confirmation';
-import { confirmLoginAction } from '../actions';
+import { confirmLoginAction, confirmLoginTargetAction } from '../actions';
+import { returnCookie, safeReturnPath } from '../return-path';
 import { privatePageMetadata } from '@/lib/page-metadata';
 
 export const generateMetadata = ({ params }: { params: Promise<{ locale: string }> }) =>
@@ -27,28 +29,41 @@ export default async function VerifyPage({
   const t = await getCopy();
   const query = await searchParams;
   const parsed = verificationSchema.safeParse({ ...query, locale });
+  // Keep the pending destination (same-browser cookie) when sending the person back to request a new link.
+  const pendingReturn = parsed.success
+    ? undefined
+    : safeReturnPath((await cookies()).get(returnCookie)?.value, locale);
+  const loginHref =
+    pendingReturn && pendingReturn !== `/${locale}`
+      ? `/auth/login?callbackUrl=${encodeURIComponent(pendingReturn)}`
+      : '/auth/login';
   return (
     <section className="auth-panel">
       <h1>{t('auth.verify.confirm')}</h1>
       {parsed.success ? (
         <>
           <p>{t('auth.verify.description')}</p>
-          <form
-            action={confirmLoginAction.bind(
+          <ConfirmLoginForm
+            fallback={confirmLoginAction.bind(
               null,
               locale,
               parsed.data.token,
               parsed.data.email,
               query.returnTo,
             )}
-          >
-            <ConfirmButton />
-          </form>
+            navigate={confirmLoginTargetAction.bind(
+              null,
+              locale,
+              parsed.data.token,
+              parsed.data.email,
+              query.returnTo,
+            )}
+          />
         </>
       ) : (
         <>
           <p role="alert">{t('auth.error.verification')}</p>
-          <Link href="/auth/login">{t('auth.login.title')}</Link>
+          <Link href={loginHref}>{t('auth.login.title')}</Link>
         </>
       )}
     </section>

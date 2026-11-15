@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
+import { LoginLink } from '@/components/auth/login-link';
 import { readAnonymous } from '@/lib/anonymous-storage';
+import { ImportBanner } from '@/components/report/import-banner';
 import type { BirthInput } from '@tianji/shared';
 /** Compute non-sensitive profile summary locally and omit unavailable moon/ascendant data. */
 export function ProfileSummary({
@@ -19,11 +21,15 @@ export function ProfileSummary({
     [summary, setSummary] = useState<Record<string, string> | null>(null),
     // Hold the empty state back until the device/profile lookup settles, so it never flashes.
     [loading, setLoading] = useState(true),
-    [error, setError] = useState(false);
+    [error, setError] = useState(false),
+    // Signed in without an account profile: a device profile is shown, but labelled as not saved.
+    [fromDevice, setFromDevice] = useState(false);
   useEffect(() => {
     let active = true;
     void (async () => {
-      const input = profile ?? (await readAnonymous())?.profile;
+      const device = profile ? undefined : (await readAnonymous())?.profile;
+      const input = profile ?? device;
+      if (active) setFromDevice(Boolean(device));
       if (!input) {
         if (active) setLoading(false);
         return;
@@ -74,6 +80,9 @@ export function ProfileSummary({
   return (
     <section className="report-card">
       <h2>{t('me.profile')}</h2>
+      {signedIn && fromDevice && summary ? (
+        <p className="muted">{t('report.importFlow.deviceProfile')}</p>
+      ) : null}
       {loading ? (
         <div className="me-summary-skeleton" role="status" aria-busy="true">
           <span className="sr-only">{t('common.loading')}</span>
@@ -97,13 +106,16 @@ export function ProfileSummary({
       )}
       {error ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
       {signedIn ? (
-        <Link href="/me/profiles">{t('profiles.manage')}</Link>
+        <>
+          <ImportBanner />
+          <Link href="/me/profiles">{t('profiles.manage')}</Link>
+        </>
       ) : (
         // An anonymous device keeps one profile it can edit in place; more profiles need an account.
         <p className="action-row">
           <Link href="/me/birth">{t('me.birth')}</Link>
           <span className="muted">
-            {t('profiles.signInForMore')} <Link href="/auth/login">{t('nav.login')}</Link>
+            {t('profiles.signInForMore')} <LoginLink>{t('nav.login')}</LoginLink>
           </span>
         </p>
       )}

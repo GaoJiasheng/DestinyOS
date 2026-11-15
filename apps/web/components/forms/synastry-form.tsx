@@ -4,6 +4,7 @@ import { useLocale } from 'next-intl';
 import type { BirthInput, Locale } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import { useRouter, Link } from '@/i18n/navigation';
+import { LoginLink } from '@/components/auth/login-link';
 import { createReadingAction } from '@/app/readings/actions';
 import dynamic from 'next/dynamic';
 import { ChunkLoading } from '@/components/ui/chunk-loading';
@@ -13,11 +14,14 @@ import { DivinationLoader } from '@/components/ui/divination-loader';
 import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { clearDraft, readDraft, writeDraft } from '@/lib/birth-form-draft';
-// DESIGN-GAP: Signed-in pairing uses saved profiles; load the birth editor only for the anonymous input flow.
+// DESIGN-GAP: Signed-in pairing starts from saved profiles; the birth editor loads only when someone is entered by hand.
 const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm), {
   loading: ChunkLoading,
 });
-/** Two profile selectors never put private inputs in URLs; anonymous pairs stay in encrypted device storage. */
+/** Select value for "enter this person by hand"; it is never a profile ID. */
+const TEMP = '__temp';
+/** Two profile selectors never put private inputs in URLs; anonymous pairs stay in encrypted device storage.
+ * Signed in, side B may be entered by hand for this report only, matching the anonymous flow. */
 export function SynastryForm({
   profiles = [],
   selectedId,
@@ -30,8 +34,10 @@ export function SynastryForm({
   const t = useCopy(),
     locale = useLocale() as Locale,
     router = useRouter();
-  const [a, setA] = useState(selectedId ?? profiles[0]?.id ?? ''),
-    [b, setB] = useState(profiles.find((p) => p.id !== (selectedId ?? profiles[0]?.id))?.id ?? ''),
+  const first = selectedId ?? profiles[0]?.id;
+  // Guests always enter both people; an owner with no saved profile enters A as well.
+  const [a, setA] = useState(signedIn && first ? first : TEMP),
+    [b, setB] = useState((signedIn && profiles.find((p) => p.id !== first)?.id) || TEMP),
     [birthA, setBirthA] = useState<BirthInput | null>(null),
     [birthB, setBirthB] = useState<BirthInput | null>(null),
     [busy, setBusy] = useState(false),
@@ -51,7 +57,14 @@ export function SynastryForm({
   useEffect(() => {
     if (restored && (birthA || birthB)) writeDraft('synastry', 'v1', { a: birthA, b: birthB });
   }, [restored, birthA, birthB]);
-  const active = editing ?? (!birthA ? 'a' : !birthB ? 'b' : null);
+  const entered = { a: a === TEMP, b: b === TEMP };
+  const active = editing ?? (entered.a && !birthA ? 'a' : entered.b && !birthB ? 'b' : null);
+  const ready =
+    (entered.a ? Boolean(birthA) : Boolean(a)) &&
+    (entered.b ? Boolean(birthB) : Boolean(b)) &&
+    (entered.a || entered.b || a !== b);
+  // Side A must stay a saved profile when the owner has one, so a hand-entered B cannot move to A.
+  const canSwap = !(signedIn && profiles.length > 0 && entered.b);
   const pad = (n: number | undefined) => String(n ?? 0).padStart(2, '0');
   const summary = (birth: BirthInput) =>
     [
@@ -65,7 +78,7 @@ export function SynastryForm({
       .filter(Boolean)
       .join(' · ');
   async function submit() {
-    if (signedIn ? !a || !b || a === b : !birthA || !birthB) {
+    if (!ready) {
       setError('E_VALIDATION');
       return;
     }
@@ -75,9 +88,8 @@ export function SynastryForm({
       system: 'synastry',
       locale,
       idempotencyKey: crypto.randomUUID(),
-      ...(signedIn
-        ? { profileId: a, partnerProfileId: b }
-        : { birth: birthA!, partnerBirth: birthB! }),
+      ...(entered.a ? { birth: birthA! } : { profileId: a }),
+      ...(entered.b ? { partnerBirth: birthB! } : { partnerProfileId: b }),
     };
     try {
       const result = await createReadingAction(request);
@@ -114,7 +126,7 @@ export function SynastryForm({
       <h2 className="type-h1">{t('synastry.title')}</h2>
       <p>{t('synastry.intro')}</p>
       <p className="muted">{t('synastry.roles')}</p>
-      {signedIn ? (
+      {signedIn && profiles.length ? (
         <>
           <div className="daily-grid">
             {(['a', 'b'] as const).map((side) => (
@@ -125,6 +137,7 @@ export function SynastryForm({
                   value={side === 'a' ? a : b}
                   onChange={(e) => {
                     (side === 'a' ? setA : setB)(e.target.value);
+                    setEditing(null);
                     setError(null);
                   }}
                 >
@@ -134,58 +147,61 @@ export function SynastryForm({
                       {t('report.content', { text: p.label || t('profiles.unnamed') })}
                     </option>
                   ))}
+                  {side === 'b' ? <option value={TEMP}>{t('synastry.tempOption')}</option> : null}
                 </select>
               </label>
             ))}
           </div>
           <Link href="/me/profiles">{t('profiles.manage')}</Link>
         </>
-      ) : (
+      ) : !signedIn ? (
+        <p>
+          {t('synastry.login')} <LoginLink>{t('nav.login')}</LoginLink>
+        </p>
+      ) : null}
+      {signedIn && (entered.a || entered.b) ? (
+        <p className="muted">{t('synastry.tempHint')}</p>
+      ) : null}
+      {(['a', 'b'] as const).map((side) => {
+        const value = side === 'a' ? birthA : birthB;
+        return entered[side] && value && active !== side ? (
+          <div className="notice synastry-summary" key={side}>
+            <p>
+              <strong>{t(`synastry.${side}`)}</strong> {summary(value)}
+            </p>
+            <Button
+              type="button"
+              variant="secondary"
+              disabled={busy}
+              onClick={() => setEditing(side)}
+            >
+              {t('synastry.edit')}
+            </Button>
+          </div>
+        ) : null;
+      })}
+      {active && (restored || signedIn) ? (
         <>
-          <p>
-            {t('synastry.login')} <Link href="/auth/login">{t('nav.login')}</Link>
-          </p>
-          {(['a', 'b'] as const).map((side) => {
-            const value = side === 'a' ? birthA : birthB;
-            return value && active !== side ? (
-              <div className="notice synastry-summary" key={side}>
-                <p>
-                  <strong>{t(`synastry.${side}`)}</strong> {summary(value)}
-                </p>
-                <Button
-                  type="button"
-                  variant="secondary"
-                  disabled={busy}
-                  onClick={() => setEditing(side)}
-                >
-                  {t('synastry.edit')}
-                </Button>
-              </div>
-            ) : null;
-          })}
-          {active && restored ? (
-            <>
-              <h2>{t(`synastry.${active}`)}</h2>
-              <BirthForm
-                key={active}
-                profileMode
-                completionKey="profiles.save"
-                draftKey={`synastry-${active}`}
-                // The partner form never starts from the device profile.
-                prefillProfile={active === 'a'}
-                initial={(active === 'a' ? birthA : birthB) ?? undefined}
-                onComplete={(birth) => {
-                  (active === 'a' ? setBirthA : setBirthB)(birth);
-                  setEditing(null);
-                }}
-              />
-            </>
-          ) : null}
+          <h2>{t(`synastry.${active}`)}</h2>
+          <BirthForm
+            key={active}
+            profileMode
+            signedIn={signedIn}
+            completionKey={signedIn ? 'synastry.useTemp' : 'profiles.save'}
+            draftKey={`synastry-${active}`}
+            // The partner form never starts from the device profile.
+            prefillProfile={!signedIn && active === 'a'}
+            initial={(active === 'a' ? birthA : birthB) ?? undefined}
+            onComplete={(birth) => {
+              (active === 'a' ? setBirthA : setBirthB)(birth);
+              setEditing(null);
+            }}
+          />
         </>
-      )}
+      ) : null}
       <div className="hero-actions">
         <Button
-          disabled={busy || !(signedIn ? a && b && a !== b : birthA && birthB)}
+          disabled={busy || !ready}
           action={async () => {
             if (await ensureConsent()) await submit();
           }}
@@ -194,7 +210,7 @@ export function SynastryForm({
         </Button>
         <Button
           variant="secondary"
-          disabled={busy}
+          disabled={busy || !canSwap}
           onClick={() => {
             setA(b);
             setB(a);

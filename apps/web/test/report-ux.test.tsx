@@ -21,6 +21,8 @@ const share = vi.hoisted(() => ({
   createShareLinkAction: vi.fn(),
   signDailyCardAction: vi.fn(),
   revokeShareLinkAction: vi.fn(),
+  listShareLinksAction: vi.fn(async () => ({ ok: true, data: [] })),
+  revokeAllShareLinksAction: vi.fn(),
 }));
 vi.mock('../app/share/actions', () => share);
 vi.mock('../i18n/navigation', () => ({

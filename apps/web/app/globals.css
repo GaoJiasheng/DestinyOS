@@ -5537,3 +5537,43 @@ html[data-reduced-motion='true']
   color: var(--gold-soft);
   overflow-wrap: anywhere;
 }
+
+/* W2: device import, share link management */
+.import-profile-option {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  min-height: 44px;
+  margin: 12px 0;
+}
+.import-profile-option input {
+  min-width: 20px;
+  min-height: 20px;
+  margin-top: 2px;
+}
+.import-profile-option small {
+  display: block;
+  margin-top: 4px;
+}
+.import-banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.share-links {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-1);
+}
+.share-link-list {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.share-link-list p {
+  margin: 0;
+}

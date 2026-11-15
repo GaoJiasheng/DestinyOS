@@ -4,7 +4,7 @@ import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
 import { Dialog } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Link } from '@/i18n/navigation';
+import { LoginLink } from '@/components/auth/login-link';
 import { Share2 } from 'lucide-react';
 import type { MessageKey } from '@/i18n/catalog';
 import {
@@ -13,6 +13,7 @@ import {
   revokeShareLinkAction,
 } from '@/app/share/actions';
 import type { DailyCard, ShareTemplate } from '@/lib/share-projection';
+import { SHARE_OPEN_EVENT, ShareLinks, announcePublic } from './share-links';
 const errorKey: Record<'create' | 'preview' | 'action', MessageKey> = {
   create: 'report.shareCreateFailed',
   preview: 'report.sharePreviewFailed',
@@ -48,7 +49,20 @@ export function ShareDialog({
     // Creating the link and rendering its preview fail independently; the link stays usable either way.
     [error, setError] = useState<'' | 'create' | 'preview' | 'action'>(''),
     [notice, setNotice] = useState<'' | 'copied' | 'revoked'>(''),
-    [token, setToken] = useState('');
+    [token, setToken] = useState(''),
+    // What the generated link actually is: reused or new, and when (if ever) it stops working.
+    [current, setCurrent] = useState<{ expiresAt: string | null; reused: boolean } | null>(null),
+    [refresh, setRefresh] = useState(0);
+  const managed = Boolean(readingId) && !local && !daily;
+  useEffect(() => {
+    if (!managed) return;
+    const show = (event: Event) => {
+      if ((event as CustomEvent<{ readingId?: string }>).detail?.readingId === readingId)
+        setOpen(true);
+    };
+    window.addEventListener(SHARE_OPEN_EVENT, show);
+    return () => window.removeEventListener(SHARE_OPEN_EVENT, show);
+  }, [managed, readingId]);
   useEffect(() => {
     if (!image) {
       setPreview('');
@@ -84,6 +98,15 @@ export function ShareDialog({
       if (!result.ok) throw new Error(result.error.code);
       if ('token' in result.data && typeof result.data.token === 'string') {
         setToken(result.data.token);
+        setCurrent({
+          expiresAt:
+            'expiresAt' in result.data && typeof result.data.expiresAt === 'string'
+              ? result.data.expiresAt
+              : null,
+          reused: 'reused' in result.data && result.data.reused === true,
+        });
+        setRefresh((n) => n + 1);
+        if (readingId) announcePublic(readingId, true);
         // DESIGN-GAP: ShareLink has no locale column; optional locale queries retain the active UI language in links and images.
         setUrl(`${window.location.origin}/s/${result.data.token}?locale=${locale}`);
         setImage(`/api/v1/og/share/${result.data.token}?format=landscape&locale=${locale}`);
@@ -120,7 +143,7 @@ export function ShareDialog({
         description={t('share.help')}
       >
         {local && !daily ? (
-          <Link href="/auth/login">{t('share.login')}</Link>
+          <LoginLink>{t('share.login')}</LoginLink>
         ) : (
           <>
             {!daily ? (
@@ -198,6 +221,18 @@ export function ShareDialog({
             ) : null}
             {url ? (
               <>
+                {current ? (
+                  <p className="muted" role="status">
+                    {current.reused ? `${t('report.shareLinks.reused')} ` : ''}
+                    {current.expiresAt
+                      ? t('report.shareLinks.currentExpires', {
+                          date: new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(
+                            new Date(current.expiresAt),
+                          ),
+                        })
+                      : t('report.shareLinks.currentNever')}
+                  </p>
+                ) : null}
                 <input
                   className="share-link"
                   readOnly
@@ -252,8 +287,11 @@ export function ShareDialog({
                               setUrl('');
                               setImage('');
                               setToken('');
+                              setCurrent(null);
                               setError('');
                               setNotice('revoked');
+                              setRefresh((n) => n + 1);
+                              if (readingId) announcePublic(readingId, r.data.isPublic);
                             } else setError('action');
                           })
                           .catch(() => setError('action'));
@@ -269,6 +307,19 @@ export function ShareDialog({
               <p role="status">{t(notice === 'copied' ? 'share.copied' : 'report.shareRevoked')}</p>
             ) : null}
             {error ? <p role="alert">{t(errorKey[error])}</p> : null}
+            {managed && readingId ? (
+              <ShareLinks
+                readingId={readingId}
+                refresh={refresh}
+                onRevoked={(revoked) => {
+                  if (revoked !== 'all' && revoked !== token) return;
+                  setUrl('');
+                  setImage('');
+                  setToken('');
+                  setCurrent(null);
+                }}
+              />
+            ) : null}
           </>
         )}
       </Dialog>

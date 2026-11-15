@@ -1,11 +1,11 @@
 import { webPaymentsEnabled } from './web-payments';
 import { fromDbLocale } from './db-locale';
-import { timingSafeEqual } from 'node:crypto';
+import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { BirthInputSchema } from '@tianji/shared';
 import { getDb } from './db';
 import { decryptField } from './crypto';
 import { ApiError } from './api-error';
-import { stateReserve } from './state';
+import { stateRelease, stateReserve } from './state';
 import { atomicBatch, updateRows, statement, audit } from './db-batch';
 export { SettingsSchema } from './account-service-schema';
 /** Export only owner data; credential tables and encrypted envelopes are excluded. */
@@ -103,14 +103,21 @@ export async function exportAccount(userId: string) {
     pushSubscriptions,
   };
 }
-/** Enforce the documented export quota with one atomic D1 reservation. */
+/** Enforce the documented export quota with one atomic D1 reservation.
+ * Returns the lease so a failed export can give the slot back; a refusal says how long to wait. */
 export async function reserveExport(userId: string) {
   const key = `export:${userId}`;
-  const result = await stateReserve(key, '1', 600);
-  if (!result)
-    throw new ApiError('E_RATE_LIMITED', 'Export allowed once per ten minutes', 429, {
-      retryAfter: 600,
-    });
+  const lease = randomUUID();
+  if (await stateReserve(key, lease, 600)) return lease;
+  const row = await getDb().ephemeralState.findUnique({ where: { key } });
+  const retryAfter = row ? Math.ceil((row.expiresAt - Date.now()) / 1000) : 600;
+  throw new ApiError('E_RATE_LIMITED', 'Export allowed once per ten minutes', 429, {
+    retryAfter: Math.min(600, Math.max(1, retryAfter)),
+  });
+}
+/** Only a delivered export counts toward the ten-minute quota. */
+export async function releaseExport(userId: string, lease: string) {
+  await stateRelease(`export:${userId}`, lease);
 }
 /** Cancel billing before the atomic soft delete, allowing safe retries if Stripe is unavailable. */
 export async function softDeleteAccount(

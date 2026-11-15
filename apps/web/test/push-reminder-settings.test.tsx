@@ -19,6 +19,7 @@ vi.mock('../i18n/navigation', () => ({
   Link: ({ href, children }: { href: string; children: React.ReactNode }) => (
     <a href={href}>{children}</a>
   ),
+  usePathname: () => '/me/settings',
 }));
 
 const PUBLIC_KEY = 'B'.repeat(87);
