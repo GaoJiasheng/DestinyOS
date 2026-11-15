@@ -38,6 +38,10 @@ test('zh-TW: route, three-language switch, SEO, glossary and report contain no s
   await page.getByRole('button', { name: tw['form.birth.submit'], exact: true }).click();
   await expect(page).toHaveURL(/\/zh-TW\/numerology\/r\/local\//, { timeout: 60_000 });
   await expect(page.locator('.report-body')).toBeVisible({ timeout: 30_000 });
+  // Sections fold by default; open them so the whole report is read.
+  await page
+    .locator('details.section-fold')
+    .evaluateAll((folds) => folds.forEach((fold) => ((fold as HTMLDetailsElement).open = true)));
   const prose = await page.locator('.report-body').innerText();
   expect(prose.length).toBeGreaterThan(2500);
   expect(simplifiedResidue(prose)).toEqual([]);

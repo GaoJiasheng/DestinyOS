@@ -77,6 +77,8 @@ for (const locale of ['zh', 'en'] as const) {
       await page.getByLabel(t['form.birth.year'], { exact: true }).fill('1992');
       await page.getByLabel(t['form.birth.month'], { exact: true }).fill('3');
       await page.getByLabel(t['form.birth.day'], { exact: true }).fill('9');
+      await page.getByLabel(t['form.birth.precise']).check();
+      await page.getByLabel(t['form.birth.time'], { exact: true }).fill('08:30');
       await page.getByRole('button', { name: t['form.birth.next'], exact: true }).click();
       await page.getByLabel(t['form.birth.displayName'], { exact: true }).fill('Gamma');
       await page.getByRole('button', { name: t['profiles.save'], exact: true }).click();

@@ -240,7 +240,7 @@ for (const locale of ['zh', 'en'] as const) {
     await page.getByRole('button', { name: copy['common.close'], exact: true }).click();
     await page.goto(`/${locale}/me/settings`);
     await page
-      .locator('form')
+      .locator('#main form')
       .getByLabel(copy['me.language'], { exact: true })
       .selectOption(locale);
     await page.getByLabel(copy['me.motion'], { exact: true }).check();
