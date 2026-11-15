@@ -6,6 +6,7 @@ import { useCopy } from '@/i18n/use-copy';
 import { useRouter, Link } from '@/i18n/navigation';
 import { createReadingAction } from '@/app/readings/actions';
 import dynamic from 'next/dynamic';
+import { ChunkLoading } from '@/components/ui/chunk-loading';
 import { ensureConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import { DivinationLoader } from '@/components/ui/divination-loader';
@@ -13,7 +14,9 @@ import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { clearDraft, readDraft, writeDraft } from '@/lib/birth-form-draft';
 // DESIGN-GAP: Signed-in pairing uses saved profiles; load the birth editor only for the anonymous input flow.
-const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm));
+const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm), {
+  loading: ChunkLoading,
+});
 /** Two profile selectors never put private inputs in URLs; anonymous pairs stay in encrypted device storage. */
 export function SynastryForm({
   profiles = [],

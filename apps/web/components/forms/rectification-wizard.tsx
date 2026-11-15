@@ -19,8 +19,11 @@ import { useRouter } from '@/i18n/navigation';
 import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import dynamic from 'next/dynamic';
+import { ChunkLoading } from '@/components/ui/chunk-loading';
 // DESIGN-GAP: Existing profiles enter the questionnaire directly; defer the birth editor and its calendar dependencies until needed.
-const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm));
+const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm), {
+  loading: ChunkLoading,
+});
 const draftSchema = z.object({ birth: BirthInputSchema, displayName: z.string() });
 
 /** Keep answers and candidate charts on-device; only a selected trial reaches the existing profile/report actions. */
@@ -197,6 +200,7 @@ export function RectificationWizard({
             {t('results')}
           </h2>
           <p>{t('resultHelp')}</p>
+          <p className="muted">{t('tryNote')}</p>
           <div className="rectification-results">
             {candidates.slice(0, 3).map((candidate, index) => (
               <article

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import { useCopy } from '@/i18n/use-copy';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
@@ -23,7 +23,12 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
   const [reading, setReading] = useState<LocalReading | null>(null);
   const [error, setError] = useState<'report.localMissing' | 'report.storageError' | null>(null);
   const [fallback, setFallback] = useState(false);
+  // React re-runs effects when a hidden Suspense subtree is revealed; reloading then would remount
+  // the report and drop its view state, so an already loaded report is kept.
+  const loaded = useRef('');
   useEffect(() => {
+    const key = `${system}:${id}:${locale}`;
+    if (loaded.current === key) return;
     let active = true;
     setReading(null);
     setError(null);
@@ -42,6 +47,7 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
           const result = await translateAnonymousReportAction(found, locale).catch(() => null);
           if (!result?.ok) {
             if (active) {
+              loaded.current = key;
               setFallback(true);
               setReading(found);
             }
@@ -63,7 +69,10 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
             ),
           })).catch(() => undefined);
         }
-        if (active) setReading({ ...found, report });
+        if (active) {
+          loaded.current = key;
+          setReading({ ...found, report });
+        }
       })
       .catch(() => {
         if (active) setError('report.storageError');

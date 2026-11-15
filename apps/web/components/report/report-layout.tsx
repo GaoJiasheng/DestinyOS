@@ -28,9 +28,11 @@ import { SectionFoldToggle } from './section-fold-toggle';
 import { ChatEntry } from './chat-entry';
 import { chartTitleKey, formatClock } from './report-utils';
 import dynamic from 'next/dynamic';
+import { ChunkLoading } from '@/components/ui/chunk-loading';
 // DESIGN-GAP: Detailed tables load only when the professional-view control is opened.
-const ReportProfessional = dynamic(() =>
-  import('./report-professional').then((module) => module.ReportProfessional),
+const ReportProfessional = dynamic(
+  () => import('./report-professional').then((module) => module.ReportProfessional),
+  { loading: ChunkLoading },
 );
 import { ReportHeadline } from './report-headline';
 import { ReportNotices } from './report-notices';

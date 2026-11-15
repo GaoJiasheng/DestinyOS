@@ -5,6 +5,7 @@ import type { BirthInput, Locale } from '@tianji/shared';
 import { useCopy } from '@/i18n/use-copy';
 import { useRouter } from '@/i18n/navigation';
 import dynamic from 'next/dynamic';
+import { ChunkLoading } from '@/components/ui/chunk-loading';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import {
@@ -18,8 +19,9 @@ import {
 type Data = Extract<Awaited<ReturnType<typeof listProfilesAction>>, { ok: true }>['data'];
 type Relation = Data['items'][number]['relation'];
 // DESIGN-GAP: The birth editor is needed only after add/edit; keep its calendar engine out of the profile list's initial chunks.
-const BirthForm = dynamic(() =>
-  import('@/components/forms/birth-form').then((module) => module.BirthForm),
+const BirthForm = dynamic(
+  () => import('@/components/forms/birth-form').then((module) => module.BirthForm),
+  { loading: ChunkLoading },
 );
 /** Add/edit/delete/default controls share the existing validated birth editor. */
 export function ProfileManager({ initial }: { initial: Data }) {

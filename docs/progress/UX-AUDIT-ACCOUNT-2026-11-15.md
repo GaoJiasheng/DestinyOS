@@ -1,0 +1,257 @@
+# 登录后流程体验与功能审计（2026-11-15）
+
+范围：`apps/web` 里登录后才有、或登录后行为不同的流程：登录/验证/回跳/退出/会话过期、首登导入匿名数据、多档案、账户报告（历史、打开、删除、分享、导出）、登录态的今日/日历/日记、追问大师、设置（导出、删号、时区、提醒），以及背后的 Server Action 和 API。
+
+方法：只读代码和现有测试，没有起服务、没有跑 e2e。每条都标了证据位置；「代码推断，未实测」表示逻辑链在代码里能走通，但没在浏览器里复现。上午那份匿名审计（`docs/progress/UX-AUDIT-2026-11-15.md`）「修复记录」里已修或已知未修的条目这里不重复（例如 3.11 登录回跳、3.12 退出入口、5.10 停止后不落库、4.8 服务端路径无超时）。
+
+统计：P0 0 条，P1 9 条，P2 11 条，P3 8 条，共 28 条。
+
+---
+
+## P1 会丢数据、状态错乱或把人卡住
+
+### 1.1 邮箱链接登录、退出登录之后，前端的「是否登录」不会更新（代码推断，未实测）
+- **现象**：
+  - 退出登录后（软导航到登录页），顶栏仍显示档案切换头像。这时进「今日」会一直显示骨架屏，不会结束。
+  - 用邮箱链接确认登录后（同样是软导航），顶栏仍显示「登录」。「今日」按匿名算（示例或本机档案），合盘页显示匿名表单。要手动刷新一次才对。
+- **原因**：`useSignedIn()` 只在 `Providers` 挂载时调一次 `getSettingsAction()` 来定值（`components/providers.tsx:27-58`，依赖数组为 `[]`）。`confirmLoginAction` 和 `logoutAction` 都是在 Server Action 里 `redirect`（`app/[locale]/auth/actions.ts:130`、`:135`）。同一 locale 下走软导航，`[locale]/layout.tsx:81` 的 `Providers` 不会重新挂载。
+  - 退出后：`today-client.tsx:30` 认为仍是登录态，去调 `todayContextAction`。该 action 未登录时返回 `null`（`app/today/actions.ts:169`）。于是第 56 行 `signedIn && !context` 一直成立，骨架屏不会消失。
+- **影响**：共用设备上退出后，页面看起来仍像登录着。刚登录的人看到的还是示例运势，会以为登录没成功。
+- **建议**：
+  - 登录确认和退出都改为整页跳转：action 返回目标地址，由客户端 `window.location.assign`。
+  - 或者让 `Providers` 在 `pathname` 变化时重新确认会话，也可以把服务端的 `session` 当 prop 传下来。
+  - `TodayClient` 收到 `null` 时退回匿名视图，不要一直停在骨架屏。
+  - e2e `auth.spec.ts` 在确认登录后补一条断言：顶栏出现头像，`/today` 不是示例。
+
+### 1.2 先用邮箱注册、后用 Google 登录同一邮箱，会被拒绝，提示却是「登录链接无效或已过期」（代码已核对 Auth.js 源码）
+- **现象**：同一个 Gmail，第一次用邮箱链接注册，下次点「使用 Google 登录」，跳回登录页并显示「登录链接无效或已过期，请重新发送」。用户无从判断原因，只会反复点 Google。
+- **原因**：
+  - Google provider 没有开启 `allowDangerousEmailAccountLinking`（`lib/auth.ts:50-54`）。@auth/core 0.41.3 的 `handle-login.js:236-250` 在这种情况下抛 `OAuthAccountNotLinked`。
+  - `pages.error` 指向 `/auth/login`（`lib/auth.ts:75`）。登录页对任何 `?error=` 都只显示 `auth.error.verification`（`app/[locale]/auth/login/page.tsx:54`）。
+  - 同理，`AccessDenied`（Google 邮箱未验证、账号已删除）和 `Configuration` 也都显示这同一句。
+- **建议**：
+  - Google 已强制 `email_verified === true`（`auth.ts:78`），可以安全地对 Google 开启 `allowDangerousEmailAccountLinking: true`。
+  - 登录页按 `error` 分别给文案：`OAuthAccountNotLinked` →「这个邮箱已用邮箱链接注册，请用邮箱登录」；`AccessDenied` →「无法登录此账户」；`Verification` → 保留现有文案；其余 → 通用错误。
+
+### 1.3 删除账户后 7 天内无法再登录或重新注册，提示是「暂时无法发送」或「链接已过期」，也没有恢复入口（代码已抽查）
+- **现象**：
+  - 删号后跳到 `/auth/login?deleted=1`，登录页不认这个参数，没有任何「已删除」的确认（`components/me/settings-form.tsx:121`）。
+  - 7 天内用同一邮箱发登录链接，显示「暂时无法发送登录链接，请稍后重试」。用户会一直重试。
+  - 用 Google 登录，显示「登录链接无效或已过期」。
+  - 设置页文案是「7 天后彻底删除账户数据」，让人以为 7 天内还能找回，实际没有恢复入口。
+- **原因**：
+  - `signIn` 回调遇到 `existing?.deletedAt` 时直接 `return false`（`lib/auth.ts:82`）。
+  - 邮箱登录时，这一步发生在发链接阶段，被 `sendMagicLinkAction` 当成内部错误（`app/[locale]/auth/actions.ts:61-62,75-76`）。
+- **建议**：
+  - 登录页支持 `deleted=1`，显示「账户已删除，7 天后彻底清除」。
+  - `sendMagicLinkAction` 能区分已删除账户（返回 `E_ACCOUNT_DELETED`），并给出明确文案。
+  - 产品上二选一：
+    - 允许 7 天内登录即恢复账户（清 `deletedAt`）。
+    - 删号时立刻把 email 改成墓碑值（如 `deleted+<id>@invalid`），让用户能马上重新注册。
+  - 文案同步。
+
+### 1.4 删除一个档案，会连带删掉「用这个档案时给别人排的盘」和全部日记，确认框只说「关联报告和分享链接」（代码已抽查）
+- **现象**：
+  - 登录后在 `/bazi/new` 改成朋友的生日再排盘，这份报告会挂在当前选中的档案下。
+  - 之后删这个档案，朋友的报告也一起被删。
+  - 这个档案下的全部日记（心情和一句话）也会通过外键级联被删。
+  - 确认框原文是「删除此档案及其关联报告和分享链接，其他档案会保留」，没有提日记，用户也不会想到「给别人排的盘」算关联报告。
+- **证据**：
+  - 表单试算挂到选中档案：`lib/reading-service.ts:315`（注释写明了这一点）、`lib/launch-system.ts:31`。
+  - 删档案时按 `profileId`/`partnerProfileId` 删报告：`lib/profile-service.ts:181-186`。
+  - `JournalEntry.profile` 设为 `onDelete: Cascade`：`prisma/schema.prisma:308`。
+  - 确认文案：`messages/zh.json:2250`。
+- **建议**：
+  - 删除确认里写出数量：「将删除 N 份报告、M 条日记、K 个分享链接」，由服务端先 count。
+  - 表单里明确填了别人生日的试算，不要挂 `profileId`（或者另记一个 `trial` 标记）。删档案时只删真正属于这个档案的报告。
+  - 删除前提示可以先导出。
+
+### 1.5 报告历史和「我」页的最近报告只显示当前选中档案的报告，页面上看不出来；选中状态在浏览器重启后会被重置（代码已抽查）
+- **现象**：
+  - 有两个以上档案时，切到 B 档案，A 档案的报告就从历史里消失。页面上不显示当前按哪个档案筛选，看起来像报告丢了。
+  - 选中状态存在一个没有 `maxAge` 的会话 cookie 里（`app/profiles/actions.ts:63-68`）。关掉浏览器再打开，会悄悄回到默认档案，历史、今日、日历一起变。
+  - 档案管理里同时有「切换到此档案」和「设为默认」两个按钮，区别没有解释。
+- **证据**：`lib/reading-history.ts:43-57`、`app/[locale]/(app)/me/page.tsx:28`、`components/me/profile-manager.tsx:83-123`。
+- **建议**：
+  - 历史页顶部显示「正在查看：某某的报告」，并提供「全部档案」选项（默认全部，按档案分组或打标签）。
+  - 选中 cookie 加 `maxAge`（例如 1 年），或者合并成一个概念：切换即设为默认。
+  - 两个按钮保留的话，加一句说明。
+
+### 1.6 首登导入匿名数据：一条失败就全部失败，还会吃掉排盘额度，长时间运行也没有进度（代码已抽查；CPU 时长未验证）
+- **现象**：
+  - 导入前先逐条校验，任何一条图表或元数据校验不过（`app/readings/actions.ts:234-238`），整次导入就失败，提示「输入不完整或格式不正确，请检查后重试」。用户没有东西可「检查」。之后每次会话都会再弹，本地数据也永远清不掉。
+  - 每条报告都调用一次 `limitReadingWork()`（`:253`），占用 `reading.free` 每小时 60 次的额度。导入 50 份后，这一小时只剩约 10 次可用。
+  - 已经排过一些盘的人中途会撞 `E_RATE_LIMITED`，只看到「请求过于频繁，请稍后重试」，不知道要等多久。
+  - 最多 50 份报告在一个 Server Action 里逐个完整重算（`persistReading` → `generateReading`），按钮只显示「加载中」，没有进度，在 Worker 上可能超出 CPU 时长（未验证）。
+  - 好的一面：已写入的报告 ID 是确定性的，重试不会产生重复。
+- **证据**：`app/readings/actions.ts:211-262`、`components/report/anonymous-import.tsx:86-114`。
+- **建议**：
+  - 逐条导入：坏的跳过并计数，结果提示「已导入 N 份，M 份无法导入（已保留在本机）」，只从本地删掉成功的那些。
+  - 导入不计入排盘限流（另设 `import` 桶，按次计）。
+  - 分批调用（例如每批 10 份），显示「已导入 x / y」。
+
+### 1.7 分享链接关掉弹窗后就找不到了，无法撤销；默认还是永久有效（代码已抽查）
+- **现象**：
+  - 「撤销链接」只在刚生成后的那个弹窗里出现，token 存在组件状态里（`components/share/share-dialog.tsx:51,83-90,249-262`）。关掉弹窗或刷新后就没有撤销入口了。
+  - 报告页只显示一行「公开分享已开启」（`report-notices.tsx:33`），点不了。
+  - 每次点「生成」都会新建一条链接（`lib/share-service.ts:197-213`），旧链接继续有效。
+  - 有效期默认是「永久有效」。
+  - 想关闭公开，只能删除整份报告或删号。全仓库没有列出分享链接的查询（没有 `shareLink.findMany`）。
+- **建议**：
+  - 分享弹窗打开时列出这份报告已有的有效链接（模板、公开程度、创建时间、到期时间、浏览数），每条都能撤销，另加「全部撤销」。
+  - 「公开分享已开启」做成按钮，直接打开这个列表。
+  - 同一模板、同一公开程度已有有效链接时，复用而不是新建。
+  - 默认有效期改成 30 天。
+
+### 1.8 「辅助定盘 → 以此时辰试排」会悄悄改写当前选中的账户档案（代码已抽查）
+- **现象**：
+  - 按钮叫「试排」，但登录状态下点它会先调用 `upsertProfileAction`，把当前选中档案的出生时间改成候选时辰（`components/forms/rectification-wizard.tsx:118-123`），没有确认。
+  - 如果是从表单给别人定盘（表单里改了别人的生日后进入定盘），会把自己的档案整个改成别人的生日和名字（`app/readings/actions.ts:186-198` 写入的是 `currentProfile`）。
+  - 之后今日、日历、日记的预测都随之改变。
+- **建议**：
+  - 试排只生成报告，请求里显式带 `birth`，不写档案。
+  - 报告页再给「把这个时辰保存到档案 X」的按钮，并显示改动前后的对比。
+  - 匿名路径同理，应与 1.2（已修）的「这是我 / 这是别人」逻辑一致。
+
+### 1.9 登录后没导入的本机数据「消失」了，点过「稍后再说」后本次会话没有任何入口（代码已抽查）
+- **现象**：登录后如果没导入（点了「稍后再说」或关了弹窗）：
+  - 今日运势显示模糊示例，即使本机有档案：`components/daily/use-daily-report.ts:82` 登录后不读本机。
+  - 报告历史只查服务端，本机报告不显示：`app/[locale]/(app)/me/history/page.tsx:16-26`。
+  - 「我」页的档案摘要却显示本机档案：`components/me/profile-summary.tsx:26`，和今日、历史对不上。
+  - 设置页的「导入 JSON」只给匿名用户（`settings-data.tsx:91`），本次会话里再也找不到导入入口（`anonymous-import.tsx:37` 用 sessionStorage 记住了「稍后」）。
+- **建议**：
+  - 本机还有未导入数据时，在「我」和历史页顶部常驻一条「本设备还有 N 份报告未保存到账户 · 导入」。
+  - 「稍后再说」只抑制弹窗，不抑制这条横幅。
+  - 档案摘要在登录态不回退到本机档案，或者明确标注「本设备档案（未保存到账户）」。
+
+---
+
+## P2 明显受挫
+
+### 2.1 导入的报告丢了原始时间，历史里顺序还倒过来（代码已抽查）
+- **现象**：导入的报告在历史里都显示成导入当天的日期，越新的报告排得越靠后。
+- **原因**：
+  - `persistReading` 只在有 `syncChecks` 时才写 `createdAt`（`lib/reading-service.ts:261`），而网页导入不传（`app/readings/actions.ts:254`），所以落库时间都是导入时刻。
+  - 本地数组是新的在前，循环按这个顺序插入，越新的报告拿到的时间戳越早。
+  - 引擎计算本身用的是原始时间，但 `regenerateReportAction` 之后会改用导入时刻（`actions.ts:140`）。
+- **建议**：`persistReading` 增加一个显式的 `createdAt` 参数，导入时传入原值。
+
+### 2.2 账户已有档案时，本机档案在导入时被悄悄丢掉（代码已抽查）
+- **现象**：在新设备上匿名建了档案（可能是另一个人），登录后导入：报告进了账户，档案没有进，本地却整份清空了（`app/readings/actions.ts:239-247`、`anonymous-import.tsx:106`）。
+- **建议**：
+  - 本机档案与账户里任何档案的出生信息都不同时，导入弹窗里多一个勾选「同时保存为新档案（关系：其他）」。
+  - 相同的话直接跳过，并在结果里说明。
+
+### 2.3 登录但还没有档案时，用表单排盘不会建档，今日、日历、日记会一直要求「填写出生信息」（代码已抽查）
+- **现象**：
+  - 新账户从首页点八字，填完表单出了报告，但账户里没有档案。这条路径只建报告不建档：`components/forms/birth-form.tsx:248-256`；`writeProfile` 只影响匿名路径，见 `lib/birth-form-submit.ts:74-90`。
+  - 之后去今日，看到的是示例。日记页和日历页也提示先填出生信息。
+- **建议**：
+  - 登录且没有档案时，表单提交后自动用这次的出生信息建一个 `relation: self` 的档案。
+  - 或者在表单里给「保存为我的档案」勾选，账户没有档案时默认勾上。
+
+### 2.4 登录后做合盘，两边都必须是已保存的档案，反而不如匿名方便（代码已抽查）
+- **现象**：
+  - 匿名可以直接填两份生日；登录后只剩两个下拉框（`components/forms/synastry-form.tsx:114-136`）。
+  - 只有一个档案时，B 是空的，「生成合盘报告」是灰的，没有解释（`:185`）。只有下面一个「管理出生档案」链接，跳过去会离开当前页。
+  - 想跟谁比，就得先存一个永久档案。
+- **建议**：
+  - 下拉框加「临时输入一个人」选项，展开内嵌的出生表单，请求里带 `partnerBirth`；服务端 `resolveBirth` 已支持（`lib/reading-service.ts:322`）。
+  - 档案不足两个时显示说明，并在页内提供新增入口。
+
+### 2.5 十多处「登录」链接没带回跳地址，登录后回首页（代码已抽查）
+- **现象**：从下面这些地方点登录，登录后落在首页而不是原页面：
+  - 报告页的「无权限」页面、分享弹窗、导出菜单、追问大师、报告提示条
+  - 日记卡片、日记页、历史页、「我」页
+  - 合盘页、提醒设置、档案摘要
+  - 验证失败页
+- **证据**：
+  - 下面 13 个文件里写的都是 `href="/auth/login"`，没有带 `callbackUrl`：
+    - `components/forms/synastry-form.tsx`
+    - `components/me/profile-summary.tsx`
+    - `components/me/journal-form.tsx`
+    - `components/me/push-reminder-settings.tsx`
+    - `components/report/report-notices.tsx`
+    - `components/report/chat-panel.tsx`
+    - `components/report/export-menu.tsx`
+    - `components/share/share-dialog.tsx`
+    - `app/[locale]/(app)/me/journal/page.tsx`
+    - `app/[locale]/(app)/me/page.tsx`
+    - `app/[locale]/(app)/me/history/page.tsx`
+    - `app/[locale]/(app)/[system]/r/[id]/page.tsx`
+    - `app/[locale]/auth/verify/page.tsx`
+  - 只有顶栏（`navigation.tsx:16-20`）和档案管理页（`me/profiles/page.tsx:13-14`）带了回跳地址。
+- **建议**：抽一个 `<LoginLink />` 组件，自动带上当前路径，把这些地方全部替换。
+
+### 2.6 报告不存在、已删除、会话过期，都显示「你没有访问这份报告的权限」，还给已登录的人一个「登录」链接（代码已抽查）
+- **证据**：
+  - `getReadingAction` 对「不存在」和「不是你的」统一返回 `E_FORBIDDEN`（`app/readings/actions.ts:88-91`）。这本身是防枚举的设计。
+  - 但页面上 `E_NOT_FOUND → notFound()` 这个分支永远走不到（`app/[locale]/(app)/[system]/r/[id]/page.tsx:27-38`）。
+  - 已登录的人也会看到「登录」。
+- **建议**：
+  - 已登录：显示「找不到这份报告，可能已被删除」，给「报告历史」链接。
+  - 未登录：显示「登录后查看」，并带回跳地址。
+  - 服务端返回的错误码可以不变，只在页面层按是否登录来分。
+
+### 2.7 导出账户数据：10 分钟只能导一次，额度在导出前就扣掉了；失败或被限流都只显示通用错误（代码已抽查）
+- **证据**：
+  - `reserveExport` 先占用 10 分钟额度，再执行 `exportAccount`（`app/api/v1/me/export/route.ts:10-12`、`lib/account-service.ts:107-114`）。导出途中出错（解密失败、超时），也得等 10 分钟才能再试。
+  - 前端对任何非 2xx 一律显示「暂时无法完成，请稍后重试」（`components/me/settings-data.tsx:33-36,54`），429 也不说要等多久。
+- **建议**：
+  - 导出成功后再占额度，或者失败时释放额度。
+  - 前端识别 429，显示「每 10 分钟可导出一次，请 X 分钟后再试」。
+  - 按钮在下载期间显示进行中。
+
+### 2.8 报告历史的日期按 UTC 显示，东八区早上 8 点前生成的报告会显示成前一天（代码已抽查）
+- **证据**：`components/report/history-list.tsx:147` 写死了 `timeZone: 'UTC'`。
+- **建议**：去掉 `timeZone`（使用浏览器时区），或者用账户设置里的 `tz`。
+
+### 2.9 历史搜索只能搜自己改过的标题，大部分报告没有标题，所以什么都搜不到（代码已抽查）
+- **证据**：
+  - 搜索条件是 `title: { contains }`（`lib/reading-history.ts:59`）。
+  - 报告默认 `title: null`，列表里显示的是体系名。用户输入「八字」也搜不到。
+- **建议**：
+  - 搜索同时匹配体系名和关键词，或者把搜索框改成「按标题或体系」。
+  - 没有任何自定义标题时，隐藏搜索框，只保留体系筛选。
+
+### 2.10 「这份报告使用旧版出生档案」只是一句提示，没有下一步；给别人排的盘也会误报（代码已抽查）
+- **证据**：
+  - `report-notices.tsx:32` 只是一段文字。
+  - `staleProfile` 只比较档案版本号（`lib/reading-service.ts:209-213`）。改了自己的档案后，所有挂在这个档案下的试算报告（见 1.4）都会显示这条提示。
+- **建议**：
+  - 提示后面加「用当前档案重新排盘」按钮。
+  - 只有当报告里的出生信息和档案版本快照一致时才提示。
+
+### 2.11 邮箱链接在哪台设备打开，就登录在哪台；发请求的那个页面一直没有反应（代码推断）
+- **现象**：
+  - 桌面上发送链接，手机邮件 App 里点开，登录发生在手机（甚至邮件 App 内置浏览器）上。
+  - 桌面页面只显示「登录链接已发送」，不会自动变成已登录。
+  - 回跳地址存在发请求那个浏览器的 cookie 里，换设备打开后回到首页（`app/[locale]/auth/actions.ts:63` 的 DESIGN-GAP 已承认）。
+- **建议**：
+  - 邮件里同时给 6 位验证码，登录页加「输入验证码」，可在原设备完成登录。
+  - 至少在「已发送」提示里写一句「请在这台设备上打开邮件中的链接」。
+
+---
+
+## P3 小问题
+
+| # | 现象 | 证据 | 建议 |
+|---|---|---|---|
+| 3.1 | 追问额度写的是「UTC 零点重置」，中文用户其实是早上 8 点 | `lib/chat-service.ts:30-32`、`report.chat.remaining` / `report.chat.quota` | 文案写成本地时间（「每天 08:00 重置」）或「明天重置」；或者按账户时区计日 |
+| 3.2 | 追问历史加载失败（包括会话过期 401）都显示「大师暂时离开」 | `components/report/chat-panel.tsx:87-99` | 按状态码分：401 → 登录链接（带回跳），其余 → 可重试 |
+| 3.3 | 停止生成后，前端把剩余次数减 1；服务端实际已经退还额度（`!finished` 时退还），刷新后次数又回来了 | `chat-panel.tsx:186-198` vs `lib/chat-service.ts:222-227` | 停止时不减次数，或者停止后重新拉一次 history |
+| 3.4 | 所有 Server Action 被限流时都只说「请稍后重试」，`retryAfter` 被 `runAction` 丢掉了 | `lib/action-result.ts:13-17`、`lib/api-error.ts` 的 `actionError` | `ActionResult` 的错误里带上 `retryAfter`，文案显示秒数或分钟数 |
+| 3.5 | 已登录访问登录页，带回跳地址的「继续」链接文字仍是「返回首页」 | `app/[locale]/auth/login/page.tsx:42-46`、`messages/zh.json:426` | 有回跳地址时用「继续」 |
+| 3.6 | 退出登录不会取消这台浏览器的每日提醒，共用设备会继续收到推送 | `app/[locale]/auth/actions.ts:134-136` 只调用 `signOut` | 退出前在客户端取消订阅并调用 `unsubscribePushAction`，或者服务端按 session 清理 |
+| 3.7 | 中文界面删号要输入英文「DELETE」 | `components/me/settings-form.tsx:214,226`、`me.deleteConfirm` | 中文界面接受「删除」（服务端 `z.literal` 同步放宽），或者改成输入自己的邮箱 |
+| 3.8 | 登录态塔罗提交失败（限流、网络、校验）都只显示通用错误，不说原因 | `components/tarot/tarot-ritual.tsx:189-191,232-235` | 把 `result.error.code` 映射到 `report.error.*` |
+
+---
+
+## 没有覆盖或无法确认的
+
+- **1.1 的软导航**：按 Next 的 Server Action `redirect` 语义推断，没在浏览器里看到。建议优先手测一次：退出后点「今日」。
+- **1.6 导入 50 份报告的 CPU 时长**：未验证，取决于各体系的计算量和 Worker 计划。
+- **管理后台**：只看了 `(secured)/layout.tsx` 和 re-auth 页，没有发现明显断裂，没有深入。
+- **会员和付款**：一期关闭（`membershipEnabled()` 为 false），没有审计。关闭时 `ownerFeaturePlan` 返回 `pro`，所以档案上限是 20、历史不截断。
+- **移动端 API**（`app/api/v1/mobile/*`）：不在范围内。
