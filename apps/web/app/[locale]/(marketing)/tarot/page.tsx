@@ -1,5 +1,5 @@
 import { publicRouteMetadata } from '@/lib/public-seo';
-import { NextIntlClientProvider } from 'next-intl';
+import { ClientMessages } from '@/i18n/client-provider';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { TarotSelection } from '@/components/tarot/tarot-selection';
 import {
@@ -17,7 +17,7 @@ export default async function TarotPage({ params }: { params: Promise<{ locale: 
   return (
     <>
       <div id={SYSTEM_TOOL_ANCHOR}>
-        <NextIntlClientProvider
+        <ClientMessages
           messages={{
             tarot: messages.tarot ?? {},
             art: messages.art ?? {},
@@ -25,7 +25,7 @@ export default async function TarotPage({ params }: { params: Promise<{ locale: 
           }}
         >
           <TarotSelection />
-        </NextIntlClientProvider>
+        </ClientMessages>
       </div>
       <SystemLandingBridge locale={locale} system="tarot" />
       <SystemLandingBody locale={locale} system="tarot" />

@@ -67,7 +67,19 @@ apps/mobile 的依赖与 lockfile 解析版本未变。
 | r/[id] / r/local/[id] | 379,728 / 380,259 | 322,008 / 322,541 | 358,400 |
 | /zh/today Flight | 128,460 | 96,736 | 120,000 |
 
-首页余量约 1.4KB；外壳剩余最大块为 next-intl 的 ICU 格式化（约 11.6KB），可用 next-intl 4 实验性 `messages.precompile` 再收，未做。
+首页余量约 1.4KB；外壳剩余最大块为 next-intl 的 ICU 格式化（约 11.6KB）。
+
+### ICU 预编译（2026-11-15）
+- 未用 next-intl 的 `experimental.messages.precompile`：其加载器会把点号 key 嵌套，与扁平目录 + `toMessages` 冲突。
+- 只借它的运行时：浏览器与 SSR 层把 `use-intl/format-message` 换成 `format-only`（`next.config.ts`），RSC 仍用完整解析器。
+- 所有客户端 Provider 改走 `ClientMessages`（`i18n/client-provider.tsx`），服务端用 `icu-minify/compile` 预编译并按原文、按子树缓存；子树复用保证 Flight 去重不失效。ESLint 禁止直接引入 `NextIntlClientProvider`。
+- `test/precompile.test.ts` 对三语全量目录逐条比对 format-only 与完整解析器输出。
+
+| 指标 | 之前 | 之后 |
+| --- | ---: | ---: |
+| 首页首屏 JS（gzip） | 183,398 | 174,471 |
+| 各路由首屏 JS | — | 均 −8.9KB |
+| /zh/today Flight（原始字节） | 96,723 | 97,232 |
 
 ## 未完成项
 - 线上行为需部署后复测，含 `$`、`!` 路径的段文件在真实 Workers Assets 的表现。

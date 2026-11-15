@@ -526,6 +526,9 @@ importers:
       geobuf:
         specifier: ^4.0.0
         version: 4.0.0
+      icu-minify:
+        specifier: 4.14.9
+        version: 4.14.9
       jose:
         specifier: ^6.1.0
         version: 6.2.12
@@ -589,6 +592,9 @@ importers:
       three:
         specifier: ^0.170.0
         version: 0.170.0
+      use-intl:
+        specifier: 4.14.9
+        version: 4.14.9(@types/react@19.2.18)(react@19.3.0)
       yoga-wasm-web:
         specifier: 0.3.3
         version: 0.3.3

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { NextIntlClientProvider } from 'next-intl';
+import { ClientMessages } from '@/i18n/client-provider';
 import { getLocale, getMessages } from 'next-intl/server';
 import { dailyMessages, featureMessages } from '@/i18n/feature-messages';
 import { toMessages } from '@/i18n/catalog';
@@ -26,7 +26,7 @@ export async function TarotMessages({
   const messages = await getMessages();
   const scopedBase = daily ? dailyMessages(messages) : featureMessages(messages);
   return (
-    <NextIntlClientProvider
+    <ClientMessages
       messages={{
         ...scopedBase,
         tarot: {
@@ -37,6 +37,6 @@ export async function TarotMessages({
       }}
     >
       {children}
-    </NextIntlClientProvider>
+    </ClientMessages>
   );
 }

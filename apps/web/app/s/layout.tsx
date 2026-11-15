@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { NextIntlClientProvider } from 'next-intl';
+import { ClientMessages } from '@/i18n/client-provider';
 import { getMessages } from 'next-intl/server';
 import { NavigationProgress } from '@/components/navigation-progress';
 import { isLocale } from '@/i18n/routing';
@@ -37,7 +37,7 @@ export default async function ShareLayout({ children }: { children: React.ReactN
   return (
     <html lang={locale} data-theme={theme} suppressHydrationWarning>
       <body>
-        <NextIntlClientProvider
+        <ClientMessages
           locale={locale}
           timeZone="UTC"
           messages={{ common: messages.common ?? {} }}
@@ -49,7 +49,7 @@ export default async function ShareLayout({ children }: { children: React.ReactN
           <Starfield />
           <FontGlyphLoader revisionKey={`${token}:${locale}`} />
           <main>{children}</main>
-        </NextIntlClientProvider>
+        </ClientMessages>
       </body>
     </html>
   );

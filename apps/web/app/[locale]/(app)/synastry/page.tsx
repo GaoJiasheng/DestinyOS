@@ -1,6 +1,6 @@
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { SynastryClient } from '@/components/forms/synastry-client';
-import { NextIntlClientProvider } from 'next-intl';
+import { ClientMessages } from '@/i18n/client-provider';
 import { featureMessages } from '@/i18n/feature-messages';
 import { publicRouteMetadata } from '@/lib/public-seo';
 import {
@@ -17,9 +17,9 @@ export default async function SynastryPage({ params }: { params: Promise<{ local
     <>
       <SystemLandingHero locale={locale} system="synastry" startHref={`#${SYSTEM_TOOL_ANCHOR}`} />
       <div id={SYSTEM_TOOL_ANCHOR}>
-        <NextIntlClientProvider messages={featureMessages(await getMessages())}>
+        <ClientMessages messages={featureMessages(await getMessages())}>
           <SynastryClient />
-        </NextIntlClientProvider>
+        </ClientMessages>
       </div>
       <SystemLandingBody locale={locale} system="synastry" />
     </>

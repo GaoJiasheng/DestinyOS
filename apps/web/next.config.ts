@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import { createHash } from 'node:crypto';
+import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import { securityHeaders } from './lib/security-headers';
 import createNextIntlPlugin from 'next-intl/plugin';
@@ -15,6 +16,10 @@ interface EntryCompiler {
     thisCompilation: { tap(name: string, run: (compilation: EntryCompilation) => void): void };
   };
 }
+// DESIGN-GAP: next-intl's experimental precompile loader nests dotted keys and rejects our flat catalogs (toMessages owns that expansion); take only its parser-free runtime and compile on the server instead (i18n/client-provider.tsx).
+const formatOnly = createRequire(resolve(__dirname, 'package.json')).resolve(
+  'use-intl/format-message/format-only',
+);
 const config: NextConfig = {
   // DESIGN-GAP: Static Flight file transport is enabled only for the Workers build, preserving local Node development.
   env: { NEXT_PUBLIC_STATIC_ASSETS: process.env.PLATFORM === 'cloudflare' ? 'true' : 'false' },
@@ -95,6 +100,13 @@ const config: NextConfig = {
             ),
           );
         },
+      });
+    // DESIGN-GAP: Browser and SSR format the same precompiled client catalogs, so both drop intl-messageformat; React Server Components keep the full ICU parser for request-config strings.
+    if (!isServer) config.resolve.alias['use-intl/format-message$'] = formatOnly;
+    else
+      config.module.rules.push({
+        issuerLayer: 'ssr',
+        resolve: { alias: { 'use-intl/format-message$': formatOnly } },
       });
     // DESIGN-GAP: Public values are compiled into client code; isolate filesystem caches when E2E switches between configured ads and an unconfigured build.
     const publicConfig = createHash('sha256')

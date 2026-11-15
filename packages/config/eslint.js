@@ -35,6 +35,26 @@ export default tseslint.config(
     },
   },
   { files: ['apps/web/lib/platform/logger-sink.ts'], rules: { 'no-restricted-syntax': 'off' } },
+  {
+    files: ['apps/web/**/*.{ts,tsx}'],
+    // Unit tests render client components with the full use-intl formatter and raw catalogs.
+    ignores: ['apps/web/test/**'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'next-intl',
+              importNames: ['NextIntlClientProvider'],
+              message:
+                'Use ClientMessages from @/i18n/client-provider; the browser formatter only accepts precompiled catalogs.',
+            },
+          ],
+        },
+      ],
+    },
+  },
   js.configs.recommended,
   {
     files: ['apps/mobile/**/*.cjs'],

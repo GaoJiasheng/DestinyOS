@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
+import { ClientMessages } from '@/i18n/client-provider';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { brand } from '@tianji/shared/brand';
@@ -77,7 +77,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} data-theme="neutral" suppressHydrationWarning>
       <body>
-        <NextIntlClientProvider messages={shellMessages(messages)}>
+        <ClientMessages messages={shellMessages(messages)}>
           <Providers>
             <AdsProvider>
               <Starfield />
@@ -98,7 +98,7 @@ export default async function LocaleLayout({
               <FontLoader />
             </AdsProvider>
           </Providers>
-        </NextIntlClientProvider>
+        </ClientMessages>
       </body>
     </html>
   );

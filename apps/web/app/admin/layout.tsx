@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { NavigationProgress } from '@/components/navigation-progress';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
+import { ClientMessages } from '@/i18n/client-provider';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { adminLocale, requireAdmin } from '@/lib/admin-auth';
 import { getAdminCopy } from '@/i18n/admin-copy';
@@ -28,7 +28,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={await getMessages({ locale })}>
+        <ClientMessages locale={locale} messages={await getMessages({ locale })}>
           <Suspense fallback={null}>
             <NavigationProgress />
           </Suspense>
@@ -77,7 +77,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <main id="main" tabIndex={-1} className="admin-main">
             {children}
           </main>
-        </NextIntlClientProvider>
+        </ClientMessages>
       </body>
     </html>
   );
