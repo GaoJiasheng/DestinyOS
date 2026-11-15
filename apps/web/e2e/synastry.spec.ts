@@ -173,9 +173,10 @@ for (const locale of ['zh', 'en'] as const) {
       await page.getByRole('dialog').getByRole('button', { name: 'Beta', exact: true }).click();
       await expect(page.getByRole('dialog')).toHaveCount(0);
       await page.goto(`/${locale}/bazi/new`);
-      await expect(page.getByLabel(t['form.birth.year'], { exact: true })).toHaveValue(
-        String(B.year),
-      );
+      // Next keeps a hidden streamed copy of the form, so read the visible one.
+      await expect(
+        page.getByLabel(t['form.birth.year'], { exact: true }).filter({ visible: true }),
+      ).toHaveValue(String(B.year));
       await page.goto(`/${locale}/today`);
       // A signed-in day is computed in the browser, so the page itself is the evidence.
       await expect(page.locator('[data-daily-block="10"] li')).toHaveCount(6);

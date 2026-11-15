@@ -116,6 +116,8 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(page.locator('.chat-user')).toHaveCount(1);
     // Every signed-in owner has 30 questions a day while membership is off; start two short of it.
     await db.chatQuota.updateMany({ where: { userId: user.id }, data: { count: 28 } });
+    await page.reload();
+    await expect(page.locator('.chat-user')).toHaveCount(1);
     for (let i = 0; i < 2; i++) {
       await page
         .getByLabel(t['report.chat.question'])
