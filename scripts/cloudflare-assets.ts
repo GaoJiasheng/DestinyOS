@@ -26,7 +26,11 @@ for (const [source, target] of [
 ] as const) {
   const destination = resolve(assets, target);
   await mkdir(resolve(destination, '..'), { recursive: true });
-  await cp(resolve(web, source), destination, { recursive: true });
+  await cp(resolve(web, source), destination, {
+    recursive: true,
+    // The unsplit GeoNames corpus is only a build input for resources/geo; Workers never read it.
+    filter: (path) => !path.endsWith('cities500.json.gz'),
+  });
 }
 
 // DESIGN-GAP: Glossary messages are read through Assets rather than duplicated in RSC and SSR bundles.

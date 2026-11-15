@@ -21,6 +21,9 @@ playwright-report/
 # Compiled public encyclopedia, recreated by content:build.
 apps/web/resources/learn.json
 
+# Prefix shards of the GeoNames corpus, recreated before web dev/build and geo tests.
+apps/web/resources/geo/
+
 # Local launch acceptance evidence (may contain test-process diagnostics).
 .launch-check/
 .vercel/

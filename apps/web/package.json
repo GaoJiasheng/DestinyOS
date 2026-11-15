@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "tsx ../../scripts/daily-worker-build.ts && next dev --webpack",
-    "build": "tsx scripts/mobile-assetlinks.ts && tsx ../../scripts/daily-worker-build.ts && next build --webpack",
+    "dev": "tsx ../../scripts/geo-shards.ts && tsx ../../scripts/daily-worker-build.ts && next dev --webpack",
+    "build": "tsx scripts/mobile-assetlinks.ts && tsx ../../scripts/geo-shards.ts && tsx ../../scripts/daily-worker-build.ts && next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "cf:build": "PLATFORM=cloudflare opennextjs-cloudflare build -c wrangler.compute.toml && tsx ../../scripts/cloudflare-assets.ts && tsx ../../scripts/cloudflare-public-artifacts.ts && tsx ../../scripts/media-worker-build.ts && tsx ../../scripts/cloudflare-budget.ts && PERF_STATIC_ASSETS_REQUIRED=true pnpm --dir ../.. perf:budgets",

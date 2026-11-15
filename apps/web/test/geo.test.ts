@@ -1,6 +1,12 @@
-import { it, expect, vi } from 'vitest';
+import { beforeAll, it, expect, vi } from 'vitest';
 import { GET as timezone } from '../app/api/v1/geo/tz/route';
 import { searchCities } from '../lib/geo';
+import { buildGeoShards } from '../../../scripts/geo-shards-build';
+
+// Shards are a build artifact (gitignored); a current set makes this a hash check.
+beforeAll(async () => {
+  await buildGeoShards();
+}, 120_000);
 it('searches real GeoNames aliases for Beijing, New York and Sydney', async () => {
   for (const q of ['北京', 'Beijing', 'New York', '悉尼']) {
     const cities = await searchCities(q, q === 'Beijing' || q === 'New York' ? 'en' : 'zh');
@@ -10,6 +16,36 @@ it('searches real GeoNames aliases for Beijing, New York and Sydney', async () =
     );
     expect(cities.length).toBeLessThanOrEqual(12);
   }
+});
+
+it('ranks exact names first, matches later words and keeps one-letter queries small', async () => {
+  const names = async (q: string, locale: 'zh' | 'en' = 'en') =>
+    (await searchCities(q, locale)).map((city) => city.name);
+  expect((await names('london'))[0]).toBe('London');
+  // Villages literally named "Tok" must not push the city people are typing out of first place.
+  expect((await names('Tok'))[0]).toBe('Tokyo');
+  expect((await names('bath'))[0]).toBe('Bath');
+  expect(await names('york')).toContain('New York City');
+  expect((await names('上海', 'zh'))[0]).toBe('上海');
+  expect((await names('são paulo'))[0]).toBe('São Paulo');
+  expect((await names('sao pau'))[0]).toBe('São Paulo');
+  const single = await names('s');
+  expect(single.length).toBeGreaterThan(0);
+  expect(single.length).toBeLessThanOrEqual(12);
+  expect(await names('zzzzqqq')).toEqual([]);
+  expect(await names('__proto__')).toEqual([]);
+});
+
+it('keeps every shard small enough for a 128MB Workers isolate', async () => {
+  const { readdir, stat } = await import('node:fs/promises');
+  const { resolve } = await import('node:path');
+  const { webDirectory } = await import('../lib/platform/resources-node');
+  const directory = resolve(webDirectory(), 'resources/geo');
+  const sizes = await Promise.all(
+    (await readdir(directory)).map(async (name) => (await stat(resolve(directory, name))).size),
+  );
+  expect(sizes.length).toBe(513);
+  expect(Math.max(...sizes)).toBeLessThan(4 * 1024 * 1024);
 });
 
 it('rejects empty/nonfinite coordinates and treats URLs/traversal as inert city search text', async () => {
