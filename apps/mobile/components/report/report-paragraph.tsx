@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { Text } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import type { GlossaryEntry } from '@tianji/content';
 import { localeText, sourceLocale } from '@tianji/shared/locale';
 import { useCopy } from '../../lib/copy';
 import { usePreferences } from '../../lib/preferences';
+import type { MobileLocale } from '../../lib/i18n';
 import { useTheme } from '../../lib/theme';
 import { ReportSheet } from './report-ui';
 import { CopyText } from '../native-ui';
 
+/** Language a report is being shown in when it differs from the app language; term names follow it. */
+export const ReportLocaleContext = createContext<MobileLocale | null>(null);
 /** Inline term annotations open bilingual native sheets; long press copies readable paragraph text. */
 export function ReportParagraph({
   text,
@@ -21,7 +24,8 @@ export function ReportParagraph({
 }) {
   const t = useCopy(),
     { colors, body } = useTheme(),
-    locale = usePreferences((s) => s.locale);
+    appLocale = usePreferences((s) => s.locale),
+    locale = useContext(ReportLocaleContext) ?? appLocale;
   const [term, setTerm] = useState<GlossaryEntry | null>(null),
     [copied, setCopied] = useState(false);
   const parts = text.split(/(\[\[term:[^\]]+\]\])/);

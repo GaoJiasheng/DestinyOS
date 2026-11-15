@@ -22,7 +22,7 @@ import { ReportCard, DataTree, useChartLabel } from './report-ui';
 import { ReportActions } from './report-actions';
 import { ReportHeadline } from './report-headline';
 import { ReportSection } from './report-section';
-import { ReportParagraph } from './report-paragraph';
+import { ReportParagraph, ReportLocaleContext } from './report-paragraph';
 import { NativeChartView } from '../charts/native-chart';
 import { useProfiles } from '../../lib/profiles';
 import { locales, type MobileLocale } from '../../lib/i18n';
@@ -120,257 +120,262 @@ export function ReportScreen({
     glossary = bundledKnowledge().glossary;
   const birth = data?.inputSnapshot.birth ? localBirth(data.inputSnapshot.birth) : null;
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: colors['bg-0'] }}>
-      {state !== 'ready' || !view || !data ? (
-        <View testID={`report-${state}`} style={{ padding: 24, gap: 20 }}>
-          <CopyText title>{t(`nav.${system}`)}</CopyText>
-          {state === 'loading' ? (
-            <>
-              <ActivityIndicator color={colors.gold} />
-              <View
-                style={{ height: 150, backgroundColor: colors['surface-1'], borderRadius: 16 }}
-              />
-              <CopyText>{t('report.loading')}</CopyText>
-            </>
-          ) : (
-            <>
-              <CopyText>
-                {t(state === 'missing' ? 'report.localMissing' : 'mobile.storage.error')}
-              </CopyText>
-              {state === 'error' ? (
-                <Action label={t('mobile.profiles.retry')} onPress={() => setRetry((v) => v + 1)} />
-              ) : null}
-              <Action label={t('report.another')} onPress={() => router.replace('/reading')} />
-            </>
-          )}
-        </View>
-      ) : (
-        <ScrollView
-          ref={scroll}
-          testID="report-scroll"
-          stickyHeaderIndices={[1]}
-          contentContainerStyle={{ paddingBottom: 36 }}
-        >
-          <View style={{ padding: 16, gap: 10 }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: 12,
-              }}
-            >
-              <Action id="report-back" label={t('mobile.report.back')} onPress={back} />
-              <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                <CopyText title>{t(`nav.${system}`)}</CopyText>
-              </View>
-            </View>
-            {data.inputSnapshot.displayName ? (
-              <CopyText>{t('report.content', { text: data.inputSnapshot.displayName })}</CopyText>
-            ) : null}
-            {birth ? <CopyText>{t('report.birthYear', { year: birth.year })}</CopyText> : null}
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
-              {birth ? (
-                <Action
-                  id="report-birth"
-                  label={t('report.birthDetails')}
-                  onPress={() => setBirthOpen((v) => !v)}
+    <ReportLocaleContext.Provider value={override}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: colors['bg-0'] }}>
+        {state !== 'ready' || !view || !data ? (
+          <View testID={`report-${state}`} style={{ padding: 24, gap: 20 }}>
+            <CopyText title>{t(`nav.${system}`)}</CopyText>
+            {state === 'loading' ? (
+              <>
+                <ActivityIndicator color={colors.gold} />
+                <View
+                  style={{ height: 150, backgroundColor: colors['surface-1'], borderRadius: 16 }}
                 />
-              ) : null}
-              <Action
-                id="report-pro"
-                label={t('report.proView')}
-                selected={professional}
-                onPress={() => {
-                  professionalJump.current = !professional;
-                  setProfessional(!professional);
-                }}
-              />
-              <View
-                accessibilityLabel={t('mobile.report.language')}
-                style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}
-              >
-                {locales.map((language) => (
+                <CopyText>{t('report.loading')}</CopyText>
+              </>
+            ) : (
+              <>
+                <CopyText>
+                  {t(state === 'missing' ? 'report.localMissing' : 'mobile.storage.error')}
+                </CopyText>
+                {state === 'error' ? (
                   <Action
-                    key={language}
-                    id={`report-locale-${language}`}
-                    label={t(`nav.locale.${language}`)}
-                    selected={locale === language}
-                    onPress={() => setOverride(language === appLocale ? null : language)}
-                  />
-                ))}
-              </View>
-            </View>
-            {birthOpen && birth ? (
-              <CopyText>
-                {t('report.content', {
-                  text: `${birth.year}-${birth.month}-${birth.day} · ${data.inputSnapshot.birth?.timeUnknown ? t('form.birth.timeUnknown') : `${String(birth.hour).padStart(2, '0')}:${String(birth.minute).padStart(2, '0')}`} · ${birth.tz}`,
-                })}
-              </CopyText>
-            ) : null}
-            {view.stale ? <CopyText testID="report-stale">{t('report.stale')}</CopyText> : null}
-            {view.warnings.map((warning) => (
-              <CopyText key={warning.code}>{label(warning.messageKey)}</CopyText>
-            ))}
-            {reused ? <ReportReuse reading={view} /> : null}
-            <ReportActions reading={view} />
-            <ReportHeadline headline={view.report.headline} system={system} />
-            <View
-              onLayout={(event) => {
-                chartY.current = event.nativeEvent.layout.y;
-              }}
-            >
-              <ReportCard>
-                <Action
-                  id="report-chart-toggle"
-                  label={t(chartTitleKey(system))}
-                  onPress={() => setChartOpen((v) => !v)}
-                />
-                {chartOpen ? (
-                  <NativeChartView
-                    chart={view.chart}
-                    highlight={highlight}
-                    onSelect={select}
-                    onRelated={related}
+                    label={t('mobile.profiles.retry')}
+                    onPress={() => setRetry((v) => v + 1)}
                   />
                 ) : null}
-              </ReportCard>
-            </View>
+                <Action label={t('report.another')} onPress={() => router.replace('/reading')} />
+              </>
+            )}
           </View>
-          <View
-            style={{
-              backgroundColor: colors['bg-0'],
-              paddingVertical: 8,
-              borderBottomWidth: 1,
-              borderColor: colors['line-1'],
-            }}
+        ) : (
+          <ScrollView
+            ref={scroll}
+            testID="report-scroll"
+            stickyHeaderIndices={[1]}
+            contentContainerStyle={{ paddingBottom: 36 }}
           >
-            <ScrollView
-              horizontal
-              accessibilityLabel={t('report.nav')}
-              contentContainerStyle={{ paddingHorizontal: 16, gap: 8 }}
-            >
-              {view.report.sections.map((section) => (
-                <Action
-                  key={section.key}
-                  id={`nav-${section.key}`}
-                  label={t('report.content', { text: section.title })}
-                  onPress={() => jump(section.key)}
-                />
-              ))}
-            </ScrollView>
-          </View>
-          <View
-            onLayout={(event) => {
-              positions.current.body = event.nativeEvent.layout.y;
-            }}
-            style={{ padding: 16, gap: 16 }}
-          >
-            {view.report.sections.map((section, index) => (
+            <View style={{ padding: 16, gap: 10 }}>
               <View
-                key={section.key}
-                onLayout={(event) => {
-                  positions.current[section.key] = event.nativeEvent.layout.y;
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: 12,
                 }}
               >
-                <ReportSection
-                  section={section}
-                  open={expanded[section.key] ?? true}
-                  toggle={() =>
-                    setExpanded((current) => ({
-                      ...current,
-                      [section.key]: !(current[section.key] ?? true),
-                    }))
-                  }
-                  glossary={glossary}
-                  onEvidence={evidence}
-                  vote={votes[section.key]}
-                  onVote={async (helpful) => {
-                    await saveFeedback(id, section.key, helpful);
-                    setVotes((current) => ({ ...current, [section.key]: helpful }));
-                  }}
-                />
-                {reportAdSlot(index, view.report.sections.length) !== null && (
-                  <NativeAdCard slot={reportAdSlot(index, view.report.sections.length)!} />
-                )}
+                <Action id="report-back" label={t('mobile.report.back')} onPress={back} />
+                <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                  <CopyText title>{t(`nav.${system}`)}</CopyText>
+                </View>
               </View>
-            ))}
-            {professional ? (
-              <ReportCard
-                id="report-professional"
-                onLayout={(event) => {
-                  // DESIGN-GAP: Entering professional view jumps to its newly laid-out panel,
-                  // keeping the detailed view reachable without traversing every prose chapter.
-                  if (professionalJump.current) {
-                    professionalJump.current = false;
-                    scroll.current?.scrollTo({
-                      y: Math.max(
-                        0,
-                        (positions.current.body ?? 0) + event.nativeEvent.layout.y - 76,
-                      ),
-                      animated: !reduced,
-                    });
-                  }
-                }}
-              >
-                <CopyText title>{t('report.school')}</CopyText>
-                <DataTree value={data.schoolUsed} professional />
-                <CopyText title>{t('report.debug')}</CopyText>
-                <DataTree
-                  professional
-                  value={{
-                    engineVersion: data.engineVersion,
-                    interpretVersion: data.interpretVersion,
-                    knowledgeVersion: data.knowledgeVersion,
-                    ...data.meta?.debug,
+              {data.inputSnapshot.displayName ? (
+                <CopyText>{t('report.content', { text: data.inputSnapshot.displayName })}</CopyText>
+              ) : null}
+              {birth ? <CopyText>{t('report.birthYear', { year: birth.year })}</CopyText> : null}
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+                {birth ? (
+                  <Action
+                    id="report-birth"
+                    label={t('report.birthDetails')}
+                    onPress={() => setBirthOpen((v) => !v)}
+                  />
+                ) : null}
+                <Action
+                  id="report-pro"
+                  label={t('report.proView')}
+                  selected={professional}
+                  onPress={() => {
+                    professionalJump.current = !professional;
+                    setProfessional(!professional);
                   }}
                 />
-                <Action
-                  id="report-full-data"
-                  label={t('report.rawChart')}
-                  onPress={() => setFullData((v) => !v)}
-                />
-                {fullData ? <DataTree value={view.chart.data} professional /> : null}
-                <CopyText title>{t('report.hits')}</CopyText>
-                {view.report.hits.map((hit, i) => (
-                  <View key={`${hit.unitId}-${i}`}>
-                    <CopyText>
-                      {t('report.content', { text: `${hit.unitId} · ${hit.weight}` })}
-                    </CopyText>
-                    {hit.evidence.map((item, j) => (
-                      <Action
-                        key={j}
-                        label={t('report.content', { text: item.path })}
-                        onPress={() => evidence(item.path)}
-                      />
-                    ))}
-                  </View>
+                <View
+                  accessibilityLabel={t('mobile.report.language')}
+                  style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}
+                >
+                  {locales.map((language) => (
+                    <Action
+                      key={language}
+                      id={`report-locale-${language}`}
+                      label={t(`nav.locale.${language}`)}
+                      selected={locale === language}
+                      onPress={() => setOverride(language === appLocale ? null : language)}
+                    />
+                  ))}
+                </View>
+              </View>
+              {birthOpen && birth ? (
+                <CopyText>
+                  {t('report.content', {
+                    text: `${birth.year}-${birth.month}-${birth.day} · ${data.inputSnapshot.birth?.timeUnknown ? t('form.birth.timeUnknown') : `${String(birth.hour).padStart(2, '0')}:${String(birth.minute).padStart(2, '0')}`} · ${birth.tz}`,
+                  })}
+                </CopyText>
+              ) : null}
+              {view.stale ? <CopyText testID="report-stale">{t('report.stale')}</CopyText> : null}
+              {view.warnings.map((warning) => (
+                <CopyText key={warning.code}>{label(warning.messageKey)}</CopyText>
+              ))}
+              {reused ? <ReportReuse reading={view} /> : null}
+              <ReportActions reading={view} />
+              <ReportHeadline headline={view.report.headline} system={system} />
+              <View
+                onLayout={(event) => {
+                  chartY.current = event.nativeEvent.layout.y;
+                }}
+              >
+                <ReportCard>
+                  <Action
+                    id="report-chart-toggle"
+                    label={t(chartTitleKey(system))}
+                    onPress={() => setChartOpen((v) => !v)}
+                  />
+                  {chartOpen ? (
+                    <NativeChartView
+                      chart={view.chart}
+                      highlight={highlight}
+                      onSelect={select}
+                      onRelated={related}
+                    />
+                  ) : null}
+                </ReportCard>
+              </View>
+            </View>
+            <View
+              style={{
+                backgroundColor: colors['bg-0'],
+                paddingVertical: 8,
+                borderBottomWidth: 1,
+                borderColor: colors['line-1'],
+              }}
+            >
+              <ScrollView
+                horizontal
+                accessibilityLabel={t('report.nav')}
+                contentContainerStyle={{ paddingHorizontal: 16, gap: 8 }}
+              >
+                {view.report.sections.map((section) => (
+                  <Action
+                    key={section.key}
+                    id={`nav-${section.key}`}
+                    label={t('report.content', { text: section.title })}
+                    onPress={() => jump(section.key)}
+                  />
                 ))}
-              </ReportCard>
-            ) : null}
-            {view.report.doDont ? (
-              <ReportCard>
-                <CopyText title>{t('report.actions')}</CopyText>
-                <CopyText>{t('report.do')}</CopyText>
-                {view.report.doDont.do.map((text, i) => (
-                  <ReportParagraph key={i} text={text} glossary={glossary} />
-                ))}
-                <CopyText>{t('report.dont')}</CopyText>
-                {view.report.doDont.dont.map((text, i) => (
-                  <ReportParagraph key={i} text={text} glossary={glossary} />
-                ))}
-              </ReportCard>
-            ) : null}
-            <Action
-              id="report-another"
-              label={t('report.another')}
-              onPress={() => router.replace('/reading')}
-            />
-            <CopyText>{t('legal.disclaimer.full')}</CopyText>
-          </View>
-        </ScrollView>
-      )}
-    </SafeAreaView>
+              </ScrollView>
+            </View>
+            <View
+              onLayout={(event) => {
+                positions.current.body = event.nativeEvent.layout.y;
+              }}
+              style={{ padding: 16, gap: 16 }}
+            >
+              {view.report.sections.map((section, index) => (
+                <View
+                  key={section.key}
+                  onLayout={(event) => {
+                    positions.current[section.key] = event.nativeEvent.layout.y;
+                  }}
+                >
+                  <ReportSection
+                    section={section}
+                    open={expanded[section.key] ?? true}
+                    toggle={() =>
+                      setExpanded((current) => ({
+                        ...current,
+                        [section.key]: !(current[section.key] ?? true),
+                      }))
+                    }
+                    glossary={glossary}
+                    onEvidence={evidence}
+                    vote={votes[section.key]}
+                    onVote={async (helpful) => {
+                      await saveFeedback(id, section.key, helpful);
+                      setVotes((current) => ({ ...current, [section.key]: helpful }));
+                    }}
+                  />
+                  {reportAdSlot(index, view.report.sections.length) !== null && (
+                    <NativeAdCard slot={reportAdSlot(index, view.report.sections.length)!} />
+                  )}
+                </View>
+              ))}
+              {professional ? (
+                <ReportCard
+                  id="report-professional"
+                  onLayout={(event) => {
+                    // DESIGN-GAP: Entering professional view jumps to its newly laid-out panel,
+                    // keeping the detailed view reachable without traversing every prose chapter.
+                    if (professionalJump.current) {
+                      professionalJump.current = false;
+                      scroll.current?.scrollTo({
+                        y: Math.max(
+                          0,
+                          (positions.current.body ?? 0) + event.nativeEvent.layout.y - 76,
+                        ),
+                        animated: !reduced,
+                      });
+                    }
+                  }}
+                >
+                  <CopyText title>{t('report.school')}</CopyText>
+                  <DataTree value={data.schoolUsed} professional />
+                  <CopyText title>{t('report.debug')}</CopyText>
+                  <DataTree
+                    professional
+                    value={{
+                      engineVersion: data.engineVersion,
+                      interpretVersion: data.interpretVersion,
+                      knowledgeVersion: data.knowledgeVersion,
+                      ...data.meta?.debug,
+                    }}
+                  />
+                  <Action
+                    id="report-full-data"
+                    label={t('report.rawChart')}
+                    onPress={() => setFullData((v) => !v)}
+                  />
+                  {fullData ? <DataTree value={view.chart.data} professional /> : null}
+                  <CopyText title>{t('report.hits')}</CopyText>
+                  {view.report.hits.map((hit, i) => (
+                    <View key={`${hit.unitId}-${i}`}>
+                      <CopyText>
+                        {t('report.content', { text: `${hit.unitId} · ${hit.weight}` })}
+                      </CopyText>
+                      {hit.evidence.map((item, j) => (
+                        <Action
+                          key={j}
+                          label={t('report.content', { text: item.path })}
+                          onPress={() => evidence(item.path)}
+                        />
+                      ))}
+                    </View>
+                  ))}
+                </ReportCard>
+              ) : null}
+              {view.report.doDont ? (
+                <ReportCard>
+                  <CopyText title>{t('report.actions')}</CopyText>
+                  <CopyText>{t('report.do')}</CopyText>
+                  {view.report.doDont.do.map((text, i) => (
+                    <ReportParagraph key={i} text={text} glossary={glossary} />
+                  ))}
+                  <CopyText>{t('report.dont')}</CopyText>
+                  {view.report.doDont.dont.map((text, i) => (
+                    <ReportParagraph key={i} text={text} glossary={glossary} />
+                  ))}
+                </ReportCard>
+              ) : null}
+              <Action
+                id="report-another"
+                label={t('report.another')}
+                onPress={() => router.replace('/reading')}
+              />
+              <CopyText>{t('legal.disclaimer.full')}</CopyText>
+            </View>
+          </ScrollView>
+        )}
+      </SafeAreaView>
+    </ReportLocaleContext.Provider>
   );
 }
 /** A stored snapshot that no longer normalizes must not take the whole report down with it. */
