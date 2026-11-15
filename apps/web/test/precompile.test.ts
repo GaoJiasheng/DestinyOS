@@ -1,6 +1,7 @@
 import { expect, it } from 'vitest';
 import { createTranslator, type AbstractIntlMessages } from 'next-intl';
-import format, { type CompiledMessage } from 'icu-minify/format';
+import type { CompiledMessage } from 'icu-minify/format';
+import formatMessage from '../i18n/format-message';
 import { precompileMessages } from '../i18n/precompile';
 import { toMessages, type RuntimeMessages } from '../i18n/catalog';
 import errorMessages from '../i18n/error-messages.json';
@@ -23,6 +24,9 @@ const formatters = {
   getPluralRules: (...args: ConstructorParameters<typeof Intl.PluralRules>) =>
     new Intl.PluralRules(...args),
 };
+const options = { cache: {}, formatters, timeZone: 'UTC' } as unknown as Parameters<
+  typeof formatMessage
+>[3];
 const plural = new Set([2, 3]);
 const temporal = new Set([5, 6]);
 
@@ -76,9 +80,14 @@ for (const [locale, catalogs] of [
       // React Server Components only serialize plain objects across the client boundary.
       expect(JSON.parse(JSON.stringify(message)), key).toStrictEqual(message);
       const values = sampleValues(message);
-      expect(format(message, locale, values, { formatters, timeZone: 'UTC' }), key).toBe(
-        t(key, values),
+      // Empty arguments exercise messages that format to nothing, which icu-minify alone returns as [].
+      const empty = Object.fromEntries(
+        Object.entries(values).map(([name, value]) => [name, typeof value === 'string' ? '' : value]),
       );
+      for (const input of [values, empty])
+        expect(formatMessage(key, message, input, { ...options, locale }), key).toBe(
+          t(key, input),
+        );
       // Plain text must cross the boundary untouched so Flight payloads do not grow.
       if (!/[{}'<]/.test(source)) expect(message, key).toBe(source);
       checked++;
