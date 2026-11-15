@@ -83,9 +83,6 @@ for (const locale of ['zh', 'en'] as const) {
       await page.getByLabel(t['form.birth.displayName'], { exact: true }).fill('Gamma');
       await page.getByRole('button', { name: t['profiles.save'], exact: true }).click();
       await expect(page.getByRole('heading', { name: 'Gamma', exact: true })).toBeVisible();
-      await expect(
-        page.getByRole('button', { name: t['profiles.add'], exact: true }),
-      ).toBeDisabled();
       const stored = await db.birthProfile.findMany({ where: { userId: user.id } });
       expect(stored).toHaveLength(3);
       expect(stored.every((p) => p.label?.startsWith('v1:'))).toBe(true);

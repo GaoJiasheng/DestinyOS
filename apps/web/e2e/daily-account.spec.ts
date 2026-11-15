@@ -239,13 +239,12 @@ for (const locale of ['zh', 'en'] as const) {
     expect((await page.request.get('/api/v1/me/export')).status()).toBe(429);
     await page.getByRole('button', { name: copy['common.close'], exact: true }).click();
     await page.goto(`/${locale}/me/settings`);
-    await page
-      .locator('#main form')
-      .getByLabel(copy['me.language'], { exact: true })
-      .selectOption(locale);
-    await page.getByLabel(copy['me.motion'], { exact: true }).check();
-    await page.getByLabel(copy['me.tz'], { exact: true }).selectOption('Asia/Singapore');
-    await page.getByRole('button', { name: copy['me.save'], exact: true }).click();
+    // The header's settings popover repeats these controls, so stay inside the page form.
+    const settings = page.locator('#main form');
+    await settings.getByLabel(copy['me.language'], { exact: true }).selectOption(locale);
+    await settings.getByLabel(copy['me.motion'], { exact: true }).check();
+    await settings.getByLabel(copy['me.tz'], { exact: true }).selectOption('Asia/Singapore');
+    await settings.getByRole('button', { name: copy['me.save'], exact: true }).click();
     await expect(page.getByRole('status').filter({ hasText: copy['me.saved'] })).toBeVisible();
     expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).reducedMotion).toBe(true);
     await page.getByRole('button', { name: copy['me.delete'], exact: true }).click();
