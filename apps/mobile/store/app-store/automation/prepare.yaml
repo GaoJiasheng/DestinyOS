@@ -15,12 +15,15 @@ appId: pub.gavin.tianji
 - tapOn:
     id: onboarding-next
 - tapOn:
+    id: onboarding-next
+- tapOn:
+    id: onboarding-next
+# The reminder step asks for notifications only when the user taps it; decline so no banner shows in screenshots.
+- tapOn:
+    id: notifications-request
+- tapOn:
     text: '^(不允许|Don.t Allow)$'
     optional: true
-- tapOn:
-    id: onboarding-next
-- tapOn:
-    id: onboarding-next
 - runFlow:
     when:
       visible:
@@ -30,10 +33,17 @@ appId: pub.gavin.tianji
           id: onboarding-next
 - tapOn:
     id: onboarding-fill
+- extendedWaitUntil:
+    visible:
+      id: birth-year
+    timeout: 30000
 - tapOn:
     id: birth-year
 - inputText: '1992'
-- hideKeyboard
+# The form starts every wheel on "choose"; pick a month, a day and a real hour so the charts are complete.
+- runFlow: ../../../maestro/shared/close-number-pad.yaml
+- runFlow: ../../../maestro/shared/birth-wheels.yaml
+- runFlow: ../../../maestro/shared/birth-hour-branch.yaml
 - scrollUntilVisible:
     element:
       id: birth-submit

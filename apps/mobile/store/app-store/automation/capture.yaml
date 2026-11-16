@@ -67,9 +67,11 @@ appId: pub.gavin.tianji
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: 06-systems
+# Membership is off in the first release, so the purchase screen may not exist; capture it only when it does.
 - openLink: 'tianji://me/billing'
-- extendedWaitUntil:
-    visible:
-      id: billing-plan
-    timeout: 30000
-- takeScreenshot: membership-unconfigured
+- runFlow:
+    when:
+      visible:
+        id: billing-plan
+    commands:
+      - takeScreenshot: membership-unconfigured
