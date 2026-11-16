@@ -111,6 +111,9 @@ test('email code: a wrong code is refused inline, the right one signs in on the 
   await request.post('http://127.0.0.1:58081/reset');
   const email = `code-${testInfo.project.name}-${Date.now()}@example.com`;
   await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
+  // This suite runs on the dev server: the first visit compiles the destination, and that compile
+  // reloads whichever page is open, which would cancel the navigation after signing in.
+  await page.goto('/zh/me/profiles');
   await page.goto(`/zh/auth/login?callbackUrl=${encodeURIComponent('/zh/me/profiles')}`);
   if (await page.getByRole('dialog').isVisible())
     await page.getByRole('dialog').getByRole('button', { name: '我知道了' }).click();

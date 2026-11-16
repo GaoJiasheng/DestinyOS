@@ -172,6 +172,8 @@ test('zh: a device numerology report never opened since the cache was emptied re
   // Offline answers must come from the worker's store, not the HTTP cache.
   const cdp = await context.newCDPSession(page);
   await cdp.send('Network.clearBrowserCache');
+  // Leaving a second debugging session attached makes the page report navigator.onLine as true.
+  await cdp.detach();
   await context.setOffline(true);
   try {
     await page.goto(numerologyPath);
