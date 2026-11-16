@@ -1,6 +1,6 @@
 # App Store 隐私问卷 · 首版无会员与广告
 
-更新：2026-10-14。仅适用于 FEATURE_MEMBERSHIP 与 EXPO_PUBLIC_FEATURE_MEMBERSHIP 关闭的首版。支付、广告和跟踪授权模块不链接；不请求广告同意或跟踪授权。未来启用时重新审计 SDK、问卷与政策。
+更新：2026-10-14；2026-11-16 已按本文在 App Store Connect 填写并发布（8 类：姓名、邮箱、精确位置、粗略位置、客户支持、其他用户内容、用户 ID、其他数据；均为 App 功能、与身份关联、不用于追踪）。构建 4 未配置 Sentry DSN，诊断类未申报。仅适用于 FEATURE_MEMBERSHIP 与 EXPO_PUBLIC_FEATURE_MEMBERSHIP 关闭的首版。支付、广告和跟踪授权模块不链接；不请求广告同意或跟踪授权。未来启用时重新审计 SDK、问卷与政策。
 
 按 [Apple 数据收集定义](https://developer.apple.com/app-store/app-privacy-details/) 填写：仅设备上处理的数据无需申报；上传后加密保存的数据仍需申报。
 

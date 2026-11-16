@@ -1,12 +1,8 @@
 {
-  "readyForSubmission": false,
+  "readyForSubmission": true,
   "iapReviewScreenshots": "not-applicable-membership-disabled",
   "requiredIapFiles": [],
-  "blockers": [
-    "App Review contact (name, phone, email) must be entered by the Owner in App Store Connect; it is not stored in this repository.",
-    "App Privacy answers can only be published in the App Store Connect web UI; follow privacy-answers.md, then reconcile with the final Archive privacy report.",
-    "Device validation of notifications and widgets on a physical iPhone remains an Owner step."
-  ],
+  "blockers": [],
   "android": "No Java installation or native build; native and emulator acceptance pending Owner Java provisioning.",
   "membershipEnabled": false,
   "listing": {
@@ -15,5 +11,17 @@
     "screenshots": "6.9 and 6.5 inch, six per locale, uploaded",
     "iPad": "not supported in 1.0 (supportsTablet false)",
     "releaseType": "MANUAL"
-  }
+  },
+  "submission": {
+    "submittedAt": "2026-11-16",
+    "version": "1.0.0",
+    "build": "4",
+    "state": "WAITING_FOR_REVIEW",
+    "releaseType": "MANUAL",
+    "appPrivacy": "published 2026-11-16 per privacy-answers.md (8 data types, App Functionality, linked, not used for tracking)",
+    "reviewContact": "entered in App Store Connect; not stored in this repository"
+  },
+  "pending": [
+    "Device validation of notifications and widgets on a physical iPhone (TestFlight build 4)."
+  ]
 }
