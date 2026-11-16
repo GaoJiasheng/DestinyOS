@@ -3,9 +3,17 @@
   "iapReviewScreenshots": "not-applicable-membership-disabled",
   "requiredIapFiles": [],
   "blockers": [
-    "Final signing Archive privacy report and SDK configuration without purchase/advertising modules must reconcile Name, manual birth coordinates, Customer Support and diagnostic data with the existing manifest.",
-    "Private reviewer account/contact, iPad screenshots, TestFlight and device widget/notification validation remain Owner release prerequisites."
+    "App Review contact (name, phone, email) must be entered by the Owner in App Store Connect; it is not stored in this repository.",
+    "App Privacy answers can only be published in the App Store Connect web UI; follow privacy-answers.md, then reconcile with the final Archive privacy report.",
+    "Device validation of notifications and widgets on a physical iPhone remains an Owner step."
   ],
   "android": "No Java installation or native build; native and emulator acceptance pending Owner Java provisioning.",
-  "membershipEnabled": false
+  "membershipEnabled": false,
+  "listing": {
+    "updatedAt": "2026-11-16",
+    "text": "en-US, zh-Hans, zh-Hant filled through the App Store Connect API",
+    "screenshots": "6.9 and 6.5 inch, six per locale, uploaded",
+    "iPad": "not supported in 1.0 (supportsTablet false)",
+    "releaseType": "MANUAL"
+  }
 }

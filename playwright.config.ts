@@ -13,6 +13,8 @@ export default defineConfig({
     'journal.spec.ts',
     // DESIGN-GAP: Membership fixtures require the isolated account/mail/database service, not the generic shell dev server.
     'web-nopay.spec.ts',
+    // DESIGN-GAP: Offline reports need the production service worker, so they run on `next start` via test:offline-report:e2e.
+    'offline-report.spec.ts',
     'export.spec.ts',
     'export-menu.spec.ts',
     'export-geometry.spec.ts',
