@@ -232,13 +232,20 @@ self.addEventListener('message', (event) => {
   if (!route) return;
   const refresh = data.shell === true;
   const assets = postedAssets(data.assets);
+  // Pages warming shells for other systems (components/pwa/offline-warmup.ts) wait on this port so they
+  // send one page request at a time.
+  const reply = event.ports && event.ports[0];
   event.waitUntil(
     serialize(async () => {
       await rememberShell(route, assets, refresh);
       // A report visit also keeps that language's history list, the way back to every other report.
       if (refresh && route.id)
         await rememberShell(offlineRoute(`/${route.locale}/me/history`), [], true);
-    }).catch(() => undefined),
+    })
+      .catch(() => undefined)
+      .then(() => {
+        if (reply) reply.postMessage(true);
+      }),
   );
 });
 

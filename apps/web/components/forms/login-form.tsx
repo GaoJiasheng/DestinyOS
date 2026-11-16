@@ -6,6 +6,7 @@ import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { loginFormAction, type LoginState } from '@/app/[locale]/auth/actions';
 import { retryWait } from '@/lib/retry-wait';
+import { LoginCodeForm } from '@/components/auth/login-code-form';
 
 const resendCooldown = 60;
 /** Accessible email login form with translated pending, sent, validation and rate-limit states. */
@@ -17,6 +18,8 @@ export function LoginForm({ locale }: { locale: string }) {
   const [submittedState, setSubmittedState] = useState<LoginState>();
   const [requestPending, setRequestPending] = useState(false);
   const submitting = useRef(false);
+  // Each successful send issues a new code; remounting the code form clears stale input and errors.
+  const [sends, setSends] = useState(0);
   const state = submittedState ?? formState;
   const pending = requestPending || formPending;
   // Seconds left before another link may be requested; starts after each successful send.
@@ -41,7 +44,9 @@ export function LoginForm({ locale }: { locale: string }) {
     submitting.current = true;
     setRequestPending(true);
     try {
-      setSubmittedState(await loginFormAction(state, form));
+      const next = await loginFormAction(state, form);
+      setSubmittedState(next);
+      if (next.ok) setSends((count) => count + 1);
     } catch {
       setSubmittedState({ ok: false, code: 'E_INTERNAL' });
     } finally {
@@ -50,33 +55,39 @@ export function LoginForm({ locale }: { locale: string }) {
     }
   };
   return (
-    <form action={action} onSubmit={submit} className="auth-form">
-      <input type="hidden" name="locale" value={locale} />
-      <input type="hidden" name="callbackUrl" value={callbackUrl} />
-      <label htmlFor="email">{t('auth.login.email')}</label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        autoComplete="email"
-        required
-        maxLength={254}
-        disabled={pending}
-      />
-      <Button type="submit" disabled={pending || cooldown > 0}>
-        {pending
-          ? t('auth.login.sending')
-          : cooldown > 0
-            ? t('auth.login.resendIn', { seconds: cooldown })
-            : t(state.ok ? 'auth.login.resend' : 'auth.login.send')}
-      </Button>
-      <div aria-live="polite" role={state.code ? 'alert' : 'status'}>
-        {state.ok &&
-          `${t('auth.magic.sent', { email: state.email ?? '' })} ${t('auth.magic.sameDevice')}`}
-        {state.code === 'E_VALIDATION' && t('auth.error.validation')}
-        {state.code === 'E_INTERNAL' && t('auth.error.internal')}
-        {state.code === 'E_RATE_LIMITED' && t('common.retryAfterWait', retryWait(state.retryAfter))}
-      </div>
-    </form>
+    <>
+      <form action={action} onSubmit={submit} className="auth-form">
+        <input type="hidden" name="locale" value={locale} />
+        <input type="hidden" name="callbackUrl" value={callbackUrl} />
+        <label htmlFor="email">{t('auth.login.email')}</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          autoComplete="email"
+          required
+          maxLength={254}
+          disabled={pending}
+        />
+        <Button type="submit" disabled={pending || cooldown > 0}>
+          {pending
+            ? t('auth.login.sending')
+            : cooldown > 0
+              ? t('auth.login.resendIn', { seconds: cooldown })
+              : t(state.ok ? 'auth.login.resend' : 'auth.login.send')}
+        </Button>
+        <div aria-live="polite" role={state.code ? 'alert' : 'status'}>
+          {state.ok &&
+            `${t('auth.magic.sent', { email: state.email ?? '' })} ${t('auth.code.sentHint')}`}
+          {state.code === 'E_VALIDATION' && t('auth.error.validation')}
+          {state.code === 'E_INTERNAL' && t('auth.error.internal')}
+          {state.code === 'E_RATE_LIMITED' &&
+            t('common.retryAfterWait', retryWait(state.retryAfter))}
+        </div>
+      </form>
+      {state.ok && state.email ? (
+        <LoginCodeForm key={`${state.email}:${sends}`} locale={locale} email={state.email} />
+      ) : null}
+    </>
   );
 }

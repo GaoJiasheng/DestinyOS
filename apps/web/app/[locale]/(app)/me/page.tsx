@@ -25,7 +25,7 @@ export default async function MePage({ params }: { params: Promise<{ locale: str
       })
     : null;
   const profile = session?.user.id ? await getProfileAction() : null,
-    history = session?.user.id ? await listReadingsAction({ limit: 5 }) : null;
+    history = session?.user.id ? await listReadingsAction({ limit: 5, profile: 'all' }) : null;
   return (
     <section className="settings-page">
       <h1 className="type-h1">{t('nav.me')}</h1>

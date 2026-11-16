@@ -14,6 +14,12 @@ import { logger } from '@/lib/logger';
 import { sendAccountDeletedEmail } from '@/lib/auth-email';
 import { returnCookie, safeReturnPath } from './return-path';
 import { accountDeletedError, parseUntil } from '@/lib/auth-notice';
+import {
+  loginCodeTtlSeconds,
+  loginDeviceCookie,
+  loginDeviceTicket,
+  newLoginDevice,
+} from '@/lib/auth-code';
 
 export type LoginState = {
   ok: boolean;
@@ -55,32 +61,43 @@ export async function sendMagicLinkAction(
       callbackUrl || refererCallback(requestHeaders),
       parsed.data.locale,
     );
+    // A fresh device value per send: the emailed code works only in this browser, and resending
+    // replaces the cookie so an older code stops matching at once.
+    const device = newLoginDevice();
     const result: unknown = await signIn('resend', {
       email: parsed.data.email,
       redirect: false,
       redirectTo: returnTo,
+      loginDevice: await loginDeviceTicket(parsed.data.email, device),
     });
     const query =
       typeof result === 'string' ? new URL(result, 'http://localhost').searchParams : null;
-    if (query?.get('error') === accountDeletedError) {
+    const deletedUntil =
+      query?.get('error') === accountDeletedError ? { until: query.get('until') } : null;
+    if (!deletedUntil && (!query || query.has('error')))
+      throw new Error('Authentication request failed');
+    // DESIGN-GAP: The emailed confirmation link carries only token/email, so the destination waits in a short-lived same-browser cookie; another device lands on home.
+    // Deleted accounts get the same cookies, so not even the response headers tell them apart.
+    const jar = await cookies();
+    for (const [name, value] of [
+      [returnCookie, returnTo],
+      [loginDeviceCookie, device],
+    ] as const)
+      jar.set(name, value, {
+        httpOnly: true,
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
+        path: '/',
+        maxAge: loginCodeTtlSeconds,
+      });
+    if (deletedUntil)
       // Whether an address belongs to a recently deleted account is told only to its mailbox;
       // the page answers exactly as it does for any other address.
       await sendAccountDeletedEmail(
         parsed.data.email,
         parsed.data.locale,
-        parseUntil(query.get('until')),
+        parseUntil(deletedUntil.until),
       ).catch((error: unknown) => logger.error({ err: error }, 'Deleted-account notice failed'));
-      return { ok: true, email: parsed.data.email };
-    }
-    if (!query || query.has('error')) throw new Error('Authentication request failed');
-    // DESIGN-GAP: The emailed confirmation link carries only token/email, so the destination waits in a short-lived same-browser cookie; another device lands on home.
-    (await cookies()).set(returnCookie, returnTo, {
-      httpOnly: true,
-      sameSite: 'lax',
-      secure: process.env.NODE_ENV === 'production',
-      path: '/',
-      maxAge: 15 * 60,
-    });
     return { ok: true, email: parsed.data.email };
   } catch (error) {
     if (error instanceof ApiError && error.code === 'E_RATE_LIMITED')

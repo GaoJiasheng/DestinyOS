@@ -1,6 +1,6 @@
 import { membershipEnabled } from './membership';
 import { createHash, randomUUID } from 'node:crypto';
-import { Prisma, type Reading } from '@prisma/client';
+import { Prisma, type BirthProfile, type Reading } from '@prisma/client';
 import { z } from 'zod';
 import { localizeReport } from '@tianji/interpret';
 import {
@@ -295,10 +295,15 @@ export async function resolveBirth(req: ReadingRequest, userId?: string) {
   // Explicit form birth is a trial snapshot; still associate it with the selected profile for history.
   const birth = req.birth ?? (profile ? profileBirth(profile) : undefined);
   const subject = birthSubject(req, profile);
+  // A typed birth explicitly marked as someone else's must not hang off the selected profile, or
+  // deleting that profile would delete it. Naming a non-self profile by ID still keeps it attached.
+  // The age rule reads only `birth` and `subject`, so detaching never changes its outcome.
+  const detached = isDetachedTrial(req, profile);
+  const attached = detached ? undefined : (profile ?? undefined);
   if (req.system !== 'synastry')
     return {
-      req: { ...req, birth, profileId: profile?.id, subject },
-      profile: profile ?? undefined,
+      req: { ...req, birth, profileId: attached?.id, subject },
+      profile: attached,
     };
   if (profile?.id && profile.id === req.partnerProfileId)
     throw new ApiError('E_VALIDATION', 'Two distinct profiles required', 400);
@@ -312,12 +317,17 @@ export async function resolveBirth(req: ReadingRequest, userId?: string) {
       ...req,
       birth,
       partnerBirth,
-      profileId: profile?.id,
+      profileId: attached?.id,
       partnerProfileVersion: partner?.version,
       subject,
     },
-    profile: profile ?? undefined,
+    profile: attached,
   };
+}
+/** True when the request is a typed trial for someone else, not a chart for a saved other-person profile. */
+export function isDetachedTrial(req: ReadingRequest, profile: BirthProfile | null | undefined) {
+  if (req.subject !== 'other' || !req.birth) return false;
+  return !(req.profileId && profile && profileSubject(profile.relation) === 'other');
 }
 /** Cache only hashes, a timestamp and the persisted ID; no anonymous PII enters D1 idempotency state. */
 export async function idempotentCreate(

@@ -9,7 +9,8 @@ import { ReportLayout } from './report-layout';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { formatClock } from './report-utils';
-import { useOfflineShell } from '@/components/pwa/use-offline-shell';
+import { useOfflineShell, useOfflineWarmup } from '@/components/pwa/use-offline-shell';
+import { chartChunks } from './chart-preview';
 /** Plain or structured cast input both carry the asker's text; anything else shows no question line. */
 function askedQuestion(question: LocalReading['request']['question']): string | undefined {
   const text =
@@ -40,6 +41,7 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
     };
   }, []);
   useOfflineShell(reading !== null);
+  useOfflineWarmup(reading !== null, locale, chartChunks);
   useEffect(() => {
     const key = `${system}:${id}:${locale}`;
     if (loaded.current === key) return;

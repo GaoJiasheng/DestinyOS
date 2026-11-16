@@ -67,6 +67,25 @@ describe('security audit regressions', () => {
     );
   });
 
+  it('reads the visitor address from CF-Connecting-IP only inside a Cloudflare Worker', () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    vi.stubEnv('VERCEL', '');
+    const visitor = new Headers({
+      'cf-connecting-ip': '203.0.113.7',
+      'x-forwarded-for': '192.0.2.1',
+    });
+    // Outside a Worker the header is client-controlled, so it is ignored.
+    expect(requestIp(visitor)).toBe('unknown');
+    vi.stubGlobal('navigator', { userAgent: 'Cloudflare-Workers' });
+    try {
+      expect(requestIp(visitor)).toBe('203.0.113.7');
+      expect(requestIp(new Headers({ 'x-forwarded-for': '192.0.2.1' }))).toBe('unknown');
+      expect(requestIp(new Headers({ 'cf-connecting-ip': 'not-an-address' }))).toBe('unknown');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('limits actual OG rendering and rejects invalid daily signatures before authentication/IO', async () => {
     mock.limit.mockResolvedValue({ success: false, reset: Date.now() + 3600000 });
     const signed = signDailyCard({

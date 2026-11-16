@@ -7,7 +7,8 @@ import { recordEvent } from './events';
 import { brand } from '@tianji/shared';
 import { ShareTemplateSchema } from './share-projection';
 import { fromDbLocale } from './db-locale';
-import { randomInt, createHmac, timingSafeEqual } from 'node:crypto';
+import { randomInt, randomUUID, createHash, createHmac, timingSafeEqual } from 'node:crypto';
+import { stateReserve, stateRelease } from './state';
 import { z } from 'zod';
 import { Temporal } from '@js-temporal/polyfill';
 import { getDb } from './db';
@@ -190,53 +191,90 @@ export async function createShareForUser(
   )
     throw new ApiError('E_PROFILE_REQUIRED', 'Birth profile required for a daily card', 400);
   const origin = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${brand.domain}`;
-  // Daily cards are tied to their creation day, so only the other templates reuse a live link.
-  const reusable =
-    input.template === 'daily'
-      ? undefined
-      : (await activeLinks(userId, reading.id)).find(
-          (link) =>
-            link.template === input.template &&
-            link.revealLevel === input.revealLevel &&
-            expiryDays(link) === (input.expiresIn ?? null),
-        );
-  if (reusable)
-    return {
-      token: reusable.token,
-      url: `${origin}/s/${reusable.token}`,
-      expiresAt: reusable.expiresAt?.toISOString() ?? null,
-      reused: true,
-    };
-  const token = shareToken();
-  const expiresAt = input.expiresIn ? new Date(Date.now() + input.expiresIn * 86400000) : null;
-  await atomicBatch([
-    ...guard(
-      'EXISTS (SELECT 1 FROM "Reading" r JOIN "User" u ON u.id=r."userId" WHERE r.id=? AND u.id=? AND u."deletedAt" IS NULL)',
-      reading.id,
-      userId,
-    ),
-    insertRow('ShareLink', {
-      token,
-      readingId: reading.id,
-      userId,
-      template: input.template,
-      revealLevel: input.revealLevel,
-      expiresAt,
-    }),
-    updateRows('Reading', { isPublic: true }, 'id=? AND "userId"=?', reading.id, userId),
-  ]);
-  await recordEvent('share.created', {
-    userId: userId,
-    system: reading.system,
-    locale: locale ?? ((await getLocale()) === 'en' ? 'en' : 'zh'),
-    plan: user.plan,
+  const daily = input.template === 'daily';
+  // A daily card renders the day it was created, so it is reused only within that local day.
+  const tz = daily ? (user.tz ?? (await currentProfileTz(userId)) ?? 'UTC') : 'UTC';
+  const today = daily ? localToday(tz) : '';
+  const findReusable = async () =>
+    (await activeLinks(userId, reading.id)).find(
+      (link) =>
+        link.template === input.template &&
+        link.revealLevel === input.revealLevel &&
+        expiryDays(link) === (input.expiresIn ?? null) &&
+        (!daily || localToday(tz, link.createdAt.toISOString()) === today),
+    );
+  const reuse = (link: { token: string; expiresAt: Date | null }) => ({
+    token: link.token,
+    url: `${origin}/s/${link.token}`,
+    expiresAt: link.expiresAt?.toISOString() ?? null,
+    reused: true,
   });
-  return {
-    token,
-    url: `${origin}/s/${token}`,
-    expiresAt: expiresAt?.toISOString() ?? null,
-    reused: false,
+  const existing = await findReusable();
+  if (existing) return reuse(existing);
+  // ShareLink has no unique key for this, so concurrent daily taps serialise on a short lease and
+  // re-check under it: the loser either sees the winner's link or is told to retry.
+  const lockKey = `share:daily:${createHash('sha256')
+    .update(`${userId}:${reading.id}:${today}:${input.revealLevel}:${input.expiresIn ?? 0}`)
+    .digest('hex')}`;
+  const lease = randomUUID();
+  if (daily && !(await stateReserve(lockKey, lease, 15))) {
+    for (let i = 0; i < 5; i++) {
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      const winner = await findReusable();
+      if (winner) return reuse(winner);
+    }
+    throw new ApiError('E_CONFLICT', 'Share is already being created', 409);
+  }
+  const createLink = async () => {
+    const token = shareToken();
+    const expiresAt = input.expiresIn ? new Date(Date.now() + input.expiresIn * 86400000) : null;
+    await atomicBatch([
+      ...guard(
+        'EXISTS (SELECT 1 FROM "Reading" r JOIN "User" u ON u.id=r."userId" WHERE r.id=? AND u.id=? AND u."deletedAt" IS NULL)',
+        reading.id,
+        userId,
+      ),
+      insertRow('ShareLink', {
+        token,
+        readingId: reading.id,
+        userId,
+        template: input.template,
+        revealLevel: input.revealLevel,
+        expiresAt,
+      }),
+      updateRows('Reading', { isPublic: true }, 'id=? AND "userId"=?', reading.id, userId),
+    ]);
+    await recordEvent('share.created', {
+      userId: userId,
+      system: reading.system,
+      locale: locale ?? ((await getLocale()) === 'en' ? 'en' : 'zh'),
+      plan: user.plan,
+    });
+    return {
+      token,
+      url: `${origin}/s/${token}`,
+      expiresAt: expiresAt?.toISOString() ?? null,
+      reused: false,
+    };
   };
+  try {
+    if (daily) {
+      const winner = await findReusable();
+      if (winner) return reuse(winner);
+    }
+    return await createLink();
+  } finally {
+    if (daily) await stateRelease(lockKey, lease);
+  }
+}
+/** Timezone of the owner's current profile, for users who never set one. */
+async function currentProfileTz(userId: string) {
+  const row = await getDb().birthProfile.findFirst({
+    where: { userId, isCurrent: true },
+    orderBy: { createdAt: 'asc' },
+    select: { tz: true },
+  });
+  return row?.tz ?? null;
 }
 /** Owner's live (not revoked, not expired) links for one reading, newest first. */
 export function activeLinks(userId: string, readingId: string) {

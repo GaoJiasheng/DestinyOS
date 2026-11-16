@@ -63,16 +63,13 @@ export async function listReadingHistory(raw: unknown = { limit: 20 }) {
         userId: owner,
         system: input.system,
         AND: [
-          // DESIGN-GAP: Legacy divination and anonymous imports without a profile remain visible in owner history.
+          // DESIGN-GAP: Readings without a profile (anonymous imports, trials for others) remain visible in 'all' and when no profile exists.
           selectedId === null
             ? {}
             : selectedId
               ? {
-                  OR: [
-                    { profileId: selectedId },
-                    { partnerProfileId: selectedId },
-                    { profileId: null },
-                  ],
+                  // Detached trials for someone else (null profile) belong to 'all' only.
+                  OR: [{ profileId: selectedId }, { partnerProfileId: selectedId }],
                 }
               : { profileId: null },
           input.search ? await searchCondition(input.search) : {},

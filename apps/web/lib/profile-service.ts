@@ -169,7 +169,24 @@ export async function setDefaultProfile(userId: string, id: string) {
     statement('UPDATE "BirthProfile" SET "isDefault"=1 WHERE id=? AND "userId"=?', id, userId),
   ]);
 }
-/** Delete a selected profile and associated private readings atomically; choose a surviving default. */
+/** Trials the owner typed for someone else were attached to this profile before they were detached
+ * at creation; their snapshot (encrypted, so filtered here rather than in SQL) says `subject: 'other'`. */
+async function keptOtherReadingIds(userId: string, id: string) {
+  const rows = await getDb().reading.findMany({
+    where: { userId, profileId: id, partnerProfileId: null },
+    select: { id: true, encInput: true },
+  });
+  return rows
+    .filter((row) => {
+      try {
+        return (JSON.parse(row.encInput) as { subject?: unknown }).subject === 'other';
+      } catch {
+        return false;
+      }
+    })
+    .map((row) => row.id);
+}
+/** Delete a selected profile and its own readings atomically; trials for someone else are kept unlinked. */
 export async function removeProfile(
   userId: string,
   id: string,
@@ -178,9 +195,21 @@ export async function removeProfile(
 ) {
   await lockOwner(getDb(), userId);
   await ownedProfile(userId, id);
+  const kept = await keptOtherReadingIds(userId, id);
   await atomicBatch([
     ...checks,
     ...guard('EXISTS (SELECT 1 FROM "BirthProfile" WHERE id=? AND "userId"=?)', id, userId),
+    // Unlink first so the delete below no longer matches them; readings made after the lookup follow the old rule.
+    ...(kept.length
+      ? [
+          statement(
+            `UPDATE "Reading" SET "profileId"=NULL WHERE "userId"=? AND "profileId"=? AND "partnerProfileId" IS NULL AND id IN (${kept.map(() => '?').join(',')})`,
+            userId,
+            id,
+            ...kept,
+          ),
+        ]
+      : []),
     statement(
       'DELETE FROM "Reading" WHERE "userId"=? AND ("profileId"=? OR "partnerProfileId"=?)',
       userId,
@@ -200,11 +229,16 @@ export async function removeProfile(
 export async function profileDeletionImpact(userId: string, id: string) {
   await ownedProfile(userId, id);
   const db = getDb();
-  const readings = { userId, OR: [{ profileId: id }, { partnerProfileId: id }] };
+  const kept = await keptOtherReadingIds(userId, id);
+  const readings = {
+    userId,
+    OR: [{ profileId: id }, { partnerProfileId: id }],
+    ...(kept.length ? { id: { notIn: kept } } : {}),
+  };
   const [readingCount, journals, shares] = await Promise.all([
     db.reading.count({ where: readings }),
     db.journalEntry.count({ where: { userId, profileId: id } }),
     db.shareLink.count({ where: { userId, revokedAt: null, reading: readings } }),
   ]);
-  return { readings: readingCount, journals, shares };
+  return { readings: readingCount, journals, shares, kept: kept.length };
 }

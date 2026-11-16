@@ -5600,3 +5600,15 @@ html[data-reduced-motion='true']
   flex: 1 1 100%;
   margin: 0;
 }
+/* Email sign-in code entry (login page). */
+.auth-code-input {
+  min-height: 44px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-md);
+  padding: 0.75rem;
+  background: transparent;
+  color: inherit;
+  font-size: 1.25rem;
+  letter-spacing: 0.3em;
+  font-variant-numeric: tabular-nums;
+}

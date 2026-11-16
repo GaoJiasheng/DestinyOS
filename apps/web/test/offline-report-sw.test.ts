@@ -232,6 +232,38 @@ describe('offline device report caching', () => {
     expect(await (await (await navigate('/zh/bazi/r/local/a'))!).text()).toBe('<html>live</html>');
   });
 
+  it('stores a warmed shell for a system never opened and answers once the work is done', async () => {
+    const { port1, port2 } = new MessageChannel();
+    const replied = new Promise((resolve) => {
+      port1.onmessage = (event) => resolve(event.data);
+    });
+    let work: Promise<unknown> | undefined;
+    listeners.message!({
+      data: {
+        type: 'tianji-offline-shell',
+        path: '/zh/numerology/r/local/offline-warmup',
+        shell: true,
+        assets: [`${origin}/_next/static/chunks/numerology-7.js`],
+      },
+      source: { url: `${origin}/zh/bazi/r/local/a` },
+      ports: [port2],
+      waitUntil: (value: Promise<unknown>) => {
+        work = value;
+      },
+    });
+    await work;
+    expect(await replied).toBe(true);
+    port1.close();
+    const store = caches.stores.get('tianji-offline-reports-v1')!;
+    expect(store.has(`${origin}/__offline/shell/zh/numerology`)).toBe(true);
+    expect(store.has(`${origin}/_next/static/chunks/numerology-7.js`)).toBe(true);
+    network = async () => {
+      throw new TypeError('Failed to fetch');
+    };
+    const page = await (await navigate('/zh/numerology/r/local/real-id'))!;
+    expect(await page.text()).toContain('data-id="real-id"');
+  });
+
   it('never stores a page the server did not answer with plain HTML', async () => {
     network = async (url) =>
       url.includes('/r/local/') ? basic('nope', 'text/html', 404) : basic('js', 'text/javascript');

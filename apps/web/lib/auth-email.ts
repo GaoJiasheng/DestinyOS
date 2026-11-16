@@ -16,8 +16,11 @@ function escapeHtml(text: string): string {
   );
 }
 
-/** Render bilingual magic-link email copy with next-intl; URL always lands on the confirmation page. */
-export function magicLinkEmail(locale: 'zh' | 'en' | 'zh-TW', url: string) {
+/**
+ * Render bilingual magic-link email copy with next-intl; URL always lands on the confirmation page.
+ * An optional six-digit code follows the link; it never appears in the subject line.
+ */
+export function magicLinkEmail(locale: 'zh' | 'en' | 'zh-TW', url: string, code?: string) {
   const t = createTranslator({
     locale,
     messages: toMessages(locale === 'zh-TW' ? tw : locale !== 'en' ? zh : en),
@@ -27,10 +30,17 @@ export function magicLinkEmail(locale: 'zh' | 'en' | 'zh-TW', url: string) {
   const description = t('auth.magic.description');
   const confirm = t('auth.verify.confirm');
   const ignore = t('auth.magic.ignore');
+  const codeIntro = code ? t('auth.code.mailIntro') : '';
+  const codeExpiry = code ? t('auth.code.mailExpiry') : '';
+  // The code sits alone on its line so mail clients and tests can pick it out without parsing.
+  const codeText = code ? `\n\n${codeIntro}\n\n${code}\n\n${codeExpiry}` : '';
+  const codeHtml = code
+    ? `<p>${escapeHtml(codeIntro)}</p><p style="font-size:28px;font-weight:bold;letter-spacing:6px">${escapeHtml(code)}</p><p>${escapeHtml(codeExpiry)}</p>`
+    : '';
   return {
     subject,
-    text: `${description}\n\n${confirm}: ${url}\n\n${ignore}`,
-    html: `<html lang="${locale}"><body><h1>${escapeHtml(subject)}</h1><p>${escapeHtml(description)}</p><p><a href="${escapeHtml(url)}">${escapeHtml(confirm)}</a></p><p>${escapeHtml(ignore)}</p></body></html>`,
+    text: `${description}\n\n${confirm}: ${url}${codeText}\n\n${ignore}`,
+    html: `<html lang="${locale}"><body><h1>${escapeHtml(subject)}</h1><p>${escapeHtml(description)}</p><p><a href="${escapeHtml(url)}">${escapeHtml(confirm)}</a></p>${codeHtml}<p>${escapeHtml(ignore)}</p></body></html>`,
   };
 }
 
@@ -39,8 +49,9 @@ export async function sendMagicEmail(
   email: string,
   locale: 'zh' | 'en' | 'zh-TW',
   url: string,
+  code?: string,
 ): Promise<void> {
-  await sendEmail({ to: email, ...magicLinkEmail(locale, url) });
+  await sendEmail({ to: email, ...magicLinkEmail(locale, url, code) });
 }
 
 /** Tell the owner of a recently deleted account, by email only, why no sign-in link was sent. */

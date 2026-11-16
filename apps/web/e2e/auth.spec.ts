@@ -102,6 +102,49 @@ for (const locale of ['zh', 'en'] as const) {
   });
 }
 
+// One send covers both the wrong-code and the success case: every send in this file shares the
+// per-IP magic-link quota (20 an hour), and the two projects already use 16 of it.
+test('email code: a wrong code is refused inline, the right one signs in on the requesting page', async ({
+  page,
+  request,
+}, testInfo) => {
+  await request.post('http://127.0.0.1:58081/reset');
+  const email = `code-${testInfo.project.name}-${Date.now()}@example.com`;
+  await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
+  await page.goto(`/zh/auth/login?callbackUrl=${encodeURIComponent('/zh/me/profiles')}`);
+  if (await page.getByRole('dialog').isVisible())
+    await page.getByRole('dialog').getByRole('button', { name: '我知道了' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-fonts-settled', 'true');
+  await page.getByLabel('邮箱地址').fill(email);
+  await page.getByRole('button', { name: '发送登录链接' }).click();
+  await expect(page.getByRole('status').filter({ hasText: email })).toBeVisible();
+  const mails: unknown = await (await request.get('http://127.0.0.1:58081/mail')).json();
+  if (!Array.isArray(mails)) throw new Error('Missing test outbox');
+  const mail = mails.find(
+    (entry: unknown) => entry && typeof entry === 'object' && 'to' in entry && entry.to === email,
+  ) as { text: string; html: string; subject: string } | undefined;
+  if (!mail) throw new Error('No email delivered');
+  const code = mail.text.match(/^(\d{6})$/m)?.[1];
+  if (!code) throw new Error('No sign-in code in the email');
+  expect(mail.subject).not.toContain(code);
+  expect(mail.html).toContain(code);
+  const input = page.getByLabel('邮件里的 6 位验证码');
+  await input.fill(String((Number(code) + 1) % 1_000_000).padStart(6, '0'));
+  await page.getByRole('button', { name: '使用验证码登录' }).click();
+  await expect(page.locator('#login-code-error')).toHaveText(
+    '验证码不正确或已过期，还可再试 4 次。',
+  );
+  expect(await (await page.request.get('/api/auth/session')).json()).toBeNull();
+  await input.fill(code);
+  await page.getByRole('button', { name: '使用验证码登录' }).click();
+  await expect(page).toHaveURL(/\/zh\/me\/profiles$/);
+  const session: unknown = await (await page.request.get('/api/auth/session')).json();
+  expect(session).toMatchObject({ user: { email } });
+  // The code consumed the same single-use Auth.js token as the link.
+  expect(await db.verificationToken.count({ where: { identifier: email } })).toBe(0);
+  await db.session.deleteMany({ where: { user: { email } } });
+});
+
 test('native email send returns 429 with retryAfter; admin allowlist and expired tokens', async ({
   request,
   page,

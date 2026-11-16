@@ -75,3 +75,40 @@ export function useOfflineShell(ready: boolean) {
     };
   }, [ready]);
 }
+
+// Long enough for the page's own shell (BATCH_MS) and the deferred worker registration to go first.
+const WARM_DELAY_MS = 8000;
+
+/**
+ * Once a device report is showing, warm the offline shells of the other systems this device has
+ * reports for, in this language. The work lives in a lazy chunk; `loaders` are the chart imports
+ * from components/report/chart-preview.tsx, passed in so the warmed chunks are the report's own.
+ */
+export function useOfflineWarmup(
+  ready: boolean,
+  locale: string,
+  loaders: Partial<Record<string, () => Promise<unknown>>>,
+) {
+  useEffect(() => {
+    if (
+      !ready ||
+      process.env.NODE_ENV !== 'production' ||
+      !('serviceWorker' in navigator) ||
+      typeof caches === 'undefined'
+    )
+      return;
+    const controller = new AbortController();
+    const path = window.location.pathname;
+    const timer = window.setTimeout(() => {
+      void import('./offline-warmup')
+        .then(({ warmOfflineReports }) =>
+          warmOfflineReports({ locale, path, loaders, signal: controller.signal }),
+        )
+        .catch(() => undefined);
+    }, WARM_DELAY_MS);
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [ready, locale, loaders]);
+}

@@ -1,5 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
+import { ChunkLoading } from '@/components/ui/chunk-loading';
+import { ChunkUnavailable } from '@/components/ui/chunk-unavailable';
 import {
   SynastryChartSchema,
   NumerologyChartSchema,
@@ -12,14 +14,28 @@ import {
   TarotChartSchema,
 } from '@tianji/shared';
 // DESIGN-GAP: Load system-specific chart views only for the validated active report.
-const ZiweiGrid = dynamic(() =>
-  import('@/components/charts/ziwei-grid').then((module) => module.ZiweiGrid),
+// A chunk that cannot be fetched (a saved report opened offline) shows a notice in place of the chart
+// instead of sending the whole report to the error boundary.
+const ZiweiGrid = dynamic(
+  () =>
+    import('@/components/charts/ziwei-grid')
+      .then((module) => module.ZiweiGrid)
+      .catch(() => ChunkUnavailable),
+  { loading: ChunkLoading },
 );
-const ZiweiTimeRequired = dynamic(() =>
-  import('@/components/charts/ziwei-grid').then((module) => module.ZiweiTimeRequired),
+const ZiweiTimeRequired = dynamic(
+  () =>
+    import('@/components/charts/ziwei-grid')
+      .then((module) => module.ZiweiTimeRequired)
+      .catch(() => ChunkUnavailable),
+  { loading: ChunkLoading },
 );
-const DivinationChart = dynamic(() =>
-  import('@/components/charts/divination-chart').then((module) => module.DivinationChart),
+const DivinationChart = dynamic(
+  () =>
+    import('@/components/charts/divination-chart')
+      .then((module) => module.DivinationChart)
+      .catch(() => ChunkUnavailable),
+  { loading: ChunkLoading },
 );
 // DESIGN-GAP: The spread layout is 2KB and its card/thumbnail dependencies already ship with every report. As a lazy chunk it had to be fetched when the tarot ritual rendered its offline report, which fails without a network (ChunkLoadError), so it is imported statically.
 import { SpreadLayout } from '@/components/tarot/spread-layout';
@@ -34,12 +50,32 @@ import { BranchRelationDiagram } from '@/components/charts/branch-relation-diagr
 import { BaziProfessionalTable } from '@/components/charts/bazi-professional-table';
 const COMPONENTS = { BaziPillars, ElementRing, StrengthGauge, LuckTimeline, BranchRelationDiagram };
 // DESIGN-GAP: New chart renderers load only when their validated snapshot matches; original reports do not download paired wheels or numerology UI.
-const SynastryChartView = dynamic(() =>
-  import('@/components/charts/synastry-chart').then((module) => module.SynastryChartView),
+const SynastryChartView = dynamic(
+  () =>
+    import('@/components/charts/synastry-chart')
+      .then((module) => module.SynastryChartView)
+      .catch(() => ChunkUnavailable),
+  { loading: ChunkLoading },
 );
-const NumerologyChart = dynamic(() =>
-  import('@/components/charts/numerology-chart').then((module) => module.NumerologyChart),
+const NumerologyChart = dynamic(
+  () =>
+    import('@/components/charts/numerology-chart')
+      .then((module) => module.NumerologyChart)
+      .catch(() => ChunkUnavailable),
+  { loading: ChunkLoading },
 );
+/**
+ * The lazy chart modules a device report of each system loads, for components/pwa/offline-warmup.ts.
+ * These import() calls sit in this module beside the views above, so webpack resolves them to the same
+ * chunk files; importing them elsewhere could produce differently split copies the report never requests.
+ */
+export const chartChunks: Partial<Record<string, () => Promise<unknown>>> = {
+  ziwei: () => import('@/components/charts/ziwei-grid'),
+  iching: () => import('@/components/charts/divination-chart'),
+  qimen: () => import('@/components/charts/divination-chart'),
+  numerology: () => import('@/components/charts/numerology-chart'),
+  synastry: () => import('@/components/charts/synastry-chart'),
+};
 /** Render a validated chart snapshot or the named local visualization referenced by a report block. */
 export function ChartPreview({
   chart,

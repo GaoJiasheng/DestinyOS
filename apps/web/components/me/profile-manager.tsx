@@ -243,11 +243,16 @@ export function ProfileManager({ initial }: { initial: Data }) {
         title={t('profiles.delete')}
         description={
           impact && impact.id === deleting
-            ? t('profiles.deleteImpact', {
-                readings: impact.readings,
-                journals: impact.journals,
-                shares: impact.shares,
-              })
+            ? [
+                t('profiles.deleteImpact', {
+                  readings: impact.readings,
+                  journals: impact.journals,
+                  shares: impact.shares,
+                }),
+                impact.kept ? t('profiles.deleteKept', { kept: impact.kept }) : '',
+              ]
+                .filter(Boolean)
+                .join(' ')
             : t('profiles.deleteConfirm')
         }
       >

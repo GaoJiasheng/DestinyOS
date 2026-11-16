@@ -12,6 +12,29 @@ import { sendMagicEmail } from './auth-email';
 import { logger } from './logger';
 import { recordEvent } from './events';
 import { deletedAccountPath } from './auth-notice';
+import { issueLoginCode, openLoginDeviceTicket } from './auth-code';
+
+/**
+ * Only the web login form sends a server-minted device ticket; admin re-auth and native Auth.js
+ * posts get the link alone, so no email ever shows a code that its page cannot accept.
+ */
+async function loginCodeFor(
+  email: string,
+  token: string,
+  request: Request,
+): Promise<string | undefined> {
+  try {
+    const body: unknown = await request.clone().json();
+    const ticket =
+      body && typeof body === 'object' && 'loginDevice' in body ? body.loginDevice : undefined;
+    const device = await openLoginDeviceTicket(email, ticket);
+    return device ? await issueLoginCode(email, token, device) : undefined;
+  } catch (error) {
+    // The magic link still works without a code, so a KV or parsing failure must not block sign-in.
+    logger.error({ err: error }, 'Sign-in code could not be issued');
+    return undefined;
+  }
+}
 
 export const { auth, handlers, signIn, signOut } = NextAuth(() => {
   const db = getDb();
@@ -63,7 +86,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
         name: 'Email',
         type: 'email',
         maxAge: 15 * 60,
-        async sendVerificationRequest({ identifier, url }) {
+        async sendVerificationRequest({ identifier, url, token, request }) {
           const original = new URL(url);
           const callbackUrl = original.searchParams.get('callbackUrl') ?? '';
           const segment = new URL(callbackUrl, original.origin).pathname.split('/')[1] ?? '';
@@ -73,7 +96,12 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
           confirmation.searchParams.set('email', identifier);
           if (new URL(callbackUrl, original.origin).pathname === '/admin')
             confirmation.searchParams.set('returnTo', '/admin');
-          await sendMagicEmail(identifier, locale, confirmation.toString());
+          await sendMagicEmail(
+            identifier,
+            locale,
+            confirmation.toString(),
+            await loginCodeFor(identifier, token, request),
+          );
         },
       },
     ],

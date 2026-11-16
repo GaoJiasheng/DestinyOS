@@ -155,6 +155,7 @@ it('deleting one profile cascades paired shares, retains the other and promotes 
     readings: 1,
     journals: 1,
     shares: 1,
+    kept: 0,
   });
   expect(await profileDeletionImpact(userId, a.profileId)).toMatchObject({ journals: 0 });
   await expect(profileDeletionImpact(userId, 'missing')).rejects.toMatchObject({
@@ -262,4 +263,74 @@ it('a self chart creates the first profile once; charts for others and later cha
   const again = await adoptSelfProfile(req, userId, undefined, { saveAsSelf: true });
   expect(again?.id).toBe(created?.id);
   expect(await raw.birthProfile.count({ where: { userId } })).toBe(1);
+});
+
+it('a typed trial for someone else is not attached to the selected profile; age verdicts are unchanged', async () => {
+  const self = await saveProfile(userId, birth, { label: 'Me', relation: 'self' }, 'zh');
+  const friend = await save('Friend');
+  state.selected = self.profileId;
+  const base = { system: 'bazi' as const, locale: 'zh' as const, birth };
+  const trial = await resolveBirth(
+    { ...base, subject: 'other', idempotencyKey: crypto.randomUUID() },
+    userId,
+  );
+  expect(trial.profile).toBeUndefined();
+  expect(trial.req.profileId).toBeUndefined();
+  expect(trial.req.subject).toBe('other');
+  // Naming a non-self profile by ID keeps the link; typing for yourself keeps it too.
+  const named = await resolveBirth(
+    { ...base, profileId: friend.profileId, subject: 'other', idempotencyKey: crypto.randomUUID() },
+    userId,
+  );
+  expect(named.req.profileId).toBe(friend.profileId);
+  const mine = await resolveBirth(
+    { ...base, subject: 'self', idempotencyKey: crypto.randomUUID() },
+    userId,
+  );
+  expect(mine.req.profileId).toBe(self.profileId);
+  const unmarked = await resolveBirth({ ...base, idempotencyKey: crypto.randomUUID() }, userId);
+  expect(unmarked.req.subject).toBeUndefined();
+  expect(unmarked.req.profileId).toBe(self.profileId);
+});
+it('deleting a profile keeps trials for someone else unlinked and counts exactly what it deletes', async () => {
+  const a = await save('Alpha');
+  const b = await save('Beta');
+  const row = (id: string, profileId: string | null, input: unknown, partner?: string) =>
+    (state.db as PrismaClient).reading.create({
+      data: {
+        id,
+        userId,
+        profileId,
+        partnerProfileId: partner,
+        system: partner ? 'synastry' : 'bazi',
+        encInput: JSON.stringify(input),
+        chart: {},
+        schoolUsed: {},
+        engineVersion: '1.0.0',
+        interpretVersion: '1',
+        knowledgeVersion: '1',
+      },
+    });
+  await row('own', a.profileId, { system: 'bazi', subject: 'self' });
+  await row('legacy', a.profileId, { system: 'bazi' });
+  await row('trial', a.profileId, { system: 'bazi', subject: 'other' });
+  await row('broken', a.profileId, 'not-an-object');
+  await row('pair', b.profileId, { system: 'synastry', subject: 'other' }, a.profileId);
+  await row('detached', null, { system: 'bazi', subject: 'other' });
+  await raw.shareLink.create({
+    data: { userId, readingId: 'trial', token: 'trial-share', template: 'chart' },
+  });
+  const impact = await profileDeletionImpact(userId, a.profileId);
+  expect(impact).toMatchObject({ readings: 4, kept: 1, shares: 0 });
+  await removeProfile(userId, a.profileId);
+  const left = await raw.reading.findMany({
+    where: { userId },
+    select: { id: true, profileId: true },
+  });
+  expect(left.sort((x, y) => x.id.localeCompare(y.id))).toEqual([
+    { id: 'detached', profileId: null },
+    { id: 'trial', profileId: null },
+  ]);
+  expect(await raw.shareLink.count({ where: { readingId: 'trial' } })).toBe(1);
+  expect(await profileDeletionImpact(userId, b.profileId)).toMatchObject({ readings: 0, kept: 0 });
 });
