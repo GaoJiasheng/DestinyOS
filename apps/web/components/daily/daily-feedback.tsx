@@ -4,6 +4,7 @@ import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { useSubmitTransition } from '@/components/forms/use-submit-transition';
 import { submitFeedbackAction } from '@/app/readings/actions';
+import { notifySuccess } from '@/lib/notify';
 
 /** Daily vote; failures stay inside this card so an unsaved journal entry below is never unmounted. */
 export function DailyFeedback({
@@ -24,8 +25,10 @@ export function DailyFeedback({
         (r) => r.ok,
         () => false,
       );
-      if (ok) setVote(n);
-      else setFailed(n);
+      if (ok) {
+        setVote(n);
+        notifySuccess(t('daily.feedbackSaved'));
+      } else setFailed(n);
     });
   return (
     <section className="report-card" data-daily-block="12">
@@ -35,6 +38,7 @@ export function DailyFeedback({
           key={n}
           variant="ghost"
           disabled={vote !== null || feedback.pending}
+          aria-pressed={vote === n}
           aria-label={t(n === 1 ? 'daily.feedbackYes' : 'daily.feedbackNo')}
           onClick={() => send(n)}
         >
@@ -42,7 +46,6 @@ export function DailyFeedback({
         </Button>
       ))}
       {feedback.pending ? <p role="status">{t('common.loading')}</p> : null}
-      {vote !== null ? <p role="status">{t('daily.feedbackSaved')}</p> : null}
       {failed !== null && !feedback.pending ? (
         <div role="alert">
           {t('daily.feedbackError')}{' '}

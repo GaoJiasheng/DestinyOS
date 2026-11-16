@@ -122,6 +122,7 @@ export function Providers({ children }: { children: ReactNode }) {
       <Toaster
         theme="dark"
         position="top-center"
+        duration={5000}
         containerAriaLabel={t('common.notifications')}
         toastOptions={{ className: 'tianji-toast' }}
       />

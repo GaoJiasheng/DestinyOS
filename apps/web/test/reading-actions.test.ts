@@ -137,6 +137,25 @@ it('sets the HttpOnly session age gate and never authenticates or writes underag
   expect(mocks.auth).not.toHaveBeenCalled();
   expect(mocks.create).not.toHaveBeenCalled();
 });
+it('lets an under-13 birth marked as someone else past the age check without locking', async () => {
+  const result = await createReadingAction({
+    system: 'bazi',
+    locale: 'zh',
+    idempotencyKey: crypto.randomUUID(),
+    subject: 'other',
+    birth: {
+      calendar: 'gregorian',
+      year: 2020,
+      month: 1,
+      day: 1,
+      timeUnknown: true,
+      gender: 'unspecified',
+    },
+  });
+  expect(result).not.toEqual({ ok: false, error: { code: 'E_AGE_RESTRICTED' } });
+  expect(mocks.setCookie).not.toHaveBeenCalledWith('age_gate', 'blocked', expect.anything());
+  expect(mocks.auth).toHaveBeenCalled();
+});
 it('rejects oversized import batches and skips invalid chart snapshots before writes', async () => {
   mocks.auth.mockResolvedValue({ user: { id: 'owner' } });
   const req = { system: 'bazi', locale: 'zh', idempotencyKey: crypto.randomUUID() };

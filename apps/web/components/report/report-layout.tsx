@@ -6,7 +6,7 @@ import { VedicReportChart } from '../charts/vedic-report-chart';
 import { focusEvidence, openSection } from './focus-evidence';
 import { Fragment, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { toast } from 'sonner';
+import { notifySuccess } from '@/lib/notify';
 import type { ReadingView } from '@/lib/reading-schema';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
@@ -29,9 +29,13 @@ import { ChatEntry } from './chat-entry';
 import { chartTitleKey, formatClock } from './report-utils';
 import dynamic from 'next/dynamic';
 import { ChunkLoading } from '@/components/ui/chunk-loading';
+import { ChunkUnavailable } from '@/components/ui/chunk-unavailable';
 // DESIGN-GAP: Detailed tables load only when the professional-view control is opened.
 const ReportProfessional = dynamic(
-  () => import('./report-professional').then((module) => module.ReportProfessional),
+  () =>
+    import('./report-professional')
+      .then((module) => module.ReportProfessional)
+      .catch(() => ChunkUnavailable),
   { loading: ChunkLoading },
 );
 import { ReportHeadline } from './report-headline';
@@ -73,6 +77,9 @@ export function ReportLayout({
   const [dialog, setDialog] = useState<'rename' | 'delete' | null>(null);
   const [title, setTitle] = useState(reading.title ?? '');
   const [busy, setBusy] = useState(false);
+  // Failures stay inline (toasts vanish and are easy to miss); the dialog's own errors show inside it.
+  const [toolbarError, setToolbarError] = useState<MessageKey | null>(null);
+  const [dialogError, setDialogError] = useState<MessageKey | null>(null);
   const [details, setDetails] = useState(birthDetails);
   const [chartWorking, setChartBusy] = useState(false);
   const chartBusy = chartWorking || chartPending;
@@ -81,6 +88,7 @@ export function ReportLayout({
   const vedic = view.system === 'vedic' ? VedicChartSchema.safeParse(view.chart) : null;
   const switchHouses = async (houseSystem: HouseSystem) => {
     setChartBusy(true);
+    setToolbarError(null);
     try {
       const data = local ? await readAnonymous() : null;
       const snapshot = data?.readings.find((r) => r.id === view.id);
@@ -93,14 +101,14 @@ export function ReportLayout({
           : { readingId: view.id }),
       });
       if (!result.ok) {
-        toast.error(t(`report.error.${result.error.code}` as MessageKey));
+        setToolbarError(`report.error.${result.error.code}` as MessageKey);
         return false;
       }
       setView((v) => ({ ...v, ...result.data }));
       setHousePreview(true);
       return true;
     } catch {
-      toast.error(t('report.error.E_INTERNAL'));
+      setToolbarError('report.error.E_INTERNAL');
       return false;
     } finally {
       setChartBusy(false);
@@ -114,7 +122,7 @@ export function ReportLayout({
       setDetails(
         `${t(`form.birth.calendar.${b.calendar}`)} · ${b.year}-${b.month}-${b.day} · ${b.timeUnknown ? t('common.unknown') : formatClock(b.hour, b.minute)} · ${b.place?.name ?? ''} · ${b.place?.tz ?? ''}`,
       );
-    } else toast.error(t('report.error.E_FORBIDDEN'));
+    } else setToolbarError('report.error.E_FORBIDDEN');
   };
   const evidence = (path: string) => {
     // DESIGN-GAP: A filtered evidence path may match several nodes; focus the first matching snapshot node, keeping the full evidence text visible.
@@ -132,6 +140,7 @@ export function ReportLayout({
   };
   const regenerate = async () => {
     setBusy(true);
+    setToolbarError(null);
     try {
       if (housePreview && astro?.success) {
         if (!(await switchHouses(astro.data.houseSystem))) return;
@@ -141,7 +150,7 @@ export function ReportLayout({
         if (!found) return;
         const result = await translateAnonymousReportAction(found, locale);
         if (!result.ok) {
-          toast.error(t(`report.error.${result.error.code}` as MessageKey));
+          setToolbarError(`report.error.${result.error.code}` as MessageKey);
           return;
         }
         await updateAnonymous((d) => ({
@@ -161,20 +170,22 @@ export function ReportLayout({
       } else {
         const result = await regenerateReportAction(view.id, locale);
         if (!result.ok) {
-          toast.error(t(`report.error.${result.error.code}` as MessageKey));
+          setToolbarError(`report.error.${result.error.code}` as MessageKey);
           return;
         }
         setView((v) => ({ ...v, report: result.data }));
       }
-      toast.success(t('report.regenerated'));
+      setToolbarError(null);
+      notifySuccess(t('report.regenerated'));
     } catch {
-      toast.error(t('report.error.E_INTERNAL'));
+      setToolbarError('report.error.E_INTERNAL');
     } finally {
       setBusy(false);
     }
   };
   const confirm = async () => {
     setBusy(true);
+    setDialogError(null);
     try {
       if (local) {
         await updateAnonymous((d) => ({
@@ -190,15 +201,20 @@ export function ReportLayout({
             ? await deleteReadingAction(view.id)
             : await renameReadingAction(view.id, title);
         if (!result.ok) {
-          toast.error(t(`report.error.${result.error.code}` as MessageKey));
+          setDialogError(`report.error.${result.error.code}` as MessageKey);
           return;
         }
       }
-      if (dialog === 'delete') router.push('/me/history');
-      else setView((v) => ({ ...v, title }));
+      if (dialog === 'delete') {
+        notifySuccess(t('report.deleted'));
+        router.push('/me/history');
+      } else {
+        setView((v) => ({ ...v, title }));
+        notifySuccess(t('report.renamed'));
+      }
       setDialog(null);
     } catch {
-      toast.error(t('report.error.E_INTERNAL'));
+      setDialogError('report.error.E_INTERNAL');
     } finally {
       setBusy(false);
     }
@@ -257,6 +273,11 @@ export function ReportLayout({
           onRegenerate={regenerate}
           onDelete={() => setDialog('delete')}
         />
+        {toolbarError ? (
+          <p role="alert" className="report-toolbar-alert">
+            {t(toolbarError)}
+          </p>
+        ) : null}
       </header>
       <div className="report-columns">
         <ReportSummary report={view.report}>
@@ -362,11 +383,15 @@ export function ReportLayout({
       </div>
       <ReportOwnerDialog
         dialog={dialog}
-        setDialog={setDialog}
+        setDialog={(value) => {
+          setDialog(value);
+          setDialogError(null);
+        }}
         title={title}
         setTitle={setTitle}
         busy={busy}
         confirm={confirm}
+        error={dialogError}
       />
     </article>
   );

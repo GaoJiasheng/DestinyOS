@@ -6,6 +6,7 @@ import { brand } from '@tianji/shared';
 import type { PublicShare, DailyCard } from './share-projection';
 import { publicText } from './share-projection';
 import { shareCopy } from './share-copy';
+import { hasScoreSpread } from '@/components/report/report-utils';
 import QRCode from 'qrcode';
 import { artDataUrl } from './art-resource';
 // DESIGN-GAP: Satori cannot read browser theme variables; embedded image values mirror docs/03 tokens.
@@ -51,7 +52,12 @@ export async function renderCard(
   const background = await artDataUrl(
     `share/${template === 'synastry' ? 'chart' : template}-${story ? 'portrait' : 'landscape'}`,
   );
-  const scores = 'system' in card ? Object.entries(card.scores) : [];
+  // DESIGN-GAP: Natal cards with five identical scores have no scoring basis, so the score rows and their side pane are omitted.
+  const scores = 'system' in card && hasScoreSpread(card.scores) ? Object.entries(card.scores) : [];
+  const showPane =
+    ['chart', 'synastry'].includes(template) &&
+    'system' in card &&
+    (Boolean(card.diagram) || scores.length > 0);
   return new ImageResponse(
     <div
       style={{
@@ -99,7 +105,7 @@ export async function renderCard(
             display: 'flex',
             flexDirection: 'column',
             gap: 24,
-            width: story || !['chart', 'synastry'].includes(template) ? '100%' : '66%',
+            width: story || !showPane ? '100%' : '66%',
           }}
         >
           <div
@@ -134,7 +140,7 @@ export async function renderCard(
               </>
             )}
           </div>
-          {template === 'quote' ? (
+          {template === 'quote' && scores.length > 0 ? (
             <div style={{ display: 'flex', gap: 16, fontSize: 22 }}>
               {scores.map(([key, value]) => (
                 <span key={key} style={{ marginRight: 16 }}>
@@ -173,7 +179,7 @@ export async function renderCard(
             </div>
           ) : null}
         </div>
-        {['chart', 'synastry'].includes(template) && 'system' in card ? (
+        {showPane && 'system' in card ? (
           <div style={{ display: 'flex', width: story ? '100%' : '30%', justifyContent: 'center' }}>
             {card.diagram ? (
               <ShareDiagram diagram={card.diagram} translate={copy} colors={palette} />

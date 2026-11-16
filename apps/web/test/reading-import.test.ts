@@ -132,6 +132,41 @@ describe('importAnonymousBatch', () => {
     expect(m.save).not.toHaveBeenCalled();
   });
 
+  it('imports a reading the device marked as someone else even under 13', async () => {
+    m.reserve.mockResolvedValue(true);
+    m.findMany.mockResolvedValue([]);
+    m.findFirst.mockResolvedValue(null);
+    const item = local(1);
+    const marked = {
+      ...item,
+      request: { ...item.request, birth: { ...birth, year: 2020 }, subject: 'other' },
+    };
+    const result = await importAnonymousBatch('owner', { anonId, readings: [marked] }, labels);
+    expect(result.results[0]).toMatchObject({ status: 'imported' });
+    expect(m.persist).toHaveBeenCalledOnce();
+  });
+
+  it('treats an older under-13 snapshot without a mark as the user and rejects the batch', async () => {
+    const item = local(1);
+    const legacy = { ...item, request: { ...item.request, birth: { ...birth, year: 2020 } } };
+    await expect(
+      importAnonymousBatch('owner', { anonId, readings: [legacy] }, labels),
+    ).rejects.toMatchObject({ code: 'E_AGE_RESTRICTED' });
+    // The device profile is always the user, whatever its readings say.
+    await expect(
+      importAnonymousBatch(
+        'owner',
+        {
+          anonId,
+          profile: { ...birth, year: 2020 },
+          readings: [{ ...legacy, request: { ...legacy.request, subject: 'other' } }],
+        },
+        labels,
+      ),
+    ).rejects.toMatchObject({ code: 'E_AGE_RESTRICTED' });
+    expect(m.persist).not.toHaveBeenCalled();
+  });
+
   it('still rejects the whole batch for an under-age birth', async () => {
     await expect(
       importAnonymousBatch(

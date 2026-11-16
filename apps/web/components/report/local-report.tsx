@@ -9,6 +9,7 @@ import { ReportLayout } from './report-layout';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { formatClock } from './report-utils';
+import { useOfflineShell } from '@/components/pwa/use-offline-shell';
 /** Plain or structured cast input both carry the asker's text; anything else shows no question line. */
 function askedQuestion(question: LocalReading['request']['question']): string | undefined {
   const text =
@@ -26,6 +27,19 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
   // React re-runs effects when a hidden Suspense subtree is revealed; reloading then would remount
   // the report and drop its view state, so an already loaded report is kept.
   const loaded = useRef('');
+  // Read after hydration: the stored offline page is the same markup whichever state it was saved in.
+  const [offline, setOffline] = useState(false);
+  useEffect(() => {
+    const update = () => setOffline(!navigator.onLine);
+    update();
+    window.addEventListener('online', update);
+    window.addEventListener('offline', update);
+    return () => {
+      window.removeEventListener('online', update);
+      window.removeEventListener('offline', update);
+    };
+  }, []);
+  useOfflineShell(reading !== null);
   useEffect(() => {
     const key = `${system}:${id}:${locale}`;
     if (loaded.current === key) return;
@@ -110,6 +124,11 @@ export function LocalReport({ id, system }: { id: string; system: string }) {
   const b = reading.request.birth;
   return (
     <>
+      {offline ? (
+        <p className="notice report-offline" role="status">
+          {t('report.offlineNotice')}
+        </p>
+      ) : null}
       {fallback ? (
         <p className="notice report-locale-fallback" role="status">
           {t('report.localTranslateFailed')}

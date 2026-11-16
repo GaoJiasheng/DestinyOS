@@ -776,6 +776,24 @@ html:lang(en) {
     color: var(--text-1);
     font-family: var(--font-body-current);
   }
+  /* Toasts are transient confirmations; keep them clear of the notch and still under reduced motion. */
+  [data-sonner-toaster] {
+    --offset: max(16px, env(safe-area-inset-top));
+    --mobile-offset: max(16px, env(safe-area-inset-top));
+  }
+  [data-sonner-toast].tianji-toast [data-title] {
+    color: var(--text-1);
+  }
+  :root[data-reduced-motion='true'] [data-sonner-toast] {
+    transition: none !important;
+    animation: none !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-sonner-toast] {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
   .skip-link {
     position: fixed;
     z-index: 70;
@@ -5575,5 +5593,10 @@ html[data-reduced-motion='true']
   gap: 12px;
 }
 .share-link-list p {
+  margin: 0;
+}
+
+.report-toolbar-alert {
+  flex: 1 1 100%;
   margin: 0;
 }

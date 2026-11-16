@@ -22,7 +22,14 @@ export async function adoptSelfProfile(
   profile: BirthProfile | undefined,
   intent: ReadingIntent,
 ): Promise<BirthProfile | undefined> {
-  if (!intent?.saveAsSelf || profile || !req.birth || !natalSystems.has(req.system)) return profile;
+  if (
+    !intent?.saveAsSelf ||
+    req.subject === 'other' ||
+    profile ||
+    !req.birth ||
+    !natalSystems.has(req.system)
+  )
+    return profile;
   try {
     const saved = await saveProfile(
       userId,

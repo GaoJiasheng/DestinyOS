@@ -67,7 +67,9 @@ for (const locale of ['zh', 'en'] as const) {
     await form.getByRole('radio', { name: copy['journal.mood.4'], exact: true }).check();
     await form.getByLabel(copy['journal.text']).fill(note);
     await form.getByRole('button', { name: copy['journal.save'], exact: true }).click();
-    await expect(form.getByRole('status')).toHaveText(copy['journal.saved']);
+    await expect(
+      page.locator('[data-sonner-toast]').filter({ hasText: copy['journal.saved'] }).last(),
+    ).toBeVisible();
     const row = await db.journalEntry.findFirstOrThrow({ where: { userId: user.id } });
     expect(row.text).toMatch(/^v1:/);
     expect(row.text).not.toContain(note);
@@ -77,8 +79,14 @@ for (const locale of ['zh', 'en'] as const) {
     await expect(form.getByLabel(copy['journal.text'])).toHaveValue(note);
     await form.getByRole('radio', { name: copy['journal.mood.5'], exact: true }).check();
     await form.getByRole('button', { name: copy['journal.save'], exact: true }).click();
-    await expect(form.getByRole('status')).toHaveText(copy['journal.saved']);
+    await expect(
+      page.locator('[data-sonner-toast]').filter({ hasText: copy['journal.saved'] }).last(),
+    ).toBeVisible();
     expect(await db.journalEntry.count({ where: { userId: user.id } })).toBe(1);
+    // The earlier toast may still be on screen, so wait for the revision itself.
+    await expect
+      .poll(async () => (await db.journalEntry.findUniqueOrThrow({ where: { id: row.id } })).mood)
+      .toBe(5);
     const revised = await db.journalEntry.findUniqueOrThrow({ where: { id: row.id } });
     expect(revised.prediction).toEqual(row.prediction);
     expect(revised.mood).toBe(5);
@@ -89,7 +97,9 @@ for (const locale of ['zh', 'en'] as const) {
       await page.goto(`/${locale}/today?date=${today.add({ days: offset })}`);
       await form.getByRole('radio', { name: copy[`journal.mood.${mood}`], exact: true }).check();
       await form.getByRole('button', { name: copy['journal.save'], exact: true }).click();
-      await expect(form.getByRole('status')).toHaveText(copy['journal.saved']);
+      await expect(
+        page.locator('[data-sonner-toast]').filter({ hasText: copy['journal.saved'] }).last(),
+      ).toBeVisible();
     }
     await page.goto(`/${locale}/me/journal`);
     await expect(page.locator('[data-journal-day]')).toHaveCount(today.daysInMonth);

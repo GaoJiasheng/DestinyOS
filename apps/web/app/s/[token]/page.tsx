@@ -6,6 +6,7 @@ import { getTranslations } from 'next-intl/server';
 import { publicShare } from '@/lib/share-service';
 import { runtimeKey } from '@/i18n/runtime-key';
 import { shareCopy } from '@/lib/share-copy';
+import { hasScoreSpread } from '@/components/report/report-utils';
 import { brand } from '@tianji/shared';
 export const dynamic = 'force-dynamic';
 /** Birth-free noindex metadata uses the same authorized projection as the page and image. */
@@ -76,13 +77,15 @@ export default async function SharePage({
       <h1 className="type-h1">{t(runtimeKey('report.content'), { text: share.headline })}</h1>
       <div className="report-card">
         <p>{share.keywords.map((text) => t(runtimeKey('report.content'), { text })).join(' · ')}</p>
-        <ul>
-          {Object.entries(share.scores).map(([key, n]) => (
-            <li key={key}>
-              {copy(`daily.dimension.${key}`)} · {'★'.repeat(n)}
-            </li>
-          ))}
-        </ul>
+        {hasScoreSpread(share.scores) ? (
+          <ul>
+            {Object.entries(share.scores).map(([key, n]) => (
+              <li key={key}>
+                {copy(`daily.dimension.${key}`)} · {'★'.repeat(n)}
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </div>
       {share.daily ? (
         <section className="report-card">

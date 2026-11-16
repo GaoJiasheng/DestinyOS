@@ -12,6 +12,7 @@ import { initialBirth } from '@/lib/birth-form-initial';
 import { birthError, isUnderThirteen, yearPatch } from '@/lib/birth-form';
 import {
   birthFields,
+  fieldIds,
   stepOneIssues,
   stepTwoIssues,
   type BirthField,
@@ -28,15 +29,16 @@ import {
   submitLabel,
   type School,
 } from '@/lib/birth-form-submit';
-import { blockAgeAction } from '@/app/readings/actions';
 import { afterConsent } from '@/lib/consent';
 import { Button } from '@/components/ui/button';
 import { BirthPersonFields } from './birth-person-fields';
 import { BirthDateFields } from './birth-date-fields';
 import { BirthPlaceFields } from './birth-place-fields';
-import { AgeConfirmDialog, BirthTargetChoice, type BirthTarget } from './birth-form-parts';
+import { AgeConfirmDialog, BirthTargetChoice } from './birth-form-parts';
+import type { BirthComplete, BirthTarget } from './birth-form-parts';
 import { useBirthDraft } from './use-birth-draft';
 import { useBirthTarget } from './use-birth-target';
+import { useAgeQuestion } from './use-age-question';
 import { DivinationLoader } from '@/components/ui/divination-loader';
 /** Two-step shared birth editor with inline validation, a session draft and privacy-safe submission. */
 export function BirthForm({
@@ -48,13 +50,17 @@ export function BirthForm({
   completionKey,
   draftKey,
   prefillProfile = true,
+  subject,
 }: {
   system?: Exclude<System, 'daily'>;
-  initial?: BirthInput & { displayName?: string };
+  /** `relation` comes with a saved profile; anything but 'self' is someone else's birth. */
+  initial?: BirthInput & { displayName?: string; relation?: string };
+  /** Fixed by the host (a synastry partner is always someone else); skips the age question. */
+  subject?: BirthTarget;
   profileMode?: boolean;
   signedIn?: boolean;
   completionKey?: MessageKey;
-  onComplete?: (birth: BirthInput, displayName: string) => void | Promise<void>;
+  onComplete?: BirthComplete;
   /** Session draft slot; embedded forms keep no draft unless the host names one. */
   draftKey?: string;
   /** Embedded forms may start from the device profile (rectification) or blank (a synastry partner). */
@@ -90,20 +96,11 @@ export function BirthForm({
   const [requestId, setRequestId] = useState<string | null>(null);
   const [blurred, setBlurred] = useState<ReadonlySet<BirthField>>(new Set());
   const [attempted, setAttempted] = useState(0);
-  const [ageIssue, setAgeIssue] = useState<FieldIssue | null>(null);
-  const [ageDialog, setAgeDialog] = useState(false);
   const [cityPending, setCityPending] = useState(false);
   const [returnTo, setReturnTo] = useState<string | null>(null);
   const dirty = useRef(false);
   const baseId = useId();
-  const ids = useMemo(
-    () =>
-      Object.fromEntries(birthFields.map((f) => [f, `${baseId}-${f}`])) as Record<
-        BirthField,
-        string
-      >,
-    [baseId],
-  );
+  const ids = useMemo(() => fieldIds(baseId), [baseId]);
   const { target, setTarget, choose, hasSaved } = useBirthTarget({
     signedIn,
     hasInitial: Boolean(initial),
@@ -115,6 +112,18 @@ export function BirthForm({
     setName,
     setPrecise,
     setError,
+    known: subject ?? (initial?.relation && initial.relation !== 'self' ? 'other' : undefined),
+  });
+  const age = useAgeQuestion({
+    // The profile editor saves the user's own birth, so it cannot switch to someone else.
+    selfOnly: profileMode && !embedded,
+    focusYear: () => setTimeout(() => document.getElementById(ids.year)?.focus(), 0),
+    onOther: () => {
+      setTarget('other');
+      if (step !== 1) return;
+      setStep(2);
+      if (slot) setUrlStep(2, 'push');
+    },
   });
   const draft = useBirthDraft({
     slot,
@@ -138,7 +147,7 @@ export function BirthForm({
   }, []);
   const chooseTarget = (next: BirthTarget) => {
     setRequestId(null);
-    setAgeIssue(null);
+    age.clearIssue();
     choose(next);
   };
   const preview = useMemo(() => {
@@ -151,7 +160,8 @@ export function BirthForm({
   // Errors appear after a field is left or a step is submitted, never on the first keystroke.
   const stepIssues = step === 1 ? stepOneIssues(birth, precise) : stepTwoIssues(birth, cityPending);
   const visible = stepIssues.filter((i) => attempted >= step || blurred.has(i.field));
-  if (step === 1 && ageIssue && !visible.some((i) => i.field === 'year')) visible.unshift(ageIssue);
+  if (step === 1 && age.issue && !visible.some((i) => i.field === 'year'))
+    visible.unshift(age.issue);
   const focusFirst = (issues: FieldIssue[]) => {
     const first = birthFields.find((f) => issues.some((i) => i.field === f));
     if (first) setTimeout(() => document.getElementById(ids[first])?.focus(), 0);
@@ -160,7 +170,7 @@ export function BirthForm({
     dirty.current = true;
     setRequestId(null);
     setError(null);
-    setAgeIssue(null);
+    age.clearIssue();
     // DESIGN-GAP: Manual changes to birth facts clear trial provenance; a display-name-only edit retains it.
     setBirth((current) => ({
       ...current,
@@ -193,12 +203,9 @@ export function BirthForm({
       setError(engine);
       return false;
     }
-    if (isUnderThirteen(dateOnly, locale)) {
-      // DESIGN-GAP: The server still rejects and session-locks any under-13 birth, so "someone else" stops here with an inline reason instead of submitting.
-      if (target === 'other') {
-        setAgeIssue({ field: 'year', key: 'form.birth.error.underThirteen' });
-        focusFirst([{ field: 'year', key: '' }]);
-      } else setAgeDialog(true);
+    // Under 13 is allowed only for someone else's birthday; the user's own is asked about first.
+    if (target !== 'other' && isUnderThirteen(dateOnly, locale)) {
+      age.ask();
       return false;
     }
     return true;
@@ -229,7 +236,7 @@ export function BirthForm({
     try {
       if (onComplete) {
         try {
-          await onComplete(BirthInputSchema.parse(birth), name);
+          await onComplete(BirthInputSchema.parse(birth), name, target ?? 'self');
           if (slot) draft.clear();
           setUrlStep(1, 'replace');
         } catch {
@@ -253,6 +260,7 @@ export function BirthForm({
         school: schoolOptions(system, school),
         idempotencyKey,
         writeProfile: target !== 'other',
+        subject: target ?? 'self',
       });
       if ('ageRestricted' in outcome) return router.replace('/age-restricted');
       if ('error' in outcome) return setError(outcome.error);
@@ -381,19 +389,7 @@ export function BirthForm({
       </form>
       {!signedIn ? <p className="muted">{t('report.localNotice')}</p> : null}
       {busy && !profileMode ? <DivinationLoader /> : null}
-      <AgeConfirmDialog
-        open={ageDialog}
-        onSelf={() => {
-          setAgeDialog(false);
-          void blockAgeAction().finally(() => router.replace('/age-restricted'));
-        }}
-        onOther={() => {
-          setAgeDialog(false);
-          setTarget('other');
-          setAgeIssue({ field: 'year', key: 'form.birth.error.underThirteen' });
-          focusFirst([{ field: 'year', key: '' }]);
-        }}
-      />
+      <AgeConfirmDialog {...age.dialog} />
     </section>
   );
 }

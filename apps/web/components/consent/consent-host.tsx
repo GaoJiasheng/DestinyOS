@@ -8,6 +8,7 @@ import {
   isConsentPromptOpen,
   subscribeConsent,
 } from '@/lib/consent';
+import { notifyInfo } from '@/lib/notify';
 import { anonymousEvictionEvent, type AnonymousEviction } from '@/lib/anonymous-encoding';
 /** A failed dialog chunk (deploy skew, offline) must still ask, never skip the confirmation. */
 function NativeConsent() {
@@ -32,9 +33,7 @@ function useEvictionNotice() {
   useEffect(() => {
     const notify = (event: Event) => {
       const count = (event as CustomEvent<AnonymousEviction>).detail?.count ?? 1;
-      void import('sonner')
-        .then(({ toast }) => toast(t('me.storage.evicted', { count })))
-        .catch(() => undefined);
+      notifyInfo(t('me.storage.evicted', { count }));
     };
     window.addEventListener(anonymousEvictionEvent, notify);
     return () => window.removeEventListener(anonymousEvictionEvent, notify);

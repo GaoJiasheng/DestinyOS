@@ -1,5 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
+import { ChunkLoading } from '@/components/ui/chunk-loading';
+import { ChunkUnavailable } from '@/components/ui/chunk-unavailable';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { canUseThree, reportThreeFallback } from '@/lib/three-policy';
 import { readAnonymous } from '@/lib/anonymous-storage';
@@ -7,7 +9,10 @@ import { useTranslations } from 'next-intl';
 import type { AstroChart, HouseSystem } from '@tianji/shared';
 import { NatalWheel } from './natal-wheel';
 import { PlanetTable } from './planet-table';
-const NatalWheel3D = dynamic(() => import('../three/natal-wheel-3d'), { ssr: false });
+const NatalWheel3D = dynamic(
+  () => import('../three/natal-wheel-3d').catch(() => ({ default: ChunkUnavailable })),
+  { ssr: false, loading: ChunkLoading },
+);
 /** Western report controls, SVG fallback, lazy celestial sphere and collapsible positions table. */
 export function AstrologyReportChart({
   chart,

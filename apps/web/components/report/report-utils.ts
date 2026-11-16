@@ -16,9 +16,17 @@ export function chartTitleKey(system: string): MessageKey {
   return 'report.chart';
 }
 
-/** A radar of five identical scores carries no information, so it is only drawn when scores differ. */
-export function hasScoreSpread(scores: Report['headline']['scores']): boolean {
-  return new Set(SCORE_DIMENSIONS.map((dimension) => scores[dimension])).size > 1;
+/**
+ * Five identical scores (or missing ones) carry no information, so no score block is shown.
+ * Natal systems without a scoring basis all come out as 3 of 5, which must not be displayed.
+ */
+export function hasScoreSpread(
+  scores: Partial<Report['headline']['scores']> | null | undefined,
+): boolean {
+  if (!scores) return false;
+  const values = SCORE_DIMENSIONS.map((dimension) => scores[dimension]);
+  if (values.some((value) => typeof value !== 'number')) return false;
+  return new Set(values).size > 1;
 }
 
 /** Zero-padded 24-hour clock, e.g. 09:05. */

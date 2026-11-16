@@ -9,6 +9,7 @@ import { useCopy } from '@/i18n/use-copy';
 import { listReadingsAction, deleteReadingAction } from '@/app/readings/actions';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
+import { notifySuccess } from '@/lib/notify';
 import type { MessageKey } from '@/i18n/catalog';
 type Page = Extract<Awaited<ReturnType<typeof listReadingsAction>>, { ok: true }>['data'];
 type Filters = { system: string; search: string; profile: string };
@@ -34,6 +35,7 @@ export function HistoryList({
     [working, setBusy] = useState(false),
     [error, setError] = useState(false),
     [remove, setRemove] = useState<string | null>(null),
+    [removeError, setRemoveError] = useState(false),
     // Filters behind the list currently shown, so an empty result can say why and offer a reset.
     [applied, setApplied] = useState<Filters>(cleared);
   const busy = working || pending;
@@ -219,6 +221,7 @@ export function HistoryList({
         open={Boolean(remove)}
         onOpenChange={(open) => {
           if (!open) setRemove(null);
+          setRemoveError(false);
         }}
         title={t('report.delete')}
         description={t('report.deleteConfirm')}
@@ -228,19 +231,22 @@ export function HistoryList({
           action={async () => {
             if (!remove) return;
             setBusy(true);
+            setRemoveError(false);
             await deleteReadingAction(remove)
               .then((r) => {
                 if (r.ok) {
                   setData((d) => ({ ...d, items: d.items.filter((i) => i.id !== remove) }));
                   setRemove(null);
-                } else setError(true);
+                  notifySuccess(t('report.deleted'));
+                } else setRemoveError(true);
               })
-              .catch(() => setError(true))
+              .catch(() => setRemoveError(true))
               .finally(() => setBusy(false));
           }}
         >
           {t('report.delete')}
         </Button>
+        {removeError ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
       </Dialog>
     </>
   );

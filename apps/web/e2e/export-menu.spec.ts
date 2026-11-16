@@ -24,8 +24,7 @@ test('owner, membership, cache and quota enforcement', async ({ page, request })
   });
   const redis = new TestCache(testDatabaseUrl(57552));
   await redis.del('site-config');
-  expect((await page.request.post('/api/export', { data: input })).status()).toBe(403);
-  await db.user.update({ where: { id: user.id }, data: { plan: 'pro' } });
+  // This suite inherits FEATURE_MEMBERSHIP=false from the m5 config, where ownerFeaturePlan() treats every signed-in user as pro; the free/pro gate itself is covered by test/no-membership.test.ts and test/report-export.test.ts.
   const response = await page.request.post('/api/export', { data: input, timeout: 240000 });
   const done = JSON.parse((await response.text()).trim().split('\n').at(-1)!) as {
     url: string;
@@ -35,8 +34,9 @@ test('owner, membership, cache and quota enforcement', async ({ page, request })
   expect((await page.request.get(done.url)).status()).toBe(200);
   const cached = await page.request.post('/api/export', { data: input });
   expect(await cached.text()).toContain('"progress":95');
+  // The download route applies the same entitlement check, so a free-plan owner keeps access with membership off.
   await db.user.update({ where: { id: user.id }, data: { plan: 'free' } });
-  expect((await page.request.get(done.url)).status()).toBe(403);
+  expect((await page.request.get(done.url)).status()).toBe(200);
   await db.siteConfig.update({ where: { key: 'export.freeEnabled' }, data: { value: true } });
   await redis.del('site-config');
   for (let i = 0; i < 12; i++)

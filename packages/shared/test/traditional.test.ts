@@ -19,6 +19,13 @@ describe('B-09 Taiwan locale', () => {
     expect(fromDbLocale(toDbLocale('zh-TW'))).toBe('zh-TW');
     expect(fromDbLocale(toDbLocale('zh'))).toBe('zh');
   });
+  it('keeps the Earthly Branch 丑 and still writes the classical 醜 where the source means it', () => {
+    expect(toTraditional('丑时（01:00–02:59），巳酉丑三合，乙丑年')).toBe(
+      '丑時（01:00–02:59），巳酉丑三合，乙丑年',
+    );
+    expect(toTraditional('获匪其丑，无咎')).toBe('獲匪其醜，無咎');
+    expect(tw['form.birth.branch.1']).toBe('丑 01:00–02:59');
+  });
   it('preserves ICU variables, term keys and link destinations, including Chinese destinations', () => {
     expect(
       toTraditional(

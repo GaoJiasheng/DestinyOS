@@ -12,6 +12,8 @@ body:has(.print-report) > * {
 }
 body:has(.print-report) .site-header,
 body:has(.print-report) .site-notice,
+/* The first-visit disclaimer is a sticky bar that renderer pages (no consent cookie) always show; left visible it adds ~45px below the poster and breaks full-page screenshots. */
+body:has(.print-report) .disclaimer-bar,
 body:has(.print-report) [data-sonner-toaster],
 body:has(.print-report) .starfield,
 body:has(.print-report) nav,
@@ -714,20 +716,21 @@ body:has(.print-report[data-print-theme='light']) {
 }
 
 /* DESIGN-GAP: Put the cover radar beside generation metadata and flow school parameters inline to preserve a three-page divination report. */
-.print-intro .print-cover {
+/* The split only applies while the radar is drawn; a cover without scores keeps the plain stacked flow so its metadata is not pushed into an empty column. */
+.print-intro .print-cover[data-radar] {
   display: grid;
   grid-template-columns: 25mm minmax(0, 1fr);
   align-items: center;
   gap: 1mm;
 }
-.print-intro .print-cover > :not(.print-radar):not(.print-cover-bottom) {
+.print-intro .print-cover[data-radar] > :not(.print-radar):not(.print-cover-bottom) {
   grid-column: 1 / -1;
 }
 .print-intro .print-radar {
   grid-column: 1;
   margin: 0;
 }
-.print-intro .print-cover-bottom {
+.print-intro .print-cover[data-radar] .print-cover-bottom {
   grid-column: 2;
   display: block;
   border-top: 0;

@@ -7,12 +7,15 @@ import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
 import { readAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading } from '@/lib/reading-schema';
+import { useOfflineShell } from '@/components/pwa/use-offline-shell';
 /** Recover encrypted device reports so an offline tarot result remains accessible after the ritual ends. */
 export function LocalHistory({ limit = 50 }: { limit?: number }) {
   const t = useCopy();
   const locale = useLocale();
   const [readings, setReadings] = useState<LocalReading[]>([]);
   const [error, setError] = useState(false);
+  // The service worker keeps only /me/history; on other pages that embed this list the request is ignored.
+  useOfflineShell(true);
   useEffect(() => {
     let active = true;
     void readAnonymous()
@@ -38,7 +41,16 @@ export function LocalHistory({ limit = 50 }: { limit?: number }) {
       <ul className="history-list">
         {readings.map((reading) => (
           <li className="report-card" key={reading.id}>
-            <Link href={`/${reading.system}/r/local/${reading.id}`}>
+            <Link
+              href={`/${reading.system}/r/local/${reading.id}`}
+              onClick={(event) => {
+                // Offline, Next cannot fetch the route's Flight data; a document navigation lets the
+                // service worker answer with the stored report page instead.
+                if (navigator.onLine) return;
+                event.preventDefault();
+                window.location.assign(`/${locale}/${reading.system}/r/local/${reading.id}`);
+              }}
+            >
               <h2 className="type-h3">
                 {reading.title
                   ? t('report.content', { text: reading.title })

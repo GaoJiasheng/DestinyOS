@@ -13,6 +13,7 @@ import { SettingsSchema } from '@/lib/account-service-schema';
 import { PushReminderSettings } from '@/components/me/push-reminder-settings';
 import { SettingsData } from '@/components/me/settings-data';
 import { TimeZoneField } from '@/components/me/time-zone-field';
+import { notifySuccess } from '@/lib/notify';
 type Settings = {
   locale: Locale;
   theme: string | null;
@@ -55,7 +56,7 @@ export function SettingsForm({
     [feedback, setFeedback] = useState(false),
     [open, setOpen] = useState(false),
     [working, setBusy] = useState(false),
-    [status, setStatus] = useState<'saved' | 'error' | null>(null),
+    [status, setStatus] = useState<'error' | null>(null),
     [removeError, setRemoveError] = useState(false);
   const busy = working || pending;
   // Chinese screens ask for 「删除」; the English token stays valid everywhere, and the server accepts only these exact words.
@@ -95,7 +96,7 @@ export function SettingsForm({
       document.documentElement.dataset.reducedMotion = String(data.reducedMotion);
       window.dispatchEvent(new Event('tianji-settings'));
       document.cookie = `NEXT_LOCALE=${form.locale}; Path=/; SameSite=Lax`;
-      setStatus('saved');
+      notifySuccess(t('me.saved'));
       if (form.locale !== locale) window.location.assign(`/${form.locale}/me/settings`);
     } catch {
       setStatus('error');
@@ -182,11 +183,7 @@ export function SettingsForm({
           <Button disabled={busy} type="submit">
             {t(busy ? 'common.loading' : 'me.save')}
           </Button>
-          {status ? (
-            <p role={status === 'error' ? 'alert' : 'status'}>
-              {t(status === 'saved' ? 'me.saved' : 'report.error.E_INTERNAL')}
-            </p>
-          ) : null}
+          {status ? <p role="alert">{t('report.error.E_INTERNAL')}</p> : null}
         </div>
       </form>
       {pushAvailable ? <PushReminderSettings signedIn={signedIn} /> : null}

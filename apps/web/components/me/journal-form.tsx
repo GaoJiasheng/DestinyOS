@@ -10,6 +10,7 @@ import { LoginLink } from '@/components/auth/login-link';
 import { Button } from '@/components/ui/button';
 import { getJournalEntryAction, saveJournalEntryAction } from '@/app/me/journal/actions';
 import { localToday } from '@/lib/daily-date';
+import { notifySuccess } from '@/lib/notify';
 /** Owner-only mood editor with encrypted sentence storage, loading/error/saved states and revision support. */
 export function JournalForm({
   profileId,
@@ -30,14 +31,12 @@ export function JournalForm({
   const [loading, setLoading] = useState(Boolean(profileId)),
     [working, setSaving] = useState(false);
   const [error, setError] = useState<MessageKey | null>(null),
-    [saved, setSaved] = useState(false),
     [retry, setRetry] = useState(0);
   const saving = working || pending;
   useEffect(() => {
     if (!profileId) return;
     let active = true;
     setLoading(true);
-    setSaved(false);
     setError(null);
     setMood(null);
     setText('');
@@ -104,11 +103,10 @@ export function JournalForm({
                 run(async () => {
                   setSaving(true);
                   setError(null);
-                  setSaved(false);
                   await saveJournalEntryAction(input.data, locale)
                     .then((result) => {
                       if (result.ok) {
-                        setSaved(true);
+                        notifySuccess(t('journal.saved'));
                         setText(result.data.text);
                       } else
                         setError(
@@ -137,7 +135,6 @@ export function JournalForm({
                         required
                         onChange={() => {
                           setMood(value);
-                          setSaved(false);
                         }}
                       />
                       {t(`journal.mood.${value}` as MessageKey)}
@@ -154,14 +151,12 @@ export function JournalForm({
                   disabled={saving || future}
                   onChange={(event) => {
                     setText(event.target.value);
-                    setSaved(false);
                   }}
                 />
               </label>
               <Button type="submit" disabled={saving || future || mood === null}>
                 {t(saving ? 'common.loading' : 'journal.save')}
               </Button>
-              {saved ? <p role="status">{t('journal.saved')}</p> : null}
             </form>
           ) : null}
         </>

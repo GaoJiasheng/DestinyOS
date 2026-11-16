@@ -18,7 +18,10 @@ export function useBirthTarget({
   setName,
   setPrecise,
   setError,
+  known,
 }: {
+  /** Set when the host already knows whose birth this is (a partner, or a profile's relation). */
+  known?: BirthTarget;
   signedIn: boolean;
   hasInitial: boolean;
   embedded: boolean;
@@ -30,7 +33,12 @@ export function useBirthTarget({
   setPrecise: (precise: boolean) => void;
   setError: (key: string) => void;
 }) {
-  const [target, setTarget] = useState<BirthTarget | null>(profileMode ? 'self' : null);
+  const [target, setTarget] = useState<BirthTarget | null>(known ?? (profileMode ? 'self' : null));
+  // The profile editor's relation select can change whose birth this is after mounting.
+  const fallback = profileMode ? 'self' : null;
+  useEffect(() => {
+    setTarget(known ?? fallback);
+  }, [known, fallback]);
   const [saved, setSaved] = useState<Saved | null>(null);
   const prefilled = useRef(false);
   const fill = useCallback(

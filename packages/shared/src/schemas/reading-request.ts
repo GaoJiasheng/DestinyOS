@@ -13,6 +13,8 @@ export const ReadingRequestSchema = z
     partnerProfileId: z.string().min(1).max(100).optional(),
     // DESIGN-GAP: The server records the second profile version in the encrypted snapshot for stale-report detection.
     partnerProfileVersion: z.number().int().min(1).optional(),
+    // Whose birth `birth` is. Only an explicit 'other' lifts the under-13 check; absent means the user.
+    subject: z.enum(['self', 'other']).optional(),
     locale: z.enum(['zh', 'en', 'zh-TW']).default('zh'),
     name: NumerologyNameSchema.optional(),
     displayName: z.string().trim().max(80).optional(),

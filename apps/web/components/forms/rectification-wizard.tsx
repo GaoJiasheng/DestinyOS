@@ -12,7 +12,9 @@ import {
   type RectificationAnswers,
 } from '@tianji/shared';
 import type { RankedRectificationCandidate } from '@tianji/engine/rectification';
-import { createReadingAction, upsertProfileAction, blockAgeAction } from '@/app/readings/actions';
+import { createReadingAction, upsertProfileAction } from '@/app/readings/actions';
+import { AgeConfirmDialog, type BirthTarget } from './birth-form-parts';
+import { useAgeQuestion } from './use-age-question';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
 import { useRouter } from '@/i18n/navigation';
@@ -31,7 +33,7 @@ export function RectificationWizard({
   initial,
   signedIn,
 }: {
-  initial?: BirthInput & { displayName?: string; profileId?: string };
+  initial?: BirthInput & { displayName?: string; profileId?: string; relation?: string };
   signedIn: boolean;
 }) {
   const { pending, run } = useSubmitTransition();
@@ -44,6 +46,8 @@ export function RectificationWizard({
   // Only a trial that starts from the selected profile (or the guest's device profile) may rewrite it;
   // a draft handed over from a birth form may describe someone else.
   const [ownProfile, setOwnProfile] = useState(false);
+  // Whose birth is being tried: a non-self profile is someone else; otherwise asked when under 13.
+  const [subject, setSubject] = useState<BirthTarget | null>(null);
   const [ready, setReady] = useState(false);
   const [editing, setEditing] = useState(false);
   const [working, setBusy] = useState(false);
@@ -74,6 +78,8 @@ export function RectificationWizard({
             ? !draft.success && Boolean(initial?.profileId)
             : !draft.success || !data?.profile,
         );
+        if (signedIn && !draft.success && initial?.relation && initial.relation !== 'self')
+          setSubject('other');
         setName(
           draft.success
             ? draft.data.displayName
@@ -94,15 +100,27 @@ export function RectificationWizard({
   useEffect(() => {
     if (candidates) resultHeading.current?.focus();
   }, [candidates]);
-  const rank = async () => {
+  const markOther = () => {
+    setSubject('other');
+    // Someone else's trial never rewrites the user's own profile.
+    setOwnProfile(false);
+  };
+  const age = useAgeQuestion({
+    // "I made a mistake" reopens the birth editor.
+    focusYear: () => setEditing(true),
+    onOther: () => {
+      markOther();
+      afterConsent(() => run(() => rank('other')));
+    },
+  });
+  const rank = async (who: BirthTarget | null = subject) => {
     if (!birth) return;
     setBusy(true);
     setError(null);
     try {
       const { isUnderThirteen } = await import('@/lib/birth-form');
-      if (isUnderThirteen(birth, locale)) {
-        await blockAgeAction();
-        router.replace('/age-restricted');
+      if (who !== 'other' && isUnderThirteen(birth, locale)) {
+        age.ask();
         return;
       }
       const { rectifyBirth } = await import('@tianji/engine/rectification');
@@ -148,6 +166,7 @@ export function RectificationWizard({
         birth: ownProfile && signedIn ? undefined : selected,
         locale,
         displayName: name,
+        subject: subject ?? 'self',
         idempotencyKey: crypto.randomUUID(),
       };
       const req = request;
@@ -196,7 +215,9 @@ export function RectificationWizard({
         <BirthForm
           initial={birth ? { ...birth, displayName: name } : undefined}
           signedIn={signedIn}
-          onComplete={(input, displayName) => {
+          subject={subject ?? undefined}
+          onComplete={(input, displayName, who) => {
+            if (who === 'other') markOther();
             // Changed birth facts no longer describe the saved profile, so the trial must not overwrite it.
             if (birth && JSON.stringify(input) !== JSON.stringify(birth)) setOwnProfile(false);
             setBirth(input);
@@ -275,7 +296,7 @@ export function RectificationWizard({
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            afterConsent(() => run(rank));
+            afterConsent(() => run(() => rank()));
           }}
         >
           <label className="birth-field">
@@ -329,6 +350,7 @@ export function RectificationWizard({
         </form>
       )}
       {busy ? <p role="status">{t('loading')}</p> : null}
+      <AgeConfirmDialog {...age.dialog} />
     </section>
   );
 }

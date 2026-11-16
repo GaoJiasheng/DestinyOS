@@ -9,7 +9,7 @@ import {
   parseReadingChart,
   type ReadingRequest,
 } from './reading-schema';
-import { checkAge, digest, persistReading } from './reading-service';
+import { checkAge, checkRequestAge, digest, persistReading } from './reading-service';
 import { profileBirth, saveProfile } from './profile-service';
 import { sameNatalBirth } from './birth-compare';
 import { stripPII } from './strip-pii';
@@ -102,12 +102,11 @@ export async function importAnonymousBatch(
   const input = ImportBatchSchema.parse(raw);
   const checked = input.readings.map(validate);
   const valid = checked.filter((item): item is Valid => 'request' in item);
-  // Age limits stay strict: one under-age snapshot rejects the whole batch before any write.
+  // Age limits stay strict: one under-age snapshot of the user rejects the whole batch before any write.
+  // The device profile is always the user; a reading counts as someone else's only when the device
+  // recorded `subject: 'other'`, so snapshots saved before that mark existed are checked as the user's.
   if (input.profile) checkAge(input.profile, 'zh');
-  for (const item of valid) {
-    if (item.request.birth) checkAge(item.request.birth, item.request.locale);
-    if (item.request.partnerBirth) checkAge(item.request.partnerBirth, item.request.locale);
-  }
+  for (const item of valid) checkRequestAge(item.request);
   const results: ImportItemResult[] = checked.map((item) =>
     'request' in item ? { status: 'failed', code: 'E_INTERNAL' } : item,
   );

@@ -150,6 +150,7 @@ describe('rectified birth provenance', () => {
       expect(complete).toHaveBeenCalledWith(
         expect.objectContaining({ timeSource: 'rectified', rectificationConfidence: 0.4 }),
         '',
+        'self',
       ),
     );
     fireEvent.click(await screen.findByRole('button', { name: zh['form.birth.back'] }));
@@ -218,18 +219,55 @@ describe('age check, draft and history', () => {
     sessionStorage.clear();
     window.history.replaceState(null, '', '/');
   });
-  it('asks before locking an under-13 birthday and does not lock for someone else', async () => {
-    const { blockAgeAction } = await import('../app/readings/actions');
+  it('asks about an under-13 birthday and continues as someone else without locking', async () => {
+    const { blockAgeAction, createReadingAction } = await import('../app/readings/actions');
+    vi.mocked(createReadingAction).mockClear();
     zhShow(<BirthForm />);
     fillDate('2020');
     fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
     fireEvent.click(await screen.findByRole('button', { name: zh['form.birth.ageCheck.other'] }));
     expect(blockAgeAction).not.toHaveBeenCalled();
-    await screen.findByText(zh['form.birth.error.underThirteen']);
-    expect((screen.getByLabelText(zh['form.birth.for.other']) as HTMLInputElement).checked).toBe(
-      true,
-    );
+    await screen.findByLabelText(zh['form.birth.city']);
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.submit'] }));
+    await vi.waitFor(() => expect(createReadingAction).toHaveBeenCalled());
+    // Someone else's chart is marked for the server and never adopted as the user's profile.
+    expect(vi.mocked(createReadingAction).mock.calls[0]).toEqual([
+      expect.objectContaining({ subject: 'other', birth: expect.objectContaining({ year: 2020 }) }),
+      { saveAsSelf: false },
+    ]);
+    expect(screen.queryByText(zh['form.birth.error.underThirteen'])).toBeNull();
+  });
+  it('locks for the user\'s own under-13 birthday and only returns to the form on "I made a mistake"', async () => {
+    const { blockAgeAction } = await import('../app/readings/actions');
+    vi.mocked(blockAgeAction).mockClear();
+    vi.mocked(blockAgeAction).mockResolvedValue(undefined);
+    zhShow(<BirthForm />);
+    fillDate('2020');
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    fireEvent.click(await screen.findByRole('button', { name: zh['form.birth.ageCheck.fix'] }));
+    expect(blockAgeAction).not.toHaveBeenCalled();
     expect(screen.queryByLabelText(zh['form.birth.city'])).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    fireEvent.click(await screen.findByRole('button', { name: zh['form.birth.ageCheck.self'] }));
+    expect(blockAgeAction).toHaveBeenCalledOnce();
+  });
+  it('keeps the profile editor for the user only: "someone else" explains instead of saving', async () => {
+    const { blockAgeAction, upsertProfileAction } = await import('../app/readings/actions');
+    vi.mocked(blockAgeAction).mockClear();
+    zhShow(<BirthForm profileMode />);
+    fillDate('2020');
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    fireEvent.click(await screen.findByRole('button', { name: zh['form.birth.ageCheck.other'] }));
+    await screen.findByText(zh['form.birth.error.underThirteen']);
+    expect(screen.queryByLabelText(zh['form.birth.city'])).toBeNull();
+    expect(blockAgeAction).not.toHaveBeenCalled();
+    expect(upsertProfileAction).not.toHaveBeenCalled();
+  });
+  it('treats a saved non-self profile as someone else without asking', async () => {
+    zhShow(<BirthForm initial={{ ...input, year: 2020, relation: 'family' }} signedIn />);
+    fireEvent.click(screen.getByRole('button', { name: zh['form.birth.next'] }));
+    await screen.findByLabelText(zh['form.birth.city']);
+    expect(screen.queryByRole('button', { name: zh['form.birth.ageCheck.self'] })).toBeNull();
   });
   it('records step two in history and restores the session draft after a reload', async () => {
     const view = zhShow(<BirthForm />);

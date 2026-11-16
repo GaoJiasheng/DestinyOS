@@ -71,6 +71,31 @@ it('editing keeps identity and increments version, rejects foreign IDs and inval
     saveProfile(userId, birth, { label: 'New', relation: 'invalid' }, 'en'),
   ).rejects.toThrow();
 });
+it('age-restricts only the self relation, including relabelling a profile as self', async () => {
+  const child = { ...birth, year: 2020 };
+  await expect(
+    saveProfile(userId, child, { label: 'Me', relation: 'self' }, 'zh'),
+  ).rejects.toMatchObject({ code: 'E_AGE_RESTRICTED' });
+  const kid = await saveProfile(userId, child, { label: 'Kid', relation: 'family' }, 'zh');
+  expect(kid.version).toBe(1);
+  await expect(
+    saveProfile(userId, child, { label: 'Kid', relation: 'self' }, 'zh', kid.profileId),
+  ).rejects.toMatchObject({ code: 'E_AGE_RESTRICTED' });
+  const row = await raw.birthProfile.findUniqueOrThrow({ where: { id: kid.profileId } });
+  expect(row.relation).toBe('family');
+  // A reading from that profile is someone else's; the same birth typed without a mark is not.
+  state.selected = kid.profileId;
+  const fromProfile = await resolveBirth(
+    { system: 'bazi', locale: 'zh', idempotencyKey: crypto.randomUUID() },
+    userId,
+  );
+  expect(fromProfile.req.subject).toBe('other');
+  const typed = await resolveBirth(
+    { system: 'bazi', locale: 'zh', birth: child, idempotencyKey: crypto.randomUUID() },
+    userId,
+  );
+  expect(typed.req.subject).toBeUndefined();
+});
 it('current selection is owner-checked, falls back to default, and default changes are separate', async () => {
   const a = await save('First'),
     b = await save('Second');

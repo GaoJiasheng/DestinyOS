@@ -7,6 +7,7 @@ import { ownerFeaturePlan } from '@/lib/membership';
 import { getDb } from '@/lib/db';
 import { ApiError } from '@/lib/api-error';
 import { runAction as run } from '@/lib/action-result';
+import { run as runAgeGated } from '@/lib/reading-action-context';
 import {
   currentProfile,
   ownedProfile,
@@ -82,7 +83,8 @@ export async function profileDetailAction(raw: unknown) {
 }
 /** Validate metadata and encrypted birth facts at the boundary. */
 export async function saveProfileAction(raw: unknown) {
-  return run(async () => {
+  // Saving an under-13 birth as the user's own profile locks the session, like a reading would.
+  return runAgeGated(async () => {
     const input = z
       .object({
         id: idSchema.optional(),

@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { DivinationLoader } from '@/components/ui/divination-loader';
 import { updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
+import type { BirthTarget } from './birth-form-parts';
 import { clearDraft, readDraft, writeDraft } from '@/lib/birth-form-draft';
 // DESIGN-GAP: Signed-in pairing starts from saved profiles; the birth editor loads only when someone is entered by hand.
 const BirthForm = dynamic(() => import('./birth-form').then((module) => module.BirthForm), {
@@ -40,6 +41,8 @@ export function SynastryForm({
     [b, setB] = useState((signedIn && profiles.find((p) => p.id !== first)?.id) || TEMP),
     [birthA, setBirthA] = useState<BirthInput | null>(null),
     [birthB, setBirthB] = useState<BirthInput | null>(null),
+    // Whose birth each hand-entered side is; B is always someone else, A is asked when under 13.
+    [subjects, setSubjects] = useState<Record<'a' | 'b', BirthTarget>>({ a: 'self', b: 'other' }),
     [busy, setBusy] = useState(false),
     [error, setError] = useState<string | null>(null),
     [editing, setEditing] = useState<'a' | 'b' | null>(null),
@@ -47,16 +50,23 @@ export function SynastryForm({
   // Completed guest entries survive a reload in this tab; in-progress fields use each form's own draft.
   useEffect(() => {
     if (signedIn) return;
-    const draft = readDraft<{ a: BirthInput | null; b: BirthInput | null }>('synastry', 'v1');
+    const draft = readDraft<{
+      a: BirthInput | null;
+      b: BirthInput | null;
+      subjects?: Record<'a' | 'b', BirthTarget>;
+    }>('synastry', 'v1');
     if (draft) {
       setBirthA(draft.a);
       setBirthB(draft.b);
+      // Drafts saved before the mark existed describe the user on side A.
+      if (draft.subjects?.a === 'other') setSubjects({ a: 'other', b: 'other' });
     }
     setRestored(true);
   }, [signedIn]);
   useEffect(() => {
-    if (restored && (birthA || birthB)) writeDraft('synastry', 'v1', { a: birthA, b: birthB });
-  }, [restored, birthA, birthB]);
+    if (restored && (birthA || birthB))
+      writeDraft('synastry', 'v1', { a: birthA, b: birthB, subjects });
+  }, [restored, birthA, birthB, subjects]);
   const entered = { a: a === TEMP, b: b === TEMP };
   const active = editing ?? (entered.a && !birthA ? 'a' : entered.b && !birthB ? 'b' : null);
   const ready =
@@ -88,7 +98,7 @@ export function SynastryForm({
       system: 'synastry',
       locale,
       idempotencyKey: crypto.randomUUID(),
-      ...(entered.a ? { birth: birthA! } : { profileId: a }),
+      ...(entered.a ? { birth: birthA!, subject: subjects.a } : { profileId: a }),
       ...(entered.b ? { partnerBirth: birthB! } : { partnerProfileId: b }),
     };
     try {
@@ -192,8 +202,10 @@ export function SynastryForm({
             // The partner form never starts from the device profile.
             prefillProfile={!signedIn && active === 'a'}
             initial={(active === 'a' ? birthA : birthB) ?? undefined}
-            onComplete={(birth) => {
+            subject={active === 'b' ? 'other' : undefined}
+            onComplete={(birth, _name, who) => {
               (active === 'a' ? setBirthA : setBirthB)(birth);
+              setSubjects((current) => ({ ...current, [active]: who }));
               setEditing(null);
             }}
           />
@@ -216,6 +228,7 @@ export function SynastryForm({
             setB(a);
             setBirthA(birthB);
             setBirthB(birthA);
+            setSubjects((current) => ({ a: current.b, b: current.a }));
           }}
         >
           {t('synastry.swap')}

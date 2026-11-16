@@ -162,6 +162,25 @@ test('under 13 is blocked with a session cookie that prevents returning to the f
   await expect(page).toHaveURL(/age-restricted$/);
   expect(await page.evaluate(() => localStorage.getItem('tianji.anon'))).toBeNull();
 });
+test('an under-13 birthday marked as someone else is charted without the session lock', async ({
+  page,
+}) => {
+  await page.addInitScript(() => localStorage.setItem('tianji-disclaimer-v1', 'accepted'));
+  await page.goto('/zh/bazi/new');
+  await page.getByLabel('年', { exact: true }).fill('2020');
+  await page.getByLabel('月', { exact: true }).fill('5');
+  await page.getByLabel('日', { exact: true }).fill('15');
+  await page.getByLabel('我不知道出生时间', { exact: true }).check();
+  await page.getByRole('button', { name: '下一步', exact: true }).click();
+  await page.getByRole('button', { name: '是别人的，继续', exact: true }).click();
+  await page.getByLabel('出生城市', { exact: true }).fill('北京');
+  await page.getByRole('option').filter({ hasText: 'Asia/Shanghai' }).first().click();
+  await page.getByRole('button', { name: '排盘', exact: true }).click();
+  await expect(page).toHaveURL(/\/zh\/bazi\/r\/local\//, { timeout: 90_000 });
+  expect((await page.context().cookies()).find((c) => c.name === 'age_gate')).toBeUndefined();
+  await page.goto('/zh/bazi/new');
+  await expect(page).toHaveURL(/\/zh\/bazi\/new$/);
+});
 test('geography validates coordinate bounds and resolves local timezone data', async ({
   request,
 }) => {

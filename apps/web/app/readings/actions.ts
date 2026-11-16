@@ -32,7 +32,7 @@ import {
   idempotentCreate,
   readingView,
   json,
-  checkAge,
+  checkRequestAge,
 } from '@/lib/reading-service';
 import { interpret, localizeReport } from '@tianji/interpret';
 import { loadKnowledge } from '@/lib/knowledge';
@@ -52,12 +52,12 @@ export async function createReadingAction(raw: unknown, rawIntent?: unknown) {
     await guardAge();
     const req = ReadingRequestSchema.parse(raw);
     const intent = ReadingIntentSchema.parse(rawIntent);
-    if (req.birth) checkAge(req.birth, req.locale);
+    checkRequestAge(req);
     const session = await auth();
     const id = session?.user.id;
     const ip = requestIp(await headers());
     const resolved = await resolveBirth(req, id);
-    if (resolved.req.birth) checkAge(resolved.req.birth, req.locale);
+    checkRequestAge(resolved.req);
     assertRateLimit(
       await ratelimit(
         id
@@ -195,7 +195,7 @@ export async function upsertProfileAction(
     const birth = BirthInputSchema.parse(raw);
     const lang = z.enum(['zh', 'en', 'zh-TW']).parse(locale);
     const name = z.string().trim().max(80).parse(displayName);
-    checkAge(birth, lang);
+    // The age rule follows the edited profile's relation, so it is enforced inside saveProfile.
     const expected = idSchema.optional().parse(expectedProfileId);
     return saveCurrentProfile(await userId(), birth, name, lang, expected);
   });
@@ -290,7 +290,7 @@ export async function translateAnonymousReportAction(raw: unknown, locale: 'zh' 
         request: ReadingRequestSchema,
       })
       .parse(raw);
-    if (input.request.birth) checkAge(input.request.birth, lang);
+    checkRequestAge(input.request);
     const chart = parseReadingChart(input.system, stripPII(input.chart));
     ReadingMetaSchema.parse(input.meta);
     await limitReadingWork();
@@ -356,7 +356,7 @@ export async function previewAstrologyHousesAction(raw: unknown) {
     }
     if (!request?.birth || request.system !== 'astrology' || !now)
       throw new ApiError('E_INVALID_INPUT', 'Natal birth snapshot required', 400);
-    checkAge(request.birth, input.locale);
+    checkRequestAge(request);
     const ip = requestIp(await headers());
     assertRateLimit(
       await ratelimit(

@@ -55,3 +55,37 @@ describe('merged numerology report exports', () => {
     }
   }
 });
+
+describe('print cover score block', () => {
+  const render = (scores: ReturnType<typeof baziReading>['report']['headline']['scores']) => {
+    const source = baziReading('zh');
+    const reading = {
+      ...source,
+      report: { ...source.report, headline: { ...source.report.headline, scores } },
+    };
+    return renderToStaticMarkup(
+      <NextIntlClientProvider
+        locale="zh"
+        timeZone="UTC"
+        messages={toMessages(zh)}
+        onError={(error) => {
+          throw error;
+        }}
+      >
+        <PrintReport reading={reading} theme="light" qr="data:image/png;base64," />
+      </NextIntlClientProvider>,
+    );
+  };
+  it('omits the radar, its labels and the score marker when all five scores are identical', () => {
+    const markup = render({ career: 3, wealth: 3, love: 3, health: 3, social: 3 });
+    expect(markup).not.toContain('print-radar');
+    expect(markup).not.toContain('/5');
+    expect(markup).not.toContain('data-radar');
+  });
+  it('draws the radar and its labels when scores differ', () => {
+    const markup = render({ career: 3, wealth: 4, love: 3, health: 3, social: 3 });
+    expect(markup).toContain('print-radar');
+    expect(markup).toContain('data-radar="true"');
+    expect(markup).toContain('4/5');
+  });
+});

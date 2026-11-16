@@ -1,7 +1,12 @@
 import { LunarYear } from 'lunar-typescript';
 import { IanaTimezoneSchema, type BirthInput } from '@tianji/shared';
 import { lunarDayCount } from './birth-form';
-import { dateIssues as baseDateIssues, type FieldIssue } from './birth-form-date';
+import {
+  birthFields,
+  dateIssues as baseDateIssues,
+  type BirthField,
+  type FieldIssue,
+} from './birth-form-date';
 export { birthFields, type BirthField, type FieldIssue } from './birth-form-date';
 const lunar = {
   leapMonth: (year: number) => LunarYear.fromYear(year).getLeapMonth(),
@@ -29,3 +34,6 @@ export function stepTwoIssues(birth: BirthInput, cityPending: boolean): FieldIss
     issues.push({ field: 'tz', key: 'form.birth.error.tz' });
   return issues;
 }
+/** DOM ids for every birth field, derived from one React id. */
+export const fieldIds = (base: string) =>
+  Object.fromEntries(birthFields.map((f) => [f, `${base}-${f}`])) as Record<BirthField, string>;

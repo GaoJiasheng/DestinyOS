@@ -1,4 +1,5 @@
 'use client';
+import type { MessageKey } from '@/i18n/catalog';
 import { useCopy } from '@/i18n/use-copy';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
@@ -10,6 +11,7 @@ export function ReportOwnerDialog({
   setTitle,
   busy,
   confirm,
+  error,
 }: {
   dialog: 'rename' | 'delete' | null;
   setDialog: (value: 'rename' | 'delete' | null) => void;
@@ -17,6 +19,7 @@ export function ReportOwnerDialog({
   setTitle: (value: string) => void;
   busy: boolean;
   confirm: () => Promise<void>;
+  error: MessageKey | null;
 }) {
   const t = useCopy();
   return (
@@ -34,6 +37,7 @@ export function ReportOwnerDialog({
           <input value={title} maxLength={120} onChange={(e) => setTitle(e.target.value)} />
         </label>
       ) : null}
+      {error ? <p role="alert">{t(error)}</p> : null}
       <div className="hero-actions">
         <Button variant="secondary" disabled={busy} onClick={() => setDialog(null)}>
           {t('report.cancel')}

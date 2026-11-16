@@ -169,7 +169,9 @@ for (const locale of ['en', 'zh'] as const) {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'west');
     await page.getByRole('checkbox', { name: copy['me.motion'], exact: true }).check();
     await page.getByRole('button', { name: copy['me.save'], exact: true }).click();
-    await expect(page.getByRole('status').filter({ hasText: copy['me.saved'] })).toBeVisible();
+    await expect(
+      page.locator('[data-sonner-toast]').filter({ hasText: copy['me.saved'] }),
+    ).toBeVisible();
     await expect(page.locator('html')).toHaveAttribute('data-reduced-motion', 'true');
     await page.goto(`/${locale}/bazi`);
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'west');
@@ -334,7 +336,9 @@ for (const locale of ['en', 'zh'] as const) {
       .selectOption('west');
     await page.getByRole('checkbox', { name: copy['me.motion'], exact: true }).check();
     await page.getByRole('button', { name: copy['me.save'], exact: true }).click();
-    await expect(page.getByRole('status').filter({ hasText: copy['me.saved'] })).toBeVisible();
+    await expect(
+      page.locator('[data-sonner-toast]').filter({ hasText: copy['me.saved'] }),
+    ).toBeVisible();
     await page.goto(`/s/${link.token}?locale=${locale}`);
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'west');
     await expect(page.locator('html')).toHaveAttribute('data-reduced-motion', 'true');

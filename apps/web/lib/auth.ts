@@ -52,6 +52,10 @@ export const { auth, handlers, signIn, signOut } = NextAuth(() => {
         // DESIGN-GAP: Auth.js defaults to PKCE only; require state and OIDC nonce explicitly.
         checks: ['pkce', 'state', 'nonce'],
         authorization: { params: { scope: 'openid email profile' } },
+        // Owner decision (2026-11-16): a Google sign-in joins the existing account with the same
+        // address. The signIn callback below runs first and rejects any Google profile whose
+        // email is not verified, so only an address Google vouches for can be linked.
+        allowDangerousEmailAccountLinking: true,
       }),
       {
         // DESIGN-GAP: Keep the existing Auth.js provider ID and callback routes for compatibility; delivery uses Cloudflare, without the Resend provider.

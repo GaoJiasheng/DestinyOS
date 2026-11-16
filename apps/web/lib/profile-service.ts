@@ -77,7 +77,10 @@ export async function saveProfile(
 ) {
   const birth = BirthInputSchema.parse(raw),
     info = ProfileMetadataSchema.parse(metadata);
-  if (isUnderThirteen(birth, locale)) throw new ApiError('E_AGE_RESTRICTED', 'Age restricted', 403);
+  // Only the user's own profile is age-restricted; profiles for other people may be any age.
+  // Relabelling an under-13 profile as 'self' is therefore rejected like any other self entry.
+  if (info.relation === 'self' && isUnderThirteen(birth, locale))
+    throw new ApiError('E_AGE_RESTRICTED', 'Age restricted', 403);
   const normalized = normalizeBirth(birth, locale);
   const { place, gender, ...input } = birth;
   const tx = getDb();

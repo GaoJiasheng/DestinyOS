@@ -69,7 +69,13 @@ export function ProfileManager({ initial }: { initial: Data }) {
     }
   }
   const errorText = error ? (
-    <p role="alert">{t(`report.error.${error}` as Parameters<typeof t>[0])}</p>
+    <p role="alert">
+      {t(
+        error === 'underThirteen'
+          ? 'form.birth.error.underThirteen'
+          : (`report.error.${error}` as Parameters<typeof t>[0]),
+      )}
+    </p>
   ) : null;
   return (
     <section className="settings-page">
@@ -185,7 +191,11 @@ export function ProfileManager({ initial }: { initial: Data }) {
             profileMode
             initial={edit.birth}
             completionKey="profiles.save"
-            onComplete={async (birth, label) => {
+            // Any relation but 'self' is someone else, who may be under 13.
+            subject={relation === 'self' ? undefined : 'other'}
+            onComplete={async (birth, label, who) => {
+              // "Someone else" with relation 'self' contradicts itself; ask for the right relation.
+              if (who === 'other' && relation === 'self') return setError('underThirteen');
               setBusy(true);
               setError(null);
               try {
@@ -198,7 +208,8 @@ export function ProfileManager({ initial }: { initial: Data }) {
                 if (r.ok) {
                   setEdit(null);
                   await reload();
-                } else setError(r.error.code);
+                } else if (r.error.code === 'E_AGE_RESTRICTED') router.replace('/age-restricted');
+                else setError(r.error.code);
               } catch {
                 setError('E_INTERNAL');
               } finally {

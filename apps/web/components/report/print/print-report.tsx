@@ -10,6 +10,7 @@ import {
   VedicChartSchema,
 } from '@tianji/shared';
 import type { ReadingView } from '@/lib/reading-schema';
+import { hasScoreSpread } from '../report-utils';
 import { PrintChart } from './print-chart';
 import { paginatePrint } from './print-pagination';
 const dims = ['career', 'wealth', 'love', 'health', 'social'] as const;
@@ -85,6 +86,8 @@ export function PrintReport({
           ? t(`charts.sign.${v.data.moon.rashi}`)
           : '';
   const point = (i: number, radius: number) => radarPoint(i, radius, [180, 175]).join(',');
+  // DESIGN-GAP: Natal readings without a scoring basis report five identical scores; the cover then omits the whole radar.
+  const showScores = hasScoreSpread(reading.report.headline.scores);
   // DESIGN-GAP: Saved reports can contain fewer than three keywords; complete the cover using existing highest-scored dimension labels, without inventing traits.
   const keywords = [
     ...new Set([
@@ -130,7 +133,7 @@ export function PrintReport({
       <div className="print-source">
         <div className={layout === 'poster' ? 'print-intro' : undefined}>
           <section data-print-section="cover">
-            <div className="print-cover" data-print-block>
+            <div className="print-cover" data-print-block data-radar={showScores || undefined}>
               <p className="print-kicker">{t('export.edition')}</p>
               <div className="print-brand-zh">{t('brand.nameZh', { name: brand.nameZh })}</div>
               <div className="print-brand-en">{t('brand.nameEn', { name: brand.nameEn })}</div>
@@ -141,44 +144,46 @@ export function PrintReport({
                   <span key={k}>{text(k)}</span>
                 ))}
               </div>
-              <svg
-                viewBox="0 0 360 350"
-                className="print-radar"
-                role="img"
-                aria-label={t('report.radar')}
-              >
-                {[1, 2, 3, 4, 5].map((n) => (
+              {showScores ? (
+                <svg
+                  viewBox="0 0 360 350"
+                  className="print-radar"
+                  role="img"
+                  aria-label={t('report.radar')}
+                >
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <polygon
+                      key={n}
+                      points={dims.map((_, i) => point(i, n * 20)).join(' ')}
+                      fill="none"
+                      stroke="var(--line-2)"
+                    />
+                  ))}
                   <polygon
-                    key={n}
-                    points={dims.map((_, i) => point(i, n * 20)).join(' ')}
-                    fill="none"
-                    stroke="var(--line-2)"
+                    points={dims
+                      .map((d, i) => point(i, reading.report.headline.scores[d] * 20))
+                      .join(' ')}
+                    fill="var(--accent-glow)"
+                    stroke="var(--gold)"
+                    strokeWidth="2"
                   />
-                ))}
-                <polygon
-                  points={dims
-                    .map((d, i) => point(i, reading.report.headline.scores[d] * 20))
-                    .join(' ')}
-                  fill="var(--accent-glow)"
-                  stroke="var(--gold)"
-                  strokeWidth="2"
-                />
-                {dims.map((d, i) => {
-                  const [x, y] = point(i, 140).split(',');
-                  return (
-                    <text
-                      key={d}
-                      x={x}
-                      y={y}
-                      textAnchor="middle"
-                      fill="var(--text-2)"
-                      fontSize="12"
-                    >
-                      {t(`report.dim.${d}`)} {reading.report.headline.scores[d]}/5
-                    </text>
-                  );
-                })}
-              </svg>
+                  {dims.map((d, i) => {
+                    const [x, y] = point(i, 140).split(',');
+                    return (
+                      <text
+                        key={d}
+                        x={x}
+                        y={y}
+                        textAnchor="middle"
+                        fill="var(--text-2)"
+                        fontSize="12"
+                      >
+                        {t(`report.dim.${d}`)} {reading.report.headline.scores[d]}/5
+                      </text>
+                    );
+                  })}
+                </svg>
+              ) : null}
               <div className="print-cover-bottom">
                 <div>
                   {reading.birthYear ? (

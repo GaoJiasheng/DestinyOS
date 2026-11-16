@@ -7,7 +7,6 @@ import {
   BaziChartSchema,
   AstroChartSchema,
   VedicChartSchema,
-  type BirthInput,
   type Locale,
   SpreadKeySchema,
   CategorySchema,
@@ -17,7 +16,7 @@ import { getDb } from './db';
 import { currentProfile, profileBirth, ownedProfile } from './profile-service';
 import { recordEvent } from './events';
 import { stripPII } from './strip-pii';
-import { isUnderThirteen } from './birth-form';
+import { birthSubject, checkAge, checkRequestAge, profileSubject } from './reading-age';
 import { ApiError } from './api-error';
 import {
   ReadingRequestSchema,
@@ -34,10 +33,6 @@ const digest = (value: string) => createHash('sha256').update(value).digest('hex
 /** Serialize validated domain data into Prisma-compatible JSON values. */
 const json = (value: unknown): Prisma.InputJsonValue =>
   JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
-/** Reject underage requests before computing or storing any profile or reading. */
-export function checkAge(birth: BirthInput, locale: Locale) {
-  if (isUnderThirteen(birth, locale)) throw new ApiError('E_AGE_RESTRICTED', 'Age restricted', 403);
-}
 /** Compute then interpret using one immutable chart; callers persist only sanitized derivatives. */
 export async function generateReading(req: ReadingRequest, now: string, userId?: string) {
   // DESIGN-GAP: Load computation only for report generation, never merely to read a stored report.
@@ -45,8 +40,7 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
   const { normalizeBirth } = await import('@tianji/engine/common');
   const { interpret } = await import('@tianji/interpret');
   const birth = req.birth ? normalizeBirth(req.birth, req.locale) : null;
-  if (req.birth) checkAge(req.birth, req.locale);
-  if (req.partnerBirth) checkAge(req.partnerBirth, req.locale);
+  checkRequestAge(req);
   // DESIGN-GAP: 07's flat divination fields are adapted to each pure engine's existing input shape.
   const questionRecord = typeof req.question === 'string' ? { text: req.question } : req.question;
   let question = questionRecord;
@@ -300,13 +294,19 @@ export async function resolveBirth(req: ReadingRequest, userId?: string) {
   if (!profile && !req.birth) throw new ApiError('E_PROFILE_REQUIRED', 'Profile required', 400);
   // Explicit form birth is a trial snapshot; still associate it with the selected profile for history.
   const birth = req.birth ?? (profile ? profileBirth(profile) : undefined);
+  const subject = birthSubject(req, profile);
   if (req.system !== 'synastry')
-    return { req: { ...req, birth, profileId: profile?.id }, profile: profile ?? undefined };
+    return {
+      req: { ...req, birth, profileId: profile?.id, subject },
+      profile: profile ?? undefined,
+    };
   if (profile?.id && profile.id === req.partnerProfileId)
     throw new ApiError('E_VALIDATION', 'Two distinct profiles required', 400);
   const partner = req.partnerProfileId ? await ownedProfile(userId, req.partnerProfileId) : null;
   const partnerBirth = partner ? profileBirth(partner) : req.partnerBirth;
   if (!partnerBirth) throw new ApiError('E_PROFILE_REQUIRED', 'Second profile required', 400);
+  // A partner is someone else, except a saved profile the owner marked as themselves.
+  if (partner) checkAge(partnerBirth, req.locale, profileSubject(partner.relation));
   return {
     req: {
       ...req,
@@ -314,6 +314,7 @@ export async function resolveBirth(req: ReadingRequest, userId?: string) {
       partnerBirth,
       profileId: profile?.id,
       partnerProfileVersion: partner?.version,
+      subject,
     },
     profile: profile ?? undefined,
   };
@@ -380,3 +381,5 @@ export async function idempotentCreate(
 }
 export { actionError } from './api-error';
 export { json, digest };
+export { checkAge, checkRequestAge };
+export type { AgeSubject } from './reading-age';

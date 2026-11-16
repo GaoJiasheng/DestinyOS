@@ -12,7 +12,7 @@ import { importAnonymousDataAction } from '@/app/readings/actions';
 import { importInBatches, profileStored, type ImportSummary } from '@/lib/import-batches';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
-import { toast } from 'sonner';
+import { notifySuccess } from '@/lib/notify';
 import type { MessageKey } from '@/i18n/catalog';
 const DISMISS_KEY = 'tianji:anon-import-later';
 function dismissedThisSession(): boolean {
@@ -93,7 +93,7 @@ export function ImportDialog({
       const clean = !outcome.failed && !['skipped', 'limit', 'failed'].includes(outcome.profile);
       if (clean) {
         onOpenChange(false);
-        toast.success(t('report.import.done'));
+        notifySuccess(t('report.import.done'));
         router.push('/me/history');
         router.refresh();
       } else setSummary(outcome);

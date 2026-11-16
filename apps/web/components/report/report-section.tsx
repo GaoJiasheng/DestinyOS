@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { TarotChartSchema } from '@tianji/shared';
 import { TarotDetails } from '@/components/tarot/tarot-details';
-import { toast } from 'sonner';
+import { notifySuccess } from '@/lib/notify';
 import type { Report, Section, ReportBlock } from '@tianji/interpret';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
@@ -150,6 +150,7 @@ export function FeedbackBar({ readingId, sectionKey }: { readingId?: string; sec
   const t = useCopy();
   const [vote, setVote] = useState<number | null>(null);
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<MessageKey | null>(null);
   return (
     <div className="feedback-bar">
       <span>{t('report.feedback')}</span>
@@ -163,20 +164,22 @@ export function FeedbackBar({ readingId, sectionKey }: { readingId?: string; sec
           aria-label={t(v === 1 ? 'report.feedback.yes' : 'report.feedback.no')}
           action={async () => {
             setBusy(true);
+            setError(null);
             await submitFeedbackAction({ readingId, sectionKey, vote: v })
               .then((result) => {
                 if (result.ok) {
                   setVote(v);
-                  toast.success(t('report.feedback.saved'));
-                } else toast.error(t(`report.error.${result.error.code}` as MessageKey));
+                  notifySuccess(t('report.feedback.saved'));
+                } else setError(`report.error.${result.error.code}` as MessageKey);
               })
-              .catch(() => toast.error(t('report.error.E_INTERNAL')))
+              .catch(() => setError('report.error.E_INTERNAL'))
               .finally(() => setBusy(false));
           }}
         >
           {v === 1 ? '👍' : '👎'}
         </Button>
       ))}
+      {error ? <p role="alert">{t(error)}</p> : null}
     </div>
   );
 }

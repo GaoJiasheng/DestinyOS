@@ -8,10 +8,10 @@ import {
   type BirthInput,
   type Locale,
 } from '@tianji/shared';
-import { blockAgeAction, createReadingAction } from '@/app/readings/actions';
+import { createReadingAction } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
 import type { LocalReading, ReadingRequest } from '@/lib/reading-schema';
-import { dateIssues, type BirthField, type FieldIssue } from '@/lib/birth-form-date';
+import { dateIssues, type BirthField } from '@/lib/birth-form-date';
 import { networkError, storageError } from '@/lib/birth-form-submit';
 import { useCopy } from '@/i18n/use-copy';
 import type { MessageKey } from '@/i18n/catalog';
@@ -25,6 +25,7 @@ import {
   invalidProps,
   type BirthTarget,
 } from './birth-form-parts';
+import { useAgeQuestion } from './use-age-question';
 const empty: BirthInput = {
   calendar: 'gregorian',
   year: 0,
@@ -34,9 +35,15 @@ const empty: BirthInput = {
   gender: 'unspecified',
 };
 const dateFields = ['year', 'month', 'day'] as const;
-const underThirteen: FieldIssue = { field: 'year', key: 'form.birth.error.underThirteen' };
 /** Date-only reading form; a guest's device profile is reused only when the reading is for them. */
-export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; signedIn: boolean }) {
+export function NumerologyForm({
+  initial,
+  signedIn,
+}: {
+  /** A saved profile also carries its relation; anything but 'self' is someone else's birth. */
+  initial?: BirthInput & { relation?: string };
+  signedIn: boolean;
+}) {
   const t = useCopy();
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -50,12 +57,20 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
   const [error, setError] = useState<MessageKey | null>(null);
   const [requestId, setRequestId] = useState<string | null>(null);
   const [saved, setSaved] = useState<BirthInput | null>(null);
-  const [target, setTarget] = useState<BirthTarget | null>(null);
+  const [target, setTarget] = useState<BirthTarget | null>(
+    initial?.relation && initial.relation !== 'self' ? 'other' : null,
+  );
   const [touched, setTouched] = useState(false);
   const [blurred, setBlurred] = useState<ReadonlySet<BirthField>>(new Set());
   const [attempted, setAttempted] = useState(false);
-  const [ageIssue, setAgeIssue] = useState<FieldIssue | null>(null);
-  const [ageDialog, setAgeDialog] = useState(false);
+  // "Someone else" submits straight away, so the choice is passed along rather than read from state.
+  const age = useAgeQuestion({
+    focusYear: () => focus('year'),
+    onOther: () => {
+      setTarget('other');
+      afterConsent(() => run(() => submit('other')));
+    },
+  });
   useEffect(() => {
     let active = true;
     const load = async () => {
@@ -90,11 +105,9 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
     setBirth((current) => ({ ...current, ...patch }));
     setRequestId(null);
     setError(null);
-    setAgeIssue(null);
   };
   const chooseTarget = (next: BirthTarget) => {
     setTarget(next);
-    setAgeIssue(null);
     if (!touched) setBirth(next === 'self' && saved ? saved : empty);
   };
   const ids = Object.fromEntries(dateFields.map((f) => [f, `${baseId}-${f}`])) as Record<
@@ -102,10 +115,9 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
     string
   >;
   const issues = dateIssues(birth).filter((i) => attempted || blurred.has(i.field));
-  if (ageIssue && !issues.some((i) => i.field === 'year')) issues.unshift(ageIssue);
   const focus = (field: BirthField) =>
     setTimeout(() => document.getElementById(ids[field] ?? '')?.focus(), 0);
-  /** Returns whether the form may be submitted; under 13 asks first unless already marked as someone else. */
+  /** Returns whether the form may be submitted; under 13 is asked about unless marked as someone else. */
   const check = async () => {
     if (!NumerologyNameSchema.safeParse(name).success) {
       setError('numerology.nameError');
@@ -123,16 +135,13 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
       return false;
     }
     const { isUnderThirteen } = await import('@/lib/birth-form');
-    if (isUnderThirteen(parsed.data, locale)) {
-      if (target === 'other') {
-        setAgeIssue(underThirteen);
-        focus('year');
-      } else setAgeDialog(true);
+    if (target !== 'other' && isUnderThirteen(parsed.data, locale)) {
+      age.ask();
       return false;
     }
     return true;
   };
-  const submit = async () => {
+  const submit = async (subject: BirthTarget) => {
     const parsed = BirthInputSchema.parse(birth);
     setBusy(true);
     setError(null);
@@ -143,6 +152,7 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
       birth: parsed,
       name: name.trim() || undefined,
       locale,
+      subject,
       idempotencyKey,
     };
     try {
@@ -173,7 +183,7 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
       try {
         await updateAnonymous((data) => ({
           ...data,
-          ...(target !== 'other' ? { profile: request.birth } : {}),
+          ...(subject === 'self' ? { profile: request.birth } : {}),
           readings: [reading, ...data.readings].slice(0, 50),
         }));
       } catch {
@@ -198,7 +208,7 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
           // The check stays outside the submit lock: with consent already given the callback
           // fires before an enclosing run() has released it, and the submit would be dropped.
           void check().then((ok) => {
-            if (ok) afterConsent(() => run(submit));
+            if (ok) afterConsent(() => run(() => submit(target ?? 'self')));
           });
         }}
       >
@@ -264,19 +274,7 @@ export function NumerologyForm({ initial, signedIn }: { initial?: BirthInput; si
       </form>
       {!signedIn ? <p className="muted">{t('report.localNotice')}</p> : null}
       <p className="type-small muted">{t('report.disclaimer.short')}</p>
-      <AgeConfirmDialog
-        open={ageDialog}
-        onSelf={() => {
-          setAgeDialog(false);
-          void blockAgeAction().finally(() => router.replace('/age-restricted'));
-        }}
-        onOther={() => {
-          setAgeDialog(false);
-          setTarget('other');
-          setAgeIssue(underThirteen);
-          focus('year');
-        }}
-      />
+      <AgeConfirmDialog {...age.dialog} />
     </section>
   );
 }

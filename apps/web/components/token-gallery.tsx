@@ -1,5 +1,5 @@
 'use client';
-import { toast } from 'sonner';
+import { notifyInfo } from '@/lib/notify';
 import { useCopy } from '@/i18n/use-copy';
 import { designTokens } from '@/lib/design-tokens';
 import { Button } from './ui/button';
@@ -37,7 +37,7 @@ export function TokenGallery() {
             <div className="theme-sample" data-theme={theme} key={theme}>
               <h3 className="type-h2">{t(`nav.theme.${theme}`)}</h3>
               <div className="theme-buttons">
-                <Button onClick={() => toast(t('dev.tokens.toastMessage'))}>
+                <Button onClick={() => notifyInfo(t('dev.tokens.toastMessage'))}>
                   {t('dev.tokens.primary')}
                 </Button>
                 <Button variant="secondary">{t('dev.tokens.secondary')}</Button>
@@ -113,7 +113,9 @@ export function TokenGallery() {
         <TokenList tokens={{ ...designTokens.motion, ...designTokens.extra }} />
         <div className="glow-sample" style={{ boxShadow: 'var(--glow-gold)' }} />
         <div className="glow-sample" style={{ boxShadow: 'var(--glow-accent)' }} />
-        <Button onClick={() => toast(t('dev.tokens.toastMessage'))}>{t('dev.tokens.toast')}</Button>
+        <Button onClick={() => notifyInfo(t('dev.tokens.toastMessage'))}>
+          {t('dev.tokens.toast')}
+        </Button>
       </section>
     </>
   );

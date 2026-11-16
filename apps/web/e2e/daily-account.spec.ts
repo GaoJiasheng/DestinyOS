@@ -245,7 +245,9 @@ for (const locale of ['zh', 'en'] as const) {
     await settings.getByLabel(copy['me.motion'], { exact: true }).check();
     await settings.getByLabel(copy['me.tz'], { exact: true }).selectOption('Asia/Singapore');
     await settings.getByRole('button', { name: copy['me.save'], exact: true }).click();
-    await expect(page.getByRole('status').filter({ hasText: copy['me.saved'] })).toBeVisible();
+    await expect(
+      page.locator('[data-sonner-toast]').filter({ hasText: copy['me.saved'] }),
+    ).toBeVisible();
     expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).reducedMotion).toBe(true);
     await page.getByRole('button', { name: copy['me.delete'], exact: true }).click();
     await page.getByLabel(copy['me.deleteConfirm'], { exact: true }).fill('WRONG');

@@ -53,6 +53,10 @@ describe('report helpers', () => {
     const flat = { career: 3, wealth: 3, love: 3, health: 3, social: 3 } as const;
     expect(hasScoreSpread(flat)).toBe(false);
     expect(hasScoreSpread({ ...flat, love: 4 })).toBe(true);
+    expect(hasScoreSpread(undefined)).toBe(false);
+    expect(hasScoreSpread(null)).toBe(false);
+    expect(hasScoreSpread({})).toBe(false);
+    expect(hasScoreSpread({ career: 3, wealth: 4, love: 3, health: 3 })).toBe(false);
     expect(['tarot', 'iching', 'qimen'].every(isDivination)).toBe(true);
     expect(isDivination('bazi')).toBe(false);
     expect(chartTitleKey('tarot')).toBe('report.chartTitle.tarot');

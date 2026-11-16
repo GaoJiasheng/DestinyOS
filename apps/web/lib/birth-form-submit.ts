@@ -40,6 +40,7 @@ export async function createBirthReading({
   school,
   idempotencyKey,
   writeProfile,
+  subject = 'self',
 }: {
   system: Exclude<System, 'daily'>;
   birth: BirthInput;
@@ -48,6 +49,8 @@ export async function createBirthReading({
   school?: Record<string, string | number | boolean>;
   idempotencyKey: string;
   writeProfile: boolean;
+  /** Whose birth this is; only 'other' lets the server accept an under-13 date. */
+  subject?: 'self' | 'other';
 }): Promise<SubmitOutcome> {
   const began = performance.now();
   const req: ReadingRequest = {
@@ -56,12 +59,13 @@ export async function createBirthReading({
     locale,
     displayName: name,
     options: school ? { school } : undefined,
+    subject,
     idempotencyKey,
   };
   let result: Awaited<ReturnType<typeof createReadingAction>>;
   try {
     // A signed-in owner without a profile adopts their own first chart as the profile; the server ignores this otherwise.
-    result = await createReadingAction(req, { saveAsSelf: writeProfile });
+    result = await createReadingAction(req, { saveAsSelf: writeProfile && subject === 'self' });
   } catch {
     return { error: networkError };
   }
@@ -85,7 +89,8 @@ export async function createBirthReading({
   try {
     await updateAnonymous((data) => ({
       ...data,
-      ...(writeProfile ? { profile: req.birth, displayName: name } : {}),
+      // Someone else's chart never becomes the device's own profile.
+      ...(writeProfile && subject === 'self' ? { profile: req.birth, displayName: name } : {}),
       readings: [local, ...data.readings].slice(0, 50),
     }));
   } catch {

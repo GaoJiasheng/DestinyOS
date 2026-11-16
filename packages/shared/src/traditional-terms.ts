@@ -26,4 +26,11 @@ export const traditionalTerms: ReadonlyArray<readonly [string, string]> = [
   ['命盤里', '命盤裡'],
   ['數字里', '數字裡'],
   ['九宮格里', '九宮格裡'],
+  // DESIGN-GAP: OpenCC turns every 丑 into 醜 (ugly). On this site 丑 is the Earthly Branch, so it is
+  // kept, and the few classical lines that really mean 醜 are restored afterwards.
+  ['醜', '丑'],
+  ['匪其丑', '匪其醜'],
+  ['羣丑', '羣醜'],
+  ['群丑', '群醜'],
+  ['可丑也', '可醜也'],
 ];
