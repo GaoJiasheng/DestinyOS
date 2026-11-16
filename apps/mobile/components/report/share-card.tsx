@@ -15,6 +15,7 @@ import qrTW from '../../assets/share/qr-zh-TW.png';
 import { shareLines } from '../../lib/daily/share-lines';
 import { useCopy } from '../../lib/copy';
 import { useChartLabel } from './report-ui';
+import { hasScoreSpread } from '../../lib/reports/score-spread';
 import { Action, CopyText } from '../native-ui';
 /** Offscreen PNG accepts only the shared public projection, never a reading or birth snapshot. */
 export function ShareCard({ value }: { value: PublicShare }) {
@@ -58,6 +59,7 @@ export function ShareCard({ value }: { value: PublicShare }) {
           i % 5 ? 1 : 3,
           paint,
         );
+      const showScores = hasScoreSpread(value.scores);
       let y = landscape ? 75 : 170;
       let width = landscape ? 630 : 860;
       const line = (text: string, size = 48, max = 4) => {
@@ -83,7 +85,8 @@ export function ShareCard({ value }: { value: PublicShare }) {
       line(t(`share.template.${value.template}`), 38, 1);
       line(value.headline, 42, 3);
       line(value.keywords.join(' · '), 32, 2);
-      for (const dim of SCORE_DIMENSIONS) {
+      // DESIGN-GAP: Five identical scores have no scoring basis, so the whole star block (labels included) is skipped.
+      for (const dim of showScores ? SCORE_DIMENSIONS : []) {
         const baseline = y;
         line(t(`report.dim.${dim}`), 32, 1);
         const count = Math.max(0, Math.min(5, value.scores[dim]));

@@ -7,7 +7,9 @@ import { getLocalStore } from '../lib/data/store';
 import type { LocalReading, LocalRecord } from '../lib/data/models';
 import { ReportSystemSchema } from '../lib/reports/readings';
 import { useCopy } from '../lib/copy';
+import { useReducedMotion, useSystemAccessibility } from '../lib/accessibility';
 import { Page, Action, CopyText } from './native-ui';
+import { HistoryRow } from './history-row';
 
 const PAGE = 50;
 type Item = LocalRecord<LocalReading>;
@@ -38,7 +40,10 @@ export function HistoryScreen() {
     [loading, setLoading] = useState(true),
     [more, setMore] = useState(false),
     [failed, setFailed] = useState(false),
-    [retry, setRetry] = useState(0);
+    [retry, setRetry] = useState(0),
+    [deleteFailed, setDeleteFailed] = useState(false);
+  const reduced = useReducedMotion(),
+    { screenReader } = useSystemAccessibility();
   // Generation guards late pages after a profile switch or retry.
   const generation = useRef(0),
     offset = useRef(0),
@@ -109,6 +114,15 @@ export function HistoryScreen() {
     const profile = profiles?.find((p) => p.id === item.data?.profileId);
     return profile ? profile.data?.name || t('mobile.profiles.unnamed') : null;
   };
+  async function remove(id: string) {
+    setDeleteFailed(false);
+    try {
+      await (await getLocalStore()).readings.delete(id);
+      setReadings((previous) => previous.filter((item) => item.id !== id));
+    } catch {
+      setDeleteFailed(true);
+    }
+  }
   // DESIGN-GAP: Variable-height translated rows use FlatList windowing without fixed getItemLayout so large text never overlaps.
   return (
     <Page title="me.history" scroll={false}>
@@ -119,6 +133,9 @@ export function HistoryScreen() {
           <CopyText>{t('mobile.storage.error')}</CopyText>
           <Action label={t('common.retry')} onPress={() => setRetry((v) => v + 1)} />
         </>
+      )}
+      {deleteFailed && (
+        <CopyText testID="history-delete-error">{t('mobile.storage.error')}</CopyText>
       )}
       {!loading && !failed && !readings.length && (
         <>
@@ -152,20 +169,22 @@ export function HistoryScreen() {
           const detail = detailOf(item),
             values = { system: t(`nav.${system.data}`), date: dateOf(item.createdAt) };
           return (
-            <Action
+            <HistoryRow
               key={item.id}
-              id={`history-${item.id}`}
+              id={item.id}
+              simple={reduced || screenReader}
               label={
                 detail
                   ? t('mobile.history.itemDetail', { ...values, detail })
                   : t('mobile.history.item', values)
               }
-              onPress={() =>
+              onOpen={() =>
                 router.push({
                   pathname: '/[system]/r/[id]',
                   params: { system: system.data, id: item.id },
                 })
               }
+              onDelete={() => void remove(item.id)}
             />
           );
         }}

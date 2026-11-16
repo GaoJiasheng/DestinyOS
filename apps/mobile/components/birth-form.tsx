@@ -17,7 +17,6 @@ import {
   underThirteen,
   validateBirth,
   type BirthField,
-  type FieldIssue,
 } from '../lib/birth-form';
 import { birthDoneHref, relationParam, safeReturnTo } from '../lib/birth-route';
 import { BirthDateFields } from './birth-date-fields';
@@ -76,7 +75,6 @@ export function BirthForm() {
   const [attempted, setAttempted] = useState(0);
   const [blurred, setBlurred] = useState<ReadonlySet<BirthField>>(new Set());
   const [cityPending, setCityPending] = useState(false);
-  const [ageIssue, setAgeIssue] = useState<FieldIssue | null>(null);
   const [dirty, setDirty] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<MessageKey | null>(null);
@@ -90,7 +88,6 @@ export function BirthForm() {
   };
   const change = (patch: Partial<BirthInput>) => {
     touch();
-    setAgeIssue(null);
     setBirth((current) => ({
       ...current,
       ...patch,
@@ -124,8 +121,6 @@ export function BirthForm() {
   const stepIssues =
     step === 1 ? stepOneIssues(birth, precise) : stepTwoIssues(candidate, cityPending);
   const issues = stepIssues.filter((issue) => attempted >= step || blurred.has(issue.field));
-  if (step === 1 && ageIssue && !issues.some((issue) => issue.field === 'year'))
-    issues.unshift(ageIssue);
   const onBlurField = useCallback(
     (field: BirthField) => setBlurred((current) => new Set(current).add(field)),
     [],
@@ -166,13 +161,8 @@ export function BirthForm() {
   }
   function chooseTarget(next: BirthTarget, nextRelation: Relation) {
     touch();
-    setAgeIssue(null);
     setTarget(next);
     setRelation(nextRelation);
-  }
-  function showAgeIssue() {
-    setAgeIssue({ field: 'year', key: 'form.birth.error.underThirteen' });
-    scroll.current?.scrollTo({ y: 0, animated: true });
   }
   /** Step one: a complete date and hour, then the age check (asked unless it is someone else's). */
   function checkStepOne() {
@@ -191,20 +181,19 @@ export function BirthForm() {
       setError(engine);
       return false;
     }
-    if (underThirteen(dateOnly, locale)) {
-      // DESIGN-GAP: The repository still rejects under-13 births, so "someone else" stops here with an inline reason.
-      if (target === 'other') {
-        showAgeIssue();
-        return false;
-      }
+    // Only a birthday the user says is their own is refused; someone else's chart is always allowed.
+    if ((target === 'self' || relation === 'self') && underThirteen(dateOnly, locale)) {
       Alert.alert(t('form.birth.ageCheck.title'), t('form.birth.ageCheck.body'), [
+        { text: t('mobile.birth.ageCheck.fix'), style: 'cancel' },
         {
-          text: t('form.birth.ageCheck.other'),
-          style: 'cancel',
+          text: t('mobile.birth.ageCheck.other'),
           onPress: () => {
+            // The repository re-checks: a profile saved as someone else keeps a non-self relation.
+            touch();
             setTarget('other');
-            if (relation === 'self') setRelation('partner');
-            showAgeIssue();
+            // A child is far more likely family than a partner; the user can still change it on step one.
+            if (relation === 'self') setRelation('family');
+            setStep(2);
           },
         },
         {

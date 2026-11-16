@@ -176,7 +176,7 @@ it('shows save failures and keeps the editor available for retry', async () => {
   fireEvent.press(screen.getByTestId('birth-submit'));
   await waitFor(() => expect(mockReplace).toHaveBeenCalled());
 });
-it('asks before locking an under-13 birth and locks only when it is the user own birthday', async () => {
+it('asks before locking an under-13 birth; it locks only for the user own birthday', async () => {
   const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
   render(<BirthForm />);
   fireEvent.changeText(screen.getByTestId('birth-year'), '2020');
@@ -186,15 +186,29 @@ it('asks before locking an under-13 birth and locks only when it is the user own
   fireEvent.press(screen.getByTestId('birth-submit'));
   expect(mockUpdate).not.toHaveBeenCalled();
   const buttons = alert.mock.calls[0]![2]!;
-  act(() => buttons[0]!.onPress!());
-  expect(screen.getByTestId('birth-error-year')).toBeTruthy();
+  // "I made a mistake" only closes the sheet: nothing is locked and the form stays on step one.
+  expect(buttons[0]!.style).toBe('cancel');
   expect(mockUpdate).not.toHaveBeenCalled();
-  fireEvent.press(screen.getByTestId('birth-for-self'));
+  expect(screen.getByTestId('birth-submit')).toBeTruthy();
   fireEvent.press(screen.getByTestId('birth-submit'));
-  act(() => alert.mock.calls[1]![2]![1]!.onPress!());
+  act(() => alert.mock.calls[1]![2]![2]!.onPress!());
   await waitFor(() => expect(mockUpdate).toHaveBeenCalledWith({ ageBlocked: true }));
   expect(mockSave).not.toHaveBeenCalled();
   await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/age-restricted'));
+  alert.mockRestore();
+});
+it('lets an under-13 birth continue and save once it is marked as someone else', async () => {
+  const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+  render(<BirthForm />);
+  fireEvent.changeText(screen.getByTestId('birth-year'), '2020');
+  fireEvent(screen.getByTestId('birth-month'), 'valueChange', 5);
+  fireEvent(screen.getByTestId('birth-day'), 'valueChange', 15);
+  fireEvent(screen.getByTestId('time-unknown'), 'valueChange', true);
+  fireEvent.press(screen.getByTestId('birth-submit'));
+  act(() => alert.mock.calls[0]![2]![1]!.onPress!());
+  expect(mockUpdate).not.toHaveBeenCalled();
+  expect(screen.queryByTestId('birth-error-year')).toBeNull();
+  expect(screen.getByTestId('gender-male')).toBeTruthy();
   alert.mockRestore();
 });
 it('routes the ask sheet and closes it without selecting a new tab', () => {

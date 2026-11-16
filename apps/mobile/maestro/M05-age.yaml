@@ -102,3 +102,10 @@ appId: pub.gavin.tianji
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: age-restricted-after-restart-en
+# The lock has an exit: clearing this device returns to first-run onboarding.
+- tapOn:
+    id: age-erase
+- tapOn: 'Clear, can.t undo'
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertNotVisible: 'This service is for people aged 13 and over'

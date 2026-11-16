@@ -10,11 +10,8 @@ import { useTheme } from '../../lib/theme';
 import { ReportCard } from './report-ui';
 import { CopyText } from '../native-ui';
 import { isDivination } from '../../lib/reports/launch';
+import { hasScoreSpread } from '../../lib/reports/score-spread';
 
-/** A radar of five identical scores carries no information. */
-export function hasScoreSpread(scores: Report['headline']['scores']): boolean {
-  return new Set(SCORE_DIMENSIONS.map((dimension) => scores[dimension])).size > 1;
-}
 /** Shared five-dimension radar geometry with a text alternative and confidence bar.
  * Divination draws have no natal profile, so scores and confidence are omitted for them;
  * any report whose five scores are identical omits the radar and stars. */

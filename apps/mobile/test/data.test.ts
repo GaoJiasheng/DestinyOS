@@ -176,6 +176,24 @@ test('under-13 birth and malformed input never persist', async () => {
   expect(await store().profiles.list()).toEqual([]);
   expect(ProfileSchema.parse(profile).birth).toEqual(A);
 });
+test('under-13 is refused only for the user own profile', async () => {
+  const child = { ...A, year: 2020 };
+  const other = await store().profiles.save({ ...profile, relation: 'partner', birth: child });
+  expect(other.data?.birth.year).toBe(2020);
+  // Switching someone else's profile to "self", or omitting the relation, re-checks the age.
+  await expect(
+    store().profiles.save({ ...profile, relation: 'self', birth: child }, other.id),
+  ).rejects.toThrow('E_AGE_RESTRICTED');
+  await expect(
+    store().profiles.save({ ...profile, relation: undefined, birth: child }),
+  ).rejects.toThrow('E_AGE_RESTRICTED');
+  const kept = await store().profiles.save(
+    { ...profile, relation: undefined, birth: child },
+    other.id,
+  );
+  expect(kept.data?.relation).toBe('partner');
+  expect((await store().profiles.list()).length).toBe(1);
+});
 test('upgrades from v1, repeat migration, future-schema rejection, and rollback', async () => {
   const connection = sqliteConnection();
   await connection.execAsync(`${migrations[0]} PRAGMA user_version=1;`);

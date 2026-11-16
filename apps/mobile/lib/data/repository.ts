@@ -168,15 +168,20 @@ export class Repository<T> {
         (today.getUTCMonth() + 1 === local.month && today.getUTCDate() < local.day)
           ? 1
           : 0);
-      if (age < 13) throw new Error('E_AGE_RESTRICTED');
       const old = previous?.data ? (JSON.parse(previous.data) as unknown) : null;
       const oldProfile = old ? ProfileSchema.parse(old) : null;
+      // Only a birthday that is the user's own is refused; a missing relation counts as "self" so
+      // old or partial records never open a way around the gate. Re-saving as "self" re-checks here.
+      const relation = profile.relation ?? oldProfile?.relation ?? 'self';
+      if (age < 13 && relation === 'self') throw new Error('E_AGE_RESTRICTED');
       data = {
         ...(oldProfile?.relation && !profile.relation ? { relation: oldProfile.relation } : {}),
         ...(oldProfile?.isDefault !== undefined && profile.isDefault === undefined
           ? { isDefault: oldProfile.isDefault }
           : {}),
         ...profile,
+        // An explicit `undefined` in the save must not erase the stored relation.
+        ...(oldProfile?.relation && !profile.relation ? { relation: oldProfile.relation } : {}),
         version: (oldProfile?.version ?? 0) + 1,
       };
     }

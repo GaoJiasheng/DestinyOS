@@ -14,7 +14,8 @@ export function LocalDataSection() {
     { reload } = useProfiles();
   const [summary, setSummary] = useState<{ profiles: number; readings: number } | null>(null),
     [busy, setBusy] = useState(false),
-    [error, setError] = useState(false);
+    [error, setError] = useState(false),
+    [exportFailed, setExportFailed] = useState(false);
   useEffect(() => {
     let alive = true;
     void localStore()
@@ -43,6 +44,19 @@ export function LocalDataSection() {
       setBusy(false);
     }
   }
+  async function exportData() {
+    setBusy(true);
+    setExportFailed(false);
+    try {
+      const { shareLocalExport } = await import('../lib/data/local-export');
+      await shareLocalExport(await localStore(), t('mobile.localData.export'));
+    } catch {
+      setExportFailed(true);
+    } finally {
+      setBusy(false);
+    }
+  }
+  const empty = !!summary && summary.profiles === 0 && summary.readings === 0;
   return (
     <>
       <CopyText title>{t('mobile.localData.title')}</CopyText>
@@ -50,6 +64,21 @@ export function LocalDataSection() {
         <CopyText testID="local-data-summary">{t('mobile.localData.summary', summary)}</CopyText>
       )}
       <CopyText>{t('mobile.localData.help')}</CopyText>
+      <Action
+        id="local-data-export"
+        disabled={busy || !summary || empty}
+        label={t('mobile.localData.export')}
+        onPress={() =>
+          Alert.alert(t('mobile.localData.export'), t('mobile.localData.exportNote'), [
+            { text: t('profiles.cancel'), style: 'cancel' },
+            { text: t('mobile.localData.exportConfirm'), onPress: () => void exportData() },
+          ])
+        }
+      />
+      {empty && (
+        <CopyText testID="local-data-export-empty">{t('mobile.localData.exportEmpty')}</CopyText>
+      )}
+      {exportFailed && <CopyText testID="local-data-export-error">{t('export.failed')}</CopyText>}
       <Action
         id="local-data-erase"
         disabled={busy}

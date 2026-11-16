@@ -101,3 +101,24 @@ jest.mock('@sentry/react-native', () => ({
   captureEvent: jest.fn(),
   wrap: (component: unknown) => component,
 }));
+// Reanimated's worklet runtime is not available in jest; the swipe container renders its row and its right action inline.
+jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
+  const { View } = jest.requireActual('react-native');
+  const { createElement } = jest.requireActual('react');
+  return {
+    __esModule: true,
+    default: ({
+      children,
+      renderRightActions,
+    }: {
+      children: unknown;
+      renderRightActions?: (p: unknown, t: unknown, m: { close: () => void }) => unknown;
+    }) =>
+      createElement(
+        View,
+        null,
+        children,
+        renderRightActions?.(null, null, { close: () => undefined }),
+      ),
+  };
+});

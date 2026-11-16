@@ -51,11 +51,12 @@ const config: ExpoConfig = {
   orientation: 'portrait',
   userInterfaceStyle: 'dark',
   ios: {
-    buildNumber: '2',
+    buildNumber: '3',
     bundleIdentifier: 'pub.gavin.tianji',
     privacyManifests: privacyManifest,
     appleTeamId: 'D33974QQTD',
-    supportsTablet: true,
+    // DESIGN-GAP: 1.0 ships iPhone-only; the iPad layout has not been accepted and has no store screenshots yet.
+    supportsTablet: false,
     usesAppleSignIn: true,
     associatedDomains: [`applinks:${brand.domain}`],
     entitlements: {
