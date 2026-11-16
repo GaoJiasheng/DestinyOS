@@ -81,7 +81,14 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-year
 - inputText: '2020'
-- hideKeyboard
+- runFlow: shared/close-number-pad.yaml
+- runFlow: shared/birth-wheels.yaml
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: time-unknown
+- tapOn:
+    id: time-unknown
 - scrollUntilVisible:
     centerElement: true
     element:

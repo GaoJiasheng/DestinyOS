@@ -39,7 +39,12 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-year
 - inputText: '1990'
-- hideKeyboard
+- runFlow: ../shared/close-number-pad.yaml
+- runFlow: ../shared/birth-wheels.yaml
+# At least one flow picks a real hour branch instead of using the unknown-time switch.
+- runFlow: ../shared/birth-hour-branch.yaml
+- assertNotVisible:
+    id: birth-minute
 - scrollUntilVisible:
     element:
       id: birth-submit

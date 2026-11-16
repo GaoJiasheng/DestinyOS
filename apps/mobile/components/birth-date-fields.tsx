@@ -128,7 +128,7 @@ export function BirthDateFields({
         <>
           <Action
             id="birth-date-open"
-            label={t('form.birth.dateTime')}
+            label={t('mobile.birth.pickDate')}
             onPress={() => setDatePicker(!datePicker)}
           />
           {datePicker && (
@@ -180,7 +180,17 @@ export function BirthDateFields({
         accessibilityElementsHidden={birth.timeUnknown}
         style={{ opacity: birth.timeUnknown ? 0.4 : 1 }}
       >
-        {toggle(t('form.birth.precise'), precise, setPrecise, 'time-precise', !birth.timeUnknown)}
+        {toggle(
+          t('form.birth.precise'),
+          precise,
+          (value) => {
+            setPrecise(value);
+            // Branch mode has no minute wheel, so a minute picked earlier must not linger unseen.
+            if (!value && birth.minute) change({ minute: 0 });
+          },
+          'time-precise',
+          !birth.timeUnknown,
+        )}
         {/* DESIGN-GAP: The hour wheels start on a "choose" row so an untouched wheel never submits 子时. */}
         {/* DESIGN-GAP: Full-width branches keep ranges readable; remount on mode changes
             because iOS Picker selection overlays retain their prior column width. */}
@@ -219,17 +229,18 @@ export function BirthDateFields({
                 'birth-branch',
                 !birth.timeUnknown,
               )}
-          {wheel(
-            t('form.birth.minute'),
-            birth.minute ?? 0,
-            (value) => change({ minute: Number(value) }),
-            Array.from({ length: 60 }, (_, i) => ({
-              value: i,
-              label: String(i).padStart(2, '0'),
-            })),
-            'birth-minute',
-            !birth.timeUnknown,
-          )}
+          {precise &&
+            wheel(
+              t('form.birth.minute'),
+              birth.minute ?? 0,
+              (value) => change({ minute: Number(value) }),
+              Array.from({ length: 60 }, (_, i) => ({
+                value: i,
+                label: String(i).padStart(2, '0'),
+              })),
+              'birth-minute',
+              !birth.timeUnknown,
+            )}
         </View>
       </View>
       <FieldErrors issues={issues} field="hour" />

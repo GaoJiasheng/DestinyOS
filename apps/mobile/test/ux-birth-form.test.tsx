@@ -166,3 +166,24 @@ it('searches and picks IANA zones', () => {
   fireEvent.press(screen.getByTestId('tz-result-0'));
   expect(onChange).toHaveBeenCalledWith('Australia/Sydney');
 });
+it('shows the minute wheel only in precise mode and drops the minute when leaving it', () => {
+  render(<BirthForm />);
+  expect(screen.queryByTestId('birth-minute')).toBeNull();
+  fireEvent(screen.getByTestId('time-precise'), 'valueChange', true);
+  fireEvent(screen.getByTestId('birth-hour'), 'valueChange', 14);
+  fireEvent(screen.getByTestId('birth-minute'), 'valueChange', 30);
+  expect(screen.getByTestId('birth-minute').props.selectedValue).toBe(30);
+  fireEvent(screen.getByTestId('time-precise'), 'valueChange', false);
+  expect(screen.queryByTestId('birth-minute')).toBeNull();
+  fireEvent(screen.getByTestId('time-precise'), 'valueChange', true);
+  expect(screen.getByTestId('birth-minute').props.selectedValue).toBe(0);
+});
+it('labels the calendar button and the first-step exit by what they do', async () => {
+  render(<BirthForm />);
+  expect(screen.getByTestId('birth-date-open').props.accessibilityLabel).toBe('用日历选择日期');
+  expect(screen.getByTestId('birth-back').props.accessibilityLabel).toBe('取消');
+  await fillDate();
+  fireEvent(screen.getByTestId('time-unknown'), 'valueChange', true);
+  fireEvent.press(screen.getByTestId('birth-submit'));
+  expect(screen.getByTestId('birth-back').props.accessibilityLabel).toBe('上一步');
+});

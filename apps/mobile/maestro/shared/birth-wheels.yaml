@@ -1,0 +1,19 @@
+appId: pub.gavin.tianji
+---
+# Sub-flow, not a test: moves the month and day wheels off "choose" with one slow drag each.
+# Any landing row is valid (the day wheel only lists days of the chosen month), so the exact
+# distance of the drag does not matter; it only has to leave the first row.
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-month
+- swipe:
+    from:
+      id: birth-month
+    direction: UP
+    duration: 1500
+- swipe:
+    from:
+      id: birth-day
+    direction: UP
+    duration: 1500

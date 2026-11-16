@@ -108,10 +108,11 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-year
 - inputText: '1990'
-- hideKeyboard
+- runFlow: shared/close-number-pad.yaml
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: birth-date-zh
+- runFlow: shared/birth-wheels.yaml
 - scrollUntilVisible:
     centerElement: true
     element:
@@ -182,10 +183,12 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-year
 - inputText: '1993'
-- hideKeyboard
+- runFlow: shared/close-number-pad.yaml
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: lunar-leap-zh
+- runFlow: shared/birth-wheels.yaml
+- runFlow: shared/birth-hour-branch.yaml
 - scrollUntilVisible:
     centerElement: true
     element:

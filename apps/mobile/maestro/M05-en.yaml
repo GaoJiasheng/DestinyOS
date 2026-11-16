@@ -99,7 +99,7 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-year
 - inputText: '1988'
-- hideKeyboard
+- runFlow: shared/close-number-pad.yaml
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: birth-date-en

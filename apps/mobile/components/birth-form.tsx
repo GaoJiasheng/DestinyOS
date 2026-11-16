@@ -360,7 +360,12 @@ export function BirthForm() {
         label={t(busy ? 'form.birth.saving' : step === 1 ? 'form.birth.next' : 'form.birth.save')}
         onPress={() => void submit()}
       />
-      <Action id="birth-back" disabled={busy} label={t('form.birth.back')} onPress={back} />
+      <Action
+        id="birth-back"
+        disabled={busy}
+        label={t(step === 1 ? 'profiles.cancel' : 'form.birth.back')}
+        onPress={back}
+      />
     </Page>
   );
 }

@@ -1,0 +1,7 @@
+appId: pub.gavin.tianji
+---
+# Sub-flow, not a test. The year field uses the number pad, which has no return key, so
+# `hideKeyboard` fails on it; the keyboard toolbar's Done button dismisses it instead.
+- tapOn:
+    text: '^(Done|完成)$'
+    optional: true

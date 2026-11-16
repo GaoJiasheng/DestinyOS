@@ -1,0 +1,137 @@
+appId: pub.gavin.tianji
+---
+# Release simulator build. A child born in 2020 can be charted as family; the same birthday as the
+# user's own locks the app, and clearing this device returns to first-run onboarding.
+- launchApp:
+    clearState: true
+    clearKeychain: true
+    permissions:
+      notifications: unset
+- extendedWaitUntil:
+    visible:
+      id: onboarding-0
+    timeout: 90000
+- scrollUntilVisible:
+    element:
+      id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    id: onboarding-next
+- tapOn:
+    id: notifications-request
+- tapOn:
+    text: '^(不允许|Don.t Allow)$'
+    optional: true
+- runFlow:
+    when:
+      visible:
+        id: notifications-denied
+    commands:
+      - tapOn:
+          id: onboarding-next
+- tapOn:
+    id: onboarding-fill
+- extendedWaitUntil:
+    visible:
+      id: birth-year
+    timeout: 30000
+# Part 1: someone else's birthday is allowed.
+- tapOn:
+    id: birth-for-other
+- tapOn:
+    id: profile-relation-family
+- tapOn:
+    id: birth-year
+- inputText: '2020'
+- runFlow: ../shared/close-number-pad.yaml
+- runFlow: ../shared/birth-wheels.yaml
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: time-unknown
+- tapOn:
+    id: time-unknown
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+# No age alert for someone else: step two opens directly.
+- extendedWaitUntil:
+    visible:
+      id: birth-city
+    timeout: 15000
+- tapOn:
+    id: birth-city
+- inputText: 'Beijing'
+- hideKeyboard
+- extendedWaitUntil:
+    visible:
+      id: city-result-0
+    timeout: 30000
+- tapOn:
+    id: city-result-0
+- scrollUntilVisible:
+    element:
+      id: birth-name
+- tapOn:
+    id: birth-name
+- inputText: 'Little One'
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- extendedWaitUntil:
+    visible:
+      id: profile-saved
+    timeout: 30000
+- takeScreenshot: child-profile-saved
+# Part 2: the same birthday as the user's own locks the app.
+- openLink: 'tianji://me/birth'
+- tapOn:
+    text: '^(打开|Open)$'
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: birth-year
+    timeout: 30000
+- tapOn:
+    id: birth-for-self
+- tapOn:
+    id: birth-year
+- inputText: '2020'
+- runFlow: ../shared/close-number-pad.yaml
+- runFlow: ../shared/birth-wheels.yaml
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: time-unknown
+- tapOn:
+    id: time-unknown
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-submit
+- tapOn:
+    id: birth-submit
+- tapOn: "^(是我本人|Yes, it's mine)$"
+- extendedWaitUntil:
+    visible:
+      id: age-erase
+    timeout: 15000
+- takeScreenshot: age-restricted-release
+- tapOn:
+    id: age-erase
+- tapOn: '^(清除，无法恢复|Clear, can.t undo)$'
+- extendedWaitUntil:
+    visible:
+      id: onboarding-0
+    timeout: 30000
+- assertNotVisible:
+    id: age-erase

@@ -83,7 +83,11 @@ export function ShareCard({ value }: { value: PublicShare }) {
         }),
       );
       line(t(`share.template.${value.template}`), 38, 1);
-      line(value.headline, 42, 3);
+      // A portrait card with neither scores nor a diagram is only a quote; set it in the middle and
+      // larger, instead of leaving two thirds of the poster empty under a small paragraph.
+      const quoteOnly = !landscape && !showScores && !value.diagram;
+      if (quoteOnly) y = 720;
+      line(value.headline, quoteOnly ? 56 : 42, quoteOnly ? 5 : 3);
       line(value.keywords.join(' · '), 32, 2);
       // DESIGN-GAP: Five identical scores have no scoring basis, so the whole star block (labels included) is skipped.
       for (const dim of showScores ? SCORE_DIMENSIONS : []) {

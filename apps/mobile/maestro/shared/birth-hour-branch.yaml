@@ -1,0 +1,12 @@
+appId: pub.gavin.tianji
+---
+# Sub-flow, not a test: moves the hour-branch wheel (shown while "exact to the minute" is off) off "choose".
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-branch
+- swipe:
+    from:
+      id: birth-branch
+    direction: UP
+    duration: 1500
