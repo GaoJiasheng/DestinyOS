@@ -114,6 +114,7 @@ test('email code: a wrong code is refused inline, the right one signs in on the 
   // This suite runs on the dev server: the first visit compiles the destination, and that compile
   // reloads whichever page is open, which would cancel the navigation after signing in.
   await page.goto('/zh/me/profiles');
+  await expect(page).toHaveURL(/\/zh\/auth\/login/);
   await page.goto(`/zh/auth/login?callbackUrl=${encodeURIComponent('/zh/me/profiles')}`);
   if (await page.getByRole('dialog').isVisible())
     await page.getByRole('dialog').getByRole('button', { name: '我知道了' }).click();
