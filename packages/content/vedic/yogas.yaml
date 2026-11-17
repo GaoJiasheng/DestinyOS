@@ -470,7 +470,7 @@
   zh:
     title: 孤月瑜伽：主动安排可用的支持
     summary: 你可以主动安排可用的支持，把格局当作观察联系的提示。
-    body: 你可以主动安排可用的支持。孤月瑜伽（按月亮相邻星座是否有其他传统行星排列的格局）在你的盘里由相邻两侧没有火、水、木、金、土五颗行星触发；太阳与节点不参与这项简化检查，也未加入进阶解除规则。这个名称不能说明现实中是否有人关心你。它可以提醒你把需要的支持说清楚。比如准备独立任务时，先找一个愿意提供反馈的同伴，约好交流时间。建议给独处保留价值，也主动搭建联系；不过，命盘中的空位置不是生活中的缺失，不必拿它定义自己。你可以主动发出一次具体邀请，也尊重别人当下能够投入的程度。
+    body: 你可以主动安排可用的支持。孤月瑜伽（按月亮周围星座是否有其他传统行星排列的格局）在你的盘里成立：月亮相邻两侧没有火、水、木、金、土五颗行星，月亮所在星座和由月亮起算的四正宫（第 1、4、7、10 宫）也没有它们；已知出生时间时，由上升起算的四正宫同样没有。太阳与节点不参与这项检查，木星相位等其他解除说法暂未纳入。这个名称不能说明现实中是否有人关心你。它可以提醒你把需要的支持说清楚。比如准备独立任务时，先找一个愿意提供反馈的同伴，约好交流时间。建议给独处保留价值，也主动搭建联系；不过，命盘中的空位置不是生活中的缺失，不必拿它定义自己。你可以主动发出一次具体邀请，也尊重别人当下能够投入的程度。
     advice:
       - 独立做事前，约好一次明确的反馈交流。
     do:
@@ -481,9 +481,11 @@
     title: 'Kemadruma: make support deliberately accessible'
     summary: You can make support deliberately accessible through an ordinary, reviewable action.
     body:
-      'You can make support deliberately accessible. Kemadruma — a pattern based on the signs adjacent to the
-      Moon — is recorded when Mars, Mercury, Jupiter, Venus, and Saturn are absent from those two neighbouring signs.
-      The Sun and nodes are excluded, and advanced cancellation rules are outside this simplified check. The label
+      'You can make support deliberately accessible. Kemadruma — a pattern based on the signs around the
+      Moon — is recorded when Mars, Mercury, Jupiter, Venus, and Saturn are absent from the two signs beside the
+      Moon, from the Moon’s own sign, and from the kendras (1st, 4th, 7th, and 10th) counted from the Moon; with a
+      known birth time, the kendras from the Lagna hold none of them either. The Sun and nodes are excluded, and
+      other cancellation views, such as Jupiter’s aspect, are not applied. The label
       cannot determine whether anyone cares about you. It can prompt you to make useful support explicit: before
       an independent task, ask a willing colleague for feedback at an agreed time. You can value solitude and create
       a route to connection. Consider stating one concrete need rather than expecting the chart’s empty positions
@@ -498,7 +500,7 @@
   meta:
     author: t23-vedic-editorial-v1
     reviewed_by: null
-    version: 2
+    version: 3
     status: published
 - id: vedic.yoga.neecha_bhanga
   system: vedic

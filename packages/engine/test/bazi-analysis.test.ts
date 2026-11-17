@@ -81,7 +81,7 @@ describe('hand-calculated weighted_v1, use god and simplified patterns', () => {
       1 - (p.hour ? 0 : 0.3) - (level === 'balanced' ? 0.15 : 0),
     );
   });
-  it('uses winter fire/summer water as independent tags without changing strong/weak preferences', () => {
+  it('uses winter fire/summer water as independent tags without changing strong/weak preferences, and leaves balanced charts unlabelled', () => {
     const winter = sample([
       ['jia', 'zi'],
       ['jia', 'zi'],
@@ -99,10 +99,13 @@ describe('hand-calculated weighted_v1, use god and simplified patterns', () => {
       ['jia', 'wu'],
       ['jia', 'wu'],
     ]);
-    expect(summer.useGod).toMatchObject({
+    // A balanced chart with a seasonal need favors only the correcting element and labels nothing unfavorable.
+    expect(summer.useGod).toEqual({
       group: 'balance',
       favorable: ['water'],
+      unfavorable: [],
       tiaoHou: 'water',
+      rationale: ['bazi.rules.balance', 'bazi.rules.tiao_hou_water'],
     });
     const weak = sample([
       ['geng', 'shen'],
@@ -110,7 +113,11 @@ describe('hand-calculated weighted_v1, use god and simplified patterns', () => {
       ['jia', 'wu'],
       ['geng', 'shen'],
     ]);
-    expect(weak.useGod).toMatchObject({ group: 'support', favorable: ['wood', 'water'] });
+    expect(weak.useGod).toMatchObject({
+      group: 'support',
+      favorable: ['wood', 'water'],
+      unfavorable: ['fire', 'earth', 'metal'],
+    });
     expect(weak.features.suspected_cong).toBe(true);
     const temperate = synthetic([
       ['jia', 'yin'],
@@ -118,9 +125,19 @@ describe('hand-calculated weighted_v1, use god and simplified patterns', () => {
       ['jia', 'zi'],
     ]);
     const allElements = elementDistribution(temperate);
+    // Balanced without a seasonal need: no invented use god, both lists empty.
+    expect(selectUseGod(temperate, { ...winter.strength, level: 'balanced' }, allElements)).toEqual(
+      {
+        favorable: [],
+        unfavorable: [],
+        group: 'balance',
+        rationale: ['bazi.rules.balance_even'],
+      },
+    );
+    // The same pillars keep the strong/weak split when the score leaves the balanced band.
     expect(
-      selectUseGod(temperate, { ...winter.strength, level: 'balanced' }, allElements).favorable,
-    ).toHaveLength(5);
+      selectUseGod(temperate, { ...winter.strength, level: 'strong' }, allElements),
+    ).toMatchObject({ group: 'drain', favorable: ['fire', 'earth', 'metal'] });
   });
   it('flags a lone unsupported day master weak', () => {
     const p = synthetic([

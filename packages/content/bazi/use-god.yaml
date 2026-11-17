@@ -389,3 +389,126 @@
     reviewed_by: null
     version: 1
     status: published
+- id: bazi.use_god.balanced.even
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    all:
+      - path: strength.level
+        eq: balanced
+      - path: useGod.favorable.length
+        eq: 0
+  weight: 74
+  polarity: neutral
+  tags:
+    - plain
+    - strength.balanced
+  exclusive_with: []
+  zh:
+    title: 喜忌不突出：重在流通
+    summary: 日主强弱中和、未见明显偏枯，这张盘没有特别突出的喜用或忌神。
+    body: 日主强弱中和、未见明显偏枯，这张盘没有特别突出的喜用或忌神。喜用神（传统上用来补足命盘偏向的五行）通常在日主明显偏强或偏弱时才有清楚的方向；你的评分落在中间档，生扶与克泄耗相对接近，所以本报告不硬选一个五行当作用神，也不把任何一类列为需要回避。中和不等于样样顺利，它更像一个提醒：重点不在补什么，而在各方面能否顺畅衔接。你可以回想最近一周，哪件事卡在交接处，比如计划做好了却迟迟没有开始，或者事情办完了却没有收尾。建议先挑一个最常卡住的环节做小调整，过几天再看是否顺手；五行比例表可以当作参考，但不必为了凑齐某一类去添置物件。
+    advice:
+      - 先找一个最常卡住的环节，做一次小调整。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'No standout element: focus on flow'
+    summary: Your Day Master is balanced and the chart shows no clear one-sidedness, so no element stands out as favorable or unfavorable.
+    body: Your Day Master is balanced and the chart shows no clear one-sidedness, so no element stands out as favorable or unfavorable. A use god (yòng shén — the element traditionally chosen to correct a lopsided chart) gives a clear direction mainly when the Day Master is distinctly strong or weak. Your score sits in the middle band, where support and expenditure are fairly close, so this reading does not force one element into that role or mark any category as something to avoid. Balanced does not mean everything runs smoothly. It shifts the question from what to add toward how well the different parts of your life connect. You can think back over the past week and notice where things stalled at a handover, such as a plan that was ready but never started, or a task that was done but never closed. Try making one small change at the point that stalls most often, then check after a few days whether it helped. The element percentages are a reference, not a shopping list.
+    advice:
+      - Find the step that stalls most often and adjust it once.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: ux5-balance-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.balanced.cycle
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    all:
+      - path: strength.level
+        eq: balanced
+      - path: useGod.favorable.length
+        eq: 0
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - strength.balanced
+  exclusive_with: []
+  zh:
+    title: 五行相生：看衔接
+    summary: 中和的盘更适合观察五行之间如何衔接，而不是单看哪一类多或少。
+    body: 中和的盘更适合观察五行之间如何衔接，而不是单看哪一类多或少。传统说法里，五行按相生（木生火、火生土、土生金、金生水、水生木，像一环接一环的传递）连成一圈；喜忌不突出时，可以把这个循环当作整理生活节奏的比喻：酝酿想法、开始行动、稳定下来、收尾检查、休整积累。你可以对照最近一个项目或一段日常安排，看看哪一步最容易被跳过。比如总在行动阶段很投入，却很少留时间复盘，下一轮就容易重复同样的问题。建议在日程里给最常被跳过的那一步留出一个固定的小时段，试行两周后再决定是否保留。这只是象征层面的提醒，具体做法仍以你的实际情况为准。
+    advice:
+      - 给最常跳过的那一步留一个固定时段，试行两周。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: 'The generating cycle: watch the handovers'
+    summary: A balanced chart is better read through how the elements connect than through which one is largest or smallest.
+    body: A balanced chart is better read through how the elements connect than through which one is largest or smallest. In the traditional generating cycle (xiāng shēng — Wood feeds Fire, Fire feeds Earth, Earth feeds Metal, Metal feeds Water, and Water feeds Wood), each category passes something on to the next. When no element stands out as favorable or unfavorable, you can borrow that loop as a metaphor for rhythm, moving from forming an idea to acting on it, settling it, finishing and checking, and then resting and gathering again. You can compare it with a recent project or an ordinary week and notice which step tends to get skipped. Someone who throws energy into action but rarely reviews the result may meet the same problem in the next round. Consider reserving a small, fixed slot for the step you skip most, keep it for two weeks, and then decide whether it earns its place. This is a symbolic prompt, and your actual circumstances decide what is practical.
+    advice:
+      - Reserve a fixed slot for the step you skip most and try it for two weeks.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: ux5-balance-v1
+    reviewed_by: null
+    version: 1
+    status: published
+- id: bazi.use_god.balanced.tiao_hou
+  system: bazi
+  section: elements
+  topic: use_god
+  when:
+    all:
+      - path: strength.level
+        eq: balanced
+      - path: useGod.tiaoHou
+        exists: true
+  weight: 72
+  polarity: neutral
+  tags:
+    - plain
+    - strength.balanced
+  exclusive_with: []
+  zh:
+    title: 只取调候，不列忌神
+    summary: 日主强弱中和，这张盘只把调候的五行列为喜用，其余四类既不算喜也不算忌。
+    body: 日主强弱中和，这张盘只把调候的五行列为喜用，其余四类既不算喜也不算忌。调候（按出生月份讨论寒暖燥湿的辅助判断）在冬月火少时取火，在夏月水少时取水；你的盘正好落在其中一种情况，所以喜用只有一项。其余四类没有被列为忌神，是因为在中和的盘里它们并未造成明显偏枯，这也不表示需要回避相关的颜色、方位或行业。你可以把调候理解成季节性的提醒：冬月出生、火少的盘，可以留意日常是否有足够的活动和交流；夏月出生、水少的盘，可以留意忙碌之后是否留出安静整理和休息的时间。建议从一项容易执行的小安排开始，比如每周固定一次和朋友散步，或者每天留一段不被打扰的时间，再根据实际感受调整。
+    advice:
+      - 从一项容易执行的小安排开始，再按感受调整。
+    do:
+      - 小步实践
+    dont:
+      - 急于定论
+  en:
+    title: Only the seasonal correction is listed
+    summary: Your Day Master is balanced, so only the seasonal-correction element is listed as favorable and the other four are left unlabelled.
+    body: Your Day Master is balanced, so only the seasonal-correction element is listed as favorable; the other four are neither favorable nor unfavorable. Seasonal correction (tiáo hòu — an auxiliary judgment about warmth and moisture based on the birth month) takes Fire when a winter chart has little Fire, and Water when a summer chart has little Water. Your chart falls into one of these cases, which is why the favorable list has a single entry. The remaining categories are not marked unfavorable because, in a balanced chart, none of them creates a clear one-sidedness. That also does not mean avoiding any colour, direction, or occupation. You can treat the correction as a seasonal reminder. For a winter chart short on Fire, notice whether your routine includes enough activity and contact with other people. For a summer chart short on Water, notice whether busy stretches are followed by quiet time to sort things out and rest. Try starting with one easy arrangement, such as a weekly walk with a friend or a regular hour without interruptions, and adjust it to how it actually feels.
+    advice:
+      - Start with one easy arrangement and adjust it to how it feels.
+    do:
+      - Test gradually
+    dont:
+      - Rush conclusions
+  meta:
+    author: ux5-balance-v1
+    reviewed_by: null
+    version: 1
+    status: published

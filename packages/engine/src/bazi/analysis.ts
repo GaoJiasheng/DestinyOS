@@ -92,7 +92,7 @@ export function selectUseGod(
     (e) => e === dm || e === ELEMENTS[mod(ELEMENTS.indexOf(dm) - 1, 5)],
   );
   const drains = ELEMENTS.filter((e) => !supports.includes(e));
-  // DESIGN-GAP: “少” means <10% of distribution; balanced charts prefer the seasonal correction, or all five if none.
+  // DESIGN-GAP: “少” means <10% of distribution.
   const tiaoHou: Element | undefined =
     ['hai', 'zi', 'chou'].includes(pillars.month.branch) && elements.pct.fire < 10
       ? 'fire'
@@ -101,21 +101,29 @@ export function selectUseGod(
         : undefined;
   const group =
     strength.level === 'strong' ? 'drain' : strength.level === 'weak' ? 'support' : 'balance';
-  const favorable: Element[] =
-    group === 'support'
-      ? supports
-      : group === 'drain'
-        ? drains
-        : tiaoHou
-          ? [tiaoHou]
-          : [...ELEMENTS];
-  return {
-    favorable,
-    unfavorable: ELEMENTS.filter((e) => !favorable.includes(e)),
-    group,
-    ...(tiaoHou ? { tiaoHou } : {}),
-    rationale: [`bazi.rules.${group}`, ...(tiaoHou ? [`bazi.rules.tiao_hou_${tiaoHou}`] : [])],
-  };
+  if (group !== 'balance') {
+    const favorable = group === 'support' ? supports : drains;
+    return {
+      favorable,
+      unfavorable: ELEMENTS.filter((e) => !favorable.includes(e)),
+      group,
+      ...(tiaoHou ? { tiaoHou } : {}),
+      rationale: [`bazi.rules.${group}`, ...(tiaoHou ? [`bazi.rules.tiao_hou_${tiaoHou}`] : [])],
+    };
+  }
+  // DESIGN-GAP: systems/bazi §5.6 only says a balanced chart relies on the seasonal
+  // correction (调候). With a seasonal need the correcting element is favorable and nothing
+  // else is labelled; without one the chart shows no clear imbalance, so both lists stay empty
+  // rather than inventing a use god.
+  return tiaoHou
+    ? {
+        favorable: [tiaoHou],
+        unfavorable: [],
+        group,
+        tiaoHou,
+        rationale: ['bazi.rules.balance', `bazi.rules.tiao_hou_${tiaoHou}`],
+      }
+    : { favorable: [], unfavorable: [], group, rationale: ['bazi.rules.balance_even'] };
 }
 /** Main-month ten god establishes the simplified pattern; rootless extreme weakness remains a warning only. */
 export function detectPattern(

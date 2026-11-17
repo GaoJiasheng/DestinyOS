@@ -7,6 +7,7 @@ import { ChartPreview } from '../components/report/chart-preview';
 import { ReportLayout } from '../components/report/report-layout';
 import { ReportSection } from '../components/report/report-section';
 import { BranchRelationDiagram } from '../components/charts/branch-relation-diagram';
+import { ElementRing } from '../components/charts/element-ring';
 import { LuckTimeline } from '../components/charts/luck-timeline';
 import {
   baziSection,
@@ -243,4 +244,55 @@ it('normalizes evidence paths and maps selected fields to the documented chapter
   expect(resolveChartPaths(baziFixture, 'pillars.*.tenGod')).toEqual(
     PILLAR_KEYS.map((key) => `pillars.${key}.tenGod`),
   );
+});
+it('states a balanced chart plainly instead of listing empty or all-five favorable lists', () => {
+  const ring = (useGod: BaziChart['useGod']) => {
+    const { container } = render(
+      <NextIntlClientProvider locale="zh" messages={toMessages(zh)}>
+        <ElementRing chart={{ ...baziFixture, useGod }} />
+      </NextIntlClientProvider>,
+    );
+    const text = (path: string) =>
+      container.querySelector(`[data-chart-path="${path}"]`)?.textContent ?? null;
+    const result = { favorable: text('useGod.favorable'), unfavorable: text('useGod.unfavorable') };
+    cleanup();
+    return result;
+  };
+  const balanced = { favorable: zh['bazi.chart.balanced'], unfavorable: null };
+  expect(
+    ring({
+      favorable: [],
+      unfavorable: [],
+      group: 'balance',
+      rationale: ['bazi.rules.balance_even'],
+    }),
+  ).toEqual(balanced);
+  // Saved before the balanced-chart rule: all five favorable, nothing unfavorable.
+  expect(
+    ring({
+      favorable: ['wood', 'fire', 'earth', 'metal', 'water'],
+      unfavorable: [],
+      group: 'balance',
+      rationale: ['bazi.rules.balance'],
+    }),
+  ).toEqual(balanced);
+  // A seasonal correction is the only label; legacy snapshots also listed the other four as unfavorable.
+  for (const unfavorable of [[], ['wood', 'earth', 'metal', 'water']] as const)
+    expect(
+      ring({
+        favorable: ['fire'],
+        unfavorable: [...unfavorable],
+        group: 'balance',
+        tiaoHou: 'fire',
+        rationale: ['bazi.rules.balance', 'bazi.rules.tiao_hou_fire'],
+      }),
+    ).toEqual({ favorable: '喜用：火', unfavorable: null });
+  expect(
+    ring({
+      favorable: ['fire', 'earth', 'metal'],
+      unfavorable: ['wood', 'water'],
+      group: 'drain',
+      rationale: ['bazi.rules.drain'],
+    }),
+  ).toEqual({ favorable: '喜用：火 · 土 · 金', unfavorable: '忌神：木 · 水' });
 });

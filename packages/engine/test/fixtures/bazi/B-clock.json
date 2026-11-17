@@ -321,10 +321,10 @@
       "confidence": 0.85
     },
     "useGod": {
-      "favorable": ["wood", "fire", "earth", "metal", "water"],
+      "favorable": [],
       "unfavorable": [],
       "group": "balance",
-      "rationale": ["bazi.rules.balance"]
+      "rationale": ["bazi.rules.balance_even"]
     },
     "pattern": {
       "name": "shi_shen",

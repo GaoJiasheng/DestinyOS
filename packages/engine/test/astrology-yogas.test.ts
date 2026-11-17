@@ -113,4 +113,58 @@ describe('all twelve Yoga predicates: positive and negative examples', () => {
       false,
     );
   });
+
+  describe('kemadruma formation and cancellations', () => {
+    // Lagna Aries, Moon Taurus (house 2); Virgo (house 6) is neither beside the Moon nor in a
+    // kendra from the Moon or the Lagna, so parking the five planets there forms the yoga.
+    const base = (overrides: Partial<Record<Graha, Partial<VedicChart['bodies'][number]>>> = {}) =>
+      bodies({
+        chandra: { sign: 'taurus', house: 2 },
+        surya: { sign: 'gemini', house: 3 },
+        rahu: { sign: 'leo', house: 5 },
+        ketu: { sign: 'aquarius', house: 11 },
+        mangala: { sign: 'virgo', house: 6 },
+        budha: { sign: 'virgo', house: 6 },
+        guru: { sign: 'virgo', house: 6 },
+        shukra: { sign: 'virgo', house: 6 },
+        shani: { sign: 'virgo', house: 6 },
+        ...overrides,
+      });
+    const has = (chart: VedicChart['bodies'], withLagna = true) =>
+      detectYogas(chart, withLagna ? lagna : null).some((y) => y.key === 'kemadruma');
+    const noon = (chart: VedicChart['bodies']) => chart.map((b) => ({ ...b, house: null }));
+
+    it('forms when no classical planet is beside, with, or in a kendra from the Moon or Lagna', () => {
+      // The Sun beside the Moon and the nodes in kendras from it neither form nor break the yoga.
+      expect(has(base())).toBe(true);
+      expect(detectYogas(base(), lagna).find((y) => y.key === 'kemadruma')).toEqual({
+        key: 'kemadruma',
+        bodies: ['chandra'],
+        houses: [2],
+      });
+    });
+    it('is not formed when a classical planet sits in the 2nd or 12th sign from the Moon', () => {
+      expect(has(base({ budha: { sign: 'gemini', house: 3 } }))).toBe(false);
+      expect(has(base({ shani: { sign: 'aries', house: 1 } }), false)).toBe(false);
+    });
+    it('is cancelled by a classical planet with the Moon', () => {
+      expect(has(base({ shukra: { sign: 'taurus', house: 2 } }))).toBe(false);
+      expect(has(noon(base({ shukra: { sign: 'taurus', house: 2 } })), false)).toBe(false);
+    });
+    it('is cancelled by a classical planet in a kendra from the Moon', () => {
+      expect(has(base({ shani: { sign: 'leo', house: 5 } }))).toBe(false);
+      expect(has(noon(base({ mangala: { sign: 'scorpio', house: 8 } })), false)).toBe(false);
+    });
+    it('is cancelled by a classical planet in a kendra from a known Lagna', () => {
+      expect(has(base({ guru: { sign: 'cancer', house: 4 } }))).toBe(false);
+      expect(has(base({ guru: { sign: 'capricorn', house: 10 } }))).toBe(false);
+    });
+    it('noon charts skip the Lagna cancellation and judge by the Moon alone', () => {
+      expect(has(noon(base()), false)).toBe(true);
+      expect(has(noon(base({ guru: { sign: 'cancer', house: 4 } })), false)).toBe(true);
+      expect(detectYogas(noon(base()), null).find((y) => y.key === 'kemadruma')?.houses).toEqual(
+        [],
+      );
+    });
+  });
 });

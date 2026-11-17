@@ -25,6 +25,14 @@ export function SynastryChartView({
     intl = useTranslations(),
     [overlay, setOverlay] = useState(true);
   const number = (value: number) => intl('common.number', { value: Math.round(value * 100) / 100 });
+  // A balanced chart names no favourable elements (and older snapshots named all five), so the
+  // share of the partner's elements that "support" them is not a meaningful number.
+  const support = (side: 'a' | 'b', index: 0 | 1) => {
+    const favorable = chart[side].bazi.useGod.favorable.length;
+    return favorable === 0 || favorable === 5
+      ? t('synastry.supportNone')
+      : number(chart.bazi.favorableSupport[index]);
+  };
   const trait = (value: string) =>
     /^\d+$/.test(value) ? number(Number(value)) : intl(`synastry.trait.${value}`);
   // DESIGN-GAP: Sanskrit scoring categories use Chinese descriptive labels in zh while preserving canonical keys and English names in en.
@@ -166,8 +174,7 @@ export function SynastryChartView({
         {t('synastry.complementarity', { score: Math.round(chart.bazi.elementComplementarity) })}
       </p>
       <p>
-        {t('synastry.support')}: {number(chart.bazi.favorableSupport[0])} /{' '}
-        {number(chart.bazi.favorableSupport[1])}
+        {t('synastry.support')}: {support('a', 0)} / {support('b', 1)}
       </p>
       <h3>{t('synastry.guna')}</h3>
       <svg

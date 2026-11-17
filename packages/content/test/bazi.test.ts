@@ -23,7 +23,7 @@ describe('published bazi editorial corpus', () => {
   });
   it('covers every documented dimension and the real boolean feature keys', () => {
     const units = content.units.filter((u) => u.system === 'bazi');
-    expect(units).toHaveLength(346);
+    expect(units).toHaveLength(349);
     expect(units.every((u) => u.meta.status === 'published')).toBe(true);
     const ids = new Set(units.map((u) => u.id));
     for (const stem of Object.values(Stem)) {

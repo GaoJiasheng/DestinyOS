@@ -12,7 +12,7 @@ export const YOGA_CONDITIONS = {
   shasha: 'saturn_strong_in_kendra',
   raja_yoga: 'distinct_kendra_trikona_lords_conjoined',
   dhana_yoga: 'wealth_trine_lords_conjoined',
-  kemadruma: 'no_classical_planet_in_adjacent_moon_signs',
+  kemadruma: 'no_classical_planet_beside_moon_and_none_in_kendra_from_moon_or_lagna',
   neecha_bhanga: 'debilitation_dispositor_in_kendra',
 } as const;
 /** Twelve first-release Yoga predicates. Simplified rules are published as YOGA_CONDITIONS; no house-based claims for noon charts. */
@@ -20,7 +20,7 @@ export function detectYogas(
   bodies: VedicChart['bodies'],
   lagna: VedicChart['lagna'],
 ): VedicChart['yogas'] {
-  // DESIGN-GAP: Raja/Dhana use conjunction of distinct functional lords; Neecha Bhanga uses dispositor in Lagna kendra; Kemadruma applies the basic adjacent-sign rule, ignoring Sun/nodes and advanced cancellations.
+  // DESIGN-GAP: Raja/Dhana use conjunction of distinct functional lords; Neecha Bhanga uses dispositor in Lagna kendra; Kemadruma uses the adjacent-sign rule plus kendra cancellations only (see below).
   const result: VedicChart['yogas'] = [],
     get = (key: Graha) => bodies.find((b) => b.key === key)!,
     moon = get('chandra'),
@@ -40,11 +40,23 @@ export function detectYogas(
   if (kendra(relative(jupiter, moon))) add('gajakesari', [moon, jupiter]);
   if (sun.sign === mercury.sign) add('budha_aditya', [sun, mercury]);
   if (moon.sign === mars.sign) add('chandra_mangala', [moon, mars]);
-  const neighbours = bodies.filter(
-    (b) =>
-      !['surya', 'chandra', 'rahu', 'ketu'].includes(b.key) && [2, 12].includes(relative(b, moon)),
+  // Kemadruma is formed when none of Mars, Mercury, Jupiter, Venus or Saturn occupies the 2nd or
+  // 12th sign from the Moon (Sun and nodes neither form nor break it). It is reported only when no
+  // cancellation (Kemadruma Bhanga) applies. Adopted cancellations, the ones BPHS (Chandra yogas),
+  // Saravali ch. 13, Phaladeepika ch. 6 and Brihat Jataka ch. 13 broadly share:
+  //   1. one of those five planets with the Moon (1st sign from the Moon, which is itself a kendra);
+  //   2. one of them in a kendra (1/4/7/10) from the Moon;
+  //   3. with a known Lagna, one of them in a kendra from the Lagna (skipped for noon charts).
+  // Jupiter's aspect on the Moon is left out: the engine has no graha-drishti model and the texts
+  // disagree on it. Without these cancellations about 45% of random charts matched.
+  const classical = bodies.filter((b) =>
+    (['mangala', 'budha', 'guru', 'shukra', 'shani'] as Graha[]).includes(b.key),
   );
-  if (!neighbours.length) add('kemadruma', [moon]);
+  const formed = !classical.some((b) => [2, 12].includes(relative(b, moon))),
+    broken = classical.some(
+      (b) => kendra(relative(b, moon)) || (lagna !== null && kendra(b.house)),
+    );
+  if (formed && !broken) add('kemadruma', [moon]);
   if (!lagna) return result;
   const maha: readonly [Graha, keyof typeof YOGA_CONDITIONS][] = [
     ['mangala', 'ruchaka'],

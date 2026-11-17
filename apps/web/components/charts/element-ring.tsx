@@ -7,6 +7,10 @@ import { ELEMENTS, isHighlighted, type BaziChartProps } from './bazi-shared';
 export function ElementRing({ chart, highlight, onSelect }: BaziChartProps) {
   const t = useCopy();
   const segments = elementRingSegments(chart.elements.pct);
+  const { favorable, group } = chart.useGod;
+  // DESIGN-GAP: A balanced chart labels only its seasonal correction, never an avoid list; saved
+  // reports computed before this rule listed the other four elements as unfavorable.
+  const unfavorable = group === 'balance' ? [] : chart.useGod.unfavorable;
   return (
     <section className="bazi-component" data-chart-path="elements" tabIndex={-1}>
       <h3>{t('bazi.chart.elements')}</h3>
@@ -83,21 +87,21 @@ export function ElementRing({ chart, highlight, onSelect }: BaziChartProps) {
         tabIndex={-1}
         className={isHighlighted(highlight, 'useGod.favorable') ? 'chart-highlight' : undefined}
       >
-        {/* DESIGN-GAP: A balanced chart without a seasonal correction favors all five elements (systems/bazi §5.6), which read as "everything is favorable, nothing to avoid"; say it is balanced instead of listing five elements beside an empty line. */}
-        {chart.useGod.unfavorable.length === 0
+        {/* Saved reports from before the balanced-chart fix list all five elements as favorable; read them as balanced too. */}
+        {favorable.length === 0 || favorable.length === ELEMENTS.length
           ? t('bazi.chart.balanced')
           : t('bazi.chart.favorable', {
-              elements: chart.useGod.favorable.map((e) => t(`bazi.elements.${e}`)).join(' · '),
+              elements: favorable.map((e) => t(`bazi.elements.${e}`)).join(' · '),
             })}
       </p>
-      {chart.useGod.unfavorable.length > 0 && (
+      {unfavorable.length > 0 && (
         <p
           data-chart-path="useGod.unfavorable"
           tabIndex={-1}
           className={isHighlighted(highlight, 'useGod.unfavorable') ? 'chart-highlight' : undefined}
         >
           {t('bazi.chart.unfavorable', {
-            elements: chart.useGod.unfavorable.map((e) => t(`bazi.elements.${e}`)).join(' · '),
+            elements: unfavorable.map((e) => t(`bazi.elements.${e}`)).join(' · '),
           })}
         </p>
       )}
