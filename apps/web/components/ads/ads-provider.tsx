@@ -1,9 +1,10 @@
 'use client';
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import { adRouteAllowed, type AdPolicy } from '@/lib/ads';
 import { getAdPolicyAction } from '@/app/ads/actions';
+import { afterStream } from '@/lib/after-stream';
 
 type AdsQueue = Array<Record<string, never>> & {
   requestNonPersonalizedAds?: number;
@@ -33,6 +34,12 @@ export function AdsProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     let active = true;
+    let cancel = () => {};
+    // The ads context sits above the page; changing it while a boundary still streams would make
+    // React re-render that boundary on the client, so eligibility lands after the stream.
+    const settle = (next: { path: string; policy: AdPolicy } | null) => {
+      cancel = afterStream(() => setState(next));
+    };
     setReady(false);
     if (!adRouteAllowed(path) || !process.env.NEXT_PUBLIC_ADSENSE_CLIENT) return;
     void (async () => {
@@ -49,7 +56,7 @@ export function AdsProvider({ children }: { children: ReactNode }) {
       }
       if (!active) return;
       if (!policy.enabled || policy.blocked || policy.plan === 'pro') {
-        setState({ path, policy });
+        settle({ path, policy });
         return;
       }
       const queue = (window.adsbygoogle ??= []);
@@ -57,12 +64,13 @@ export function AdsProvider({ children }: { children: ReactNode }) {
       const gpc = 'globalPrivacyControl' in navigator && navigator.globalPrivacyControl === true;
       queue.requestNonPersonalizedAds = policy.underAge || !anonymous?.profile || gpc ? 1 : 0;
       queue.tagForUnderAgeOfConsent = policy.underAge ? 1 : 0;
-      setState({ path, policy });
+      settle({ path, policy });
     })().catch(() => {
-      if (active) setState(null);
+      if (active) settle(null);
     });
     return () => {
       active = false;
+      cancel();
     };
   }, [path]);
   const allowed = Boolean(
@@ -72,8 +80,9 @@ export function AdsProvider({ children }: { children: ReactNode }) {
     !state.policy.blocked &&
     adRouteAllowed(path),
   );
+  const value = useMemo(() => ({ allowed, ready }), [allowed, ready]);
   return (
-    <AdsContext.Provider value={{ allowed, ready }}>
+    <AdsContext.Provider value={value}>
       {allowed ? (
         <Script
           id="adsense"

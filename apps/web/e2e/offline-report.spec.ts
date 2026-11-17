@@ -186,3 +186,46 @@ test('zh: a device numerology report never opened since the cache was emptied re
     await context.setOffline(false);
   }
 });
+
+test.describe('streamed pages keep their server HTML', () => {
+  // The config's preload holds the page's streamed segment back for this long (see scripts/test-stream-delay.mjs).
+  test.use({ extraHTTPHeaders: { 'x-test-stream-delay': '1500', 'accept-encoding': 'identity' } });
+
+  test('zh: the birth form hydrates once even when shell preferences load mid-stream', async ({
+    page,
+  }) => {
+    // Each of these used to change a root context while the form was still streaming, which made
+    // React drop the server form, render a second one, and leave the late HTML hidden in the page.
+    await page.addInitScript(() => {
+      localStorage.setItem('tianji-theme', 'east');
+      localStorage.setItem('tianji-reduced-motion', 'true');
+      localStorage.setItem('tianji-account', '1');
+      const boundaries: Comment[] = [];
+      Object.assign(window, { __streamedBoundaries: boundaries });
+      new MutationObserver((records) => {
+        for (const record of records)
+          for (const node of record.addedNodes)
+            if (node instanceof Comment && node.data === '$?') boundaries.push(node);
+      }).observe(document, { childList: true, subtree: true });
+    });
+    await page.goto('/zh/bazi/new');
+    await expect(page.locator('template[id^="B:"]')).toHaveCount(0);
+    await expect(page.getByLabel('年', { exact: true })).toHaveCount(1);
+    const boundaries = await page.evaluate(() => {
+      const streamed = (window as unknown as { __streamedBoundaries: Comment[] })
+        .__streamedBoundaries;
+      return {
+        streamed: streamed.length,
+        dropped: streamed.filter((node) => !node.isConnected).length,
+        hidden: [...document.querySelectorAll('div[hidden][id^="S:"]')].filter(
+          (segment) => segment.childNodes.length > 0,
+        ).length,
+      };
+    });
+    // Without a pending boundary the test would prove nothing.
+    expect(boundaries.streamed).toBeGreaterThan(0);
+    expect(boundaries).toMatchObject({ dropped: 0, hidden: 0 });
+    await expect(page.getByLabel('年', { exact: true })).toHaveAttribute('id', /^_R_/);
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'east');
+  });
+});
