@@ -15,7 +15,7 @@
 2. 行星（日月水金火木土 + Rahu/Ketu），恒星黄道（Lahiri），Whole Sign 宫位，月亮 Nakshatra 与 Pada，Lagna（上升）及其 Nakshatra。
 3. Vimshottari Dasha：Mahadasha（大运）与 Antardasha（次运）时间表，当前所处与未来 20 年。
 4. 行星状态：自宫（own）、旺（exalted）、落（debilitated）、友敌（简表）、逆行、焦伤（combust）。
-5. 简化 Yoga（一期 12 个）：Gajakesari、Budha-Aditya、Chandra-Mangala、Pancha Mahapurusha（5 个）、Raja Yoga（简化判定）、Dhana Yoga（简化）、Kemadruma、Neecha Bhanga（简化）。
+5. 简化 Yoga（一期 12 个）：Gajakesari、Budha-Aditya、Chandra-Mangala、Pancha Mahapurusha（5 个）、Raja Yoga（简化判定）、Dhana Yoga（简化）、Kemadruma（月亮前后宫无五星才成立，且月亮同宫、月亮四正、命宫四正有五星时视为解除；引擎 0.4.1 起）、Neecha Bhanga（简化）。
 6. 今日 Panchang（Tithi、Nakshatra、Yoga、Karana、Vara）供 daily。
 7. 报告 8 章（§8）。
 
