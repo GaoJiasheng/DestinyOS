@@ -8,6 +8,7 @@ import { runtimeKey } from '@/i18n/runtime-key';
 import { shareCopy } from '@/lib/share-copy';
 import { hasScoreSpread } from '@/components/report/report-utils';
 import { brand } from '@tianji/shared';
+import { emphasisDimLabel, emphasisLevelLabel, emphasisTitle } from '@tianji/interpret/emphasis';
 export const dynamic = 'force-dynamic';
 /** Birth-free noindex metadata uses the same authorized projection as the page and image. */
 export async function generateMetadata({
@@ -87,6 +88,16 @@ export default async function SharePage({
           </ul>
         ) : null}
       </div>
+      {share.emphasis ? (
+        // Public shares name only the strongest dimension and its band word, never other bands or basis.
+        <section className="report-card share-emphasis" data-dim={share.emphasis.dim}>
+          <h2>{emphasisTitle(share.locale)}</h2>
+          <p>
+            {emphasisDimLabel(share.emphasis.dim, share.locale)} ·{' '}
+            {emphasisLevelLabel(share.emphasis.level, share.locale)}
+          </p>
+        </section>
+      ) : null}
       {share.daily ? (
         <section className="report-card">
           <time dateTime={share.daily.date}>{share.daily.date}</time>

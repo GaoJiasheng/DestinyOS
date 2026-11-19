@@ -7,6 +7,7 @@ import { renderAuthorizedExport } from '../lib/export-render';
 import { ApiError } from '../lib/api-error-core';
 import { ExportRequestSchema } from '../lib/report-export-schema';
 import { DailyCardSchema } from '../lib/share-projection';
+import { PublicEmphasisSchema } from '../lib/emphasis-schema';
 import { System } from '@tianji/shared';
 import { toTraditional } from '../../../scripts/traditional-converter';
 const locale = z.enum(['zh', 'en', 'zh-TW']);
@@ -46,6 +47,7 @@ const share = z.object({
     })
     .strict()
     .optional(),
+  emphasis: PublicEmphasisSchema.optional(),
 });
 const cardInput = z
   .object({

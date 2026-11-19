@@ -59,6 +59,8 @@ AUTH_URL = "https://tianji.gavin.pub"
 NEXT_PUBLIC_SITE_URL = "https://tianji.gavin.pub"
 FEATURE_ADS = "false"
 FEATURE_MEMBERSHIP = "false"
+# FEATURE_EMPHASIS (Zi Wei chart emphasis pilot) is deliberately unset here, which means off.
+# Do not set it to "true" before the external reviewer signs off the rule table.
 FEATURE_WEB_PAYMENTS = "false"
 FEATURE_WEB_PUSH = "false"
 CF_ANALYTICS_ACCOUNT_ID = "9aea83b326d8175abdd136c1177637a5"

@@ -3,7 +3,8 @@ import { ShareDiagram } from '@/components/share/share-diagram';
 import { ImageResponse } from 'next/og';
 import { resourceBytes } from './platform/resources';
 import { brand } from '@tianji/shared';
-import type { PublicShare, DailyCard } from './share-projection';
+import type { WebPublicShare as PublicShare, DailyCard } from './share-projection';
+import { emphasisDimLabel, emphasisLevelLabel, emphasisTitle } from '@tianji/interpret/emphasis';
 import { publicText } from './share-projection';
 import { shareCopy } from './share-copy';
 import { hasScoreSpread } from '@/components/report/report-utils';
@@ -140,6 +141,12 @@ export async function renderCard(
               </>
             )}
           </div>
+          {'system' in card && card.emphasis && template !== 'daily' ? (
+            // Only the strongest dimension (band 4–5) reaches a public card.
+            <div style={{ display: 'flex', fontSize: 22, color: colors[template] }}>
+              {`${emphasisTitle(card.locale)} · ${emphasisDimLabel(card.emphasis.dim, card.locale)} · ${emphasisLevelLabel(card.emphasis.level, card.locale)}`}
+            </div>
+          ) : null}
           {template === 'quote' && scores.length > 0 ? (
             <div style={{ display: 'flex', gap: 16, fontSize: 22 }}>
               {scores.map(([key, value]) => (

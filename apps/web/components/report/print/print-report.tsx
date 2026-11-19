@@ -13,6 +13,7 @@ import type { ReadingView } from '@/lib/reading-schema';
 import { hasScoreSpread } from '../report-utils';
 import { PrintChart } from './print-chart';
 import { paginatePrint } from './print-pagination';
+import { PrintEmphasis } from './print-emphasis';
 const dims = ['career', 'wealth', 'love', 'health', 'social'] as const;
 /** Continuous poster or compact, privacy-minimized A4 report; source blocks are measured after every font and image loads. */
 export function PrintReport({
@@ -87,7 +88,9 @@ export function PrintReport({
           : '';
   const point = (i: number, radius: number) => radarPoint(i, radius, [180, 175]).join(',');
   // DESIGN-GAP: Natal readings without a scoring basis report five identical scores; the cover then omits the whole radar.
-  const showScores = hasScoreSpread(reading.report.headline.scores);
+  const emphasis = reading.report.headline.emphasis;
+  // An emphasis report never prints the legacy radar, so no "x/5" can appear next to the bands.
+  const showScores = !emphasis && hasScoreSpread(reading.report.headline.scores);
   // DESIGN-GAP: Saved reports can contain fewer than three keywords; complete the cover using existing highest-scored dimension labels, without inventing traits.
   const keywords = [
     ...new Set([
@@ -216,6 +219,7 @@ export function PrintReport({
             </aside>
           </section>
         </div>
+        {emphasis ? <PrintEmphasis emphasis={emphasis} /> : null}
         {reading.report.sections.map((section, i) => (
           <section key={section.key} data-print-section={section.key}>
             <div className="print-chapter-heading" data-print-block>

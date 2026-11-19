@@ -77,7 +77,9 @@ describe('importAnonymousBatch', () => {
     expect(m.persist).toHaveBeenCalledTimes(1);
     const call = m.persist.mock.calls[0]!;
     expect(call[2]).toBe('2025-01-02T03:04:05.000Z');
-    expect(call.at(-1)).toBe(true);
+    expect(call[8]).toBe(true);
+    // FEATURE_EMPHASIS is unset in tests, so the import recomputation passes the switch off.
+    expect(call[9]).toBe(false);
     expect(m.userUpdate).toHaveBeenCalledWith({ where: { id: 'owner' }, data: { anonId } });
   });
 

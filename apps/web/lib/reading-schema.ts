@@ -13,6 +13,7 @@ import {
   DailyChartSchema,
 } from '@tianji/shared';
 import type { Report } from '@tianji/interpret';
+import { EmphasisSchema } from './emphasis-schema';
 const source = z.object({ text: z.string(), from: z.string() });
 const evidence = z.object({
   label: z.string(),
@@ -45,6 +46,8 @@ export const ReportSchema: z.ZodType<Report> = z.object({
     keywords: z.array(z.string()),
     scores: z.object({ career: score, wealth: score, love: score, health: score, social: score }),
     confidence: z.number().min(0).max(1),
+    // Optional chart emphasis; absent on every report generated with the switch off.
+    emphasis: EmphasisSchema.optional(),
   }),
   sections: z.array(
     z.object({ key: z.string(), title: z.string(), lead: z.string(), blocks: z.array(block) }),

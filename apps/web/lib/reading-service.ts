@@ -25,6 +25,7 @@ import {
   type ReadingRequest,
   type ReadingView,
 } from './reading-schema';
+import { missingTranslation } from './reading-translation';
 import { stateRead, stateWrite, stateReserve, stateRelease } from './state';
 import { readingStaleProfile } from './reading-stale';
 import { atomicBatch, guard, insertRow, statement, type SqlStatement } from './db-batch';
@@ -33,8 +34,13 @@ const digest = (value: string) => createHash('sha256').update(value).digest('hex
 /** Serialize validated domain data into Prisma-compatible JSON values. */
 const json = (value: unknown): Prisma.InputJsonValue =>
   JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
-/** Compute then interpret using one immutable chart; callers persist only sanitized derivatives. */
-export async function generateReading(req: ReadingRequest, now: string, userId?: string) {
+/** Compute then interpret one immutable chart; `emphasis` is the web pilot switch (mobile: off). */
+export async function generateReading(
+  req: ReadingRequest,
+  now: string,
+  userId?: string,
+  emphasis = false,
+) {
   // DESIGN-GAP: Load computation only for report generation, never merely to read a stored report.
   const { compute } = await import('@tianji/engine');
   const { normalizeBirth } = await import('@tianji/engine/common');
@@ -99,6 +105,7 @@ export async function generateReading(req: ReadingRequest, now: string, userId?:
       engineVersion: result.engineVersion,
       userId,
     },
+    options: { emphasis },
   });
   // DESIGN-GAP: Preserve the shape expected by chart schemas while masking original/adjusted birth timestamps.
   const chart = stripPII(result.chart);
@@ -120,22 +127,7 @@ export async function readingView(
   let report: unknown = locale !== 'en' ? row.reportZh : row.reportEn;
   const snapshot = ReadingRequestSchema.parse(JSON.parse(row.encInput));
   if (!report) {
-    const { interpret } = await import('@tianji/interpret');
-    const { loadKnowledge } = await import('./knowledge');
-    report = json(
-      interpret({
-        system,
-        chart: row.chart,
-        locale: locale === 'en' ? 'en' : 'zh',
-        knowledge: await loadKnowledge(system, locale, row.knowledgeVersion),
-        context: {
-          now: row.createdAt.toISOString(),
-          profileHasTime: !snapshot.birth?.timeUnknown,
-          engineVersion: row.engineVersion,
-          userId: row.userId ?? undefined,
-        },
-      }),
-    );
+    report = json(await missingTranslation(row, system, locale, !snapshot.birth?.timeUnknown));
     await getDb().reading.update({
       where: { id: row.id },
       data: locale !== 'en' ? { reportZh: json(report) } : { reportEn: json(report) },
@@ -203,11 +195,13 @@ export async function persistReading(
   title?: string | null,
   syncAfter: SqlStatement[] = [],
   keepCreatedAt = false,
+  emphasis = false,
 ) {
   const generated = await generateReading(
     { ...req, locale: req.locale === 'en' ? 'en' : 'zh' },
     now,
     userId,
+    emphasis,
   );
   const tx = getDb();
   const user = await tx.user.findUniqueOrThrow({ where: { id: userId }, select: { plan: true } });
@@ -335,6 +329,7 @@ export async function idempotentCreate(
   identity: string,
   userId?: string,
   profile?: { id: string; version: number },
+  emphasis = false,
 ) {
   const key = `reading:idempotency:${digest(identity + ':' + req.idempotencyKey)}`;
   const fingerprint = digest(JSON.stringify(req));
@@ -370,8 +365,8 @@ export async function idempotentCreate(
     const result = existing
       ? { readingId: existing.id, ...(await readingView(existing, req.locale, true)) }
       : userId
-        ? await persistReading(userId, req, now, id, profile)
-        : await generateReading(req, now);
+        ? await persistReading(userId, req, now, id, profile, [], undefined, [], false, emphasis)
+        : await generateReading(req, now, undefined, emphasis);
     if (!userId)
       await recordEvent('reading.created', {
         system: req.system,

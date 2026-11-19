@@ -15,6 +15,8 @@ export default defineConfig({
     'web-nopay.spec.ts',
     // DESIGN-GAP: Offline reports need the production service worker, so they run on `next start` via test:offline-report:e2e.
     'offline-report.spec.ts',
+    // DESIGN-GAP: The chart emphasis pilot needs FEATURE_EMPHASIS=true on its own production server (test:emphasis:e2e).
+    'emphasis.spec.ts',
     'export.spec.ts',
     'export-menu.spec.ts',
     'export-geometry.spec.ts',

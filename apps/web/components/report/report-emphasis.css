@@ -1,0 +1,113 @@
+/* Chart emphasis module; ships with its lazy chunk, so reports without emphasis load none of it. */
+.report-emphasis {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line-1);
+  min-width: 0;
+}
+.emphasis-title {
+  font-size: var(--size-h3);
+  margin: 0;
+}
+.emphasis-overview {
+  margin: var(--space-2) 0 0;
+  color: var(--text-1);
+}
+.emphasis-dims {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+  /* An opened card must not stretch its neighbour into an empty box. */
+  align-items: start;
+}
+@media (min-width: 640px) {
+  .emphasis-dims {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.emphasis-dim {
+  min-width: 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+}
+.emphasis-dim-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  min-height: var(--touch-target, 44px);
+}
+.emphasis-dim-name {
+  font-weight: 600;
+}
+.emphasis-level {
+  color: var(--gold);
+  margin-left: auto;
+}
+.emphasis-meter {
+  display: inline-flex;
+  gap: 4px;
+}
+.emphasis-meter i {
+  display: block;
+  width: 18px;
+  height: 6px;
+  border-radius: var(--r-pill);
+  background: var(--line-2);
+}
+.emphasis-meter i[data-on] {
+  background: var(--gold);
+}
+.emphasis-sentence {
+  margin: var(--space-1) 0 0;
+  color: var(--text-2);
+  font-size: var(--size-small);
+}
+.emphasis-basis {
+  margin-top: var(--space-1);
+}
+.emphasis-basis summary {
+  color: var(--accent);
+  font-size: var(--size-small);
+}
+.emphasis-basis ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+.emphasis-basis li {
+  display: grid;
+  grid-template-columns: 1.25em minmax(0, 1fr);
+  gap: var(--space-2);
+  font-size: var(--size-small);
+  overflow-wrap: anywhere;
+}
+.emphasis-mark {
+  color: var(--text-3);
+  text-align: center;
+  font-weight: 600;
+}
+.emphasis-basis li[data-direction='1'] .emphasis-mark {
+  color: var(--gold);
+}
+.emphasis-note,
+.emphasis-footnotes {
+  color: var(--text-3);
+  font-size: var(--size-caption);
+}
+.emphasis-note {
+  margin: var(--space-3) 0 0;
+}
+.emphasis-footnotes {
+  margin-top: var(--space-4);
+}
+.emphasis-footnotes p {
+  margin: var(--space-1) 0 0;
+}

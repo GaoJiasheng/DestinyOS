@@ -13,6 +13,7 @@ import { checkAge, checkRequestAge, digest, persistReading } from './reading-ser
 import { profileBirth, saveProfile } from './profile-service';
 import { sameNatalBirth } from './birth-compare';
 import { stripPII } from './strip-pii';
+import { emphasisEnabled } from './emphasis';
 import { stateRead, stateRelease, stateReserve, stateWrite } from './state';
 /** Readings per action call; the client sends a device snapshot in batches to show progress. */
 export const IMPORT_BATCH_SIZE = 10;
@@ -155,6 +156,7 @@ export async function importAnonymousBatch(
           null,
           [],
           true,
+          emphasisEnabled(),
         );
         results[item.index] = { status: 'imported', readingId: id };
       } catch (error) {

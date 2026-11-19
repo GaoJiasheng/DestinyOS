@@ -1,6 +1,6 @@
 import { platform } from './platform/environment';
 import { mediaRequest } from './platform/media-client';
-import type { PublicShare, DailyCard } from './share-projection';
+import type { WebPublicShare as PublicShare, DailyCard } from './share-projection';
 /** Extract bounded display text shared by all three image templates; this is also the privacy test boundary. */
 export function cardText(card: PublicShare | DailyCard) {
   return 'system' in card

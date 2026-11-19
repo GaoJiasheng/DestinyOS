@@ -22,6 +22,7 @@ import {
   translateAnonymousReportAction,
 } from '@/app/readings/actions';
 import { readAnonymous, updateAnonymous } from '@/lib/anonymous-storage';
+import { regeneratedReading } from '@/lib/emphasis-schema';
 import { ChatPanel } from './chat-panel';
 import { ReportActions } from './report-actions';
 import { SectionFoldToggle } from './section-fold-toggle';
@@ -148,7 +149,7 @@ export function ReportLayout({
         const data = await updateAnonymous((d) => d);
         const found = data.readings.find((r) => r.id === view.id);
         if (!found) return;
-        const result = await translateAnonymousReportAction(found, locale);
+        const result = await translateAnonymousReportAction({ ...found, regenerate: true }, locale);
         if (!result.ok) {
           setToolbarError(`report.error.${result.error.code}` as MessageKey);
           return;
@@ -156,14 +157,7 @@ export function ReportLayout({
         await updateAnonymous((d) => ({
           ...d,
           readings: d.readings.map((r) =>
-            r.id === view.id
-              ? {
-                  ...r,
-                  report: result.data,
-                  [locale === 'zh-TW' ? 'reportZhTw' : locale === 'zh' ? 'reportZh' : 'reportEn']:
-                    result.data,
-                }
-              : r,
+            r.id === view.id ? regeneratedReading(r, locale, result.data) : r,
           ),
         }));
         setView((v) => ({ ...v, report: result.data }));

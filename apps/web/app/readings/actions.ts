@@ -46,6 +46,8 @@ import {
 } from '@/lib/reading-profile-intent';
 import { importAnonymousBatch } from '@/lib/reading-import';
 import { randomUUID } from 'node:crypto';
+import { emphasisEnabled } from '@/lib/emphasis';
+import { siblingEmphasis, syncedSibling } from '@/lib/emphasis-schema';
 /** Validate, normalize, compute and interpret; authenticated results are persisted, anonymous results are returned only. */
 export async function createReadingAction(raw: unknown, rawIntent?: unknown) {
   return run(async () => {
@@ -76,7 +78,8 @@ export async function createReadingAction(raw: unknown, rawIntent?: unknown) {
         profile && !resolved.req.profileId
           ? { ...resolved.req, profileId: profile.id }
           : resolved.req;
-      return await idempotentCreate(request, id ?? ip, id, profile ?? resolved.profile);
+      const owned = profile ?? resolved.profile;
+      return await idempotentCreate(request, id ?? ip, id, owned, emphasisEnabled());
     } catch (error) {
       await recordEvent('reading.failed', {
         userId: id,
@@ -154,11 +157,18 @@ export async function regenerateReportAction(raw: string, locale: 'zh' | 'en' | 
         engineVersion: row.engineVersion,
         userId: owner,
       },
+      options: { emphasis: emphasisEnabled() },
     });
+    // The other locale keeps its text but takes the new emphasis, so both languages show one result.
+    const sibling = syncedSibling(
+      lang !== 'en' ? row.reportEn : row.reportZh,
+      report.headline.emphasis,
+    );
     await getDb().reading.update({
       where: { id, userId: owner },
       data: {
         [lang !== 'en' ? 'reportZh' : 'reportEn']: json(report),
+        ...(sibling ? { [lang !== 'en' ? 'reportEn' : 'reportZh']: json(sibling) } : {}),
         knowledgeVersion: report.knowledgeVersion,
         interpretVersion: report.interpretVersion,
       },
@@ -288,13 +298,15 @@ export async function translateAnonymousReportAction(raw: unknown, locale: 'zh' 
         meta: z.unknown(),
         createdAt: z.string().datetime(),
         request: ReadingRequestSchema,
+        report: z.unknown().optional(),
+        regenerate: z.boolean().optional(),
       })
       .parse(raw);
     checkRequestAge(input.request);
     const chart = parseReadingChart(input.system, stripPII(input.chart));
     ReadingMetaSchema.parse(input.meta);
     await limitReadingWork();
-    return interpret({
+    const report = interpret({
       system: input.system,
       chart,
       locale: lang,
@@ -304,7 +316,10 @@ export async function translateAnonymousReportAction(raw: unknown, locale: 'zh' 
         profileHasTime: !input.request.birth?.timeUnknown,
         engineVersion: ENGINE_VERSION,
       },
+      options: { emphasis: Boolean(input.regenerate) && emphasisEnabled() },
     });
+    // A plain translation keeps the device's stored emphasis; only "regenerate" recomputes it.
+    return input.regenerate ? report : siblingEmphasis(report, input.report);
   });
 }
 /** Set the session age gate before anonymous client data can be created. */

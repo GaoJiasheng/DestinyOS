@@ -5,6 +5,17 @@ import type { Report } from '@tianji/interpret';
 import { useCopy } from '@/i18n/use-copy';
 import { ReportText } from './report-text';
 import { hasScoreSpread, isDivination } from './report-utils';
+import dynamic from 'next/dynamic';
+import { ChunkLoading } from '@/components/ui/chunk-loading';
+import { ChunkUnavailable } from '@/components/ui/chunk-unavailable';
+// Emphasis renderers and their copy load only for reports that carry `headline.emphasis`.
+const ReportEmphasis = dynamic(
+  () =>
+    import('./report-emphasis')
+      .then((module) => module.ReportEmphasis)
+      .catch(() => ChunkUnavailable),
+  { loading: ChunkLoading },
+);
 const dims = SCORE_DIMENSIONS;
 /** Animated SVG radar includes a text table so dimension scores never rely on color or geometry. */
 export function ScoreRadar({ scores }: { scores: Report['headline']['scores'] }) {
@@ -80,6 +91,7 @@ export function ReportHeadline({
       {!divination && hasScoreSpread(headline.scores) ? (
         <ScoreRadar scores={headline.scores} />
       ) : null}
+      {!divination && headline.emphasis ? <ReportEmphasis emphasis={headline.emphasis} /> : null}
       {divination ? null : (
         <>
           <p>{t('report.confidence', { percent: Math.round(headline.confidence * 100) })}</p>

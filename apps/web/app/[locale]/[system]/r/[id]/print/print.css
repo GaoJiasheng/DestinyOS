@@ -775,3 +775,50 @@ body:has(.print-report[data-print-theme='light']) {
   line-height: 1.4;
   padding: 0.6mm 0;
 }
+/* Chart emphasis: band words and segment marks only, never a score. */
+.print-emphasis-dim {
+  border-left: 0.7mm solid var(--gold);
+  background: var(--surface-1);
+  padding: 1.5mm 2.5mm;
+  margin: 2mm 0;
+}
+.print-emphasis-dim p,
+.print-emphasis-dim ul {
+  margin: 0.5mm 0;
+}
+.print-emphasis-head {
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+}
+.print-emphasis-level {
+  color: var(--gold);
+  margin-left: auto;
+}
+.print-emphasis-meter {
+  display: inline-flex;
+  gap: 0.8mm;
+}
+.print-emphasis-meter i {
+  display: block;
+  width: 4mm;
+  height: 1.2mm;
+  border-radius: 1mm;
+  background: var(--line-2);
+}
+.print-emphasis-meter i[data-on] {
+  background: var(--gold);
+}
+.print-emphasis-dim ul {
+  list-style: none;
+  padding: 0;
+  font-size: 8pt;
+  color: var(--text-2);
+}
+.print-emphasis-dim li {
+  display: grid;
+  grid-template-columns: 3mm minmax(0, 1fr);
+}
+.print-emphasis-notes p {
+  margin: 0;
+}

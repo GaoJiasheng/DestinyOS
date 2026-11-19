@@ -20,7 +20,13 @@ import { ApiError } from './api-error';
 import { ReportSchema } from './reading-schema';
 import { loadKnowledge } from './knowledge';
 import { localizeReport, interpret } from '@tianji/interpret';
-import { projectShare, DailyCardSchema, type DailyCard } from './share-projection';
+import {
+  projectShare,
+  DailyCardSchema,
+  type DailyCard,
+  type WebPublicShare,
+} from './share-projection';
+import { publicEmphasis, siblingEmphasis } from './emphasis-schema';
 const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 /** Generate an unbiased 22-character base62 bearer token. */
 export function shareToken() {
@@ -66,24 +72,31 @@ export async function publicShare(token: string, locale?: 'zh' | 'en' | 'zh-TW')
   const lang = locale ?? fromDbLocale(link.user.locale);
   let raw: unknown = lang !== 'en' ? link.reading.reportZh : link.reading.reportEn;
   if (!raw)
-    raw = interpret({
-      system: link.reading.system,
-      chart: link.reading.chart,
-      locale: lang,
-      knowledge: await loadKnowledge(link.reading.system, lang),
-      context: {
-        now: link.reading.createdAt.toISOString(),
-        profileHasTime: true,
-        engineVersion: link.reading.engineVersion,
-      },
-    });
-  const view = projectShare(
+    raw = siblingEmphasis(
+      interpret({
+        system: link.reading.system,
+        chart: link.reading.chart,
+        locale: lang,
+        knowledge: await loadKnowledge(link.reading.system, lang),
+        context: {
+          now: link.reading.createdAt.toISOString(),
+          profileHasTime: true,
+          engineVersion: link.reading.engineVersion,
+        },
+      }),
+      lang !== 'en' ? link.reading.reportEn : link.reading.reportZh,
+    );
+  const report = ReportSchema.parse(raw);
+  const view: WebPublicShare = projectShare(
     link.reading.system,
     link.reading.chart,
-    localizeReport(ReportSchema.parse(raw), lang),
+    localizeReport(report, lang),
     z.enum(['chart', 'quote', 'daily', 'synastry']).parse(link.template),
     link.revealLevel,
   );
+  // Only the strongest dimension at band 4–5 is public; other bands, raw values and basis never are.
+  const emphasis = publicEmphasis(report.headline.emphasis);
+  if (emphasis) view.emphasis = emphasis;
   // DESIGN-GAP: A natal reading's daily template uses the share creation day and current profile version, rather than adding undocumented ShareLink columns.
   if (link.template === 'daily') {
     const profile = link.reading.profileId
