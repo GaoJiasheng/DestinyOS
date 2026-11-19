@@ -7,6 +7,7 @@ import type {
   Polarity,
   Source,
 } from '@tianji/content';
+import type { Emphasis, EmphasisSupport } from './emphasis/types';
 export type Score = 1 | 2 | 3 | 4 | 5;
 export type ReportBlock =
   | { type: 'paragraph'; text: string; unitId: string; polarity: Polarity }
@@ -23,7 +24,15 @@ export type Report = {
   knowledgeVersion: string;
   engineVersion: string;
   interpretVersion: string;
-  headline: { persona: string; keywords: string[]; scores: Record<Dim, Score>; confidence: number };
+  headline: {
+    persona: string;
+    keywords: string[];
+    /** Unchanged legacy field (all 3 for natal systems); chart emphasis lives in `emphasis`. */
+    scores: Record<Dim, Score>;
+    confidence: number;
+    /** Present only when requested and the system offers emphasis; omitted keys keep old bytes. */
+    emphasis?: Emphasis;
+  };
   sections: Section[];
   hits: Hit[];
   doDont?: { do: string[]; dont: string[] };
@@ -48,6 +57,8 @@ export type SystemConfig = {
   weightMultiplier?: (unit: KnowledgeUnit, chart: unknown) => number;
   baseScores?: (chart: unknown) => Partial<Record<Dim, number>>;
   confidence?: (chart: unknown) => number;
+  /** Explicit emphasis support; never inferred from flat `scores`. */
+  emphasis: EmphasisSupport;
 };
 export type InterpretInput = {
   system: System;
@@ -57,4 +68,6 @@ export type InterpretInput = {
   context: { now: Date | string; profileHasTime: boolean; engineVersion?: string; userId?: string };
   sectionPlan?: SectionPlan;
   config?: Partial<SystemConfig>;
+  /** emphasis: compute `headline.emphasis` (default off until the external review signs off, Q6). */
+  options?: { emphasis?: boolean };
 };

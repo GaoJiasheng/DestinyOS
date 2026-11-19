@@ -4,3 +4,8 @@ export * from './interpret';
 export * from './readability';
 export * from './terms';
 export { localizeReport } from './localize-report';
+export * from './emphasis/types';
+export { ziweiScoringView, ZIWEI_LUCKY_STARS, ZIWEI_MALEFIC_STARS } from './emphasis/ziwei-view';
+export type { ZiweiPalaceFacts, ZiweiScoringTarget, ZiweiScoringView } from './emphasis/ziwei-view';
+export { evaluateEmphasis, ziweiEmphasis } from './emphasis/evaluate';
+export * from './emphasis/render';

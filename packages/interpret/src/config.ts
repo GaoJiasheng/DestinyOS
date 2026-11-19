@@ -2,6 +2,7 @@
 import type { System } from '@tianji/shared';
 import { resolvePath } from '@tianji/content';
 import type { SystemConfig } from './types';
+import { ziweiEmphasis } from './emphasis/evaluate';
 import bazi from './plans/bazi.json' with { type: 'json' };
 import ziwei from './plans/ziwei.json' with { type: 'json' };
 import iching from './plans/iching.json' with { type: 'json' };
@@ -12,22 +13,28 @@ import vedic from './plans/vedic.json' with { type: 'json' };
 import numerology from './plans/numerology.json' with { type: 'json' };
 import synastry from './plans/synastry.json' with { type: 'json' };
 import daily from './plans/daily.json' with { type: 'json' };
+// Natal bazi/astrology/vedic emphasis is planned for later phases; numerology, synastry
+// and the divination/daily systems never get it (proposal Q3, Q9, Q10).
+const deferred = { status: 'deferred' } as const;
+const none = { status: 'not_applicable' } as const;
 export const systemConfigs: Record<System, SystemConfig> = {
   bazi: {
     sectionPlan: bazi,
+    emphasis: deferred,
     confidence: (chart) => numeric(chart, 'strength.confidence', 1),
     weightMultiplier: (_unit, chart) => numeric(chart, 'strength.confidence', 1),
   },
-  ziwei: { sectionPlan: ziwei },
-  iching: { sectionPlan: iching },
-  qimen: { sectionPlan: qimen },
-  tarot: { sectionPlan: tarot },
-  astrology: { sectionPlan: astrology },
-  vedic: { sectionPlan: vedic },
-  numerology: { sectionPlan: numerology },
-  daily: { sectionPlan: daily },
+  ziwei: { sectionPlan: ziwei, emphasis: { status: 'available', compute: ziweiEmphasis } },
+  iching: { sectionPlan: iching, emphasis: none },
+  qimen: { sectionPlan: qimen, emphasis: none },
+  tarot: { sectionPlan: tarot, emphasis: none },
+  astrology: { sectionPlan: astrology, emphasis: deferred },
+  vedic: { sectionPlan: vedic, emphasis: deferred },
+  numerology: { sectionPlan: numerology, emphasis: none },
+  daily: { sectionPlan: daily, emphasis: none },
   synastry: {
     sectionPlan: synastry,
+    emphasis: none,
     confidence: (chart) => (resolvePath(chart, 'availability.complete')[0] === true ? 1 : 0.65),
   },
 };

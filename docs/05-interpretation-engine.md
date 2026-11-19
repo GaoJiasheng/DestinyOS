@@ -108,6 +108,7 @@ cond:
 6. 概览章特殊处理：
    - 三个关键词 = 从全部 hits 的 tags 中按权重累加取前 3，映射为 glossary 中的展示词
    - 五维评分 = 体系基础分（如八字由身强弱/十神配置算出，各体系文档定义）+ Σ KU.scores，钳位 1–5
+     - 2026-11 补注：本命体系（八字、紫微、占星、吠陀）不再走这条公式，改为可选的 `headline.emphasis`「命盘侧重」：规则放在各体系的 `packages/content/<system>/scoring.yaml`，由 interpret 的盘面视图函数直接对 chart 求值，不读 KU.scores，也不受章节截断影响。`headline.scores` 保留兼容（本命体系仍全为 3）。紫微已试点（`docs/systems/ziwei.md` §11），八字、占星、吠陀待后续；生命灵数、合盘与占卜类显式标为不适用（`SystemConfig.emphasis`）。方案见 `docs/progress/SCORING-PROPOSAL-2026-11-16.md`。
    - 一句话人设 = 概览 KU 的 summary
 7. 总结章：合并全报告 advice（去重）取 5 条；加免责声明 KU（common.disclaimer）
 8. 可读性检查（§7）→ report.readability

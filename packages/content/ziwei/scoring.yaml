@@ -1,0 +1,350 @@
+# 紫微斗数「命盘侧重」规则表（试点）
+#
+# 方案：docs/progress/SCORING-PROPOSAL-2026-11-16.md §5、§8（Owner 已批准 Q1–Q10）。
+# 顾问复核材料：docs/progress/EMPHASIS-ZIWEI-REVIEW.md。
+#
+# 读法：
+# - 每个维度只看一个目标宫（palaceOf），对宫 = 目标宫序号 +6（mod 12）。
+# - 每条规则对四个目标宫各算一次（dims 限定时只算列出的维度）。
+# - 分值单位是「档内分」，一律是 0.125 的倍数；计算时乘 8 用整数，避免不同端算出不同档位。
+# - 同一 group 的规则先求和，再按 cap 截断；每维合计钳位在 ±clamp；再按 cutpoints 分档：
+#   raw < cutpoints[0] → 2；< cutpoints[1] → 3；< cutpoints[2] → 4；其余 → 5。
+# - 健康维（疾厄宫）不计算（Q2），报告里列在 omitted。
+# - 主星亮度沿用 iztro 默认表（Q7），即引擎 palaces[].majorStars[].brightness。
+# - 文案里的 {palace}、{star} 等占位符由渲染函数按术语表本地化；zh-TW 由构建时的 OpenCC 流程生成。
+# - 负向文案（negative）必须带 advice：一句可以直接去做的建议。
+#
+# 版本：改分值、切点或增删规则升 minor；只改文案升 patch。旧报告不重算（Q8）。
+scoringVersion: 1.0.0
+system: ziwei
+dims: [career, wealth, love, social]
+omitted: [health]
+palaceOf:
+  career: career
+  wealth: wealth
+  love: spouse
+  social: friends
+clamp: 2.5
+# 由 `pnpm emphasis:calibrate` 在下方 calibration 样本上按四维合并的 20/50/80 分位取值后冻结。
+cutpoints: [0, 0.75, 1.375]
+calibration:
+  sample: 2000
+  seed: 20261116
+  years: [1950, 2005]
+  now: '2026-11-16T00:00:00Z'
+  cities: [beijing, guangzhou, taipei, hong_kong, new_york, vancouver, sydney, london]
+  quantiles: [0.2, 0.5, 0.8]
+  # 事业（官禄）与感情（夫妻）互为对宫，即传统说的「夫官线」：借星与对宫四化会互相影响，
+  # 两维之间有结构性的正相关。分布测试允许这一对的相关系数超过其他维度对，但仍要求 < 0.5。
+  correlationNote: career-love share the 夫官 axis (opposite palaces)
+brightnessScale:
+  miao: 1
+  wang: 1
+  de: 0.5
+  li: 0.5
+  ping: 0
+  bu: -0.5
+  xian: -1
+groups:
+  lucky:
+    cap: 0.75
+  malefic:
+    cap: -0.75
+rules:
+  - id: zw.z1.brightness
+    code: Z1
+    reliability: consensus
+    note: 方向共识强；亮度表按 iztro 通行表。双主星同宫取平均，不叠加。平地（0 分）也列出，作为说明。
+    gate: occupied
+    measure:
+      kind: brightness
+      from: self
+      factor: 1
+    copy:
+      positive:
+        zh: '{palace}有{starsBrightness}，主星在这里发挥得比较顺，传统上视为这一领域的底气。'
+        en: 'Your {palace} holds {starsBrightness} brightness — traditionally a steady footing for this area.'
+      zero:
+        zh: '{palace}有{starsBrightness}，整体居中，这一条不加分也不减分。'
+        en: 'Your {palace} holds {starsBrightness} brightness, which sits in the middle and neither adds nor subtracts here.'
+      negative:
+        zh: '{palace}有{starsBrightness}，整体偏弱，传统上说主星在这里不容易施展，更像是一块需要找对方法的地方。'
+        en: 'Your {palace} holds {starsBrightness} brightness, a weaker position; tradition reads this as an area that rewards finding the right approach.'
+        advice:
+          zh: '先挑一个小环节换种做法试试，看看哪种方式更顺手。'
+          en: 'Try a different approach on one small part first and notice what works for you.'
+
+  - id: zw.z2.borrowed
+    code: Z2
+    reliability: consensus
+    note: 空宫借对宫主星是共识；影响减半是本方案的取值。
+    gate: empty
+    measure:
+      kind: brightness
+      from: opposite
+      factor: 0.5
+    copy:
+      positive:
+        zh: '{palace}没有主星，按传统借对宫{opposite}的{starsBrightness}来看，影响打对折；借来的星发挥得还算顺。'
+        en: 'Your {palace} has no major star, so tradition borrows {starsBrightness} from the opposite {opposite} at half strength; the borrowed star sits well.'
+      zero:
+        zh: '{palace}没有主星，按传统借对宫{opposite}的{starsBrightness}来看，影响打对折，整体居中。'
+        en: 'Your {palace} has no major star, so tradition borrows {starsBrightness} from the opposite {opposite} at half strength, which sits in the middle.'
+      negative:
+        zh: '{palace}没有主星，按传统借对宫{opposite}的{starsBrightness}来看，影响打对折，借来的星偏弱。'
+        en: 'Your {palace} has no major star, so tradition borrows {starsBrightness} from the opposite {opposite} at half strength, and the borrowed star is in a weaker position.'
+        advice:
+          zh: '空宫更看后天的经营，给这件事定一个固定的小习惯，会比等时机更踏实。'
+          en: 'An empty palace leans on what you build, so a small, regular habit here works better than waiting for the right moment.'
+
+  - id: zw.z3.lu
+    code: Z3-禄
+    reliability: consensus
+    note: 生年化禄落入本宫（主星或文昌、文曲、左辅、右弼所化都算）。
+    measure:
+      kind: mutagen
+      from: self
+      deltas:
+        lu: 1
+    copy:
+      positive:
+        zh: '生年化禄落在{palace}（{star}化禄），传统上表示这里容易遇到资源和顺手的机会。'
+        en: 'Your birth-year Lu (abundance) transformation lands in your {palace} through {star} — traditionally a place where resources come more easily.'
+
+  - id: zw.z3.quan
+    code: Z3-权
+    reliability: consensus
+    note: 生年化权落入本宫。
+    measure:
+      kind: mutagen
+      from: self
+      deltas:
+        quan: 0.75
+    copy:
+      positive:
+        zh: '{star}化权在{palace}，传统上代表你在这方面有主导力、肯担事。'
+        en: '{star} carries the Quan (authority) transformation in your {palace} — traditionally a sign of initiative and ownership here.'
+
+  - id: zw.z3.ke
+    code: Z3-科
+    reliability: consensus
+    note: 生年化科落入本宫。
+    measure:
+      kind: mutagen
+      from: self
+      deltas:
+        ke: 0.5
+    copy:
+      positive:
+        zh: '{star}化科在{palace}，传统上代表名声、条理和贵人缘。'
+        en: '{star} carries the Ke (recognition) transformation in your {palace} — traditionally clarity, a good name and timely help.'
+
+  - id: zw.z3.ji
+    code: Z3-忌
+    reliability: consensus
+    note: 生年化忌落入本宫。文案只说「在意」，不说「不顺」。
+    measure:
+      kind: mutagen
+      from: self
+      deltas:
+        ji: -1
+    copy:
+      negative:
+        zh: '生年化忌落在{palace}（{star}化忌），传统上表示你在这件事上特别在意、容易反复琢磨。'
+        en: 'Your birth-year Ji transformation lands in your {palace} through {star}; tradition reads this as an area you care about intensely and tend to turn over in your mind.'
+        advice:
+          zh: '给它定几条简单的规则，会轻松很多。'
+          en: 'A few simple ground rules make it much lighter.'
+
+  - id: zw.z4.lucky
+    code: Z4
+    reliability: consensus
+    note: 六吉每颗 +0.25，与 group lucky 合计不超过 +0.75。
+    group: lucky
+    measure:
+      kind: stars
+      from: self
+      keys: [zuo_fu, you_bi, wen_chang, wen_qu, tian_kui, tian_yue]
+      each: 0.25
+    copy:
+      positive:
+        zh: '{palace}有{stars}同宫，传统上代表有帮手、有贵人。'
+        en: 'Your {palace} also holds {stars} — traditionally helpers and timely support.'
+
+  - id: zw.z5.lu_cun
+    code: Z5
+    reliability: consensus
+    note: 禄存在本宫。
+    measure:
+      kind: stars
+      from: self
+      keys: [lu_cun]
+      once: 0.5
+    copy:
+      positive:
+        zh: '禄存在{palace}，传统上代表稳定、能积累。'
+        en: 'Lu Cun sits in your {palace} — traditionally steady, accumulating resources.'
+
+  - id: zw.z6.malefic
+    code: Z6
+    reliability: school_split
+    note: 六煞每颗 −0.25，与 group malefic 合计不低于 −0.75。方向共识强；煞星在官禄宫算「激发」还是「阻碍」属流派分歧，本方案只小幅减分，待顾问表态。
+    group: malefic
+    measure:
+      kind: stars
+      from: self
+      keys: [qing_yang, tuo_luo, huo_xing, ling_xing, di_kong, di_jie]
+      each: -0.25
+    copy:
+      negative:
+        zh: '{palace}有{stars}，传统上代表这里节奏更急、起伏更多。'
+        en: 'Your {palace} holds {stars}, which tradition links to a faster, bumpier rhythm here.'
+        advice:
+          zh: '稳住步子比求快更重要，重要的决定多留一天再定。'
+          en: 'Steady pacing pays off; give important decisions an extra day.'
+
+  - id: zw.z7.opposite
+    code: Z7
+    reliability: consensus
+    note: 对宫的生年四化照入本宫，按半权计入（禄 +0.5、权 +0.375、科 +0.25、忌 −0.5）。三方四正是共识；半权是本方案的取值。三合宫留到第二期。
+    measure:
+      kind: mutagen
+      from: opposite
+      deltas:
+        lu: 0.5
+        quan: 0.375
+        ke: 0.25
+        ji: -0.5
+    copy:
+      positive:
+        zh: '对宫{opposite}的{star}{mutagen}照进{palace}，传统上看作从外部来的助力。'
+        en: '{star} with the {mutagen} in the opposite {opposite} shines across to your {palace} — traditionally support that arrives from outside.'
+      negative:
+        zh: '对宫{opposite}的{star}化忌冲向{palace}，传统上表示外部变化容易牵动这一块。'
+        en: '{star} with the Ji transformation in the opposite {opposite} pulls on your {palace}; tradition reads this as outside changes easily touching this area.'
+        advice:
+          zh: '凡事给自己留一点余量就好。'
+          en: 'Leaving yourself a little margin is enough.'
+
+  - id: zw.z8a.wealth_star
+    code: Z8a
+    reliability: consensus
+    note: 仅财帛：武曲、太阴、天府之一在本宫且为庙、旺、得（财星居财位）。多颗同时成立也只加一次。
+    dims: [wealth]
+    measure:
+      kind: stars
+      from: self
+      keys: [wu_qu, tai_yin, tian_fu]
+      brightness: [miao, wang, de]
+      once: 0.5
+    copy:
+      positive:
+        zh: '{stars}是传统里的财星，落在{palace}又得地。'
+        en: 'Your {palace} holds {stars} in a strong position, and tradition counts it among the wealth stars.'
+
+  - id: zw.z8b.lu_ma
+    code: Z8b
+    reliability: consensus
+    note: 仅财帛：天马与禄存或生年化禄同宫（禄马交驰）。
+    dims: [wealth]
+    measure:
+      kind: combo
+      from: self
+      all: [tian_ma]
+      any: [lu_cun, 'mutagen:lu']
+      delta: 0.5
+    copy:
+      positive:
+        zh: '{palace}里天马与禄存或化禄同宫，传统上叫「禄马交驰」，代表财源随走动和变化而来。'
+        en: 'Tian Ma meets Lu Cun or the Lu transformation in your {palace} — tradition calls this Lu and Ma together, wealth that comes through movement and change.'
+
+copy:
+  title:
+    zh: 命盘侧重
+    en: Chart emphasis
+  levels:
+    '5': { zh: 突出, en: Standout }
+    '4': { zh: 有支撑, en: Supported }
+    '3': { zh: 平稳, en: Steady }
+    '2': { zh: 多花心思, en: Takes more care }
+  dims:
+    career: { label: { zh: 事业, en: Career }, inline: { zh: 事业, en: career } }
+    wealth: { label: { zh: 财富, en: Wealth }, inline: { zh: 财富, en: wealth } }
+    love: { label: { zh: 感情, en: Love }, inline: { zh: 感情, en: love } }
+    social: { label: { zh: 人际, en: Social }, inline: { zh: 人际, en: relationships with others } }
+  sentences:
+    career:
+      '5':
+        zh: 事业这一块在你的盘里很突出，值得当作长期经营的重心。
+        en: Career stands out in your chart and is worth treating as a long-term focus.
+      '4':
+        zh: 事业有不少传统上的支撑，按自己的节奏稳步推进就好。
+        en: Career has solid traditional support; keep moving forward at your own pace.
+      '3':
+        zh: 事业这一块比较平稳，没有特别的助力，也没有明显的阻力。
+        en: Career is steady here, with no special boost and no clear headwind.
+      '2':
+        zh: 事业这一块更需要方法，先把一项核心技能练扎实，会更容易找到发力点。
+        en: Career rewards method here; building one core skill solidly makes it easier to find your footing.
+    wealth:
+      '5':
+        zh: 财富这一块在你的盘里很突出，传统上看是资源比较容易聚拢的地方。
+        en: Wealth stands out in your chart; tradition sees it as a place where resources gather more easily.
+      '4':
+        zh: 财富有不少传统上的支撑，保持稳定的理财习惯就能用好它。
+        en: Wealth has solid traditional support; steady money habits help you make the most of it.
+      '3':
+        zh: 财富这一块比较平稳，收支按计划走，心里会更踏实。
+        en: Wealth is steady here; following a simple plan for income and spending keeps you at ease.
+      '2':
+        zh: 财富这一块更需要方法，给开销定几条简单规则，会轻松很多。
+        en: Wealth rewards method here; a few simple spending rules make it much lighter.
+    love:
+      '5':
+        zh: 感情这一块在你的盘里很突出，传统上看是容易得到回应的地方。
+        en: Love stands out in your chart; tradition sees it as a place where warmth is readily returned.
+      '4':
+        zh: 感情有不少传统上的支撑，多花时间相处，关系会越来越稳。
+        en: Love has solid traditional support; time spent together keeps the bond growing steadier.
+      '3':
+        zh: 感情这一块比较平稳，日常的小关心比大起大落更有分量。
+        en: Love is steady here; small everyday care carries more weight than big highs and lows.
+      '2':
+        zh: 感情这一块更需要用心经营，把在意的事说出来，比自己琢磨更有用。
+        en: Love takes more care here; saying what matters to you helps more than turning it over alone.
+    social:
+      '5':
+        zh: 人际这一块在你的盘里很突出，传统上看身边容易有帮手和贵人。
+        en: Relationships with others stand out in your chart; tradition sees helpers and mentors close at hand.
+      '4':
+        zh: 人际有不少传统上的支撑，主动联系老朋友，往往会带来新的机会。
+        en: Relationships with others have solid traditional support; reaching out to old friends often opens new doors.
+      '3':
+        zh: 人际这一块比较平稳，维持几段可靠的关系就足够。
+        en: Relationships with others are steady here; a few reliable connections are plenty.
+      '2':
+        zh: 人际这一块更需要方法，先用心经营一两段关系，比广交朋友更省力。
+        en: Relationships with others reward method here; investing in one or two connections is easier than casting a wide net.
+  overview:
+    two:
+      zh: '你的盘面侧重在{first}与{second}。'
+      en: 'Your chart leans toward {first} and {second}.'
+    one:
+      zh: '你的盘面侧重在{first}。'
+      en: 'Your chart leans toward {first}.'
+    none:
+      zh: 你的盘面各方面比较均衡，没有特别突出的一块。
+      en: Your chart is fairly even across these areas, with no single one standing out.
+  footnotes:
+    disclaimer:
+      zh: 侧重来自传统规则的组合，看的是这张盘里各领域的相对重心，不代表结果。
+      en: This emphasis combines traditional rules to show the relative weight of each area in this chart. It does not describe outcomes.
+    health:
+      zh: 本命盘不评估健康。
+      en: The natal chart does not assess health.
+    crossSystem:
+      zh: 不同体系观察的角度不同。
+      en: Different systems look from different angles.
+    brightness:
+      zh: 主星亮度按通行表判断。
+      en: Star brightness follows the commonly used table.

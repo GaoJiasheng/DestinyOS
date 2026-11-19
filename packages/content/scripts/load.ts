@@ -11,6 +11,7 @@ import {
 import type { LocatedUnit, Diagnostic } from './validation';
 import type { GlossaryEntry } from '../src';
 import { validateAsset } from './assets';
+import { validateScoring } from './scoring';
 export const root = dirname(dirname(fileURLToPath(import.meta.url)));
 /** List matching files recursively in stable path order; missing directories yield an empty list.
  * @param directory Source directory to scan.
@@ -44,7 +45,8 @@ export async function loadContent() {
     diagnostics: Diagnostic[] = [];
   for (const system of [...Object.values(System), 'common'])
     for (const file of await files(join(root, system), '.yaml')) {
-      if (file.endsWith('/transitions.yaml')) continue;
+      // Scoring tables are rule data, validated after the glossary they reference.
+      if (file.endsWith('/transitions.yaml') || file.endsWith('/scoring.yaml')) continue;
       const source = await readFile(file, 'utf8');
       const assetDiagnostics = validateAsset(relative(root, file), file, source);
       if (assetDiagnostics) {
@@ -77,10 +79,14 @@ export async function loadContent() {
   const file = join(root, 'common/transitions.yaml');
   const result = validateTransitions(file, await readFile(file, 'utf8'));
   diagnostics.push(...result.diagnostics);
+  const scoringFile = join(root, 'ziwei/scoring.yaml');
+  const scoring = validateScoring(scoringFile, await readFile(scoringFile, 'utf8'), glossary);
+  diagnostics.push(...scoring.diagnostics);
   return {
     units: units.map((item) => item.unit),
     glossary,
     transitions: result.transitions,
+    scoring: scoring.compiled,
     diagnostics,
   };
 }

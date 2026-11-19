@@ -6,13 +6,19 @@ import { System } from '@tianji/shared';
 import type { CompiledBundle } from '../src';
 import version from '../version.json';
 import { loadContent, printDiagnostics, root } from './load';
+import { writeScoring } from './scoring-output';
 const result = await loadContent();
 const rectificationFeatures = await loadRectificationFeatures();
 printDiagnostics(result.diagnostics);
-if (result.diagnostics.some((d) => d.severity === 'error') || !result.transitions)
+if (
+  result.diagnostics.some((d) => d.severity === 'error') ||
+  !result.transitions ||
+  !result.scoring
+)
   process.exitCode = 1;
 else {
   await compileLearn(result.glossary);
+  await writeScoring(result.scoring);
   const dist = join(root, 'dist');
   await mkdir(dist, { recursive: true });
   // DESIGN-GAP: Remove only prior content bundles, preserving TypeScript build outputs.

@@ -18,6 +18,7 @@ import { checkReadability } from './readability';
 import { createProseCompactor, identityCompactor, type ProseCompactor } from './compact-prose';
 import { createTransitionChooser, evidenceItems, markSections } from './report-assembly';
 import { localizeReport } from './localize-report';
+import { emphasisField } from './emphasis/evaluate';
 import displayLabels from './display-labels.json' with { type: 'json' };
 export const interpretVersion = '1.3.0';
 type Candidate = { unit: KnowledgeUnit; hit: Hit };
@@ -369,6 +370,7 @@ export function interpret(input: InterpretInput): Report {
     )
   )
     sections = marked(assemble(compactors[1]));
+  const extra = emphasisField(config.emphasis, chart, input.options?.emphasis);
   const report: Report = {
     system,
     locale,
@@ -376,7 +378,7 @@ export function interpret(input: InterpretInput): Report {
     // DESIGN-GAP: Pure interpretation callers without an engine context use the unknown-version sentinel.
     engineVersion: context.engineVersion ?? '0.0.0',
     interpretVersion,
-    headline: { persona, keywords, scores, confidence },
+    headline: { persona, keywords, scores, confidence, ...extra },
     sections,
     hits: retained.map((c) => c.hit),
     doDont: {

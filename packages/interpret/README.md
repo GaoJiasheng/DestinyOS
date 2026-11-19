@@ -50,3 +50,11 @@ export function makeReport(input: InterpretInput) {
 从仓库根目录运行 `pnpm content:validate`、`pnpm typecheck`、`pnpm test`。
 `test/` 覆盖双语篇幅、章节、互斥/让步、变量替换、术语匹配与确定性组文。
 仓库现有覆盖率收集 engine/shared/crypto；解读行为通过完整测试断言验证。
+
+## 命盘侧重（试点，默认关闭）
+
+`interpret({ ..., options: { emphasis: true } })` 时，`SystemConfig.emphasis.status === 'available'`
+的体系（目前只有紫微）在 `headline.emphasis` 写入与语言无关的结果；不传或为 false 时报告不变。
+浏览器端只从 `@tianji/interpret/emphasis` 引入类型和渲染函数（`renderEmphasisBasis` 等），
+它只打包编译好的侧重文案，不带知识库。规则与文案源在 `packages/content/ziwei/scoring.yaml`，
+标定脚本 `pnpm emphasis:calibrate`。

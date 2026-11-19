@@ -86,7 +86,7 @@ type Mutagen = 'lu'|'quan'|'ke'|'ji';   // 化禄、化权、化科、化忌
 
 | # | key | 标题 zh / en | 要点 | 触发维度 |
 |---|---|---|---|---|
-| 0 | `overview` | 命盘概览 / Overview | 命宫主星组合一句话人设；五行局；身宫所在宫位的含义；三个关键词；五维评分 | life.majorStars, bodyPalace |
+| 0 | `overview` | 命盘概览 / Overview | 命宫主星组合一句话人设；五行局；身宫所在宫位的含义；三个关键词；命盘侧重（§11，取代「五维评分」） | life.majorStars, bodyPalace |
 | 1 | `life_palace` | 命宫与性格 / Life Palace & Personality | 命宫主星逐颗解释（含庙陷）；星曜组合（如紫府同宫、机月同梁）；辅星煞星修饰；无主星借对宫说明 | life.* |
 | 2 | `body_fortune` | 身宫与福德 / Body Palace & Inner Life | 身宫落宫的人生侧重；福德宫主星 → 精神世界、兴趣、压力来源 | body, wellbeing |
 | 3 | `career_wealth` | 事业与财帛 / Career & Wealth | 官禄宫与财帛宫主星；三方四正（命财官迁）的整体格局；工作方式与财务风格 | career, wealth, travel |
@@ -130,3 +130,15 @@ type Mutagen = 'lu'|'quan'|'ke'|'ji';   // 化禄、化权、化科、化忌
 `ziwei.palaces[key].majorStars[].key`（含组合）、`brightness`、`mutagen`、`palaces[key].minorStars`（文昌文曲、左辅右弼、魁钺、禄存天马、六煞）、`patterns[].key`、`basics.fiveElementsClass`、`basics.bodyPalaceBranch` → 所在宫 key、`horoscope.decadal.palaceIndex` 对应宫、`horoscope.decadal.mutagens`、`horoscope.yearly.*`。
 
 预计 KU：14 主星 × 12 宫（命宫全写 14×4 变体 = 56；其他 11 宫按主星写 14×11 = 154，陷地变体复用字段）、主星双星组合 ~30、辅煞星入关键宫 ~40、格局 25、大限宫位 12、大限四化落宫 ~24、流年四化 ~24、无主星宫 12 → 约 **380 条**。
+
+## 11. 命盘侧重（试点，2026-11-19）
+
+方案与 Owner 决定见 `docs/progress/SCORING-PROPOSAL-2026-11-16.md`（Q1–Q10 按建议）。本命盘不再用 `headline.scores` 打「五维评分」（字段保留、仍全为 3，旧界面与 App 不受影响），改为可选字段 `headline.emphasis`。
+
+- **规则来源**：`packages/content/ziwei/scoring.yaml`（Z1–Z8b，规则、分值、可靠度与 zh/en 文案在同一处，供顾问审阅）。构建（`pnpm --filter @tianji/content content:build`）把它编译成 `packages/content/src/scoring/ziwei-rules.json`（分值 ×8 的整数）与 `ziwei-copy.json`（zh、en，以及由 OpenCC 流程生成的 zh-TW）；`content:validate` 校验 0.125 倍数、group cap、文案齐全与占位符一致、切点递增、禁用词，并在生成文件过期时报错。
+- **维度与宫位**：事业 → 官禄，财富 → 财帛，感情 → 夫妻，人际 → 交友；对宫 = 序号 +6（mod 12）。疾厄（健康）不计算，`omitted: ['health']`。
+- **分值**：亮度（庙旺 +1、得利 +0.5、平 0、不 −0.5、陷 −1，双主星取平均；亮度按 iztro 通行表）；空宫借对宫主星 ×0.5；生年化禄 +1、权 +0.75、科 +0.5、忌 −1；六吉每颗 +0.25（上限 +0.75）；禄存 +0.5；六煞每颗 −0.25（下限 −0.75）；对宫四化半权（禄 +0.5、权 +0.375、科 +0.25、忌 −0.5）；仅财帛：财星居财位 +0.5、禄马交驰 +0.5。每维钳位 ±2.5。
+- **分档**：按固定种子样本（N = 2000，种子 20261116，1950–2005，八个城市）四维合并的 20/50/80 分位冻结切点 [0, 0.75, 1.375]：raw < 0 → 2「多花心思」，< 0.75 → 3「平稳」，< 1.375 → 4「有支撑」，其余 → 5「突出」。`pnpm emphasis:calibrate` 可重跑并输出分布统计。
+- **输出**：`{ version, dims[d] = { level, raw, basis[] }, top, omitted }`；`basis` 只存规则 id、分值与稳定 key，展示时由 `@tianji/interpret/emphasis` 的渲染函数本地化，切换语言不重算。
+- **开关**：`interpret({ ..., options: { emphasis: true } })` 才计算；默认关闭，关闭时报告与此前逐字节一致。上线前须外部命理顾问签字（Q6，复核材料 `docs/progress/EMPHASIS-ZIWEI-REVIEW.md`）。
+- **版本**：改分值、切点或增删规则升 `scoringVersion` 的 minor，只改文案升 patch；旧报告不回填（Q8）。

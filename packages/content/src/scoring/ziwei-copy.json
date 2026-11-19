@@ -1,0 +1,434 @@
+{
+  "system": "ziwei",
+  "scoringVersion": "1.0.0",
+  "locales": {
+    "zh": {
+      "title": "命盘侧重",
+      "levels": { "2": "多花心思", "3": "平稳", "4": "有支撑", "5": "突出" },
+      "dims": {
+        "career": { "label": "事业", "inline": "事业" },
+        "wealth": { "label": "财富", "inline": "财富" },
+        "love": { "label": "感情", "inline": "感情" },
+        "social": { "label": "人际", "inline": "人际" }
+      },
+      "sentences": {
+        "career": {
+          "2": "事业这一块更需要方法，先把一项核心技能练扎实，会更容易找到发力点。",
+          "3": "事业这一块比较平稳，没有特别的助力，也没有明显的阻力。",
+          "4": "事业有不少传统上的支撑，按自己的节奏稳步推进就好。",
+          "5": "事业这一块在你的盘里很突出，值得当作长期经营的重心。"
+        },
+        "wealth": {
+          "2": "财富这一块更需要方法，给开销定几条简单规则，会轻松很多。",
+          "3": "财富这一块比较平稳，收支按计划走，心里会更踏实。",
+          "4": "财富有不少传统上的支撑，保持稳定的理财习惯就能用好它。",
+          "5": "财富这一块在你的盘里很突出，传统上看是资源比较容易聚拢的地方。"
+        },
+        "love": {
+          "2": "感情这一块更需要用心经营，把在意的事说出来，比自己琢磨更有用。",
+          "3": "感情这一块比较平稳，日常的小关心比大起大落更有分量。",
+          "4": "感情有不少传统上的支撑，多花时间相处，关系会越来越稳。",
+          "5": "感情这一块在你的盘里很突出，传统上看是容易得到回应的地方。"
+        },
+        "social": {
+          "2": "人际这一块更需要方法，先用心经营一两段关系，比广交朋友更省力。",
+          "3": "人际这一块比较平稳，维持几段可靠的关系就足够。",
+          "4": "人际有不少传统上的支撑，主动联系老朋友，往往会带来新的机会。",
+          "5": "人际这一块在你的盘里很突出，传统上看身边容易有帮手和贵人。"
+        }
+      },
+      "overview": {
+        "two": "你的盘面侧重在{first}与{second}。",
+        "one": "你的盘面侧重在{first}。",
+        "none": "你的盘面各方面比较均衡，没有特别突出的一块。"
+      },
+      "footnotes": {
+        "disclaimer": "侧重来自传统规则的组合，看的是这张盘里各领域的相对重心，不代表结果。",
+        "health": "本命盘不评估健康。",
+        "crossSystem": "不同体系观察的角度不同。",
+        "brightness": "主星亮度按通行表判断。"
+      },
+      "rules": {
+        "zw.z1.brightness": {
+          "positive": "{palace}有{starsBrightness}，主星在这里发挥得比较顺，传统上视为这一领域的底气。",
+          "zero": "{palace}有{starsBrightness}，整体居中，这一条不加分也不减分。",
+          "negative": "{palace}有{starsBrightness}，整体偏弱，传统上说主星在这里不容易施展，更像是一块需要找对方法的地方。",
+          "advice": "先挑一个小环节换种做法试试，看看哪种方式更顺手。"
+        },
+        "zw.z2.borrowed": {
+          "positive": "{palace}没有主星，按传统借对宫{opposite}的{starsBrightness}来看，影响打对折；借来的星发挥得还算顺。",
+          "zero": "{palace}没有主星，按传统借对宫{opposite}的{starsBrightness}来看，影响打对折，整体居中。",
+          "negative": "{palace}没有主星，按传统借对宫{opposite}的{starsBrightness}来看，影响打对折，借来的星偏弱。",
+          "advice": "空宫更看后天的经营，给这件事定一个固定的小习惯，会比等时机更踏实。"
+        },
+        "zw.z3.ji": {
+          "negative": "生年化忌落在{palace}（{star}化忌），传统上表示你在这件事上特别在意、容易反复琢磨。",
+          "advice": "给它定几条简单的规则，会轻松很多。"
+        },
+        "zw.z3.ke": { "positive": "{star}化科在{palace}，传统上代表名声、条理和贵人缘。" },
+        "zw.z3.lu": {
+          "positive": "生年化禄落在{palace}（{star}化禄），传统上表示这里容易遇到资源和顺手的机会。"
+        },
+        "zw.z3.quan": {
+          "positive": "{star}化权在{palace}，传统上代表你在这方面有主导力、肯担事。"
+        },
+        "zw.z4.lucky": { "positive": "{palace}有{stars}同宫，传统上代表有帮手、有贵人。" },
+        "zw.z5.lu_cun": { "positive": "禄存在{palace}，传统上代表稳定、能积累。" },
+        "zw.z6.malefic": {
+          "negative": "{palace}有{stars}，传统上代表这里节奏更急、起伏更多。",
+          "advice": "稳住步子比求快更重要，重要的决定多留一天再定。"
+        },
+        "zw.z7.opposite": {
+          "positive": "对宫{opposite}的{star}{mutagen}照进{palace}，传统上看作从外部来的助力。",
+          "negative": "对宫{opposite}的{star}化忌冲向{palace}，传统上表示外部变化容易牵动这一块。",
+          "advice": "凡事给自己留一点余量就好。"
+        },
+        "zw.z8a.wealth_star": { "positive": "{stars}是传统里的财星，落在{palace}又得地。" },
+        "zw.z8b.lu_ma": {
+          "positive": "{palace}里天马与禄存或化禄同宫，传统上叫「禄马交驰」，代表财源随走动和变化而来。"
+        }
+      },
+      "terms": {
+        "brightness.bu": "不",
+        "brightness.de": "得",
+        "brightness.li": "利",
+        "brightness.miao": "庙",
+        "brightness.ping": "平",
+        "brightness.wang": "旺",
+        "brightness.xian": "陷",
+        "mutagen.ji": "化忌",
+        "mutagen.ke": "化科",
+        "mutagen.lu": "化禄",
+        "mutagen.quan": "化权",
+        "palace.career": "官禄宫",
+        "palace.children": "子女宫",
+        "palace.friends": "交友宫",
+        "palace.health": "疾厄宫",
+        "palace.life": "命宫",
+        "palace.parents": "父母宫",
+        "palace.property": "田宅宫",
+        "palace.siblings": "兄弟宫",
+        "palace.spouse": "夫妻宫",
+        "palace.travel": "迁移宫",
+        "palace.wealth": "财帛宫",
+        "palace.wellbeing": "福德宫",
+        "star.di_jie": "地劫",
+        "star.di_kong": "地空",
+        "star.huo_xing": "火星",
+        "star.ju_men": "巨门",
+        "star.lian_zhen": "廉贞",
+        "star.ling_xing": "铃星",
+        "star.lu_cun": "禄存",
+        "star.po_jun": "破军",
+        "star.qi_sha": "七杀",
+        "star.qing_yang": "擎羊",
+        "star.tai_yang": "太阳",
+        "star.tai_yin": "太阴",
+        "star.tan_lang": "贪狼",
+        "star.tian_fu": "天府",
+        "star.tian_ji": "天机",
+        "star.tian_kui": "天魁",
+        "star.tian_liang": "天梁",
+        "star.tian_ma": "天马",
+        "star.tian_tong": "天同",
+        "star.tian_xiang": "天相",
+        "star.tian_yue": "天钺",
+        "star.tuo_luo": "陀罗",
+        "star.wen_chang": "文昌",
+        "star.wen_qu": "文曲",
+        "star.wu_qu": "武曲",
+        "star.you_bi": "右弼",
+        "star.zi_wei": "紫微",
+        "star.zuo_fu": "左辅"
+      }
+    },
+    "en": {
+      "title": "Chart emphasis",
+      "levels": { "2": "Takes more care", "3": "Steady", "4": "Supported", "5": "Standout" },
+      "dims": {
+        "career": { "label": "Career", "inline": "career" },
+        "wealth": { "label": "Wealth", "inline": "wealth" },
+        "love": { "label": "Love", "inline": "love" },
+        "social": { "label": "Social", "inline": "relationships with others" }
+      },
+      "sentences": {
+        "career": {
+          "2": "Career rewards method here; building one core skill solidly makes it easier to find your footing.",
+          "3": "Career is steady here, with no special boost and no clear headwind.",
+          "4": "Career has solid traditional support; keep moving forward at your own pace.",
+          "5": "Career stands out in your chart and is worth treating as a long-term focus."
+        },
+        "wealth": {
+          "2": "Wealth rewards method here; a few simple spending rules make it much lighter.",
+          "3": "Wealth is steady here; following a simple plan for income and spending keeps you at ease.",
+          "4": "Wealth has solid traditional support; steady money habits help you make the most of it.",
+          "5": "Wealth stands out in your chart; tradition sees it as a place where resources gather more easily."
+        },
+        "love": {
+          "2": "Love takes more care here; saying what matters to you helps more than turning it over alone.",
+          "3": "Love is steady here; small everyday care carries more weight than big highs and lows.",
+          "4": "Love has solid traditional support; time spent together keeps the bond growing steadier.",
+          "5": "Love stands out in your chart; tradition sees it as a place where warmth is readily returned."
+        },
+        "social": {
+          "2": "Relationships with others reward method here; investing in one or two connections is easier than casting a wide net.",
+          "3": "Relationships with others are steady here; a few reliable connections are plenty.",
+          "4": "Relationships with others have solid traditional support; reaching out to old friends often opens new doors.",
+          "5": "Relationships with others stand out in your chart; tradition sees helpers and mentors close at hand."
+        }
+      },
+      "overview": {
+        "two": "Your chart leans toward {first} and {second}.",
+        "one": "Your chart leans toward {first}.",
+        "none": "Your chart is fairly even across these areas, with no single one standing out."
+      },
+      "footnotes": {
+        "disclaimer": "This emphasis combines traditional rules to show the relative weight of each area in this chart. It does not describe outcomes.",
+        "health": "The natal chart does not assess health.",
+        "crossSystem": "Different systems look from different angles.",
+        "brightness": "Star brightness follows the commonly used table."
+      },
+      "rules": {
+        "zw.z1.brightness": {
+          "positive": "Your {palace} holds {starsBrightness} brightness — traditionally a steady footing for this area.",
+          "zero": "Your {palace} holds {starsBrightness} brightness, which sits in the middle and neither adds nor subtracts here.",
+          "negative": "Your {palace} holds {starsBrightness} brightness, a weaker position; tradition reads this as an area that rewards finding the right approach.",
+          "advice": "Try a different approach on one small part first and notice what works for you."
+        },
+        "zw.z2.borrowed": {
+          "positive": "Your {palace} has no major star, so tradition borrows {starsBrightness} from the opposite {opposite} at half strength; the borrowed star sits well.",
+          "zero": "Your {palace} has no major star, so tradition borrows {starsBrightness} from the opposite {opposite} at half strength, which sits in the middle.",
+          "negative": "Your {palace} has no major star, so tradition borrows {starsBrightness} from the opposite {opposite} at half strength, and the borrowed star is in a weaker position.",
+          "advice": "An empty palace leans on what you build, so a small, regular habit here works better than waiting for the right moment."
+        },
+        "zw.z3.ji": {
+          "negative": "Your birth-year Ji transformation lands in your {palace} through {star}; tradition reads this as an area you care about intensely and tend to turn over in your mind.",
+          "advice": "A few simple ground rules make it much lighter."
+        },
+        "zw.z3.ke": {
+          "positive": "{star} carries the Ke (recognition) transformation in your {palace} — traditionally clarity, a good name and timely help."
+        },
+        "zw.z3.lu": {
+          "positive": "Your birth-year Lu (abundance) transformation lands in your {palace} through {star} — traditionally a place where resources come more easily."
+        },
+        "zw.z3.quan": {
+          "positive": "{star} carries the Quan (authority) transformation in your {palace} — traditionally a sign of initiative and ownership here."
+        },
+        "zw.z4.lucky": {
+          "positive": "Your {palace} also holds {stars} — traditionally helpers and timely support."
+        },
+        "zw.z5.lu_cun": {
+          "positive": "Lu Cun sits in your {palace} — traditionally steady, accumulating resources."
+        },
+        "zw.z6.malefic": {
+          "negative": "Your {palace} holds {stars}, which tradition links to a faster, bumpier rhythm here.",
+          "advice": "Steady pacing pays off; give important decisions an extra day."
+        },
+        "zw.z7.opposite": {
+          "positive": "{star} with the {mutagen} in the opposite {opposite} shines across to your {palace} — traditionally support that arrives from outside.",
+          "negative": "{star} with the Ji transformation in the opposite {opposite} pulls on your {palace}; tradition reads this as outside changes easily touching this area.",
+          "advice": "Leaving yourself a little margin is enough."
+        },
+        "zw.z8a.wealth_star": {
+          "positive": "Your {palace} holds {stars} in a strong position, and tradition counts it among the wealth stars."
+        },
+        "zw.z8b.lu_ma": {
+          "positive": "Tian Ma meets Lu Cun or the Lu transformation in your {palace} — tradition calls this Lu and Ma together, wealth that comes through movement and change."
+        }
+      },
+      "terms": {
+        "brightness.bu": "Weak",
+        "brightness.de": "Gain",
+        "brightness.li": "Benefit",
+        "brightness.miao": "Temple",
+        "brightness.ping": "Neutral",
+        "brightness.wang": "Prosperous",
+        "brightness.xian": "Fallen",
+        "mutagen.ji": "Obstacle transformation",
+        "mutagen.ke": "Fame transformation",
+        "mutagen.lu": "Prosperity transformation",
+        "mutagen.quan": "Power transformation",
+        "palace.career": "Career Palace",
+        "palace.children": "Children Palace",
+        "palace.friends": "Friends Palace",
+        "palace.health": "Health Palace",
+        "palace.life": "Life Palace",
+        "palace.parents": "Parents Palace",
+        "palace.property": "Property Palace",
+        "palace.siblings": "Siblings Palace",
+        "palace.spouse": "Spouse Palace",
+        "palace.travel": "Travel Palace",
+        "palace.wealth": "Wealth Palace",
+        "palace.wellbeing": "Wellbeing Palace",
+        "star.di_jie": "Di Jie",
+        "star.di_kong": "Di Kong",
+        "star.huo_xing": "Huo Xing",
+        "star.ju_men": "Ju Men (Gate)",
+        "star.lian_zhen": "Lian Zhen (Integrity)",
+        "star.ling_xing": "Ling Xing",
+        "star.lu_cun": "Lu Cun",
+        "star.po_jun": "Po Jun (Breaker)",
+        "star.qi_sha": "Qi Sha (Warrior)",
+        "star.qing_yang": "Qing Yang",
+        "star.tai_yang": "Tai Yang (Sun)",
+        "star.tai_yin": "Tai Yin (Moon)",
+        "star.tan_lang": "Tan Lang (Desire)",
+        "star.tian_fu": "Tian Fu (Treasurer)",
+        "star.tian_ji": "Tian Ji (Strategist)",
+        "star.tian_kui": "Tian Kui",
+        "star.tian_liang": "Tian Liang (Elder)",
+        "star.tian_ma": "Tian Ma",
+        "star.tian_tong": "Tian Tong (Harmony)",
+        "star.tian_xiang": "Tian Xiang (Minister)",
+        "star.tian_yue": "Tian Yue",
+        "star.tuo_luo": "Tuo Luo",
+        "star.wen_chang": "Wen Chang",
+        "star.wen_qu": "Wen Qu",
+        "star.wu_qu": "Wu Qu (General)",
+        "star.you_bi": "Right Assistant",
+        "star.zi_wei": "Zi Wei (Emperor)",
+        "star.zuo_fu": "Left Assistant"
+      }
+    },
+    "zh-TW": {
+      "title": "命盤側重",
+      "levels": { "2": "多花心思", "3": "平穩", "4": "有支撐", "5": "突出" },
+      "dims": {
+        "career": { "label": "事業", "inline": "事業" },
+        "wealth": { "label": "財富", "inline": "財富" },
+        "love": { "label": "感情", "inline": "感情" },
+        "social": { "label": "人際", "inline": "人際" }
+      },
+      "sentences": {
+        "career": {
+          "2": "事業這一塊更需要方法，先把一項核心技能練紮實，會更容易找到發力點。",
+          "3": "事業這一塊比較平穩，沒有特別的助力，也沒有明顯的阻力。",
+          "4": "事業有不少傳統上的支撐，按自己的節奏穩步推進就好。",
+          "5": "事業這一塊在你的盤裡很突出，值得當作長期經營的重心。"
+        },
+        "wealth": {
+          "2": "財富這一塊更需要方法，給開銷定幾條簡單規則，會輕鬆很多。",
+          "3": "財富這一塊比較平穩，收支按計劃走，心裡會更踏實。",
+          "4": "財富有不少傳統上的支撐，保持穩定的理財習慣就能用好它。",
+          "5": "財富這一塊在你的盤裡很突出，傳統上看是資源比較容易聚攏的地方。"
+        },
+        "love": {
+          "2": "感情這一塊更需要用心經營，把在意的事說出來，比自己琢磨更有用。",
+          "3": "感情這一塊比較平穩，日常的小關心比大起大落更有分量。",
+          "4": "感情有不少傳統上的支撐，多花時間相處，關係會越來越穩。",
+          "5": "感情這一塊在你的盤裡很突出，傳統上看是容易得到回應的地方。"
+        },
+        "social": {
+          "2": "人際這一塊更需要方法，先用心經營一兩段關係，比廣交朋友更省力。",
+          "3": "人際這一塊比較平穩，維持幾段可靠的關係就足夠。",
+          "4": "人際有不少傳統上的支撐，主動聯絡老朋友，往往會帶來新的機會。",
+          "5": "人際這一塊在你的盤裡很突出，傳統上看身邊容易有幫手和貴人。"
+        }
+      },
+      "overview": {
+        "two": "你的盤面側重在{first}與{second}。",
+        "one": "你的盤面側重在{first}。",
+        "none": "你的盤面各方面比較均衡，沒有特別突出的一塊。"
+      },
+      "footnotes": {
+        "disclaimer": "側重來自傳統規則的組合，看的是這張盤裡各領域的相對重心，不代表結果。",
+        "health": "本命盤不評估健康。",
+        "crossSystem": "不同體系觀察的角度不同。",
+        "brightness": "主星亮度按通行表判斷。"
+      },
+      "rules": {
+        "zw.z1.brightness": {
+          "positive": "{palace}有{starsBrightness}，主星在這裡發揮得比較順，傳統上視為這一領域的底氣。",
+          "zero": "{palace}有{starsBrightness}，整體居中，這一條不加分也不減分。",
+          "negative": "{palace}有{starsBrightness}，整體偏弱，傳統上說主星在這裡不容易施展，更像是一塊需要找對方法的地方。",
+          "advice": "先挑一個小環節換種做法試試，看看哪種方式更順手。"
+        },
+        "zw.z2.borrowed": {
+          "positive": "{palace}沒有主星，按傳統借對宮{opposite}的{starsBrightness}來看，影響打對摺；借來的星發揮得還算順。",
+          "zero": "{palace}沒有主星，按傳統借對宮{opposite}的{starsBrightness}來看，影響打對摺，整體居中。",
+          "negative": "{palace}沒有主星，按傳統借對宮{opposite}的{starsBrightness}來看，影響打對摺，借來的星偏弱。",
+          "advice": "空宮更看後天的經營，給這件事定一個固定的小習慣，會比等時機更踏實。"
+        },
+        "zw.z3.ji": {
+          "negative": "生年化忌落在{palace}（{star}化忌），傳統上表示你在這件事上特別在意、容易反覆琢磨。",
+          "advice": "給它定幾條簡單的規則，會輕鬆很多。"
+        },
+        "zw.z3.ke": { "positive": "{star}化科在{palace}，傳統上代表名聲、條理和貴人緣。" },
+        "zw.z3.lu": {
+          "positive": "生年化祿落在{palace}（{star}化祿），傳統上表示這裡容易遇到資源和順手的機會。"
+        },
+        "zw.z3.quan": {
+          "positive": "{star}化權在{palace}，傳統上代表你在這方面有主導力、肯擔事。"
+        },
+        "zw.z4.lucky": { "positive": "{palace}有{stars}同宮，傳統上代表有幫手、有貴人。" },
+        "zw.z5.lu_cun": { "positive": "祿存在{palace}，傳統上代表穩定、能積累。" },
+        "zw.z6.malefic": {
+          "negative": "{palace}有{stars}，傳統上代表這裡節奏更急、起伏更多。",
+          "advice": "穩住步子比求快更重要，重要的決定多留一天再定。"
+        },
+        "zw.z7.opposite": {
+          "positive": "對宮{opposite}的{star}{mutagen}照進{palace}，傳統上看作從外部來的助力。",
+          "negative": "對宮{opposite}的{star}化忌衝向{palace}，傳統上表示外部變化容易牽動這一塊。",
+          "advice": "凡事給自己留一點餘量就好。"
+        },
+        "zw.z8a.wealth_star": { "positive": "{stars}是傳統裡的財星，落在{palace}又得地。" },
+        "zw.z8b.lu_ma": {
+          "positive": "{palace}裡天馬與祿存或化祿同宮，傳統上叫「祿馬交馳」，代表財源隨走動和變化而來。"
+        }
+      },
+      "terms": {
+        "brightness.bu": "不",
+        "brightness.de": "得",
+        "brightness.li": "利",
+        "brightness.miao": "廟",
+        "brightness.ping": "平",
+        "brightness.wang": "旺",
+        "brightness.xian": "陷",
+        "mutagen.ji": "化忌",
+        "mutagen.ke": "化科",
+        "mutagen.lu": "化祿",
+        "mutagen.quan": "化權",
+        "palace.career": "官祿宮",
+        "palace.children": "子女宮",
+        "palace.friends": "交友宮",
+        "palace.health": "疾厄宮",
+        "palace.life": "命宮",
+        "palace.parents": "父母宮",
+        "palace.property": "田宅宮",
+        "palace.siblings": "兄弟宮",
+        "palace.spouse": "夫妻宮",
+        "palace.travel": "遷移宮",
+        "palace.wealth": "財帛宮",
+        "palace.wellbeing": "福德宮",
+        "star.di_jie": "地劫",
+        "star.di_kong": "地空",
+        "star.huo_xing": "火星",
+        "star.ju_men": "巨門",
+        "star.lian_zhen": "廉貞",
+        "star.ling_xing": "鈴星",
+        "star.lu_cun": "祿存",
+        "star.po_jun": "破軍",
+        "star.qi_sha": "七殺",
+        "star.qing_yang": "擎羊",
+        "star.tai_yang": "太陽",
+        "star.tai_yin": "太陰",
+        "star.tan_lang": "貪狼",
+        "star.tian_fu": "天府",
+        "star.tian_ji": "天機",
+        "star.tian_kui": "天魁",
+        "star.tian_liang": "天梁",
+        "star.tian_ma": "天馬",
+        "star.tian_tong": "天同",
+        "star.tian_xiang": "天相",
+        "star.tian_yue": "天鉞",
+        "star.tuo_luo": "陀羅",
+        "star.wen_chang": "文昌",
+        "star.wen_qu": "文曲",
+        "star.wu_qu": "武曲",
+        "star.you_bi": "右弼",
+        "star.zi_wei": "紫微",
+        "star.zuo_fu": "左輔"
+      }
+    }
+  }
+}

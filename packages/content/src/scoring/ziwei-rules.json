@@ -1,0 +1,118 @@
+{
+  "system": "ziwei",
+  "scoringVersion": "1.0.0",
+  "unit": 8,
+  "dims": ["career", "wealth", "love", "social"],
+  "omitted": ["health"],
+  "palaceOf": { "career": "career", "wealth": "wealth", "love": "spouse", "social": "friends" },
+  "clamp": 20,
+  "cutpoints": [0, 6, 11],
+  "brightnessScale": { "miao": 8, "wang": 8, "de": 4, "li": 4, "ping": 0, "bu": -4, "xian": -8 },
+  "groups": { "lucky": { "cap": 6 }, "malefic": { "cap": -6 } },
+  "rules": [
+    {
+      "id": "zw.z1.brightness",
+      "code": "Z1",
+      "reliability": "consensus",
+      "gate": "occupied",
+      "measure": { "kind": "brightness", "from": "self", "factor": 1 }
+    },
+    {
+      "id": "zw.z2.borrowed",
+      "code": "Z2",
+      "reliability": "consensus",
+      "gate": "empty",
+      "measure": { "kind": "brightness", "from": "opposite", "factor": 0.5 }
+    },
+    {
+      "id": "zw.z3.ji",
+      "code": "Z3-忌",
+      "reliability": "consensus",
+      "measure": { "kind": "mutagen", "from": "self", "deltas": { "ji": -8 } }
+    },
+    {
+      "id": "zw.z3.ke",
+      "code": "Z3-科",
+      "reliability": "consensus",
+      "measure": { "kind": "mutagen", "from": "self", "deltas": { "ke": 4 } }
+    },
+    {
+      "id": "zw.z3.lu",
+      "code": "Z3-禄",
+      "reliability": "consensus",
+      "measure": { "kind": "mutagen", "from": "self", "deltas": { "lu": 8 } }
+    },
+    {
+      "id": "zw.z3.quan",
+      "code": "Z3-权",
+      "reliability": "consensus",
+      "measure": { "kind": "mutagen", "from": "self", "deltas": { "quan": 6 } }
+    },
+    {
+      "id": "zw.z4.lucky",
+      "code": "Z4",
+      "reliability": "consensus",
+      "group": "lucky",
+      "measure": {
+        "kind": "stars",
+        "from": "self",
+        "keys": ["zuo_fu", "you_bi", "wen_chang", "wen_qu", "tian_kui", "tian_yue"],
+        "each": 2
+      }
+    },
+    {
+      "id": "zw.z5.lu_cun",
+      "code": "Z5",
+      "reliability": "consensus",
+      "measure": { "kind": "stars", "from": "self", "keys": ["lu_cun"], "once": 4 }
+    },
+    {
+      "id": "zw.z6.malefic",
+      "code": "Z6",
+      "reliability": "school_split",
+      "group": "malefic",
+      "measure": {
+        "kind": "stars",
+        "from": "self",
+        "keys": ["qing_yang", "tuo_luo", "huo_xing", "ling_xing", "di_kong", "di_jie"],
+        "each": -2
+      }
+    },
+    {
+      "id": "zw.z7.opposite",
+      "code": "Z7",
+      "reliability": "consensus",
+      "measure": {
+        "kind": "mutagen",
+        "from": "opposite",
+        "deltas": { "lu": 4, "quan": 3, "ke": 2, "ji": -4 }
+      }
+    },
+    {
+      "id": "zw.z8a.wealth_star",
+      "code": "Z8a",
+      "reliability": "consensus",
+      "dims": ["wealth"],
+      "measure": {
+        "kind": "stars",
+        "from": "self",
+        "keys": ["wu_qu", "tai_yin", "tian_fu"],
+        "brightness": ["miao", "wang", "de"],
+        "once": 4
+      }
+    },
+    {
+      "id": "zw.z8b.lu_ma",
+      "code": "Z8b",
+      "reliability": "consensus",
+      "dims": ["wealth"],
+      "measure": {
+        "kind": "combo",
+        "from": "self",
+        "all": ["tian_ma"],
+        "any": ["lu_cun", "mutagen:lu"],
+        "delta": 4
+      }
+    }
+  ]
+}

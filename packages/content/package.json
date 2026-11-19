@@ -6,7 +6,9 @@
   "exports": {
     ".": "./src/index.ts",
     "./validation": "./scripts/validation.ts",
-    "./mobile-wire": "./src/mobile-wire.ts"
+    "./mobile-wire": "./src/mobile-wire.ts",
+    "./scoring/ziwei-rules": "./src/scoring/ziwei-rules.ts",
+    "./scoring/ziwei-copy": "./src/scoring/ziwei-copy.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

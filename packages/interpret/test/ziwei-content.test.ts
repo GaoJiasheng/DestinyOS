@@ -10,6 +10,8 @@ import { checkZiweiContent, coverageCharts } from '../../../scripts/ziwei-conten
 
 const units: KnowledgeUnit[] = [];
 for (const file of await files(`${root}/ziwei`, '.yaml')) {
+  // scoring.yaml is the chart-emphasis rule table, not a KU array.
+  if (file.endsWith('/scoring.yaml')) continue;
   const value: unknown = parse(await readFile(file, 'utf8'));
   if (!Array.isArray(value)) throw new Error('Expected a validated KU array');
   // The content schema and bilingual constraints are enforced by content:validate.
