@@ -17,6 +17,13 @@
 > - 第 4 条里「46% 的盘五行全喜」：中和盘不再把五行全部列为喜。有调候需求时只喜调候五行，没有时喜忌都为空。身强、身弱盘「官财必喜 / 必忌」的一刀切没有动，Q9 仍然有效。
 > - §6.5 与 §10 提到的 Kemadruma：补上了月亮同宫、月亮四正、命宫四正三条解除条件，2000 张随机盘的命中率从 44.6% 降到 1.9%。Raja（58.8%）、Budha-Aditya（52%）、Dhana（36.4%）、Gajakesari（35%）的规则没有改，是否收紧待定。
 
+> **2026-11-19 实施状态**：owner 批准 Q1–Q10 全部按「建议」列。紫微试点已实现（提交 `6003242` 计算、`cad1d39` 网页界面），**默认关闭**。
+>
+> - 规则与文案：`packages/content/ziwei/scoring.yaml`（`scoringVersion` 1.0.0）；说明见 `docs/systems/ziwei.md` §11；标定脚本 `pnpm emphasis:calibrate`。四维重新标定后的切点仍是 [0, 0.75, 1.375]。
+> - 与本文不同的两处：`headline.scores` 不写入档位（审核中的 App 和旧界面会把它画成「x/5」），侧重只在可选字段 `headline.emphasis`；分值按 0.125 取整（乘 8 存整数），因为 Z2、Z7 会出现 0.125 的倍数。
+> - 打开方式：服务端环境变量 `FEATURE_EMPHASIS=true`（网页的主 Worker 与 compute Worker）。打开前要做的事：外部命理顾问按 `docs/progress/EMPHASIS-ZIWEI-REVIEW.md` 复核并签字（Q6）；英文文案母语审校；同时把 `knowledgeVersion` 升 minor、`interpretVersion` 升到 1.4.0，让旧报告出现「用最新解读重新生成」，重新生成后才有侧重（Q8）。
+> - 不在试点内：App 不显示侧重（移动端 API 不请求计算）；依据条目还不能点击后高亮命盘上的宫位；八字、西方占星、吠陀按 §7 的分期另做。
+
 ## 1. 需要 owner 拍板的问题（附建议）
 
 | # | 问题 | 选项 | 建议 |
