@@ -207,7 +207,7 @@ export async function auditLocale(page: Page, locale: 'zh' | 'en') {
       '',
     )
     .replace(
-      /(?<![A-Za-z])(?:Sign in with Apple|SQLCipher|SecureStore|Keystore|Keychain|MiniMax|Android|iOS|Apple|App|SDK|天机|DestinyOS|DELETE|ASC|MC|DSC|IC|Cookie|Noto Serif SC|Cinzel|Cormorant Garamond|Yale Bright Star Catalogue|AI|Safari|PDF|US|Apple Pay|Pay|AES|GCM|URL|openid|email|profile|Vercel|Cloudflare Email Service|Cloudflare|Workers|KV|R2|SCC|DPF|ID|IANA|GA4|Meta Pixel|Inter|LXGW WenKai|Fontsource|Pamela Colman Smith|Arthur Edward Waite|Rider–Waite–Smith|Commons|CDS|CI|AGPL|GPL|Google|Stripe|GeoNames|Wikimedia|OpenStreetMap|AdSense|Auth\.js|Next\.js|Neon|Upstash|Sentry|OAuth|JSON|PNG|SVG|PWA|UTC|GMT|DST|RWS|Placidus|Whole Sign|Lahiri|D1|D9|TCF|CMP|GDPR|CCPA|GPC|RDP|CC BY|CC0|OFL|SIL|MIT|Apache|English|Beijing|Asia\/Shanghai|Asia\/Singapore|—)(?![A-Za-z])/g,
+      /(?<![A-Za-z])(?:Sign in with Apple|SQLCipher|SecureStore|Keystore|Keychain|MiniMax|Android|iOS|iPhone|Apple|App|SDK|天机|DestinyOS|DELETE|ASC|MC|DSC|IC|Cookie|Noto Serif SC|Cinzel|Cormorant Garamond|Yale Bright Star Catalogue|AI|Safari|PDF|US|Apple Pay|Pay|AES|GCM|URL|openid|email|profile|Vercel|Cloudflare Email Service|Cloudflare|Workers|KV|R2|SCC|DPF|ID|IANA|GA4|Meta Pixel|Inter|LXGW WenKai|Fontsource|Pamela Colman Smith|Arthur Edward Waite|Rider–Waite–Smith|Commons|CDS|CI|AGPL|GPL|Google|Stripe|GeoNames|Wikimedia|OpenStreetMap|AdSense|Auth\.js|Next\.js|Neon|Upstash|Sentry|OAuth|JSON|PNG|SVG|PWA|UTC|GMT|DST|RWS|Placidus|Whole Sign|Lahiri|D1|D9|TCF|CMP|GDPR|CCPA|GPC|RDP|CC BY|CC0|OFL|SIL|MIT|Apache|English|Beijing|Asia\/Shanghai|Asia\/Singapore|—)(?![A-Za-z])/g,
       '',
     );
   const residues =
