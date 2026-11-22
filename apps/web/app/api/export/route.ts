@@ -11,6 +11,7 @@ import {
 } from '@/lib/report-export';
 import { ApiError, errorResponse } from '@/lib/api-error';
 import { assertRateLimit, ratelimit } from '@/lib/ratelimit';
+import { logger } from '@/lib/logger';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 65;
@@ -55,6 +56,13 @@ export async function POST(request: Request) {
             estimatedSeconds: 0,
           });
         } catch (error) {
+          // Expected refusals (timeout, size) carry their own code; anything else used to vanish
+          // into a bare E_INTERNAL with no trace of which renderer step failed.
+          if (!(error instanceof ApiError))
+            logger.error(
+              { err: error, format: input.format, system: reading.system },
+              'Export render failed',
+            );
           emit({ error: error instanceof ApiError ? error.code : 'E_INTERNAL' });
         } finally {
           if (!disconnected) controller.close();
