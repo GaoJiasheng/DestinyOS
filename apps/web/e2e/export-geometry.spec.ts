@@ -107,3 +107,56 @@ test('height limiting preserves A4 line breaks, the body floor and scannable QR 
     jsQR(new Uint8ClampedArray(pixels.data), pixels.info.width, pixels.info.height)?.data,
   ).toBe('https://tianji.gavin.pub/zh');
 });
+test('zh tarot Fixture A paginates only after the print font sheets apply', async ({
+  page,
+  request,
+  browser,
+  baseURL,
+}) => {
+  // Regression: the in-body font links were re-inserted by the client and the print effect could run
+  // before their @font-face rules existed; this fixture's third column then overflowed by ~13px once
+  // the real fonts swapped in, failing roughly half of renderer exports with E_INTERNAL.
+  const user = await login(page, request, 'zh', `export-fonts-${randomUUID()}@example.test`);
+  const reading = await seedExportReading(user.id, 'tarot', 'zh');
+  const storageState = await page.context().storageState();
+  for (let run = 0; run < 6; run++) {
+    // Mirror the renderer: a fresh A4 print context whose routed requests bypass the HTTP cache.
+    const context = await browser.newContext({
+      viewport: { width: 794, height: 1123 },
+      deviceScaleFactor: 1,
+      reducedMotion: 'reduce',
+      serviceWorkers: 'block',
+      baseURL,
+      storageState,
+    });
+    await context.route('**/*', (route) => route.continue());
+    await context.addInitScript(() => {
+      const record = window as unknown as { __printFontSheets?: string[] };
+      const load = document.fonts.load.bind(document.fonts);
+      document.fonts.load = (font, text) => {
+        record.__printFontSheets ??= Array.from(document.styleSheets)
+          .map((sheet) => sheet.href?.split('/').pop() ?? '')
+          .filter((name) => name.startsWith('fonts-'));
+        return load(font, text);
+      };
+    });
+    const print = await context.newPage();
+    await print.emulateMedia({ media: 'print' });
+    await print.goto(`/zh/tarot/r/${reading.id}/print?theme=dark&layout=pdf`);
+    await expect.poll(() => print.evaluate(printSettled), { timeout: 60000 }).toBe(true);
+    await expect(print.locator('.print-report')).toHaveAttribute('data-ready', 'true');
+    const sheets = await print.evaluate(
+      () => (window as unknown as { __printFontSheets?: string[] }).__printFontSheets,
+    );
+    expect(sheets?.sort()).toEqual([
+      'fonts-body.css',
+      'fonts-print-symbols.css',
+      'fonts-print.css',
+    ]);
+    const overflow = await print
+      .locator('.print-column')
+      .evaluateAll((nodes) => nodes.map((n) => n.scrollHeight - n.clientHeight));
+    expect(overflow.every((value) => value <= 1)).toBe(true);
+    await context.close();
+  }
+});

@@ -55,9 +55,13 @@ export default async function PrintPage({
     const qr = await QRCode.toDataURL(url, { width: 300, margin: 1, errorCorrectionLevel: 'M' });
     const report = (
       <>
-        <link rel="stylesheet" href="/fonts/fonts-body.css" />
-        <link rel="stylesheet" href="/fonts/fonts-print.css" />
-        <link rel="stylesheet" href="/fonts/fonts-print-symbols.css" />
+        {/* Pagination measures text once. Plain in-body links were fetched again during hydration without
+            blocking it, so the print effect could call document.fonts.load before these @font-face rules
+            existed, paginate with fallback metrics and overflow a column once the real fonts swapped in.
+            With a precedence React hoists each sheet once and reveals the report only after it loads. */}
+        <link rel="stylesheet" href="/fonts/fonts-body.css" precedence="print-fonts" />
+        <link rel="stylesheet" href="/fonts/fonts-print.css" precedence="print-fonts" />
+        <link rel="stylesheet" href="/fonts/fonts-print-symbols.css" precedence="print-fonts" />
         <PrintReport
           key={`${reading.id}:${locale}:${request.data.theme}:${request.data.format}`}
           reading={reading}
