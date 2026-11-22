@@ -1,0 +1,13 @@
+appId: pub.gavin.tianji
+---
+# Sub-flow, not a test: moves the hour wheel (shown while "exact to the minute" is on) off
+# "choose". The minute wheel already starts on 00, so it needs no move.
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-hour
+- swipe:
+    from:
+      id: birth-hour
+    direction: UP
+    duration: 1500

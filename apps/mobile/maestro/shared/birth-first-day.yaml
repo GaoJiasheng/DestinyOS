@@ -1,0 +1,15 @@
+appId: pub.gavin.tianji
+---
+# Sub-flow, not a test: picks the first month and its first day (January 1 on the civil calendar)
+# for flows whose fixture depends on the exact date. Tapping the row just below "choose" selects
+# it; use birth-wheels.yaml when any date will do.
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      id: birth-month
+- tapOn:
+    id: birth-month
+    point: '50%,75%'
+- tapOn:
+    id: birth-day
+    point: '50%,75%'

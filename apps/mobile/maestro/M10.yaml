@@ -114,8 +114,11 @@ appId: pub.gavin.tianji
     id: account-error
 - tapOn:
     id: account-logout
-# Sign-out is confirmed in a native alert first.
-- tapOn: '^(退出登录|Sign out)$'
+# Sign-out is confirmed in a native alert first. The account-logout button behind the alert has
+# the same label and comes first in the hierarchy, so index 1 is the alert's button.
+- tapOn:
+    text: '^(退出登录|Sign out)$'
+    index: 1
 - extendedWaitUntil:
     visible:
       id: account-login

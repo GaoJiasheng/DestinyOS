@@ -103,12 +103,17 @@ appId: pub.gavin.tianji
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: birth-date-en
+# January 1 keeps the Sydney DST note below deterministic; every wheel starts on "choose".
+- runFlow: shared/birth-first-day.yaml
 - scrollUntilVisible:
     centerElement: true
     element:
       id: time-precise
 - tapOn:
     id: time-precise
+- runFlow: shared/birth-hour-precise.yaml
+- assertVisible:
+    id: birth-minute
 - waitForAnimationToEnd:
     timeout: 2000
 - takeScreenshot: birth-precise-en
@@ -119,6 +124,10 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-submit
 - assertVisible: 'Place and gender'
+# Step two shifts once the offline city list has loaded; a tap before that can miss its target.
+- extendedWaitUntil:
+    notVisible: '^(正在搜索城市…|Searching cities…)$'
+    timeout: 30000
 - tapOn:
     id: manual-open
 - scrollUntilVisible:

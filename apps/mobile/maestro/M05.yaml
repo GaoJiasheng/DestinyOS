@@ -134,6 +134,10 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-submit
 - assertVisible: '地点与性别'
+# Text typed while the offline city list is still loading can be wiped when it finishes.
+- extendedWaitUntil:
+    notVisible: '^(正在搜索城市…|Searching cities…)$'
+    timeout: 30000
 - tapOn:
     id: birth-city
 - inputText: 'Beijing'
@@ -279,10 +283,11 @@ appId: pub.gavin.tianji
 - tapOn:
     text: '打开|Open'
     optional: true
+# The Me tab row reads "Use this profile: Alice…", so match the name inside the row text.
 - extendedWaitUntil:
-    visible: 'Alice'
+    visible: '.*Alice.*'
     timeout: 30000
-- assertVisible: 'Bob'
+- assertVisible: '.*Bob.*'
 - assertNotVisible:
     id: onboarding-0
 - waitForAnimationToEnd:
