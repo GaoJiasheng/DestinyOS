@@ -36,15 +36,8 @@ appId: pub.gavin.tianji
 - takeScreenshot: import-zh
 - tapOn:
     id: account-import-confirm
-- extendedWaitUntil:
-    visible:
-      id: account-continue
-      enabled: true
-    timeout: 30000
-- waitForAnimationToEnd:
-    timeout: 3000
-- tapOn:
-    id: account-continue
+# A provider sign-in returns to where it started (here the settings page) as soon as the import
+# decision is made, so there is no "continue" button on this path (93bb4e4, audit item 6.1).
 - extendedWaitUntil:
     visible:
       id: account-sync
@@ -207,15 +200,7 @@ appId: pub.gavin.tianji
 - takeScreenshot: import-en
 - tapOn:
     id: account-import-skip
-- extendedWaitUntil:
-    visible:
-      id: account-continue
-      enabled: true
-    timeout: 30000
-- waitForAnimationToEnd:
-    timeout: 3000
-- tapOn:
-    id: account-continue
+# Skipping the import also returns straight to the settings page.
 - extendedWaitUntil:
     visible:
       id: account-sync

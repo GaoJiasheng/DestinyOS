@@ -60,3 +60,26 @@ it('puts the city behind a common abbreviation first and keeps the ordinary matc
   expect(la.length).toBeLessThanOrEqual(12);
   expect(new Set(la).size).toBe(la.length);
 });
+it('loads in slices that let touches and typing run in between, with the search index ready', async () => {
+  // A fresh module, so this load is not the one cached by the tests above.
+  let fresh!: typeof import('../lib/cities');
+  jest.isolateModules(() => {
+    fresh = jest.requireActual<typeof import('../lib/cities')>('../lib/cities');
+  });
+  let ticks = 0;
+  const ticker = setInterval(() => (ticks += 1), 0);
+  let cities: Awaited<ReturnType<typeof fresh.loadCities>>;
+  try {
+    cities = await fresh.loadCities();
+  } finally {
+    clearInterval(ticker);
+  }
+  // A single synchronous parse would let the interval fire at most once or twice.
+  expect(ticks).toBeGreaterThan(20);
+  expect(cities.length).toBe(manifest.records);
+  expect(fresh.loadCities()).toBe(fresh.loadCities());
+  // The index was built during the load, so the first keystroke's search is a plain scan.
+  const started = Date.now();
+  expect(fresh.searchCities(cities, 'Beijing')[0]?.name).toBe('Beijing');
+  expect(Date.now() - started).toBeLessThan(500);
+});

@@ -54,8 +54,9 @@ appId: pub.gavin.tianji
       id: time-unknown
 - tapOn:
     id: time-unknown
+# The submit button is the last control on the page and can never reach the middle of the
+# screen, so scroll only until it is visible.
 - scrollUntilVisible:
-    centerElement: true
     element:
       id: birth-submit
 - tapOn:
@@ -114,8 +115,9 @@ appId: pub.gavin.tianji
       id: time-unknown
 - tapOn:
     id: time-unknown
+# The submit button is the last control on the page and can never reach the middle of the
+# screen, so scroll only until it is visible.
 - scrollUntilVisible:
-    centerElement: true
     element:
       id: birth-submit
 - tapOn:

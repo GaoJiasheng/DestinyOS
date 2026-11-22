@@ -25,8 +25,24 @@ jest.mock('../lib/profiles', () => ({
   anonymousProfileLimit: 3,
   profileLimitReached: (list: unknown[]) => list.length >= 3,
 }));
+const mockLoadCities = jest.fn(async () => []);
+let mockSafeAreaMounts = 0;
+jest.mock('react-native-safe-area-context', () => {
+  const React = jest.requireActual<typeof import('react')>('react');
+  const { View } = jest.requireActual<typeof import('react-native')>('react-native');
+  const actual = jest.requireActual<Record<string, unknown>>(
+    'react-native-safe-area-context/jest/mock',
+  );
+  function SafeAreaView(props: object) {
+    React.useEffect(() => {
+      mockSafeAreaMounts += 1;
+    }, []);
+    return <View {...props} />;
+  }
+  return { ...(actual.default as object), SafeAreaView };
+});
 jest.mock('../lib/cities', () => ({
-  loadCities: async () => [],
+  loadCities: () => mockLoadCities(),
   searchCities: () => [],
   cityLabel: () => '',
 }));
@@ -74,6 +90,8 @@ function mockProfiles(profiles: ReturnType<typeof profile>[] = []) {
 }
 beforeEach(() => {
   jest.clearAllMocks();
+  mockSafeAreaMounts = 0;
+  mockLoadCities.mockImplementation(async () => []);
   mockParams = {};
   usePreferences.setState({ locale: 'zh', theme: 'auto' });
   mockSave.mockResolvedValue(undefined);
@@ -121,6 +139,32 @@ it("saves someone else's profile without switching and returns to returnTo", asy
   expect(mockSave.mock.calls[0]![0]).toMatchObject({ relation: 'partner', birth: { hour: 7 } });
   expect(mockSave.mock.calls[0]![2]).toEqual({ activate: false });
   expect(mockReplace).toHaveBeenCalledWith('/reading?system=bazi&after=1');
+});
+it('starts loading the city list on step one and shows the loading line only for a typed query', async () => {
+  // The list never arrives in this test, as if it were still loading when step two opens.
+  mockLoadCities.mockImplementation(() => new Promise(() => undefined));
+  render(<BirthForm />);
+  expect(mockLoadCities).toHaveBeenCalledTimes(1);
+  await fillDate();
+  fireEvent(screen.getByTestId('time-unknown'), 'valueChange', true);
+  fireEvent.press(screen.getByTestId('birth-submit'));
+  const city = await screen.findByTestId('birth-city');
+  // Nothing appears or disappears around an untouched field when the load finishes.
+  expect(screen.queryByText('正在搜索城市…')).toBeNull();
+  fireEvent.changeText(city, 'Bei');
+  expect(screen.getByText('正在搜索城市…')).toBeTruthy();
+  expect(screen.getByTestId('birth-city').props.value).toBe('Bei');
+});
+it('keeps the safe-area container mounted between steps', async () => {
+  render(<BirthForm />);
+  expect(mockSafeAreaMounts).toBe(1);
+  await fillDate();
+  fireEvent(screen.getByTestId('time-unknown'), 'valueChange', true);
+  fireEvent.press(screen.getByTestId('birth-submit'));
+  await screen.findByTestId('birth-city');
+  // Remounting it re-measured the inset on the native side, and the page shifted under the finger
+  // once that measurement arrived. Only the scroll view is replaced, so step two starts at the top.
+  expect(mockSafeAreaMounts).toBe(1);
 });
 it('blocks unconfirmed city text on step two', async () => {
   render(<BirthForm />);

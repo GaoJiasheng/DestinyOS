@@ -124,10 +124,6 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-submit
 - assertVisible: 'Place and gender'
-# Step two shifts once the offline city list has loaded; a tap before that can miss its target.
-- extendedWaitUntil:
-    notVisible: '^(正在搜索城市…|Searching cities…)$'
-    timeout: 30000
 - tapOn:
     id: manual-open
 - scrollUntilVisible:

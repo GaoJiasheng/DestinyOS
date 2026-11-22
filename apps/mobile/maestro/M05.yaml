@@ -134,10 +134,8 @@ appId: pub.gavin.tianji
 - tapOn:
     id: birth-submit
 - assertVisible: '地点与性别'
-# Text typed while the offline city list is still loading can be wiped when it finishes.
-- extendedWaitUntil:
-    notVisible: '^(正在搜索城市…|Searching cities…)$'
-    timeout: 30000
+# No wait for the offline city list: it is preloaded on step one in slices, and step two's layout
+# no longer shifts when it finishes, so the field can be used as soon as it appears.
 - tapOn:
     id: birth-city
 - inputText: 'Beijing'

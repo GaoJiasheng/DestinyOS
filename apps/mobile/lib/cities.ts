@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { gunzipSync, strFromU8 } from 'fflate';
+import { DecodeUTF8, Gunzip } from 'fflate';
 import { Asset } from 'expo-asset';
 import { File } from 'expo-file-system';
 import cityAsset from '../assets/cities/cities.bin';
@@ -16,16 +16,45 @@ const CitySchema = z.object({
 });
 export type City = z.infer<typeof CitySchema>;
 let cityPromise: Promise<City[]> | undefined;
-/** Load the bundled, attributed GeoNames subset without a geo API or location permission. */
+// DESIGN-GAP: The ~12MB decoded list used to be inflated, parsed and validated in one synchronous
+// block (~2s on a simulator). That froze the JS thread right as step two of the birth form
+// mounted, so touches, typing and native layout state (the safe-area inset) were applied late and
+// the page jumped under the user's finger. The work now runs in slices that yield between them.
+const inflateSlice = 64 * 1024;
+const validateSlice = 4000;
+const CityList = z.array(CitySchema);
+/** Give queued touches, typing and native state updates a turn between slices of work. */
+const yieldToUi = () => new Promise<void>((resolve) => setTimeout(resolve, 0));
+async function inflate(bytes: Uint8Array): Promise<string> {
+  const parts: string[] = [];
+  const decoder = new DecodeUTF8((part) => parts.push(part));
+  const gunzip = new Gunzip((chunk, final) => decoder.push(chunk, final));
+  for (let offset = 0; offset < bytes.length; offset += inflateSlice) {
+    const end = Math.min(offset + inflateSlice, bytes.length);
+    gunzip.push(bytes.subarray(offset, end), end === bytes.length);
+    await yieldToUi();
+  }
+  return parts.join('');
+}
+async function validate(raw: unknown): Promise<City[]> {
+  if (!Array.isArray(raw)) return CityList.parse(raw);
+  const cities: City[] = [];
+  for (let start = 0; start < raw.length; start += validateSlice) {
+    for (const city of CityList.parse(raw.slice(start, start + validateSlice))) cities.push(city);
+    await yieldToUi();
+  }
+  return cities;
+}
+/** Load the bundled, attributed GeoNames subset without a geo API or location permission.
+ * Safe to call early (the birth form starts it on step one); every caller shares one load. */
 export function loadCities(): Promise<City[]> {
   cityPromise ??= (async () => {
     const asset = Asset.fromModule(cityAsset);
     await asset.downloadAsync();
-    return z
-      .array(CitySchema)
-      .parse(
-        JSON.parse(strFromU8(gunzipSync(await new File(asset.localUri ?? asset.uri).bytes()))),
-      );
+    const text = await inflate(await new File(asset.localUri ?? asset.uri).bytes());
+    const cities = await validate(JSON.parse(text));
+    await buildIndex(cities);
+    return cities;
   })().catch((error: unknown) => {
     cityPromise = undefined;
     throw error;
@@ -62,15 +91,26 @@ export function cityLabel(city: City, locale: string): string {
 }
 // Normalizing ~78k cities' aliases per keystroke cost ~20 ms in node; build the index once per list.
 const indexes = new WeakMap<readonly City[], string[][]>();
+const indexEntry = (city: City) => [
+  ...new Set(city.aliases.concat(city.name).map(normalizeCityName)),
+];
 function indexOf(cities: readonly City[]) {
   let index = indexes.get(cities);
   if (!index) {
-    index = cities.map((city) => [
-      ...new Set(city.aliases.concat(city.name).map(normalizeCityName)),
-    ]);
+    index = cities.map(indexEntry);
     indexes.set(cities, index);
   }
   return index;
+}
+/** Build the search index ahead of the first keystroke, in slices, so typing never waits on it. */
+async function buildIndex(cities: readonly City[]) {
+  if (indexes.has(cities)) return;
+  const index: string[][] = [];
+  for (let start = 0; start < cities.length; start += validateSlice) {
+    for (const city of cities.slice(start, start + validateSlice)) index.push(indexEntry(city));
+    await yieldToUi();
+  }
+  indexes.set(cities, index);
 }
 // DESIGN-GAP: GeoNames carries no everyday abbreviations, so a few common ones typed as the whole
 // query put that city first; the ordinary matches follow, so "la" still lists Lagos and La Paz

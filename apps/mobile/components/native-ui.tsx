@@ -61,12 +61,16 @@ export function Page({
   footer,
   scrollRef,
   scroll = true,
+  contentKey,
 }: {
   title: MessageKey;
   children: ReactNode;
   footer?: ReactNode;
   scrollRef?: RefObject<ScrollView | null>;
   scroll?: boolean;
+  /** Changing it starts a fresh scroll view at the top, while the safe-area and keyboard
+   * containers stay mounted (remounting those re-measures insets and shifts the page). */
+  contentKey?: string | number;
 }) {
   const { colors } = useTheme();
   const t = useCopy();
@@ -81,6 +85,7 @@ export function Page({
       >
         {scroll ? (
           <ScrollView
+            key={contentKey}
             ref={scrollRef}
             keyboardShouldPersistTaps="handled"
             keyboardDismissMode="on-drag"

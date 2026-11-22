@@ -94,7 +94,9 @@ export function BirthPlaceFields({
       >
         <FieldErrors issues={issues} field="city" />
       </TextEntry>
-      {!cities && !cityError && <CopyText>{t('form.birth.city.loading')}</CopyText>}
+      {/* Shown only while a typed query waits for the list, so a load that finishes before the
+          user types (the list is preloaded on step one) never changes the layout under them. */}
+      {!cities && !cityError && pending && <CopyText>{t('form.birth.city.loading')}</CopyText>}
       {cityError && (
         <>
           <CopyText>{t('form.birth.city.error')}</CopyText>

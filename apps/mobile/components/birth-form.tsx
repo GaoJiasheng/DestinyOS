@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, View, type ScrollView, type TextInput } from 'react-native';
 import { useLocalSearchParams, useNavigation, useRouter, type Href } from 'expo-router';
 import { usePreventRemove } from 'expo-router/react-navigation';
@@ -19,6 +19,7 @@ import {
   type BirthField,
 } from '../lib/birth-form';
 import { birthDoneHref, relationParam, safeReturnTo } from '../lib/birth-route';
+import { loadCities } from '../lib/cities';
 import { BirthDateFields } from './birth-date-fields';
 import { BirthSchoolFields } from './birth-school-fields';
 import { BirthPlaceFields, type Coordinates } from './birth-place-fields';
@@ -82,6 +83,11 @@ export function BirthForm() {
   const scroll = useRef<ScrollView>(null);
   const yearInput = useRef<TextInput>(null);
   const atLimit = !id && profileLimitReached(profiles);
+  // Load the offline city list while step one is filled in, so step two opens with it ready.
+  // A failure is shown (with a retry) by the city field itself.
+  useEffect(() => {
+    loadCities().catch(() => undefined);
+  }, []);
   const touch = () => {
     setDirty(true);
     setError(null);
@@ -268,8 +274,8 @@ export function BirthForm() {
       </Page>
     );
   return (
-    // DESIGN-GAP: Remount the native scroll view per step so the next heading starts at the top.
-    <Page key={step} title="form.birth.title" scrollRef={scroll}>
+    // DESIGN-GAP: A fresh native scroll view per step makes the next heading start at the top.
+    <Page contentKey={step} title="form.birth.title" scrollRef={scroll}>
       {step === 1 && (
         <BirthTargetFields target={target} relation={relation} onChange={chooseTarget} />
       )}
