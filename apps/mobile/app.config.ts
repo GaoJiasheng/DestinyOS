@@ -16,7 +16,7 @@ const nativeRelease = production || process.env.CONFIGURATION === 'Release';
 const config: ExpoConfig = {
   name: brand.nameZh,
   slug: 'tianji',
-  version: '1.0.0',
+  version: '1.0.1',
   icon: './assets/icon.png',
   // DESIGN-GAP: EAS project IDs are provisioned by Owner; native fingerprints prevent incompatible OTA updates.
   runtimeVersion: { policy: 'fingerprint' },
@@ -51,7 +51,7 @@ const config: ExpoConfig = {
   orientation: 'portrait',
   userInterfaceStyle: 'dark',
   ios: {
-    buildNumber: '4',
+    buildNumber: '5',
     bundleIdentifier: 'pub.gavin.tianji',
     privacyManifests: privacyManifest,
     appleTeamId: 'D33974QQTD',
