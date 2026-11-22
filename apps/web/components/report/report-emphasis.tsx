@@ -27,14 +27,19 @@ function Meter({ level, label }: { level: number; label: string }) {
   );
 }
 const markOf = (delta: number) => (delta > 0 ? '+' : delta < 0 ? '−' : '·');
+/** Evidence path of the palace a rule read, in the form report evidence links already use. */
+const palacePath = (palace: string | undefined) =>
+  palace && /^[a-z_]+$/.test(palace) ? `palaces[key=${palace}]` : undefined;
 function Dimension({
   dim,
   value,
   locale,
+  onPalace,
 }: {
   dim: ShownDim;
   value: EmphasisDimension;
   locale: Locale;
+  onPalace?: (path: string) => void;
 }) {
   const t = useCopy();
   const [open, setOpen] = useState(false);
@@ -71,7 +76,18 @@ function Dimension({
                 >
                   {markOf(basis.delta)}
                 </span>
-                <span>{text}</span>
+                {onPalace && palacePath(basis.params.palace) ? (
+                  <button
+                    type="button"
+                    className="emphasis-basis-link"
+                    title={t('report.emphasis.showOnChart')}
+                    onClick={() => onPalace(palacePath(basis.params.palace)!)}
+                  >
+                    {text}
+                  </button>
+                ) : (
+                  <span>{text}</span>
+                )}
               </li>
             ))}
           </ul>
@@ -85,7 +101,14 @@ function Dimension({
 }
 /** Chart emphasis: overview sentence, four banded dimensions with expandable rule basis, fixed footnotes.
  * Loaded lazily, and only for reports that carry `headline.emphasis`. */
-export function ReportEmphasis({ emphasis }: { emphasis: Emphasis }) {
+export function ReportEmphasis({
+  emphasis,
+  onPalace,
+}: {
+  emphasis: Emphasis;
+  /** Highlight the palace a rule read on the report's chart; omitted where no chart is shown. */
+  onPalace?: (path: string) => void;
+}) {
   const locale = useLocale() as Locale;
   const overview = emphasisOverview(emphasis, locale);
   const notes = emphasisFootnotes(locale);
@@ -102,7 +125,7 @@ export function ReportEmphasis({ emphasis }: { emphasis: Emphasis }) {
       {overview ? <p className="emphasis-overview">{overview}</p> : null}
       <ul className="emphasis-dims">
         {shown.map(({ dim, value }) => (
-          <Dimension key={dim} dim={dim} value={value} locale={locale} />
+          <Dimension key={dim} dim={dim} value={value} locale={locale} onPalace={onPalace} />
         ))}
       </ul>
       <footer className="emphasis-footnotes">

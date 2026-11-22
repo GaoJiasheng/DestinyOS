@@ -69,9 +69,12 @@ export function ScoreRadar({ scores }: { scores: Report['headline']['scores'] })
 export function ReportHeadline({
   headline,
   system,
+  onEvidence,
 }: {
   headline: Report['headline'];
   system: string;
+  /** Same handler as section evidence links: focuses and marks a chart path. */
+  onEvidence?: (path: string) => void;
 }) {
   const t = useCopy();
   const divination = isDivination(system);
@@ -91,7 +94,9 @@ export function ReportHeadline({
       {!divination && hasScoreSpread(headline.scores) ? (
         <ScoreRadar scores={headline.scores} />
       ) : null}
-      {!divination && headline.emphasis ? <ReportEmphasis emphasis={headline.emphasis} /> : null}
+      {!divination && headline.emphasis ? (
+        <ReportEmphasis emphasis={headline.emphasis} onPalace={onEvidence} />
+      ) : null}
       {divination ? null : (
         <>
           <p>{t('report.confidence', { percent: Math.round(headline.confidence * 100) })}</p>

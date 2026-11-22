@@ -59,6 +59,22 @@ describe('ReportEmphasis', () => {
     expect(wealth.textContent).toContain('主星亮度按通行表判断。');
     expect(wealth.textContent).not.toMatch(/\d/);
   });
+  it('turns each reason into a link to its palace on the chart only when a chart handler is given', () => {
+    const paths: string[] = [];
+    const { container } = wrap(
+      <ReportEmphasis emphasis={emphasis} onPalace={(path) => paths.push(path)} />,
+    );
+    const links = container.querySelectorAll<HTMLButtonElement>(
+      '[data-dim="wealth"] .emphasis-basis-link',
+    );
+    expect(links.length).toBe(4);
+    expect(links[0]?.title).toBe('在命盘上查看这一宫');
+    fireEvent.click(links[0]!);
+    expect(paths).toEqual(['palaces[key=wealth]']);
+    cleanup();
+    const plain = wrap(<ReportEmphasis emphasis={emphasis} />).container;
+    expect(plain.querySelector('.emphasis-basis-link')).toBeNull();
+  });
   it('re-renders the same stored bands in English', () => {
     wrap(<ReportEmphasis emphasis={emphasis} />, 'en');
     expect(screen.getByRole('heading', { name: 'Chart emphasis' })).toBeTruthy();

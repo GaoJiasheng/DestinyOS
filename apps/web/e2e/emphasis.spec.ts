@@ -83,6 +83,12 @@ test('anonymous Fixture A shows the emphasis module, its basis and the same band
   await expect(basis.first()).toContainText('+');
   await expect(module.locator('[data-dim="wealth"] summary')).toHaveText('收起依据');
   await module.screenshot(shot(`zh-${info.project.name}-module-wealth-expanded.png`));
+  // A reason links to the palace it read: the chart selects the wealth palace.
+  await basis.first().locator('.emphasis-basis-link').click();
+  await expect(page.locator('[data-palace="wealth"]').first()).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
   expect(await page.locator('body').innerText()).not.toContain('/5');
   // A locale switch translates the saved chart and re-renders the stored bands, never recomputes them.
   await page.goto(page.url().replace('/zh/', '/en/'));

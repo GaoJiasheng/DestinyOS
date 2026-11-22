@@ -280,6 +280,7 @@ export function ReportLayout({
         <ReportNotices view={view} local={local} />
         <ReportHeadline
           system={view.system}
+          onEvidence={evidence}
           headline={{
             ...view.report.headline,
             // DESIGN-GAP: Trial similarity caps the displayed report confidence so an inferred hour cannot appear fully verified.
