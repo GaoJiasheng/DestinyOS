@@ -17,7 +17,6 @@ async function main() {
   for (const [name, size] of [
     ['icon-192', 192],
     ['icon-512', 512],
-    ['maskable-512', 512],
     ['apple-touch-icon', 180],
   ] as const) {
     await sharp(icon)
@@ -25,6 +24,10 @@ async function main() {
       .png()
       .toFile(new URL(`icons/${name}.png`, root).pathname);
   }
+  // The maskable icon keeps the emblem inside the 80% safe circle; it is prepared with the brand art.
+  await sharp(await readFile(new URL('art/brand/maskable-512.png', root)))
+    .png()
+    .toFile(new URL('icons/maskable-512.png', root).pathname);
   const escape = (value: string) =>
     value.replace(
       /[&<>"']/g,

@@ -2196,57 +2196,66 @@
     },
     {
       "id": "brand/app-icon",
-      "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: original brand emblem, a single extraordinary antique brass armillary sphere cradling one luminous north star and a tiny crescent moon, exquisite dense hand-engraving and worn gold leaf, softly painted indigo oil glazes. Opaque square 1024x1024 canvas, perfectly centered. CRITICAL icon safe area: the ENTIRE illustrated object including base and finial fits inside central 60% width and 60% height; generous uninterrupted deep navy margins on all four sides. No corner rounding, no frame, no text, no letters. Clear small-size silhouette, not thin geometric wireframe. Candidate C shrinking the ornate subject to the platform maskable safe zone.",
+      "prompt": "Subject: A taiji (yin-yang) disc formed by two swirling nebulae, one of molten gold light and one of deep indigo-violet starry space; the eye dots are a gold star and a dark blue star; a ring of golden engraved cloud motifs around the disc. This is the App Store icon for \"天机 / DestinyOS\", a bilingual (Chinese/English) astrology and destiny app covering Chinese Bazi, Zi Wei Dou Shu, I Ching, Qimen, Western astrology, tarot and Vedic astrology. The name 天机 means \"the secrets of heaven\", and 天璣 (Tianji, Phecda) is also the third star of the Big Dipper.\nICON REQUIREMENTS: exactly 1024x1024 square, fully opaque, full-bleed background reaching every edge (iOS rounds the corners itself, so do NOT draw a rounded square, frame, border, device mockup or drop shadow around the icon). One bold central emblem inside the middle 75% of the canvas, with a strong clear silhouette that still reads at 60x60 pixels: few large shapes, high contrast, no hairline detail that disappears when small. Absolutely no text, letters, Chinese characters, numbers or watermarks.\nSTYLE: mystical, otherworldly and luxurious, \"gilded celestial\" (鎏金天象): deep night-blue to ink-black background (#05070F to #111628) with a soft nebula glow, luminous gold leaf (#D4AF6A, highlights #E8D3A3) as the main material, small accents of cinnabar red (#C8412B) or indigo violet (#6B5BD2) only where noted. Rich lighting: inner glow, rim light, a few sparkling stars. Painterly and refined, like a premium fantasy game emblem crossed with an antique engraved astrolabe. NOT cartoon, NOT flat clip-art, NOT a thin-line geometric logo, no plastic gloss, no 3D-render cheapness.",
       "candidates": [
         {
           "candidate": 1,
-          "file": "exec-cabaccc4-8af3-4600-ba31-a7d4482483e9.png",
-          "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: An original antique gilded celestial mechanism: richly engraved bronze armillary sphere cradling a luminous north star and delicate moon, strong single silhouette centered within middle 65% for maskable safe area, opaque ink-navy square, no rounded corners, no text. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space. Candidate A: balanced close detail, restrained glow, museum copperplate fidelity."
+          "file": "a-beidou.png"
         },
         {
           "candidate": 2,
-          "file": "exec-0af3084b-3f66-43e9-a6e0-c995af055c22.png",
-          "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: An original antique gilded celestial mechanism: richly engraved bronze armillary sphere cradling a luminous north star and delicate moon, strong single silhouette centered within middle 65% for maskable safe area, opaque ink-navy square, no rounded corners, no text. Canvas: 1024x1024. Opaque deep navy background, painterly atmosphere; preserve generous dark negative space. Candidate B: slightly more airy watercolor edges and softer top light, still densely hand-engraved artisan texture."
+          "file": "b-taiji.png"
         },
         {
           "candidate": 3,
-          "file": "exec-60e807d2-cd29-41d0-8a36-b6d2a01c4bc9.png",
-          "prompt": "Use case: stylized-concept. DestinyOS Gilded Celestial unified art direction. Museum-quality hand-painted illustration with intricate copperplate engraved line texture, watercolor nebula and oil-paint glazes, subtle handmade-paper edge grain. Deep navy/ink #05070F–#111628, worn gold foil #D4AF6A and antique bronze #C9A961, Eastern motifs ink mist plus cinnabar #C8412B, Western motifs brass and velvet, Vedic saffron #D9822B. Restrained composition, soft light from above or within, tactile artisan materials. Never any readable text, letters, Chinese characters, numerals, logos, watermark, cartoon, flat icon, clip-art, simple geometric wireframe, plastic CGI highlights. Subject: original brand emblem, a single extraordinary antique brass armillary sphere cradling one luminous north star and a tiny crescent moon, exquisite dense hand-engraving and worn gold leaf, softly painted indigo oil glazes. Opaque square 1024x1024 canvas, perfectly centered. CRITICAL icon safe area: the ENTIRE illustrated object including base and finial fits inside central 60% width and 60% height; generous uninterrupted deep navy margins on all four sides. No corner rounding, no frame, no text, no letters. Clear small-size silhouette, not thin geometric wireframe. Candidate C shrinking the ornate subject to the platform maskable safe zone."
+          "file": "c-armillary.png"
+        },
+        {
+          "candidate": 4,
+          "file": "d-eye.png"
+        },
+        {
+          "candidate": 5,
+          "file": "e-phoenix.png"
+        },
+        {
+          "candidate": 6,
+          "file": "f-crescent.png"
         }
       ],
-      "selected": 3,
-      "reason": "A/B 主体占幅过大；C 天球、底座与顶饰均落在中央安全区，系统裁切后仍完整，铜版雕刻清晰且无文字。",
+      "selected": 2,
+      "reason": "Owner 2026-11-22 在六版候选中选定 B 星云太极：桌面 40px 下轮廓仍清楚，东方意象与金/靛双色贴合品牌。",
       "width": 1024,
       "height": 1024,
       "alpha": false,
-      "originalPngBytes": 1278902,
-      "pngBytes": 312362,
+      "originalPngBytes": 1873998,
+      "pngBytes": 653962,
       "source": {
-        "file": "exec-60e807d2-cd29-41d0-8a36-b6d2a01c4bc9.png",
-        "width": 1254,
-        "height": 1254,
-        "sha256": "dace54968e227e4cca021a65e3d666a8c46d9523a91f57ceb094b10e466e3b1a"
+        "file": "b-taiji.png",
+        "width": 1024,
+        "height": 1024,
+        "sha256": "93480786045e2011989d00950e0b18a2a04781f0b3b30c1e523851a09c6863a7"
       },
       "derivatives": [
         {
           "file": "brand/app-icon.webp",
           "width": 1024,
           "height": 1024,
-          "bytes": 60394,
+          "bytes": 190870,
           "quality": 86
         },
         {
           "file": "brand/app-icon-medium.webp",
           "width": 512,
           "height": 512,
-          "bytes": 17386,
+          "bytes": 59190,
           "quality": 86
         },
         {
           "file": "brand/app-icon-small.webp",
           "width": 256,
           "height": 256,
-          "bytes": 5002,
+          "bytes": 18276,
           "quality": 86
         }
       ]
@@ -2834,42 +2843,42 @@
       "file": "brand/icon-192.png",
       "width": 192,
       "height": 192,
-      "bytes": 29482,
+      "bytes": 95618,
       "source": "brand/app-icon"
     },
     {
       "file": "brand/icon-512.png",
       "width": 512,
       "height": 512,
-      "bytes": 140781,
+      "bytes": 653962,
       "source": "brand/app-icon"
     },
     {
       "file": "brand/maskable-512.png",
       "width": 512,
       "height": 512,
-      "bytes": 140781,
+      "bytes": 334988,
       "source": "brand/app-icon"
     },
     {
       "file": "brand/apple-touch-icon.png",
       "width": 180,
       "height": 180,
-      "bytes": 26650,
+      "bytes": 84530,
       "source": "brand/app-icon"
     },
     {
       "file": "brand/favicon.png",
       "width": 32,
       "height": 32,
-      "bytes": 1191,
+      "bytes": 3076,
       "source": "brand/app-icon"
     },
     {
       "file": "brand/favicon.ico",
       "width": 32,
       "height": 32,
-      "bytes": 1213,
+      "bytes": 3098,
       "source": "brand/app-icon"
     }
   ]
