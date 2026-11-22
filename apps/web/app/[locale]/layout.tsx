@@ -50,6 +50,8 @@ export async function generateMetadata({
       title: t('brand.nameEn', { name: brand.nameEn }),
       startupImage: '/art/brand/apple-launch.png',
     },
+    // Safari on iPhone shows its native "Open in the App Store" banner; no script or layout cost.
+    itunes: { appId: brand.iosAppId },
     metadataBase: new URL(`https://${brand.domain}`),
     alternates: { languages: { zh: '/zh', 'zh-TW': '/zh-TW', en: '/en' } },
     openGraph: {

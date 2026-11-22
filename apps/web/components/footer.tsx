@@ -1,7 +1,7 @@
 'use client';
 import { useCopy } from '@/i18n/use-copy';
 import { Link } from '@/i18n/navigation';
-import { brand } from '@tianji/shared/brand';
+import { appStoreUrl, brand } from '@tianji/shared/brand';
 import { LocaleSwitch } from './locale-switch';
 import { ThemeSwitch } from './theme-provider';
 import { systems } from './navigation';
@@ -31,6 +31,9 @@ export function Footer() {
         <Link prefetch={true} href="/learn">
           {t('nav.learn')}
         </Link>
+        <a href={appStoreUrl} rel="noopener">
+          {t('nav.iosApp')}
+        </a>
       </div>
       <div className="footer-links legal-links">
         <Link prefetch={true} href="/faq">

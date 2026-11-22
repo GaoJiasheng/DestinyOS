@@ -34,6 +34,11 @@ async function verifySeo(page: Page, locale: string, path: string) {
       `https://tianji.gavin.pub/${language}${path}`,
     );
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow');
+  // Safari's App Store banner points at the live iPhone listing.
+  await expect(page.locator('meta[name="apple-itunes-app"]')).toHaveAttribute(
+    'content',
+    'app-id=6819614010',
+  );
   await expect(page.locator('main h1')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,
