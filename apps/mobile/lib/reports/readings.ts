@@ -15,6 +15,7 @@ import {
   VedicChartSchema,
   NumerologyChartSchema,
   SynastryChartSchema,
+  parseKnownFields,
   type EngineWarning,
 } from '@tianji/shared';
 import { getLocalStore } from '../data/store';
@@ -54,7 +55,8 @@ export type NativeChart = {
 export function parseNativeChart(system: ReportSystem, chart: unknown): NativeChart {
   // DESIGN-GAP: Zod's schema map loses the key/result correlation at dynamic dispatch;
   // each entry is validated before restoring the discriminated union.
-  return { system, data: chartSchemas[system].parse(chart) } as NativeChart;
+  // A chart synced from a newer web engine may carry extra fields; they must not hide the report.
+  return { system, data: parseKnownFields(chartSchemas[system], chart) } as NativeChart;
 }
 export interface NativeReading {
   record: LocalRecord<LocalReading>;

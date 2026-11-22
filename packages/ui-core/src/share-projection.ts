@@ -9,6 +9,7 @@ import {
   QimenChartSchema,
   ZiweiChartSchema,
   VedicChartSchema,
+  parseKnownFields,
   type System,
   type Locale,
 } from '@tianji/shared';
@@ -48,7 +49,7 @@ export function publicText(text: string): string {
 function diagram(system: System, chart: unknown): PublicDiagram | undefined {
   switch (system) {
     case 'synastry': {
-      const c = SynastryChartSchema.parse(chart);
+      const c = parseKnownFields(SynastryChartSchema, chart);
       return {
         kind: 'wheel',
         items: [
@@ -66,14 +67,14 @@ function diagram(system: System, chart: unknown): PublicDiagram | undefined {
       };
     }
     case 'numerology': {
-      const c = NumerologyChartSchema.parse(chart);
+      const c = parseKnownFields(NumerologyChartSchema, chart);
       return {
         kind: 'grid',
         items: [{ label: 'numerology.lifePath', value: String(c.lifePath.number) }],
       };
     }
     case 'bazi': {
-      const c = BaziChartSchema.parse(chart);
+      const c = parseKnownFields(BaziChartSchema, chart);
       return {
         kind: 'pillars',
         items: Object.entries(c.pillars).flatMap(([key, p]) =>
@@ -89,7 +90,7 @@ function diagram(system: System, chart: unknown): PublicDiagram | undefined {
       };
     }
     case 'astrology': {
-      const c = AstroChartSchema.parse(chart);
+      const c = parseKnownFields(AstroChartSchema, chart);
       return {
         kind: 'wheel',
         items: c.bodies.map((p) => ({
@@ -100,7 +101,7 @@ function diagram(system: System, chart: unknown): PublicDiagram | undefined {
       };
     }
     case 'vedic': {
-      const c = VedicChartSchema.parse(chart);
+      const c = parseKnownFields(VedicChartSchema, chart);
       return {
         kind: 'wheel',
         items: c.bodies.map((p) => ({
@@ -111,7 +112,7 @@ function diagram(system: System, chart: unknown): PublicDiagram | undefined {
       };
     }
     case 'tarot': {
-      const c = TarotChartSchema.parse(chart);
+      const c = parseKnownFields(TarotChartSchema, chart);
       return {
         kind: 'cards',
         items: c.cards.map((p) => ({
@@ -121,7 +122,7 @@ function diagram(system: System, chart: unknown): PublicDiagram | undefined {
       };
     }
     case 'iching': {
-      const c = IchingChartSchema.parse(chart);
+      const c = parseKnownFields(IchingChartSchema, chart);
       return {
         kind: 'hexagram',
         items: c.primary.lines.map((y) => ({
@@ -132,14 +133,14 @@ function diagram(system: System, chart: unknown): PublicDiagram | undefined {
       };
     }
     case 'qimen': {
-      const c = QimenChartSchema.parse(chart);
+      const c = parseKnownFields(QimenChartSchema, chart);
       return {
         kind: 'grid',
         items: c.palaces.map((p) => ({ label: 'share.diagram', value: String(p.index) })),
       };
     }
     case 'ziwei': {
-      const c = ZiweiChartSchema.parse(chart);
+      const c = parseKnownFields(ZiweiChartSchema, chart);
       return {
         kind: 'grid',
         items: c.palaces.map((p) => ({

@@ -29,6 +29,8 @@ export * from './schemas/charts/numerology';
 
 export * from './schemas/rectification';
 
+export * from './schemas/known-fields';
+
 export * from './schemas/charts/synastry';
 
 export * from './schemas/journal';
