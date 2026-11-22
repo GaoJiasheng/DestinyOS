@@ -155,7 +155,9 @@ for (const [name, size] of [
   ['apple-touch-icon', 180],
   ['favicon', 32],
 ] as const) {
-  await sharp(brand).resize(size, size).png().toFile(`${directory}/brand/${name}.png`);
+  // The maskable icon is composed by hand (emblem inside the 80% safe circle); keep it as is.
+  if (name !== 'maskable-512')
+    await sharp(brand).resize(size, size).png().toFile(`${directory}/brand/${name}.png`);
   derivedBrand.push({
     file: `brand/${name}.png`,
     width: size,
