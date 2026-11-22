@@ -49,3 +49,14 @@ it('finds cities in either Chinese script, ranks exact names first and shows loc
   for (const term of ['b', 'be', 'bei', 'beij']) searchCities(cities, term);
   expect(Date.now() - started).toBeLessThan(1000);
 });
+it('puts the city behind a common abbreviation first and keeps the ordinary matches after it', async () => {
+  const cities = await loadCities();
+  expect(searchCities(cities, 'NYC')[0]?.tz).toBe('America/New_York');
+  expect(searchCities(cities, 'sf')[0]?.name).toBe('San Francisco');
+  expect(searchCities(cities, 'DC')[0]?.admin).toBe('District of Columbia');
+  const la = searchCities(cities, 'la');
+  expect(la[0]?.name).toBe('Los Angeles');
+  expect(la.length).toBeGreaterThan(1);
+  expect(la.length).toBeLessThanOrEqual(12);
+  expect(new Set(la).size).toBe(la.length);
+});

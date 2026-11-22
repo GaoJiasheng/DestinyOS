@@ -54,9 +54,40 @@ const isAlias = (value: unknown): value is ShardAlias =>
 const EXACT_BOOST = 20;
 const OWN_NAME_BOOST = 30;
 
+// DESIGN-GAP: GeoNames carries no everyday abbreviations. A few common ones typed as the whole query
+// put that city first; ordinary prefix matches follow, so "la" still lists Lagos and La Paz.
+const shorthands: Readonly<Record<string, string>> = {
+  nyc: 'new york city',
+  la: 'los angeles',
+  sf: 'san francisco',
+  dc: 'washington',
+  hk: 'hong kong',
+  kl: 'kuala lumpur',
+};
+
 /** Search only the bundled GeoNames corpus; no birth-location queries leave our server. */
 export async function searchCities(query: string, locale: 'zh' | 'en' | 'zh-TW'): Promise<City[]> {
   const q = fold(query);
+  const expanded = shorthands[q];
+  const matches = await rankCities(q);
+  const first = expanded ? (await rankCities(expanded))[0] : undefined;
+  // The two lists may come from different shards, so the same city is compared by value.
+  const same = (city: ShardCity) =>
+    first !== undefined && city[0] === first[0] && city[4] === first[4] && city[5] === first[5];
+  return (first ? [first, ...matches.filter((city) => !same(city))] : matches)
+    .slice(0, 12)
+    .map((city) => ({
+      name: localeText(locale !== 'en' && city[1] ? city[1] : city[0], locale),
+      country: city[2],
+      admin: city[3],
+      lat: city[4],
+      lng: city[5],
+      tz: city[6],
+    }));
+}
+
+/** Best matches for a folded query, most relevant first. */
+async function rankCities(q: string): Promise<ShardCity[]> {
   if (!q) return [];
   const key = geoKey(q);
   const group: ShardGroup | undefined = Object.hasOwn(await loadShard(geoShard(key)), key)
@@ -86,12 +117,5 @@ export async function searchCities(query: string, locale: 'zh' | 'en' | 'zh-TW')
         a.city[0].localeCompare(b.city[0], 'en'),
     )
     .slice(0, 12)
-    .map(({ city }) => ({
-      name: localeText(locale !== 'en' && city[1] ? city[1] : city[0], locale),
-      country: city[2],
-      admin: city[3],
-      lat: city[4],
-      lng: city[5],
-      tz: city[6],
-    }));
+    .map(({ city }) => city);
 }

@@ -72,9 +72,27 @@ function indexOf(cities: readonly City[]) {
   }
   return index;
 }
+// DESIGN-GAP: GeoNames carries no everyday abbreviations, so a few common ones typed as the whole
+// query put that city first; the ordinary matches follow, so "la" still lists Lagos and La Paz
+// (audit 2.4: "nyc" found nothing).
+const shorthands: Readonly<Record<string, string>> = {
+  nyc: 'new york city',
+  la: 'los angeles',
+  sf: 'san francisco',
+  dc: 'washington',
+  hk: 'hong kong',
+  kl: 'kuala lumpur',
+};
 /** Exact > prefix > substring; population breaks ties, with bounded native autocomplete results. */
 export function searchCities(cities: readonly City[], query: string): City[] {
   const term = normalizeCityName(query);
+  const expanded = shorthands[term];
+  const matches = rankCities(cities, term);
+  if (!expanded) return matches;
+  const first = rankCities(cities, expanded)[0];
+  return first ? [first, ...matches.filter((city) => city !== first)].slice(0, 12) : matches;
+}
+function rankCities(cities: readonly City[], term: string): City[] {
   if (!term) return [];
   const index = indexOf(cities);
   const hits: { city: City; rank: number }[] = [];

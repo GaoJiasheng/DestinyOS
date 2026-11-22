@@ -36,6 +36,18 @@ it('ranks exact names first, matches later words and keeps one-letter queries sm
   expect(await names('__proto__')).toEqual([]);
 });
 
+it('puts the city behind a common abbreviation first and keeps the ordinary matches after it', async () => {
+  const search = (q: string) => searchCities(q, 'en');
+  expect((await search('NYC'))[0]?.tz).toBe('America/New_York');
+  expect((await search('sf'))[0]?.name).toBe('San Francisco');
+  expect((await search('DC'))[0]?.admin).toBe('District of Columbia');
+  const la = await search('la');
+  expect(la[0]?.name).toBe('Los Angeles');
+  expect(la.length).toBeGreaterThan(1);
+  expect(la.length).toBeLessThanOrEqual(12);
+  expect(new Set(la.map((city) => `${city.name}${city.lat}${city.lng}`)).size).toBe(la.length);
+});
+
 it('keeps every shard small enough for a 128MB Workers isolate', async () => {
   const { readdir, stat } = await import('node:fs/promises');
   const { resolve } = await import('node:path');
